@@ -11,5 +11,21 @@ sl:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    menu:
+      help: Pomoč
+      home: Domov
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_users_placeholder: Išči...
+    search:
+      term_input_placeholder: Išči
+    searches:
+      filters:
+        state:
+          all: Vsi
+    user_conversations:
+      index:
+        add_users_placeholder: Išči...
   locale:
     name: Slovenščina
