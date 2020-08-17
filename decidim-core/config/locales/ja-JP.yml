@@ -154,7 +154,7 @@ ja:
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
-        title: 似たような<unk>
+        title: 似たような訂正
       created:
         error: 修正案の作成中にエラーが発生しました。
         success: 修正案が正常に作成されました。
@@ -711,7 +711,7 @@ ja:
     help:
       main_topic:
         default_page:
-          content: "<p>%{organization} では、トップメニューにあるスペース（プロセスや集会、イニシアチブ、コンサルテーション）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、討論会に参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
+          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや会議体、イニシアチブ、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
@@ -846,9 +846,9 @@ ja:
     pages:
       home:
         extended:
-          debates: ディベート数
-          debates_explanation: 議論し、意見を共有し、関連するトピックを豊かにしましょう。
-          how_to_participate: プロセスに参加するにはどうすればいいですか?
+          debates: ディベート
+          debates_explanation: 討論し、話し合い、意見を共有し、関連するトピックを豊かにしましょう。
+          how_to_participate: 参加型プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
           more_info: 詳細情報
@@ -865,16 +865,16 @@ ja:
           headline: メトリック
         statistics:
           answers_count: 完了した調査
-          assemblies_count: アセンブリ
+          assemblies_count: 会議体
           comments_count: コメント
-          conferences_count: 会議
-          debates_count: ディベート数
-          endorsements_count: <unk>
+          conferences_count: カンファレンス
+          debates_count: ディベート
+          endorsements_count: 支持
           headline: '%{organization} の現在の状態'
           meetings_count: ミーティング
           orders_count: 投票
           pages_count: ページ
-          processes_count: プロセス
+          processes_count: 参加型プロセス
           projects_count: プロジェクト
           proposals_accepted: 承認された提案
           proposals_count: 提案
@@ -1037,7 +1037,7 @@ ja:
       show:
         my_interests: 興味のあるもの
         no_scopes: この組織にはまだ範囲がありません！
-        select_your_interests: format@@0タブで、関連するイベントを受信するトピックを選択します。
+        select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
