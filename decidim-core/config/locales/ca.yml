@@ -1262,6 +1262,7 @@ ca:
     versions:
       resource_version:
         of_versions: "(de %{number})"
+        see_other_versions: veure altres versions
         version: Versió %{number}
     versions_list:
       show:
