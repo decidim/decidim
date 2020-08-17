@@ -53,7 +53,7 @@
 
     <% if @form.geocoding_enabled? %>
       <div class="row column">
-        <%= form.text_field :address %>
+        <%= form.geocoding_field :address %>
       </div>
     <% end %>
 
