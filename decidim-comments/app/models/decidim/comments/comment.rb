@@ -13,6 +13,7 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
 
       include Decidim::TranslatableAttributes
 
@@ -24,6 +25,7 @@ module Decidim
       #       |--R (depth 3)
       MAX_DEPTH = 3
 
+      translatable_fields :body
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
@@ -127,7 +129,7 @@ module Decidim
       end
 
       def translated_body
-        translated_attribute(body)
+        translated_attribute(body, organization)
       end
 
       private

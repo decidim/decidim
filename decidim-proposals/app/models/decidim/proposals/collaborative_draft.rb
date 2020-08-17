@@ -16,6 +16,9 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :body, :state, :address
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",

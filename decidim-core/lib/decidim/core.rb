@@ -8,6 +8,7 @@ module Decidim
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
@@ -259,6 +260,11 @@ module Decidim
     2.days
   end
 
+  # Allow machine translations
+  config_accessor :enable_machine_translations do
+    false
+  end
+
   # How long can a user remained logged in before the session expires
   config_accessor :expire_session_after do
     1.day
@@ -301,6 +307,12 @@ module Decidim
   # Check the example in `decidim-initiatives`
   config_accessor :pdf_signature_service do
     # "MyPDFSignatureService"
+  end
+
+  # The name of the class to translate user content.
+  #
+  config_accessor :machine_translation_service do
+    # "MyTranslationService"
   end
 
   # The Decidim::Exporters::CSV's default column separator
@@ -514,5 +526,11 @@ module Decidim
   # Public: Stores an instance of MetricOperation
   def self.metrics_operation
     @metrics_operation ||= MetricOperation.new
+  end
+
+  def self.machine_translation_service_klass
+    return unless Decidim.enable_machine_translations
+
+    Decidim.machine_translation_service.to_s.safe_constantize
   end
 end

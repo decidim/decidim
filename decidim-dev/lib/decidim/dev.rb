@@ -7,6 +7,8 @@ module Decidim
   # create external libraries that create test apps and test themselves against
   # them.
   module Dev
+    autoload :DummyTranslator, "decidim/dev/dummy_translator"
+
     # Public: Finds an asset.
     #
     # Returns a String with the path for a particular asset.
