@@ -11,9 +11,18 @@ sl:
           '2': Compare your amendment
           '3': Complete your amendment
           '4': Publish your amendment
+    menu:
+      help: Pomoč
+      home: Domov
     pages:
       home:
         extended:
           more_info: Več informacij
+    search:
+      term_input_placeholder: Išči
+    searches:
+      filters:
+        state:
+          all: Vsi
   locale:
     name: Slovenščina
