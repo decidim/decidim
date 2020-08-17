@@ -1,0 +1,220 @@
+bg:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Статус
+        decidim_category_id: Категория
+        decidim_scope_id: Сфера
+        description: Описание
+        end_date: Крайна дата
+        progress: Напредък
+        project_ids: Включени проекти
+        proposals: Включени предложения
+        start_date: Начална дата
+        title: Заглавие
+        updated_at: Обновен на
+      status:
+        description: Описание
+        key: Ключ
+        name: Име
+        progress: Напредък
+      timeline_entry:
+        description: Описание
+        entry_date: Дата
+    models:
+      decidim/accountability/proposal_linked_event: Предложение, включено в резултата
+      decidim/accountability/result_progress_updated_event: Напредъкът на резултатите е актуализиран
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Резултат
+        other: Резултати
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Сигурни ли сте, че искате да изтриете това %{name}?
+        destroy: Изтрий
+        edit: Редактирай
+        import_csv: Импорт CVS
+        new: Ново %{name}
+        preview: Преглед
+        timeline_entries: Развитие на проекта
+        title: Действия
+      admin:
+        exports:
+          results: Резултати
+        import_results:
+          new:
+            import: Внасяне
+            info: "<p>Препоръчваме ви да изпълните следните стъпки:</p><ol><li>Създайте статусите на резултатите, които искате да добавите (<a href='%{link_new_status}' target='_blank'>връзка</a>)</li><li>Създайте поне един Резултат ръчно чрез администраторския панел (<a href='%{link_new_result}' target='_blank'>връзка</a>), преди да използвате Импортиране, за с по-добро разбиране на формата и това, което ще трябва да попълните.</li><li>Изтеглете експортиране с CSV формат (%{link_export_csv})</li><li> Направете промените локално. Можете да промените само следните колони от CSV:</li></ol><ul><li><b>категория/id:</b> ID за категорията</li><li><b>обхват/id:</b>ИД за обхвата</li><li><b> родител / id: </b> ID на родителя (за свързани резултати). Незадължително </li><li><b>заглавие/I18N:</b>Заглавие на езика X</li><li><b>описание/I18N </b>Описание на X език</li>< li><b>начало_дата:</b>дата, когато резултатът стартира изпълнението (формат ГГГГ-ММ-DD)</li><li><b>край_ дата:</b>дата, когато резултатът приключи изпълнението (формат ГГГГ-MM-DD)</li><li><b>status/id:</b>ID на състоянието за този резултат</li><li><b>прогрес:</b>Процент (от 0 до 100) на изпълнението</li><li><b>offers_ids:</b>вътрешен ID на свързаните предложения (разделени със запетая). Той автоматично се преобразува в <span class='attribute-name'>предложение_url</span></li></ul>"
+            link: връзка
+            title: Импортирай резултати от CSV
+        imports:
+          create:
+            success: Файлът започна да се импортира. В следващите минути ще получите ел. поща с резултата от импортирането
+        models:
+          result:
+            name: Резултат
+          status:
+            name: Статус
+          timeline_entry:
+            name: Запис във времевата линия
+        results:
+          create:
+            invalid: Възникна проблем при създаване на резултата
+            success: Резултата е създаден успешно
+          destroy:
+            success: Резултата е изтрит успешно
+          edit:
+            title: Редактирай резултат
+            update: Обнови резултат
+          index:
+            title: Резултати
+          new:
+            create: Създай резултат
+            title: Нови резултати
+          update:
+            invalid: Възникна проблем при обновяването на резултата
+            success: Резултата е обновен успешно
+        shared:
+          subnav:
+            statuses: Статуси
+        statuses:
+          create:
+            invalid: Възникна проблем при създаване на статуса
+            success: Статуса е създаден успешно
+          destroy:
+            success: Статуса е изтрит успешно
+          edit:
+            title: Редактирай на статуса
+            update: Обнови на статус
+          index:
+            title: Статуси
+          new:
+            create: Създай статус
+            title: Нов статус
+          update:
+            invalid: Възникна проблем при обновяване на статуса
+            success: Статуса е обновен успешно
+        timeline_entries:
+          create:
+            invalid: Възникна проблем при създаване на записа
+            success: Записа е създаден успешно
+          destroy:
+            success: Записа е изтрит успешно
+          edit:
+            title: Редактирай на запис
+            update: Обнови на запис
+          index:
+            title: Запис във времевата линия
+          new:
+            create: Създай запис
+            title: Нов запис
+          update:
+            invalid: Възникна проблем при обновяване на записа
+            success: Записа е обновен успешно
+      admin_log:
+        result:
+          create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
+          delete: "%{user_name} изтри резултата %{resource_name} в %{space_name}"
+          update: "%{user_name} обнови резултата %{resource_name} в %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Родителя липсва в базата данни (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Грешки
+          errors_present: Възникна проблем при внасяне на резултата
+          row_number: Редове
+          subject: Успешно внасяне на резултати
+          success: Успешно внасяне на резултати. Може да ги прегледате в администраторския интерфейс.
+      last_activity:
+        new_result_at_html: "<span>Нов резултат в %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Крайна дата
+            progress: Напредък
+            start_date: Начална дата
+            status: Статус
+            title: Заглавие
+        status:
+          fields:
+            description: Описание
+            key: Ключ
+            name: Име
+            progress: Напредък
+        timeline_entry:
+          fields:
+            description: Описание
+            entry_date: Дата
+      results:
+        count:
+          results_count:
+            one: 1 резултат
+            other: "%{count} резултата"
+        filters:
+          all: Всички
+          scopes: Сфери
+        home:
+          categories_label: Категории
+          subcategories_label: Подкатегории
+        home_header:
+          global_status: Общо състояние на изпълнение
+        nav_breadcrumb:
+          global: Общо изпълнение
+        search:
+          search: Търсене на действия
+        show:
+          stats:
+            attendees: Присъстващи
+            back_to_resource: Върни се към резултата
+            comments: Коментари
+            contributions: Предложения
+            last_edited_by: Последна промяна на
+            last_updated_at: Последно обновен на
+            meetings: Срещи
+            proposals: Предложения
+            votes: Поддръжки
+        timeline:
+          title: Развитие на проекта
+    components:
+      accountability:
+        name: Отговорност
+        settings:
+          global:
+            categories_label: Име за "категории"
+            comments_enabled: Коментарите са разрешени
+            display_progress_enabled: Показвай развитието
+            heading_leaf_level_results: Име за "Проекти"
+            heading_parent_level_results: Име за "Резултати"
+            intro: Въведение
+            subcategories_label: Име за "подкатегории"
+          step:
+            comments_blocked: Коментарите са блокирани
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Предложението "%{proposal_title}" е включено в резултата. Можете да го видите на страницата:'
+          email_outro: Получавате това известие, защото следвате "%{proposal_title}". Може да прекратите известията чрез предната връзка.
+          email_subject: Обновление в %{proposal_title}
+          notification_title: Предложението <a href="%{proposal_path}">%{proposal_title}</a> е включено в резултата <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Резултата "%{resource_title}", който включва предложението "%{proposal_title}", е завършен на %{progress}%. Можете да го видите на тази страница:'
+          email_outro: Получавате това известие, защото следвате "%{proposal_title}" и това предложение е включено в резултата %{resource_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Напредък в обновлението на %{resource_title}
+          notification_title: Резултатът <a href="%{resource_path}">%{resource_title}</a>, който включва предложението <a href="%{proposal_path}">%{proposal_title}</a>, е завършен %{progress}%.
+    metrics:
+      results:
+        description: Брой генерирани резултати
+        object: резултати
+        title: Резултати
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Резултати
+    resource_links:
+      included_projects:
+        result_project: Проекти, включени в резултата
+      included_proposals:
+        result_proposal: Предложения, включени в резултата
