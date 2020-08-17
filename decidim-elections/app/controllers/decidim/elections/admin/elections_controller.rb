@@ -7,6 +7,10 @@ module Decidim
       class ElectionsController < Admin::ApplicationController
         helper_method :elections, :election
 
+        def index
+          flash.now[:alert] ||= I18n.t("elections.index.no_bulletin_board", scope: "decidim.elections.admin") unless Decidim::Elections.bulletin_board.configured?
+        end
+
         def new
           enforce_permission_to :create, :election
           @form = form(ElectionForm).instance
