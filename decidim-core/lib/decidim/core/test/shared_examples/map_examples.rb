@@ -135,14 +135,6 @@ end
 shared_examples "a page with geocoding input" do
   include_context "with map autocomplete builder"
 
-  # include_context "with frontend map elements" do
-  #   let(:html_body) do
-  #     template.form_for :test, url: "/test" do |form|
-  #       form.geocoding_field(:address)
-  #     end
-  #   end
-  # end
-
   include_context "with frontend map elements" do
     let(:html_body) do
       builder = subject
