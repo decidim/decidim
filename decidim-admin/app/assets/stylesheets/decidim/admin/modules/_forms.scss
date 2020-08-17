@@ -69,6 +69,20 @@ textarea{
   margin-bottom: 1.5rem;
 }
 
+label,
+.field{
+  &.has-tribute{
+    position: relative;
+
+    .tribute-container{
+      top: auto;
+      margin-top: -$input-margin;
+      max-width: none;
+      width: 100%;
+    }
+  }
+}
+
 .form-submit .button{
   margin-bottom: 0;
 }
