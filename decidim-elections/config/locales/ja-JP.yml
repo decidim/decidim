@@ -27,13 +27,13 @@ ja:
       decidim/elections/answer:
         other: 回答
       decidim/elections/election:
-        other: <unk>
+        other: 選挙
       decidim/elections/question:
         other: 質問
   decidim:
     components:
       elections:
-        name: <unk>
+        name: 選挙
         settings:
           global:
             announcement: お知らせ
@@ -77,10 +77,10 @@ ja:
             title: 選挙を編集
             update: 選挙を更新
           index:
-            title: <unk>
+            title: 選挙
           new:
-            create: 選択を作成
-            title: 新しい選択
+            create: 選挙を作成
+            title: 新しい選挙
           update:
             invalid: 選挙の更新中に問題が発生しました
             success: 選挙が正常に更新されました
@@ -88,7 +88,7 @@ ja:
           answer:
             name: 回答
           election:
-            name: <unk>
+            name: 選挙
           question:
             name: 質問
         questions:
@@ -122,8 +122,8 @@ ja:
         question:
           fields:
             answers: 回答
-            max_selections: 最大選択
+            max_selections: 最大選挙数
             title: タイトル
     participatory_processes:
       statistics:
-        elections_count: <unk>
+        elections_count: 選挙
