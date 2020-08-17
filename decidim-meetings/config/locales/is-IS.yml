@@ -1,0 +1,228 @@
+is-IS:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Fjöldi þátttakenda
+        attending_organizations: Listi yfir samtök sem sóttu
+        closing_report: Skýrsla
+        contributions_count: Fjöldi framlaga
+        proposal_ids: Tillögur búin til á fundinum
+      meeting:
+        address: Heimilisfang
+        available_slots: Lausar rifa fyrir þennan fund
+        decidim_category_id: Flokkur
+        decidim_scope_id: Umfang
+        description: Lýsing
+        end_time: Lokatími
+        location: Staðsetning
+        location_hints: Staðsetningarmöguleikar
+        private_meeting: Einkafundur
+        registration_terms: Skráningarskilmálar
+        registrations_enabled: Skráningar virkt
+        start_time: Byrjunartími
+        title: Titill
+        transparent: Gegnsætt
+      minutes:
+        audio_url: Audio url
+        description: Lýsing
+        video_url: Video url
+        visible: Er sýnilegt
+  decidim:
+    admin:
+      meeting_copies:
+        new:
+          copy: Afrita
+          select: Veldu hvaða gögn þú vilt afrita
+          title: Afrita fundi
+    components:
+      meetings:
+        actions:
+          join: Skráðu þig
+        name: Fundir
+        settings:
+          global:
+            announcement: Tilkynning
+            comments_enabled: Athugasemdir virkt
+            default_registration_terms: Sjálfgefin skráningarskilmálar
+          step:
+            announcement: Tilkynning
+            comments_blocked: Athugasemdir læst
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_subject: Fundurinn "%{resource_title}" var lokaður
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn var lokaður.
+          follower:
+            email_intro: 'Fundurinn "%{resource_title}" var lokaður. Þú getur lesið niðurstöðurnar af síðunni:'
+            email_subject: Fundurinn "%{resource_title}" var lokaður
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn var lokaður.
+        meeting_created:
+          email_intro: Fundurinn "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{participatory_space_title}". Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: Ný fundur bætt við %{participatory_space_title}
+          notification_title: Fundurinn <a href="%{resource_path}">%{resource_title}</a> hefur verið bætt við %{participatory_space_title}
+        meeting_registrations_over_percentage:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert stjórnandi á þátttökustigi fundarins.
+        meeting_updated:
+          email_intro: '"%{resource_title}" fundurinn var uppfærður. Þú getur lesið nýja útgáfu af síðunni:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir "%{resource_title}" fundinum. Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: '"%{resource_title}" fundurinn var uppfærður'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn var uppfærður.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" fundurinn hefur gert skráningu kleift. Þú getur skráð þig á síðunni:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir "%{resource_title}" fundinum. Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: '"%{resource_title}" fundurinn hefur gert skráningu kleift.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn hefur gert skráningu kleift.
+        upcoming_meeting:
+          email_intro: '"%{resource_title}" fundurinn mun byrja á innan við 48 klst.'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgir "%{resource_title}" fundinum. Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: '"%{resource_title}" fundurinn mun byrja á innan við 48 klst.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> fundurinn hefst á innan við 48 klst.
+    meetings:
+      actions:
+        attachments: Viðhengi
+        close: Loka
+        confirm_destroy: Ertu viss um að þú viljir eyða þessum fundi?
+        destroy: Eyða
+        edit: Breyta
+        minutes: Fundargerðir
+        preview: Preview
+        registrations: Skráningar
+        title: Aðgerðir
+      admin:
+        exports:
+          registrations: Skráningar
+        invite_join_meeting_mailer:
+          invite:
+            join: Taka þátt í fundi '%{meeting_title}'
+        meeting_closes:
+          edit:
+            close: Loka
+            title: Loka fundi
+        meetings:
+          close:
+            success: Fundur með góðum árangri lokað
+          create:
+            success: Fundur búin til með góðum árangri
+          destroy:
+            success: Fundur með góðum árangri eytt
+          edit:
+            update: Uppfæra
+          index:
+            title: Fundir
+          new:
+            create: Búa til
+            title: Búa til fundi
+          service:
+            description: Lýsing
+            down: Niður
+            remove: Fjarlægja
+            service: Þjónusta
+            title: Titill
+            up: Upp
+          services:
+            add_service: Bæta við þjónustu
+            services: Þjónusta
+          update:
+            success: Fundur tókst að uppfæra
+        minutes:
+          create:
+            success: Fundargerðir búin til með góðum árangri
+          edit:
+            update: Uppfæra
+          new:
+            create: Búa til
+            title: Búðu til mínútur
+          update:
+            success: Fundargerðir með góðum árangri uppfærð
+        models:
+          meeting:
+            name: Fundur
+        registrations:
+          edit:
+            save: Vista
+          form:
+            available_slots_help: Leyfi það til 0 ef þú hefur ótakmarkaða rifa í boði.
+            reserved_slots_help: Leggðu það á 0 ef þú hefur ekki áskilinn rifa
+            reserved_slots_less_than: Verður að vera minna en eða jafnt við %{count}
+          update:
+            success: Fundir skráningarstillingar voru vistaðar með góðum árangri.
+      admin_log:
+        meeting:
+          close: "%{user_name} lokaði %{resource_name} fundinum á %{space_name} plássinu"
+          create: "%{user_name} búið til %{resource_name} fundinn á %{space_name} plássinu"
+          delete: "%{user_name} eyddi %{resource_name} fundinum á %{space_name} plássinu"
+          export_registrations: "%{user_name} flutti skráningar %{resource_name} fundarins á %{space_name} plássinu"
+          update: "%{user_name} uppfært %{resource_name} fundi á %{space_name} plássi"
+          value_types:
+            organizer_presenter:
+              not_found: 'Skipuleggjandi fannst ekki í gagnagrunninum (ID: %{id})'
+        minutes:
+          create: "%{user_name} búið til fundargerð fundarins %{resource_name} á %{space_name} plássinu"
+          update: "%{user_name} uppfært fundargerðir fundarins %{resource_name} á %{space_name} plássinu"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Boð um þátttöku í fundi
+        registration_mailer:
+          confirmation:
+            subject: Skráning fundarins hefur verið staðfest
+      meeting:
+        not_allowed: Þú mátt ekki skoða þennan fund
+      meetings:
+        filters:
+          category: Flokkur
+          date: Dagsetning
+          search: Leita
+        filters_small_view:
+          close_modal: Loka mát
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        meetings:
+          no_meetings_warning: Engar fundir samræmast leitarskilyrðum þínum eða það er ekki fundur áætlað.
+          upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
+        registration_confirm:
+          cancel: Hætta við
+          confirm: Staðfesta
+        show:
+          attendees: Þátttakendur telja
+          contributions: Framlög telja
+          going: Fara
+          join: Skráðu þig í fundi
+          meeting_report: Fundarskýrsla
+          no_slots_available: Engar rifa í boði
+          organizations: Mæta stofnanir
+      models:
+        meeting:
+          fields:
+            closed: Lokað
+            end_time: Loka dagsetning
+            map: Kort
+            start_time: Upphafsdagur
+            title: Titill
+      read_more: "(Lestu meira)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Skráningin þín til fundarins <a href="%{url}">%{title}</a> hefur verið staðfest.
+          details: Þú finnur upplýsingar fundarins í viðhenginu.
+      registrations:
+        destroy:
+          success: Þú hefur skilið eftir fundinn með góðum árangri.
+      types:
+        private_meeting: Einkafundur
+        transparent: Gegnsætt
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Fyrri fundi
+          upcoming_meetings: Næstu fundir
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Fyrri fundi
+        upcoming_meetings: Næstu fundir
+  devise:
+    mailer:
+      join_meeting:
+        subject: Boð um þátttöku í fundi

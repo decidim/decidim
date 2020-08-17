@@ -116,7 +116,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwijać się
         form:
-          select_a_category: Proszę wybierz kategorie
+          select_a_category: Proszę wybrać kategorię
         index:
           new_debate: Nowa debata
         new:
