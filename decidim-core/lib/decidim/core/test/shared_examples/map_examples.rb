@@ -151,3 +151,36 @@ shared_examples "a page with geocoding input" do
     )
   end
 end
+
+# Use this shared example to test that the front-end geocoded address field is
+# working correctly. Fill in the other fields in the view in the before block so
+# that the saving will proceed successfully.
+shared_examples "a record with front-end geocoding address field" do |geocoded_model, view_options|
+  let(:geocoded_record) { nil }
+  let(:geocoded_address_value) { "Street2" }
+  let(:geocoded_address_coordinates) { [3.345, 4.456] }
+
+  it "calls the front-end geocoder when an address is written", :slow do
+    within view_options[:within_selector] do
+      fill_in_geocoding view_options[:address_field], with: geocoded_address_value
+      find(".tribute-container ul#results li", match: :first).click
+      find("*[type=submit]").click
+    end
+
+    # Check that the latitude and longitude are according to the front-end
+    # geocoder as one of the autocompleted addresses were selected. The back-end
+    # geocoding should be bypassed in this situation which is why these match
+    # what was returned by the front-end geocoding. These values are returned by
+    # the dummy test geocoding API defined at
+    # `decidim-dev/lib/decidim/dev/test/rspec_support/geocoder.rb`. Search for
+    # `:serves_geocoding_autocomplete`.
+    expect(page).to have_content("successfully")
+    final = if geocoded_record
+              geocoded_model.find(geocoded_record.id)
+            else
+              geocoded_model.last
+            end
+    expect(final.latitude).to eq(geocoded_address_coordinates[0])
+    expect(final.longitude).to eq(geocoded_address_coordinates[1])
+  end
+end
