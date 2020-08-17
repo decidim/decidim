@@ -73,6 +73,20 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Àrea
+          state_eq:
+            label: Estat
+            values:
+              accepted: Ha aconseguit les signatures
+              created: Creada
+              discarded: Descartada
+              published: Publicada
+              rejected: No ha aconseguit les signatures
+              validating: Validació tècnica
+          type_id_eq:
+            label: Tipus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       menu:

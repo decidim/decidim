@@ -388,7 +388,7 @@ cs:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaše registrace pro konferenci <a href="%{url}">%{title}</a> byla potvrzena.
-          details_1: 'Jste přihlášeni do konference s typem %{registration_type} . Má cenu %{price} a můžete se zúčastnit následujících akcí:'
+          details_1: 'Jste přihlášeni do konference s typem %{registration_type}. Má cenu %{price} a můžete se zúčastnit následujících akcí:'
           details_2: Podrobnosti o konferenci naleznete v příloze.
         pending_validation:
           confirmation_pending: Potvrzení obdržíte brzy
