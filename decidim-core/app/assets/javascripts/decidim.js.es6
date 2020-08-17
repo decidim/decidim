@@ -36,6 +36,7 @@
 // = require decidim/external_link
 // = require decidim/vizzs
 // = require decidim/responsive_horizontal_tabs.js
+// = require decidim/geocoding/attach_input
 
 // = require_self
 // = require decidim/configuration
