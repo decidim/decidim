@@ -1,0 +1,450 @@
+lv:
+  activemodel:
+    attributes:
+      agenda:
+        description: Apraksts
+        duration: Ilgums
+        title: Nosaukums
+      close_meeting:
+        attendees_count: Apmeklētāju skaits
+        attending_organizations: Organizāciju saraksts, kuras apmeklēja
+        closing_report: Ziņot
+        contributions_count: Papildinājumu daudzums
+        proposal_ids: Sanāksmē radītie priekšlikumi
+      meeting:
+        address: Adrese
+        available_slots: Sanāksmē pieejamais laiks runāšanai
+        decidim_category_id: Kategorija
+        decidim_scope_id: Darbības tvērums
+        description: Apraksts
+        end_time: Beigu laiks
+        location: Atrašanās vieta
+        location_hints: Norādījumi par atrašanās vietu
+        organizer_id: Organizators
+        private_meeting: Privāta sanāksme
+        registration_form_enabled: Reģistrācijas veidlapa ir iespējota
+        registration_terms: Reģistrācijas noteikumi
+        registrations_enabled: Reģistrācijas ir iespējotas
+        start_time: Sākuma laiks
+        title: Nosaukums
+        transparent: Caurskatāms
+      minutes:
+        audio_url: Audio URL
+        description: Apraksts
+        video_url: Video URL
+        visible: Ir redzams
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Darba kārtības jautājumu ilgums pārsniedz sanāksmes ilgumu par %{count} minūtēm
+              too_many_minutes_child: No darba kārtības atvasinātie jautājumi pārsniedz sākotnējo jautājumu "%{parent_title}" ilgumu par %{count} minūtēm.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Šis e-pasta konts jau ir uzaicināts
+    models:
+      decidim/meetings/close_meeting_event: Sanāksme slēgta
+      decidim/meetings/create_meeting_event: Sanāksme
+      decidim/meetings/meeting_registrations_enabled_event: Reģistrācijas ir iespējotas
+      decidim/meetings/meeting_registrations_over_percentage_event: Reģistrācijas pārsniedz limitu
+      decidim/meetings/upcoming_meeting_event: Gaidāmā sanāksme
+      decidim/meetings/update_meeting_event: Sanāksme atjaunināta
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        zero: Sanāksmes
+        one: Sanāksme
+        other: Sanāksmes
+      decidim/meetings/minutes:
+        zero: Protokols
+        one: Protokols
+        other: Protokols
+      decidim/meetings/registration:
+        zero: Reģistrācija
+        one: Reģistrācija
+        other: Reģistrācija
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Šīs sanāksmes dublēšanas laikā radās problēma.
+          success: Sanāksme veiksmīgi dublēta.
+        new:
+          copy: Kopēt
+          select: Atlasiet, kurus datus vēlaties dublēt
+          title: Dublēt sanāksmi
+    components:
+      meetings:
+        actions:
+          join: Pievienoties
+        name: Sanāksmes
+        settings:
+          global:
+            announcement: Paziņojums
+            comments_enabled: Komentāri ir iespējoti
+            default_registration_terms: Noklusējuma reģistrācijas noteikumi
+            enable_pads_creation: Iespējot kopdokumentu izveidi
+            resources_permissions_enabled: Katrā sanāksmē var iestatīt darbības atļaujas
+          step:
+            announcement: Paziņojums
+            comments_blocked: Komentāri ir bloķēti
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Jūsu sanāksme "%{resource_title}" tika slēgta. Jūs varat izlasīt tajā gūtās atziņas šajā lapā:'
+            email_outro: Jūs saņēmāt šo paziņojumu, jo jūs organizējāt sanāksmi "%{resource_title}".
+            email_subject: Sanāksme "%{resource_title}" tika slēgta
+            notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> tika slēgta.
+          follower:
+            email_intro: 'Sanāksme "%{resource_title}" tika slēgta. Jūs varat izlasīt atziņas no tās šajā lapā:'
+            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
+            email_subject: Sanāksme "%{resource_title}" tika slēgta
+            notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> tika slēgta.
+        meeting_created:
+          email_intro: Sanāksme "%{resource_title}" ir pievienota "%{participatory_space_title}", kurai sekojat.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atsekot tai no iepriekšējās saites.
+          email_subject: '%{participatory_space_title} pievienota jauna sanāksme'
+          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> ir pievienota %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Jūsu reģistrācija sanāksmei <a href="%{resource_url}">%{resource_title}</a> ir apstiprināta. Jūsu reģistrācijas kods ir %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Piešķirtais laiks runāšanai sanāksmē "%{resource_title}" pārsniedz %{percentage}%.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat sanāksmes līdzdalības telpas administrators.
+          email_subject: Piešķirtais laiks runāšanai sanāksmē "%{resource_title}" pārsniedz %{percentage}%.
+          notification_title: Piešķirtais laiks runāšanai sanāksmē <a href="%{resource_path}">%{resource_title}</a> pārsniedz %{percentage}%.
+        meeting_updated:
+          email_intro: 'Sanāksme "%{resource_title}" tika atjaunināta. Jūs varat lasīt jauno versiju tās lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
+          email_subject: Sanāksme "%{resource_title}" tika atjaunināta
+          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> tika atjaunināta.
+        registration_code_validated:
+          email_intro: Jūsu reģistrācijas kods "%{registration_code}" sanāksmei "%{resource_title}" ir validēts.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo jūsu reģistrācijas kods sanāksmei "%{resource_title}" ir validēts.
+          email_subject: Jūsu reģistrācijas kods "%{registration_code}" sanāksmei "%{resource_title}" ir validēts.
+          notification_title: Jūsu reģistrācijas kods "%{registration_code}" sanāksmei <a href="%{resource_path}">%{resource_title}</a> ir validēts.
+        registrations_enabled:
+          email_intro: 'Sanāksmei "%{resource_title}" ir atvērta reģistrācija. Jūs varat reģistrēties tās lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
+          email_subject: Sanāksme "%{resource_title}" ir atvērta reģistrācijai.
+          notification_title: Sanāksmei <a href="%{resource_path}">%{resource_title}</a> ir atvērta reģistrācija.
+        upcoming_meeting:
+          email_intro: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat sanāksmei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
+          email_subject: Sanāksme "%{resource_title}" sāksies ātrāk nekā pēc 48 stundām.
+          notification_title: Sanāksme <a href="%{resource_path}">%{resource_title}</a> sāksies ātrāk nekā pēc 48 stundām.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - Reģistrējieties sanāksmēm, kuras vēlaties apmeklēt
+          description: Šis žetons tiek piešķirts, apmeklējot vairākas klātienes sanāksmes.
+          description_another: Šis dalībnieks ir apmeklējis %{score} sanāksmes.
+          description_own: Jūs esat apmeklējis %{score} sanāksmes.
+          name: Apmeklētas sanāksmes
+          next_level_in: Apmeklējiet vēl %{score} sanāksmes, lai sasniegtu nākamo līmeni!
+          unearned_another: Šis dalībnieks vēl nav apmeklējis nevienu sanāksmi.
+          unearned_own: Jūs vēl neesat apmeklējis nevienu sanāksmi.
+    meetings:
+      actions:
+        agenda: Darba kārtība
+        attachment_collections: Mapes
+        attachments: Pielikumi
+        close: Aizvērt
+        confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
+        destroy: Dzēst
+        edit: Labot
+        minutes: Protokols
+        new: Jauna sanāksme
+        preview: Priekšskatīt
+        registrations: Reģistrācija
+        title: Darbības
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Pievienot darba kārtības apakšpunktu
+            agenda_item: Darba kārtības punkts
+            agenda_item_children: Darba kārtības apakšpunkti
+            down: Lejup
+            remove: Noņemt
+            up: Augšup
+          agenda_item_child:
+            agenda_item_child: Darba kārtības apakšpunkts
+            down: Lejup
+            remove: Noņemt
+            up: Augšup
+          create:
+            invalid: Šīs darba kārtības izveides laikā radās problēma
+            success: Darba kārtība ir veiksmīgi izveidota
+          edit:
+            title: Rediģēt darba kārtību
+            update: Atjaunināt
+          form:
+            add_agenda_item: Pievienot darba kārtības punktu
+            agenda_items: Darba kārtības punkti
+            end_date: Beigu datums
+            start_date: Sākuma datums
+          new:
+            create: Izveidot
+            title: Jauna darba kārtība
+          update:
+            invalid: Šīs darba kārtības atjaunināšanas laikā radās problēma
+            success: Darba kārtība ir veiksmīgi atjaunināta
+        exports:
+          meetings: Sanāksmes
+          registrations: Reģistrācija
+        invite_join_meeting_mailer:
+          invite:
+            decline: Noraidīt ielūgumu
+            invited_you_to_join_a_meeting: "%{invited_by} jūs aicina piedalīties sanāksmē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no zemāk esošajām saitēm."
+            join: Pievienojieties sanāksmei '%{meeting_title}'
+        invites:
+          create:
+            error: Uzaicinot dalībnieku pievienoties sanāksmei, radās problēma.
+            success: Dalībnieks tika veiksmīgi uzaicināts pievienoties sanāksmei.
+          form:
+            attendee_type: Apmeklētāja veids
+            existing_user: Esošais dalībnieks
+            invite: Uzaicināt
+            invite_explanation: Dalībnieks tiks uzaicināts pievienoties gan sanāksmei, gan organizācijai.
+            non_user: Neeksistējošs dalībnieks
+            select_user: Izvēlieties dalībnieku
+          index:
+            filter:
+              accepted: Pieņemts
+              all: Visi
+              rejected: Noraidīts
+              sent: Nosūtīts
+            filter_by: Filtrēt pēc
+            invite_attendee: Uzaicināt apmeklētāju
+            invites: Ielūgumi
+            registrations_disabled: Jūs nevarat uzaicināt apmeklētāju, jo reģistrācija ir atspējota.
+            search: Meklēt
+        meeting_closes:
+          edit:
+            close: Aizvērt
+            title: Slēgt sanāksmi
+        meetings:
+          close:
+            invalid: Šīs sanāksmes slēgšanas laikā radās problēma
+            success: Sanāksme ir veiksmīgi slēgta
+          create:
+            invalid: Šīs sanāksmes izveides laikā radās problēma
+            success: Sanāksme ir veiksmīgi izveidota
+          destroy:
+            success: Sanāksme ir veiksmīgi izdzēsta
+          edit:
+            update: Atjaunināt
+          form:
+            address_help: 'Adresi Geocoder izmanto atrašanās vietas noteikšanai'
+            location_help: 'Atrašanās vieta: ziņojums, kas paredzēts lietotājiem, norādot tikšanās vietu'
+            location_hints_help: 'Norādījumi par atrašanās vietu: papildu informācija. Piemērs: ēkas pirmais stāvs'
+          index:
+            title: Sanāksmes
+          new:
+            create: Izveidot
+            title: Izveidot sanāksmi
+          service:
+            description: Apraksts
+            down: Lejup
+            remove: Noņemt
+            service: Pakalpojums
+            title: Nosaukums
+            up: Augšup
+          services:
+            add_service: Pievienot pakalpojumu
+            services: Pakalpojumi
+          update:
+            invalid: Šīs sanāksmes atjaunināšanas laikā radās problēma
+            success: Sanāksme ir veiksmīgi atjaunināta
+        minutes:
+          create:
+            invalid: Šīs protokola izveides laikā radās problēma
+            success: Protokols ir veiksmīgi izveidots
+          edit:
+            update: Atjaunināt
+          new:
+            create: Izveidot
+            title: Izveidot protokolu
+          update:
+            invalid: Šī protokola atjaunināšanas laikā radās problēma
+            success: Protokols ir veiksmīgi atjaunināts
+        models:
+          meeting:
+            name: Sanāksme
+        registrations:
+          edit:
+            save: Saglabāt
+            validate: Validēt
+            validate_registration_code: Validācijas reģistrācijas kods
+          form:
+            available_slots_help: Atstājiet 0, ja jums ir pieejams neierobežots laiks runāšanai
+            invites: Ielūgumi
+            recommendation_message: Privātuma apsvērumu dēļ mēs jums iesakām izdzēst šo ierakstu veidlapu, kad jums tā vairs nav vajadzīga. Pēc noklusējuma tas ir trīs mēnešus pēc sanāksmes beigām.
+            registration_form: Reģistrācijas veidlapa
+            registrations_count:
+              zero: Ir notikušas %{count} reģistrācijas.
+              one: Ir notikusi %{count} reģistrācija.
+              other: Ir notikušas %{count} reģistrācijas.
+            reserved_slots_help: Atstājiet 0, ja jums nav rezervēts laiks runāšanai.
+            reserved_slots_less_than: Jābūt mazāk vai vienādam ar %{count}
+            title: Reģistrācija
+          update:
+            invalid: Saglabājot reģistrācijas iestatījumus, radās problēma.
+            success: Sanāksmes reģistrācijas iestatījumi ir veiksmīgi saglabāti.
+          validate_registration_code:
+            invalid: Šis reģistrācijas kods nav derīgs.
+            success: Reģistrācijas kods ir veiksmīgi validēts.
+      admin_log:
+        invite:
+          create: "%{user_name} uzaicināja %{attendee_name} pievienoties %{resource_name} sanāksmei telpā %{space_name}"
+          deleted: "%{user_name} atsauca %{attendee_name} aicinājumu pievienoties %{resource_name} sanāksmei %{space_name} telpā"
+          update: "%{user_name} uzaicināja %{attendee_name} pievienoties %{resource_name} sanāksmei telpā %{space_name}"
+        meeting:
+          close: "%{user_name} slēdza %{resource_name} sanāksmi %{space_name} telpā"
+          create: "%{user_name} izveidoja %{resource_name} sanāksmi %{space_name} telpā"
+          delete: "%{user_name} izdzēsa %{resource_name} sanāksmi %{space_name} telpā"
+          export_registrations: "%{user_name} eksportēja reģistrācijas sanāksmei %{resource_name}, kas notiek %{space_name} telpā"
+          update: "%{user_name} atjaunināja %{resource_name} sanāksmi %{space_name} telpā"
+          value_types:
+            organizer_presenter:
+              not_found: 'Organizators netika atrasts datubāzē (ID: %{id})'
+        minutes:
+          create: "%{user_name} izveidoja sanāksmes %{resource_name} protokolu %{space_name} telpā"
+          update: "%{user_name} atjaunināja sanāksmes %{resource_name} protokolu %{space_name} telpā"
+      calendar_modal:
+        calendar_url: Kalendāra URL
+        close_window: Aizvērt logu
+        export_calendar: Eksportēt kalendāru
+      conference_venues: Konferenču norises vietas
+      content_blocks:
+        upcoming_events:
+          name: Gaidāmie notikumi
+          upcoming_events: Gaidāmās sanāksmes
+          view_all_events: Skatīt visu
+      directory:
+        meetings:
+          index:
+            all: Visi
+            date: Datums
+            meetings: Sanāksmes
+            past: Iepriekšējie
+            search: Meklēt
+            space_type: Līdzdalības telpa
+            upcoming: Gaidāmās
+      last_activity:
+        new_meeting_at_html: "<span>Jauna sanāksme plkst. %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Ielūgums pievienoties sanāksmei
+        registration_mailer:
+          confirmation:
+            subject: Jūsu sanāksmes reģistrācija ir apstiprināta
+      meeting:
+        not_allowed: Jums nav atļauts skatīt šo sanāksmi
+      meetings:
+        filters:
+          category: Kategorija
+          date: Datums
+          search: Meklēt
+        filters_small_view:
+          close_modal: Aizvērt modal
+          filter: Filtrēt
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        meeting_minutes:
+          meeting_minutes: Sanāksmes protokols
+          related_information: Saistītā informācija
+        meetings:
+          no_meetings_warning: Neviena sanāksme neatbilst jūsu meklēšanas kritērijiem, vai arī neviena sanāksme nav plānota.
+          upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
+        registration_confirm:
+          cancel: Atcelt
+          confirm: Apstiprināt
+        show:
+          attendees: Dalībnieku skaits
+          back: Atpakaļ uz sarakstu
+          contributions: Papildinājumu skaits
+          going: Apmeklēs
+          join: Pievienoties sanāksmei
+          meeting_report: Sanāksmes ziņojums
+          no_slots_available: Nav pieejama laika runāšanai
+          organizations: Apmeklējošās organizācijas
+          registration_code_help_text: Jūsu reģistrācijas kods
+          registration_state:
+            validated: VALIDĒTS
+            validation_pending: GAIDA VALIDĀCIJU
+          remaining_slots:
+            zero: "Atlicis %{count} laiks runāšanai"
+            one: "Atlicis %{count} laiks runāšanai"
+            other: "Atlicis %{count} laiks runāšanai"
+          view: Apskatīt
+      meetings_map:
+        view_meeting: Skatīt sanāksmi
+      models:
+        invite:
+          fields:
+            email: E-pasts
+            name: Nosaukums
+            sent_at: Nosūtīts plkst.
+            status: Statuss
+          status:
+            accepted: Pieņemts (%{at})
+            rejected: Noraidīts (%{at})
+            sent: Nosūtīts
+        meeting:
+          fields:
+            closed: Slēgts
+            end_time: Beigu datums
+            map: Karte
+            start_time: Sākuma datums
+            title: Nosaukums
+      read_more: "(lasīt vairāk)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Jūsu reģistrācija <a href="%{url}">%{title}</a> sanāksmei ir apstiprināta.
+          details: Sīkāka informācija par sanāksmi atrodama pielikumā.
+          registration_code: Jūsu reģistrācijas kods ir %{code}.
+      registrations:
+        create:
+          invalid: Pievienojoties šai sanāksmei, radās problēma
+          success: Jūs veiksmīgi pievienojāties sanāksmei. Tā kā esat reģistrējies šai sanāksmei, jūs tiksiet informēts par jaunumiem, kas ar to saistīti.
+        decline_invitation:
+          invalid: Noraidot ielūgumu, radās problēma.
+          success: Jūs veiksmīgi noraidījāt ielūgumu.
+        destroy:
+          invalid: Pametot šo sanāksmi, radās problēma.
+          success: Jūs veiksmīgi pametāt sanāksmi.
+      types:
+        private_meeting: Privāta sanāksme
+        transparent: Caurskatāms
+    metrics:
+      meetings:
+        description: Izveidoto sanāksmju skaits
+        object: sanāksmes
+        title: Sanāksmes
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Iepriekšējās sanāksmes
+          upcoming_meetings: Gaidāmās sanāksmes
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Iepriekšējās sanāksmes
+        upcoming_meetings: Gaidāmās sanāksmes
+      upcoming_meeting_for_card:
+        upcoming_meeting: Gaidāmā sanāksme
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Saistītie rezultāti:'
+        result_meeting: 'Saistītās sanāksmes:'
+      proposals_from_meeting:
+        meeting_proposal: 'Saistītie priekšlikumi:'
+        proposal_meeting: 'Saistītās sanāksmes:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Ielūgums pievienoties sanāksmei
