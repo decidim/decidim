@@ -1206,6 +1206,10 @@ ja:
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
+    translation_bar:
+      help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
+      show_original: 元テキストを表示する
+      show_translated: 機械翻訳されたテキストを表示する
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。
