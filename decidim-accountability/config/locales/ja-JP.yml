@@ -181,7 +181,7 @@ ja:
           version_index: バージョン %{index}
     components:
       accountability:
-        name: Accountability
+        name: アカウンタビリティ
         settings:
           global:
             categories_label: '「カテゴリ」の名前'
