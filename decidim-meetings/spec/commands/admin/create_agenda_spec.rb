@@ -16,7 +16,7 @@ module Decidim::Meetings
       double(
         invalid?: invalid,
         title: { en: "title" },
-        visible: true,
+        visible: :visible,
         agenda_items: [
           double(
             title: { en: "title" },

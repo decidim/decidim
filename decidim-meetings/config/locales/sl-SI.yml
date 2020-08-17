@@ -1,5 +1,0 @@
-sl:
-  activemodel:
-    attributes:
-      agenda:
-        description: Opis

@@ -1,5 +1,0 @@
-sl:
-  activemodel:
-    attributes:
-      dummy_resource:
-        title: Naziv

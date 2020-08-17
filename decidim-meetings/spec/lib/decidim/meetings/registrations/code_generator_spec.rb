@@ -19,14 +19,11 @@ module Decidim
 
           before do
             create :registration, meeting: meeting, code: existing_code
-
-            # rubocop:disable RSpec/SubjectStub
             expect(subject)
               .to receive(:choose)
               .with(length)
               .twice
               .and_return(existing_code, valid_code)
-            # rubocop:enable RSpec/SubjectStub
           end
 
           it "returns an unique code" do
