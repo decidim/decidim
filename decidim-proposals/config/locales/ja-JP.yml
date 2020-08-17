@@ -65,7 +65,7 @@ ja:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        other: 共同作業の下書きformat@@0
+        other: 共同草案
       decidim/proposals/proposal:
         other: 提案
       decidim/proposals/proposal_note:
@@ -152,7 +152,7 @@ ja:
             amendments_visibility_choices:
               all: 修正内容はすべてに表示されます
               participants: 修正内容は著者にのみ表示されます
-            amendments_visibility_help: format@@0オプションが選択されている場合、修正内容を確認するには参加者がログインしている必要があります。
+            amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
             announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
             automatic_hashtags: すべての提案にハッシュタグを追加しました
@@ -320,7 +320,7 @@ ja:
       endorsements:
         description: 提案への承認数
         object: 承認
-        title: <unk>
+        title: 支持
       proposals:
         description: 提案数
         object: 提案
@@ -450,7 +450,7 @@ ja:
             authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: <unk>
+            comments_negative_count: 反対
             comments_neutral_count: ニュートラル
             comments_positive_count: お気に入り
             created_at: 作成日
