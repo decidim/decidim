@@ -13,13 +13,13 @@ pl:
         hashtag: Hashtag
         hero_image: Obraz domowy
         participatory_processes_ids: Powiązane procesy uczestnictwa
-        promoted: Lansowany
-        published_at: Opublikowano na
+        promoted: Wyróżniony
+        published_at: Opublikowano
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
-        slogan: Hasło reklamowe
+        slogan: Slogan
         slug: Strumień URL
         title: Tytuł
       conference_speaker:
@@ -42,10 +42,10 @@ pl:
         many: Konferencje
         other: Konferencje
       decidim/conference_speaker:
-        one: Głośnik konferencyjny
-        few: Głośniki konferencyjne
-        many: Głośniki konferencyjne
-        other: Głośniki konferencyjne
+        one: Prelegent konferencyjny
+        few: Prelegenci konferencyjni
+        many: Prelegenci konferencyjni
+        other: Prelegenci konferencyjni
       decidim/conference_user_role:
         one: Rola użytkownika konferencyjnego
         few: Rola użytkownika konferencyjnego
@@ -54,82 +54,82 @@ pl:
   decidim:
     admin:
       actions:
-        confirm: Potwierdzać
+        confirm: Potwierdź
         new_conference: Nowa konferencja
         send_diplomas: Wyślij certyfikaty uczestnictwa
       conference_copies:
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz powielić
-          title: Zduplikowana konferencja
+          select: Wybierz dane, które chcesz zduplikować
+          title: Zduplikuj konferencja
       conference_publications:
         create:
           error: Wystąpił błąd podczas publikowania tej konferencji.
           success: Konferencja została opublikowana pomyślnie.
         destroy:
-          error: Wystąpił błąd podczas anulowania tej konferencji.
-          success: Konferencja nie została pomyślnie opublikowana.
+          error: Wystąpił błąd podczas ukrywania tej konferencji.
+          success: Konferencja została pomyślnie ukryta.
       conference_registration:
         confirm:
           error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
           success: Rejestracja konferencji została pomyślnie potwierdzona.
       conference_speakers:
         create:
-          error: Wystąpił błąd podczas dodawania głośnika do tej konferencji.
-          success: Głośnik został pomyślnie utworzony na potrzeby tej konferencji.
+          error: Wystąpił błąd podczas dodawania prelegenta do tej konferencji.
+          success: Prelegent został pomyślnie utworzony na potrzeby tej konferencji.
         destroy:
-          success: Głośnik został pomyślnie usunięty z tej konferencji.
+          success: Prelegent został pomyślnie usunięty z tej konferencji.
         edit:
-          title: Zaktualizuj głośnik konferencji.
-          update: Aktualizacja
+          title: Zaktualizuj prelegenta konferencji.
+          update: Aktualizuj
         index:
-          conference_speakers_title: Głośniki konferencyjne
+          conference_speakers_title: Prelegenci konferencyjni
         new:
           create: Stwórz
-          title: Nowy głośnik konferencyjny.
+          title: Nowy prelegent konferencyjny.
         update:
-          error: Wystąpił błąd podczas aktualizacji głośnika dla tej konferencji.
-          success: Głośnik zaktualizowany pomyślnie dla tej konferencji.
+          error: Wystąpił błąd podczas aktualizacji prelegenta konferencji.
+          success: Prelegent zaktualizowany pomyślnie.
       conference_user_roles:
         create:
-          error: Wystąpił błąd podczas dodawania użytkownika do tej konferencji.
-          success: Użytkownik został pomyślnie dodany do tej konferencji.
+          error: Wystąpił błąd podczas dodawania administratora do tej konferencji.
+          success: Administrator został pomyślnie dodany do tej konferencji.
         destroy:
-          success: Użytkownik usunięty pomyślnie z tej konferencji.
+          success: Administrator konferencji usunięty pomyślnie.
         edit:
-          title: Zaktualizuj użytkownika konferencji.
-          update: Aktualizacja
+          title: Zaktualizuj administratora konferencji.
+          update: Aktualizuj
         index:
-          conference_admins_title: użytkownicy konferencji
+          conference_admins_title: administratorzy konferencji
         new:
           create: Stwórz
-          title: Nowy użytkownik konferencji.
+          title: Nowy administrator konferencji.
         update:
-          error: Wystąpił błąd podczas aktualizacji użytkownika tej konferencji.
-          success: Użytkownik zaktualizowany pomyślnie dla tej konferencji.
+          error: Wystąpił błąd podczas aktualizacji administratora konferencji.
+          success: Administrator konferencji zaktualizowany pomyślnie.
       conferences:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konferencji.
           success: Konferencja została utworzona pomyślnie.
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
         exports:
           registrations: Rejestracje
         form:
           title: Informacje ogólne
         index:
-          not_published: Nie publikowany
+          not_published: Nie opublikowany
           published: Opublikowany
         new:
           create: Stwórz
           title: Konferencja
         update:
-          error: Wystąpił błąd podczas aktualizowania tej konferencji.
+          error: Wystąpił błąd podczas aktualizowania konferencji.
           success: Konferencja zaktualizowana pomyślnie.
       conferences_copies:
         create:
-          error: Wystąpił błąd podczas duplikowania tej konferencji.
-          success: Konferencja powiodła się pomyślnie.
+          error: Wystąpił błąd podczas duplikowania konferencji.
+          success: Konferencja zduplikowana pomyślnie.
       media_links:
         create:
           error: Podczas tworzenia nowego linku do multimediów wystąpił błąd.
@@ -189,6 +189,7 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
         media_link:
           fields:
             date: Data
@@ -469,6 +470,9 @@ pl:
             active_conferences: Aktywne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       photo:
+        image:
+          attributes:
+            alt: Obraz dla mediów
         show:
           close_modal: Zamknij modalne
           photo: Zdjęcie
@@ -532,9 +536,15 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Konferencja "%{resource_title}" umożliwiła rejestrację.
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> umożliwiła rejestrację.
+        role_assigned:
+          email_intro: Przypisano Ci rolę %{role} w konferencji „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} konferencji „%{resource_title}”.
+          email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
+          notification_title: Przypisano Ci rolę %{role} w konferencji <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Konferencja „%{resource_title}” już wkrótce!
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
     log:
       value_types:

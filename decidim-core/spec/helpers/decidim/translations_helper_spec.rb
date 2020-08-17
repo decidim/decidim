@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe TranslationsHelper do
     describe "#translated_attribute" do
-      let(:organization) { double(default_locale: "en") }
+      let(:organization) { double(default_locale: "en", enable_machine_translations?: true, machine_translation_prioritizes_translation?: true) }
 
       before do
         allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
@@ -43,7 +43,7 @@ module Decidim
       end
 
       context "when given an organization" do
-        let(:other_organization) { double(default_locale: "ca") }
+        let(:other_organization) { double(default_locale: "ca", enable_machine_translations?: true, machine_translation_prioritizes_translation?: true) }
 
         it "uses the given organization default locale" do
           attribute = { "ca" => "Hola", "en" => "Hello" }

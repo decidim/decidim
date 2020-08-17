@@ -47,6 +47,8 @@ pl:
           fields:
             created_at: Utworzono w
             name: Nazwa
+            omniauth_settings: Ustawienia Omniauth
+            smtp_settings: Ustawienia SMTP
           name: Organizacja
       organizations:
         create:
@@ -60,6 +62,30 @@ pl:
           reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
+        omniauth_settings:
+          decidim:
+            client_id: Identyfikator klienta
+            client_secret: Sekret klienta
+            site_url: URL strony
+          enabled: Włączone
+          enabled_by_default: Ten dostawca jest włączony domyślnie. Można go edytować, ale nie można go wyłączyć.
+          facebook:
+            app_id: ID aplikacji
+            app_secret: Sekret aplikacji
+          google_oauth2:
+            client_id: Identyfikator klienta
+            client_secret: Sekret klienta
+          icon: Ikona
+          icon_path: Ścieżka ikony
+          twitter:
+            api_key: Klucz API
+            api_secret: Sekret API
+        smtp_settings:
+          instructions:
+            from_label: 'Nadawcą wiadomości e-mail będzie: „your-organization-name <your-organization@your-provider.org>”. Pozostaw puste, aby użyć ''from_email'' jako etykiety'
+          placeholder:
+            from_email: twoja-organizacja@twoja-dostawca.org
+            from_label: Twoja nazwa organizacji
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.

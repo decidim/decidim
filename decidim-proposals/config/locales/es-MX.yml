@@ -7,6 +7,7 @@ es-MX:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
@@ -19,6 +20,7 @@ es-MX:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
@@ -77,23 +79,11 @@ es-MX:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propuestas
-            'true': Enmiendas
+        proposals:
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
-        state_eq:
-          values:
-            evaluating: En evaluación
-            withdrawn: Retirada
-        state_null:
-          label: Estado
-          values:
-            'true': No contestada
-        valuator_role_ids_has:
-          label: Asignada a evaluadora
     components:
       proposals:
         actions:
@@ -638,15 +628,23 @@ es-MX:
         update:
           error: Ha habido errores al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado con éxito.
+          title: Editar el borrador colaborativo
         wizard_aside:
           back: Volver
+          back_from_collaborative_draft: Volver al borrador colaborativo
+          back_from_step_1: Volver al borrador colaborativo
+          back_from_step_2: Volver al borrador colaborativo
+          back_from_step_3: Volver a comparar los borradores colaborativos
+          back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
+          current_step: Fase actual
           see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos para la creación de borradores de colaborativos
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -792,9 +790,12 @@ es-MX:
           read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
+          withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
+        update:
+          title: Actualizar propuesta
         vote_button:
           already_voted: Ya has dado tu apoyo
           already_voted_hover: Retirar tu apoyo
@@ -826,14 +827,20 @@ es-MX:
             votes: Apoyos
         wizard_aside:
           back: Volver
+          back_from_step_1: Volver a propuestas
+          back_from_step_2: Volver a propuestas
+          back_from_step_3: Volver a comparar propuestas
+          back_from_step_4: Volver a editar borrador
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
+          current_step: Paso actual
           see_steps: ver los pasos
           step_1: Crear tu propuesta
           step_2: Comparar
           step_3: Completar
           step_4: Publicar tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
         close: Cerrar

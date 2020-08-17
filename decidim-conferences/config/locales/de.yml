@@ -183,6 +183,7 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+            valuator: Schätzer
         media_link:
           fields:
             date: Datum
@@ -461,6 +462,9 @@ de:
             active_conferences: Aktive Konferenzen
             see_all_conferences: Alle Konferenzen anzeigen
       photo:
+        image:
+          attributes:
+            alt: Pressebild
         show:
           close_modal: Modal schließen
           photo: Bild
@@ -524,6 +528,11 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
           email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
+        role_assigned:
+          email_intro: Sie wurden als %{role} für die Konferenz „%{resource_title}“ ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz „%{resource_title}“ sind.
+          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          notification_title: Sie wurden als %{role} für die Konferenz <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
         upcoming_conference:
           email_intro: 'Die "%{resource_title}" -Konferenz findet in 2 Tagen statt. Sie können die Beschreibung von ihrer Seite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.

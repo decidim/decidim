@@ -13,6 +13,7 @@
         attachment_collection_id: Mapper
         description: Beskrivelse
         file: Fil
+        title: Vedlegg eller bildenavn
       attachment_collection:
         description: Beskrivelse
         name: Navn
@@ -38,6 +39,7 @@
         address: SMTP vertsnavn
         alert_color: Varsel
         badges_enabled: Aktiver merker
+        comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
         cta_button_path: Kall til Handlingsknappens vei
         cta_button_text: Kall til Handlingsknappens tekst
         customize_welcome_notification: Tilpass dine velkomst varsler

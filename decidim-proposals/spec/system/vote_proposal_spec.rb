@@ -72,7 +72,7 @@ describe "Support Proposal", type: :system, slow: true do
           click_button "Support"
         end
 
-        expect(page).to have_css("#loginModal", visible: true)
+        expect(page).to have_css("#loginModal", visible: :visible)
       end
     end
 

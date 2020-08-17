@@ -1,1 +1,220 @@
 nl:
+  activemodel:
+    attributes:
+      answer:
+        description: Beschrijving
+        image: Afbeelding
+        proposals: Verwante voorstellen
+        title: Aanspreektitel
+      election:
+        description: Beschrijving
+        end_time: Stemming eindigt op
+        start_time: Stemming begint om
+        subtitle: Ondertiteling
+        title: Aanspreektitel
+      question:
+        description: Beschrijving
+        max_selections: Maximum aantal selecties
+        title: Aanspreektitel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Beantwoorden
+        other: Antwoorden
+      decidim/elections/election:
+        one: Verkiezing
+        other: Verkiezingen
+      decidim/elections/question:
+        one: Vraag
+        other: vragen
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Stemming
+        name: Verkiezingen
+        settings:
+          global:
+            announcement: Mededeling
+          step:
+            announcement: Mededeling
+    elections:
+      actions:
+        confirm_destroy: Weet je het zeker?
+        destroy: Vernietig
+        edit: Bewerken
+        edit_answers: Antwoorden bewerken
+        edit_questions: Vragen bewerken
+        import: Importeer voorstellen naar antwoorden
+        new: Nieuwe %{name}
+        preview: Voorvertoning
+        publish: Publiceren
+        title: acties
+        unpublish: Depubliceer
+      admin:
+        answers:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van dit antwoord
+            success: Antwoord succesvol aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van dit antwoord
+            success: Antwoord succesvol verwijderd
+          edit:
+            title: Antwoord bewerken
+            update: Antwoord bijwerken
+          index:
+            title: Antwoorden
+          new:
+            create: Antwoord maken
+            title: Nieuw antwoord
+          update:
+            invalid: Er was een probleem bij het bijwerken van dit antwoord
+            success: Antwoord succesvol bijgewerkt
+        elections:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van deze verkiezing
+            success: Verkiezing succesvol aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van deze verkiezingen
+            success: Verkiezing succesvol verwijderd
+          edit:
+            title: Bewerken van verkiezing
+            update: Keuze bijwerken
+          index:
+            title: Verkiezingen
+          new:
+            create: Maak verkiezing aan
+            title: Nieuwe verkiezing
+          publish:
+            success: De verkiezing is succesvol gepubliceerd.
+          unpublish:
+            success: De verkiezing is succesvol gedepubliceerd.
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze verkiezingen
+            success: Verkiezing succesvol bijgewerkt
+        models:
+          answer:
+            name: Beantwoorden
+          election:
+            name: Verkiezing
+          question:
+            name: Vraag
+        proposals_imports:
+          create:
+            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in antwoorden
+            success: "%{number} voorstellen succesvol geïmporteerd in antwoorden"
+          new:
+            create: Importeer voorstellen naar antwoorden
+            no_components: Er zijn geen andere onderdelen van het voorstel in deze participatieve ruimte om de voorstellen in de antwoorden te importeren.
+            select_component: Selecteer een component
+        questions:
+          create:
+            invalid: Er is een fout opgetreden bij het maken van deze vraag
+            success: Vraag met succes aangemaakt
+          destroy:
+            invalid: Er was een probleem bij het verwijderen van deze vraag
+            success: Vraag succesvol verwijderd
+          edit:
+            title: Vraag bewerken
+            update: Vraag bijwerken
+          index:
+            title: vragen
+          new:
+            create: Vraag aanmaken
+            title: Nieuwe vraag
+          update:
+            invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
+            success: Vraag met succes bijgewerkt
+      admin_log:
+        election:
+          publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
+          unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
+      election_m:
+        footer:
+          take_part: Neem deel
+      elections:
+        count:
+          elections_count:
+            one: "%{count} verkiezing"
+            other: "%{count} verkiezingen"
+        show:
+          back: Alle verkiezingen
+          preview: Voorvertoning
+          vote: Stemming
+          voting_period_status:
+            finished: De stemming begon op %{start_time} en eindigde op %{end_time}
+            ongoing: De stemming eindigt op %{end_time}
+            upcoming: Stemmen begint op %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Voorstellen
+            title: Aanspreektitel
+        election:
+          fields:
+            end_time: Beëindigen op
+            start_time: Begint om
+            title: Aanspreektitel
+        question:
+          fields:
+            answers: Antwoorden
+            max_selections: Max. selectie
+            title: Aanspreektitel
+      votes:
+        confirm:
+          answer: Beantwoorden
+          answer_number: antwoord %{number}
+          confirm: Bevestigen
+          edit: bewerken
+          header: Bevestig uw stem
+          intro: Hier is een samenvatting van de stem die u gaat uitbrengen. <br> Bevestig uw stem of bewerk uw antwoorden.
+          question: Vraag %{count}
+        confirmed:
+          back: Terug naar verkiezingen
+          experience: Hoe was uw ervaring?
+          feedback: Geef ons feedback
+          header: Stem bevestigd
+          lead: Je stem is al verstuurd!
+          text: 'U kunt controleren of uw stem succesvol is toegevoegd aan de stembus met het volgende identificatie: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Om het te controleren, kopieer de identificatie en plak het op de <a href="evote-verify">stem verificatie pagina</a>
+        encrypting:
+          header: Stem coderen...
+          text: Je stem wordt versleuteld om ervoor te zorgen dat je deze anoniem kunt werpen.
+        header:
+          confirm: Bevestig uw stem
+          confirmed: Stem bevestigd
+          encrypting: Bevestigen van stem
+        messages:
+          not_allowed: U mag op dit moment niet stemmen over deze verkiezingen.
+        modal:
+          close: Afsluiten
+          proposal_header: 'Voorstellen:'
+        new:
+          answer_choices: U kunt maximaal %{choices} antwoorden selecteren of geen
+          more_information: Meer informatie
+          preview_alert: Dit is een voorbeeld van de stembooth.
+          question_steps: Vraag %{current_step} van %{total_steps}
+          selections: "%{selected} van %{max_selections}<br> selecties"
+        voting_step:
+          back: Achterzijde
+          continue: Volgende
+    events:
+      elections:
+        election_published:
+          email_intro: 'De verkiezing van %{resource_title} is nu actief voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
+          email_subject: De %{resource_title} verkiezing is nu actief voor %{participatory_space_title}.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> verkiezing is nu actief voor %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Verkiezingen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Afsluiten

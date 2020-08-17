@@ -67,6 +67,12 @@ pl:
         project:
           fields:
             title: Tytuł
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Wybrane przez ciebie projekty to:'
+          subject: Zagłosowałeś(-aś) w przestrzeni partycypacyjnej %{space_name}.
+          voted_on_space: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name}.
+          voted_on_space_with_scope: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name} w zakresie %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Czy sie zgadzasz? Po zatwierdzeniu swojego głosu nie możesz go zmienić.
@@ -87,6 +93,7 @@ pl:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono budżet budżetowy
           description: Jakie projekty myślisz, powinniśmy przeznaczyć budżet? Przyznaj co najmniej %{minimum_budget} projekty, które chcesz i głosuj zgodnie z Twoimi preferencjami, aby określić budżet.
+          description_minimum_projects_rule: Na jakie projekty według Ciebie powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} dowolne projekty i zagłosuj zgodnie ze swoimi preferencjami, aby określić budżet.
           title: Ty decydujesz budżet
         count:
           projects_count:
@@ -113,13 +120,26 @@ pl:
             many: wybrane projekty
             other: Wybranych projektów
           view: Widok
+        orders:
+          highest_cost: Najwyższy koszt
+          label: Uporządkuj projekty według
+          lowest_cost: Najniższy koszt
+          most_voted: Z największą liczbą głosów
+          random: Porządek losowy
         project:
+          add: Dodaj projekt %{resource_name} do swojego głosowania
           count:
             one: 1
             few: "%{count} obsługuje"
             many: "%{count} obsługuje"
             other: "%{count} obsługuje"
+          remove: Usuń projekt %{resource_name} z Twojego głosu
           view: Widok
+        project_budget_button:
+          add: Dodaj do swojego głosu
+          add_descriptive: Dodaj projekt %{resource_name} do swojego głosowania
+          added: Dodano do Twojego głosu
+          added_descriptive: Projekt %{resource_name} został dodany do Twojego głosowania
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
@@ -132,9 +152,17 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            form:
+              errors:
+                budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania
+                budget_voting_rule_required: Wymagana jest jedna reguła głosowania
             projects_per_page: Projekty na stronę
             resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
             total_budget: Cały budżet
+            vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
+            vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
+            vote_rule_threshold_percent_enabled: 'Włącz regułę: minimalny procent budżetu'
             vote_threshold_percent: Procent progu głosowania
           step:
             announcement: Ogłoszenie

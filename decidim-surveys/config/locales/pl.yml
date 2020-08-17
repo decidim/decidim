@@ -24,8 +24,11 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
+            clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
           step:
             allow_answers: Pozwól odpowiedzi
+            allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
+            allow_unregistered_help: Jeśli jest aktywny, do wypełnienia ankiety nie będzie wymagane logowanie. Może to dać słabej jakości lub niewiarygodne dane i ankieta będzie bardziej podatna na automatyczne ataki. Zalecamy ostrożność!
             announcement: Ogłoszenie
     events:
       surveys:
@@ -57,4 +60,5 @@ pl:
       surveys:
         answer:
           invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
+          spam_detected: Wystąpił błąd podczas udzielania odpowiedzi w formularzu. Spróbuj ponownie.
           success: Twoja ankieta została przesłana.

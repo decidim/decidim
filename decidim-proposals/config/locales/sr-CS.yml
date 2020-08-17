@@ -15,10 +15,11 @@ sr:
   decidim:
     admin:
       filters:
+        proposals:
+          valuator_role_ids_has:
+            label: Dodeljeno procenjivaču
         search_placeholder:
           id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
-        valuator_role_ids_has:
-          label: Dodeljeno procenjivaču
     components:
       proposals:
         settings:

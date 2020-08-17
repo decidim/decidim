@@ -3,6 +3,8 @@ fi-pl:
     attributes:
       account:
         delete_reason: Syy tilisi poistoon
+      common:
+        created_at: Luontiaika
       group:
         about: Tietoja
         avatar: Avatar
@@ -72,6 +74,7 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
   decidim:
     accessibility:
+      external_link: Ulkoinen linkki
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
@@ -150,6 +153,8 @@ fi-pl:
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
     admin_terms_of_use:
       default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
+    alert:
+      dismiss: Piilota ilmoitus
     amendments:
       accepted:
         error: Muutoksen hyväksyntä epäonnistui.
@@ -277,6 +282,7 @@ fi-pl:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
+      renew: Vahvista uudestaan
       sms:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
         name: Koodi tekstiviestinä
@@ -311,6 +317,8 @@ fi-pl:
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
+      show:
+        close_modal: Sulje ikkuna
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -459,6 +467,7 @@ fi-pl:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     endorsable:
       endorsements: Suosituksia
+      endorsements_count: Suositusten määrä
     endorsement_buttons_cell:
       already_endorsed: Suositeltu
       endorse: Suosittele
@@ -632,6 +641,9 @@ fi-pl:
       title: Sormenjälki
       value: Arvo
     followers:
+      followers_count:
+        one: "%{count} seuraaja"
+        other: "%{count} seuraajaa"
       no_followers: Ei vielä seuraajia.
     following:
       no_followings: Ei vielä seuraa ketään tai mitään.
@@ -652,6 +664,18 @@ fi-pl:
           password: Salasana on liian lyhyt.
           password_confirmation: Salasanan vahvistuksen on oltava sama kuin salasanan.
         error: Tässä kentässä on virhe.
+      file_help:
+        file:
+          explanation: 'Tiedoston ohjeistus:'
+          message_1: On oltava kuva tai asiakirja.
+          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
+        image:
+          explanation: 'Kuvan ohjeistus:'
+          message_1: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
+          message_2: Palvelu rajaa kuvaa.
+      file_validation:
+        allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
+        max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
       remove_this_file: Poista tiedosto
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
@@ -805,6 +829,13 @@ fi-pl:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
+    map:
+      dynamic:
+        screen_reader_explanation: Seuraavassa elementissä on kartta, joka esittää tämän sivun tietueet karttapisteinä. Elementtiä voi käyttää ruudunlukijalla, mutta se voi olla vaikeaselkoinen.
+        skip_button: Ohita kartta
+      static:
+        latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
@@ -853,6 +884,8 @@ fi-pl:
           modal_title: Uusi keskustelu
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä osallistuja on estänyt itseltään viestien vastaanottamisen
+        conversation:
+          show: Näytä keskustelu henkilöiden %{sender} kanssa
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
@@ -870,6 +903,7 @@ fi-pl:
           send: Lähetä
           title: Vastaa
         show:
+          back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
           not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
           title: 'Keskustelu: %{usernames}'
@@ -1051,6 +1085,7 @@ fi-pl:
         following: Seurattavat
         groups: Ryhmät
         members: Jäsenet
+        officialized: Virallinen osallistuja
         timeline: Aikajana
         view_full_profile: Näytä koko profiili
       sidebar:
@@ -1097,11 +1132,16 @@ fi-pl:
       global: Yleinen teema
       picker:
         cancel: Peruuta
+        change: Muuta valittua teemaa
         choose: Valitse
+        currently_selected: Tällä hetkellä valittu teema
         title: Valitse %{field}
       prompt: Valitse teema
       scopes: Teemat
+      scopes_picker_input:
+        select_scope: 'Valitse teema (tämänhetkinen valinta: %{current})'
     search:
+      results: Hakutulokset
       results_found_for_term: 'Tulosten määrä haulle "%{term}": %{count}'
       term_input_placeholder: Hae
     searches:
@@ -1124,6 +1164,11 @@ fi-pl:
           other: "%{count} tulosta"
         view_all: Näytä kaikki (%{count})
     shared:
+      confirm_modal:
+        cancel: Peruuta
+        close_modal: Sulje ikkuna
+        ok: OK
+        title: Vahvista
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
@@ -1131,6 +1176,9 @@ fi-pl:
       extended_navigation_bar:
         more: Lisää
         unfold: Avaa
+      filter_form_help:
+        help: Alla oleva lomake suodattaa hakutulokset dynaamisesti, kun hakuehtoja muutetaan.
+        skip: Siirry tuloksiin
       flag_modal:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
@@ -1141,10 +1189,12 @@ fi-pl:
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
       floating_help:
+        close: Sulje ohjeet
         help: Ohjeet
       follow_button:
         sign_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
+        close_modal: Sulje ikkuna
         please_sign_in: Kirjaudu sisään
         sign_up: Rekisteröidy
       participatory_space_filters:
@@ -1163,6 +1213,9 @@ fi-pl:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
+    tags:
+      filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
+      filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
@@ -1408,7 +1461,13 @@ fi-pl:
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle 15 merkkiä)
   forms:
+    correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
+    length_validator:
+      minimum:
+        one: vähintään %{count} kirjain
+        other: vähintään %{count} kirjainta
     required: Vaadittu
+    required_explanation: "* Vaaditut kentät on merkitty tähtimerkillä"
   invisible_captcha:
     sentence_for_humans: Jos olet ihminen, jätä tämä kenttä huomiotta
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
@@ -1421,6 +1480,8 @@ fi-pl:
       edit_link:
         edit: Muokkaa
       footer:
+        cc_by_license: Creative Commons -lisenssi
+        decidim_logo: Decidim-logo
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
       header:
@@ -1432,9 +1493,19 @@ fi-pl:
         close_session: Sulje istunto
         description_html: Esiinnyt käyttäjänä <b>%{user_name}</b>.
         expire_time_html: Istuntosi vanhenee <b><span class="minutes">%{minutes}</span> minuutin kuluttua</b>.
+      language_chooser:
+        choose_language: Valitse kieli
       notifications_dashboard:
         mark_all_as_read: Merkitse kaikki luetuiksi
+        mark_as_read: Merkitse luetuiksi
+      social_media_links:
+        facebook: "%{organization} Facebookissa"
+        github: "%{organization} GitHubissa"
+        instagram: "%{organization} Instagramissa"
+        twitter: "%{organization} Twitterissä"
+        youtube: "%{organization} YouTubessa"
       user_menu:
+        account: 'Käyttäjätili: %{name}'
         admin_dashboard: Hallintapaneeli
         conversations: Keskustelut
         notifications: Ilmoitukset
@@ -1523,6 +1594,7 @@ fi-pl:
       last_title: Linkki viimeiselle sivulle
       next: Seuraava &rsaquo;
       next_title: Linkki seuraavalle sivulle
+      pagination: Sivutus
       previous: "&lsaquo; Edellinen"
       previous_title: Linkki edelliselle sivulle
       title: 'Sivunumero: '

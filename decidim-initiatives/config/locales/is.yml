@@ -1,0 +1,251 @@
+is:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Höfundur
+        description: Lýsing
+        scope_id: Umfang
+        signature_type_values:
+          any: Blandað
+        title: Titill
+      initiative_author:
+        address: Heimilisfang
+        city: Borg
+        id_document: DNI / NIE
+        name: Nafn og eftirnafn
+        phone_number: Símanúmer
+        post_code: Póstnúmer
+        province: Héraði
+      initiatives_committee_member:
+        user: Nefndarmaður
+      initiatives_type:
+        banner_image: Banner image
+        description: Lýsing
+        title: Titill
+      organization_data:
+        address: Heimilisfang
+        name: Heill heiti
+  decidim:
+    admin:
+      menu:
+        initiatives: Frumkvæði
+        initiatives_types: Frumgerð tegundir
+      models:
+        initiatives:
+          fields:
+            created_at: Búið til á
+            title: Frumkvæði
+        initiatives_type_scope:
+          fields:
+            scope: Umfang
+          name: Tegund frumkvæðis
+        initiatives_types:
+          fields:
+            created_at: Búið til á
+            title: Frumgerð tegundir
+          name: Frumgerðartegund
+      titles:
+        initiatives: Frumkvæði
+        initiatives_types: Frumgerð tegundir
+    initiatives:
+      admin:
+        answers:
+          info_initiative:
+            state: Ríki
+        committee_requests:
+          index:
+            approve: Samþykkja
+            confirm_revoke: Ertu viss?
+            no_members_yet: Það eru engir meðlimir í verkefnisnefndinni
+            revoke: Afturkalla
+            title: Nefndarmenn
+        initiatives:
+          edit:
+            accept: Samþykkja frumkvæði
+            confirm: Ertu viss?
+            discard: Fargaðu frumkvæði
+            reject: Hafna frumkvæði
+            send_to_technical_validation: Senda til tæknilegrar staðfestingar
+            success: Frumkvæði hefur verið sent til tæknilegrar staðfestingar
+            update: Uppfæra
+          form:
+            title: Almennar upplýsingar
+          index:
+            actions_title: Aðgerð
+            preview: Preview
+            print: Prenta
+          show:
+            print: Prenta
+          update:
+            error: Villa hefur komið upp
+        initiatives_type_scopes:
+          create:
+            error: Villa hefur komið upp
+            success: Ný umfang fyrir tiltekna frumgerðartegund hefur verið búin til
+          destroy:
+            success: Umfangið hefur verið fjarlægt
+          edit:
+            back: Til baka
+            confirm_destroy: Ertu viss?
+            title: Breyta frumgerð gerð umfang
+            update: Uppfæra
+          new:
+            back: Til baka
+            create: Búa til
+            title: Búðu til frumkvæði gerðarsviðs
+          update:
+            error: Villa hefur komið upp
+            success: Umfangið hefur verið uppfært
+        initiatives_types:
+          create:
+            error: Villa hefur komið upp
+            success: Ný frumgerð gerð hefur verið búin til
+          destroy:
+            success: Frumgerð gerð hefur verið tekin úr fjarlægð
+          edit:
+            confirm_destroy: Ertu viss?
+            update: Uppfæra
+          form:
+            title: Almennar upplýsingar
+          initiative_type_scopes:
+            title: Umfang fyrir frumgerð gerð
+          new:
+            create: Búa til
+            title: Ný frumgerð gerð
+          update:
+            error: Villa hefur komið upp
+      admin_log:
+        initiative:
+          publish: "%{user_name} birt %{resource_name} frumkvæði"
+          send_to_technical_validation: "%{user_name} sendi %{resource_name} frumkvæði til tæknilegrar staðfestingar"
+          unpublish: "%{user_name} henti %{resource_name} frumkvæði"
+          update: "%{user_name} uppfært %{resource_name} frumkvæði"
+      admin_states:
+        created: Búið til
+        discarded: Fargað
+        published: Published
+        validating: Tæknilegar staðfestingar
+      application_helper:
+        filter_state_values:
+          closed: Lokað
+          open: Opna
+      committee_requests:
+        new:
+          continue: Haltu áfram
+        spawn:
+          success: Beiðni þín hefur verið send til frumkvöðull höfundar.
+      create_initiative:
+        fill_data:
+          back: Til baka
+          continue: Haltu áfram
+          initiative_type: Frumgerðartegund
+          more_information: "(Meiri upplýsingar)"
+          select_scope: Veldu umfang
+        finish:
+          back: Til baka
+          back_to_initiatives: Aftur á frumkvæði
+          go_to_my_initiatives: Farið að verkefnum mínum
+          more_information: "(Meiri upplýsingar)"
+        finish_help:
+          help_in_person_signatures: Ef þú hefur valið að safna undirskriftum í persónu eða í sambandi við á netinu verður þú að hlaða upp nauðsynlegum upplýsingum.
+          initiatives_page_link: Þú getur leitað upp allar þessar upplýsingar á %{link} tileinkað til að upplýsa um frumkvæði.
+          page: síðu
+        previous_form:
+          back: Til baka
+          continue: Haltu áfram
+          help: Hvað felur frumkvæði í sér? Skrifaðu niður titilinn og lýsingu. Við mælum með stuttri og nákvæmri titli og lýsing á áherslu á fyrirhugaða lausnina.
+          more_information: "(Meiri upplýsingar)"
+        promotal_committee:
+          back: Til baka
+          more_information: "(Meiri upplýsingar)"
+        select_initiative_type:
+          back: Til baka
+          more_information: "(Meiri upplýsingar)"
+          select_initiative_type_help: Citizen frumkvæði er leið til þess að ríkisborgararétt geti gripið til þess að borgarstjórnar geti gripið til aðgerða til varnar almannahagsmunum sem falla undir lögsögu sveitarfélaga. Hvaða frumkvæði viltu hleypa af stokkunum?
+        share_committee_link:
+          continue: Haltu áfram
+        show_similar_initiatives:
+          back: Til baka
+          continue: Frumkvæði mitt er öðruvísi
+          more_information: "(Meiri upplýsingar)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, sem þú fylgist með, hefur búið til nýtt frumkvæði, athugaðu það og stuðlað að:"
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Nýtt frumkvæði með %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvöðull var búin til af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, sem þú ert að fylgja, hefur samþykkt eftirfarandi frumkvæði, kannski viltu stuðla að samtalinu:"
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Initiative endorsed by %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> frumkvæði var samþykkt með <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Frumkvæði
+      initiatives:
+        author:
+          deleted: Eytt
+        count:
+          title:
+            one: "%{count} frumkvæði"
+            other: "%{count} frumkvæði"
+        filters:
+          any: Einhver
+          author: Höfundur
+          myself: Verkefni mín
+          search: Leita
+          type: Gerð
+        filters_small_view:
+          close_modal: Lokaðu glugga
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        index_header:
+          new_initiative: Nýtt frumkvæði
+        orders:
+          label: 'Raða aðgerðir með:'
+          most_commented: Flestir athugasemdir
+          random: Handahófi
+          recent: Síðast
+        vote_cabin:
+          vote: Skráðu þig
+        votes_count:
+          count:
+            one: UNDIRSKRIFT
+            other: Undirritanir
+      initiatives_mailer:
+        initiative_link:
+          check_initiative_details: Þú getur séð frumkvæði upplýsingar
+          here: hér
+        more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Virk verkefni
+            see_all_initiatives: Sjá öll verkefni
+      states:
+        accepted: Samþykkt
+        expired: Útrunnið
+    menu:
+      initiatives: Frumkvæði
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Viðhengi
+          committee_members: Nefndarmenn
+          components: Hluti
+          information: Upplýsingar
+      initiative_creation_header:
+        fill_data: Búa til
+        finish: Klára
+        previous_form: Byrja
+        select_initiative_type: Veldu
+        show_similar_initiatives: Bera saman
+      initiative_header:
+        initiative_menu_item: Frumkvæði
+      initiatives:
+        initiative:
+          check: Skoðaðu þetta
+          check_and_support: Skoðaðu það og skráðu þig inn
+        no_initiatives_yet:
+          no_initiatives_yet: Engar aðgerðir ennþá!

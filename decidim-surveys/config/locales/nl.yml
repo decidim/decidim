@@ -20,6 +20,7 @@ nl:
         settings:
           global:
             announcement: Aankondiging
+            clean_after_publish: Verwijder antwoorden bij publicatie van de enquête
           step:
             allow_answers: Antwoorden toestaan
             allow_unregistered: Sta niet-geregistreerde gebruikers toe om de enquête te beantwoorden

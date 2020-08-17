@@ -21,6 +21,9 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
       include Decidim::Hashtaggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description, :instructions, :information_updates
 
       component_manifest_name "debates"
 

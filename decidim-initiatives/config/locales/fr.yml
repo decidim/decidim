@@ -73,20 +73,8 @@ fr:
       actions:
         new_initiative_type: Nouveau type d'initiative
       filters:
-        decidim_area_id_eq:
-          label: Zone
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
-        state_eq:
-          values:
-            accepted: Assez de signatures
-            created: Créée
-            discarded: Retirée
-            published: Publiée
-            rejected: Pas assez de signatures
-            validating: Validation technique
-        type_id_eq:
-          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -418,6 +406,11 @@ fr:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être vérifié pour créer une nouvelle initiative.
+            title: Autorisation requise
         interactions:
           comments_count:
             count:
@@ -484,6 +477,7 @@ fr:
         badge_name:
           accepted: Assez de signatures
           created: Créé le
+          discarded: Abandonné
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique

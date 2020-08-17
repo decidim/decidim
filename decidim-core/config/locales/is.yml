@@ -1,0 +1,463 @@
+is:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Ástæða til að eyða reikningnum þínum
+      report:
+        details: Fleiri athugasemdir
+      user:
+        about: Um
+        email: Netfangið þitt
+        name: Nafn þitt
+        personal_url: Persónuleg vefslóð
+        remove_avatar: Fjarlægja mynd
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Núverandi lykilorð
+        email: Tölvupóstur
+        password: Lykilorð
+        password_confirmation: Staðfesta lykilorð
+        remember_me: Muna eftir mér
+  booleans:
+    'false': 'Nei'
+    'true': 'Já'
+  carrierwave:
+    errors:
+      image_too_big: Myndin er of stór
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_with_month_name: "%d %B %Y"
+  decidim:
+    account:
+      delete:
+        alert: Ekki er hægt að afturkalla þessa aðgerð. Ef þú eyðir reikningnum þínum geturðu ekki skráð þig inn.
+        confirm:
+          close: Loka glugga
+          ok: Já, ég vil eyða reikningnum mínum
+          question: Ertu viss um að þú viljir eyða reikningnum þínum?
+          title: Eyða reikningnum mínum
+        explanation: Vinsamlegast fylltu út ástæðuna sem þú vilt eyða reikningnum þínum (valfrjálst).
+      show:
+        change_password: Breyta lykilorði
+        update_account: Uppfæra reikning
+    admin_log:
+      area:
+        create: "%{user_name} búið til %{resource_name} svæði"
+        delete: "%{user_name} eytt %{resource_name} svæði"
+        update: "%{user_name} uppfært %{resource_name} svæði"
+      component:
+        create: "%{user_name} bætti %{resource_name} hluti við %{space_name} plássið"
+        delete: "%{user_name} fjarlægði %{resource_name} hluti úr %{space_name} rúminu"
+        publish: "%{user_name} gaf út %{resource_name} hluti í %{space_name} rúminu"
+        unpublish: "%{user_name} faldi %{resource_name} hluti úr %{space_name} rúminu"
+      moderation:
+        hide: "%{user_name} faldi tegund auðlindar %{resource_type} í %{space_name}"
+        unreport: "%{user_name} hætti við birtingu tegundar %{resource_type} í %{space_name}"
+      newsletter:
+        create: "%{user_name} bjó til %{resource_name} fréttabréf"
+        delete: "%{user_name} eyddi %{resource_name} fréttabréfinu"
+        deliver: "%{user_name} sendi %{resource_name} fréttabréf"
+        update: "%{user_name} uppfært %{resource_name} fréttabréf"
+      oauth_application:
+        create: "%{user_name} búið til %{resource_name} OAuth forritið"
+        delete: "%{user_name} eytt %{resource_name} OAuth umsókninni"
+        update: "%{user_name} uppfært %{resource_name} OAuth umsóknina"
+      organization:
+        update: "%{user_name} uppfærði stofnunarstillingar"
+      scope:
+        create: "%{user_name} búið til %{resource_name} umfang"
+        create_with_parent: "%{user_name} búið til %{resource_name} umfang innan %{parent_scope} sviðsins"
+        delete: "%{user_name} eytt %{resource_name} umfangi"
+        delete_with_parent: "%{user_name} eytt %{resource_name} umfangi innan %{parent_scope} umfangs"
+        update: "%{user_name} uppfært %{resource_name} umfang"
+        update_with_parent: "%{user_name} uppfært %{resource_name} umfang innan %{parent_scope} umfangs"
+      static_page:
+        create: "%{user_name} búið til %{resource_name} truflanir síðu"
+        delete: "%{user_name} eytt %{resource_name} truflanir síðunni"
+        update: "%{user_name} uppfært %{resource_name} truflanir síðu"
+    amendments:
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
+    anonymous_user: Nafnlaus
+    application:
+      collection:
+        documents:
+          one: Skjal
+          other: Skjöl
+      documents:
+        related_documents: Tengd skjöl
+    author:
+      comments:
+        one: athugasemd
+        other: athugasemdir
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Fá staðfest með því að kynna vegabréfarnúmer sem byrjar með "A"
+        fields:
+          passport_number: Vegabréfs númer
+          postal_code: Póstnúmer
+      dummy_authorization_handler:
+        explanation: Fá staðfest með því að kynna skjalnúmer sem endar með "X"
+        fields:
+          document_number: Skjal númer
+          postal_code: Póstnúmer
+        name: Dæmi heimild
+      dummy_authorization_workflow:
+        name: Dummy heimild vinnuflæði
+      expired_at: Útrunnið á %{timestamp}
+      expires_at: Rennur út á %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Foo heimild
+      granted_at: Veitt í %{timestamp}
+      started_at: Byrjaði á %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy Component
+        settings:
+          global:
+            comments_enabled: Athugasemdir virkt
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Athugasemdir læst
+            dummy_step_attribute_1: Dummy Skref Attribute 1
+            dummy_step_attribute_2: Dummy Skref Attribute 2
+    contact: Hafa samband
+    core:
+      actions:
+        unauthorized: Þú hefur ekki heimild til að framkvæma þessa aðgerð
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Önnur reikningur notar sama netfangið
+        new:
+          complete_profile: Heill snið
+          sign_up: Vinsamlegast ljúktu prófílnum þínum
+          subtitle: Vinsamlegast fylltu út eftirfarandi form til að ljúka skráningunni
+          username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
+      registrations:
+        new:
+          already_have_an_account?: Ertu þegar með reikning?
+          newsletter: Fáðu einstaka fréttabréf með viðeigandi upplýsingum
+          sign_in: Skrá inn
+          sign_up: Skráðu þig
+          sign_up_as:
+            legend: Skráðu þig sem
+          subtitle: Skráðu þig til að taka þátt í umræðum og stuðningsatriðum.
+          terms: Skilmálar og skilyrði fyrir notkun
+          tos_agreement: Með því að skrá þig samþykkir þú %{link}.
+          username_help: Almennt nafn sem birtist á færslunum þínum. Með það að markmiði að tryggja nafnleyndina getur verið nafn.
+      sessions:
+        new:
+          are_you_new?: Nýtt á vettvang?
+          register: Búðu til reikning
+      shared:
+        omniauth_buttons:
+          or: Eða
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Leyfa umsókn
+          by_organization_link_html: <small class="heading-small">af %{link}</small>
+          cancel: Hætta við
+          connect_your_account_html: Tengdu reikninginn þinn með því að skrá þig inn á <strong>%{organization}</strong>
+          publish_content: Birta efni fyrir þig
+          see_email: Sjá netfangið þitt
+          see_name: Sjáðu nafnið þitt
+          this_application_will_be_able_to: 'Þetta forrit mun geta:'
+          this_application_will_not_be_able_to: 'Þetta forrit mun ekki geta:'
+          update_profile: Uppfærðu prófílinn þinn
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill nota reikninginn þinn"
+    errors:
+      internal_server_error:
+        title: Vandamál kom upp við netþjóninn okkar
+        try_later: Vinsamlegast reyndu aftur síðar.
+      not_found:
+        back_home: Heima
+        content_doesnt_exist: Þetta netfang er rangt eða hefur verið fjarlægt.
+        title: Ekki er hægt að finna síðuna sem þú leitar að
+    events:
+      attachments:
+        attachment_created:
+          email_intro: 'Nýtt skjal hefur verið bætt við %{resource_title}. Þú getur séð það frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{resource_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{resource_title}
+          notification_title: A <a href="%{resource_path}">nýtt skjal</a> hefur verið bætt við <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} hluti er nú virkur fyrir %{participatory_space_title}. Þú getur séð það frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{participatory_space_title}
+          notification_title: '%{resource_title} hluti er nú virkur fyrir <a href="%{resource_path}">%{participatory_space_title}</a>'
+      email_event:
+        email_greeting: Halló %{user_name},
+        email_intro: 'Það hefur verið uppfært í "%{resource_title}". Þú getur séð það frá þessari síðu:'
+        email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
+        email_subject: Uppfærsla á %{resource_title}
+      notification_event:
+        notification_title: Atburður átti sér stað <a href="%{resource_path}">%{resource_title}</a>.
+      users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: "%{nickname} uppfærði prófílinn sinn"
+          notification_title: <a href="%{resource_path}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.
+    export_mailer:
+      export:
+        ready: Vinsamlegast finndu tengdri útgáfu af útflutningi þínum.
+      subject: Útflutningur þinn "%{name}" er tilbúinn
+    filters:
+      linked_classes:
+        all: Allt
+        meeting: Fundir
+        project: Verkefni
+        proposal: Tillögur
+        result: Niðurstöður
+    follows:
+      create:
+        button: Fylgja
+      destroy:
+        button: Hættu að fylgja
+    forms:
+      current_file: Núverandi skrá
+      current_image: Núverandi mynd
+      default_image: Sjálfgefin mynd
+      errors:
+        error: Það er villa í þessu sviði.
+      remove_this_file: Fjarlægja þessa skrá
+    log:
+      base_presenter:
+        create: "%{user_name} búið til %{resource_name}"
+        create_with_space: "%{user_name} búið til %{resource_name} í %{space_name}"
+        delete: "%{user_name} eytt %{resource_name}"
+        delete_with_space: "%{user_name} eytt %{resource_name} í %{space_name}"
+        unknown_action: "%{user_name} gerði nokkrar aðgerðir á %{resource_name}"
+        unknown_action_with_space: "%{user_name} gerði nokkrar aðgerðir á %{resource_name} í %{space_name}"
+        update: "%{user_name} uppfært %{resource_name}"
+        update_with_space: "%{user_name} uppfært %{resource_name} í %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Svæðið fannst ekki í gagnagrunninum (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Svæðið tegund fannst ekki í gagnagrunninum (ID: %{id})'
+        scope_presenter:
+          not_found: 'Umfangið fannst ekki í gagnagrunninum (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Umfang gerð fannst ekki í gagnagrunninum (ID: %{id})'
+    menu:
+      home: Heim
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hæ, %{recipient}!
+          intro: "%{sender} hefur byrjað nýtt samtal við þig. Smelltu hér til að sjá það:"
+          outro: Njóttu decidim!
+          subject: "%{sender} hefur byrjað samtal við þig"
+        new_message:
+          greeting: Hæ, %{recipient}!
+          intro: "%{sender} hefur sent ný skilaboð í samtali þínu. Smelltu hér til að sjá þær:"
+          outro: Njóttu decidim!
+          subject: Þú hefur nýjar skilaboð frá %{sender}
+      conversations:
+        create:
+          error: Samtal ekki hafin. Reyndu aftur seinna
+        index:
+          no_conversations: Þú hefur enga samtöl ennþá
+        start:
+          send: Senda
+          title: Byrjaðu samtal
+        update:
+          error: Skilaboð ekki send. Reyndu aftur seinna
+    newsletter_mailer:
+      newsletter:
+        note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
+        see_on_website: Get ekki séð þetta netfang rétt? Skoðaðu það á <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Til að hætta við að fá þessa tegund af tölvupósti, <a href="%{link}" target="_blank" class="unsubscribe">Afskráðu</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Ef þú vilt breyta stillingum þínum getur þú gert það á <a href="%{link}" target="_blank">stillingar síðu</a>
+        success: Þú ert með áskrift að góðum árangri.
+        token_error: Tengillinn er liðinn.
+        unsubscribe: Afskráðu þig
+    notifications_settings:
+      show:
+        email_on_notification: Ég vil fá tölvupóst í hvert skipti sem ég fá tilkynningu.
+        newsletter_notifications: Ég vil fá fréttabréf
+        update_notifications_settings: Vista breytingar
+    own_user_groups:
+      index:
+        pending: Í bið
+        rejected: Hafnað
+        verified: Staðfest
+    participatory_space_private_users:
+      not_allowed: Þú hefur ekki leyfi til að skoða þetta efni
+    profiles:
+      default_officialization_text_for_users: Þessi þátttakandi er staðfestur opinberlega, nafn hans eða hlutverk hefur verið staðfest til að samsvara raunverulegu nafni hans og hlutverki
+    reported_mailer:
+      hide:
+        hello: Halló %{name},
+        manage_moderations: Stjórna meðlimum
+        report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið falið sjálfkrafa.</p>
+        subject: Úrræði hefur verið falið sjálfkrafa
+      report:
+        hello: Halló %{name},
+        manage_moderations: Stjórna meðlimum
+        report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið tilkynnt.</p>
+        subject: Úrræði hafa verið tilkynntar
+    reports:
+      create:
+        error: Villa kom upp við gerð skýrslunnar. Vinsamlegast reyndu aftur.
+        success: Skýrslan hefur verið búin til með góðum árangri og það verður endurskoðað af stjórnanda.
+    scopes:
+      global: Global umfang
+      picker:
+        cancel: Hætta við
+        choose: Veldu
+        title: Veldu %{field}
+      prompt: Veldu umfang
+      scopes: Scopes
+    shared:
+      embed_modal:
+        close_window: Lokaðu glugga
+        embed: Vinsamlegast lítið þennan kóða á síðunni þinni
+        embed_link: Fella inn
+      flag_modal:
+        already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
+        close: Loka
+        description: Er þetta efni óviðeigandi?
+        does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
+        offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
+        report: Skýrsla
+        spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
+        title: Tilkynna um vandamál
+      follow_button:
+        sign_in_before_follow: Vinsamlegast skráðu þig inn áður en aðgerðin er framkvæmd
+      login_modal:
+        please_sign_in: Vinsamlegast skráðu þig inn
+        sign_up: Skráðu þig
+      reference:
+        reference: 'Tilvísun: %{reference}'
+      results_per_page:
+        label: 'Niðurstöður á síðu:'
+      share_modal:
+        close_window: Lokaðu glugga
+        share: Deila
+        share_link: Deila tengil
+  devise:
+    invitations:
+      edit:
+        submit_button: Vista
+    mailer:
+      invitation_instructions:
+        accept: Samþykkja boð
+        accept_until: Þetta boð fer fram í %{due_date}.
+        hello: Halló %{email},
+        invited_you_as_admin: "%{invited_by} hefur boðið þér sem admin á %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan."
+        someone_invited_you: Einhver hefur boðið þér að %{application}. Þú getur samþykkt það í gegnum tengilinn hér að neðan.
+        someone_invited_you_as_admin: Einhver hefur boðið þér sem admin á %{application}, þú getur samþykkt það í gegnum tengilinn hér að neðan.
+      invite_admin:
+        subject: Þú hefur verið boðið að stjórna %{organization}
+      invite_collaborator:
+        subject: Þú hefur verið boðið að vinna á %{organization}
+      invite_private_user:
+        subject: Þú hefur verið boðið í einkaþátttökuferli á %{organization}
+      organization_admin_invitation_instructions:
+        subject: Þú hefur verið boðið að stjórna %{organization}
+      password_change:
+        greeting: Halló %{recipient}!
+        message: Við erum að hafa samband við þig til að tilkynna þér að lykilorðið þitt hafi verið breytt.
+        subject: Lykilorð breytt
+  doorkeeper:
+    scopes:
+      public: Opinberar upplýsingar þínar.
+  errors:
+    messages:
+      cycle_detected: foreldri umfangs getur ekki verið einn af niðjum hans
+      file_size_is_less_than_or_equal_to: Skráarstærð verður að vera minni en eða jafnt við %{count}
+      nesting_too_deep: getur ekki verið inni í undirflokki
+  forms:
+    required: Nauðsynlegt
+  invisible_captcha:
+    sentence_for_humans: Ef þú ert manneskja, hunsa þennan reit
+    timestamp_error_message: Því miður, það var of fljótt! Vinsamlegast sendu aftur inn.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Þessi síða notar smákökur. Með því að halda áfram að skoða síðuna samþykkirðu notkun okkar á smákökum. Finndu meira um það %{link}.
+        link_label: hér
+        ok: ég er sammála
+      footer:
+        made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
+      header:
+        close_menu: Loka valmyndinni
+        navigation: Siglingar
+        sign_in: Skráðu þig inn
+        sign_up: Skráðu þig
+      impersonation_warning:
+        close_session: Loka fundi
+        expire_time_html: Session þín rennur út í <b><span class="minutes">%{minutes}</span> mínútur</b>.
+      notifications_dashboard:
+        mark_all_as_read: merkja allt sem lesið
+      user_menu:
+        admin_dashboard: Stjórnborð stjórnenda
+        conversations: Samtöl
+        notifications: Tilkynningar
+        profile: Minn reikningur
+        public_profile: Opinbera prófílinn minn
+        sign_out: Útskrá
+      user_profile:
+        account: Reikningur
+        authorizations: Heimildir
+        delete_my_account: Eyða reikningnum mínum
+        notifications_settings: Tilkynningarstillingar
+      widget:
+        see_more: Sjá meira
+  locale:
+    name: Enska
+  social_share_button:
+    delicious: Ljúffengur
+    douban: Douban
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google bókamerki
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Deila á %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Opnaðu WeChat þinn, smelltu á "Discover" hnappinn og smelltu svo á "Scan QR Code" valmyndina.
+    weibo: Sina Weibo
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; fyrst"
+      last: Síðasta &raquo;
+      next: Næsta &rsaquo;
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"

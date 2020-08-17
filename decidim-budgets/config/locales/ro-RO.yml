@@ -124,11 +124,18 @@ ro:
           most_voted: Cele mai votate
           random: Ordine aleatorie
         project:
+          add: Adaugă proiectul %{resource_name} la votul tău
           count:
             one: 1 suport
             few: "%{count} acceptă"
             other: "%{count} acceptă"
+          remove: Elimină proiectul %{resource_name} din votul tău
           view: Vizualizare
+        project_budget_button:
+          add: Adaugă la votul tău
+          add_descriptive: Adaugă proiectul %{resource_name} la votul tău
+          added: Adăugat la votul dvs.
+          added_descriptive: Proiectul %{resource_name} a fost adăugat la votul tău
         show:
           budget: Buget
           view_all_projects: Vezi toate proiectele
@@ -141,6 +148,7 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             form:
               errors:
                 budget_voting_rule_only_one: Doar o singură regulă de vot trebuie activată

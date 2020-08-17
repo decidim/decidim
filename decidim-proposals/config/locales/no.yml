@@ -73,21 +73,8 @@
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Forslag
-            'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
-        state_eq:
-          values:
-            evaluating: Vurderer
-            withdrawn: Trukket tilbake
-        state_null:
-          label: Status
-          values:
-            'true': Ikke besvart
     components:
       proposals:
         actions:

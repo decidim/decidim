@@ -1,0 +1,185 @@
+is:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner image
+        decidim_highlighted_scope_id: Hápunktur sviðsins
+        description: Lýsing
+        introductory_image: Inngangs mynd
+        introductory_video_url: Inngangur vídeó URL
+        slug: URL slug
+        subtitle: Texti
+        title: Titill
+      question:
+        banner_image: Banner image
+        decidim_scope_id: Borgarsvæði
+        hashtag: Kassamerki
+        hero_image: Heimsmynd
+        i_frame_url: Vefslóð fyrir utanaðkomandi atkvæðagreiðslur
+        origin_scope: Umfang
+        origin_title: Uppruni
+        origin_url: Uppruni vefslóð
+        participatory_scope: Þátttökuskilyrði
+        promoter_group: Framkvæmdarhópur
+        question_context: Samhengi
+        reference: Tilvísun
+        scope: Borgarsvæði
+        slug: URL slug
+        subtitle: Texti
+        vote: Ytri atkvæðakerfi
+        what_is_decided: Hvað er ákveðið
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svar fannst ekki.
+  decidim:
+    admin:
+      actions:
+        publish_results: Birta niðurstöður
+        unpublish_results: Afritaðu niðurstöðurnar
+      consultations:
+        create:
+          success: Samráð hefur verið búið til.
+        edit:
+          update: Uppfæra
+        form:
+          slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessa samráðs. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Nýtt samráð
+        update:
+          success: Samráð uppfærður með góðum árangri.
+      menu:
+        consultations: Samráð
+        consultations_submenu:
+          info: Upplýsingar
+          questions: Spurningar
+        questions_submenu:
+          components: Hluti
+          consultation: Samráð
+          info: Upplýsingar
+          responses: Svör
+      models:
+        consultation:
+          fields:
+            created_at: Búið til á
+            published: Published
+            title: Titill
+          name:
+            one: Samráð
+            other: Samráð
+        question:
+          fields:
+            created_at: Búið til á
+            published: Published
+            title: Titill
+          name:
+            one: Spurning
+            other: Spurningar
+        response:
+          fields:
+            created_at: Búið til á
+            title: Titill
+          name:
+            one: Svar
+            other: Svör
+      questions:
+        create:
+          success: Spurning búin til.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        index:
+          not_published: Ekki birt
+          published: Published
+        new:
+          create: Búa til
+          title: Ný spurning
+      responses:
+        create:
+          success: Svar búin til.
+        edit:
+          update: Uppfæra
+        form:
+          title: Almennar upplýsingar
+        new:
+          create: Búa til
+          title: Nýtt svar
+      titles:
+        consultations: Samráð
+        questions: Spurningar
+        responses: Svör
+    consultations:
+      consultation:
+        view_results: Skoða niðurstöður
+      consultation_card:
+        view_results: Skoða niðurstöður
+      consultations:
+        orders:
+          label: 'Raða samráð með:'
+          random: Handahófi
+          recent: Síðast
+      count:
+        title:
+          one: "%{count} samráð"
+          other: "%{count} samráð"
+      filters:
+        active: Virkur
+        all: Allt
+        finished: Lokið
+        search: Leita
+        upcoming: Næstu
+      filters_small_view:
+        close_modal: Lokaðu glugga
+        filter: Sía
+        filter_by: Sía eftir
+        unfold: Fella út
+      index:
+        title: Samráð
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Virkt samráð
+      question:
+        take_part: Taka þátt
+        view_results: Skoða niðurstöður
+        votes_out_of:
+          one: kjósa út úr
+          other: atkvæði úr
+    menu:
+      consultations: Samráð
+    questions:
+      results:
+        title: Niðurstöður
+      show:
+        read_more: Lestu meira
+      statistics:
+        assistants_count_title: Aðstoðarmenn
+        comments_count_title: Athugasemdir
+        meetings_count_title: Fundir
+      technical_info:
+        technical_data: Tæknilegar upplýsingar
+      vote_button:
+        already_voted: Already kusu
+        starting_from: Byrjar frá %{date}
+        vote: Kjósa
+      vote_modal_confirm:
+        change: Breyta
+        confirm: Staðfesta
+        contextual_help: Vinsamlegast staðfestu valinn valkost.
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Viðhengi
+          categories: Flokkar
+      question_components:
+        question_menu_item: Spurningin
+        unfold: Fella út
+      question_header:
+        back_to_consultation: Sjá öll samráð

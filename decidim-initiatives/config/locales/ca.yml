@@ -73,20 +73,8 @@ ca:
       actions:
         new_initiative_type: Nou tipus d'iniciativa
       filters:
-        decidim_area_id_eq:
-          label: Àrea
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
-        state_eq:
-          values:
-            accepted: Ha aconseguit les signatures necessàries
-            created: Creada
-            discarded: Rebutjada
-            published: Publicada
-            rejected: No ha aconseguit les signatures necessàries
-            validating: Validació tècnica
-        type_id_eq:
-          label: Tipus
       menu:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives

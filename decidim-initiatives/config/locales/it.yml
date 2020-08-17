@@ -60,8 +60,8 @@ it:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Interventi a favore
+        one: Iniziativa
+        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
@@ -73,20 +73,8 @@ it:
       actions:
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
-        decidim_area_id_eq:
-          label: Area
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cerca %{collection} per titolo, descrizione, ID o nome dell'autore.
-        state_eq:
-          values:
-            accepted: Firme sufficienti
-            created: Creata
-            discarded: Discarded
-            published: Pubblicato
-            rejected: Firme non sufficienti
-            validating: Convalida tecnica
-        type_id_eq:
-          label: Tipo
       menu:
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
@@ -418,6 +406,11 @@ it:
           unfold: spiegare
         index_header:
           new_initiative: Nuova iniziativa
+          not_authorized:
+            authorizations_page: Visualizza autorizzazioni
+            close: Chiudi
+            explanation: È necessario essere verificati per creare una nuova iniziativa.
+            title: Autorizzazione richiesta
         interactions:
           comments_count:
             count:

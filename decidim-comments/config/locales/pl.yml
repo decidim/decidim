@@ -21,6 +21,7 @@ pl:
   decidim:
     comments:
       comments: Komentarze
+      comments_count: Liczba komentarzy
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz na %{link}</span>"
       votes:
@@ -47,6 +48,7 @@ pl:
           against: Przeciwko
           in_favor: Na korzyść
         deleted_user: Usunięty użytkownik
+        hide_replies: Ukryj odpowiedzi
         reply: Odpowiadać
         report:
           action: Raport
@@ -58,6 +60,9 @@ pl:
             does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
             offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
             spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
+          title: Zgłoś niewłaściwą treść
+        show_replies: Pokaż %{replies_count} odpowiedzi
+        single_comment_link_title: Uzyskaj link do pojedynczego komentarza
       comment_order_selector:
         order:
           best_rated: Najlepsza ocena
@@ -70,8 +75,15 @@ pl:
       comments:
         blocked_comments_for_user_warning: Nie możesz teraz komentować, ale możesz przeczytać poprzednie.
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
+        comment_details_title: Szczegóły komentarzy
         loading: Ładowanie komentarzy ...
+        single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
+        single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
         title: "%{count} komentarzy"
+      down_vote_button:
+        text: Nie zgadzam się z tym komentarzem
+      up_vote_button:
+        text: Zgadzam się z tym komentarzem
     events:
       comments:
         comment_by_followed_user:
@@ -80,6 +92,8 @@ pl:
           email_subject: Jest nowy komentarz autor %{author_name} w %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'Grupa %{author_name} dodała komentarz w %{resource_title}. Możesz go przeczytać na tej stronie:'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tę grupę z poziomu jej strony profilowej.
           email_subject: Jest nowy komentarz autor %{author_name} w %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
@@ -92,6 +106,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ Twój komentarz został wysłany.
           email_subject: "%{author_name} odpowiedział na Twój komentarz w %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział na Twój komentarz w <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Wspomniano o grupie, do której należysz
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś członkiem grupy %{group_name}, o której wspomniano w %{resource_title}.
+          email_subject: Wspomniano o Tobie w %{resource_title} jako o członku %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> jako o członku <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Zostałeś wspomniany
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano o nim w %{resource_title}.

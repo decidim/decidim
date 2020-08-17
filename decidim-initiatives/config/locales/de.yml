@@ -26,13 +26,17 @@ de:
       initiatives_committee_member:
         user: Ausschussmitglied
       initiatives_type:
+        area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
+        attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
+        custom_signature_end_date_enabled: Die Auswahl des Endes der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
+        promoting_committee_enabled: Förderkomitee freigeben
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
         validate_sms_code_on_votes: Fügen Sie dem Signaturprozess einen SMS-Validierungsschritt hinzu
@@ -45,6 +49,14 @@ de:
         address: Adresse
         id_document: ID-Dokument
         name: Vollständiger Name
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Datei ist ungültig
+              needs_to_be_reattached: Muss erneut angehängt werden
+              title: Der Titel sollte nicht leer sein
   activerecord:
     models:
       decidim/initiative:
@@ -61,12 +73,8 @@ de:
       actions:
         new_initiative_type: Neuer Initiativentyp
       filters:
-        state_eq:
-          values:
-            created: Erstellt
-            discarded: Verworfen
-            published: Veröffentlicht
-            validating: Technische Validierung
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       menu:
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -75,6 +83,7 @@ de:
           fields:
             created_at: Hergestellt in
             id: ICH WÜRDE
+            published_at: Veröffentlicht am
             state: Zustand
             supports_count: Unterschriften
             title: Initiativen
@@ -107,6 +116,12 @@ de:
         initiatives_types: Arten von Initiativen
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_url}">den Admin-Panel</a> können Sie sie aufrufen
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+            email_subject: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet.
+            notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
         initiative_extended:
           email_intro: Das Enddatum der Signaturen für die Initiative %{resource_title} wurde verlängert!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
@@ -123,6 +138,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+        support_threshold_reached:
+          email_intro: Die Initiative %{resource_title} hat die Unterstützungsschwelle erreicht
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
+          email_subject: Unterstützungsschwelle erreicht
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Unterstützungsschwelle erreicht
     gamification:
       badges:
         initiatives:
@@ -167,6 +187,8 @@ de:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        exports:
+          initiatives: Initiativen
         initiatives:
           edit:
             accept: Initiative akzeptieren
@@ -184,6 +206,11 @@ de:
             actions_title: Aktion
             preview: Vorschau
             print: Drucken
+          initiative_attachments:
+            documents: Unterlagen
+            edit: Bearbeiten
+            new: Neu
+            photos: Fotos
           show:
             print: Drucken
           update:
@@ -235,14 +262,26 @@ de:
           unpublish: "%{user_name} verworfen die %{resource_name} Initiative"
           update: "%{user_name} aktualisierte die %{resource_name} Initiative"
       admin_states:
+        accepted: Ausreichend Unterschriften
         created: Erstellt
         discarded: Verworfen
         published: Veröffentlicht
+        rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
+        filter_area_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
         filter_state_values:
+          accepted: Ausreichend Unterschriften
+          all: Alle
+          answered: Beantwortet
           closed: Geschlossen
           open: Öffnen
+          rejected: Ungenügend Unterschriften
+        filter_type_values:
+          all: Alle
       committee_requests:
         new:
           continue: Fortsetzen
@@ -259,13 +298,17 @@ de:
           fill_data_help: "<ul> <li>Überarbeiten Sie den Inhalt Ihrer Initiative. Ist dein Titel leicht zu verstehen? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Welche geografische Reichweite hat die Initiative? Stadtteil?</li> </ul>"
           initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
+          select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
           callout_text: Herzliche Glückwünsche! Ihre Bürgerinitiative wurde erfolgreich erstellt.
+          confirm: Bestätigen
+          edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
+          send_my_initiative: Meine Initiativen senden
         finish_help:
           access_reminder: Denken Sie daran, dass Sie immer über das Benutzermenü auf Ihre Initiativen zugreifen können.
           help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstands aller Organisationen hochladen, die die Förderkommission bilden
@@ -349,8 +392,10 @@ de:
             other: "%{count} Initiativen"
         filters:
           any: Irgendein
+          area: Bereich
           author: Autor
           myself: Meine Initiativen
+          scope: Umfang
           search: Suche
           state: Zustand
           type: Art
@@ -361,6 +406,11 @@ de:
           unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
+          not_authorized:
+            authorizations_page: Autorisierungen anzeigen
+            close: Schließen
+            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+            title: Autorisierung erforderlich
         interactions:
           comments_count:
             count:
@@ -372,6 +422,7 @@ de:
           most_voted: Am meisten unterzeichnet
           random: Zufällig
           recent: Neueste
+          recently_published: Zuletzt veröffentlicht
         result:
           answer_title:
             accepted: Dieser Vorschlag wurde angenommen, weil
@@ -422,10 +473,21 @@ de:
           highlighted_initiatives:
             active_initiatives: Aktive Initiativen
             see_all_initiatives: Sehen Sie alle Initiativen
+      show:
+        badge_name:
+          accepted: Ausreichend Unterschriften
+          created: Erstellt
+          discarded: Verworfen
+          published: Veröffentlicht
+          rejected: Ungenügend Unterschriften
+          validating: Technische Validierung
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
+      versions:
+        shared:
+          back_to_resource: Zurück zur Initiative
     menu:
       initiatives: Initiativen
     resources:

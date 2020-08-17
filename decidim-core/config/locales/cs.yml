@@ -661,6 +661,11 @@ cs:
       title: Digitální otisk
       value: Hodnota
     followers:
+      followers_count:
+        one: "%{count} sledující"
+        few: "%{count} sledující"
+        many: "%{count} sledujících"
+        other: "%{count} sledujících"
       no_followers: Zatím žádní sledující.
     following:
       no_followings: Nesleduje nikoho ani nic.
@@ -1485,6 +1490,12 @@ cs:
       too_short: je příliš krátká (pod 15 znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
+    length_validator:
+      minimum:
+        one: alespoň %{count} znak
+        few: alespoň %{count} znaků
+        many: alespoň %{count} znaků
+        other: alespoň %{count} znaků
     required: Povinný
     required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:

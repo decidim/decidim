@@ -271,9 +271,9 @@ fi:
           scope_id: Teema
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
-        name: Dummy-varmennuksen työnkulku
+        name: Esimerkkivahvistuksen työnkulku
       errors:
-        duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
+        duplicate_authorization: Toinen käyttäjätili on jo vahvistettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:
@@ -297,23 +297,23 @@ fi:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä vahvistettu palvelulla "%{authorization}", tarvitsemme uuden vahvistuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
-          reauthorize: Varmenna uudestaan
-          title: Varmenna uudestaan
+          reauthorize: Vahvista uudestaan
+          title: Vahvista uudestaan
         missing:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava käyttäjätilisi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" vahvistuksen eteneminen
           title: Vahvistus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska vahvistustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
-          title: Ei varmennettu
+          title: Ei vahvistettu
         unconfirmed:
-          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
+          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää ne uudestaan:'
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
@@ -633,7 +633,7 @@ fi:
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
-      check: Tarkista sormenjälki kohteelle %{resource_name}
+      check: Tarkista sormenjälki
       explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
       online_calculator_name: MD5-verkkolaskuri
       replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
@@ -1275,7 +1275,7 @@ fi:
     versions:
       resource_version:
         of_versions: "(yhteensä %{number} kpl)"
-        see_other_versions: näytä muut versiot kohteelle %{resource_name}
+        see_other_versions: näytä muut versiot
         version: Versio %{number}
     versions_list:
       show:
@@ -1514,7 +1514,7 @@ fi:
         sign_out: Kirjaudu ulos
       user_profile:
         account: Käyttäjätili
-        authorizations: Varmennukset
+        authorizations: Vahvistukset
         delete_my_account: Poista tilini
         my_data: Omat tiedot
         my_interests: Kiinnostuksen kohteeni

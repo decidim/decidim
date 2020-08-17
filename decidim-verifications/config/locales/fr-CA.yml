@@ -100,7 +100,9 @@ fr-CA:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         index:
           expired_verification: Vérification expiré
+          pending_verification: En attente de vérification
           show_renew_info: Cliquez pour renouveler la vérification
+          unauthorized_verification: Nouvelle vérification
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}

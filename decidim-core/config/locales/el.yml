@@ -35,7 +35,7 @@ el:
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
       decidim/promote_to_admin: Αναβάθμιση σε διαχειριστής ομάδας
       decidim/removed_from_group: Αφαιρέθηκε από την ομάδα
-      decidim/resource_endorsed_event: Ο πόρος επιδοκιμάστηκε
+      decidim/resource_endorsed_event: Το στοιχείο επιδοκιμάστηκε
   activerecord:
     attributes:
       decidim/user:
@@ -75,8 +75,8 @@ el:
   decidim:
     accessibility:
       external_link: Εξωτερικός σύνδεσμος
-      logo: "Επίσημο λογότυπο του %{organization}"
-      skip_button: Επιστροφή στο κύριο περιεχόμενο
+      logo: "Επίσημο λογότυπο του οργανισμού %{organization}"
+      skip_button: Μετάβαση στο κύριο περιεχόμενο
     account:
       data_portability_export:
         file_no_exists: Το αρχείο δεν υπάρχει
@@ -86,26 +86,81 @@ el:
         confirm:
           close: Κλείσιμο παραθύρου
           ok: Ναι, θέλω να διαγράψω τον λογαριασμό μου
-          question: Είστε βέβαιοι ότι θέλετε να διαγράψετε το λογαριασμό σας;
+          question: Είστε βέβαιοι ότι θέλετε να διαγράψετε τον λογαριασμό σας;
           title: Διαγραφή του λογαριασμού μου
-        explanation: Παρακαλούμε, συμπληρώστε τον λόγο για τον οποίο θέλετε να διαγράψετε τον λογαριασμό σας (προαιρετικό).
+        explanation: Συμπληρώστε τον λόγο για τον οποίο θέλετε να διαγράψετε τον λογαριασμό σας (προαιρετικό).
       destroy:
-        error: Υπήρξε ένα πρόβλημα κατά την διαγραφή του λογαριασμού σας.
-        success: Ο λογαριασμός σας έχει διαγραφεί με επιτυχία.
+        error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του λογαριασμού σας.
+        success: Ο λογαριασμός σας διαγράφηκε με επιτυχία.
       show:
-        change_password: Αλλαγή κωδικού
+        change_password: Αλλαγή κωδικού πρόσβασης
         update_account: Ενημέρωση λογαριασμού
       update:
         error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του λογαριασμού σας.
-        success: Ο λογαριασμός σας ενημερώθηκε επιτυχώς.
-        success_with_email_confirmation: Ο λογαριασμός σας ενημερώθηκε επιτυχώς. θα λάβετε ένα email για να επιβεβαιώσετε την νέα σας διεύθυνση.
+        success: Ο λογαριασμός σας ενημερώθηκε με επιτυχία.
+        success_with_email_confirmation: Ο λογαριασμός σας ενημερώθηκε με επιτυχία. Θα λάβετε email για επιβεβαίωση της νέας σας διεύθυνσης email.
     admin:
       actions:
         cancel: Ακύρωση
+    admin_log:
+      area:
+        create: "Ο χρήστης %{user_name} δημιούργησε τον τομέα %{resource_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε τον τομέα %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τον τομέα %{resource_name}"
+      component:
+        create: "Ο χρήστης %{user_name} πρόσθεσε το στοιχείο %{resource_name} στον τομέα %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε το στοιχείο %{resource_name} από τον χώρο %{space_name}"
+        publish: "Ο χρήστης %{user_name} δημοσίευσε το στοιχείο %{resource_name} στον χώρο %{space_name}"
+        unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του στοιχείου %{resource_name} από τον τομέα %{space_name}"
+      moderation:
+        hide: "Ο χρήστης %{user_name} απέκρυψε έναν πόρο του τύπου %{resource_type} στον χώρο %{space_name}"
+        unreport: "Ο χρήστης %{user_name} κατάργησε την αναφορά ενός πόρου του τύπου %{resource_type} στον χώρο %{space_name}"
+      newsletter:
+        create: "Ο χρήστης %{user_name} δημιούργησε το ενημερωτικό δελτίο %{resource_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε το ενημερωτικό δελτίο %{resource_name}"
+        deliver: "Ο χρήστης %{user_name} παράδωσε το ενημερωτικό δελτίο %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε το ενημερωτικό δελτίο %{resource_name}"
+      oauth_application:
+        create: "Ο χρήστης %{user_name} δημιούργησε την εφαρμογή OAuth %{resource_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε την εφαρμογή OAuth %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε την εφαρμογή OAuth %{resource_name}"
+      organization:
+        update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις του οργανισμού"
+      participatory_space_private_user:
+        create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} να γίνει ιδιωτικός συμμετέχων"
+        create_via_csv: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} μέσω csv να γίνει ιδιωτικός συμμετέχων"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} ως ιδιωτικό συμμετέχων"
+      scope:
+        create: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name}"
+        create_with_parent: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
+        delete: "Ο χρήστης %{user_name} διέγραψε το πεδίο εφαρμογής %{resource_name}"
+        delete_with_parent: "Ο χρήστης %{user_name} διέγραψε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε το πεδίο εφαρμογής %{resource_name}"
+        update_with_parent: "Ο χρήστης %{user_name} ενημέρωσε το πεδίο εφαρμογής %{resource_name} μέσα στο πεδίο εφαρμογής %{parent_scope}"
+      static_page:
+        create: "Ο χρήστης %{user_name} δημιούργησε τη στατική σελίδα %{resource_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε τη στατική σελίδα %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη στατική σελίδα %{resource_name}"
+      user:
+        invite: "Ο χρήστης %{user_name} προσκάλεσε τον συμμετέχοντα %{resource_name} με τον ρόλο: %{role}"
+        officialize: "Ο χρήστης %{user_name} επισημοποίησε τον συμμετέχοντα %{resource_name}"
+        remove_from_admin: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} με τον ρόλο: %{role}"
+        show_email: "Ο χρήστης %{user_name} ανέκτησε τη διεύθυνση email του συμμετέχοντα %{resource_name}"
+        unofficialize: "Ο χρήστης %{user_name} κατάργησε την επισημοποίηση του συμμετέχοντα %{resource_name}"
+      user_group:
+        reject: "Ο χρήστης %{user_name} απέρριψε την επαλήθευση ομάδας %{resource_name}"
+        verify: "Ο χρήστης %{user_name} επαλήθευσε την ομάδα %{resource_name}"
+        verify_via_csv: "Ο χρήστης %{user_name} επαλήθευσε την ομάδα %{resource_name} μέσω αρχείου CSV"
+    admin_terms_of_use:
+      default_body: "<h2>ΟΡΟΙ ΧΡΗΣΗΣ ΔΙΑΧΕΙΡΙΣΤΗ</h2><p>Ελπίζουμε ότι έχετε λάβει τη συνήθη διάλεξη από τον τοπικό διαχειριστή συστήματος. Συνήθως, αυτή συνοψίζεται σε αυτά τα τρία πράγματα:</p><ol><li>Σεβασμός του απόρρητου των άλλων.</li><li>Σκεφτείτε πριν κάνετε κλικ.</li><li>Η μεγάλη εξουσία συνεπάγεται μεγάλη ευθύνη.</li></ol>"
     alert:
       dismiss: Απόρριψη ειδοποιήσης
     amendments:
+      accepted:
+        error: Παρουσιάστηκε σφάλμα κατά την αποδοχή της τροποποίησης.
+        success: Η τροποποίηση έγινε δεκτή με επιτυχία.
       amendable:
+        amended_by: Τροποποιήθηκε από
         button: Τροποποίηση %{model_name}
         error: Υπήρξε σφάλμα κατά την τροποποίηση αυτού του στοιχείου.
         help_text: Βελτιώστε αυτό το %{model_name} τροποποιώντας τα %{amendable_fields}
@@ -172,32 +227,440 @@ el:
         success: Η τροποποίηση αποσύρθηκε επιτυχώς
       wizard_step_form:
         steps:
-          '1': Create your amendment
+          '1': Δημιουργήστε την τροποποίησή σας
           '2': Συγκρίνετε την τροποποίησή σας
           '3': Ολοκληρώστε την τροποποίησή σας
-          '4': Publish your amendment
+          '4': Δημοσιεύστε την τροποποίησή σας
+    anonymous_user: Ανώνυμη
+    application:
+      collection:
+        documents:
+          one: Έγγραφο
+          other: Έγγραφα
+      document:
+        download: Λήψη αρχείου
+      documents:
+        related_documents: Σχετικά έγγραφα
+      photos:
+        related_photos: Σχετικές εικόνες
     author:
       avatar: Άβαταρ
+      comments:
+        one: σχόλιο
+        other: σχόλια
+      endorsements:
+        one: επιδοκιμασία
+        other: επιδοκιμασίες
     authorization_handlers:
+      another_dummy_authorization_handler:
+        explanation: Επαληθευτείτε εισάγοντας έναν αριθμό διαβατηρίου που ξεκινά με «A»
+        fields:
+          passport_number: Αριθμός διαβατηρίου
+          postal_code: Ταχυδρομικός κώδικας
+        name: Ένα άλλο παράδειγμα εξουσιοδότησης
       dummy_authorization_handler:
+        explanation: Επαληθευτείτε εισάγοντας έναν αριθμό εγγράφου που τελειώνει σε «Χ»
         fields:
           document_number: Αριθμός εγγράφου
+          postal_code: Ταχυδρομικός κώδικας
+        name: Παράδειγμα εξουσιοδότησης
+      dummy_authorization_workflow:
+        name: Ροή εργασίας εικονικής εξουσιοδότησης
+      errors:
+        duplicate_authorization: Ένας συμμετέχων έχει ήδη εξουσιοδοτηθεί με τα ίδια δεδομένα.
+      expired_at: Έληξε στις %{timestamp}
+      expires_at: Λήγει στις %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
+        name: Εξουσιοδότηση Foo
+      granted_at: Χορηγήθηκε στις %{timestamp}
       renew: Ανανέωση επαλήθευσης
+      sms:
+        explanation: Υποβάλετε τον αριθμό κινητού τηλεφώνου σας, για να ελέγξουμε την ταυτότητά σας.
+        name: Κωδικός μέσω SMS
+      started_at: Ξεκίνησε στις %{timestamp}
     authorization_modals:
+      content:
+        expired:
+          authorize: Εκ νέου εξουσιοδότηση με «%{authorization}»
+          explanation: Η εξουσιοδότησή σας έχει λήξει. Για να εκτελέσετε αυτήν την ενέργεια, απαιτείται εκ νέου εξουσιοδότηση με «%{authorization}».
+          title: Η εξουσιοδότηση έληξε
+        incomplete:
+          cancel: Ακύρωση
+          explanation: 'Ακόμα κι αν είστε επί του παρόντος εξουσιοδοτημένοι με «%{authorization}», απαιτείται εκ νέου εξουσιοδότηση επειδή λείπουν τα ακόλουθα δεδομένα:'
+          invalid_field: "%{field}"
+          reauthorize: Εκ νέου εξουσιοδότηση
+          title: Πραγματοποιήστε εκ νέου εξουσιοδότηση
+        missing:
+          authorize: Εξουσιοδότηση με «%{authorization}»
+          explanation: Για να εκτελέσετε αυτήν την ενέργεια, πρέπει να εξουσιοδοτηθείτε με «%{authorization}».
+          title: Απαιτείται εξουσιοδότηση
+        pending:
+          explanation: Για να εκτελέσετε αυτήν την ενέργεια, πρέπει να εξουσιοδοτηθείτε με «%{authorization}», αλλά η εξουσιοδότησή σας βρίσκεται ακόμα σε εξέλιξη
+          resume: Ελέγξτε την πρόοδο της εξουσιοδότησης «%{authorization}»
+          title: Η εξουσιοδότηση βρίσκεται ακόμα σε εξέλιξη
+        unauthorized:
+          explanation: Δυστυχώς, δεν μπορείτε να εκτελέσετε αυτήν την ενέργεια, καθώς ορισμένα από τα δεδομένα εξουσιοδότησης δεν ταιριάζουν.
+          invalid_field: "Η τιμή %{value} για το πεδίο %{field} δεν είναι έγκυρη."
+          ok: ΟΚ
+          title: Χωρίς εξουσιοδότηση
+        unconfirmed:
+          confirmation_instructions: 'Εάν δεν έχετε λάβει τις οδηγίες επιβεβαίωσης, μπορείτε να τις ζητήσετε ξανά:'
+          explanation_html: Για να εκτελέσετε αυτήν την ενέργεια, θα πρέπει να είστε εξουσιοδοτημένοι. Για να το κάνετε αυτό, πρέπει να επιβεβαιώσετε τη διεύθυνση email σας <strong>%{email}</strong>.
+          request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
+          title: Επιβεβαίωση διεύθυνσης email
       show:
         close_modal: Κλείσιμο παραθύρου
+    collapsible_list:
+      hidden_elements_count:
+        one: και %{count} ακόμη
+        other: και %{count} ακόμη
+      see_less: "(προβολή λιγότερων)"
+      see_more: "(προβολή περισσότερων)"
+    components:
+      component_order_selector:
+        no_content: Δεν ήταν δυνατή η εύρεση περιεχομένου με αυτά τα κριτήρια
+        order:
+          all_types: Όλοι οι τύποι
+          collaborative_draft: Προσχέδιο συνεργασίας
+          comment: Σχόλιο
+          debate: Συζήτηση
+          initiative: Πρωτοβουλία
+          meeting: Σύσκεψη
+          post: Δημοσίευση
+          proposal: Πρόταση
+          question: Ερώτηση
+        title: 'Εμφάνιση:'
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Εικονικό στοιχείο
+        settings:
+          global:
+            amendments_enabled: Οι τροποποιήσεις ενεργοποιήθηκαν
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            dummy_global_attribute_1: Εικονικό χαρακτηριστικό 1
+            dummy_global_attribute_2: Εικονικό χαρακτηριστικό 2
+            dummy_global_translatable_text: Εικονικό μετατρέψιμο κείμενο
+            enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
+            resources_permissions_enabled: Τα δικαιώματα πόρων ενεργοποιήθηκαν
+          step:
+            amendment_creation_enabled: Η δημιουργία τροποποίησης ενεργοποιήθηκε
+            amendment_promotion_enabled: Η προώθηση τροποποίησης ενεργοποιήθηκε
+            amendment_reaction_enabled: Η αντίδραση στην τροποποίηση ενεργοποιήθηκε
+            amendments_visibility: Ορατότητα τροποποίησης
+            comments_blocked: Τα σχόλια αποκλείστηκαν
+            dummy_step_attribute_1: Εικονικό χαρακτηριστικό βήματος 1
+            dummy_step_attribute_2: Εικονικό χαρακτηριστικό βήματος 2
+            dummy_step_translatable_text: Εικονικό μετατρέψιμο κείμενο βήματος
+    contact: Επικοινωνία
+    content_blocks:
+      footer_sub_hero:
+        name: Δευτερεύον κύριο διαφημιστικό πλαίσιο υποσέλιδου
+      hero:
+        name: Κύρια εικόνα
+      hero_settings_form:
+        background_image: Εικόνα φόντου
+        welcome_text: Κείμενο καλωσορίσματος
+      highlighted_content_banner:
+        name: Επισημασμένο διαφημιστικό πλαίσιο περιεχομένου
+      how_to_participate:
+        name: Τρόπος συμμετοχής
+      html:
+        html_content: Περιοχή HTML
+        name: Μπλοκ HTML
+      last_activity:
+        name: Τελευταία δραστηριότητα
+        title: Τελευταία δραστηριότητα
+        view_all: Προβολή όλων
+      metrics:
+        name: Μετρικά οργανισμού
+      stats:
+        name: Στατιστικά στοιχεία οργανισμού
+      sub_hero:
+        name: Δευτερεύον κύριο διαφημιστικό πλαίσιο
+    core:
+      actions:
+        login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση
+        unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια
+    data_portability:
+      export:
+        ready: Έτοιμο
+      show:
+        download_data: Πραγματοποιήστε λήψη των δεδομένων
+        download_data_description: Ένα αρχείο με όλες τις πληροφορίες που σχετίζονται με τον λογαριασμό θα σταλεί στη διεύθυνση <strong>%{user_email}</strong>
+        request_data: Αίτηση για δεδομένα
+    datepicker:
+      help_text: 'Αναμενόμενη μορφή: %{datepicker_format}'
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Ένας άλλος λογαριασμός χρησιμοποιεί την ίδια διεύθυνση email
+        new:
+          complete_profile: Πλήρες προφίλ
+          nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}
+          sign_up: Συμπληρώστε το προφίλ σας
+          subtitle: Συμπληρώστε την παρακάτω φόρμα για να ολοκληρώσετε την εγγραφή
+          username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
+      registrations:
+        new:
+          already_have_an_account?: Έχετε ήδη λογαριασμό;
+          newsletter: Λάβετε ένα περιστασιακό ενημερωτικό δελτίο με σχετικές πληροφορίες
+          newsletter_title: Άδεια επικοινωνίας
+          nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}
+          password_help: "Τουλάχιστον %{minimun_characters} χαρακτήρες, δεν πρέπει να είναι πολύ συνηθισμένο (π.χ. 123456) και πρέπει να διαφέρει από το ψευδώνυμο και το email σας."
+          sign_in: Σύνδεση
+          sign_up: Εγγραφή
+          sign_up_as:
+            legend: Εγγραφή ως
+          subtitle: Εγγραφείτε για να συμμετάσχετε σε συζητήσεις και προτάσεις υποστήριξης.
+          terms: όρους και προϋποθέσεις χρήσης
+          tos_agreement: Με την εγγραφή σας συμφωνείτε με τους %{link}.
+          tos_title: Όροι χρήσης υπηρεσίας
+          username_help: Το δημόσιο όνομα που εμφανίζεται στις δημοσιεύσεις σας. Με σκοπό τη διασφάλιση της ανωνυμίας, μπορεί να είναι οποιοδήποτε όνομα.
+      sessions:
+        new:
+          are_you_new?: Είστε νέοι στην πλατφόρμα;
+          register: Δημιουργία λογαριασμού
+          sign_in_disabled: Μπορείτε να αποκτήσετε πρόσβαση με εξωτερικό λογαριασμό
+          sign_up_disabled: Η εγγραφή είναι απενεργοποιημένη, μπορείτε να χρησιμοποιήσετε έναν υπάρχοντα λογαριασμό για πρόσβαση
+      shared:
+        newsletter_modal:
+          buttons:
+            check: Επιλογή και συνέχεια
+            close_modal: Κλείσιμο βοηθητικού στοιχείου
+            uncheck: Διατήρηση χωρίς επιλογή
+          notice: |-
+            <p>Είστε βέβαιοι ότι δεν θέλετε να λαμβάνετε ενημερωτικό δελτίο;<br>
+            Σκεφτείτε ξανά το ενδεχόμενο να επιλέξετε το πλαίσιο ελέγχου του ενημερωτικού δελτίου παρακάτω.<br>
+            Είναι πολύ σημαντικό για εμάς να λαμβάνετε περιστασιακά email
+            για να κάνετε σημαντικές ανακοινώσεις. Μπορείτε πάντα να αλλάξετε αυτήν
+            την επιλογή στη σελίδα ρυθμίσεων των ειδοποιήσεων.</p>
+            <p>Εάν δεν επιλέξετε το πλαίσιο, ενδέχεται να λείπουν σχετικές πληροφορίες
+            σχετικά με νέες ευκαιρίες συμμετοχής στην πλατφόρμα.<br>
+            Εάν εξακολουθείτε να θέλετε να αποφύγετε τη λήψη ενημερωτικών δελτίων, κατανοούμε
+            απόλυτα την απόφασή σας.</p>
+            <p>Ευχαριστούμε που διαβάσατε αυτό το μήνυμα!</p>
+          title: Ειδοποιήσεις ενημερωτικών δελτίων
+        omniauth_buttons:
+          or: Ή
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Εξουσιοδότηση εφαρμογής
+          by_organization_link_html: <small class="heading-small">από %{link}</small>
+          cancel: Ακύρωση
+          connect_your_account_html: Συνδέστε τον λογαριασμό σας πραγματοποιώντας είσοδο στον οργανισμό <strong>%{organization}</strong>
+          publish_content: Δημοσίευση περιεχομένου για εσάς
+          see_email: Δείτε τα email σας
+          see_name: Δείτε το όνομά σας
+          see_username: Δείτε το ψευδώνυμό σας
+          this_application_will_be_able_to: 'Αυτή η εφαρμογή θα μπορεί να:'
+          this_application_will_not_be_able_to: 'Αυτή η εφαρμογή δεν θα μπορεί να:'
+          update_profile: Ενημερώστε το προφίλ σας
+          wants_to_use_your_account_html: "Η εφαρμογή <strong>%{application_name}</strong> θέλει να χρησιμοποιήσει τον λογαριασμό σας"
     endorsable:
+      endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
+    endorsement_buttons_cell:
+      already_endorsed: Με επιδοκιμασία
+      endorse: Επιδοκιμασία
+    endorsements:
+      identities:
+        done: Τέλος
+        select_identity: Επιλέξτε ταυτότητα
+    errors:
+      internal_server_error:
+        title: Υπήρξε ένα πρόβλημα με τον διακομιστή μας
+        try_later: Δοκιμάστε ξανά αργότερα.
+      not_found:
+        back_home: Επιστροφή στην αρχική
+        content_doesnt_exist: Αυτή η διεύθυνση είναι εσφαλμένη ή έχει καταργηθεί.
+        title: Δεν είναι δυνατή η εύρεση της σελίδας που αναζητάτε
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
+            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
+            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Μια τροποποίηση έγινε δεκτή για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Αποδεκτή τροποποίηση για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
+            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> έγινε δεκτή για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_created:
+          affected_user:
+            email_intro: 'Μια νέα τροποποίηση δημιουργήθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
+            email_subject: Νέα τροποποίηση για %{amendable_title}
+            notification_title: Μια νέα τροποποίηση δημιουργήθηκε για <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Μια νέα τροποποίηση δημιουργήθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Νέα τροποποίηση για %{amendable_title}
+            notification_title: Μια νέα τροποποίηση δημιουργήθηκε για <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
+            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
+            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+          follower:
+            email_intro: 'Μια τροποποίηση που απορρίφθηκε για %{amendable_title} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Μια τροποποίηση από τον συντάκτη %{emendation_author_nickname} δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type}
+            notification_title: Μια <a href="%{emendation_path}">τροποποίηση που απορρίφθηκε</a> για <a href="%{amendable_path}">%{amendable_title}</a> δημοσιεύτηκε ως νέος τύπος τροποποίησης %{amendable_type} από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+        amendment_rejected:
+          affected_user:
+            email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης της τροποποίησης %{amendable_title}.
+            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
+            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
+          follower:
+            email_intro: 'Μια τροποποίηση απορρίφθηκε για %{amendable_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση %{amendable_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Η τροποποίηση απορρίφθηκε για %{amendable_title} από τον συντάκτη %{emendation_author_nickname}
+            notification_title: Η <a href="%{emendation_path}">τροποποίηση</a> που δημιουργήθηκε από τον συντάκτη <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> απορρίφθηκε για την τροποποίηση <a href="%{amendable_path}">%{amendable_title}</a>.
+      attachments:
+        attachment_created:
+          email_intro: 'Ένα νέο έγγραφο προστέθηκε στο στοιχείο %{resource_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε το στοιχείο %{resource_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στο στοιχείο %{resource_title}
+          notification_title: Ένα <a href="%{resource_path}">νέο έγγραφο</a> προστέθηκε στο στοιχείο <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Το στοιχείο %{resource_title} είναι πλέον ενεργό για τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Το στοιχείο %{resource_title} είναι πλέον ενεργό για τον χώρο συμμετοχής <a href="%{resource_path}">%{participatory_space_title}</a>
+      email_event:
+        email_greeting: Γεια σας %{user_name},
+        email_intro: 'Υπάρχει μια ενημέρωση στο στοιχείο «%{resource_title}». Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+        email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{resource_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+        email_subject: Μια ενημέρωση στο στοιχείο %{resource_title}
+      gamification:
+        badge_earned:
+          email_intro: Συγχαρητήρια! Κερδίσατε το έμβλημα <a href="%{resource_url}">%{badge_name}</a> (επίπεδο %{current_level}).
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
+          email_subject: 'Έχετε κερδίσει ένα νέο έμβλημα: %{badge_name}!'
+          notification_title: Συγχαρητήρια! Κερδίσατε το έμβλημα <a href="%{resource_path}">%{badge_name}</a> (επίπεδο %{current_level}).
+        level_up:
+          email_intro: Συγχαρητήρια! Φτάσατε το επίπεδο %{current_level} στο έμβλημα <a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
+          email_subject: Φτάσατε το επίπεδο %{current_level} στο έμβλημα %{badge_name}!
+          notification_title: Συγχαρητήρια! Φτάσατε το επίπεδο %{current_level} στο έμβλημα <a href="%{resource_path}">%{badge_name}</a>!
+      groups:
+        demoted_membership:
+          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> κατάργησε τα δικαιώματα διαχειριστή σας σε αυτήν την ομάδα.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε μέλος αυτής της ομάδας.
+          email_subject: Δεν είστε πλέον διαχειριστής της ομάδας %{user_group_name}!
+          notification_title: Δεν είστε πλέον διαχειριστής της ομάδας <a href="%{resource_path}">%{user_group_name}</a>.
+        invited_to_group:
+          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σας προσκάλεσε να συμμετάσχετε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή έχετε προσκληθεί σε μια ομάδα. Ελέγξτε την καρτέλα Ομάδες στο προφίλ σας για να την εγκρίνετε.
+          email_subject: Έχετε προσκληθεί να συμμετάσχετε στην ομάδα %{user_group_name}!
+          notification_title: Έχετε προσκληθεί να συμμετάσχετε στην ομάδα <a href="%{resource_path}">%{user_group_name}</a>. Ελέγξτε τη <a href="%{groups_profile_tab_path}">σελίδα Ομάδες</a> στο προφίλ σας για να την εγκρίνετε!
+        join_request_accepted:
+          email_intro: Συγχαρητήρια! Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> αποδέχτηκε το αίτημα συμμετοχής σας.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή το αίτημα συμμετοχής σας ενημερώθηκε.
+          email_subject: Γίνατε δεκτός στην ομάδα %{user_group_name}!
+          notification_title: Γίνατε δεκτός στην ομάδα <a href="%{resource_path}">%{user_group_name}</a>.
+        join_request_created:
+          email_intro: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}. Μπορείτε να τον αποδεχτείτε ή να τον απορρίψετε από <a href="%{resource_url}">τη σελίδα μελών της ομάδας</a>.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή μπορείτε να διαχειριστείτε την ομάδα %{user_group_name}.
+          email_subject: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}!
+          notification_title: Κάποιος ζήτησε να συμμετάσχει στην ομάδα %{user_group_name}. Μπορείτε να τον αποδεχτείτε ή να τον απορρίψετε από <a href="%{resource_path}">τη σελίδα μελών της ομάδας</a>.
+        join_request_rejected:
+          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> απέρριψε το αίτημα συμμετοχής σας.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή το αίτημα συμμετοχής σας ενημερώθηκε.
+          email_subject: Το αίτημα συμμετοχής σας στην ομάδα %{user_group_name} απορρίφθηκε!
+          notification_title: Το αίτημα συμμετοχής σας στην ομάδα <a href="%{resource_path}">%{user_group_name}</a> απορρίφθηκε.
+        promoted_to_admin:
+          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σάς έδωσε δικαιώματα διαχειριστή σε αυτήν την ομάδα.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε μέλος αυτής της ομάδας.
+          email_subject: Είστε πλέον διαχειριστής της ομάδας %{user_group_name}!
+          notification_title: Είστε πλέον διαχειριστής της ομάδας <a href="%{resource_path}">%{user_group_name}</a>.
+        removed_from_group:
+          email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> σας κατάργησε από αυτήν.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ήσασταν μέλος αυτής της ομάδας.
+          email_subject: Καταργηθήκατε από την ομάδα %{user_group_name}!
+          notification_title: Καταργηθήκατε από την ομάδα <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Δημιουργήθηκε μια νέα ομάδα χρηστών με το όνομα %{user_group_name}. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_url}">πίνακα διαχειριστή</a>.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
+          email_subject: Δημιουργήθηκε μια νέα ομάδα χρηστών
+          notification_title: Η ομάδα χρηστών %{user_group_name} δημιουργήθηκε. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_path}">πίνακα διαχειριστή</a>.
+        user_group_updated:
+          email_intro: Μια ομάδα χρηστών με το όνομα %{user_group_name} ενημέρωσε το προφίλ της, αφήνοντάς την χωρίς επαλήθευση. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_url}">πίνακα διαχειριστή</a>.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής της πλατφόρμας.
+          email_subject: Μια ομάδα χρηστών ενημέρωσε το προφίλ της
+          notification_title: Η ομάδα χρηστών %{user_group_name} ενημέρωσε το προφίλ της, αφήνοντάς την χωρίς επαλήθευση. Τώρα μπορείτε να την επαληθεύσετε στον <a href="%{groups_admin_path}">πίνακα διαχειριστή</a>.
+      notification_event:
+        notification_title: Παρουσιάστηκε μια εκδήλωση στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: 'Ο υποστηρικτής %{endorser_name} %{endorser_nickname}, τον οποίο ακολουθείτε, μόλις επιδοκίμασε το στοιχείο «%{resource_title}» και πιστεύουμε ότι μπορεί να σας ενδιαφέρει. Δείτε το και συνεισφέρετε:'
+        email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον υποστηρικτή %{endorser_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+        email_subject: "Ο υποστηρικτής %{endorser_nickname} πραγματοποίησε μια νέα επιδοκιμασία"
+        notification_title: Το στοιχείο <a href="%{resource_path}">%{resource_title}</a> %{resource_type} επιδοκιμάστηκε από τον υποστηρικτή <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      users:
+        profile_updated:
+          email_intro: Η <a href="%{resource_url}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον/την %{nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: "Ο/η %{nickname} ενημέρωσε το προφίλ του/της"
+          notification_title: Η <a href="%{resource_path}">σελίδα προφίλ</a> του υποστηρικτή %{name} (%{nickname}), τον οποίο ακολουθείτε, έχει ενημερωθεί.
+    export_mailer:
+      data_portability_export:
+        click_button: 'Κάντε κλικ στο επόμενο κουμπί για να πραγματοποιήσετε λήψη των δεδομένων σας. <br/> Θα έχετε το αρχείο διαθέσιμο έως τις %{date}. <br/> Θα χρειαστείτε το <a href=''https://www.7-zip.org/''>7-Zip</a> για να το ανοίξετε. Κωδικός πρόσβασης: %{password}'
+        download: Λήψη
+      export:
+        ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
+      subject: Η εξαγωγή «%{name}» είναι έτοιμη
+    filters:
+      linked_classes:
+        all: Όλα
+        collaborative_draft: Προσχέδιο συνεργασίας
+        dummy_resource: Εικονικοί πόροι
+        meeting: Συσκέψεις
+        project: Έργα
+        proposal: Προτάσεις
+        result: Αποτελέσματα
     fingerprint:
-      check: Έλεγχος αποτυπώματος για %{resource_name}
+      check: Check fingerprint
+      explanation: Το παρακάτω κείμενο είναι μια συντομευμένη, κατακερματισμένη αντιπροσώπευση αυτού του περιεχομένου. Είναι χρήσιμο να διασφαλιστεί ότι το περιεχόμενο δεν έχει παραβιαστεί, καθώς μία μόνο τροποποίηση θα έχει ως αποτέλεσμα μια εντελώς διαφορετική τιμή.
+      online_calculator_name: Ηλεκτρονική αριθμομηχανή MD5
+      replicate_help: Αυτό το δακτυλικό αποτύπωμα υπολογίζεται χρησιμοποιώντας έναν αλγόριθμο κατακερματισμού SHA256. Για να το αναπαραγάγετε μόνοι σας, μπορείτε να χρησιμοποιήσετε μια ηλεκτρονική αριθμομηχανή %{online_calculator_link} και να αντιγράψετε/επικολλήσετε τα δεδομένα προέλευσης.
+      source: Πηγή
+      title: Δακτυλικό αποτύπωμα
+      value: Τιμή
     followers:
       followers_count:
         one: "%{count} ακόλουθος"
         other: "%{count} ακόλουθοι"
+      no_followers: Δεν υπάρχουν ακόμη ακόλουθοι.
+    following:
+      no_followings: Δεν ακολουθεί κανέναν ή τίποτα ακόμη.
     follows:
       create:
+        button: Παρακολούθηση
+        error: Υπήρξε ένα πρόβλημα κατά την παρακολούθηση αυτού του πόρου.
         participatory_space: Ακολουθείτε ήδη το <span class="show-for-sr">%{resource_name}</span>
+      destroy:
+        button: Διακοπή παρακολούθησης
+        error: Υπήρξε ένα πρόβλημα κατά τη διακοπή παρακολούθησης αυτού του πόρου.
     forms:
+      current_file: Τρέχον αρχείο
+      current_image: Τρέχουσα εικόνα
+      default_image: Προεπιλεγμένη εικόνα
+      errors:
+        decidim/user:
+          password: Ο κωδικός πρόσβασης είναι πολύ μικρός.
+          password_confirmation: Η επιβεβαίωση κωδικού πρόσβασης πρέπει να ταιριάζει με τον κωδικό πρόσβασης.
+        error: Υπάρχει σφάλμα σε αυτό το πεδίο.
       file_help:
         file:
           explanation: 'Οδηγίες για αρχείο:'
@@ -210,13 +673,159 @@ el:
       file_validation:
         allowed_file_extensions: 'Επιτρεπόμενα είδη αρχείου: %{extensions}'
         max_file_size: 'Μέγιστο μέγεθος αρχείου: %{megabytes}MB'
+      remove_this_file: Καταργήστε αυτό το αρχείο
+    gamification:
+      all_badges_link: Δείτε όλα τα διαθέσιμα εμβλήματα.
+      badges:
+        followers:
+          conditions:
+            - Εάν είστε ενεργοί και ακολουθείτε άλλα άτομα, σίγουρα θα ενθαρρύνετε άλλα άτομα να σας ακολουθήσουν.
+          description: Αυτό το έμβλημα χορηγείται όταν φτάνετε έναν συγκεκριμένο αριθμό ακολούθων. Ο οργανισμός %{organization_name} είναι ένα κοινωνικό και πολιτικό δίκτυο. Υφάνετε τον ιστό σας για να επικοινωνήσετε με άλλα άτομα στην πλατφόρμα.
+          description_another: Αυτός ο συμμετέχων έχει %{score} ακολούθους.
+          description_own: "%{score} άτομα σας ακολουθούν."
+          name: Ακόλουθοι
+          next_level_in: Πρέπει να σας ακολουθήσουν %{score} ακόμη άτομα για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει ακόμη ακολούθους.
+          unearned_own: Δεν έχετε ακόμα ακολούθους.
+        index:
+          badge_title: "Έμβλημα %{name}"
+          how: Πώς μπορείτε να το κερδίσετε
+          page_description: Τα εμβλήματα αποτελούν αναγνώριση ενεργειών των συμμετεχόντων και της προόδου στην πλατφόρμα. Καθώς αρχίζετε να ανακαλύπτετε, να συμμετέχετε και να αλληλεπιδράτε στην πλατφόρμα, θα κερδίσετε διάφορα εμβλήματα. Ακολουθεί η λίστα εμβλημάτων και ορισμένοι τρόποι με τους οποίους μπορείτε να τα κερδίσετε.
+          title: Εμβλήματα
+        invitations:
+          conditions:
+            - Χρησιμοποιήστε τον σύνδεσμο «πρόσκληση φίλων» στη σελίδα χρήστη σας για να προσκαλέσετε τους φίλους σας
+            - Προσαρμόστε, εάν θέλετε, το μήνυμα που στέλνετε
+            - Θα αναβαθμιστείτε στο επόμενο επίπεδο με την αποστολή προσκλήσεων και την εγγραφή τους.
+          description: Αυτό το έμβλημα χορηγείται όταν έχετε προσκαλέσει κάποια άτομα και έχουν αφιερώσει λίγο χρόνο για να εγγραφούν στον οργανισμό %{organization_name} και να συμμετάσχουν. Σας ευχαριστούμε που γνωστοποιείτε τον οργανισμό %{organization_name} σε άλλους και συμβάλετε στην επέκταση της κοινότητας!
+          description_another: Αυτός ο συμμετέχων έχει προσκαλέσει %{score} άτομα.
+          description_own: Έχετε προσκαλέσει %{score} άτομα.
+          name: Προσκλήσεις
+          next_level_in: Προσκαλέστε %{score} ακόμη άτομα για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει προσκαλέσει ακόμη κανέναν.
+          unearned_own: Δεν έχετε προσκαλέσει κανέναν ακόμη.
+      description: Τα εμβλήματα αποτελούν αναγνώριση ενεργειών των συμμετεχόντων και της προόδου στην πλατφόρμα. Καθώς αρχίζετε να ανακαλύπτετε, να συμμετέχετε και να αλληλεπιδράτε στην πλατφόρμα, θα κερδίσετε διάφορα εμβλήματα.
+      level: Επίπεδο %{level}
+      reached_top: Φτάσατε στο ανώτατο επίπεδο για αυτό το έμβλημα.
+    group_admins:
+      actions:
+        are_you_sure: Είσαι βέβαιοι; Αυτό δεν θα καταργήσει τον συμμετέχοντα από την ομάδα.
+        demote_admin: Κατάργηση διαχειριστή
+      demote:
+        error: Υπήρξε ένα πρόβλημα κατά την κατάργηση αυτού του συμμετέχοντα από τη λίστα διαχειριστών
+        success: Ο συμμετέχων καταργήθηκε με επιτυχία από τον διαχειριστή
+      index:
+        current_admins: 'Τρέχοντες διαχειριστές:'
+        manage_admins: Διαχείριση διαχειριστών
     group_invites:
+      accept:
+        error: Υπήρξε ένα πρόβλημα κατά την αποδοχή αυτής της πρόσκλησης
+        success: Η πρόσκληση έγινε αποδεκτή με επιτυχία
       accept_invitation: Αποδοχή
+      accept_or_reject_group_invitations: 'Οι ακόλουθες ομάδες σας προσκάλεσαν να συμμετάσχετε σε αυτές. Αποδεχτείτε ή απορρίψτε τα αιτήματά τους:'
+      index:
+        invite: Πρόσκληση
+        invite_user: Προσκαλέστε έναν συμμετέχοντα
+      invite:
+        error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση αυτού του συμμετέχοντα
+        success: Ο συμμετέχων προσκλήθηκε με επιτυχία
+      reject:
+        error: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της πρόσκλησης
+        success: Η πρόσκληση απορρίφθηκε με επιτυχία
       reject_invitation: Απόρριψη
+    group_members:
+      accept:
+        error: Υπήρξε ένα πρόβλημα κατά την αποδοχή αυτού του αιτήματος συμμετοχής
+        success: Το αίτημα συμμετοχής έγινε δεκτό με επιτυχία
+      actions:
+        are_you_sure: Είστε βέβαιοι;
+        promote_to_admin: Ορισμός διαχειριστή
+        remove_from_group: Κατάργηση συμμετέχοντα
+      index:
+        current_members_without_admins: 'Τρέχοντα μέλη (χωρίς διαχειριστές):'
+        manage_members: Διαχείριση μελών
+      promote:
+        error: Υπήρξε ένα πρόβλημα κατά την προώθηση αυτού του συμμετέχοντα
+        success: Ο συμμετέχων αναβαθμίστηκε με επιτυχία
+      reject:
+        error: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτού του αιτήματος συμμετοχής
+        success: Το αίτημα συμμετοχής απορρίφθηκε με επιτυχία
+      remove:
+        error: Υπήρξε ένα πρόβλημα κατά την κατάργηση αυτού του συμμετέχοντα από την ομάδα
+        success: Ο συμμετέχων καταργήθηκε με επιτυχία από την ομάδα
     groups:
+      actions:
+        are_you_sure: Είστε βέβαιοι;
+      create:
+        error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της ομάδας
+        success: Η ομάδα δημιουργήθηκε με επιτυχία
+      edit:
+        edit_user_group: Επεξεργασία ομάδας
+        update_user_group: Ενημέρωση ομάδας
+      form:
+        document_number_help: Μην χρησιμοποιείτε παύλες και κενά
+        email_help: Διεύθυνση email του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ.
+        fill_in_for_verification: 'Συμπληρώστε αυτά τα πεδία εάν θέλετε να επαληθευτεί η ομάδα σας:'
+        name_help: Όνομα του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ.
+        nickname_help: Ψευδώνυμο του οργανισμού σας, του συλλόγου, του συνεταιρισμού, της ομάδας κ.λπ. Μην χρησιμοποιείτε κενά και τόνους.
+        phone_help: Μην χρησιμοποιείτε παύλες και κενά
+      join:
+        error: Υπήρξε ένα πρόβλημα κατά τη συμμετοχή στην ομάδα
+        success: Το αίτημα συμμετοχής δημιουργήθηκε με επιτυχία. Ένας διαχειριστής θα εξετάσει το αίτημά σας προτού σας δεχτεί στην ομάδα.
+      leave:
+        error: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από την ομάδα
+        success: Αποχωρήσατε από την ομάδα με επιτυχία.
       members:
+        accept_or_reject_join_requests: 'Οι ακόλουθοι χρήστες υπέβαλαν αίτημα να συμμετάσχουν σε αυτήν την ομάδα. Αποδεχτείτε ή απορρίψτε τα αιτήματά τους:'
         accept_request: Αποδοχή
         reject_request: Απόρριψη
+      new:
+        create_user_group: Δημιουργία ομάδας
+        new_user_group: Νέα ομάδα
+        subtitle: Δημιουργήστε μια ομάδα και προσκαλέστε άλλους χρήστες να συμμετάσχουν σε συλλογικό επίπεδο.
+      no_user_groups: Δεν ανήκει σε καμία ομάδα ακόμα.
+      roles:
+        admin: Διαχειριστής
+        creator: Δημιουργός
+        member: Μέλος
+      update:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της ομάδας
+        success: Η ομάδα ενημερώθηκε με επιτυχία
+    help:
+      main_topic:
+        default_page:
+          content: "<p>Στον οργανισμό %{organization} μπορείτε να συμμετάσχετε και να αποφασίσετε για διαφορετικά θέματα, μέσα από τους χώρους που βλέπετε στο επάνω μενού: Διαδικασίες, Συνελεύσεις, Πρωτοβουλίες, Διαβουλεύσεις.</p> <p>Σε κάθε χώρο, θα βρείτε διάφορες επιλογές για συμμετοχή: υποβολή προτάσεων -μεμονωμένα ή με άλλα άτομα-, συμμετοχή σε συζητήσεις, προτεραιότητα έργων προς υλοποίηση, παρακολούθηση προσωπικών συσκέψεων και άλλες δράσεις.</p>"
+          title: Τι μπορώ να κάνω στον οργανισμό %{organization};
+        description: Διαβάστε περισσότερα για τον οργανισμό %{organization}
+        title: Γενική βοήθεια
+    last_activities:
+      activities:
+        no_activities_warning: Δεν υπάρχει δραστηριότητα
+      all: Όλοι οι τύποι δραστηριότητας
+      index:
+        last_activity: Τελευταία δραστηριότητα
+        resource_type: Τύπος
+    log:
+      base_presenter:
+        create: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name}"
+        create_with_space: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name} στον χώρο %{space_name}"
+        delete: "Ο χρήστης %{user_name} διέγραψε το στοιχείο %{resource_name}"
+        delete_with_space: "Ο χρήστης %{user_name} διέγραψε το στοιχείο %{resource_name} στον χώρο %{space_name}"
+        unknown_action: "Ο χρήστης %{user_name} πραγματοποίησε κάποια ενέργεια στο στοιχείο %{resource_name}"
+        unknown_action_with_space: "Ο χρήστης %{user_name} πραγματοποίησε κάποια ενέργεια στο στοιχείο %{resource_name} στον χώρο %{space_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name}"
+        update_with_space: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name} στον χώρο %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'Ο τομέας δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+        area_type_presenter:
+          not_found: 'Ο τύπος τομέα δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+        scope_presenter:
+          not_found: 'Το πεδίο εφαρμογής δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+        scope_type_presenter:
+          not_found: 'Ο τύπος πεδίου εφαρμογής δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+    managed_users:
+      expired_session: Η τρέχουσα συνεδρία διαχείρισης ενός συμμετέχοντα έχει λήξει.
     map:
       dynamic:
         screen_reader_explanation: Το ακόλουθο στοιχείο είναι ένας χάρτης που παρουσιάζει τα στοιχεία αυτής της σελίδας ως σημεία χάρτη. Το στοιχείο μπορεί να χρησιμοποιηθεί με ένα πρόγραμμα ανάγνωσης οθόνης, αλλά μπορεί να είναι δύσκολο να γίνει κατανοητό.
@@ -224,37 +833,327 @@ el:
       static:
         latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Αυτή η ομάδα δεν έχει ακόμη μέλη.
+    menu:
+      help: Βοήθεια
+      home: Αρχική σελίδα
     messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο διαχειριστής %{manager} ξεκίνησε μια νέα συνομιλία στο όνομα της ομάδας %{group}. Κάντε κλικ εδώ για να την δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: "Ο διαχειριστής %{manager} ξεκίνησε μια νέα συνομιλία ως ομάδα %{group}"
+        comanagers_new_message:
+          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο διαχειριστής %{manager} δημοσίευσε νέα μηνύματα σε μια συνομιλία στο όνομα της ομάδας %{group}. Κάντε κλικ εδώ για να τα δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: "Ο διαχειριστής %{manager} έστειλε νέα μηνύματα ως ομάδα %{group}"
+        new_conversation:
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο αποστολέας %{sender} ξεκίνησε μια νέα συνομιλία μαζί σας. Κάντε κλικ εδώ για να την δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: "Ο αποστολέας %{sender} ξεκίνησε μια συνομιλία μαζί σας"
+        new_group_conversation:
+          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο αποστολέας %{sender} ξεκίνησε μια νέα συνομιλία με την ομάδα %{group}. Κάντε κλικ εδώ για να την δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: "Ο αποστολέας %{sender} ξεκίνησε μια συνομιλία με την ομάδα %{group}"
+        new_group_message:
+          admin_in_group: Λαμβάνετε αυτό το μήνυμα επειδή είστε διαχειριστής της ομάδας %{group}.
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο αποστολέας %{sender} δημοσίευσε νέα μηνύματα σε μια συνομιλία με την ομάδα %{group}. Κάντε κλικ εδώ για να τα δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: "Η ομάδα %{group} έχει νέα μηνύματα από τον αποστολέα %{sender}"
+        new_message:
+          greeting: Γεια σου, %{recipient}!
+          intro: "Ο αποστολέας %{sender} δημοσίευσε νέα μηνύματα στη συνομιλία σας. Κάντε κλικ εδώ για να τα δείτε:"
+          outro: Απολαύστε το decidim!
+          subject: Έχετε νέα μηνύματα από τον αποστολέα %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Προσθήκη χρηστών στη συνομιλία: έως 9 χρήστες'
+          add_users_placeholder: Αναζήτηση...
+          modal_title: Νέα συνομιλία
+          no_results: Δεν υπάρχουν αποτελέσματα
+          participant_with_disabled_message_reception: Αυτός ο συμμετέχων έχει απενεργοποιήσει τη λήψη μηνυμάτων
         conversation:
           show: Δείξτε συζήτηση με %{sender}
+        create:
+          error: Η συνομιλία δεν ξεκίνησε. Δοκιμάστε ξανά αργότερα.
+        index:
+          ago: πριν
+          close: Κλείσιμο βοηθητικού στοιχείου
+          from: Από
+          groups: Οι ομάδες μου
+          last_message: Τελευταίο μήνυμα
+          new_conversation: Νέα συνομιλία
+          next: Επόμενο
+          no_conversations: Δεν έχετε ακόμα συνομιλίες
+          title: Συνομιλίες
+        reply:
+          placeholder: Η απάντησή σας...
+          send: Αποστολή
+          title: Απάντηση
         show:
           back: Πίσω σε όλες τις συνομιλίες
+          chat_with: Συνομιλία με
+          not_allowed: Αυτός ο χρήστης δεν δέχεται πλέον άμεσα μηνύματα.
+          title: Συνομιλία με τους χρήστες %{usernames}
+        start:
+          send: Αποστολή
+          title: Έναρξη συνομιλίας
+        update:
+          error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
     metrics:
+      download:
+        csv: Λήψη δεδομένων (csv)
+      followers:
+        description: Αριθμός συμμετεχόντων που ακολουθούν αυτόν τον χώρο συμμετοχής
+        object: ακόλουθοι
+        title: Ακόλουθοι
       participants:
+        description: Αριθμός ενεργών συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
         title: Συμμετέχοντες
       users:
+        description: Αριθμός συμμετεχόντων στον οργανισμό
         object: συμμετέχοντες
         title: Συμμετέχοντες
+    newsletter_mailer:
+      newsletter:
+        note: Λάβατε αυτό το email επειδή έχετε εγγραφεί σε ενημερωτικά δελτία στον οργανισμό %{organization_name}. Μπορείτε να αλλάξετε τις ρυθμίσεις σας στη <a href="%{link}">σελίδα ειδοποιήσεων</a>.
+        see_on_website: Δεν βλέπετε αυτό το email σωστά; Δείτε το στον <a href="%{link}" target="_blank">ιστότοπο</a>.
+        unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Εικονικό κείμενο σώματος: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Βασικό (μόνο κείμενο)
+      basic_only_text_settings_form:
+        body: Σώμα
+        interpolations_hint: 'Υπόδειξη: Μπορείτε να χρησιμοποιήσετε το όνομα «%{name}» οπουδήποτε στο σώμα ή το θέμα και θα αντικατασταθεί από το όνομα του παραλήπτη.'
+      image_text_cta:
+        body_preview: 'Εικονικό κείμενο σώματος: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Κείμενο κουμπιού «Call To Action»
+        introduction_preview: 'Εικονικό κείμενο εισαγωγής: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Εικόνα, κείμενο και κουμπί «Call To Action»
+      image_text_cta_settings_form:
+        body: Σώμα
+        cta_text: Κείμενο κουμπιού «Call To Action»
+        cta_url: Διεύθυνση URL κουμπιού «Call To Action»
+        interpolations_hint: 'Υπόδειξη: Μπορείτε να χρησιμοποιήσετε το όνομα «%{name}» οπουδήποτε στην εισαγωγή, το σώμα, το κείμενο CTA ή το θέμα και θα αντικατασταθεί από το όνομα του παραλήπτη.'
+        introduction: Εισαγωγή
+        main_image: Κύρια εικόνα
+    newsletters:
+      unsubscribe:
+        check_subscription: Εάν θέλετε να αλλάξετε τις προτιμήσεις σας, μπορείτε να το κάνετε στη <a href="%{link}" target="_blank">σελίδα διαμόρφωσης</a>
+        error: Υπήρξε ένα πρόβλημα κατά την κατάργηση εγγραφής
+        success: Καταργήσατε την εγγραφή σας με επιτυχία.
+        token_error: Ο σύνδεσμος έχει λήξει.
+        unsubscribe: Κατάργηση εγγραφής
+    newsletters_opt_in:
+      unathorized: Λυπούμαστε, αυτός ο σύνδεσμος δεν είναι πλέον διαθέσιμος
+      update:
+        error: Παρουσιάστηκε κάποιο πρόβλημα
+        success: Οι ρυθμίσεις του ενημερωτικού δελτίου ενημερώθηκαν με επιτυχία
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Η επεξεργασία των προσωπικών δεδομένων και η προστασία τους καθίστανται όλο και πιο σημαντικές για όλους μας. Με τον νέο Γενικό Κανονισμό για την Προστασία Δεδομένων (ΓΚΠΔ) της 25ης Μαΐου 2018, τα άτομα έχουν καλύτερο έλεγχο των προσωπικών τους δεδομένων. Για αυτόν τον λόγο, χρειαζόμαστε τη συγκατάθεσή σας για να συνεχίσουμε να στέλνουμε σχετικές πληροφορίες σχετικά με τις δραστηριότητες του οργανισμού %{organization_name}.
+        body_2: 'Πώς μπορείτε να μας παρέχετε τη συγκατάθεσή σας; Απλώς κάντε κλικ στο παρακάτω κουμπί:'
+        body_3: Με αυτήν τη συγκατάθεση, θα μπορείτε να συνεχίσετε να λαμβάνετε πληροφορίες σχετικά με τις υπηρεσίες της πλατφόρμας. Εάν, αντίθετα, δεν λάβουμε θετική επιβεβαίωση εκ μέρους σας, θα σταματήσουμε να σας στέλνουμε τα μηνύματά μας. Εάν επιβεβαιώσετε ότι θέλετε να συνεχίσετε να ενημερώνεστε, θα έχετε πάντα την επιλογή να ακυρώσετε τη συγκατάθεσή σας ανά πάσα στιγμή.
+        button: Ναι, θέλω να συνεχίσω να λαμβάνω σχετικές πληροφορίες
+        greetings: Γεια σας,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Γεια σας,
+        subject: Θέλετε να συνεχίσετε να λαμβάνετε σχετικές πληροφορίες για τον οργανισμό %{organization_name};
+    notifications:
+      no_notifications: Δεν υπάρχουν ακόμη ειδοποιήσεις.
+    notifications_settings:
+      show:
+        allow_public_contact: Να επιτρέπεται σε οποιονδήποτε να μου στέλνει άμεσο μήνυμα, ακόμα κι αν δεν τον ακολουθώ.
+        direct_messages: Να λαμβάνω άμεσα μηνύματα από οποιονδήποτε
+        email_on_notification: Θέλω να λαμβάνω email κάθε φορά που λαμβάνω ειδοποίηση.
+        everything_followed: Όλα όσα ακολουθώ
+        newsletter_notifications: Θέλω να λαμβάνω ενημερωτικά δελτία
+        newsletters: Ενημερωτικά δελτία
+        own_activity: Η δική μου δραστηριότητα, όπως όταν κάποιος σχολιάζει την πρότασή μου ή με αναφέρει
+        receive_notifications_about: Θέλω να λαμβάνω ειδοποιήσεις για
+        send_notifications_by_email: Αποστολή ειδοποιήσεων μέσω email
+        update_notifications_settings: Αποθήκευση αλλαγών
+      update:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων ειδοποιήσεων.
+        success: Οι ρυθμίσεις ειδοποιήσεων ενημερώθηκαν με επιτυχία.
+    open_data:
+      not_available_yet: Τα αρχεία Open Data δεν είναι ακόμη διαθέσιμα. Δοκιμάστε ξανά σε λίγα λεπτά.
+    own_user_groups:
+      index:
+        pending: Σε εκκρεμότητα
+        rejected: Απορρίφθηκε
+        verified: Επαληθεύτηκε
+    pad_iframe:
+      disclaimer: Τα περιεχόμενα αυτού του πίνακα σημειώσεων συντάσσονται από εγγεγραμμένους χρήστες και εκφράζουν τις απόψεις τους. Ο οργανισμός %{organization} δεν μπορεί να θεωρηθεί υπεύθυνος για το περιεχόμενό τους.
+      explanation: Χρησιμοποιήστε αυτόν τον πίνακα σημειώσεων για συλλογικές σημειώσεις κατά τη διάρκεια της σύσκεψης, ώστε να είναι πιο εύκολο να συντάξετε τα πρακτικά αργότερα.
+      pad: Πίνακας σημειώσεων
     pages:
       home:
         extended:
+          debates: Συζητήσεις
+          debates_explanation: Εξετάστε και συζητήστε, μοιραστείτε τις απόψεις σας και εμπλουτίστε τα σχετικά θέματα.
+          how_to_participate: Πώς μπορώ να λάβω μέρος σε μια διαδικασία;
+          meetings: Συσκέψεις
+          meetings_explanation: Μάθετε πού και πότε μπορείτε να συμμετάσχετε σε δημόσιες συσκέψεις.
           more_info: Περισσότερες πληροφορίες για %{resource_name}
+          proposals: Προτάσεις
+          proposals_explanation: Διατυπώστε προτάσεις, υποστηρίξτε υπάρχουσες και αναβαθμίστε τις αλλαγές που θέλετε να δείτε.
+        footer_sub_hero:
+          footer_sub_hero_body: Ας οικοδομήσουμε μια πιο ανοιχτή, διαφανή και συνεργατική κοινωνία.<br /> Εγγραφείτε, συμμετάσχετε και αποφασίστε.
+          footer_sub_hero_headline: Καλώς ορίσατε στην πλατφόρμα συμμετοχής του οργανισμού %{organization}.
+          register: Εγγραφή
+        hero:
+          participate: Συμμετοχή
+          welcome: Καλώς ορίσατε στον οργανισμό %{organization}!
+        metrics:
+          headline: Μετρικά
         statistics:
+          answers_count: Ολοκληρωμένες έρευνες
+          assemblies_count: Συνελεύσεις
+          comments_count: Σχόλια
+          conferences_count: Διασκέψεις
+          debates_count: Συζητήσεις
+          endorsements_count: Επιδοκιμασίες
+          headline: Τρέχουσα κατάσταση του οργανισμού %{organization}
+          meetings_count: Συσκέψεις
+          orders_count: Ψήφοι
+          pages_count: Σελίδες
+          processes_count: Διαδικασίες
+          projects_count: Έργα
+          proposals_accepted: Αποδεκτές προτάσεις
+          proposals_count: Προτάσεις
+          results_count: Αποτελέσματα
+          surveys_count: Έρευνες
           users_count: Συμμετέχοντες
+          votes_count: Ψήφοι
+        sub_hero:
+          register: Εγγραφή
+      index:
+        read_more: Διαβάστε περισσότερα
+        standalone_pages: Σελίδες
+        subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
+        title: Βοήθεια
+        topics: Θέματα
+      participatory_space:
+        metrics:
+          headline: Μετρικά
+          link: Εμφάνιση όλων των μετρικών
+      terms_and_conditions:
+        accept:
+          error: Υπήρξε ένα πρόβλημα κατά την αποδοχή των όρων και προϋποθέσεων.
+          success: Εξαιρετικά! Έχετε αποδεχτεί τους όρους και τις προϋποθέσεις.
+        form:
+          agreement: Συμφωνώ με αυτούς τους όρους
+          legend: Αποδοχή των όρων και των προϋποθέσεων χρήσης
+        refuse:
+          modal_body: Εάν αρνηθείτε, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα, μπορείτε να πραγματοποιήσετε <a href="%{data_portability_path}">λήψη των δεδομένων σας</a> ή/και <a href="%{delete_path}">διαγραφή του λογαριασμού σας</a>.
+          modal_btn_continue: Αποδοχή των όρων και συνέχεια
+          modal_btn_exit: Θα τους διαβάσω αργότερα
+          modal_button: Απόρριψη των όρων
+          modal_close: Κλείσιμο βοηθητικού στοιχείου
+          modal_title: Θέλετε πραγματικά να απορρίψετε τους ενημερωμένους Όρους και προϋποθέσεις;
+        required_review:
+          alert: Ενημερώσαμε τους Όρους χρήσης υπηρεσίας, διαβάστε τους.
+          body: Αφιερώστε λίγο χρόνο για να διαβάσετε τις ενημερώσεις στους Όρους χρήσης υπηρεσίας. Διαφορετικά, δεν θα μπορείτε να χρησιμοποιήσετε την πλατφόρμα.
+          title: 'Απαιτείται: Διαβάστε τις ενημερώσεις στους όρους χρήσης υπηρεσίας μας'
+    participatory_space_private_users:
+      not_allowed: Δεν επιτρέπεται η προβολή αυτού του περιεχομένου
+    profile:
+      deleted: Ο συμμετέχων διαγράφηκε
+      view: Προβολή
     profiles:
+      default_officialization_text_for_user_groups: Αυτή η ομάδα έχει επαληθευτεί δημόσια, το όνομά της έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό της όνομα
+      default_officialization_text_for_users: Αυτός ο συμμετέχων έχει επαληθευτεί δημόσια, το όνομα ή ο ρόλος του έχει επαληθευτεί ώστε να αντιστοιχεί στο πραγματικό όνομα και τον ρόλο του
       show:
+        activity: Δραστηριότητα
+        badges: Εμβλήματα
+        conversations: Συνομιλίες
+        followers: Ακόλουθοι
+        following: Ακολουθεί
         groups: Ομάδες
+        members: Μέλη
         officialized: Επίσημος συμμετέχων
+        timeline: Χρονοδιάγραμμα
+        view_full_profile: Εμφάνιση πλήρους προφίλ
+      sidebar:
+        badges:
+          info: Τα εμβλήματα κερδίζονται πραγματοποιώντας μια συγκεκριμένη δραστηριότητα στην πλατφόρμα.
+          title: Εμβλήματα
+      user:
+        confirmation_instructions_sent: Στάλθηκαν οδηγίες επιβεβαίωσης μέσω email
+        create_user_group: Δημιουργία ομάδας
+        edit_profile: Επεξεργασία προφίλ
+        edit_user_group: Επεξεργασία προφίλ ομάδας
+        fill_in_email_to_confirm_it: Συμπληρώστε τη διεύθυνση email της ομάδας σας για να την επιβεβαιώσετε
+        invite_user: Πρόσκληση συμμετέχοντα
+        join_user_group: Αίτημα συμμετοχής σε ομάδα
+        leave_user_group: Αποχώρηση από την ομάδα
+        manage_user_group_admins: Διαχείριση διαχειριστών
+        manage_user_group_users: Διαχείριση μελών
+        resend_email_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης μέσω email
+    reported_mailer:
+      hide:
+        hello: Γεια σας %{name},
+        manage_moderations: Διαχείριση εποπτεύσεων
+        report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αποκρύφτηκε αυτόματα.</p>
+        subject: Ένας πόρος αποκρύφτηκε αυτόματα
+      report:
+        hello: Γεια σας %{name},
+        manage_moderations: Διαχείριση εποπτεύσεων
+        report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αναφέρθηκε.</p>
+        subject: Έχει αναφερθεί ένας πόρος
+    reports:
+      create:
+        error: Παρουσιάστηκε σφάλμα κατά τη δημιουργία της αναφοράς. Δοκιμάστε ξανά.
+        success: Η αναφορά δημιουργήθηκε με επιτυχία και θα ελεγχθεί από έναν διαχειριστή.
+    resource_endorsements:
+      create:
+        error: Υπήρξε ένα πρόβλημα κατά την ενέργεια επιδοκιμασίας.
     scopes:
+      global: Καθολικό πεδίο εφαρμογής
       picker:
+        cancel: Ακύρωση
         change: Αλλαγή επιλεγμένου πεδίου εφαρμογής
+        choose: Επιλέξτε
         currently_selected: Τρέχων επιλεγμένο πεδίο εφαρμογής
+        title: Επιλέξτε πεδίο %{field}
+      prompt: Επιλέξτε πεδίο εφαρμογής
+      scopes: Πεδία εφαρμογής
       scopes_picker_input:
         select_scope: 'Επιλέξτε ένα πεδίο εφαρμογής (Τρέχων: %{current})'
     search:
       results: Αποτελέσματα αναζήτησης
+      results_found_for_term: '%{count} αποτελέσματα για την αναζήτηση του όρου: «%{term}»'
+      term_input_placeholder: Αναζήτηση
+    searches:
+      filters:
+        back: Επιστροφή στα αποτελέσματα
+        jump_to: 'Μετάβαση σε:'
+        state:
+          active: Ενεργές
+          all: Όλα
+          future: Μέλλον
+          past: Παρελθόν
+      filters_small_view:
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
+        filter: Φίλτρο
+        filter_by: Φιλτράρισμα κατά
+        unfold: Αποκάλυψη
+      results:
+        results:
+          one: "%{count} αποτέλεσμα"
+          other: "%{count} αποτελέσματα"
+        view_all: Προβολή όλων (%{count})
     shared:
       confirm_modal:
         cancel: Ακύρωση
@@ -263,31 +1162,294 @@ el:
         title: Επιβεβαίωση
       embed_modal:
         close_window: Κλείσιμο παραθύρου
+        embed: Επικολλήστε αυτόν τον κωδικό στη σελίδα σας
+        embed_link: Ενσωμάτωση
+      extended_navigation_bar:
+        more: Περισσότερα
+        unfold: Αποκάλυψη
       filter_form_help:
         help: Η παρακάτω φόρμα φιλτράρει δυναμικά τα αποτελέσματα αναζήτησης όταν αλλάζουν οι συνθήκες αναζήτησης.
         skip: Μεταβείτε στα αποτελέσματα
       flag_modal:
+        already_reported: Αυτό το περιεχόμενο έχει ήδη αναφερθεί και θα ελεγχθεί από έναν διαχειριστή.
+        close: Κλείσιμο
+        description: Αυτό το περιεχόμενο είναι ακατάλληλο;
+        does_not_belong: Περιέχει παράνομη δραστηριότητα, απειλές αυτοκτονίας, προσωπικά στοιχεία ή κάτι άλλο που πιστεύετε ότι δεν ανήκει στον οργανισμό %{organization_name}.
+        offensive: Περιέχει ρατσισμό, σεξισμό, δυσφημίσεις, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
+        report: Αναφορά
+        spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
         title: Αναφορά ακατάλληλου περιεχομένου
       floating_help:
         close: Κλείσιμο βοήθειας
+        help: Βοήθεια
+      follow_button:
+        sign_in_before_follow: Συνδεθείτε προτού εκτελέσετε αυτήν την ενέργεια
       login_modal:
         close_modal: Κλείσιμο παραθύρου
+        please_sign_in: Συνδεθείτε
+        sign_up: Εγγραφή
+      participatory_space_filters:
+        filters:
+          areas: Τομείς
+          select_an_area: Επιλέξτε τομέα
+      reference:
+        reference: 'Αναφορά: %{reference}'
+      represent_user_group:
+        represent_user_group: Εκπροσωπώ μια ομάδα
+        select_user_group: Επιλέξτε ομάδα
+      results_per_page:
+        label: 'Αποτελέσματα ανά σελίδα:'
+        title: Επιλέξτε αριθμό αποτελεσμάτων ανά σελίδα
       share_modal:
         close_window: Κλείσιμο παραθύρου
+        share: Κοινοποίηση
+        share_link: Κοινοποίηση συνδέσμου
     tags:
       filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
       filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
+    user_activity:
+      index:
+        no_activities_warning: Αυτός ο συμμετέχων δεν έχει ακόμη κάποια δραστηριότητα.
+    user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
+    user_conversations:
+      create:
+        error: Δεν ήταν δυνατή η δημιουργία του μηνύματος. Δοκιμάστε ξανά αργότερα
+        existing_error: Δεν ήταν δυνατή η δημιουργία του μηνύματος. Η συνομιλία υπάρχει ήδη. Δοκιμάστε ξανά τώρα.
+        success: Η συνομιλία ξεκίνησε με επιτυχία!
+      index:
+        add_max_users: 'Προσθήκη χρηστών στη συνομιλία: έως 9 χρήστες'
+        add_users_placeholder: Αναζήτηση...
+        close: Κλείσιμο
+        conversations_info: Οι συνομιλίες είναι ιδιωτικές. Κανείς άλλος δεν μπορεί να τις δει. Μια συνομιλία μπορεί να ξεκινήσει με οποιονδήποτε συμμετέχοντα ή ομάδα εγγεγραμμένη στην πλατφόρμα.
+        from: Από
+        last_message: Τελευταίο μήνυμα
+        modal_title: Νέα συνομιλία
+        new_conversation: Νέα συνομιλία
+        next: Επόμενο
+        no_conversations_warning: Δεν υπάρχουν ακόμη συνομιλίες.
+        no_results: Δεν υπάρχουν αποτελέσματα
+        participant_with_disabled_message_reception: Αυτός ο συμμετέχων έχει απενεργοποιήσει τη λήψη μηνυμάτων
+        time_ago: "%{time} πριν"
+      new:
+        title: Έναρξη συνομιλίας
+      reply:
+        placeholder: Η απάντησή σας...
+        send: Αποστολή
+        title_reply: Απάντηση
+      show:
+        not_allowed: Αυτός ο χρήστης δεν δέχεται πλέον άμεσα μηνύματα.
+        title: Συνομιλία με τους χρήστες %{usernames}
+      update:
+        error: Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά αργότερα.
+    user_interests:
+      show:
+        my_interests: Τα ενδιαφέροντά μου
+        no_scopes: Αυτός ο οργανισμός δεν έχει ακόμη πεδία εφαρμογής!
+        select_your_interests: Επιλέξτε τα θέματα που σας ενδιαφέρουν, για να λαμβάνετε εκδηλώσεις που σχετίζονται με αυτά στην καρτέλα Χρονοδιάγραμμα του προφίλ σας.
+        update_my_interests: Ενημέρωση των ενδιαφερόντων μου
+      update:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ενδιαφερόντων σας.
+        success: Τα ενδιαφέροντά σας ενημερώθηκαν με επιτυχία.
+    version:
+      show:
+        back_to_resource: Επιστροφή
+        changes_at_title: Αλλάζει σε «%{title}»
+        number_of_versions: Εκδόσεις
+        show_all_versions: Εμφάνιση όλων των εκδόσεων
+        version_author: Συντάκτης έκδοσης
+        version_created_at: Η έκδοση δημιουργήθηκε στις
+        version_number: Αριθμός έκδοσης
+        version_number_out_of_total: "%{current_version} από %{total_count}"
+    version_author:
+      show:
+        deleted: Διαγραμμένος συμμετέχων
     versions:
       resource_version:
-        see_other_versions: δείτε άλλες εκδόσεις του %{resource_name}
+        of_versions: "(από %{number})"
         version: Αριθμός έκδοσης %{number}
+    versions_list:
+      show:
+        back_to_resource: Επιστροφή
+        changes_at_title: Αλλάζει σε «%{title}»
+        number_of_versions: Εκδόσεις
+        title: Εκδόσεις
+    versions_list_item:
+      show:
+        version_index: Έκδοση %{index}
+    welcome_notification:
+      default_body: <p>Γεια σας {{name}}, ευχαριστούμε για τη συμμετοχή σας στον οργανισμό {{organization}} και σας καλωσορίζουμε!</p><ul><li>Εάν θέλετε να πάρετε μια γρήγορη ιδέα για το τι μπορείτε να κάνετε εδώ, ρίξτε μια ματιά στην ενότητα <a href="{{help_url}}">Βοήθεια</a>.</li><li>Μόλις τη διαβάσετε, θα λάβετε το πρώτο σας έμβλημα. Παρακάτω ακολουθεί μια <a href="{{badges_url}}">λίστα όλων των εμβλημάτων</a> που μπορείτε να λάβετε καθώς συμμετέχετε στον οργανισμό {{organization}}</li><li>Τέλος, συνδεθείτε με άλλα άτομα, και μοιραστείτε μαζί τους την εμπειρία της δέσμευσης και της συμμετοχής σας στον οργανισμό {{organization}}. Διατυπώστε προτάσεις, σχόλια, συζητήστε, σκεφτείτε πώς μπορείτε να συμβάλλετε στο κοινό καλό, παρέχετε επιχειρήματα για να πείσετε, ακούστε και διαβάστε για να πειστείτε, εκφράστε τις ιδέες σας με συγκεκριμένο και άμεσο τρόπο, απαντήστε με υπομονή και αποφασιστικά, υπερασπιστείτε τις ιδέες σας και διατηρήστε ανοιχτό μυαλό για να συνεργαστείτε και να λάβετε μέρος στις ιδέες άλλων ατόμων.</li></ul>
+      default_subject: Ευχαριστούμε για τη συμμετοχή σας στον οργανισμό {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Πίσω
+      wizard_header:
+        see_steps: δείτε τα βήματα
+        step_of: Βήμα %{current_step} από %{total_steps}
   devise:
+    confirmations:
+      confirmed: Η διεύθυνση email σας επιβεβαιώθηκε με επιτυχία.
+      new:
+        resend_confirmation_instructions: Επανάληψη αποστολής των οδηγιών επιβεβαίωσης
+      send_instructions: Θα λάβετε email με οδηγίες για τον τρόπο επιβεβαίωσης της διεύθυνσης email σας σε λίγα λεπτά.
+      send_paranoid_instructions: Εάν η διεύθυνση email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε email με οδηγίες για τον τρόπο επιβεβαίωσης της διεύθυνσης email σας σε λίγα λεπτά.
+    failure:
+      already_authenticated: Έχετε ήδη συνδεθεί.
+      inactive: Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα.
+      invalid: Μη έγκυρο κλειδί %{authentication_keys} ή κωδικός πρόσβασης.
+      invited: Έχετε μια πρόσκληση σε εκκρεμότητα, αποδεχτείτε την για να ολοκληρώσετε τη δημιουργία του λογαριασμού σας.
+      last_attempt: Έχετε μία ακόμη προσπάθεια προτού κλειδωθεί ο λογαριασμός σας.
+      locked: Ο λογαριασμός σας είναι κλειδωμένος.
+      not_found_in_database: Μη έγκυρο κλειδί %{authentication_keys} ή κωδικός πρόσβασης.
+      timeout: Η συνεδρία σας έληξε. Συνδεθείτε ξανά για να συνεχίσετε.
+      unauthenticated: Πρέπει να συνδεθείτε ή να εγγραφείτε για να συνεχίσετε.
+    invitations:
+      edit:
+        header: Ολοκληρώστε τη δημιουργία του λογαριασμού σας
+        nickname_help: Το ψευδώνυμό σας στον οργανισμό %{organization}.
+        submit_button: Αποθήκευση
+        subtitle: Εάν αποδεχτείτε την πρόσκληση, ορίστε το ψευδώνυμο και τον κωδικό πρόσβασής σας.
+      invitation_removed: Η πρόσκλησή σας καταργήθηκε.
+      invitation_token_invalid: Το διακριτικό πρόσκλησης που παρασχέθηκε δεν είναι έγκυρο!
+      new:
+        header: Αποστολή πρόσκλησης
+        submit_button: Στείλτε μια πρόσκληση
+      no_invitations_remaining: Δεν απομένουν προσκλήσεις
+      send_instructions: Στάλθηκε ένα email πρόσκλησης στη διεύθυνση %{email}.
+      updated: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία. Έχετε συνδεθεί.
+      updated_not_active: Ο κωδικός πρόσβασης ορίστηκε με επιτυχία.
+    mailer:
+      confirmation_instructions:
+        action: Επιβεβαίωση του λογαριασμού μου
+        greeting: Καλώς ορίσατε %{recipient}!
+        instruction: 'Μπορείτε να επιβεβαιώσετε τον λογαριασμό email σας μέσω του παρακάτω συνδέσμου:'
+        subject: Οδηγίες επιβεβαίωσης
+      email_changed:
+        greeting: Γεια σας %{recipient}!
+        message: Επικοινωνούμε μαζί σας για να σας ενημερώσουμε ότι η διεύθυνση email σας αλλάζει σε %{email}.
+        subject: Η διεύθυνση email άλλαξε
+      invitation_instructions:
+        accept: Αποδοχή πρόσκλησης
+        accept_until: Αυτή η πρόσκληση θα λήξει στις %{due_date}.
+        decline: Απόρριψη πρόσκλησης
+        hello: Γεια σας %{email},
+        ignore: |-
+          Εάν δεν θέλετε να αποδεχτείτε την πρόσκληση, αγνοήστε αυτό το email.<br />
+          Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να αποκτήσετε πρόσβαση στον παραπάνω σύνδεσμο και να ορίσετε το ψευδώνυμο και τον κωδικό πρόσβασής σας.
+        invited_you_as_admin: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
+        invited_you_as_private_user: "Ο χρήστης %{invited_by} σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
+        someone_invited_you: Κάποιος σάς προσκάλεσε στην εφαρμογή %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
+        someone_invited_you_as_admin: Κάποιος σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
+        someone_invited_you_as_private_user: Κάποιος σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
+        subject: Οδηγίες πρόσκλησης
+      invite_admin:
+        subject: Έχετε προσκληθεί να διαχειριστείτε τον οργανισμό %{organization}
+      invite_collaborator:
+        subject: Έχετε προσκληθεί να συνεργαστείτε με τον οργανισμό %{organization}
+      invite_private_user:
+        subject: Έχετε προσκληθεί σε μια ιδιωτική διαδικασία συμμετοχής του οργανισμού %{organization}
+      organization_admin_invitation_instructions:
+        subject: Έχετε προσκληθεί να διαχειριστείτε τον οργανισμό %{organization}
+      password_change:
+        greeting: Γεια σας %{recipient}!
+        message: Επικοινωνούμε μαζί σας για να σας ενημερώσουμε ότι ο κωδικός πρόσβασής σας άλλαξε.
+        subject: Ο κωδικός πρόσβασης άλλαξε
+      reset_password_instructions:
+        action: Αλλαγή του κωδικού πρόσβασής μου
+        greeting: Γεια σας %{recipient}!
+        instruction: Κάποιος ζήτησε έναν σύνδεσμο για να αλλάξει τον κωδικό πρόσβασής σας και μπορείτε να το κάνετε μέσω του παρακάτω συνδέσμου.
+        instruction_2: Εάν δεν το ζητήσατε, αγνοήστε αυτό το email.
+        instruction_3: Ο κωδικός πρόσβασής σας δεν θα αλλάξει μέχρι να αποκτήσετε πρόσβαση στον παραπάνω σύνδεσμο και να δημιουργήσετε έναν νέο.
+        subject: Οδηγίες επαναφοράς κωδικού πρόσβασης
+      unlock_instructions:
+        action: Ξεκλείδωμα του λογαριασμού μου
+        greeting: Γεια σας %{recipient}!
+        instruction: 'Κάντε κλικ στον παρακάτω σύνδεσμο για να ξεκλειδώσετε τον λογαριασμό σας:'
+        message: Ο λογαριασμός σας έχει κλειδωθεί λόγω υπερβολικού αριθμού αποτυχημένων προσπαθειών σύνδεσης.
+        subject: Οδηγίες ξεκλειδώματος
+    omniauth_callbacks:
+      failure: 'Δεν ήταν δυνατός ο έλεγχος της ταυτότητάς σας %{kind} για τον εξής λόγο: «%{reason}».'
+      success: Ο έλεγχος ταυτότητας έγινε με επιτυχία από τον λογαριασμό %{kind}.
+    passwords:
+      edit:
+        change_my_password: Αλλαγή του κωδικού πρόσβασής μου
+        change_your_password: Αλλάξτε τον κωδικό πρόσβασής σας
+        confirm_new_password: Επιβεβαιώστε τον νέο κωδικό πρόσβασης
+        new_password: Νέος κωδικός πρόσβασης
+        password_help: "Τουλάχιστον %{minimun_characters} χαρακτήρες, δεν πρέπει να είναι πολύ συνηθισμένο (π.χ. 123456) και πρέπει να διαφέρει από το ψευδώνυμο και το email σας."
+      new:
+        forgot_your_password: Ξεχάσατε τον κωδικό πρόσβασής σας;
+        send_me_reset_password_instructions: Στείλτε μου οδηγίες επαναφοράς κωδικού πρόσβασης
+      no_token: Δεν μπορείτε να αποκτήσετε πρόσβαση σε αυτήν τη σελίδα χωρίς να λάβετε ένα email επαναφοράς κωδικού πρόσβασης. Εάν λάβατε email επαναφοράς κωδικού πρόσβασης, βεβαιωθείτε ότι έχετε χρησιμοποιήσει την πλήρη διεύθυνση URL που παρέχεται.
+      send_instructions: Θα λάβετε email με οδηγίες για τον τρόπο επαναφοράς του κωδικού πρόσβασής σας σε λίγα λεπτά.
+      send_paranoid_instructions: Εάν η διεύθυνση email σας υπάρχει στη βάση δεδομένων μας, θα λάβετε έναν σύνδεσμο ανάκτησης κωδικού πρόσβασης στη διεύθυνση email σας σε λίγα λεπτά.
+      updated: Ο κωδικός πρόσβασής σας άλλαξε με επιτυχία. Έχετε συνδεθεί.
+      updated_not_active: Ο κωδικός πρόσβασής σας άλλαξε με επιτυχία.
+    registrations:
+      destroyed: Ο λογαριασμός σας ακυρώθηκε με επιτυχία. Ελπίζουμε να σας ξαναδούμε σύντομα.
+      edit:
+        are_you_sure: Είστε βέβαιοι;
+        cancel_my_account: Ακύρωση του λογαριασμού μου
+        currently_waiting_confirmation_for_email: 'Αυτήν τη στιγμή αναμένεται επιβεβαίωση για τη διεύθυνση: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: αφήστε το κενό εάν δεν θέλετε να το αλλάξετε
+        title: Επεξεργασία του στοιχείου %{resource}
+        unhappy: Δεν είστε ικανοποιημένοι;
+        update: Ενημέρωση
+        we_need_your_current_password_to_confirm_your_changes: χρειαζόμαστε τον τρέχοντα κωδικό πρόσβασής σας για να επιβεβαιώσουμε τις αλλαγές σας
+      new:
+        sign_up: Εγγραφή
+      signed_up: Καλώς ορίσατε! Έχετε εγγραφεί με επιτυχία.
+      signed_up_but_inactive: Έχετε εγγραφεί με επιτυχία. Ωστόσο, δεν ήταν δυνατή η σύνδεσή σας, επειδή ο λογαριασμός σας δεν έχει ακόμη ενεργοποιηθεί.
+      signed_up_but_locked: Έχετε εγγραφεί με επιτυχία. Ωστόσο, δεν ήταν δυνατή η σύνδεσή σας, επειδή ο λογαριασμός σας έχει κλειδωθεί.
+      signed_up_but_unconfirmed: Ένα μήνυμα με σύνδεσμο επιβεβαίωσης έχει σταλεί στη διεύθυνση email σας. Ακολουθήστε τον σύνδεσμο για να ενεργοποιήσετε τον λογαριασμό σας.
+      update_needs_confirmation: Ενημερώσατε τον λογαριασμό σας με επιτυχία, αλλά πρέπει να επαληθεύσουμε τη νέα σας διεύθυνση email. Ελέγξτε το email σας και ακολουθήστε τον σύνδεσμο επιβεβαίωσης για να επιβεβαιώσετε τη νέα σας διεύθυνση email.
+      updated: Ο λογαριασμός σας ενημερώθηκε με επιτυχία.
+    sessions:
+      already_signed_out: Η έξοδος ολοκληρώθηκε με επιτυχία.
+      new:
+        sign_in: Σύνδεση
+      signed_in: Η είσοδος ολοκληρώθηκε με επιτυχία.
+      signed_out: Η έξοδος ολοκληρώθηκε με επιτυχία.
     shared:
       links:
         back: Πίσω
+        didn_t_receive_confirmation_instructions: Δεν λάβατε οδηγίες επιβεβαίωσης;
+        didn_t_receive_unlock_instructions: Δεν λάβατε οδηγίες ξεκλειδώματος;
+        forgot_your_password: Ξεχάσατε τον κωδικό πρόσβασής σας;
+        sign_in: Σύνδεση
+        sign_in_with_provider: Είσοδος με %{provider}
+        sign_up: Εγγραφή
+      minimum_password_length:
+        one: "(%{count} χαρακτήρας ελάχιστο)"
+        other: "(%{count} χαρακτήρες ελάχιστο)"
+    unlocks:
+      new:
+        resend_unlock_instructions: Επανάληψη αποστολής των οδηγιών ξεκλειδώματος
+      send_instructions: Θα λάβετε email με οδηγίες για τον τρόπο ξεκλειδώματος του λογαριασμού σας σε λίγα λεπτά.
+      send_paranoid_instructions: Εάν ο λογαριασμός σας υπάρχει ήδη, θα λάβετε email με οδηγίες για τον τρόπο ξεκλειδώματος του λογαριασμού σας σε λίγα λεπτά.
+      unlocked: Ο λογαριασμός σας ξεκλειδώθηκε με επιτυχία. Συνδεθείτε για να συνεχίσετε.
+  doorkeeper:
+    scopes:
+      public: Οι δημόσιες πληροφορίες σας.
+  errors:
+    messages:
+      already_confirmed: έχει ήδη επιβεβαιωθεί, δοκιμάστε να συνδεθείτε
+      confirmation_period_expired: πρέπει να επιβεβαιωθεί εντός %{period}, ζητήστε έναν νέο
+      content_type_whitelist_error: ο τύπος αρχείου δεν είναι έγκυρος
+      cycle_detected: το γονικό στοιχείο ενός πεδίου εφαρμογής δεν μπορεί να είναι ένα απογονικό στοιχείο του
+      expired: έχει λήξει, ζητήστε έναν νέο
+      file_size_is_less_than_or_equal_to: το μέγεθος του αρχείου πρέπει να είναι μικρότερο ή ίσο με %{count}
+      invalid_time_zone: δεν είναι έγκυρη ζώνη ώρας
+      long_words: περιέχει λέξεις που είναι πολύ μεγάλες (πάνω από 35 χαρακτήρες)
+      must_start_with_caps: πρέπει να ξεκινά με κεφαλαίο γράμμα
+      nesting_too_deep: δεν μπορεί να ανήκει σε υποκατηγορία
+      not_found: δεν βρέθηκε. Εγγραφήκατε προηγουμένως;
+      not_locked: δεν ήταν κλειδωμένος
+      not_saved:
+        one: 'Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αιτήματός σας:'
+        other: 'Παρουσιάστηκαν πολλά σφάλματα κατά την επεξεργασία του αιτήματός σας:'
+      too_many_marks: χρησιμοποιεί πάρα πολλά διαδοχικά σημεία στίξης (π.χ. ! και ;)
+      too_much_caps: χρησιμοποιεί πάρα πολλά κεφαλαία γράμματα (πάνω από το 25% του κειμένου)
+      too_short: είναι πολύ μικρό (κάτω από 15 χαρακτήρες)
   forms:
     correct_errors: Υπάρχουν λάθη στη φόρμα, παρακαλούμε διορθώστε τα για να συνεχίσετε.
     length_validator:
@@ -296,17 +1458,35 @@ el:
         other: τουλάχιστον %{count} χαρακτήρες
     required: Υποχρεωτικό πεδίο
     required_explanation: "* Τα υποχρεωτικά πεδία επισημαίνονται με αστερίσκο"
+  invisible_captcha:
+    sentence_for_humans: Εάν είστε άνθρωπος, αγνοήστε αυτό το πεδίο
+    timestamp_error_message: Συγνώμη, αυτό ήταν πολύ γρήγορο! Επαναλάβετε την υποβολή.
   layouts:
     decidim:
       cookie_warning:
         description_html: Αυτός ο ιστότοπος χρησιμοποιεί cookies. Συνεχίζοντας την περιήγηση στον ιστότοπο, αποδέχεστε τη χρήση των cookies από εμάς. %{link}.
         link_label: Μάθετε περισσότερα για τα cookies
+        ok: Συμφωνώ
+      edit_link:
+        edit: Επεξεργασία
       footer:
         cc_by_license: Άδεια Creative Commons
         decidim_logo: Λογότυπο decidim
+        download_open_data: Λήψη αρχείων Open Data
+        made_with_open_source: Ο ιστότοπος δημιουργήθηκε με <a target="_blank" href="https://github.com/decidim/decidim">δωρεάν λογισμικό</a>.
+      header:
+        close_menu: Κλείσιμο μενού
+        navigation: Πλοήγηση
+        sign_in: Είσοδος
+        sign_up: Εγγραφή
+      impersonation_warning:
+        close_session: Κλείσιμο συνεδρίας
+        description_html: Διαχειρίζεστε τον συμμετέχοντα <b>%{user_name}</b>.
+        expire_time_html: Η συνεδρία σας θα λήξει σε <b><span class="minutes">%{minutes}</span> λεπτά</b>.
       language_chooser:
         choose_language: Επιλογή γλώσσας
       notifications_dashboard:
+        mark_all_as_read: Σήμανση όλων ως αναγνωσμένων
         mark_as_read: Σήμανση ως αναγνωσμένο
       social_media_links:
         facebook: "%{organization} στο Facebook"
@@ -316,20 +1496,96 @@ el:
         youtube: "%{organization} στο YouTube"
       user_menu:
         account: 'Λογαριασμός χρήστη: %{name}'
+        admin_dashboard: Πίνακας εργαλείων διαχειριστή
+        conversations: Συνομιλίες
+        notifications: Ειδοποιήσεις
+        profile: Ο λογαριασμός μου
+        public_profile: Το δημόσιο προφίλ μου
+        sign_out: Έξοδος
       user_profile:
+        account: Λογαριασμός
+        authorizations: Εξουσιοδοτήσεις
+        delete_my_account: Διαγραφή του λογαριασμού μου
+        my_data: Τα δεδομένα μου
+        my_interests: Τα ενδιαφέροντά μου
+        notifications_settings: Ρυθμίσεις ειδοποιήσεων
+        title: Ρυθμίσεις συμμετέχοντα
         user_groups: Ομάδες
+      widget:
+        see_more: Δείτε περισσότερα
+  locale:
+    name: Αγγλικά
+  password_validator:
+    domain_included_in_password: είναι πολύ παρόμοιο με αυτό το όνομα τομέα
+    email_included_in_password: είναι πολύ παρόμοια με τη διεύθυνση email σας
+    fallback: δεν είναι έγκυρη
+    name_included_in_password: είναι πολύ παρόμοιο με το όνομά σας
+    not_enough_unique_characters: δεν έχει αρκετούς μοναδικούς χαρακτήρες
+    password_not_allowed: δεν επιτρέπεται
+    password_too_common: είναι πολύ κοινό
+    password_too_long: είναι πολύ μεγάλο
+    password_too_short: είναι πολύ μικρό
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: Email
+    facebook: Facebook
+    google_bookmark: Σελιδοδείκτες Google
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Κοινοποίηση σε %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Ανοίξτε το WeChat, κάντε κλικ στο κουμπί «Εντοπισμός» και, στη συνέχεια, κάντε κλικ στο μενού «Σάρωση κωδικού QR».
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   time:
     formats:
       day_of_month: "%b %d"
+      day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %η %b %Ε %Ω:%Λ:%Δ %z"
+      devise:
+        mailer:
+          invitation_instructions:
+            accept_until_format: "%B %η, %Ε %I:%Μ %p"
+      long: "%B %η, %Ε %Ω:%Λ"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Διαγραφές
+      right: Προσθήκες
+    dropdown:
+      choose_diff_view_html: 'Λειτουργία προβολής HTML:'
+      choose_diff_view_mode: 'Λειτουργία προβολής σύγκρισης:'
+      option_escaped: Πραγματοποιήθηκε έξοδος
+      option_split: Σε παράθεση
+      option_unescaped: Δεν πραγματοποιήθηκε έξοδος
+      option_unified: Ενοποιημένο
   views:
     pagination:
+      first: "&laquo; Πρώτη"
+      first_title: Σύνδεσμος προς την πρώτη σελίδα
+      last: Τελευταία &raquo;
+      last_title: Σύνδεσμος προς την τελευταία σελίδα
+      next: Επόμενη &rsaquo;
+      next_title: Σύνδεσμος προς την επόμενη σελίδα
       pagination: Σελιδοποίηση
+      previous: "&lsaquo; Προηγούμενη"
+      previous_title: Σύνδεσμος προς την προηγούμενη σελίδα
+      title: 'Αριθμός σελίδας:'
+      truncate: "&hellip;"

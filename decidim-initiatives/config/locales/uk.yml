@@ -53,13 +53,6 @@ uk:
     admin:
       actions:
         new_initiative_type: Додати різновид почину
-      filters:
-        state_eq:
-          values:
-            created: Створені
-            discarded: Відкинуті
-            published: Оприлюднено
-            validating: Технічна перевірка
       menu:
         initiatives: Почини
         initiatives_types: Різновиди починів

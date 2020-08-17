@@ -68,7 +68,7 @@ describe "Participatory texts", type: :system do
       visit_component
       proposal_title = translated(proposals.first.title)
       find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: true do
+      within all("#proposals div.hover-section").first, visible: :visible do
         within ".amend-buttons" do
           expect(page).to have_link("Amend")
           expect(amend_button_disabled?).to eq(disabled_value)
@@ -83,7 +83,7 @@ describe "Participatory texts", type: :system do
       visit_component
       proposal_title = translated(proposals.first.title)
       find("#proposals div.hover-section", text: proposal_title).hover
-      within all("#proposals div.hover-section").first, visible: true do
+      within all("#proposals div.hover-section").first, visible: :visible do
         expect(page).not_to have_css(".amend-buttons")
       end
     end
