@@ -52,7 +52,7 @@ module Decidim
 
       it "creates the geocoding field markup" do
         config = CGI.escapeHTML(
-          { url: "https://photon.example.org/api/" }.to_json
+          { url: "/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
           <input data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
