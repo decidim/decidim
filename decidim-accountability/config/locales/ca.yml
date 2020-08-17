@@ -35,7 +35,7 @@ ca:
         confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
-        import_csv: Importar CSV
+        import_csv: Importa CSV
         new: Nou/va %{name}
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
