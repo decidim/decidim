@@ -19,36 +19,38 @@ describe "Editor", type: :system do
     # Map a special route for rendering the editor
     Rails.application.routes.disable_clear_and_finalize = true
     Rails.application.routes.draw do
-      get "test_editor", to: ->(env) do
-        env["decidim.current_organization"] = current_organization
-        controller = Decidim::ApplicationController.new
+      get "test_editor", to: (
+        lambda do |env|
+          env["decidim.current_organization"] = current_organization
+          controller = Decidim::ApplicationController.new
 
-        request = ActionDispatch::Request.new(env)
-        request.routes = controller._routes
-        controller.set_request! request
-        controller.set_response! Decidim::ApplicationController.make_response!(request)
+          request = ActionDispatch::Request.new(env)
+          request.routes = controller._routes
+          controller.set_request! request
+          controller.set_response! Decidim::ApplicationController.make_response!(request)
 
-        view = controller.view_context
-        spec.allow(controller).to spec.receive(:view_context).and_return(view)
-        spec.allow(view).to spec.receive(:request).and_return(request)
-        spec.allow(view).to spec.receive(:url_for).and_return("/")
+          view = controller.view_context
+          spec.allow(controller).to spec.receive(:view_context).and_return(view)
+          spec.allow(view).to spec.receive(:request).and_return(request)
+          spec.allow(view).to spec.receive(:url_for).and_return("/")
 
-        [
-          200,
-          {},
           [
-            controller.render_to_string(
-              inline: %(
-                <div id="editor">
-                  #{view.hidden_field_tag(:content, editor_config[:content])}
-                  <div class="editor-container" data-toolbar="#{editor_config[:toolbar]}"></div>
-                </div>
-              ),
-              layout: "decidim/application"
-            )
+            200,
+            {},
+            [
+              controller.render_to_string(
+                inline: %(
+                  <div id="editor">
+                    #{view.hidden_field_tag(:content, editor_config[:content])}
+                    <div class="editor-container" data-toolbar="#{editor_config[:toolbar]}"></div>
+                  </div>
+                ),
+                layout: "decidim/application"
+              )
+            ]
           ]
-        ]
-      end
+        end
+      )
     end
     Rails.application.routes.disable_clear_and_finalize = false
 
