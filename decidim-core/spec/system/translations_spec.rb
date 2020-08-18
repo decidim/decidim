@@ -81,7 +81,7 @@ describe "Translations", type: :system do
       end
 
       it "shows a button to show translated text" do
-        expect(page).to have_content("Show automatically-translated text")
+        expect(page).to have_content("Mostrar el texto traducido automáticamente")
       end
 
       it "shows the original English text" do
@@ -100,7 +100,7 @@ describe "Translations", type: :system do
 
       context "when toggling translations" do
         before do
-          click_link "Show automatically-translated text"
+          click_link "Mostrar el texto traducido automáticamente"
         end
 
         it "shows the translated title" do
@@ -127,7 +127,7 @@ describe "Translations", type: :system do
       end
 
       it "shows a button to show original text" do
-        expect(page).to have_content("Show original text")
+        expect(page).to have_content("Mostrar el texto original")
       end
 
       it "shows the Spanish texts" do
@@ -146,7 +146,7 @@ describe "Translations", type: :system do
 
       context "when toggling translations" do
         before do
-          click_link "Show original text"
+          click_link "Mostrar el texto original"
         end
 
         it "shows the original values" do
