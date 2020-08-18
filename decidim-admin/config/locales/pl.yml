@@ -382,19 +382,19 @@ pl:
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
             promote: Promować
       menu:
-        admin_log: Dziennik aktywności administratora
+        admin_log: Logi aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
-        area_types: Rodzaje powierzchni
+        area_types: Typy obszarów
         areas: Obszary
         configuration: Konfiguracja
-        dashboard: Deska rozdzielcza
+        dashboard: Panel
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
-        newsletters: Biuletyny
+        newsletters: Newslettery
         oauth_applications: Aplikacje OAuth
-        participants: Uczestnicy
+        participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -415,38 +415,38 @@ pl:
             plural: Liczba mnoga
         attachment:
           fields:
-            collection: Teczka
-            content_type: Rodzaj
+            collection: Folder
+            content_type: Typ
             file_size: Rozmiar
             title: Tytuł
           name: Załącznik
         attachment_collection:
-          name: Teczka
+          name: Folder
         category:
           name: Kategoria
         impersonation_log:
           fields:
             admin: Admin
-            ended_at: Zakończył się w
-            expired_at: Wygasła w dniu
+            ended_at: Zakończono
+            expired_at: Wygasło
             reason: Powód
-            started_at: Zaczęło się od
+            started_at: Rozpoczęto
             user: Użytkownik
         newsletter:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             progress: Postęp
-            sent_at: Wysłano w
-            sent_to: Wysłane do
-            subject: Przedmiot
-          name: Biuletyn
+            sent_at: Wysłano
+            sent_to: Wysłano do
+            subject: Temat
+          name: Newsletter
         oauth_application:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             name: Nazwa
           name: Aplikacja OAuth
         participatory_space_private_user:
-          name: Prywatny użytkownik przestrzeni prywatnej
+          name: Użytkownik prywatnej przestrzeni partycypacyjnej
         scope:
           fields:
             name: Nazwa
@@ -457,7 +457,7 @@ pl:
             plural: Liczba mnoga
         static_page:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             title: Tytuł
         user:
           fields:
@@ -472,16 +472,16 @@ pl:
           name: Użytkownik
         user_group:
           fields:
-            actions: działania
-            created_at: Utworzono w
+            actions: Działania
+            created_at: Utworzono
             document_number: Numer dokumentu
             name: Nazwa
             phone: Telefon
             state: Stan
-            users_count: Liczą się użytkownicy
+            users_count: Liczba użytkowników
       moderations:
         index:
-          title: Modernizacje
+          title: Moderacje
         report:
           reasons:
             does_not_belong: Nie należy
@@ -489,102 +489,102 @@ pl:
             spam: Spam
       newsletter_templates:
         index:
-          preview_template: Zapowiedź
-          title: Szablony biuletynu
+          preview_template: Podgląd
+          title: Szablony newslettera
           use_template: Użyj tego szablonu
         show:
           preview: 'Podgląd szablonu:%{template_name}'
           use_template: Użyj tego szablonu
       newsletters:
         create:
-          error: Podczas tworzenia biuletynu wystąpił błąd.
-          success: Powstał pomyślnie biuletyn. Prosimy o sprawdzenie jej przed wysłaniem.
+          error: Podczas tworzenia newslettera wystąpił błąd.
+          success: Newsletter został pomyślnie utworzony. Prosimy o sprawdzenie go przed wysłaniem.
         deliver:
-          error: Podczas dostarczania tego biuletynu wystąpił błąd.
-          success: Newsletter został dostarczony z powodzeniem.
+          error: Podczas dostarczania tego newslettera wystąpił błąd.
+          success: Newsletter został dostarczony pomyślnie.
         destroy:
-          error_already_sent: 'Nie można zniszczyć biuletynu: został już wysłany.'
-          success: Newsletter został zniszczony.
+          error_already_sent: 'Nie można usunąć newslettera: został już wysłany.'
+          success: Newsletter został usunięty.
         edit:
-          save_and_preview: Zapisz i podgląd
-          title: Edytuj biuletyn
+          save_and_preview: Zapisz i obejrzyj
+          title: Edytuj newsletter
         index:
           all: wszyscy
-          all_users: 'Wszyscy użytkownicy'
-          and: 'i'
-          confirm_delete: Czy na pewno chcesz usunąć ten biuletyn?
-          followers: 'obserwujący'
+          all_users: 'Wszyscy użytkownicy '
+          and: 'i '
+          confirm_delete: Czy na pewno chcesz usunąć ten newsletter?
+          followers: 'obserwujący '
           has_been_sent_to: 'Wysłano do: '
           no_scopes: Brak zakresów
           not_sent: Nie wysłano
-          participants: 'użytkownicy'
+          participants: 'użytkownicy '
           segmented_to: 'Podzielone na %{subject}: '
           subscribed_count: 'Subskrybowane:'
-          title: Biuletyny
+          title: Newslettery
         new:
-          save: Zapisać
-          title: Nowy biuletyn
+          save: Zapisz
+          title: Nowy newsletter
         select_recipients_to_deliver:
-          all_spaces: Wszyscy
-          all_users_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników.
-          confirm_deliver: Czy na pewno chcesz dostarczyć ten biuletyn? Nie można cofnąć tej czynności.
-          deliver: Dostarcz biuletyn
-          followers_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników, którzy śledzą dowolne wybrane przestrzenie partycypacyjne na liście.
+          all_spaces: Wszystkie
+          all_users_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników.
+          confirm_deliver: Czy na pewno chcesz dostarczyć ten newsletter? Nie można cofnąć tej czynności.
+          deliver: Dostarcz newsletter
+          followers_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy obserwują dowolne przestrzenie partycypacyjne z tej listy.
           none: Żaden
-          participants_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z wybranych przestrzeni partycypacyjnych na liście.
-          recipients_count: Ten biuletyn zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
-          scopes_help: Wysyła biuletyn do użytkowników, którzy mają uaktywniony dowolny z wybranych zakresów w ustawieniach „Moje zainteresowania” na koncie.
-          select_scopes: Filtruj według użytkowników, którzy aktywowali dowolny wybrany zakres w ustawieniach „Moje zainteresowania” na koncie.
-          select_spaces: Wybierz przestrzenie, aby podzielić biuletyn
-          select_users: Wybierz użytkowników, do których chcesz wysyłać biuletyn
+          participants_help: Wysyła newsletter do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z przestrzeni partycypacyjnych z tej listy.
+          recipients_count: Ten newsletter zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
+          scopes_help: Wysyła newsletter do użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
+          select_scopes: Filtruj według użytkowników, którzy mają dowolny z wybranych zakresów ustawiony jako aktywny w zakładce konta „Moje zainteresowania”.
+          select_spaces: Wybierz przestrzenie, aby podzielić newsletter
+          select_users: Wybierz użytkowników, do których chcesz wysyłać newsletter
           send_to_all_users: Wyślij do wszystkich użytkowników
           send_to_followers: Wyślij do obserwujących
           send_to_participants: Wyślij do uczestników
           title: Wybierz odbiorców
-          warning: "<strong>Uwaga:</strong> Ten biuletyn zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać biuletyn</em>."
+          warning: "<strong>Uwaga:</strong> Ten newsletter zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać newsletter</em>."
         send:
           no_recipients: Brak odbiorców dla tego wyboru
         show:
-          preview: Zapowiedź
+          preview: Podgląd
           select_recipients_to_deliver: Wybierz odbiorców
-          subject: Przedmiot
+          subject: Temat
         update:
-          error: Podczas aktualizowania tego biuletynu wystąpił błąd.
-          success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
+          error: Podczas aktualizowania tego newslettera wystąpił błąd.
+          success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       oauth_applications:
         create:
           error: Wystąpił błąd podczas tworzenia tej aplikacji.
           success: Aplikacja została utworzona pomyślnie.
         destroy:
-          error: Wystąpił błąd podczas niszczenia tej aplikacji.
-          success: Aplikacja została zniszczona pomyślnie.
+          error: Wystąpił błąd podczas usuwania tej aplikacji.
+          success: Aplikacja została usunięta pomyślnie.
         edit:
-          save: Zapisać
+          save: Zapisz
           title: Edytuj aplikację
         index:
           confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
           title: Aplikacje OAuth
         new:
-          save: Zapisać
+          save: Zapisz
           title: Nowa aplikacja
         update:
           error: Wystąpił błąd podczas aktualizowania tej aplikacji.
-          success: Aplikacja zaktualizowana pomyślnie.
+          success: Aplikacja została zaktualizowana.
       officializations:
         create:
           success: Użytkownik oficjalnie z powodzeniem
         destroy:
           success: Użytkownik nieoficjalizowany pomyślnie
         index:
-          actions: działania
+          actions: Działania
           badge: Odznaka
-          created_at: Utworzono w
+          created_at: Utworzono
           name: Nazwa
           nickname: Alias
-          not_officialized: Nie oficjalny
+          not_officialized: Nieoficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
-          reofficialize: Reofficialize
+          reofficialize: Reoficjalizuj
           show_email: Pokaż adres e-mail
           status: Status
           unofficialize: Nieoficjalne
@@ -594,28 +594,28 @@ pl:
           title: Oficjalizuj użytkownika "%{name}"
         show_email_modal:
           close_modal: Zamknij modalny
-          description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
+          description: Jeśli chcesz się bezpośrednio skontaktować z użytkownikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
           email_address: Adres e-mail
           full_name: Imię i nazwisko
           hidden: ukryty
           show: Pokaż
-          title: Pokaż adres e-mail uczestnika
+          title: Pokaż adres e-mail użytkownika
       organization:
         edit:
           title: Edytuj organizację
-          update: Aktualizacja
+          update: Aktualizuj
         form:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: W niektórych obszarach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora tekstu sformatowanego.
-          social_handlers: Społeczny
+          rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
+          social_handlers: Profile społecznościowe
           twitter: Twitter
           url: Url
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
-          success: Organizacja została zaktualizowana.
+          success: Organizacja została pomyślnie zaktualizowana.
       organization_appearance:
         edit:
           update: Aktualizuj
@@ -623,40 +623,40 @@ pl:
           colors:
             colors_title: Kolory organizacji
             header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
-          cta_button_path_help: 'Możesz zastąpić lokalizację, w której przycisk Do połączenia z działaniem na łącza do strony głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, liczby, myślniki i ukośniki, i muszą zaczynać się od litery. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
-          cta_button_text_help: Można zastąpić tekst przycisku Żądanie do działania na stronie głównej dla każdego dostępnego języka w organizacji. Jeśli nie zostanie ustawiona, zostanie użyta wartość domyślna. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
+          cta_button_path_help: 'Możesz nadpisać adres do jakiego kieruje przycisk CTA na stronie głównej. Użyj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, liczby, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem. Przykład: %{url}'
+          cta_button_text_help: Można nadpisać tekst przycisku CTA na stronie głównej dla każdego dostępnego języka organizacji. Jeśli to pole nie zostanie wypełnione, zostanie użyta wartość domyślna. Przycisk CTA zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           homepage_appearance_title: Edytuj wygląd strony głównej
-          homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
+          homepage_highlighted_content_banner_title: Wyróżniony baner tekstowy
           images:
             layout_appearance_title: Edytuj wygląd układu
             preview: Podgląd
-          omnipresent_banner_appearance_title: Edytuj wszechobecny baner
+          omnipresent_banner_appearance_title: Edytuj stały baner
       organization_homepage:
         edit:
           active_content_blocks: Aktywne bloki treści
           inactive_content_blocks: Bloki nieaktywnych treści
       organization_homepage_content_blocks:
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
       participatory_space_private_users:
         create:
-          error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
-          success: Prywatny dostęp użytkowników prywatnych do przestrzeni utworzonej pomyślnie.
+          error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
+          success: Dodano dostęp dla prywatnego użytkownika przestrzeni partycypacyjnej.
         destroy:
-          error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej partycji uczestniczącej.
-          success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
+          error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
+          success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
           import_via_csv: Import z CSV
-          title: Prywatny użytkownik przestrzeni prywatnej
+          title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV został pomyślnie przesłany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
+          success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
-          explanation: Prześlij swój plik CSV. Musi zawierać dwie kolumny z adresem e-mail w pierwszej kolumnie pliku i nazwą w ostatniej kolumnie pliku (adres e-mail, nazwa) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej, bez nagłówków.
+          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adres e-mail, w drugiej kolumnie imię (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:
@@ -670,10 +670,10 @@ pl:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
           success: Typ zakresu został pomyślnie utworzony.
         destroy:
-          success: Typ dziedziny został pomyślnie zniszczony
+          success: Typ zakresu został usunięty
         edit:
           title: Edytuj typ zakresu
-          update: Aktualizacja
+          update: Aktualizuj
         new:
           create: Utwórz typ zakresu
           title: Nowy zakres
@@ -683,12 +683,12 @@ pl:
       scopes:
         create:
           error: Podczas tworzenia nowego zakresu wystąpił błąd.
-          success: Zakres został pomyślnie utworzony.
+          success: Zakres został utworzony.
         destroy:
-          success: Zakres został z powodzeniem zniszczony
+          success: Zakres został usunięty
         edit:
           title: Edytuj zakres
-          update: Aktualizacja
+          update: Aktualizuj
         new:
           create: Utwórz zakres
           title: Nowy zakres
