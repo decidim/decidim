@@ -130,7 +130,7 @@ at the [Hosting your own map services][anchor-hosting-osm] section.
 ### Combining multiple service providers
 
 It is also possible to combine multiple service providers for the different
-categories of map services. For instance, if you want to host use HERE Maps for
+categories of map services. For instance, if you want to use HERE Maps for
 the map tiles but host the other services yourself, use the following
 configuration:
 
