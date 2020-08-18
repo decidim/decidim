@@ -460,7 +460,7 @@ pl:
       assemblies:
         assembly:
           more_info: Więcej informacji
-          take_part: Weź udział
+          take_part: Dołącz
         index:
           children: 'Zespoły: '
           organizational_chart: Schemat organizacyjny
@@ -468,16 +468,16 @@ pl:
           reset_chart: Resetuj
         order_by_assemblies:
           assemblies:
-            one: "%{count} zespoły"
-            few: "%{count} zespół"
-            many: "%{count} złożeń"
-            other: "%{count} złożeń"
+            one: "%{count} zespół"
+            few: "%{count} zespoły"
+            many: "%{count} zespołów"
+            other: "%{count} zespołów"
         promoted_assembly:
           more_info: Więcej informacji
-          take_part: Weź udział
+          take_part: Dołącz
       assembly_navigation:
         assembly_member_menu_item: Członkowie
-        assembly_menu_item: Zgromadzenie
+        assembly_menu_item: Zespół
       assembly_widgets:
         show:
-          take_part: Weź udział
+          take_part: Dołącz
