@@ -25,10 +25,10 @@ module Decidim
 
       def identification_private_key_content
         @identification_private_key_content ||= if identification_private_key.starts_with?("-----")
-                                              identification_private_key
-                                            else
-                                              File.read(Rails.application.root.join(identification_private_key))
-                                            end
+                                                  identification_private_key
+                                                else
+                                                  File.read(Rails.application.root.join(identification_private_key))
+                                                end
       end
     end
   end
