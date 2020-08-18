@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "support/tasks"
-require "tasks/decidim_tasks_sniffs_stdout_context"
 
 describe "rake decidim:right_to_be_forgotten", type: :task do
-  include_context "with stdout sniffing"
-
   let(:file_path) { Rails.root.join("tmp", "forgotten_users.csv") }
 
   let(:user) { create(:user, :confirmed) }

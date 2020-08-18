@@ -25,6 +25,41 @@ module TaskExampleGroup
   end
 end
 
+# A collection of methods to help dealing with rake tasks output.
+module RakeTaskOutputHelpers
+  extend ActiveSupport::Concern
+
+  included do
+    let!(:original_stdout) { $stdout }
+
+    # rubocop:disable RSpec/ExpectOutput
+    before do
+      $stdout = StringIO.new
+    end
+
+    after do
+      $stdout = original_stdout
+    end
+    # rubocop:enable RSpec/ExpectOutput
+  end
+
+  def check_no_errors_have_been_printed
+    expect($stdout.string).not_to include("ERROR:")
+  end
+
+  def check_some_errors_have_been_printed
+    expect($stdout.string).to include("ERROR:")
+  end
+
+  def check_error_printed(type)
+    expect($stdout.string).to include("ERROR: [#{type}]")
+  end
+
+  def check_message_printed(message)
+    expect($stdout.string).to include(message)
+  end
+end
+
 RSpec.configure do |config|
   # Tag Rake specs with `:task` metadata or put them in the spec/tasks dir
   config.define_derived_metadata(file_path: %r{/spec/tasks/}) do |metadata|
@@ -32,6 +67,7 @@ RSpec.configure do |config|
   end
 
   config.include TaskExampleGroup, type: :task
+  config.include RakeTaskOutputHelpers, type: :task
 
   config.before(:suite) do
     Rails.application.load_tasks

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "support/tasks"
 
 describe "Executing Decidim Metrics tasks" do
   describe "rake decidim:metrics:all", type: :task do
