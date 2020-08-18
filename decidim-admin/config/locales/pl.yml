@@ -40,12 +40,12 @@ pl:
         alert_color: Powiadomienie
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
-        cta_button_path: Ścieżka przycisku wezwania do działania
-        cta_button_text: Tekst przycisku wezwania do działania
+        cta_button_path: Ścieżka przycisku CTA
+        cta_button_text: Tekst przycisku CTA
         customize_welcome_notification: Dostosuj treść komunikatu powitalnego
         default_locale: Domena domyślna
         description: Opis
-        enable_omnipresent_banner: Pokaż wszechobecny baner
+        enable_omnipresent_banner: Pokaż stały banner
         facebook_handler: Handler Facebooka
         favicon: Ikona
         from: Z adresu e-mail
