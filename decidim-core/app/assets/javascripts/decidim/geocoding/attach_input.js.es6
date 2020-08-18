@@ -44,7 +44,7 @@
    * You would then "attach" the geocoding result coordinates to the same form
    * where this input is at as follows:
    *   $(document).ready(function() {
-   *     window.Decidim.attachGeocoding($("#address"));
+   *     window.Decidim.attachGeocoding($("#record_address"));
    *   });
    *
    * Now, after the user selects one of the suggested geocoding autocompletion
