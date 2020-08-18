@@ -87,57 +87,57 @@ pl:
           title: Przekroczono maksymalny budżet
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
-          assigned: 'Przydzielony:'
-          cancel_order: Usuń głos i zacznij od nowa
+          assigned: 'Przypisano:'
+          cancel_order: usuń głos i zacznij od nowa
           checked_out:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
-            title: Ukończono budżet budżetowy
-          description: Jakie projekty myślisz, powinniśmy przeznaczyć budżet? Przyznaj co najmniej %{minimum_budget} projekty, które chcesz i głosuj zgodnie z Twoimi preferencjami, aby określić budżet.
-          description_minimum_projects_rule: Na jakie projekty według Ciebie powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} dowolne projekty i zagłosuj zgodnie ze swoimi preferencjami, aby określić budżet.
-          title: Ty decydujesz budżet
+            title: Ukończono głosowanie dot. budżetu
+          description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Przeznacz co najmniej %{minimum_budget} na te projekty, które chcesz, i głosuj zgodnie ze swoimi preferencjami, aby określić budżet.
+          description_minimum_projects_rule: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} spośród dostępnych projektów i zagłosuj zgodnie ze swoimi preferencjami, aby określić budżet.
+          title: Ty decydujesz o budżecie
         count:
           projects_count:
             one: 1 projekt
             few: "%{count} projektów"
-            many: "%{count} projektowanie"
+            many: "%{count} projekty"
             other: "%{count} projektów"
         filters:
           category: Kategoria
           scope: Zakres
-          search: Szukanie
+          search: Szukaj
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtr
           filter_by: Filtruj według
-          unfold: Rozwijać się
+          unfold: Rozwiń
         order_progress:
-          vote: Głosować
+          vote: Głosuj
         order_selected_projects:
-          remove: Usunąć
+          remove: Usuń
           selected_projects:
-            one: Wybrany projekt
-            few: Wybranych projektów
+            one: wybrany projekt
+            few: wybranych projektów
             many: wybrane projekty
-            other: Wybranych projektów
+            other: wybranych projektów
           view: Widok
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
           lowest_cost: Najniższy koszt
           most_voted: Z największą liczbą głosów
-          random: Porządek losowy
+          random: Kolejność losowa
         project:
           add: Dodaj projekt %{resource_name} do swojego głosowania
           count:
-            one: 1
-            few: "%{count} obsługuje"
-            many: "%{count} obsługuje"
-            other: "%{count} obsługuje"
+            one: 1 wsparcie
+            few: "%{count} wsparć"
+            many: "%{count} wsparć"
+            other: "%{count} wsparć"
           remove: Usuń projekt %{resource_name} z Twojego głosu
           view: Widok
         project_budget_button:
           add: Dodaj do swojego głosu
-          add_descriptive: Dodaj projekt %{resource_name} do swojego głosowania
+          add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
           added: Dodano do Twojego głosu
           added_descriptive: Projekt %{resource_name} został dodany do Twojego głosowania
         show:
@@ -146,7 +146,7 @@ pl:
     components:
       budgets:
         actions:
-          vote: Głosować
+          vote: Głosuj
         name: Budżety
         settings:
           global:
@@ -157,8 +157,8 @@ pl:
               errors:
                 budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania
                 budget_voting_rule_required: Wymagana jest jedna reguła głosowania
-            projects_per_page: Projekty na stronę
-            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
+            projects_per_page: Projektów na stronie
+            resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             total_budget: Cały budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
@@ -172,10 +172,10 @@ pl:
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd
-        success: Twój głos został pomyślnie przyjęty
+        success: Twój głos został przyjęty
       destroy:
         error: Podczas anulowania Twojego głosu wystąpił błąd
-        success: Twój głos został pomyślnie zakończony
+        success: Twój głos został anulowany
     resource_links:
       included_proposals:
         project_proposal: 'Propozycje zawarte w tym projekcie:'
