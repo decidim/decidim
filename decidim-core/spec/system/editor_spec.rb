@@ -4,13 +4,14 @@ require "spec_helper"
 
 describe "Editor", type: :system do
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
   let(:content) { "" }
   let(:toolbar) { "full" }
 
   before do
     spec = self
-    current_organization = organization
+    request_context = {
+      "decidim.current_organization" => organization
+    }
     editor_config = {
       toolbar: toolbar,
       content: content
@@ -21,10 +22,9 @@ describe "Editor", type: :system do
     Rails.application.routes.draw do
       get "test_editor", to: (
         lambda do |env|
-          env["decidim.current_organization"] = current_organization
           controller = Decidim::ApplicationController.new
 
-          request = ActionDispatch::Request.new(env)
+          request = ActionDispatch::Request.new(env.merge(request_context))
           request.routes = controller._routes
           controller.set_request! request
           controller.set_response! Decidim::ApplicationController.make_response!(request)
