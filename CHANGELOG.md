@@ -49,8 +49,6 @@ end
 
 ### Changed
 
-- **decidim-core**: Make maps actually configurable [\#6340](https://github.com/decidim/decidim/pull/6340)
-
 ### Fixed
 
 - **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)
