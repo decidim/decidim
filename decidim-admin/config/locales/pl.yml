@@ -704,9 +704,9 @@ pl:
       static_page_topics:
         create:
           error: Wystąpił błąd podczas tworzenia nowego tematu.
-          success: Temat został utworzony pomyślnie.
+          success: Temat został utworzony.
         destroy:
-          success: Temat został pomyślnie zniszczony
+          success: Temat został usunięty
         edit:
           title: Edytuj temat
           update: Zaktualizuj temat
@@ -715,7 +715,7 @@ pl:
           title: Nowy temat
         update:
           error: Wystąpił błąd podczas aktualizowania tego tematu.
-          success: Temat zaktualizowany pomyślnie
+          success: Temat został zaktualizowany pomyślnie
       static_pages:
         actions:
           view: Wyświetl stronę publiczną
@@ -723,41 +723,41 @@ pl:
           error: Podczas tworzenia nowej strony wystąpił błąd.
           success: Strona została utworzona pomyślnie.
         destroy:
-          success: Strona została z powodzeniem zniszczona
+          success: Strona została usunięta
         edit:
-          changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o zaakceptowaniu nowych warunków.
+          changed_notably_help: Jeśli ta opcja jest zaznaczona, użytkownicy zostaną powiadomieni o konieczności zaakceptowaniu nowych warunków użytkowania.
           title: Edytuj stronę
-          update: Aktualizacja
+          update: Aktualizuj
         form:
-          none: Żaden
-          slug_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, cyfry, myślniki i ukośniki i musi zaczynać się od litery. Przykład: %{url}'
+          none: Żadna
+          slug_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptowane są: litery, cyfry, myślniki i ukośniki. Ścieżka musi zaczynać się od litery. Przykład: %{url}'
         index:
-          last_notable_change: Ostatnia godna uwagi zmiana
+          last_notable_change: Ostatnia istotna zmiana
         new:
-          create: Stwórz stronę
+          create: Utwórz stronę
           title: Nowa strona
         topic:
           destroy: Usuń temat
           edit: Edytuj temat
-          empty: W tym temacie nie ma strony
+          empty: Nie ma stron w tym temacie
           without_topic: Strony bez tematu
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
       titles:
-        admin_log: Dziennik administratora
-        area_types: Rodzaje powierzchni
+        admin_log: Logi administratora
+        area_types: Rodzaje obszarów
         areas: Obszary
         authorization_workflows: Metody weryfikacji
-        dashboard: Deska rozdzielcza
+        dashboard: Panel
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
-        metrics: Partycypacja w liczbach
+        metrics: Wskaźniki
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
-        statistics: Czynność
+        statistics: Działania
         user_groups: Grupy użytkowników
         users: Użytkownicy
       user_group:
@@ -773,35 +773,35 @@ pl:
       user_groups:
         index:
           filter:
-            all: Wszystko
-            pending: W oczekiwaniu
+            all: Wszystkie
+            pending: Oczekujące
             rejected: Odrzucone
-            verified: Zweryfikowano
+            verified: Zweryfikowane
           filter_by: Filtruj według
-          search: Szukanie
+          search: Szukaj
           state:
-            pending: W oczekiwaniu
+            pending: Oczekujące
             rejected: Odrzucone
-            verified: Zweryfikowano
+            verified: Zweryfikowane
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
-          explanation: Prześlij swój plik CSV. Musi mieć oficjalne wiadomości e-mail grup użytkowników w organizacji w pierwszej kolumnie pliku, bez nagłówków. Tylko grupy użytkowników, które potwierdziły swój adres e-mail i mają e-mail znajdujący się w pliku CSV, zostaną zweryfikowane.
+          explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
           title: Prześlij swój plik CSV
-          upload: Przekazać plik
+          upload: Prześlij
       users:
         create:
-          error: Podczas zapraszania tego użytkownika wystąpił błąd.
-          success: Użytkownik zaprosił Cię z powodzeniem.
+          error: Podczas zapraszania administratora wystąpił błąd.
+          success: Użytkownik został zaproszony.
         destroy:
-          error: Podczas próby usunięcia tego użytkownika wystąpił błąd.
+          error: Podczas próby usunięcia tego administratora wystąpił błąd.
           success: Użytkownik nie jest już administratorem.
         form:
           email: E-mail
           name: Nazwa
           role: Rola
         new:
-          create: Zapraszam
+          create: Zaproś
           title: Zaproś użytkownika jako administratora
       users_statistics:
         users_count:
@@ -810,7 +810,7 @@ pl:
           last_month: Poprzedni miesiąc
           last_week: Poprzedni tydzień
           no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
-          participants: Uczestnicy
+          participants: Użytkownicy
       view_public_page: Zobacz stronę publiczną
     forms:
       errors:
@@ -819,10 +819,10 @@ pl:
     moderations:
       actions:
         hidden: Ukryty
-        hide: Ukryć
-        not_hidden: Nie ukryty
-        title: działania
-        unhide: Odkryj
+        hide: Ukryj
+        not_hidden: Widoczny
+        title: Działania
+        unhide: Pokaż
         unreport: Brak oceny
       admin:
         reportable:
@@ -830,16 +830,16 @@ pl:
             invalid: Wystąpił problem z ukryciem zasobu.
             success: Zasób został ukryty.
           unhide:
-            invalid: Podczas odkrywania zasobu wystąpił problem.
-            success: Zasoby zostały pomyślnie odkryte.
+            invalid: Podczas pokazywania zasobu wystąpił problem.
+            success: Zasoby zostały pomyślnie pokazane.
           unreport:
             invalid: Wystąpił problem z niewykorzystaniem zasobów.
             success: Zasób został pomyślnie nieudokumentowany.
       models:
         moderation:
           fields:
-            hidden_at: Ukryte w
-            report_count: Liczyć
+            hidden_at: Ukryto
+            report_count: Liczba
             reportable: Zgłoszone
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
@@ -851,7 +851,7 @@ pl:
     decidim:
       admin:
         newsletters:
-          title: Biuletyny
+          title: Newslettery
         settings:
           title: Ustawienia
         users:
