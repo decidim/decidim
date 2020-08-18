@@ -37,7 +37,7 @@ pl:
         redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
-        alert_color: Alarm
+        alert_color: Powiadomienie
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
         cta_button_path: Ścieżka przycisku wezwania do działania
