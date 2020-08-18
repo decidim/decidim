@@ -335,6 +335,30 @@ $(document).on("ready", () => {
 });
 ```
 
+Finally, if you want to pass these coordinates to the same form where your
+address field is located at, you can use the `Decidim.attachGeocoding()` method
+as follows:
+
+```js
+$(document).ready(function() {
+  Decidim.attachGeocoding($("#your_address_input"));
+});
+```
+
+Now the latitude and longitude coordinates would be passed to the same form
+where the address input is located at. For example, if the address input had the
+name `record[address]`, new hidden fields would be now generated for the
+geocoding autocomplete suggestion's coordinates with the following names:
+
+- `record[latitude]` for the latitude coordinate
+- `record[longitude]` for the longitude coordinate
+
+Then, you can read these values along with the form's POST data in order to
+store the coordinates for your records in the back-end. This is not 100%
+necessary but it improves the accuracy of the geocoding functionality and it
+also avoids unnecessary double requests to the geocoding API (front-end +
+back-end).
+
 ### Defining the dynamic maps utility
 
 For the dynamic map functionality, you should primarily use a service provider
