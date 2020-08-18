@@ -11,7 +11,7 @@ module Decidim
       describe "commentable" do
         let!(:commentable) { create(:dummy_resource) }
         let(:query) do
-          "{ commentable(id: \"#{commentable.id}\", type: \"#{commentable.commentable_type}\") { id } }"
+          "{ commentable(id: \"#{commentable.id}\", type: \"#{commentable.commentable_type}\", locale: \"en\", toggleTranslations: false) { id } }"
         end
 
         it "fetches the commentable given its id and commentable_type" do
@@ -21,7 +21,7 @@ module Decidim
 
       describe "comment" do
         let!(:comment) { create(:comment) }
-        let(:query) { "{ comment(id: \"#{comment.id}\") { id } }" }
+        let(:query) { "{ comment(id: \"#{comment.id}\", locale: \"en\", toggleTranslations: false) { id } }" }
 
         it "fetches the comment given its id" do
           expect(response["comment"]).to include("id" => comment.id.to_s)

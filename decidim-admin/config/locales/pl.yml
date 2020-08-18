@@ -10,29 +10,30 @@ pl:
         organization: Organizacja
         plural: Liczba mnoga
       attachment:
-        attachment_collection_id: Teczka
+        attachment_collection_id: Folder
         description: Opis
         file: Plik
+        title: Nazwa załącznika lub obrazu
       attachment_collection:
         description: Opis
         name: Nazwa
       category:
         description: Opis
         name: Nazwa
-        parent_id: Roślina mateczna
+        parent_id: Element nadrzędny
       component:
         name: Nazwa
-        published_at: Opublikowano na
+        published_at: Opublikowano
         weight: Waga
       id: ID
       newsletter:
-        body: Ciało
-        subject: Przedmiot
+        body: Treść
+        subject: Temat
       oauth_application:
         name: Nazwa
         organization_logo: Logo organizacji (kwadrat)
         organization_name: Nazwa organizacji
-        organization_url: Adres organizacji
+        organization_url: Adres www organizacji
         redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
@@ -47,9 +48,11 @@ pl:
         enable_omnipresent_banner: Pokaż wszechobecny baner
         facebook_handler: Handler Facebooka
         favicon: Ikona
-        from: Adres e-mail nadawcy
+        from: Z adresu e-mail
         github_handler: Obsługa programu GitHub
         header_snippets: Fragmenty nagłówków
+        highlight_alternative_color: Zaznacz, alternatywa
+        highlight_color: Podświetl
         highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
         highlighted_content_banner_action_title: Tytuł przycisku akcji
         highlighted_content_banner_action_url: URL przycisku czynności
@@ -59,22 +62,30 @@ pl:
         highlighted_content_banner_title: Tytuł
         instagram_handler: Obsługa Instagram
         logo: Logo
+        machine_translation_display_priority: Priorytet wyświetlania tłumaczenia
+        machine_translation_display_priority_original: Tekst oryginalny najpierw
+        machine_translation_display_priority_translation: Tekst przetłumaczony najpierw
         name: Nazwa
-        official_img_footer: Oficjalna stopka logo
-        official_img_header: Oficjalny nagłówek logo
+        official_img_footer: Oficjalne logo dla stopki
+        official_img_header: Oficjalne logo dla nagłówka
         official_url: Oficjalny URL organizacji
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
+        password: Hasło
+        port: Port
         primary_color: Podstawowa
         reference_prefix: Prefiks referencyjny
+        rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
         secondary_color: Wtórny
         send_welcome_notification: Wyślij komunikat powitalny
         show_statistics: Pokaż statystyki
         success_color: Powodzenie
+        time_zone: Strefa czasowa
         tos_version: Warunki korzystania z usługi
         twitter_handler: Obsługa Twittera
         user_groups_enabled: Włącz grupy użytkowników
+        user_name: Nazwa użytkownika
         warning_color: Ostrzeżenie
         welcome_notification_body: Treść komunikatu powitalnego
         welcome_notification_subject: Tytuł komunikatu powitalnego
@@ -139,9 +150,24 @@ pl:
         export: Eksport
         manage: Zarządzanie
         new: Nowe %{name}
+        per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
+      admin_terms_of_use:
+        accept:
+          error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
+          success: Świetnie! Zaakceptowałeś(-aś) warunki użytkowania dla administratorów.
+        actions:
+          accept: Akceptuję niniejsze warunki dla administratorów
+          are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
+          refuse: Nie akceptuję warunków dla administratorów
+          title: Akceptuję warunki użytkowania
+        required_review:
+          alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
+          callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie będziesz mógł/mogła być administratorem platformy.
+          cta: Zapoznaj się teraz.
+        title: Warunki użytkowania dla administratorów
       area_types:
         create:
           error: Wystąpił błąd podczas tworzenia nowego typu obszaru.
@@ -162,6 +188,7 @@ pl:
           error: Wystąpił błąd podczas tworzenia nowego obszaru.
           success: Obszar utworzony pomyślnie.
         destroy:
+          has_spaces: Obszar ma przestrzenie zależne; aby można było go usunąć, nie może mieć zależności.
           success: Obszar pomyślnie zniszczony
         edit:
           title: Edytuj obszar
@@ -232,6 +259,7 @@ pl:
           success: Kategoria została zaktualizowana.
       component_permissions:
         update:
+          error: Wystąpił błąd podczas aktualizowania uprawnień dla tego komponentu.
           success: Uprawnienia zostały pomyślnie zaktualizowane.
       components:
         create:
@@ -270,16 +298,39 @@ pl:
           welcome: Witamy w Decidim Admin Panel.
       exports:
         export_as: "%{name} jako %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
       filters:
         category_id_eq:
           label: Kategoria
+        filter_label: Filtr
         officialized_at_null:
           label: Stan
           values:
             'false': Oficjalny
             'true': Nie oficjalny
+        private_space_eq:
+          label: Prywatny
+          values:
+            'false': Publiczny
+            'true': Prywatny
+        published_at_null:
+          label: Opublikowany
+          values:
+            'false': Opublikowany
+            'true': Nieopublikowany
+        scope_id_eq:
+          label: Zakres
         search_label: Szukaj
+        search_placeholder:
+          name_or_nickname_or_email_cont: Wyszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
+          title_cont: Wyszukaj %{collection} według tytułu.
+        state_eq:
+          label: Stan
       help_sections:
         error: Wystąpił błąd podczas aktualizowania sekcji pomocy
         form:
@@ -350,6 +401,9 @@ pl:
         static_pages: Strony
         user_groups: Grupy użytkowników
         users: Użytkownicy
+      metrics:
+        metrics:
+          see_more_metrics: Zobacz więcej danych
       models:
         area:
           fields:
@@ -383,6 +437,7 @@ pl:
             created_at: Utworzono w
             progress: Postęp
             sent_at: Wysłano w
+            sent_to: Wysłane do
             subject: Przedmiot
           name: Biuletyn
         oauth_application:
@@ -435,6 +490,11 @@ pl:
       newsletter_templates:
         index:
           preview_template: Zapowiedź
+          title: Szablony biuletynu
+          use_template: Użyj tego szablonu
+        show:
+          preview: 'Podgląd szablonu:%{template_name}'
+          use_template: Użyj tego szablonu
       newsletters:
         create:
           error: Podczas tworzenia biuletynu wystąpił błąd.
@@ -449,16 +509,44 @@ pl:
           save_and_preview: Zapisz i podgląd
           title: Edytuj biuletyn
         index:
+          all: wszyscy
+          all_users: 'Wszyscy użytkownicy'
+          and: 'i'
           confirm_delete: Czy na pewno chcesz usunąć ten biuletyn?
+          followers: 'obserwujący'
+          has_been_sent_to: 'Wysłano do: '
+          no_scopes: Brak zakresów
+          not_sent: Nie wysłano
+          participants: 'użytkownicy'
+          segmented_to: 'Podzielone na %{subject}: '
+          subscribed_count: 'Subskrybowane:'
           title: Biuletyny
         new:
           save: Zapisać
           title: Nowy biuletyn
         select_recipients_to_deliver:
+          all_spaces: Wszyscy
+          all_users_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników.
           confirm_deliver: Czy na pewno chcesz dostarczyć ten biuletyn? Nie można cofnąć tej czynności.
           deliver: Dostarcz biuletyn
+          followers_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników, którzy śledzą dowolne wybrane przestrzenie partycypacyjne na liście.
+          none: Żaden
+          participants_help: Wysyła biuletyn do wszystkich potwierdzonych użytkowników, którzy uczestniczyli w którejkolwiek z wybranych przestrzeni partycypacyjnych na liście.
+          recipients_count: Ten biuletyn zostanie wysłany do <strong id='recipients_count'>%{count}</strong> użytkowników.
+          scopes_help: Wysyła biuletyn do użytkowników, którzy mają uaktywniony dowolny z wybranych zakresów w ustawieniach „Moje zainteresowania” na koncie.
+          select_scopes: Filtruj według użytkowników, którzy aktywowali dowolny wybrany zakres w ustawieniach „Moje zainteresowania” na koncie.
+          select_spaces: Wybierz przestrzenie, aby podzielić biuletyn
+          select_users: Wybierz użytkowników, do których chcesz wysyłać biuletyn
+          send_to_all_users: Wyślij do wszystkich użytkowników
+          send_to_followers: Wyślij do obserwujących
+          send_to_participants: Wyślij do uczestników
+          title: Wybierz odbiorców
+          warning: "<strong>Uwaga:</strong> Ten biuletyn zostanie wysyłany tylko do użytkowników, którzy w ustawieniach powiadomień aktywowali opcję <em>Chcę otrzymywać biuletyn</em>."
+        send:
+          no_recipients: Brak odbiorców dla tego wyboru
         show:
           preview: Zapowiedź
+          select_recipients_to_deliver: Wybierz odbiorców
           subject: Przedmiot
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
@@ -497,12 +585,21 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reofficialize
+          show_email: Pokaż adres e-mail
           status: Status
           unofficialize: Nieoficjalne
         new:
           badge: Odznaka oficjalności
           officialize: Oficjalizuj
           title: Oficjalizuj użytkownika "%{name}"
+        show_email_modal:
+          close_modal: Zamknij modalny
+          description: Jeśli chcesz skontaktować się bezpośrednio z uczestnikiem, możesz kliknąć przycisk Pokaż, aby wyświetlić adres e-mail. Ta akcja zostanie zarejestrowana.
+          email_address: Adres e-mail
+          full_name: Imię i nazwisko
+          hidden: ukryty
+          show: Pokaż
+          title: Pokaż adres e-mail uczestnika
       organization:
         edit:
           title: Edytuj organizację
@@ -511,6 +608,7 @@ pl:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: W niektórych obszarach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora tekstu sformatowanego.
           social_handlers: Społeczny
           twitter: Twitter
           url: Url
@@ -531,6 +629,7 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           images:
             layout_appearance_title: Edytuj wygląd układu
+            preview: Podgląd
           omnipresent_banner_appearance_title: Edytuj wszechobecny baner
       organization_homepage:
         edit:
@@ -547,13 +646,18 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej partycji uczestniczącej.
           success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
         index:
+          import_via_csv: Import z CSV
           title: Prywatny użytkownik przestrzeni prywatnej
         new:
           create: Stwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
+        create:
+          invalid: Wystąpił błąd podczas odczytu pliku CSV.
+          success: Plik CSV został pomyślnie przesłany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
-          title: Prześlij plik CSV
+          explanation: Prześlij swój plik CSV. Musi zawierać dwie kolumny z adresem e-mail w pierwszej kolumnie pliku i nazwą w ostatniej kolumnie pliku (adres e-mail, nazwa) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej, bez nagłówków.
+          title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:
         edit:
@@ -594,8 +698,8 @@ pl:
           success: Zakres został zaktualizowany
       shared:
         gallery:
-          add_images: Dodaj zdjęcia
-          delete_image: Usuń zdjęcie
+          add_images: Dodaj obrazy
+          delete_image: Usuń obraz
           gallery_legend: Dodaj galerię obrazów (opcjonalnie)
       static_page_topics:
         create:
@@ -626,7 +730,7 @@ pl:
           update: Aktualizacja
         form:
           none: Żaden
-          slug_help: 'Użyj adresów częściowych, a nie pełnych URL. Pole może zawierać litery, cyfry, myślniki i ukośniki i musi zaczynać się literą. Przykład: %{url}'
+          slug_help: 'Używaj tutaj częściowych ścieżek, a nie pełnych adresów URL. Akceptuje litery, cyfry, myślniki i ukośniki i musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia godna uwagi zmiana
         new:
@@ -648,12 +752,12 @@ pl:
         dashboard: Deska rozdzielcza
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
-        metrics: Wskaźniki
+        metrics: Partycypacja w liczbach
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony
-        statistics: Aktywność
+        statistics: Czynność
         user_groups: Grupy użytkowników
         users: Użytkownicy
       user_group:
@@ -702,9 +806,10 @@ pl:
       users_statistics:
         users_count:
           admins: Administratorzy
-          last_day: Ostatni dzień
-          last_month: Ostatni miesiąc
-          last_week: Ostatni tydzień
+          last_day: Poprzedni dzień
+          last_month: Poprzedni miesiąc
+          last_week: Poprzedni tydzień
+          no_users_count_statistics_yet: Nie ma jeszcze statystyk dotyczących liczby użytkowników
           participants: Uczestnicy
       view_public_page: Zobacz stronę publiczną
     forms:

@@ -104,6 +104,7 @@ pt:
           title: Novo debate
         show:
           back: Retroceder à lista
+          date: Data
           edit_debate: Editar debate
         update:
           invalid: Ocorreu um problema ao atualizar o debate.

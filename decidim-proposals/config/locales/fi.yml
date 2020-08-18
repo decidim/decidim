@@ -79,23 +79,33 @@ fi:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tyyppi
-          values:
-            'false': Ehdotukset
-            'true': Muutokset
+        proposals:
+          category_id_eq:
+            label: Aihepiiri
+          is_emendation_true:
+            label: Tyyppi
+            values:
+              'false': Ehdotukset
+              'true': Muutokset
+          scope_id_eq:
+            label: Teema
+          state_eq:
+            label: Tila
+            values:
+              accepted: Hyväksytty
+              evaluating: Arvioitavana
+              published: Julkaistu
+              rejected: Hylätty
+              validating: Teknisessä validoinnissa
+              withdrawn: Peruutettu
+          state_null:
+            label: Tila
+            values:
+              'true': Vastaamaton
+          valuator_role_ids_has:
+            label: Annettu tehtäväksi arvioijalle
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
-        state_eq:
-          values:
-            evaluating: Arvioitavana
-            withdrawn: Peruutettu
-        state_null:
-          label: Tila
-          values:
-            'true': Vastaamaton
-        valuator_role_ids_has:
-          label: Annettu tehtäväksi arvioijalle
     components:
       proposals:
         actions:

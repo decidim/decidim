@@ -3,6 +3,8 @@ cs:
     attributes:
       debate:
         category_id: Kategorie
+        closed_at: Uzavřeno v
+        conclusions: Závěry
         decidim_category_id: Kategorie
         description: Popis
         end_time: Končí v
@@ -12,6 +14,7 @@ cs:
         title: Titul
         user_group_id: Vytvořte debatu jako
     models:
+      decidim/debates/close_debate_event: Debata byla uzavřena
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty zakázány
       decidim/debates/creation_enabled_event: Debaty povoleny
@@ -39,12 +42,17 @@ cs:
             creation_enabled: Vytváření debaty účastníky povoleno
     debates:
       actions:
+        close: Zavřít
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
         new: Nové %{name}
         title: Akce
       admin:
+        debate_closes:
+          edit:
+            close: Zavřít
+            title: Ukončit debatu
         debates:
           create:
             invalid: Během debaty vznikl problém.
@@ -67,9 +75,18 @@ cs:
             name: Debata
       admin_log:
         debate:
-          create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name} "
+          close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
+          create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name}"
           update: "%{user_name} aktualizovala %{resource_name} diskusi o %{space_name} prostoru"
       debates:
+        close:
+          invalid: Při uzavírání debaty došlo k chybě.
+          success: Debata byla úspěšně uzavřena.
+        close_debate_modal:
+          close: Zavřít
+          description: Jaké je shrnutí nebo závěr této debaty?
+          send: Ukončit debatu
+        closed: Uzavřeno
         count:
           debates_count:
             one: "%{count} debata"
@@ -108,7 +125,11 @@ cs:
           title: Nová debata
         show:
           back: Zpět na seznam
+          close_debate: Ukončit debatu
           date: Datum
+          debate_closed: Uzavřeno
+          debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
+          edit_conclusions: Upravit závěry
           edit_debate: Upravit debatu
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
@@ -136,7 +157,7 @@ cs:
             email_intro: |-
               Ahoj,
               Byla vytvořena nová debata "%{resource_title}" ve skupině %{space_title}, omrkněte a přispějte:
-            email_outro: Toto upozornění jste obdrželi, protože jste sledovali  účstnický prostor %{space_title}.  V přechozím odkazu můžete přestat přijímat oznámení.
+            email_outro: Toto oznámení jste obdrželi, protože sledujete participační prostor %{space_title}. Můžete zrušit příjem oznámení na předchozím odkazu.
             email_subject: Nová debata "%{resource_title}" na %{space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla vytvořena na <a href="%{space_path}">%{space_title}</a>.
           user_followers:
@@ -156,6 +177,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: Debaty jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">novou debatu</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete debatu "%{resource_title}". Můžete ji zrušit z předchozího odkazu.
+          email_subject: Debata "%{resource_title}" byla ukončena
+          notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla ukončena.
     gamification:
       badges:
         commented_debates:

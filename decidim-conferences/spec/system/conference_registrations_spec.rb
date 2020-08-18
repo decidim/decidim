@@ -84,7 +84,7 @@ describe "Conference registrations", type: :system do
             first(:button, "Registration").click
           end
 
-          expect(page).to have_css("#loginModal", visible: true)
+          expect(page).to have_css("#loginModal", visible: :visible)
         end
       end
     end

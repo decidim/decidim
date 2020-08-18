@@ -269,6 +269,11 @@ sv:
         update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i dialogen %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Du har tilldelats som %{role} för deltagarprocess "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} av deltagarprocessen "%{resource_title}".
+          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats %{role} för deltagarprocessen <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Visa det från den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -292,6 +297,9 @@ sv:
         description: Antal dialoger i organisationen
         object: dialoger
         title: Dialoger
+    participatory_process:
+      show:
+        related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -347,7 +355,11 @@ sv:
             active_step: Aktivt steg
             more_information: Mer information
             participate: Delta
+            participate_in: Delta i processen %{resource_name}
             see_all_processes: Visa alla dialoger
+      participatory_process_steps:
+        index:
+          back_to_process: Tillbaka till processsidan
       participatory_processes:
         filters:
           counters:
@@ -377,6 +389,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum
         local_area: Område
@@ -412,6 +425,7 @@ sv:
       participatory_process_groups:
         participatory_process_group:
           browse: Bläddra
+          browse_resource: Bläddra i processgruppen %{resource_name}
           processes_count: 'Dialoger:'
       participatory_process_widgets:
         show:
@@ -423,11 +437,15 @@ sv:
         participatory_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
+          more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
+          take_part_in: Delta i processen %{resource_name}
         promoted_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
+          more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
+          take_part_in: Delta i processen %{resource_name}
       process_header_steps:
         step: Steg %{current} av %{total}
         view_steps: Visa steg

@@ -14,10 +14,13 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Endorsable
       include Decidim::Followable
+      include Decidim::TranslatableResource
       include Traceable
       include Loggable
 
       component_manifest_name "blogs"
+
+      translatable_fields :title, :body
 
       validates :title, presence: true
 

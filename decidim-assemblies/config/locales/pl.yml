@@ -64,6 +64,12 @@ pl:
         email: E-mail
         name: Nazwa
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -84,7 +90,9 @@ pl:
   decidim:
     admin:
       actions:
+        import_assembly: Importuj
         new_assembly: Nowy montaż
+        new_assembly_type: Nowy typ zgromadzenia
       assemblies:
         create:
           error: Podczas tworzenia nowego zestawu wystąpił błąd.
@@ -106,14 +114,35 @@ pl:
         create:
           error: Podczas duplikowania tego zestawu wystąpił błąd.
           success: Złożenie zostało powielone.
+      assemblies_settings:
+        update:
+          error: Podczas aktualizowania ustawień wystąpił błąd.
+          success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
+        create:
+          error: Podczas tworzenia nowego typu zgromadzenia wystąpił błąd.
+          success: Pomyślnie utworzono typ zgromadzenia.
+        destroy:
+          success: Pomyślnie usunięto typ zgromadzenia.
         new:
           create: Utwórz
+          title: Nowy typ zgromadzenia
+        update:
+          error: Podczas aktualizowania tego typu zgromadzenia wystąpił błąd.
+          success: Pomyślnie zaktualizowano typ zgromadzenia.
       assembly_copies:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
           title: Duplikat montażu
+      assembly_imports:
+        create:
+          error: Wystąpił błąd podczas importowania tego zespołu.
+          success: Zestaw pomyślnie zaimportowany.
+        new:
+          import: Importuj
+          select: Wybierz dane, które chcesz zaimportować
+          title: Importuj zespół
       assembly_members:
         create:
           error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
@@ -157,6 +186,7 @@ pl:
           success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
       menu:
         assemblies: Zespoły
+        assemblies_settings: Ustawienia
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
           assembly_members: Członkowie
@@ -168,6 +198,7 @@ pl:
           info: Informacje
           moderations: Modernizacje
           private_users: Prywatni użytkownicy
+        assemblies_types: Typy zgromadzeń
       models:
         assemblies_types:
           fields:
@@ -203,8 +234,10 @@ pl:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
       titles:
         assemblies: Zespoły
+        assemblies_types: Typy zgromadzeń
     admin_log:
       assembly:
         create: "%{user_name} utworzył zespół %{resource_name}"
@@ -215,6 +248,14 @@ pl:
         create: "%{user_name} utworzył %{resource_name} element w %{space_name} zespole"
         delete: "%{user_name} usunął %{resource_name} element z %{space_name} zespołu"
         update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
+      assembly_setting:
+        update: "%{user_name} zaktualizował(a) ustawienia zgromadzenia"
+      assembly_type:
+        create: "%{user_name} utworzył(a) typ zgromadzenia %{resource_name}"
+        delete: "%{user_name} usunął/usunęła członka %{resource_name} z typu zgromadzenia %{space_name}"
+        publish: "%{user_name} opublikował(a) typ zgromadzenia %{resource_name}"
+        unpublish: "%{user_name} anulował(a) publikację typu zgromadzenia %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zgromadzenia %{resource_name}"
       assembly_user_role:
         create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
         delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
@@ -240,13 +281,19 @@ pl:
             visbility: Widoczność
         assemblies_settings:
           edit:
-            update: Aktualizuj
+            update: Aktualizacja
+          form:
+            title: Ustawienia zgromadzeń
         assemblies_types:
           form:
             title: Tytuł
         assembly_copies:
           form:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
+            slug_help: 'Ulugi URL są używane do generowania adresów URL, które wskazują na ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się literą. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -283,6 +330,7 @@ pl:
         others: Inni
         public: Publiczny
       filter:
+        all: Wszystkie typy
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
         executive: Wykonawczy
@@ -299,6 +347,7 @@ pl:
         home:
           highlighted_assemblies:
             active_assemblies: Aktywne złożenia
+            assemblies_button_title: Link do strony Zgromadzenia wyświetlającej wszystkie zgromadzenia
             see_all_assemblies: Zobacz wszystkie zespoły
         user_profile:
           member_of:
@@ -329,6 +378,7 @@ pl:
         related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
         social_networks: Portale społecznościowe
+        social_networks_title: Udostępnij zgromadzenie na
         target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
@@ -340,6 +390,7 @@ pl:
         meetings_count: Spotkania
         orders_count: Głosowania
         pages_count: Strony
+        posts_count: Posty
         projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
@@ -351,6 +402,24 @@ pl:
         designated_on: Wyznaczony na
       index:
         title: Członkowie
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link do strony Konferencje wyświetlającej wszystkie konferencje
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Administrator zgromadzenia <a href="%{resource_url}">%{resource_name}</a> dodał Cię jako jednego z członków tego zgromadzenia.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ zaproszono Cię do udziału w zgromadzeniu. Sprawdź <a href="%{resource_path}">stronę zgromadzenia</a>, aby wziąć udział!
+          email_subject: Zaproszono Cię do grona członków zgromadzenia %{resource_name}!
+          notification_title: Zarejestrowano Cię jako członka zgromadzenia <a href="%{resource_path}">%{resource_name}</a>. Sprawdź <a href="%{resource_path}">stronę zgromadzenia</a>, aby wnieść swój wkład!
+      assembly:
+        role_assigned:
+          email_intro: Przypisano Ci rolę %{role} w zgromadzeniu „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie jako %{role} zgromadzenia „%{resource_title}”.
+          email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
+          notification_title: Przypisano Ci rolę %{role} w zgromadzeniu <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -361,6 +430,8 @@ pl:
       value_types:
         assembly_presenter:
           not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Nie znaleziono typu zgromadzenia w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     metrics:
@@ -368,6 +439,19 @@ pl:
         description: Liczba utworzonych złożeń
         object: zespoły
         title: Złożenia
+    pages:
+      home:
+        hero:
+          participate_title: Weź udział w procesach platformy
+        sub_hero:
+          register_title: Zarejestruj się, aby utworzyć konto na platformie
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
+      show:
+        related_assemblies: Powiązane zgromadzenia
   errors:
     messages:
       cannot_be_blank: nie może być puste
@@ -378,6 +462,7 @@ pl:
           more_info: Więcej informacji
           take_part: Weź udział
         index:
+          children: 'Zgromadzenia:'
           organizational_chart: Schemat organizacyjny
           promoted_assemblies: Podświetlone zespoły
           reset_chart: Nastawić

@@ -1,0 +1,7 @@
+bg:
+  activemodel:
+    attributes:
+      answer:
+        description: Описание
+        image: Изображение
+        proposals: Свързани предложения

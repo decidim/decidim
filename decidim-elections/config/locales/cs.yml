@@ -141,6 +141,24 @@ cs:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
+      election_m:
+        footer:
+          take_part: Zapojte se
+      elections:
+        count:
+          elections_count:
+            one: "%{count} zvolení"
+            few: "%{count} zvolení"
+            many: "%{count} zvolení"
+            other: "%{count} voleb"
+        show:
+          back: Všechny volby
+          preview: Náhled
+          vote: Hlasování
+          voting_period_status:
+            finished: Hlasování začalo %{start_time} a skončilo %{end_time}
+            ongoing: Hlasování končí %{end_time}
+            upcoming: Hlasování začíná %{start_time}
       models:
         answer:
           fields:
@@ -156,6 +174,44 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+      votes:
+        confirm:
+          answer: Odpověď
+          answer_number: odpověď %{number}
+          confirm: Potvrdit
+          edit: upravit
+          header: Potvrďte svůj hlas
+          intro: Zde je shrnutí hlasů, které se chystáte odeslat. <br> Prosím potvrďte svůj hlas nebo upravte své odpovědi.
+          question: Otázka %{count}
+        confirmed:
+          back: Zpět k volbám
+          experience: Jaká byla vaše zkušenost?
+          feedback: Dejte nám zpětnou vazbu
+          header: Hlasování potvrzeno
+          lead: Váš hlas již byl odeslán!
+          text: 'Můžete zkontrolovat, že váš hlas byl úspěšně přidán do volební urny s následujícím identifikátorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Chcete-li jej zkontrolovat, zkopírujte identifikátor a vložte jej na <a href="evote-verify">stránku pro ověření hlasování</a>
+        encrypting:
+          header: Zakódování hlasů...
+          text: Váš hlas je šifrován, abyste ho mohli anonymně posílat.
+        header:
+          confirm: Potvrďte svůj hlas
+          confirmed: Hlasování potvrzeno
+          encrypting: Potvrzení hlasování
+        messages:
+          not_allowed: V tuto chvíli vám není dovoleno hlasovat o těchto volbách.
+        modal:
+          close: Zavřít
+          proposal_header: 'Návrhy:'
+        new:
+          answer_choices: Můžete vybrat až %{choices} odpovědí nebo žádnou
+          more_information: Více informací
+          preview_alert: To je náhled hlasovacího pultu.
+          question_steps: Otázka %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> výběrů"
+        voting_step:
+          back: Zpět
+          continue: Další
     events:
       elections:
         election_published:
@@ -166,3 +222,7 @@ cs:
     participatory_processes:
       statistics:
         elections_count: Volby
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Ukončit

@@ -13,6 +13,7 @@ de:
         attachment_collection_id: Verzeichnis
         description: Beschreibung
         file: Datei
+        title: Anhang oder Bildname
       attachment_collection:
         description: Beschreibung
         name: Name
@@ -38,6 +39,7 @@ de:
         address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
+        comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
@@ -49,6 +51,8 @@ de:
         from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
+        highlight_alternative_color: Hervorhebung, Alternative
+        highlight_color: Hervorheben
         highlighted_content_banner_action_subtitle: Aktion Schaltfläche Untertitel
         highlighted_content_banner_action_title: Titel der Aktionsschaltfläche
         highlighted_content_banner_action_url: Aktionsschaltflächen-URL
@@ -291,6 +295,11 @@ de:
           welcome: Willkommen im Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
@@ -317,6 +326,8 @@ de:
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
           title_cont: Suche in %{collection} nach Titel.
+        state_eq:
+          label: Bundesland
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -579,6 +590,7 @@ de:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
+          close_modal: Modal schließen
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um die E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
@@ -614,6 +626,7 @@ de:
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
             layout_appearance_title: Layout-Layout bearbeiten
+            preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_homepage:
         edit:

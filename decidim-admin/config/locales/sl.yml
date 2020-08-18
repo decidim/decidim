@@ -1,0 +1,97 @@
+sl:
+  activemodel:
+    attributes:
+      area:
+        name: Ime
+        organization: Organizacija
+      area_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      attachment:
+        attachment_collection_id: Mapa
+        description: Opis
+        file: Datoteka
+        title: Ime priponke
+      attachment_collection:
+        description: Opis
+        name: Ime
+      category:
+        description: Opis
+        name: Ime
+        parent_id: Nadrejeni
+      component:
+        name: Ime
+        published_at: Objavljeno
+        weight: Teža
+      id: ID
+      newsletter:
+        body: Telo
+        subject: Zadeva
+      oauth_application:
+        name: Ime
+        organization_name: Ime organizacije
+        redirect_uri: Preusmeritev URI
+      organization:
+        address: SMTP Gostitelj
+        alert_color: Opozorilo
+        default_locale: Privzeto območje
+        description: Opis
+        favicon: Ikona
+        highlighted_content_banner_image: Slika
+        highlighted_content_banner_short_description: Kratek opis
+        highlighted_content_banner_title: Naslov
+        logo: Logotip
+        name: Ime
+        omnipresent_banner_title: Naziv
+        password: Geslo
+        port: Vrata
+        primary_color: Primarni
+        secondary_color: Sekundarni
+        show_statistics: Pokaži statistiko
+        time_zone: Časovni pas
+        user_name: Uporabniško ime
+        warning_color: Opozorilo
+      scope:
+        code: Koda
+        name: Ime
+        organization: Organizacija
+        parent_id: Nadrejeni
+      static_page_topic:
+        weight: Teža
+      user_group_csv_verification:
+        file: Datoteka
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Neveljavna slikovna datoteka
+            official_img_header:
+              allowed_file_content_types: Neveljavna slikovna datoteka
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Vsebina
+        title: Naziv
+      doorkeeper/application:
+        client_id: ID odjemalca
+        organization_name: Ime organizacije
+        redirect_uri: Preusmeritev URI
+        site: Spletna stran
+  decidim:
+    admin:
+      actions:
+        add: Dodaj
+        browse: Brskaj
+        export: Izvozi
+        manage: Uredi
+        new: Novo %{name}
+        per_page: Na stran
+        permissions: Dovoljenja
+        reject: Zavrni
+        verify: Preveri
+      organization_appearance:
+        form:
+          colors:
+            colors_title: Barve organizacije

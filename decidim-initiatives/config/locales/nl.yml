@@ -26,8 +26,11 @@ nl:
       initiatives_committee_member:
         user: Commissielid
       initiatives_type:
+        area_enabled: Sta auteurs toe het gebied te kiezen voor hun initiatief
+        attachments_enabled: Bijlagen inschakelen
         banner_image: Banner afbeelding
         collect_user_extra_fields: Persoonlijke gebruikersgegevens verzamelen bij ondertekening
+        custom_signature_end_date_enabled: Sta auteurs toe het einde van de handtekeningperiode te kiezen
         description: Beschrijving
         document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
         extra_fields_legal_information: Juridische informatie over het verzamelen van persoonlijke gegevens
@@ -46,6 +49,14 @@ nl:
         address: Adres
         id_document: Identiteitsbewijs
         name: Volledige naam
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Bestand is ongeldig
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+              title: Titel mag niet leeg zijn
   activerecord:
     models:
       decidim/initiative:
@@ -62,12 +73,8 @@ nl:
       actions:
         new_initiative_type: Nieuw initiatiefstype
       filters:
-        state_eq:
-          values:
-            created: gemaakt
-            discarded: Afgedankte
-            published: Gepubliceerd
-            validating: Technische validatie
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
         initiatives: initiatieven
         initiatives_types: Initiatieftypes
@@ -76,6 +83,7 @@ nl:
           fields:
             created_at: Aangemaakt op
             id: ID kaart
+            published_at: Gepubliceerd op
             state: Status
             supports_count: Handtekeningen
             title: initiatieven
@@ -108,6 +116,12 @@ nl:
         initiatives_types: Initiatieftypes
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Het initiatief "%{resource_title}" is verzonden naar technische validatie. Bekijk het via <a href="%{admin_initiative_url}">het beheerpaneel</a>
+            email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
+            email_subject: Initiatief "%{resource_title}" werd verzonden naar technische validatie.
+            notification_title: Het initiatief "%{resource_title}" is verzonden naar technische validatie. Bekijk het via <a href="%{admin_initiative_path}">het beheerpaneel</a>
         initiative_extended:
           email_intro: De einddatum voor de handtekeningen van initiatief %{resource_title} is verlengd!
           email_outro: U hebt deze melding ontvangen omdat u %{resource_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
@@ -124,6 +138,11 @@ nl:
             email_outro: U hebt deze melding ontvangen omdat u %{resource_title} volgt. Je kunt de meldingen stoppen door de vorige link te volgen.
             email_subject: Nieuwe mijlpaal voltooid!
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft %{percentage}% handtekeningen behaald.
+        support_threshold_reached:
+          email_intro: Het initiatief %{resource_title} heeft de steundrempel bereikt
+          email_outro: Je hebt deze melding ontvangen omdat je beheerder bent van het platform.
+          email_subject: Ondersteuningsdrempel bereikt
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief heeft de support drempel bereikt
     gamification:
       badges:
         initiatives:
@@ -168,6 +187,8 @@ nl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum aantal elementen dat kan worden weergegeven
+        exports:
+          initiatives: Initiatieven
         initiatives:
           edit:
             accept: Accepteer initiatief
@@ -185,6 +206,11 @@ nl:
             actions_title: Actie
             preview: Voorbeeld
             print: Afdrukken
+          initiative_attachments:
+            documents: Documenten
+            edit: Bewerken
+            new: Nieuw
+            photos: Foto's
           show:
             print: Afdrukken
           update:
@@ -236,14 +262,26 @@ nl:
           unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
           update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
       admin_states:
+        accepted: Genoeg handtekeningen
         created: gemaakt
         discarded: Afgedankte
         published: Gepubliceerd
+        rejected: Niet genoeg handtekeningen
         validating: Technische validatie
       application_helper:
+        filter_area_values:
+          all: Allemaal
+        filter_scope_values:
+          all: Allemaal
         filter_state_values:
+          accepted: Genoeg handtekeningen
+          all: Allemaal
+          answered: beantwoord
           closed: Gesloten
           open: Open
+          rejected: Niet genoeg handtekeningen
+        filter_type_values:
+          all: Allemaal
       committee_requests:
         new:
           continue: Doorgaan met
@@ -260,13 +298,17 @@ nl:
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
+          select_area: Selecteer een gebied
           select_scope: Selecteer een scope
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
           callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
+          confirm: Bevestigen
+          edit_my_initiative: Bewerk mijn initiatieven
           go_to_my_initiatives: Ga naar mijn initiatieven
           more_information: "(Meer informatie)"
+          send_my_initiative: Stuur mijn initiatief
         finish_help:
           access_reminder: Vergeet niet dat je altijd toegang hebt tot je initiatieven via het gebruikersmenu.
           help_for_organizations: Als u een vereniging bent, moet u de notulen van het directiecomité uploaden van alle organisaties die de promotieraad vormen
@@ -350,8 +392,10 @@ nl:
             other: "%{count} initiatieven"
         filters:
           any: Alle
+          area: Oppervlak
           author: Auteur
           myself: Mijn initiatieven
+          scope: Bereik
           search: Zoeken
           state: Staat
           type: Type
@@ -362,6 +406,13 @@ nl:
           unfold: Uitvouwen
         index_header:
           new_initiative: Nieuw initiatief
+          not_authorized:
+            authorizations_page: Bekijk autorisaties
+            close: Afsluiten
+            explanation: Je moet geverifieerd worden om een nieuw initiatief te kunnen maken.
+            title: Autorisatie vereist
+        initiatives:
+          no_initiatives_warning: De zoekopdracht heeft geen resultaten opgeleverd.
         interactions:
           comments_count:
             count:
@@ -373,6 +424,7 @@ nl:
           most_voted: Meest ondertekend
           random: Willekeurig
           recent: Meest recente
+          recently_published: Meest recent gepubliceerd
         result:
           answer_title:
             accepted: Dit voorstel is geaccepteerd omdat
@@ -423,10 +475,21 @@ nl:
           highlighted_initiatives:
             active_initiatives: Actieve initiatieven
             see_all_initiatives: Bekijk alle initiatieven
+      show:
+        badge_name:
+          accepted: Genoeg handtekeningen
+          created: Aangemaakt
+          discarded: Verwijderd
+          published: Ingediend
+          rejected: Niet genoeg handtekeningen
+          validating: Technische validatie
       states:
         accepted: Aanvaard
         expired: Vervallen
       unavailable_scope: Niet beschikbaar bereik
+      versions:
+        shared:
+          back_to_resource: Ga terug naar het initiatief
     menu:
       initiatives: initiatieven
     resources:

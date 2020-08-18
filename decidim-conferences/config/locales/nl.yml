@@ -183,6 +183,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
+            valuator: 'Waarde:'
         media_link:
           fields:
             date: Datum
@@ -461,6 +462,9 @@ nl:
             active_conferences: Actieve conferenties
             see_all_conferences: Bekijk alle conferenties
       photo:
+        image:
+          attributes:
+            alt: Media afbeelding
         show:
           close_modal: Modal sluiten
           photo: Foto
@@ -524,6 +528,11 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: De "%{resource_title}" -conferentie heeft registraties mogelijk gemaakt.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> conferentie heeft registraties mogelijk gemaakt.
+        role_assigned:
+          email_intro: U bent toegewezen als %{role} voor de conferentie "%{resource_title}".
+          email_outro: U heeft deze melding ontvangen omdat u %{role} van de "%{resource_title}" conferentie bent.
+          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          notification_title: Je bent toegewezen als %{role} voor de conferentie <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'De "%{resource_title}" -conferentie vindt plaats over 2 dagen. U kunt de beschrijving van zijn pagina lezen:'
           email_outro: U hebt deze melding ontvangen omdat u de "%{resource_title}" -conferentie volgt. Je kunt het niet meer volgen vanaf de vorige link.

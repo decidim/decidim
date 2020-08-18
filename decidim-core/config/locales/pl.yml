@@ -3,8 +3,16 @@ pl:
     attributes:
       account:
         delete_reason: Powód usunięcia konta
+      common:
+        created_at: Utworzono w
       group:
+        about: O
+        avatar: Awatar
+        document_number: Numer dokumentu
+        email: E-mail
+        name: Nazwa
         nickname: Alias
+        phone: Telefon
       report:
         details: Dodatkowe uwagi
       user:
@@ -27,6 +35,7 @@ pl:
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Promowane do administratora grupy
       decidim/removed_from_group: Usunięto z grupy
+      decidim/resource_endorsed_event: Poparto zasób
   activerecord:
     attributes:
       decidim/user:
@@ -42,6 +51,11 @@ pl:
         few: Poprawki
         many: Poprawki
         other: Poprawki
+      decidim/endorsement:
+        one: Poparcie
+        few: Poparcia
+        many: Poparcia
+        other: Poparcia
       decidim/user:
         one: Brak użytkowników
         few: Użytkownicy
@@ -57,6 +71,7 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
+      general: Błąd podczas przetwarzania obrazu
       image_too_big: Obraz jest zbyt duży
   date:
     formats:
@@ -66,6 +81,10 @@ pl:
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
   decidim:
+    accessibility:
+      external_link: Link zewnętrzny
+      logo: "Oficjalne logo %{organization}"
+      skip_button: Przejdź do głównej zawartości
     account:
       data_portability_export:
         file_no_exists: Plik nie istnieje
@@ -117,6 +136,7 @@ pl:
         update: "%{user_name} zaktualizował ustawienia organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił %{resource_name} aby zostać użytkownikiem prywatnym"
+        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} poprzez CSV, aby został(a) uczestnikiem prywatnym"
         delete: "%{user_name} usunął użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył zasięg %{resource_name}"
@@ -133,11 +153,16 @@ pl:
         invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
         officialize: "%{user_name} oficjalny użytkownik %{resource_name}"
         remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
+        show_email: "%{user_name} pobrał(a) e-mail uczestnika %{resource_name}"
         unofficialize: "%{user_name} nieoficjalny użytkownik %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
         verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
+    admin_terms_of_use:
+      default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
+    alert:
+      dismiss: Odrzuć powiadomienie
     amendments:
       accepted:
         error: Wystąpił błąd podczas przyjmowania poprawki.
@@ -151,6 +176,21 @@ pl:
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
         section_heading: Poprawki (%{count})
+      compare_draft:
+        continue: Dalej
+        no_similars_found: Nie znaleziono podobnych poprawek.
+        title: Podobne poprawki
+      created:
+        error: Wystąpił błąd podczas tworzenia projektu poprawki.
+        success: Projekt poprawki został pomyślnie utworzony.
+      destroy_draft:
+        error: Wystąpił błąd podczas usuwania projektu poprawki.
+        success: Projekt poprawki został pomyślnie usunięty.
+      edit_draft:
+        discard: Odrzuć projekt
+        discard_confirmation: Czy na pewno chcesz odrzucić ten projekt poprawki?
+        send: Podgląd
+        title: Edytuj projekt poprawki
       emendation:
         actions:
           button_accept: Zaakceptować
@@ -163,15 +203,25 @@ pl:
           evaluating: |-
             Niniejsza poprawka do oceny %{amendable_type} %{amendable_link}
             jest przedmiotem oceny.
+          promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta emisja dla %{amendable_type} %{amendable_link}\nzostała odrzucona na <strong>%{announcement_date}</strong>."
           withdrawn: |-
             Ta poprawka do %{amendable_type} %{amendable_link}
             została wycofana przez autora.
       new:
         amendment_author: Autor poprawki
+        send: Utwórz
+        title: Utwórz projekt poprawki
+      preview_draft:
+        modify: Modyfikuj
+        publish: Opublikuj
+        title: Opublikuj projekt poprawki
       promoted:
         error: Podczas promowania wyemitowania wystąpiły błędy
         success: Emedycja została pomyślnie awansowana
+      publish_draft:
+        error: Wystąpił błąd podczas publikowania poprawki.
+        success: Poprawka została pomyślnie opublikowana.
       rejected:
         error: Wystąpił błąd podczas odrzucania tej poprawki, spróbuj ponownie później
         success: Emendacja została odrzucona pomyślnie
@@ -180,12 +230,18 @@ pl:
         heading: Przejrzyj poprawkę
         help_text: Przeglądasz poprawkę do %{model_name}
         send: Przyjmij poprawkę
+      update_draft:
+        error: Wystąpił błąd podczas aktualizowania projektu poprawki.
+        success: Projekt poprawki został pomyślnie zaktualizowany.
+      withdraw:
+        error: Wystąpił błąd podczas wycofywania poprawki.
+        success: Poprawka została pomyślnie wycofana.
       wizard_step_form:
         steps:
           '1': Utwórz poprawkę
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Porównaj poprawkę
+          '3': Uzupełnij poprawkę
+          '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       collection:
@@ -194,16 +250,24 @@ pl:
           few: Dokumenty
           many: Dokumenty
           other: Dokumenty
+      document:
+        download: Pobierz plik
       documents:
         related_documents: Powiązane dokumenty
       photos:
         related_photos: Powiązane zdjęcia
     author:
+      avatar: Awatar
       comments:
         one: komentarz
         few: komentarze
         many: komentarze
         other: komentarze
+      endorsements:
+        one: poparcie
+        few: poparcia
+        many: poparcia
+        other: poparcia
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
@@ -214,8 +278,11 @@ pl:
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
         fields:
+          allowed_postal_codes: Dozwolone kody pocztowe (oddzielone przecinkami)
+          allowed_scope_id: Dozwolony zakres
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
+          scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         name: Przykład autoryzacji
       dummy_authorization_workflow:
         name: Przepustowy proces autoryzacji
@@ -229,6 +296,7 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
+      renew: Odnów weryfikację
       sms:
         explanation: Prześlij swój numer telefonu komórkowego, abyśmy mogli sprawdzić Twoją tożsamość.
         name: Kod przez SMS
@@ -263,6 +331,8 @@ pl:
           explanation_html: Aby wykonać tę czynność, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Poproś o instrukcje potwierdzające
           title: Potwierdź swój email
+      show:
+        close_modal: Zamknij modalny
     collapsible_list:
       hidden_elements_count:
         one: i %{count} więcej
@@ -272,6 +342,19 @@ pl:
       see_less: "(patrz mniej)"
       see_more: "(Zobacz więcej)"
     components:
+      component_order_selector:
+        no_content: Nie znaleziono żadnych treści spełniających te kryteria
+        order:
+          all_types: Wszystkie typy
+          collaborative_draft: Wspólny projekt
+          comment: Komentarz
+          debate: Debata
+          initiative: Inicjatywa
+          meeting: Spotkanie
+          post: Stanowisko
+          proposal: Propozycja
+          question: Pytanie
+        title: 'Pokaż:'
       dummy:
         actions:
           bar: Bar
@@ -281,20 +364,30 @@ pl:
           global:
             amendments_enabled: Poprawione włączone
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy
             dummy_global_attribute_1: Atrybut dummy 1
             dummy_global_attribute_2: Atrybut Dummy 2
+            dummy_global_translatable_text: Wypełniacz tekstu do tłumaczenia
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
           step:
+            amendment_creation_enabled: Włączono tworzenie poprawek
+            amendment_promotion_enabled: Włączono zmianę typu poprawek
+            amendment_reaction_enabled: Włączono odpowiedzi na poprawki
+            amendments_visibility: Widoczność poprawek
             comments_blocked: Komentarze zablokowane
             dummy_step_attribute_1: Atrybut krokowy atrapy 1
             dummy_step_attribute_2: Atrybut krokowy atrapy 2
+            dummy_step_translatable_text: Wypełniacz tekstu do tłumaczenia
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
         name: Banner podrzędny stopki
       hero:
         name: Obraz bohatera
+      hero_settings_form:
+        background_image: Obraz tła
+        welcome_text: Tekst powitalny
       highlighted_content_banner:
         name: Wyróżniony baner treści
       how_to_participate:
@@ -314,6 +407,7 @@ pl:
         name: Banner podrzędny
     core:
       actions:
+        login_before_access: Zaloguj się na swoje konto przed uzyskaniem dostępu
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
     data_portability:
       export:
@@ -340,6 +434,7 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój alias (@alias) w %{organization}
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj Się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -388,6 +483,14 @@ pl:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     endorsable:
       endorsements: Adnotacje
+      endorsements_count: Liczba wpisów
+    endorsement_buttons_cell:
+      already_endorsed: Poparto
+      endorse: Poprzyj
+    endorsements:
+      identities:
+        done: Gotowe
+        select_identity: Wybierz tożsamość
     errors:
       internal_server_error:
         title: Wystąpił problem z naszym serwerem
@@ -506,8 +609,23 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś członkiem tej grupy.
           email_subject: Zostałeś usunięty z grupy %{user_group_name}!
           notification_title: Zostałeś usunięty z grupy <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: Utworzono nową grupę użytkowników o nazwie %{user_group_name}. Możesz ją teraz zweryfikować w <a href="%{groups_admin_url}">panelu administratora</a>.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Utworzono nową grupę użytkowników
+          notification_title: Utworzono grupę użytkowników %{user_group_name}. Możesz ją teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
+        user_group_updated:
+          email_intro: Grupa użytkowników o nazwie %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_url}">panelu administratora</a>.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Grupa użytkowników zaktualizowała swój profil
+          notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie poparł(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
+        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia, klikając poprzedni link.
+        email_subject: "%{endorser_nickname} poparł(a) nową propozycję"
+        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została poparta przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
@@ -539,6 +657,11 @@ pl:
       title: Odcisk palca
       value: Wartość
     followers:
+      followers_count:
+        one: "%{count} obserwujący"
+        few: "%{count} obserwujących"
+        many: "%{count} obserwujących"
+        other: "%{count} obserwujących"
       no_followers: Brak obserwujących.
     following:
       no_followings: Nie śledzi nikogo ani niczego jeszcze.
@@ -546,6 +669,7 @@ pl:
       create:
         button: Obserwuj
         error: Nastąpił błąd w następstwie tego zasobu.
+        participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd obserwowania użytkownika tego zasobu.
@@ -554,7 +678,22 @@ pl:
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
+        decidim/user:
+          password: Hasło jest za krótkie
+          password_confirmation: Oba hasła muszą być zgodne.
         error: W tym polu wystąpił błąd.
+      file_help:
+        file:
+          explanation: 'Wytyczne dotyczące pliku:'
+          message_1: Ma być obrazem lub dokumentem.
+          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwisowo uprawia obraz.
+        image:
+          explanation: 'Wytyczne dotyczące obrazu:'
+          message_1: Najlepiej obrazek krajobrazu, który nie ma żadnego tekstu.
+          message_2: Serwis uprawia obraz.
+      file_validation:
+        allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
+        max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
       remove_this_file: Usuń ten plik
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
@@ -708,6 +847,13 @@ pl:
           not_found: 'Typ zasięgu nie został znaleziony w bazie danych (ID: %{id})'
     managed_users:
       expired_session: Obecna sesja personifikacji wygasła.
+    map:
+      dynamic:
+        screen_reader_explanation: Poniższy element to mapa, która przedstawia elementy na tej stronie jako punkty mapy. Element może być użyty z czytnikiem ekranu, ale może być trudny do zrozumienia.
+        skip_button: Pomiń mapę
+      static:
+        latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
@@ -715,27 +861,69 @@ pl:
       home: Strona główna
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
+          greeting: Cześć, %{recipient}!
+          intro: "Użytkownik %{manager} rozpoczął nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z decidim!
+          subject: "Użytkownik %{manager} rozpoczął nową konwersację jako %{group}"
+        comanagers_new_message:
+          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
+          greeting: Cześć, %{recipient}!
+          intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
+          outro: Miłego korzystania z decidim!
+          subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął z tobą nową rozmowę. Kliknij tutaj, aby go zobaczyć:"
           outro: Ciesz się decidimem!
           subject: "%{sender} rozpoczął z tobą rozmowę"
+        new_group_conversation:
+          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
+          greeting: Cześć, %{recipient}!
+          intro: "Użytkownik %{sender} nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
+          outro: Miłego korzystania z decidim!
+          subject: "Użytkownik %{sender} rozpoczął konwersację z %{group}"
+        new_group_message:
+          admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
+          greeting: Cześć, %{recipient}!
+          intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
+          outro: Miłego korzystania z decidim!
+          subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
           outro: Ciesz się decidimem!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
+        add_conversation_users:
+          add_max_users: 'Dodaj użytkowników do konwersacji: maksymalnie 9 użytkowników'
+          add_users_placeholder: Szukaj...
+          modal_title: Nowa konwersacja
+          no_results: Brak wyników
+          participant_with_disabled_message_reception: Ten uczestnik wyłączył odbiór wiadomości
+        conversation:
+          show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         index:
+          ago: temu
           close: Zamknij modalne
+          from: Od
+          groups: Moje grupy
+          last_message: Ostatnia wiadomość
+          new_conversation: Nowa konwersacja
+          next: Następna
           no_conversations: Nie masz jeszcze żadnych rozmów
           title: Rozmowy
         reply:
+          placeholder: Twoja odpowiedź...
           send: Wysłać
           title: Odpowiadać
         show:
+          back: Powrót do wszystkich rozmów
+          chat_with: Konwersacja z
+          not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
           title: Konwersacja z %{usernames}
         start:
           send: Wysłać
@@ -762,6 +950,25 @@ pl:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
         see_on_website: Nie widzę tego e-maila poprawnie? Wyświetl go na <a href="%{link}" target="_blank">stronie internetowej</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletter_templates:
+      basic_only_text:
+        body_preview: 'Wypełniacz tekstu treści głównej: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Podstawowy (tylko tekst)
+      basic_only_text_settings_form:
+        body: Treść
+        interpolations_hint: 'Wskazówka: wstaw „%{name}” w dowolnym miejscu tekstu głównego lub tematu, a zostanie zastąpiony nazwą odbiorcy.'
+      image_text_cta:
+        body_preview: 'Wypełniacz tekstu treści głównej: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        cta_text_preview: Tekst Call To Action
+        introduction_preview: 'Wypełniacz tekstu wstępu: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: Obraz, tekst i przycisk Call To Action
+      image_text_cta_settings_form:
+        body: Treść
+        cta_text: Tekst przycisku Call To Action
+        cta_url: URL przycisku Call To Action
+        interpolations_hint: 'Wskazówka: wstaw „%{name}” w dowolnym miejscu wstępu, treści głównej, tekstu CTA lub tematu, a zostanie zastąpiony nazwą odbiorcy.'
+        introduction: Wprowadzenie
+        main_image: Obraz główny
     newsletters:
       unsubscribe:
         check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić w <a href="%{link}" target="_blank">konfiguracji strona</a>
@@ -787,6 +994,8 @@ pl:
       no_notifications: Nie powiadomienia.
     notifications_settings:
       show:
+        allow_public_contact: Każdy może wysłać mi bezpośrednią wiadomość, nawet jeśli ich nie śledzę.
+        direct_messages: Otrzymuj bezpośrednie wiadomości od każdego
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
         everything_followed: Wszystko, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
@@ -889,10 +1098,12 @@ pl:
       show:
         activity: Czynność
         badges: Odznaki
+        conversations: Konwersacje
         followers: Obserwujący
         following: Podąża
         groups: Grupy
         members: Członkowie
+        officialized: Oficjalny uczestnik
         timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
@@ -918,23 +1129,37 @@ pl:
         report_html: <p>Te <a href="%{url}">content</a> zostały ukryte automatycznie.</p>
         subject: Zasób został ukryty automatycznie
       report:
+        authors: Autorzy
+        content: Zgłoszona zawartość
+        date: Zgłoszone dnia
+        details: Szczegóły
         hello: Witaj %{name},
         manage_moderations: Zarządzaj moderatorami
+        participatory_space: Przestrzeń partycypacyjna
+        reason: Powód
         report_html: <p>Potwierdzono <a href="%{url}">content</a>.</p>
         subject: Zasób został zgłoszony
     reports:
       create:
         error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
+    resource_endorsements:
+      create:
+        error: Wystąpił błąd podczas udzielania poparcia.
     scopes:
       global: Zakres globalny
       picker:
         cancel: Anuluj
+        change: Zmień wybrany zakres
         choose: Wybierz
+        currently_selected: Aktualnie wybrany zakres
         title: Wybierz %{field}
       prompt: Wybierz zakres
       scopes: Zakresy
+      scopes_picker_input:
+        select_scope: 'Wybierz zakres (obecnie: %{current})'
     search:
+      results: Wyniki wyszukiwania
       results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
@@ -959,6 +1184,11 @@ pl:
           other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
     shared:
+      confirm_modal:
+        cancel: Anuluj
+        close_modal: Zamknij modalny
+        ok: OK
+        title: Potwierdź
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -966,6 +1196,9 @@ pl:
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwijać się
+      filter_form_help:
+        help: Poniższy formularz filtruje wyniki wyszukiwania dynamicznie po zmianie warunków wyszukiwania.
+        skip: Przejdź do wyników
       flag_modal:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Blisko
@@ -976,10 +1209,12 @@ pl:
         spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
         title: Zgłoś problem
       floating_help:
+        close: Zamknij pomoc
         help: Wsparcie
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
+        close_modal: Zamknij modalny
         please_sign_in: proszę zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
@@ -993,13 +1228,52 @@ pl:
         select_user_group: Wybierz grupę
       results_per_page:
         label: 'Wyniki na stronę:'
+        title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
         share: Share
         share_link: Udostępnij link
+    tags:
+      filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
+      filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
+    translation_bar:
+      help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
+      show_original: Pokaż oryginalny tekst
+      show_translated: Pokaż automatyczne tłumaczenie
     user_activity:
       index:
         no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
+    user_contact_disabled: Ten uczestnik nie przyjmuje bezpośrednich wiadomości.
+    user_conversations:
+      create:
+        error: Nie można utworzyć wiadomości. Spróbuj ponownie później
+        existing_error: Nie można utworzyć wiadomości. Konwersacja już istnieje, spróbuj ponownie teraz.
+        success: Konwersacja rozpoczęła się pomyślnie!
+      index:
+        add_max_users: 'Dodaj użytkowników do konwersacji: maksymalnie 9 użytkowników'
+        add_users_placeholder: Szukaj...
+        close: Zamknij
+        conversations_info: Konwersacje są prywatne. Nikt inny ich nie widzi. Konwersację można rozpocząć z dowolnym uczestnikiem lub grupą zarejestrowanymi na platformie.
+        from: Od
+        last_message: Ostatnia wiadomość
+        modal_title: Nowa konwersacja
+        new_conversation: Nowa konwersacja
+        next: Następna
+        no_conversations_warning: Nie ma jeszcze żadnych konwersacji.
+        no_results: Brak wyników
+        participant_with_disabled_message_reception: Ten uczestnik wyłączył odbiór wiadomości
+        time_ago: "%{time} temu"
+      new:
+        title: Rozpocznij konwersację
+      reply:
+        placeholder: Twoja odpowiedź...
+        send: Wyślij
+        title_reply: Odpowiedz
+      show:
+        not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
+        title: Konwersacja z %{usernames}
+      update:
+        error: Wiadomość nie została wysłana. Spróbuj ponownie później
     user_interests:
       show:
         my_interests: Moje zainteresowania
@@ -1009,12 +1283,42 @@ pl:
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
         success: Twoje zainteresowania zostały pomyślnie zaktualizowane.
+    version:
+      show:
+        back_to_resource: Wróć
+        changes_at_title: Zmiany w „%{title}”
+        number_of_versions: Wersje
+        show_all_versions: Pokaż wszystkie wersje
+        version_author: Autor wersji
+        version_created_at: Wersja utworzona o
+        version_number: Numer wersji
+        version_number_out_of_total: "%{current_version} z %{total_count}"
     version_author:
       show:
         deleted: Usunięty użytkownik
+    versions:
+      resource_version:
+        of_versions: "(z %{number})"
+        see_other_versions: zobacz inne wersje
+        version: Numer wersji %{number}
+    versions_list:
+      show:
+        back_to_resource: Wróć
+        changes_at_title: Zmiany w „%{title}”
+        number_of_versions: Wersje
+        title: Wersje
+    versions_list_item:
+      show:
+        version_index: Wersja %{index}
     welcome_notification:
       default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
       default_subject: Dzięki za przyłączenie się do {{organization}}!
+    wizard_step_form:
+      wizard_aside:
+        back: Wróć
+      wizard_header:
+        see_steps: zobacz kroki
+        step_of: Krok %{current_step} z %{total_steps}
   devise:
     confirmations:
       confirmed: Twój adres e-mail został pomyślnie potwierdzony.
@@ -1105,6 +1409,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1169,15 +1474,30 @@ pl:
       cycle_detected: Rodzicem zakresu nie może być jeden z jego potomków
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: Rozmiar pliku musi być mniejszy lub równy %{count}
+      invalid_time_zone: nie jest prawidłową strefą czasową
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
       nesting_too_deep: Nie może być wewnątrz podkategorii
+      not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
       not_locked: nie był zablokowany
+      not_saved:
+        one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
+        few: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
+        many: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
+        other: 'Podczas przetwarzania Twojego żądania wystąpiło wiele błędów:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
+    correct_errors: Istnieją błędy w formularzu, popraw je, aby kontynuować.
+    length_validator:
+      minimum:
+        one: co najmniej %{count} znaków
+        few: co najmniej %{count} znaków
+        many: co najmniej %{count} znaków
+        other: co najmniej %{count} znaków
     required: wymagany
+    required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
     sentence_for_humans: Jeśli jesteś człowiekiem, zignoruj ​​to pole
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
@@ -1190,6 +1510,8 @@ pl:
       edit_link:
         edit: Edytuj
       footer:
+        cc_by_license: Licencja Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Pobierz pliki otwartych danych
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
@@ -1201,9 +1523,19 @@ pl:
         close_session: Zamknij sesję
         description_html: Podszyszcza się do użytkownika <b>%{user_name}</b>.
         expire_time_html: Sesja wygasa w <b><span class="minutes">%{minutes}</span> minutes</b>.
+      language_chooser:
+        choose_language: Wybierz język
       notifications_dashboard:
         mark_all_as_read: Oznacz wszystkie jako przeczytane
+        mark_as_read: Oznacz jako przeczytane
+      social_media_links:
+        facebook: "%{organization} na Facebooku"
+        github: "%{organization} na GitHub"
+        instagram: "%{organization} na Instagramie"
+        twitter: "%{organization} na Twitterze"
+        youtube: "%{organization} na YouTube"
       user_menu:
+        account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny
         conversations: Rozmowy
         notifications: Powiadomienia
@@ -1264,15 +1596,36 @@ pl:
       day_of_year: "%d.%m.%y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+  versions:
+    directions:
+      left: Elementy usunięte
+      right: Elementy dodane
+    dropdown:
+      choose_diff_view_html: 'Tryb widoku HTML:'
+      choose_diff_view_mode: 'Porównaj tryb widoku:'
+      option_escaped: Cytowany
+      option_split: Obok siebie
+      option_unescaped: Niecytowany
+      option_unified: Ujednolicony
   views:
     pagination:
       first: "&laquo; Najpierw"
+      first_title: Link do pierwszej strony
       last: Ostatnie &raquo;
+      last_title: Link do ostatniej strony
       next: Następne &rsaquo;
+      next_title: Link do następnej strony
+      pagination: Strony
       previous: "&lsaquo; Poprzedni"
+      previous_title: Link do poprzedniej strony
+      title: 'Numer strony: '
       truncate: "&hellip;"

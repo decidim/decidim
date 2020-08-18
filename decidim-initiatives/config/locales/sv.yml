@@ -26,6 +26,8 @@ sv:
       initiatives_committee_member:
         user: Kommittémedlem
       initiatives_type:
+        area_enabled: Gör det möjligt för författare att välja området för deras initiativ
+        attachments_enabled: Aktivera bilagor
         banner_image: Bannerbild
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
         custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
@@ -47,6 +49,14 @@ sv:
         address: Adress
         id_document: ID-dokument
         name: Fullständigt namn
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Filen är ogiltig
+              needs_to_be_reattached: Måste återknytas
+              title: Titeln bör inte vara tom
   activerecord:
     models:
       decidim/initiative:
@@ -63,14 +73,8 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       filters:
-        state_eq:
-          values:
-            created: Skapad
-            discarded: Förkastade
-            published: Publicerade
-            validating: Teknisk validering
-        type_id_eq:
-          label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
         initiatives: Initiativ
         initiatives_types: Initiativtyper
@@ -79,6 +83,7 @@ sv:
           fields:
             created_at: Skapad
             id: ID
+            published_at: Publicerad den
             state: Status
             supports_count: Underskrifter
             title: Initiativ
@@ -111,6 +116,12 @@ sv:
         initiatives_types: Initiativtyper
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det på <a href="%{admin_initiative_url}">adminpanelen</a>
+            email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+            email_subject: Initiativ "%{resource_title}" skickades till teknisk validering.
+            notification_title: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det på <a href="%{admin_initiative_path}">adminpanelen</a>
         initiative_extended:
           email_intro: Slutdatumet för att skriva under initiativet %{resource_title} har skjutits fram!
           email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -127,6 +138,11 @@ sv:
             email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
             email_subject: Uppnådde ny milstolpe!
             notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har uppnått %{percentage}% underskrifter.
+        support_threshold_reached:
+          email_intro: Initiativet %{resource_title} har nått stödtröskeln
+          email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          email_subject: Stöd tröskel har uppnåtts
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nått tröskeln för stöd
     gamification:
       badges:
         initiatives:
@@ -190,6 +206,11 @@ sv:
             actions_title: Åtgärd
             preview: Förhandsvisning
             print: Skriv ut
+          initiative_attachments:
+            documents: Dokument
+            edit: Redigera
+            new: Ny
+            photos: Foton
           show:
             print: Skriv ut
           update:
@@ -241,16 +262,26 @@ sv:
           unpublish: "%{user_name} förkastade initiativet %{resource_name}"
           update: "%{user_name} uppdaterade initiativet %{resource_name}"
       admin_states:
+        accepted: Nog med signaturer
         created: Skapad
         discarded: Förkastade
         published: Publicerade
+        rejected: Inte tillräckligt med signaturer
         validating: Teknisk validering
       application_helper:
         filter_area_values:
           all: Alla
+        filter_scope_values:
+          all: Alla
         filter_state_values:
+          accepted: Nog med signaturer
+          all: Alla
+          answered: Besvarad
           closed: Stängda
           open: Öppna
+          rejected: Inte tillräckligt med signaturer
+        filter_type_values:
+          all: Alla
       committee_requests:
         new:
           continue: Fortsätta
@@ -267,6 +298,7 @@ sv:
           fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrifter. Fysiska, digitala eller en kombination av båda</li> <li>Vilket är initiativets geografiska omfång? Stad, distrikt?</li> </ul>"
           initiative_type: Typ av initiativ
           more_information: "(Mer information)"
+          select_area: Välj ett område
           select_scope: Välj ett omfång
         finish:
           back: Tillbaka
@@ -360,8 +392,10 @@ sv:
             other: "%{count} initiativ"
         filters:
           any: Något
+          area: Område
           author: Författare
           myself: Mina initiativ
+          scope: Omfattning
           search: Sök
           state: Status
           type: Typ
@@ -372,6 +406,11 @@ sv:
           unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
+          not_authorized:
+            authorizations_page: Visa behörigheter
+            close: Stäng
+            explanation: Du måste verifieras för att skapa ett nytt initiativ.
+            title: Auktorisering krävs
         interactions:
           comments_count:
             count:
@@ -434,10 +473,21 @@ sv:
           highlighted_initiatives:
             active_initiatives: Pågående initiativ
             see_all_initiatives: Visa alla initiativ
+      show:
+        badge_name:
+          accepted: Nog med signaturer
+          created: Skapad
+          discarded: Ignorerad
+          published: Publicerad
+          rejected: Inte tillräckligt med signaturer
+          validating: Teknisk validering
       states:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
+      versions:
+        shared:
+          back_to_resource: Gå tillbaka till initiativet
     menu:
       initiatives: Initiativ
     resources:

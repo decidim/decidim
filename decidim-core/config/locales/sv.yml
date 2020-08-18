@@ -3,6 +3,8 @@ sv:
     attributes:
       account:
         delete_reason: Skäl att ta bort ditt konto
+      common:
+        created_at: Skapad den
       group:
         about: Om
         avatar: Profilbild
@@ -72,6 +74,7 @@ sv:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Extern länk
       logo: "%{organization}s logotyp"
       skip_button: Gå till innehåll
     account:
@@ -150,6 +153,8 @@ sv:
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
     admin_terms_of_use:
       default_body: "<h2>ANVÄNDARVILLKOR FÖR ADMINISTRATÖRER</h2><p>Vi förutsätter att du har fått den vanliga föreläsningen från den lokala systemadministratören. Det brukar bygga på tre saker:</p><ol><li>Respektera andras integritet.</li><li>Tänk innan du klickar.</li><li>Med stora krafter följer stort ansvar.</li></ol>"
+    alert:
+      dismiss: Avfärda avisering
     amendments:
       accepted:
         error: Ett fel uppstod när ändringen skulle godkännas.
@@ -258,8 +263,11 @@ sv:
       dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett dokumentnummer som avslutas med "X"
         fields:
+          allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
+          allowed_scope_id: Tillåtet omfång
           document_number: Dokumentnummer
           postal_code: Postnummer
+          scope_id: Omfattning
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
@@ -273,6 +281,7 @@ sv:
           foo: Foo
         name: Foo godkännande
       granted_at: Beviljades vid %{timestamp}
+      renew: Förnya verifiering
       sms:
         explanation: Ange ditt mobilnummer så att vi kan kontrollera din identitet.
         name: Kod via SMS
@@ -307,6 +316,8 @@ sv:
           explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
+      show:
+        close_modal: Stäng modal
     collapsible_list:
       hidden_elements_count:
         one: och %{count} fler
@@ -319,7 +330,11 @@ sv:
         order:
           all_types: Alla typer
           collaborative_draft: Gemensamt utkast
+          comment: Kommentar
+          debate: Debatt
+          initiative: Initiativ
           meeting: Möte
+          post: Inlägg
           proposal: Förslag
           question: Fråga
         title: 'Visa:'
@@ -332,6 +347,7 @@ sv:
           global:
             amendments_enabled: Ändringsförslag är möjliga
             comments_enabled: Kommentarer på
+            comments_max_length: Maximal längd på kommentarer
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
@@ -450,6 +466,7 @@ sv:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     endorsable:
       endorsements: Instämmanden
+      endorsements_count: Antal Endorsements
     endorsement_buttons_cell:
       already_endorsed: Instämt
       endorse: Instäm
@@ -575,6 +592,16 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du var medlem i den gruppen.
           email_subject: Du har tagits bort från gruppen %{user_group_name}!
           notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: En ny användargrupp har skapats med namnet %{user_group_name}. Du kan nu verifiera den i <a href="%{groups_admin_url}">admin-panelen</a>.
+          email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          email_subject: En ny användargrupp har skapats
+          notification_title: '%{user_group_name} användargrupp har skapats. Du kan nu verifiera den i <a href="%{groups_admin_path}">admin-panelen</a>.'
+        user_group_updated:
+          email_intro: En användargrupp med namnet %{user_group_name} har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera det i <a href="%{groups_admin_url}">admin-panelen</a>.
+          email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          email_subject: En användargrupp har uppdaterat sin profil
+          notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
       notification_event:
         notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -613,6 +640,9 @@ sv:
       title: Fingeravtryck
       value: Värde
     followers:
+      followers_count:
+        one: "%{count} följare"
+        other: "%{count} följare"
       no_followers: Inga följare än.
     following:
       no_followings: Följer inte någon eller något än.
@@ -633,6 +663,18 @@ sv:
           password: Lösenordet är för kort.
           password_confirmation: Lösenordsbekräftelsen måste överensstämma med lösenordet.
         error: Det finns ett fel i det här fältet.
+      file_help:
+        file:
+          explanation: 'Vägledning för fil:'
+          message_1: Måste vara en bild eller ett dokument.
+          message_2: För bilder, använd helst landskapsbilder, tjänsten grödor bilden.
+        image:
+          explanation: 'Vägledning för bild:'
+          message_1: Helst en landskapsbild som inte har någon text.
+          message_2: Tjänsten beskär bilden.
+      file_validation:
+        allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
+        max_file_size: 'Maximal filstorlek: %{megabytes}MB'
       remove_this_file: Ta bort den här filen
     gamification:
       all_badges_link: Se alla tillgängliga märken.
@@ -786,6 +828,13 @@ sv:
           not_found: 'Omfattningstypen hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den aktuella administrationsperioden för en användare har förfallit.
+    map:
+      dynamic:
+        screen_reader_explanation: Följande element är en karta som presenterar objekten på denna sida som kartpunkter. Elementet kan användas med en skärmläsare men det kan vara svårt att förstå.
+        skip_button: Hoppa över karta
+      static:
+        latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Grupp har inga medlemmar än.
     menu:
@@ -793,11 +842,35 @@ sv:
       home: Hem
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Du får detta eftersom du är administratör i %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} har startat en ny konversation i namnet %{group}. Klicka här för att se den:"
+          outro: Njut av decidim!
+          subject: "%{manager} har startat en ny konversation som %{group}"
+        comanagers_new_message:
+          admin_in_group: Du får detta eftersom du är administratör i %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{manager} har postat nya meddelanden i en konversation i namnet %{group}. Klicka här för att se dem:"
+          outro: Njut av decidim!
+          subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
           greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
           outro: Njut av decidim!
           subject: "%{sender} har startat en konversation med dig"
+        new_group_conversation:
+          admin_in_group: Du får detta eftersom du är administratör i %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
+          outro: Njut av decidim!
+          subject: "%{sender} har startat en konversation med %{group}"
+        new_group_message:
+          admin_in_group: Du får detta eftersom du är administratör i %{group}.
+          greeting: Hi, %{recipient}!
+          intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
+          outro: Njut av decidim!
+          subject: "%{group} har nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
@@ -810,18 +883,27 @@ sv:
           modal_title: Nytt samtal
           no_results: Inga resultat
           participant_with_disabled_message_reception: Deltagaren har avaktiverat att ta emot meddelanden
+        conversation:
+          show: Visa konversation med %{sender}
         create:
           error: Konversationen har inte startat. Försök igen senare
         index:
+          ago: sedan
           close: Stäng modal
+          from: Från
+          groups: Mina grupper
+          last_message: Senaste meddelande
           new_conversation: Nytt samtal
           next: Nästa
           no_conversations: Du har inga konversationer än
           title: Samtal
         reply:
+          placeholder: Ditt svar...
           send: Skicka
           title: Svara
         show:
+          back: Tillbaka till alla konversationer
+          chat_with: Konversation med
           not_allowed: Användaren tar inte emot fler direktmeddelanden.
           title: Samtal med %{usernames}
         start:
@@ -997,10 +1079,12 @@ sv:
       show:
         activity: Aktivitet
         badges: Märken
+        conversations: Konversationer
         followers: Följare
         following: Följer
         groups: Grupper
         members: Medlemmar
+        officialized: Officiell deltagare
         timeline: Tidslinje
         view_full_profile: Visa fullständig profil
       sidebar:
@@ -1032,6 +1116,7 @@ sv:
         details: Detaljer
         hello: Hej %{name},
         manage_moderations: Hantera moderering
+        participatory_space: Plats för deltagare
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
         subject: En resurs har rapporterats
@@ -1046,11 +1131,16 @@ sv:
       global: Global omfattning
       picker:
         cancel: Avbryt
+        change: Ändra valt omfång
         choose: Välj
+        currently_selected: Nuvarande valt omfång
         title: Välj %{field}
       prompt: Välj en omfattning
       scopes: Omfattningar
+      scopes_picker_input:
+        select_scope: 'Välj ett omfång (nuvarande: %{current})'
     search:
+      results: Sökresultat
       results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
       term_input_placeholder: Sök
     searches:
@@ -1073,6 +1163,11 @@ sv:
           other: "%{count} resultat"
         view_all: Visa alla (%{count})
     shared:
+      confirm_modal:
+        cancel: Avbryt
+        close_modal: Stäng modal
+        ok: Ok
+        title: Bekräfta
       embed_modal:
         close_window: Stäng fönstret
         embed: Klistra in den här koden på din sida
@@ -1080,6 +1175,9 @@ sv:
       extended_navigation_bar:
         more: Mer
         unfold: Veckla ut
+      filter_form_help:
+        help: Formuläret nedan filtrerar sökresultaten dynamiskt när sökvillkoren ändras.
+        skip: Hoppa till resultat
       flag_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
@@ -1090,10 +1188,12 @@ sv:
         spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
         title: Rapportera ett problem
       floating_help:
+        close: Stäng hjälp
         help: Hjälp
       follow_button:
         sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
+        close_modal: Stäng modal
         please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
@@ -1112,10 +1212,43 @@ sv:
         close_window: Stäng fönster
         share: Dela
         share_link: Dela länk
+    tags:
+      filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
+      filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
+    user_conversations:
+      create:
+        error: Meddelandet kunde inte skapas. Försök igen senare
+        existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
+        success: Samtalet startades framgångsrikt!
+      index:
+        add_max_users: 'Lägg till användare till konversation: max 9 användare'
+        add_users_placeholder: Sök...
+        close: Stäng
+        conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
+        from: Från
+        last_message: Senaste meddelande
+        modal_title: Ny konversation
+        new_conversation: Ny konversation
+        next: Nästa
+        no_conversations_warning: Det finns inga konversationer än.
+        no_results: Inga resultat
+        participant_with_disabled_message_reception: Denna deltagare har inaktiverat meddelandemottagning
+        time_ago: "%{time} sedan"
+      new:
+        title: Starta en konversation
+      reply:
+        placeholder: Ditt svar...
+        send: Skicka
+        title_reply: Svara
+      show:
+        not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
+        title: Konversation med %{usernames}
+      update:
+        error: Meddelandet skickades inte. Försök igen senare
     user_interests:
       show:
         my_interests: Mina intressen
@@ -1125,9 +1258,32 @@ sv:
       update:
         error: Det gick inte att uppdatera dina intressen.
         success: Dina intressen har uppdaterats.
+    version:
+      show:
+        back_to_resource: Gå tillbaka
+        changes_at_title: Ändringar på "%{title}"
+        number_of_versions: Versioner
+        show_all_versions: Visa alla versioner
+        version_author: Version författare
+        version_created_at: Version skapad den
+        version_number: Versionsnummer
+        version_number_out_of_total: "%{current_version} av %{total_count}"
     version_author:
       show:
         deleted: Raderad deltagare
+    versions:
+      resource_version:
+        of_versions: "(av %{number})"
+        version: Versionsnummer %{number}
+    versions_list:
+      show:
+        back_to_resource: Gå tillbaka
+        changes_at_title: Ändringar på "%{title}"
+        number_of_versions: Versioner
+        title: Versioner
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hej {{name}}, välkommen och tack för att du gick med i {{organization}}!</p><ul><li>Om du vill få en snabb uppfattning om vad du kan göra här, ta en titt på <a href="{{help_url}}">hjälpavsnittet</a>.</li><li>När du har läst det får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> som du kan få när du deltar i {{organization}}</li><li>Sist men inte minst, prata med andra och dela med dig av hur det är att vara engagerad i och delta i {{organization}}. Lämna förslag, ge kommentarer, debattera, fundera över hur man kan bidra till det gemensamma bästa, framför övertygande argument, lyssna och läs för att själv bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara med tålamod eller kraft, försvara dina idéer och ha ett öppet sinne för samarbete och andra människors idéer.</li></ul>
       default_subject: Tack för att du gick med i {{organization}}!
@@ -1303,7 +1459,13 @@ sv:
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
       too_short: är för kort (under 15 tecken)
   forms:
+    correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
+    length_validator:
+      minimum:
+        one: minst %{count} tecken
+        other: minst %{count} tecken
     required: Krävs
+    required_explanation: "* Obligatoriska fält är markerade med en asterisk"
   invisible_captcha:
     sentence_for_humans: Om du är människa kan du ignorera det här fältet
     timestamp_error_message: Det gick för snabbt! Försök igen.
@@ -1316,6 +1478,8 @@ sv:
       edit_link:
         edit: Redigera
       footer:
+        cc_by_license: Creative Commons licens
+        decidim_logo: Decidim logotyp
         download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
@@ -1327,9 +1491,19 @@ sv:
         close_session: Stäng session
         description_html: Du hanterar deltagaren <b>%{user_name}</b>.
         expire_time_html: Din session kommer löpa ut om <b><span class="minutes">%{minutes}</span> minuter</b>.
+      language_chooser:
+        choose_language: Välj språk
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
+        mark_as_read: Markera som läst
+      social_media_links:
+        facebook: "%{organization} på Facebook"
+        github: "%{organization} på GitHub"
+        instagram: "%{organization} på Instagram"
+        twitter: "%{organization} på Twitter"
+        youtube: "%{organization} på YouTube"
       user_menu:
+        account: 'Användarkonto: %{name}'
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
         notifications: Meddelanden
@@ -1406,7 +1580,9 @@ sv:
     dropdown:
       choose_diff_view_html: 'HTML-visningsläge:'
       choose_diff_view_mode: 'Visningsläge för jämförelse:'
+      option_escaped: Utflykt
       option_split: Sida vid sida
+      option_unescaped: Orymt
       option_unified: Sammanslagen
   views:
     pagination:
@@ -1416,6 +1592,7 @@ sv:
       last_title: Länk till sista sidan
       next: Nästa &rsaquo;
       next_title: Länk till nästa sida
+      pagination: Sidnumrering
       previous: "&lsaquo; Föregående"
       previous_title: Länk till föregående sida
       title: 'Sidnummer: '

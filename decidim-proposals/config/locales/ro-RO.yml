@@ -7,6 +7,7 @@ ro:
         category_id: Categorie
         decidim_scope_id: Domeniu
         has_address: Are adresă
+        scope_id: Domeniu
         state: Județ
         title: Titlu
         user_group_id: Creează ciornă colaborativă ca
@@ -19,6 +20,7 @@ ro:
         category_id: Categorie
         decidim_scope_id: Domeniu
         has_address: Are adresă
+        scope_id: Domeniu
         state: Județ
         suggested_hashtags: Hashtag-uri sugerate
         title: Titlu
@@ -81,23 +83,11 @@ ro:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tip
-          values:
-            'false': Propuneri
-            'true': Amendamente
+        proposals:
+          valuator_role_ids_has:
+            label: Atribuit evaluatorului
         search_placeholder:
           id_string_or_title_cont: Caută %{collection} după ID sau titlu.
-        state_eq:
-          values:
-            evaluating: Evaluare
-            withdrawn: Retras
-        state_null:
-          label: Status
-          values:
-            'true': Nu s-a răspuns
-        valuator_role_ids_has:
-          label: Atribuit evaluatorului
     components:
       proposals:
         actions:
@@ -118,6 +108,7 @@ ro:
             can_accumulate_supports_beyond_threshold: Poți acumula suport dincolo de prag
             collaborative_drafts_enabled: Ciorne colaborative activate
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             geocoding_enabled: Geocodare activată
             minimum_votes_per_user: Minim suport per utilizator
             new_proposal_body_template: Șablon nou propunere
@@ -600,15 +591,23 @@ ro:
         update:
           error: A apărut o problemă la salvarea proiectului colaborativ.
           success: Schiță de colaborare actualizată cu succes.
+          title: Editare ciornă colaborativă
         wizard_aside:
           back: Înapoi
+          back_from_collaborative_draft: Înapoi la ciorne colaborative
+          back_from_step_1: Înapoi la ciorne colaborative
+          back_from_step_2: Înapoi la ciorne colaborative
+          back_from_step_3: Înapoi pentru a compara ciornele colaborative
+          back_from_step_4: Înapoi la editarea schiței
           info: Creezi o <strong>ciornă de colaborare</strong>.
         wizard_steps:
+          current_step: Pasul curent
           see_steps: vezi pașii
           step_1: Creează ciorna ta colaborativă
           step_2: Compară cu ciornele colaborative
           step_3: Finalizează ciorna ta de colaborare
           step_of: Pasul %{current_step_num} din %{total_steps}
+          title: Pașii de creare proiect colaborativ
       create:
         error: A apărut o problemă la salvarea propunerii.
         success: Propunere creată cu succes. Salvată ca Ciornă.
@@ -758,9 +757,12 @@ ro:
           read_more: Citește mai mult
           report: Raport
           withdraw_btn_hint: Vă puteți retrage propunerea dacă vă răzgândiți, cu condiția să nu beneficiați de niciun sprijin. Propunerea nu este eliminată, ci va apărea pe lista propunerilor retrase.
+          withdraw_confirmation_html: Sunteți sigur că doriți să retrageți această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
           withdraw_proposal: Retragere propunere
         tags:
           changed_from: "(schimbat de la <u>%{previous_name}</u> de către un administrator)"
+        update:
+          title: Actualizare propunere
         vote_button:
           already_voted: Deja acceptat
           already_voted_hover: Retrage suportul
@@ -793,14 +795,20 @@ ro:
             votes: Suportă
         wizard_aside:
           back: Înapoi
+          back_from_step_1: Înapoi la propuneri
+          back_from_step_2: Înapoi la propuneri
+          back_from_step_3: Înapoi la compararea propunerilor
+          back_from_step_4: Înapoi la editarea schiței
           info: Creezi o propunere <strong></strong>.
         wizard_steps:
+          current_step: Pasul curent
           see_steps: vezi pașii
           step_1: Creați propunerea dvs.
           step_2: Compară
           step_3: Complete
           step_4: Publică propunerea ta
           step_of: Pasul %{current_step_num} din %{total_steps}
+          title: Etapele creării propunerii
       proposals_picker:
         choose_proposals: Alege propuneri
         close: Inchide

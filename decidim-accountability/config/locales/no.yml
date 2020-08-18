@@ -34,7 +34,7 @@
       actions:
         confirm_destroy: Er du sikker på at du vil slette dette %{name}?
         destroy: Slett
-        edit: Editar
+        edit: Redigere
         import_csv: Importere CSV
         new: Nytt %{name}
         preview: Forhåndsvisning
@@ -51,7 +51,7 @@
             title: Importere resultater fra CSV
         imports:
           create:
-            success: Filen har startet å importere. Du vil motta en e-post i de neste minuttene med resultatet av importen
+            success: Filen importeres. Du vil motta en e-post i de neste minuttene med resultatet av importen
         models:
           result:
             name: Resultat
@@ -66,7 +66,7 @@
           destroy:
             success: Resultat ble slettet
           edit:
-            title: Endre resultatet
+            title: Rediger resultatet
             update: Oppdater resultatet
           index:
             title: Resultater
@@ -81,7 +81,7 @@
             statuses: Statuser
         statuses:
           create:
-            invalid: Det oppsto et problem med å opprette dette statusen
+            invalid: Det oppstod et problem med å opprette dette statusen
             success: Status opprettet
           destroy:
             success: Status slettet
@@ -98,7 +98,7 @@
             success: Status oppdatert
         timeline_entries:
           create:
-            invalid: Det oppsto et problem med å opprette denne oppføringen
+            invalid: Det oppsto et problem med å opprette dette innlegget
             success: Oppføringen ble opprettet
           destroy:
             success: Oppføringen ble slettet
@@ -185,6 +185,7 @@
           global:
             categories_label: Navn på "Kategorier"
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             display_progress_enabled: Vis fremgang
             heading_leaf_level_results: Navn på "Prosjekter"
             heading_parent_level_results: Navn på "Resultater"
@@ -213,6 +214,9 @@
       participatory_process_groups:
         highlighted_results:
           results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alle resultater (%{count})
     resource_links:
       included_projects:
         result_project: Prosjekter inkludert i dette resultatet

@@ -35,6 +35,7 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
+        import_csv: CSV importieren
         new: Neu %{name}
         preview: Vorschau
         timeline_entries: Projektentwicklung
@@ -42,6 +43,15 @@ de:
       admin:
         exports:
           results: Ergebnisse
+        import_results:
+          new:
+            import: Importieren
+            info: "<p>Wir empfehlen, dass Sie folgende Schritte befolgen:</p><ol><li>Erstellen Sie den Status der Ergebnisse, die Sie hinzufügen möchten (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Erstellen Sie mindestens ein Ergebnis über diesen Administrator-Panel (<a href='%{link_new_result}' target='_blank'>link</a>) bevor Sie Importieren, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li><li>Laden Sie den Export im CSV-Format herunter (%{link_export_csv})</li><li>Nehmen Sie Änderungen lokal vor. Sie können nur die folgenden Spalten der CSV ändern:</li></ol><ul><li><b>Kategorie/ID:</b> ID der Kategorie</li><li><b>Umfang/ID:</b> ID des Umfangs</li><li><b>Übergeordnet/ID:</b> Übergeordnete ID (für verwandte Ergebnisse). Optional</li><li><b>Titel/I18N:</b> Titel in Sprache X </li><li><b>Beschreibung/I18N:</b> Beschreibung in Sprache X </li><li><b>start_datum:</b> Datum, an dem die Ausführung des Ergebnisses beginnt (Format JJJJ-MM-TT)</li><li><b>end_datum:</b> Datum, an dem die Ausführung des Ergebnisses endet (Format JJJJ-MM-TT)</li><li><b>Status/ID:</b> ID des Status dieses Ergebnisses</li><li><b>Fortschritt:</b> Prozentualer (von 0 bis 100) Fortschritt der Durchführung</li><li><b>Vorschläge_IDs:</b> Interne ID der verwandten Vorschläge (getrennt durch Komma). Dies wird automatisch umgewandelt in <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: Verknüpfung
+            title: Ergebnisse von CSV importieren
+        imports:
+          create:
+            success: Die Datei wird importiert. Innerhalb von ein paar Minuten erhalten Sie eine E-Mail mit dem Importergebnis
         models:
           result:
             name: Ergebnis
@@ -111,6 +121,13 @@ de:
         value_types:
           parent_presenter:
             not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fehler
+          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten
+          row_number: Zeile
+          subject: Ergebnisse wurden erfolgreich importiert
+          success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
       last_activity:
         new_result_at_html: "<span>Neues Ergebnis bei %{link}</span>"
       models:
@@ -168,6 +185,7 @@ de:
           global:
             categories_label: Name für "Kategorien"
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             display_progress_enabled: Fortschritt anzeigen
             heading_leaf_level_results: Name für "Projekte"
             heading_parent_level_results: Name für "Ergebnisse"
@@ -196,6 +214,9 @@ de:
       participatory_process_groups:
         highlighted_results:
           results: Ergebnisse
+    participatory_spaces:
+      highlighted_results:
+        see_all: Alle Ergebnisse ansehen (%{count})
     resource_links:
       included_projects:
         result_project: Projekte in diesem Ergebnis enthalten

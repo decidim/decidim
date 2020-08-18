@@ -49,18 +49,6 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          values:
-            'false': Пропозиції
-        state_eq:
-          values:
-            evaluating: Розглядається
-            withdrawn: Відкликана
-        state_null:
-          values:
-            'true': Без відповідей
     components:
       proposals:
         actions:

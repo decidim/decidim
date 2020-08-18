@@ -3,6 +3,8 @@ ro:
     attributes:
       account:
         delete_reason: Motivul pentru a-ți șterge contul
+      common:
+        created_at: Creat la
       group:
         about: Despre
         avatar: Avatar
@@ -76,6 +78,7 @@ ro:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Link extern
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
@@ -154,6 +157,8 @@ ro:
         verify_via_csv: "%{user_name} a verificat grupul %{resource_name} printr-un fișier CSV"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMENI DE UTILIZARE</h2><p>Avem încredere că ați primit prelegerea obișnuită de la Administratorul de Sistem local. De obicei se reduce la aceste trei lucruri:</p><ol><li>Respectă confidențialitatea altora.</li><li>Gândiți-vă înainte de a da click.</li><li>Cu mare putere vine o mare responsabilitate.</li></ol>"
+    alert:
+      dismiss: Anulare notificare
     amendments:
       accepted:
         error: S-a produs o eroare în timpul acceptării amendamentului.
@@ -266,8 +271,11 @@ ro:
       dummy_authorization_handler:
         explanation: Fiți verificat prin introducerea unui număr de document care se termină cu "X"
         fields:
+          allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
+          allowed_scope_id: Domeniul permis
           document_number: Număr document
           postal_code: Cod poștal
+          scope_id: Domeniu
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
@@ -281,6 +289,7 @@ ro:
           foo: Foo
         name: Autorizare foo
       granted_at: Oferit la %{timestamp}
+      renew: Reînnoire verificare
       sms:
         explanation: Trimite numărul tău de telefon mobil pentru a-ți putea verifica identitatea.
         name: Cod prin SMS
@@ -315,6 +324,8 @@ ro:
           explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Instrucțiuni de confirmare
           title: Confirmați e-mailul dvs.
+      show:
+        close_modal: Închide fereastra
     collapsible_list:
       hidden_elements_count:
         one: și încă %{count}
@@ -345,6 +356,7 @@ ro:
           global:
             amendments_enabled: Amendamente activate
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor
             dummy_global_attribute_1: Atribut Dummy 1
             dummy_global_attribute_2: Atribut Dummy 2
             dummy_global_translatable_text: Text traductibil Dummy
@@ -467,6 +479,7 @@ ro:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
     endorsable:
       endorsements: Susținători
+      endorsements_count: Număr de aprobări
     endorsement_buttons_cell:
       already_endorsed: Aprobat
       endorse: Aprobare
@@ -640,6 +653,10 @@ ro:
       title: Amprentă
       value: Valoare
     followers:
+      followers_count:
+        one: "%{count} urmăritor"
+        few: "%{count} urmăritori"
+        other: "%{count} urmăritori"
       no_followers: Nici un urmăritor încă.
     following:
       no_followings: Încă nu urmează pe nimeni sau nimic.
@@ -660,6 +677,18 @@ ro:
           password: Parola este prea scurtă.
           password_confirmation: Confirmarea parolei trebuie să coincidă cu parola.
         error: A apărut o eroare în acest câmp.
+      file_help:
+        file:
+          explanation: 'Orientări pentru fișier:'
+          message_1: Are o imagine sau un document.
+          message_2: Pentru imagini, folosește de preferință imagini peisaj, serviciul recoltează imaginea.
+        image:
+          explanation: 'Orientări pentru imagine:'
+          message_1: Recomandat o imagine peisaj care nu are nici un text.
+          message_2: Serviciul recoltează imaginea.
+      file_validation:
+        allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
+        max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
       remove_this_file: Elimină acest fișier
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
@@ -813,6 +842,13 @@ ro:
           not_found: 'Tipul domeniului de aplicare nu a fost găsit în baza de date (ID: %{id})'
     managed_users:
       expired_session: Actuala sesiune de administrare a unui participant a expirat.
+    map:
+      dynamic:
+        screen_reader_explanation: Următorul element este o hartă care prezintă elementele pe această pagină ca puncte de hartă. Elementul poate fi folosit cu un cititor de ecran, dar poate fi greu de înțeles.
+        skip_button: Omite harta
+      static:
+        latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Acest grup nu are încă niciun membru.
     menu:
@@ -861,6 +897,8 @@ ro:
           modal_title: Conversație nouă
           no_results: Niciun rezultat
           participant_with_disabled_message_reception: Acest participant a dezactivat recepția de mesaje
+        conversation:
+          show: Arată conversația cu %{sender}
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
         index:
@@ -878,6 +916,7 @@ ro:
           send: Trimite
           title: Răspuns
         show:
+          back: Înapoi la toate conversațiile
           chat_with: Conversație cu
           not_allowed: Acest utilizator nu mai acceptă mesaje directe.
           title: Conversație cu %{usernames}
@@ -1059,6 +1098,7 @@ ro:
         following: Urmăriri
         groups: Grupuri
         members: Membri
+        officialized: Participant oficial
         timeline: Cronologie
         view_full_profile: Vezi profilul complet
       sidebar:
@@ -1084,8 +1124,14 @@ ro:
         report_html: <p>Următorul conţinut <a href="%{url}"></a> a fost ascuns automat.</p>
         subject: O resursă a fost ascunsă automat
       report:
+        authors: Autori
+        content: Conținut raportat
+        date: Raportat la
+        details: Detalii
         hello: Bună ziua %{name},
         manage_moderations: Administreaza moderatii
+        participatory_space: Spaţiu participativ
+        reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>
         subject: A fost raportată o resursă
     reports:
@@ -1099,11 +1145,16 @@ ro:
       global: Domeniul global de aplicare
       picker:
         cancel: Anulează
+        change: Schimbă domeniul selectat
         choose: Selectare
+        currently_selected: Domeniul selectat în prezent
         title: Selectează %{field}
       prompt: Selectează un domeniu
       scopes: Domeniu
+      scopes_picker_input:
+        select_scope: 'Selectați un domeniu (actual: %{current})'
     search:
+      results: Rezultatele căutării
       results_found_for_term: '%{count} Rezultate pentru căutare: "%{term}"'
       term_input_placeholder: Caută
     searches:
@@ -1127,6 +1178,11 @@ ro:
           other: "%{count} rezultate"
         view_all: Vezi toate (%{count})
     shared:
+      confirm_modal:
+        cancel: Anulează
+        close_modal: Închide fereastra
+        ok: Ok
+        title: Confirmare
       embed_modal:
         close_window: Închide fereastra
         embed: Vă rugăm să inserați acest cod în pagina dvs.
@@ -1134,6 +1190,9 @@ ro:
       extended_navigation_bar:
         more: Mai
         unfold: Desfășurat
+      filter_form_help:
+        help: Formularul de mai jos filtrează dinamic rezultatele căutării atunci când condițiile de căutare sunt schimbate.
+        skip: Sari la rezultate
       flag_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
         close: Inchide
@@ -1144,10 +1203,12 @@ ro:
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
         title: Raportează o problemă
       floating_help:
+        close: Închide Ajutor
         help: Ajutor
       follow_button:
         sign_in_before_follow: Vă rugăm să vă autentificați înainte de a efectua această acțiune
       login_modal:
+        close_modal: Închide fereastra
         please_sign_in: Te rugăm să te autentifici
         sign_up: Înscrie-te
       participatory_space_filters:
@@ -1166,6 +1227,9 @@ ro:
         close_window: Închide fereastra
         share: Distribuie
         share_link: Distribuie link-ul
+    tags:
+      filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
+      filter_results_for_scope: 'Filtrează rezultatele pentru scope: %{resource}'
     user_activity:
       index:
         no_activities_warning: Acest participant nu a avut încă nicio activitate.
@@ -1222,7 +1286,6 @@ ro:
     versions:
       resource_version:
         of_versions: "(din %{number})"
-        see_other_versions: vezi alte versiuni
         version: Versiunea %{number}
     versions_list:
       show:
@@ -1409,7 +1472,14 @@ ro:
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
       too_short: este prea scurt (sub 15 caractere)
   forms:
+    correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
+    length_validator:
+      minimum:
+        one: cel puțin %{count} caracter
+        few: cel puțin %{count} caractere
+        other: cel puțin %{count} caractere
     required: Necesar
+    required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
     sentence_for_humans: Dacă eşti om, ignoră acest domeniu
     timestamp_error_message: Ne pare rău, acest lucru a fost prea rapid! Te rugăm să retrimiți.
@@ -1422,6 +1492,8 @@ ro:
       edit_link:
         edit: Editare
       footer:
+        cc_by_license: Licență Creative Commons
+        decidim_logo: Logo decidim
         download_open_data: Descarcă fișierele de date deschise
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
       header:
@@ -1433,9 +1505,19 @@ ro:
         close_session: Închide sesiunea
         description_html: Gestionați participantul <b>%{user_name}</b>.
         expire_time_html: Sesiunea dvs. va expira în <b><span class="minutes">%{minutes}</span> minute</b>.
+      language_chooser:
+        choose_language: Alege limba
       notifications_dashboard:
         mark_all_as_read: Marchează toate ca citite
+        mark_as_read: Marchează ca citit
+      social_media_links:
+        facebook: "%{organization} pe Facebook"
+        github: "%{organization} pe GitHub"
+        instagram: "%{organization} la Instagram"
+        twitter: "%{organization} pe Twitter"
+        youtube: "%{organization} pe YouTube"
       user_menu:
+        account: 'Cont de utilizator: %{name}'
         admin_dashboard: Panou de administrare
         conversations: Conversații
         notifications: Notificări
@@ -1524,6 +1606,7 @@ ro:
       last_title: Link către ultima pagină
       next: Următoarea &rsaquo;
       next_title: Link către pagina următoare
+      pagination: Paginare
       previous: "&lsaquo; Anterior"
       previous_title: Link către pagina anterioară
       title: 'Numărul paginii: '

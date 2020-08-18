@@ -91,21 +91,9 @@ ar:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: نوع
-          values:
-            'false': اقتراحات
-            'true': تعديلات
-        state_eq:
-          values:
-            evaluating: تقييم
-            withdrawn: سحب
-        state_null:
-          label: الحالة
-          values:
-            'true': بلا جواب
-        valuator_role_ids_has:
-          label: تم إسناده إلى مُقيِّم
+        proposals:
+          valuator_role_ids_has:
+            label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:

@@ -35,8 +35,8 @@ module Decidim
               next if proposal_already_copied?(original_proposal, target_component)
 
               project = Decidim::Budgets::Project.new
-              project.title = project_localized(original_proposal.title)
-              project.description = project_localized(original_proposal.body)
+              project.title = original_proposal.title
+              project.description = original_proposal.body
               project.budget = form.default_budget
               project.category = original_proposal.category
               project.scope = original_proposal.scope
@@ -64,12 +64,6 @@ module Decidim
           original_proposal.linked_resources(:projects, "included_proposals").any? do |proposal|
             proposal.component == target_component
           end
-        end
-
-        def project_localized(text)
-          Decidim.available_locales.inject({}) do |result, locale|
-            result.update(locale => text)
-          end.with_indifferent_access
         end
       end
     end

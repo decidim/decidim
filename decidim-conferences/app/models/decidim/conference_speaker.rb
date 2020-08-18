@@ -7,6 +7,9 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
+
+    translatable_fields :position, :affiliation, :short_bio
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"

@@ -18,6 +18,9 @@ module Decidim
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
     include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :slogan, :short_description, :description, :objectives, :registration_terms
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

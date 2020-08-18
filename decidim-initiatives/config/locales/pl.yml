@@ -26,13 +26,17 @@ pl:
       initiatives_committee_member:
         user: członek Komisji
       initiatives_type:
+        area_enabled: Umożliwiaj autorom wybór obszaru ich inicjatywy
+        attachments_enabled: Włącz załączniki
         banner_image: Obraz baneru
         collect_user_extra_fields: Zbierz dane osobowe użytkownika na podpisie
+        custom_signature_end_date_enabled: Umożliwiaj autorom wybór końca okresu zbierania podpisów
         description: Opis
         document_number_authorization_handler: Zezwolenie na weryfikację numeru dokumentu w sprawie głosowania
         extra_fields_legal_information: Informacje prawne dotyczące gromadzenia danych osobowych
         minimum_committee_members: Minimum członków komitetu
         online_signature_enabled: Włączony podpis online
+        promoting_committee_enabled: Włącz komisję promującą
         title: Tytuł
         undo_online_signatures_enabled: Umożliwia użytkownikom cofanie ich podpisów online
         validate_sms_code_on_votes: Dodaj krok weryfikacji kodu SMS do procesu podpisu
@@ -45,6 +49,14 @@ pl:
         address: Adres
         id_document: Dokument tożsamości
         name: Pełne imię
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Nieprawidłowy plik
+              needs_to_be_reattached: Załącz go ponownie
+              title: Tytuł nie może być pusty
   activerecord:
     models:
       decidim/initiative:
@@ -67,12 +79,22 @@ pl:
       actions:
         new_initiative_type: Nowy typ inicjatywy
       filters:
-        state_eq:
-          values:
-            created: Stworzony
-            discarded: Odrzucona
-            published: Opublikowany
-            validating: Walidacja techniczna
+        initiatives:
+          decidim_area_id_eq:
+            label: Obszar
+          state_eq:
+            label: Stan
+            values:
+              accepted: Wystarczająca liczba podpisów
+              created: Utworzono
+              discarded: Odrzucono
+              published: Opublikowano
+              rejected: Niewystarczająca liczba podpisów
+              validating: Walidacja techniczna
+          type_id_eq:
+            label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       menu:
         initiatives: Inicjatywy
         initiatives_types: Rodzaje inicjatyw
@@ -81,6 +103,7 @@ pl:
           fields:
             created_at: Utworzono w
             id: ID
+            published_at: Opublikowano o
             state: Stan
             supports_count: Podpisy
             title: Inicjatywy
@@ -113,6 +136,12 @@ pl:
         initiatives_types: Rodzaje inicjatyw
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_url}">panelu administratora</a>
+            email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+            email_subject: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej.
+            notification_title: Inicjatywa „%{resource_title}” została przesłana do weryfikacji technicznej. Sprawdź ją w <a href="%{admin_initiative_path}">panelu administratora</a>
         initiative_extended:
           email_intro: Data zakończenia podpisów inicjatywy %{resource_title} została przedłużona!
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -129,6 +158,11 @@ pl:
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
             email_subject: Nowy kamień milowy zakończony!
             notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła %{percentage}% podpisów.
+        support_threshold_reached:
+          email_intro: Inicjatywa %{resource_title} osiągnęła wymagany próg poparcia
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Osiągnięto próg poparcia
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> osiągnęła wymagany próg poparcia
     gamification:
       badges:
         initiatives:
@@ -173,6 +207,8 @@ pl:
         content_blocks:
           highlighted_initiatives:
             max_results: Maksymalna ilość elementów do pokazania
+        exports:
+          initiatives: Inicjatywy
         initiatives:
           edit:
             accept: Przyjmij inicjatywę
@@ -190,6 +226,11 @@ pl:
             actions_title: Akcja
             preview: Zapowiedź
             print: Wydrukować
+          initiative_attachments:
+            documents: Dokumenty
+            edit: Edytuj
+            new: Nowy
+            photos: Zdjęcia
           show:
             print: Wydrukować
           update:
@@ -241,14 +282,26 @@ pl:
           unpublish: "%{user_name} odrzucił inicjatywę %{resource_name}"
           update: "%{user_name} zaktualizował inicjatywę %{resource_name}"
       admin_states:
+        accepted: Wystarczająca liczba podpisów
         created: Stworzony
         discarded: Odrzucona
         published: Opublikowany
+        rejected: Niewystarczająca liczba podpisów
         validating: Walidacja techniczna
       application_helper:
+        filter_area_values:
+          all: Wszyscy
+        filter_scope_values:
+          all: Wszyscy
         filter_state_values:
+          accepted: Wystarczająca liczba podpisów
+          all: Wszyscy
+          answered: Z odpowiedziami
           closed: Zamknięte
-          open: otwarty
+          open: Otwarty
+          rejected: Niewystarczająca liczba podpisów
+        filter_type_values:
+          all: Wszyscy
       committee_requests:
         new:
           continue: dalej
@@ -265,13 +318,17 @@ pl:
           fill_data_help: "<ul> <li>Popraw treść swojej inicjatywy. Czy twój tytuł jest łatwy do zrozumienia? Czy cel Twojej inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Osobiście, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy? Dzielnica?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
+          select_area: Wybierz obszar
           select_scope: Wybierz zakres
         finish:
           back: Plecy
           back_to_initiatives: Powrót do inicjatyw
           callout_text: Gratulacje! Twoja inicjatywa obywatelska została pomyślnie utworzona.
+          confirm: Potwierdź
+          edit_my_initiative: Edytuj inicjatywy
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
+          send_my_initiative: Wyślij inicjatywę
         finish_help:
           access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
           help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły z zarządu wszystkich organizacji, które tworzą Komisję Promującą
@@ -359,8 +416,10 @@ pl:
             other: "%{count} inicjatyw"
         filters:
           any: Każdy
+          area: Obszar
           author: Autor
           myself: Moje inicjatywy
+          scope: Zakres
           search: Szukaj
           state: Stan
           type: Rodzaj
@@ -371,6 +430,14 @@ pl:
           unfold: Rozwijać się
         index_header:
           new_initiative: Nowa inicjatywa
+          not_authorized:
+            authorizations_page: Zobacz autoryzacje
+            close: Zamknij
+            explanation: Musisz zostać zweryfikowany, aby stworzyć nową inicjatywę.
+            title: Wymagana autoryzacja
+        initiatives:
+          closed_initiatives_warning: Obecnie nie ma aktywnych inicjatyw, ale tutaj wymienione są wszystkie poprzednie inicjatywy.
+          no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
         interactions:
           comments_count:
             count:
@@ -384,6 +451,7 @@ pl:
           most_voted: Większość podpisana
           random: Losowy
           recent: Najnowszy
+          recently_published: Ostatnio opublikowane
         result:
           answer_title:
             accepted: Ta propozycja została zaakceptowana, ponieważ
@@ -438,10 +506,21 @@ pl:
           highlighted_initiatives:
             active_initiatives: Aktywne inicjatywy
             see_all_initiatives: Zobacz wszystkie inicjatywy
+      show:
+        badge_name:
+          accepted: Wystarczająca liczba podpisów
+          created: Utworzone
+          discarded: Odrzucone
+          published: Opublikowany
+          rejected: Niewystarczająca liczba podpisów
+          validating: Walidacja techniczna
       states:
         accepted: Przyjęty
         expired: Przedawniony
       unavailable_scope: Niedostępny zakres
+      versions:
+        shared:
+          back_to_resource: Wróć do inicjatywy
     menu:
       initiatives: Inicjatywy
     resources:

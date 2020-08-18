@@ -77,23 +77,11 @@ hu:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Típus
-          values:
-            'false': Javaslatok
-            'true': Módosítások
+        proposals:
+          valuator_role_ids_has:
+            label: Értékelőhöz rendelve
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
-        state_eq:
-          values:
-            evaluating: Értékelés
-            withdrawn: Visszavonva
-        state_null:
-          label: Állapot
-          values:
-            'true': Nem megválaszolt
-        valuator_role_ids_has:
-          label: Értékelőhöz rendelve
     components:
       proposals:
         actions:

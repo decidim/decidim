@@ -7,6 +7,7 @@ fr:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
+        scope_id: Périmètre d'application
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
@@ -19,6 +20,7 @@ fr:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
+        scope_id: Périmètre d'application
         state: État
         suggested_hashtags: Hashtags suggérés
         title: Titre
@@ -77,23 +79,11 @@ fr:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Propositions
-            'true': Amendements
+        proposals:
+          valuator_role_ids_has:
+            label: Assigné à l'évaluateur
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
-        state_eq:
-          values:
-            evaluating: En cours d'évaluation
-            withdrawn: Retirée
-        state_null:
-          label: État
-          values:
-            'true': En attente de réponse
-        valuator_role_ids_has:
-          label: Assigné à l'évaluateur
     components:
       proposals:
         actions:
@@ -638,15 +628,23 @@ fr:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
+          title: Modifier la question collaborative
         wizard_aside:
           back: Arrière
+          back_from_collaborative_draft: Retour aux brouillons collaboratifs
+          back_from_step_1: Retour aux brouillons collaboratifs
+          back_from_step_2: Retour aux brouillons collaboratifs
+          back_from_step_3: Retour à la comparaison des brouillons collaboratifs
+          back_from_step_4: Retour à l'édition du brouillon
           info: Vous créez un <strong>projet collaboratif</strong>.
         wizard_steps:
+          current_step: Étape actuelle
           see_steps: voir les étapes
           step_1: Créez votre projet collaboratif
           step_2: Comparer avec les projets collaboratifs
           step_3: Complétez votre projet collaboratif
           step_of: Etape %{current_step_num} sur %{total_steps}
+          title: Étapes de création du brouillon collaboratif
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
@@ -792,9 +790,12 @@ fr:
           read_more: En savoir plus
           report: Signaler
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, commentaire et/ou soutien, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_confirmation_html: Êtes-vous sûr de vouloir retirer cette proposition ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(changé de <u>%{previous_name}</u> par un administrateur)"
+        update:
+          title: Mettre à jour la proposition
         vote_button:
           already_voted: Déjà votée
           already_voted_hover: Retirer le vote
@@ -826,14 +827,20 @@ fr:
             votes: Votes
         wizard_aside:
           back: Retour
+          back_from_step_1: Retour aux propositions
+          back_from_step_2: Retour aux propositions
+          back_from_step_3: Retour à la comparaison des propositions
+          back_from_step_4: Retour à l'édition du brouillon
           info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
+          current_step: Étape actuelle
           see_steps: voir les étapes
           step_1: Créer une proposition
           step_2: Comparer aux autres propositions
           step_3: Compléter votre proposition
           step_4: Publier votre proposition
           step_of: Étape %{current_step_num} sur %{total_steps}
+          title: Étapes de création de proposition
       proposals_picker:
         choose_proposals: Choisir les propositions
         close: Fermer

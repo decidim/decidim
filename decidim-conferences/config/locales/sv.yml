@@ -528,6 +528,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den via föregående länk.
           email_subject: Konferensen "%{resource_title}" tar nu emot registreringar.
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> tar nu emot registreringar.
+        role_assigned:
+          email_intro: Du har tilldelats som %{role} för konferens "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} av konferensen "%{resource_title}".
+          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats %{role} för konferens <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Läs mer på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.

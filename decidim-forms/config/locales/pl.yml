@@ -15,6 +15,8 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: Wystąpił błąd podczas przetwarzania żądania. Spróbuj ponownie
   decidim:
     forms:
       admin:
@@ -23,27 +25,81 @@ pl:
             description: Opis
             tos: Warunki korzystania
         questionnaires:
+          actions:
+            back: Powrót do pytań
+            show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Dowolny tekst
             remove: Usunąć
             statement: Komunikat
+          answers:
+            actions:
+              back: Powrót do odpowiedzi
+              export: Eksportuj
+              show: Pokaż odpowiedzi
+            empty: Brak odpowiedzi
+            export:
+              answer:
+                title: 'Odpowiedź #%{number}'
+            export_response:
+              title: ankieta_użytkownik_odpowiedzi_%{token}
+            index:
+              title: "%{total} odpowiedzi ogółem"
+            show:
+              title: 'Odpowiedź #%{number}'
+          display_condition:
+            answer_option: Opcja odpowiedzi
+            condition_question: Pytanie
+            condition_type: Stan
+            condition_types:
+              answered: Odpowiedź
+              equal: Równy
+              match: Zawiera tekst
+              not_answered: Nie odpowiedziano
+              not_equal: Nie jest równe
+            condition_value: Zawarty tekst
+            display_condition: Stan wyświetlania
+            mandatory: Ten warunek musi być zawsze spełniony niezależnie od statusu innych warunków
+            remove: Usuń
+            save_warning: Pamiętaj, aby zapisać formularz przed skonfigurowaniem warunków wyświetlania
+            select_answer_option: Wybierz opcję odpowiedzi
+            select_condition_question: Wybierz pytanie
+            select_condition_type: Wybierz typ warunku
           edit:
             save: Zapisać
+            title: Edytuj kwestionariusz
           form:
             add_question: Dodaj pytanie
+            add_separator: Dodaj separator
             already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
+            collapse: Zwiń wszystkie pytania
+            expand: Rozwiń wszystkie pytania
+            preview: Podgląd
+            title: Edytuj formularz
+            unpublished_warning: Formularz nie jest opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
+            matrix_row: Wiersz
             remove: Usunąć
             statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
+            add_display_condition: Dodaj warunek wyświetlania
+            add_display_condition_info: Zapisz formularz, aby skonfigurować warunki wyświetlania
+            add_matrix_row: Dodaj wiersz
             any: Każdy
+            collapse: Zwiń
             description: Opis
             down: Na dół
+            expand: Rozwiń
             question: Pytanie
             remove: Usunąć
             statement: Komunikat
+            up: W górę
+          separator:
+            down: Na dół
+            remove: Usuń
+            separator: Separator
             up: W górę
           update:
             invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
@@ -51,8 +107,18 @@ pl:
       errors:
         answer:
           body: Treść nie może być pusta
+      files:
+        extension_whitelist: 'Dozwolone formaty:'
+      images:
+        dimensions: "%{width} × %{height} px"
+        dimensions_info: 'Rozmiar obrazu będzie wynosił:'
+        processors:
+          resize_and_pad: 'Zmieniony i dopełniony do:'
+          resize_to_fit: Dopasowany
       question_types:
         long_answer: Długa odpowiedź
+        matrix_multiple: Macierz (wiele opcji)
+        matrix_single: Macierz (jedna opcja)
         multiple_option: Wiele opcji
         short_answer: Krótka odpowiedź
         single_option: Opcja pojedyncza
@@ -60,6 +126,7 @@ pl:
       questionnaires:
         answer:
           invalid: Podczas odpowiadania na kwestionariusz wystąpiły błędy.
+          max_choices_alert: Wybrano zbyt wiele opcji
           success: Kwestionariusz odpowiedział pomyślnie.
         question:
           max_choices: 'Maksymalne opcje: %{n}'
@@ -67,6 +134,8 @@ pl:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
             title: Odpowiedz na kwestionariusz
+          current_step: Krok %{step}
+          of_total_steps: z %{total_steps}
           questionnaire_answered:
             body: Już odpowiedziałeś na tę ankietę.
             title: Już odpowiedziałem
@@ -76,11 +145,26 @@ pl:
           questionnaire_for_private_users:
             body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
             title: Ankieta została zamknięta
+          questionnaire_js_disabled:
+            body: Niektóre funkcje tego formularza zostaną wyłączone. Aby poprawić swoje doświadczenia, włącz obsługę JavaScript w przeglądarce.
+            title: JavaScript jest wyłączony
+          questionnaire_not_published:
+            body: Ten formularz nie został jeszcze opublikowany.
           tos_agreement: Biorąc udział akceptujesz Warunki korzystania z usługi
       step_navigation:
         show:
           are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          back: Wróć
+          continue: Dalej
           submit: Zatwierdź
       user_answers_serializer:
+        body: Odpowiedz
+        completion: Ukończenie
         created_at: Odpowiedziałem na
         id: ID odpowiedzi
+        ip_hash: Hash IP
+        question: Pytanie
+        registered: Zarejestrowany
+        session_token: Identyfikator użytkownika
+        unregistered: Niezarejestrowany
+        user_status: Status użytkownika

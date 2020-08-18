@@ -5,7 +5,9 @@ module Decidim
   # process.
   class Attachment < ApplicationRecord
     include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
 
+    translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 

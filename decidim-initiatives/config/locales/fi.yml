@@ -32,7 +32,7 @@ fi:
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksen yhteydessä
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
-        document_number_authorization_handler: Valtuutus asiakirjanumeron tarkistamiseen allekirjoitettaessa
+        document_number_authorization_handler: Vahvistustapa asiakirjanumeron tarkistamiseen allekirjoitettaessa
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
@@ -73,20 +73,22 @@ fi:
       actions:
         new_initiative_type: Uusi aloitetyyppi
       filters:
-        decidim_area_id_eq:
-          label: Alue
+        initiatives:
+          decidim_area_id_eq:
+            label: Alue
+          state_eq:
+            label: Tila
+            values:
+              accepted: Tarpeeksi allekirjoituksia
+              created: Luotu
+              discarded: Hylätyt
+              published: Julkaistut
+              rejected: Liian vähän allekirjoituksia
+              validating: Teknisessä validoinnissa
+          type_id_eq:
+            label: Tyyppi
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
-        state_eq:
-          values:
-            accepted: Tarpeeksi allekirjoituksia
-            created: Luotu
-            discarded: Hylätty
-            published: Julkaistu
-            rejected: Liian vähän allekirjoituksia
-            validating: Teknisessä tarkastuksessa
-        type_id_eq:
-          label: Tyyppi
       menu:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
@@ -390,7 +392,7 @@ fi:
         sms_code:
           invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
-          invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista valtuutesi.
+          invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista vahvistuksesi.
       initiatives:
         author:
           deleted: Poistettu
@@ -418,6 +420,14 @@ fi:
           unfold: Avaa
         index_header:
           new_initiative: Uusi aloite
+          not_authorized:
+            authorizations_page: Näytä vahvistukset
+            close: Sulje
+            explanation: Tilisi tulee vahvistaa luodaksesi uuden aloitteen.
+            title: Vahvistus vaaditaan
+        initiatives:
+          closed_initiatives_warning: Tällä hetkellä yhtään aloitetta ei ole avoimena, mutta tästä listasta löydät kaikki suljetut aloitteet.
+          no_initiatives_warning: Yhtään aloitetta ei löytynyt hakukriteereilläsi.
         interactions:
           comments_count:
             count:
