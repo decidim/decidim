@@ -6,62 +6,62 @@ pl:
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
-        proposal_ids: Proponowane propozycje
+        proposal_ids: Powiązane propozycje
         title: Tytuł
   activerecord:
     models:
       decidim/budgets/project:
         one: Projekt
-        few: Projektowanie
-        many: Projektowanie
-        other: Projektowanie
+        few: Projekty
+        many: Projekty
+        other: Projekty
   decidim:
     budgets:
       actions:
-        attachment_collections: Lornetka składana
+        attachment_collections: Foldery
         attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
-        destroy: Kasować
+        destroy: Usuń
         edit: Edytuj
         import: Importuj propozycje do projektów
         new: Nowy projekt
-        preview: Zapowiedź
-        title: działania
+        preview: Podgląd
+        title: Działania
       admin:
         models:
           project:
             name: Projekt
         projects:
           create:
-            invalid: Podczas tworzenia tego projektu wystąpił problem
-            success: Projekt został pomyślnie utworzony
+            invalid: Podczas tworzenia tego projektu wystąpił błąd
+            success: Projekt został utworzony
           destroy:
-            success: Projekt został pomyślnie usunięty
+            success: Projekt został usunięty
           edit:
             title: Edytuj projekt
-            update: Aktualizacja
+            update: Aktualizuj
           index:
-            finished_orders: Ukończone głosy
-            pending_orders: Głosowanie oczekujące
-            title: Projektowanie
+            finished_orders: Ukończone głosowania
+            pending_orders: Głosowania oczekujące
+            title: Projekty
           new:
-            create: Stwórz
+            create: Utwórz
             title: Nowy projekt
           update:
-            invalid: Wystąpił problem z aktualizacją tego projektu
+            invalid: Wystąpił błąd podczas aktualizowania tego projektu
             success: Zaktualizowano projekt
         proposals_imports:
           create:
-            invalid: Wystąpił problem podczas importowania propozycji do projektów
-            success: "%{number} propozycji pomyślnie zaimportowanych do projektów"
+            invalid: Wystąpił błąd podczas importowania propozycji do projektów
+            success: "%{number} propozycji pomyślnie zaimportowano do projektów"
           new:
             create: Importuj propozycje do projektów
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
             select_component: Wybierz komponent
       admin_log:
         project:
-          create: "%{user_name} utworzył projekt %{resource_name} w przestrzeni %{space_name}"
-          delete: "%{user_name} usunął projekt %{resource_name} z przestrzeni %{space_name}"
+          create: "%{user_name} utworzył(a) projekt %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} usunął/usunęła projekt %{resource_name} z przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował projekt %{resource_name} w przestrzeni %{space_name}"
       models:
         project:
@@ -69,19 +69,19 @@ pl:
             title: Tytuł
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Wybrane przez ciebie projekty to:'
-          subject: Zagłosowałeś(-aś) w przestrzeni partycypacyjnej %{space_name}.
+          selected_projects: 'Wybrane przez Ciebie projekty to:'
+          subject: Zagłosowałeś(-aś) w przestrzeni partycypacyjnej %{space_name}
           voted_on_space: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name}.
           voted_on_space_with_scope: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name} w zakresie %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Czy sie zgadzasz? Po zatwierdzeniu swojego głosu nie możesz go zmienić.
+          are_you_sure: Zgadzasz się? Po potwierdzeniu głosu, nie będzie można go zmienić.
           cancel: Anuluj
-          confirm: Potwierdzać
+          confirm: Potwierdź
           description: Są to projekty, które wybrałeś jako część budżetu.
           title: Potwierdź głosowanie
         budget_excess:
-          close: Blisko
+          close: Zamknij
           description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który został już wybrany, aby dodać lub sprawić, aby głosował z Twoimi preferencjami.
           ok: ok
           title: Przekroczono maksymalny budżet
