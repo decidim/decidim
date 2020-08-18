@@ -2,61 +2,61 @@ pl:
   activemodel:
     attributes:
       assembly:
-        area_id: Powierzchnia
+        area_id: Obszar
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny
-        banner_image: Obraz baneru
+        banner_image: Banner
         closing_date: Data zamknięcia
-        closing_date_reason: Termin zamknięcia terminu
-        composition: Kompozycja
-        copy_categories: Kopiuj kategorie
+        closing_date_reason: Powód zamknięcia w podanym terminie
+        composition: Skład zespołu
+        copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
-        copy_features: Kopiuj funkcje
-        created_by: Stworzone przez
-        created_by_other: Stworzony przez inne
+        copy_features: Skopiuj funkcje
+        created_by: Stworzono przez
+        created_by_other: Stworzono przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
         decidim_scope_id: Zakres
         description: Opis
-        developer_group: Grupa promotorów
+        developer_group: Grupa twórców
         domain: Domena
-        duration: Trwanie
+        duration: Czas trwania
         facebook: Facebook
         github: GitHub
-        hashtag: Hasztag
-        hero_image: Obraz w domu
+        hashtag: Hashtag
+        hero_image: Obraz główny
         included_at: Zawarte w
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
-        is_transparent: Jest przezroczysty
+        is_transparent: Jest transparentny
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
-        parent_id: Montaż rodziców
-        participatory_processes_ids: Powiązane procesy uczestnictwa
+        parent_id: Zespół nadrzędny
+        participatory_processes_ids: Powiązane procesy partycypacyjne
         participatory_scope: Co postanowiono
-        participatory_structure: Jak to się decyduje
-        private_space: Prywatna przestrzeń
-        promoted: Lansowany
-        published_at: Opublikowano na
+        participatory_structure: Jak decydujemy
+        private_space: Przestrzeń prywatna
+        promoted: Wyróżniony
+        published_at: Opublikowano
         purpose_of_action: Cel działania
         scope_id: Zakres
-        scopes_enabled: Zakresy włączone
+        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
-        slug: Ślimak URL
+        slug: URL slug
         special_features: Cechy szczególne
         subtitle: Podtytuł
-        target: Kto uczestniczy
+        target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Urodziny
         birthplace: Miejsce urodzenia
         ceased_date: Przerywana data
-        designation_date: Data wyznaczenia
-        designation_mode: Tryb oznaczania
+        designation_date: Data wyboru
+        designation_mode: Tryb wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
@@ -73,116 +73,116 @@ pl:
   activerecord:
     models:
       decidim/assembly:
-        one: montaż
-        few: Złożenia
-        many: Złożenia
-        other: Złożenia
+        one: Zespół
+        few: Zespoły
+        many: Zespoły
+        other: Zespoły
       decidim/assembly_member:
         one: Członek zespołu
-        few: Członkowie zgromadzenia
-        many: Członkowie zgromadzenia
-        other: Członkowie zgromadzenia
+        few: Członkowie zespołu
+        many: Członkowie zespołu
+        other: Członkowie zespołu
       decidim/assembly_user_role:
-        one: Zbierz rolę użytkownika
-        few: Zbierz role użytkowników
-        many: Zbierz role użytkowników
-        other: Zbierz role użytkowników
+        one: Rola użytkownika zespołu
+        few: Role użytkowników zespołu
+        many: Role użytkowników zespołu
+        other: Role użytkowników zespołu
   decidim:
     admin:
       actions:
         import_assembly: Importuj
-        new_assembly: Nowy montaż
-        new_assembly_type: Nowy typ zgromadzenia
+        new_assembly: Nowy zespół
+        new_assembly_type: Nowy typ zespołu
       assemblies:
         create:
-          error: Podczas tworzenia nowego zestawu wystąpił błąd.
-          success: Zgromadzenie zostało utworzone.
+          error: Podczas tworzenia nowego zespołu wystąpił błąd.
+          success: Zespół został utworzony.
         edit:
           update: Aktualizuj
         index:
-          not_published: Nie opublikowane
+          not_published: Nieopublikowane
           private: Prywatny
           public: Publiczny
           published: Opublikowany
         new:
           create: Utwórz
-          title: Nowy montaż
+          title: Nowy zespół
         update:
-          error: Podczas aktualizowania tego zestawu wystąpił błąd.
-          success: Zgromadzenie zostało zaktualizowane.
+          error: Podczas aktualizowania tego zespołu wystąpił błąd.
+          success: Zespół został zaktualizowany.
       assemblies_copies:
         create:
-          error: Podczas duplikowania tego zestawu wystąpił błąd.
-          success: Złożenie zostało powielone.
+          error: Podczas duplikowania tego zespołu wystąpił błąd.
+          success: Zespół został zduplikowany.
       assemblies_settings:
         update:
           error: Podczas aktualizowania ustawień wystąpił błąd.
           success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
         create:
-          error: Podczas tworzenia nowego typu zgromadzenia wystąpił błąd.
-          success: Pomyślnie utworzono typ zgromadzenia.
+          error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
+          success: Pomyślnie utworzono typ zespołu.
         destroy:
-          success: Pomyślnie usunięto typ zgromadzenia.
+          success: Pomyślnie usunięto typ zespołu.
         new:
           create: Utwórz
-          title: Nowy typ zgromadzenia
+          title: Nowy typ zespołu
         update:
-          error: Podczas aktualizowania tego typu zgromadzenia wystąpił błąd.
-          success: Pomyślnie zaktualizowano typ zgromadzenia.
+          error: Podczas aktualizowania tego typu zespołu wystąpił błąd.
+          success: Pomyślnie zaktualizowano typ zespołu.
       assembly_copies:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
-          title: Duplikat montażu
+          title: Zduplikuj zespół
       assembly_imports:
         create:
           error: Wystąpił błąd podczas importowania tego zespołu.
-          success: Zestaw pomyślnie zaimportowany.
+          success: Zespół został pomyślnie zaimportowany.
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
           title: Importuj zespół
       assembly_members:
         create:
-          error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
+          error: Wystąpił błąd podczas dodawania członka do tego zespołu.
           success: Członek utworzony pomyślnie dla tego zespołu.
         destroy:
-          success: Członek usunięty pomyślnie dla tego zespołu.
+          success: Członek usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj element złożenia.
-          update: Aktualizacja
+          title: Aktualizuj członka zespołu.
+          update: Aktualizuj
         index:
-          assembly_members_title: Członkowie zgromadzenia
+          assembly_members_title: Członkowie zespołu
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowy członek zespołu.
         update:
-          error: Wystąpił błąd podczas aktualizowania elementu dla tego zespołu.
-          success: Członek zaktualizowany pomyślnie dla tego zespołu.
+          error: Wystąpił błąd podczas aktualizowania członka tego zespołu.
+          success: Członek zespołu zaktualizowany pomyślnie.
       assembly_publications:
         create:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie zostało opublikowane pomyślnie.
+          error: Podczas publikowania tego zespołu wystąpił błąd.
+          success: Zespół został opublikowane pomyślnie.
         destroy:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie nie zostało pomyślnie opublikowane.
+          error: Wystąpił błąd podczas próby cofnięcia publikacji tego zespołu.
+          success: Zespół nie jest już publicznie widoczny.
       assembly_user_roles:
         create:
-          error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
-          success: Użytkownik został pomyślnie dodany do tego zespołu.
+          error: Wystąpił błąd podczas dodawania administratora do tego zespołu.
+          success: Administrator został pomyślnie dodany do tego zespołu.
         destroy:
-          success: Użytkownik usunięty pomyślnie z tego zestawu.
+          success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj użytkownika złożenia.
-          update: Aktualizacja
+          title: Zaktualizuj administratora zespołu.
+          update: Aktualizuj
         index:
-          assembly_admins_title: Użytkownicy montażu
+          assembly_admins_title: Administratorzy zespołu
         new:
-          create: Stwórz
-          title: Nowy użytkownik złożenia.
+          create: Utwórz
+          title: Nowy administrator zespołu.
         update:
-          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego zespołu.
+          error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
           success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
       menu:
         assemblies: Zespoły
