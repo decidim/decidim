@@ -4,9 +4,9 @@ pl:
       account:
         delete_reason: Powód usunięcia konta
       common:
-        created_at: Utworzono w
+        created_at: Utworzono
       group:
-        about: O
+        about: O grupie
         avatar: Awatar
         document_number: Numer dokumentu
         email: E-mail
@@ -16,24 +16,24 @@ pl:
       report:
         details: Dodatkowe uwagi
       user:
-        about: O
+        about: O użytkowniku
         email: Twój email
         name: Twoje imię
         nickname: Alias
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
-        personal_url: Osobisty URL
+        personal_url: Prywatny adres URL
         remove_avatar: Usuń awatar
     models:
       decidim/attachment_created_event: Załącznik
-      decidim/component_published_event: Aktywny składnik
+      decidim/component_published_event: Aktywny komponent
       decidim/demoted_membership: Nie jest już administratorem grupy
       decidim/gamification/badge_earned_event: Zdobyta odznaka
-      decidim/gamification/level_up_event: Wyrównałeś
-      decidim/join_request_accepted_event: Dołącz do akceptowanej prośby
-      decidim/join_request_rejected_event: Odrzucono prośbę o połączenie
+      decidim/gamification/level_up_event: Awansowałeś
+      decidim/join_request_accepted_event: Zaakceptowano prośbę o dołączenie
+      decidim/join_request_rejected_event: Odrzucono prośbę o dołączenie
       decidim/profile_updated_event: Profil zaktualizowany
-      decidim/promote_to_admin: Promowane do administratora grupy
+      decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
       decidim/resource_endorsed_event: Poparto zasób
   activerecord:
