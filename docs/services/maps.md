@@ -13,6 +13,8 @@ map. Decidim has built-in support for the following map service providers:
     static map images, geocoding and geocoding autocompletion)
   - We can't use the OSM's own services by their
     [tile usage policy][link-osm-tile-usage].
+  - In case your service provider does not offer static map images, Decidim will
+    use the dynamic map tiles to generate a similar map element.
   - As an alternative, you may also want to use your own self-hosted map servers
     (see [Hosting your own map services][anchor-hosting-osm] for
     more information)
@@ -103,7 +105,7 @@ config.maps = {
       # attribution: -> { I18n.t("tile_layer_attribution") }
     }
   },
-  static: { url: "https://staticmap.example.org/" },
+  # static: { url: "https://staticmap.example.org/" }, # optional
   geocoding: { host: "nominatim.example.org", use_https: true },
   autocomplete: { url: "https://photon.example.org/api/" }
 }
@@ -279,6 +281,10 @@ In the example configuration, we assume you have used the following domain for
 the static maps image server:
 
 https://staticmap.example.org
+
+Setting up this service is optional. If you do not configure a static map URL
+for the OSM based map services, Decidim will use the dynamic map tiles to
+generate a similar map element.
 
 ### Geocoding: Nominatim geocoding server
 

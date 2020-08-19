@@ -15,7 +15,9 @@ service provider that provides all the following services:
 - [A map tile server][link-wiki-tile-server] for the dynamic maps, preferrably
   one that is compatible with the default [Leaflet][link-leaflet] map library.
 - [A static map image server][link-wiki-static-maps] for the static map images
-  e.g. on the proposal pages.
+  e.g. on the proposal pages. This service is optional as Decidim will use the
+  dynamic map tiles to generate a similar map element if the static map image
+  cannot be provided.
 
 One option is to host some or all of these services yourself as there are open
 source alternatives available for all of these services. More information about
@@ -493,6 +495,11 @@ module Decidim
 end
 ```
 
+If you want to use dynamic map elements for the static maps as well, you can
+leave the static map utility empty as shown above. Decidim will create a dynamic
+map replacement for the static map image in case the static map utility will not
+return a proper map URL.
+
 In case you want to customize the static map utility for your provider, you can
 define the following methods in the utility class:
 
@@ -551,6 +558,17 @@ configurations and customizations:
 
 ```bash
 https://staticmap.example.org/?latitude=1.123&longitude=2.456&zoom=15&width=120&height=120&style=bright&foo=bar
+```
+
+If you want to use the dynamic map replacements for the static map images, do
+not configure `static` section for your maps:
+
+```ruby
+config.maps = {
+  provider: :your_provider,
+  api_key: Rails.application.secrets.maps[:api_key]
+  # static: { ... } # LEAVE THIS OUT
+}
 ```
 
 ## Configuring your own map service provider
