@@ -54,13 +54,6 @@
       this.map.fitBounds(bounds, { padding: [100, 100] });
     }
 
-    createIcon() {
-      return new L.DivIcon.SVGIcon.DecidimIcon({
-        fillColor: this.config.markerColor,
-        iconSize: L.point(28, 36)
-      });
-    }
-
     clearMarkers() {
       this.map.removeLayer(this.markerClusters);
       this.markerClusters = L.markerClusterGroup();

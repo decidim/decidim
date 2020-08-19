@@ -77,6 +77,13 @@
         this.map = null;
       }
     }
+
+    createIcon() {
+      return new L.DivIcon.SVGIcon.DecidimIcon({
+        fillColor: this.config.markerColor,
+        iconSize: L.point(28, 36)
+      });
+    }
   }
 
   exports.Decidim = exports.Decidim || {};
