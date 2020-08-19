@@ -35,13 +35,13 @@ pl:
       decidim/profile_updated_event: Profil zaktualizowany
       decidim/promote_to_admin: Awansowano na administratora grupy
       decidim/removed_from_group: Usunięto z grupy
-      decidim/resource_endorsed_event: Poparto zasób
+      decidim/resource_endorsed_event: Zasoby zatwierdzone
   activerecord:
     attributes:
       decidim/user:
         current_password: Obecne hasło
         email: Adres e-mail
-        name: Nazwa użytkownika
+        name: Alias
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
@@ -57,7 +57,7 @@ pl:
         many: Poparcia
         other: Poparcia
       decidim/user:
-        one: Brak użytkowników
+        one: Użytkownik
         few: Użytkownicy
         many: Użytkownicy
         other: Użytkownicy
@@ -88,9 +88,9 @@ pl:
     account:
       data_portability_export:
         file_no_exists: Plik nie istnieje
-        notice: Twoje dane są obecnie w toku. Otrzymasz e-mail po zakończeniu.
+        notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       delete:
-        alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już logować z jego pomocą.
+        alert: Nie można cofnąć tej czynności. Jeśli usuniesz konto, nie będzie można się już na nie logować.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto
@@ -105,74 +105,74 @@ pl:
         update_account: Zaktualizuj konto
       update:
         error: Podczas aktualizowania konta wystąpił błąd.
-        success: Twoje konto zostało zaktualizowane pomyślnie.
-        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
+        success: Twoje konto zostało zaktualizowane.
+        success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia nowego adresu e-mail otrzymasz na niego wiadomość.
     admin:
       actions:
         cancel: Anuluj
     admin_log:
       area:
-        create: "%{user_name} utworzył obszar %{resource_name}"
-        delete: "%{user_name} usunął obszar %{resource_name}"
-        update: "%{user_name} zaktualizował obszar %{resource_name}"
+        create: "%{user_name} utworzył(a) obszar %{resource_name}"
+        delete: "%{user_name} usunął/usunęła obszar %{resource_name}"
+        update: "%{user_name} zaktualizował(a) obszar %{resource_name}"
       component:
-        create: "%{user_name} dodał element %{resource_name} do przestrzeni %{space_name}"
-        delete: "%{user_name} usunął komponent %{resource_name} z przestrzeni %{space_name}"
-        publish: "%{user_name} opublikował element %{resource_name} w przestrzeni %{space_name}"
-        unpublish: "%{user_name} nie opublikował elementu %{resource_name} z przestrzeni %{space_name}"
+        create: "%{user_name} dodał(a) komponent %{resource_name} do przestrzeni %{space_name}"
+        delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
+        publish: "%{user_name} opublikował(a) komponent %{resource_name} w przestrzeni %{space_name}"
+        unpublish: "%{user_name} cofnął/cofnęła publikację komponentu %{resource_name} w przestrzeni %{space_name}"
       moderation:
-        hide: "%{user_name} ukrył zasób typu %{resource_type} w %{space_name} przestrzeń"
-        unreport: "%{user_name} niezgłoszony zasób typu %{resource_type} w %{space_name} przestrzeń"
+        hide: "%{user_name} ukrył(a) zasób typu %{resource_type} w przestrzeni %{space_name}"
+        unreport: "%{user_name} cofnął zgłoszenie zasobu typu %{resource_type} w przestrzeni %{space_name}"
       newsletter:
-        create: "%{user_name} stworzył %{resource_name} biuletyn"
-        delete: "%{user_name} usunięto %{resource_name} biuletyn"
-        deliver: "%{user_name} dostarczone %{resource_name} biuletyn"
-        update: "%{user_name} zaktualizowałem %{resource_name} biuletyn"
+        create: "%{user_name} stworzył(a) newsletter %{resource_name}"
+        delete: "%{user_name} usunął/usunęła newsletter %{resource_name}"
+        deliver: "%{user_name} dostarczył(a) newsletter %{resource_name}"
+        update: "%{user_name} zaktualizował(a) newsletter %{resource_name}"
       oauth_application:
-        create: "%{user_name} utworzył aplikację OYuth %{resource_name}"
-        delete: "%{user_name} usunął aplikację OYuth %{resource_name}"
-        update: "%{user_name} zaktualizował aplikację OYuth %{resource_name}"
+        create: "%{user_name} utworzył(a) aplikację OAuth %{resource_name}"
+        delete: "%{user_name} usunął/usunęła aplikację OAuth %{resource_name}"
+        update: "%{user_name} zaktualizował(a) aplikację OAuth %{resource_name}"
       organization:
-        update: "%{user_name} zaktualizował ustawienia organizacji"
+        update: "%{user_name} zaktualizował(a) ustawienia organizacji"
       participatory_space_private_user:
-        create: "%{user_name} zaprosił %{resource_name} aby zostać użytkownikiem prywatnym"
+        create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
         create_via_csv: "%{user_name} zaprosił(a) %{resource_name} poprzez CSV, aby został(a) uczestnikiem prywatnym"
-        delete: "%{user_name} usunął użytkownika %{resource_name} jako użytkownika prywatnego"
+        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
-        create: "%{user_name} utworzył zasięg %{resource_name}"
-        create_with_parent: "%{user_name} utworzył zasięg %{resource_name} w zasięgu %{parent_scope}"
-        delete: "%{user_name} usunął zasięg %{resource_name}"
-        delete_with_parent: "%{user_name} usunął zasięg %{resource_name} wewnątrz zakresu %{parent_scope}"
-        update: "%{user_name} zaktualizował zasięg %{resource_name}"
-        update_with_parent: "%{user_name} zaktualizował zasięg %{resource_name} wewnątrz zakresu %{parent_scope}"
+        create: "%{user_name} utworzył(a) zakres %{resource_name}"
+        create_with_parent: "%{user_name} utworzył(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
+        delete: "%{user_name} usunął/usunęła zakres %{resource_name}"
+        delete_with_parent: "%{user_name} usunął/usunęła zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
+        update: "%{user_name} zaktualizował(a) zakres %{resource_name}"
+        update_with_parent: "%{user_name} zaktualizował(a) zakres podrzędny %{resource_name} w zakresie %{parent_scope}"
       static_page:
-        create: "%{user_name} stworzył %{resource_name} strona statyczna"
-        delete: "%{user_name} usunięto %{resource_name} strona statyczna"
-        update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
+        create: "%{user_name} stworzył(a) stronę statyczną %{resource_name}"
+        delete: "%{user_name} usunął/usunęła stronę statyczną %{resource_name}"
+        update: "%{user_name} zaktualizował(a) stronę statyczną %{resource_name}"
       user:
-        invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
-        officialize: "%{user_name} oficjalny użytkownik %{resource_name}"
-        remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
+        invite: "%{user_name} zaprosił(a) użytkownika %{resource_name} z rolą: %{role}"
+        officialize: "%{user_name} ustanowił(a) oficjalnym użytkownika %{resource_name}"
+        remove_from_admin: "%{user_name} usunął/usunęła użytkownika %{resource_name} z rolą: %{role}"
         show_email: "%{user_name} pobrał(a) e-mail uczestnika %{resource_name}"
-        unofficialize: "%{user_name} nieoficjalny użytkownik %{resource_name}"
+        unofficialize: "%{user_name} usunął/usunęła oficjalny status użytkownika %{resource_name}"
       user_group:
-        reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
-        verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
-        verify_via_csv: "%{user_name} zweryfikowało %{resource_name} grupę użytkowników za pomocą pliku CSV"
+        reject: "%{user_name} odrzucił(a) weryfikację grupy %{resource_name}"
+        verify: "%{user_name} zweryfikował(a) grupę %{resource_name}"
+        verify_via_csv: "%{user_name} zweryfikował(a) grupę %{resource_name} za pomocą pliku CSV"
     admin_terms_of_use:
       default_body: "<h2>WARUNKI UŻYTKOWANIA DLA ADMINISTRATORÓW</h2><p>Mamy nadzieję, że lokalny Administrator systemu poinformował Cię o podstawowych zasadach korzystania z platformy. Zwykle sprowadza się to do trzech rzeczy: </p><ol><li>Szanuj prywatność innych.</li><li>Pomyśl, zanim klikniesz.</li><li>Z wielką mocą wiąże się wielka odpowiedzialność.</li></ol>"
     alert:
       dismiss: Odrzuć powiadomienie
     amendments:
       accepted:
-        error: Wystąpił błąd podczas przyjmowania poprawki.
-        success: Poprawka została pomyślnie przyjęta.
+        error: Wystąpił błąd podczas akceptowania poprawki.
+        success: Poprawka została zaakceptowana.
       amendable:
-        amended_by: Zmienione przez
-        button: Zmień %{model_name}
-        error: Wystąpił błąd podczas zmiany tego zasobu.
-        help_text: Popraw to %{model_name} , modyfikując %{amendable_fields}
-        promote_button: Promuj do %{model_name}
+        amended_by: Poprawione przez
+        button: Popraw %{model_name}
+        error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
+        help_text: Ulepsz %{model_name} modyfikując %{amendable_fields}
+        promote_button: Promuj %{model_name}
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować to wyróżnienie i opublikować je jako niezależne %{model_name}
         section_heading: Poprawki (%{count})
