@@ -9,23 +9,54 @@ module Decidim
     # resource - A geolocalizable resource
     # options - An optional hash of options (default: { zoom: 17 })
     #           * zoom: A number to represent the zoom value of the map
-    def static_map_link(resource, options = {})
+    def static_map_link(resource, options = {}, map_html_options = {}, &block)
       return unless resource.geocoded?
-      return unless map_utility_static
-
-      map_url = map_utility_static.link(
-        latitude: resource.latitude,
-        longitude: resource.longitude,
-        options: options
-      )
+      return unless map_utility_static || map_utility_dynamic
 
       address_text = resource.try(:address)
       address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.map.static")
       map_service_brand = t("map_service_brand", scope: "decidim.map.static")
 
-      link_to map_url, target: "_blank", rel: "noopener" do
-        image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+      if map_utility_static
+        map_url = map_utility_static.link(
+          latitude: resource.latitude,
+          longitude: resource.longitude,
+          options: options
+        )
+
+        # Check that the static map utility actually returns a URL before
+        # creating the static map utility. If it does not, the image would be
+        # otherwise blank.
+        if map_utility_static.url(latitude: resource.latitude, longitude: resource.longitude)
+          return link_to map_url, target: "_blank", rel: "noopener" do
+            image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+          end
+        end
       end
+
+      # Fall back to the dynamic map utility in case static maps are not
+      # provided.
+      builder = map_utility_dynamic.create_builder(self, {
+        type: :static,
+        latitude: resource.latitude,
+        longitude: resource.longitude,
+        zoom: 15,
+        title: "#{map_service_brand} - #{address_text}",
+        link: map_url
+      }.merge(options))
+
+      unless snippets.any?(:map)
+        snippets.add(:map, builder.stylesheet_snippets)
+        snippets.add(:map, builder.javascript_snippets)
+
+        # This will display the snippets in the <head> part of the page.
+        snippets.add(:head, snippets.for(:map))
+      end
+
+      builder.map_element(
+        { class: "static-map", tabindex: "0" }.merge(map_html_options),
+        &block
+      )
     end
 
     def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)

@@ -1,11 +1,12 @@
 // = require decidim/map/controller
 // = require decidim/map/controller/markers
+// = require decidim/map/controller/static
 // = require_self
 
 ((exports) => {
   exports.Decidim = exports.Decidim || {};
 
-  const MapMarkersController = exports.Decidim.MapMarkersController;
+  const { MapMarkersController, MapStaticController } = exports.Decidim;
 
   /**
    * A factory method that creates a new map controller instance. This method
@@ -23,6 +24,7 @@
    *   <% end %>
    *
    * And then the actual customization at `map_customization.js.es6`:
+   *   var originalCreateMapController = window.Decidim.createMapController;
    *   window.Decidim.createMapController = (mapId, config) => {
    *     if (config.type === "custom") {
    *       // Obviously you need to implement CustomMapController for this to
@@ -30,7 +32,7 @@
    *       return new window.Decidim.CustomMapController(mapId, config);
    *     }
    *
-   *     return new window.Decidim.MapMarkersController(mapId, config);
+   *     return originalCreateMapController(mapId, config);
    *   }
    *
    * @param {string} mapId The ID of the map element.
@@ -38,6 +40,10 @@
    * @returns {MapController} The controller for the map.
    */
   const createMapController = (mapId, config) => {
+    if (config.type === "static") {
+      return new MapStaticController(mapId, config);
+    }
+
     return new MapMarkersController(mapId, config);
   }
 

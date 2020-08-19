@@ -93,3 +93,38 @@
     min-width: 12em;
   }
 }
+
+.static-map{
+  cursor: pointer;
+  height: 120px;
+  width: 120px;
+
+  .leaflet-popup-pane,
+  .leaflet-control{
+    cursor: pointer;
+  }
+
+  &:focus{
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
+  }
+
+  &,
+  .leaflet-control-attribution{
+    a{
+      &:hover,
+      &:focus{
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+
+  &,
+  &.leaflet-touch{
+    .leaflet-control-attribution{
+      font-size: .55rem;
+    }
+  }
+}
