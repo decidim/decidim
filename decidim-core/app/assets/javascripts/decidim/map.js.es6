@@ -21,7 +21,11 @@
 
     $mapElements.each((_i, el) => {
       const $map = $(el);
-      const mapId = $map.attr("id");
+      let mapId = $map.attr("id");
+      if (!mapId) {
+        mapId = `map-${Math.random().toString(36).substr(2, 9)}`;
+        $map.attr("id", mapId);
+      }
 
       const mapConfig = $map.data("decidim-map");
       const ctrl = createMapController(mapId, mapConfig);
