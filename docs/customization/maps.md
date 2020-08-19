@@ -571,6 +571,11 @@ config.maps = {
 }
 ```
 
+Even if you decide to use the dynamic map replacements, you will still need to
+define the static map utility because it is used to generate the link where
+users will be pointed at when they click the map image. In this case, the static
+map utility can be empty as you won't need any customization for it to work.
+
 ## Configuring your own map service provider
 
 After you have finished all the steps shown above, you will need to configure
