@@ -3,3 +3,145 @@ sl:
     attributes:
       assembly:
         area_id: Področje
+        assembly_type: Vrsta združbe
+        assembly_type_other: Druge vrste združb
+        banner_image: Ime pasice
+        closing_date: Datum zaprtja
+        closing_date_reason: Razlog za datum zaprtja
+        composition: Sestava
+        copy_categories: Kopiraj kategorije
+        copy_components: Kopiraj sestavni del
+        copy_features: Kopiraj značilnosti
+        created_by: Ustvaril
+        creation_date: Datum nastanka
+        decidim_area_id: Področje
+        decidim_assemblies_type_id: Vrsta združbe
+        decidim_scope_id: Obseg
+        description: Opis
+        domain: Domena
+        duration: Trajanje
+        facebook: Facebook
+        github: GitHub
+        hashtag: Ključnik
+        hero_image: Domača slika
+        included_at: Vsebovan
+        instagram: Instagram
+        internal_organisation: Notranja organizacija
+        is_transparent: Je prosojna
+        local_area: Območje organizacije
+        parent_id: Matična združba
+        participatory_processes_ids: Povezani participativni procesi
+        participatory_scope: Kar je bilo odločeno
+        participatory_structure: Kot je bilo odločeno
+        private_space: Zasebni prostor
+        promoted: Poudarjeno
+        published_at: Objavljeno
+        purpose_of_action: Namen ukrepanja
+        scope_id: Obseg
+        scopes_enabled: Omogočeni obsegi
+        short_description: Kratek opis
+        show_statistics: Pokaži statistike
+        special_features: Posebne funkcije
+        subtitle: Podnapis
+        target: Kdor je prisostoval
+        title: Naziv
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: Rojstni dan
+        birthplace: Rojstni kraj
+        ceased_date: Datum prenehanja
+        designation_date: Datum imenovanja
+        designation_mode: Način imenovanja
+        full_name: Polno ime
+        gender: Spol
+        position: Položaj
+      assembly_user_role:
+        email: Email
+        name: Ime
+        role: Vloga
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Neveljavna vrsta dokumenta. Sprejemljive oblike so: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Združba
+        two: Združbi
+        few: Združb
+        other: Združb
+      decidim/assembly_member:
+        one: Član združbe
+        two: Člana združbe
+        few: Člani združbe
+        other: Člani združbe
+      decidim/assembly_user_role:
+        one: Vloga v združbi
+        two: Vlogi v združbi
+        few: Vlog v združbi
+        other: Vlog v združbi
+  decidim:
+    admin:
+      actions:
+        import_assembly: Uvozi
+        new_assembly: Nova združba
+        new_assembly_type: Nova vrsta združbe
+      assemblies:
+        create:
+          error: Pojavila se je težava pri kreiranju združbe.
+          success: Združba uspešno ustvarjena.
+        edit:
+          update: Posodobi
+        index:
+          not_published: Ni objavljeno
+          private: Zasebno
+          public: Javno
+          published: Objavljeno
+        new:
+          create: Ustvari
+          title: Nova združba
+        update:
+          error: Pojavila se je težava pri urejanju združbe.
+          success: Združba uspešno posodobljena.
+      assemblies_copies:
+        create:
+          error: Pojavila se je težava pri podvajanju združbe.
+          success: Združba uspešno podvojena.
+      assemblies_settings:
+        update:
+          error: Pojavila se je težava pri urejanju nastavitev.
+          success: Nastavitve uspešno posodobljene.
+      assemblies_types:
+        create:
+          error: Pojavila se je težava pri kreiranju nove združbe.
+          success: Vrsta združbe uspešno ustvarjena.
+        destroy:
+          success: Vrsta združbe uspešno izbrisana.
+        new:
+          create: Ustvari
+          title: Nova vrsta združbe
+        update:
+          error: Pojavila se je težava pri urejanju vrste združbe.
+          success: Vrsta združbe uspešno posodobljena.
+      assembly_copies:
+        new:
+          copy: Kopiraj
+          select: Izberi, katere podatke želiš podvojiti
+          title: Podvoji združbo
+      assembly_imports:
+        create:
+          error: Pojavila se je težava pri uvozu te združbe.
+          success: Združba uspešno uvožena.
+        new:
+          import: Uvozi
+          select: Izberi, katere podatke želiš uvoziti
+          title: Uvozi združbo
+      assembly_members:
+        create:
+          error: Pojavila se je težava pri dodanju člana v to združbo.
+          success: Član uspešno kreiran v tej združbi.
+        destroy:
+          success: Član uspešno izbrisan v tej združbi.
