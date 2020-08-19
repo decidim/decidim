@@ -1,5 +1,0 @@
-sl:
-  activemodel:
-    attributes:
-      collaborative_draft:
-        address: Naslov

@@ -1,0 +1,22 @@
+is-IS:
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} uppfært %{resource_name} síðu í %{space_name}"
+    components:
+      pages:
+        name: Síða
+        settings:
+          global:
+            announcement: Tilkynning
+          step:
+            announcement: Tilkynning
+    pages:
+      admin:
+        models:
+          components:
+            body: Meginmál
+        pages:
+          edit:
+            save: Uppfæra
+            title: Breyta síðu

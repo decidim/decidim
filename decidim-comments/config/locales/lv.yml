@@ -1,0 +1,118 @@
+lv:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentēt
+      decidim/comments/comment_created_event: Komentēt
+      decidim/comments/reply_created_event: Atbildēt uz komentāru
+      decidim/comments/user_group_mentioned_event: Pieminēt
+      decidim/comments/user_mentioned_event: Pieminēt
+  activerecord:
+    models:
+      decidim/comments/comment:
+        zero: Komentāri
+        one: Komentēt
+        other: Komentāri
+      decidim/comments/comment_vote:
+        zero: Balsis
+        one: Balsot
+        other: Balsis
+  decidim:
+    comments:
+      comments: Komentāri
+      last_activity:
+        new_comment_at_html: "<span>Jauns komentārs %{link}</span>"
+      votes:
+        create:
+          error: Balsojot par komentāru, radās problēma.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Pierakstieties, izmantojot savu kontu</a> vai <a href="%{sign_up_url}"> reģistrējieties, </a>, lai pievienotu komentāru.
+        form:
+          body:
+            label: Komentēt
+            placeholder: Ko tu domā par šo?
+          form_error: Šis teksts ir nepieciešams, un tas nedrīkst būt garāks par %{length} rakstzīmēm.
+          submit: Sūtīt
+          user_group_id:
+            label: Komentēt kā
+        opinion:
+          neutral: Neitrāls
+        remaining_characters: "Palikušas %{count} rakstzīmes"
+        remaining_characters_1: "Palikusi %{count} rakstzīme"
+        title: Pievienot savu komentāru
+      comment:
+        alignment:
+          against: Pret
+          in_favor: Par
+        deleted_user: Dzēsts dalībnieks
+        hide_replies: Slēpt atbildes
+        reply: Atbildēt
+        report:
+          action: Ziņot
+          already_reported: Par šo saturu jau ir ziņots, un administrators to pārskatīs.
+          close: Aizvērt
+          description: Vai šis saturs ir neatbilstīgs?
+          details: Papildu komentāri
+          reasons:
+            does_not_belong: Satur nelikumīgas darbības, pašnāvības draudus, personisku informāciju vai kaut ko citu, kam, jūsuprāt, nav vietas %{organization_name}.
+            offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
+            spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
+        show_replies: Rādīt %{replies_count} atbildes
+        single_comment_link_title: Iegūt saiti uz atsevišķu komentāru
+      comment_order_selector:
+        order:
+          best_rated: Vislabāk novērtētie
+          most_discussed: Visvairāk apspriestie
+          older: Vecāki
+          recent: Nesenie
+        title: 'Sakārtot pēc:'
+      comment_thread:
+        title: Saruna ar %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Pašlaik jūs nevarat komentēt, bet jūs varat izlasīt iepriekšējos komentārus.
+        blocked_comments_warning: Komentāri šobrīd ir atspējoti, bet jūs varat lasīt iepriekšējos komentārus.
+        comment_details_title: Komentāra informācija
+        loading: Notiek komentāru ielāde ...
+        single_comment_warning: Pārējos komentārus varat aplūkot <a href="%{url}">šeit</a>.
+        single_comment_warning_title: Jūs redzat vienu komentāru
+        title: "%{count} komentāri"
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ir atstājis komentāru %{resource_title}. Jūs to varat izlasīt šajā lapā:"
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_name}. Jūs varat atsekot šim lietotājam viņa profila lapā.
+          email_subject: '%{resource_title} ir jauns%{author_name} komentārs'
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> ir jauns komentārs <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Grupa %{author_name} ir atstājusi komentāru %{resource_title}. Jūs to varat izlasīt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_name}. Jūs varat atsekot šai grupai no tās profila lapas.
+          email_subject: '%{resource_title} ir jauns%{author_name} komentārs'
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> ir jauns komentārs <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} ir komentēts. Jūs varat izlasīt komentāru šajā lapā:"
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}" vai tā autoram. Jūs varat atsekot tam no iepriekšējās saites.
+          email_subject: '%{resource_title} ir jauns %{author_name} komentārs'
+          notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> ir jauns komentārs <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} atbildēja uz jūsu komentāru %{resource_title}. Jūs to varat izlasīt šajā lapā:"
+          email_outro: Jūs saņēmāt šo paziņojumu, jo kāds atbildēja uz jūsu komentāru.
+          email_subject: "%{author_name} atbildēja uz jūsu komentāru %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> atbildēja uz jūsu komentāru <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Tika pieminēta grupa, kurai jūs piederat
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat grupas %{group_name} dalībnieks, kura tika pieminēta %{resource_title}.
+          email_subject: Jūs esat pieminēts %{resource_title} kā %{group_name} dalībnieks
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> jūs <a href="%{author_path}">%{author_name}%{author_nickname}</a> pieminēja kā <a href="%{group_path}">%{group_name}%{group_nickname}</a> dalībnieku
+        user_mentioned:
+          email_intro: Jūs esat pieminēts
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat pieminēts %{resource_title}.
+          email_subject: Jūs esat pieminēts %{resource_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> jūs pieminēja <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Dalībnieku izveidoto komentāru skaits
+        object: komentāri
+        title: Komentāri
+  errors:
+    messages:
+      cannot_have_comments: nevar komentēt

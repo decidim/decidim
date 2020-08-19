@@ -1,0 +1,216 @@
+ja:
+  activemodel:
+    attributes:
+      answer:
+        description: 説明
+        image: 画像
+        proposals: 関連する提案
+        title: タイトル
+      election:
+        description: 説明
+        end_time: 投票が終了します：
+        start_time: 投票開始
+        subtitle: サブタイトル
+        title: タイトル
+      question:
+        description: 説明
+        max_selections: 選択範囲の最大数
+        title: タイトル
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 再接続が必要
+  activerecord:
+    models:
+      decidim/elections/answer:
+        other: 回答
+      decidim/elections/election:
+        other: 選挙
+      decidim/elections/question:
+        other: 質問
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: 投票
+        name: 選挙
+        settings:
+          global:
+            announcement: お知らせ
+          step:
+            announcement: お知らせ
+    elections:
+      actions:
+        confirm_destroy: よろしいですか？
+        destroy: 破壊
+        edit: 編集
+        edit_answers: 回答を編集
+        edit_questions: 質問を編集
+        import: 提案を回答にインポート
+        new: 新しい %{name}
+        preview: プレビュー
+        publish: 公開
+        title: アクション
+        unpublish: 公開しない
+      admin:
+        answers:
+          create:
+            invalid: この回答を作成する際に問題が発生しました
+            success: 回答を作成しました
+          destroy:
+            invalid: この回答を削除する際に問題が発生しました
+            success: 正常に回答を削除しました
+          edit:
+            title: 回答を編集
+            update: 回答を更新
+          index:
+            title: 回答
+          new:
+            create: 回答を作成
+            title: 新しい回答
+          update:
+            invalid: この回答の更新中に問題が発生しました
+            success: 回答が更新されました
+        elections:
+          create:
+            invalid: この選挙の作成中に問題が発生しました
+            success: 選挙が正常に作成されました
+          destroy:
+            invalid: この選挙を削除する際に問題が発生しました
+            success: 選挙は正常に削除されました
+          edit:
+            title: 選挙を編集
+            update: 選挙を更新
+          index:
+            title: 選挙
+          new:
+            create: 選挙を作成
+            title: 新しい選挙
+          publish:
+            success: 選挙は正常に公開されました。
+          unpublish:
+            success: 選挙は正常に非公開になりました。
+          update:
+            invalid: 選挙の更新中に問題が発生しました
+            success: 選挙が正常に更新されました
+        models:
+          answer:
+            name: 回答
+          election:
+            name: 選挙
+          question:
+            name: 質問
+        proposals_imports:
+          create:
+            invalid: 提案を回答にインポートする際に問題が発生しました
+            success: "%{number} の提案が正常に回答にインポートされました"
+          new:
+            create: 提案を回答にインポート
+            no_components: この参加スペースには、回答に提案をインポートするための他の提案コンポーネントはありません。
+            select_component: コンポーネントを選択してください
+        questions:
+          create:
+            invalid: この質問を作成中に問題が発生しました
+            success: 問題を作成しました
+          destroy:
+            invalid: この質問を削除する際に問題が発生しました
+            success: 問題が削除されました
+          edit:
+            title: 質問を編集
+            update: 質問を更新
+          index:
+            title: 質問
+          new:
+            create: 質問を作成
+            title: 新しい質問
+          update:
+            invalid: この質問の更新中に問題が発生しました
+            success: 問題が正常に更新されました
+      admin_log:
+        election:
+          publish: "%{user_name} が %{resource_name} 選挙を公開しました"
+          unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
+      election_m:
+        footer:
+          take_part: 参加する
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 選挙"
+        show:
+          back: すべての選挙
+          preview: プレビュー
+          vote: 投票
+          voting_period_status:
+            finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
+            ongoing: '%{end_time} に投票が終了します'
+            upcoming: '%{start_time} に投票が終了します'
+      models:
+        answer:
+          fields:
+            proposals: 提案
+            title: タイトル
+        election:
+          fields:
+            end_time: 終了時刻
+            start_time: 開始
+            title: タイトル
+        question:
+          fields:
+            answers: 回答
+            max_selections: 最大選挙数
+            title: タイトル
+      votes:
+        confirm:
+          answer: 回答
+          answer_number: 回答 %{number}
+          confirm: 確定
+          edit: 編集
+          header: 投票を確定
+          intro: あなたが投じようとしている投票の概要です。 <br> 投票を確定するか、回答を編集してください。
+          question: 質問 %{count}
+        confirmed:
+          back: 選挙に戻る
+          experience: ご利用いただき、どう思われますか?
+          feedback: フィードバックを送る
+          header: 投票が確定されました
+          lead: あなたの票は既に投じられました！
+          text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: 確認するには、識別子をコピーして <a href="evote-verify">投票検証ページ</a> に貼り付けてください。
+        encrypting:
+          header: 投票の暗号化...
+          text: 投票は暗号化されており、匿名で投票することができます。
+        header:
+          confirm: 投票を確定
+          confirmed: 投票が確定されました
+          encrypting: 投票を確定
+        messages:
+          not_allowed: 現在、この選挙に投票することはできません。
+        modal:
+          close: 閉じる
+          proposal_header: '提案:'
+        new:
+          answer_choices: 最大 %{choices} 個の回答を選択できます。
+          more_information: 詳しい情報
+          preview_alert: これは投票ブースのプレビューです。
+          question_steps: '%{current_step} / %{total_steps} の質問'
+          selections: "%{selected} / %{max_selections}<br> の選択"
+        voting_step:
+          back: 戻る
+          continue: 次へ
+    events:
+      elections:
+        election_published:
+          email_intro: '%{resource_title} 選挙は %{participatory_space_title}に対して有効になりました。このページから見ることができます：'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{resource_title} の選挙は %{participatory_space_title} のために有効になりました。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の選挙が %{participatory_space_title} に有効になりました。
+    participatory_processes:
+      statistics:
+        elections_count: 選挙
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 終了

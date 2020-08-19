@@ -1,0 +1,57 @@
+sl:
+  activemodel:
+    attributes:
+      group:
+        email: Email
+  decidim:
+    amendments:
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
+    devise:
+      registrations:
+        new:
+          sign_in: Prijava
+          sign_up: Registracija
+    menu:
+      help: Pomoč
+      home: Domov
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_users_placeholder: Išči...
+    search:
+      term_input_placeholder: Išči
+    searches:
+      filters:
+        state:
+          all: Vsi
+    shared:
+      login_modal:
+        sign_up: Registracija
+    user_conversations:
+      index:
+        add_users_placeholder: Išči...
+  devise:
+    registrations:
+      new:
+        sign_up: Registracija
+    sessions:
+      new:
+        sign_in: Prijava
+    shared:
+      links:
+        sign_in: Prijava
+        sign_up: Registracija
+  layouts:
+    decidim:
+      edit_link:
+        edit: Uredi
+      header:
+        sign_in: Prijava
+        sign_up: Registracija
+  locale:
+    name: Slovenščina

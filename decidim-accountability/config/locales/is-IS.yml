@@ -1,0 +1,177 @@
+is-IS:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Staða
+        decidim_category_id: Flokkur
+        decidim_scope_id: Umfang
+        description: Lýsing
+        end_date: Loka dagsetning
+        progress: Framfarir
+        project_ids: Innifalið verkefni
+        proposals: Innifalið tillögur
+        start_date: Upphafsdagur
+        title: Titill
+        updated_at: Uppfært á
+      status:
+        description: Lýsing
+        key: Lykill
+        name: Nafn
+        progress: Framfarir
+      timeline_entry:
+        description: Lýsing
+        entry_date: Dagsetning
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Ertu viss um að þú viljir eyða þessu %{name}?
+        destroy: Eyða
+        edit: Breyta
+        new: Nýtt %{name}
+        preview: Preview
+        timeline_entries: Verkefnisþróun
+        title: Aðgerðir
+      admin:
+        exports:
+          results: Niðurstöður
+        models:
+          result:
+            name: Niðurstaða
+          status:
+            name: Staða
+          timeline_entry:
+            name: Tímalína færsla
+        results:
+          create:
+            success: Niðurstaða búin til
+          destroy:
+            success: Niðurstaða tókst að eyða
+          edit:
+            title: Breyta niðurstöðum
+            update: Uppfæra niðurstöðu
+          index:
+            title: Niðurstöður
+          new:
+            create: Búa til niðurstöðu
+            title: Nýtt niðurstaða
+          update:
+            success: Niðurstaða tókst að uppfæra
+        shared:
+          subnav:
+            statuses: Staða
+        statuses:
+          create:
+            success: Staða búin til
+          destroy:
+            success: Staða var eytt
+          edit:
+            title: Breyta stöðu
+            update: Uppfæra stöðu
+          index:
+            title: Staða
+          new:
+            create: Búa til stöðu
+            title: Ný staða
+          update:
+            success: Staða uppfærður með góðum árangri
+        timeline_entries:
+          create:
+            success: Uppfærsla búin til með góðum árangri
+          destroy:
+            success: Innslátt tókst eytt
+          edit:
+            title: Breyta færslu
+            update: Uppfæra færslu
+          index:
+            title: Verkefni tímalína færslur
+          new:
+            create: Búðu til færslu
+            title: Ný færsla
+          update:
+            success: Uppfærsla uppfærð með góðum árangri
+      admin_log:
+        result:
+          create: "%{user_name} búið til afleiðing %{resource_name} í %{space_name}"
+          delete: "%{user_name} eytt %{resource_name} niðurstöðu í %{space_name}"
+          update: "%{user_name} uppfært niðurstaða %{resource_name} í %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Móðirin fannst ekki í gagnagrunninum (ID: %{id})'
+      models:
+        result:
+          fields:
+            end_date: Loka dagsetning
+            progress: Framfarir
+            start_date: Upphafsdagur
+            status: Staða
+            title: Titill
+        status:
+          fields:
+            description: Lýsing
+            key: Lykill
+            name: Nafn
+            progress: Framfarir
+        timeline_entry:
+          fields:
+            description: Lýsing
+            entry_date: Dagsetning
+      results:
+        count:
+          results_count:
+            one: 1 niðurstaða
+            other: "%{count} niðurstöður"
+        filters:
+          all: Allt
+          scopes: Scopes
+        home:
+          categories_label: Flokkar
+          subcategories_label: Undirflokka
+        home_header:
+          global_status: Global framkvæmdastaða
+        nav_breadcrumb:
+          global: Global framkvæmd
+        search:
+          search: Leitaðu að aðgerðum
+        show:
+          stats:
+            attendees: Dómarar
+            back_to_resource: Fara aftur til niðurstöðu
+            comments: Athugasemdir
+            contributions: Framlög
+            last_edited_by: Síðast breytt af
+            last_updated_at: Síðast uppfært á
+            meetings: Fundir
+            proposals: Tillögur
+            votes: Styður
+        timeline:
+          title: Verkefnisþróun
+    components:
+      accountability:
+        name: Ábyrgð
+        settings:
+          global:
+            categories_label: Nafn fyrir "Flokkar"
+            comments_enabled: Athugasemdir virkt
+            display_progress_enabled: Sýna framfarir
+            heading_leaf_level_results: Nafn fyrir "Verkefni"
+            heading_parent_level_results: Nafn fyrir "Úrslit"
+            intro: Intro
+            subcategories_label: Nafn fyrir "undirflokka"
+          step:
+            comments_blocked: Athugasemdir læst
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Tillagan "%{proposal_title}" hefur verið hluti af niðurstöðu. Þú getur séð það frá þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{proposal_title}". Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{proposal_title}
+          notification_title: Tillagan <a href="%{proposal_path}">%{proposal_title}</a> hefur verið innifalinn í <a href="%{resource_path}">%{resource_title}</a> niðurstöðum.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Niðurstöður
+    resource_links:
+      included_projects:
+        result_project: Verkefni í þessari niðurstöðu
+      included_proposals:
+        result_proposal: Tillögur innifalnar í þessari niðurstöðu

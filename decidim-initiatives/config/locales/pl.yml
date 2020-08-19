@@ -298,7 +298,7 @@ pl:
           all: Wszyscy
           answered: Z odpowiedziami
           closed: Zamknięte
-          open: otwarty
+          open: Otwarty
           rejected: Niewystarczająca liczba podpisów
         filter_type_values:
           all: Wszyscy
