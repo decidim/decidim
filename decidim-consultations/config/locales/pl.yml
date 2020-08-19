@@ -2,35 +2,35 @@ pl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Obraz baneru
+        banner_image: Baner
         decidim_highlighted_scope_id: Wyróżniony zakres
         description: Opis
-        end_voting_date: Głosowanie się kończy
+        end_voting_date: Głosowanie kończy się
         introductory_image: Obraz wprowadzający
-        introductory_video_url: Wprowadzający adres URL filmu
-        questions: pytania
-        slug: Strumień URL
-        start_voting_date: Rozpocznie się głosowanie
+        introductory_video_url: Adres URL filmu wprowadzającego
+        questions: Pytania
+        slug: URL slug
+        start_voting_date: Głosowanie rozpoczyna się
         subtitle: Podtytuł
         title: Tytuł
       question:
-        banner_image: Obraz baneru
-        decidim_scope_id: Obszar gminy
+        banner_image: Baner
+        decidim_scope_id: Obszar
         hashtag: Hashtag
-        hero_image: Obraz domowy
-        i_frame_url: Zewnętrzny adres URL systemu głosowania
+        hero_image: Obraz główny
+        i_frame_url: URL do zewnętrznego systemu głosowania
         instructions: Dodatkowe instrukcje dotyczące głosowania
         max_votes: Maksymalna liczba głosów
         min_votes: Minimalna liczba głosów
         origin_scope: Zakres
         origin_title: Pochodzenie
-        origin_url: Oryginalny adres URL
+        origin_url: Adres URL źródła pochodzenia
         participatory_scope: Zakres uczestnictwa
         promoter_group: Grupa promotorów
         question_context: Kontekst
         reference: Odniesienie
-        scope: Obszar gminy
-        slug: Strumień URL
+        scope: Obszar
+        slug: URL slug
         subtitle: Podtytuł
         vote: Zewnętrzny system głosowania
         what_is_decided: Co postanowiono
