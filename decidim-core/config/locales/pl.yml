@@ -421,33 +421,33 @@ pl:
         create:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
-          complete_profile: Pełny profil
+          complete_profile: Uzupełnij profil
           nickname_help: Twój alias (@alias) w %{organization}
-          sign_up: Proszę wypełnić swój profil
-          subtitle: Zarejstruj się, aby wziąć udział w dyskusjach i móc wspierać propozycje
+          sign_up: Proszę uzupełnij swój profil
+          subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
-          newsletter: Chcę otrzymywać okazjonalne newslettery
+          newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój alias (@alias) w %{organization}
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
-          sign_in: Zaloguj Się
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
+          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
-          subtitle: Zarejestruj się, aby wziąć udział w dyskusjach i propozycjach wsparcia.
-          terms: Warunki korzystania
+          subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
+          terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
-          tos_title: Warunki korzystania
+          tos_title: Warunki korzystania z Serwisu
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
           are_you_new?: Nowy na platformie?
           register: Utwórz konto
           sign_in_disabled: Możesz uzyskać dostęp za pomocą konta zewnętrznego
-          sign_up_disabled: Zarejestruj się jest wyłączone, możesz użyć istniejącego użytkownika, aby uzyskać dostęp
+          sign_up_disabled: Rejestracja jest wyłączona, możesz użyć istniejącego konta, aby uzyskać dostęp
       shared:
         newsletter_modal:
           buttons:
@@ -455,13 +455,13 @@ pl:
             close_modal: Zamknij modalne
             uncheck: Pozostaw niezaznaczone
           notice: |-
-            <p>Hej, jesteś pewien, że nie chcesz otrzymywać biuletynu?<br>
-            Proszę rozważyć ponownie zaznaczenie pola wyboru biuletynu poniżej.<br>
-            Jest dla nas bardzo ważne, abyś mógł otrzymywać od czasu do czasu e-maile do ważnych ogłoszeń, zawsze możesz to zmienić na stronie ustawień powiadomień.</p>
-            <p>Jeśli nie zaznaczysz tego pola, może brakować odpowiednich informacji o nowych możliwościach uczestnictwa w ramach platformy.<br>
-            Jeśli nadal nie chcesz otrzymywać biuletynów, doskonale rozumiemy Twoją decyzję.</p>
-            <p>Dziękuję za przeczytanie tego!</p>
-          title: Powiadomienia biuletynu
+            <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
+            Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
+            Jest dla nas bardzo ważne, abyś mógł otrzymywać od czasu do czasu e-maile z ważnymi informacjami. Zawsze możesz to zmienić na stronie ustawień powiadomień.</p>
+            <p>Jeśli nie zaznaczysz tego pola, mogą Cię ominąć istotne informacje o nowych możliwościach uczestnictwa w procesach publikowanych na platformie.<br>
+            Jeśli mimo to nie chcesz otrzymywać newsletterów, doskonale rozumiemy Twoją decyzję.</p>
+            <p>Dziękujemy za przeczytanie tego komunikatu!</p>
+          title: Powiadomienia newslettera
         omniauth_buttons:
           or: Lub
     doorkeeper:
@@ -474,14 +474,14 @@ pl:
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
           see_name: Zobacz swoje imię
-          see_username: Zobacz swoją nazwę użytkownika
+          see_username: Zobacz swój alias
           this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
-          this_application_will_not_be_able_to: 'Ta aplikacja nie będzie w stanie:'
+          this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     endorsable:
-      endorsements: Adnotacje
-      endorsements_count: Liczba wpisów
+      endorsements: Wsparcia
+      endorsements_count: Licznik poparć
     endorsement_buttons_cell:
       already_endorsed: Poparto
       endorse: Poprzyj
@@ -494,14 +494,14 @@ pl:
         title: Wystąpił problem z naszym serwerem
         try_later: Spróbuj ponownie później.
       not_found:
-        back_home: Powrót do ekranu głównego
+        back_home: Powrót na stronę główną
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
     events:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Emendacja została zaakceptowana dla %{amendable_title}. Możesz go zobaczyć na tej stronie:'
+            email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
             email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
             notification_title: <a href="%{emendation_path}">poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta dla <a href="%{amendable_path}">%{amendable_title}</a>.
