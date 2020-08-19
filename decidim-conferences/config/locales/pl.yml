@@ -335,52 +335,52 @@ pl:
           form:
             available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc.
             registrations_count:
-              one: Nie było rejestracji 1.
+              one: Była 1 rejestracja.
               few: Zarejestrowano %{count} rejestracji.
               many: Zarejestrowano %{count} rejestracji.
               other: Zarejestrowano %{count} rejestracji.
-            slug_help: 'Strumienie adresów URL służą do generowania adresów URL wskazujących na tę konferencję. Akceptuje tylko litery, cyfry i łączniki i musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
-            save: Zapisać
+            save: Zapisz
             title: Certyfikat uczestnictwa
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} zaprosiło Cię do przyłączenia się do konferencji o %{application}. Możesz go odrzucić lub zaakceptować, korzystając z poniższych linków."
-            registration: Rejestracja dla "%{conference_title}"
+            invited_you_to_join_a_conference: "%{invited_by} zaprosił(a) Cię do udziału w konferencji %{application}. Możesz odrzucić lub zaakceptować zaproszenie korzystając z poniższych linków."
+            registration: Rejestracja na "%{conference_title}"
         partners:
           index:
-            title: Wzmacniacz
+            title: Partnerzy
         registration_types:
           form:
             select_conference_meetings: Wybierz spotkania konferencyjne
           index:
-            title: Rodzaje rejestracji
+            title: Typy rejestracji
         send_conference_diploma_mailer:
           diploma:
             diploma_html: W załącznikach znajdziesz certyfikat uczestnictwa w konferencji <a href="%{url}">%{title}</a>.
           diploma_user:
-            attendance_verified_by: Frekwencja zweryfikowana przez
+            attendance_verified_by: Uczestnictwo zweryfikowane przez
             certificate_of_attendance: Certyfikat uczestnictwa
-            certificate_of_attendance_description: Zaświadcza się, że <strong>%{user}</strong> wzięło udział i uczestniczyło w <strong>%{title}</strong> które odbyło się w <strong>%{location}</strong> na <strong>%{start} - %{end}</strong>
+            certificate_of_attendance_description: 'Zaświadcza się, że <strong>%{user}</strong> wziął/wzięła udział w konferencji <strong>%{title}</strong>, która odbyła się w <strong>%{location}</strong> w terminie: <strong>%{start} - %{end}</strong>'
         send_diploma:
-          error: Wystąpił problem podczas wysyłania certyfikatów uczestnictwa w konferencji.
-          success: Konferencyjne certyfikaty uczestnictwa wysłane poprawnie
+          error: Wystąpił błąd podczas wysyłania certyfikatów uczestnictwa.
+          success: Certyfikaty uczestnictwa w konferencji zostały wysłane
       conference:
         registration_confirm:
           cancel: Anuluj
-          confirm: Potwierdzać
+          confirm: Potwierdź
         show:
           free: Darmowy
-          going: Chodzenie
+          going: Uczestnictwo
           no_slots_available: Brak dostępnych miejsc
           registration: Rejestracja
       conference_program:
         program_meeting:
           content: Zawartość
           location: Lokalizacja
-          speakers: Głośniki
+          speakers: Prelegenci
           streaming: Streaming
         show:
           day: Dzień
@@ -388,22 +388,22 @@ pl:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> została potwierdzona.
-          details_1: 'Jesteś zarejestrowany na konferencji z typem %{registration_type} . Koszt %{price} i możesz wziąć udział w następujących wydarzeniach:'
+          details_1: 'Jesteś zarejestrowany na %{registration_type}. Koszt konferencji to: %{price} i możesz wziąć udział w następujących wydarzeniach:'
           details_2: Szczegóły konferencji znajdują się w załączniku.
         pending_validation:
           confirmation_pending: Wkrótce otrzymasz potwierdzenie
-          details: 'Zarejestrowałeś się na typ %{registration_type} z kosztem %{price} i możesz wziąć udział w następujących wydarzeniach:'
+          details: 'Zarejestrowałeś się na %{registration_type}, koszt to: %{price} i możesz wziąć udział w następujących wydarzeniach:'
           pending_html: Twoja rejestracja na konferencję <a href="%{url}">%{title}</a> oczekuje na potwierdzenie.
       conference_registrations:
         create:
-          invalid: Podczas dołączania do tej konferencji wystąpił problem.
+          invalid: Podczas dołączania do tej konferencji wystąpił błąd.
           success: Dołączyłeś pomyślnie do konferencji.
         decline_invitation:
-          invalid: Wystąpił problem z odrzuceniem zaproszenia.
-          success: Odrzuciłeś zaproszenie z powodzeniem.
+          invalid: Wystąpił błąd z odrzuceniem zaproszenia.
+          success: Odrzuciłeś zaproszenie.
         destroy:
-          invalid: Podczas tej konferencji wystąpił problem.
-          success: Pomyślnie zakończyłeś konferencję.
+          invalid: Podczas opuszczania tej konferencji wystąpił błąd.
+          success: Pomyślnie opuściłeś konferencję.
       conference_speaker:
         go_to_twitter: Idź do Twittera
         more_info: więcej informacji
@@ -417,14 +417,14 @@ pl:
           go_to_twitter: Idź do Twittera
       conference_speakers:
         index:
-          speakers: Głośniki
+          speakers: Prelegenci
       conferences:
         partners:
-          collaborators: Wzmacniacz
+          collaborators: Partnerzy
           main_promotors: Organizatorzy
         show:
           login_as: Jesteś zalogowany jako %{name} <%{email}>
-          make_conference_registration: 'Dokonaj rejestracji na konferencji:'
+          make_conference_registration: 'Zarejestruj się na konferencję:'
           register: Zarejestruj się
       content_blocks:
         highlighted_conferences:
@@ -434,12 +434,12 @@ pl:
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Rejestracja Twojej konferencji została potwierdzona
+            subject: Twoja rejestracja na konferencję została potwierdzona
           pending_validation:
-            subject: Rejestracja Twojej konferencji oczekuje na potwierdzenie
+            subject: Twoja rejestracja na konferencję oczekuje na potwierdzenie
         invite_join_conference_mailer:
           invite:
-            subject: Zaproszenie do przyłączenia się do konferencji
+            subject: Zaproszenie do udziału w konferencji
         send_conference_diploma_mailer:
           diploma:
             subject: Twój certyfikat uczestnictwa w konferencji został wysłany
@@ -449,21 +449,21 @@ pl:
             email: E-mail
             name: Nazwa
             registration_type: Typ rejestracji
-            sent_at: Wysłane pod adresem
+            sent_at: Wysłano
             status: Status
           status:
             accepted: Zaakceptowano (%{at})
-            rejected: Odrzucony (%{at})
-            sent: Wysłane
+            rejected: Odrzucono (%{at})
+            sent: Wysłano
         conference_registration:
           fields:
             email: E-mail
             name: Nazwa
             registration_type: Typ rejestracji
-            state: Stan
+            state: Status
             states:
-              confirmed: Zatwardziały
-              pending: W oczekiwaniu
+              confirmed: Potwierdzono
+              pending: Oczekuje
       pages:
         home:
           highlighted_conferences:
@@ -484,7 +484,7 @@ pl:
           choose_an_option: 'Wybierz opcję rejestracji:'
           login_as: Jesteś zalogowany jako %{name} <%{email}>
           register: Zarejestruj się
-          title: Rodzaje rejestracji
+          title: Typy rejestracji
       shared:
         conference_user_login:
           already_account: Czy masz już konto w Decidim?
@@ -492,24 +492,24 @@ pl:
           sign_in: Zaloguj się, aby zarejestrować się na konferencję
           sign_up: Utwórz konto w decidimie, aby zarejestrować się na konferencję
       show:
-        details: Detale
+        details: Szczegóły
         introduction: Wprowadzenie
         objectives: Cele
-        related_assemblies: Powiązane złożenia
+        related_assemblies: Powiązane zespoły
         related_consultations: Powiązane konsultacje
-        related_participatory_processes: Powiązane procesy uczestnictwa
+        related_participatory_processes: Powiązane procesy partycypacyjne
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
         conference_count: Konferencje
         debates_count: Debaty
-        endorsements_count: Adnotacje
-        headline: Czynność
+        endorsements_count: Poparcie
+        headline: Działanie
         meetings_count: Spotkania
-        orders_count: Głosy
+        orders_count: Wsparcie
         pages_count: Strony
-        posts_count: Posty
-        projects_count: Projektowanie
+        posts_count: Wpisy
+        projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
         surveys_count: Ankiety
@@ -522,18 +522,18 @@ pl:
         conference_registration_validation_pending:
           notification_title: Twoja rejestracja na konferencję <a href="%{resource_url}">%{resource_title}</a> oczekuje na potwierdzenie.
         conference_registrations_over_percentage:
-          email_intro: Konferencje "%{resource_title}" zajmowane przez graczy zajmują ponad %{percentage}%.
+          email_intro: Liczba zarezerwowanych miejsc na konferencję "%{resource_title}" wynosi ponad %{percentage}%.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej konferencji.
-          email_subject: Zajęte miejsca w konferencji "%{resource_title}" wynoszą ponad %{percentage}%
-          notification_title: Miejsca zajmowane przez konferencję <a href="%{resource_path}">%{resource_title}</a> wynoszą ponad %{percentage}%.
+          email_subject: Liczba zarezerwowanych miejsc na konferencję "%{resource_title}" wynosi ponad %{percentage}%
+          notification_title: Liczba zarezerwowanych miejsc na konferencję <a href="%{resource_path}">%{resource_title}</a> wynosi ponad %{percentage}%.
         conference_updated:
-          email_intro: 'Konferencja "%{resource_title}" została zaktualizowana. Możesz przeczytać nową wersję ze swojej strony:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_intro: 'Konferencja "%{resource_title}" została zaktualizowana. Możesz znaleźć nową wersję na tej stornie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając w poprzedni link.
           email_subject: Konferencja "%{resource_title}" została zaktualizowana
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana.
         registrations_enabled:
-          email_intro: 'Konferencja "%{resource_title}" umożliwiła rejestrację. Możesz zarejestrować się na swojej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_intro: 'Konferencja "%{resource_title}" umożliwiła rejestrację. Możesz zarejestrować się na stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając w poprzedni link.
           email_subject: Konferencja "%{resource_title}" umożliwiła rejestrację.
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> umożliwiła rejestrację.
         role_assigned:
@@ -542,10 +542,10 @@ pl:
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w konferencji <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
-          email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na swojej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_intro: 'Konferencja "%{resource_title}" odbywa się za 2 dni. Możesz przeczytać opis na jej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając poprzedni link.
           email_subject: Konferencja „%{resource_title}” już wkrótce!
-          notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> nadchodzi za 2 dni.
+          notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> odbędzie się za 2 dni.
     log:
       value_types:
         conference_presenter:
@@ -559,7 +559,7 @@ pl:
   devise:
     mailer:
       join_conference:
-        subject: Zaproszenie do przyłączenia się do konferencji
+        subject: Zaproszenie do udziału w konferencji
   layouts:
     decidim:
       conference_hero:
@@ -572,10 +572,10 @@ pl:
           more_info: Więcej informacji
           take_part: Weź udział
         index:
-          promoted_conferences: Promowane konferencje
+          promoted_conferences: Wyróżnione konferencje
         order_by_conferences:
           conferences:
-            one: "%{count} konferencji"
+            one: "%{count} konferencja"
             few: "%{count} konferencji"
             many: "%{count} konferencji"
             other: "%{count} konferencji"
@@ -584,7 +584,7 @@ pl:
           take_part: Weź udział
       conferences_nav:
         conference_menu_item: Informacja
-        conference_partners_menu_item: Wzmacniacz
-        conference_speaker_menu_item: Głośniki
+        conference_partners_menu_item: Partnerzy
+        conference_speaker_menu_item: Prelegenci
         media: Głoska bezdźwięczna
         venues: Miejsca spotkań
