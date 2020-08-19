@@ -2,25 +2,25 @@ pl:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Powiązane złożenia
-        banner_image: Obraz baneru
+        assemblies_ids: Powiązane zespoły
+        banner_image: Baner
         consultations_ids: Powiązane konsultacje
         copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
-        copy_features: Kopiuj funkcje
+        copy_features: Skopiuj funkcje
         decidim_scope_id: Zakres
         description: Opis
         hashtag: Hashtag
-        hero_image: Obraz domowy
-        participatory_processes_ids: Powiązane procesy uczestnictwa
-        promoted: Wyróżniony
+        hero_image: Obraz główny
+        participatory_processes_ids: Powiązane procesy partycypacyjne
+        promoted: Wyróżniona
         published_at: Opublikowano
         scope_id: Zakres
-        scopes_enabled: Zakresy włączone
+        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
         slogan: Slogan
-        slug: Strumień URL
+        slug: URL slug
         title: Tytuł
       conference_speaker:
         full_name: Pełne imię i nazwisko
