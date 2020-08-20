@@ -542,68 +542,68 @@ pl:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
             email_subject: Poprawka odrzucona w %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Aktualizacja do %{resource_title}
-          notification_title: <a href="%{resource_path}">nowy dokument</a> został dodany do <a href="%{attached_to_url}">%{resource_title}</a>
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Aktualizacja w %{resource_title}
+          notification_title: <a href="%{resource_path}">Nowy dokument</a> został dodany do <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Komponent %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Aktualizacja do %{participatory_space_title}
-          notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_intro: 'Komponent %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Aktualizacja w %{participatory_space_title}
+          notification_title: Komponent %{resource_title} jest teraz aktywny w <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
-        email_greeting: Witam %{user_name},
-        email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
-        email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
+        email_greeting: Witaj %{user_name},
+        email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
-          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
+          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_url}">%{badge_name}</a> (poziom %{current_level}).
+          email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
           email_subject: 'Otrzymałeś nową odznakę: %{badge_name}!'
           notification_title: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
         level_up:
-          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
-          email_outro: Otrzymałeś to powiadomienie, ponieważ wykonałeś aktywność na naszej stronie.
-          email_subject: Osiągnąłeś poziom %{current_level} na %{badge_name} odznace!
-          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} na <a href="%{resource_path}">%{badge_name} znaczek</a>!
+          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_url}">%{badge_name}</a>!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
+          email_subject: Osiągnąłeś poziom %{current_level} odznaki %{badge_name}!
+          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> usunął prawa administratora do tej grupy.
+          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> cofnął Twoje prawa administratora do tej grupy.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej grupy.
           email_subject: Nie jesteś już administratorem grupy %{user_group_name}!
           notification_title: Nie jesteś już administratorem grupy <a href="%{resource_path}">%{user_group_name}</a>.
         invited_to_group:
           email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> zaprosił Cię do przyłączenia się.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ zostałeś zaproszony do grupy. Sprawdź kartę Grupy w swoim profilu, aby ją zatwierdzić.
-          email_subject: Zostałeś zaproszony do przyłączenia się do grupy %{user_group_name}!
-          notification_title: Zostałeś zaproszony do dołączenia do grupy <a href="%{resource_path}">%{user_group_name}</a> . Sprawdź <a href="%{groups_profile_tab_path}">stronę Grupy</a> w swoim profilu, aby ją zatwierdzić!
+          email_outro: Otrzymałeś to powiadomienie, ponieważ zostałeś zaproszony do grupy. Sprawdź zakładkę Grupy w swoim profilu, aby ją zatwierdzić.
+          email_subject: Zostałeś zaproszony do dołączenia do grupy %{user_group_name}!
+          notification_title: Zostałeś zaproszony do dołączenia do grupy <a href="%{resource_path}">%{user_group_name}</a>. Sprawdź <a href="%{groups_profile_tab_path}">zakładkę Grupy</a> w swoim profilu, aby przyjąć zaproszenie!
         join_request_accepted:
           email_intro: Gratulacje! Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> zaakceptował Twoją prośbę o dołączenie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoja prośba o dołączenie zostało zaktualizowane.
           email_subject: Zostałeś przyjęty do grupy %{user_group_name}!
           notification_title: Zostałeś przyjęty do grupy <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Ktoś poprosił o dołączenie do grupy %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_url}">na stronie członków grupy</a>.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ możesz zarządzać grupą %{user_group_name}.
+          email_intro: Ktoś poprosił o dołączenie do grupy %{user_group_name}. Możesz zaakceptować lub odrzucić prośbę na <a href="%{resource_url}">stronie członków grupy</a>.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ masz prawa do zarządzania grupą %{user_group_name}.
           email_subject: Ktoś poprosił o dołączenie do grupy %{user_group_name}!
-          notification_title: Ktoś poprosił o dołączenie do grupy %{user_group_name} . Możesz zaakceptować lub odrzucić go od <a href="%{resource_path}">na stronie członków grupy</a>.
+          notification_title: Ktoś poprosił o dołączenie do grupy %{user_group_name}. Możesz zaakceptować lub odrzucić prośbę o dołączenie na <a href="%{resource_path}">stronie członków grupy</a>.
         join_request_rejected:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> odrzucił Twoją prośbę o dołączenie do niej.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoje prośby o dołączenie zostały zaktualizowane.
+          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> odrzucił Twoją prośbę o dołączenie.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twoja prośba o dołączenie została zaktualizowana.
           email_subject: Twoja prośba o dołączenie do grupy %{user_group_name} została odrzucona!
           notification_title: Twoja prośba o dołączenie do grupy <a href="%{resource_path}">%{user_group_name}</a> została odrzucona.
         promoted_to_admin:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> przyznał Ci prawa administratora do tej grupy.
+          email_intro: Administrator <a href="%{resource_url}">%{user_group_name}</a> przyznał Ci prawa administratora tej grupy.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś członkiem tej grupy.
           email_subject: Jesteś teraz administratorem grupy %{user_group_name}!
           notification_title: Jesteś teraz administratorem grupy <a href="%{resource_path}">%{user_group_name}</a>.
         removed_from_group:
-          email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> usunął Cię z niej.
+          email_intro: Administrator <a href="%{resource_url}">%{user_group_name}</a> usunął Cię z tej grupy.
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś członkiem tej grupy.
           email_subject: Zostałeś usunięty z grupy %{user_group_name}!
           notification_title: Zostałeś usunięty z grupy <a href="%{resource_path}">%{user_group_name}</a>.
@@ -618,21 +618,21 @@ pl:
           email_subject: Grupa użytkowników zaktualizowała swój profil
           notification_title: Grupa użytkowników %{user_group_name} zaktualizowała swój profil, pozostawiając go niezweryfikowanym. Możesz go teraz zweryfikować w <a href="%{groups_admin_path}">panelu administratora</a>.
       notification_event:
-        notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie poparł(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
-        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia, klikając poprzedni link.
+        email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
         email_subject: "%{endorser_nickname} poparł(a) nową propozycję"
         notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została poparta przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
-          email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: "%{nickname} zaktualizował (a) swój profil"
-          notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+          email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: "%{nickname} zaktualizował(a) swój profil"
+          notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       data_portability_export:
-        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/> Plik będzie dostępny do %{date}.'
+        click_button: 'Kliknij następny przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''https://www.7-zip.org/''>7-Zip</a> do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -640,8 +640,8 @@ pl:
     filters:
       linked_classes:
         all: Wszystkie
-        collaborative_draft: Wspólny projekt
-        dummy_resource: Dummy zasobów
+        collaborative_draft: Wspólny szkic
+        dummy_resource: Przykładowe zasoby
         meeting: Spotkania
         project: Projekty
         proposal: Propozycje
@@ -662,33 +662,33 @@ pl:
         other: "%{count} obserwujących"
       no_followers: Brak obserwujących.
     following:
-      no_followings: Nie śledzi nikogo ani niczego jeszcze.
+      no_followings: Jeszcze nikogo ani niczego nie obserwuje.
     follows:
       create:
         button: Obserwuj
-        error: Nastąpił błąd w następstwie tego zasobu.
+        error: Wystąpił błąd podczas próby obserwowania tego zasobu.
         participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
-        error: Nastąpił błąd obserwowania użytkownika tego zasobu.
+        error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
       current_file: Bieżący plik
       current_image: Bieżący obraz
       default_image: Domyślny obraz
       errors:
         decidim/user:
-          password: Hasło jest za krótkie
+          password: Hasło jest za krótkie.
           password_confirmation: Oba hasła muszą być zgodne.
         error: W tym polu wystąpił błąd.
       file_help:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwisowo uprawia obraz.
+          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwis docina obraz.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
-          message_1: Najlepiej obrazek krajobrazu, który nie ma żadnego tekstu.
-          message_2: Serwis uprawia obraz.
+          message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
+          message_2: Serwis docina obraz.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
