@@ -30,7 +30,7 @@ module Decidim
 
       def answer_questionnaire
         Answer.transaction do
-          form.answers.each do |form_answer|
+          form.responses.each do |form_answer|
             answer = Answer.new(
               user: @current_user,
               questionnaire: @questionnaire,
