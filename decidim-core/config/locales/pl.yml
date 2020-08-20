@@ -1083,48 +1083,48 @@ pl:
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
-          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z usługi. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z usługi'
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Serwisu. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z serwisu'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
       view: Widok
     profiles:
-      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie weryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
-      default_officialization_text_for_users: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
+      default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
+      default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli
       show:
-        activity: Czynność
+        activity: Działalność
         badges: Odznaki
         conversations: Konwersacje
         followers: Obserwujący
-        following: Podąża
+        following: Obserwuje
         groups: Grupy
         members: Członkowie
-        officialized: Oficjalny uczestnik
+        officialized: Oficjalny użytkownik
         timeline: Oś czasu
         view_full_profile: Zobacz pełny profil
       sidebar:
         badges:
-          info: Odznaki zdobywa się, wykonując określoną czynność na platformie.
+          info: Odznaki zdobywa się wykonując określoną czynność na platformie.
           title: Odznaki
       user:
         confirmation_instructions_sent: Wysłano instrukcje dotyczące potwierdzenia adresu e-mail
-        create_user_group: Stworzyć grupę
+        create_user_group: Utwórz grupę
         edit_profile: Edytuj profil
         edit_user_group: Edytuj profil grupy
-        fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby to potwierdzić
+        fill_in_email_to_confirm_it: Podaj adres e-mail grupy, aby go potwierdzić
         invite_user: Zaproś użytkownika
         join_user_group: Poproś o dołączenie do grupy
         leave_user_group: Opuścić grupę
-        manage_user_group_admins: Zarządzaj adminami
+        manage_user_group_admins: Zarządzaj administratorami
         manage_user_group_users: Zarządzaj członkami
-        resend_email_confirmation_instructions: Wyślij ponownie potwierdzenie
+        resend_email_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
     reported_mailer:
       hide:
         hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderatorami
-        report_html: <p>Te <a href="%{url}">content</a> zostały ukryte automatycznie.</p>
+        manage_moderations: Zarządzaj moderacjami
+        report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
         subject: Zasób został ukryty automatycznie
       report:
         authors: Autorzy
@@ -1132,15 +1132,15 @@ pl:
         date: Zgłoszone dnia
         details: Szczegóły
         hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderatorami
+        manage_moderations: Zarządzaj moderacjami
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
-        report_html: <p>Potwierdzono <a href="%{url}">content</a>.</p>
+        report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
         subject: Zasób został zgłoszony
     reports:
       create:
         error: Wystąpił błąd podczas tworzenia raportu. Proszę spróbować ponownie.
-        success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
+        success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
     resource_endorsements:
       create:
         error: Wystąpił błąd podczas udzielania poparcia.
@@ -1155,10 +1155,10 @@ pl:
       prompt: Wybierz zakres
       scopes: Zakresy
       scopes_picker_input:
-        select_scope: 'Wybierz zakres (obecnie: %{current})'
+        select_scope: 'Wybierz zakres (obecny: %{current})'
     search:
       results: Wyniki wyszukiwania
-      results_found_for_term: '%{count} Wyniki wyszukiwania: "%{term}"'
+      results_found_for_term: '%{count} wyników wyszukiwania dla frazy: "%{term}"'
       term_input_placeholder: Szukaj
     searches:
       filters:
@@ -1167,13 +1167,13 @@ pl:
         state:
           active: Aktywny
           all: Wszystko
-          future: Przyszłość
-          past: Przeszłość
+          future: Przyszły
+          past: Przeszły
       filters_small_view:
         close_modal: Zamknij modalne
         filter: Filtr
         filter_by: Filtruj według
-        unfold: Rozwijać się
+        unfold: Rozwiń
       results:
         results:
           one: "%{count} wynik"
@@ -1190,30 +1190,30 @@ pl:
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
-        embed_link: Embed
+        embed_link: Załącz
       extended_navigation_bar:
         more: Więcej
-        unfold: Rozwijać się
+        unfold: Rozwiń
       filter_form_help:
-        help: Poniższy formularz filtruje wyniki wyszukiwania dynamicznie po zmianie warunków wyszukiwania.
+        help: Poniższy formularz filtruje wyniki wyszukiwania na bieżąco po zmianie warunków wyszukiwania.
         skip: Przejdź do wyników
       flag_modal:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
-        close: Blisko
+        close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
         does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
         offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
         report: Raport
-        spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
-        title: Zgłoś problem
+        spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
+        title: Zgłoś nieodpowiednią zawartość
       floating_help:
         close: Zamknij pomoc
-        help: Wsparcie
+        help: Pomoc
       follow_button:
         sign_in_before_follow: Zaloguj się przed wykonaniem tej czynności
       login_modal:
         close_modal: Zamknij modalny
-        please_sign_in: proszę zaloguj się
+        please_sign_in: Zaloguj się
         sign_up: Zarejestruj się
       participatory_space_filters:
         filters:
@@ -1225,11 +1225,11 @@ pl:
         represent_user_group: Reprezentuję grupę
         select_user_group: Wybierz grupę
       results_per_page:
-        label: 'Wyniki na stronę:'
+        label: 'Wyników na stronie:'
         title: Wybierz liczbę wyników na stronie
       share_modal:
         close_window: Zamknij okno
-        share: Share
+        share: Udostępnij
         share_link: Udostępnij link
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
@@ -1241,25 +1241,25 @@ pl:
     user_activity:
       index:
         no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
-    user_contact_disabled: Ten uczestnik nie przyjmuje bezpośrednich wiadomości.
+    user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
         error: Nie można utworzyć wiadomości. Spróbuj ponownie później
         existing_error: Nie można utworzyć wiadomości. Konwersacja już istnieje, spróbuj ponownie teraz.
-        success: Konwersacja rozpoczęła się pomyślnie!
+        success: Konwersacja rozpoczęta!
       index:
         add_max_users: 'Dodaj użytkowników do konwersacji: maksymalnie 9 użytkowników'
         add_users_placeholder: Szukaj...
         close: Zamknij
-        conversations_info: Konwersacje są prywatne. Nikt inny ich nie widzi. Konwersację można rozpocząć z dowolnym uczestnikiem lub grupą zarejestrowanymi na platformie.
+        conversations_info: Konwersacje są prywatne. Nikt inny ich nie widzi. Konwersację można rozpocząć z dowolnym użytkownikiem lub grupą zarejestrowanymi na platformie.
         from: Od
         last_message: Ostatnia wiadomość
         modal_title: Nowa konwersacja
         new_conversation: Nowa konwersacja
         next: Następna
-        no_conversations_warning: Nie ma jeszcze żadnych konwersacji.
+        no_conversations_warning: Brak konwersacji.
         no_results: Brak wyników
-        participant_with_disabled_message_reception: Ten uczestnik wyłączył odbiór wiadomości
+        participant_with_disabled_message_reception: Ten użytkownik wyłączył odbiór wiadomości
         time_ago: "%{time} temu"
       new:
         title: Rozpocznij konwersację
@@ -1276,11 +1276,11 @@ pl:
       show:
         my_interests: Moje zainteresowania
         no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
-        select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na karcie Oś czasu w profilu.
+        select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na swojej stronie profilowej w zakładce Oś czasu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
-        success: Twoje zainteresowania zostały pomyślnie zaktualizowane.
+        success: Twoje zainteresowania zostały zaktualizowane.
     version:
       show:
         back_to_resource: Wróć
@@ -1288,7 +1288,7 @@ pl:
         number_of_versions: Wersje
         show_all_versions: Pokaż wszystkie wersje
         version_author: Autor wersji
-        version_created_at: Wersja utworzona o
+        version_created_at: Wersja utworzona
         version_number: Numer wersji
         version_number_out_of_total: "%{current_version} z %{total_count}"
     version_author:
@@ -1309,8 +1309,8 @@ pl:
       show:
         version_index: Wersja %{index}
     welcome_notification:
-      default_body: <p>Witaj {{name}}, dziękuję za dołączenie {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z sekcją <a href="{{help_url}}">pomocy</a> .</li><li>Po przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">list wszystkich odznak</a> które możesz zdobyć uczestnicząc w {{organization}}</li><li>Wreszcie dołącz do innych ludzi, podziel się z nimi doświadczeniem zaangażowania i uczestnictwa w {{organization}}. Przedstawcie propozycje, komentarze, debatę, pomyślcie, jak przyczynić się do wspólnego dobra, dostarczcie argumentów, aby przekonać, wysłuchać i przeczytać, aby byli przekonani, wyrażać swoje pomysły w konkretny i bezpośredni sposób, reagować z cierpliwością i decyzją, bronić swoich pomysłów i zachować otwarty umysł do współpracy i dołączania do pomysłów innych ludzi.</li></ul>
-      default_subject: Dzięki za przyłączenie się do {{organization}}!
+      default_body: <p>Cześć {{name}}, dziękuję za dołączenie do {{organization}} i witamy!</p><ul><li>Jeśli chcesz szybko zorientować się, co możesz tutaj zrobić, zapoznaj się z <a href="{{help_url}}">sekcją pomocy</a>.</li><li>Po jej przeczytaniu otrzymasz swoją pierwszą odznakę. Oto <a href="{{badges_url}}">lista wszystkich odznak</a>, które możesz zdobyć będąc aktywnym w {{organization}}</li><li>Ponadto przyłącz się do pozostałych, dziel z nimi doświadczenie zaangażowania i uczestnictwa w {{organization}}. Twórz propozycje, komentuj, debatuj, pomyśl, jak przyczynić się do wspólnego dobra, dostarcz argumentów, aby przekonać innych, słuchaj i czytaj, aby samemu dać się przekonać, wyrażaj swoje pomysły w konkretny i bezpośredni sposób, odpowiadaj z cierpliwością i zdecydowaniem, broń swoich pomysłów i zachowaj otwarty umysł do współpracy i przyłączaj się do pomysłów innych ludzi.</li></ul>
+      default_subject: Dzięki za dołączenie do {{organization}}!
     wizard_step_form:
       wizard_aside:
         back: Wróć
@@ -1319,9 +1319,9 @@ pl:
         step_of: Krok %{current_step} z %{total_steps}
   devise:
     confirmations:
-      confirmed: Twój adres e-mail został pomyślnie potwierdzony.
+      confirmed: Twój adres e-mail został pomyślnie zweryfikowany.
       new:
-        resend_confirmation_instructions: Wyślij ponownie potwierdzenie
+        resend_confirmation_instructions: Wyślij ponownie instrukcje dotyczące potwierdzenia adresu e-mail
       send_instructions: Otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
       send_paranoid_instructions: Jeśli Twój adres e-mail istnieje w naszej bazie danych, otrzymasz wiadomość e-mail z instrukcjami, jak potwierdzić swój adres e-mail w ciągu kilku minut.
     failure:
@@ -1338,7 +1338,7 @@ pl:
       edit:
         header: Zakończ tworzenie konta
         nickname_help: Twój unikalny identyfikator w %{organization}.
-        submit_button: Zapisać
+        submit_button: Zapisz
         subtitle: Jeśli akceptujesz zaproszenie, ustaw swój pseudonim i hasło.
       invitation_removed: Twoje zaproszenie zostało usunięte.
       invitation_token_invalid: Podany token zaproszenia jest nieprawidłowy!
