@@ -4,7 +4,7 @@ pl:
       initiative:
         decidim_user_group_id: Autor
         description: Opis
-        offline_votes: Wsparcie twarzą w twarz
+        offline_votes: Podpisy osobiste
         scope_id: Zakres
         signature_end_date: Koniec okresu zbierania podpisu
         signature_start_date: Początek okresu zbierania podpisu
