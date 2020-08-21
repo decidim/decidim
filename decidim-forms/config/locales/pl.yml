@@ -4,8 +4,8 @@ pl:
       answer:
         body: Odpowiedź
       question:
-        max_choices: Maksymalna liczba opcji
-        question_type: Rodzaj
+        max_choices: Maksymalna liczba opcji do wyboru
+        question_type: Typ
       questionnaire_question:
         mandatory: Obowiązkowy
     errors:
@@ -31,7 +31,7 @@ pl:
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Dowolny tekst
-            remove: Usunąć
+            remove: Usuń
             statement: Komunikat
           answers:
             actions:
@@ -43,7 +43,7 @@ pl:
               answer:
                 title: 'Odpowiedź #%{number}'
             export_response:
-              title: ankieta_użytkownik_odpowiedzi_%{token}
+              title: ankieta_odpowiedzi_uzytkownika_%{token}
             index:
               title: "%{total} odpowiedzi ogółem"
             show:
@@ -51,15 +51,15 @@ pl:
           display_condition:
             answer_option: Opcja odpowiedzi
             condition_question: Pytanie
-            condition_type: Stan
+            condition_type: Warunek
             condition_types:
-              answered: Odpowiedź
+              answered: Odpowiedziano
               equal: Równy
               match: Zawiera tekst
               not_answered: Nie odpowiedziano
               not_equal: Nie jest równe
-            condition_value: Zawarty tekst
-            display_condition: Stan wyświetlania
+            condition_value: Zawiera tekst
+            display_condition: Warunek wyświetlania
             mandatory: Ten warunek musi być zawsze spełniony niezależnie od statusu innych warunków
             remove: Usuń
             save_warning: Pamiętaj, aby zapisać formularz przed skonfigurowaniem warunków wyświetlania
@@ -67,20 +67,20 @@ pl:
             select_condition_question: Wybierz pytanie
             select_condition_type: Wybierz typ warunku
           edit:
-            save: Zapisać
+            save: Zapisz
             title: Edytuj kwestionariusz
           form:
             add_question: Dodaj pytanie
             add_separator: Dodaj separator
-            already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
+            already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego kwestionariusza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
             preview: Podgląd
             title: Edytuj formularz
-            unpublished_warning: Formularz nie jest opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
+            unpublished_warning: Formularz nie został jeszcze opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
             matrix_row: Wiersz
-            remove: Usunąć
+            remove: Usuń
             statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
@@ -93,7 +93,7 @@ pl:
             down: Na dół
             expand: Rozwiń
             question: Pytanie
-            remove: Usunąć
+            remove: Usuń
             statement: Komunikat
             up: W górę
           separator:
