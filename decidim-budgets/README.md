@@ -48,7 +48,7 @@ And then add it to the decidim initializer (`config/initializers/decidim_budgets
 
 ```rb
 require "budgets_workflow_random"
-Decidim::Budgets.workflows[:random] = "BudgetsWorkflowRandom"
+Decidim::Budgets.workflows[:random] = BudgetsWorkflowRandom
 ```
 
 Also remember to add the translated name for the `:random` workflow.
