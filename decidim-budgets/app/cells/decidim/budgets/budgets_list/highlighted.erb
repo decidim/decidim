@@ -1,0 +1,9 @@
+<% if highlighted %>
+  <p id="highlighted-budget">
+    <%= link_to(
+          t("highlighted_cta", scope: i18n_scope,
+          name: translated_attribute(highlighted.title)),
+          resource_locator(highlighted).path,
+          class: :button ) %>
+  </p>
+<% end %>

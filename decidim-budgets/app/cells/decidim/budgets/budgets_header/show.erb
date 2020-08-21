@@ -1,46 +1,7 @@
-<div class="section">
-  <p class="lead">
-    <% if voted? %>
-      <%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %>
-    <% else %>
-      <%= decidim_sanitize(description) %>
-    <% end %>
-  </p>
-
-  <%= content_tag(:p, t(:finished_message, scope: i18n_scope), class: :lead) if finished? %>
-
-  <% if voted? %>
-    <%= t(:if_change_opinion, scope: i18n_scope) %>
-
-    <% if voted.count == 1 %>
-      <%= link_to(t("cancel_order.only_one", scope: i18n_scope), order_path_for(voted.first), method: :delete) %>
-    <% else %>
-      <ul>
-        <% voted.each do |budget| %>
-          <li>
-            <%= link_to(
-                  t("cancel_order.more_than_one", scope: i18n_scope, name: translated_attribute(budget.title)),
-                  order_path_for(budget),
-                  method: :delete,
-                  class: "cancel-order",
-                  data: {
-                    confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets")
-                  }) %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  <% end %>
-
-  <% if highlighted %>
-    <div id="highlighted_budget">
-      <p><%= highlighted_heading %></p>
-      <p>
-        <%= link_to(
-              t("highlighted_cta", scope: i18n_scope, name: translated_attribute(highlighted.title)),
-              resource_locator(highlighted).path,
-              class: :button ) %>
-      </p>
+<div class="row">
+  <div class="columns medium-7 mediumlarge-8">
+    <div class="section">
+      <%= decidim_sanitize(landing_page_content) %>
     </div>
-  <% end %>
+  </div>
 </div>

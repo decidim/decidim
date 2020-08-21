@@ -94,13 +94,14 @@ en:
         limit_reached: 'You may discard your pending votes on other budgets to vote on this budget:'
         limit_reached_cancel: Discard your pending vote on %{name}
         more_information: More information
-      budgets_header:
+      budgets_list:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
-          only_one: delete your vote and start over
+          only_one: delete your vote and start over.
         finished_message: You've finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you've changed your mind, you can
+        my_budgets: My budgets
         voted_on: You've voted on %{links}
       models:
         budget:

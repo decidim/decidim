@@ -1,9 +1,5 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<div class="row">
-  <div class="columns medium-7 mediumlarge-8">
-    <%= cell("decidim/budgets/budgets_header", component_settings) %>
+<%= cell("decidim/budgets/budgets_header", current_workflow) %>
 
-    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
-  </div>
-</div>
+<%= cell("decidim/budgets/budgets_list", current_workflow) %>

@@ -167,12 +167,13 @@ ignore_unused:
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
   - decidim.budgets.admin.models.project.name
-  - decidim.budgets.budgets_header.cancel_order.more_than_one
-  - decidim.budgets.budgets_header.cancel_order.only_one
-  - decidim.budgets.budgets_header.finished_message
-  - decidim.budgets.budgets_header.highlighted_cta
-  - decidim.budgets.budgets_header.if_change_opinion
-  - decidim.budgets.budgets_header.voted_on
+  - decidim.budgets.budgets_list.cancel_order.more_than_one
+  - decidim.budgets.budgets_list.cancel_order.only_one
+  - decidim.budgets.budgets_list.finished_message
+  - decidim.budgets.budgets_list.highlighted_cta
+  - decidim.budgets.budgets_list.if_change_opinion
+  - decidim.budgets.budgets_list.my_budgets
+  - decidim.budgets.budgets_list.voted_on
   - decidim.budgets.budget_information_modal.close_modal
   - decidim.budgets.budget_information_modal.continue
   - decidim.budgets.budget_information_modal.limit_reached

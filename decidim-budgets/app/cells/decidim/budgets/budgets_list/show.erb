@@ -1,12 +1,25 @@
-<% if current_workflow.budgets %>
-  <div class="row">
-    <div class="columns mediumlarge-6">
-      <div id="budgets" class="card card--list card--list--mini">
-        <% current_workflow.budgets.each do |budget| %>
-          <% next if budget == current_workflow.highlighted %>
-          <%= cell("decidim/budgets/budget_list_item", budget) %>
-        <% end %>
+<div class="row">
+  <div class="columns medium-7 mediumlarge-8">
+    <% if highlighted || voted? %>
+      <div class="section">
+        <h3 class="section-heading">
+          <%= t(:my_budgets, scope: i18n_scope) %>
+        </h3>
+
+        <%= render :highlighted %>
+        <%= render :voted %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="columns mediumlarge-6">
+        <div id="budgets" class="card card--list card--list--mini">
+          <% current_workflow.budgets.each do |budget| %>
+            <% next if budget == current_workflow.highlighted %>
+            <%= cell("decidim/budgets/budget_list_item", budget) %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
+</div>

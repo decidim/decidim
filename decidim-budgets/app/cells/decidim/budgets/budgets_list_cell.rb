@@ -5,6 +5,36 @@ module Decidim
     # This cell renders the budgets list of a Budget component
     class BudgetsListCell < BaseCell
       alias current_workflow model
+
+      delegate :highlighted, :voted, to: :current_workflow
+
+      def show
+        return unless current_workflow.budgets
+
+        render
+      end
+
+      private
+
+      def voted?
+        current_user && current_workflow.voted.any?
+      end
+
+      def finished?
+        return unless current_workflow.budgets.any?
+
+        current_user && (current_workflow.allowed - current_workflow.voted).none?
+      end
+
+      def budgets_link_list(budgets)
+        budgets.map { |budget| link_to(translated_attribute(budget.title), resource_locator(budget).path) }
+               .to_sentence
+               .html_safe
+      end
+
+      def i18n_scope
+        "decidim.budgets.budgets_list"
+      end
     end
   end
 end
