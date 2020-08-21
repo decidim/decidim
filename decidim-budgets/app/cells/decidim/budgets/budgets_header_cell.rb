@@ -7,11 +7,11 @@ module Decidim
       delegate :highlighted, :voted, to: :current_workflow
 
       def title
-        translated_attribute(current_settings.title).presence || translated_attribute(settings.title)
+        translated_attribute(current_component.name)
       end
 
       def description
-        translated_attribute(current_settings.description).presence || translated_attribute(settings.description)
+        translated_attribute(current_settings.landing_page_content).presence || translated_attribute(settings.landing_page_content)
       end
 
       def voted?

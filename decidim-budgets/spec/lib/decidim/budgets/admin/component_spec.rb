@@ -155,16 +155,6 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
           expect(page).to have_no_css("input#component_settings_vote_minimum_budget_projects_number")
         end
       end
-      # context "when amendments_enabled global setting is NOT checked" do
-      #   it "is NOT shown the amendments_wizard_help_text global setting" do
-      #     expect(page).not_to have_content("Amendments Wizard help text")
-      #     expect(page).to have_css("div[data-tabs-content='global-settings-amendments_wizard_help_text-tabs']", visible: false)
-      #   end
-      #
-      #   it "is NOT shown the amendments step settings" do
-      #     expect(page).to have_css(".amendments_step_settings", visible: false)
-      #   end
-      # end
     end
   end
 end

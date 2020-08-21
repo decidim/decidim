@@ -196,17 +196,14 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
-            description: Description
             form:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
-            highlighted_heading: Highlighted heading
-            list_heading: List heading
-            more_information: More information
+            landing_page_content: Budgets landing page
+            more_information_modal: More information modal
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting
-            title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
@@ -219,12 +216,11 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
-            description: Description
             highlighted_heading: Highlighted heading
+            landing_page_content: Budgets landing page
             list_heading: List heading
-            more_information: More information
+            more_information_modal: More information modal
             show_votes: Show votes
-            title: Title
             votes_enabled: Voting enabled
     events:
       budgets:

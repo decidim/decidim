@@ -10,8 +10,6 @@
     </button>
   </div>
 
-  <p><%= decidim_sanitize(description) %></p>
-
   <% if discardable.any? %>
     <div class="callout alert">
       <%= t(:limit_reached, scope: i18n_scope) %>

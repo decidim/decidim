@@ -7,7 +7,7 @@ module Decidim
       alias budget model
 
       def more_information
-        translated_attribute(current_settings.more_information).presence || translated_attribute(settings.more_information)
+        translated_attribute(current_settings.more_information_modal).presence || translated_attribute(settings.more_information_modal)
       end
 
       def component_name
