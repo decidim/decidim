@@ -68,11 +68,11 @@ pl:
             select_condition_type: Wybierz typ warunku
           edit:
             save: Zapisz
-            title: Edytuj kwestionariusz
+            title: Edytuj formularz
           form:
             add_question: Dodaj pytanie
             add_separator: Dodaj separator
-            already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego kwestionariusza, więc nie można modyfikować jego pytań.
+            already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
             preview: Podgląd
@@ -102,8 +102,8 @@ pl:
             separator: Separator
             up: W górę
           update:
-            invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
-            success: Ankiety zostały pomyślnie zapisane.
+            invalid: Podczas zapisywania formularza wystąpił błąd.
+            success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta
@@ -113,7 +113,7 @@ pl:
         dimensions: "%{width} × %{height} px"
         dimensions_info: 'Rozmiar obrazu będzie wynosił:'
         processors:
-          resize_and_pad: 'Zmieniony i dopełniony do:'
+          resize_and_pad: Zmieniony i dopełniony do
           resize_to_fit: Dopasowany
       question_types:
         long_answer: Długa odpowiedź
@@ -121,36 +121,36 @@ pl:
         matrix_single: Macierz (jedna opcja)
         multiple_option: Wiele opcji
         short_answer: Krótka odpowiedź
-        single_option: Opcja pojedyncza
+        single_option: Jedna opcja
         sorting: Sortowanie
       questionnaires:
         answer:
-          invalid: Podczas odpowiadania na kwestionariusz wystąpiły błędy.
+          invalid: Podczas odpowiadania na formularz wystąpiły błędy.
           max_choices_alert: Wybrano zbyt wiele opcji
-          success: Kwestionariusz odpowiedział pomyślnie.
+          success: Odpowiedziano na formularz.
         question:
-          max_choices: 'Maksymalne opcje: %{n}'
+          max_choices: 'Maksymalny wybór opcji: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
-            title: Odpowiedz na kwestionariusz
+            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na formularz.
+            title: Odpowiedz na formularz
           current_step: Krok %{step}
           of_total_steps: z %{total_steps}
           questionnaire_answered:
-            body: Już odpowiedziałeś na tę ankietę.
-            title: Już odpowiedziałem
+            body: Już odpowiedziałeś na ten formularz.
+            title: Już odpowiedziano
           questionnaire_closed:
-            body: Kwestionariusz jest zamknięty i nie można udzielić na nie odpowiedzi.
-            title: Ankieta została zamknięta
+            body: Formularz jest zamknięty i nie można udzielić na niego odpowiedzi.
+            title: Formularz został zamknięty
           questionnaire_for_private_users:
-            body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
-            title: Ankieta została zamknięta
+            body: Formularz jest dostępny tylko dla użytkowników prywatnych
+            title: Formularz został zamknięty
           questionnaire_js_disabled:
-            body: Niektóre funkcje tego formularza zostaną wyłączone. Aby poprawić swoje doświadczenia, włącz obsługę JavaScript w przeglądarce.
+            body: Niektóre funkcje tego formularza zostaną wyłączone. Aby strona dostarczała lepszych doświadczeń, włącz obsługę JavaScript w przeglądarce.
             title: JavaScript jest wyłączony
           questionnaire_not_published:
             body: Ten formularz nie został jeszcze opublikowany.
-          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z usługi
+          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z serwisu
       step_navigation:
         show:
           are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
@@ -158,13 +158,13 @@ pl:
           continue: Dalej
           submit: Zatwierdź
       user_answers_serializer:
-        body: Odpowiedz
+        body: Odpowiedź
         completion: Ukończenie
-        created_at: Odpowiedziałem na
+        created_at: Odpowiedziałem
         id: ID odpowiedzi
         ip_hash: Hash IP
         question: Pytanie
-        registered: Zarejestrowany
+        registered: Zarejestrowano
         session_token: Identyfikator użytkownika
-        unregistered: Niezarejestrowany
+        unregistered: Nie zarejestrowano
         user_status: Status użytkownika
