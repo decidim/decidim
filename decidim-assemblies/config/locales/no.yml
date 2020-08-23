@@ -462,8 +462,8 @@
           reset_chart: Tilbakestill
         order_by_assemblies:
           assemblies:
-            one: "%{count} sammenstillinger"
-            other: "%{count} sammenstillingene"
+            one: "%{count} forsamling"
+            other: "%{count} forsamlinger"
         promoted_assembly:
           more_info: Mer info
           take_part: Delta
