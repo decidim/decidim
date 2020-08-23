@@ -38,25 +38,25 @@
       organization:
         address: SMTP vertsnavn
         alert_color: Varsel
-        badges_enabled: Aktiver merker
+        badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
-        cta_button_path: Kall til Handlingsknappens vei
-        cta_button_text: Kall til Handlingsknappens tekst
-        customize_welcome_notification: Tilpass dine velkomst varsler
-        default_locale: Standard språk
+        cta_button_path: Sti for handlingsknapp
+        cta_button_text: Tekst til handlingsknapp
+        customize_welcome_notification: Tilpass dine velkomstvarsler
+        default_locale: Standardspråk
         description: Beskrivelse
-        enable_omnipresent_banner: Vis enerådende banner
+        enable_omnipresent_banner: Vis overstyrende banner
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
-        header_snippets: Topptekstutdrag
+        header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
         highlight_color: Fremhev
         highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
         highlighted_content_banner_action_title: Handlingsknapp tittel
         highlighted_content_banner_action_url: Handlingsknapp URL
-        highlighted_content_banner_enabled: Vis det markerte innholdsbanner
+        highlighted_content_banner_enabled: Vis markert innholdsbanner
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
