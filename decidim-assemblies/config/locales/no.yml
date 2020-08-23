@@ -19,7 +19,7 @@
         decidim_assemblies_type_id: Forsamlingstype
         decidim_scope_id: Tema
         description: Beskrivelse
-        developer_group: Promotør gruppe
+        developer_group: Prosessen styres av
         domain: Domene
         duration: Varighet
         facebook: Facebook
@@ -30,7 +30,7 @@
         instagram: Instagram
         internal_organisation: Intern organisasjon
         is_transparent: Er transparent
-        local_area: Organisasjonsområdet
+        local_area: Organisasjonsområde
         meta_scope: Tema metadata
         parent_id: Foreldre forsamling
         participatory_processes_ids: Relaterte deltakerprosesser
