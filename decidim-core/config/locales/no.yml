@@ -124,12 +124,12 @@
         create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
-        create: "%{user_name} lagde %{resource_name} omfanget"
-        create_with_parent: "%{user_name} lagde %{resource_name} omfanget inni %{parent_scope} omfanget"
-        delete: "%{user_name} slettet %{resource_name} omfanget"
-        delete_with_parent: "%{user_name} slettet %{resource_name} omfanget inni %{parent_scope} omfanget"
-        update: "%{user_name} oppdaterte %{resource_name} omfanget"
-        update_with_parent: "%{user_name} oppdaterte %{resource_name} omfanget inni %{parent_scope} omfanget"
+        create: "%{user_name} lagde %{resource_name} temaet"
+        create_with_parent: "%{user_name} lagde %{resource_name} temaet inni %{parent_scope} temaet"
+        delete: "%{user_name} slettet %{resource_name} temaet"
+        delete_with_parent: "%{user_name} slettet %{resource_name} temaet inni %{parent_scope} temaet"
+        update: "%{user_name} oppdaterte %{resource_name} temaet"
+        update_with_parent: "%{user_name} oppdaterte %{resource_name} temaet inni %{parent_scope} omfanget"
       static_page:
         create: "%{user_name} lagde %{resource_name} statiske siden"
         delete: "%{user_name} slettet %{resource_name} statisk side"
@@ -768,9 +768,9 @@
         area_type_presenter:
           not_found: 'Områdstypen ble ikke funnet i databasen (ID: %{id})'
         scope_presenter:
-          not_found: 'Omfanget ble ikke funnet i databasen (ID: %{id})'
+          not_found: 'Temaet ble ikke funnet i databasen (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Omfangstypen ble ikke funnet i databasen (ID: %{id})'
+          not_found: 'Tematypen ble ikke funnet i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nåværende administrasjonsøkten til en deltaker har gått ut.
     members:
@@ -886,9 +886,9 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss bygge et mer åpent, gjennomsynlig og samarbeidende samfunn.<br /> Bli med, delta og bestem.
+          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
-          register: Registrer
+          register: Registrer deg
         hero:
           participate: Delta
           welcome: Velkommen til %{organization}!
@@ -914,7 +914,7 @@
           users_count: Deltakere
           votes_count: Stemmer
         sub_hero:
-          register: Registrer
+          register: Registrer deg
       index:
         read_more: Les mer
         standalone_pages: Sider
@@ -992,13 +992,13 @@
         error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
     scopes:
-      global: Global omfang
+      global: Alle tema
       picker:
         cancel: Avbryt
         choose: Velg
         title: Velg %{field}
-      prompt: Velg et omfang
-      scopes: Omfang
+      prompt: Velg et tema
+      scopes: Tema
     search:
       results_found_for_term: '%{count} Resultater for søket: "%{term}"'
       term_input_placeholder: Søk
@@ -1066,7 +1066,7 @@
     user_interests:
       show:
         my_interests: Mine interesser
-        no_scopes: Denne organisasjonen har ikke noe omfang ennå!
+        no_scopes: Denne organisasjonen har ikke noe tema ennå!
         select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
       update:
@@ -1234,7 +1234,7 @@
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       content_type_whitelist_error: filtypen er ikke gyldig
-      cycle_detected: forelderen til et omfang kan ikke være en av dens etterkommere
+      cycle_detected: forelderen til et tema kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
       invalid_time_zone: er ikke en gyldig tidssone
