@@ -63,7 +63,7 @@
   activerecord:
     models:
       decidim/participatory_process:
-        one: Deltaker prosess
+        one: Deltakende prosess
         other: Deltakende prosesser
       decidim/participatory_process_group:
         one: Prosessgruppe
@@ -385,7 +385,7 @@
           loading: Laster inn resultater...
       show:
         area: Område
-        developer_group: Promotørgruppe
+        developer_group: Prosessen styres av
         end_date: Sluttdato
         local_area: Organisasjonsområde
         participatory_scope: Medvirkningen gjelder
