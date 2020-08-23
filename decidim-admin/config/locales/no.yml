@@ -2,7 +2,7 @@
   activemodel:
     attributes:
       area:
-        area_type: Områdetype
+        area_type: Nivå
         name: Navn
         organization: Organisasjon
       area_type:
