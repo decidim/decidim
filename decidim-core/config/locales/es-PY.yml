@@ -1265,6 +1265,7 @@ es-PY:
     versions:
       resource_version:
         of_versions: "(de %{number})"
+        see_other_versions: ver otras versiones
         version: Versión %{number}
     versions_list:
       show:
