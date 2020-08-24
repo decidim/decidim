@@ -1,0 +1,49 @@
+<%
+@title = "Evote -- Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper evote">
+    <div class="row">
+      <div class="columns">
+        <h1 class="heading2">
+          Verify your vote
+        </h1>
+        <p>
+          Verify your vote in <a href="evote-poll-landing">Consulta sobre la organización del Comité de Fiestas del Barrio del Fort Pienc</a>.
+          <br />
+          This verifier checks that your vote, identified with an encrypted text string, has been cast correctly and is inside the ballot box.
+        </p>
+
+      </div>
+    </div>
+    <div class="row section">
+      <div class="evote__content">
+        <div class="callout success">
+          <h2 class="heading4">
+          Vote located!
+          </h2>
+          <p>
+            Your encrypted vote is in the ballot box<br><a href="evote-landing">Consulta sobre el sistema de organización del Comité de Fiestas del Barrio del Fort&nbsp;Pienc</a>.
+          </p>
+        </div>
+        <form class="form">
+          <label>
+            Identifier code:
+            <input type="text" value="qw12Sf35vVb556Hfvh7qw12Sf35vVb556Hfvh7">
+          </label>
+          <div>
+            <button type="submit" class="button">Check</button>
+          </div>
+          <a href="evote-poll-list">Back to available polls</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
+
