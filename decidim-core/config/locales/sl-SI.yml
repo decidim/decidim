@@ -23,6 +23,9 @@ sl:
       home:
         extended:
           more_info: Več informacij
+        hero:
+          participate: Sodeluj
+          welcome: Dobrošli v organizaciji %{organization}!
     search:
       term_input_placeholder: Išči
     searches:
@@ -32,10 +35,16 @@ sl:
     shared:
       login_modal:
         sign_up: Registracija
+    welcome_notification:
+      default_subject: Hvala, ker ste se pridružili nači organizaciji {{organization}}!
   devise:
+    mailer:
+      confirmation_instructions:
+        greeting: Dobrodošel/la %{recipient}!
     registrations:
       new:
         sign_up: Registracija
+      signed_up: Dobrodošli! Uspešno ste se vpisali.
     sessions:
       new:
         sign_in: Prijava
