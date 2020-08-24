@@ -3,7 +3,7 @@ pl:
     attributes:
       agenda:
         description: Opis
-        duration: Trwanie
+        duration: Czas trwania
         title: Tytuł
       close_meeting:
         attendees_count: Liczba osób biorących udział
@@ -29,19 +29,19 @@ pl:
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
         title: Tytuł
-        transparent: Przezroczysty
+        transparent: Transparentny
       minutes:
-        audio_url: Adres audio
+        audio_url: Adres URL do audio
         description: Opis
-        video_url: URL wideo
-        visible: Jest widoczny
+        video_url: Adres URL do wideo
+        visible: Jest widoczne
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minutę
         meeting_registration_invite:
           attributes:
             email:
@@ -51,7 +51,7 @@ pl:
       decidim/meetings/create_meeting_event: Spotkanie
       decidim/meetings/meeting_registrations_enabled_event: Rejestracje włączone
       decidim/meetings/meeting_registrations_over_percentage_event: Rejestracje ponad limit
-      decidim/meetings/upcoming_meeting_event: Najbliższe spotkanie
+      decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
       decidim/meetings/update_meeting_event: Spotkanie zaktualizowane
   activerecord:
     models:
@@ -61,7 +61,7 @@ pl:
         many: Spotkania
         other: Spotkania
       decidim/meetings/minutes:
-        one: Minuty
+        one: Minuta
         few: Minuty
         many: Minuty
         other: Minuty
@@ -75,15 +75,15 @@ pl:
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
-          success: Zduplikowane spotkanie powiodło się.
+          success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz powielić
+          select: Wybierz dane, które chcesz zduplikować
           title: Duplikat spotkania
     components:
       meetings:
         actions:
-          join: Przystąpić
+          join: Dołącz
         name: Spotkania
         settings:
           global:
