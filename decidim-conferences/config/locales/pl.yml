@@ -72,7 +72,7 @@ pl:
       conference_registration:
         confirm:
           error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
-          success: Rejestracja konferencji została pomyślnie potwierdzona.
+          success: Rejestracja na konferencję została potwierdzona.
       conference_speakers:
         create:
           error: Wystąpił błąd podczas dodawania prelegenta do tej konferencji.
