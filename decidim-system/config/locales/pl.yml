@@ -3,10 +3,10 @@ pl:
     system:
       actions:
         confirm_destroy: Czy na pewno chcesz to usunąć?
-        destroy: Kasować
+        destroy: Usuń
         edit: Edytuj
         new: Nowy
-        save: Zapisać
+        save: Zapisz
         title: działania
       admins:
         create:
