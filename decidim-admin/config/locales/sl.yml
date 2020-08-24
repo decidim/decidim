@@ -46,6 +46,7 @@ sl:
         favicon: Ikona
         from: Iz elektronskega naslova
         github_handler: GitHub krmilnik
+        header_snippets: Deli glave
         highlight_alternative_color: Poudarek, alternativno
         highlight_color: Poudarek
         highlighted_content_banner_action_subtitle: Tipka podnaslov
@@ -72,19 +73,45 @@ sl:
         show_statistics: Pokaži statistiko
         success_color: Uspeh
         time_zone: Časovni pas
+        tos_version: Pogoji storitve - verzija
+        twitter_handler: Twitter krmilnik
+        user_groups_enabled: Omogoči grupe
         user_name: Uporabniško ime
         warning_color: Opozorilo
+        welcome_notification_body: Sporočilo dobrodošlice - vsebina
+        welcome_notification_subject: Sporočilo dobrodošlice - naslov
+        youtube_handler: YouTube krmilnik
       scope:
         code: Koda
         name: Ime
         organization: Organizacija
         parent_id: Nadrejeni
+        scope_type: Tip področja
+        scope_type_id: Tip področja
+      scope_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      static_page:
+        content: Vsebina
+        organization: Organizacija
+        show_in_footer: Prikaži v nogi
+        slug: URL okrajšava
+        title: Naziv
+        weight: Teža
       static_page_topic:
+        description: Opis
+        show_in_footer: Prikaži v nogi
+        title: Naziv
         weight: Teža
       user_group_csv_verification:
         file: Datoteka
     errors:
       models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URL preusmeritev mora bit SSL
         organization:
           attributes:
             official_img_footer:
@@ -95,10 +122,14 @@ sl:
     attributes:
       decidim/static_page:
         content: Vsebina
+        slug: URL okrajšava
         title: Naziv
       doorkeeper/application:
+        authorize_url: Pooblasti URL
         client_id: ID odjemalca
+        client_secret: Skrivnost odjemalca
         organization_name: Ime organizacije
+        organization_url: Domača stran organizacije
         redirect_uri: Preusmeritev URI
         site: Spletna stran
   decidim:
@@ -113,7 +144,33 @@ sl:
         permissions: Dovoljenja
         reject: Zavrni
         verify: Preveri
+      filters:
+        scope_id_eq:
+          label: Področje
+      menu:
+        scope_types: Tipi področja
+        scopes: Področja
+      models:
+        scope:
+          fields:
+            scope_type: Tip področja
+      newsletters:
+        index:
+          no_scopes: Ni področij
+        select_recipients_to_deliver:
+          scopes_help: Pošilja obvestilo uporabnikom, ki imajo v nastavitvah »Moja zanimanja« v računu aktivirano katero od izbranih področij.
       organization_appearance:
         form:
           colors:
             colors_title: Barve organizacije
+      scope_types:
+        create:
+          error: Pojavila se je težava pri kreiranju novega tipa področja.
+          success: Tip področja uspešno kreiran.
+        destroy:
+          success: Tip področja uspešno izbrisan
+        edit:
+          title: Uredi tip področja
+        new:
+          create: Ustvari tip področja
+          title: Novo področje
