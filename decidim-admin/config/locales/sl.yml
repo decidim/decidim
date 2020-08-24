@@ -30,25 +30,47 @@ sl:
         subject: Zadeva
       oauth_application:
         name: Ime
+        organization_logo: Logo organizacije (kvadratni)
         organization_name: Ime organizacije
+        organization_url: Domača stran organizacije
         redirect_uri: Preusmeritev URI
       organization:
         address: SMTP Gostitelj
         alert_color: Opozorilo
+        badges_enabled: Omogoči značke
+        comments_max_length: Maksimalna dolžina komentarjev (0 je privzeta)
+        customize_welcome_notification: Priredi obvestilo dobrodošlice
         default_locale: Privzeto območje
         description: Opis
+        facebook_handler: Facebook krmilnik
         favicon: Ikona
+        from: Iz elektronskega naslova
+        github_handler: GitHub krmilnik
+        highlight_alternative_color: Poudarek, alternativno
+        highlight_color: Poudarek
+        highlighted_content_banner_action_subtitle: Tipka podnaslov
+        highlighted_content_banner_action_title: Tipka naslov
+        highlighted_content_banner_action_url: Tipka URL
         highlighted_content_banner_image: Slika
         highlighted_content_banner_short_description: Kratek opis
         highlighted_content_banner_title: Naslov
+        instagram_handler: Instagram krmilnik
         logo: Logotip
         name: Ime
+        official_img_footer: Uradni logo - noga
+        official_img_header: Uradni logo - glava
+        official_url: Domača stran organizacije
+        omnipresent_banner_short_description: Kratek opis
         omnipresent_banner_title: Naziv
+        omnipresent_banner_url: URL
         password: Geslo
         port: Vrata
         primary_color: Primarni
+        rich_text_editor_in_public_views: Omogoči napredni tekstovni urejevalnik za obiskovalce
         secondary_color: Sekundarni
+        send_welcome_notification: Pošli sporočilo dobrodošlice
         show_statistics: Pokaži statistiko
+        success_color: Uspeh
         time_zone: Časovni pas
         user_name: Uporabniško ime
         warning_color: Opozorilo
