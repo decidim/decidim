@@ -44,11 +44,11 @@ module Decidim
 
       delegate :organization, to: :commentable
 
-      searchable_fields({
+      searchable_fields(
         participatory_space: { component: :participatory_space },
         A: :body,
         datetime: :created_at
-      })
+      )
 
       def self.positive
         where(alignment: 1)
