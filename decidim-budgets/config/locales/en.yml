@@ -120,7 +120,7 @@ en:
           voted_on_space_with_scope: You have voted on the %{budget_name} budget for the %{space_name} participatory space on %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Do you agree? Once you have confirmed your vote, you can not change it.
+          are_you_sure: If you change your mind, you can change your vote later.
           cancel: Cancel
           confirm: Confirm
           description: These are the projects you have chosen to be part of the budget.
