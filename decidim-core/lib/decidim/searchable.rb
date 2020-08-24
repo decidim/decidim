@@ -38,6 +38,10 @@ module Decidim
       searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::HasComponent) }
     end
 
+    def self.searchable_resources_of_type_comment
+      searchable_resources.select { |r| r == "Decidim::Comments::Comment" }
+    end
+
     included do
       # Always access to this association scoping by_organization
       clazz = self
