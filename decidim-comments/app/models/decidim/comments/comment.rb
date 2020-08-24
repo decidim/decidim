@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::TranslatableResource
+      include Decidim::Searchable
 
       include Decidim::TranslatableAttributes
 
@@ -42,6 +43,12 @@ module Decidim
       before_validation :compute_depth
 
       delegate :organization, to: :commentable
+
+      searchable_fields({
+        participatory_space: { component: :participatory_space },
+        A: :body,
+        datetime: :created_at
+      })
 
       def self.positive
         where(alignment: 1)
