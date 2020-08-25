@@ -225,8 +225,8 @@ pl:
         endorsing_enabled:
           email_intro: 'Możesz popierać propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Zatwierdzono propozycje dla %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">potwierdzające propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Rozpoczęto podpisywanie propozycji w %{participatory_space_title}
+          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">podpisywanie propozycji</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
@@ -234,8 +234,8 @@ pl:
             email_subject: Twoja propozycja została zaakceptowana
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
           follower:
-            email_intro: 'Wniosek "%{resource_title}" został zaakceptowany. Możesz przeczytać odpowiedź na tej stronie:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+            email_intro: 'Propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować klikając w poprzedni link.
             email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         proposal_evaluating:
@@ -246,16 +246,16 @@ pl:
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> jest oceniana.
           follower:
             email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować klikając w poprzedni link.
             email_subject: Propozycja, którą obserwujesz, jest oceniana
-            notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+            notification_title: Trwa ocenianie propozycji <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
-          email_intro: Wspomniano o Twojej propozycji „%{mentioned_proposal_title}” <a href="%{resource_url}">w tym miejscu</a> w komentarzach.
+          email_intro: Twoja propozycja „%{mentioned_proposal_title}” została wspomniana <a href="%{resource_url}"> w tej przestrzeni</a> w komentarzach.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
-          email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wymieniona
-          notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tym miejscu</a> w komentarzach.
+          email_subject: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana
+          notification_title: Twoja propozycja "%{mentioned_proposal_title}" została wspomniana <a href="%{resource_path}">w tej przestrzeni</a> w komentarzach.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, którego śledzisz, opublikował nową propozycję o nazwie "%{resource_title}". Sprawdź i pomóż:'
+          email_intro: 'Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, opublikował nową propozycję o nazwie "%{resource_title}". Sprawdź i poprzyj:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowa propozycja "%{resource_title}" o %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
