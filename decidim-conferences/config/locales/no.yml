@@ -8,15 +8,15 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         hashtag: Hastag
         hero_image: Hjem bilde
         participatory_processes_ids: Relaterte deltakerprosesser
         promoted: Fremhevet
         published_at: Publisert på
-        scope_id: Omfang
-        scopes_enabled: Omfang aktivert
+        scope_id: Tema
+        scopes_enabled: Aktiverte temaer
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         slogan: Slagord
