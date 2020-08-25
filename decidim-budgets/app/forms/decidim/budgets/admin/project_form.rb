@@ -19,6 +19,7 @@ module Decidim
         attribute :attachment, AttachmentForm
         attribute :photos, Array[String]
         attribute :add_photos, Array
+        attribute :selected, Boolean
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

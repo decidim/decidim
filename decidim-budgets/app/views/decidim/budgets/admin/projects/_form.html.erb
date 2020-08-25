@@ -33,5 +33,11 @@
     </div>
 
     <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
+
+    <% if form.object.persisted? %>
+      <div class="row column">
+        <%= form.check_box :selected %>
+      </div>
+    <% end %>
   </div>
 </div>

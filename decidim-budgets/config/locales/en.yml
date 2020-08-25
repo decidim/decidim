@@ -63,6 +63,7 @@ en:
           index:
             finished_orders: Finished votes
             pending_orders: Pending votes
+            selected: Selected
             title: Projects
           new:
             create: Create
@@ -176,6 +177,7 @@ en:
             one: "%{count} vote"
             other: "%{count} votes"
           remove: Remove project %{resource_name} from your vote
+          selected: Selected
           view: View
           votes:
             one: vote
