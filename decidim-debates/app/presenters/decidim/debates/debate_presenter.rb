@@ -37,16 +37,7 @@ module Decidim
       def last_comment_by
         return unless comments_authors.any?
 
-        comment_author = comments.order("created_at DESC").first.normalized_author
-        return unless comment_author
-
-        if comment_author.is_a?(Decidim::User)
-          Decidim::UserPresenter.new(comment_author)
-        elsif comment_author.is_a?(Decidim::UserGroup)
-          Decidim::UserGroupPresenter.new(comment_author)
-        elsif comment_author.is_a?(Decidim::Organization)
-          Decidim::Debates::OfficialAuthorPresenter.new
-        end
+        comments.order("created_at DESC").first.normalized_author&.presenter
       end
 
       def participants_count
