@@ -332,7 +332,7 @@ describe "Orders", type: :system do
         visit_budget
 
         within "#project-#{project.id}-item .budget-list__number" do
-          expect(page).to have_selector(".text-small", text: "1 SUPPORT")
+          expect(page).to have_selector(".text-small", text: "1 VOTE")
         end
       end
     end

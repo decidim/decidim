@@ -171,13 +171,13 @@ en:
         project:
           add: Add project %{resource_name} to your vote
           count:
-            one: "%{count} support"
-            other: "%{count} supports"
+            one: "%{count} vote"
+            other: "%{count} votes"
           remove: Remove project %{resource_name} from your vote
-          supports:
-            one: support
-            other: supports
           view: View
+          votes:
+            one: vote
+            other: votes
           you_voted: You voted
         project_budget_button:
           add: Add to your vote
@@ -188,10 +188,9 @@ en:
           budget: Budget
           view_all_projects: View all projects
     components:
-      budget:
+      budgets:
         actions:
           vote: Vote
-      budgets:
         name: Budgets
         settings:
           global:
