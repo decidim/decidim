@@ -1,0 +1,129 @@
+sl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategorija
+        decidim_scope_id: Obseg
+        description: Opis
+        end_date: Končni datum
+        progress: Napredek
+        project_ids: Vključeni projekti
+        proposals: Vključeni predlogi
+        start_date: Začetni datum
+        title: Naslov
+        updated_at: Posodobljeno
+      status:
+        description: Opis
+        key: Ključ
+        name: Ime
+        progress: Napredek
+      timeline_entry:
+        description: Opis
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Predlog vključen v rezultat
+      decidim/accountability/result_progress_updated_event: Posodobljen razvoj postavk
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Ali ste prepričani, da želite izbrisati to %{name}?
+        destroy: Izbriši
+        edit: Uredi
+        import_csv: Uvozi CSV
+        new: Novo %{name}
+        preview: Predogled
+        timeline_entries: Razvoj projekta
+        title: Dejanja
+      admin:
+        exports:
+          results: Rezultati
+        import_results:
+          new:
+            import: Uvozi
+            link: povezava
+            title: Uvozi postavke iz CSV datoteke
+        models:
+          result:
+            name: Rezultat
+          status:
+            name: Status
+        results:
+          create:
+            success: Rezultati uspešno ustvarjeni
+          index:
+            title: Rezultati
+        shared:
+          subnav:
+            statuses: Statusi
+        statuses:
+          create:
+            success: Status uspešno ustvarjen
+          edit:
+            title: Uredi status
+            update: Posodobi status
+          index:
+            title: Statusi
+        timeline_entries:
+          create:
+            success: Vnos uspešno ustvarjen
+          edit:
+            title: Uredi vnos
+          new:
+            create: Ustvari nov vnos
+            title: Nov vnos
+          update:
+            success: Vnos uspešno posodobljen
+      admin_log:
+        result:
+          create: "%{user_name} ustvaril(a) %{resource_name} v %{space_name}"
+      import_mailer:
+        import:
+          errors: Napake
+          row_number: Vrsta
+      models:
+        result:
+          fields:
+            end_date: Končni datum
+            progress: Napredek
+            start_date: Začetni datum
+            status: Status
+            title: Naslov
+        status:
+          fields:
+            description: Opis
+            key: Ključ
+            name: Ime
+            progress: Napredek
+        timeline_entry:
+          fields:
+            description: Opis
+            entry_date: Datum
+      results:
+        filters:
+          all: Vsi
+        home:
+          categories_label: Kategorije
+          subcategories_label: Podkategorije
+        search:
+          search: Išči dejanja
+        show:
+          stats:
+            last_edited_by: Nazadnje uredil(a) {0}, {1}
+    components:
+      accountability:
+        settings:
+          global:
+            intro: Predstavitev
+    metrics:
+      results:
+        description: Število ustvarjenih rezultatov
+        object: rezultati
+        title: Rezultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Rezultati
+    resource_links:
+      included_proposals:
+        result_proposal: Predlogi, vključeni v rezultat
