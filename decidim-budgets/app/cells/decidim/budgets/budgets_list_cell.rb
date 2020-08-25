@@ -6,24 +6,28 @@ module Decidim
     class BudgetsListCell < BaseCell
       alias current_workflow model
 
-      delegate :highlighted, :voted, to: :current_workflow
+      delegate :allowed, :budgets, :highlighted, :voted, to: :current_workflow
 
       def show
-        return unless current_workflow.budgets
+        return unless budgets
 
         render
       end
 
       private
 
+      def highlighted?
+        current_user && highlighted.any?
+      end
+
       def voted?
-        current_user && current_workflow.voted.any?
+        current_user && voted.any?
       end
 
       def finished?
-        return unless current_workflow.budgets.any?
+        return unless budgets.any?
 
-        current_user && (current_workflow.allowed - current_workflow.voted).none?
+        current_user && (allowed - voted).none?
       end
 
       def i18n_scope

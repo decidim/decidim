@@ -50,7 +50,7 @@ module Decidim
         #
         # Returns Array.
         def highlighted
-          @highlighted ||= budgets.select { |resource| highlighted?(resource) } .first
+          @highlighted ||= budgets.select { |resource| highlighted?(resource) }
         end
 
         # Public: Return the list of budgets where the user is allowed to vote.
