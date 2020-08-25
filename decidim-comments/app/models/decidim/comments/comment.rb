@@ -13,9 +13,8 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::TranslatableResource
       include Decidim::Searchable
-
+      include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
@@ -45,8 +44,8 @@ module Decidim
       delegate :organization, to: :commentable
 
       searchable_fields(
-        participatory_space: { component: :participatory_space },
-        A: :body,
+        participatory_space: :itself,
+        A: :formatted_body,
         datetime: :created_at
       )
 
@@ -141,8 +140,12 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def formatted_body
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
+      end
+
       def translated_body
-        translated_attribute(body, organization)
+        @translated_body ||= translated_attribute(body, organization)
       end
 
       private

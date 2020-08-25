@@ -319,5 +319,23 @@ shared_examples "comments" do
         end
       end
     end
+
+    describe "hashtags", :slow do
+      let(:content) { "A comment with a hashtag #decidim" }
+
+      before do
+        visit resource_path
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          click_button "Send"
+        end
+      end
+
+      it "replaces the hashtag with a link to the hashtag search" do
+        expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
+        expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
+      end
+    end
   end
 end
