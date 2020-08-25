@@ -39,7 +39,7 @@ pl:
           attributes:
             base:
               too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minutę
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut
         meeting_registration_invite:
           attributes:
             email:
