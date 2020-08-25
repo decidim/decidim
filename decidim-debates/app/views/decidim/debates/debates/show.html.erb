@@ -14,7 +14,6 @@ edit_link(
 %>
 
 <div class="row column view-header">
-
   <%= link_to :debates, class: "small hollow" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
@@ -26,7 +25,6 @@ edit_link(
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
   <%= cell "decidim/author", debate_presenter.author, from: debate, context: { extra_classes: ["author-data--small"] } %>
-
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -53,7 +51,15 @@ edit_link(
             <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
           </div>
         <% end %>
-        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate, large: false } %>
+
+        <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
+          <div class="row collapse buttons__row">
+            <div class="column small-12 collapse">
+              <%= endorsement_buttons_cell(debate) %>
+            </div>
+          </div>
+        <% end %>
+        <%= follow_button_for(debate) %>
       </div>
     </div>
     <%= resource_reference(debate) %>
@@ -90,6 +96,8 @@ edit_link(
           <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
         </ul>
       <% end %>
+
+      <%= cell "decidim/endorsers_list", debate %>
     </div>
   </div>
 </div>

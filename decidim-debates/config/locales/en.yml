@@ -29,6 +29,7 @@ en:
       debates:
         actions:
           create: Create
+          endorse: Endorse
         name: Debates
         settings:
           global:
@@ -39,6 +40,8 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by participants enabled
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     debates:
       actions:
         close: Close

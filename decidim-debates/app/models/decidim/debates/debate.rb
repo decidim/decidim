@@ -21,6 +21,7 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::Endorsable
 
       translatable_fields :title, :description, :instructions, :information_updates
 
