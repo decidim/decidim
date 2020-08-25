@@ -68,7 +68,10 @@ describe BudgetsWorkflowRandom do
     end
     it_behaves_like "has an in-progress order"
     it_behaves_like "allows to vote only in the order resource"
-    it_behaves_like "allow to discard all the progress orders"
+
+    it "doesn't allow to discard the highlighted resource" do
+      expect(workflow.discardable).to be_empty
+    end
 
     it "would not allow to vote in other resources" do
       other_resources.each do |resource|
@@ -84,7 +87,6 @@ describe BudgetsWorkflowRandom do
       end
       it_behaves_like "has an in-progress order"
       it_behaves_like "allows to vote only in the order resource"
-      it_behaves_like "allow to discard all the progress orders"
 
       it "would allow to vote in the chosen resource" do
         expect(subject).to be_vote_allowed(chosen_resource, false)

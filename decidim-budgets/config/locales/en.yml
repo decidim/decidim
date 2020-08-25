@@ -91,8 +91,6 @@ en:
         back_to: Back to %{component_name}
         close_modal: Close modal
         continue: Continue
-        limit_reached: 'You may discard your pending votes on other budgets to vote on this budget:'
-        limit_reached_cancel: Discard your pending vote on %{name}
         more_information: More information
       budgets_list:
         cancel_order:
@@ -103,6 +101,9 @@ en:
         if_change_opinion: If you've changed your mind, you can
         my_budgets: My budgets
         voted_on: You've voted on %{links}
+      limit_announcement:
+        cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
+        limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.
       models:
         budget:
           fields:

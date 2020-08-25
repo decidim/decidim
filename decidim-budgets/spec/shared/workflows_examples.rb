@@ -21,13 +21,13 @@ shared_examples "doesn't highlight any resource" do
   end
 
   it "doesn't have a highlighted resource" do
-    expect(workflow.highlighted).to be_nil
+    expect(workflow.highlighted).to be_empty
   end
 end
 
 shared_examples "highlights a resource" do
   it "highlight only the given resource" do
-    expect(workflow.highlighted).to eq(highlighted_resource)
+    expect(workflow.highlighted).to match_array([highlighted_resource])
 
     expect(subject).to be_highlighted(highlighted_resource)
 

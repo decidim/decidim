@@ -63,8 +63,8 @@ module Decidim::Budgets
           end
         end
 
-        it "doesn't have any discardable order" do
-          expect(workflow.discardable).to be_empty
+        it "does have a discardable order" do
+          expect(workflow.discardable).to match_array([order_resource])
         end
       end
     end

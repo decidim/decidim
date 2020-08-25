@@ -12,8 +12,10 @@ module Decidim
       delegate :current_user, :current_settings, :current_component, :current_workflow, to: :controller
       delegate :settings, to: :current_component
 
-      def limit_reached?
-        current_user && current_workflow.limit_reached?
+      def budgets_link_list(budgets)
+        budgets.map { |budget| link_to(translated_attribute(budget.title), resource_locator(budget).path) }
+               .to_sentence
+               .html_safe
       end
     end
   end

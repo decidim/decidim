@@ -29,7 +29,7 @@ module Decidim
       end
 
       def status
-        @status ||= current_workflow.status(model)
+        @status ||= current_workflow.status(budget)
       end
     end
   end

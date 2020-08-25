@@ -20,6 +20,13 @@ module Decidim
             true
           end
         end
+
+        # Public: Returns a list of budgets where the user can discard their order to vote in another.
+        #
+        # Returns Array.
+        def discardable
+          progress + voted
+        end
       end
     end
   end

@@ -21,6 +21,10 @@ class BudgetsWorkflowRandom < Decidim::Budgets::Workflows::Base
     end
   end
 
+  def discardable
+    []
+  end
+
   private
 
   def random_resource
