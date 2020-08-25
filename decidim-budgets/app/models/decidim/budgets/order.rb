@@ -75,7 +75,7 @@ module Decidim
       def minimum_projects_rule?
         return unless component
 
-        component.settings.vote_rule_minimum_budget_projects_enabled
+        component.settings.vote_rule_group_1_minimum_budget_projects_enabled
       end
 
       # Public: Returns the required minimum projects to checkout
@@ -83,6 +83,20 @@ module Decidim
         return 0 unless component
 
         component.settings.vote_minimum_budget_projects_number
+      end
+
+      # Public: Returns if it is required a maximum projects limit to checkout
+      def maximum_projects_rule?
+        return unless component
+
+        component.settings.vote_rule_group_1_maximum_budget_projects_enabled
+      end
+
+      # Public: Returns the required maximum projects to checkout
+      def maximum_projects
+        return 0 unless component
+
+        component.settings.vote_maximum_budget_projects_number
       end
 
       def self.user_collection(user)
