@@ -106,6 +106,9 @@ sv:
           back: Tillbaka till listan
           date: Datum
           edit_debate: Redigera debatt
+          groups_count: Grupper
+          last_comment_by: Senaste kommentar av
+          no_comments_yet: Inga kommentarer ännu
         update:
           invalid: Det gick inte att uppdatera debatten.
           success: Debatten har uppdaterats.
