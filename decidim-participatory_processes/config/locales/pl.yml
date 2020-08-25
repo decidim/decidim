@@ -449,21 +449,21 @@ pl:
           take_part: Weź udział
       participatory_processes:
         index:
-          promoted_processes: Podświetlone procesy
+          promoted_processes: Wyróżnione procesy
         participatory_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
-          take_part_in: Weź udział w procesie %{resource_name}
+          take_part_in: Dołącz do procesu %{resource_name}
         promoted_process:
           active_step: 'Aktualny krok:'
           more_info: Więcej informacji
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
-          take_part_in: Weź udział w procesie %{resource_name}
+          take_part_in: Dołącz do procesu %{resource_name}
       process_header_steps:
-        step: Etap %{current} z %{total}
-        view_steps: Pokaż etapy
+        step: Krok %{current} z %{total}
+        view_steps: Pokaż kroki
       process_navigation:
         process_menu_item: Proces
