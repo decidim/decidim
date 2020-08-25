@@ -78,6 +78,28 @@ hu:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategória
+          is_emendation_true:
+            label: Típus
+            values:
+              'false': Javaslatok
+              'true': Módosítások
+          scope_id_eq:
+            label: Hatáskör
+          state_eq:
+            label: Állapot
+            values:
+              accepted: Elfogadva
+              evaluating: Értékelés
+              published: Közzétéve
+              rejected: Elutasítva
+              validating: Műszaki érvényesítés
+              withdrawn: Visszavonva
+          state_null:
+            label: Állapot
+            values:
+              'true': Megválaszolatlan
           valuator_role_ids_has:
             label: Értékelőhöz rendelve
         search_placeholder:

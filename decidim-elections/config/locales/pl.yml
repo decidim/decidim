@@ -8,8 +8,8 @@ pl:
         title: Tytuł
       election:
         description: Opis
-        end_time: Głosowanie kończy się o
-        start_time: Głosowanie rozpoczyna się o
+        end_time: Głosowanie kończy się
+        start_time: Głosowanie rozpoczyna się
         subtitle: Podtytuł
         title: Tytuł
       question:
@@ -21,7 +21,7 @@ pl:
         answer:
           attributes:
             attachment:
-              needs_to_be_reattached: Załącz go ponownie
+              needs_to_be_reattached: Załącz ponownie
   activerecord:
     models:
       decidim/elections/answer:
@@ -30,7 +30,7 @@ pl:
         many: Odpowiedzi
         other: Odpowiedzi
       decidim/elections/election:
-        one: Wybory
+        one: Wybór
         few: Wybory
         many: Wybory
         other: Wybory
@@ -51,7 +51,7 @@ pl:
     elections:
       actions:
         confirm_destroy: Na pewno?
-        destroy: Zniszcz
+        destroy: Usuń
         edit: Edytuj
         new: Nowy %{name}
         preview: Podgląd
@@ -60,10 +60,10 @@ pl:
         answers:
           create:
             invalid: Wystąpił błąd podczas tworzenia odpowiedzi
-            success: Odpowiedź została pomyślnie utworzona
+            success: Odpowiedź została utworzona
           destroy:
             invalid: Wystąpił błąd podczas usuwania odpowiedzi
-            success: Odpowiedź została pomyślnie usunięta
+            success: Odpowiedź została usunięta
           edit:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
@@ -74,39 +74,39 @@ pl:
             title: Nowa odpowiedź
           update:
             invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
-            success: Odpowiedź została pomyślnie zaktualizowana
+            success: Odpowiedź została zaktualizowana
         elections:
           create:
-            invalid: Wystąpił błąd podczas tworzenia wyborów
-            success: Wybory zostały pomyślnie utworzone
+            invalid: Wystąpił błąd podczas tworzenia wyboru
+            success: Wybór został utworzony
           destroy:
-            invalid: Wystąpił błąd podczas usuwania wyborów
-            success: Wybory zostały pomyślnie usunięte
+            invalid: Wystąpił błąd podczas usuwania wyboru
+            success: Wybór został usunięty
           edit:
-            title: Edytuj wybory
-            update: Aktualizuj wybory
+            title: Edytuj wybór
+            update: Aktualizuj wybór
           index:
             title: Wybory
           new:
-            create: Utwórz wybory
-            title: Nowe wybory
+            create: Utwórz wybór
+            title: Nowy wybór
           update:
-            invalid: Wystąpił błąd podczas aktualizowania wyborów
-            success: Wybory zostały pomyślnie zaktualizowane
+            invalid: Wystąpił błąd podczas aktualizowania wyboru
+            success: Wybór zostały zaktualizowany
         models:
           answer:
             name: Odpowiedź
           election:
-            name: Wybory
+            name: Wybór
           question:
             name: Pytanie
         questions:
           create:
-            invalid: Wystąpił błąd podczas tworzenia wyborów
-            success: Pytanie zostało pomyślnie utworzone
+            invalid: Wystąpił błąd podczas tworzenia pytania
+            success: Pytanie zostało utworzone
           destroy:
             invalid: Wystąpił błąd podczas usuwania pytania
-            success: Pytanie zostało pomyślnie usunięte
+            success: Pytanie zostało usunięte
           edit:
             title: Edytuj pytanie
             update: Zaktualizuj pytanie
@@ -117,7 +117,7 @@ pl:
             title: Nowe pytanie
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
-            success: Pytanie zostało pomyślnie zaktualizowane
+            success: Pytanie zostało zaktualizowane
       models:
         answer:
           fields:
@@ -125,13 +125,13 @@ pl:
             title: Tytuł
         election:
           fields:
-            end_time: Koniec o
-            start_time: Zaczyna się o
+            end_time: Kończy się
+            start_time: Zaczyna się
             title: Tytuł
         question:
           fields:
             answers: Odpowiedzi
-            max_selections: Maks. liczba wyborów
+            max_selections: Maks. liczba opcji do zaznaczenia
             title: Tytuł
     participatory_processes:
       statistics:

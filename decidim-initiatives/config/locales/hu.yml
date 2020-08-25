@@ -61,6 +61,21 @@ hu:
     admin:
       actions:
         new_initiative_type: Új kezdeményezés típusa
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Terület
+          state_eq:
+            label: Állapot
+            values:
+              accepted: Elég aláírások
+              created: Létrehozva
+              discarded: Elvetve
+              published: Közzétéve
+              rejected: Nincsen elég aláírás
+              validating: Technikai érvényesítés
+          type_id_eq:
+            label: Típus
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
