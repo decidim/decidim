@@ -1,0 +1,5 @@
+sl:
+  decidim:
+    blogs:
+      actions:
+        destroy: Izbriši
