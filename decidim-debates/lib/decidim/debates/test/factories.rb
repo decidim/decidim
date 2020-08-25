@@ -18,7 +18,7 @@ FactoryBot.define do
       end_time { 1.day.from_now }
     end
 
-    trait :with_author do
+    trait :citizen_author do
       start_time { nil }
       end_time { nil }
       author do
@@ -26,12 +26,17 @@ FactoryBot.define do
       end
     end
 
-    trait :with_user_group_author do
+    trait :official do
+      author { component.try(:organization) }
+    end
+
+    trait :user_group_author do
       author do
-        build(:user, organization: component.organization) if component
+        create(:user, organization: component.organization) if component
       end
+
       user_group do
-        build(:user_group, :verified, organization: component.organization, users: [author]) if component
+        create(:user_group, :verified, organization: component.organization, users: [author]) if component
       end
     end
 

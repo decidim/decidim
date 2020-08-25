@@ -30,6 +30,8 @@ module Decidim
         text_editor_for(form, :description)
       end
 
+      # Returns a TreeNode to be used in the list filters to filter debates by
+      # its origin.
       def filter_origin_values
         origin_values = []
         origin_values << TreePoint.new("official", t("decidim.debates.debates.filters.official"))
@@ -49,6 +51,8 @@ module Decidim
         base
       end
 
+      # Returns a TreeNode to be used in the list filters to filter debates by
+      # its state.
       def filter_debates_state_values
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
           Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.debates.debates.filters.all")),
