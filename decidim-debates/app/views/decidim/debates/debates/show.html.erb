@@ -62,6 +62,36 @@ edit_link(
         <%= follow_button_for(debate) %>
       </div>
     </div>
+    <div class="card extra">
+      <div class="definition-data">
+        <div class="definition-data__item definition-data__item">
+          <span class="definition-data__title">
+            <%= t ".last_comment_by" %>
+          </span>
+          <span class="definition-data__text">
+            <% if debate_presenter.last_comment_by %>
+              <%= cell "decidim/author", debate_presenter.last_comment_by, context: { extra_classes: ["author-data--small"] } %>
+            <% else %>
+              <%= t ".no_comments_yet" %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">
+            <%= t ".participants_count" %>
+          </span>
+          <span class="definition-data__number"><%= debate_presenter.participants_count %></span>
+        </div>
+
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">
+            <%= t ".groups_count" %>
+          </span>
+          <span class="definition-data__number"><%= debate_presenter.groups_count %></span>
+        </div>
+      </div>
+    </div>
     <%= resource_reference(debate) %>
     <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>

@@ -131,6 +131,10 @@ en:
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit debate
+          groups_count: Groups
+          last_comment_by: Last comment by
+          no_comments_yet: No comments yet
+          participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
           success: Debate successfully updated.
