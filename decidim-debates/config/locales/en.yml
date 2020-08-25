@@ -79,9 +79,12 @@ en:
             name: Debate
       admin_log:
         debate:
-          close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
-          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
-          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+          close: "%{user_name} closed the %{resource_name} debate on the %{space_name}
+            space"
+          create: "%{user_name} created the %{resource_name} debate on the %{space_name}
+            space"
+          update: "%{user_name} updated the %{resource_name} debate on the %{space_name}
+            space"
       debates:
         close:
           invalid: There was a problem closing the debate.
@@ -105,13 +108,22 @@ en:
           save: Save changes
           title: Edit debate
         filters:
+          activity: My activity
           all: All
           category: Category
           category_prompt: Select a category
           citizens: Citizens
+          commented: Commented
+          my_debates: My debates
           official: Official
           origin: Origin
+          scope: Scope
           search: Search
+          state: Status
+          state_values:
+            closed: Closed
+            open: Open
+          user_groups: Groups
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -163,37 +175,55 @@ en:
             email_intro: |-
               Hi,
               A new debate "%{resource_title}" has been created on the %{space_title} participatory space, check it out and contribute:
-            email_outro: You have received this notification because you are following the %{space_title} participatory space. You can stop receiving notifications following the previous link.
+            email_outro: You have received this notification because you are following
+              the %{space_title} participatory space. You can stop receiving notifications
+              following the previous link.
             email_subject: New debate "%{resource_title}" on %{space_title}
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created on <a href="%{space_path}">%{space_title}</a>.
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+              debate was created on <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Hi,
               %{author_name} %{author_nickname}, who you are following, has created a new debate "%{resource_title}". Check it out and contribute:
-            email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+            email_outro: You have received this notification because you are following
+              %{author_nickname}. You can stop receiving notifications following the
+              previous link.
             email_subject: New debate "%{resource_title}" by %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> created the <a href="%{resource_path}">%{resource_title}</a> debate.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+              created the <a href="%{resource_path}">%{resource_title}</a> debate.
         creation_disabled:
-          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in open debates from this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'Debate creation is no longer active in %{participatory_space_title}.
+            You can still participate in open debates from this page:'
+          email_outro: You have received this notification because you are following
+            %{participatory_space_title}. You can stop receiving notifications following
+            the previous link.
           email_subject: Debate creation disabled in %{participatory_space_title}
           notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
-          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_intro: 'You can now start new debates in %{participatory_space_title}!
+            Start participating in this page:'
+          email_outro: You have received this notification because you are following
+            %{participatory_space_title}. You can stop receiving notifications following
+            the previous link.
           email_subject: Debates now available in %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now start <a href="%{resource_path}">new debates</a>
+            in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'The "%{resource_title}" debate was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" debate. You can unfollow it from the previous link.
+          email_intro: 'The "%{resource_title}" debate was closed. You can read the
+            conclusions from its page:'
+          email_outro: You have received this notification because you are following
+            the "%{resource_title}" debate. You can unfollow it from the previous
+            link.
           email_subject: The "%{resource_title}" debate was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was closed.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
+            debate was closed.
     gamification:
       badges:
         commented_debates:
           conditions:
           - Choose an open debate to take part in
-          description: This badge is granted when you actively participate in the different debates by leaving your comments.
+          description: This badge is granted when you actively participate in the
+            different debates by leaving your comments.
           description_another: This participant has taken part in %{score} debates.
           description_own: You have participated in %{score} debates.
           name: Debates

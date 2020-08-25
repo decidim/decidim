@@ -127,8 +127,12 @@ module Decidim
         {
           search_text: "",
           order_start_time: "asc",
-          origin: "all",
-          category_id: ""
+          origin: %w(official citizens user_group),
+          activity: "all",
+          category_id: default_filter_category_params,
+          scope_id: default_filter_scope_params,
+          status: "all",
+          state: %w(open closed)
         }
       end
     end

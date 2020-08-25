@@ -24,6 +24,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
+      include Decidim::Filterable
 
       component_manifest_name "debates"
 
@@ -38,6 +39,12 @@ module Decidim
                         },
                         index_on_create: ->(debate) { debate.visible? },
                         index_on_update: ->(debate) { debate.visible? })
+
+      scope :open, -> { where(closed_at: nil) }
+      scope :closed, -> { where.not(closed_at: nil) }
+      scope :authored_by, ->(user) { where(author: user) }
+      scope :commented_by, ->(user) { where(author: user) }
+
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter

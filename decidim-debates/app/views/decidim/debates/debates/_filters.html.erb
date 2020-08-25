@@ -14,19 +14,19 @@
     </div>
   </div>
 
-  <%= form.collection_radio_buttons :origin, [["all", t(".all")], ["official", t(".official")], ["citizens", t(".citizens")]], :first, :last, { legend_title: t(".origin") }, "aria-controls": "debates" %>
+  <%= form.check_boxes_tree :state, filter_debates_state_values, legend_title: t(".state"), "aria-controls": "debates" %>
 
-  <% if current_component.categories.any? %>
-    <%= form.categories_select :category_id,
-                               current_component.categories,
-                               {
-                                 legend_title: t(".category"),
-                                 disable_parents: false,
-                                 label: "",
-                                 include_blank: t(".category_prompt"),
-                                 aria_label: t(".category")
-                               },
-                               "aria-label": t(".category"),
-                               "aria-controls": "debates" %>
+  <% if current_participatory_space.has_subscopes? %>
+    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "debates" %>
+  <% end %>
+
+  <% if current_participatory_space.categories.any? %>
+    <%= form.check_boxes_tree :category_id, filter_categories_values, legend_title: t(".category"), "aria-controls": "debates" %>
+  <% end %>
+
+  <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin"), "aria-controls": "debates" %>
+
+  <% if current_user %>
+    <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t(".activity") }, "aria-controls": "debates" %>
   <% end %>
 <% end %>
