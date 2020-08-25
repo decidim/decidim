@@ -19,15 +19,12 @@ module Decidim
       validates :user, uniqueness: { scope: :component }
       validate :user_belongs_to_organization
 
-      validates :total_budget, numericality: {
-        greater_than_or_equal_to: :minimum_budget
-      }, if: :checked_out?
+      validates :total_budget, numericality: { greater_than_or_equal_to: :minimum_budget }, if: -> { checked_out? && !maximum_projects_rule? }
 
-      validates :total_budget, numericality: {
-        less_than_or_equal_to: :maximum_budget
-      }
+      validates :total_budget, numericality: { less_than_or_equal_to: :maximum_budget }, if: -> { !maximum_projects_rule? }
 
       validate :reach_minimum_projects, if: :checked_out?
+      validate :exceed_maximum_projects, if: :checked_out?
 
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
@@ -127,6 +124,12 @@ module Decidim
         return unless minimum_projects_rule?
 
         errors.add(:projects, :invalid) if minimum_projects > projects.count
+      end
+
+      def exceed_maximum_projects
+        return unless maximum_projects_rule?
+
+        errors.add(:projects, :invalid) if projects.count > maximum_projects
       end
     end
   end

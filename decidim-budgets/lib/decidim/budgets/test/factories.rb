@@ -52,13 +52,13 @@ FactoryBot.define do
       end
     end
 
-    trait :with_total_budget_and_maximum_budget_projects do
+    trait :with_maximum_budget_projects do
       transient do
         total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { false }
         vote_rule_maximum_budget_projects_enabled { true }
-        vote_minimum_budget_projects_number { 3 }
+        vote_maximum_budget_projects_number { 6 }
       end
 
       settings do
@@ -67,18 +67,19 @@ FactoryBot.define do
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
-          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
         }
       end
     end
 
-    trait :with_total_budget_and_minimum_budget_projects_and_maximum_budget_projects do
+    trait :with_minimum_and_maximum_budget_projects do
       transient do
         total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
         vote_rule_maximum_budget_projects_enabled { true }
         vote_minimum_budget_projects_number { 3 }
+        vote_maximum_budget_projects_number { 6 }
       end
 
       settings do
@@ -87,7 +88,8 @@ FactoryBot.define do
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
-          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
         }
       end
     end

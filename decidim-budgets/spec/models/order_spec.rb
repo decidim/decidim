@@ -110,5 +110,102 @@ module Decidim::Budgets
         expect(subject).to be_valid
       end
     end
+
+    describe "with component with a maximum projects rule" do
+      let!(:order) { create :order, component: component }
+      let(:voting_rule) { :with_maximum_budget_projects }
+      let(:vote_maximum_budget_projects_number) { 6 }
+
+      it_behaves_like "an order"
+
+      it "can't be higher than a maximum projects number when checked out" do
+        projects = create_list(:project, 7, component: component, budget: 100)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_invalid
+      end
+
+      it "has to be under the maximum projects number when checked out" do
+        projects = create_list(:project, 6, component: component, budget: 100)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_valid
+      end
+
+      it "can exceed the maximum budget when checked out" do
+        projects = create_list(:project, 6, component: component, budget: 100_000_000)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_valid
+      end
+    end
+
+    describe "with component with a minimum and maximum projects rule" do
+      let!(:order) { create :order, component: component }
+      let(:voting_rule) { :with_minimum_and_maximum_budget_projects }
+      let(:vote_minimum_budget_projects_number) { 3 }
+      let(:vote_maximum_budget_projects_number) { 6 }
+
+      it_behaves_like "an order"
+
+      it "can't be higher than a maximum projects number when checked out" do
+        projects = create_list(:project, 7, component: component, budget: 100)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_invalid
+      end
+
+      it "can't be lower than a minimum projects number when checked out" do
+        project1 = create(:project, component: subject.component, budget: 100)
+
+        subject.projects << project1
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_invalid
+      end
+
+      it "has to reach the minimum projects number when checked out" do
+        projects = create_list(:project, 4, component: component, budget: 100)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_valid
+      end
+
+      it "has to be under the maximum projects number when checked out" do
+        projects = create_list(:project, 6, component: component, budget: 100)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_valid
+      end
+
+      it "can exceed the maximum budget when checked out" do
+        projects = create_list(:project, 6, component: component, budget: 100_000_000)
+
+        subject.projects << projects
+
+        expect(subject).to be_valid
+        subject.checked_out_at = Time.current
+        expect(subject).to be_valid
+      end
+    end
   end
 end
