@@ -30,6 +30,7 @@ cs:
       debates:
         actions:
           create: Vytvořit
+          endorse: Schválit
         name: Debaty
         settings:
           global:
@@ -40,6 +41,8 @@ cs:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled: Vytváření debaty účastníky povoleno
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
     debates:
       actions:
         close: Zavřít
@@ -131,6 +134,10 @@ cs:
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
           edit_debate: Upravit debatu
+          groups_count: Skupiny
+          last_comment_by: Poslední komentář od
+          no_comments_yet: Zatím žádné komentáře
+          participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
           success: Debata byla úspěšně aktualizována.
