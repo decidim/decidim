@@ -286,10 +286,10 @@ pl:
           email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
+          email_intro: 'Możesz wspierać propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: Rozpoczęto głosowanie nad propozycjami w przestrzeni %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">głosowanie nad propozycjami</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Rozpoczęto zbieranie wsparcia dla propozycji w przestrzeni %{participatory_space_title}
+          notification_title: Możesz teraz zacząć <a href="%{resource_path}">wspierać propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -311,7 +311,7 @@ pl:
           description_another: Ten użytkownik udzielił wsparcia propozycjom w liczbie %{score}.
           description_own: Udzieliłeś wsparcia propozycjom w liczbie %{score}.
           name: Wsparcia propozycji
-          next_level_in: Poprzyj %{score} innych propozycji, aby awansować na kolejny poziom!
+          next_level_in: Wesprzyj %{score} innych propozycji, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie wsparł jeszcze żadnych propozycji.
           unearned_own: Nie udzielałeś jeszcze wsparcia żadnym propozycjom.
         proposals:
@@ -850,7 +850,7 @@ pl:
         votes_count:
           count:
             one: Wsparcie
-            few: Wsparcia
+            few: Wsparć
             many: Wsparcia
             other: Wsparcia
           most_popular_proposal: Najpopularniejsza propozycja
@@ -868,8 +868,8 @@ pl:
             description: Aby zostać zaakceptowanym, propozycje muszą otrzymać %{limit} wsparć
           title: 'Wspieranie podlega następującym zasadom:'
           vote_limit:
-            description: Możesz zgłosić maksymalnie %{limit} propozycji.
-            left: Pozostałe
+            description: Możesz wesprzeć maksymalnie %{limit} propozycji.
+            left: Pozostało
             votes: Wsparcia
         wizard_aside:
           back: Wróć
