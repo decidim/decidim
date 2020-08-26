@@ -145,3 +145,29 @@ sl:
           success: Član uspešno kreiran v tej združbi.
         destroy:
           success: Član uspešno izbrisan v tej združbi.
+      menu:
+        assemblies: Združbe
+        assemblies_types: Vrste združb
+      titles:
+        assemblies: Združbe
+        assemblies_types: Vrste združb
+    assemblies:
+      admin:
+        assemblies_settings:
+          form:
+            title: Nastavitve za združbe
+      content_blocks:
+        highlighted_assemblies:
+          name: Poudarjene združbe
+      index:
+        title: Združbe
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktivne združbe
+            assemblies_button_title: Povezava do strani Združb
+            see_all_assemblies: Poglej vse združbe
+      show:
+        children: Združbe
+      statistics:
+        assemblies_count: Združbe
