@@ -743,73 +743,73 @@ pl:
           title: Edytuj propozycję
         edit_draft:
           discard: Porzuć ten szkic
-          discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
-          send: Zapowiedź
-          title: Edytuj wersję roboczą oferty
+          discard_confirmation: Czy na pewno chcesz porzucić ten szkic propozycji?
+          send: Podgląd
+          title: Edytuj szkic propozycji
         filters:
           activity: Moja aktywność
-          all: Wszyscy
-          amendment_type: Rodzaj
+          all: Wszystko
+          amendment_type: Typ
           category: Kategoria
           my_proposals: Moje propozycje
           origin: Pochodzenie
           related_to: Związany z
           scope: Zakres
-          search: Szukanie
-          state: Stan
-          type: Rodzaj
-          voted: Głosował
+          search: Szukaj
+          state: Status
+          type: Typ
+          voted: Wsparte
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtr
           filter_by: Filtruj według
-          unfold: Rozwijać się
+          unfold: Rozwiń
         index:
-          collaborative_drafts_list: Uzyskaj dostęp do wspólnych wersji roboczych
+          collaborative_drafts_list: Uzyskaj dostęp do wspólnych szkiców
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
-          view_proposal: Wyświetl propozycję
+          view_proposal: Zobacz propozycję
         linked_proposals:
           proposal_votes:
-            one: głosować
-            few: głosów
-            many: głosów
-            other: głosów
+            one: wsparcie
+            few: wsparcia
+            many: wsparcia
+            other: wsparcia
         new:
-          send: dalej
-          title: Utwórz swoją ofertę
+          send: Dalej
+          title: Utwórz swoją propozycję
         orders:
-          label: 'Propozycje zamówień:'
+          label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
           most_endorsed: Najczęściej popierane
           most_followed: Najczęściej obserwowane
-          most_voted: Większość głosów
-          random: Losowy
-          recent: Niedawny
+          most_voted: Najczęściej wspierane
+          random: Losowo
+          recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
         participatory_texts:
           index:
-            document_index: Indeks dokumentów
+            document_index: Indeks dokumentu
           view_index:
             see_index: Zobacz indeks
         preview:
           modify: Zmodyfikuj propozycję
           proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            many: Będziesz mógł edytować tę propozycję podczas pierwszego %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-          publish: Publikować
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
+            many: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję w ciągu %{count} minut po jej opublikowaniu. Gdy ten czas minie nie będzie można edytować propozycji.
+          publish: Publikuj
           title: Opublikuj swoją propozycję
         proposal:
-          creation_date: 'Tworzenie: %{date}'
-          view_proposal: Wyświetl propozycję
+          creation_date: 'Utworzono: %{date}'
+          view_proposal: Zobacz propozycję
         proposals:
           empty: Nie ma jeszcze żadnych propozycji
           empty_filters: Brak propozycji spełniającej te kryteria
         show:
           answer: Odpowiedź
-          back_to: Wrócić do
+          back_to: Wróć do
           back_to_list: Powrót do listy
           changes_at_title: Poprawka do „%{title}”
           comments: Komentarze
@@ -817,62 +817,62 @@ pl:
           endorsements_list: Lista rekomendacji
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
-            one: i %{count} więcej osób
+            one: i %{count} osoba więcej
             few: i %{count} więcej osób
             many: i %{count} więcej osób
             other: i %{count} więcej osób
-          link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego projektu. Przejrzyj historię
-          link_to_collaborative_draft_text: Zobacz wersję roboczą
+          link_to_collaborative_draft_help_text: Ta propozycja jest wynikiem wspólnego szkicu. Przejrzyj historię
+          link_to_collaborative_draft_text: Zobacz wspólny szkic
           link_to_promoted_emendation_help_text: Ta propozycja jest awansowaną poprawką
           link_to_promoted_emendation_text: Zobacz odrzuconą poprawkę.
-          link_to_proposal_from_emendation_help_text: To jest poprawka odrzucona
+          link_to_proposal_from_emendation_help_text: To jest odrzucona poprawka
           link_to_proposal_from_emendation_text: Zobacz propozycję
-          proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
-          proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
-          proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
-          read_less: Zwiń
-          read_more: Czytaj więcej
+          proposal_accepted_reason: 'Ta propozycja została zaakceptowana, ponieważ:'
+          proposal_in_evaluation_reason: Ta propozycja jest oceniana
+          proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
+          read_less: Pokaż mniej
+          read_more: Pokaż więcej
           report: Raport
-          withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
-          withdraw_confirmation_html: Czy na pewno chcesz wycofać ten wniosek?<br><br><strong>Tej akcji nie można anulować!</strong>
+          withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Propozycja nie zostanie usunięta, pojawi się na liście wycofanych propozycji.
+          withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_name}</u> przez administratora)"
         update:
-          title: Zaktualizuj propozycję
+          title: Aktualizuj propozycję
         vote_button:
-          already_voted: Już głosował
-          already_voted_hover: Unvote
-          maximum_votes_reached: Osiągnięto limit głosu
-          no_votes_remaining: Brak głosów
-          vote: Głosować
-          votes_blocked: Głosowanie zostało wyłączone
+          already_voted: Już wsparto
+          already_voted_hover: Cofnij wsparcie
+          maximum_votes_reached: Osiągnięto limit wsparć
+          no_votes_remaining: Brak wsparć
+          vote: Wesprzyj
+          votes_blocked: Wspieranie zostało wyłączone
         votes_count:
           count:
-            one: GŁOSOWAĆ
-            few: GŁOSOWANIA
-            many: GŁOSY
-            other: GŁOSOWANIA
+            one: Wsparcie
+            few: Wsparcia
+            many: Wsparcia
+            other: Wsparcia
           most_popular_proposal: Najpopularniejsza propozycja
-          need_more_votes: Potrzebujesz więcej głosów
+          need_more_votes: Potrzebujesz więcej wsparć
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Każda propozycja może zebrać więcej niż %{limit} wsparć
           minimum_votes_per_user:
-            description: Musisz rozdzielić co najmniej %{votes} głosów spośród różnych propozycji.
+            description: Musisz rozdzielić co najmniej %{votes} wsparć pomiędzy różne propozycje.
             given_enough_votes: Dałeś dość wsparcia.
-            supports_remaining: Musisz głosować %{remaining_votes} dodatkowych propozycji, aby wziąć pod uwagę twoje głosy.
+            supports_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
-            description: Możesz utworzyć do %{limit} propozycji.
+            description: Możesz utworzyć maksymalnie %{limit} propozycji.
           threshold_per_proposal:
-            description: Aby zostać zaakceptowanym, wnioski muszą dotrzeć do %{limit} wsparcia
-          title: 'Głosowanie podlega następującym zasadom:'
+            description: Aby zostać zaakceptowanym, propozycje muszą otrzymać %{limit} wsparć
+          title: 'Wspieranie podlega następującym zasadom:'
           vote_limit:
-            description: Możesz zgłosić do %{limit} propozycje.
-            left: Pozostały
-            votes: Głosowania
+            description: Możesz zgłosić maksymalnie %{limit} propozycji.
+            left: Pozostałe
+            votes: Wsparcia
         wizard_aside:
-          back: Plecy
+          back: Wróć
           back_from_step_1: Wróć do propozycji
           back_from_step_2: Wróć do propozycji
           back_from_step_3: Powrót do porównania propozycji
@@ -882,7 +882,7 @@ pl:
           current_step: Bieżący krok
           see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
-          step_2: Porównać
+          step_2: Porównaj
           step_3: Kompletny
           step_4: Opublikuj swoją propozycję
           step_of: Krok %{current_step_num} z %{total_steps}
@@ -893,16 +893,16 @@ pl:
         more_proposals: 'Liczba pozostałych propozycji: %{number}. Zawęź wyszukiwanie, aby je zlokalizować.'
         no_proposals: Żadne propozycje nie spełniają kryteriów wyszukiwania lub nie ma żadnych propozycji.
       publish:
-        error: Podczas publikowania propozycji wystąpiły błędy.
-        success: Wniosek opublikowano pomyślnie.
+        error: Podczas publikowania propozycji wystąpił błąd.
+        success: Propozycja została opublikowana.
       publish_answers:
-        success: Odpowiedzi do propozycji opublikowano pomyślnie.
+        success: Odpowiedzi do propozycji zostały opublikowane pomyślnie.
       update:
-        error: Podczas zapisywania propozycji wystąpiły błędy.
-        success: Wniosek zaktualizowano pomyślnie.
+        error: Podczas zapisywania propozycji wystąpił błąd.
+        success: Propozycja została zaktualizowana.
       update_draft:
-        error: Wystąpiły błędy podczas zapisywania wersji roboczej propozycji.
-        success: Projekt propozycji został pomyślnie zaktualizowany.
+        error: Wystąpił błąd podczas zapisywania wspólnego szkicu.
+        success: Projekt propozycji został zaktualizowany.
       versions:
         collaborative_drafts:
           back_to_resource: Wróć do wersji roboczej
