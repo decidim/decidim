@@ -179,7 +179,7 @@ pl:
             last_updated_at: 'Ostatnia aktualizacja:'
             meetings: Spotkania
             proposals: Propozycje
-            votes: Pomoc
+            votes: Wsparcia
         timeline:
           title: Rozwój projektu
     components:
