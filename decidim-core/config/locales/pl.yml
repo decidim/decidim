@@ -200,7 +200,7 @@ pl:
           accepted: |-
             Ta poprawka do %{amendable_type} %{proposal_link} została zaakceptowana <strong>%{date}</strong>.
           evaluating: |-
-            Niniejsza poprawka do oceny %{amendable_type} %{proposal_link} jest oceniana.
+            Poprawka do %{proposal_link} (%{amendable_type}) jest oceniana.
           promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta poprawka do %{amendable_type} %{proposal_link}\nzostała odrzucona <strong>%{date}</strong>."
           withdrawn: |-
@@ -667,7 +667,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
