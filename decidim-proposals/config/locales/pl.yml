@@ -142,7 +142,7 @@ pl:
             new_proposal_help_text: Nowy tekst pomocy dla propozycji
             official_proposals_enabled: Oficjalne propozycje włączone
             participatory_texts_enabled: Włącz kolektywną legislację
-            participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Teksty partycypacyjne”, jeśli chcesz ją wyłączyć.
+            participatory_texts_enabled_readonly: Nie można korzystać z tego ustawienia, jeśli są już propozycje. Utwórz nowy komponent propozycji, jeśli chcesz włączyć tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Kolektywna Legislacja”, jeśli chcesz ją wyłączyć.
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tylu minut
             proposal_length: Maksymalna długość treści propozycji
@@ -167,7 +167,7 @@ pl:
               participants: Poprawki są widoczne tylko dla ich autorów
             amendments_visibility_help: W przypadku zaznaczenia opcji „Poprawki są widoczne tylko dla ich autorów” użytkownik musi być zalogowany, aby zobaczyć wprowadzone poprawki.
             announcement: Ogłoszenie
-            answers_with_costs: Zezwalaj na koszty w odpowiedziach do propozycje
+            answers_with_costs: Zezwalaj na koszty w odpowiedziach na propozycje
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Włączono tworzenie propozycji
@@ -905,11 +905,11 @@ pl:
         success: Projekt propozycji został zaktualizowany.
       versions:
         collaborative_drafts:
-          back_to_resource: Wróć do wersji roboczej
+          back_to_resource: Wróć do wspólnego szkicu
         index:
           title: Wersje
         proposals:
-          back_to_resource: Wróć do wniosku
+          back_to_resource: Wróć do propozycji
       withdraw:
         errors:
           has_supports: Ta propozycja nie może zostać wycofana, ponieważ ma już wsparcie.
