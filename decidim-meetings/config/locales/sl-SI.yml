@@ -3,8 +3,30 @@ sl:
     attributes:
       agenda:
         description: Opis
+    models:
+      decidim/meetings/create_meeting_event: Sestanek
   decidim:
+    components:
+      meetings:
+        name: Sestanki
     meetings:
+      admin:
+        exports:
+          meetings: Sestanki
+        meetings:
+          index:
+            title: Sestanki
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Prihajajoči dogodki
+      directory:
+        meetings:
+          index:
+            meetings: Sestanki
       meetings:
         filters:
           category_prompt: Izberi kategorijo
+    metrics:
+      meetings:
+        object: sestanki
+        title: Sestanki
