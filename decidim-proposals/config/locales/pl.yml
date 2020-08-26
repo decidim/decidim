@@ -56,7 +56,7 @@ pl:
       decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
       decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
       decidim/proposals/creation_enabled_event: Włączono tworzenie propozycji
-      decidim/proposals/endorsing_enabled_event: Możliwe popieranie propozycji
+      decidim/proposals/endorsing_enabled_event: Możliwe rekomendowanie propozycji
       decidim/proposals/evaluating_proposal_event: Propozycja jest oceniana
       decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
       decidim/proposals/publish_proposal_event: Propozycja została opublikowana
@@ -119,7 +119,7 @@ pl:
         actions:
           amend: Popraw
           create: Utwórz
-          endorse: Podpisz się
+          endorse: Rekomenduj
           vote: Wspieraj
           withdraw: Wycofać
         name: Propozycje
@@ -171,8 +171,8 @@ pl:
             automatic_hashtags: Hashtagi dodane do wszystkich propozycji
             comments_blocked: Komentarze zablokowane
             creation_enabled: Włączono tworzenie propozycji
-            endorsements_blocked: Zatwierdzenia zostały zablokowane
-            endorsements_enabled: Wsparcia włączone
+            endorsements_blocked: Rekomendacje zostały zablokowane
+            endorsements_enabled: Rekomendacje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
             publish_answers_immediately: Natychmiast publikuj odpowiedzi na propozycje
             suggested_hashtags: Hashtagi sugerowane użytkownikom dodającym nowe propozycje
@@ -223,10 +223,10 @@ pl:
           email_subject: Propozycje są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz przedstawiać <a href="%{resource_path}">nowe propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Możesz popierać propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Rozpoczęto podpisywanie propozycji w %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">podpisywanie propozycji</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: 'Możesz rekomendować propozycje w %{participatory_space_title}! Dołącz na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Rozpoczęto rekomendację propozycji w %{participatory_space_title}
+          notification_title: Możesz teraz zacząć <a href="%{resource_path}">rekomendować propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
@@ -331,9 +331,9 @@ pl:
         object: propozycje
         title: Zaakceptowane propozycje
       endorsements:
-        description: Liczba wsparć propozycji
-        object: poparcia
-        title: Poparcia
+        description: Liczba rekomendacji propozycji
+        object: rekomendacje
+        title: Rekomendacje
       proposals:
         description: Liczba propozycji
         object: propozycje
@@ -468,9 +468,9 @@ pl:
             comments_positive_count: Za
             created_at: Data utworzenia
             documents: Dokumenty
-            endorsements_count: Liczba poparć
-            endorsements_ranking: Ranking wg poparć
-            endorsers: Popierający
+            endorsements_count: Liczba rekomendacji
+            endorsements_ranking: Ranking wg rekomendacji
+            endorsers: Rekomendujący
             link: Link
             n_more_endorsers:
               one: i jeszcze 1
@@ -781,7 +781,7 @@ pl:
         orders:
           label: 'Sortuj propozycje według:'
           most_commented: Najczęściej komentowane
-          most_endorsed: Najczęściej popierane
+          most_endorsed: Najbardziej rekomendowane
           most_followed: Najczęściej obserwowane
           most_voted: Najczęściej wspierane
           random: Losowo
