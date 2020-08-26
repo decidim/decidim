@@ -180,9 +180,7 @@ is-IS:
           category: Flokkur
           category_prompt: Veldu flokk
           date: Dagsetning
-          past: Past
           search: Leita
-          upcoming: Næstu
         filters_small_view:
           close_modal: Loka mát
           filter: Sía

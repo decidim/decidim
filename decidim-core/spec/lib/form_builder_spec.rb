@@ -28,6 +28,7 @@ module Decidim
         attribute :image
         attribute :born_at, Date
         attribute :start_time, DateTime
+        attribute :scopes, [::Decidim::Scope]
 
         translatable_attribute :name, String
         translatable_attribute :short_description, String
@@ -62,7 +63,7 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
-          expect(parsed.css(".editor label[for='resource_slug']")).not_to be_empty
+          expect(parsed.css(".editor label")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='basic']")).not_to be_empty
         end
       end
@@ -74,7 +75,7 @@ module Decidim
 
         it "renders a hidden field and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
-          expect(parsed.css(".editor label[for='resource_slug']")).not_to be_empty
+          expect(parsed.css(".editor label")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='full']")).not_to be_empty
         end
       end
@@ -153,7 +154,7 @@ module Decidim
 
           it "renders a single input and a container for the editor" do
             expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-            expect(parsed.css(".editor label[for='resource_short_description_en']")).not_to be_empty
+            expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
         end
@@ -165,7 +166,7 @@ module Decidim
         end
 
         it "renders a tabbed input hidden for each field and a container for the editor" do
-          expect(parsed.css("label[for='resource_short_description']")).not_to be_empty
+          expect(parsed.css("label")).not_to be_empty
 
           expect(parsed.css("li.tabs-title a").count).to eq 3
           expect(parsed.css(".editor.hashtags__container").count).to eq 3
@@ -185,7 +186,7 @@ module Decidim
           it "renders a single input and a container for the editor" do
             expect(parsed.css(".editor-container.js-hashtags").count).to eq 1
             expect(parsed.css(".editor input[type='hidden'][name='resource[short_description_en]']")).not_to be_empty
-            expect(parsed.css(".editor label[for='resource_short_description_en']")).not_to be_empty
+            expect(parsed.css(".editor label")).not_to be_empty
             expect(parsed.css(".editor .editor-container")).not_to be_empty
           end
         end
@@ -444,7 +445,6 @@ module Decidim
 
         it "adds a pattern" do
           expect(parsed.css("input[pattern='^(.|[\n\r]){150,}$']")).not_to be_empty
-          expect(output).not_to include("minlength")
         end
       end
 
@@ -604,6 +604,37 @@ module Decidim
           it "doesn't render the delete checkbox" do
             expect(parsed.css('input[type="checkbox"]')).to be_empty
           end
+        end
+      end
+
+      context "when :dimensions_info is passed as option" do
+        let(:attributes) { { dimensions_info: { medium: { processor: :resize_to_fit, dimensions: [100, 100] } } } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders help message" do
+          html = output
+          expect(html).to include("<span>This image will be:</span>")
+          expect(html).to include("<span>Resized to fit</span>")
+          expect(html).to include("<b>100 x 100 px</b>")
+          expect(parsed.css("p.help-text")).not_to be_empty
+        end
+      end
+    end
+
+    describe "#data_picker" do
+      context "when used without options" do
+        let(:options) { {} }
+        let(:prompt_params) { {} }
+        let(:output) do
+          builder.data_picker(:scopes, options, prompt_params)
+        end
+
+        before do
+          expect(helper).to receive(:render).and_return("[rendering]")
+        end
+
+        it "renders a hidden field and a container for the editor" do
+          expect(parsed.css("label[for='resource_scopes']").text).to eq("Scopes")
         end
       end
     end

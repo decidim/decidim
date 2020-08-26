@@ -67,6 +67,28 @@ module Decidim
         expect(subject.attributes[:something].required_for_authorization).to eq(false)
       end
 
+      it "stores `readonly`" do
+        subject.attribute :something
+        expect(subject.attributes[:something].readonly?({})).to eq(nil)
+
+        subject.attribute :something, readonly: ->(_context) { true }
+        expect(subject.attributes[:something].readonly?({})).to eq(true)
+
+        subject.attribute :something, readonly: ->(_context) { false }
+        expect(subject.attributes[:something].readonly?({})).to eq(false)
+      end
+
+      it "stores `choices`" do
+        subject.attribute :something
+        expect(subject.attributes[:something].build_choices).to eq(nil)
+
+        subject.attribute :something, choices: %w(a b c)
+        expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
+
+        subject.attribute :something, choices: -> { %w(a b c) }
+        expect(subject.attributes[:something].build_choices).to eq(%w(a b c))
+      end
+
       describe "supported types" do
         it "supports booleans" do
           attribute = SettingsManifest::Attribute.new(type: :boolean)
@@ -96,6 +118,12 @@ module Decidim
           attribute = SettingsManifest::Attribute.new(type: :array)
           expect(attribute.type_class).to eq(Array)
           expect(attribute.default_value).to eq([])
+        end
+
+        it "supports enums" do
+          attribute = SettingsManifest::Attribute.new(type: :enum)
+          expect(attribute.type_class).to eq(String)
+          expect(attribute.default_value).to eq(nil)
         end
       end
 

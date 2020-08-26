@@ -42,6 +42,8 @@ describe "Answer a survey", type: :system do
   end
 
   context "when the survey allow answers" do
+    let(:last_answer) { questionnaire.answers.last }
+
     before do
       component.update!(
         step_settings: {
@@ -72,6 +74,9 @@ describe "Answer a survey", type: :system do
       # Unregistered users are tracked with their session_id so they won't be allowed to repeat easily
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
+
+      expect(last_answer.session_token).not_to be_empty
+      expect(last_answer.ip_hash).not_to be_empty
     end
 
     context "and honeypot is filled" do

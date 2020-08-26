@@ -85,6 +85,12 @@ module Decidim
 
         :take_part
       end
+
+      def cta_button_text_key_accessible
+        return :more_info_about if empty_published_component?
+
+        :take_part_in
+      end
     end
 
     class_methods do

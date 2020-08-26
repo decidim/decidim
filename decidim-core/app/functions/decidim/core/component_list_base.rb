@@ -34,14 +34,20 @@ module Decidim
       end
 
       def call(component, args, _ctx)
-        @query = model_class.where(component: component)
-                            .published
+        @query = query_scope.where(component: component)
                             .includes(:component)
 
         add_filter_keys(args[:filter])
         order = filter_keys_by_settings(args[:order].to_h, component)
         add_order_keys(order)
         @query
+      end
+
+      # By default, any model uses the default scope for queries
+      # Particular implementations may restrict this by adding
+      # additional constrains
+      def query_scope
+        model_class
       end
 
       private

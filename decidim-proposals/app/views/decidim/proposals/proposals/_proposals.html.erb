@@ -11,4 +11,18 @@
 <div class="row small-up-1 medium-up-2 card-grid">
   <%= render @proposals %>
 </div>
+
+<div class="row">
+  <div class="columns mediumlarge-8 large-9">
+    <% if @proposals.empty? %>
+      <div class="callout secondary">
+        <% if params[:filter].present? %>
+          <p><%= t(".empty_filters") %></p>
+        <% else %>
+          <p><%= t(".empty") %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <%= decidim_paginate @proposals %>

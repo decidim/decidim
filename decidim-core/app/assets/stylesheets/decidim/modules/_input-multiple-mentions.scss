@@ -1,0 +1,5 @@
+@import "tribute";
+
+input.js-multiple-mentions.mentions__container::placeholder{
+  color: $input-multiple-placeholder-color;
+}

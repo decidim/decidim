@@ -6,7 +6,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_assemblies, scope: :homepage, settings: settings }
+  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_assemblies, scope_name: :homepage, settings: settings }
   let!(:assemblies) { create_list :assembly, 5, organization: organization }
   let(:settings) { {} }
 
@@ -19,7 +19,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   context "when the content block has no settings" do
     it "shows 4 processes" do
       within "#highlighted-assembly" do
-        expect(subject).to have_selector("article.card--process", count: 4)
+        expect(subject).to have_selector(".card--process", count: 4)
       end
     end
   end

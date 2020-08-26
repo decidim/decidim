@@ -36,6 +36,10 @@ module Decidim
         [:creation_date, :follow, :children_count]
       end
 
+      def creation_date_status
+        l(model.creation_date, format: :decidim_short) if model.creation_date
+      end
+
       def children_count_status
         content_tag(
           :strong,

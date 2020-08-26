@@ -64,6 +64,18 @@ module Decidim
       end
 
       #
+      # In the case of renewable authorizations, route to renew an authorization
+      # process.
+      #
+      def renew_path(redirect_url: nil)
+        if manifest.type == "direct"
+          decidim_verifications.renew_authorizations_path(redirect_params(handler: name, redirect_url: redirect_url))
+        else
+          main_engine.send(:renew_authorization_path, redirect_params(redirect_url: redirect_url))
+        end
+      end
+
+      #
       # Administrational entry point for the verification engine
       #
       def admin_root_path

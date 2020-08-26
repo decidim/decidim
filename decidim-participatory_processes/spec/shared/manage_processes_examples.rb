@@ -33,7 +33,7 @@ shared_examples "manage processes examples" do
       it "allows the user to edit the process_group" do
         click_link translated(process_group.name)
 
-        expect(page).to have_content("EDIT PROCESS GROUP")
+        expect(page).to have_content("Edit process group")
       end
 
       describe "listing processes filtered by group" do
@@ -181,7 +181,7 @@ shared_examples "manage processes examples" do
       uncheck :participatory_process_scopes_enabled
 
       expect(page).to have_selector("#participatory_process_scope_id.disabled")
-      expect(page).to have_selector("#participatory_process_scope_id .picker-values div input[disabled]", visible: false)
+      expect(page).to have_selector("#participatory_process_scope_id .picker-values div input[disabled]", visible: :all)
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click

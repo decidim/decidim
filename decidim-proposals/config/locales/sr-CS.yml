@@ -1,0 +1,126 @@
+sr:
+  activemodel:
+    attributes:
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Ime procenjivača
+    errors:
+      models:
+        proposal:
+          attributes:
+            body:
+              cant_be_equal_to_template: ne može biti jednak šablonu
+    models:
+      decidim/proposals/admin/update_proposal_scope_event: Predlog opsega izmenjen
+  decidim:
+    admin:
+      filters:
+        proposals:
+          valuator_role_ids_has:
+            label: Dodeljeno procenjivaču
+        search_placeholder:
+          id_string_or_title_cont: Pretraži %{collection} prema identifikacionom broju ili nazivu.
+    components:
+      proposals:
+        settings:
+          global:
+            allow_card_image: Dozvoli sliku kartice
+            new_proposal_body_template: Novi predlog šablona glavnog teksta
+            new_proposal_body_template_help: Možete da definišete tekst koji će se pojavljivati pri kreiranju novog predloga
+          step:
+            amendments_visibility: Vidljivost izmena
+            amendments_visibility_choices:
+              all: Izmene su vidljive svima
+              participants: Izmene su vidljive samo svojim autorima
+            answers_with_costs: Omogući troškove za odgovore na predloge
+            publish_answers_immediately: Objavi odgovore na predloge odmah
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Neko je ostavio poruku na predlogu "%{resource_title}". Pogledajte poruku na<a href="%{admin_proposal_info_url}">panelu administratora</a>
+            email_outro: Dobili ste ovo obaveštenje jer možete da procenite predlog.
+            email_subject: Neko je ostavio poruku na predlogu %{resource_title}.
+            notification_title: Neko je ostavio poruku na predlogu <a href="%{resource_path}">%{resource_title}</a>. Pogledajte poruku na<a href="%{admin_proposal_info_path}">panelu administratora</a>
+        proposal_mentioned:
+          email_intro: Vaš predlog %{mentioned_proposal_title} je bio pomenut <a href="%{resource_url}">ovde</a> u komentarima.
+        proposal_update_scope:
+          email_intro: 'Administrator je ažurirao opseg vašeg predloga "%{resource_title}", pogledajte na ovoj strani:'
+          email_subject: Opseg predloga %{resource_title} je ažuriran
+          notification_title: Opseg predloga <a href="%{resource_path}">%{resource_title}</a> je ažuriran od strane administratora.
+    proposals:
+      actions:
+        answer_proposal: Odgovor na predlog
+        show: Prikaži predlog
+      admin:
+        proposals:
+          index:
+            assign_to_valuator: Dodeli procenjivaču
+            assign_to_valuator_button: Dodeli
+            change_scope: Promeni opseg
+            publish_answers: Objavi odgovore
+            unassign_from_valuator: Oduzmi od procenjivača
+            unassign_from_valuator_button: Od dodeli
+            update_scope_button: Ažuriraj opseg
+          publish_answers:
+            number_of_proposals: Odgovor na %{number} predloga će biti objavljeni.
+          show:
+            amendments_count: Broj izmena
+            assigned_valuators: Dodeljeni procenjivači
+            comments_count: Broj komentara
+            comments_negative_count: Protiv
+            comments_neutral_count: Uzdržan
+            comments_positive_count: Za
+            documents: Dokumenti
+            endorsements_count: Broj podržavanja
+            endorsements_ranking: Poređano po podržavanjima
+            endorsers: Podržavaoci
+            link: Veza
+            n_more_endorsers:
+              one: i još 1
+              few: i još %{count}
+              other: i još %{count}
+            photos: Slike
+            ranking: "%{ranking} od %{total}"
+            related_meetings: Slični sastanci
+            remove_assignment: Ukloni zadatak
+            remove_assignment_confirmation: Da li ste sigurni da želite da uklonite procenjivača sa ovog predloga?
+            valuators: Procenjivači
+            votes_ranking: Poređano po podršci
+          update_category:
+            invalid: 'Ovi predlozi već imaju %{subject_name} kategoriju: %{proposals}.'
+            success: 'Predlozi uspešno dodati u kategoriju %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Ovi predlozi već imaju %{subject_name} opseg: %{proposals}.'
+            select_a_scope: Molimo izaberite opseg
+            success: 'Predlozi kojima je uspešno dodat opseg %{subject_name}: %{proposals}.'
+        valuation_assignments:
+          create:
+            invalid: Došlo je do greške pri dodeljivanju predloga procenjivaču
+            success: Predlozi uspešno dodati procenjivaču
+      admin_log:
+        proposal:
+          publish_answer: "%{user_name} je objavio odgovor na predlog %{resource_name} u prostoru %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} je dodao predlog %{resource_name} procenjivaču"
+      models:
+        proposal:
+          fields:
+            published_answer: Objavljeni odgovor
+            valuator: Procenjivač
+            valuators: Procenjivači
+      proposals:
+        show:
+          back_to_list: Nazad na listu
+          estimated_cost: Procenjen trošak
+          read_less: Pročitaj manje
+          read_more: Pročitaj više
+        tags:
+          changed_from: "(preimenovano iz <u>%{previous_name}</u> od strane administratora)"
+      proposals_picker:
+        choose_proposals: Izaberi predloge
+        close: Zatvori
+        more_proposals: Postoji još %{number} predloga. Smanjite obim pretrage da bi ih pregledali.
+        no_proposals: Nijedan predlog ne ispunjava kriterijume vaše pretrage, ili nema predloga.
+      publish_answers:
+        success: Odgovori na predloge uspešno objavljeni.

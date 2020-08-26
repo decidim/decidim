@@ -33,7 +33,8 @@
       {
         name: t(".initiative_menu_item"),
         url: decidim_initiatives.initiative_path(current_participatory_space),
-        active: is_active_link?(decidim_initiatives.initiative_path(current_participatory_space), :exclusive)
+        active: is_active_link?(decidim_initiatives.initiative_path(current_participatory_space), :exclusive) ||
+                is_active_link?(decidim_initiatives.initiative_versions_path(current_participatory_space), :inclusive)
       }
     ] + components.map do |component|
       {

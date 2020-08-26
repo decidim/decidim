@@ -1,7 +1,7 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.translated :text_field, :welcome_text %>
+  <%= settings_fields.translated :text_field, :welcome_text, label: t(".welcome_text") %>
 <% end %>
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
-  <%= images_fields.upload :background_image %>
+  <%= images_fields.upload :background_image, label: t(".background_image") %>
 <% end %>

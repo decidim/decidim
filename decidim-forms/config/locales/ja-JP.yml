@@ -1,0 +1,120 @@
+ja:
+  activemodel:
+    attributes:
+      answer:
+        body: 回答
+      question:
+        max_choices: 選択肢の最大数
+        question_type: タイプ
+      questionnaire_question:
+        mandatory: Mandatory
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: は完全ではありません
+              too_many: 多すぎます
+        questionnaire:
+          request_invalid: リクエストの処理中にエラーが発生しました。もう一度やり直してください。
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: 説明
+            tos: 利用規約
+        questionnaires:
+          answer_option:
+            answer_option: 回答オプション
+            free_text: フリーテキスト
+            remove: 削除
+            statement: ステートメント
+          edit:
+            save: 保存
+            title: アンケートを編集
+          form:
+            add_question: 質問を追加
+            add_separator: 区切り文字を追加
+            already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
+            collapse: すべての質問を閉じる
+            expand: すべての質問を展開
+          matrix_row:
+            matrix_row: 行
+            remove: 削除
+            statement: ステートメント
+          question:
+            add_answer_option: 回答オプションを追加
+            add_matrix_row: 行を追加
+            any: 任意の
+            collapse: 折りたたむ
+            description: 説明
+            down: 下
+            expand: 展開
+            question: 質問
+            remove: 削除
+            statement: ステートメント
+            up: 上へ
+          separator:
+            down: 下
+            remove: 削除
+            separator: 区切り記号
+            up: 上へ
+          update:
+            invalid: フォームの保存に失敗しました。
+            success: フォームを保存しました。
+      errors:
+        answer:
+          body: 本文は空白にできません
+      files:
+        extension_whitelist: '承認されたフォーマット:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'この画像は次のようになります:'
+        processors:
+          resize_and_pad: リサイズおよびパッド先
+          resize_to_fit: フィットするようにリサイズしました
+      question_types:
+        long_answer: 長い回答
+        matrix_multiple: マトリクス (複数オプション)
+        matrix_single: マトリクス（シングルオプション）
+        multiple_option: 複数のオプション
+        short_answer: 短い回答
+        single_option: 単一オプション
+        sorting: 並び替え
+      questionnaires:
+        answer:
+          invalid: フォームの回答に問題がありました。
+          max_choices_alert: 選択された選択肢が多すぎます
+          success: フォームは正常に回答しました。
+        question:
+          max_choices: '最大選択肢: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">アカウント</a> でサインインするか、 <a href="%{sign_up_link}">サインアップ</a> してフォームに回答してください。
+            title: フォームに回答
+          current_step: ステップ %{step}
+          of_total_steps: / %{total_steps}
+          questionnaire_answered:
+            body: このフォームには既に回答済みです。
+            title: すでに回答済み
+          questionnaire_closed:
+            body: フォームが閉じられているため、回答できません。
+            title: フォームを閉じました
+          questionnaire_for_private_users:
+            body: このフォームはプライベートユーザーのみ利用できます
+            title: フォームを閉じました
+          tos_agreement: 参加することにより、利用規約に同意します。
+      step_navigation:
+        show:
+          are_you_sure: この操作は元に戻すことができず、回答を編集することはできません。よろしいですか？
+          back: 戻る
+          continue: 続ける
+          submit: 送信
+      user_answers_serializer:
+        created_at: 回答日時
+        id: 回答ID
+        ip_hash: IPハッシュ
+        registered: 登録済み
+        unregistered: 未登録
+        user_status: ユーザーの状態

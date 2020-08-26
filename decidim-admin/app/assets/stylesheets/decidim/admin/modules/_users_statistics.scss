@@ -1,0 +1,18 @@
+.table-list.users_count tbody tr td.title{
+  text-align: center;
+  color: $medium-gray;
+}
+
+.table-list.users_count th:not(:first-child),
+.table-list.users_count td:not(:first-child){
+  text-align: center;
+}
+
+.table-list.users_count th:last-child,
+.table-list.users_count td:last-child{
+  text-align: center;
+}
+
+.table-list.users_count th{
+  text-transform: capitalize;
+}

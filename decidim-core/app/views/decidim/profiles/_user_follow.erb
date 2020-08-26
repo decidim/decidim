@@ -1,6 +1,6 @@
 <% present(user) do |profile_user| %>
   <div class="column">
-    <article class="card card--member">
+    <div class="card card--member">
       <div class="card__content">
         <div class="card__header collapse">
           <div class="author-data author-data--big">
@@ -23,10 +23,10 @@
           </div>
         </div>
         <div class="card__text card--picture-offset">
-          <p><%= html_truncate profile_user.about.to_s, length: 80 %></p>
+          <p><%= html_truncate decidim_html_escape(profile_user.about.to_s), length: 80 %></p>
           <%= render partial: "decidim/shared/follow_button.html", locals: { followable: user } %>
         </div>
       </div>
-    </article>
+    </div>
   </div>
 <% end %>

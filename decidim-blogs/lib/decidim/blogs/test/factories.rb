@@ -16,5 +16,13 @@ FactoryBot.define do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     component { build(:component, manifest_name: "blogs") }
     author { build(:user, :confirmed, organization: component.organization) }
+
+    trait :with_endorsements do
+      after :create do |post|
+        5.times.collect do
+          create(:endorsement, resource: post, author: build(:user, organization: post.participatory_space.organization))
+        end
+      end
+    end
   end
 end

@@ -153,6 +153,10 @@ es-PY:
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
+            other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         minutes: Acta
         new: Nuevo encuentro
         preview: Previsualizar
@@ -234,6 +238,10 @@ es-PY:
             invalid: Ha habido un problema al crear este encuentro
             success: Encuentro creado con éxito
           destroy:
+            invalid:
+              proposals_count:
+                one: El encuentro no se puede eliminar porque tiene %{count} propuesta asociada
+                other: El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas
             success: El encuentro se ha eliminado correctamente
           edit:
             update: Actualizar
@@ -283,6 +291,7 @@ es-PY:
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
             invites: Invitaciones
+            recommendation_message: Por razones de privacidad te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto es 3 meses después de que la reunión haya finalizado.
             registration_form: Formulario de inscripción
             registrations_count:
               one: Ha habido %{count} registro.
@@ -349,9 +358,9 @@ es-PY:
           category: Categoría
           category_prompt: Selecciona una categoría
           date: Fecha
-          past: Pasadas
+          past: Pasado
           search: Buscar
-          upcoming: Próximas
+          upcoming: Próximo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -368,7 +377,9 @@ es-PY:
           confirm: Confirmar
         show:
           attendees: Número de asistentes
+          back: Volver al listado
           contributions: Número de contribuciones
+          date: Fecha
           going: Yendo
           join: Inscribirse al encuentro
           meeting_report: Informe del encuentro

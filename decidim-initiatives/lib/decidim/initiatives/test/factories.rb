@@ -10,9 +10,20 @@ FactoryBot.define do
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
     signature_type { :online }
+    attachments_enabled { true }
     undo_online_signatures_enabled { true }
+    custom_signature_end_date_enabled { false }
+    area_enabled { false }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
+
+    trait :attachments_enabled do
+      attachments_enabled { true }
+    end
+
+    trait :attachments_disabled do
+      attachments_enabled { false }
+    end
 
     trait :online_signature_enabled do
       signature_type { :online }
@@ -28,6 +39,22 @@ FactoryBot.define do
 
     trait :undo_online_signatures_disabled do
       undo_online_signatures_enabled { false }
+    end
+
+    trait :custom_signature_end_date_enabled do
+      custom_signature_end_date_enabled { true }
+    end
+
+    trait :custom_signature_end_date_disabled do
+      custom_signature_end_date_enabled { false }
+    end
+
+    trait :area_enabled do
+      area_enabled { true }
+    end
+
+    trait :area_disabled do
+      area_enabled { false }
     end
 
     trait :promoting_committee_enabled do
@@ -76,7 +103,9 @@ FactoryBot.define do
     end
 
     after(:create) do |initiative|
-      create(:authorization, user: initiative.author, granted_at: Time.now.utc) unless Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).any?
+      if initiative.author.is_a?(Decidim::User) && Decidim::Authorization.where(user: initiative.author).where.not(granted_at: nil).none?
+        create(:authorization, user: initiative.author, granted_at: Time.now.utc)
+      end
       create_list(:initiatives_committee_member, 3, initiative: initiative)
     end
 

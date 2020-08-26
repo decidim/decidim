@@ -8,6 +8,7 @@ module Decidim
       attribute :custom_body, String
       attribute :position, Integer
       attribute :answer_option_id, Integer
+      attribute :matrix_row_id, Integer
 
       validates :answer_option_id, presence: true
     end

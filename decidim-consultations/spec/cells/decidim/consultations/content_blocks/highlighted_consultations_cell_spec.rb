@@ -6,7 +6,7 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_consultations, scope: :homepage, settings: settings }
+  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_consultations, scope_name: :homepage, settings: settings }
   let!(:consultations) { create_list :consultation, 5, :active, organization: organization }
   let(:settings) { {} }
 
@@ -19,7 +19,7 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
   context "when the content block has no settings" do
     it "shows 4 processes" do
       within "#highlighted-consultation" do
-        expect(subject).to have_selector("article.card--process", count: 4)
+        expect(subject).to have_selector(".card--process", count: 4)
       end
     end
   end

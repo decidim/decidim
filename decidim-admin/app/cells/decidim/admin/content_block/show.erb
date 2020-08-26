@@ -4,10 +4,10 @@
     <div>
       <% if has_settings? %>
         <%= link_to decidim_admin.edit_organization_homepage_content_block_path(manifest_name), class: "mr-s text-muted" do %>
-          <%= icon "pencil" %>
+          <%= icon "pencil", role: "img" %>
         <% end %>
       <% end %>
-      <%= icon "menu" %>
+      <%= icon "menu", role: "img" %>
     </div>
   </div>
 </li>

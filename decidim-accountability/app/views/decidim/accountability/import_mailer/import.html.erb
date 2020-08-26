@@ -1,0 +1,25 @@
+<% if @errors.empty? %>
+  <p><%= t(".success") %></p>
+<% else %>
+  <p><%= t(".errors_present") %>:</p>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t(".row_number") %></th>
+        <th><%= t(".errors") %></th>
+      </tr>
+    </thead>
+    <% @errors.each do |error| %>
+      <tr>
+        <td><%= error.first %></td>
+        <td>
+          <ul>
+            <% error.last.each do |error_message| %>
+              <li><%= error_message %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

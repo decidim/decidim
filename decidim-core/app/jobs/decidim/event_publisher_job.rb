@@ -9,7 +9,7 @@ module Decidim
     def perform(event_name, data)
       @resource = data[:resource]
 
-      return unless notifiable?
+      return unless data[:force_send] || notifiable?
 
       EmailNotificationGeneratorJob.perform_later(
         event_name,

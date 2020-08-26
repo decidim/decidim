@@ -32,7 +32,6 @@ ar:
         scope: منطقة البلدية
         slug: سبيكة العنوان الشبكي
         subtitle: عنوان فرعي
-        title: عنوان
         vote: نظام التصويت الخارجي
         what_is_decided: ما الذي تقرر
       response:

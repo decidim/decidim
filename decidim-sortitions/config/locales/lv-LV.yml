@@ -1,0 +1,158 @@
+lv:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Izlozes informācija
+        decidim_category_id: To priekšlikumu kopu kategorijas, kurās vēlaties izmantot izlozi
+        decidim_proposals_component_id: Priekšlikumu kopas
+        dice: Kauliņa metiena rezultāts. Metiet kauliņu kuba formā ar sešām skaldnēm vai meklējiet citu veidu, kā iegūt nejauši izvēlētu skaitli no 1 līdz 6, un ievadiet iegūto skaitli dažu liecinieku klātbūtnē. Šādi tiek uzlabota procesa kvalitāte un garantēta rezultāta nejaušība.
+        target_items: Atlasāmo priekšlikumu skaits (norāda priekšlikumu skaitu, kuru vēlaties atlasīt, izlozējot no iepriekš izvēlēto priekšlikumu kopas)
+        title: Nosaukums
+        witnesses: Liecinieki
+    models:
+      decidim/sortitions/create_sortition_event: Izloze
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        zero: Izlozes
+        one: Izloze
+        other: Izlozes
+  decidim:
+    components:
+      sortitions:
+        name: Izlozes
+        settings:
+          global:
+            comments_enabled: Komentāri ir iespējoti
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Izloze "%{resource_title}" ir pievienota telpai "%{participatory_space_title}", kam jūs sekojat.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atsekot tai no iepriekšējās saites.
+          email_subject: Jauna izloze pievienota telpai %{participatory_space_title}
+          notification_title: Izloze <a href="%{resource_path}">%{resource_title}</a> ir pievienota telpai%{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Izlozes
+    participatory_processes:
+      statistics:
+        sortitions_count: Izlozes
+    sortitions:
+      admin:
+        actions:
+          destroy: Atcelt izlozi
+          edit: Labot
+          new: Jauna izloze
+          show: Izlozes detaļas
+        models:
+          sortition:
+            fields:
+              category: Kategorija
+              created_at: Izveides datums
+              decidim_proposals_component: Priekšlikumu komponents
+              dice: Metamais kauliņš
+              reference: Atsauce
+              request_timestamp: Mešanas laiks
+              seed: Sēkla
+              target_items: Elementi, ko izvēlēties
+              title: Nosaukums
+            name:
+              zero: Izlozes
+              one: Izloze
+              other: Izlozes
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Vai tiešām vēlaties atcelt šo izlozi?
+            destroy: Atcelt izlozi
+            title: Izlozes atcelšana
+          create:
+            error: Jaunas izlozes izveides laikā radās problēma.
+            success: Izloze ir veiksmīgi izveidota
+          destroy:
+            error: Nevarēja atcelt izlozi.
+            success: Izloze ir veiksmīgi atcelta
+          edit:
+            title: Atjaunināt informāciju par izlozi
+            update: Atjaunināt
+          form:
+            all_categories: Visas kategorijas
+            select_proposal_component: Atlasiet piedāvājumu kopu
+            title: Jaunu priekšlikumu izloze
+          index:
+            title: Izlozes
+          new:
+            confirm: Nospiežot nākamo pogu, Decidim fiksēs datumu un laiku (ar sekundes precizitāti) un kopā ar kauliņa metienu šo informāciju izmantos, lai ģenerētu nejaušu izvēli. Darbība kļūs neatgriezeniska brīdī, kad tiks noklikšķināts uz pogas. Izlozes rezultāts tiks publicēts kopā ar šajā veidlapā ievadītajiem datiem, un to nevar mainīt. Lūdzu, rūpīgi pārbaudiet visu saturu.
+            create: Izveidot
+            title: Jauna izloze
+          show:
+            selected_proposals: Priekšlikumi, kas atlasīti izlozei
+          update:
+            error: Izlozes atjaunināšanas laikā radās problēma.
+            success: Izloze ir veiksmīgi atjaunināta.
+      admin_log:
+        sortition:
+          create: "%{user_name} izveidoja %{resource_name} izlozi telpā %{space_name}."
+          delete: "%{user_name} atcēla %{resource_name} izlozi telpā %{space_name}."
+          update: "%{user_name} atjaunināja %{resource_name} izlozi telpā %{space_name}."
+      sortitions:
+        count:
+          proposals_count:
+            zero: "%{count} priekšlikumi"
+            one: 1 priekšlikums
+            other: "%{count} priekšlikumi"
+        filters:
+          active: Aktīvas
+          all: Visi
+          cancelled: Atcelts
+          category: Kategorija
+          category_prompt: Izvēlieties kategoriju
+          search: Meklēt
+          state: Statuss
+        filters_small_view:
+          close_modal: Aizvērt modal
+          filter: Filtrēt
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        linked_sortitions:
+          selected_proposals: Atlasītie priekšlikumi
+        orders:
+          label: 'Šķirot izlozes pēc:'
+          random: Nejauši
+          recent: Nesenie
+        results_count:
+          count:
+            zero: atlasītie priekšlikumi
+            one: atlasītā priekšlikuma
+            other: atlasītie priekšlikumi
+        show:
+          algorithm: Izlozes algoritma kods
+          any_category: no visām kategorijām
+          back: Atpakaļ uz sarakstu
+          cancelled: Atcelta izloze
+          candidate_proposal_ids: Izlozes priekšlikumu secība un ID
+          candidate_proposals_info: 'Izloze veikta no šādiem priekšlikumiem (%{category_label}) ar šādiem ID (atlasītie priekšlikumi ir treknrakstā)'
+          category: no kategorijas %{category}
+          dice_result: "(1.) Rezultāts, metot kauliņu"
+          introduction: 'Šajā lapā ir izlozes %{reference} rezultāti. Izmantojot šo izlozi %{target_items}, rezultātu skaits ir izvēlēts nejauši un ar vienādu varbūtības sadalījumu starp turpmāk esošajām priekšlikumu kopām. Kopā ar rezultātiem šajā lapā esošā informācija sniedz visus datus, lai nodrošinātu maksimālas garantijas un iespējamību atkārtot rezultātus. Izlozes kvalitātes atslēga ir dubultā nejaušība, ko rada metamā kauliņa izmantošana (liecinieku klātbūtnē) un precīzā izlozes laika ievade algoritmā, kas veic nejaušo izvēli. Laika vērtība izlozē ir tik precīza (sekundes), ka to nevar kontrolēt cilvēki, tādējādi divreiz sniedzot „nekontrolējamu” ievades informāciju, kas garantē taisnīgu rezultātu.'
+          mathematical_result: Rezultāts (1) x (2)
+          proposals_selected_by_sortition: Izlozes atlasītie priekšlikumi
+          sortition_reproducibility_details: Izlozes reproducējamības informācija
+          time_seed: "(2) Laika vērtība"
+          witnesses: Liecinieki
+        sortition:
+          random_seed: Nejaušā vērtība
+          selected_proposals:
+            zero: atlasītie priekšlikumi
+            one: atlasītais priekšlikums
+            other: atlasītie priekšlikumi
+          view: Apskatīt
+        sortition_author:
+          deleted: Dzēsts dalībnieks
+        sortition_cancel_author:
+          deleted: Dzēsts dalībnieks
+        sortitions_count:
+          count:
+            zero: "%{count} izlozes"
+            one: 1 izloze
+            other: "%{count} izlozes"

@@ -18,11 +18,11 @@ module Decidim
       end
 
       def image_thumb
-        image_tag model.thumbnail_url
+        image_tag model.thumbnail_url, alt: t("alt", scope: "decidim.conferences.photo.image.attributes")
       end
 
       def image_big
-        image_tag model.big_url
+        image_tag model.big_url, alt: t("alt", scope: "decidim.conferences.photo.image.attributes")
       end
 
       def title

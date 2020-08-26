@@ -1,0 +1,38 @@
+<div class="card card--widget">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <div class="card__link text-center">
+        <div class="user-header__avatar">
+          <%= image_tag conversation_avatar(conversation), alt: t("decidim.author.avatar") %>
+        </div>
+        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
+      </div>
+    </li>
+    <li class="card-data__item card--list__item card-data__item--expand absolutes">
+      <div class="mr-s">
+        <%= t("decidim.user_conversations.index.from") %>: <strong><%= conversation_interlocutors(conversation) %></strong>
+        <br>
+        <span class="muted">
+          <%= truncate conversation.last_message.body, length: 150 %>
+        </span>
+        <br>
+        <span class="text-small">
+          <%= t("decidim.user_conversations.index.last_message") %>:
+          <strong title="<%= conversation.last_message.friendly_created_at %>">
+            <%= t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s))) %>
+          </strong>
+        </span>
+      </div>
+      <% if conversation.unread_count(current_user).positive? %>
+        <span class="unread_message__counter">
+          <span><%= conversation.unread_count(current_user) %></span>
+        </span>
+      <% end %>
+      <div class="right center mr-s">
+        <%= link_to decidim.profile_conversation_path(nickname: user.nickname, id: conversation), id: "conversation-#{conversation.id}", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
+          <%= icon "chevron-right", class: "card__link icon--big" %>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+</div>

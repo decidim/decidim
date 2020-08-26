@@ -17,17 +17,43 @@ describe "Authentication", type: :system do
         find(".sign-up-link").click
 
         within ".new_user" do
-          fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
-          fill_in :user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :user_tos_agreement
-          check :user_newsletter
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
           find("*[type=submit]").click
         end
 
         expect(page).to have_content("You have signed up successfully")
+      end
+    end
+
+    context "when using another langage" do
+      before do
+        within_language_menu do
+          click_link "Castellano"
+        end
+      end
+
+      it "keeps the locale settings" do
+        find(".sign-up-link").click
+
+        within ".new_user" do
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("¡Bienvenida! Te has registrado con éxito.")
+        expect(last_user.locale).to eq("es")
       end
     end
 
@@ -37,13 +63,13 @@ describe "Authentication", type: :system do
 
         within ".new_user" do
           page.execute_script("$($('.new_user > div > input')[0]).val('Ima robot :D')")
-          fill_in :user_email, with: "user@example.org"
-          fill_in :user_name, with: "Responsible Citizen"
-          fill_in :user_nickname, with: "responsible"
-          fill_in :user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-          check :user_tos_agreement
-          check :user_newsletter
+          fill_in :registration_user_email, with: "user@example.org"
+          fill_in :registration_user_name, with: "Responsible Citizen"
+          fill_in :registration_user_nickname, with: "responsible"
+          fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          check :registration_user_tos_agreement
+          check :registration_user_newsletter
           find("*[type=submit]").click
         end
 
@@ -119,7 +145,7 @@ describe "Authentication", type: :system do
           expect(page).to have_content("Please complete your profile")
 
           within ".new_user" do
-            fill_in :user_email, with: "user@from-twitter.com"
+            fill_in :registration_user_email, with: "user@from-twitter.com"
             find("*[type=submit]").click
           end
         end
@@ -135,7 +161,7 @@ describe "Authentication", type: :system do
             expect(page).to have_content("Please complete your profile")
 
             within ".new_user" do
-              fill_in :user_email, with: "user@from-twitter.com"
+              fill_in :registration_user_email, with: "user@from-twitter.com"
               find("*[type=submit]").click
             end
 
@@ -246,7 +272,7 @@ describe "Authentication", type: :system do
       visit decidim.new_user_confirmation_path
 
       within ".new_user" do
-        fill_in :user_email, with: user.email
+        fill_in :confirmation_user_email, with: user.email
         perform_enqueued_jobs { find("*[type=submit]").click }
       end
 
@@ -263,8 +289,8 @@ describe "Authentication", type: :system do
         find(".sign-in-link").click
 
         within ".new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -278,7 +304,7 @@ describe "Authentication", type: :system do
         visit decidim.new_user_password_path
 
         within ".new_user" do
-          fill_in :user_email, with: user.email
+          fill_in :password_user_email, with: user.email
           perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
@@ -296,8 +322,8 @@ describe "Authentication", type: :system do
         visit last_email_link
 
         within ".new_user" do
-          fill_in :user_password, with: "DfyvHn425mYAy2HL"
-          fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
+          fill_in :password_user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :password_user_password_confirmation, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 
@@ -313,8 +339,7 @@ describe "Authentication", type: :system do
       end
 
       it "signs out the user" do
-        within ".topbar__user__logged" do
-          find("ul").hover
+        within_user_menu do
           find(".sign-out-link").click
         end
 
@@ -335,8 +360,8 @@ describe "Authentication", type: :system do
 
             (maximum_attempts - 2).times do
               within ".new_user" do
-                fill_in :user_email, with: user.email
-                fill_in :user_password, with: "not-the-pasword"
+                fill_in :session_user_email, with: user.email
+                fill_in :session_user_password, with: "not-the-pasword"
                 find("*[type=submit]").click
               end
             end
@@ -344,8 +369,8 @@ describe "Authentication", type: :system do
 
           it "shows the last attempt warning before locking the account" do
             within ".new_user" do
-              fill_in :user_email, with: user.email
-              fill_in :user_password, with: "not-the-pasword"
+              fill_in :session_user_email, with: user.email
+              fill_in :session_user_password, with: "not-the-pasword"
               find("*[type=submit]").click
             end
 
@@ -360,8 +385,8 @@ describe "Authentication", type: :system do
 
             (maximum_attempts - 1).times do
               within ".new_user" do
-                fill_in :user_email, with: user.email
-                fill_in :user_password, with: "not-the-pasword"
+                fill_in :session_user_email, with: user.email
+                fill_in :session_user_password, with: "not-the-pasword"
                 find("*[type=submit]").click
               end
             end
@@ -369,8 +394,8 @@ describe "Authentication", type: :system do
 
           it "when reached maximum failed attempts" do
             within ".new_user" do
-              fill_in :user_email, with: user.email
-              fill_in :user_password, with: "not-the-pasword"
+              fill_in :session_user_email, with: user.email
+              fill_in :session_user_password, with: "not-the-pasword"
               perform_enqueued_jobs { find("*[type=submit]").click }
             end
 
@@ -389,7 +414,7 @@ describe "Authentication", type: :system do
 
         it "resends the unlock instructions" do
           within ".new_user" do
-            fill_in :user_email, with: user.email
+            fill_in :unlock_user_email, with: user.email
             perform_enqueued_jobs { find("*[type=submit]").click }
           end
 
@@ -493,13 +518,13 @@ describe "Authentication", type: :system do
           find(".sign-up-link").click
 
           within ".new_user" do
-            fill_in :user_email, with: user.email
-            fill_in :user_name, with: "Responsible Citizen"
-            fill_in :user_nickname, with: "responsible"
-            fill_in :user_password, with: "DfyvHn425mYAy2HL"
-            fill_in :user_password_confirmation, with: "DfyvHn425mYAy2HL"
-            check :user_tos_agreement
-            check :user_newsletter
+            fill_in :registration_user_email, with: user.email
+            fill_in :registration_user_name, with: "Responsible Citizen"
+            fill_in :registration_user_nickname, with: "responsible"
+            fill_in :registration_user_password, with: "DfyvHn425mYAy2HL"
+            fill_in :registration_user_password_confirmation, with: "DfyvHn425mYAy2HL"
+            check :registration_user_tos_agreement
+            check :registration_user_newsletter
             find("*[type=submit]").click
           end
 
@@ -560,8 +585,8 @@ describe "Authentication", type: :system do
         find(".sign-in-link").click
 
         within ".new_user" do
-          fill_in :user_email, with: user.email
-          fill_in :user_password, with: "DfyvHn425mYAy2HL"
+          fill_in :session_user_email, with: user.email
+          fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
           find("*[type=submit]").click
         end
 

@@ -1,0 +1,21 @@
+<div class="row column gallery__container">
+  <fieldset>
+    <legend><%= t(".gallery_legend") %></legend>
+
+    <% if @form.photos.any? %>
+      <% @form.photos.each do |photo| %>
+        <div class="callout gallery__item" data-closable>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+          <button class="close-button" aria-label="<%= t(".delete_image") %>" title="<%= t(".delete_image") %>" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="row column">
+      <%= form.file_field :add_photos, multiple: false, label: t(".add_images") %>
+    </div>
+  </fieldset>
+</div>

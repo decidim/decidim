@@ -1,0 +1,23 @@
+<div class="sortable-check-box-collection">
+  <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
+    <% choice = answer.selected_choices.find { |choice| choice.answer_option_id == answer_option.id } %>
+
+    <div class="collection-input">
+      <%= label_tag do %>
+        <%= check_box_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][body]",
+                          translated_attribute(answer_option.body),
+                          choice.present?, disabled: disabled %>
+
+        <span class="position"><%= choice.try(:position) %></span>
+
+        <%= translated_attribute(answer_option.body) %>
+
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][position]",
+                            choice.try(:position),
+                            disabled: true %>
+
+        <%= hidden_field_tag "questionnaire[responses][#{answer_idx}][choices][#{idx}][answer_option_id]", answer_option.id %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

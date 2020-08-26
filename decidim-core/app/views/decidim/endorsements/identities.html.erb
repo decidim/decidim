@@ -1,0 +1,12 @@
+<div class="reveal__header reveal__header--nomargin reveal__bg p-s">
+  <h6 class="heading6 m-none"><%= t ".select_identity" %></h6>
+</div>
+<ul class="reveal__list">
+<%= render_endorsement_identity(resource, current_user) %>
+<% @user_verified_groups.each do |user_group| %>
+  <%= render_endorsement_identity(resource, current_user, user_group) %>
+<% end %>
+</ul>
+<div class="reveal__footer reveal__bg text-right p-s">
+  <button class="button button--nomargin button--sc" type="button" data-close><%= t(".done") %></button>
+</div>

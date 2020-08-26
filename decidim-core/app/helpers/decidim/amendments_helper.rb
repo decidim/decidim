@@ -127,7 +127,6 @@ module Decidim
     def amendments_form_field_for(attribute, form, original_resource)
       options = {
         class: "js-hashtags",
-        hashtaggable: true,
         label: amendments_form_fields_label(attribute),
         value: amendments_form_fields_value(original_resource, attribute)
       }
@@ -136,15 +135,18 @@ module Decidim
       when :title
         form.text_field(:title, options)
       when :body
-        text_editor_for(form, :body, options)
+        text_editor_for(form, :body, options.merge(hashtaggable: true))
       end
     end
 
     # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
     def render_emendation_body(emendation)
       body = present(emendation).body(links: true, strip_tags: !rich_text_editor_in_public_views?)
+      body = simple_format(body, {}, sanitize: false)
 
-      rich_text_editor_in_public_views? ? decidim_sanitize(body) : simple_format(body, {}, sanitize: false)
+      return body unless rich_text_editor_in_public_views?
+
+      decidim_sanitize(body)
     end
 
     # Return the edited field value or presents the original attribute value in a form.

@@ -96,6 +96,9 @@ nl:
           create: Aanmaken
           select_a_category: Selecteer een categorie
           title: Nieuw debat
+        show:
+          back: Terug naar het overzicht
+          date: 'Datum:'
       last_activity:
         new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
       models:

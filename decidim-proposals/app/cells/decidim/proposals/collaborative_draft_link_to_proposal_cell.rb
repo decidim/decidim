@@ -23,7 +23,7 @@ module Decidim
       end
 
       def link_header
-        content_tag :strong, class: "text-large text-uppercase" do
+        content_tag :strong, class: "text-large" do
           t("final_proposal", scope: "decidim.proposals.collaborative_drafts.show")
         end
       end

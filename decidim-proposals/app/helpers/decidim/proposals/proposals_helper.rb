@@ -55,6 +55,12 @@ module Decidim
           translated_attribute(@proposal.cost_report).present? &&
           translated_attribute(@proposal.execution_period).present?
       end
+
+      def resource_version(resource, options = {})
+        return unless resource.respond_to?(:amendable?) && resource.amendable?
+
+        super
+      end
     end
   end
 end

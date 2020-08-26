@@ -1,0 +1,33 @@
+<div class="float-right">
+  <button id="start-conversation-dialog-button" type="button" name="button" class="button small">
+    <%= t("new_conversation", scope: "decidim.messaging.conversations.index") %>
+  </button>
+</div>
+<div class="reveal collapse"
+      id="user-conversations-add-modal"
+      data-reveal>
+      <div class="wrapper--inner">
+        <button class="close-button" aria-label="<%= t("close", scope: "decidim.messaging.conversations.index") %>" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= decidim_form_for(@form, url: conversations_check_multiple_url, html: { class: "form new_attachment" }) do |f| %>
+        <div class="container wrapper--inner">
+          <div class="row">
+            <div class="columns large-12">
+              <%= render "add_conversation_users", object: f, locals: { title: "new title" } %>
+            </div>
+          </div>
+          <div class="wrapper wrapper--inner">
+            <div class="row">
+              <div class="large-12">
+                <div class="button--double form-general-submit float-right">
+                  <%= f.submit t("next", scope: "decidim.messaging.conversations.index") %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+</div>
+<%= javascript_include_tag "decidim/start_conversation_dialog" %>

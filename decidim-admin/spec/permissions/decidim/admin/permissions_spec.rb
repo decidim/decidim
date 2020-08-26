@@ -88,6 +88,18 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "metrics" do
+    let(:action_subject) { :metrics }
+
+    it_behaves_like "permission is not set"
+
+    context "when reading" do
+      let(:action_name) { :read }
+
+      it { is_expected.to eq true }
+    end
+  end
+
   describe "static pages" do
     let(:action_subject) { :static_page }
     let(:page) { build(:static_page, :default) }
@@ -261,6 +273,18 @@ describe Decidim::Admin::Permissions do
 
       context "when there are no active impersonation logs" do
         it { is_expected.to eq true }
+      end
+    end
+
+    context "when show their email" do
+      let(:action_name) { :show_email }
+
+      it { is_expected.to eq true }
+
+      context "when user is not an admin" do
+        let(:user) { build :user, organization: organization }
+
+        it_behaves_like "permission is not set"
       end
     end
 

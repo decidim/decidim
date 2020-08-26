@@ -5,12 +5,16 @@ module Decidim
     module Admin
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
-        helper_method :projects, :finished_orders, :pending_orders
+        include Decidim::ApplicationHelper
+        include Decidim::Proposals::Admin::Picker
+
+        helper_method :projects, :finished_orders, :pending_orders, :present
 
         def new
           enforce_permission_to :create, :project
-
-          @form = form(ProjectForm).instance
+          @form = form(ProjectForm).from_params(
+            attachment: form(AttachmentForm).instance
+          )
         end
 
         def create
@@ -33,13 +37,12 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :project, project: project
-
           @form = form(ProjectForm).from_model(project)
+          @form.attachment = form(AttachmentForm).instance
         end
 
         def update
           enforce_permission_to :update, :project, project: project
-
           @form = form(ProjectForm).from_params(params)
 
           UpdateProject.call(@form, project) do

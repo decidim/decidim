@@ -87,14 +87,9 @@ is-IS:
             other: verkefni valin
           view: Útsýni
         project:
-          add: Bæta við
           count:
             one: 1 stuðningur
             other: "%{count} styður"
-          remove: Fjarlægja
-        project_budget_button:
-          add: Bæta við
-          added: Bætt við
         show:
           budget: Fjárhagsáætlun
           view_all_projects: Skoða öll verkefni

@@ -28,12 +28,18 @@ module Decidim
     end
 
     def present(object, presenter_class: nil)
-      presenter_class ||= "#{object.class.name}Presenter".constantize
+      presenter_class ||= resolve_presenter_class(object, presenter_class: presenter_class)
       presenter = presenter_class.new(object)
 
       yield(presenter) if block_given?
 
       presenter
+    end
+
+    def resolve_presenter_class(object, presenter_class: nil)
+      presenter_class || "#{object.class.name}Presenter".constantize
+    rescue StandardError
+      ::Decidim::NilPresenter
     end
 
     # Generates a link to be added to the global Edit link so admins

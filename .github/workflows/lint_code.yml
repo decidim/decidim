@@ -4,11 +4,11 @@ on:
     branches:
       - develop
       - master
-      - "release/**"
+      - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "*"
+    branches-ignore:
+      - "chore/l10n*"
 
 env:
   CI: "true"
@@ -20,6 +20,7 @@ jobs:
   lint:
     name: Lint code
     runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
     steps:
       - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
         if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
@@ -53,3 +54,5 @@ jobs:
         name: Lint JS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
+      - run: bundle exec mdl *.md docs/**/*.md
+        name: Lint Markdown files

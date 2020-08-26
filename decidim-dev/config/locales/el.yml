@@ -1,1 +1,56 @@
 el:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Δημιουργήθηκε στις
+        decidim_scope_id: Πεδίο εφαρμογής
+        field: Το πεδίο μου
+        start_date: Ημερομηνία έναρξης
+        title: Τίτλος
+        translatable_text: Μετατρέψιμο κείμενο
+        updated_at: Ενημερώθηκε στις
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Χαρακτηριστικό μόνο για ανάγνωση
+            test: A δοκιμή
+            test_choices:
+              a: A επιλογή
+              b: B επιλογή
+              c: C επιλογή
+          step:
+            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
+            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
+            readonly_step_attribute: Χαρακτηριστικό βήματος μόνο για ανάγνωση
+    dummy:
+      admin:
+        exports:
+          dummies: Εικονικά
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Χρησιμοποιήστε ένα περιβάλλον δοκιμής για το decidim.
+          description: Οι συμμετέχοντες αποκτούν αυτό το έμβλημα δημιουργώντας δοκιμές.
+          description_another: Αυτός ο συμμετέχων έχει δημιουργήσει %{score} δοκιμές.
+          description_own: Έχετε δημιουργήσει %{score} δοκιμές.
+          name: Δοκιμές
+          next_level_in: Δημιουργήστε %{score} ακόμη δοκιμές για να φτάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει δημιουργήσει ακόμη καμία δοκιμή.
+          unearned_own: Δεν έχετε δημιουργήσει ακόμη δοκιμές.
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          dummies_count_high: Εικονικά στοιχεία υψηλά
+          dummies_count_medium: Εικονικά στοιχεία μεσαία
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: Εικονικά στοιχεία υψηλά
+        dummies_count_medium: Εικονικά στοιχεία μεσαία
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Σχετικό εικονικό στοιχείο

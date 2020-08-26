@@ -1,0 +1,101 @@
+fr-CA:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cela ?
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouvelle
+        save: Sauvegarder
+        title: Actions
+      admins:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
+          success: Admin créé avec succès
+        destroy:
+          success: Administrateur supprimé avec succès
+        edit:
+          title: Modifier l'administrateur
+          update: Mettre à jour
+        index:
+          title: Administrateurs
+        new:
+          create: Créer
+          title: Nouvel administrateur
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
+          success: Administrateur mis à jour avec succès
+      default_pages:
+        placeholders:
+          content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
+          title: Titre par défaut pour %{page}
+      menu:
+        admins: Administrateurs
+        dashboard: Tableau de bord
+        organizations: Organisations
+      models:
+        admin:
+          fields:
+            created_at: Créé le
+            email: Courriel
+          name: Administrateur
+          validations:
+            email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        organization:
+          actions:
+            save_and_invite: Créer une organisation et inviter un administrateur
+          fields:
+            created_at: Créé le
+            name: Nom
+            omniauth_settings: Paramètres Omniauth
+            smtp_settings: Paramètres SMTP
+          name: Organisation
+      organizations:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
+          success: Organisation créée avec succès.
+        edit:
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+        index:
+          title: Organisations
+        new:
+          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
+          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+          title: Nouvelle organisation
+        omniauth_settings:
+          decidim:
+            client_id: ID du client
+            client_secret: Secret du client
+            site_url: URL du site
+          enabled: Activé
+          enabled_by_default: Ce fournisseur est activé par défaut. Il peut être édité mais non désactivé.
+          facebook:
+            app_id: ID de l'application
+            app_secret: Secret de l'application
+          google_oauth2:
+            client_id: ID du client
+            client_secret: Secret du client
+          icon: Icône
+          icon_path: Chemin de l'icône
+          twitter:
+            api_key: Clé API
+            api_secret: Secret de l'API
+        smtp_settings:
+          instructions:
+            from_label: 'L''expéditeur de l''e-mail sera : "votre-nom d''organisation <your-organization@your-provider.org>". Laissez vide pour utiliser le "from_email" comme étiquette'
+          placeholder:
+            from_email: votre-organisation@votre-fournisseur.org
+            from_label: nom-de-votre-organisation
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette organisation.
+          success: Organisation mise à jour avec succès.
+        users_registration_mode:
+          disabled: L'accès n'est possible qu'avec des comptes externes
+          enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
+          existing: Ne pas autoriser les utilisateurs à s'inscrire, mais autoriser les utilisateurs existants à se connecter
+      shared:
+        notices:
+          no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
+          our_getting_started_guide: Notre guide de démarrage
+      titles:
+        dashboard: Tableau de bord

@@ -9,14 +9,16 @@ module Decidim
       attribute :question_id, String
       attribute :body, String
       attribute :choices, Array[AnswerChoiceForm]
+      attribute :matrix_choices, Array[AnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
       validate :all_choices, if: -> { question.question_type == "sorting" }
+      validate :min_choices, if: -> { question.matrix? && question.mandatory? }
 
-      delegate :mandatory_body?, :mandatory_choices?, to: :question
+      delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
       attr_writer :question
 
@@ -49,8 +51,20 @@ module Decidim
 
       private
 
+      def grouped_choices
+        selected_choices.group_by(&:matrix_row_id).values
+      end
+
       def max_choices
-        errors.add(:choices, :too_many) if selected_choices.size > question.max_choices
+        if matrix?
+          errors.add(:choices, :too_many) if grouped_choices.any? { |choices| choices.count > question.max_choices }
+        elsif selected_choices.size > question.max_choices
+          errors.add(:choices, :too_many)
+        end
+      end
+
+      def min_choices
+        errors.add(:choices, :missing) if grouped_choices.count != question.matrix_rows.count
       end
 
       def all_choices

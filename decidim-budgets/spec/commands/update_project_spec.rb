@@ -12,6 +12,8 @@ module Decidim::Budgets
     let(:category) { create :category, participatory_space: project.component.participatory_space }
     let(:participatory_process) { project.component.participatory_space }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:uploaded_photos) { [] }
+    let(:current_photos) { [] }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -31,7 +33,9 @@ module Decidim::Budgets
         budget: 10_000_000,
         proposal_ids: proposals.map(&:id),
         scope: scope,
-        category: category
+        category: category,
+        photos: current_photos,
+        add_photos: uploaded_photos
       )
     end
     let(:invalid) { false }
@@ -75,6 +79,12 @@ module Decidim::Budgets
         subject.call
         linked_proposals = project.linked_resources(:proposals, "included_proposals")
         expect(linked_proposals).to match_array(proposals)
+      end
+
+      it_behaves_like "admin manages resource gallery" do
+        let!(:resource) { project }
+        let(:resource_class) { Decidim::Budgets::Project }
+        let(:command) { described_class.new(form, resource) }
       end
     end
   end

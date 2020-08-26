@@ -15,18 +15,22 @@ describe "Content pages", type: :system do
   describe "Showing pages" do
     let!(:decidim_pages) { create_list(:static_page, 5, :with_topic, organization: organization) }
 
-    before do
-      visit decidim.pages_path
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim.pages_path }
     end
 
-    it_behaves_like "editable content for admins"
+    context "when requesting the pages path" do
+      before do
+        visit decidim.pages_path
+      end
 
-    it "shows the list of all the pages" do
-      decidim_pages.each do |decidim_page|
-        expect(page).to have_css(
-          "a[href=\"#{decidim.page_path(decidim_page)}\"]",
-          text: decidim_page.title[I18n.locale.to_s]
-        )
+      it "shows the list of all the pages" do
+        decidim_pages.each do |decidim_page|
+          expect(page).to have_css(
+            "a[href=\"#{decidim.page_path(decidim_page)}\"]",
+            text: decidim_page.title[I18n.locale.to_s]
+          )
+        end
       end
     end
   end
@@ -65,7 +69,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "GENERAL")
+        expect(page).to have_css(".card h2", text: "General")
       end
     end
 
@@ -79,7 +83,7 @@ describe "Content pages", type: :system do
       end
 
       it "can create page groups" do
-        within find(".card-title", text: topic.title[I18n.locale.to_s].upcase) do
+        within find(".card-title", text: topic.title[I18n.locale.to_s]) do
           click_link "Edit"
         end
 
@@ -104,7 +108,7 @@ describe "Content pages", type: :system do
         end
 
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_css(".card h2", text: "NEW TITLE")
+        expect(page).to have_css(".card h2", text: "New title")
       end
     end
 
@@ -118,7 +122,7 @@ describe "Content pages", type: :system do
       end
 
       it "can delete them" do
-        within find(".card", text: translated(topic.title).upcase) do
+        within find(".card", text: translated(topic.title)) do
           accept_confirm { click_link "Remove topic" }
         end
 
@@ -170,7 +174,7 @@ describe "Content pages", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within find(".card", text: topic.title[I18n.locale.to_s].upcase) do
+      within find(".card", text: topic.title[I18n.locale.to_s]) do
         expect(page).to have_css("tr", text: "Welcome to Decidim")
       end
     end
@@ -205,7 +209,7 @@ describe "Content pages", type: :system do
 
         expect(page).to have_admin_callout("successfully")
 
-        within find(".card", text: topic.title[I18n.locale.to_s].upcase) do
+        within find(".card", text: topic.title[I18n.locale.to_s]) do
           expect(page).to have_css("tr", text: "Not welcomed anymore")
         end
       end

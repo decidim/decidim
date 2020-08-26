@@ -5,7 +5,7 @@
   twitter_handler: current_organization.twitter_handler,
   image_url: Decidim::ContentBlock.published.find_by(
     organization: current_organization,
-    scope: :homepage,
+    scope_name: :homepage,
     manifest_name: :hero
   ).try(:images_container).try(:background_image).try(:url)
 }) %>
@@ -26,7 +26,9 @@
       <%= yield %>
     <% end %>
 
-    <%= render partial: "decidim/shared/login_modal" %>
+    <%= render partial: "decidim/shared/confirm_modal" %>
+    <%= render partial: "decidim/shared/login_modal" unless current_user %>
     <%= render partial: "decidim/shared/authorization_modal" %>
+    <%= render partial: "layouts/decidim/js_configuration" %>
   </body>
 </html>

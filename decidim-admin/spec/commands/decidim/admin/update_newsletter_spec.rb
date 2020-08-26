@@ -9,20 +9,20 @@ module Decidim::Admin
       let(:organization) { create(:organization) }
       let(:newsletter) { create(:newsletter, organization: organization) }
 
-      let(:form) do
-        double(
-          subject: Decidim::Faker::Localized.paragraph(3),
-          body: Decidim::Faker::Localized.paragraph(3),
-          valid?: validity
-        )
-      end
+      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(3) }
+      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(3) }
 
-      let(:validity) { true }
+      let(:form) do
+        Decidim::Admin::NewsletterForm.from_params(
+          subject: newsletter_subject,
+          settings: newsletter_body.transform_keys { |key| "body_#{key}" }
+        ).with_context(current_organization: organization)
+      end
 
       let(:command) { described_class.new(newsletter, form, user) }
 
       describe "when the form is not valid" do
-        let(:validity) { false }
+        let(:newsletter_subject) { nil }
 
         it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
@@ -66,7 +66,8 @@ module Decidim::Admin
           expect(newsletter.author).to eq(user)
           expect(newsletter.subject).to eq(form.subject.stringify_keys)
           expect(newsletter.sent?).to eq(false)
-          expect(newsletter.body).to eq(form.body.stringify_keys)
+          expect(newsletter.template).to be_present
+          expect(newsletter.template.settings.body.stringify_keys).to eq(newsletter_body.stringify_keys)
         end
       end
     end

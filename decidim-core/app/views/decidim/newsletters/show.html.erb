@@ -1,4 +1,11 @@
-<%= decidim_sanitize @body %>
+<% @cell = cell(
+  "decidim/newsletter_templates/basic_only_text",
+  newsletter.template,
+  organization: @organization,
+  newsletter: newsletter,
+  recipient_user: @user
+) %>
+<%= decidim_sanitize @cell.to_s %>
 
 <% content_for :note do %>
   <%== t "note", scope: "decidim.newsletter_mailer.newsletter", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>

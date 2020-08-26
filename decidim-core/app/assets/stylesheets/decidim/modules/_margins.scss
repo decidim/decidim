@@ -5,6 +5,7 @@ $margin-m: $global-margin * 3;
 $margin-l: $global-margin * 5;
 
 //Sections
+
 .section{
   margin-bottom: $margin-sm;
   word-wrap: break-word;
@@ -19,25 +20,25 @@ $margin-l: $global-margin * 5;
 }
 
 // helpers
-$size:(
+$size: (
   none: 0,
   xs: $margin-xs,
   s: $margin-s,
   sm: $margin-sm,
   m: $margin-m,
-  l: $margin-l
+  l: $margin-l,
 ) !default;
 
-$property:(
+$property: (
   p: padding,
-  m: margin
+  m: margin,
 ) !default;
 
-$side:(
+$side: (
   t: top,
   r: right,
   b: bottom,
-  l: left
+  l: left,
 ) !default;
 
 @mixin make-spaces(){
@@ -56,4 +57,4 @@ $side:(
   }
 }
 
-@include make-spaces()
+@include make-spaces();

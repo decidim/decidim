@@ -3,30 +3,30 @@ $message-padding: 1rem;
 
 /* Messages */
 
-.message{
-  @extend .card;
-}
+.unread_message__counter{
+  $counter-size: 25px;
+  $counter-font-size: $counter-size - 12px;
 
-.message__header{
-  padding: $message-padding;
-}
+  background-color: $secondary;
+  border-radius: 50%;
+  color: $white;
+  font-size: $counter-font-size;
+  font-weight: 600;
+  margin-left: auto;
+  margin-right: 5%;
+  width: $counter-size;
 
-.message__content{
-  padding: 0 $message-padding $message-padding;
-
-  > :last-child{
-    margin-bottom: 0;
-  }
-
-  p{
-    overflow-wrap: break-word;
+  span{
+    display: block;
+    line-height: $counter-size;
+    text-align: center;
   }
 }
 
 /* Message form */
 
 .add-message{
-  @extend .message;
+  @extend .card;
 
   padding: $message-padding;
 

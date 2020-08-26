@@ -49,8 +49,8 @@ module Decidim
       end
 
       def endorsements_query
-        Decidim::Proposals::ProposalEndorsement
-          .where(proposal: proposals_components)
+        Decidim::Endorsement
+          .where(resource: space_components)
           .pluck(:decidim_author_id)
           .uniq
       end

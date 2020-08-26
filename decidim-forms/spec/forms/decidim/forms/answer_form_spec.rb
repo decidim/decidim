@@ -86,6 +86,31 @@ module Decidim
 
           expect(subject).not_to be_valid
         end
+
+        context "and it is a matrix_multiple question" do
+          let(:question_type) { "matrix_multiple" }
+
+          let(:max_choices) { 2 }
+
+          it "is valid if few enough options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo", "matrix_row_id" => "1" },
+              { "answer_option_id" => "2", "body" => "bar", "matrix_row_id" => "1" }
+            ]
+
+            expect(subject).to be_valid
+          end
+
+          it "is not valid if too many options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo", "matrix_row_id" => "1" },
+              { "answer_option_id" => "2", "body" => "bar", "matrix_row_id" => "1" },
+              { "answer_option_id" => "3", "body" => "baz", "matrix_row_id" => "1" }
+            ]
+
+            expect(subject).not_to be_valid
+          end
+        end
       end
 
       context "when the question is sorting" do
@@ -108,6 +133,26 @@ module Decidim
           ]
 
           expect(subject).not_to be_valid
+        end
+      end
+
+      context "when the question type is matrix" do
+        let(:question_type) { "matrix_multiple" }
+
+        before do
+          subject.choices = [
+            { "answer_option_id" => "1", "body" => "foo", "matrix_row_id" => "3" },
+            { "answer_option_id" => "2", "body" => "bar", "matrix_row_id" => "2" },
+            { "answer_option_id" => "3", "body" => "baz", "matrix_row_id" => "1" }
+          ]
+        end
+
+        it "is valid when defining attribute matrix_row_id for each choice" do
+          expect(subject).to be_valid
+        end
+
+        it "saves correct matrix_row_id for each choice" do
+          expect(subject.choices.map(&:matrix_row_id)).to eq [3, 2, 1]
         end
       end
     end

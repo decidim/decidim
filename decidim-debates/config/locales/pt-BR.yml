@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     attributes:
       debate:
@@ -147,5 +147,3 @@ pt-BR:
     metrics:
       debates:
         description: Número de debates criados
-        object: debates
-        title: Debates

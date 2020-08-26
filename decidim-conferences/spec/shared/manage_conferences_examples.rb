@@ -202,7 +202,7 @@ shared_examples "manage conferences" do
       uncheck :conference_scopes_enabled
 
       expect(page).to have_selector("#conference_scope_id.disabled")
-      expect(page).to have_selector("#conference_scope_id .picker-values div input[disabled]", visible: false)
+      expect(page).to have_selector("#conference_scope_id .picker-values div input[disabled]", visible: :all)
 
       within ".edit_conference" do
         find("*[type=submit]").click

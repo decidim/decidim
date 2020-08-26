@@ -32,7 +32,7 @@ config.etherpad = {
 
 and then in `config/secrets.yml`:
 
-```
+```yaml
   etherpad:
     server: <%= ENV["ETHERPAD_SERVER"] %>
     api_key: <%= ENV["ETHERPAD_API_KEY"] %>

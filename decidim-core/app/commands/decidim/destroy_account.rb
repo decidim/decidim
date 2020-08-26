@@ -20,6 +20,8 @@ module Decidim
         destroy_user_identities
         destroy_user_group_memberships
         destroy_follows
+        destroy_participatory_space_private_user
+        delegate_destroy_to_participatory_spaces
       end
 
       broadcast(:ok)
@@ -49,6 +51,16 @@ module Decidim
     def destroy_follows
       Decidim::Follow.where(followable: @user).destroy_all
       Decidim::Follow.where(user: @user).destroy_all
+    end
+
+    def destroy_participatory_space_private_user
+      Decidim::ParticipatorySpacePrivateUser.where(user: @user).destroy_all
+    end
+
+    def delegate_destroy_to_participatory_spaces
+      Decidim.participatory_space_manifests.each do |space_manifest|
+        space_manifest.invoke_on_destroy_account(@user)
+      end
     end
   end
 end

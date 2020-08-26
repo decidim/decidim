@@ -23,7 +23,7 @@ describe Decidim::Conferences::Admin::SendConferenceDiplomaJob do
         .with(conference, conference_registration.user)
         .and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       subject.perform_now(conference)
     end

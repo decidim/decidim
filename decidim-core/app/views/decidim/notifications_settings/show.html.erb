@@ -1,3 +1,6 @@
+<% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
+
 <div class="row">
   <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
     <p><strong><%= t(".receive_notifications_about") %></strong></p>
@@ -33,6 +36,16 @@
         <span class="switch-label"><%= t(".newsletter_notifications") %></span>
       </label>
     </div>
-    <%= f.submit t(".update_notifications_settings"), disable_with: true %>
+
+    <p><strong><%= t(".direct_messages") %></strong></p>
+    <div class="switch tiny switch-with-label allow_public_contact">
+      <label>
+        <%= f.check_box :allow_public_contact, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".allow_public_contact") %></span>
+      </label>
+    </div>
+
+    <%= f.submit t(".update_notifications_settings") %>
   <% end %>
 </div>

@@ -17,9 +17,6 @@ module Decidim
 
       routes do
         resources :proposals, except: [:destroy] do
-          resource :proposal_endorsement, only: [:create, :destroy] do
-            get :identities, on: :collection
-          end
           member do
             get :compare
             get :complete
@@ -50,8 +47,7 @@ module Decidim
       end
 
       initializer "decidim_proposals.assets" do |app|
-        app.config.assets.precompile += %w(decidim_proposals_manifest.js
-                                           decidim/proposals/identity_selector_dialog.js)
+        app.config.assets.precompile += %w(decidim_proposals_manifest.js)
       end
 
       initializer "decidim.content_processors" do |_app|

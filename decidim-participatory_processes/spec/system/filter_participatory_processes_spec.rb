@@ -11,7 +11,7 @@ describe "Filter Participatory Processes", type: :system do
 
   shared_examples "listing all processes" do
     it "lists all processes ordered by start_date (closest to current_date)" do
-      within "#processes-grid h2" do
+      within "#processes-grid h3" do
         expect(page).to have_content("6 PROCESSES")
       end
 
@@ -41,7 +41,7 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'active' processes" do
       it "lists the active processes ordered by start_date (descendingly)" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("2 ACTIVE PROCESSES")
         end
 
@@ -60,7 +60,7 @@ describe "Filter Participatory Processes", type: :system do
       end
 
       it "lists the past processes ordered by end_date (descendingly)" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("2 PAST PROCESSES")
         end
 
@@ -79,7 +79,7 @@ describe "Filter Participatory Processes", type: :system do
       end
 
       it "lists the upcoming processes ordered by start_date (ascendingly)" do
-        within "#processes-grid h2" do
+        within "#processes-grid h3" do
           expect(page).to have_content("2")
         end
 

@@ -20,12 +20,6 @@ module Decidim
         expect(subject).to be_valid
       end
 
-      it "is not valid without a body" do
-        newsletter.body = nil
-
-        expect(subject).not_to be_valid
-      end
-
       it "is not valid without a subject" do
         newsletter.subject = nil
 

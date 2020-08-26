@@ -5,6 +5,9 @@
       this.containerSelector = options.containerSelector;
       this.fieldSelector = options.fieldSelector;
       this.addFieldButtonSelector = options.addFieldButtonSelector;
+      this.addSeparatorButtonSelector = options.addSeparatorButtonSelector;
+      this.fieldTemplateSelector = options.fieldTemplateSelector;
+      this.separatorTemplateSelector = options.separatorTemplateSelector;
       this.removeFieldButtonSelector = options.removeFieldButtonSelector;
       this.moveUpFieldButtonSelector = options.moveUpFieldButtonSelector;
       this.moveDownFieldButtonSelector = options.moveDownFieldButtonSelector;
@@ -72,8 +75,14 @@
 
     _bindEvents() {
       $(this.wrapperSelector).on("click", this.addFieldButtonSelector, (event) =>
-        this._bindSafeEvent(event, () => this._addField())
+        this._bindSafeEvent(event, () => this._addField(this.fieldTemplateSelector))
       );
+
+      if (this.addSeparatorButtonSelector) {
+        $(this.wrapperSelector).on("click", this.addSeparatorButtonSelector, (event) =>
+          this._bindSafeEvent(event, () => this._addField(this.separatorTemplateSelector))
+        );
+      }
 
       $(this.wrapperSelector).on("click", this.removeFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, (target) => this._removeField(target))
@@ -104,7 +113,11 @@
       }
     }
 
-    _addField() {
+    // Adds a field.
+    //
+    // template - A String matching the type of the template. Expected to be
+    //  either ".decidim-question-template" or ".decidim-separator-template".
+    _addField(templateClass = ".decidim-template") {
       const $wrapper = $(this.wrapperSelector);
       const $container = $wrapper.find(this.containerSelector);
 
@@ -119,18 +132,24 @@
       }
       if ($template === null || $template.length < 1) {
         // To preserve IE11 backwards compatibility, the views are using
-        // `<script type="text/template" class="decidim-template">` instead of
+        // `<script type="text/template">` with a given `class` instead of
         // `<template>`. The `<template> tags are parsed in IE11 along with the
         // DOM which may cause the form elements inside them to break the forms
         // as they are submitted with them.
-        $template = $wrapper.children("template, .decidim-template");
+        $template = $wrapper.children(`template, ${templateClass}`);
       }
 
       const $newField = $($template.html()).template(this.placeholderId, this._getUID());
 
       $newField.find("ul.tabs").attr("data-tabs", true);
 
-      $newField.appendTo($container);
+      const $lastQuestion = $container.find(this.fieldSelector).last()
+      if ($lastQuestion.length > 0) {
+        $lastQuestion.after($newField);
+      } else {
+        $newField.appendTo($container);
+      }
+
       $newField.foundation();
 
       if (this.onAddField) {

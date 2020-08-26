@@ -4,6 +4,8 @@ module Decidim
   module Verifications
     module Sms
       class AuthorizationsController < ApplicationController
+        include Decidim::Verifications::Renewable
+
         helper_method :authorization
 
         def new
@@ -41,7 +43,7 @@ module Decidim
 
           @form = ConfirmationForm.from_params(params)
 
-          ConfirmUserAuthorization.call(authorization, @form) do
+          ConfirmUserAuthorization.call(authorization, @form, session) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.sms")
 

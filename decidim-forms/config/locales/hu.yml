@@ -32,15 +32,21 @@ hu:
             statement: Nyilatkozat
           edit:
             save: Mentés
-            title: Cím
           form:
             add_question: Kérdés hozzáadása
             already_answered_warning: Néhány felhasználó már válaszolt a kérdőívre, így nem változtathatja meg kérdéseit.
+            collapse: Minden kérdés összecsukása
+            expand: Minden kérdés kibontása
+          matrix_row:
+            remove: Eltávolít
+            statement: Nyilatkozat
           question:
             add_answer_option: Válasz opció hozzáadása
             any: Bármilyen
+            collapse: Összecsukás
             description: Leírás
             down: Le
+            expand: Kibontás
             question: Kérdés
             remove: Eltávolít
             statement: Nyilatkozat
@@ -67,7 +73,6 @@ hu:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Jelentkezz be a fiókoddal </a> vagy <a href="%{sign_up_link}">iratkozz fel</a> a kérdőív megválaszolásához.
             title: Válaszoljon a kérdőívre
-          are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
           questionnaire_answered:
             body: Már megválaszoltad ezt a kérdőívet.
             title: Már megválaszolt
@@ -77,8 +82,11 @@ hu:
           questionnaire_for_private_users:
             body: A kérdőív csak magán felhasználók számára áll rendelkezésre
             title: A kérdőív lezárult
-          submit: Beküldés
           tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
+      step_navigation:
+        show:
+          are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
+          submit: Beküldés
       user_answers_serializer:
         created_at: Válaszolt
         id: Válasz azonosító

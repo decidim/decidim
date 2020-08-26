@@ -14,6 +14,7 @@ module Decidim
         routes do
           root to: proc { [200, {}, ["DUMMY VERIFICATION ENGINE"]] }
           get :edit_authorization, to: proc { [200, {}, ["CONTINUE YOUR VERIFICATION"]] }
+          get :renew_authorization, to: proc { [200, {}, ["RENEW YOUR VERIFICATION"]] }
         end
       end
     end
@@ -23,6 +24,8 @@ end
 Decidim::Verifications.register_workflow(:dummy_authorization_workflow) do |workflow|
   workflow.engine = Decidim::Verifications::DummyVerification::Engine
   workflow.expires_in = 1.hour
+  workflow.renewable = true
+  workflow.time_between_renewals = 5.minutes
 end
 
 RSpec.configure do |config|

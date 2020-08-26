@@ -107,6 +107,42 @@ module Decidim
           end
         end
 
+        context "when support threshold is reached" do
+          let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+          let(:initiative) do
+            create(:initiative,
+                   organization: organization,
+                   scoped_type: create(
+                     :initiatives_type_scope,
+                     supports_required: 4,
+                     type: create(:initiatives_type, organization: organization)
+                   ))
+          end
+
+          before do
+            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative: initiative)
+            create(:initiative_user_vote, initiative: initiative)
+          end
+
+          it "notifies the admins" do
+            expect(Decidim::EventsManager).to receive(:publish)
+              .with(kind_of(Hash))
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.initiatives.support_threshold_reached",
+                event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
+                resource: initiative,
+                followers: [admin]
+              )
+
+            command.call
+          end
+        end
+
         context "when initiative type requires extra user fields" do
           let(:initiative) do
             create(

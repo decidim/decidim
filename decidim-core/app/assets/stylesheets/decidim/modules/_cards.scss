@@ -28,14 +28,16 @@ $datetime-bg: var(--primary);
   background: $card-bg;
   border: $card-border;
   border-radius: $card-border-radius;
-  overflow: hidden;
+  // Keep visible for accessibility (active/focused card as a link)
+  overflow: visible;
 
-  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+  @include modifiers(
+    border-top-color,
+    (
+      muted: rgba($muted, .3),
+    )
+  ){
     border-top-width: $card-border-top-width;
-  }
-
-  &:hover{
-    @include modifiers(border-color, (muted: rgba($muted, .3)));
   }
 }
 
@@ -77,6 +79,13 @@ $datetime-bg: var(--primary);
   @extend .heading5;
 }
 
+a.card__title,
+a .card__title{
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
 .card__header{
   margin-bottom: $card-padding / 2;
 
@@ -96,9 +105,9 @@ $datetime-bg: var(--primary);
   margin-top: .5rem;
   margin-bottom: -.75rem;
   font-size: 80%;
-  text-transform: uppercase;
   font-weight: 800;
   letter-spacing: .05em;
+  text-transform: uppercase;
   color: $muted;
   display: flex;
   align-self: flex-start;
@@ -113,6 +122,15 @@ $datetime-bg: var(--primary);
 }
 
 .card__text{
+  &:first-child{
+    margin-top: -.25em; //balances top alignment in card
+  }
+
+  a:hover{
+    color: darken($secondary, 20%);
+    text-decoration: underline;
+  }
+
   .card__text--status{
     font-weight: bold;
     text-transform: uppercase;
@@ -121,7 +139,12 @@ $datetime-bg: var(--primary);
       content: " ";
     }
 
-    @include modifiers(color, (muted: $muted));
+    @include modifiers(
+      color,
+      (
+        muted: $muted,
+      )
+    );
   }
 
   .card__text--category{
@@ -141,7 +164,7 @@ $datetime-bg: var(--primary);
 }
 
 .card__text--separated-mid-dot{
-  @include inline-separator(' · ');
+  @include inline-separator(" · ");
 }
 
 .card__image{
@@ -237,6 +260,10 @@ $datetime-bg: var(--primary);
   [data-toggler]{
     margin-bottom: -.5rem;
   }
+
+  &.inline-block{
+    display: inline-block;
+  }
 }
 
 .card__voting{
@@ -250,6 +277,24 @@ $datetime-bg: var(--primary);
   line-height: 1;
 }
 
+/* Card activity date */
+.card__activity-date{
+  margin-bottom: .5rem;
+
+  &.inline-block{
+    display: inline-block;
+
+    &.before-content::before{
+      content: "";
+      margin-right: .8rem;
+      border-right: $border;
+      height: .7rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
 /* Card data */
 
 .card-data{
@@ -257,14 +302,26 @@ $datetime-bg: var(--primary);
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+
+  a:hover{
+    text-decoration: underline;
+  }
+
+  span:focus{
+    outline: $anchor-outline-focus;
+    outline-color: var(--highlight);
+    outline-offset: $anchor-outline-offset;
+  }
 }
 
 .card-data__item{
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-basis: 33.33%;
   flex-grow: 1;
   text-align: center;
-  text-transform: uppercase;
   font-size: rem-calc(15);
   line-height: 1;
   color: $muted;
@@ -280,6 +337,18 @@ $datetime-bg: var(--primary);
 
   &.card-data__item--expand{
     line-height: $global-lineheight;
+  }
+
+  &.creation_date_status strong{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .8em;
+    letter-spacing: .05em;
+    color: $body-font-color;
+  }
+
+  [data-toggle]{
+    margin-bottom: 0;
   }
 }
 
@@ -318,7 +387,6 @@ $datetime-bg: var(--primary);
 
 .card__popularity__data{
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   line-height: 1;
   margin-bottom: .2rem;
@@ -350,7 +418,6 @@ $datetime-bg: var(--primary);
 
 .card__support__data{
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   line-height: 1;
   margin-bottom: .2rem;
@@ -404,6 +471,13 @@ $datetime-bg: var(--primary);
 
   &:hover{
     color: $anchor-color;
+    text-decoration: underline;
+  }
+
+  &:focus{
+    z-index: 2; // Raise the focus border on top of overflowing elements
+    outline: $anchor-outline-focus;
+    outline-offset: $anchor-outline-offset;
   }
 }
 
@@ -413,8 +487,8 @@ $datetime-bg: var(--primary);
 
 /* Card list */
 .card--list{
-  .card--list__item:not(:last-of-type),
-  *:not(:last-of-type) .card--list__item{
+  .card--list__item:not(:last-child),
+  *:not(:last-child) .card--list__item{
     border-bottom: $border;
   }
 }
@@ -426,6 +500,11 @@ $datetime-bg: var(--primary);
 
   .card--list--mini &{
     padding-left: $card-padding-small;
+
+    .card__link{
+      display: flex;
+      align-items: center;
+    }
   }
 
   @include breakpoint(medium){
@@ -462,9 +541,10 @@ $datetime-bg: var(--primary);
   flex-grow: 1;
   flex-shrink: 1;
   display: inline-flex;
-  overflow: hidden;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
+  // Keep visible for accessibility (active/focused card as a link)
+  overflow: visible;
 
   &.card--list__text--top{
     align-items: start;
@@ -472,6 +552,10 @@ $datetime-bg: var(--primary);
 
   .card--list--mini &{
     padding: .5rem .5rem .5rem 0;
+
+    > *{
+      flex-grow: 1;
+    }
   }
 
   .author{
@@ -483,6 +567,12 @@ $datetime-bg: var(--primary);
 .card--list__heading{
   margin-bottom: 0;
   display: block;
+
+  &.heading6{
+    text-transform: unset;
+    letter-spacing: unset;
+    font-weight: unset;
+  }
 }
 
 .card--list .tags{
@@ -499,7 +589,6 @@ $datetime-bg: var(--primary);
   align-items: center;
   justify-content: center;
   text-align: center;
-  text-transform: uppercase;
   font-size: 85%;
   min-width: 7rem;
   line-height: 1;
@@ -513,6 +602,36 @@ $datetime-bg: var(--primary);
 
   .card--list--mini &{
     padding: .5rem $card-padding-small;
+  }
+}
+
+.card--list__data-added{
+  background-color: tint($success, 80%);
+
+  a{
+    color: $body-font-color;
+  }
+}
+
+.card--list__check{
+  margin-bottom: 0;
+  border-radius: 50%;
+  align-self: center;
+  flex-shrink: 0;
+  width: 2em;
+  height: 2em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+
+  &--disabled{
+    pointer-events: none;
+  }
+
+  svg{
+    flex-basis: auto;
   }
 }
 
@@ -558,10 +677,10 @@ $datetime-bg: var(--primary);
   }
 
   .card--list__annotation{
-    text-transform: uppercase;
     letter-spacing: .03em;
     font-size: .7em;
     font-weight: 600;
+    text-transform: uppercase;
     width: $date-width;
   }
 
@@ -585,9 +704,24 @@ $datetime-bg: var(--primary);
   }
 }
 
+.card--list__author{
+  @extend .card--list__titled-text;
+
+  padding: .5rem 1rem .5rem 0;
+  margin-left: -.5rem;
+
+  .author{
+    margin: 0;
+  }
+
+  .author__avatar img{
+    border-radius: 2px;
+  }
+}
+
 /* Card full width variant */
 .card--full{
-  margin-bottom: $card-margin-bottom*2;
+  margin-bottom: $card-margin-bottom * 2;
 
   &:last-child{
     margin-bottom: 0;
@@ -595,13 +729,23 @@ $datetime-bg: var(--primary);
 
   .card__title{
     @extend .heading2;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:focus{
+      outline: $anchor-outline-focus;
+      outline-color: var(--highlight);
+      outline-offset: $anchor-outline-offset;
+    }
   }
 
   .card__content{
     padding: $card-padding;
 
     @include breakpoint(large){
-      padding: $card-padding*2;
+      padding: $card-padding * 2;
     }
   }
 }
@@ -730,7 +874,6 @@ $datetime-bg: var(--primary);
   display: inline-flex;
   color: $card-id;
   padding: 0 .5rem;
-  text-transform: uppercase;
   font-size: $small-font-size;
   font-weight: bold;
   position: absolute;
@@ -778,7 +921,12 @@ $datetime-bg: var(--primary);
     margin-left: $card-padding;
   }
 
-  @include modifiers(color, (muted: tint($muted, 50))){
+  @include modifiers(
+    color,
+    (
+      muted: tint($muted, 50),
+    )
+  ){
     margin-top: -$global-margin * .95;
   }
 }
@@ -811,8 +959,11 @@ $datetime-bg: var(--primary);
       justify-content: left;
 
       strong{
-        color: $body-font-color;
         text-transform: uppercase;
+        font-weight: 600;
+        font-size: .8em;
+        letter-spacing: .05em;
+        color: $body-font-color;
       }
 
       .card__icondata--address{

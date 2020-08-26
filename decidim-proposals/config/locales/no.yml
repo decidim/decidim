@@ -5,7 +5,7 @@
         address: Adresse
         body: Body
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         title: Tittel
@@ -17,7 +17,7 @@
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
@@ -52,7 +52,6 @@
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/evaluating_proposal_event: Forslaget blir evaluert
-      decidim/proposals/proposal_endorsed_event: Forslag påtegnet
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
       decidim/proposals/publish_proposal_event: Forslag publisert
       decidim/proposals/rejected_proposal_event: Forslag avvist
@@ -65,9 +64,6 @@
       decidim/proposals/proposal:
         one: Forslag
         other: Forslag
-      decidim/proposals/proposal_endorsement:
-        one: Påtegning
-        other: Påtegninger
       decidim/proposals/proposal_note:
         one: Merk
         other: Merknader
@@ -77,21 +73,8 @@
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Forslag
-            'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
-        state_eq:
-          values:
-            evaluating: Vurderer
-            withdrawn: Trukket tilbake
-        state_null:
-          label: Status
-          values:
-            'true': Ikke besvart
     components:
       proposals:
         actions:
@@ -118,8 +101,8 @@
             new_proposal_body_template_help: Du kan definere forhåndsutfylt tekst som de nye forslagene vil ha
             new_proposal_help_text: Ny forslag hjelpetekst
             official_proposals_enabled: Offisielle forslag aktivert
-            participatory_texts_disabled_help: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             participatory_texts_enabled: Deltakende tekster aktivert
+            participatory_texts_enabled_readonly: Kan ikke samhandle med denne innstillingen hvis det finnes eksisterende forslag. Vennligst, opprett et nytt "Forslags komponent" hvis du vil aktivere denne funksjonen eller forkaste alle importerte forslag i `Deltakende tekster` -menyen hvis du vil deaktivere den.
             proposal_answering_enabled: Forslags besvaring aktivert
             proposal_edit_before_minutes: Forslag kan redigeres av forfattere før så mange minutter går
             proposal_length: Maksimal forslagstekst lengde
@@ -205,11 +188,6 @@
             email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}". Du kan slutte å følge den fra den forrige lenken.
             email_subject: Et forslag du følger har blitt akseptert
             notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget ble akseptert.
-        proposal_endorsed:
-          email_intro: '%{endorser_name}%{endorser_nickname}, som du følger, har nettopp godkjent forslaget "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: "%{endorser_nickname} har sluttet seg til et nytt forslag"
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslaget er blitt påtegnet av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" holder på å bli evaluert. Du kan se etter svar på denne siden:'
@@ -394,10 +372,8 @@
             title: Oppdater forslag
             update: Oppdater
           form:
-            add_images: Legg til bilder
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
-            gallery_legend: "(Valgfritt) Legg til et bildegalleri"
             select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
@@ -543,7 +519,7 @@
           open: Åpen
           published: Publisert
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -585,14 +561,11 @@
             one: og %{count} til person
             other: og %{count} flere personer
           info-message: Dette er et <strong>samarbeids utkast</strong> for et forslag. Dette betyr at du kan hjelpe forfatterne å forme forslaget med bruk av kommentarfeltet nedenfor eller forbedre det direkte med å be om tilgang til å redigere det. Når forfatterne gir deg tilgang, vil du kunne redigere utkastet.
-          of_versions: "(av %{number})"
           publish: Publiser
           publish_info: Publiser denne versjonen av utkastet eller
           published_proposal: publisert forslag
           request_access: Be om tilgang
           requested_access: Tilgang forespurt
-          see_other_versions: se andre versjoner
-          version: Versjon %{number}
           version_history: se versjonshistorikk for dette forslaget
           withdraw: trekk tilbake utkastet
         states:
@@ -629,12 +602,11 @@
           fields:
             category: Kategori
             comments: Kommentarer
-            endorsements: Påtegnelser
             id: ID
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
-            scope: Omfang
+            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -646,19 +618,6 @@
           amend: Endre
           comment: Kommentar
           comments: Kommentarer
-          endorse: Påtegne
-      proposal_endorsements:
-        create:
-          error: Det oppstod et problem med å påtegne forslaget.
-        identities:
-          done: Ferdig
-          select_identity: Velg identitet
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Påtegnet
-          endorse: Påtegne
-        render_endorsements_button_card_part:
-          endorse: Påtegne
       proposal_votes:
         create:
           error: Det oppstod et problem med å støtte forslaget.
@@ -685,10 +644,6 @@
           discard_confirmation: Er du sikker på at du vil forkaste dette forslaget?
           send: Forhåndsvis
           title: Rediger Forslags utkastet
-        endorsement_identities_cabin:
-          endorse: Påtegne
-        endorsements_card_row:
-          comments: Kommentarer
         filters:
           activity: Min aktivitet
           all: Alle
@@ -697,7 +652,7 @@
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           type: Type
@@ -747,6 +702,7 @@
           answer: Svar
           back_to: Tilbake til
           changes_at_title: Endring til "%{title}"
+          comments: Kommentarer
           edit_proposal: Rediger forslaget
           endorsements_list: Liste over Påtegnelser
           estimated_cost: Estimert kostnad
@@ -766,7 +722,6 @@
           read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
-          withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
           withdraw_proposal: Trekk tilbake forslag
         vote_button:
           already_voted: Støttet allerede
@@ -817,20 +772,12 @@
         error: Det oppstod et problem med å lagre samarbeids utkastet.
         success: Forslags utkastet ble oppdatert.
       versions:
-        changes_at_title: Endringer på "%{title}"
+        collaborative_drafts:
+          back_to_resource: Gå tilbake til samarbeids utkast
         index:
           title: Versjoner
-        stats:
-          back_to_collaborative_draft: Gå tilbake til samarbeids utkast
-          back_to_proposal: Gå tilbake til forslag
-          number_of_versions: Versjoner
-          show_all_versions: Vis alle versjoner
-          version_author: Versjon forfatter
-          version_created_at: Versjon opprettet
-          version_number: Versjonsnummer
-          version_number_out_of_total: "%{current_version} ut av %{total_count}"
-        version:
-          version_index: Versjon %{index}
+        proposals:
+          back_to_resource: Gå tilbake til forslag
       withdraw:
         errors:
           has_supports: Dette forslaget kan ikke trekkes tilbake fordi det allerede har støtte.

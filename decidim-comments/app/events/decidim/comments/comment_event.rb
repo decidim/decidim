@@ -9,8 +9,6 @@ module Decidim
       include Decidim::Events::AuthorEvent
 
       included do
-        delegate :author, to: :comment
-
         def resource_path
           resource_locator.path(url_params)
         end
@@ -21,6 +19,21 @@ module Decidim
 
         def resource_text
           comment.formatted_body
+        end
+
+        def author
+          comment.normalized_author
+        end
+
+        def author_presenter
+          return unless author
+
+          @author_presenter ||= case author
+                                when Decidim::User
+                                  Decidim::UserPresenter.new(author)
+                                when Decidim::UserGroup
+                                  Decidim::UserGroupPresenter.new(author)
+                                end
         end
 
         private

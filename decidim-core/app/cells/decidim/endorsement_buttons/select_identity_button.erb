@@ -1,0 +1,10 @@
+<%= javascript_include_tag "decidim/identity_selector_dialog" %>
+<button id="select-identity-button" type="button" name="button" class="button small compact light button--sc expanded secondary <%= "active" if fully_endorsed?(resource, current_user) %>">
+  <%= endorse_translated %>
+  <%= render_screen_reader_context_title %>
+</button>
+
+<div class="reveal collapse"
+     id="user-identities"
+     data-reveal data-reveal-identities-url="<%= reveal_identities_url %>">
+</div>

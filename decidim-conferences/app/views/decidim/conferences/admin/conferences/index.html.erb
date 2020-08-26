@@ -23,7 +23,7 @@
               <td>
                 <% if conference.promoted? %>
                   <span data-tooltip class="icon-state icon-highlight" aria-haspopup="true" data-disable-hover="false" title="<%= t("models.conference.fields.promoted", scope: "decidim.admin") %>">
-                    <%= icon "star" %>
+                    <%= icon "star", aria_label: t("models.conference.fields.promoted", scope: "decidim.admin"), role: "img" %>
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :conference, conference: conference %>

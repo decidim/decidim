@@ -28,10 +28,14 @@
 @import "dropdown";
 @import "agenda";
 @import "draggable-list";
+@import "loading-spinner";
+@import "import_result";
 
 // mentions__container
 @import "decidim/modules/tags";
 @import "decidim/modules/input-tags";
 @import "decidim/modules/input-mentions";
-@import "decidim/modules/input-hashtags";
 @import "decidim/modules/input-gallery";
+
+//Admin dashboard
+@import "users_statistics";

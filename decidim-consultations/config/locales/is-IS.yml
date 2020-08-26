@@ -26,7 +26,6 @@ is-IS:
         scope: Borgarsvæði
         slug: URL slug
         subtitle: Texti
-        title: Titill
         vote: Ytri atkvæðakerfi
         what_is_decided: Hvað er ákveðið
     errors:

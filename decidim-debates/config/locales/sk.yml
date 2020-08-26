@@ -1,0 +1,156 @@
+sk:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategória
+        decidim_category_id: Kategória
+        description: Popis
+        end_time: Končí
+        information_updates: Aktualizácia Informácií
+        instructions: Inštrukcie ku zapojeniu
+        start_time: Začiatok
+        title: Názov
+        user_group_id: Vytvoriť debatu ako
+    models:
+      decidim/debates/create_debate_event: Debata
+      decidim/debates/creation_disabled_event: Debaty zakázané
+      decidim/debates/creation_enabled_event: Debaty povolené
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debata
+        few: Debaty
+        many: Debaty
+        other: Debaty
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Vytvoriť
+        name: Debaty
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_enabled: Komentáre povolené
+          step:
+            announcement: Oznámenie
+            comments_blocked: Komentáre blokované
+            creation_enabled: Vytvorenie debaty používateľmi povolené
+    debates:
+      actions:
+        confirm_destroy: Ste si istí?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nová %{name}
+        title: Akcie
+      admin:
+        debates:
+          create:
+            invalid: Pri vytváraní debaty sa vyskytol problém.
+            success: Debata úspešne vytvorená.
+          destroy:
+            success: Debata úspešne zmazaná.
+          edit:
+            title: Upraviť debatu
+            update: Aktualizovať debatu
+          index:
+            title: Debaty
+          new:
+            create: Vytvoriť debatu
+            title: Nová debata
+          update:
+            invalid: Pri aktualizácii debaty došlo k problému.
+            success: Debata úspešne aktualizovaná
+        models:
+          debate:
+            name: Debata
+      admin_log:
+        debate:
+          create: "%{user_name} vytvoril/a debatu%{resource_name} v priestore %{space_name}"
+          update: "%{user_name} aktualizoval/a debatu %{resource_name} v priestore %{space_name}"
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debata"
+            few: "%{count} debaty"
+            many: "%{count} debaty"
+            other: "%{count} debaty"
+        create:
+          invalid: Pri vytváraní debaty sa vyskytol problém.
+          success: Debata úspešne vytvorená.
+        debate:
+          participate: Zúčastniť sa
+        filters:
+          all: Všetko
+          category: Kategória
+          category_prompt: Vyberte kategóriu
+          citizens: Občania
+          official: Oficiálni
+          origin: Pôvod
+          search: Vyhľadávanie
+        filters_small_view:
+          close_modal: Zatvoriť okno
+          filter: Filter
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        index:
+          new_debate: Nová debata
+        new:
+          back: Späť
+          create: Vytvoriť
+          select_a_category: Vyberte kategóriu
+          title: Nová debata
+        show:
+          back: Späť na zoznam
+      last_activity:
+        new_debate_at_html: "<span>Nová debata na %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Dátum ukončenia
+            official_debate: Oficiálna debata
+            start_time: Dátum začatia
+            title: Názov
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Ahoj, debata "%{resource_title}" bola vytvorená v participatívnom priestore "%{participatory_space_title}", pozrite sa na ňu a prispejte:
+            email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+            email_subject: Nová debata "%{resource_title}" na %{space_title}
+            notification_title: Debata <a href="%{resource_path}">%{resource_title} </a> bola vytvorená v priestore <a href="%{space_path}">%{space_title} </a>.
+          user_followers:
+            email_intro: |-
+              Dobrý deň,
+              %{author_name} %{author_nickname}, ktorého sledujete, vytvoril novú debatu "%{resource_title}". Pozrite sa na ňu a prispejte:
+            email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+            email_subject: Nová debata "%{resource_title}" od %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname} </a> vytvoril debatu <a href="%{resource_path}">% {resource_title} </a>.
+        creation_disabled:
+          email_intro: 'Tvorba debát v priestore %{participatory_space_title} už nie je možná. Môžete sa zúčastniť otvorených debát na tejto stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Tvorba debát zastavená v priestore %{participatory_space_title}
+          notification_title: Tvorba debát je teraz pozastavená v priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Teraz môžete vytvoriť nové debaty v priestore %{participatory_space_title}! Zúčastnite sa na tejto stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Debaty sú teraz k dispozícii v %{participatory_space_title}
+          notification_title: Teraz môžete začať <a href="%{resource_path}"> nové debaty v priestore </a><a href="%{participatory_space_url}">%{participatory_space_title} </a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Vyberte si otvorenú debatu a zúčastnite sa
+          description: Tento odznak ste dostali za aktívnu participáciu komentovaním v rôznych debatách.
+          description_another: Tento účastník sa zúčastnil na %{score} debatách.
+          description_own: Zúčastnili ste sa na %{score} debatách.
+          name: Debaty
+          next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
+          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
+          unearned_own: ZatiaĽ ste sa nezúčastnili na žiadnej debate.
+    metrics:
+      debates:
+        description: Počet vytvorených debát
+        object: debaty
+        title: Debaty

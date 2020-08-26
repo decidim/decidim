@@ -4,11 +4,11 @@ on:
     branches:
       - develop
       - master
-      - "release/**"
+      - release/*
       - "*-stable"
   pull_request:
-    branches:
-      - "*"
+    branches-ignore:
+      - "chore/l10n*"
 
 env:
   CI: "true"
@@ -20,6 +20,7 @@ jobs:
   main:
     name: Tests
     runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
     services:
       postgres:
         image: postgres:11

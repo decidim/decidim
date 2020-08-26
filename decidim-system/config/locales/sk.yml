@@ -1,0 +1,95 @@
+sk:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Naozaj chcete odstrániť?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nový
+        save: Uložit
+        title: Akcie
+      admins:
+        create:
+          error: Pri tvorbe nového správcu nastala chyba.
+          success: Správca úspešne vytvorený
+        destroy:
+          success: Správca úspešne vymazaný
+        edit:
+          title: Upraviť správcu
+          update: Aktualizovať
+        index:
+          title: Administrátori
+        new:
+          create: Vytvoriť
+          title: Nový správca
+        update:
+          error: Pri aktualizácii správcu nastala chyba.
+          success: Správca úspešne aktualizovaný
+      default_pages:
+        placeholders:
+          content: Prosíme pridajte zmysluplný obsah na statickú stránku %{page} na paneli správcu.
+          title: Predvolený názov pre %{page}
+      menu:
+        admins: Administrátori
+        dashboard: Hlavný panel
+        organizations: Organizácie
+      models:
+        admin:
+          fields:
+            created_at: Vytvorené
+            email: E-mail
+          name: Admin
+          validations:
+            email_uniqueness: správca s touto e-mailovou adresou už existuje
+        organization:
+          actions:
+            save_and_invite: Vytvoriť organizáciu a pozvať správcu
+          fields:
+            created_at: Vytvorené
+            name: Meno
+            omniauth_settings: Nastavenia Omniauth
+            smtp_settings: Nastavenie SMTP
+          name: Organizácia
+      organizations:
+        create:
+          error: Pri vytváraní novej organizácie došlo k chybe.
+          success: Organizácia úspešne vytvorená.
+        edit:
+          secondary_hosts_hint: Zadajte každý host na nový riadok
+        index:
+          title: Organizácie
+        new:
+          reference_prefix_hint: Referenčná predpona je použitá pre unikátne identifikovanie zdrojov naprieč všetkými organizáciami
+          secondary_hosts_hint: Zadajte každý host na nový riadok
+          title: Nová organizácia
+        omniauth_settings:
+          decidim:
+            client_id: ID klienta
+            client_secret: Tajný kľúč klienta
+            site_url: URL stránky
+          enabled: Povolené
+          enabled_by_default: Tento provider je od základu povolený. Môžete ho editovať, ale nie zrušiť.
+          facebook:
+            app_id: ID aplikácie
+            app_secret: Tajný kľúč aplikácie
+          google_oauth2:
+            client_id: ID klienta
+            client_secret: Tajný kľúč klienta
+          icon: Ikona
+          icon_path: Odkaz na ikonu
+          twitter:
+            api_key: API kľúč
+            api_secret: Tajný kľúč API
+        update:
+          error: Pri aktualizácii organizácie došlo k chybe.
+          success: Organizácia úspešne aktualizovaná.
+        users_registration_mode:
+          disabled: Môžete pristupovať iba pomocou externého účtu
+          enabled: Umožniť účastníkom registráciu a prihlásenie sa
+          existing: Neumožniť účastníkom registráciu, ale umožniť prihlásenie sa existujúcim účastníkom
+      shared:
+        notices:
+          no_organization_warning_html: Musíte vytvoriť organizáciu, aby ste mohli začať. Prečítajte si %{guide}, než začnete.
+          our_getting_started_guide: našeho sprievodcu Ako začať
+      titles:
+        dashboard: Hlavný panel

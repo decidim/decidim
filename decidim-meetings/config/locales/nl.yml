@@ -283,6 +283,7 @@ nl:
           form:
             available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
             invites: Uitnodigingen
+            recommendation_message: Om privacyredenen raden we je aan dit inscriptformulier te verwijderen als je het niet meer nodig hebt. Standaard is dit 3 maanden na afloop van de vergadering.
             registration_form: Registratieformulier
             registrations_count:
               one: Er is %{count} registratie geweest.
@@ -349,9 +350,9 @@ nl:
           category: Categorie
           category_prompt: Kies een categorie
           date: Datum
-          past: Archief
+          past: Verleden
           search: Zoeken
-          upcoming: Aankomend
+          upcoming: Aankomende
         filters_small_view:
           close_modal: Sluit modaal
           filter: Filter
@@ -368,7 +369,9 @@ nl:
           confirm: Bevestigen
         show:
           attendees: Aantal deelnemers
+          back: Terug naar het overzicht
           contributions: Aantal bijdragen
+          date: 'Datum:'
           going: Gaat
           join: Deelnemen aan bijeenkomst
           meeting_report: Bijeenkomst verslag

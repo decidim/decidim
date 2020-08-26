@@ -58,3 +58,43 @@ end
 ```
 
 Every model in a component doesn't have to (and should not) know about its parent participatory space, but instead should be scoped to the components.
+
+## Settings
+
+Components can define settings that modify its behavior. This settings can be defined to be set for the whole life of the component (global settings), or to be set for each different step of the participatory space (step settings).
+
+Each attribute defined can be described through properties:
+
+* they should have a `type`: `boolean`, `integer`, `string` (short texts), `text` (long texts) or `enum`.
+* they can be `required` or not
+* they can have a `default` value
+* `text` and `string` attributes can be `translated`, which will allow admin users to enter values for every language.
+* `text` attributes can use an `editor` to edit them as HTML code
+* `enum` attributes should have a `choices` attributes that list all the possible values. This could be a lambda function.
+* they can be `readonly` in some cases, throught a lambda function that received the current component within the `context`.
+
+```ruby
+# :my_component is the unique name of the component that will be globally registered.
+Decidim.register_component(:my_component) do |component|
+  ...
+
+  component.settings(:global) do |settings|
+    settings.attribute :a_boolean_setting, type: :boolean, default: true
+    settings.attribute :an_enum_setting, type: :enum, default: "all", choices: %w(all one none)
+  end
+
+  component.settings(:step) do |settings|
+    settings.attribute :a_text_setting, type: :text, default: false, required: true, translated: true, editor: true
+    settings.attribute :a_lambda_enum_setting, type: :enum, default: "all", choices: -> { SomeClass.enum_options }
+    settings.attribute :a_readonly_setting, type: :string, readonly: ->(context) { SomeClass.readonly?(context[:component]) }
+  end
+
+  ...
+end
+```
+
+Each setting should have one or more translation texts related for the admin zone:
+
+* `decidim.components.[component_name].settings.[global|step].[attribute_name]`: Admin label for the setting.
+* `decidim.components.[component_name].settings.[global|step].[attribute_name]_help`: Additional text with help for the setting use.
+* `decidim.components.[component_name].settings.[global|step].[attribute_name]_readonly`: Additional text for the setting when it is readonly.

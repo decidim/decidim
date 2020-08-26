@@ -20,5 +20,9 @@ module Decidim
     def default_url(*)
       ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
     end
+
+    def default_multiuser_url(*)
+      ActionController::Base.helpers.asset_path("decidim/avatar-multiuser.png")
+    end
   end
 end

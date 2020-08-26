@@ -4,8 +4,8 @@ pl:
       answer:
         body: Odpowiedź
       question:
-        max_choices: Maksymalna liczba opcji
-        question_type: Rodzaj
+        max_choices: Maksymalna liczba opcji do wyboru
+        question_type: Typ
       questionnaire_question:
         mandatory: Obowiązkowy
     errors:
@@ -15,68 +15,106 @@ pl:
             choices:
               missing: nie są kompletne
               too_many: jest zbyt wiele
+        questionnaire:
+          request_invalid: Wystąpił błąd podczas przetwarzania żądania. Spróbuj ponownie
   decidim:
     forms:
       admin:
         models:
           components:
             description: Opis
-            tos: Warunki usługi
+            tos: Warunki korzystania
         questionnaires:
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Dowolny tekst
-            remove: Usunąć
+            remove: Usuń
             statement: Komunikat
           edit:
-            save: Zapisać
-            title: Tytuł
+            save: Zapisz
+            title: Edytuj formularz
           form:
             add_question: Dodaj pytanie
-            already_answered_warning: Kwestionariusz jest już obsługiwany przez niektórych użytkowników, więc nie można modyfikować jego pytań.
+            add_separator: Dodaj separator
+            already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
+            collapse: Zwiń wszystkie pytania
+            expand: Rozwiń wszystkie pytania
+          matrix_row:
+            matrix_row: Wiersz
+            remove: Usuń
+            statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
+            add_matrix_row: Dodaj wiersz
             any: Każdy
+            collapse: Zwiń
             description: Opis
             down: Na dół
+            expand: Rozwiń
             question: Pytanie
-            remove: Usunąć
+            remove: Usuń
             statement: Komunikat
             up: W górę
+          separator:
+            down: Na dół
+            remove: Usuń
+            separator: Separator
+            up: W górę
           update:
-            invalid: Podczas zapisywania kwestionariusza wystąpiły błędy.
-            success: Ankiety zostały pomyślnie zapisane.
+            invalid: Podczas zapisywania formularza wystąpił błąd.
+            success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta
+      files:
+        extension_whitelist: 'Dozwolone formaty:'
+      images:
+        dimensions: "%{width} × %{height} px"
+        dimensions_info: 'Rozmiar obrazu będzie wynosił:'
+        processors:
+          resize_and_pad: Zmieniony i dopełniony do
+          resize_to_fit: Dopasowany
       question_types:
         long_answer: Długa odpowiedź
+        matrix_multiple: Macierz (wiele opcji)
+        matrix_single: Macierz (jedna opcja)
         multiple_option: Wiele opcji
         short_answer: Krótka odpowiedź
-        single_option: Opcja pojedyncza
+        single_option: Jedna opcja
         sorting: Sortowanie
       questionnaires:
         answer:
-          invalid: Podczas odpowiadania na kwestionariusz wystąpiły błędy.
-          success: Kwestionariusz odpowiedział pomyślnie.
+          invalid: Podczas odpowiadania na formularz wystąpiły błędy.
+          max_choices_alert: Wybrano zbyt wiele opcji
+          success: Odpowiedziano na formularz.
         question:
-          max_choices: 'Maksymalne opcje: %{n}'
+          max_choices: 'Maksymalny wybór opcji: %{n}'
         show:
           answer_questionnaire:
-            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na kwestionariusz.
-            title: Odpowiedz na kwestionariusz
-          are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+            anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a> aby odpowiedzieć na formularz.
+            title: Odpowiedz na formularz
+          current_step: Krok %{step}
+          of_total_steps: z %{total_steps}
           questionnaire_answered:
-            body: Już odpowiedziałeś na tę ankietę.
-            title: Już odpowiedziałem
+            body: Już odpowiedziałeś na ten formularz.
+            title: Już odpowiedziano
           questionnaire_closed:
-            body: Kwestionariusz jest zamknięty i nie można udzielić na nie odpowiedzi.
-            title: Ankieta została zamknięta
+            body: Formularz jest zamknięty i nie można udzielić na niego odpowiedzi.
+            title: Formularz został zamknięty
           questionnaire_for_private_users:
-            body: Kwestionariusz jest dostępny tylko dla użytkowników prywatnych
-            title: Ankieta została zamknięta
+            body: Formularz jest dostępny tylko dla użytkowników prywatnych
+            title: Formularz został zamknięty
+          tos_agreement: Biorąc udział akceptujesz Warunki korzystania z serwisu
+      step_navigation:
+        show:
+          are_you_sure: Tego działania nie można cofnąć i nie będzie można edytować odpowiedzi. Jesteś pewny?
+          back: Wróć
+          continue: Dalej
           submit: Zatwierdź
-          tos_agreement: Biorąc udział w programie, akceptujesz jego Warunki korzystania z usługi
       user_answers_serializer:
-        created_at: Odpowiedziałem na
+        created_at: Odpowiedziałem
         id: ID odpowiedzi
+        ip_hash: Hash Ip
+        registered: Zarejestrowano
+        unregistered: Nie zarejestrowano
+        user_status: Status użytkownika

@@ -43,13 +43,40 @@ module Decidim
         clear_enqueued_jobs
       end
 
-      it "does not send an email" do
+      it "sends the invitation instructions" do
         command.call
-        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued.on_queue("mailers")
+        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
 
-      it "broadcasts invalid" do
-        expect { command.call }.to broadcast(:invalid)
+      it "broadcasts ok" do
+        expect { command.call }.to broadcast(:ok)
+      end
+    end
+
+    context "when the user has not accepted the invitation" do
+      let(:user) { build(:user) }
+
+      before do
+        user.invite!
+      end
+
+      it "gets the invitation resent" do
+        command.call
+        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers").at_least(:once)
+      end
+    end
+
+    context "when the user exists in the organization" do
+      let!(:organization) { create :organization }
+      let!(:user) { create :user, organization: organization }
+
+      before do
+        clear_enqueued_jobs
+      end
+
+      it "sends the invitation instructions" do
+        command.call
+        expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
   end

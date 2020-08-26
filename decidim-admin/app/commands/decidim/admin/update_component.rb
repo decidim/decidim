@@ -33,13 +33,15 @@ module Decidim
       private
 
       def update_component
-        @previous_settings = @component.attributes["settings"].dup
-
+        @previous_settings = @component.attributes["settings"].with_indifferent_access
         @component.name = form.name
+        @component.weight = form.weight
+
+        restore_readonly_settings!
+
         @component.settings = form.settings
         @component.default_step_settings = form.default_step_settings
         @component.step_settings = form.step_settings
-        @component.weight = form.weight
 
         @settings_changed = @component.settings_changed?
 
@@ -56,6 +58,28 @@ module Decidim
 
       def current_settings
         @component.attributes["settings"]
+      end
+
+      # Keep previous values for readonly settings
+      def restore_readonly_settings!
+        browse_readonly_settings("global") do |attribute|
+          form.settings[attribute] = @previous_settings.dig("global", attribute)
+        end
+
+        browse_readonly_settings("step") do |attribute|
+          form.default_step_settings[attribute] = @previous_settings.dig("default_step", attribute) if form.default_step_settings.present?
+          if form.step_settings.present?
+            form.step_settings.each do |step_name, step|
+              step[attribute] = @previous_settings.dig("steps", step_name, attribute)
+            end
+          end
+        end
+      end
+
+      def browse_readonly_settings(settings_name)
+        @component.manifest.settings(settings_name).attributes
+                  .select { |_attribute, obj| obj.readonly?(component: @component) }
+                  .each { |attribute, _obj| yield(attribute) }
       end
     end
   end

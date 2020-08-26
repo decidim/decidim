@@ -1,0 +1,12 @@
+<ul id="proposals_list">
+  <% decorated_proposals do |proposal| %>
+    <li>
+      <label><input type="checkbox" data-picker-text="<%= proposal.id_and_title(html_escape: true) %>" data-picker-url="<%= picker_path %>" value="<%= proposal.id %>" data-picker-choose> <%= proposal.id_and_title(html_escape: true) %> (<%= proposal.reference %>)</label>
+    </li>
+  <% end %>
+  <% if more_proposals? %>
+    <li><div class="callout warning"><%= t("proposals_picker.more_proposals", scope: "decidim.proposals", number: more_proposals_count) %></div>
+    </li>
+  <% end %>
+</ul>
+<div id="no_proposals" class="callout warning"><%= t("proposals_picker.no_proposals", scope: "decidim.proposals") %></div>

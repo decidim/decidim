@@ -1,11 +1,8 @@
 @import "tribute";
 
-.mentions__container{
+.mentions__container,
+.hashtags__container{
   width: 100%;
-
-  span{
-    color: $secondary;
-  }
 
   [type=text]{
     white-space: nowrap;
@@ -27,7 +24,8 @@
     display: block; // firefox
   }
 
-  &.mentions__container--textarea{
+  &.mentions__container--textarea,
+  &.hashtags__container--textarea{
     [contenteditable=true]{
       -webkit-appearance: textfield;
       -moz-appearance: textfield-multiline;
@@ -60,6 +58,7 @@
     position: relative;
     min-width: 100%;
     top: -1rem - rem-calc(1);
+    color: $secondary;
 
     ul{
       //reset list
@@ -82,8 +81,27 @@
       }
     }
 
-    .highlight{
+    .highlight,
+    li:hover{
       background-color: $input-prefix-background;
+    }
+
+    .tribute-item{
+      .author__avatar{
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0;
+      }
+
+      .is-group{
+        height: 1.6rem;
+        float: right;
+        font-weight: normal;
+
+        svg{
+          vertical-align: middle;
+        }
+      }
     }
   }
 

@@ -18,17 +18,20 @@ module Decidim
     #   event and will receive a notification about it.
     # followers - a collection of `Decidim::Users` that should be notified about
     #   the event, even though it doesn't affect them directly
+    # force_send - boolean indicating if EventPublisherJob should skip the
+    #   `notifiable?` check it performs before notifying. Defaults to __false__.
     # extra - a Hash with extra information to be included in the notification.
     #
     # Returns nothing.
     # rubocop:disable Metrics/ParameterLists
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, affected_users: [], followers: [], extra: {})
+    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, affected_users: [], followers: [], extra: {}, force_send: false)
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,
         resource: resource,
         affected_users: affected_users.uniq.compact,
         followers: followers.uniq.compact,
+        force_send: force_send,
         extra: extra
       )
     end

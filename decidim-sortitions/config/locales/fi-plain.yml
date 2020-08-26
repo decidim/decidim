@@ -124,6 +124,7 @@ fi-pl:
         show:
           algorithm: Satunnaisvalinnan algoritmikoodi
           any_category: kaikista aihepiireistä
+          back: Takaisin listaan
           cancelled: Peruttu satunnaisvalinta
           candidate_proposal_ids: Satunnaisvalintaehdotusten järjestys ja tunnukset
           candidate_proposals_info: 'Satunnaisvalinta tehtiin seuraavien ehdotusten (%{category_label}) välillä, seuraavilla tunnuksilla (lihavoituna valitut ehdotukset)  '

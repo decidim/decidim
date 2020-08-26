@@ -5,7 +5,7 @@ module Decidim
     # Controller to manage Organizations (tenants).
     #
     class OrganizationsController < Decidim::System::ApplicationController
-      helper_method :current_organization
+      helper_method :current_organization, :provider_enabled?
       helper Decidim::OmniauthHelper
 
       def new
@@ -57,11 +57,17 @@ module Decidim
         end
       end
 
+      private
+
       # The current organization for the request.
       #
       # Returns an Organization.
       def current_organization
         @organization
+      end
+
+      def provider_enabled?(provider)
+        Rails.application.secrets.dig(:omniauth, provider, :enabled)
       end
     end
   end

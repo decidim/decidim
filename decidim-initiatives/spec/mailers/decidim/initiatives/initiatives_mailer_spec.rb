@@ -33,19 +33,6 @@ module Decidim
         end
       end
 
-      context "when notifies validating request" do
-        let(:mail) { InitiativesMailer.notify_validating_request(initiative, initiative.author) }
-
-        it "renders the headers" do
-          expect(mail.subject).to eq("The initiative #{initiative.title["en"]} has requested its technical validation.")
-          expect(mail.to).to eq([initiative.author.email])
-        end
-
-        it "renders the body" do
-          expect(mail.body.encoded).to match(initiative.title["en"])
-        end
-      end
-
       context "when notifies progress" do
         let(:mail) { InitiativesMailer.notify_progress(initiative, initiative.author) }
 

@@ -7,14 +7,13 @@
   .button{
     margin-top: $global-margin * .75;
     margin-bottom: 0;
-    font-weight: $global-weight-normal;
   }
 }
 
 .process-header__phase--simple{
   padding: .5rem 1rem;
 
-  @include breakpoint (medium){
+  @include breakpoint(medium){
     padding: 2rem 1rem;
   }
 }
@@ -100,7 +99,7 @@
   // arrow
   .phase-item--current{
     span::before{
-      content: ' ';
+      content: " ";
       height: 0;
       position: absolute;
       width: 0;
@@ -157,7 +156,6 @@
 .process-header__button{
   .button{
     border-color: var(--primary);
-    text-transform: uppercase;
   }
 }
 

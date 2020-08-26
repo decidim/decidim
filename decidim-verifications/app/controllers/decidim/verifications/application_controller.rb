@@ -5,13 +5,17 @@ module Decidim
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
 
-      before_action :confirmed_user, only: [:new, :create]
+      before_action :confirmed_user, only: [:new, :create, :renew]
 
       def new
         raise NotImplementedError
       end
 
       def create
+        raise NotImplementedError
+      end
+
+      def renew
         raise NotImplementedError
       end
 

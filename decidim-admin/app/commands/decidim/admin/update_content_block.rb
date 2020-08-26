@@ -26,11 +26,12 @@ module Decidim
 
         transaction do
           update_content_block_settings
+          content_block.save!
           update_content_block_images
           content_block.save!
         end
 
-        broadcast(:ok)
+        broadcast(:ok, content_block)
       end
 
       private

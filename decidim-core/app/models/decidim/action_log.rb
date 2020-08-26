@@ -118,7 +118,7 @@ module Decidim
                 elsif klass.reflect_on_association(:organization)
                   scope.where(id: relation_ids).includes(:organization)
                 elsif klass_name == "Decidim::Comments::Comment"
-                  scope.where(id: relation_ids).includes(:commentable)
+                  scope.where(id: relation_ids).includes([:moderation, :root_commentable, :user_group])
                 else
                   scope
                 end

@@ -1,0 +1,30 @@
+bg:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Страница
+        other: Страници
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} обнови страницата %{resource_name} в %{space_name}"
+    components:
+      pages:
+        name: Страница
+        settings:
+          global:
+            announcement: Обявяване
+          step:
+            announcement: Обявяване
+    pages:
+      admin:
+        models:
+          components:
+            body: Тяло
+        pages:
+          edit:
+            save: Обновяване
+            title: Редактиране на страница
+          update:
+            invalid: Възникна проблем при запазване на страницата.
+            success: Страницата е успешно съхранена.

@@ -1,0 +1,16 @@
+<div class="author-data author-data--big">
+  <div class="author-data__main">
+    <div class="author author--flex">
+      <span class="author__avatar">
+        <%= image_tag avatar, alt: t("avatar", scope: "activemodel.attributes.group") %>
+      </span>
+      <div>
+        <div class="author__name--container">
+          <span class="author__name"><%= name %></span>
+          <%= icon badge, class: "author__verified" if badge.present? %>
+        </div>
+        <span class="author__nickname"><%= nickname %></span>
+      </div>
+    </div>
+  </div>
+</div>

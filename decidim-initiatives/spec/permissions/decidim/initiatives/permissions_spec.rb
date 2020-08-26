@@ -279,6 +279,12 @@ describe Decidim::Initiatives::Permissions do
 
           it { is_expected.to eq true }
         end
+
+        context "when user is not connected" do
+          let(:user) { nil }
+
+          it { is_expected.to eq true }
+        end
       end
     end
   end

@@ -1,11 +1,1 @@
-<div class="row column view-header">
-  <h2 class="heading2"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
-  <% unless component_settings.participatory_texts_enabled? %>
-    <%= cell("decidim/coauthorships", @proposal) %>
-  <% end %>
-</div>
-<div class="row column">
-  <%= render_proposal_body(@proposal) %>
-</div>
-<br>
-<%= attachments_for(@proposal) %>
+<%= card_for @proposal, from: @proposal, preview: true %>
