@@ -16,16 +16,23 @@ sl:
         new:
           sign_in: Prijava
           sign_up: Registracija
+    filters:
+      linked_classes:
+        meeting: Sestanki
     menu:
       help: Pomoč
       home: Domov
     pages:
       home:
         extended:
+          meetings: Sestanki
           more_info: Več informacij
         hero:
           participate: Sodeluj
           welcome: Dobrošli v organizaciji %{organization}!
+        statistics:
+          assemblies_count: Združbe
+          meetings_count: Sestanki
     search:
       term_input_placeholder: Išči
     searches:
