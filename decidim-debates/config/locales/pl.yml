@@ -30,6 +30,7 @@ pl:
       debates:
         actions:
           create: Utwórz
+          endorse: Rekomenduj
         name: Debaty
         settings:
           global:
@@ -40,6 +41,8 @@ pl:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
             creation_enabled: Tworzenie debat przez użytkowników włączone
+            endorsements_blocked: Rekomendacje zablokowane
+            endorsements_enabled: Rekomendacje włączone
     debates:
       actions:
         close: Zamknij
@@ -116,7 +119,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         form:
-          select_a_category: Proszę wybrać kategorię
+          select_a_category: Wybierz kategorię
         index:
           new_debate: Nowa debata
         new:
@@ -131,6 +134,10 @@ pl:
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
           edit_debate: Edytuj debatę
+          groups_count: Grupy
+          last_comment_by: Ostatni komentarz autorstwa
+          no_comments_yet: Brak komentarzy
+          participants_count: Użytkownicy
         update:
           invalid: Podczas aktualizowania debaty wystąpił błąd.
           success: Debata została pomyślnie zaktualizowana.
