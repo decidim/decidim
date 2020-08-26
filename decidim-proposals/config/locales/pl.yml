@@ -81,7 +81,7 @@ pl:
         other: Uwagi
       decidim/proposals/proposal_vote:
         one: Wsparcie
-        few: Wsparcia
+        few: Wsparć
         many: Wsparcia
         other: Wsparcia
   decidim:
@@ -563,7 +563,7 @@ pl:
           publish:
             error: Wystąpił błąd podczas publikowania wspólnego szkicu.
             irreversible_action_modal:
-              body: Po opublikowaniu szkicu jako propozycji, szkic nie będzie już edytowalny. Do propozycji nie będzie można dopisywać nowych autorów i współtwórców.
+              body: Po opublikowaniu szkicu jako propozycji, szkic nie będzie już edytowalny. Do propozycji nie będzie można dodawać nowych autorów i zmian.
               cancel: Anuluj
               ok: Opublikuj jako propozycję
               title: Poniższe działanie jest nieodwracalne
@@ -572,7 +572,7 @@ pl:
           withdraw:
             error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
-              body: Po zamknięciu szkicu nie będzie on już edytowalny. Nie będzie można dodać nowych autorów ani współtwórców do szkicu.
+              body: Po zamknięciu szkicu nie będzie on już edytowalny. Nie będzie można dodać nowych autorów i zmian.
               cancel: Anuluj
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
@@ -592,7 +592,7 @@ pl:
             other: "%{count} wspólne szkice"
         create:
           error: Podczas tworzenia wspólnych szkiców wystąpił błąd
-          success: Z powodzeniem utworzono wspólny szkic.
+          success: Utworzono wspólny szkic.
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
@@ -622,7 +622,7 @@ pl:
           new_collaborative_draft: Nowy wspólny szkic
         orders:
           label: 'Sortuj szkice według:'
-          most_contributed: Największy wkład
+          most_contributed: Najwięcej kontrybucji
           random: Losowo
           recent: Najnowszy
         requests:
@@ -654,7 +654,7 @@ pl:
           publish_info: Opublikuj tę wersję szkicu lub
           published_proposal: opublikowana propozycja
           request_access: Poproś o dostęp
-          requested_access: Wymagany dostęp
+          requested_access: Poproszono o dostęp
           version_history: zobacz historię wersji tej propozycji
           withdraw: wycofaj szkic
         states:
@@ -694,7 +694,7 @@ pl:
           fields:
             authors: Autorzy
             comments: Komentarze
-            contributions: Wsparcia
+            contributions: Zmiany
         proposal:
           fields:
             category: Kategoria
@@ -765,14 +765,14 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         index:
-          collaborative_drafts_list: Uzyskaj dostęp do wspólnych szkiców
+          collaborative_drafts_list: Wspólne szkice
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Zobacz propozycję
         linked_proposals:
           proposal_votes:
             one: wsparcie
-            few: wsparcia
+            few: wsparć
             many: wsparcia
             other: wsparcia
         new:
@@ -857,7 +857,7 @@ pl:
           need_more_votes: Potrzebujesz więcej wsparć
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Każda propozycja może zebrać więcej niż %{limit} wsparć
+            description: Każda propozycja może zebrać więcej niż wynosi limit wsparć %{limit}
           minimum_votes_per_user:
             description: Musisz rozdzielić co najmniej %{votes} wsparć pomiędzy różne propozycje.
             given_enough_votes: Dałeś dość wsparcia.
