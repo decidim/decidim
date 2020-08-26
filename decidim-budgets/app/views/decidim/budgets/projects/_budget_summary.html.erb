@@ -1,3 +1,17 @@
+<div class="row column voting-rules">
+  <div class="callout secondary">
+    <div class="row">
+      <div class="columns medium-8 large-9">
+        <h3 class="heading3">
+          <%= t(".rules.title") %>
+        </h3>
+        <ul>
+          <%= raw current_rule_explanation %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="card budget-summary" data-progress-reference data-safe-url="<%= projects_base_url %>">
   <div class="card__content">
     <% if include_heading %>
@@ -9,22 +23,28 @@
       <% else %>
         <h3 class="heading3"><%= t(".title") %></h3>
         <p>
-          <% if current_order.minimum_projects_rule? %>
-            <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
-          <% else %>
-            <%= t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
-          <% end %>
+          <%= raw current_rule_description %>
         </p>
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>">
-      <span class="mini-title"><%= t("total_budget") %>
+    <% if maximum_budget_projects_enabled? %>
+      <div class="budget-summary__total" data-total-projects="<%= component_settings.vote_maximum_budget_projects_number %>">
+      <span class="mini-title"><%= t(".total_projects") %>
+        <strong class="mini-title__strong mini-title__strong--highlight">
+          <%= component_settings.vote_maximum_budget_projects_number %>
+        </strong>
+      </span>
+      </div>
+    <% else %>
+      <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>">
+      <span class="mini-title"><%= t(".total_budget") %>
         <strong class="mini-title__strong mini-title__strong--highlight">
           <%= budget_to_currency(component_settings.total_budget) %>
         </strong>
       </span>
-    </div>
+      </div>
+    <% end %>
 
     <%= render partial: "order_progress" %>
 

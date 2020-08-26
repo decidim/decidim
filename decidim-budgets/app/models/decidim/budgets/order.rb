@@ -34,6 +34,11 @@ module Decidim
         projects.to_a.sum(&:budget)
       end
 
+      # Public: Returns the count of projects
+      def total_projects
+        projects.count
+      end
+
       # Public: Returns true if the order has been checked out
       def checked_out?
         checked_out_at.present?
@@ -41,8 +46,12 @@ module Decidim
 
       # Public: Check if the order total budget is enough to checkout
       def can_checkout?
-        if minimum_projects_rule?
-          projects.count >= minimum_projects
+        if minimum_projects_rule? && maximum_projects_rule?
+          total_projects >= minimum_projects && total_projects <= maximum_projects
+        elsif minimum_projects_rule?
+          total_projects >= minimum_projects
+        elsif maximum_projects_rule?
+          total_projects <= maximum_projects && !total_projects.zero?
         else
           total_budget.to_f >= minimum_budget
         end
@@ -51,6 +60,11 @@ module Decidim
       # Public: Returns the order budget percent from the settings total budget
       def budget_percent
         (total_budget.to_f / component.settings.total_budget.to_f) * 100
+      end
+
+      # Public: Returns the order projects percent from the settings maximum projects to checkout
+      def projects_percent
+        (total_projects.to_f / maximum_projects.to_f) * 100
       end
 
       # Public: Returns the required minimum budget to checkout
