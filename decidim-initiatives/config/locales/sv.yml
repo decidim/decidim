@@ -201,6 +201,8 @@ sv:
             success: Initiativet har skickats till teknisk validering
             update: Uppdatera
           form:
+            attachments: Bilagor
+            settings: Inställningar
             title: Allmän information
           index:
             actions_title: Åtgärd
