@@ -32,7 +32,6 @@ Decidim.register_component(:budgets) do |component|
     resource.card = "decidim/budgets/project"
     resource.actions = %(vote)
     resource.searchable = true
-    # resource.route_name = "budget_project"
   end
 
   component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components|
@@ -89,17 +88,20 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.seeds do |participatory_space|
+    landing_page_content = Decidim::Faker::Localized.localized do
+      "<h2>#{::Faker::Lorem.sentence}</h2>" \
+        "<p>#{::Faker::Lorem.paragraph}</p>" \
+        "<p>#{::Faker::Lorem.paragraph}</p>"
+    end
+
     component = Decidim::Component.create!(
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name,
       manifest_name: :budgets,
       published_at: Time.current,
       participatory_space: participatory_space,
       settings: {
-        title: Decidim::Faker::Localized.sentence(4),
-        description: Decidim::Faker::Localized.paragraph(3),
-        highlighted_heading: Decidim::Faker::Localized.sentence(4),
-        list_heading: Decidim::Faker::Localized.sentence(4),
-        more_information: Decidim::Faker::Localized.sentence(4),
+        landing_page_content: landing_page_content,
+        more_information_modal: Decidim::Faker::Localized.paragraph(4),
         workflow: %w(one random all).sample
       }
     )
