@@ -62,6 +62,9 @@ de:
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram-Handler
         logo: Logo
+        machine_translation_display_priority: Priorität der maschinellen Übersetzung
+        machine_translation_display_priority_original: Originaltext zuerst
+        machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
         official_img_header: Offizieller Logo-Header
