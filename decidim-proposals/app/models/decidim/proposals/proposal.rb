@@ -283,19 +283,6 @@ module Decidim
         published_at.nil?
       end
 
-      # method for sort_link by number of comments
-      ransacker :commentable_comments_count do
-        query = <<-SQL
-        (SELECT COUNT(decidim_comments_comments.id)
-         FROM decidim_comments_comments
-         WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
-         AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
-         GROUP BY decidim_comments_comments.decidim_commentable_id
-         )
-        SQL
-        Arel.sql(query)
-      end
-
       # Defines the base query so that ransack can actually sort by this value
       def self.sort_by_valuation_assignments_count_nulls_last_query
         <<-SQL

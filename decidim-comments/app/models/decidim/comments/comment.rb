@@ -25,20 +25,22 @@ module Decidim
       MAX_DEPTH = 3
 
       translatable_fields :body
+
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
-      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
+      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
+      after_save :update_counter
+      after_destroy :update_counter
+      after_touch :update_counter
+
+      before_validation :compute_depth
       validates :body, presence: true
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
-
       validate :body_length
-
       validate :commentable_can_have_comments
-
-      before_validation :compute_depth
 
       delegate :organization, to: :commentable
 
@@ -184,6 +186,12 @@ module Decidim
       # Private: converts the string from markdown to html
       def render_markdown(string)
         markdown.render(string)
+      end
+
+      def update_counter
+        return unless root_commentable
+
+        root_commentable.update_comments_count
       end
     end
   end

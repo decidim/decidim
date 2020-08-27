@@ -16,12 +16,12 @@
         <% if current_settings.comments_blocked? %>
           <%= content_tag :button, class: "column medium-4 button light secondary" do %>
             <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %>
-            <%= model.comments.count %>
+            <%= model.comments_count %>
           <% end %>
           <%= content_tag :button, t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons"), class: "column button hollow secondary button--sc disabled", disabled: true, title: t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
         <% else %>
           <%= link_to resource_comments_path, class: "column medium-4 button light secondary" do %>
-            <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %> <%= model.comments.count %>
+            <%= icon "comment-square", class: "icon--small", aria_label: t("comments", scope: "decidim.proposals.participatory_text_proposal.buttons"), role: "img" %> <%= model.comments_count %>
           <% end %>
           <%= link_to resource_comments_path, class: "column button hollow secondary button--sc" do %>
             <%= t("comment", scope: "decidim.proposals.participatory_text_proposal.buttons") %>
