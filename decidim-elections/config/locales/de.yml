@@ -135,6 +135,10 @@ de:
         election:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
+      election_m:
+        badge_name:
+          finished: Abgeschlossen
+          ongoing: Aktiv
       elections:
         count:
           elections_count:
