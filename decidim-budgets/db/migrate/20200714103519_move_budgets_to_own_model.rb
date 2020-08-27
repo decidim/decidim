@@ -51,7 +51,11 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def create_budget_resource_from(component)
-    component_total_budget = (component["settings"]["global"]["total_budget"] if component["settings"].dig("global", "total_budget"))
+    component_total_budget = if component["settings"].dig("global", "total_budget")
+                               component["settings"]["global"]["total_budget"]
+                             else
+                               100_000_000
+                             end
 
     Budget.create!(
       decidim_component_id: component.id,
