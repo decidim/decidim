@@ -114,7 +114,7 @@ pl:
       user_answers_serializer:
         created_at: Odpowiedziałem
         id: ID odpowiedzi
-        ip_hash: Hash Ip
+        ip_hash: Ip Hash
         registered: Zarejestrowano
         unregistered: Nie zarejestrowano
         user_status: Status użytkownika
