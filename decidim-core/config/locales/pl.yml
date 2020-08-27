@@ -153,12 +153,12 @@ pl:
         success: Poprawka została zaakceptowana.
       amendable:
         amended_by: Poprawione przez
-        button: Popraw %{model_name}
+        button: '%{model_name} - popraw'
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
-        help_text: Ulepsz %{model_name} modyfikując %{amendable_fields}
-        promote_button: Promuj %{model_name}
+        help_text: '%{model_name} - ulepsz modyfikując pola %{amendable_fields}'
+        promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
-        promote_help_text: Możesz promować tę wersję i opublikować ją jako niezależne %{model_name}
+        promote_help_text: 'Możesz promować tę wersję i opublikować ją jako niezależny element: %{model_name}'
         section_heading: Poprawki (%{count})
       compare_draft:
         continue: Dalej
@@ -184,7 +184,7 @@ pl:
           accepted: |-
             Ta poprawka do %{amendable_type} %{proposal_link} została zaakceptowana <strong>%{date}</strong>.
           evaluating: |-
-            Niniejsza poprawka do oceny %{amendable_type} %{proposal_link} jest oceniana.
+            Poprawka do %{proposal_link} (%{amendable_type}) jest oceniana.
           promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta poprawka do %{amendable_type} %{proposal_link}\nzostała odrzucona <strong>%{date}</strong>."
           withdrawn: |-
@@ -210,7 +210,7 @@ pl:
       review:
         back: Powrót
         heading: Przejrzyj poprawkę
-        help_text: Przeglądasz poprawkę do %{model_name}
+        help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
       update_draft:
         error: Wystąpił błąd podczas aktualizowania szkicu poprawki.
@@ -593,7 +593,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Już obserwujesz przestrzeń partycypacyjną
+        participatory_space: Obserwuj przestrzeń partycypacyjną
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -864,7 +864,7 @@ pl:
         extended:
           debates: Debaty
           debates_explanation: Debatuj i dyskutuj, podziel się swoimi poglądami i wzbogać tematykę debat.
-          how_to_participate: Jak weź udział w procesie?
+          how_to_participate: Jak wziąć udział w procesie?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
           more_info: Więcej informacji
@@ -885,7 +885,7 @@ pl:
           comments_count: Komentarze
           conferences_count: Konferencje
           debates_count: Debaty
-          endorsements_count: Wsparcia
+          endorsements_count: Rekomendacje
           headline: Aktualny stan %{organization}
           meetings_count: Spotkania
           orders_count: Głosowania
@@ -1240,7 +1240,7 @@ pl:
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
-    required: Wymagany
+    required: Wymagane
   invisible_captcha:
     sentence_for_humans: Jeśli jesteś człowiekiem, zignoruj ​​to pole
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
