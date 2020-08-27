@@ -135,9 +135,6 @@ de:
         election:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
           unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
-      election_m:
-        footer:
-          take_part: Teilnehmen
       elections:
         count:
           elections_count:
