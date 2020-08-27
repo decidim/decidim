@@ -98,7 +98,7 @@ pl:
         new:
           back: Wróć
           create: Utwórz
-          select_a_category: Proszę wybrać kategorię
+          select_a_category: Wybierz kategorię
           title: Nowa debata
         show:
           back: Powrót do listy
