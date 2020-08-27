@@ -93,4 +93,30 @@ describe "Vote in an election", type: :system do
 
     it_behaves_like "allow admins to preview the voting booth"
   end
+
+  context "when the voting is confirmed" do
+    before do
+      visit_component
+
+      click_link translated(election.title)
+      click_link "Vote"
+    end
+
+    it_behaves_like "uses the voting booth"
+  end
+
+  context "when the voting is not confirmed" do
+    it "is alerted when trying to leave the component before completing" do
+      visit_component
+
+      click_link translated(election.title)
+      click_link "Vote"
+
+      dismiss_prompt do
+        page.find("a.focus__exit").click
+      end
+
+      expect(page).to have_content("Next")
+    end
+  end
 end
