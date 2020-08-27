@@ -289,7 +289,7 @@ pl:
           email_intro: 'Daty dla kroku %{resource_title} w %{participatory_space_title} zostały zaktualizowane. Możesz zobaczyć zmianę na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Aktualizacja w %{participatory_space_title}
-          notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          notification_title: Zmieniono daty kroku <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -421,7 +421,7 @@ pl:
         answers_count: Odpowiedzi
         comments_count: Komentarze
         debates_count: Debaty
-        endorsements_count: Wsparcia
+        endorsements_count: Rekomendacje
         followers_count: Obserwujący
         headline: Statystyki
         meetings_count: Spotkania
