@@ -212,7 +212,7 @@ describe "Orders", type: :system do
           end
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "17%"
+            expect(page).to have_content "16%"
             expect(page).to have_selector("button.small:disabled")
           end
         end
@@ -247,7 +247,7 @@ describe "Orders", type: :system do
           end
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "17%"
+            expect(page).to have_content "16%"
             expect(page).to have_selector("button.small:disabled")
           end
         end
@@ -375,6 +375,7 @@ describe "Orders", type: :system do
         end
 
         context "when voting by maximum projects rules" do
+          let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
           let!(:another_project) { create(:project, component: component, budget: 1) }
 
           it "cannot add the project" do
@@ -393,6 +394,7 @@ describe "Orders", type: :system do
         end
 
         context "when voting by minimum and maximum projects rules" do
+          let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
           let!(:another_project) { create(:project, component: component, budget: 1) }
 
           it "cannot add the project" do
