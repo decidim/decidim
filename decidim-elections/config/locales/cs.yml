@@ -141,9 +141,6 @@ cs:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
-      election_m:
-        footer:
-          take_part: Zapojte se
       elections:
         count:
           elections_count:
