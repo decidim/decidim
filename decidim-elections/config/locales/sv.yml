@@ -135,9 +135,6 @@ sv:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"
           unpublish: "%{user_name} avpublicerade valet %{resource_name}"
-      election_m:
-        footer:
-          take_part: Delta
       elections:
         count:
           elections_count:
