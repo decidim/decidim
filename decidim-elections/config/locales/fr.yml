@@ -135,6 +135,12 @@ fr:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Terminées
+          ongoing: Active
+          upcoming: À venir
+        end_date: Se termine le
       elections:
         count:
           elections_count:
