@@ -159,6 +159,10 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        invalid_destroy:
+          proposals_count:
+            one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
+            other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
@@ -237,6 +241,10 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
           destroy:
+            invalid:
+              proposals_count:
+                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
+                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour
