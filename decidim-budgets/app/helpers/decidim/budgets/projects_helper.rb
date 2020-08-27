@@ -50,13 +50,13 @@ module Decidim
         return unless current_order
 
         if current_order.maximum_projects_rule? && current_order.minimum_projects_rule?
-          t(".instruction_maximum_and_minimum_projects_rule", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
+          t(".maximum_and_minimum_projects_rule.instruction", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
         elsif current_order.maximum_projects_rule?
-          t(".instruction_maximum_projects_rule", maximum_number: current_order.maximum_projects)
+          t(".maximum_projects_rule.instruction", maximum_number: current_order.maximum_projects)
         elsif current_order.minimum_projects_rule?
-          t(".instruction_minimum_projects_rule", minimum_number: current_order.minimum_projects)
+          t(".minimum_projects_rule.instruction", minimum_number: current_order.minimum_projects)
         else
-          t(".instruction_vote_threshold_percent", minimum_budget: budget_to_currency(current_order.minimum_budget))
+          t(".vote_threshold_percent.instruction", minimum_budget: budget_to_currency(current_order.minimum_budget))
         end
       end
 
@@ -64,13 +64,13 @@ module Decidim
         return unless current_order
 
         if current_order.maximum_projects_rule? && current_order.minimum_projects_rule?
-          t(".description_maximum_and_minimum_projects_rule", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
+          t(".maximum_and_minimum_projects_rule.description", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
         elsif current_order.maximum_projects_rule?
-          t(".description_maximum_projects_rule", maximum_number: current_order.maximum_projects)
+          t(".maximum_projects_rule.description", maximum_number: current_order.maximum_projects)
         elsif current_order.minimum_projects_rule?
-          t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects)
+          t(".minimum_projects_rule.description", minimum_number: current_order.minimum_projects)
         else
-          t(".description_vote_threshold_percent", minimum_budget: budget_to_currency(current_order.minimum_budget))
+          t(".vote_threshold_percent.description", minimum_budget: budget_to_currency(current_order.minimum_budget))
         end
       end
 
