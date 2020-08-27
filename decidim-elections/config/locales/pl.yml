@@ -141,9 +141,6 @@ pl:
         election:
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
-      election_m:
-        footer:
-          take_part: Weź udział
       elections:
         count:
           elections_count:
