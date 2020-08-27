@@ -137,13 +137,36 @@ en:
           publish: "%{user_name} published the %{resource_name} election"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
+        badge_name:
+          finished: Finished
+          ongoing: Active
+          upcoming: Upcoming
+        end_date: Ends
         footer:
-          take_part: Take part
+          view: View
+          vote: Vote
+        label:
+          date: Dates
+        questions: Questions %{count}
+        start_date: Starts
+        unspecified: Not specified
       elections:
         count:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         show:
           back: All elections
           preview: Preview
@@ -167,6 +190,10 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      orders:
+        label: Order elections by
+        older: Older
+        recent: Recent
       votes:
         confirm:
           answer: Answer
@@ -205,6 +232,9 @@ en:
         voting_step:
           back: Back
           continue: Next
+      warnings:
+        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
       elections:
         election_published:

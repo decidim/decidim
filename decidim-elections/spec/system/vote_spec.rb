@@ -6,6 +6,9 @@ describe "Vote in an election", type: :system do
   let(:manifest_name) { "elections" }
   let(:election) { create :election, :complete, :published, :ongoing, component: component }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
+  let!(:elections) do
+    create_list(:election, 2, :complete, :published, :ongoing, component: component)
+  end
 
   before do
     election.reload

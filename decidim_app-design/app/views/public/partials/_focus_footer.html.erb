@@ -1,21 +1,56 @@
 <div class="focus__footer">
   <div class="row">
-  <% if locals[:step] == 'confirm' %>
+  <% if locals[:step] == 1 %>
+    <a href="evote-poll-landing" class="focus__back">
+      <%= icon("chevron-left", class: "icon", role: "img") %>
+      Back
+    </a>
+    <a href="evote-2" class="button focus__next">
+      Next
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    </a>
+  <% elsif locals[:step] == 2 %>
+    <a href="evote-1" class="focus__back">
+      <%= icon("chevron-left", class: "icon", role: "img") %>
+      Back
+    </a>
+    <a href="evote-3" class="button focus__next">
+      Next
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    </a>
+  <% elsif locals[:step] == 3 %>
+    <a href="evote-2" class="focus__back">
+      <%= icon("chevron-left", class: "icon", role: "img") %>
+      Back
+    </a>
+    <a href="evote-confirm" class="button focus__next">
+      Next
+      <%= icon("chevron-right", class: "icon", role: "img") %>
+    </a>
+
+  <% elsif locals[:step] == 'edit' %>
+    <a href="evote-confirm" class="focus__back">
+      Cancel
+    </a>
+    <a href="evote-confirm" class="button focus__next">
+      Save changes
+    </a>
+  <% elsif locals[:step] == 'confirm' %>
     <a href="#" class="focus__back">
       <%= icon("chevron-left", class: "icon", role: "img") %>
-      Atrás
+      Back
     </a>
-    <a href="#" class="button focus__next">
-      Confirmar voto
+    <a href="evote-encrypting" class="button focus__next">
+      Confirm vote
       <%= icon("chevron-right", class: "icon", role: "img") %>
     </a>
   <% else %>
     <a href="#" class="focus__back">
       <%= icon("chevron-left", class: "icon", role: "img") %>
-      Atrás
+      Back
     </a>
     <a href="#" class="button focus__next">
-      Siguiente
+      Next
       <%= icon("chevron-right", class: "icon", role: "img") %>
     </a>
   <% end %>
