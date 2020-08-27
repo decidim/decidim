@@ -201,6 +201,8 @@ fr-CA:
             success: L'initiative a été envoyée à la validation technique
             update: Mettre à jour
           form:
+            attachments: Pièces jointes
+            settings: Paramètres
             title: Informations générales
           index:
             actions_title: Action
