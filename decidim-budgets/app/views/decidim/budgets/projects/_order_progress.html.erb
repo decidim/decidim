@@ -1,11 +1,10 @@
 <div id="order-progress">
   <div class="budget-summary__progressbox"
-       <% if maximum_budget_projects_enabled? %>
-       data-current-projects="<%= current_order ? current_order.total_projects : 0 %>"
-       <% else %>
-       data-current-budget="<%= current_order ? current_order.total_budget : 0 %>"
-       <% end %>
-       >
+    <% if maximum_budget_projects_enabled? %>
+      data-current-projects="<%= current_order ? current_order.total_projects : 0 %>"
+    <% else %>
+      data-current-budget="<%= current_order ? current_order.total_budget : 0 %>"
+    <% end %>>
     <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= maximum_budget_projects_enabled? ? current_order_projects_percent : current_order_budget_percent %>" aria-valuetext="<%= maximum_budget_projects_enabled? ? current_order_projects_percent : current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-meter progress-meter--minimum" style="width: <%= vote_threshold_percent %>%"></div>
       <!--Change width and text dynamically.-->
