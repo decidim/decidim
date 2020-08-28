@@ -351,7 +351,7 @@ pl:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
-          select: Chcę promować tę inicjatywę
+          select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach się na obszarach ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
