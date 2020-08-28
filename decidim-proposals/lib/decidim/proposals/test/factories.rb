@@ -292,6 +292,10 @@ FactoryBot.define do
                       else
                         evaluator.body
                       end
+
+      proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+
       if proposal.component
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
