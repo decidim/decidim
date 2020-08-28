@@ -52,7 +52,7 @@ pl:
         show:
           back: Powrót do listy
           comments: Komentarze
-          view: Widok
+          view: Zobacz
         sidebar_blog:
           comments: komentarze
           most_commented_posts: Najczęściej komentowane wpisy
