@@ -34,7 +34,7 @@ extra_admin_link(
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
 
-  <%= link_to :proposals, class: "small hollow" do %>
+  <%= link_to proposals_path(filter_link_params), class: "small hollow" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back_to_list") %>
   <% end %>

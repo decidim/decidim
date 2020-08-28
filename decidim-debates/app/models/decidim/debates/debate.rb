@@ -23,13 +23,13 @@ module Decidim
       include Decidim::Hashtaggable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
-
-      translatable_fields :title, :description, :instructions, :information_updates
+      include Decidim::Endorsable
 
       component_manifest_name "debates"
 
       validates :title, presence: true
 
+      translatable_fields :title, :description, :instructions, :information_updates
       searchable_fields({
                           participatory_space: { component: :participatory_space },
                           A: :search_title,
