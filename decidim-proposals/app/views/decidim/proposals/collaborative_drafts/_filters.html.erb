@@ -21,7 +21,7 @@
   <% end %>
 
   <% if current_component.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts"  %>
+    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "collaborative_drafts" %>
   <% end %>
 
   <% if current_component.categories.any? %>

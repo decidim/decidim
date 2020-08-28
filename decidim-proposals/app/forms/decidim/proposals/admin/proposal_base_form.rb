@@ -32,8 +32,6 @@ module Decidim
         validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
 
-        validate :scope_belongs_to_participatory_space_scope
-
         validate :notify_missing_attachment_if_errored
 
         delegate :categories, to: :current_component

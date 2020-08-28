@@ -290,11 +290,14 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      id = "#{@object_name}_#{attribute}"
-      id = "#{self.options[:namespace]}_#{id}" if self.options.has_key?(:namespace)
+      id = if self.options.has_key?(:namespace)
+             "#{self.options[:namespace]}_#{id}"
+           else
+             "#{sanitize_for_dom_selector(@object_name)}_#{attribute}"
+           end
 
       picker_options = {
-        id: "#{sanitize_for_dom_selector(@object_name)}_#{attribute}",
+        id: id,
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
