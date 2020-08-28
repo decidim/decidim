@@ -296,7 +296,7 @@ ja:
         title: 参加型プロセス
     participatory_process:
       show:
-        related_assemblies: 関連する会議体
+        related_assemblies: 関連する参加スペース
     participatory_process_groups:
       show:
         group_participatory_processes:
