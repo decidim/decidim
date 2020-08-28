@@ -351,14 +351,14 @@ fr:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
             save_draft: Enregistrer le brouillon
-            title: APERÇU DU TEXTE PARTICIPATIF
+            title: Aperçu du texte participatif
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
-            title: AJOUTER UN DOCUMENT
+            title: Ajouter un document
             upload_document: Télécharger le document
           publish:
             invalid: Impossible de publier des propositions
@@ -819,7 +819,7 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
-          title: 'La participation est soumise aux règles suivantes :'
+          title: 'Les soutiens sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
