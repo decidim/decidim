@@ -124,7 +124,7 @@ pl:
           view: Widok
         project_budget_button:
           add: Dodaj
-          added: W dodatku
+          added: Dodano
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
