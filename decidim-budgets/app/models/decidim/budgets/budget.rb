@@ -6,6 +6,7 @@ module Decidim
     class Budget < ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasComponent
+      include Decidim::Searchable
       include Traceable
       include Loggable
 
@@ -15,6 +16,14 @@ module Decidim
       has_many :orders, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Order", inverse_of: :budget, dependent: :destroy
 
       delegate :participatory_space, :manifest, :settings, to: :component
+
+      searchable_fields({
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: [:description, :total_budget]
+                        },
+                        index_on_create: ->(budget) { budget.visible? },
+                        index_on_update: ->(budget) { budget.visible? })
 
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::BudgetPresenter

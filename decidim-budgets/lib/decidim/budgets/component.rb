@@ -24,6 +24,8 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_resource(:budget) do |resource|
     resource.model_class_name = "Decidim::Budgets::Budget"
+    resource.card = "decidim/budgets/budget"
+    resource.searchable = true
   end
 
   component.register_resource(:project) do |resource|
