@@ -1265,6 +1265,7 @@ de:
     versions:
       resource_version:
         of_versions: "(von %{number})"
+        see_other_versions: Andere Versionen anzeigen
         version: Versionsnummer %{number}
     versions_list:
       show:

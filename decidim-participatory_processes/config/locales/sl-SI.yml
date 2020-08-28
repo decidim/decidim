@@ -1,0 +1,9 @@
+sl:
+  activemodel:
+    attributes:
+      participatory_process:
+        area_id: Področje
+  decidim:
+    participatory_process:
+      show:
+        related_assemblies: Povezane združbe

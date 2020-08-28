@@ -97,7 +97,7 @@ pl:
           email_subject: Jest nowy komentarz dodany przez %{author_name} do %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} został skomentowany. Możesz przeczytać komentarz na tej stronie:"
+          email_intro: "Nowy komentarz: %{resource_title}. Możesz go przeczytać na tej stronie:"
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować po kliknięciu w poprzedni link.
           email_subject: Jest nowy komentarz od %{author_name} do %{resource_title}
           notification_title: Pojawił się nowy komentarz <a href="%{author_path}">%{author_name} %{author_nickname}</a> do <a href="%{resource_path}">%{resource_title}</a>

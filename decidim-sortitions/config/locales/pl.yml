@@ -2,81 +2,81 @@ pl:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informacje o sortowaniu
-        decidim_category_id: Kategorie zestawu propozycji, w których chcesz zastosować losowanie
-        decidim_proposals_component_id: Ustalono wnioski
-        dice: Wynik rzutu kostką. Rzuć kostką 6-stronną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź wynikową liczbę przed niektórymi świadkami. Przyczynia się to do jakości i gwarancji losowości wyniku
-        target_items: Liczba wniosków, które należy wybrać (wskazuje liczbę wniosków, które chcesz wybrać, losując wybraną wcześniej grupę propozycji)
+        additional_info: Informacje o wyborze losowym
+        decidim_category_id: Kategorie zestawu propozycji, z którego chcesz losować
+        decidim_proposals_component_id: Zestaw propozycji
+        dice: Wynik rzutu kostką. Rzuć kostką 6-ścienną lub poszukaj innego losowego sposobu na wygenerowanie liczby od 1 do 6, a następnie wprowadź liczbę, która była wynikiem losowania w obecności świadków. Daje to gwarancję jakości i bezstronności wyniku losowości
+        target_items: Liczba wniosków, które mają zostać wybrane (wskazuje liczbę propozycji, które mają zostać wybrane spośród wskazanych wcześniej propozycji)
         title: Tytuł
         witnesses: Świadkowie
     models:
-      decidim/sortitions/create_sortition_event: Sortowanie
+      decidim/sortitions/create_sortition_event: Wybór losowy
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortowanie
-        few: Sortowanie
-        many: Sortowanie
-        other: Sortowanie
+        one: Wybór losowy
+        few: Wyborów losowych
+        many: Wybory losowe
+        other: Wybory losowe
   decidim:
     components:
       sortitions:
-        name: Sortowanie
+        name: Wybory losowe
         settings:
           global:
             comments_enabled: Komentarze włączone
     events:
       sortitions:
         sortition_created:
-          email_intro: Sortowanie "%{resource_title}" zostało dodane do "%{participatory_space_title}", którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Dodano nowe sortowanie do %{participatory_space_title}
-          notification_title: Sortowanie <a href="%{resource_path}">%{resource_title}</a> zostało dodane do %{participatory_space_title}
+          email_intro: Wybór losowy "%{resource_title}" został dodany do "%{participatory_space_title}", którą obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
+          email_subject: Dodano nowy wybór losowy do %{participatory_space_title}
+          notification_title: Wybór losowy <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
     pages:
       home:
         statistics:
-          sortitions_count: Sortowanie
+          sortitions_count: Wybór losowy
     participatory_processes:
       statistics:
-        sortitions_count: Sortowanie
+        sortitions_count: Wybór losowy
     sortitions:
       admin:
         actions:
-          destroy: Anuluj sortowanie
+          destroy: Anuluj wybór losowy
           edit: Edytuj
-          new: Nowe sortowanie
-          show: Szczegóły dotyczące podziału
+          new: Nowy wybór losowy
+          show: Szczegóły dotyczące wyboru losowego
         models:
           sortition:
             fields:
               category: Kategoria
               created_at: Data utworzenia
-              decidim_proposals_component: Składnik propozycji
+              decidim_proposals_component: Komponent propozycji
               dice: Kostka do gry
               reference: Odniesienie
-              request_timestamp: Czas rysowania
+              request_timestamp: Czas losowania
               seed: Nasionko
-              target_items: Elementy do wyboru
+              target_items: Elementy wyboru
               title: Tytuł
             name:
-              one: Sortowanie
-              few: Sortowanie
-              many: Sortowanie
-              other: Sortowanie
+              one: Wybór losowy
+              few: Wyborów losowych
+              many: Wybory losowe
+              other: Wybory losowe
         sortitions:
           confirm_destroy:
-            confirm_destroy: Czy na pewno chcesz anulować to sortowanie?
-            destroy: Anuluj sortowanie
-            title: Anulowanie sortowania
+            confirm_destroy: Czy na pewno chcesz anulować ten wybór losowy?
+            destroy: Anuluj wybór losowy
+            title: Anulowanie wyboru losowego
           create:
-            error: Wystąpił błąd podczas tworzenia nowego sortowania.
-            success: Utworzono pomyślne utworzenie grupy
+            error: Wystąpił błąd podczas tworzenia nowego wyboru losowego.
+            success: Wybór losowy został utworzony
           destroy:
-            error: Nie można anulować sortowania.
-            success: Sortowanie zostało anulowane
+            error: Nie można anulować wyboru losowego.
+            success: Wybór losowy został anulowane
           edit:
-            title: Zaktualizuj informacje o sortowaniu
-            update: Aktualizacja
+            title: Zaktualizuj informacje o wyborze losowym
+            update: Aktualizuj
           form:
             all_categories: Wszystkie kategorie
             select_proposal_component: Wybierz zestaw propozycji
