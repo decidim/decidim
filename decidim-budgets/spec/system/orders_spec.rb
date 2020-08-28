@@ -248,7 +248,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_selector("button.small")
           end
         end
 
@@ -391,9 +391,7 @@ describe "Orders", type: :system do
           let!(:another_project) { create(:project, component: component, budget: 1) }
 
           before do
-            projects.each do |project|
-              let!(:line_item) { create(:line_item, order: order, project: project) }
-            end
+            order.projects = projects
           end
 
           it "cannot add the project" do
@@ -422,9 +420,7 @@ describe "Orders", type: :system do
           let!(:another_project) { create(:project, component: component, budget: 1) }
 
           before do
-            projects.each do |project|
-              let!(:line_item) { create(:line_item, order: order, project: project) }
-            end
+            order.projects = projects
           end
 
           it "cannot add the project" do
