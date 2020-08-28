@@ -21,5 +21,10 @@ describe Decidim::Elections::ElectionCell, type: :cell do
     it "renders the card" do
       expect(subject).to have_css(".card--election")
     end
+
+    it "renders the title and text" do
+      expect(subject).to have_css(".card__title")
+      expect(subject).to have_css(".card__text")
+    end
   end
 end

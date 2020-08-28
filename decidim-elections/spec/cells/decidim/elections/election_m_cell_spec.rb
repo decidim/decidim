@@ -43,6 +43,11 @@ module Decidim::Elections
         expect(subject).to have_css(".card__text", text: description)
       end
 
+      it "renders the badge name" do
+        expect(subject).to have_css(".card__text--status", text: "Active")
+        expect(subject).to have_css(".success")
+      end
+
       context "with attached image" do
         let(:image) { create(:attachment, :with_image, attached_to: election) }
 
