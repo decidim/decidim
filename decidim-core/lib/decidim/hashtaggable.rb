@@ -15,7 +15,7 @@ module Decidim
       alias_method :formatted_title, :search_title
 
       def search_body
-        value = try(:i18n_body) || title
+        value = try(:i18n_body) || try(:body) || try(:description) || title
         renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
         renderer.render(links: false).html_safe
       end

@@ -22,6 +22,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Hashtaggable
       include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
 
       translatable_fields :title, :description, :instructions, :information_updates
 
@@ -31,8 +32,8 @@ module Decidim
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },
-                          A: :title,
-                          D: :description,
+                          A: :search_title,
+                          D: :search_body,
                           datetime: :start_time
                         },
                         index_on_create: ->(debate) { debate.visible? },
@@ -140,6 +141,20 @@ module Decidim
       # user - the user to check for authorship
       def closeable_by?(user)
         authored_by?(user)
+      end
+
+      # Needed by Hashtaggable and Searchable.
+      #
+      # Returns the title in the default locale so it can be searched.
+      def i18n_title
+        translated_attribute(title)
+      end
+
+      # Needed by Hashtaggable and Searchable.
+      #
+      # Returns the description in the default locale so it can be searched.
+      def i18n_body
+        translated_attribute(description)
       end
 
       private
