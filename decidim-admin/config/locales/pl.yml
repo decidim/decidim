@@ -149,7 +149,7 @@ pl:
         browse: Przeglądaj
         export: Eksport
         manage: Zarządzanie
-        new: Nowe %{name}
+        new: 'Nowy: %{name}'
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
