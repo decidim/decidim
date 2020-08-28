@@ -85,6 +85,7 @@ sv:
           success: Debatten har stängts.
         close_debate_modal:
           close: Stäng
+          description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
         closed: Stängd
         count:
