@@ -52,7 +52,7 @@ pl:
         show:
           back: Powrót do listy
           comments: Komentarze
-          view: Widok
+          view: Zobacz
         sidebar_blog:
           comments: komentarze
           most_commented_posts: Najczęściej komentowane wpisy
@@ -68,8 +68,8 @@ pl:
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
-            endorsements_blocked: Możliwość poparcia zablokowana
-            endorsements_enabled: Popieranie włączone
+            endorsements_blocked: Możliwość rekomendowania zablokowana
+            endorsements_enabled: Rekomendowanie włączone
     events:
       blogs:
         post_created:

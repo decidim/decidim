@@ -142,8 +142,19 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
+        badge_name:
+          finished: Dokončeno
+          ongoing: Aktivní
+          upcoming: Nadcházející
+        end_date: Končí
         footer:
-          take_part: Zapojte se
+          view: Zobrazit
+          vote: Hlasovat
+        label:
+          date: Data
+        questions: Otázky %{count}
+        start_date: Začíná
+        unspecified: Nespecifikováno
       elections:
         count:
           elections_count:
@@ -151,6 +162,18 @@ cs:
             few: "%{count} zvolení"
             many: "%{count} zvolení"
             other: "%{count} voleb"
+        filters:
+          active: Aktivní
+          all: Vše
+          finished: Dokončeno
+          search: Hledat
+          state: Stav
+          upcoming: Nadcházející
+        filters_small_view:
+          close_modal: Zavřít okno
+          filter: Filtr
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
         show:
           back: Všechny volby
           preview: Náhled
@@ -174,6 +197,10 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+      orders:
+        label: Seřadit volby podle
+        older: Starší
+        recent: Nedávné
       votes:
         confirm:
           answer: Odpověď
@@ -212,6 +239,9 @@ cs:
         voting_step:
           back: Zpět
           continue: Další
+      warnings:
+        no_elections_warning: Žádné volby neodpovídají zadaným kritériím nebo nejsou naplánovány žádné volby.
+        no_scheduled_elections_warning: V současné době nejsou žádné plánované volby, ale zde najdete všechny minulé volby na seznamu.
     events:
       elections:
         election_published:

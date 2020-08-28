@@ -41,7 +41,7 @@ pl:
           attributes:
             base:
               too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minutę
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut
         meeting_registration_invite:
           attributes:
             email:
@@ -148,7 +148,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkaniach, w których chcesz wziąć udział
+            - Zarejestruj się na spotkania, w których chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy weźmiesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Uczestniczyłeś w %{score} spotkaniach.

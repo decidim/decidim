@@ -201,6 +201,8 @@ nl:
             success: Het initiatief is verzonden naar technische validatie
             update: Bijwerken
           form:
+            attachments: Bijlagen
+            settings: Instellingen
             title: Algemene informatie
           index:
             actions_title: Actie

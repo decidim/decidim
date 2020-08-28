@@ -142,8 +142,19 @@ pl:
           publish: "%{user_name} opublikował(a) wybór %{resource_name}"
           unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
       election_m:
+        badge_name:
+          finished: Zakończone
+          ongoing: Aktywne
+          upcoming: Nadchodzące
+        end_date: Data zakończenia
         footer:
-          take_part: Weź udział
+          view: Zobacz
+          vote: Głosuj
+        label:
+          date: Data
+        questions: Pytania %{count}
+        start_date: Data rozpoczęcia
+        unspecified: Nie określono
       elections:
         count:
           elections_count:
@@ -151,6 +162,18 @@ pl:
             few: "%{count} wybory"
             many: "%{count} wybory"
             other: "%{count} wybory"
+        filters:
+          active: Aktywne
+          all: Wszystkie
+          finished: Zakończone
+          search: Szukaj
+          state: Status
+          upcoming: Nadchodzące
+        filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
         show:
           back: Wszystkie wybory
           preview: Podgląd
@@ -174,6 +197,10 @@ pl:
             answers: Odpowiedzi
             max_selections: Maks. liczba opcji do zaznaczenia
             title: Tytuł
+      orders:
+        label: Sortuj według
+        older: Najstarsze
+        recent: Najnowsze
       votes:
         confirm:
           answer: Odpowiedz
@@ -212,6 +239,9 @@ pl:
         voting_step:
           back: Powrót
           continue: Następny
+      warnings:
+        no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
+        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie przeszłe.
     events:
       elections:
         election_published:

@@ -221,6 +221,8 @@ pl:
             success: Inicjatywa została wysłana do weryfikacji technicznej
             update: Aktualizuj
           form:
+            attachments: Załączniki
+            settings: Ustawienia
             title: Informacje ogólne
           index:
             actions_title: Działanie
@@ -298,7 +300,7 @@ pl:
           all: Wszystkie
           answered: Z odpowiedziami
           closed: Zamknięte
-          open: Otwarty
+          open: Otwarte
           rejected: Niewystarczająca liczba podpisów
         filter_type_values:
           all: Wszystkie
@@ -349,7 +351,7 @@ pl:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
-          select: Chcę promować tę inicjatywę
+          select: Chcę utworzyć inicjatywę tego typu
           select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach się na obszarach ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
@@ -361,15 +363,15 @@ pl:
           more_information: "(Więcej informacji)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, utworzył(a) nową inicjatywę, sprawdź ją i przyłącz się:"
+          email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Nowa inicjatywa autorstwa %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, zatwierdził(a) następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Inicjatywa potwierdzona przez %{author_nickname}
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zatwierdzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "Użytkownika %{author_name} %{author_nickname}, którego obserwujesz, zarekomendował następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Inicjatywa rekomendowana przez %{author_nickname}
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Inicjatywy
       initiative_signatures:
