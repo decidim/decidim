@@ -1089,7 +1089,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
-      view: Widok
+      view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli
