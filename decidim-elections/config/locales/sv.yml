@@ -135,11 +135,37 @@ sv:
         election:
           publish: "%{user_name} publicerade valet %{resource_name}"
           unpublish: "%{user_name} avpublicerade valet %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Avslutad
+          ongoing: Aktiv
+          upcoming: Kommande
+        end_date: Slutar
+        footer:
+          view: Visa
+          vote: Omröstning
+        label:
+          date: Datum
+        questions: Frågor %{count}
+        start_date: Startar
+        unspecified: Ej angivet
       elections:
         count:
           elections_count:
             one: "%{count} val"
             other: "%{count} val"
+        filters:
+          active: Aktiv
+          all: Allt
+          finished: Avslutad
+          search: Sök
+          state: Status
+          upcoming: Kommande
+        filters_small_view:
+          close_modal: Stäng fönster
+          filter: Filter
+          filter_by: Filtrera efter
+          unfold: Veckla ut
         show:
           back: Alla val
           preview: Förhandsgranska
@@ -163,6 +189,10 @@ sv:
             answers: Svar
             max_selections: Max. val
             title: Titel
+      orders:
+        label: Sortera omröstningar efter
+        older: Äldre
+        recent: Senaste
       votes:
         confirm:
           answer: Svar
@@ -201,6 +231,9 @@ sv:
         voting_step:
           back: Tillbaka
           continue: Nästa
+      warnings:
+        no_elections_warning: Inga omröstningar matchar dina sökkriterier eller det finns ingen omröstning planerad.
+        no_scheduled_elections_warning: För närvarande finns det inga planerade omröstningar, men här hittar du alla tidigare omröstningar listade.
     events:
       elections:
         election_published:
