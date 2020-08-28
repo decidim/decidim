@@ -1134,7 +1134,7 @@ fr:
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètre d'application
       scopes_picker_input:
-        select_scope: 'Sélectionnez une portée (actuellement: %{current})'
+        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
       results: Résultats de recherche
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
