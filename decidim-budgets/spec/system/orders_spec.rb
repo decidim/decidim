@@ -357,6 +357,12 @@ describe "Orders", type: :system do
         end
 
         context "when voting by minimum projects rules" do
+          let!(:component) do
+            create(:budget_component,
+                   :with_total_budget_and_minimum_budget_projects,
+                   manifest: manifest,
+                   participatory_space: participatory_process)
+          end
           let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
 
           it "cannot add the project" do
@@ -375,8 +381,20 @@ describe "Orders", type: :system do
         end
 
         context "when voting by maximum projects rules" do
+          let!(:component) do
+            create(:budget_component,
+                   :with_maximum_budget_projects,
+                   manifest: manifest,
+                   participatory_space: participatory_process)
+          end
           let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
           let!(:another_project) { create(:project, component: component, budget: 1) }
+
+          before do
+            projects.each do |project|
+              let!(:line_item) { create(:line_item, order: order, project: project) }
+            end
+          end
 
           it "cannot add the project" do
             visit_component
@@ -394,8 +412,20 @@ describe "Orders", type: :system do
         end
 
         context "when voting by minimum and maximum projects rules" do
+          let!(:component) do
+            create(:budget_component,
+                   :with_minimum_and_maximum_budget_projects,
+                   manifest: manifest,
+                   participatory_space: participatory_process)
+          end
           let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
           let!(:another_project) { create(:project, component: component, budget: 1) }
+
+          before do
+            projects.each do |project|
+              let!(:line_item) { create(:line_item, order: order, project: project) }
+            end
+          end
 
           it "cannot add the project" do
             visit_component
