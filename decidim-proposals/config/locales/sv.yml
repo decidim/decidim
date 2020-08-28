@@ -80,6 +80,26 @@ sv:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategori
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Förslag
+              'true': Ändringsförslag
+          state_eq:
+            label: Status
+            values:
+              accepted: Accepterad
+              evaluating: Utvärderas
+              published: Publicerad
+              rejected: Avvisad
+              validating: Teknisk validering
+              withdrawn: Tillbakadragen
+          state_null:
+            label: Status
+            values:
+              'true': Ej besvarad
           valuator_role_ids_has:
             label: Tilldelad till värderare
         search_placeholder:
