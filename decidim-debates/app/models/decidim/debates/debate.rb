@@ -143,20 +143,6 @@ module Decidim
         authored_by?(user)
       end
 
-      # Needed by Hashtaggable and Searchable.
-      #
-      # Returns the title in the default locale so it can be searched.
-      def i18n_title
-        translated_attribute(title)
-      end
-
-      # Needed by Hashtaggable and Searchable.
-      #
-      # Returns the description in the default locale so it can be searched.
-      def i18n_body
-        translated_attribute(description)
-      end
-
       private
 
       def comments_blocked?
