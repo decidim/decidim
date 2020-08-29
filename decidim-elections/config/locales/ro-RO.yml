@@ -138,9 +138,6 @@ ro:
         election:
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
-      election_m:
-        footer:
-          take_part: Participă
       elections:
         count:
           elections_count:

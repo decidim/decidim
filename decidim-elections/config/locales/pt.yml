@@ -135,9 +135,6 @@ pt:
         election:
           publish: "%{user_name} publicou a eleição %{resource_name}"
           unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
-      election_m:
-        footer:
-          take_part: Fazer parte
       elections:
         count:
           elections_count:

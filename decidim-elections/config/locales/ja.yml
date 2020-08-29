@@ -132,9 +132,6 @@ ja:
         election:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
-      election_m:
-        footer:
-          take_part: 参加する
       elections:
         count:
           elections_count:

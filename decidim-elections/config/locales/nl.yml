@@ -135,9 +135,6 @@ nl:
         election:
           publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
           unpublish: "%{user_name} heeft de verkiezing van %{resource_name} gedepubliceerd"
-      election_m:
-        footer:
-          take_part: Neem deel
       elections:
         count:
           elections_count:

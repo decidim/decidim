@@ -27,7 +27,12 @@ module Decidim
 
       link_to(
         t("#{i18n_scope}.#{order}"),
-        url_for(params.to_unsafe_h.merge(page: nil, order: order)),
+        url_for(params.to_unsafe_h.except(
+          "component_id",
+          "participatory_process_slug",
+          "assembly_slug",
+          "initiative_slug"
+        ).merge(page: nil, order: order)),
         {
           data: { order: order },
           remote: true

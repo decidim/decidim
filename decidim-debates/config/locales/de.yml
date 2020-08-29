@@ -3,6 +3,8 @@ de:
     attributes:
       debate:
         category_id: Kategorie
+        closed_at: Geschlossen am
+        conclusions: Zusammenfassung
         decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
@@ -12,6 +14,7 @@ de:
         title: Titel
         user_group_id: Erstellen Sie eine Debatte als
     models:
+      decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
       decidim/debates/creation_enabled_event: Debatten aktiviert
@@ -25,6 +28,7 @@ de:
       debates:
         actions:
           create: Erstellen
+          endorse: Bestätigen
         name: Debatten
         settings:
           global:
@@ -35,14 +39,21 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled: Debate-Erstellung durch Benutzer aktiviert
+            endorsements_blocked: Bestätigungen blockiert
+            endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
+        close: Schließen
         confirm_destroy: Bist du sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neu %{name}
         title: Aktionen
       admin:
+        debate_closes:
+          edit:
+            close: Schließen
+            title: Debatte schließen
         debates:
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.

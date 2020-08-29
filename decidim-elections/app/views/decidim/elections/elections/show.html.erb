@@ -12,12 +12,16 @@ edit_link(
 )
 %>
 
+<%= render partial: "decidim/shared/component_announcement" %>
+
 <div class="row">
   <div class="columns">
 
-    <%= link_to :elections, class: "small hollow" do %>
-      <%= icon "caret-left", class: "icon--small" %>
-      <%= t(".back") %>
+    <% unless single? %>
+      <%= link_to :elections, class: "small hollow" do %>
+        <%= icon "caret-left", class: "icon--small" %>
+        <%= t(".back") %>
+      <% end %>
     <% end %>
 
     <h1 class="heading2">

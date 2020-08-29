@@ -28,6 +28,7 @@ fi-pl:
       debates:
         actions:
           create: Luo
+          endorse: Suosittele
         name: Keskustelut
         settings:
           global:
@@ -38,6 +39,8 @@ fi-pl:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Keskustelujen luominen käyttäjien toimesta sallittu
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset käytössä
     debates:
       actions:
         close: Sulje
