@@ -11,16 +11,19 @@
 
         <div class="conversation-header flex--cc absolutes">
           <div class="left center mr-s">
-            <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
-              <%= icon "chevron-left", role: "img", aria_label: t(".back") %>
+            <%= link_to decidim.conversations_path do %>
+              <span aria-hidden="true">
+                <%= icon "chevron-left", class: "card--list__data__icon--back card__link icon--big", role: "img" %>
+              </span>
+              <%= t(".back") %>
             <% end %>
           </div>
-          <%= link_to decidim.conversations_path do %>
-            <% if participants.count == 1 %>
+          <% if participants.count == 1 %>
+            <%= link_to profile_path(participants.first.nickname) do %>
               <%= image_tag participants.first.avatar_url, alt: t("decidim.author.avatar") %>
-            <% else %>
-              <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar") %>
             <% end %>
+          <% else %>
+            <%= image_tag current_user.avatar.default_multiuser_url, alt: t("decidim.author.avatar") %>
           <% end %>
 
           <div class="ml-s">

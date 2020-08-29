@@ -1,5 +1,5 @@
 <div class="conversation-chat<%= " conversation-chat--offset" if sender_is_user?(sender) %>">
-  <%= link_to sender.personal_url do %>
+  <%= link_to profile_path(sender.nickname) do %>
     <%= image_tag sender.avatar_url, alt: t("decidim.author.avatar") %>
   <% end %>
   <div>

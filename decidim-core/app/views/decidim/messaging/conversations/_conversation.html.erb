@@ -43,9 +43,21 @@
       <div class="right center mr-s">
         <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
           <% if conversation.interlocutors(current_user).count == 1 %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: conversation.interlocutors(current_user).first.name) %>
+            <span aria-hidden="true">
+              <%= t(".show") %>
+              <%= icon "chevron-right", class: "card__link icon--big card--list__data__icon--back", role: "img" %>
+            </span>
+            <span class="show-for-sr">
+              <%= t(".show_with", sender: conversation.interlocutors(current_user).first.name) %>
+            </span>
           <% else %>
-            <%= icon "chevron-right", class: "card__link icon--big", role: "img", aria_label: t(".show", sender: username_list(conversation.interlocutors(current_user))) %>
+            <span aria-hidden="true">
+              <%= t(".show") %>
+              <%= icon "chevron-right", class: "card__link icon--big card--list__data__icon--back", role: "img" %>
+            </span>
+            <span class="show-for-sr">
+              <%= t(".show_with", sender: username_list(conversation.interlocutors(current_user))) %>
+            </span>
           <% end %>
         <% end %>
       </div>

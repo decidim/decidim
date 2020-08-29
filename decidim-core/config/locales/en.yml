@@ -890,7 +890,8 @@ en:
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
         conversation:
-          show: Show conversation with %{sender}
+          show: Show conversation
+          show_with: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
         index:
