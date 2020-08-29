@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "httparty"
-
 module Decidim
   module Map
     # A base class for static mapping functionality, common to all static map
@@ -125,11 +123,10 @@ module Decidim
         )
         return "" unless request_url
 
-        request = HTTParty.get(
-          request_url,
-          headers: { "Referer" => organization.host }
-        )
-        request.body
+        response = Faraday.get(request_url) do |req|
+          req.headers["Referer"] = organization.host
+        end
+        response.body
       end
     end
   end
