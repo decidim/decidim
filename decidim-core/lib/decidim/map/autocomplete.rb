@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "httparty"
-
 module Decidim
   module Map
     # A base class for autocomplete geocoding functionality, common to all
