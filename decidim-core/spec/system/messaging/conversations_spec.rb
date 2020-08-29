@@ -183,7 +183,7 @@ describe "Conversations", type: :system do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
-          find("a.card--list__data__icon--back").click
+          find("a.card--list__link__back").click
           expect(page).to have_no_selector(".card--list__item .unread_message__counter")
         end
       end

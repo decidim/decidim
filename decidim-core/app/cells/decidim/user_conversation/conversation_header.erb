@@ -1,6 +1,6 @@
 <div class="conversation-header flex--cc absolutes">
   <div class="left center mr-s">
-    <%= link_to decidim.profile_conversations_path(nickname: user.nickname) do %>
+    <%= link_to decidim.profile_conversations_path(nickname: user.nickname), class: "card--list__link__back" do %>
       <span aria-hidden="true">
         <%= icon "chevron-left", class: "card__link icon--big card--list__data__icon--back", role: "img" %>
       </span>
