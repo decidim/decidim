@@ -17,9 +17,6 @@
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
-      election_m:
-        footer:
-          take_part: Delta
       elections:
         count:
           elections_count:

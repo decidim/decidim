@@ -135,9 +135,6 @@ fr-CA:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
           unpublish: "%{user_name} a dépublié l'élection %{resource_name}"
-      election_m:
-        footer:
-          take_part: Participez
       elections:
         count:
           elections_count:

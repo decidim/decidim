@@ -1216,6 +1216,10 @@ de:
     tags:
       filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
       filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'
+    translation_bar:
+      help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
+      show_original: Originaltext anzeigen
+      show_translated: Automatisch übersetzter Text anzeigen
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
@@ -1275,6 +1279,7 @@ de:
     versions:
       resource_version:
         of_versions: "(von %{number})"
+        see_other_versions: Andere Versionen anzeigen
         version: Versionsnummer %{number}
     versions_list:
       show:

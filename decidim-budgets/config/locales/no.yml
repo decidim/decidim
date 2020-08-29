@@ -4,7 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
@@ -98,7 +98,7 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
-          scope: Omfang
+          scope: Tema
           search: Søk
         filters_small_view:
           close_modal: Lukk modal

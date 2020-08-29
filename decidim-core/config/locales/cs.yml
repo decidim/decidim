@@ -1240,6 +1240,10 @@ cs:
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
+    translation_bar:
+      help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
+      show_original: Zobrazit původní text
+      show_translated: Zobrazit automaticky přeložený text
     user_activity:
       index:
         no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.

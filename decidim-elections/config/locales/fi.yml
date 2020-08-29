@@ -136,13 +136,36 @@ fi:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
       election_m:
+        badge_name:
+          finished: Valmis
+          ongoing: Aktiivinen
+          upcoming: Tuleva
+        end_date: Päättyy
         footer:
-          take_part: Osallistu
+          view: Näytä
+          vote: Äänestä
+        label:
+          date: Päivämäärät
+        questions: Kysymys %{count}
+        start_date: Alkaa
+        unspecified: Ei määritelty
       elections:
         count:
           elections_count:
             one: "%{count} vaali"
             other: "%{count} vaalia"
+        filters:
+          active: Aktiiviset
+          all: Kaikki
+          finished: Valmiit
+          search: Hae
+          state: Tila
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Rajaa
+          filter_by: Rajaa hakua
+          unfold: Avaa
         show:
           back: Kaikki vaalit
           preview: Esikatsele
@@ -166,6 +189,10 @@ fi:
             answers: Vastaukset
             max_selections: Valintojen enimmäismäärä
             title: Otsikko
+      orders:
+        label: Järjestä vaalit
+        older: Vanhimmat
+        recent: Uusimmat
       votes:
         confirm:
           answer: Vastaa
@@ -204,6 +231,9 @@ fi:
         voting_step:
           back: Takaisin
           continue: Seuraava
+      warnings:
+        no_elections_warning: Yksikään vaali ei vastaa hakukriteerejäsi tai yhtään vaalia ei ole suunniteltu.
+        no_scheduled_elections_warning: Tällä hetkellä ei ole suuniteltuja vaaleja, mutta täältä löydät kaikki aikaisemmat vaalit.
     events:
       elections:
         election_published:

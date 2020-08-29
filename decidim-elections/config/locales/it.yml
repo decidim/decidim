@@ -135,9 +135,6 @@ it:
         election:
           publish: "%{user_name} ha pubblicato l'elezione %{resource_name}"
           unpublish: "%{user_name} ha rimosso l'elezione %{resource_name}"
-      election_m:
-        footer:
-          take_part: Partecipa
       elections:
         count:
           elections_count:
