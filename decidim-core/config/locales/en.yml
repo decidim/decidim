@@ -909,7 +909,7 @@ en:
           send: Send
           title: Reply
         show:
-          back: Back to all conversations
+          back: Show all conversations
           chat_with: Conversation with
           not_allowed: This user does not accept any more direct messages.
           title: Conversation with %{usernames}
