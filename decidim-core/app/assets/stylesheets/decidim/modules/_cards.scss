@@ -493,6 +493,11 @@ a .card__title{
   }
 }
 
+.card--list__data__icon--back.icon--big{
+  position: relative;
+  top: 5px;
+}
+
 .card--list__item{
   display: flex;
   align-items: center;
