@@ -87,10 +87,12 @@ sv:
             values:
               'false': Förslag
               'true': Ändringsförslag
+          scope_id_eq:
+            label: Omfång
           state_eq:
             label: Status
             values:
-              accepted: Accepterad
+              accepted: Accepterat
               evaluating: Utvärderas
               published: Publicerad
               rejected: Avvisad
