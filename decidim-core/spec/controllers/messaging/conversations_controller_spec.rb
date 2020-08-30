@@ -102,10 +102,14 @@ module Decidim
 
     describe "PUT update" do
       context "when invalid" do
-        it "renders an error message" do
-          put :update, format: :js, params: { id: conversation.id, message: { body: "A" * 1001 } }
+        render_views
 
-          expect(response.body).to include("Message not sent")
+        let(:max_length) { Decidim.config.maximum_conversation_message_length }
+
+        it "renders an error message" do
+          put :update, format: :js, params: { id: conversation.id, message: { body: "A" * (max_length + 1) } }
+
+          expect(response.body).to include("Message was not sent due to an error")
         end
       end
     end
