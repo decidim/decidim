@@ -343,6 +343,12 @@ module Decidim
     %w(all participants)
   end
 
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
