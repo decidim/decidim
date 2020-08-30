@@ -26,7 +26,8 @@ module Decidim
       end
 
       def process_attachments?
-        @form.attachment && @form.attachment.file.present?
+        @form.attachment && @form.attachment.file.present? &&
+          !@form.attachment.file.is_a?(Decidim::ApplicationUploader)
       end
     end
   end

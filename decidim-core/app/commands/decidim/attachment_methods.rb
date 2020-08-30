@@ -24,6 +24,10 @@ module Decidim
       @form.attachment.file.present?
     end
 
+    def attachment_file_uploaded?
+      !@form.attachment.file.is_a?(Decidim::ApplicationUploader)
+    end
+
     def create_attachment
       attachment.attached_to = @attached_to
       attachment.save!
@@ -34,7 +38,7 @@ module Decidim
     end
 
     def process_attachments?
-      attachments_allowed? && attachment_present?
+      attachments_allowed? && attachment_present? && attachment_file_uploaded?
     end
   end
 end
