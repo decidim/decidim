@@ -10,7 +10,6 @@ es-PY:
         description: Descripción
         end_time: La votación acaba el
         start_time: La votación empieza el
-        subtitle: Subtítulo
         title: Título
       question:
         description: Descripción
