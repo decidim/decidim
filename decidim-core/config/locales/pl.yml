@@ -1024,7 +1024,7 @@ pl:
           how_to_participate: Jak wziąć udział w procesie?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
-          more_info: Więcej informacji na temat %{resource_name}
+          more_info: Więcej informacji
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
