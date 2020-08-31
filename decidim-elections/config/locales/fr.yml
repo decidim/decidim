@@ -10,7 +10,6 @@ fr:
         description: Description
         end_time: Le vote se termine à
         start_time: Le vote commence à
-        subtitle: Sous-titre
         title: Titre
       question:
         description: Description
@@ -19,6 +18,10 @@ fr:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être téléchargé de nouveau
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
