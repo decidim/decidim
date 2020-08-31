@@ -10,7 +10,6 @@ cs:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
-        subtitle: Podtitulek
         title: Název
       question:
         description: Popis
