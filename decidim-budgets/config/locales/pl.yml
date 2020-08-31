@@ -112,7 +112,7 @@ pl:
             few: wybranych projektów
             many: wybrane projekty
             other: wybranych projektów
-          view: Widok
+          view: Zobacz
         project:
           add: Dodaj
           count:
@@ -121,7 +121,7 @@ pl:
             many: "%{count} wsparć"
             other: "%{count} wsparć"
           remove: Usuń
-          view: Widok
+          view: Zobacz
         project_budget_button:
           add: Dodaj
           added: Dodano
