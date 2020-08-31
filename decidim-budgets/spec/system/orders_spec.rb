@@ -213,7 +213,7 @@ describe "Orders", type: :system do
 
           within "#order-progress .budget-summary__progressbox" do
             expect(page).to have_content "16%"
-            expect(page).to have_selector("button.small:disabled")
+            expect(page).to have_selector("button.small")
           end
         end
 
