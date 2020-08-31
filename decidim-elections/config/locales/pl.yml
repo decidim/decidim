@@ -21,6 +21,10 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Załącz ponownie
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Musi zostać ponownie załączony
   activerecord:
     models:
       decidim/elections/answer:
