@@ -24,4 +24,4 @@ schema.json
 .tags
 # Vim swap files
 *.swp
-
+.vagrant
