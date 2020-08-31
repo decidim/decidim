@@ -10,7 +10,6 @@ pl:
         description: Opis
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
-        subtitle: Podtytuł
         title: Tytuł
       question:
         description: Opis
