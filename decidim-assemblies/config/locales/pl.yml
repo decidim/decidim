@@ -26,7 +26,7 @@ pl:
         github: GitHub
         hashtag: Hashtag
         hero_image: Obraz główny
-        included_at: Zawarte w
+        included_at: Dołączono
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
         is_transparent: Jest transparentny
@@ -343,7 +343,7 @@ pl:
         creation_date: Data utworzenia
         developer_group: Grupa twórców
         duration: Czas trwania
-        included_at: Zawarte w
+        included_at: Dołączono
         indefinite_duration: Nie określono
         internal_organisation: Organizacja wewnętrzna
         is_transparent:
