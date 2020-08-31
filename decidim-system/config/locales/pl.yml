@@ -7,45 +7,45 @@ pl:
         edit: Edytuj
         new: Nowy
         save: Zapisz
-        title: działania
+        title: Działania
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
-          success: Admin został utworzony
+          success: Administrator został utworzony
         destroy:
-          success: Administrator został pomyślnie usunięty
+          success: Administrator został usunięty
         edit:
           title: Edytuj administratora
-          update: Aktualizacja
+          update: Aktualizuj
         index:
           title: Administratorzy
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
-          success: Admin został zaktualizowany
+          success: Administrator został zaktualizowany
       default_pages:
         placeholders:
-          content: Proszę dodać istotne treści do strony statyczne %{page} na panelu administratora.
+          content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
           title: Domyślny tytuł dla %{page}
       menu:
         admins: Administratorzy
-        dashboard: Deska rozdzielcza
+        dashboard: Panel
         organizations: Organizacje
       models:
         admin:
           fields:
-            created_at: Utworzono w
-            email: E-mail
-          name: Admin
+            created_at: Utworzono
+            email: Adres e-mail
+          name: Administrator
           validations:
-            email_uniqueness: Inny admin z tym samym e-mailem już istnieje
+            email_uniqueness: inny administrator z tym samym e-mailem już istnieje
         organization:
           actions:
-            save_and_invite: Utwórz organizację i zapraszaj administratora
+            save_and_invite: Utwórz organizację i zaproś administratora
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             name: Nazwa
             omniauth_settings: Ustawienia Omniauth
             smtp_settings: Ustawienia SMTP
@@ -53,7 +53,7 @@ pl:
       organizations:
         create:
           error: Podczas tworzenia nowej organizacji wystąpił błąd.
-          success: Organizacja powiodła się.
+          success: Organizacja została utworzona.
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         index:
@@ -73,7 +73,7 @@ pl:
             app_id: ID aplikacji
             app_secret: Sekret aplikacji
           google_oauth2:
-            client_id: Identyfikator klienta
+            client_id: ID klienta
             client_secret: Sekret klienta
           icon: Ikona
           icon_path: Ścieżka ikony
@@ -82,10 +82,10 @@ pl:
             api_secret: Sekret API
         smtp_settings:
           instructions:
-            from_label: 'Nadawcą wiadomości e-mail będzie: „your-organization-name <your-organization@your-provider.org>”. Pozostaw puste, aby użyć ''from_email'' jako etykiety'
+            from_label: 'Nadawcą wiadomości e-mail będzie: „nazwa-twojej-organizacji <your-organization@twoj-dostawca.pl>”. Pozostaw puste, aby użyć ''from_email'' jako etykiety'
           placeholder:
-            from_email: twoja-organizacja@twoja-dostawca.org
-            from_label: Twoja nazwa organizacji
+            from_email: twoja-organizacja@twoj-dostawca.pl
+            from_label: twoja-nazwa-organizacji
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.
@@ -95,7 +95,7 @@ pl:
           existing: Nie zezwalaj użytkownikom na rejestrację, ale zezwalaj istniejącym użytkownikom na logowanie
       shared:
         notices:
-          no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj, czy przeczytasz %{guide}.
-          our_getting_started_guide: Nasz przewodnik
+          no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.
+          our_getting_started_guide: nasz przewodnik
       titles:
-        dashboard: Deska rozdzielcza
+        dashboard: Panel

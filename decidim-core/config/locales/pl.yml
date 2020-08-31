@@ -52,10 +52,10 @@ pl:
         many: Poprawki
         other: Poprawki
       decidim/endorsement:
-        one: Poparcie
-        few: Poparcia
-        many: Poparcia
-        other: Poparcia
+        one: Rekomendacja
+        few: Rekomendacje
+        many: Rekomendacje
+        other: Rekomendacje
       decidim/user:
         one: Użytkownik
         few: Użytkownicy
@@ -169,12 +169,12 @@ pl:
         success: Poprawka została zaakceptowana.
       amendable:
         amended_by: Poprawione przez
-        button: Popraw %{model_name}
+        button: '%{model_name} - popraw'
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
-        help_text: Ulepsz %{model_name} modyfikując %{amendable_fields}
-        promote_button: Promuj %{model_name}
+        help_text: '%{model_name} - ulepsz modyfikując pola %{amendable_fields}'
+        promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
-        promote_help_text: Możesz promować tę wersję i opublikować ją jako niezależne %{model_name}
+        promote_help_text: 'Możesz promować tę wersję i opublikować ją jako niezależny element: %{model_name}'
         section_heading: Poprawki (%{count})
       compare_draft:
         continue: Dalej
@@ -200,7 +200,7 @@ pl:
           accepted: |-
             Ta poprawka do %{amendable_type} %{proposal_link} została zaakceptowana <strong>%{date}</strong>.
           evaluating: |-
-            Niniejsza poprawka do oceny %{amendable_type} %{proposal_link} jest oceniana.
+            Poprawka do %{proposal_link} (%{amendable_type}) jest oceniana.
           promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta poprawka do %{amendable_type} %{proposal_link}\nzostała odrzucona <strong>%{date}</strong>."
           withdrawn: |-
@@ -226,7 +226,7 @@ pl:
       review:
         back: Powrót
         heading: Przejrzyj poprawkę
-        help_text: Przeglądasz poprawkę do %{model_name}
+        help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
       update_draft:
         error: Wystąpił błąd podczas aktualizowania szkicu poprawki.
@@ -262,10 +262,10 @@ pl:
         many: komentarze
         other: komentarze
       endorsements:
-        one: poparcie
-        few: poparcia
-        many: poparcia
-        other: poparcia
+        one: rekomendacja
+        few: rekomendacje
+        many: rekomendacje
+        other: rekomendacje
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
@@ -480,11 +480,11 @@ pl:
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     endorsable:
-      endorsements: Wsparcia
-      endorsements_count: Licznik poparć
+      endorsements: Rekomendacje
+      endorsements_count: Liczba rekomendacji
     endorsement_buttons_cell:
-      already_endorsed: Poparto
-      endorse: Poprzyj
+      already_endorsed: Rekomendowano
+      endorse: Rekomenduj
     endorsements:
       identities:
         done: Gotowe
@@ -620,10 +620,10 @@ pl:
       notification_event:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie poparł(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
         email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-        email_subject: "%{endorser_nickname} poparł(a) nową propozycję"
-        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została poparta przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
+        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
@@ -648,9 +648,9 @@ pl:
         result: Wyniki
     fingerprint:
       check: Sprawdź odcisk palca
-      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      explanation: Fragment tekstu poniżej stanowi skróconą i zaszyfrowaną wersję tej treści. Warto upewnić się, że treść nie została zmodyfikowana, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
       online_calculator_name: Kalkulator MD5 online
-      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      replicate_help: 'Ten fingerprint jest wyliczony przy użyciu algorytmu szyfrującego SHA256. Aby wykonać replikę samodzielnie, możesz skopiować i wkleić dane źródłowe do tego narzędzia: %{online_calculator_link}.'
       source: Źródło
       title: Odcisk palca
       value: Wartość
@@ -667,7 +667,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -699,7 +699,7 @@ pl:
         followers:
           conditions:
             - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
-          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczna i polityczna, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
+          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczną i polityczną, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
@@ -709,7 +709,7 @@ pl:
         index:
           badge_title: "Odznaka %{name}"
           how: Jak ją zdobyć
-          page_description: Odznaki są wyrazem uznania dla działań uczestników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
         invitations:
           conditions:
@@ -723,7 +723,7 @@ pl:
           next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
           unearned_own: Jeszcze nikogo nie zaproszono.
-      description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
+      description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
@@ -1021,7 +1021,7 @@ pl:
         extended:
           debates: Debaty
           debates_explanation: Debatuj i dyskutuj, podziel się swoimi poglądami i wzbogać tematykę debat.
-          how_to_participate: Jak weź udział w procesie?
+          how_to_participate: Jak wziąć udział w procesie?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
           more_info: Więcej informacji na temat %{resource_name}
@@ -1042,7 +1042,7 @@ pl:
           comments_count: Komentarze
           conferences_count: Konferencje
           debates_count: Debaty
-          endorsements_count: Wsparcia
+          endorsements_count: Rekomendacje
           headline: Aktualny stan %{organization}
           meetings_count: Spotkania
           orders_count: Głosowania
@@ -1089,7 +1089,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
-      view: Widok
+      view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli
@@ -1143,7 +1143,7 @@ pl:
         success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
     resource_endorsements:
       create:
-        error: Wystąpił błąd podczas udzielania poparcia.
+        error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
       picker:

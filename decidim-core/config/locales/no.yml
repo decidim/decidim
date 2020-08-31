@@ -420,7 +420,7 @@
           sign_up: Registrer deg
           sign_up_as:
             legend: Registrer deg som
-          subtitle: Registrer deg for å delta i diskusjoner og støtte forslag.
+          subtitle: Registrer deg for å delta i diskusjoner og medvirkningsprosesser.
           terms: vilkårene for bruk
           tos_agreement: Ved å registrere deg godtar du til %{link}.
           tos_title: Vilkår for bruk
@@ -430,7 +430,7 @@
           are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
           sign_in_disabled: Du kan få tilgang til med en ekstern konto
-          sign_up_disabled: Registreringen er deaktivert, du kan bruke en eksisterende konto for å få tilgang
+          sign_up_disabled: Registreringen er stoppet, du kan bruke en eksisterende konto for å få tilgang
       shared:
         newsletter_modal:
           buttons:
@@ -1251,7 +1251,7 @@
         we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       new:
         sign_up: Registrer deg
-      signed_up: Velkommen! Din registrering er fullført.
+      signed_up: Velkommen! Din registrering er fullført. Husk å bekrefte epostadressen din via mailen vi har sendt deg.
       signed_up_but_inactive: Du er registrert, men vi kan ikke logge deg på fordi kontoen ikke er aktivert ennå.
       signed_up_but_locked: Du er registrert, men vi kan ikke logge deg på fordi kontoen din er låst.
       signed_up_but_unconfirmed: En melding med en bekreftelseslink er sendt til din e-postadresse. Følg lenken for å aktivere kontoen din.

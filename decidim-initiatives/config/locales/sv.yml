@@ -73,6 +73,13 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Område
+          state_eq:
+            label: Status
+            values:
+              accepted: Tillräckligt många underskrifter
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
@@ -201,6 +208,8 @@ sv:
             success: Initiativet har skickats till teknisk validering
             update: Uppdatera
           form:
+            attachments: Bilagor
+            settings: Inställningar
             title: Allmän information
           index:
             actions_title: Åtgärd

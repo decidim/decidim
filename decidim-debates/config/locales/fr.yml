@@ -3,6 +3,8 @@ fr:
     attributes:
       debate:
         category_id: Catégorie
+        closed_at: Clôturé le
+        conclusions: Conclusions
         decidim_category_id: Catégorie
         description: Description
         end_time: Prend fin à
@@ -12,6 +14,7 @@ fr:
         title: Titre
         user_group_id: Créer un débat en tant que
     models:
+      decidim/debates/close_debate_event: Débat terminé
       decidim/debates/create_debate_event: Débat
       decidim/debates/creation_disabled_event: Débats désactivés
       decidim/debates/creation_enabled_event: Débats activés
@@ -25,6 +28,7 @@ fr:
       debates:
         actions:
           create: Créer
+          endorse: Soutenir
         name: Débats
         settings:
           global:
@@ -35,14 +39,21 @@ fr:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
             creation_enabled: Création de débats par les utilisateurs activés
+            endorsements_blocked: Soutiens bloqués
+            endorsements_enabled: Soutiens activés
     debates:
       actions:
+        close: Fermer
         confirm_destroy: Êtes-vous certain ?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
         title: Actions
       admin:
+        debate_closes:
+          edit:
+            close: Fermer
+            title: Clore le débat
         debates:
           create:
             invalid: Il y a eu un problème lors de la création du débat.
@@ -65,9 +76,18 @@ fr:
             name: Débat
       admin_log:
         debate:
+          close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
+        close:
+          invalid: Une erreur s'est produite lors de la fermeture du débat.
+          success: Débat clos avec succès.
+        close_debate_modal:
+          close: Fermer
+          description: Quel est le résumé ou la conclusion de ce débat?
+          send: Clore le débat
+        closed: Fermé
         count:
           debates_count:
             one: "%{count} débat"
@@ -104,8 +124,16 @@ fr:
           title: Nouveau débat
         show:
           back: Retour à la liste
+          close_debate: Clore le débat
           date: Date
+          debate_closed: Fermé
+          debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
+          edit_conclusions: Modifier les conclusions
           edit_debate: Modifier le débat
+          groups_count: Groupes
+          last_comment_by: Dernier commentaire par
+          no_comments_yet: Pas encore de commentaire
+          participants_count: Participants
         update:
           invalid: Une erreur s'est produite lors de la mise à jour du débat.
           success: Débat mis à jour avec succès.
