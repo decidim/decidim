@@ -10,7 +10,6 @@ ca:
         description: Descripció
         end_time: La votació finalitza el
         start_time: La votació comença el
-        subtitle: Subtítol
         title: Títol
       question:
         description: Descripció
@@ -19,6 +18,10 @@ ca:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
