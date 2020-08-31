@@ -223,7 +223,7 @@ pl:
             email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, którego obserwujesz, właśnie zarekomendował propozycję "%{resource_title}" i uważamy, że może być to dla ciebie interesujące. Sprawdź i wesprzyj:'
+          email_intro: 'Użytkownik %{endorser_name} %{endorser_nickname}, którego obserwujesz, właśnie zarekomendował propozycję "%{resource_title}" i uważamy, że może być to dla ciebie interesujące. Sprawdź i wesprzyj:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
           email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -283,9 +283,9 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
             - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
-          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach i są one akceptowane.
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje i są one akceptowane.
           description_another: Ten użytkownik ma %{score} zaakceptowanych propozycji.
           description_own: Masz %{score} zaakceptowanych propozycji.
           name: Zaakceptowane propozycje
@@ -305,9 +305,9 @@ pl:
           unearned_own: Nie udzielałeś jeszcze wsparcia żadnym propozycjom.
         proposals:
           conditions:
-            - Wybierz interesującą Cię przestrzeń partycypacyjną z włączoną obsługą zgłoszeń
+            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
             - Utwórz nową propozycję
-          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach.
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
           name: Propozycje
