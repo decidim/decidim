@@ -52,7 +52,7 @@ fr:
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surligner, alternative
-        highlight_color: Surligner
+        highlight_color: Surbrillance
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
@@ -166,7 +166,7 @@ fr:
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -324,11 +324,11 @@ fr:
             'false': Publié
             'true': Dépublié
         scope_id_eq:
-          label: Périmètre d'application
+          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
-          title_cont: Search %{collection} par titre.
+          title_cont: Rechercher %{collection} par titre.
         state_eq:
           label: État
       help_sections:
@@ -593,7 +593,7 @@ fr:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
-          close_modal: Fermer la fenêtre modale
+          close_modal: Fermer la fenêtre de dialogue
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
@@ -608,7 +608,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url
