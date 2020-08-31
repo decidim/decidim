@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
+
   class ViewModel < Cell::ViewModel
     include ActionView::Helpers::TranslationHelper
     include ::Cell::Translation
@@ -10,6 +13,7 @@ module Decidim
     include Decidim::ActionAuthorization
     include Decidim::ActionAuthorizationHelper
     include Decidim::ReplaceButtonsHelper
+    include Decidim::MarkupHelper
 
     delegate :current_organization, to: :controller
 

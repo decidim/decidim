@@ -5,6 +5,7 @@ module Decidim
     # Exposes the survey resource so users can view and answer them.
     class SurveysController < Decidim::Surveys::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
+      include Decidim::ComponentPathHelper
       helper Decidim::Surveys::SurveyHelper
 
       delegate :allow_answers?, :allow_unregistered?, to: :current_settings
@@ -17,6 +18,10 @@ module Decidim
 
       def questionnaire_for
         survey
+      end
+
+      def form_path
+        main_component_path(current_component)
       end
 
       private

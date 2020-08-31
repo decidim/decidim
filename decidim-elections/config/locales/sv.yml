@@ -1,0 +1,132 @@
+sv:
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivning
+        image: Bild
+        proposals: Relaterade förslag
+        title: Titel
+      election:
+        description: Beskrivning
+        end_time: Omröstningen slutar vid
+        start_time: Röstningsstart vid
+        subtitle: Undertext
+        title: Titel
+      question:
+        description: Beskrivning
+        max_selections: Maximalt antal val
+        title: Titel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Måste återknytas
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svar
+      decidim/elections/election:
+        one: Val
+        other: Val
+      decidim/elections/question:
+        one: Fråga
+        other: Frågor
+  decidim:
+    components:
+      elections:
+        name: Val
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            announcement: Meddelande
+    elections:
+      actions:
+        confirm_destroy: Är du säker?
+        destroy: Förstör
+        edit: Redigera
+        new: Ny %{name}
+        preview: Förhandsgranska
+        title: Åtgärder
+      admin:
+        answers:
+          create:
+            invalid: Det gick inte att skapa svaret
+            success: Svaret har skapats
+          destroy:
+            invalid: Det gick inte att ta bort svaret
+            success: Svaret har tagits bort
+          edit:
+            title: Redigera svar
+            update: Uppdatera svar
+          index:
+            title: Svar
+          new:
+            create: Skapa svar
+            title: Nytt svar
+          update:
+            invalid: Det gick inte att uppdatera svaret
+            success: Svaret har uppdaterats
+        elections:
+          create:
+            invalid: Det gick inte att skapa detta val
+            success: Val har skapats
+          destroy:
+            invalid: Det gick inte att ta bort valet
+            success: Val har tagits bort
+          edit:
+            title: Redigera val
+            update: Uppdatera val
+          index:
+            title: Val
+          new:
+            create: Skapa val
+            title: Nytt val
+          update:
+            invalid: Det gick inte att uppdatera valet
+            success: Val har uppdaterats
+        models:
+          answer:
+            name: Svar
+          election:
+            name: Val
+          question:
+            name: Fråga
+        questions:
+          create:
+            invalid: Det gick inte att skapa denna fråga
+            success: Frågan har skapats
+          destroy:
+            invalid: Det gick inte att ta bort denna fråga
+            success: Frågan har tagits bort
+          edit:
+            title: Redigera fråga
+            update: Uppdatera fråga
+          index:
+            title: Frågor
+          new:
+            create: Skapa fråga
+            title: Ny fråga
+          update:
+            invalid: Det gick inte att uppdatera denna fråga
+            success: Frågan har uppdaterats
+      models:
+        answer:
+          fields:
+            proposals: Förslag
+            title: Titel
+        election:
+          fields:
+            end_time: Avsluta vid
+            start_time: Börjar vid
+            title: Titel
+        question:
+          fields:
+            answers: Svar
+            max_selections: Max. val
+            title: Titel
+    participatory_processes:
+      statistics:
+        elections_count: Val

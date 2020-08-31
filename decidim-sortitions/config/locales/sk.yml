@@ -1,0 +1,164 @@
+sk:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informácie o voľbe losovaním
+        decidim_category_id: Kategórie sady návrhov, v ktorých chcete použiť remízu
+        decidim_proposals_component_id: Návrhy sú nastavené
+        dice: Výsledok hodu kockou. Hoďte 6-strananou kockou alebo vyhľadajte iný náhodný spôsob, ako vygenerovať číslo od 1 do 6, a zadajte tu výsledné číslo pred niekoľkými svedkami. To prispieva ku kvalite a záruke náhodnosti výsledku.
+        target_items: Počet návrhov, ktoré majú byť vybrané (udáva počet návrhov, ktoré chcete vybrať zo skupiny návrhov, ktoré ste predtým vybrali)
+        title: Názov
+        witnesses: Svedkovia
+    models:
+      decidim/sortitions/create_sortition_event: Voľba losovaním
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Voľba losovaním
+        few: Voľby losovaním
+        many: Voľby losovaním
+        other: Voľby losovaním
+  decidim:
+    components:
+      sortitions:
+        name: Voľby losovaním
+        settings:
+          global:
+            comments_enabled: Komentáre povolené
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Vvoľba losovaním "%{resource_title}" bola pridaná ku "%{participatory_space_title}", ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete "%{participatory_space_title}". Môžete ho odhlásiť od predchádzajúceho odkazu.
+          email_subject: Nová voľba losovaním bola pridaná ku %{participatory_space_title}
+          notification_title: Vvoľba losovaním <a href="%{resource_path}">%{resource_title} </a> bola pridaná ku %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Voľby losovaním
+    participatory_processes:
+      statistics:
+        sortitions_count: Voľby losovaním
+    sortitions:
+      admin:
+        actions:
+          destroy: Zrušiť voľbu losovaním
+          edit: Upraviť
+          new: Nová voľba losovaním
+          show: Podrobnosti o voľbe losovaním
+        models:
+          sortition:
+            fields:
+              category: Kategória
+              created_at: Dátum vzniku
+              decidim_proposals_component: Súčasť návrhov
+              dice: Kocky
+              reference: Odkazy
+              request_timestamp: Doba kreslenie
+              seed: Semienko
+              target_items: Položky, ktoré chcete vybrať
+              title: Titul
+            name:
+              one: Voľba losovaním
+              few: Voľby losovaním
+              many: Voľby losovaním
+              other: Voľby losovaním
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Naozaj chcete túto voľbu zrušiť?
+            destroy: Zrušiť voľbu
+            title: Zrušenie voľby losovaním
+          create:
+            error: Pri vytváraní novej voľby došlo k chybe.
+            success: Voľba losovaním bola úspešne vytvorená
+          destroy:
+            error: Voľbu nemožno zrušiť.
+            success: Voľba bola úspešne zrušená
+          edit:
+            title: Aktualizujte informácie o voľbe losovaním
+            update: Aktualizácia
+          form:
+            all_categories: Všetky kategórie
+            select_proposal_component: Vyberte sadu návrhov
+            title: Nové návrhy na návrhy
+          index:
+            title: Voľby losovaním
+          new:
+            confirm: Stlačením ďalšieho tlačidla Decidim zaznamená dátum a čas (s presnosťou na sekundy) a spoločne s hodom kockami budú tieto informácie použité pre generovanie náhodného výberu. Akcia bude nevratná, po kliknutí na tlačidlo sa výsledky tejto kresby uverejní s údajmi uvedenými v tomto formulári a nemožno ich zmeniť, skontrolujte prosím pozorne obsah
+            create: Vytvoriť
+            title: Nové rozvrhnutie
+          show:
+            selected_proposals: Návrhy vybrané pre kreslenie
+          update:
+            error: Pri aktualizácii výberu došlo k chybe.
+            success: Sortifikace bola úspešne aktualizovaná
+      admin_log:
+        sortition:
+          create: "%{user_name} vytvoril %{resource_name} voľbu v priestore %{space_name}"
+          delete: "%{user_name} zrušil %{resource_name} voľbu v priestore %{space_name}"
+          update: "%{user_name} aktualizoval %{resource_name} voľbu v priestore %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 návrh
+            few: "%{count} návrhov"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
+        filters:
+          active: Aktívne
+          all: Všetko
+          cancelled: Zrušil
+          category: Kategória
+          category_prompt: Vyberte kategóriu
+          search: Vyhľadávanie
+          state: Štát
+        filters_small_view:
+          close_modal: Zatvoriť modálne
+          filter: Filtrovať
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        linked_sortitions:
+          selected_proposals: Vybrané návrhy
+        orders:
+          label: 'Objednať sortitions podľa:'
+          random: Náhodný
+          recent: Nedávno
+        results_count:
+          count:
+            one: vybraný návrh
+            few: vybrané návrhy
+            many: vybrané návrhy
+            other: vybrané návrhy
+        show:
+          algorithm: Kód algoritmu Sortition
+          any_category: zo všetkých kategórií
+          back: Späť na zoznam
+          cancelled: Zrušené výber
+          candidate_proposal_ids: žrebovacie volbaní objednávky a ID
+          candidate_proposals_info: 'Rozbor bol vykonaný medzi nasledujúcimi návrhmi (%{category_label}), s nasledujúcimi ID (označené tučne vybranými návrhy)'
+          category: z kategórie %{category}
+          dice_result: "(1) Výsledok hodu kockou"
+          introduction: 'Táto stránka obsahuje výsledky voľby losovaním %{referencie}. Prostredníctvom tohto výberu bolo vybratých %{target_items} výsledkov náhodne a s rovnakým rozložením pravdepodobnosti zo súboru návrhov zobrazených nižšie. Spolu s výsledkami informácie zobrazenými na tejto stránke poskytujú všetky informácie potrebné pre maximalizáciu záruk a reprodukciu výsledkov. Kľúčom ku kvalite tejto voľby je dvojitá náhodnosť, ktorú poskytuje hod kockou (overený svedkami) a presný čas výberu, ktorý poskytuje vstup pre algoritmus, ktorý generuje náhodný výber. Časový údaj pre voľbu je tak presný (sekundy), že nie je možné ovládať ho ľudsky, a tak poskytuje dvojitý, "nekontrolovateľný" vstup, ktorý zaručí spravodlivý výsledok. '
+          mathematical_result: Výsledok (1) x (2)
+          proposals_selected_by_sortition: Návrhy vybrané výberom
+          sortition_reproducibility_details: Detaily reprodukcie voľby losovaním
+          time_seed: "(2) Časový údaj"
+          witnesses: Svedkovia
+        sortition:
+          random_seed: Náhodne generovaný prvok
+          selected_proposals:
+            one: vybraný návrh
+            few: vybraných návrhov
+            many: vybraných návrhov
+            other: vybraných návrhov
+          view: Pohľad
+        sortition_author:
+          deleted: Vymazaný užívateľ
+        sortition_cancel_author:
+          deleted: Vymazaný užívateľ
+        sortitions_count:
+          count:
+            one: 1 sortie
+            few: "%{count} sortitions"
+            many: "%{count} sortitions"
+            other: "%{count} sortitions"

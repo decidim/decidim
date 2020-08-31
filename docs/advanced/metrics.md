@@ -37,6 +37,7 @@ Metrics calculations must be executed everyday. Some `rake task` have been added
 ```ruby
 bundle exec rake decidim:metrics:list
 ```
+
 Currently, available metrics are:
 
 - **users**, created `Users`
@@ -78,20 +79,17 @@ persist metrics from all times and types.
 The `decidim_metrics` table has the following fields:
 
 - `day`: the day for which the metric has been computed.
-- `metric_type`: the type of the metric. One of: users, proposals,
-accepted_proposals, supports, assemblies.
+- `metric_type`: the type of the metric. One of: users, proposals, accepted_proposals, supports, assemblies.
 - `cumulative`: quantity accumulated to day ”day”.
 - `quantity`:  quantity for the current day, ”day”.
-- `decidim_organization_id`: the FK to the organization to which this Metric
-belongs to.
-- `participatory_space_type` + `participatory_space_id`: the FK to the
-participatory space to which this Metric belongs to, if any.
-- `related_object_type` + `related_object_id`: the FK to the object to which
-this Metric belongs to, if any.
+- `decidim_organization_id`: the FK to the organization to which this Metric belongs to.
+- `participatory_space_type` + `participatory_space_id`: the FK to the participatory space to which this Metric belongs to, if any.
+- `related_object_type` + `related_object_id`: the FK to the object to which this Metric belongs to, if any.
 - `decidim_category_id`: the FK to the category for this Metric, if any.
 
 Relations around `decidim_metrics` table:
-```
+
+```ascii
                                                     +------------------------+
 +--------------+                                    | ParticipatoryProcesses |
 | Organization |                               +----+------------------------+

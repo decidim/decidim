@@ -3,7 +3,7 @@ it:
     system:
       actions:
         confirm_destroy: Sei sicuro di voler cancellare?
-        destroy: Elimina
+        destroy: Cancella
         edit: Modifica
         new: Nuovo
         save: Salva
@@ -63,7 +63,12 @@ it:
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
         omniauth_settings:
+          decidim:
+            client_id: ID Cliente
+            client_secret: Segreto client
+            site_url: URL del sito
           enabled: Abilitato
+          enabled_by_default: Questo provider è abilitato di default. Può essere modificato ma non disabilitato.
           facebook:
             app_id: ID App
             app_secret: App secret
@@ -75,6 +80,12 @@ it:
           twitter:
             api_key: API Key
             api_secret: API secret
+        smtp_settings:
+          instructions:
+            from_label: 'Il mittente email sarà: "nome-della-tua-organizzazione <tuaorganizzazione@tuoprovider.org>". Lascia vuoto per usare ''from_email'' come etichetta'
+          placeholder:
+            from_email: tuaorganizzazione@ytuoprovider.org
+            from_label: nome-della-tua-organizzazione
         update:
           error: C'è stato un errore durante l'aggiornamento di questa organizzazione.
           success: OK, l'Organizzazione è stata aggiornata.

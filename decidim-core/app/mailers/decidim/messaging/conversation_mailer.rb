@@ -15,6 +15,28 @@ module Decidim
         )
       end
 
+      def new_group_conversation(originator, manager, conversation, group)
+        notification_mail(
+          from: originator,
+          to: manager,
+          conversation: conversation,
+          message: conversation.messages.first.body,
+          action: "new_group_conversation",
+          third_party: group
+        )
+      end
+
+      def comanagers_new_conversation(group, user, conversation, manager)
+        notification_mail(
+          from: group,
+          to: user,
+          conversation: conversation,
+          message: conversation.messages.first.body,
+          action: "comanagers_new_conversation",
+          third_party: manager
+        )
+      end
+
       def new_message(sender, user, conversation, message)
         notification_mail(
           from: sender,
@@ -25,26 +47,53 @@ module Decidim
         )
       end
 
+      def new_group_message(sender, user, conversation, message, group)
+        notification_mail(
+          from: sender,
+          to: user,
+          conversation: conversation,
+          message: message.body,
+          action: "new_group_message",
+          third_party: group
+        )
+      end
+
+      def comanagers_new_message(sender, user, conversation, message, manager)
+        notification_mail(
+          from: sender,
+          to: user,
+          conversation: conversation,
+          message: message.body,
+          action: "comanagers_new_message",
+          third_party: manager
+        )
+      end
+
       private
 
-      def notification_mail(from:, to:, conversation:, action:, message: nil)
+      # rubocop:disable Metrics/ParameterLists
+      def notification_mail(from:, to:, conversation:, action:, message: nil, third_party: nil)
         with_user(to) do
           @organization = to.organization
           @conversation = conversation
-          @sender = from.name
-          @recipient = to.name
+          @sender = from
+          @recipient = to
+          @third_party = third_party
           @message = message
           @host = @organization.host
 
           subject = I18n.t(
             "conversation_mailer.#{action}.subject",
             scope: "decidim.messaging",
-            sender: @sender
+            sender: @sender.name,
+            manager: @third_party&.name,
+            group: @third_party&.name
           )
 
           mail(to: to.email, subject: subject)
         end
       end
+      # rubocop:enable Metrics/ParameterLists
     end
   end
 end

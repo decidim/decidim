@@ -1,0 +1,7 @@
+bg:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Категория
+        decidim_category_id: Категория
+        description: Описание

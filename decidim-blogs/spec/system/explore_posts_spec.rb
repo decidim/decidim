@@ -12,7 +12,7 @@ describe "Explore posts", type: :system do
   describe "index" do
     it "shows all posts for the given process" do
       visit_component
-      expect(page).to have_selector("article.card", count: 2)
+      expect(page).to have_selector(".card", count: 2)
       expect(page).to have_selector(".card--post", text: translated(new_post.title))
       expect(page).to have_selector(".card--post", text: translated(old_post.title))
     end
@@ -45,7 +45,21 @@ describe "Explore posts", type: :system do
       expect(page).to have_i18n_content(post.title)
       expect(page).to have_i18n_content(post.body)
       expect(page).to have_content(post.author.name)
-      expect(page).to have_content(post.created_at.day)
+      expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
+    end
+
+    it "shows the back button" do
+      expect(page).to have_link(href: "#{main_component_path(component)}posts")
+    end
+
+    context "when clicking the back button" do
+      before do
+        click_link(href: "#{main_component_path(component)}posts")
+      end
+
+      it "redirect the user to component index" do
+        expect(page).to have_current_path("#{main_component_path(component)}posts")
+      end
     end
   end
 

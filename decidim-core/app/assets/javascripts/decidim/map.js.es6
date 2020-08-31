@@ -15,6 +15,21 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   },
   _createCircle: function() {
     return ""
+  },
+  // Improved version of the _createSVG, essentially the same as in later
+  // versions of Leaflet. It adds the `px` values after the width and height
+  // CSS making the focus borders work correctly across all browsers.
+  _createSVG: function() {
+    const path = this._createPath();
+    const circle = this._createCircle();
+    const text = this._createText();
+    const className = `${this.options.className}-svg`;
+
+    const style = `width:${this.options.iconSize.x}px; height:${this.options.iconSize.y}px;`;
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="${className}" style="${style}">${path}${circle}${text}</svg>`;
+
+    return svg;
   }
 });
 
@@ -26,7 +41,11 @@ const addMarkers = (markersData, markerClusters, map) => {
 
   markersData.forEach((markerData) => {
     let marker = L.marker([markerData.latitude, markerData.longitude], {
-      icon: new L.DivIcon.SVGIcon.DecidimIcon()
+      icon: new L.DivIcon.SVGIcon.DecidimIcon({
+        fillColor: window.Decidim.mapConfiguration.markerColor
+      }),
+      keyboard: true,
+      title: markerData.title
     });
     let node = document.createElement("div");
 
@@ -66,6 +85,15 @@ const loadMap = (mapId, markersData) => {
 
   map.scrollWheelZoom.disable();
 
+  // Fix the keyboard navigation on the map
+  map.on("popupopen", (ev) => {
+    const $popup = $(ev.popup.getElement());
+    $popup.attr("tabindex", 0).focus();
+  });
+  map.on("popupclose", (ev) => {
+    $(ev.popup._source._icon).focus();
+  });
+
   return map;
 };
 
@@ -84,14 +112,23 @@ $(() => {
   const hereAppCode = $map.data("here-app-code");
   const hereApiKey = $map.data("here-api-key");
 
+  let markerColor = getComputedStyle(document.documentElement).getPropertyValue("--primary");
+  if (!markerColor || markerColor.length < 1) {
+    markerColor = "#ef604d";
+  }
+
+  let mapApiConfig = null;
   if (hereApiKey) {
-    window.Decidim.mapConfiguration = { apiKey: hereApiKey };
+    mapApiConfig = { apiKey: hereApiKey };
   } else {
-    window.Decidim.mapConfiguration = {
+    mapApiConfig = {
       appId: hereAppId,
       appCode: hereAppCode
     };
   }
+  window.Decidim.mapConfiguration = $.extend({
+    markerColor: markerColor
+  }, mapApiConfig);
 
   if ($map.length > 0) {
     window.Decidim.currentMap = loadMap(mapId, markersData);

@@ -44,14 +44,6 @@ module Decidim
         expect(offline_initiative).to be_valid
       end
 
-      it "technical revission request is notified by email" do
-        expect(administrator).not_to be_nil
-        expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-          .at_least(:once)
-          .and_return(message_delivery)
-        initiative.validating!
-      end
-
       it "Creation is notified by email" do
         expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_creation)
           .at_least(:once)
@@ -258,6 +250,23 @@ module Decidim
         before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative: initiative) }
 
         it { is_expected.to eq false }
+      end
+    end
+
+    describe "sorting" do
+      subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
+
+      before do
+        create(:initiative, organization: organization, signature_type: "offline")
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: 4)
+        create(:initiative, organization: organization, signature_type: "online", initiative_votes_count: 1, initiative_supports_count: 4)
+        create(:initiative, organization: organization, signature_type: "online", initiative_votes_count: 2, initiative_supports_count: 1)
+        create(:initiative, organization: organization, signature_type: "any", initiative_votes_count: 1, initiative_supports_count: 0)
+        create(:initiative, organization: organization, signature_type: "any", initiative_votes_count: 3, initiative_supports_count: 2, offline_votes: 3)
+      end
+
+      it "sorts initiatives by supports count" do
+        expect(sorter.result.map(&:supports_count)).to eq([8, 5, 4, 3, 1, 0])
       end
     end
   end

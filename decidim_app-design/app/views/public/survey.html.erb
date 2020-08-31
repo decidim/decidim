@@ -1,0 +1,114 @@
+<%
+@title = "Survey -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "debates"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+
+  <div class="wrapper">
+    <div class="row columns">
+        <h3 class="section-heading">Ad voluptas culpa. Repudiandae consequatur rerum. Quam est odio.</h3>
+        <div class="row">
+          <div class="columns large-6 medium-centered lead">
+              <p>Soluta molestiae aperiam. A ipsa unde. Sunt harum aut.</p>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns large-6 medium-centered">
+          <div class="card">
+              <div class="card__content">
+                <div class="answer-questionnaire">
+                    <h4 class="section-heading">
+                      Step 1 <span class="answer-questionnaire__steps">of 3</span>
+                    </h4>
+                    <form class="form answer-questionnaire" action="#">
+                      <div class="row column">
+                          <label class="questionnaire-question" for="questionnaire_answers_0">1. Voluptas soluta qui. Libero aliquam dolor. Et tempora sit.</label>
+                          <input id="questionnaire_answers_0" type="text" name="questionnaire[responses][0][body]">
+                          <input type="hidden" value="1" name="questionnaire[responses][0][question_id]" id="questionnaire_responses_0_question_id">
+                      </div>
+                      <div class="row column">
+                          <label class="questionnaire-question" for="questionnaire_answers_1">2. Sequi rerum omnis. Deleniti voluptatum dolores. Corporis non ab.</label>
+                          <textarea id="questionnaire_answers_1" rows="10" name="questionnaire[responses][1][body]"></textarea>
+                          <input type="hidden" value="2" name="questionnaire[responses][1][question_id]" id="questionnaire_responses_1_question_id">
+                      </div>
+                      <div class="row column">
+                          <label class="questionnaire-question" for="questionnaire_answers_2">3. Consectetur excepturi assumenda. Harum molestias omnis. Recusandae aspernatur qui.</label>
+                          <div class="radio-button-collection">
+                            <div class="collection-input">
+                                <label for="questionnaire_answers_2_choices_0_body">
+                                <input type="radio" name="questionnaire[responses][2][choices][][body]" id="questionnaire_answers_2_choices_0_body" value="Sed laborum impedit doloribus.">
+                                Sed laborum impedit doloribus.
+                                <input type="hidden" name="questionnaire[responses][2][choices][][answer_option_id]" id="questionnaire_answers_2_choices_0_answer_option" value="1" disabled="">
+                                </label>
+                            </div>
+                            <div class="collection-input">
+                                <label for="questionnaire_answers_2_choices_1_body">
+                                <input type="radio" name="questionnaire[responses][2][choices][][body]" id="questionnaire_answers_2_choices_1_body" value="Aut dignissimos fugit praesentium.">
+                                Aut dignissimos fugit praesentium.
+                                <input type="hidden" name="questionnaire[responses][2][choices][][answer_option_id]" id="questionnaire_answers_2_choices_1_answer_option" value="2" disabled="">
+                                </label>
+                            </div>
+                            <div class="collection-input">
+                                <label for="questionnaire_answers_2_choices_2_body">
+                                <input type="radio" name="questionnaire[responses][2][choices][][body]" id="questionnaire_answers_2_choices_2_body" value="Iure mollitia distinctio eos.">
+                                Iure mollitia distinctio eos.
+                                <input type="hidden" name="questionnaire[responses][2][choices][][answer_option_id]" id="questionnaire_answers_2_choices_2_answer_option" value="3" disabled="">
+                                </label>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row column">
+                          <label class="questionnaire-question" for="questionnaire_answers_3">4. Vel molestiae mollitia. Occaecati et ad. Qui consequatur deleniti.</label>
+                          <div class="check-box-collection">
+                            <div class="collection-input">
+                                <label>
+                                <input type="checkbox" name="questionnaire[responses][3][choices][0][body]" id="questionnaire_responses_3_choices_0_body" value="Quae mollitia impedit vel.">
+                                Quae mollitia impedit vel.
+                                <input type="hidden" name="questionnaire[responses][3][choices][0][answer_option_id]" id="questionnaire_responses_3_choices_0_answer_option_id" value="4" disabled="">
+                                </label>
+                            </div>
+                            <div class="collection-input">
+                                <label>
+                                <input type="checkbox" name="questionnaire[responses][3][choices][1][body]" id="questionnaire_responses_3_choices_1_body" value="Quia molestiae dolorem distinctio.">
+                                Quia molestiae dolorem distinctio.
+                                <input type="hidden" name="questionnaire[responses][3][choices][1][answer_option_id]" id="questionnaire_responses_3_choices_1_answer_option_id" value="5" disabled="">
+                                </label>
+                            </div>
+                            <div class="collection-input">
+                                <label>
+                                <input type="checkbox" name="questionnaire[responses][3][choices][2][body]" id="questionnaire_responses_3_choices_2_body" value="Ad eligendi et non.">
+                                Ad eligendi et non.
+                                <input type="hidden" name="questionnaire[responses][3][choices][2][answer_option_id]" id="questionnaire_responses_3_choices_2_answer_option_id" value="6" disabled="">
+                                </label>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="row column tos-agreement">
+                          <label for="questionnaire_tos_agreement"><input name="questionnaire[tos_agreement]" type="hidden" value="0"><input id="questionnaire_tos_agreement" type="checkbox" value="1" name="questionnaire[tos_agreement]">By participating you accept its Terms of Service</label>
+                          <div class="help-text">
+                            <p>Doloremque qui aut. Dolorem praesentium minus.</p>
+                          </div>
+                      </div>
+                      <div class="button--double form-general-submit answer-questionnaire__submit">
+                        <a href="#">
+                          <%= icon "caret-left", class: "icon--small" %>&nbsp;Back
+                        </a>
+                        <button type="submit" name="commit" class="button button--sc">Continue</button>
+                      </div>
+                    </form>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</main>
+
+<%= partial "template_bottom" %>

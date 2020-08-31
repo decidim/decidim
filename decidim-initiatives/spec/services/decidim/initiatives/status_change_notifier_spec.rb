@@ -50,21 +50,6 @@ module Decidim
         end
       end
 
-      context "when validating" do
-        let(:validating) { true }
-        let!(:administrators) do
-          create_list(:user, 10, :admin, organization: organization)
-        end
-
-        it "Validating is notified" do
-          expect(Decidim::Initiatives::InitiativesMailer).to receive(:notify_validating_request)
-            .with(any_args)
-            .exactly(10).times
-            .and_return(message_delivery)
-          subject.notify
-        end
-      end
-
       context "when published" do
         let(:published) { true }
         let(:committee_members) do

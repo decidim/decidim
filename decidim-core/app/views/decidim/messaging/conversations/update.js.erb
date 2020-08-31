@@ -1,2 +1,2 @@
-$("#messages").append("<%= j(render "message", message: message).html_safe %>");
+$("#messages").append("<%= j(render "messages", sender: message.sender, messages: [message]).html_safe %>");
 $(".new_message textarea#message_body").val("");

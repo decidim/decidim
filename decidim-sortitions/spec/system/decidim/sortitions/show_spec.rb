@@ -21,6 +21,8 @@ describe "show", type: :system do
     it "shows the sortition witnesses" do
       expect(page).to have_content(sortition.witnesses[:en])
     end
+
+    it_behaves_like "going back to list button"
   end
 
   context "when sortition result" do

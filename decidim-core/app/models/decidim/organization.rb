@@ -104,22 +104,31 @@ module Decidim
     end
 
     def enabled_omniauth_providers
-      return Decidim::OmniauthProvider.enabled if omniauth_settings.nil?
+      return Decidim::OmniauthProvider.enabled || {} if omniauth_settings.nil?
 
-      Decidim::OmniauthProvider.enabled.merge(tenant_enabled_providers)
+      default_except_disabled = Decidim::OmniauthProvider.enabled.except(*tenant_disabled_providers_keys)
+      default_except_disabled.merge(tenant_enabled_providers)
     end
 
     private
 
-    def tenant_enabled_providers
-      tenant_enabled_providers_keys = omniauth_settings.map do |k, v|
-        next unless k.match?(/omniauth_settings_.*_enabled/) && v == true
+    def tenant_disabled_providers_keys
+      omniauth_settings.collect do |key, value|
+        next unless key.match?(/omniauth_settings_.*_enabled/) && value == false
 
-        Decidim::OmniauthProvider.extract_provider_key(k)
+        Decidim::OmniauthProvider.extract_provider_key(key)
+      end.compact.uniq
+    end
+
+    def tenant_enabled_providers
+      tenant_enabled_providers_keys = omniauth_settings.map do |key, value|
+        next unless key.match?(/omniauth_settings_.*_enabled/) && value == true
+
+        Decidim::OmniauthProvider.extract_provider_key(key)
       end.compact.uniq
 
-      Hash[tenant_enabled_providers_keys.map do |k|
-        [k, omniauth_provider_settings(k)]
+      Hash[tenant_enabled_providers_keys.map do |key|
+        [key, omniauth_provider_settings(key)]
       end]
     end
 

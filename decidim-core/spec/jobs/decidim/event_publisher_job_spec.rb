@@ -50,6 +50,19 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
+
+        context "when #force_send is true" do
+          before do
+            data[:force_send] = true
+          end
+
+          it "enqueues the jobs without checking if the resource is published" do
+            expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+            expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+            subject
+          end
+        end
       end
     end
 

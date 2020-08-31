@@ -56,7 +56,7 @@ describe("<AddCommentForm />", () => {
 
   it("should not render the title if prop showTitle is false", () => {
     const wrapper = shallow(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} showTitle={false} rootCommentable={commentable} orderBy={orderBy} />);
-    expect(wrapper.find("h5.section-heading").exists()).toBeFalsy();
+    expect(wrapper.find("h4.section-heading").exists()).toBeFalsy();
   });
 
   it("should have a default prop submitButtonClassName as 'button button--sc'", () => {

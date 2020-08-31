@@ -1,0 +1,138 @@
+pl:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Obraz
+        proposals: Powiązane propozycje
+        title: Tytuł
+      election:
+        description: Opis
+        end_time: Głosowanie kończy się
+        start_time: Głosowanie rozpoczyna się
+        subtitle: Podtytuł
+        title: Tytuł
+      question:
+        description: Opis
+        max_selections: Maksymalna liczba wyborów
+        title: Tytuł
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Załącz ponownie
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+      decidim/elections/election:
+        one: Wybór
+        few: Wybory
+        many: Wybory
+        other: Wybory
+      decidim/elections/question:
+        one: Pytanie
+        few: Pytania
+        many: Pytania
+        other: Pytania
+  decidim:
+    components:
+      elections:
+        name: Wybory
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    elections:
+      actions:
+        confirm_destroy: Na pewno?
+        destroy: Usuń
+        edit: Edytuj
+        new: Nowy %{name}
+        preview: Podgląd
+        title: Działania
+      admin:
+        answers:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia odpowiedzi
+            success: Odpowiedź została utworzona
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania odpowiedzi
+            success: Odpowiedź została usunięta
+          edit:
+            title: Edytuj odpowiedź
+            update: Aktualizuj odpowiedź
+          index:
+            title: Odpowiedzi
+          new:
+            create: Utwórz odpowiedź
+            title: Nowa odpowiedź
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania odpowiedzi
+            success: Odpowiedź została zaktualizowana
+        elections:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia wyboru
+            success: Wybór został utworzony
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania wyboru
+            success: Wybór został usunięty
+          edit:
+            title: Edytuj wybór
+            update: Aktualizuj wybór
+          index:
+            title: Wybory
+          new:
+            create: Utwórz wybór
+            title: Nowy wybór
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania wyboru
+            success: Wybór zostały zaktualizowany
+        models:
+          answer:
+            name: Odpowiedź
+          election:
+            name: Wybór
+          question:
+            name: Pytanie
+        questions:
+          create:
+            invalid: Wystąpił błąd podczas tworzenia pytania
+            success: Pytanie zostało utworzone
+          destroy:
+            invalid: Wystąpił błąd podczas usuwania pytania
+            success: Pytanie zostało usunięte
+          edit:
+            title: Edytuj pytanie
+            update: Zaktualizuj pytanie
+          index:
+            title: Pytania
+          new:
+            create: Utwórz pytanie
+            title: Nowe pytanie
+          update:
+            invalid: Wystąpił błąd podczas aktualizowania tego pytania
+            success: Pytanie zostało zaktualizowane
+      models:
+        answer:
+          fields:
+            proposals: Propozycje
+            title: Tytuł
+        election:
+          fields:
+            end_time: Kończy się
+            start_time: Zaczyna się
+            title: Tytuł
+        question:
+          fields:
+            answers: Odpowiedzi
+            max_selections: Maks. liczba opcji do zaznaczenia
+            title: Tytuł
+    participatory_processes:
+      statistics:
+        elections_count: Wybory

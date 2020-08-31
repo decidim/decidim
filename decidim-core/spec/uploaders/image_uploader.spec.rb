@@ -33,5 +33,14 @@ module Decidim
     it "has the correct format" do
       expect(uploader).to be_format("jpeg")
     end
+
+    describe "#dimensions_info" do
+      let(:dimensions_info) { uploader.dimensions_info }
+
+      it "returns a valid hash" do
+        expect(dimensions_info).to be_a(Hash)
+        expect(dimensions_info[:profile]).to eq(resize_to_fill: [536, 640])
+      end
+    end
   end
 end

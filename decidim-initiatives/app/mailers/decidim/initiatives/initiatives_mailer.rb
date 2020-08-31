@@ -51,27 +51,6 @@ module Decidim
         end
       end
 
-      # Notify an initiative requesting technical validation
-      def notify_validating_request(initiative, user)
-        return if user.email.blank?
-
-        @organization = initiative.organization
-        @link = decidim_admin_initiatives.edit_initiative_url(initiative, host: @organization.host)
-
-        with_user(user) do
-          @subject = I18n.t(
-            "decidim.initiatives.initiatives_mailer.technical_validation_for",
-            title: translated_attribute(initiative.title)
-          )
-          @body = I18n.t(
-            "decidim.initiatives.initiatives_mailer.technical_validation_body_for",
-            title: translated_attribute(initiative.title)
-          )
-
-          mail(to: "#{user.name} <#{user.email}>", subject: @subject)
-        end
-      end
-
       # Notify progress to all initiative subscribers.
       def notify_progress(initiative, user)
         return if user.email.blank?

@@ -2,13 +2,28 @@ cs:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Vytvořeno u
+        created_at: Vytvořeno v
+        decidim_scope_id: Oblast působnosti
         field: Moje pole
         start_date: Počáteční datum
         title: Titul
         translatable_text: Přeložitelný text
         updated_at: Aktualizováno na
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Atribut pouze pro čtení
+            test: Zkouška A
+            test_choices:
+              a: Volba A
+              b: Volba B
+              c: Volba C
+          step:
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
+            readonly_step_attribute: Atribut krok čtení
     dummy:
       admin:
         exports:

@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     models:
       decidim/surveys/closed_survey_event: Estudo finalizado

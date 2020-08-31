@@ -55,7 +55,7 @@ module Decidim
       def content_block_from_manifest
         Decidim::ContentBlock.create!(
           organization: current_organization,
-          scope: :homepage,
+          scope_name: :homepage,
           manifest_name: params[:id]
         )
       end

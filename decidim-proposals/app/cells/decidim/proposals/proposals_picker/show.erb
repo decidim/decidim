@@ -1,0 +1,14 @@
+<div class="picker-header">
+  <h1><%= t("proposals_picker.choose_proposals", scope: "decidim.proposals") %></h1>
+  <input type="text" name="proposals-filter" id="proposals_filter" placeholder="<%= t("decidim.admin.filters.search_placeholder.id_string_or_title_cont", collection: proposals_collection_name) %>">
+</div>
+<div class="picker-content picker-list" data-picker-path="<%= picker_path %>" data-picker-more="<%= more_proposals? %>">
+  <%= render :proposals %>
+</div>
+<div class="picker-footer">
+  <div class="buttons button--double">
+    <a class="button" data-close=""><%= t("proposals_picker.close", scope: "decidim.proposals") %></a>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/proposals/admin/proposals_picker" %>

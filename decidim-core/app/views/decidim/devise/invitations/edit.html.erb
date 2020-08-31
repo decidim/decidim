@@ -1,4 +1,4 @@
-<main class="wrapper">
+<div class="wrapper">
 <div class="row collapse">
   <div class="row collapse">
     <div class="columns large-8 large-centered text-center page-title">
@@ -10,10 +10,12 @@
 
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">
-      <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
+      <%= decidim_form_for resource, namespace: "invitation", as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
         <div class="card">
           <div class="card__content">
             <legend><%= t("sign_up_as.legend", scope: "decidim.devise.registrations.new") %></legend>
+
+            <%= form_required_explanation %>
 
             <%= f.hidden_field :invitation_token %>
 
@@ -25,11 +27,11 @@
 
             <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <%= f.password_field :password, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
 
               <div class="field">
-                <%= f.password_field :password_confirmation, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
+                <p><%= f.password_field :password_confirmation, required: "required", minlength: ::Devise.password_length.min, maxlength: ::Devise.password_length.max %></p>
               </div>
             <% end %>
           </div>
@@ -37,13 +39,10 @@
 
         <div class="card" id="card__tos">
           <div class="card__content">
-            <legend>
-              <%= t("tos_title", scope: "decidim.devise.registrations.new") %>
-            </legend>
-
-            <p class="tos-text">
-              <%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %>
-            </p>
+            <fieldset>
+              <legend><%= t("tos_title", scope: "decidim.devise.registrations.new") %></legend>
+              <p class="tos-text"><%= strip_tags(translated_attribute(terms_and_conditions_page.content)) %></p>
+            </fieldset>
 
             <div class="field">
               <% link = link_to t("terms", scope: "decidim.devise.registrations.new"), page_path("terms-and-conditions"), target: "_blank" %>
@@ -55,8 +54,9 @@
 
         <div class="card" id="card__newsletter">
           <div class="card__content">
-            <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
+
             <fieldset>
+              <legend><%= t("newsletter_title", scope: "decidim.devise.registrations.new") %></legend>
               <div class="field">
                 <%= label_tag :"#{resource_name}[newsletter_notifications]" do %>
                   <%= check_box_tag :"#{resource_name}[newsletter_notifications]" %>
@@ -79,4 +79,4 @@
     </div>
   </div>
 </div>
-</main>
+</div>

@@ -5,6 +5,7 @@ module Decidim
     # Helper method related to initiative object and its internal state.
     module InitiativeHelper
       include Decidim::SanitizeHelper
+      include Decidim::ResourceVersionsHelper
 
       # Public: The css class applied based on the initiative state to
       #         the initiative badge.
@@ -98,6 +99,18 @@ module Decidim
         html_options["onclick"] = "event.preventDefault();"
 
         send("#{tag}_to", "", html_options, &block)
+      end
+
+      def can_edit_custom_signature_end_date?(initiative)
+        return false unless initiative.custom_signature_end_date_enabled?
+
+        initiative.created? || initiative.validating?
+      end
+
+      def can_edit_area?(initiative)
+        return false unless initiative.area_enabled?
+
+        initiative.created? || initiative.validating?
       end
     end
   end

@@ -303,9 +303,7 @@ uk:
           category: Категорія
           category_prompt: Оберіть категорію
           date: Дата
-          past: Минулі
           search: Шукати
-          upcoming: Прийдешні
         filters_small_view:
           close_modal: Закрити віконце
           filter: Відібрати

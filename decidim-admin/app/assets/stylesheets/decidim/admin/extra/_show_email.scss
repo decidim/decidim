@@ -1,0 +1,31 @@
+.show_email{
+  padding: 0 $global-padding;
+
+  h4{
+    padding-top: $global-padding;
+
+    @include smallcaps;
+
+    color: $muted;
+  }
+
+  > div{
+    padding: $global-padding;
+    background-color: $medium-gray;
+  }
+
+  p{
+    text-align: center;
+    margin: 0;
+  }
+
+  #user_email + p{
+    display: none;
+    color: $muted;
+    font-style: italic;
+  }
+
+  #user_email:empty + p{
+    display: block;
+  }
+}

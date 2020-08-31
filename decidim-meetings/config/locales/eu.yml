@@ -345,9 +345,9 @@ eu:
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
           date: Data
-          past: Aurrekoak
+          past: Iragana
           search: Bilatu
-          upcoming: Hurrengoak
+          upcoming: Datozen
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi

@@ -1,0 +1,86 @@
+<table class="main container">
+  <tr>
+    <td class="decidim-bar">
+      <table class="row collapse">
+        <tr>
+          <th class="small-3 large-3 first columns decidim-bar">
+            <table>
+              <tr>
+                <th>
+                </th>
+              </tr>
+            </table>
+          </th>
+          <th class="small-6 large-6 columns decidim-bar">
+            <table>
+              <tr>
+                <th>
+                  <center>
+                    <%= render partial: "layouts/decidim/mailer_logo.html", locals: { organization: organization } %>
+                  </center>
+                </th>
+              </tr>
+            </table>
+          </th>
+          <th class="small-3 large-3 last columns decidim-bar">
+            <table>
+              <tr>
+                <th>
+                  <% if organization.official_img_header? %>
+                    <%= link_to organization.official_url do %>
+                      <%= image_tag organization.official_img_header.url.to_s , alt: "", style: "max-height: 50px", class: "float-right" %>
+                    <% end %>
+                  <% end %>
+                </th>
+              </tr>
+            </table>
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table class="spacer">
+        <tbody>
+          <tr>
+            <td height="40px" style="font-size:40px;line-height:40px;"> </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="row content">
+        <tr>
+          <th class="small-12 first columns">
+            <%= body %>
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="small-12 first columns">
+          </th>
+          <th class="expander"></th>
+        </tr>
+      </table>
+
+      <table class="row">
+        <tr>
+          <th class="expander"></th>
+          <th class="small-12 first columns cityhall-bar">
+            <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
+              <% if @custom_url_for_mail_root.present? %>
+                <%= link_to organization.name.html_safe, @custom_url_for_mail_root %>
+              <% else %>
+                <%= link_to organization.name.html_safe, decidim.root_url(host: organization.host) %>
+              <% end %>
+            </div>
+          </th>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

@@ -33,6 +33,7 @@ end
              creates a sticky footer-->
         <!-- Topbar -->
         <div class="title-bar">
+          <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "skip" %>
           <% if current_organization.official_img_header? %>
             <%= link_to  current_organization.official_url, class: "logo-cityhall" do %>
               <%= image_tag current_organization.official_img_header.url.to_s , alt: current_organization.name %>
@@ -45,33 +46,37 @@ end
             <%= render partial: "layouts/decidim/topbar_search" %>
             <%= render partial: "layouts/decidim/language_chooser" %>
             <div class="hide-for-medium topbar__menu">
-              <button type="button" data-toggle="offCanvas">
+              <button type="button" data-toggle="offCanvas" aria-label="<%= t("layouts.decidim.header.navigation") %>">
                 <%= icon "menu", aria_label: t("layouts.decidim.header.navigation"), role: "img" %>
               </button>
             </div>
             <% if current_user %>
-              <div class="topbar__dropmenu topbar__user__logged">
-                <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}", "aria-label": t("layouts.decidim.user_menu.notifications") do %>
-                  <%= icon "bell" %>
+              <nav class="topbar__dropmenu topbar__user__logged">
+                <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
+                  <%= icon "bell", role: "img", aria_label: t("layouts.decidim.user_menu.notifications") %>
                 <% end %>
-                <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}", "aria-label": t("layouts.decidim.user_menu.conversations") do %>
-                  <%= icon "envelope-closed" %>
+                <%= link_to decidim.conversations_path, class: "topbar__conversations #{current_user.unread_conversations.any? ? "is-active" : ""}" do %>
+                  <%= icon "envelope-closed", role: "img", aria_label: t("layouts.decidim.user_menu.conversations") %>
                 <% end %>
-                <ul class="dropdown menu" data-dropdown-menu>
-                  <li class="is-dropdown-submenu-parent show-for-medium">
-                    <%= link_to current_user.name, decidim.account_path %>
-                    <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+                <ul class="dropdown menu" data-dropdown-menu
+                  data-autoclose="false"
+                  data-disable-hover="true"
+                  data-click-open="true"
+                  data-close-on-click="true">
+                  <li class="is-dropdown-submenu-parent show-for-medium" tabindex="-1">
+                    <%= link_to current_user.name, decidim.account_path, id: "user-menu-control", "aria-controls": "user-menu", "aria-haspopup": "true", "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+                    <ul class="menu is-dropdown-submenu" id="user-menu" role="menu" aria-labelledby="user-menu-control" tabindex="-1">
                       <%= render partial: "layouts/decidim/user_menu" %>
                     </ul>
-                    <span data-set="nav-login-holder" class="show-for-medium">
+                    <div data-set="nav-login-holder" class="show-for-medium">
                       <!-- Repeated due to dropdown limitations -->
                       <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
                         <%= render partial: "layouts/decidim/user_menu" %>
                       </ul>
-                    </span>
+                    </div>
                   </li>
                 </ul>
-              </div>
+              </nav>
             <% else %>
               <div class="topbar__user show-for-medium" data-set="nav-login-holder">
                 <div class="topbar__user__login js-append">
@@ -87,14 +92,14 @@ end
           </div>
         </div>
         <div class="show-for-medium" data-set="nav-holder">
-          <nav class="navbar js-append">
+          <div class="navbar js-append">
             <div class="row column">
               <%= main_menu.render %>
             </div>
-          </nav>
+          </div>
         </div>
 
-        <main>
+        <main id="content">
           <%= display_flash_messages %>
           <%= yield %>
         </main>

@@ -21,6 +21,8 @@ module Decidim
 
       # Parses the values before parsing the changeset.
       def parse_changeset(attribute, values, type, diff)
+        return parse_scope_changeset(attribute, values, type, diff) if type == :scope
+
         values = parse_values(attribute, values)
 
         diff.update(

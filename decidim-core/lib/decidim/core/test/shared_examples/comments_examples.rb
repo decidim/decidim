@@ -13,7 +13,7 @@ shared_examples "comments" do
     visit resource_path
 
     expect(page).to have_selector("#comments")
-    expect(page).to have_selector("article.comment", count: comments.length)
+    expect(page).to have_selector(".comment", count: comments.length)
 
     within "#comments" do
       comments.each do |comment|
@@ -34,7 +34,13 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 
-    click_link "Best rated"
+    within ".comments" do
+      within ".order-by__dropdown" do
+        click_link "Older" # Opens the dropdown
+        click_link "Best rated"
+      end
+    end
+
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
@@ -227,6 +233,15 @@ shared_examples "comments" do
 
         it "do not show the tribute container" do
           expect(page).not_to have_selector(".tribute-container")
+        end
+      end
+
+      context "when mentioning a group" do
+        let!(:mentioned_group) { create(:user_group, :confirmed, organization: organization) }
+        let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
+
+        it "shows the tribute container" do
+          expect(page).to have_selector(".tribute-container")
         end
       end
     end

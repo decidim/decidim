@@ -1,0 +1,17 @@
+<div class="budget-list__text">
+  <div>
+    <%= link_to resource_path, class: "card__link" do %>
+      <h5 class="card__title budget-list__title">
+        <%= resource_title %>
+      </h5>
+    <% end %>
+
+    <div class="show-for-medium">
+      <%= cell "decidim/tags", model, context: { extra_classes: ["tags--project"] } %>
+    </div>
+
+    <span class="budget-list__data__number budget-list__number hide-for-medium">
+      <%= budget_to_currency(model.budget) %>
+    </span>
+  </div>
+</div>

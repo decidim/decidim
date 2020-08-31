@@ -35,6 +35,7 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
+        import_csv: Importera CSV
         new: Ny %{name}
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
@@ -42,6 +43,15 @@ sv:
       admin:
         exports:
           results: Resultat
+        import_results:
+          new:
+            import: Importera
+            info: "<p>Vi rekommenderar att du följer dessa steg:</p><ol><li>Skapa statusar för de resultat som du vill lägga till (<a href='%{link_new_status}' target='_blank'>länk</a>)</li><li>Skapa minst ett resultat manuellt genom denna Admin panel (<a href='%{link_new_result}' target='_blank'>länk</a>) innan du använder Importera, för att ha en bättre förståelse för formatet och vad du behöver för att fylla i.</li><li>Ladda ner exporten med CSV-format (%{link_export_csv})</li><li>Gör ändringarna lokalt. Du kan bara ändra följande kolumner i CSV:</li></ol><ul><li><b>kategori/id:</b> ID för kategorin</li><li><b>omfattning/id:</b> ID för omfattningen</li><li><b>förälder/id:</b> ID för föräldern (för relaterade resultat). Valfri</li><li><b>title/I18N:</b> Titel på X språk</li><li><b>beskrivning/I18N:</b> Beskrivning på X språk</li><li><b>start_date:</b> datum när resultatet startar exekvering (format YYYY-MM-DD)</li><li><b>end_date:</b> datum när resultatet slutar exekvering (format YYYY-MM-DD)</li><li><b>status/id:</b> ID för status för detta resultat</li><li><b>fortskrider:</b> Procent (från 0 till 100) av exekveringen</li><li><b>förslag_ids:</b> internt ID för de relaterade förslagen (separerade med komma). Det konverteras automatiskt till <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: länk
+            title: Importera resultat från CSV
+        imports:
+          create:
+            success: Filen har börjat importera. Du kommer att få ett e-postmeddelande inom de närmaste minuterna med resultatet av importen
         models:
           result:
             name: Resultat
@@ -58,17 +68,11 @@ sv:
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
-          form:
-            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
-          proposals:
-            close: Stäng
-            current_selection: Aktuellt urval
-            select: Välj
           update:
             invalid: Det gick inte att uppdatera det här resultatet
             success: Resultatet har uppdaterats
@@ -117,6 +121,13 @@ sv:
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fel
+          errors_present: Det gick inte att importera resultat
+          row_number: Rad
+          subject: Lyckad import av resultat
+          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
       last_activity:
         new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
@@ -157,30 +168,16 @@ sv:
         show:
           stats:
             attendees: Deltagare
-            back_to_result: Gå tillbaka till resultatet
+            back_to_resource: Gå tillbaka till resultatet
             comments: Kommentarer
             contributions: Bidrag
             last_edited_by: Senast ändrad av
             last_updated_at: Senast uppdaterad den
             meetings: Möten
-            number_of_versions: Versioner
             proposals: Förslag
-            show_all_versions: Visa alla versioner
-            version_author: Versionsförfattare
-            version_created_at: Version skapad
-            version_number: Versionsnummer
-            version_number_out_of_total: "%{current_version} av %{total_count}"
-            votes: Stöder
+            votes: Stöd
         timeline:
           title: Projektutveckling
-      versions:
-        index:
-          changes_at_title: Ändringar vid "%{title}"
-          title: Versioner
-        show:
-          changes_at_title: Ändringar vid "%{title}"
-        version:
-          version_index: Version %{index}
     components:
       accountability:
         name: Ansvarsskyldighet
@@ -199,7 +196,7 @@ sv:
       accountability:
         proposal_linked:
           email_intro: 'Förslaget "%{proposal_title}" har tagits med i ett resultat. Visa det från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: En uppdatering till %{proposal_title}
           notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har tagits med i resultatet <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
@@ -218,7 +215,7 @@ sv:
           results: Resultat
     participatory_spaces:
       highlighted_results:
-        see_all: Visa alla (%{count})
+        see_all: Se alla resultat (%{count})
     resource_links:
       included_projects:
         result_project: Projekt som ingår i detta resultat

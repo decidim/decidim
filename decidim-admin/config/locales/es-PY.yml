@@ -13,7 +13,7 @@ es-PY:
         attachment_collection_id: Carpeta
         description: Descripción
         file: Archivo
-        title: Título
+        title: Nombre del adjunto o imagen
       attachment_collection:
         description: Descripción
         name: Nombre
@@ -50,6 +50,8 @@ es-PY:
         from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
+        highlight_alternative_color: Destacado, alternativo
+        highlight_color: Destacar
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         highlighted_content_banner_action_title: Título del botón de acción
         highlighted_content_banner_action_url: URL del botón de acción
@@ -318,6 +320,8 @@ es-PY:
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           title_cont: Buscar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Ha habido un error al actualizar las secciones de ayuda.
         form:
@@ -388,6 +392,9 @@ es-PY:
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
+      metrics:
+        metrics:
+          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -471,6 +478,14 @@ es-PY:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+      newsletter_templates:
+        index:
+          preview_template: Previsualizar
+          title: Plantillas para el boletín
+          use_template: Utilizar esta plantilla
+        show:
+          preview: 'Previsualizar la plantilla: %{template_name}'
+          use_template: Utilizar esta plantilla
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -484,8 +499,6 @@ es-PY:
         edit:
           save_and_preview: Guardar y vista previa
           title: Editar boletín
-        form:
-          interpolations_hint: 'Sugerencia: Puede utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre del destinatario.'
         index:
           all: todos
           all_users: 'Todos los usuarios '
@@ -563,12 +576,21 @@ es-PY:
           officialize: Oficializar
           officialized: Oficializado
           reofficialize: Re-oficializar
+          show_email: Mostrar la dirección de correo electrónico
           status: Estado
           unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
+        show_email_modal:
+          close_modal: Cierra el modal
+          description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
+          email_address: Dirección de correo electrónico
+          full_name: Nombre completo
+          hidden: oculto
+          show: Mostrar
+          title: Mostrar dirección de correo del participante
       organization:
         edit:
           title: Editar organización
@@ -589,13 +611,16 @@ es-PY:
         edit:
           update: Actualizar
         form:
-          colors_title: Colores de organizacion
+          colors:
+            colors_title: Colores de organizacion
+            header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           cta_button_path_help: 'Puedes sobrescribir el enlace al botón de acción principal en la página principal. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
-          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
-          layout_appearance_title: Editar apariencia de diseño global
+          images:
+            layout_appearance_title: Editar apariencia de diseño global
+            preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
       organization_homepage:
         edit:
@@ -662,6 +687,11 @@ es-PY:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      shared:
+        gallery:
+          add_images: Añadir imágenes
+          delete_image: Borrar la imagen
+          gallery_legend: Añadir una galería de imágenes (opccional)
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
@@ -713,10 +743,12 @@ es-PY:
         dashboard: Panel de control
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
+        metrics: Métricas
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
+        statistics: Actividad
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
@@ -762,6 +794,14 @@ es-PY:
         new:
           create: Invitar
           title: Invitar a un usuario como administrador
+      users_statistics:
+        users_count:
+          admins: Administradores
+          last_day: Del último día
+          last_month: El último mes
+          last_week: La última semana
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
+          participants: Participantes
       view_public_page: Ver página pública
     forms:
       errors:

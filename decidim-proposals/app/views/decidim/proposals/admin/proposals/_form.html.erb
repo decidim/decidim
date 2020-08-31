@@ -5,7 +5,7 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.text_field :title, class: "js-hashtags", hashtaggable: true, value: form_presenter.title(extras: false).strip %>
+      <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip %>
     </div>
 
     <div class="row column hashtags__container">
@@ -59,7 +59,7 @@
 
     <% if @form.categories&.any? %>
       <div class="row column">
-        <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+        <%= form.categories_select :category_id, @form.categories, include_blank: t(".select_a_category") %>
       </div>
     <% end %>
 
@@ -70,27 +70,7 @@
     <% end %>
 
     <% if component_settings.attachments_allowed? %>
-      <div class="row column gallery__container">
-        <fieldset>
-          <legend><%= t(".gallery_legend") %></legend>
-
-          <% if @form.photos.any? %>
-            <% @form.photos.each do |photo| %>
-              <div class="callout gallery__item" data-closable>
-                <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
-                <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-                <button class="close-button" aria-label="Close" type="button" data-close>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            <% end %>
-          <% end %>
-
-          <div class="row column">
-            <%= form.file_field :add_photos, multiple: true, label: t(".add_images") %>
-          </div>
-        </fieldset>
-      </div>
+      <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
     <% end %>
 
     <% if component_settings.attachments_allowed? %>

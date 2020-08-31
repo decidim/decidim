@@ -235,12 +235,14 @@ id:
           unpublish: "%{user_name} membuang %{resource_name} inisiatif"
           update: "%{user_name} memperbarui %{resource_name} inisiatif"
       admin_states:
-        accepted: Diterima
         created: Dibuat
         discarded: Dibuang
         published: Diterbitkan
-        rejected: Ditolak
         validating: Validasi teknis
+      application_helper:
+        filter_state_values:
+          closed: Tutup
+          open: Buka
       committee_requests:
         new:
           continue: Terus
@@ -346,13 +348,10 @@ id:
         filters:
           any: Apa saja
           author: Penulis
-          closed: Tutup
           myself: Inisiatif saya
-          open: Buka
           search: Pencarian
           state: Negara
           type: Mengetik
-          type_prompt: Pilih jenis
         filters_small_view:
           close_modal: Tutup jendela
           filter: Filter
@@ -411,8 +410,6 @@ id:
         promotal_committee_help: Ingat bahwa Anda harus mengundang setidaknya %{member_count} orang ke komite promotor. Teruskan tautan berikut untuk mengundang orang ke komite promotor
         status_change_body_for: 'Inisiatif %{title} telah mengubah negaranya menjadi: %{state}'
         status_change_for: Inisiatif %{title} telah mengubah keadaannya
-        technical_validation_body_for: Inisiatif %{title} telah meminta validasi teknisnya.
-        technical_validation_for: Inisiatif %{title} telah meminta validasi teknisnya.
       last_activity:
         new_initiative: Inisiatif baru
       pages:

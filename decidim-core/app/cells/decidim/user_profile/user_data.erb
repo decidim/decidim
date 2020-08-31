@@ -2,7 +2,7 @@
   <div class="author-data__main">
     <div class="author author--flex">
       <%= link_to resource_path, class: "author__avatar" do %>
-        <%= image_tag avatar %>
+        <%= image_tag avatar, alt: t("avatar", scope: "activemodel.attributes.group") %>
       <% end %>
       <div>
         <div class="author__name--container">

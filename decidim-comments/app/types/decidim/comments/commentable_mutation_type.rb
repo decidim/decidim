@@ -16,9 +16,9 @@ module Decidim
         argument :userGroupId, types.ID, "The comment's user group id. Replaces the author."
 
         resolve lambda { |obj, args, ctx|
-          params = { "comment" => { "body" => args[:body], "alignment" => args[:alignment], "user_group_id" => args[:userGroupId] } }
+          params = { "comment" => { "body" => args[:body], "alignment" => args[:alignment], "user_group_id" => args[:userGroupId], "commentable" => obj } }
           form = Decidim::Comments::CommentForm.from_params(params).with_context(current_organization: ctx[:current_organization])
-          Decidim::Comments::CreateComment.call(form, ctx[:current_user], obj) do
+          Decidim::Comments::CreateComment.call(form, ctx[:current_user]) do
             on(:ok) do |comment|
               return comment
             end

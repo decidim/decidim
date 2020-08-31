@@ -9,6 +9,17 @@
   }
 }
 
+.map__help{
+  .skip{
+    @include skip-button;
+  }
+}
+
+.leaflet-container{
+  // Keep it below the second level navigation dropdown
+  z-index: 5;
+}
+
 .map-info{
   background: var(--primary);
   border-radius: $global-radius;

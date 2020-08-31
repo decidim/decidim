@@ -86,7 +86,8 @@ module Decidim
     end
 
     def manifest
-      resource.class.try(:resource_manifest) ||
+      resource.try(:resource_manifest) ||
+        resource.class.try(:resource_manifest) ||
         resource.class.try(:participatory_space_manifest)
     end
 

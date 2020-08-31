@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t("devise.confirmations.new.resend_confirmation_instructions")) %>
 
-<main class="wrapper">
+<div class="wrapper">
 <div class="row collapse">
   <div class="row collapse">
     <div class="columns large-8 large-centered text-center page-title">
@@ -12,7 +12,7 @@
     <div class="columns medium-7 large-5 medium-centered">
       <div class="card">
         <div class="card__content">
-          <%= decidim_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
+          <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
@@ -30,4 +30,4 @@
     </div>
   </div>
 </div>
-</main>
+</div>

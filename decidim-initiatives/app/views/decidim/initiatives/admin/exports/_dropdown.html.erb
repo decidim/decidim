@@ -1,0 +1,8 @@
+<span class="exports dropdown tiny button button--simple" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
+<div class="dropdown-pane" id="export-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
+  <ul class="vertical menu add-components">
+    <% %w{CSV JSON}.each do |format| %>
+      <li class="exports--format--<%= format.downcase %> exports--initiatives"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.initiatives.admin.exports.initiatives"), export_format: format.upcase), export_initiatives_path(format: format) %></li>
+    <% end %>
+  </ul>
+</div>

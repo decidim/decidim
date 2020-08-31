@@ -12,10 +12,16 @@ shared_context "when it's a comment event" do
 
   let(:comment) { create :comment }
   let(:comment_author) { comment.author }
+  let(:normalized_comment_author) { comment.author }
   let(:comment_author_name) { decidim_html_escape comment.author.name }
 
   let(:extra) { { comment_id: comment.id } }
   let(:resource_title) { decidim_html_escape resource.title }
+  let(:user_group) do
+    user_group = create(:user_group, :verified, organization: organization, users: [comment_author])
+    comment.update!(user_group: user_group)
+    user_group
+  end
 end
 
 shared_examples_for "a comment event" do
@@ -23,7 +29,11 @@ shared_examples_for "a comment event" do
 
   describe "author" do
     it "returns the comment author" do
-      expect(subject.author).to eq(comment_author)
+      if defined? user_group_author
+        expect(subject.author).to eq(user_group_author)
+      else
+        expect(subject.author).to eq(comment_author)
+      end
     end
   end
 

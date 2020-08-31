@@ -95,26 +95,26 @@ describe "Conferences", type: :system do
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("article.card--full", count: 1)
+        expect(page).to have_selector(".card--full", count: 1)
       end
     end
 
     it "lists all the conferences" do
       within "#conferences-grid" do
-        within "#conferences-grid h2" do
+        within "#conferences-grid h3" do
           expect(page).to have_content("2")
         end
 
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("article.card", count: 2)
+        expect(page).to have_selector(".card", count: 2)
 
         expect(page).not_to have_content(translated(unpublished_conference.title, locale: :en))
       end
     end
 
     it "links to the individual conference page" do
-      click_link(translated(conference.title, locale: :en))
+      first(".card__link", text: translated(conference.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_conferences.conference_path(conference)
     end

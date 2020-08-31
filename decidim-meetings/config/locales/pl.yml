@@ -159,6 +159,12 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
+        invalid_destroy:
+          proposals_count:
+            one: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję:'
+            few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
+            many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+            other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
         minutes: Minuty
         new: Nowe spotkanie
         preview: Podgląd
@@ -240,10 +246,19 @@ pl:
             invalid: Podczas tworzenia tego spotkania wystąpił problem
             success: Spotkanie zostało pomyślnie utworzone
           destroy:
+            invalid:
+              proposals_count:
+                one: Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję
+                few: Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje
+                many: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
+                other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             update: Aktualizuj
           form:
+            address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            location_help: 'Lokalizacja: wiadomość skierowana do użytkowników sugerująca miejsce spotkania'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku'
             select_organizer: Wybierz organizatora
           index:
             title: Spotkania
@@ -286,6 +301,7 @@ pl:
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
             invites: Zaprasza
+            recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego formularza, gdy nie będzie Ci już potrzebny. Domyślnie zostanie usunięty 3 miesiące po zakończeniu spotkania.
             registration_form: Formularz rejestracyjny
             registrations_count:
               one: Nie było rejestracji %{count}.
@@ -294,6 +310,7 @@ pl:
               other: Zarejestrowano %{count} rejestracji.
             reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
+            title: Rejestracje
           update:
             invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
             success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
@@ -353,7 +370,7 @@ pl:
           category: Kategoria
           category_prompt: Wybierz kategorię
           date: Data
-          past: Przeszłe
+          past: Przeszłość
           search: Szukaj
           upcoming: Nadchodzące
         filters_small_view:
@@ -372,7 +389,9 @@ pl:
           confirm: Potwierdzać
         show:
           attendees: Liczba osób biorących udział
+          back: Powrót do listy
           contributions: Liczba składek
+          date: Data
           going: Chodzenie
           join: Dołącz do spotkania
           meeting_report: Notatka ze spotkania

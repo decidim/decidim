@@ -1,0 +1,40 @@
+<div class="card-divider">
+  <h2 class="card-title">
+    <%= t("decidim.admin.menu.authorization_revocation.title") %>
+  </h2>
+</div>
+<div class="card-section">
+  <% if model.count > 0 %>
+    <div class="revoke_all_box">
+      <p><%= t("decidim.admin.menu.authorization_revocation.info", count: model.count ) %></p>
+      <%= link_to t("decidim.admin.menu.authorization_revocation.button"),
+        decidim_verifications.admin_verifications_destroy_all_path,
+        method: :delete,
+        class: "button",
+        data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm_all") } %>
+    </div>
+    <br>
+    <div class="revoke_before_date_box">
+      <%= decidim_form_for(@form, url: decidim_verifications.admin_verifications_destroy_before_date_path, html: { class: "form" } ) do |form| %>
+        <div class="card">
+          <div class="card-section">
+            <div class="row column">
+              <%= form.check_box :impersonated_only %>
+            </div>
+            <div class="row column">
+              <%= form.date_field :before_date, value: Date.today.prev_month.strftime("%d/%m/%Y"), autocomplete: "off" %>
+              <%= label_tag(:before_date_info, t("decidim.admin.menu.authorization_revocation.before_date_info")) %>
+            </div>
+            <div class="button--double">
+              <%= form.submit t("decidim.admin.menu.authorization_revocation.button_before"), data: { confirm: t("decidim.admin.menu.authorization_revocation.destroy.confirm") } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="revoke_no_data">
+      <%= t("decidim.admin.menu.authorization_revocation.no_data") %>
+    </div>
+  <% end %>
+</div>

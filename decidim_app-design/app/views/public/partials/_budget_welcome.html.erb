@@ -1,0 +1,23 @@
+<div class="reveal" data-reveal id="budget-modal-info">
+    <div class="reveal__header">
+        <h3 class="reveal__title">Tú decides los presupuestos</h3>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+     <p>
+      ¿En qué proyectos crees que debería trabajar el Ayuntamiento el próximo año?
+      <br>Asigna como mínimo 75 millones a los proyectos que quieras y vota con
+       tus preferencias cómo serán los próximos presupuestos.
+    </p>
+
+    <p>
+      Elige los presupuestos de tu distrito y después, los de otro a tu elección
+      (si lo prefieres, puedes <%= link_to "empezar por otro distrito", page_path("projects-budget-welcome") %>).
+    </p>
+    <div class="row">
+        <div class="columns medium-8 medium-offset-2">
+            <button class="button expanded">Continuar</button>
+        </div>
+    </div>
+</div>

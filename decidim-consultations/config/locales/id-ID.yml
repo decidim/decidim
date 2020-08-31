@@ -29,7 +29,6 @@ id:
         scope: Daerah kota
         slug: Siput URL
         subtitle: Subtitle
-        title: Judul
         vote: Sistem pemungutan suara eksternal
         what_is_decided: Apa yang diputuskan
     errors:

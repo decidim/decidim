@@ -78,12 +78,15 @@ module Decidim
         safe_join [field_label, tabs_panels]
       end
 
+      hashtaggable = options.delete(:hashtaggable)
       tabs_content = content_tag(:div, class: "tabs-content", data: { tabs_content: tabs_id }) do
         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
           tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
           string + content_tag(:div, class: tab_element_class_for("panel", index), id: tab_content_id) do
-            if options[:hashtaggable]
+            if hashtaggable
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
+            elsif type.to_sym == :editor
+              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable: hashtaggable))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -95,7 +98,7 @@ module Decidim
     end
 
     def translated_one_locale(type, name, locale, options = {})
-      return hashtaggable_text_field(type, name, locale, options) if options[:hashtaggable]
+      return hashtaggable_text_field(type, name, locale, options) if options.delete(:hashtaggable)
 
       send(
         type,
@@ -112,6 +115,8 @@ module Decidim
     #
     # Renders form fields for each locale.
     def hashtaggable_text_field(type, name, locale, options = {})
+      options[:hashtaggable] = true if type.to_sym == :editor
+
       content_tag(:div, class: "hashtags__container") do
         if options[:value]
           send(type, name_with_locale(name, locale), options.merge(label: options[:label], value: options[:value][locale]))
@@ -175,18 +180,23 @@ module Decidim
     #
     # Renders a container with both hidden field and editor container
     def editor(name, options = {})
-      options[:toolbar] ||= "basic"
-      options[:lines] ||= 10
       options[:disabled] ||= false
+      toolbar = options.delete(:toolbar) || "basic"
+      lines = options.delete(:lines) || 10
+      label_text = options[:label].to_s
+      label_text = label_for(name) if label_text.blank?
+      options.delete(:required)
+      hashtaggable = options.delete(:hashtaggable)
+      hidden_options = extract_validations(name, options).merge(options)
 
-      content_tag(:div, class: "editor #{"hashtags__container" if options[:hashtaggable]}") do
+      content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
-        template += label(name, options[:label].to_s || name) + required_for_attribute(name) if options[:label] != false
-        template += hidden_field(name, options)
-        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if options[:hashtaggable]}", data: {
-                                  toolbar: options[:toolbar],
+        template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
+        template += hidden_field(name, hidden_options)
+        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
+                                  toolbar: toolbar,
                                   disabled: options[:disabled]
-                                }, style: "height: #{options[:lines]}rem")
+                                }, style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe
       end
@@ -199,9 +209,10 @@ module Decidim
     # options    - An optional Hash with options:
     # - prompt   - An optional String with the text to display as prompt.
     # - disable_parents - A Boolean to disable parent categories. Defaults to `true`.
+    # html_options - HTML options for the select
     #
     # Returns a String.
-    def categories_select(name, collection, options = {})
+    def categories_select(name, collection, options = {}, html_options = {})
       options = {
         disable_parents: true
       }.merge(options)
@@ -209,13 +220,14 @@ module Decidim
       disable_parents = options[:disable_parents]
 
       selected = object.send(name)
+      selected = selected.first if selected.is_a?(Array) && selected.length > 1
       categories = categories_for_select(collection)
       disabled = if disable_parents
                    disabled_categories_for(collection)
                  else
                    []
                  end
-      html_options = {}
+
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
@@ -226,7 +238,7 @@ module Decidim
     #              If it's areas, we sort the selectable options alphabetically.
     #
     # Returns a String.
-    def areas_select(name, collection, options = {})
+    def areas_select(name, collection, options = {}, html_options = {})
       selectables = if collection.first.is_a?(Decidim::Area)
                       assemblies = collection
                                    .map { |a| [a.name[I18n.locale.to_s], a.id] }
@@ -247,7 +259,23 @@ module Decidim
                       )
                     end
 
-      select(name, selectables, options)
+      select(name, selectables, options, html_options)
+    end
+
+    # Public: Generates a select field for resource types.
+    #
+    # name       - The name of the field (usually resource_type)
+    # collection - A collection of resource types.
+    #              The options are sorted alphabetically.
+    #
+    # Returns a String.
+    def resources_select(name, collection, options = {})
+      resources =
+        collection
+        .map { |r| [I18n.t(r.split("::").last.underscore, scope: "decidim.components.component_order_selector.order"), r] }
+        .sort
+
+      select(name, @template.options_for_select(resources, selected: options[:selected]), options)
     end
 
     # Public: Generates a picker field for scope selection.
@@ -262,8 +290,11 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
+      id = "#{@object_name}_#{attribute}"
+      id = "#{self.options[:namespace]}_#{id}" if self.options.has_key?(:namespace)
+
       picker_options = {
-        id: "#{@object_name}_#{attribute}",
+        id: id,
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -273,7 +304,7 @@ module Decidim
       prompt_params = yield(nil)
       scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
       template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
+      template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input",
                                    picker_options: picker_options,
                                    prompt_params: prompt_params,
@@ -304,6 +335,7 @@ module Decidim
         name: options[:name] || "#{@object_name}[#{attribute}]"
       }
       picker_options[:class] += " is-invalid-input" if error?(attribute)
+      picker_options[:class] += " picker-autosort" if options[:autosort]
 
       items = object.send(attribute).collect { |item| [item, yield(item)] }
 
@@ -367,14 +399,21 @@ module Decidim
     # attribute    - The String name of the attribute to buidl the field.
     # options      - A Hash with options to build the field.
     #              * optional: Whether the file can be optional or not.
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
+      alt_text = label_for(attribute)
 
       file = object.send attribute
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
+      template += upload_help(attribute, options)
       template += @template.file_field @object_name, attribute
+
+      template += extension_whitelist_help(options[:extension_whitelist]) if options[:extension_whitelist].present?
+      template += image_dimensions_help(options[:dimensions_info]) if options[:dimensions_info].present?
 
       if file_is_image?(file)
         template += if file.present?
@@ -382,7 +421,7 @@ module Decidim
                     else
                       @template.content_tag :label, I18n.t("default_image", scope: "decidim.forms")
                     end
-        template += @template.link_to @template.image_tag(file.url), file.url, target: "_blank", rel: "noopener"
+        template += @template.link_to @template.image_tag(file.url, alt: alt_text), file.url, target: "_blank", rel: "noopener"
       elsif file_is_present?(file)
         template += @template.label_tag I18n.t("current_file", scope: "decidim.forms")
         template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
@@ -407,6 +446,56 @@ module Decidim
 
       template.html_safe
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
+
+    def upload_help(attribute, _options = {})
+      file = object.send attribute
+
+      content_tag(:div, class: "help-text") do
+        file_size_validator = object.singleton_class.validators_on(
+          attribute
+        ).find { |validator| validator.is_a?(::ActiveModel::Validations::FileSizeValidator) }
+        if file_size_validator
+          lte = file_size_validator.options[:less_than_or_equal_to]
+          max_file_size = lte.call(nil) if lte && lte.lambda?
+        end
+
+        help_scope = begin
+          if file.is_a?(Decidim::ImageUploader)
+            "decidim.forms.file_help.image"
+          else
+            "decidim.forms.file_help.file"
+          end
+        end
+        help_messages = %w(message_1 message_2)
+
+        inner = "<p>#{I18n.t("explanation", scope: help_scope)}</p>".html_safe
+        inner + content_tag(:ul) do
+          messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) }
+
+          if max_file_size
+            file_size_mb = (((max_file_size / 1024 / 1024) * 100) / 100).round
+            messages << I18n.t(
+              "max_file_size",
+              megabytes: file_size_mb,
+              scope: "decidim.forms.file_validation"
+            )
+          end
+
+          if file.respond_to?(:extension_whitelist, true)
+            allowed_extensions = file.send(:extension_whitelist)
+            messages << I18n.t(
+              "allowed_file_extensions",
+              extensions: allowed_extensions.join(" "),
+              scope: "decidim.forms.file_validation"
+            )
+          end
+
+          messages.map { |msg| content_tag(:li, msg) }.join("\n").html_safe
+        end.html_safe
+      end
+    end
 
     # Public: Returns the translated name for the given attribute.
     #
@@ -424,6 +513,19 @@ module Decidim
         text_area(attribute, options.merge(rows: 10))
       else
         text_field(attribute, options)
+      end
+    end
+
+    # Discard the pattern attribute which is not allowed for textarea elements.
+    def text_area(attribute, options = {})
+      field(attribute, options) do |opts|
+        opts.delete(:pattern)
+        @template.send(
+          :text_area,
+          @object_name,
+          attribute,
+          objectify_options(opts)
+        )
       end
     end
 
@@ -490,6 +592,7 @@ module Decidim
       validation_options = {}
       validation_options[:pattern] = "^(.|[\n\r]){#{min_length},#{max_length}}$" if min_length.to_i.positive? || max_length.to_i.positive?
       validation_options[:required] = options[:required] || attribute_required?(attribute)
+      validation_options[:minlength] ||= min_length if min_length.to_i.positive?
       validation_options[:maxlength] ||= max_length if max_length.to_i.positive?
       validation_options
     end
@@ -528,9 +631,17 @@ module Decidim
     # Returns an Integer or Nil.
     def length_for_attribute(attribute, type)
       length_validator = find_validator(attribute, ActiveModel::Validations::LengthValidator)
-      return unless length_validator
+      return length_validator.options[type] if length_validator
 
-      length_validator.options[type]
+      length_validator = find_validator(attribute, ProposalLengthValidator)
+      if length_validator
+        length = length_validator.options[type]
+        return length.call(object) if length.respond_to?(:call)
+
+        return length
+      end
+
+      nil
     end
 
     # Private: Finds a validator.
@@ -663,9 +774,20 @@ module Decidim
 
     def required_for_attribute(attribute)
       if attribute_required?(attribute)
-        return content_tag(:abbr, "*", title: I18n.t("required", scope: "forms"),
-                                       data: { tooltip: true, disable_hover: false }, 'aria-haspopup': true,
-                                       class: "label-required").html_safe
+        visible_title = content_tag(:span, "*", "aria-hidden": true)
+        screenreader_title = content_tag(
+          :span,
+          I18n.t("required", scope: "forms"),
+          class: "show-for-sr"
+        )
+        return content_tag(
+          :span,
+          visible_title + screenreader_title,
+          title: I18n.t("required", scope: "forms"),
+          data: { tooltip: true, disable_hover: false, keep_on_hover: true },
+          "aria-haspopup": true,
+          class: "label-required"
+        ).html_safe
       end
       "".html_safe
     end
@@ -679,12 +801,76 @@ module Decidim
       selected
     end
 
+    # Private: Returns the help text and error tags at the end of the field.
+    # Modified to change the tag to a valid HTML tag inside the <label> element.
+    def error_and_help_text(attribute, options = {})
+      html = ""
+      html += content_tag(:span, options[:help_text], class: "help-text") if options[:help_text]
+      html += error_for(attribute, options) || ""
+      html.html_safe
+    end
+
     def ruby_format_to_datepicker(ruby_date_format)
       ruby_date_format.gsub("%d", "dd").gsub("%m", "mm").gsub("%Y", "yyyy").gsub("%H", "hh").gsub("%M", "ii")
     end
 
     def sanitize_tabs_selector(id)
       id.tr("[", "-").tr("]", "-")
+    end
+
+    def extension_whitelist_help(extension_whitelist)
+      content_tag :p, class: "extensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("extension_whitelist", scope: "decidim.forms.files")),
+                    " ",
+                    safe_join(extension_whitelist.map { |ext| content_tag(:b, ext) }, ", ")
+                  ])
+      end
+    end
+
+    def image_dimensions_help(dimensions_info)
+      content_tag :p, class: "image-dimensions-help help-text" do
+        safe_join([
+                    content_tag(:span, I18n.t("dimensions_info", scope: "decidim.forms.images")),
+                    " ",
+                    content_tag(:span) do
+                      safe_join(dimensions_info.map do |_version, info|
+                        processor = @template.content_tag(:span, I18n.t("processors.#{info[:processor]}", scope: "decidim.forms.images"))
+                        dimensions = @template.content_tag(:b, I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last))
+                        safe_join([processor, "  ", dimensions, ". ".html_safe])
+                      end)
+                    end
+                  ])
+      end
+    end
+
+    # Private: Creates a tag from the given options for the field prefix and
+    # suffix. Overridden from Foundation Rails helper to make the generated HTML
+    # valid since these elements are printed within <label> elements and <div>'s
+    # are not allowed there.
+    def tag_from_options(name, options)
+      return "".html_safe unless options && options[:value].present?
+
+      content_tag(:span,
+                  content_tag(:span, options[:value], class: name),
+                  class: column_classes(options).to_s)
+    end
+
+    # Private: Wraps the prefix and postfix for the field. Overridden from
+    # Foundation Rails helper to make the generated HTML valid since these
+    # elements are printed within <label> elements and <div>'s are not allowed
+    # there.
+    def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
+      prefix = tag_from_options("prefix", prefix_options)
+      postfix = tag_from_options("postfix", postfix_options)
+
+      input_size = calculate_input_size(prefix_options, postfix_options)
+      klass = column_classes(input_size.marshal_dump).to_s
+      input = content_tag(:span, block, class: klass)
+
+      return block unless input_size.changed?
+
+      content_tag(:span, prefix + input + postfix, class: "row collapse")
     end
   end
 end

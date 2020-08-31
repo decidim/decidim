@@ -1,0 +1,106 @@
+<div class="row">
+  <div class="columns mediumlarge-6">
+    <div class="card card--list card--list--mini">
+      <div class="card--list__item <% if locals[:votedOne] %>card--list__data-added<% end %>">
+        <div class="card--list__text">
+          <a href="#" class="card__link card--list__heading">
+            <% if locals[:votedOne] %>
+              <strong>
+            <% end %>
+              Gràcia
+            <% if locals[:votedOne] %>
+              </strong>
+              <span class="button tiny success card--list__check card--list__check--disabled">
+                <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+              </span>
+            <% end %>
+          </a>
+        </div>
+      </div>
+      <div class="card--list__item <% if locals[:votedTwo] %>card--list__data-added<% end %>">
+        <div class="card--list__text">
+          <a href="#" class="card__link card--list__heading">
+            <% if locals[:votedTwo] %>
+              <strong>
+            <% end %>
+              Ciutat Vella
+            <% if locals[:votedTwo] %>
+              </strong>
+              <span class="button tiny success card--list__check card--list__check--disabled">
+                <%= icon("check", class: "icon--small", aria_label: "Afegit", role: "img") %>
+              </span>
+            <% end %>
+          </a>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <a href="#" class="card__link card--list__heading">
+            Eixample
+          </a>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <a href="#" class="card__link card--list__heading">
+            Sants-Montjuïc
+          </a>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Les Corts
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Sarrià-Sant Gervasi
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Horta-Guinardó
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Nou Barris
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Sant Andreu
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__item">
+        <div class="card--list__text">
+          <div>
+            <a href="#" class="card__link card--list__heading">
+              Sant Martí
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

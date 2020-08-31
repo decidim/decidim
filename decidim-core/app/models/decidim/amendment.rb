@@ -28,23 +28,5 @@ module Decidim
 
       emendation.linked_promoted_resource.present?
     end
-
-    # VisibilityStepSetting::options can be expanded via config setting.
-    #
-    # For new options, add the missing locales in `decidim-core/config/locales/en.yml` and
-    # change the logic of the filtering methods in the Amendable concern to fit your needs:
-    # - Decidim::Amendable::only_visible_emendations_for(user, component)
-    # - Decidim::Amendable::amendables_and_visible_emendations_for(user, component)
-    # - Decidim::Amendable#visible_emendations_for(user)
-    #
-    # Returns an Array of Arrays of translation, value:
-    # i.e. [["All amendments are visible", "all"], ...]
-    class VisibilityStepSetting
-      def self.options
-        Decidim.config.amendments_visibility_options.map do |option|
-          [I18n.t(option, scope: "decidim.amendments.visibility_options"), option]
-        end
-      end
-    end
   end
 end

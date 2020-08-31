@@ -1,0 +1,25 @@
+<div class="expanded">
+  <div class="wrapper wrapper--inner">
+    <div class="row">
+      <div class="large-12">
+        <h2 id="modalTitle"> <%= t "decidim.user_conversations.index.modal_title" %> </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row columns mentions__container">
+        <label for="add_conversation_users"><%= t "decidim.user_conversations.index.add_max_users" %></label>
+        <input id="add_conversation_users" type="text"
+            class="js-multiple-mentions mentions__container"
+            placeholder="<%= t("decidim.user_conversations.index.add_users_placeholder") %>"
+            data-noresults="<%= t("decidim.user_conversations.index.no_results") %>"
+            data-tribute="yes"
+            contenteditable="true"
+            data-direct-messages-disabled="<%= t("decidim.user_conversations.index.participant_with_disabled_message_reception") %>"
+            aria-expanded="false">
+      </div>
+      <div class="columns large-12">
+        <div class="js-multiple-mentions-recipients"></div>
+      </div>
+    </div>
+  </div>
+</div>

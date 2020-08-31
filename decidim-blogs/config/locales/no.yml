@@ -48,6 +48,8 @@
             title: tittel
       posts:
         show:
+          back: Tilbake til listen
+          comments: Kommentarer
           view: Vis
         sidebar_blog:
           comments: kommentarer
@@ -63,6 +65,8 @@
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            endorsements_blocked: Påtegnelser blokkert
+            endorsements_enabled: Påtegnelser aktivert
     events:
       blogs:
         post_created:

@@ -20,7 +20,7 @@ module Decidim::Comments
     context "when rendering" do
       it "renders the card" do
         html = cell("decidim/comments/comment_activity", action_log).call
-        expect(html).to have_css(".card-data")
+        expect(html).to have_css(".card__content")
         expect(html).to have_content("New comment at #{comment.root_commentable.title}")
         expect(html).to have_content(comment.body)
       end
@@ -55,7 +55,7 @@ module Decidim::Comments
 
         it "renders the card" do
           html = cell("decidim/comments/comment_activity", action_log).call
-          expect(html).to have_css(".card-data")
+          expect(html).to have_css(".card__content")
           expect(html).to have_content("New comment at #{comment.root_commentable.title}")
           expect(html).to have_content(comment.body)
         end

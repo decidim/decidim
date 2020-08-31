@@ -24,12 +24,12 @@ describe "Private Assemblies", type: :system do
 
         it "lists all the assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 2)
+            expect(page).to have_selector(".card--assembly", count: 2)
 
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
           end
@@ -45,12 +45,12 @@ describe "Private Assemblies", type: :system do
 
         it "lists all the assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 2)
+            expect(page).to have_selector(".card--assembly", count: 2)
 
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
           end
@@ -69,12 +69,12 @@ describe "Private Assemblies", type: :system do
 
         it "lists only the not private assembly" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("1")
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 1)
+            expect(page).to have_selector(".card--assembly", count: 1)
 
             expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
           end
@@ -90,12 +90,12 @@ describe "Private Assemblies", type: :system do
 
         it "lists only the not private assembly" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("1")
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 1)
+            expect(page).to have_selector(".card--assembly", count: 1)
 
             expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
           end
@@ -110,18 +110,18 @@ describe "Private Assemblies", type: :system do
 
           it "lists private assemblies" do
             within "#parent-assemblies" do
-              within "#parent-assemblies h2" do
+              within "#parent-assemblies h3" do
                 expect(page).to have_content("2")
               end
 
               expect(page).to have_content(translated(assembly.title, locale: :en))
               expect(page).to have_content(translated(private_assembly.title, locale: :en))
-              expect(page).to have_selector("article.card", count: 2)
+              expect(page).to have_selector(".card--assembly", count: 2)
             end
           end
 
           it "links to the individual assembly page" do
-            click_link(translated(private_assembly.title, locale: :en))
+            first(".card__link", text: translated(private_assembly.title, locale: :en)).click
 
             expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly)
             expect(page).to have_content "This is a private assembly"
@@ -138,18 +138,18 @@ describe "Private Assemblies", type: :system do
 
         it "lists private assemblies" do
           within "#parent-assemblies" do
-            within "#parent-assemblies h2" do
+            within "#parent-assemblies h3" do
               expect(page).to have_content("2")
             end
 
             expect(page).to have_content(translated(assembly.title, locale: :en))
             expect(page).to have_content(translated(private_assembly.title, locale: :en))
-            expect(page).to have_selector("article.card", count: 2)
+            expect(page).to have_selector(".card--assembly", count: 2)
           end
         end
 
         it "links to the individual assembly page" do
-          click_link(translated(private_assembly.title, locale: :en))
+          first(".card__link", text: translated(private_assembly.title, locale: :en)).click
 
           expect(page).to have_current_path decidim_assemblies.assembly_path(private_assembly)
           expect(page).to have_content "This is a private assembly"

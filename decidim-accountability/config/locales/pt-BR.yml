@@ -1,4 +1,4 @@
-pt-BR:
+pt:
   activemodel:
     attributes:
       result:
@@ -58,17 +58,11 @@ pt-BR:
           edit:
             title: Editar resultado
             update: Atualizar resultado
-          form:
-            add_proposal: Adicionar proposta
           index:
             title: Resultados
           new:
             create: Criar resultado
             title: Novo resultado
-          proposals:
-            close: Fechar
-            current_selection: Seleção atual
-            select: Selecione
           update:
             invalid: Ocorreu um problema ao atualizar este resultado
             success: Resultado atualizado com sucesso
@@ -157,30 +151,16 @@ pt-BR:
         show:
           stats:
             attendees: Participantes
-            back_to_result: Volte ao resultado
+            back_to_resource: Volte ao resultado
             comments: Comentários
             contributions: Contribuições
             last_edited_by: Editado pela última vez por
             last_updated_at: Última atualização em
             meetings: Reuniões
-            number_of_versions: Versões
             proposals: Propostas
-            show_all_versions: Mostrar todas as versões
-            version_author: Autor da versão
-            version_created_at: Versão criada em
-            version_number: Número da versão
-            version_number_out_of_total: "%{current_version} de %{total_count}"
             votes: Suporta
         timeline:
           title: Evolução do projeto
-      versions:
-        index:
-          changes_at_title: Alterações em "%{title}"
-          title: Versões
-        show:
-          changes_at_title: Alterações em "%{title}"
-        version:
-          version_index: Versão %{index}
     components:
       accountability:
         name: Prestação de contas
@@ -216,9 +196,6 @@ pt-BR:
       participatory_process_groups:
         highlighted_results:
           results: Resultados
-    participatory_spaces:
-      highlighted_results:
-        see_all: Ver todos (%{count})
     resource_links:
       included_projects:
         result_project: Projetos incluídos neste resultado

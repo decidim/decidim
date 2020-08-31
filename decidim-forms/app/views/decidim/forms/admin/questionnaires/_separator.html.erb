@@ -1,0 +1,41 @@
+<% question = form.object %>
+
+<div class="card questionnaire-question" id="<%= id %>-field">
+  <div class="card-divider question-divider">
+    <h2 class="card-title">
+    <span>
+      <% if editable %>
+        <%== icon("move") %>
+      <% end %>
+      <%= dynamic_title(t(".separator"), class: "question-title-statement", max_length: 50, omission: "...", placeholder: t(".separator")) %>
+    </span>
+
+    <% if editable %>
+      <button class="button small alert hollow move-up-question button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-question button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
+      <button class="button small alert hollow remove-question button--title">
+        <%= t(".remove") %>
+      </button>
+    <% end %>
+    </h2>
+
+    <%=
+      form.hidden_field(
+        :question_type,
+        value: :separator
+      )
+    %>
+    <% if question.persisted? %>
+      <%= form.hidden_field :id, disabled: !editable %>
+    <% end %>
+
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !editable %>
+    <%= form.hidden_field :deleted, disabled: !editable %>
+  </div>
+</div>

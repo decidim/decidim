@@ -36,7 +36,7 @@ module Decidim
     # Wrap the dependant check_boxes in a custom fieldset.
     # checked parent checks its children
     def check_boxes_tree(method, collection, options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_check_boxes_tree_filter") do
+      fieldset_wrapper(options.delete(:legend_title), "#{method}_check_boxes_tree_filter") do
         @template.render("decidim/shared/check_boxes_tree",
                          form: self,
                          attribute: method,
@@ -48,9 +48,9 @@ module Decidim
     end
 
     # Wrap the category select in a custom fieldset.
-    def categories_select(method, collection, options = {})
-      fieldset_wrapper(options[:legend_title], "#{method}_categories_select_filter") do
-        super(method, collection, options)
+    def categories_select(method, collection, options = {}, html_options = {})
+      fieldset_wrapper(options.delete(:legend_title), "#{method}_categories_select_filter") do
+        super(method, collection, options, html_options)
       end
     end
 
@@ -58,6 +58,15 @@ module Decidim
     def areas_select(method, collection, options = {})
       fieldset_wrapper(options[:legend_title], "#{method}_areas_select_filter") do
         super(method, collection, options)
+      end
+    end
+
+    # Wrap the custom select in a custom fieldset.
+    # Any *_select can be used as a custom_select; what changes is the superclass method,
+    # and this one knows which one has to be called, depending on the `name` provided.
+    def custom_select(name, method, collection, options = {})
+      fieldset_wrapper(options[:legend_title], "#{method}_#{name}_select_filter") do
+        send(:"#{name}_select", method, collection, options)
       end
     end
 
@@ -74,8 +83,8 @@ module Decidim
     def fieldset_wrapper(legend_title, extra_class)
       @template.content_tag(:div, "", class: "filters__section #{extra_class}") do
         @template.content_tag(:fieldset) do
-          @template.content_tag(:legend) do
-            @template.content_tag(:h6, legend_title, class: "heading6")
+          @template.content_tag(:legend, class: "mini-title") do
+            legend_title
           end + yield
         end
       end

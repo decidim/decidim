@@ -22,7 +22,7 @@ module Decidim
       context "when rendering" do
         it "renders the card" do
           html = cell("decidim/proposals/proposal_activity", action_log).call
-          expect(html).to have_css(".card-data")
+          expect(html).to have_css(".card__content")
           expect(html).to have_content("New proposal")
         end
 

@@ -18,11 +18,10 @@ module Decidim
       }
       options.merge!(checkbox_options)
 
-      if options[:is_root_check_box] == true
+      if options.delete(:is_root_check_box) == true
         options[:label_options].merge!("data-global-checkbox": "")
         options[:label_options].delete(:"data-children-checkbox")
       end
-      options[:label_options].delete(:is_root_check_box)
 
       options
     end
@@ -62,7 +61,7 @@ module Decidim
       end
 
       categories_values = sorted_main_categories.flat_map do |category|
-        sorted_descendant_categories = category.descendants.sort_by do |subcategory|
+        sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
           [subcategory.weight, translated_attribute(subcategory.name, organization)]
         end
 
@@ -83,7 +82,7 @@ module Decidim
     end
 
     def filter_scopes_values
-      main_scopes = current_participatory_space.scope.present? ? [current_participatory_space.scope] : current_participatory_space.scopes.top_level
+      main_scopes = current_participatory_space.scope.present? ? [current_participatory_space.scope] : current_participatory_space.scopes.top_level.includes(:scope_type, :children)
 
       scopes_values = main_scopes.flat_map do |scope|
         TreeNode.new(
@@ -104,7 +103,7 @@ module Decidim
       return if scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
       return unless scope.children.any?
 
-      scope.children.flat_map do |child|
+      scope.children.includes(:scope_type, :children).flat_map do |child|
         TreeNode.new(
           TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
           scope_children_to_tree(child)

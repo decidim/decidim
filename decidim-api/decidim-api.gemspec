@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.summary = "Decidim API module"
   s.description = "API engine for decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor,docs}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "graphiql-rails", "~> 1.4", "< 1.5"
   s.add_dependency "graphql", "~> 1.9"

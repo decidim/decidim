@@ -148,7 +148,19 @@ describe "Filter Proposals", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          expect(page).to have_no_content(/Scopes/i)
+          expect(page).to have_no_content(/Scope/i)
+        end
+      end
+
+      context "with subscopes" do
+        let!(:subscopes) { create_list :subscope, 5, parent: scope }
+
+        it "can be filtered by scope" do
+          visit_component
+
+          within "form.new_filter" do
+            expect(page).to have_content(/Scope/i)
+          end
         end
       end
     end
@@ -423,7 +435,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           expect(page).to have_css(".card.card--proposal", count: 2)
           expect(page).to have_content("2 PROPOSALS")
-          expect(page).to have_content("AMENDMENT", count: 1)
+          expect(page).to have_content("Amendment", count: 2)
         end
       end
 
@@ -435,7 +447,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           expect(page).to have_css(".card.card--proposal", count: 1)
           expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 0)
+          expect(page).to have_content("Amendment", count: 1)
         end
       end
 
@@ -447,7 +459,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           expect(page).to have_css(".card.card--proposal", count: 1)
           expect(page).to have_content("1 PROPOSAL")
-          expect(page).to have_content("AMENDMENT", count: 1)
+          expect(page).to have_content("Amendment", count: 2)
         end
       end
 
@@ -490,7 +502,7 @@ describe "Filter Proposals", :slow, type: :system do
                 end
                 expect(page).to have_css(".card.card--proposal", count: 1)
                 expect(page).to have_content("1 PROPOSAL")
-                expect(page).to have_content("AMENDMENT", count: 1)
+                expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(new_emendation.title)
                 expect(page).to have_no_content(emendation.title)
               end
@@ -563,7 +575,7 @@ describe "Filter Proposals", :slow, type: :system do
                 end
                 expect(page).to have_css(".card.card--proposal", count: 2)
                 expect(page).to have_content("2 PROPOSAL")
-                expect(page).to have_content("AMENDMENT", count: 2)
+                expect(page).to have_content("Amendment", count: 3)
                 expect(page).to have_content(new_emendation.title)
                 expect(page).to have_content(emendation.title)
               end

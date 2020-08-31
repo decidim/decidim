@@ -199,7 +199,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
-  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope: :homepage)
+  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
   hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
   settings = {}
   welcome_text = Decidim::Faker::Localized.sentence(5)

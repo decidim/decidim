@@ -9,9 +9,6 @@ module Decidim
         end
 
         def save
-          return @registry if @registry
-
-          @registry = []
           cumulative.each do |key, cumulative_value|
             next if cumulative_value.zero?
 
@@ -21,10 +18,8 @@ module Decidim
                                                            organization: @organization, decidim_category_id: category_id,
                                                            participatory_space_type: space_type, participatory_space_id: space_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
-            @registry << record
+            record.save!
           end
-          @registry.each(&:save!)
-          @registry
         end
 
         private
@@ -35,8 +30,7 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(@organization).public_spaces
           end
-          components = Decidim::Component.where(participatory_space: spaces).published
-          @query = Decidim::Meetings::Meeting.where(component: components).joins(:component)
+          @query = Decidim::Meetings::Meeting.where(component: visible_component_ids_from_spaces(spaces)).joins(:component)
                                              .left_outer_joins(:category).visible
           @query = @query.where("decidim_meetings_meetings.created_at <= ?", end_time)
           @query = @query.group("decidim_categorizations.decidim_category_id",

@@ -1,0 +1,132 @@
+de:
+  activemodel:
+    attributes:
+      answer:
+        description: Beschreibung
+        image: Bild
+        proposals: Ähnliche Vorschläge
+        title: Titel
+      election:
+        description: Beschreibung
+        end_time: Die Abstimmung endet um
+        start_time: Die Abstimmung beginnt um
+        subtitle: Untertitel
+        title: Titel
+      question:
+        description: Beschreibung
+        max_selections: Maximale Anzahl von Auswahlen
+        title: Titel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Antwort
+        other: Antworten
+      decidim/elections/election:
+        one: Wahl
+        other: Wahlen
+      decidim/elections/question:
+        one: Frage
+        other: Fragen
+  decidim:
+    components:
+      elections:
+        name: Wahlen
+        settings:
+          global:
+            announcement: Ankündigung
+          step:
+            announcement: Ankündigung
+    elections:
+      actions:
+        confirm_destroy: Sind Sie sicher?
+        destroy: Löschen
+        edit: Bearbeiten
+        new: Neue(r/s) %{name}
+        preview: Vorschau
+        title: Aktionen
+      admin:
+        answers:
+          create:
+            invalid: Beim Erstellen dieser Antwort ist ein Fehler aufgetreten
+            success: Antwort wurde erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Antwort ist ein Fehler aufgetreten
+            success: Antwort wurde erfolgreich gelöscht
+          edit:
+            title: Antwort bearbeiten
+            update: Antwort aktualisieren
+          index:
+            title: Antworten
+          new:
+            create: Antwort erstellen
+            title: Neue Antwort
+          update:
+            invalid: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten
+            success: Antwort wurde erfolgreich aktualisiert
+        elections:
+          create:
+            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
+            success: Wahl wurde erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Wahl ist ein Fehler aufgetreten
+            success: Wahl wurde erfolgreich gelöscht
+          edit:
+            title: Wahl bearbeiten
+            update: Wahl aktualisieren
+          index:
+            title: Wahlen
+          new:
+            create: Wahl erstellen
+            title: Neue Wahl
+          update:
+            invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten
+            success: Wahl wurde erfolgreich aktualisiert
+        models:
+          answer:
+            name: Antwort
+          election:
+            name: Wahl
+          question:
+            name: Frage
+        questions:
+          create:
+            invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
+            success: Frage wurde erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Frage ist ein Fehler aufgetreten
+            success: Frage wurde erfolgreich gelöscht
+          edit:
+            title: Frage bearbeiten
+            update: Frage aktualisieren
+          index:
+            title: Fragen
+          new:
+            create: Frage erstellen
+            title: Neue Frage
+          update:
+            invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
+            success: Frage wurde erfolgreich aktualisiert
+      models:
+        answer:
+          fields:
+            proposals: Vorschläge
+            title: Titel
+        election:
+          fields:
+            end_time: Endet um
+            start_time: Beginnt um
+            title: Titel
+        question:
+          fields:
+            answers: Antworten
+            max_selections: Maximale Auswahl
+            title: Titel
+    participatory_processes:
+      statistics:
+        elections_count: Wahlen

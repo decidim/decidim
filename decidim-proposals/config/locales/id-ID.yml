@@ -50,7 +50,6 @@ id:
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
       decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
       decidim/proposals/evaluating_proposal_event: Proposal sedang dievaluasi
-      decidim/proposals/proposal_endorsed_event: Proposal disetujui
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
       decidim/proposals/publish_proposal_event: Proposal dipublikasikan
       decidim/proposals/rejected_proposal_event: Proposal ditolak
@@ -61,8 +60,6 @@ id:
         other: Draf kolaboratif
       decidim/proposals/proposal:
         other: Proposal
-      decidim/proposals/proposal_endorsement:
-        other: Endorsemen
       decidim/proposals/proposal_note:
         other: Catatan
       decidim/proposals/proposal_vote:
@@ -180,11 +177,6 @@ id:
             email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
             email_subject: Proposal yang Anda ikuti telah diterima
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah diterima.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}, yang Anda ikuti, baru saja menyetujui proposal "%{resource_title}" dan kami pikir itu mungkin menarik bagi Anda. Lihat dan sumbangkan:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{endorser_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: "%{endorser_nickname} telah mengesahkan proposal baru"
-          notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah disetujui oleh <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'Proposal Anda "%{resource_title}" saat ini sedang dievaluasi. Anda dapat memeriksa jawaban di halaman ini:'
@@ -537,14 +529,11 @@ id:
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
           info-message: Ini adalah <strong>draf kolaboratif</strong> untuk proposal. Ini berarti Anda dapat membantu penulisnya untuk membentuk proposal menggunakan bagian komentar di bawah ini atau meningkatkannya secara langsung dengan meminta akses untuk mengeditnya. Setelah penulis memberi Anda akses, Anda akan dapat membuat perubahan pada draf ini.
-          of_versions: "(dari %{number})"
           publish: Menerbitkan
           publish_info: Publikasikan versi draf ini atau
           published_proposal: proposal yang dipublikasikan
           request_access: Minta akses
           requested_access: Akses diminta
-          see_other_versions: lihat versi lain
-          version: Versi %{number}
           version_history: lihat riwayat versi untuk proposal ini
           withdraw: tarik draft
         states:
@@ -581,7 +570,6 @@ id:
           fields:
             category: Kategori
             comments: Komentar
-            endorsements: Endorsemen
             id: ID
             notes: Catatan
             official_proposal: Proposal resmi
@@ -598,19 +586,6 @@ id:
           amend: Merubah
           comment: Komentar
           comments: Komentar
-          endorse: Mengesahkan
-      proposal_endorsements:
-        create:
-          error: Sudah ada kesalahan saat mendukung proposal.
-        identities:
-          done: Selesai
-          select_identity: Pilih identitas
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: Didukung
-          endorse: Mengesahkan
-        render_endorsements_button_card_part:
-          endorse: Mengesahkan
       proposal_votes:
         create:
           error: Ada kesalahan saat memilih proposal.
@@ -636,10 +611,6 @@ id:
           discard_confirmation: Anda yakin ingin membuang draf proposal ini?
           send: Preview
           title: Edit Draf Proposal
-        endorsement_identities_cabin:
-          endorse: Mengesahkan
-        endorsements_card_row:
-          comments: Komentar
         filters:
           amendment_type: Mengetik
           category: Kategori
@@ -688,6 +659,7 @@ id:
         show:
           answer: Menjawab
           back_to: Kembali ke
+          comments: Komentar
           edit_proposal: Edit proposal
           endorsements_list: Daftar Endorsemen
           hidden_endorsers_count:
@@ -699,7 +671,6 @@ id:
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
           report: Melaporkan
           withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
-          withdraw_confirmation: Apakah Anda yakin untuk membatalkan proposal ini?
           withdraw_proposal: Tarik proposal
         vote_button:
           already_voted: Sudah memilih
@@ -749,20 +720,12 @@ id:
         error: Ada kesalahan saat menyimpan draf proposal.
         success: Proposal proposal berhasil diperbarui.
       versions:
-        changes_at_title: Perubahan pada "%{title}"
+        collaborative_drafts:
+          back_to_resource: Kembali ke draf kolaboratif
         index:
           title: Versi
-        stats:
-          back_to_collaborative_draft: Kembali ke draf kolaboratif
-          back_to_proposal: Kembali ke proposal
-          number_of_versions: Versi
-          show_all_versions: Tampilkan semua versi
-          version_author: Penulis versi
-          version_created_at: Versi dibuat pada
-          version_number: Nomor versi
-          version_number_out_of_total: "%{current_version} dari %{total_count}"
-        version:
-          version_index: Versi %{index}
+        proposals:
+          back_to_resource: Kembali ke proposal
       withdraw:
         errors:
           has_supports: Proposal ini tidak dapat ditarik karena sudah memiliki dukungan.

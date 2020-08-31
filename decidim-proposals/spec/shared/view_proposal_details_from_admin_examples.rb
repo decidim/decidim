@@ -87,7 +87,11 @@ shared_examples "view proposal details from admin" do
   end
 
   describe "with endorsements" do
-    let!(:endorsements) { create_list :proposal_endorsement, 2, proposal: proposal }
+    let!(:endorsements) do
+      2.times.collect do
+        create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+      end
+    end
 
     it "shows the number of endorsements" do
       go_to_admin_proposal_page(proposal)
@@ -97,7 +101,7 @@ shared_examples "view proposal details from admin" do
 
     it "shows the ranking by endorsements" do
       another_proposal = create :proposal, component: component
-      create :proposal_endorsement, proposal: another_proposal
+      create(:endorsement, resource: another_proposal, author: build(:user, organization: organization))
       go_to_admin_proposal_page(proposal)
 
       expect(page).to have_content("Ranking by endorsements: 1 of")
@@ -115,7 +119,11 @@ shared_examples "view proposal details from admin" do
     end
 
     context "with more than 5 endorsements" do
-      let!(:endorsements) { create_list :proposal_endorsement, 6, proposal: proposal }
+      let!(:endorsements) do
+        6.times.collect do
+          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+        end
+      end
 
       it "links to the proposal page to check the rest of endorsements" do
         go_to_admin_proposal_page(proposal)

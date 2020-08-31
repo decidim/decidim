@@ -22,6 +22,14 @@ module Decidim
         recipient(user).update_all(read_at: Time.current)
       end
       # rubocop:enable Rails/SkipsModelValidations
+
+      # The number of messages unread by a user
+      #
+      # @return [Integer]
+      #
+      def self.unread_count(user)
+        unread_by(user).count
+      end
     end
   end
 end

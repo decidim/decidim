@@ -2,9 +2,9 @@
   <div class="card--list__text">
     <div>
       <a href="<%= document.url %>" class="card__link">
-        <h6 class="card--list__heading heading6">
+        <h4 class="card--list__heading heading6">
           <%= attachment_title(document) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-        </h6>
+        </h4>
         <% if document.description.present? %>
             <span class="text-small"><%= translated_attribute(document.description) %></span>
         <% end %>
@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="card--list__data">
-    <%= link_to document.url, target: "_blank", rel: "noopener", class: "card--list__data__icon" do %>
-        <%= icon "cloud-download" %>
+    <%= link_to document.url, target: "_blank", rel: "noopener", class: "card--list__data__icon", title: t(".download") do %>
+        <%= icon "cloud-download", role: "img", aria_label: t(".download") %>
     <% end %>
   </div>
 </div>

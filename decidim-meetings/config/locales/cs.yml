@@ -159,6 +159,12 @@ cs:
         confirm_destroy: Opravdu chcete tuto schůzku smazat?
         destroy: Odstranit
         edit: Upravit
+        invalid_destroy:
+          proposals_count:
+            one: 'Schůzku nelze zničit, protože má k ní přidružený %{count} návrh:'
+            few: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
+            many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
+            other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         minutes: Minut
         new: Nové setkání
         preview: Náhled
@@ -240,6 +246,12 @@ cs:
             invalid: Při vytváření této schůzky došlo k problému
             success: Setkání bylo úspěšně vytvořeno
           destroy:
+            invalid:
+              proposals_count:
+                one: Schůzku nelze zničit, protože má k ní přidružený %{count} návrh
+                few: Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů
+                many: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
+                other: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
             success: Setkání bylo úspěšně smazáno
           edit:
             update: Aktualizace
@@ -289,6 +301,7 @@ cs:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
             invites: Pozvánky
+            recommendation_message: Z důvodu ochrany osobních údajů doporučujeme odstranit tento nadepsaný formulář, když jej již nepotřebujete. Ve výchozím nastavení je to 3 měsíce po ukončení schůzky.
             registration_form: Registrační formulář
             registrations_count:
               one: Byla zde registrace %{count}.
@@ -376,7 +389,9 @@ cs:
           confirm: Potvrdit
         show:
           attendees: Počet účastníků
+          back: Zpět na seznam
           contributions: Počet příspěvků
+          date: Datum
           going: Chystáte se
           join: Připojte se k setkání
           meeting_report: Zpráva o schůzce

@@ -62,7 +62,10 @@ module Decidim
         attribute :remove_hero_image
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
-        validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
+
+        validates :parent, presence: true, if: ->(form) { form.parent.present? }
+        validate :ensure_parent_cannot_be_child, if: ->(form) { form.parent.present? }
+
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
@@ -79,6 +82,13 @@ module Decidim
                   file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                   file_content_type: { allow: ["image/jpeg", "image/png"] }
 
+        def ensure_parent_cannot_be_child
+          return if id.blank?
+
+          available_assemblies = Decidim::Assemblies::ParentAssembliesForSelect.for(current_organization, Assembly.find(id))
+          errors.add(:parent, :invalid) unless available_assemblies.include? parent
+        end
+
         def map_model(model)
           self.scope_id = model.decidim_scope_id
         end
@@ -93,7 +103,7 @@ module Decidim
 
         def assembly_types_for_select
           @assembly_types_for_select ||= organization_assembly_types
-                                          &.map { |type| [translated_attribute(type.title), type.id] }
+                                             &.map { |type| [translated_attribute(type.title), type.id] }
         end
 
         def created_by_for_select
@@ -111,8 +121,8 @@ module Decidim
 
         def processes_for_select
           @processes_for_select ||= organization_participatory_processes
-                                    &.map { |pp| [translated_attribute(pp.title), pp.id] }
-                                    &.sort_by { |arr| arr[0] }
+                                        &.map { |pp| [translated_attribute(pp.title), pp.id] }
+                                        &.sort_by { |arr| arr[0] }
         end
 
         def assembly_type

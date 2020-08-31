@@ -7,10 +7,9 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form, author, commentable)
+      def initialize(form, author)
         @form = form
         @author = author
-        @commentable = commentable
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,8 +35,8 @@ module Decidim
 
         params = {
           author: @author,
-          commentable: @commentable,
-          root_commentable: root_commentable(@commentable),
+          commentable: form.commentable,
+          root_commentable: root_commentable(form.commentable),
           body: parsed.rewrite,
           alignment: form.alignment,
           decidim_user_group_id: form.user_group_id
@@ -51,12 +50,13 @@ module Decidim
         )
 
         mentioned_users = parsed.metadata[:user].users
+        mentioned_groups = parsed.metadata[:user_group].groups
         CommentCreation.publish(@comment, parsed.metadata)
-        send_notifications(mentioned_users)
+        send_notifications(mentioned_users, mentioned_groups)
       end
 
-      def send_notifications(mentioned_users)
-        NewCommentNotificationCreator.new(comment, mentioned_users).create
+      def send_notifications(mentioned_users, mentioned_groups)
+        NewCommentNotificationCreator.new(comment, mentioned_users, mentioned_groups).create
       end
 
       def root_commentable(commentable)

@@ -49,6 +49,8 @@ en:
             title: title
       posts:
         show:
+          back: Back to list
+          comments: Comments
           view: View
         sidebar_blog:
           comments: comments
@@ -64,6 +66,8 @@ en:
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     events:
       blogs:
         post_created:

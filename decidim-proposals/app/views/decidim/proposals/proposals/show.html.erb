@@ -33,60 +33,23 @@ extra_admin_link(
 <% end %>
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
+
+  <%= link_to :proposals, class: "small hollow" do %>
+    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+    <%= t(".back_to_list") %>
+  <% end %>
+
   <% if @proposal.emendation? %>
-    <h2 class="heading2"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
+    <h3 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h3>
   <% else %>
-    <h2 class="heading2"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+    <h3 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h3>
   <% end %>
   <% unless component_settings.participatory_texts_enabled? %>
     <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
   <% end %>
 </div>
 <div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
-    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-      <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% else %>
-      <%= amend_button_for @proposal %>
-    <% end %>
-
-    <%= emendation_actions_for @proposal %>
-
-    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
-      <% if @proposal.withdrawn? %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-            <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
-            <br>
-            <%= follow_button_for(@proposal) %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <%= amenders_list_for(@proposal) %>
-
-    <%= resource_reference(@proposal) %>
-    <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
-    <%= cell("decidim/fingerprint", @proposal) %>
-    <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
-    <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-  </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+  <div class="columns mediumlarge-8 large-9">
     <div class="section">
       <% if @proposal.emendation? %>
         <%= cell("decidim/diff", proposal_presenter.versions.last) %>
@@ -110,8 +73,63 @@ extra_admin_link(
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
     <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
 
-    <%= cell "decidim/proposals/endorsers_list", @proposal, context: { current_user: current_user } %>
+    <%= cell "decidim/endorsers_list", @proposal %>
     <%= amendments_for @proposal %>
+  </div>
+  <div class="columns section view-side mediumlarge-4 large-3">
+    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
+      <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
+    <% else %>
+      <%= amend_button_for @proposal %>
+    <% end %>
+
+    <%= emendation_actions_for @proposal %>
+
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+      <% if @proposal.withdrawn? %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <div class="card">
+          <div class="card__content">
+            <% if current_settings.votes_enabled? %>
+              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <% end %>
+            <div class="row collapse buttons__row">
+              <% if endorsements_enabled? %>
+                <div class="column small-9 collapse">
+                  <%= endorsement_buttons_cell(@proposal) %>
+                </div>
+              <% end %>
+              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
+                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
+                    <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
+                <% end %>
+              </div>
+            </div>
+            <br>
+            <%= follow_button_for(@proposal) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= amenders_list_for(@proposal) %>
+
+    <%= resource_reference(@proposal) %>
+    <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
+    <%= cell("decidim/fingerprint", @proposal) %>
+    <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
+    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js), locals: { resource: @proposal } %>
+    <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
+    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
   </div>
 </div>
 <%= attachments_for @proposal %>

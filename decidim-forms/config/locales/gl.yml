@@ -30,10 +30,12 @@ gl:
             statement: Declaración
           edit:
             save: Gardar
-            title: Título
           form:
             add_question: Engadir pregunta
             already_answered_warning: Algúns usuarios xa responderon o cuestionario para que non poida modificar as súas preguntas.
+          matrix_row:
+            remove: Quitar
+            statement: Declaración
           question:
             add_answer_option: Engadir unha opción de resposta
             any: Calquera
@@ -65,7 +67,6 @@ gl:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicie sesión coa súa conta</a> ou <a href="%{sign_up_link}">rexístrese</a> para responder ao cuestionario.
             title: Responde o cuestionario
-          are_you_sure: Non se pode desfacer esta acción e non poderá editar as túas respostas. Estás seguro?
           questionnaire_answered:
             body: Xa contestou este cuestionario.
             title: Xa respondeu
@@ -75,8 +76,11 @@ gl:
           questionnaire_for_private_users:
             body: O cuestionario só está dispoñible para usuarios privados
             title: Cuestionario pechado
-          submit: Enviar
           tos_agreement: Ao participar aceptas as Condicións de servizo
+      step_navigation:
+        show:
+          are_you_sure: Non se pode desfacer esta acción e non poderá editar as túas respostas. Estás seguro?
+          submit: Enviar
       user_answers_serializer:
         created_at: Respondeu
         id: ID de resposta

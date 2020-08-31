@@ -29,7 +29,6 @@ gl:
         scope: Área municipal
         slug: URL slug
         subtitle: Subtítulo
-        title: Título
         vote: Sistema de votación externa
         what_is_decided: O que se decide
     errors:

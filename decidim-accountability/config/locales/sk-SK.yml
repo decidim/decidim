@@ -1,0 +1,224 @@
+sk:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Stav
+        decidim_category_id: Kategória
+        decidim_scope_id: Rozsah
+        description: Popis
+        end_date: Koniec
+        progress: Postup
+        project_ids: Zahrnuté projekty
+        proposals: Zahrnuté návrhy
+        start_date: Začiatok 
+        title: Názov
+        updated_at: Aktualizované
+      status:
+        description: Popis
+        key: Kľúč
+        name: Meno
+        progress: Postup
+      timeline_entry:
+        description: Popis
+        entry_date: Dátum
+    models:
+      decidim/accountability/proposal_linked_event: Návrh, zahrnutý vo výsledku
+      decidim/accountability/result_progress_updated_event: Aktualizovaný pokrok vo výsledku
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Výsledok
+        few: Výsledky
+        many: Výsledky
+        other: Výsledky
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Naozaj chcete odstrániť toto %{name}?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nový %{name}
+        preview: Ukážka
+        timeline_entries: Vývoj projektu
+        title: Akcie
+      admin:
+        exports:
+          results: Výsledky
+        models:
+          result:
+            name: Výsledok
+          status:
+            name: Stav
+          timeline_entry:
+            name: Časová osa
+        results:
+          create:
+            invalid: Vyskytol sa problém s vytváraním výsledku
+            success: Výsledok úspešne vytvorený
+          destroy:
+            success: Výsledok úspešne odstránený
+          edit:
+            title: Upraviť výsledok
+            update: Aktualizovať výsledok
+          index:
+            title: Výsledky
+          new:
+            create: Vytvoriť výsledok
+            title: Nový výsledok
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou výsledku
+            success: Výsledok úspešne aktualizovaný
+        shared:
+          subnav:
+            statuses: Stavy
+        statuses:
+          create:
+            invalid: Vyskytol sa problém s vytváraním tohoto stavu
+            success: Stav bol úspešne vytvorený
+          destroy:
+            success: Stav bol úspešne odstránený
+          edit:
+            title: Upraviť status
+            update: Aktualizovať stav
+          index:
+            title: Stavy
+          new:
+            create: Vytvoriť nový stav
+            title: Nový stav
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou stavu
+            success: Stav bol úspešne aktualizovaný
+        timeline_entries:
+          create:
+            invalid: Vyskytol sa problém s vytváraním tohoto vstupu
+            success: Vstup úspešne vytvorený
+          destroy:
+            success: Vstup úspešne odstránený
+          edit:
+            title: Upraviť vstup
+            update: Aktualizovať vstup
+          index:
+            title: Časová osa projektu
+          new:
+            create: Vytvoriť nový záznam
+            title: Nový záznam
+          update:
+            invalid: Vyskytol sa problém s aktualizáciou tohoto záznamu
+            success: Záznam úspešne aktualizovaný
+      admin_log:
+        result:
+          create: "%{user_name} vytvoril výsledok %{resource_name} v %{space_name}"
+          delete: "%{user_name} vymazal výsledok %{resource_name} v priestore %{space_name}"
+          update: "%{user_name} aktualizoval výsledok %{resource_name} v %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Nadradený záznam nebol nájdený v databáze(ID: %{id})'
+      last_activity:
+        new_result_at_html: "<span>Nový výsledok na %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Koniec
+            progress: Postup
+            start_date: Začiatok 
+            status: Stav
+            title: Názov
+        status:
+          fields:
+            description: Popis
+            key: Kľúč
+            name: Meno
+            progress: Postup
+        timeline_entry:
+          fields:
+            description: Popis
+            entry_date: Dátum
+      results:
+        count:
+          results_count:
+            one: 1 výsledok
+            few: "%{count} výsledkov"
+            many: "%{count} výsledkov"
+            other: "%{count} výsledkov"
+        filters:
+          all: Všetko
+          scopes: Rozsahy
+        home:
+          categories_label: Kategórie
+          subcategories_label: Podkategórie
+        home_header:
+          global_status: Globálny stav vykonávania
+        nav_breadcrumb:
+          global: Globálne vykonanie
+        search:
+          search: Hľadať akcie
+        show:
+          stats:
+            attendees: Účastníci
+            back_to_result: Naspať na výsledky
+            comments: Komentáre
+            contributions: Príspevky
+            last_edited_by: Naposledy editoval
+            last_updated_at: Naposledy aktualizované
+            meetings: Stretnutia
+            number_of_versions: Verzie
+            proposals: Návrhy
+            show_all_versions: Zobraziť všetky verzie
+            version_author: Autor verzie
+            version_created_at: Verzia vytvorená
+            version_number: Číslo verzie
+            version_number_out_of_total: "%{current_version} verzia z celkovo %{total_count}"
+            votes: Podporenia
+        timeline:
+          title: Vývoj projektu
+      versions:
+        index:
+          changes_at_title: Zmeny v "%{title}"
+          title: Verzie
+        show:
+          changes_at_title: Zmeny v "%{title}"
+        version:
+          version_index: Verzia %{index}
+    components:
+      accountability:
+        name: Zodpovednosť
+        settings:
+          global:
+            categories_label: Meno pre "Kategórie"
+            comments_enabled: Komentáre povolené
+            display_progress_enabled: Zobraziť priebeh
+            heading_leaf_level_results: Meno pre "Projekty"
+            heading_parent_level_results: Meno pre "Výsledky"
+            intro: Úvod
+            subcategories_label: Názov pre "Podkategórie"
+          step:
+            comments_blocked: Zablokované komentáre
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Návrh "%{proposal_title}" bol zahrnutý vo výsledku. Zobraziť ho môžete na stránke:'
+          email_outro: Túto notifikáciu ste dostali, pretože sledujete návrh %{proposal_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Aktualizácia návrhu %{proposal_title}
+          notification_title: Návrh <a href="%{proposal_path}">%{proposal_title}</a> bol zahrnutý do výsledky <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Výsledok "%{resource_title}", ktorý zahŕňa návrh "%{proposal_title}", je teraz z %{progress} % hotový. Môžete ho zobraziť na stránke:'
+          email_outro: Túto notifikáciu ste dostali, pretože sledujete návrh %{proposal_title}, a tento návrh je zahrnutý vo výsledku "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Aptualizácia postupu v %{resource_title}
+          notification_title: Výsledok <a href="%{resource_path}">%{resource_title}</a>, ktorý zahŕňa návrh <a href="%{proposal_path}">%{proposal_title}</a>, je teraz z %{progress} % hotový.
+    metrics:
+      results:
+        description: Počet vytvorených výsledkov
+        object: výsledky
+        title: Výsledky
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Výsledky
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobraziť všetky (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekty, zahrnutý vo výsledku
+      included_proposals:
+        result_proposal: Návrhy, zahrnuté v tomto výsledku

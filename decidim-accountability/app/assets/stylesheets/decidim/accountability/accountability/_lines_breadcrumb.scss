@@ -13,6 +13,14 @@
   a{
     font-weight: 600;
     color: $dark-gray;
+
+    &:hover{
+      text-decoration: underline;
+    }
+
+    &:focus{
+      outline: 2px solid $secondary;
+    }
   }
 
   ul{

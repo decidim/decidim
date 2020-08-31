@@ -34,7 +34,7 @@ hu:
         meta_scope: Hatókör-metaadatok
         parent_id: Parent gyűlés
         participatory_processes_ids: Kapcsolódó részvételi folyamatok
-        participatory_scope: Mi a döntés
+        participatory_scope: Miről születik döntés
         participatory_structure: Hogyan döntenek
         private_space: Privát tér
         promoted: Kiemelt
@@ -47,7 +47,7 @@ hu:
         slug: URL slug
         special_features: Speciális funkciók
         subtitle: Felirat
-        target: Ki részt vesz benne
+        target: Ki vesz részt
         title: Cím
         twitter: Twitter
         youtube: Youtube
@@ -101,6 +101,10 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
+      assemblies_settings:
+        update:
+          error: Probléma történt a beállítások frissítése során.
+          success: Beállítások sikeresen frissítve.
       assemblies_types:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -161,6 +165,7 @@ hu:
           success: Gyűlés adminjának frissítése sikeres.
       menu:
         assemblies: Gyűlések
+        assemblies_settings: Beállítások
         assemblies_submenu:
           assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
@@ -222,6 +227,8 @@ hu:
         create: "%{user_name} létrehozta a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
         delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésből"
         update: "%{user_name} frissítette a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+      assembly_setting:
+        update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
         delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlés típusból"
@@ -251,6 +258,11 @@ hu:
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
+        assemblies_settings:
+          edit:
+            update: Frissítés
+          form:
+            title: Gyűlések beállításai
         assemblies_types:
           form:
             title: Cím
@@ -310,6 +322,7 @@ hu:
         home:
           highlighted_assemblies:
             active_assemblies: Aktív gyűlések
+            assemblies_button_title: A Gyűlések oldalra mutató link, ahol az összes Gyűlés látható
             see_all_assemblies: Összes gyűlés
         user_profile:
           member_of:
@@ -340,6 +353,7 @@ hu:
         related_participatory_processes: Kapcsolódó részvételi folyamatok
         scope: Hatáskör
         social_networks: Közösségi háló
+        social_networks_title: Ennek a gyűlésnek a megosztása
         target: Ki vesz részt benne
       statistics:
         answers_count: Válaszok
@@ -351,6 +365,7 @@ hu:
         meetings_count: Találkozók
         orders_count: Támogatja
         pages_count: Oldalak
+        posts_count: Bejegyzések
         projects_count: Projektek
         proposals_count: Javaslatok
         results_count: Eredmények
@@ -362,6 +377,11 @@ hu:
         designated_on: Kijelölt
       index:
         title: Tagok
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link a Konferenciák oldalra, ahol az összes konferencia látható
     help:
       participatory_spaces:
         assemblies:
@@ -381,6 +401,19 @@ hu:
         description: A létrehozott gyűlések száma
         object: gyűlések
         title: Gyűlések
+    pages:
+      home:
+        hero:
+          participate_title: Részvétel a platform folyamataiban
+        sub_hero:
+          register_title: Feliratkozás a platformon a fiók létesítéséhez
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link a folyamatok oldalra, ahol az összes folyamat látható
+      show:
+        related_assemblies: Kapcsolódó gyűlések
   errors:
     messages:
       cannot_be_blank: nem lehet üres

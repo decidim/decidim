@@ -54,7 +54,6 @@ ar:
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/evaluating_proposal_event: يجري تقييم الاقتراح
-      decidim/proposals/proposal_endorsed_event: تمت الموافقة على الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
       decidim/proposals/publish_proposal_event: تم نشر الاقتراح
       decidim/proposals/rejected_proposal_event: تم رفض الاقتراح
@@ -75,13 +74,6 @@ ar:
         few: اقتراحات
         many: اقتراحات
         other: اقتراحات
-      decidim/proposals/proposal_endorsement:
-        zero: موافقات
-        one: المصادقة
-        two: موافقات
-        few: موافقات
-        many: موافقات
-        other: موافقات
       decidim/proposals/proposal_note:
         zero: ملاحظات
         one: ملحوظة
@@ -99,21 +91,9 @@ ar:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: نوع
-          values:
-            'false': اقتراحات
-            'true': تعديلات
-        state_eq:
-          values:
-            evaluating: تقييم
-            withdrawn: سحب
-        state_null:
-          label: الحالة
-          values:
-            'true': بلا جواب
-        valuator_role_ids_has:
-          label: تم إسناده إلى مُقيِّم
+        proposals:
+          valuator_role_ids_has:
+            label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:
@@ -213,11 +193,6 @@ ar:
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
           follower:
             notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_endorsed:
-          email_intro: '%{endorser_name} %{endorser_nickname}، الذي تتابعه ، وافق للتو على الاقتراح "%{resource_title}" ونعتقد أنه قد يكون مثيرا للاهتمام بالنسبة لك. التحقق من ذلك والمساهمة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{endorser_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: "%{endorser_nickname} قد صادق على اقتراح جديد"
-          notification_title: تمت الموافقة على اقتراح <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           affected_user:
             email_intro: 'يتم حاليًا تقييم الاقتراح الخاص بك "%{resource_title}". يمكنك التحقق من وجود إجابة في هذه الصفحة:'
@@ -391,10 +366,8 @@ ar:
             title: تحديث الاقتراح
             update: تحديث
           form:
-            add_images: إضافة صور
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
-            gallery_legend: "(اختياري) إضافة معرض للصور"
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
@@ -591,14 +564,11 @@ ar:
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
           info-message: هذا هو <strong>مشروع تعاوني</strong> لاقتراح. هذا يعني أنه يمكنك مساعدة مؤلفيها في صياغة الاقتراح باستخدام قسم التعليقات أدناه أو تحسينه مباشرةً من خلال طلب الوصول لتحريره. بمجرد أن يمنحك المؤلفون حق الوصول ، ستتمكن من إجراء تغييرات على هذه المسودة.
-          of_versions: "(من %{number})"
           publish: نشر
           publish_info: نشر هذا الإصدار من المسودة أو
           published_proposal: الاقتراح المنشور
           request_access: طلب الدخول
           requested_access: طلب الوصول
-          see_other_versions: رؤية الإصدارات الأخرى
-          version: الإصدار %{number}
           version_history: انظر تاريخ الإصدار لهذا الاقتراح
           withdraw: سحب المشروع
         states:
@@ -635,7 +605,6 @@ ar:
           fields:
             category: الفئة
             comments: تعليقات
-            endorsements: موافقات
             id: هوية شخصية
             notes: ملاحظات
             official_proposal: الاقتراح الرسمي
@@ -654,19 +623,6 @@ ar:
           amend: تعديل
           comment: تعليق
           comments: تعليقات
-          endorse: تأييد
-      proposal_endorsements:
-        create:
-          error: كانت هناك مشكلة في تأييد الاقتراح.
-        identities:
-          done: فعله
-          select_identity: حدد الهوية
-      proposal_endorsements_helper:
-        endorsement_button:
-          already_endorsed: أيد
-          endorse: تأييد
-        render_endorsements_button_card_part:
-          endorse: تأييد
       proposal_votes:
         create:
           error: كانت هناك مشكلة في دعم الاقتراح.
@@ -697,10 +653,6 @@ ar:
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
           title: تحرير مسودة الاقتراح
-        endorsement_identities_cabin:
-          endorse: تأييد
-        endorsements_card_row:
-          comments: تعليقات
         filters:
           activity: نشاطي
           all: الكل
@@ -766,6 +718,7 @@ ar:
           answer: إجابة
           back_to: ارجع الى
           changes_at_title: تعديل على "%{title}"
+          comments: تعليقات
           edit_proposal: تعديل الاقتراح
           endorsements_list: قائمة المصادقة
           estimated_cost: التكلفة التقديرية
@@ -786,7 +739,6 @@ ar:
           read_more: اقرأ المزيد
           report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
-          withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
         vote_button:
           already_voted: معتمد بالفعل
@@ -841,20 +793,12 @@ ar:
         error: حدثت مشكلة في حفظ المسودة التعاونية.
         success: تم تحديث مسودة الاقتراح بنجاح.
       versions:
-        changes_at_title: التغييرات في "%{title}"
+        collaborative_drafts:
+          back_to_resource: العودة إلى المسودة التعاونية
         index:
           title: إصدارات
-        stats:
-          back_to_collaborative_draft: العودة إلى المسودة التعاونية
-          back_to_proposal: العودة إلى الاقتراح
-          number_of_versions: إصدارات
-          show_all_versions: عرض جميع الإصدارات
-          version_author: مؤلف الإصدار
-          version_created_at: تم إنشاء الإصدار في
-          version_number: رقم الإصدار
-          version_number_out_of_total: "%{current_version} من %{total_count}"
-        version:
-          version_index: الإصدار %{index}
+        proposals:
+          back_to_resource: العودة إلى الاقتراح
       withdraw:
         errors:
           has_supports: لا يمكن سحب هذا الاقتراح لأنه تلقى دعما مِن قَبل.

@@ -21,13 +21,13 @@ describe "Profile", type: :system do
     end
 
     it "shows the profile page when clicking on the menu" do
-      within "main.wrapper" do
+      within ".wrapper" do
         expect(page).to have_content(user.nickname)
       end
     end
 
     it "adds a link to edit the profile" do
-      within "main.wrapper" do
+      within ".wrapper" do
         click_link "Edit profile"
       end
 
@@ -41,7 +41,7 @@ describe "Profile", type: :system do
     end
 
     it "shows user name in the header, its nickname and a contact link" do
-      expect(page).to have_selector("h5", text: user.name)
+      expect(page).to have_selector("h1", text: user.name)
       expect(page).to have_content(user.nickname)
       expect(page).to have_link("Contact")
     end

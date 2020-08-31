@@ -1,0 +1,141 @@
+.organization-images{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-gap: 3rem;
+  margin-top: 3rem;
+
+  @include breakpoint(medium down){
+    grid-template-columns: 1fr;
+  }
+
+  img{
+    height: 180px;
+  }
+
+  .image-dimensions-help{
+    margin-top: 0;
+  }
+
+  .preview{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  label:not(:first-child){
+    margin-top: auto;
+  }
+}
+
+.organization-colors{
+  display: flex;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+
+  label{
+    flex: 1;
+  }
+
+  @include breakpoint(smallmedium down){
+    flex-direction: column;
+  }
+}
+
+.minimap{
+  max-width: 500px;
+}
+
+#minimap-wrapper{
+  width: 100%;
+  padding-bottom: 60%;
+  position: relative;
+}
+
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+#minimap{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-areas:
+    "tab blank blank"
+    "header header header"
+    "navbar navbar navbar"
+    "body body body"
+    "footer footer footer";
+  grid-template-columns: 20% 1fr 1fr;
+  grid-template-rows: 20px 48px 24px 1fr 64px;
+
+  img,
+  .placeholder{
+    height: 100%;
+    padding: 5px 0;
+  }
+
+  .placeholder{
+    background: $brand;
+  }
+
+  span{
+    color: white;
+    font-size: 10px;
+    margin: 4px;
+    line-height: 12px;
+  }
+
+  .minimap-tab{
+    grid-area: tab;
+    background-color: darken($lighter-gray, 10%);
+    border-bottom: none;
+    display: flex;
+
+    span{
+      font-size: 10px;
+      margin: 4px;
+      color: $black;
+    }
+  }
+
+  .minimap-body{
+    grid-area: body;
+    background: darken($lighter-gray, 10%);
+  }
+
+  .minimap-navbar{
+    grid-area: navbar;
+    background: lighten($dark-gray, 10%);
+  }
+
+  .minimap-header,
+  .minimap-footer{
+    background: lighten($black, 10%);
+    display: flex;
+    align-items: center;
+  }
+
+  .minimap-header{
+    grid-area: header;
+  }
+
+  .minimap-footer{
+    grid-area: footer;
+  }
+
+  .minimap-favicon{
+    padding: 0;
+    margin: 2px;
+    background: $white;
+  }
+
+  .minimap-logo{
+    margin-right: auto;
+    margin-left: 20%;
+  }
+
+  .minimap-logo,
+  .minimap-official_img_header{
+    height: 80%;
+  }
+}

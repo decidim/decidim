@@ -9,6 +9,10 @@ $order-border: $border;
   align-items: baseline;
   flex-wrap: wrap;
 
+  a:hover{
+    text-decoration: underline;
+  }
+
   & + &{
     @include breakpoint(medium){
       margin-left: $global-margin;
@@ -27,6 +31,7 @@ $order-border: $border;
 
   .menu{
     .is-dropdown-submenu-parent > a{
+      background: transparent;
       padding: 0;
       margin-left: .5rem;
       margin-top: .25rem;

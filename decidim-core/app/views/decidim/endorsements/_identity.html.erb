@@ -1,0 +1,9 @@
+<li class="<%= selected ? "selected" : "" %>" data-method="<%= http_method.to_s.upcase %>" data-create_url="<%= create_url %>" data-destroy_url="<%= destroy_url %>">
+  <div class="author-data author-data--small">
+    <div class="author-data__main">
+      <%== cell("decidim/author", identity, skip_profile_link: true).profile %>
+    </div>
+  </div>
+
+  <%= icon("circle-check", class: "icon--big #{selected ? '' : 'invisible'}") %>
+</li>

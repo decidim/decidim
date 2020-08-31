@@ -12,11 +12,11 @@ module Decidim
       end
 
       def address
-        render
+        decidim_html_escape(render)
       end
 
       def title
-        present(model).title
+        decidim_html_escape(present(model).title)
       end
 
       private

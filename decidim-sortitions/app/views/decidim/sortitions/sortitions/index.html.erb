@@ -1,8 +1,8 @@
 <div class="row columns">
   <div class="title-action">
-    <h2 id="sortitions-count" class="title-action__title section-heading">
+    <h3 id="sortitions-count" class="title-action__title section-heading">
       <%= render partial: "sortitions_count" %>
-    </h2>
+    </h3>
   </div>
 </div>
 <div class="row">
@@ -12,10 +12,10 @@
       <%= render partial: "filters" %>
     </div>
   </div>
-  <div id="sortitions" class="columns mediumlarge-8 large-9">
+  <div id="sortitions" class="columns mediumlarge-8 large-9" aria-live="polite">
     <%= render partial: "sortitions" %>
   </div>
 </div>
 
 <%= javascript_include_tag("decidim/filters") %>
-<%= javascript_include_tag "decidim/orders" %>
+<%= javascript_include_tag "decidim/results_listing" %>

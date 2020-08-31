@@ -32,7 +32,6 @@ ca:
         scope: Àrea municipal
         slug: Nom curt d'URL
         subtitle: Subtítol
-        title: Títol
         vote: Sistema de votació extern
         what_is_decided: Què es decideix
       response:
@@ -237,6 +236,8 @@ ca:
           label: 'Ordena les consultes per:'
           random: Aleatori
           recent: Més recent
+        show:
+          dates: Dates
       content_blocks:
         highlighted_consultations:
           name: Consultes destacades
@@ -347,10 +348,12 @@ ca:
         verification_required: Verifica el teu compte per votar
         vote: Votació
       vote_modal:
+        close_modal: Tanca el modal
         contextual_help: Si us plau, selecciona una opció.
         title: 'Consulta: votar la pregunta'
       vote_modal_confirm:
         change: Canvi
+        close_modal: Tanca el modal
         confirm: Confirma
         contextual_help: Si us plau, confirma l'opció seleccionada.
         title: 'Consulta: confirma el vot'

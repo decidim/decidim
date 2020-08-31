@@ -1,0 +1,132 @@
+ca:
+  activemodel:
+    attributes:
+      answer:
+        description: Descripció
+        image: Imatge
+        proposals: Propostes relacionades
+        title: Títol
+      election:
+        description: Descripció
+        end_time: La votació finalitza el
+        start_time: La votació comença el
+        subtitle: Subtítol
+        title: Títol
+      question:
+        description: Descripció
+        max_selections: Número màxim d'opcions
+        title: Títol
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Resposta
+        other: Respostes
+      decidim/elections/election:
+        one: Votació
+        other: Votacions
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntes
+  decidim:
+    components:
+      elections:
+        name: Votacions
+        settings:
+          global:
+            announcement: Avís
+          step:
+            announcement: Avís
+    elections:
+      actions:
+        confirm_destroy: N'estàs segura?
+        destroy: Destruir
+        edit: Editar
+        new: Nova %{name}
+        preview: Previsualitzar
+        title: Accions
+      admin:
+        answers:
+          create:
+            invalid: Hi ha hagut un problema en crear aquesta resposta
+            success: Resposta creada amb èxit
+          destroy:
+            invalid: Hi ha hagut un problema en borrar aquesta resposta
+            success: Resposta creada amb èxit
+          edit:
+            title: Editar les respostes
+            update: Actualitzar resposta
+          index:
+            title: Respostes
+          new:
+            create: Crear resposta
+            title: Nova resposta
+          update:
+            invalid: Hi ha hagut un problema en crear aquesta resposta
+            success: Resposta actualitzada amb èxit
+        elections:
+          create:
+            invalid: S'ha produït un error en crear aquesta votació
+            success: S'ha creat la votació correctament
+          destroy:
+            invalid: S'ha produït un error en crear aquesta votació
+            success: S'ha eliminat la votació correctament
+          edit:
+            title: Editar la votació
+            update: Actualitzar la votació
+          index:
+            title: Votacions
+          new:
+            create: Crear una votació
+            title: Nova votació
+          update:
+            invalid: S'ha produït un error en actualitzar aquesta votació
+            success: S'ha actualitzat la votació correctament
+        models:
+          answer:
+            name: Resposta
+          election:
+            name: Votació
+          question:
+            name: Pregunta
+        questions:
+          create:
+            invalid: S'ha produït un error en crear aquesta pregunta
+            success: S'ha creat la pregunta correctament
+          destroy:
+            invalid: S'ha produït un error en esborrar aquesta votació
+            success: S'ha eliminat la pregunta correctament
+          edit:
+            title: Editar pregunta
+            update: Actualitzar la pregunta
+          index:
+            title: Preguntes
+          new:
+            create: Crear una pregunta
+            title: Nova pregunta
+          update:
+            invalid: S'ha produït un error en actualitzar aquesta pregunta
+            success: La pregunta s'ha actualitzat correctament
+      models:
+        answer:
+          fields:
+            proposals: Propostes
+            title: Títol
+        election:
+          fields:
+            end_time: Finalitza el
+            start_time: Comença el
+            title: Títol
+        question:
+          fields:
+            answers: Respostes
+            max_selections: Número màxim d'elements a seleccionar
+            title: Títol
+    participatory_processes:
+      statistics:
+        elections_count: Votacions

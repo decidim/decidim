@@ -32,27 +32,52 @@ es:
             statement: Declaración
           edit:
             save: Guardar
-            title: Título
+            title: Editar el cuestionario
           form:
             add_question: Añadir pregunta
+            add_separator: Añadir separador
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
+            collapse: Contraer todas las preguntas
+            expand: Expandir todos las preguntas
+          matrix_row:
+            matrix_row: Fila
+            remove: Eliminar
+            statement: Declaración
           question:
             add_answer_option: Añadir una opción de respuesta
+            add_matrix_row: Añadir fila
             any: Alguna
+            collapse: Contraer
             description: Descripción
             down: Abajo
+            expand: Expandir
             question: Pregunta
             remove: Eliminar
             statement: Declaración
             up: Arriba
+          separator:
+            down: Bajar
+            remove: Eliminar
+            separator: Separador
+            up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
             success: Formularios guardados correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
+      files:
+        extension_whitelist: 'Formatos de archivo aceptados:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Esta imagen medirá:'
+        processors:
+          resize_and_pad: Redimensionado y ajustado a
+          resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga
+        matrix_multiple: Matriz (opción múltiple)
+        matrix_single: Matriz (opción única)
         multiple_option: Opción múltiple
         short_answer: Respuesta corta
         single_option: Opción única
@@ -60,6 +85,7 @@ es:
       questionnaires:
         answer:
           invalid: Se ha producido un error al responder el formulario.
+          max_choices_alert: Hay demasiadas opciones seleccionadas
           success: Has respondido al formulario correctamente.
         question:
           max_choices: 'Opciones máximas: %{n}'
@@ -67,7 +93,8 @@ es:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder al formulario.
             title: Responde el formulario
-          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          current_step: Paso %{step}
+          of_total_steps: de %{total_steps}
           questionnaire_answered:
             body: Ya has respondido a este formulario.
             title: Ya has respondido
@@ -77,8 +104,13 @@ es:
           questionnaire_for_private_users:
             body: El formulario está disponible solo para participantes privadas
             title: Formulario cerrado
-          submit: Enviar respuestas
           tos_agreement: Al participar aceptas los Términos y condiciones de uso
+      step_navigation:
+        show:
+          are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás segura?
+          back: Atrás
+          continue: Continuar
+          submit: Enviar respuestas
       user_answers_serializer:
         created_at: Respondido el
         id: Identificador de respuesta

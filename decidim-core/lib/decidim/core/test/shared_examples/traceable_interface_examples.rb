@@ -4,9 +4,9 @@ require "spec_helper"
 
 shared_examples_for "traceable interface" do
   describe "traceable", versioning: true do
-    before do
-      Decidim.traceability.update!(model, model.creator_identity, title: "test")
-    end
+    let(:version_author) { try(:author) || model.try(:creator_identity) || model.try(:normalized_author) }
+
+    before { Decidim.traceability.update!(model, version_author, title: "test") }
 
     context "when field createdAt" do
       let(:query) { "{ versions { createdAt } }" }

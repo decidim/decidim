@@ -17,7 +17,7 @@ module Decidim
         #
         # Examples:
         #   ranking_for(proposal, proposal_votes_count: :desc)
-        #   ranking_for(proposal, proposal_endorsements_count: :desc)
+        #   ranking_for(proposal, endorsements_count: :desc)
         def ranking_for(proposal, order = {})
           siblings = Decidim::Proposals::Proposal.where(component: proposal.component)
           ranked = siblings.order([order, id: :asc])
@@ -28,7 +28,7 @@ module Decidim
 
         # Public: Gets the ranking for a given proposal, ordered by endorsements.
         def endorsements_ranking_for(proposal)
-          ranking_for(proposal, proposal_endorsements_count: :desc)
+          ranking_for(proposal, endorsements_count: :desc)
         end
 
         # Public: Gets the ranking for a given proposal, ordered by votes.

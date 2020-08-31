@@ -70,7 +70,7 @@ describe "Admin manages proposals valuators", type: :system do
       expect(page).to have_content(unassigned_proposal.title)
 
       within ".filters__section" do
-        find("a.dropdown", text: "FILTER").hover
+        find("a.dropdown", text: "Filter").hover
         find("a", text: "Assigned to valuator").hover
         find("a", text: valuator.name).click
       end

@@ -616,6 +616,32 @@ module Decidim
             end
           end
         end
+
+        context "when GET export" do
+          context "and user" do
+            before do
+              sign_in user, scope: :user
+            end
+
+            it "is not allowed" do
+              get :export, params: { format: :csv }
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(:found)
+            end
+          end
+
+          context "and admin" do
+            before do
+              sign_in admin_user, scope: :user
+            end
+
+            it "is allowed" do
+              get :export, params: { format: :csv }
+              expect(flash[:alert]).to be_nil
+              expect(response).to have_http_status(:found)
+            end
+          end
+        end
       end
     end
   end

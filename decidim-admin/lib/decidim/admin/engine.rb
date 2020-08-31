@@ -61,7 +61,8 @@ module Decidim
                     decidim_admin.newsletters_path,
                     icon_name: "envelope-closed",
                     position: 6,
-                    active: :inclusive,
+                    active: is_active_link?(decidim_admin.newsletters_path, :inclusive) ||
+                            is_active_link?(decidim_admin.newsletter_templates_path, :inclusive),
                     if: allowed_to?(:index, :newsletter)
 
           menu.item I18n.t("menu.settings", scope: "decidim.admin"),

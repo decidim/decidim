@@ -87,7 +87,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content("Official proposal")
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when rich text editor is enabled for participants" do
@@ -99,7 +99,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when rich text editor is NOT enabled for participants" do
@@ -110,7 +110,7 @@ describe "Proposals", type: :system do
         click_link proposal.title
       end
 
-      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when it is a proposal with card image enabled" do
@@ -145,7 +145,7 @@ describe "Proposals", type: :system do
         expect(page).to have_content(translated(proposal.authors.first.title))
       end
 
-      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
+      it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
     end
 
     context "when a proposal has comments" do
@@ -254,7 +254,9 @@ describe "Proposals", type: :system do
 
       it "shows the rejection reason" do
         visit_component
-        check "Rejected"
+        uncheck "Accepted"
+        uncheck "Evaluating"
+        uncheck "Not answered"
         page.find_link(proposal.title, wait: 30)
         click_link proposal.title
 
@@ -365,11 +367,9 @@ describe "Proposals", type: :system do
     end
 
     describe "editable content" do
-      before do
-        visit_component
+      it_behaves_like "editable content for admins" do
+        let(:target_path) { main_component_path(component) }
       end
-
-      it_behaves_like "editable content for admins"
     end
 
     context "when comments have been moderated" do
@@ -531,7 +531,11 @@ describe "Proposals", type: :system do
 
     context "when ordering by 'most_endorsed'" do
       let!(:most_endorsed_proposal) { create(:proposal, component: component, created_at: 1.month.ago) }
-      let!(:endorsements) { create_list(:proposal_endorsement, 3, proposal: most_endorsed_proposal) }
+      let!(:endorsements) do
+        3.times.collect do
+          create(:endorsement, resource: most_endorsed_proposal, author: build(:user, organization: organization))
+        end
+      end
       let!(:less_endorsed_proposal) { create(:proposal, component: component) }
 
       it_behaves_like "ordering proposals by selected option", "Most endorsed" do

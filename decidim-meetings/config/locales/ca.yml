@@ -153,6 +153,10 @@ ca:
         confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
+        invalid_destroy:
+          proposals_count:
+            one: 'No es pot destruir la trobada perquè té %{count} proposta associades:'
+            other: 'No es pot destruir la trobada perquè té %{count} propostes associades:'
         minutes: Acta
         new: Nova trobada
         preview: Previsualitzar
@@ -234,6 +238,10 @@ ca:
             invalid: S'ha produït un error en crear aquesta trobada
             success: Trobada creada amb èxit
           destroy:
+            invalid:
+              proposals_count:
+                one: No es pot destruir la trobada perquè té %{count} proposta associades
+                other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
             update: Actualitzar
@@ -283,6 +291,7 @@ ca:
           form:
             available_slots_help: Deixar a 0 si les inscripcions són il·limitades.
             invites: Invitacions
+            recommendation_message: Per raons de privacitat et recomanem que esborris aquest formulari d'inscripció quan ja no el necessitis. Per defecte això és 3 mesos després que la reunió hagi finalitzat.
             registration_form: Formulari d'inscripció
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
@@ -368,7 +377,9 @@ ca:
           confirm: Confirmar
         show:
           attendees: Nombre d'assistents
+          back: Torna al llistat
           contributions: Nombre d'aportacions
+          date: Data
           going: Inscrit
           join: Inscriu-te a la trobada
           meeting_report: Informe de la trobada

@@ -4,6 +4,7 @@ module Decidim
   module Meetings
     # This helper include some methods for rendering meetings dynamic maps.
     module MapHelper
+      include Decidim::SanitizeHelper
       # Serialize a collection of geocoded meetings to be used by the dynamic map component
       #
       # meetings - A collection of meetings
@@ -18,7 +19,7 @@ module Decidim
                                                                startTime: "#{meeting.start_time.strftime("%H:%M")} - #{meeting.end_time.strftime("%H:%M")}",
                                                                icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                location: translated_attribute(meeting.location),
-                                                               locationHints: translated_attribute(meeting.location_hints),
+                                                               locationHints: decidim_html_escape(translated_attribute(meeting.location_hints)),
                                                                link: resource_locator(meeting).path)
         end
       end

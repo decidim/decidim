@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t("decidim.admin.titles.statistics") %>
+    </h2>
+  </div>
+  <div class="table-scroll">
+    <% if result.empty? %>
+    <div class="table">
+      <p class="users_count"><%= t(".no_users_count_statistics_yet") %></p>
+    </div>
+    <% else %>
+    <table class="table-list users_count">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= t(".last_month") %></th>
+          <th><%= t(".last_week") %></th>
+          <th><%= t(".last_day") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="title"><%= t(".participants") %></td>
+          <td><%= result[:total_participants_last_month] %></td>
+          <td><%= result[:total_participants_last_week] %></td>
+          <td><%= result[:total_participants_last_24] %></td>
+        </tr>
+        <tr>
+          <td class="title"><%= t(".admins") %></td>
+          <td><%= result[:total_admins_last_month] %></td>
+          <td><%= result[:total_admins_last_week] %></td>
+          <td><%= result[:total_admins_last_24] %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>

@@ -17,10 +17,20 @@ module Decidim::ParticipatoryProcesses
         invalid?: invalid,
         email: email,
         role: role,
-        name: name
+        name: name,
+        current_participatory_space: my_process
       )
     end
     let(:invalid) { false }
+    let(:user_notification) do
+      {
+        event: "decidim.events.participatory_process.role_assigned",
+        event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
+        resource: my_process,
+        affected_users: [user],
+        extra: { role: kind_of(String) }
+      }
+    end
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -52,6 +62,12 @@ module Decidim::ParticipatoryProcesses
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
+      end
+
+      it "sends a notification to the user with the role assigned" do
+        expect(Decidim::EventsManager).to receive(:publish).with(user_notification)
+
+        subject.call
       end
 
       it "traces the action", versioning: true do

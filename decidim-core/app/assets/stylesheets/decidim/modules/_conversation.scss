@@ -31,6 +31,16 @@
       flex-shrink: 0;
     }
 
+    > div{
+      flex: 1;
+    }
+
+    .p-s{
+      > p:last-child{
+        margin-bottom: 0;
+      }
+    }
+
     img{
       width: rem-calc(33px);
       height: rem-calc(33px);
@@ -54,5 +64,45 @@
     &.conversation-reply--offset{
       margin-left: auto;
     }
+  }
+}
+
+.conversations{
+  .card--list__item{
+    align-items: stretch;
+  }
+}
+
+.conversation-groups{
+  .title-action{
+    margin-bottom: .8rem;
+  }
+}
+
+// Conversations in user profile pages to full length
+.user-activity{
+  .conversation{
+    .conversation-reply{
+      width: 100%;
+    }
+  }
+}
+
+.disabled-tribute-element{
+  color: $muted;
+
+  span.disabled-tribute-element-info{
+    font-size: rem-calc(12);
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.tribute-container{
+  .disabled-tribute-element{
+    cursor: auto;
+    margin: -5px;
+    padding: 5px;
+    z-index: 10;
   }
 }

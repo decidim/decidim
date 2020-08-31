@@ -6,7 +6,7 @@
     <%= form.areas_select :area_id,
                           areas_for_select(current_organization),
                           legend_title: t(".areas"),
-                          label: false,
+                          label: "",
                           selected: filter.area_id,
                           include_blank: t(".select_an_area") %>
   </div>

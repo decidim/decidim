@@ -84,34 +84,32 @@ module Decidim::Budgets
     end
 
     context "with proposals" do
+      subject { described_class.from_model(project).with_context(context) }
+
       let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
       let!(:proposal) { create :proposal, component: proposals_component }
 
+      let(:project) do
+        create(
+          :project,
+          component: current_component,
+          scope: scope,
+          category: category
+        )
+      end
+
       describe "#proposals" do
-        it "returns the available proposals in a way suitable for the form" do
-          expect(subject.proposals)
-            .to eq([[proposal.title, proposal.id]])
+        before do
+          project.link_resources([proposal], "included_proposals")
         end
 
-        it "does not return the draft proposals" do
-          create_list(:proposal, 10, :draft, component: proposals_component)
-
-          expect(subject.proposals)
-            .to eq([[proposal.title, proposal.id]])
+        it "returns the available proposals in a way suitable for the form" do
+          expect(subject.proposals).to eq([proposal])
         end
       end
 
       describe "#map_model" do
         subject { described_class.from_model(project).with_context(context) }
-
-        let(:project) do
-          create(
-            :project,
-            component: current_component,
-            scope: scope,
-            category: category
-          )
-        end
 
         it "sets the proposal_ids correctly" do
           project.link_resources([proposal], "included_proposals")

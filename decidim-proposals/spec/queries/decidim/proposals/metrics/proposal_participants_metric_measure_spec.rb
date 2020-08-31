@@ -13,7 +13,11 @@ describe Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure do
   let!(:old_proposal) { create(:proposal, :with_endorsements, published_at: day - 1.week, component: proposals_component) }
   let!(:proposal_votes) { create_list(:proposal_vote, 10, created_at: day, proposal: proposal) }
   let!(:old_proposal_votes) { create_list(:proposal_vote, 5, created_at: day - 1.week, proposal: old_proposal) }
-  let!(:proposal_endorsements) { create_list(:proposal_endorsement, 5, created_at: day, proposal: proposal) }
+  let!(:proposal_endorsements) do
+    5.times.collect do
+      create(:endorsement, created_at: day, resource: proposal, author: build(:user, organization: organization))
+    end
+  end
   # TOTAL Participants for Proposals:
   #  Cumulative: 22 ( 2 proposal, 15 votes, 5 endorsements )
   #  Quantity: 16 ( 1 proposal, 10 votes, 5 endorsements )

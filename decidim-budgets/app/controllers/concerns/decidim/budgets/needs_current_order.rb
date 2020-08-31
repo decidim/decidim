@@ -15,11 +15,15 @@ module Decidim
         #
         # Returns an Order.
         def current_order
-          @current_order ||= Order.includes(:projects).find_by(user: current_user, component: current_component)
+          @current_order ||= Order.includes(:projects).find_or_initialize_by(user: current_user, component: current_component)
         end
 
         def current_order=(order)
           @current_order = order
+        end
+
+        def persisted_current_order
+          current_order if current_order&.persisted?
         end
       end
     end

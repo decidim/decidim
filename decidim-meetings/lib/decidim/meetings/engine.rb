@@ -54,10 +54,6 @@ module Decidim
           end
         end
 
-        Decidim.view_hooks.register(:current_participatory_space_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          view_context.cell("decidim/meetings/highlighted_meetings", view_context.current_participatory_space)
-        end
-
         # This view hook is used in card cells. It renders the next upcoming
         # meeting for the given participatory space.
         Decidim.view_hooks.register(:upcoming_meeting_for_card, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|

@@ -4,6 +4,7 @@ ar:
       decidim/comments/comment_by_followed_user_event: تعليق
       decidim/comments/comment_created_event: تعليق
       decidim/comments/reply_created_event: تعليق الرد
+      decidim/comments/user_group_mentioned_event: أشير
       decidim/comments/user_mentioned_event: أشير
   activerecord:
     models:
@@ -62,7 +63,6 @@ ar:
             does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
-          title: الإبلاغ عن مشكلة
         show_replies: اظهر الردود الـ %{replies_count}
         single_comment_link_title: الحصول على رابط نحو تعليق واحد
       comment_order_selector:
@@ -87,6 +87,9 @@ ar:
         comment_by_followed_user:
           email_intro: "%{author_name} ترك تعليق في %{resource_title}. يمكنك قراءتها في هذه الصفحة:"
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_name}. يمكنك إلغاء تتبع هذا المستخدم من صفحة ملفه الشخصي.
+          email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
+          notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
           email_subject: هناك تعليق جديد مِن %{author_name} على %{resource_title}
           notification_title: هناك تعليق جديد مِن <a href="%{author_path}">%{author_name} %{author_nickname}</a> على <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

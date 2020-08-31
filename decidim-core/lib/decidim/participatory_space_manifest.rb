@@ -47,6 +47,10 @@ module Decidim
     # use the scss variables and mixins provided by Decidim::Core.
     attribute :stylesheet, String, default: nil
 
+    # A callback that will be executed when an account is destroyed.
+    # The Proc will receive the `user` that's being destroyed.
+    attribute :on_destroy_account, Proc, default: nil
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can
@@ -177,6 +181,17 @@ module Decidim
           block.call(manifest)
         end
       end
+    end
+
+    # The block is a callback that will be invoked with the destroyed `user` as argument.
+    def register_on_destroy_account(&block)
+      @on_destroy_account = block
+    end
+
+    def invoke_on_destroy_account(user)
+      return unless @on_destroy_account
+
+      @on_destroy_account.call(user)
     end
   end
 end

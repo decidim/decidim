@@ -15,13 +15,15 @@ sv:
     components:
       surveys:
         actions:
-          answer: Svara
+          answer: Svar
         name: Enkät
         settings:
           global:
             announcement: Meddelande
           step:
             allow_answers: Tillåt svar
+            allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
+            allow_unregistered_help: Om valt krävs det ingen inloggning för att besvara enkäten. Detta kan leda till dåliga eller opålitliga data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet!
             announcement: Meddelande
     events:
       surveys:
@@ -53,4 +55,5 @@ sv:
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
+          spam_detected: Det gick inte att svara på formuläret. Du hade kanske för bråttom, kan du försöka igen?
           success: Enkäten har besvarats.

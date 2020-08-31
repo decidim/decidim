@@ -57,6 +57,19 @@ module Decidim::Proposals
           expect(subject).to have_css(".card__text--status", text: emendation.state.capitalize)
         end
       end
+
+      context "when it is a proposal preview" do
+        subject { cell_html }
+
+        let(:my_cell) { cell("decidim/proposals/proposal_m", model, preview: true) }
+        let(:cell_html) { my_cell.call }
+
+        it "renders the card with no status info" do
+          expect(subject).to have_css(".card__header")
+          expect(subject).to have_css(".card__text")
+          expect(subject).to have_no_css(".card-data__item")
+        end
+      end
     end
   end
 end

@@ -269,6 +269,11 @@ fi-pl:
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallisuusprosessissa %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Sinulle on myönnetty rooli %{role} osallistumistilassa "%{resource_title}".
+          email_outro: Tämä viesti on lähetetty sinulle, koska roolisi on %{role} osallistumistilassa "%{resource_title}".
+          email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
+          notification_title: Sinulle on myönnetty rooli %{role} osallistumistilassa <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -292,6 +297,9 @@ fi-pl:
         description: Osallisuusprosessien määrä tässä organisaatiossa
         object: osallisuusprosessit
         title: Osallisuusprosessit
+    participatory_process:
+      show:
+        related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -347,7 +355,11 @@ fi-pl:
             active_step: Aktiivinen vaihe
             more_information: Lisätietoja
             participate: Osallistu
+            participate_in: Osallistu prosessiin %{resource_name}
             see_all_processes: Näytä kaikki prosessit
+      participatory_process_steps:
+        index:
+          back_to_process: Takaisin prosessin sivulle
       participatory_processes:
         filters:
           counters:
@@ -377,6 +389,7 @@ fi-pl:
           loading: Ladataan tulokset...
       show:
         area: Alue
+        dates: Päivämäärät
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
@@ -412,6 +425,7 @@ fi-pl:
       participatory_process_groups:
         participatory_process_group:
           browse: Selaa
+          browse_resource: Selaa prosessiryhmää %{resource_name}
           processes_count: 'Prosessit:'
       participatory_process_widgets:
         show:
@@ -423,11 +437,15 @@ fi-pl:
         participatory_process:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
+          more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
+          take_part_in: Osallistu prosessiin %{resource_name}
         promoted_process:
           active_step: 'Aktiivinen vaihe:'
           more_info: Lisätietoja
+          more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
+          take_part_in: Osallistu prosessiin %{resource_name}
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet
