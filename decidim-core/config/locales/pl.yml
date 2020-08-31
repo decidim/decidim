@@ -644,9 +644,9 @@ pl:
         result: Wyniki
     fingerprint:
       check: Sprawdź odcisk palca
-      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      explanation: Fragment tekstu poniżej stanowi skróconą i zaszyfrowaną wersję tej treści. Warto upewnić się, że treść nie została zmodyfikowana, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
       online_calculator_name: Kalkulator MD5 online
-      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      replicate_help: 'Ten fingerprint jest wyliczony przy użyciu algorytmu szyfrującego SHA256. Aby wykonać replikę samodzielnie, możesz skopiować i wkleić dane źródłowe do tego narzędzia: %{online_calculator_link}.'
       source: Źródło
       title: Odcisk palca
       value: Wartość
@@ -695,7 +695,7 @@ pl:
         followers:
           conditions:
             - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
-          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczna i polityczna, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
+          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczną i polityczną, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
@@ -705,7 +705,7 @@ pl:
         index:
           badge_title: "Odznaka %{name}"
           how: Jak ją zdobyć
-          page_description: Odznaki są wyrazem uznania dla działań uczestników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
         invitations:
           conditions:
@@ -719,7 +719,7 @@ pl:
           next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
           unearned_own: Jeszcze nikogo nie zaproszono.
-      description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
+      description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
@@ -1085,7 +1085,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
-      view: Widok
+      view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli
