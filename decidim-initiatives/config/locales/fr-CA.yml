@@ -472,7 +472,7 @@ fr-CA:
         badge_name:
           accepted: Assez de signatures
           created: Créé le
-          discarded: Abandonné
+          discarded: Retirée
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
