@@ -142,7 +142,7 @@ pl:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkaniach, w których chcesz wziąć udział
+            - Zarejestruj się na spotkania, w których chcesz wziąć udział
           description: Ta odznaka jest przyznawana, gdy weźmiesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
           description_own: Uczestniczyłeś w %{score} spotkaniach.
