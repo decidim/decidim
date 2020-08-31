@@ -10,7 +10,6 @@ de:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
-        subtitle: Untertitel
         title: Titel
       question:
         description: Beschreibung
