@@ -119,7 +119,7 @@ pl:
             few: wybranych projektów
             many: wybrane projekty
             other: wybranych projektów
-          view: Widok
+          view: Zobacz
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
@@ -134,7 +134,7 @@ pl:
             many: "%{count} wsparć"
             other: "%{count} wsparć"
           remove: Usuń projekt %{resource_name} z Twojego głosu
-          view: Widok
+          view: Zobacz
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
