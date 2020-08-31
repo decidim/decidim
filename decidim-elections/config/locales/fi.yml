@@ -10,7 +10,6 @@ fi:
         description: Kuvaus
         end_time: Äänestys päättyy
         start_time: Äänestys alkaa
-        subtitle: Alaotsikko
         title: Otsikko
       question:
         description: Kuvaus
