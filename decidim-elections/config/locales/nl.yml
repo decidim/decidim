@@ -10,7 +10,6 @@ nl:
         description: Beschrijving
         end_time: Stemming eindigt op
         start_time: Stemming begint om
-        subtitle: Ondertiteling
         title: Aanspreektitel
       question:
         description: Beschrijving
