@@ -268,14 +268,18 @@ FactoryBot.define do
     end
 
     title do
-      content = generate(:title).dup
-      content.prepend("<script>alert('TITLE');</script> ") unless skip_injection
-      content
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+      end
     end
     body do
-      content = Faker::Lorem.sentences(3).join("\n")
-      content.prepend("<script>alert('BODY');</script> ") unless skip_injection
-      content
+      if skip_injection
+        Decidim::Faker::Localized.localized { Faker::Lorem.sentences(3).join("\n") }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n") }
+      end
     end
     component { create(:proposal_component) }
     published_at { Time.current }

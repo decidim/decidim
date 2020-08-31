@@ -34,12 +34,12 @@ shared_examples_for "amendable proposals interface" do
 
     it "returns amendable as parent proposal" do
       amendment_amendables = response["amendments"].map { |amendment| amendment["amendable"] }
-      expect(amendment_amendables).to include(*model.amendments.map(&:amendable).map { |p| { "title" => p.i18n_title } })
+      expect(amendment_amendables).to include(*model.amendments.map(&:amendable).map { |p| { "title" => p.title[:en] } })
     end
 
     it "returns emendations received" do
       amendment_emendations = response["amendments"].map { |amendment| amendment["emendation"] }
-      expect(amendment_emendations).to include(*model.amendments.map(&:emendation).map { |p| { "title" => p.i18n_title } })
+      expect(amendment_emendations).to include(*model.amendments.map(&:emendation).map { |p| { "title" => p.title[:en] } })
     end
 
     it "returns amender as emendation author" do
