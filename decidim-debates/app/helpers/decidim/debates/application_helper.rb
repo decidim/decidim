@@ -41,7 +41,7 @@ module Decidim
         TreeNode.new(TreePoint.new("", t("decidim.debates.debates.filters.all")), origin_values)
       end
 
-      # Options to filter Proposals by activity.
+      # Options to filter Debates by activity.
       def activity_filter_values
         base = [
           ["all", t("decidim.debates.debates.filters.all")],

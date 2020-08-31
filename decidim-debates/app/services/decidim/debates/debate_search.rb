@@ -16,16 +16,6 @@ module Decidim
         super(Debate.not_hidden, options)
       end
 
-      def search_order_start_time
-        if order_start_time == "asc"
-          query.order("start_time ASC")
-        elsif order_start_time == "desc"
-          query.order("start_time DESC")
-        else
-          query.order("start_time ASC")
-        end
-      end
-
       # Handle the activity filter
       def search_activity
         case activity

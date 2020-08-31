@@ -29,4 +29,6 @@
   <% if current_user %>
     <%= form.collection_radio_buttons :activity, activity_filter_values, :first, :last, { legend_title: t(".activity") }, "aria-controls": "debates" %>
   <% end %>
+
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
 <% end %>

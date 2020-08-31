@@ -24,6 +24,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
+      include Decidim::Randomable
 
       component_manifest_name "debates"
 
