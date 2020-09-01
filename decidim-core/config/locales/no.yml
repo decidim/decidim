@@ -590,8 +590,20 @@
           email_outro: Du har mottatt denne varslingen fordi du var medlem av den gruppen.
           email_subject: Du er fjernet fra %{user_group_name} gruppen!
           notification_title: Du er fjernet fra <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+        user_group_created:
+          email_intro: En ny brukergruppe har blitt opprettet med navnet %{user_group_name}. Du kan nå bekrefte det i <a href="%{groups_admin_url}">admin-panelet</a>.
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: En ny brukergruppe har blitt opprettet
+          notification_title: Brukergruppen %{user_group_name} har blitt opprettet. Du kan nå bekrefte den i <a href="%{groups_admin_path}">admin-panelet</a>.
+        user_group_updated:
+          email_intro: En brukergruppe med navnet %{user_group_name} har oppdatert sin profil, og er ubekreftet. Du kan nå bekrefte den i <a href="%{groups_admin_url}">admin-panelet</a>.
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: En brukergruppe har oppdatert sin profil
+          notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
       notification_event:
         notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
