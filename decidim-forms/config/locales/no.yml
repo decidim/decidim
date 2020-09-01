@@ -40,12 +40,20 @@
             statement: Uttalelse
           question:
             add_answer_option: Legg til svaralternativ
+            add_matrix_row: Legg til rad
             any: Alle
+            collapse: Skjul
             description: Beskrivelse
             down: Ned
+            expand: Utvid
             question: Spørsmål
             remove: Fjern
             statement: Uttalelse
+            up: Opp
+          separator:
+            down: Ned
+            remove: Fjern
+            separator: Skilletegn
             up: Opp
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
@@ -53,6 +61,11 @@
       errors:
         answer:
           body: Teksten kan ikke være blank
+      files:
+        extension_whitelist: 'Aksepterte formater:'
+      images:
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Dette bildet vil være:'
       question_types:
         long_answer: Langt svar
         multiple_option: Flere alternativer
@@ -62,6 +75,7 @@
       questionnaires:
         answer:
           invalid: Det oppstod et problem med å svare på skjemaet.
+          max_choices_alert: For mange valg er merket
           success: Skjema ble besvart.
         question:
           max_choices: 'Maksimum valg: %{n}'
@@ -69,6 +83,8 @@
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Logg på med kontoen din</a> eller <a href="%{sign_up_link}">opprett en</a> for å svare på skjemaet.
             title: Svar på skjemaet
+          current_step: Trinn %{step}
+          of_total_steps: av %{total_steps}
           questionnaire_answered:
             body: Dy har allerede svart på dette skjemaet.
             title: Allerede besvart
@@ -82,6 +98,8 @@
       step_navigation:
         show:
           are_you_sure: Denne handlingen kan ikke angres, og du kan ikke redigere svarene dine. Er du sikker?
+          back: Tilbake
+          continue: Fortsett
           submit: Send inn
       user_answers_serializer:
         created_at: Besvart på
