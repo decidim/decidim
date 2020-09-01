@@ -62,6 +62,8 @@ nl:
       actions:
         new_initiative_type: Nieuw initiatiefstype
       filters:
+        search_placeholder:
+          title_or_description_cont: Zoek %{collection} op titel of beschrijving.
         state_eq:
           label: Status
           values:
