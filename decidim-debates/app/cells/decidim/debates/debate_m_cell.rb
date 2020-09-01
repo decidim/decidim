@@ -20,7 +20,7 @@ module Decidim
       end
 
       def state_classes
-        return ["success"] if model.closed?
+        return ["muted"] if model.closed?
 
         super
       end
