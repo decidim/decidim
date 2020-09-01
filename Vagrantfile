@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+  config.vm.provision "shell", privileged: false, inline: <<-PROVISION
     sudo apt-get update
     sudo apt-get install -y autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev postgresql libpq-dev nodejs imagemagick libicu-dev chromium-chromedriver
     curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
@@ -97,5 +97,26 @@ Vagrant.configure("2") do |config|
     echo 'export DATABASE_USERNAME=vagrant""' >> ~/.bash_profile
     echo 'export HOST=0.0.0.0""' >> ~/.bash_profile
     ln -sfn /vagrant ~/decidim
-  SHELL
+  PROVISION
+
+  config.vm.provision :shell, run: "always", privileged: false, inline: <<-START
+    echo "###########################################################################"
+    echo "############################### HOW TO USE? ###############################"
+    echo "###########################################################################"
+    echo "# Initializing Decidim development app:                                   #"
+    echo '# -> $ vagrant ssh -c "cd ~/decidim && bundle exec rake development_app"  #'
+    echo "###########################################################################"
+    echo "# Initializing Decidim test app:                                          #"
+    echo '# -> $ vagrant ssh -c "cd ~/decidim && bundle exec rake test_app"         #'
+    echo "###########################################################################"
+    echo '# Launching test:                                                         #'
+    echo '# -> $ vagrant ssh -c "cd ~/decidim && bundle exec rake test_all"         #'
+    echo "###########################################################################"
+    echo '# Starting server:                                                        #'
+    echo '# -> $ vagrant ssh -c "cd ~/decidim && rails server"                      #'
+    echo "###########################################################################"
+    echo '# Connecting to the virtual machine:                                      #'
+    echo '# -> $ vagrant ssh                                                        #'
+    echo "###########################################################################"
+  START
 end
