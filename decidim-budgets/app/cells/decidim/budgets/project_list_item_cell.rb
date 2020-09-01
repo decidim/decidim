@@ -31,7 +31,7 @@ module Decidim
       def data_class
         [].tap do |list|
           list << "budget-list__data--added" if can_have_order? && resource_added?
-          list << "show-for-medium" unless voting_open? && !resource_added? && !current_order_checked_out?
+          list << "show-for-medium" if voting_finished? || (current_order_checked_out? && !resource_added?)
         end.join(" ")
       end
 
