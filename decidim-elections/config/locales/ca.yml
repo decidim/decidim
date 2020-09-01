@@ -138,6 +138,10 @@ ca:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Acabada
+          ongoing: Activa
       models:
         answer:
           fields:
