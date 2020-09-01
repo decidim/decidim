@@ -78,8 +78,8 @@ module Decidim
                 answers = Decidim::Elections::Answer.where(question: question)
                 first_answer = answers.first
                 last_answer = answers.last
-                expect(translated(first_answer.title)).to eq(proposal.title)
-                expect(translated(last_answer.title)).to eq(proposal.title)
+                expect(first_answer.title).to eq(proposal.title)
+                expect(last_answer.title).to eq(proposal.title)
               end
             end
 
@@ -96,8 +96,8 @@ module Decidim
               command.call
 
               new_answer = Decidim::Elections::Answer.where(question: question).last
-              expect(translated(new_answer.title)).to eq(proposal.title)
-              expect(translated(new_answer.description)).to eq(proposal.body)
+              expect(new_answer.title).to eq(proposal.title)
+              expect(new_answer.description).to eq(proposal.body)
             end
 
             it "traces the action", versioning: true do

@@ -23,6 +23,7 @@ nl:
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
     events:
       sortitions:
         sortition_created:
@@ -124,6 +125,7 @@ nl:
         show:
           algorithm: De algoritme-code van de loting
           any_category: alle categorieën
+          back: Terug naar het overzicht
           cancelled: Geannuleerde loting
           candidate_proposal_ids: Sorteervolgorde orders en ID's
           candidate_proposals_info: 'De loting werd uitgevoerd tussen de volgende voorstellen (%{category_label}), met de volgende ID''s (vetgedrukt de geselecteerde voorstellen)  '

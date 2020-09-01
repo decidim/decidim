@@ -27,7 +27,7 @@ describe "Orders", type: :system do
         page.find(".budget-list__action").click
       end
 
-      expect(page).to have_css("#loginModal", visible: true)
+      expect(page).to have_css("#loginModal", visible: :visible)
     end
   end
 
@@ -135,7 +135,7 @@ describe "Orders", type: :system do
             page.find(".budget-list__action").click
           end
 
-          expect(page).to have_css("#budget-excess", visible: true)
+          expect(page).to have_css("#budget-excess", visible: :visible)
         end
       end
 
@@ -155,7 +155,7 @@ describe "Orders", type: :system do
             page.find(".button.small").click
           end
 
-          expect(page).to have_css("#budget-confirm", visible: true)
+          expect(page).to have_css("#budget-confirm", visible: :visible)
 
           within "#budget-confirm" do
             page.find(".button.expanded").click

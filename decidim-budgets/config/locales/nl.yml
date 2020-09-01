@@ -65,6 +65,12 @@ nl:
         project:
           fields:
             title: Titel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'De projecten die je hebt geselecteerd zijn:'
+          subject: Je hebt gestemd op de %{space_name} inspraakruimte
+          voted_on_space: Je hebt gestemd op de budgetten voor de %{space_name} inspraakruimte.
+          voted_on_space_with_scope: Je hebt gestemd op de budgetten voor de %{space_name} inspraakruimte op %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           are_you_sure: Bent u het eens? Zodra u uw stem hebt bevestigd, kunt u deze niet meer wijzigen.
@@ -85,6 +91,7 @@ nl:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
           description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_minimum_projects_rule: Voor welke projecten moeten we volgens u de begroting uittrekken? Selecteer ten minste %{minimum_number} projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -107,11 +114,24 @@ nl:
             one: Geselecteerd project
             other: Geselecteerde projecten
           view: Bekijk
+        orders:
+          highest_cost: Hoogste kosten
+          label: Projecten sorteren op
+          lowest_cost: Laagste kosten
+          most_voted: Meeste stemmen
+          random: Willekeurige volgorde
         project:
+          add: Voeg project %{resource_name} toe aan uw stem
           count:
             one: 1 ondersteuning
             other: "%{count} ondersteuning"
+          remove: Verwijder project %{resource_name} uit uw stem
           view: Bekijk
+        project_budget_button:
+          add: Voeg toe aan je stem
+          add_descriptive: Voeg project %{resource_name} toe aan uw stem
+          added: Toegevoegd aan je stem
+          added_descriptive: Project %{resource_name} is aan uw stem toegevoegd
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
@@ -124,9 +144,17 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
+            form:
+              errors:
+                budget_voting_rule_only_one: Slechts één stemregel moet ingeschakeld zijn
+                budget_voting_rule_required: Eén stemregel is vereist
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             total_budget: Totale budget
+            vote_minimum_budget_projects_number: Minimaal aantal projecten om te stemmen
+            vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
+            vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
           step:
             announcement: Aankondiging

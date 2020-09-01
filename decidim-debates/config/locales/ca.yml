@@ -3,6 +3,8 @@ ca:
     attributes:
       debate:
         category_id: Categoria
+        closed_at: Tancant el
+        conclusions: Conclusions
         decidim_category_id: Categoria
         description: Descripció
         end_time: Data de finalització
@@ -12,6 +14,7 @@ ca:
         title: Títol
         user_group_id: Crea un debat com
     models:
+      decidim/debates/close_debate_event: Debat tancat
       decidim/debates/create_debate_event: Debat
       decidim/debates/creation_disabled_event: Debats deshabilitats
       decidim/debates/creation_enabled_event: Debats habilitats
@@ -37,12 +40,17 @@ ca:
             creation_enabled: Creació de debats per part de les participants habilitada
     debates:
       actions:
+        close: Tanca
         confirm_destroy: N'estàs segura?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}
         title: Accions
       admin:
+        debate_closes:
+          edit:
+            close: Tanca
+            title: Tanca el debat
         debates:
           create:
             invalid: S'ha produït un error en crear el debat.
@@ -65,9 +73,18 @@ ca:
             name: Debat
       admin_log:
         debate:
+          close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       debates:
+        close:
+          invalid: S'ha produït un error al tancar el debat.
+          success: Debat tancat correctament.
+        close_debate_modal:
+          close: Tanca
+          description: Quin són el resum o conclusions d'aquest debat?
+          send: Tanca el debat
+        closed: Tancat
         count:
           debates_count:
             one: "%{count} debat"
@@ -104,7 +121,11 @@ ca:
           title: Nou debat
         show:
           back: Torna al llistat
+          close_debate: Tanca el debat
           date: Data
+          debate_closed: Tancat
+          debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
+          edit_conclusions: Edita les conclusions
           edit_debate: Editar debat
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
@@ -152,6 +173,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: El debat "%{resource_title}" s'ha tancat
+          notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
     gamification:
       badges:
         commented_debates:

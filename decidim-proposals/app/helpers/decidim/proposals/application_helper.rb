@@ -139,16 +139,8 @@ module Decidim
         render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
       end
 
-      def endorsers_for(proposal)
-        proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
-      end
-
       def form_has_address?
         @form.address.present? || @form.has_address
-      end
-
-      def authors_for(collaborative_draft)
-        collaborative_draft.identities.map { |identity| present(identity) }
       end
 
       def show_voting_rules?

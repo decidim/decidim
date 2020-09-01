@@ -1,0 +1,218 @@
+lv:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Statuss
+        decidim_category_id: Kategorija
+        decidim_scope_id: Darbības tvērums
+        description: Apraksts
+        end_date: Beigu datums
+        project_ids: Iekļautie projekti
+        proposals: Iekļautie priekšlikumi
+        start_date: Sākuma datums
+        title: Nosaukums
+        updated_at: Atjaunināts plkst.
+      status:
+        description: Apraksts
+        key: Atslēga
+        name: Nosaukums
+      timeline_entry:
+        description: Apraksts
+        entry_date: Datums
+    models:
+      decidim/accountability/proposal_linked_event: Priekšlikums iekļauts rezultātā
+      decidim/accountability/result_progress_updated_event: Rezultātu progress ir atjaunināts
+  activerecord:
+    models:
+      decidim/accountability/result:
+        zero: Rezultāti
+        one: Rezultāts
+        other: Rezultāti
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Vai tiešām vēlaties dzēst šo %{name}?
+        destroy: Dzēst
+        edit: Labot
+        import_csv: Importēt CSV
+        new: Jauns %{name}
+        preview: Priekšskatīt
+        timeline_entries: Projekta attīstība
+        title: Darbības
+      admin:
+        exports:
+          results: Rezultāti
+        import_results:
+          new:
+            import: Importēt
+            info: "<p>Mēs iesakām veikt šādas darbības:</p><ol><li>izveidojiet statusu rezultātiem, ko vēlaties pievienot (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Pirms importēšanas manuāli izveidojiet vismaz vienu rezultātu, izmantojot šo administratora paneli, (<a href='%{link_new_result}' target='_blank'>link</a>) lai labāk izprastu formātu un to, kas būs jāaizpilda.</li><li>Lejupielādējiet formātā Eksportēt ar CSV (%{link_export_csv})</li><li>Veiciet lokālas izmaiņas. Jūs varat mainīt tikai šādas CSV kolonnas:</li></ol><ul><li><b>category/id:</b> Kategorijas ID</li><li><b>scope/id:</b> Tvēruma ID</li><li><b>parent/id:</b> Saistītais ID (saistītajiem rezultātiem). Pēc izvēles:</li><li><b>title/I18N:</b> Virsraksts X valodā</li><li><b>description/I18N:</b> Apraksts X valodā</li><li><b>start_date:</b> datums, kurā uzsākta rezultāta izpilde (formāts GGGG-MM-DD)</li><li><b>end_date:</b> datums, kurā beidzas rezultāta izpilde (formāts GGGG-MM-DD)</li><li><b>status/id:</b> šī rezultāta statusa ID</li><li><b>progress:</b> Izpildes līmenis procentos (no 0 līdz 100)</li><li><b>proposals_ids:</b> saistīto priekšlikumu iekšējais ID (atdalīts ar komatu). Tas tiek automātiski konvertēts uz <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: saite
+            title: Importēt rezultātus no CSV
+        imports:
+          create:
+            success: Faila importēšana ir sākta. Tuvāko minūšu laikā jūs saņemsiet e-pasta vēstuli ar importēšanas rezultātu
+        models:
+          result:
+            name: Rezultāts
+          status:
+            name: Statuss
+          timeline_entry:
+            name: Laika grafika ieraksts
+        results:
+          create:
+            invalid: Šī rezultāta izveides laikā radās problēma
+            success: Rezultāts ir veiksmīgi izveidots
+          destroy:
+            success: Rezultāts ir veiksmīgi dzēsts
+          edit:
+            title: Labot rezultātu
+            update: Atjaunināt rezultātu
+          index:
+            title: Rezultāti
+          new:
+            create: Izveidot rezultātu
+            title: Jauns rezultāts
+          update:
+            invalid: Šī rezultāta atjaunināšanas laikā radās problēma
+            success: Rezultāts ir veiksmīgi atjaunināts
+        shared:
+          subnav:
+            statuses: Statusi
+        statuses:
+          create:
+            invalid: Šī statusa izveides laikā radās problēma
+            success: Statuss ir veiksmīgi izveidots
+          destroy:
+            success: Statuss ir veiksmīgi izdzēsts
+          edit:
+            title: Labot statusu
+            update: Atjaunināt statusu
+          index:
+            title: Statusi
+          new:
+            create: Izveidot statusu
+            title: Jauns statuss
+          update:
+            invalid: Šī statusa atjaunināšanas laikā radās problēma
+            success: Statuss ir veiksmīgi atjaunināts
+        timeline_entries:
+          create:
+            invalid: Šī ieraksta izveides laikā radās problēma
+            success: Ieraksts ir veiksmīgi izveidots
+          destroy:
+            success: Ieraksts ir veiksmīgi izdzēsts
+          edit:
+            title: Rediģēt ierakstu
+            update: Atjaunināt ierakstu
+          index:
+            title: Projekta laika grafika ieraksti
+          new:
+            create: Izveidot ierakstu
+            title: Jauns ieraksts
+          update:
+            invalid: Šī ieraksta atjaunināšanas laikā radās problēma
+            success: Ieraksts ir veiksmīgi atjaunināts
+      admin_log:
+        result:
+          create: "%{user_name} izveidoja rezultātu %{resource_name} telpā %{space_name}"
+          delete: "%{user_name} izdzēsa %{resource_name} rezultātu telpā %{space_name}"
+          update: "%{user_name} atjaunināja rezultātu %{resource_name} telpā %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Saistītais datubāzē netika atrasts (ID:%{id})'
+      import_mailer:
+        import:
+          errors: Kļūdas
+          errors_present: Rezultātu importēšanas laikā radās problēma
+          row_number: Rinda
+          subject: Rezultāti ir veiksmīgi importēti
+          success: Rezultāti ir veiksmīgi importēti. Rezultātus varat apskatīt administrēšanas saskarnē.
+      last_activity:
+        new_result_at_html: "<span>Jauns rezultāts %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Beigu datums
+            start_date: Sākuma datums
+            status: Statuss
+            title: Nosaukums
+        status:
+          fields:
+            description: Apraksts
+            key: Atslēga
+            name: Nosaukums
+        timeline_entry:
+          fields:
+            description: Apraksts
+            entry_date: Datums
+      results:
+        count:
+          results_count:
+            zero: "%{count} rezultāti"
+            one: 1 rezultāts
+            other: "%{count} rezultāti"
+        filters:
+          all: Visi
+          scopes: Darbības tvērums
+        home:
+          categories_label: Kategorijas
+          subcategories_label: Apakškategorijas
+        home_header:
+          global_status: Globālais izpildes statuss
+        nav_breadcrumb:
+          global: Globālā izpilde
+        search:
+          search: Meklēt darbības
+        show:
+          stats:
+            attendees: Apmeklētāji
+            back_to_resource: Atgriezties pie rezultātiem
+            comments: Komentāri
+            contributions: Papildinājumi
+            last_edited_by: Pēdējo reizi labojis
+            last_updated_at: Pēdējo reizi atjaunināts plkst.
+            meetings: Sanāksmes
+            proposals: Priekšlikumi
+            votes: Atbalsta
+        timeline:
+          title: Projekta attīstība
+    components:
+      accountability:
+        name: Atbildība
+        settings:
+          global:
+            categories_label: Kategoriju nosaukums
+            comments_enabled: Komentāri ir iespējoti
+            display_progress_enabled: Rādīt progresu
+            heading_leaf_level_results: Projektu nosaukums
+            heading_parent_level_results: Rezultātu nosaukums
+            intro: Ievads
+            subcategories_label: Apakškategoriju nosaukums
+          step:
+            comments_blocked: Komentāri ir bloķēti
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Priekšlikums "%{proposal_title}" ir iekļauts rezultātā. Jūs varat to redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{proposal_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: '%{proposal_title} atjauninājums'
+          notification_title: Priekšlikums <a href="%{proposal_path}">%{proposal_title}</a> ir iekļauts <a href="%{resource_path}">%{resource_title}</a> rezultātā.
+        result_progress_updated:
+          email_intro: 'Rezultāts "%{resource_title}", kas ietver priekšlikumu "%{proposal_title}", tagad ir %{progress}% pabeigts. Jūs varat to redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{proposal_title}", un šis priekšlikums ir iekļauts rezultātā "%{resource_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Atjaunināts %{resource_title} progress
+          notification_title: Rezultāts <a href="%{resource_path}">%{resource_title}</a>, kas ietver priekšlikumu <a href="%{proposal_path}">%{proposal_title}</a>, tagad ir %{progress}% pabeigts.
+    metrics:
+      results:
+        description: Izveidoto rezultātu skaits
+        object: rezultāti
+        title: Rezultāti
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Rezultāti
+    resource_links:
+      included_projects:
+        result_project: Šajā rezultātā iekļautie projekti
+      included_proposals:
+        result_proposal: Šajā rezultātā iekļautie priekšlikumi

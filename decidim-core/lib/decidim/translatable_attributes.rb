@@ -67,21 +67,42 @@ module Decidim
       # attribute - A Hash where keys (strings) are locales, and their values are
       #             the translation for each locale.
       #
-      # organization - An optional Organization to get the default locale from.
+      # given_organization - An optional Organization to get the default locale from.
       #
       # Returns a String with the translation.
-      def translated_attribute(attribute, organization = nil)
+      def translated_attribute(attribute, given_organization = nil)
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
         attribute = attribute.dup.stringify_keys
-        organization ||= try(:current_organization)
-        organization_locale = organization.try(:default_locale)
+        given_organization ||= try(:current_organization)
+        given_organization ||= try(:organization)
+        organization_locale = given_organization.try(:default_locale)
 
         attribute[I18n.locale.to_s].presence ||
+          machine_translation_value(attribute, given_organization) ||
           attribute[organization_locale].presence ||
           attribute[attribute.keys.first].presence ||
           ""
+      end
+
+      # Detects whether we need to show the machine translated version of the
+      # field, or not.
+      #
+      # It uses `RequestStore` so that the method works from inside presenter
+      # classes, which don't have access to controller instance variables.
+      def machine_translation_value(attribute, organization)
+        return unless organization
+        return unless organization.enable_machine_translations?
+
+        attribute.dig("machine_translations", I18n.locale.to_s).presence if must_render_translation?(organization)
+      end
+
+      def must_render_translation?(organization)
+        translations_prioritized = organization.machine_translation_prioritizes_translation?
+        translations_toggled = RequestStore.store[:toggle_machine_translations]
+
+        translations_prioritized != translations_toggled
       end
     end
 

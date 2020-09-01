@@ -4,6 +4,9 @@ module Decidim
   # Initiative type.
   class InitiativesType < ApplicationRecord
     include Decidim::HasResourcePermission
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :description, :extra_fields_legal_information
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

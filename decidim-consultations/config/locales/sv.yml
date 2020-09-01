@@ -236,6 +236,8 @@ sv:
           label: 'Sortera samråd efter:'
           random: Slumpmässig
           recent: Senaste
+        show:
+          dates: Datum
       content_blocks:
         highlighted_consultations:
           name: Viktiga samråd just nu
@@ -346,10 +348,12 @@ sv:
         verification_required: Bekräfta ditt konto för att rösta
         vote: Rösta
       vote_modal:
+        close_modal: Stäng modal
         contextual_help: Välj ett alternativ.
         title: 'Samråd: rösta på en fråga'
       vote_modal_confirm:
         change: Ändra
+        close_modal: Stäng modal
         confirm: Bekräfta
         contextual_help: Bekräfta det valda alternativet.
         title: 'Samråd: bekräfta röst'

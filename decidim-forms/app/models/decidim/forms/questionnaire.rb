@@ -6,7 +6,9 @@ module Decidim
     class Questionnaire < Forms::ApplicationRecord
       include Decidim::Templates::Templatable if defined? Decidim::Templates
       include Decidim::Publicable
+      include Decidim::TranslatableResource
 
+      translatable_fields :title, :description, :tos
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy

@@ -56,7 +56,7 @@ fi-pl:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
-          title: Ilmoita asiaton sisältö
+          title: Ilmoita asiatonta sisältöä
         show_replies: Näytä %{replies_count} vastausta
         single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:

@@ -75,19 +75,6 @@ ro:
     admin:
       actions:
         new_initiative_type: Noul tip de inițiativă
-      filters:
-        decidim_area_id_eq:
-          label: Suprafață
-        state_eq:
-          values:
-            accepted: Destinatar semnături
-            created: Creat
-            discarded: Respins
-            published: Publicat
-            rejected: Semnături insuficiente
-            validating: Validarea tehnică
-        type_id_eq:
-          label: Tip
       menu:
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
@@ -419,6 +406,11 @@ ro:
           unfold: Desfășurat
         index_header:
           new_initiative: Inițiativă nouă
+          not_authorized:
+            authorizations_page: Vezi autorizațiile
+            close: Inchide
+            explanation: Trebuie să fiți verificat pentru a crea o nouă inițiativă.
+            title: Autorizare necesară
         interactions:
           comments_count:
             count:

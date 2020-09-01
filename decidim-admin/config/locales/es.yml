@@ -62,6 +62,9 @@ es:
         highlighted_content_banner_title: Título
         instagram_handler: Nombre de Instagram
         logo: Logo
+        machine_translation_display_priority: Prioridad de la traducción automática
+        machine_translation_display_priority_original: Texto original primero
+        machine_translation_display_priority_translation: Texto traducido primero
         name: Nombre
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera

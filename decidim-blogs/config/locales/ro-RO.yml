@@ -63,6 +63,7 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate

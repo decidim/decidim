@@ -29,7 +29,7 @@ module Decidim
 
       # Returns the random projects for the current page.
       def results
-        Project.where(id: super.pluck(:id))
+        Project.where(id: super.pluck(:id)).includes([:scope, :component, :attachments, :category])
       end
 
       private

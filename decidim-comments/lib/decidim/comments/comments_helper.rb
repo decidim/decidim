@@ -30,6 +30,7 @@ module Decidim
           node_id, commentableType: commentable_type,
                    commentableId: commentable_id,
                    locale: I18n.locale,
+                   toggleTranslations: machine_translations_toggled?,
                    commentsMaxLength: comments_max_length(resource)
         )
       end
@@ -48,6 +49,7 @@ module Decidim
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
                 locale: "#{props[:locale]}",
+                toggleTranslations: #{props[:toggleTranslations]},
                 commentsMaxLength: "#{props[:commentsMaxLength]}"
               }
             );

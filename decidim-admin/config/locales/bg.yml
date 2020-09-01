@@ -1,0 +1,16 @@
+bg:
+  activemodel:
+    attributes:
+      area:
+        area_type: Тип район
+        name: Име
+        organization: Организация
+  decidim:
+    admin:
+      organization_appearance:
+        form:
+          colors:
+            colors_title: Цветове на организацията
+            header_snippets_help: Използвайте това поле, за да добавите нещо в HTML заглавието. Най-често се използва за интеграция на външни услуги, които изискват допълнителни JavaScript или CSS. Освен това, можете да го ползвате за добавяне на допълнителни метатагове в HTML. Обърнете внимание, че ще се визуализира само в публичните страници, но не и в администраторския раздел.
+          images:
+            layout_appearance_title: Редактиране външния вид шаблона

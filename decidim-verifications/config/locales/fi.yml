@@ -27,7 +27,7 @@ fi:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: Hyödyllinen, jos prosessi on jo alkanut ja haluat kumota aikaisemman prosessin varmennukset ja käyttäjien oikeudet prosesseihin.
+          before_date_info: Hyödyllinen, jos prosessi on jo alkanut ja haluat kumota aikaisemman prosessin vahvistukset ja käyttäjien oikeudet prosesseihin.
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
@@ -35,8 +35,8 @@ fi:
             confirm_all: Et voi peruuttaa kaikkien vahvistusten kumoamista. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
           destroy_ok: Kaikkien pyyntöäsi vastaavien vahvistuksien kumoaminen onnistui!
-          info: Yhteensä %{count} varmennettua osallistujaa.
-          no_data: Ei varmennettuja osallistujia
+          info: Yhteensä %{count} vahvistettua osallistujaa.
+          no_data: Ei vahvistettuja osallistujia
           title: Vahvistusten kumoaminen
         authorization_workflows: Vahvistukset
     admin_log:
@@ -55,7 +55,7 @@ fi:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
             - Sinä täytät ladatussa kuvassa näkyvät tiedot.
             - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sitä.
         postal_letter:
           help:
             - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
@@ -89,10 +89,10 @@ fi:
           success: Vahvistuksen poisto onnistui.
         first_login:
           actions:
-            another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
+            another_dummy_authorization_handler: Vahvista toisella esimerkkivahvistustavalla
             csv_census: Vahvista organisaation rekisteritietojen avulla
-            dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
-            dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
+            dummy_authorization_handler: Vahvista tili esimerkkivahvistustavalla
+            dummy_authorization_workflow: Vahvista esimerkkivahvistustavan työnkulkuprosessin avulla
             id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
             postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
             sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
@@ -202,7 +202,7 @@ fi:
             send: Pyydä vahvistusta
             title: Lähetä henkilöllisyystodistuksesi
           update:
-            error: Asiakirjan uudelleen lataaminen epäonnistui
+            error: Asiakirjan uudelleenlataaminen epäonnistui
             success: Asiakirjan uudelleenlataus onnistui
         dni: Henkilökortti
         nie: HETU

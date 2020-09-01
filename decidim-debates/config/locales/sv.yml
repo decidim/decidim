@@ -3,6 +3,8 @@ sv:
     attributes:
       debate:
         category_id: Kategori
+        closed_at: Stängt kl
+        conclusions: Slutsatser
         decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
@@ -12,6 +14,7 @@ sv:
         title: Titel
         user_group_id: Skapa debatt som
     models:
+      decidim/debates/close_debate_event: Debatt stängd
       decidim/debates/create_debate_event: Debatt
       decidim/debates/creation_disabled_event: Debatter avaktiverade
       decidim/debates/creation_enabled_event: Debatter aktiverade
@@ -25,23 +28,32 @@ sv:
       debates:
         actions:
           create: Skapa
+          endorse: Instäm
         name: Debatter
         settings:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
             creation_enabled: Skapande av debatter av användare aktiverat
+            endorsements_blocked: Instämmanden är blockerade
+            endorsements_enabled: Instämmanden aktiverade
     debates:
       actions:
+        close: Stäng
         confirm_destroy: Är du säker?
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
         title: Åtgärder
       admin:
+        debate_closes:
+          edit:
+            close: Stäng
+            title: Stäng debatt
         debates:
           create:
             invalid: Det gick inte att skapa debatten.
@@ -64,9 +76,18 @@ sv:
             name: Debatt
       admin_log:
         debate:
+          close: "%{user_name} stängde debatten %{resource_name} i utrymmet %{space_name}"
           create: "%{user_name} skapade debatten %{resource_name} på platsen %{space_name}"
           update: "%{user_name} uppdaterade debatten %{resource_name} på platsen %{space_name}"
       debates:
+        close:
+          invalid: Det gick inte att stänga debatten.
+          success: Debatten har stängts.
+        close_debate_modal:
+          close: Stäng
+          description: Vad är sammanfattningen för denna debatt?
+          send: Stäng debatt
+        closed: Stängd
         count:
           debates_count:
             one: "%{count} debatt"
@@ -76,6 +97,10 @@ sv:
           success: Debatten har skapats.
         debate:
           participate: Delta
+        edit:
+          back: Tillbaka
+          save: Spara ändringar
+          title: Redigera debatt
         filters:
           all: Alla
           category: Kategori
@@ -99,6 +124,26 @@ sv:
           title: Ny debatt
         show:
           back: Tillbaka till listan
+          close_debate: Stäng debatt
+          date: Datum
+          debate_closed: Stängd
+          debate_conclusions_are: 'Debatten stängdes den %{date} med dessa slutsatser:'
+          edit_conclusions: Redigera slutsatser
+          edit_debate: Redigera debatt
+          groups_count: Grupper
+          last_comment_by: Senaste kommentar av
+          no_comments_yet: Inga kommentarer ännu
+          participants_count: Deltagare
+        update:
+          invalid: Det gick inte att uppdatera debatten.
+          success: Debatten har uppdaterats.
+        versions:
+          debates:
+            back_to_resource: Gå tillbaka till debatten
+          index:
+            title: Versioner
+        versions_list:
+          back_to_resource: Gå tillbaka till debatten
       last_activity:
         new_debate_at_html: "<span>Ny debatt i %{link}</span>"
       models:
@@ -135,6 +180,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Debatter är nu tillgängliga i %{participatory_space_title}
           notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
+          email_subject: Debatten "%{resource_title}" stängdes
+          notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
     gamification:
       badges:
         commented_debates:

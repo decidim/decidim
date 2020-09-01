@@ -48,6 +48,8 @@ nl:
             title: titel
       posts:
         show:
+          back: Terug naar het overzicht
+          comments: Opmerkingen
           view: Bekijk
         sidebar_blog:
           comments: reacties
@@ -60,9 +62,12 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
+            endorsements_blocked: Aanbevelingen geblokkeerd
+            endorsements_enabled: Aanbevelingen ingeschakeld
     events:
       blogs:
         post_created:

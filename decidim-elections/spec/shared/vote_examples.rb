@@ -52,6 +52,8 @@ shared_examples "allows to preview booth" do
 end
 
 shared_examples "uses the voting booth" do
+  include_context "with elections router"
+
   it "uses the voting booth" do
     selected_answers = []
     non_selected_answers = []
@@ -125,6 +127,11 @@ shared_examples "uses the voting booth" do
       expect(page).to have_content("Vote confirmed")
       expect(page).to have_content("Your vote has already been cast!")
     end
+
+    # close voting booth without alert
+    page.find("a.focus__exit").click
+
+    expect(page).to have_current_path router.election_path(id: election.id)
   end
 
   def question_step(number)

@@ -104,6 +104,7 @@ it:
           title: Nuovo dibattito
         show:
           back: Torna alla lista
+          date: Data
           edit_debate: Modifica dibattito
         update:
           invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.

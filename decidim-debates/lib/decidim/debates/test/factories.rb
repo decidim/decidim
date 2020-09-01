@@ -58,5 +58,36 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_votes_enabled do
+      # Needed for endorsements tests
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            endorsements_enabled: true,
+            endorsements_blocked: true
+          }
+        }
+      end
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
   end
 end
