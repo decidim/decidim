@@ -63,7 +63,12 @@ sv:
           secondary_hosts_hint: Ange var och en av dem på en ny rad
           title: Ny organisation
         omniauth_settings:
+          decidim:
+            client_id: Klient ID
+            client_secret: Klient hemlig
+            site_url: Webbplatsens URL
           enabled: Aktiverad
+          enabled_by_default: Denna leverantör är aktiverad som standard. Den kan redigeras men inte inaktiveras.
           facebook:
             app_id: App-ID
             app_secret: App-hemlighet
@@ -75,6 +80,12 @@ sv:
           twitter:
             api_key: API-nyckel
             api_secret: API-hemlighet
+        smtp_settings:
+          instructions:
+            from_label: 'E-postavsändare kommer att vara: "din-organisation-namn <your-organization@your-provider.org>". Lämna tomt för att använda ''from_email'' som etikett'
+          placeholder:
+            from_email: ditt-organisation@ditt-leverantör.org
+            from_label: din-organisation-namn
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.

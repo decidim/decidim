@@ -12,7 +12,7 @@ module Decidim
           Decidim::DummyResources::DummyResource.new(
             scope: scope,
             component: component,
-            title: "The resource title",
+            title: { en: "The resource title" },
             address: "The resource address.",
             published_at: Time.current
           )
@@ -35,7 +35,7 @@ module Decidim
               }
               i18n = expected_fields[:i18n]
               resource.component.organization.available_locales.each do |locale|
-                i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.address].join(" ") }
+                i18n[locale] = { A: resource.title[locale] || "", B: nil, C: nil, D: [resource.address].join(" ") }
               end
               expect(mapped_fields).to eq expected_fields
             end
@@ -57,9 +57,9 @@ module Decidim
                 i18n: {}
               }
               i18n = expected_fields[:i18n]
-              i18n["ca"] = { A: resource.title, B: nil, C: nil, D: resource.address }
-              i18n["en"] = { A: resource.title, B: nil, C: nil, D: resource.address }
-              i18n["es"] = { A: resource.title, B: nil, C: nil, D: resource.address }
+              i18n["ca"] = { A: resource.title["ca"] || "", B: nil, C: nil, D: resource.address }
+              i18n["en"] = { A: resource.title["en"] || "", B: nil, C: nil, D: resource.address }
+              i18n["es"] = { A: resource.title["es"] || "", B: nil, C: nil, D: resource.address }
               expect(mapped_fields).to eq expected_fields
             end
           end
@@ -77,7 +77,7 @@ module Decidim
               }
               i18n = expected_fields[:i18n]
               resource.component.organization.available_locales.each do |locale|
-                i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.address].join(" ") }
+                i18n[locale] = { A: resource.title[locale] || "", B: nil, C: nil, D: [resource.address].join(" ") }
               end
 
               mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)

@@ -19,6 +19,9 @@ de:
         hashtag: Hashtag
         hero_image: Hauptbild
         i_frame_url: URL des externen Abstimmungssystems
+        instructions: Zusätzliche Anweisungen für Abstimmungen
+        max_votes: Maximale Anzahl von Stimmen
+        min_votes: Mindestanzahl von Stimmen
         origin_scope: Umfang
         origin_title: Ursprung
         origin_url: Ursprungs-URL
@@ -31,11 +34,24 @@ de:
         subtitle: Untertitel
         vote: Externes Wahlsystem
         what_is_decided: Was ist entschieden?
+      response:
+        decidim_consultations_response_group_id: Gruppe
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Die maximale Anzahl von Stimmen sollte höher oder gleich der Mindestanzahl sein.
       vote:
         decidim_consultations_response_id:
           not_found: Antwort nicht gefunden.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Die Anzahl der Stimmen ist ungültig
     models:
       decidim/consultation:
         one: Beratung
@@ -52,10 +68,13 @@ de:
   decidim:
     admin:
       actions:
+        back_to_responses: Zurück zu Antworten
         new_consultation: Neue Konsultation
         new_question: Neue Frage
         new_response: Neue Antwort
+        new_response_group: Neue Gruppe
         publish_results: Veröffentlichen Sie die Ergebnisse
+        response_groups: Antwortgruppen verwalten
         unpublish_results: Veröffentlichen Sie die Ergebnisse
       consultation_publications:
         create:
@@ -86,6 +105,10 @@ de:
         new:
           create: Erstellen
           title: Neue Konsultation
+        results:
+          not_visible: Die Ergebnisse werden nach Abschluss der Konsultation verfügbar sein
+          participants: "%{count} Teilnehmer"
+          total_votes: 'Summe: %{count} Stimmen'
         update:
           error: Beim Aktualisieren dieser Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich aktualisiert.
@@ -94,8 +117,10 @@ de:
         consultations_submenu:
           info: Information
           questions: Fragen
+          results: Ergebnisse
         questions_submenu:
           components: Komponenten
+          configuration: Konfiguration
           consultation: Beratung
           info: Information
           responses: Antworten
@@ -119,10 +144,16 @@ de:
         response:
           fields:
             created_at: Hergestellt in
+            response_group: Gruppe
             title: Titel
           name:
             one: Antwort
             other: Antworten
+      question_configuration:
+        disable_external_voting: Bitte deaktivieren Sie externe Abstimmung für erweiterte Konfigurationen
+        form:
+          help: Sie können Multiple-Choice-Fragen einstellen, indem Sie die maximale Anzahl von Antworten für Teilnehmer erhöhen. Der Standardwert ist 1, was bedeutet dass nur eine Antwort als Stimme abgegeben werden kann.
+          title: Erweiterte Konfiguration
       question_publications:
         create:
           error: Beim Veröffentlichen dieser Frage ist ein Fehler aufgetreten.
@@ -149,6 +180,24 @@ de:
         update:
           error: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten.
           success: Frage erfolgreich aktualisiert.
+      response_groups:
+        create:
+          error: Beim Erstellen einer neuen Antwortgruppe ist ein Fehler aufgetreten.
+          success: Antwortgruppe wurde erfolgreich erstellt.
+        destroy:
+          error: Beim Entfernen der Antwortgruppe ist ein Fehler aufgetreten. Prüfen Sie, dass keine Antworten von dieser Gruppe abhängig sind.
+          success: Antwortgruppe wurde erfolgreich gelöscht.
+        edit:
+          update: Aktualisieren
+        form:
+          title: Allgemeine Information
+        help: Verwenden Sie Gruppen, um Multiple-Choice-Fragen in Paketen zu organisieren.
+        new:
+          create: Erstellen
+          title: Neue Antwortgruppe
+        update:
+          error: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten.
+          success: Antwort wurde erfolgreich aktualisiert.
       responses:
         create:
           error: Beim Erstellen einer neuen Antwort ist ein Fehler aufgetreten.
@@ -169,7 +218,9 @@ de:
       titles:
         consultations: Konsultationen
         questions: Fragen
+        response_groups: Antwortgruppen
         responses: Antworten
+        results: Ergebnisse
     consultations:
       admin:
         content_blocks:
@@ -185,6 +236,8 @@ de:
           label: 'Sortieren Sie die Konsultationen nach:'
           random: Zufällig
           recent: Neueste
+        show:
+          dates: Daten
       content_blocks:
         highlighted_consultations:
           name: Hervorgehobene Konsultationen
@@ -226,9 +279,28 @@ de:
         votes_out_of:
           one: abstimmen
           other: Stimmen aus
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Teilnehmer konnten mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: In dieser Frage sind Multiple-Choice-Fragen erlaubt
+          total_participants: Es haben insgesamt %{count} Personen an der Abstimmung teilgenommen.
+          vote_limit:
+            description: Teilnehmer konnten bis zu über %{limit} Optionen abstimmen.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Sie müssen mindestens %{votes} Stimmen für verschiedene Optionen abgeben.
+          title: 'Die Abstimmung unterliegt folgenden Regeln:'
+          vote_limit:
+            description: Sie können bis zu über %{limit} Optionen abstimmen.
+            left: Verbleibend
+            votes: Stimmen
       question_votes:
         create:
           error: Es gab Fehler bei der Abstimmung der Frage
+          success: Sie können dies bis zum Ende der Konsultation ändern. Nur die letzte Stimme wird akzeptiert.
+          title_error: Abstimmungsfehler!
+          title_success: Stimme erfolgreich registriert
       regular_questions:
         title: Fragen für diese Konsultation
       show:
@@ -256,6 +328,8 @@ de:
         statistics:
           consultations_count: Konsultationen
     questions:
+      next_button: Nächste Frage
+      previous_button: Vorherige Frage
       results:
         title: Ergebnisse
       show:
@@ -271,15 +345,22 @@ de:
         already_voted: Schon gewählt
         already_voted_hover: Support entziehen
         starting_from: Beginnend von %{date}
+        verification_required: Verifizieren Sie Ihr Konto, um abstimmen zu können
         vote: Abstimmung
       vote_modal:
+        close_modal: Modal schließen
         contextual_help: Bitte wähle eine Option.
         title: 'Beratung: Frage Unterstützung'
       vote_modal_confirm:
         change: Veränderung
+        close_modal: Modal schließen
         confirm: Bestätigen
         contextual_help: Bitte bestätigen Sie die ausgewählte Option.
         title: 'Beratung: Bestätigung der Unterstützung'
+    resources:
+      consultations:
+        actions:
+          vote: Abstimmung
   layouts:
     decidim:
       admin:
@@ -293,3 +374,4 @@ de:
         unfold: Entfalten
       question_header:
         back_to_consultation: Sehen Sie alle Konsultationen
+        back_to_question: Zurück zur Frage

@@ -100,7 +100,9 @@ fr:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         index:
           expired_verification: Vérification expiré
+          pending_verification: En attente de vérification
           show_renew_info: Cliquez pour renouveler la vérification
+          unauthorized_verification: Nouvelle vérification
         new:
           authorize: Envoyer
           authorize_with: Vérifier votre identité avec %{authorizer}
@@ -144,7 +146,7 @@ fr:
           postal_codes:
             one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
             other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
-          scope: La participation est réservée aux participants ayant la portée %{scope_name}.
+          scope: La participation est réservée aux participants avec le secteur %{scope_name}.
       id_documents:
         admin:
           config:

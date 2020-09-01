@@ -410,8 +410,9 @@ pt:
           confirm: Confirmar
         show:
           attendees: Contagem de participantes
-          back: Regressar à lista
+          back: Retroceder à lista
           contributions: Contagem de contribuições
+          date: Data
           edit_meeting: Editar reunião
           going: Indo
           join: Adira à reunião

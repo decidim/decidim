@@ -355,7 +355,11 @@ es-PY:
             active_step: Paso activo
             more_information: Más información
             participate: Participar
+            participate_in: Participa en el proceso %{resource_name}
             see_all_processes: Ver todos los procesos
+      participatory_process_steps:
+        index:
+          back_to_process: Volver a la página del proceso
       participatory_processes:
         filters:
           counters:
@@ -385,6 +389,7 @@ es-PY:
           loading: Cargando resultados...
       show:
         area: Área
+        dates: Fechas
         developer_group: Grupo promotor
         end_date: Fecha de finalización
         local_area: Área de organización
@@ -420,6 +425,7 @@ es-PY:
       participatory_process_groups:
         participatory_process_group:
           browse: Explorar
+          browse_resource: Explorar el grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
       participatory_process_widgets:
         show:
@@ -431,11 +437,15 @@ es-PY:
         participatory_process:
           active_step: 'Fase actual:'
           more_info: Más información
+          more_info_about: Más información sobre el proceso %{resource_name}
           take_part: Participa
+          take_part_in: Participa en el proceso %{resource_name}
         promoted_process:
           active_step: 'Fase actual:'
           more_info: Más información
+          more_info_about: Más información sobre el proceso %{resource_name}
           take_part: Participa
+          take_part_in: Participa en el proceso %{resource_name}
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Ver las fases

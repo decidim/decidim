@@ -1,0 +1,83 @@
+ja:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: 新しいブログ投稿
+  activerecord:
+    models:
+      decidim/blogs/post:
+        other: 投稿
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: この投稿を削除してもよろしいですか？
+        destroy: 削除
+        edit: 編集
+        new: 新規投稿
+        title: アクション
+      admin:
+        models:
+          components:
+            body: 本文
+          post:
+            name: 投稿
+        posts:
+          create:
+            invalid: この投稿を作成する際に問題が発生しました
+            success: 投稿を作成しました
+          destroy:
+            success: 投稿を削除しました
+          edit:
+            save: 更新
+          index:
+            title: 投稿
+          new:
+            create: 作成
+            title: 投稿を作成
+          update:
+            invalid: 投稿の保存中に問題が発生しました。
+            success: 投稿を保存しました
+      last_activity:
+        new_post_at_html: "<span> %{link}に新しい投稿</span>"
+      models:
+        post:
+          fields:
+            author: 作成者
+            body: 本文
+            created_at: 作成日時
+            title: タイトル
+      posts:
+        show:
+          back: リストに戻る
+          comments: コメント
+          view: 表示
+        sidebar_blog:
+          comments: コメント
+          most_commented_posts: 最もコメントされた投稿
+      read_more: もっと読む
+    components:
+      blogs:
+        name: ブログ
+        settings:
+          global:
+            announcement: お知らせ
+            comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+          step:
+            announcement: お知らせ
+            comments_blocked: コメントがブロックされました
+            endorsements_blocked: エンドースメントがブロックされました
+            endorsements_enabled: エンドースメントを有効にする
+    events:
+      blogs:
+        post_created:
+          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
+          email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
+          email_subject: '%{participatory_space_title} に新しい投稿が公開されました'
+          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: 投稿
+    participatory_processes:
+      statistics:
+        posts_count: 投稿

@@ -17,6 +17,7 @@ sv:
   decidim:
     comments:
       comments: Kommentarer
+      comments_count: Antal kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       votes:
@@ -55,6 +56,7 @@ sv:
             does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+          title: Rapportera olämpligt innehåll
         show_replies: Visa %{replies_count} svar
         single_comment_link_title: Få länk till enstaka kommentar
       comment_order_selector:
@@ -74,6 +76,10 @@ sv:
         single_comment_warning: Läs återstående <a href="%{url}">kommentarer</a>.
         single_comment_warning_title: Du visar en enda kommentar
         title: "%{count} kommentarer"
+      down_vote_button:
+        text: Jag håller inte med om denna kommentar
+      up_vote_button:
+        text: Jag instämmer i denna kommentar
     events:
       comments:
         comment_by_followed_user:
@@ -82,6 +88,8 @@ sv:
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
+          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på denna sida:'
+          email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från dess profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:

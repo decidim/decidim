@@ -13,6 +13,7 @@ pt:
         attachment_collection_id: Pasta
         description: Descrição
         file: Arquivo
+        title: Anexo ou nome da imagem
       attachment_collection:
         description: Descrição
         name: Nome
@@ -50,6 +51,8 @@ pt:
         from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
+        highlight_alternative_color: Realçar, alternativo
+        highlight_color: Realçar
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
         highlighted_content_banner_action_title: Título do botão de ação
         highlighted_content_banner_action_url: URL do botão de ação
@@ -323,6 +326,8 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
           title_cont: Pesquisar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
         form:
@@ -585,6 +590,7 @@ pt:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
+          close_modal: Fechar modal
           description: Caso necessite de contactar um participante diretamente, poderá clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registada.
           email_address: Endereço de e-mail
           full_name: Nome completo
@@ -753,7 +759,7 @@ pt:
         users: Participantes
       user_group:
         csv_verify:
-          invalid: Ocorreu um problema ao ler o arquivo CSV.
+          invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: O ficheiro CSV foi enviado com sucesso, estamos a verificar os grupos que correspondem aos critérios. Isto pode demorar um pouco.
         reject:
           invalid: Ocorreu um problema ao rejeitar este grupo.

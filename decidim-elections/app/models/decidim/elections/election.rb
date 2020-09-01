@@ -5,15 +5,35 @@ module Decidim
     # The data store for an Election in the Decidim::Elections component. It stores a
     # title, description and any other useful information to perform an election.
     class Election < ApplicationRecord
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::HasComponent
+      include Decidim::TranslatableResource
       include Traceable
       include Loggable
+
+      translatable_fields :title, :description, :subtitle
 
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+
+      scope :active, lambda {
+        where("start_time <= ?", Time.current)
+          .where("end_time >= ?", Time.current)
+      }
+
+      scope :upcoming, lambda {
+        where("start_time > ?", Time.current)
+          .where("end_time > ?", Time.current)
+      }
+
+      scope :finished, lambda {
+        where("start_time < ?", Time.current)
+          .where("end_time < ?", Time.current)
+      }
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter

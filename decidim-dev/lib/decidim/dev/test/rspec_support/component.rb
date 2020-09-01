@@ -72,7 +72,9 @@ module Decidim
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
+      include Decidim::TranslatableResource
 
+      translatable_fields :title
       searchable_fields(
         scope_id: { scope: :id },
         participatory_space: { component: :participatory_space },
@@ -243,7 +245,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.jsonb :translatable_text
-          t.string :title
+          t.jsonb :title
           t.string :body
           t.text :address
           t.float :latitude

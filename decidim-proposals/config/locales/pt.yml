@@ -7,6 +7,7 @@ pt:
         category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
+        scope_id: Âmbito
         state: Estado
         title: Título
         user_group_id: Criar rascunho colaborativo como
@@ -19,6 +20,7 @@ pt:
         category_id: Categoria
         decidim_scope_id: Âmbito
         has_address: Tem endereço
+        scope_id: Âmbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
@@ -77,23 +79,11 @@ pt:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propostas
-            'true': Modificações
+        proposals:
+          valuator_role_ids_has:
+            label: Atribuído a avaliador
         search_placeholder:
           id_string_or_title_cont: Pesquisar %{collection} por ID ou título.
-        state_eq:
-          values:
-            evaluating: Avaliando
-            withdrawn: Retirado
-        state_null:
-          label: Estado
-          values:
-            'true': Não respondido
-        valuator_role_ids_has:
-          label: Atribuído a avaliador
     components:
       proposals:
         actions:
@@ -638,15 +628,23 @@ pt:
         update:
           error: Ocorreu um problema ao guardar o rascunho colaborativo.
           success: Rascunho colaborativo atualizado corretamente.
+          title: Editar rascunho colaborativo
         wizard_aside:
           back: Retroceder
+          back_from_collaborative_draft: Retroceder para os rascunhos colaborativos
+          back_from_step_1: Retroceder para os rascunhos colaborativos
+          back_from_step_2: Retroceder para os rascunhos colaborativos
+          back_from_step_3: Retroceder para a comparação dos rascunhos colaborativos
+          back_from_step_4: Retroceder para a edição do rascunho
           info: Está a criar um <strong>projeto colaborativo</strong>.
         wizard_steps:
+          current_step: Passo atual
           see_steps: ver passos
           step_1: Criar o seu rascunho colaborativo
           step_2: Comparar com rascunhos colaborativos
           step_3: Concluir o seu rascunho colaborativo
           step_of: Passo %{current_step_num} de %{total_steps}
+          title: Passos para criação de rascunho colaborativo
       create:
         error: Ocorreu um problema ao guardar a proposta.
         success: Proposta criada corretamente. Guardado como Rascunho.
@@ -792,9 +790,12 @@ pt:
           read_more: Ler mais
           report: Relatório
           withdraw_btn_hint: Pode retirar a sua proposta se mudar de ideia, desde que não tenha recebido nenhum voto. A proposta não é eliminada, aparecerá na lista de propostas retiradas.
+          withdraw_confirmation_html: Tem a certeza de que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificada de <u>%{previous_name}</u> por um administrador)"
+        update:
+          title: Atualizar proposta
         vote_button:
           already_voted: Já votou
           already_voted_hover: Retirar voto
@@ -826,14 +827,20 @@ pt:
             votes: Votos
         wizard_aside:
           back: Retroceder
+          back_from_step_1: Retroceder para as propostas
+          back_from_step_2: Retroceder para as propostas
+          back_from_step_3: Retroceder à comparação de propostas
+          back_from_step_4: Retroceder para a edição do rascunho
           info: Está a criar uma <strong>proposta</strong>.
         wizard_steps:
+          current_step: Passo atual
           see_steps: ver passos
           step_1: Criar a sua proposta
           step_2: Comparar
           step_3: Concluir
           step_4: Publicar a sua proposta
           step_of: Passo %{current_step_num} de %{total_steps}
+          title: Passos para criação de proposta
       proposals_picker:
         choose_proposals: Escolher propostas
         close: Fechar

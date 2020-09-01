@@ -108,6 +108,10 @@ hu:
         create:
           error: Hiba történt a gyűlés duplikációja során.
           success: Gyűlés duplikációja sikeres.
+      assemblies_settings:
+        update:
+          error: Probléma történt a beállítások frissítése során.
+          success: Beállítások sikeresen frissítve.
       assemblies_types:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
@@ -176,6 +180,7 @@ hu:
           success: Gyűlés adminjának frissítése sikeres.
       menu:
         assemblies: Gyűlések
+        assemblies_settings: Beállítások
         assemblies_submenu:
           assembly_admins: Gyűlés adminjai
           assembly_members: Tagok
@@ -237,6 +242,8 @@ hu:
         create: "%{user_name} létrehozta a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
         delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésből"
         update: "%{user_name} frissítette a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlésben"
+      assembly_setting:
+        update: "%{user_name} frissítette a gyűlések beállításait"
       assembly_type:
         create: "%{user_name} létrehozta a(z) %{resource_name} gyűlés típust"
         delete: "%{user_name} törölte a(z) %{resource_name} nevű tagot a(z) %{space_name} gyűlés típusból"
@@ -266,6 +273,11 @@ hu:
             social_handlers: Social
             title: Általános információ
             visbility: Láthatóság
+        assemblies_settings:
+          edit:
+            update: Frissítés
+          form:
+            title: Gyűlések beállításai
         assemblies_types:
           form:
             title: Cím
@@ -418,6 +430,8 @@ hu:
         home:
           highlighted_processes:
             processes_button_title: Link a folyamatok oldalra, ahol az összes folyamat látható
+      show:
+        related_assemblies: Kapcsolódó gyűlések
   errors:
     messages:
       cannot_be_blank: nem lehet üres

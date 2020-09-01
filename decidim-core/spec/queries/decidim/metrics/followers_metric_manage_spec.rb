@@ -20,6 +20,8 @@ describe Decidim::Metrics::FollowersMetricManage do
     q
   end
 
+  include_context "when managing metrics"
+
   context "when executing" do
     context "without data" do
       it "does not create any record" do
@@ -66,9 +68,4 @@ describe Decidim::Metrics::FollowersMetricManage do
       end
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
 end

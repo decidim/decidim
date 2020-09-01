@@ -617,11 +617,15 @@ ja:
         edit:
           update: 更新
         form:
+          colors:
+            colors_title: 組織の色
+            header_snippets_help: HTML head 内にコードを追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理用セクションでは表示されないことに注意してください。
           cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
           images:
+            layout_appearance_title: レイアウトを編集
             preview: プレビュー
           omnipresent_banner_appearance_title: Edit omnipresent banner
       organization_homepage:

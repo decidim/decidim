@@ -12,7 +12,7 @@ module Decidim
       include Paginable
       include Flaggable
 
-      helper_method :debates, :debate, :paginated_debates, :report_form
+      helper_method :debates, :debate, :paginated_debates, :report_form, :close_debate_form
 
       def new
         enforce_permission_to :create, :debate
@@ -67,6 +67,25 @@ module Decidim
         end
       end
 
+      def close
+        enforce_permission_to :close, :debate, debate: debate
+
+        @form = form(CloseDebateForm).from_params(params)
+        @form.debate = debate
+
+        CloseDebate.call(@form) do
+          on(:ok) do |debate|
+            flash[:notice] = I18n.t("debates.close.success", scope: "decidim.debates")
+            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("debates.close.invalid", scope: "decidim.debates")
+            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+          end
+        end
+      end
+
       private
 
       def paginated_debates
@@ -83,6 +102,10 @@ module Decidim
 
       def report_form
         @report_form ||= form(Decidim::ReportForm).from_params(reason: "spam")
+      end
+
+      def close_debate_form
+        @close_debate_form ||= form(CloseDebateForm).from_model(debate)
       end
 
       def search_klass

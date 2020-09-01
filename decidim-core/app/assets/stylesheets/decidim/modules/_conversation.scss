@@ -67,6 +67,12 @@
   }
 }
 
+.conversations{
+  .card--list__item{
+    align-items: stretch;
+  }
+}
+
 .conversation-groups{
   .title-action{
     margin-bottom: .8rem;

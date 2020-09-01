@@ -4,6 +4,10 @@ module Decidim
   # Area types allows to use different types of areas in participatory space
   # (terriotrial, sectorial, etc.)
   class AreaType < ApplicationRecord
+    include Decidim::TranslatableResource
+
+    translatable_fields :name, :plural
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization",

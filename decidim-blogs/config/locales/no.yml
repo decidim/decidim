@@ -62,6 +62,7 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert

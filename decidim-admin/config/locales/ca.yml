@@ -62,6 +62,9 @@ ca:
         highlighted_content_banner_title: Títol
         instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
+        machine_translation_display_priority: Prioritat al mostrar les traduccions automàtiques
+        machine_translation_display_priority_original: Text original primer
+        machine_translation_display_priority_translation: Text traduït primer
         name: Nom
         official_img_footer: Logotip oficial al peu de pàgina
         official_img_header: Logotip oficial a la capçalera

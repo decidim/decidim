@@ -11,7 +11,7 @@ module Decidim
     describe DebateType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:model) { create(:debate) }
+      let(:model) { create(:debate, :open_ama) }
 
       include_examples "categorizable interface"
       include_examples "authorable interface"

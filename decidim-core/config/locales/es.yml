@@ -1213,6 +1213,10 @@ es:
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
+      show_original: Mostrar el texto original
+      show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
         no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.

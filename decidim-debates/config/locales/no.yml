@@ -12,6 +12,7 @@
         title: Tittel
         user_group_id: Opprett innspillstråd som
     models:
+      decidim/debates/close_debate_event: Innspillstråden er stengt
       decidim/debates/create_debate_event: Innspillstråd
       decidim/debates/creation_disabled_event: Innspillstråder deaktivert
       decidim/debates/creation_enabled_event: Innspillstråder aktivert
@@ -37,12 +38,17 @@
             creation_enabled: Innspill fra deltakere aktivert
     debates:
       actions:
+        close: Lukk
         confirm_destroy: Er du sikker?
         destroy: Slett
         edit: Rediger
         new: Ny %{name}
         title: Handling
       admin:
+        debate_closes:
+          edit:
+            close: Lukk
+            title: Lukk innspillstråd
         debates:
           create:
             invalid: Det oppstod et problem med å opprette innspillstråden.
@@ -65,9 +71,18 @@
             name: Innspillstråd
       admin_log:
         debate:
+          close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"
           create: "%{user_name} opprettet tråden %{resource_name} under området %{space_name}"
           update: "%{user_name} oppdaterte tråden %{resource_name} under området %{space_name}"
       debates:
+        close:
+          invalid: Det oppstod et problem med å stenge innspillstråden.
+          success: Innspillstråden ble avsluttet.
+        close_debate_modal:
+          close: Lukk
+          description: Hva er oppsummeringen fra denne innspillstråden?
+          send: Lukk innspillstråd
+        closed: Avsluttet
         count:
           debates_count:
             one: "%{count} innspillstråd"
@@ -104,6 +119,11 @@
           title: Ny innspillstråd
         show:
           back: Tilbake til liste
+          close_debate: Avslutt innspillstråd
+          date: Dato
+          debate_closed: Lukket
+          debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
+          edit_conclusions: Rediger oppsummering
           edit_debate: Rediger innspillstråd
         update:
           invalid: Det oppsto et problem med å oppdatere innspillstråden.
@@ -151,6 +171,11 @@
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den vedlagte lenken.
           email_subject: Innspillstråder nå tilgjengelig i %{participatory_space_title}
           notification_title: Du kan nå starte <a href="%{resource_path}">nye innspillstråder</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Innspillstråden %{resource_title} er avsluttet. Du kan lese oppsummeringen på denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger innspillstråden "%{resource_title}". Du kan slutte å følge den ved å trykke på linken over.
+          email_subject: Innspillstråden %{resource_title} er avsluttet
+          notification_title: Innspillstråden <a href="%{resource_path}">%{resource_title}</a> er avsluttet.
     gamification:
       badges:
         commented_debates:

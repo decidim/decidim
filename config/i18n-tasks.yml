@@ -157,6 +157,8 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
+  - decidim.elections.orders.*
+  - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -256,6 +258,8 @@ ignore_unused:
   - layouts.decidim.participatory_processes.participatory_process.take_part_in
   - decidim.debates.debates.versions.*
   - decidim.debates.debates.versions_list.*
+  - decidim.debates.debates.show.edit_conclusions
+  - activemodel.attributes.organization.machine_translation_display_priority_*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

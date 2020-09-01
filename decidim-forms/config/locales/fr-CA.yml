@@ -42,10 +42,30 @@ fr-CA:
             export:
               answer:
                 title: 'Réponse n°%{number}'
+            export_response:
+              title: réponses_utilisateur_sondage_%{token}
             index:
               title: "%{total} réponses totales"
             show:
               title: 'Réponse n°%{number}'
+          display_condition:
+            answer_option: Option de réponse
+            condition_question: Question
+            condition_type: Condition
+            condition_types:
+              answered: Répondu
+              equal: Égale
+              match: Inclus le texte
+              not_answered: Pas de réponse
+              not_equal: Pas égal à
+            condition_value: Texte inclus
+            display_condition: Condition d'affichage
+            mandatory: Cette condition doit toujours être satisfaite indépendamment du statut des autres conditions
+            remove: Retirer
+            save_warning: N'oubliez pas d'enregistrer le formulaire avant de configurer les conditions d'affichage
+            select_answer_option: Sélectionnez l'option de réponse
+            select_condition_question: Sélectionnez une question
+            select_condition_type: Sélectionnez un type de condition
           edit:
             save: sauvegarder
             title: Modifier le questionnaire
@@ -55,12 +75,17 @@ fr-CA:
             already_answered_warning: Certains utilisateurs ont déjà répondu au questionnaire, vous ne pouvez donc pas modifier ses questions.
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
+            preview: Aperçu
+            title: Modifier le formulaire
+            unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne
             remove: Retirer
             statement: Déclaration
           question:
             add_answer_option: Ajouter une option de réponse
+            add_display_condition: Ajouter une condition d'affichage
+            add_display_condition_info: Enregistrer le formulaire pour configurer les conditions d'affichage
             add_matrix_row: Ajouter une ligne
             any: Tout
             collapse: Réduire
@@ -120,6 +145,11 @@ fr-CA:
           questionnaire_for_private_users:
             body: Le questionnaire est disponible uniquement pour les utilisateurs privés
             title: Questionnaire fermé
+          questionnaire_js_disabled:
+            body: Certaines des fonctionnalités de ce formulaire seront désactivées. Pour améliorer votre expérience, veuillez activer JavaScript dans votre navigateur.
+            title: JavaScript est désactivé
+          questionnaire_not_published:
+            body: Ce formulaire n'est pas encore publié.
           tos_agreement: En participant, vous acceptez ses conditions d'utilisation
       step_navigation:
         show:
@@ -129,6 +159,7 @@ fr-CA:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
+        completion: Achèvement
         created_at: Répondu le
         id: ID de réponse
         ip_hash: Hachage IP

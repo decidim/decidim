@@ -79,23 +79,33 @@ es:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propuestas
-            'true': Enmiendas
+        proposals:
+          category_id_eq:
+            label: Categoría
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propuestas
+              'true': Enmiendas
+          scope_id_eq:
+            label: Ámbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceptadas
+              evaluating: En evaluación
+              published: Publicadas
+              rejected: Rechazadas
+              validating: Validación técnica
+              withdrawn: Retiradas
+          state_null:
+            label: Estado
+            values:
+              'true': No contestadas
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
-        state_eq:
-          values:
-            evaluating: En evaluación
-            withdrawn: Retirada
-        state_null:
-          label: Estado
-          values:
-            'true': No contestada
-        valuator_role_ids_has:
-          label: Asignada a evaluadora
     components:
       proposals:
         actions:

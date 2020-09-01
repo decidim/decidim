@@ -8,6 +8,7 @@
 <%= render "layouts/decidim/application" do %>
   <%= render partial: "layouts/decidim/conference_hero" %>
   <%= render partial: "layouts/decidim/conferences_nav" %>
+  <%= cell "decidim/translation_bar", current_organization %>
   <div class="wrapper">
     <%= yield %>
   </div>

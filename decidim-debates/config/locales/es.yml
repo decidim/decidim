@@ -3,6 +3,8 @@ es:
     attributes:
       debate:
         category_id: Categoría
+        closed_at: Terminado el
+        conclusions: Conclusiones
         decidim_category_id: Categoría
         description: Descripción
         end_time: Fecha de finalización
@@ -12,6 +14,7 @@ es:
         title: Título
         user_group_id: Crea un debate como
     models:
+      decidim/debates/close_debate_event: Debate cerrado
       decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates deshabilitados
       decidim/debates/creation_enabled_event: Debates habilitados
@@ -37,12 +40,17 @@ es:
             creation_enabled: Creación de debates por parte de las participantes habilitada
     debates:
       actions:
+        close: Cerrar
         confirm_destroy: '¿Estás segura?'
         destroy: Elimina
         edit: Editar
         new: Nuevo %{name}
         title: Acciones
       admin:
+        debate_closes:
+          edit:
+            close: Cerrar
+            title: Cerrar debate
         debates:
           create:
             invalid: Se ha producido un error al crear el debate.
@@ -65,9 +73,18 @@ es:
             name: Debate
       admin_log:
         debate:
+          close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           create: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           update: "La participante %{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}"
       debates:
+        close:
+          invalid: Se ha producido un error al cerrar el debate.
+          success: Debate cerrado correctamente.
+        close_debate_modal:
+          close: Cerrar
+          description: '¿Cuál es el resumen o la conclusión de este debate?'
+          send: Cerrar debate
+        closed: Cerrado
         count:
           debates_count:
             one: "%{count} debate"
@@ -104,7 +121,11 @@ es:
           title: Nuevo debate
         show:
           back: Volver al listado
+          close_debate: Cerrar debate
           date: Fecha
+          debate_closed: Cerrado
+          debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
+          edit_conclusions: Editar conclusiones
           edit_debate: Editar debate
         update:
           invalid: Se ha producido un error al actualizar este debate.
@@ -152,6 +173,11 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Los debates ya estan disponibles en %{participatory_space_title}
           notification_title: Ya puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_outro: Ha recibido esta notificación porque usted sigue el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Se ha cerrado el debate "%{resource_title}"
+          notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> ha sido cerrado.
     gamification:
       badges:
         commented_debates:

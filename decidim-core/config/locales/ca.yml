@@ -1213,6 +1213,10 @@ ca:
     tags:
       filter_results_for_category: 'Resultats al filtrar per al categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
+      show_original: Mostra el text original
+      show_translated: Mostra el text de la traducció automàtica
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.

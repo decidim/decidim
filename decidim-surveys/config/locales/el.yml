@@ -1,1 +1,59 @@
 el:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Η έρευνα έληξε
+      decidim/surveys/opened_survey_event: Η έρευνα ξεκίνησε
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Έρευνα
+        other: Έρευνες
+      decidim/surveys/survey_answer:
+        one: Απάντηση
+        other: Απαντήσεις
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Απάντηση
+        name: Έρευνα
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            allow_answers: Να επιτρέπονται απαντήσεις
+            allow_unregistered: Να επιτρέπεται σε μη εγγεγραμμένους χρήστες να απαντήσουν στην έρευνα
+            allow_unregistered_help: Εάν είναι ενεργή, δεν απαιτείται σύνδεση για απάντηση στην έρευνα. Αυτό μπορεί να οδηγήσει σε κακής ποιότητας ή αναξιόπιστα δεδομένα και θα είναι πιο ευάλωτη σε αυτοματοποιημένες επιθέσεις. Χρησιμοποιήστε την με προσοχή!
+            announcement: Ανακοίνωση
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Η έρευνα %{resource_title} στον χώρο συμμετοχής %{participatory_space_title} έκλεισε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια έρευνα ολοκληρώθηκε στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η έρευνα <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> ολοκληρώθηκε.
+        survey_opened:
+          email_intro: 'Η έρευνα %{resource_title} στον χώρο συμμετοχής %{participatory_space_title} είναι τώρα ανοιχτή. Μπορείτε να συμμετάσχετε σε αυτήν από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια νέα έρευνα στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η έρευνα <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> είναι τώρα ανοιχτή.
+    metrics:
+      survey_answers:
+        description: Αριθμός ερευνών που απαντήθηκαν από συμμετέχοντες
+        object: απαντήσεις σε έρευνες
+        title: Απαντήσεις σε έρευνες
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Απαντήσεις συμμετεχόντων στην έρευνα
+        surveys:
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της έρευνας.
+            success: Η έρευνα αποθηκεύτηκε με επιτυχία.
+      last_activity:
+        new_survey_at_html: "<span>Νέα έρευνα σε %{link}</span>"
+      surveys:
+        answer:
+          invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση στην έρευνα.
+          spam_detected: Υπήρξε ένα πρόβλημα κατά την απάντηση της φόρμας. Ίσως απαντήσατε πολύ γρήγορα, μπορείτε να δοκιμάσετε ξανά;
+          success: Η έρευνα απαντήθηκε με επιτυχία.

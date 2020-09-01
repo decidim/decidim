@@ -38,7 +38,7 @@ describe "Registration", type: :system do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: true)
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: :visible)
       expect(page).to have_current_path decidim.new_user_registration_path
     end
 
@@ -48,7 +48,7 @@ describe "Registration", type: :system do
       end
       click_button "Check and continue"
       expect(page).to have_current_path decidim.new_user_registration_path
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       expect(page).to have_field("registration_user_newsletter", checked: true)
     end
 
@@ -57,7 +57,7 @@ describe "Registration", type: :system do
         find("*[type=submit]").click
       end
       click_button "Keep uncheck"
-      expect(page).to have_css("#sign-up-newsletter-modal", visible: false)
+      expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       fill_registration_form
       within "form.new_user" do
         find("*[type=submit]").click

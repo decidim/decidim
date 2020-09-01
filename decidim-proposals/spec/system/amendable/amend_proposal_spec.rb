@@ -220,7 +220,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the login modal" do
-            expect(page).to have_css("#loginModal", visible: true)
+            expect(page).to have_css("#loginModal", visible: :visible)
           end
         end
 
@@ -235,11 +235,11 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the amendment create form" do
-            expect(page).to have_css(".new_amendment", visible: true)
+            expect(page).to have_css(".new_amendment", visible: :visible)
             expect(page).to have_content("Create your amendment")
-            expect(page).to have_css(".field", text: "Title", visible: true)
-            expect(page).to have_css(".field", text: "Body", visible: true)
-            expect(page).to have_css(".field", text: "Amendment author", visible: true)
+            expect(page).to have_css(".field", text: "Title", visible: :visible)
+            expect(page).to have_css(".field", text: "Body", visible: :visible)
+            expect(page).to have_css(".field", text: "Amendment author", visible: :visible)
             expect(page).to have_button("Create")
           end
 

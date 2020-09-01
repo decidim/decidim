@@ -1,0 +1,887 @@
+ja:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: 住所
+        body: 本文
+        category_id: カテゴリ
+        decidim_scope_id: スコープ
+        has_address: 住所有り
+        scope_id: 対象範囲
+        state: 都道府県：
+        title: タイトル
+        user_group_id: 以下として共同ドラフトを作成します。
+      proposal:
+        address: 住所
+        answer: 回答
+        answered_at: 回答日時
+        automatic_hashtags: ハッシュタグが自動的に追加されました
+        body: 本文
+        category_id: カテゴリ
+        decidim_scope_id: スコープ
+        has_address: 住所有り
+        scope_id: 対象範囲
+        state: 都道府県：
+        suggested_hashtags: 推奨ハッシュタグ
+        title: タイトル
+        user_group_id: 次のように提案を作成
+      proposal_answer:
+        answer: 回答
+      proposals_copy:
+        copy_proposals: 選択したコンポーネントからのすべての提案を現在のものにインポートし、このアクションを元に戻すことができないことを理解しています。
+        origin_component_id: 提案をコピーするコンポーネント
+      proposals_import:
+        import_proposals: 提案をインポート
+        keep_authors: オリジナルの作者を保持
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: バリュエーター名
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 再接続が必要
+            body:
+              cant_be_equal_to_template: はテンプレートと等しくすることはできません
+              identical: ANDタイトルは同一にすることはできません
+            title:
+              identical: AND本体は同一にすることはできません
+    models:
+      decidim/proposals/accepted_proposal_event: 提案が承認されました
+      decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
+      decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
+      decidim/proposals/creation_enabled_event: 提案の作成は有効です
+      decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
+      decidim/proposals/evaluating_proposal_event: 提案を評価しています
+      decidim/proposals/proposal_mentioned_event: 提案について述べました
+      decidim/proposals/publish_proposal_event: 提案が公開
+      decidim/proposals/rejected_proposal_event: 提案が却下されました
+      decidim/proposals/voting_enabled_event: 提案投票を有効にしました
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        other: 共同草案
+      decidim/proposals/proposal:
+        other: 提案
+      decidim/proposals/proposal_note:
+        other: メモ
+      decidim/proposals/proposal_vote:
+        other: サポート
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: カテゴリ
+          is_emendation_true:
+            label: タイプ
+            values:
+              'false': 提案
+              'true': 修正
+          scope_id_eq:
+            label: 対象範囲
+          state_eq:
+            label: 州(県)
+            values:
+              accepted: 受理
+              evaluating: 評価
+              published: 公開済
+              rejected: 却下済み
+              validating: 技術的検証
+              withdrawn: 撤回
+          state_null:
+            label: 州(県)
+            values:
+              'true': 回答なし
+          valuator_role_ids_has:
+            label: 評価者にアサインされました
+        search_placeholder:
+          id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
+    components:
+      proposals:
+        actions:
+          amend: 修正
+          create: 作成
+          endorse: 承認する
+          vote: サポート
+          withdraw: 出金する
+        name: 提案
+        settings:
+          global:
+            allow_card_image: カードの画像を許可
+            amendments_enabled: 修正は有効になっています
+            amendments_enabled_help: アクティブな場合、各ステップに修正機能を設定します。
+            amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
+            announcement: お知らせ
+            attachments_allowed: 添付ファイルを許可
+            can_accumulate_supports_beyond_threshold: 閾値を超えてサポートを蓄積できます。
+            collaborative_drafts_enabled: 共同作業の下書きを有効にする
+            comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            geocoding_enabled: ジオコーディングを有効にする
+            minimum_votes_per_user: ユーザーあたりの最小サポート数
+            new_proposal_body_template: 新しい提案本文テンプレート
+            new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
+            new_proposal_help_text: 新しい提案ヘルプテキスト
+            official_proposals_enabled: 役職の提案は有効になっています
+            participatory_texts_enabled: 参加者のテキストは有効です
+            participatory_texts_enabled_readonly: 既存の提案がある場合は、この設定は操作できません。 この機能を有効にする場合は、新しい `提案 コンポーネント` を作成し、もし無効にしたい場合はインポートされたすべての提案を `参加型 テキスト` メニューから破棄してください。
+            proposal_answering_enabled: 提案の回答を有効にする
+            proposal_edit_before_minutes: 提案は、この多くの分が経過する前に著者によって編集することができます
+            proposal_length: 提案本文の最大長
+            proposal_limit: 参加者ごとの提案制限
+            proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
+            proposal_wizard_step_2_help_text: 提案ウィザード "比較" ステップヘルプテキスト
+            proposal_wizard_step_3_help_text: 提案ウィザード「完了」ステップヘルプテキスト
+            proposal_wizard_step_4_help_text: 提案ウィザード "公開" ステップヘルプ テキスト
+            resources_permissions_enabled: アクションの権限は提案ごとに設定できます
+            threshold_per_proposal: 提案ごとのしきい値
+            vote_limit: 参加者ごとのサポート制限
+          step:
+            amendment_creation_enabled: 修正の作成は有効です
+            amendment_creation_enabled_help: 参加者は提案を修正できます。
+            amendment_promotion_enabled: 修正プロモーションが有効になっています
+            amendment_promotion_enabled_help: エミッションの著者は、拒否されたエンペンションの提案を促進することができます。
+            amendment_reaction_enabled: 修正反応は有効です
+            amendment_reaction_enabled_help: 提案の著者は、参加者の承諾または拒否することができます。
+            amendments_visibility: 修正の表示
+            amendments_visibility_choices:
+              all: 修正内容はすべてに表示されます
+              participants: 修正内容は著者にのみ表示されます
+            amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
+            announcement: お知らせ
+            answers_with_costs: 提案の回答時にコストを有効にする
+            automatic_hashtags: すべての提案にハッシュタグを追加しました
+            comments_blocked: コメントがブロックされました
+            creation_enabled: 提案の作成は有効です
+            endorsements_blocked: エンドースメントがブロックされました
+            endorsements_enabled: エンドースメントを有効にする
+            proposal_answering_enabled: 提案の回答を有効にする
+            publish_answers_immediately: 提案の回答をすぐに公開
+            suggested_hashtags: 新しい提案のために参加者に提案したハッシュタグ
+            votes_blocked: ブロックされたサポート
+            votes_enabled: サポートは有効です
+            votes_hidden: サポート非表示（サポートが有効な場合、チェックを入れるとサポート数が非表示になります）
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: 誰かが提案 "%{resource_title}" にメモを残しました。 <a href="%{admin_proposal_info_url}">管理者パネル</a>で確認してください。
+            email_outro: 提案を評価できるため、この通知を受け取りました。
+            email_subject: 誰かが提案 %{resource_title} にメモを残しました。
+            notification_title: 誰かが提案 <a href="%{resource_path}">%{resource_title}</a>にメモを残しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトのコントリビューターとして承認されました。'
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
+          email_subject: "%{requester_name} は %{resource_title} の貢献者としてアクセスできるようになりました。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <strong>コントリビューターとして</strong> <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューターとしてアクセスできるようになりました。
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトのコントリビューターとしてアクセスするために拒否されました。'
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
+          email_subject: "%{requester_name} は、 %{resource_title} の共同ドラフトの貢献者としてアクセスするために拒否されました。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> が <strong>コントリビューターとしてアクセスを拒否されました <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューター</strong>
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトページからリクエストを承認または拒否できます。'
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
+          email_subject: "%{requester_name} が %{resource_title} に貢献するためにアクセスをリクエストしました。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトにアクセスをリクエストしました。 <strong>リクエストを承認または拒否してください</strong>。
+        collaborative_draft_access_requester_accepted:
+          email_intro: <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの投稿者としてアクセスすることを承認されました。
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
+          email_subject: '%{resource_title} の貢献者として承認されました。'
+          notification_title: あなたは <strong></strong> <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの貢献者としてアクセスすることを受け入れられました。
+        collaborative_draft_access_requester_rejected:
+          email_intro: <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの投稿者としてアクセスが拒否されました。
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
+          email_subject: '%{resource_title} の貢献者として拒否されました。'
+          notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトを撤回しました。
+          email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
+          email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同ドラフトを撤回しました。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が、共同草稿 <a href="%{resource_path}">%{resource_title}</a> を<strong>撤回しました。</strong>
+        creation_enabled:
+          email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} で現在利用可能な提案'
+          notification_title: <a href="%{resource_path}">新しい提案</a> を <a href="%{participatory_space_url}">%{participatory_space_title}</a>で提出できるようになりました。
+        endorsing_enabled:
+          email_intro: 'あなたは %{participatory_space_title}で提案を承認することができます! このページへの参加を開始します:'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} の推薦提案が開始されました'
+          notification_title: <a href="%{resource_path}">承認する提案</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> を開始することができます。
+        proposal_accepted:
+          affected_user:
+            email_intro: 'あなたの提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
+            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
+            email_subject: 提案が承認されました
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が承認されました。
+          follower:
+            email_intro: '提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
+            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
+            email_subject: あなたがフォローしている提案が受け入れられました
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が承認されました。
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'あなたの提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
+            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
+            email_subject: 提案が評価されています
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が評価されています。
+          follower:
+            email_intro: '提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
+            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
+            email_subject: あなたがフォローしている提案が評価されています
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が評価されています。
+        proposal_mentioned:
+          email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
+          email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
+          email_subject: あなたの提案 "%{mentioned_proposal_title}" がメンションされました
+          notification_title: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_path}">のコメント欄で</a> に言及されました。
+        proposal_published:
+          email_intro: 'あなたがフォローしている%{author_name} %{author_nickname}は、「%{resource_title}」という新しい提案を公開しました。チェックして貢献してください：'
+          email_outro: '%{author_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{resource_title}による新しい提案 " %{author_nickname}"'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって公表されました。
+        proposal_published_for_space:
+          email_intro: あなたがフォローしている提案「%{resource_title}」が「%{participatory_space_title}」に追加されました。
+          email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'
+          email_subject: 新しい提案 "%{resource_title}" が %{participatory_space_title} に追加されました
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> が %{participatory_space_title} に追加されました
+        proposal_rejected:
+          affected_user:
+            email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
+            email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
+            email_subject: 提案が拒否されました
+            notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が却下されました。
+          follower:
+            email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
+            email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
+            email_subject: あなたがフォローしている提案が拒否されました
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
+        proposal_update_category:
+          email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
+          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
+          email_subject: '%{resource_title} 提案カテゴリが更新されました'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案カテゴリは管理者によって更新されました。
+        proposal_update_scope:
+          email_intro: '管理者があなたの提案 "%{resource_title}" のスコープを更新しました。このページで確認してください：'
+          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
+          email_subject: '%{resource_title} の提案範囲が更新されました'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
+        voting_enabled:
+          email_intro: 'あなたは %{participatory_space_title}で提案をサポートすることができます! このページに参加してください:'
+          email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
+          email_subject: '%{participatory_space_title} の提案サポートが開始されました'
+          notification_title: <a href="%{resource_path}">supporting proposition</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - 提出物を有効にして、興味のある参加スペースを選択してください
+            - 実行することができます提案を行うようにしてください. この方法は、彼らが受け入れられる可能性が高い.
+          description: このバッジは、新しい提案に積極的に参加し、これらが承認された場合に付与されます。
+          description_another: この参加者は %{score} が提案を受け入れました。
+          description_own: '%{score} 件の提案が受け付けられました。'
+          name: 承認された提案
+          next_level_in: '%{score} 件以上の提案を受け入れて次のレベルに到達しましょう！'
+          unearned_another: この参加者はまだ提案を受け付けていません。
+          unearned_own: あなたはまだ提案を受け入れていません。
+        proposal_votes:
+          conditions:
+            - 閲覧し、他の人の提案を読んでいくつかの時間を過ごします
+            - あなたが好きな提案をサポートするか、興味深いものを見つけましょう
+          description: このバッジは、あなたが他の人の提案を支持するときに付与されます。
+          description_another: この参加者は %{score} の提案をサポートしています。
+          description_own: '%{score} の提案をサポートしました。'
+          name: 提案サポート
+          next_level_in: さらに %{score} の提案をサポートして次のレベルに到達しましょう！
+          unearned_another: この参加者はまだどの提案もサポートしていません。
+          unearned_own: まだ提案がありません。
+        proposals:
+          conditions:
+            - 提出物を有効にして、興味のある参加スペースを選択してください
+            - 新しい提案を作成
+          description: このバッジは、新しい提案に積極的に参加するときに付与されます。
+          description_another: この参加者は %{score} 件の提案を作成しました。
+          description_own: '%{score} 件の提案を作成しました。'
+          name: 提案
+          next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
+          unearned_another: この参加者はまだ提案を作成していません。
+          unearned_own: 提案はまだ作成されていません。
+    metrics:
+      accepted_proposals:
+        description: 提案数が承認されました
+        object: 提案
+        title: 承認された提案
+      endorsements:
+        description: 提案への承認数
+        object: 承認
+        title: 支持
+      proposals:
+        description: 提案数
+        object: 提案
+        title: 提案
+      votes:
+        description: 提案へのサポート数
+        object: サポート
+        title: サポート
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: 提案
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: すべての提案を見る (%{count})
+    proposals:
+      actions:
+        answer_proposal: 提案に回答
+        edit_proposal: 提案を編集
+        import: 別のコンポーネントからインポート
+        new: 新しい提案
+        participatory_texts: 参加するテキスト
+        show: 提案を表示
+        title: アクション
+      admin:
+        actions:
+          preview: プレビュー
+        exports:
+          comments: コメント
+          proposals: 提案
+        models:
+          proposal:
+            name: 提案
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: 参加テキストの下書き全体を破棄してもよろしいですか？
+            discard_all: すべて破棄
+            import_doc: ドキュメントをインポート
+          discard:
+            success: 参加型テキストの下書きはすべて破棄されました。
+          import:
+            invalid: フォームが無効です！
+            invalid_file: ファイルにエラーが含まれています。ファイルの内容を編集して再度アップロードしてください。
+            success: おめでとうございます。次のセクションが提案に変換されました。公開する前に確認して調整できます。
+          index:
+            info_1: 次のセクションが提案に変換されました。公開する前に確認して調整できます。
+            publish_document: 文書を公開
+            save_draft: 下書きを保存
+            title: 参加者のテキストをプレビュー
+          new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: Odt
+            bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
+            document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案に解析されます。提案書式は次のとおりです: %{valid_mime_types}'
+            title: ドキュメントを追加
+            upload_document: ドキュメントをアップロード
+          publish:
+            invalid: 提案を公開できませんでした
+            success: すべての提案が公開されました
+          sections:
+            article: "<em>記事</em>"
+            section: "<em>セクション:</em> <strong>%{title}</strong>"
+            sub-section: "<em>サブセクション:</em> %{title}"
+          update:
+            success: 参加者のテキストを更新しました。
+        proposal_answers:
+          form:
+            accepted: 承認済み
+            answer_proposal: 回答
+            evaluating: 評価
+            rejected: 拒否
+            title: 提案 %{title} の回答
+        proposal_notes:
+          create:
+            error: この提案ノートの作成中に問題が発生しました
+            success: 提案メモを作成しました
+          form:
+            note: メモ
+            submit: 送信
+          leave_your_note: メモを残してください
+          title: プライベートノート
+        proposals:
+          answer:
+            invalid: この提案に回答中に問題が発生しました
+            success: 提案が正常に回答しました
+          create:
+            invalid: この提案を作成中に問題が発生しました
+            success: 提案が正常に作成されました
+          edit:
+            title: 提案を更新
+            update: 更新
+          form:
+            attachment_legend: "(オプション) 添付ファイルを追加"
+            created_in_meeting: この提案は会議から来ています
+            select_a_category: カテゴリを選択
+            select_a_meeting: ミーティングを選択
+          index:
+            actions: アクション
+            assign_to_valuator: 評価者に割り当てる
+            assign_to_valuator_button: 割り当て
+            cancel: キャンセル
+            change_category: カテゴリの変更
+            change_scope: スコープの変更
+            merge: 新しいものにマージ
+            merge_button: 結合
+            publish: 公開
+            publish_answers: 回答を公開
+            select_component: コンポーネントを選択
+            selected: 選択済み
+            split: 提案を分割
+            split_button: 分割
+            title: 提案
+            unassign_from_valuator: 評価者からの割り当てを解除
+            unassign_from_valuator_button: アサインを解除
+            update: 更新
+            update_scope_button: スコープの更新
+          new:
+            create: 作成
+            title: 提案を作成
+          publish_answers:
+            number_of_proposals: '%{number} の提案の回答が公開されます。'
+            select_a_proposal: 提案を選択してください
+          show:
+            amendments_count: 修正数
+            assigned_valuators: 割り当てられた評価者
+            authors: 著者
+            body: 本文
+            comments_count: コメント数
+            comments_negative_count: 反対
+            comments_neutral_count: ニュートラル
+            comments_positive_count: お気に入り
+            created_at: 作成日
+            documents: ドキュメント
+            endorsements_count: エンドースメント数
+            endorsements_ranking: 承認によるランキング
+            endorsers: Endorsers
+            link: リンク
+            n_more_endorsers:
+              other: 他 %{count} 名
+            photos: 写真
+            proposals: 提案
+            ranking: "%{ranking} / %{total}"
+            related_meetings: 関連するミーティング
+            remove_assignment: 課題を削除
+            remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
+            valuators: Valuators
+            votes_count: サポート数
+            votes_ranking: サポートによるランキング
+          update_category:
+            invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
+            select_a_category: カテゴリを選択してください
+            select_a_proposal: 提案を選択してください
+            success: '%{subject_name} カテゴリ: %{proposals} に提案を更新しました。'
+          update_scope:
+            invalid: 'これらの提案は既に %{subject_name} スコープを持っています: %{proposals}。'
+            select_a_proposal: 提案を選択してください
+            select_a_scope: スコープを選択してください
+            success: '提案が %{subject_name} スコープ: %{proposals} に更新されました。'
+        proposals_imports:
+          create:
+            invalid: 提案のインポート中に問題が発生しました
+            success: "%{number} の提案が正常にインポートされました"
+          new:
+            create: 提案をインポート
+            no_components: この参加スペースには他の提案コンポーネントはありません。
+            select_component: コンポーネントを選択してください
+            select_states: インポートする提案のステータスを確認してください
+        proposals_merges:
+          create:
+            invalid: 選択した提案をマージする際に問題が発生しました。
+            success: 提案を正常に新しいものにマージしました。
+        proposals_splits:
+          create:
+            invalid: 選択した提案を分割する際に問題が発生しました。
+            success: 提案を新しいものに分割しました。
+        valuation_assignments:
+          create:
+            invalid: バリュエーターに提案を割り当てる際にエラーが発生しました
+            success: 評価者に割り当てられた提案
+          delete:
+            invalid: バリュエーターからの提案の割り当てを解除中にエラーが発生しました
+            success: プロポーザルから正常に割り当てられていません
+      admin_log:
+        proposal:
+          answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
+          create: "%{user_name} が公式提案として %{resource_name} スペースに %{space_name} 提案を作成しました"
+          publish_answer: "%{user_name} が %{resource_name} の提案に対する回答を %{space_name} スペースに公開しました"
+          update: "%{user_name} が %{resource_name} スペースの %{space_name} 公式提案を更新しました"
+        proposal_note:
+          create: "%{user_name} が %{resource_name} スペースに %{space_name} 提案にプライベートノートを残しました"
+        valuation_assignment:
+          create: "%{user_name} は、評価者に %{resource_name} の提案を割り当てました"
+          delete: "%{user_name} が %{proposal_title} の提案から評価者を解除しました"
+      answers:
+        accepted: 承認済み
+        evaluating: 評価
+        not_answered: 応答がありません
+        rejected: 拒否
+        withdrawn: 引き落し
+      application_helper:
+        filter_category_values:
+          all: すべて
+        filter_origin_values:
+          all: すべて
+          citizens: Citizens
+          meetings: ミーティング
+          official: オフィシャル
+          user_groups: グループ
+        filter_scope_values:
+          all: すべて
+        filter_state_values:
+          accepted: 承認済み
+          all: すべて
+          evaluating: 評価
+          not_answered: 応答がありません
+          rejected: 拒否
+        filter_type_values:
+          all: すべて
+          amendments: 修正
+          proposals: 提案
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: 共同作業のドラフトを公開する際に問題が発生しました。
+            irreversible_action_modal:
+              body: 提案としてドラフトを公開した後、ドラフトは編集できなくなります。提案は新しい著者や貢献者を受け入れません。
+              cancel: キャンセル
+              ok: 提案として公開
+              title: 次のアクションは取り消せません
+            success: 共同ドラフトは提案として正常に公開されました。
+          view_collaborative_draft: 共同作業のドラフトを表示
+          withdraw:
+            error: 共同作業のドラフトを閉じる際に問題が発生しました。
+            irreversible_action_modal:
+              body: ドラフトを閉じた後、ドラフトは編集できなくなります。ドラフトは新しい投稿者や投稿を受け入れません。
+              cancel: キャンセル
+              ok: 共同作業の下書きを撤回する
+              title: 次のアクションは取り消せません
+            success: 共同ドラフトは正常に撤回されました。
+        compare:
+          mine_is_different: 私の共同作業の下書きは違います
+          no_similars_found: よくできました！似たような共同作業の下書きが見つかりませんでした
+          title: 似たような共同の下書きです
+        complete:
+          send: 送信
+          title: 共同作業の下書きを完成させましょう
+        count:
+          drafts_count:
+            other: "%{count} 件の共同の下書きです"
+        create:
+          error: 共同作業の下書き作成中に問題が発生しました
+          success: 共同作業の下書きを作成しました。
+        edit:
+          attachment_legend: "(オプション) 添付ファイルを追加"
+          back: 戻る
+          select_a_category: カテゴリを選択してください
+          send: 送信
+          title: 共同作業の下書きを編集
+        filters:
+          all: すべて
+          amendment: 修正
+          category: カテゴリ
+          open: 開く
+          published: 公開済み
+          related_to: 関連
+          scope: スコープ
+          search: 検索
+          state: ステータス
+          withdrawn: 引き落し
+        filters_small_view:
+          close_modal: モーダルを閉じる
+          filter: フィルター
+          filter_by: フィルター
+          unfold: 展開する
+        new:
+          send: 続ける
+          title: 共同作業の下書きを作成する
+        new_collaborative_draft_button:
+          new_collaborative_draft: 新しい共同作業の下書きを作成
+        orders:
+          label: '下書きの注文:'
+          most_contributed: 最も貢献したもの
+          random: Random
+          recent: 最近のもの
+        requests:
+          accepted_request:
+            error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
+            success: "@%{user} は共同作業者として正常に承認されました"
+          access_requested:
+            error: リクエストを完了できませんでした。後でもう一度お試しください。
+            success: 共同作業のリクエストが正常に送信されました
+          collaboration_requests:
+            accept_request: 同意する
+            reject_request: 拒否
+            title: コラボレーションリクエスト
+          rejected_request:
+            error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
+            success: "@%{user} は共同作業者として正常に拒否されました"
+        show:
+          back: 戻る
+          edit: 共同作業の下書きを編集
+          final_proposal: 最終的な提案
+          final_proposal_help_text: このドラフトは終了しました。最終提案を確認してください。
+          hidden_authors_count:
+            other: '%{count} 人以上'
+          info-message: これは提案のための <strong>共同ドラフト</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、このドラフトを変更することができます。
+          publish: 公開
+          publish_info: このバージョンの下書きを公開するか、
+          published_proposal: 公開された提案
+          request_access: アクセスを要求する
+          requested_access: アクセスがリクエストされました
+          version_history: この提案のバージョン履歴を見る
+          withdraw: ドラフトを撤回する
+        states:
+          open: 開く
+          published: 公開済み
+          withdrawn: 引き落し
+        update:
+          error: 共同作業のドラフトを保存する際に問題が発生しました。
+          success: 共同作業の下書きが正常に更新されました。
+          title: 共同草案の下書きを編集
+        wizard_aside:
+          back: 戻る
+          back_from_collaborative_draft: 共同草案に戻る
+          back_from_step_1: 共同草案に戻る
+          back_from_step_2: 共同草案に戻る
+          back_from_step_3: 共同草案の比較に戻る
+          back_from_step_4: 下書き編集に戻る
+          info: <strong>共同ドラフト</strong>を作成しています。
+        wizard_steps:
+          current_step: 現在のステップ
+          see_steps: 手順を見る
+          step_1: 共同作業の下書きを作成する
+          step_2: 共同作業の下書きと比較
+          step_3: 共同作業の下書きを完成させましょう
+          step_of: '%{current_step_num} / %{total_steps}'
+          title: 共同草稿作成手順
+      create:
+        error: 提案を保存する際に問題がありました。
+        success: 提案は正常に作成されました。ドラフトとして保存されました。
+      destroy_draft:
+        error: 共同作業のドラフトを削除する際に問題が発生しました。
+        success: 提案の下書きは正常に削除されました。
+      last_activity:
+        new_proposal_at_html: "<span> %{link}で新しい提案</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: 著者
+            comments: コメント
+            contributions: 貢献
+        proposal:
+          fields:
+            category: カテゴリ
+            comments: コメント
+            id: ID
+            notes: メモ
+            official_proposal: 官職の提案
+            published_answer: 公開された回答
+            published_at: 公開日時
+            scope: スコープ
+            state: ステータス
+            title: タイトル
+            valuator: Valuator
+            valuators: Valuators
+            votes: 投票
+      new:
+        limit_reached: 制限を超えたため、新しい提案を作成することはできません。
+      participatory_text_proposal:
+        alternative_title: 現在参加型テキストはありません
+        buttons:
+          amend: 修正
+          comment: コメント
+          comments: コメント
+      proposal_votes:
+        create:
+          error: その提案を支持するのに問題があった。
+      proposals:
+        compare:
+          continue: 続ける
+          no_similars_found: よくできました！同様の提案は見つかりませんでした
+          title: 類似の提案
+        complete:
+          send: 送信
+          title: 提案を完了する
+        count:
+          proposals_count:
+            other: "%{count} の提案"
+        edit:
+          attachment_legend: "(オプション) 添付ファイルを追加"
+          back: 戻る
+          select_a_category: カテゴリを選択してください
+          send: 送信
+          title: 提案を編集
+        edit_draft:
+          discard: この下書きを破棄する
+          discard_confirmation: この提案の下書きを破棄してもよろしいですか？
+          send: プレビュー
+          title: 提案ドラフトを編集
+        filters:
+          activity: 私のアクティビティ
+          all: すべて
+          amendment_type: タイプ
+          category: カテゴリ
+          my_proposals: 私の提案
+          origin: 原点：
+          related_to: 関連
+          scope: スコープ
+          search: 検索
+          state: ステータス
+          type: タイプ
+          voted: サポート
+        filters_small_view:
+          close_modal: モーダルを閉じる
+          filter: フィルター
+          filter_by: フィルター
+          unfold: 展開する
+        index:
+          collaborative_drafts_list: 共同作業の下書きにアクセスする
+          new_proposal: 新しい提案
+          see_all_withdrawn: すべての撤回された提案を見る
+          view_proposal: 提案を表示
+        linked_proposals:
+          proposal_votes:
+            other: サポート
+        new:
+          send: 続ける
+          title: 提案を作成
+        orders:
+          label: '提案の順序：'
+          most_commented: コメントが多い順
+          most_endorsed: 最も支持された
+          most_followed: 最もフォローされている
+          most_voted: 最もサポートされています
+          random: Random
+          recent: 最近のもの
+          with_more_authors: より多くの著者と一緒に
+        participatory_texts:
+          index:
+            document_index: ドキュメントのインデックス
+          view_index:
+            see_index: インデックスを見る
+        preview:
+          modify: 提案を変更する
+          proposal_edit_before_minutes:
+            other: 提案が公開されてから最初の %{count} 分間、この提案を編集することができます。 この時間が経過すると、提案を編集することはできません。
+          publish: 公開
+          title: 提案を公開
+        proposal:
+          creation_date: '作成: %{date}'
+          view_proposal: 提案を表示
+        proposals:
+          empty: 提案はまだありません
+          empty_filters: この基準の提案はありません
+        show:
+          answer: 回答
+          back_to: 前に戻る
+          back_to_list: リストに戻る
+          changes_at_title: '「%{title} 」に修正'
+          comments: コメント
+          edit_proposal: 提案を編集
+          endorsements_list: 承認者一覧
+          estimated_cost: 推定コスト
+          hidden_endorsers_count:
+            other: '%{count} 人以上'
+          link_to_collaborative_draft_help_text: この提案は共同ドラフトの結果です。履歴を確認してください
+          link_to_collaborative_draft_text: 共同作業の下書きを見る
+          link_to_promoted_emendation_help_text: この提案は奨励された提案です
+          link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
+          link_to_proposal_from_emendation_help_text: これが拒否されました
+          link_to_proposal_from_emendation_text: 提案を見る
+          proposal_accepted_reason: 'この提案は以下の理由により承認されました:'
+          proposal_in_evaluation_reason: この提案は評価されています
+          proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
+          read_less: 未読にする
+          read_more: もっと読む
+          report: レポート
+          withdraw_btn_hint: サポートを受けていない限り、気が変わった場合は提案を撤回することができます。 提案は削除されず、撤回された提案のリストに表示されます。
+          withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
+          withdraw_proposal: 提案を撤回する
+        tags:
+          changed_from: "(管理者によって <u>%{previous_name}</u> から変更されました)"
+        update:
+          title: 提案を更新
+        vote_button:
+          already_voted: サポート済みです
+          already_voted_hover: サポートを撤回する
+          maximum_votes_reached: サポートの上限に達しました
+          no_votes_remaining: サポートがありません
+          vote: サポート
+          votes_blocked: サポートは無効です
+        votes_count:
+          count:
+            other: サポート
+          most_popular_proposal: 最も人気のある提案
+          need_more_votes: さらにサポートが必要です
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: 各提案は %{limit} 以上のサポートを蓄積できます
+          minimum_votes_per_user:
+            description: 異なる提案に最低 %{votes} のサポートを配布する必要があります。
+            given_enough_votes: 十分なサポートがあります。
+            supports_remaining: サポートを考慮するためには、あと %{remaining_votes} 件の提案をサポートする必要があります。
+          proposal_limit:
+            description: 最大 %{limit} 件の提案を作成できます。
+          threshold_per_proposal:
+            description: 検証されるためには、 %{limit} のサポートに到達する必要があります
+          title: 'サポートは以下のルールに従います:'
+          vote_limit:
+            description: 最大 %{limit} 件の提案をサポートできます。
+            left: 残り
+            votes: サポート
+        wizard_aside:
+          back: 戻る
+          back_from_step_1: 提案に戻る
+          back_from_step_2: 提案に戻る
+          back_from_step_3: 提案の比較に戻る
+          back_from_step_4: 下書き編集に戻る
+          info: <strong>提案</strong> を作成しています。
+        wizard_steps:
+          current_step: 現在のステップ
+          see_steps: 手順を見る
+          step_1: 提案を作成
+          step_2: 比較
+          step_3: Complete
+          step_4: 提案を公開
+          step_of: '%{current_step_num} / %{total_steps}'
+          title: 提案の作成手順
+      proposals_picker:
+        choose_proposals: 提案を選択
+        close: 閉じる
+        more_proposals: あと %{number} 件の提案があります。検索を絞り込んで見つけましょう。
+        no_proposals: 検索条件に一致する提案がないか、提案がありません。
+      publish:
+        error: 提案を発表する際に問題が発生しました。
+        success: 提案は正常に公開されました。
+      publish_answers:
+        success: 提案の回答が正常に公開されました。
+      update:
+        error: 提案を保存する際に問題がありました。
+        success: 提案が正常に更新されました。
+      update_draft:
+        error: 共同作業のドラフトを保存する際に問題が発生しました。
+        success: 提案ドラフトが正常に更新されました。
+      versions:
+        collaborative_drafts:
+          back_to_resource: 共同草案に戻る
+        index:
+          title: バージョン
+        proposals:
+          back_to_resource: 提案に戻る
+      withdraw:
+        errors:
+          has_supports: すでにサポートがあるため、この提案は撤回できません。
+    resource_links:
+      copied_from_component:
+        proposal_proposal: 関連する提案
+      included_projects:
+        project_result: 'このプロジェクトに表示される結果:'
+      included_proposals:
+        proposal_project: 'これらのプロジェクトに表示される提案'
+        proposal_result: 'これらの結果に提案が表示されます:'

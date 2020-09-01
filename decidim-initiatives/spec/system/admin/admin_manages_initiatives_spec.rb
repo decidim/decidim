@@ -46,7 +46,7 @@ describe "Admin manages initiatives", type: :system do
   let(:area2) { create :area, organization: organization }
 
   STATES.each do |state|
-    let!("#{state}_initiative") { create_initiative_with_trait(state) }
+    let!("#{state}_initiative".to_sym) { create_initiative_with_trait(state) }
   end
 
   before do
@@ -57,7 +57,7 @@ describe "Admin manages initiatives", type: :system do
 
   describe "listing initiatives" do
     STATES.each do |state|
-      i18n_state = I18n.t(state, scope: "decidim.admin.filters.state_eq.values")
+      i18n_state = I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")
 
       context "filtering collection by state: #{i18n_state}" do
         it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
