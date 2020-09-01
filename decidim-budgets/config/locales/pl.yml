@@ -56,7 +56,7 @@ pl:
             success: "%{number} propozycji pomyślnie zaimportowano do projektów"
           new:
             create: Importuj propozycje do projektów
-            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
+            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             select_component: Wybierz komponent
       admin_log:
         project:
@@ -82,7 +82,7 @@ pl:
           title: Potwierdź głosowanie
         budget_excess:
           close: Zamknij
-          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który został już wybrany, aby dodać lub sprawić, aby głosował z Twoimi preferencjami.
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który już zaznaczyłeś do wyboru, albo zagłosować zgodnie z Twoimi preferencjami.
           ok: ok
           title: Przekroczono maksymalny budżet
         budget_summary:
