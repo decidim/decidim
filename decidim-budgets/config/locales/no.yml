@@ -91,6 +91,7 @@
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
           description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
+          description_minimum_projects_rule: Hvilke prosjekter tror du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du ønsker, og stem på dine preferanser for å definere budsjettet.
           title: Du bestemmer budsjettet
         count:
           projects_count:
@@ -120,10 +121,17 @@
           most_voted: Mest stemte
           random: Tilfeldig rekkefølge
         project:
+          add: Legg til prosjektet %{resource_name} til din stemme
           count:
             one: 1 støtte
             other: "%{count} støttere"
+          remove: Fjern prosjektet %{resource_name} fra stemmen din
           view: Vis
+        project_budget_button:
+          add: Legg til i stemmen din
+          add_descriptive: Legg til prosjektet %{resource_name} til din stemme
+          added: Lagt til stemmen din
+          added_descriptive: Prosjektet %{resource_name} er lagt til din stemme
         show:
           budget: Budsjett
           view_all_projects: Vis alle prosjekter
@@ -145,6 +153,7 @@
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
+            vote_rule_threshold_percent_enabled: 'Aktiver regel: Minimum budsjettprosent'
             vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring
