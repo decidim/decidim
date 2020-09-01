@@ -7,7 +7,7 @@ module Decidim
       alias current_workflow model
 
       delegate :allowed, :budgets, :highlighted, :voted, to: :current_workflow
-      delegate :voting_open?, to: :controller
+      delegate :voting_open?, :voting_finished?, to: :controller
 
       def show
         return unless budgets
