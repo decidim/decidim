@@ -21,6 +21,10 @@ es:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
   activerecord:
     models:
       decidim/elections/answer:
@@ -134,6 +138,10 @@ es:
         election:
           publish: "%{user_name} ha publicado la votación %{resource_name}"
           unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Acabada
+          ongoing: Activa
       models:
         answer:
           fields:
