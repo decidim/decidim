@@ -13,7 +13,7 @@ module Decidim
           label = options.fetch(:label, t("label", scope: "decidim.geocoder.autocomplete_address"))
           prompt_options = { url: decidim_api.geocoder_path, placeholder: placeholder }
           html_options = { label: label }
-          
+
           if Decidim.geocoder.blank?
             form.text_field :address, label: label
           else
