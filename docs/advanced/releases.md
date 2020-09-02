@@ -64,7 +64,7 @@ If this is a **Release Candidate version** release, the steps to follow are:
 1. During the validation period bugfixes will go directly to the current `release/x.y.z` branch and ported to `develop`.
 1. During the validation period, translations to the officially supported languages must be added to Crowdin and when done, merged into `release/x.y.z`.
 
-### Major/Minor versions
+## Major/Minor versions
 
 Release Candidates will be tested in a production server (usually meta-decidim) during some period of time (a week at least), when they are considered ready, it is time for them to be merged into `master`:
 
@@ -86,7 +86,7 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
     1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
 1. Update the `CHANGELOG.MD` in `release/x.y-stable`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections. After that, the header with the current version. Add the `Unreleased` section or create the new current version section.
 
-### Releasing patch versions
+## Releasing patch versions
 
 Releasing new versions from a ***release/x.y-stable*** branch is quite easy. The process is very similar from releasing a new Decidim version:
 
@@ -101,6 +101,6 @@ Releasing new versions from a ***release/x.y-stable*** branch is quite easy. The
 1. Once all the gems are published you should create a new release at this repository, just go to the [releases page](https://github.com/decidim/decidim/releases) and create a new one.
 1. Update Decidim's Docker repository as explained in the Docker images section.
 
-### Docker images for each release
+## Docker images for each release
 
 1. After each release, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, just update `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml).
