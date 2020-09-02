@@ -35,7 +35,7 @@ fr-CA:
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
       decidim/removed_from_group: Retiré du groupe
-      decidim/resource_endorsed_event: Ressource soutenue
+      decidim/resource_endorsed_event: Resurce endossé
   activerecord:
     attributes:
       decidim/user:
@@ -268,7 +268,7 @@ fr-CA:
           allowed_scope_id: Portée autorisée
           document_number: Numéro de document
           postal_code: Code postal
-          scope_id: Secteur
+          scope_id: Périmètre d'application
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
@@ -318,7 +318,7 @@ fr-CA:
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
       show:
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre modale
     collapsible_list:
       hidden_elements_count:
         one: et %{count} plus
@@ -637,7 +637,7 @@ fr-CA:
       value: Valeur
     followers:
       followers_count:
-        one: "%{count} abonné"
+        one: "Abonné(e) à %{count}"
         other: "%{count} abonnés"
       no_followers: Aucun abonné pour le moment.
     following:
@@ -663,11 +663,11 @@ fr-CA:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images en format paysage, le service recadre l'image.
+          message_2: Pour les images, utilisez de préférence des images paysagères, le service récolte l'image.
         image:
           explanation: 'Orientation pour l''image:'
-          message_1: De préférence une image au format paysage qui n'a pas de texte.
-          message_2: Le service recadre l'image.
+          message_1: De préférence une image de paysage qui n'a pas de texte.
+          message_2: Le service récolte l'image.
       file_validation:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
@@ -943,7 +943,7 @@ fr-CA:
         body: Corps du texte
         cta_text: Texte du bouton d'Appel à action
         cta_url: URL du bouton d'appel à l'action
-        interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans l''introduction, le corps, le texte du bouton d''action ou le sujet et il sera remplacé par le nom du destinataire.'
+        interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans l''introduction, le corps, le texte CTA ou le sujet et il sera remplacé par le nom du destinataire.'
         introduction: Introduction
         main_image: Image principale
     newsletters:
@@ -1127,14 +1127,14 @@ fr-CA:
       global: Portée générale
       picker:
         cancel: Annuler
-        change: Changer le secteur sélectionné
+        change: Changer le périmètre d'application sélectionné
         choose: Sélectionner
-        currently_selected: Secteur actuellement sélectionné
+        currently_selected: Portée actuellement sélectionnée
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètre d'application
       scopes_picker_input:
-        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
+        select_scope: 'Sélectionnez une portée (actuellement: %{current})'
     search:
       results: Résultats de recherche
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
@@ -1160,8 +1160,8 @@ fr-CA:
         view_all: Tout voir (%{count})
     shared:
       confirm_modal:
-        cancel: Annuler
-        close_modal: Fermer la fenêtre de dialogue
+        cancel: Abandonner
+        close_modal: Fermer la fenêtre modale
         ok: Ok
         title: Valider
       embed_modal:
@@ -1189,7 +1189,7 @@ fr-CA:
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre modale
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       participatory_space_filters:
@@ -1210,7 +1210,7 @@ fr-CA:
         share_link: Lien de partage
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
-      filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
+      filter_results_for_scope: 'Filtrer les résultats pour la portée : %{resource}'
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
