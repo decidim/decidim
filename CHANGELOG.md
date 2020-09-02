@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [v0.22.0](https://github.com/decidim/decidim/releases/tag/v0.22.0)
+
 ### Upgrade notes
 
 - **Endorsements**
