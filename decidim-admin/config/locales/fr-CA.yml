@@ -52,7 +52,7 @@ fr-CA:
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
         highlight_alternative_color: Surligner, alternative
-        highlight_color: Surbrillance
+        highlight_color: Surligner
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
@@ -593,7 +593,7 @@ fr-CA:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
-          close_modal: Fermer la fenêtre de dialogue
+          close_modal: Fermer la fenêtre modale
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
