@@ -7,7 +7,7 @@ fr-CA:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
-        scope_id: Secteur
+        scope_id: Périmètre d'application
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
@@ -20,7 +20,7 @@ fr-CA:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
-        scope_id: Secteur
+        scope_id: Périmètre d'application
         state: État
         suggested_hashtags: Hashtags suggérés
         title: Titre
@@ -628,7 +628,7 @@ fr-CA:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier le brouillon collaboratif
+          title: Modifier la question collaborative
         wizard_aside:
           back: Arrière
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
