@@ -49,18 +49,6 @@ uk:
         many: Голосів
         other: Голосів
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          values:
-            'false': Пропозиції
-        state_eq:
-          values:
-            evaluating: Розглядається
-            withdrawn: Відкликана
-        state_null:
-          values:
-            'true': Без відповідей
     components:
       proposals:
         actions:
@@ -337,7 +325,6 @@ uk:
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
           withdraw_btn_hint: Ви можете зняти свою пропозицію, якщо ви передумали, доки ви не отримали жодної підтримки. Пропозиція не видаляється, вона з'явиться у списку відкликаних пропозицій.
-          withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
         vote_button:
           already_voted: Вже проголосували

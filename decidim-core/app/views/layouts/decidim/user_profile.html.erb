@@ -1,8 +1,13 @@
+<% subtitle = content_for(:subtitle) %>
+
 <%= render "layouts/decidim/application" do %>
-  <main class="wrapper">
+  <div class="wrapper">
     <div class="row collapse">
       <div class="columns">
-        <h1 class="heading1 user-header"><%= t("title", scope: "layouts.decidim.user_profile") %></h1>
+        <h1 class="heading1 user-header">
+          <%= t("title", scope: "layouts.decidim.user_profile") %>
+          <%= " - #{subtitle}" unless subtitle.blank? %>
+        </h1>
       </div>
     </div>
     <div class="row collapse">
@@ -25,5 +30,5 @@
         </div>
       </div>
     </div>
-  </main>
+  </div>
 <% end %>

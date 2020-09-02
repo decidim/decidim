@@ -1,0 +1,274 @@
+is:
+  activemodel:
+    attributes:
+      proposal:
+        answer: Svara
+        answered_at: Svarað á
+        body: Líkami
+        category_id: Flokkur
+        has_address: Hefur heimilisfang
+        state: Ríki
+        title: Titill
+        user_group_id: Búðu til tillögu sem
+      proposal_answer:
+        answer: Svara
+      proposals_copy:
+        copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
+        origin_component_id: Hluti til að afrita tillögurnar frá
+  decidim:
+    components:
+      proposals:
+        actions:
+          create: Búa til
+          endorse: Styðja
+          withdraw: Afturkalla
+        name: Tillögur
+        settings:
+          global:
+            announcement: Tilkynning
+            attachments_allowed: Leyfa viðhengi
+            can_accumulate_supports_beyond_threshold: Getur safnað stuðning fyrirfram þröskuld
+            comments_enabled: Athugasemdir virkt
+            geocoding_enabled: Geocoding virkt
+            new_proposal_help_text: Ný tillaga hjálpartexta
+            official_proposals_enabled: Opinberar tillögur virkar
+            proposal_answering_enabled: Tillaga svarað virkt
+            proposal_edit_before_minutes: Tillögur má breyta af höfundum áður en þessi mörg mínútur fara fram
+            proposal_length: Hámark umsóknar lengd líkamans
+            proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
+            proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
+            proposal_wizard_step_3_help_text: Tillaga töframaður "Complete" skref hjálpartexta
+            proposal_wizard_step_4_help_text: Tillaga "Birta" skref hjálpartexti
+            threshold_per_proposal: Gildi fyrir hverja tillögu
+          step:
+            announcement: Tilkynning
+            comments_blocked: Athugasemdir læst
+            creation_enabled: Tillaga stofnun virkt
+            endorsements_blocked: Áritanir lokaðar
+            endorsements_enabled: Tilmæli virkt
+            proposal_answering_enabled: Tillaga svarað virkt
+    events:
+      proposals:
+        creation_enabled:
+          email_intro: 'Þú getur nú búið til nýjar tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Tillögur nú fáanlegir í %{participatory_space_title}
+        endorsing_enabled:
+          email_intro: 'Þú getur samþykkt tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Tillögur um áritun hafa byrjað fyrir %{participatory_space_title}
+          notification_title: Þú getur nú byrjað á <a href="%{resource_path}">ábendingar um tillögur</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_accepted:
+          follower:
+            email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
+            email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
+        proposal_evaluating:
+          follower:
+            email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
+            email_subject: Tillaga sem þú fylgir er metin
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
+        proposal_mentioned:
+          email_subject: Tillagan þín "%{mentioned_proposal_title}" hefur verið minnst
+          notification_title: Tillaga þín "%{mentioned_proposal_title}" hefur verið nefnd <a href="%{resource_path}">í þessu rými</a> í athugasemdunum.
+        proposal_published:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{author_nickname}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna var gefin út af <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
+          notification_title: Tillagan <a href="%{resource_path}">%{resource_title}</a> hefur verið bætt við %{participatory_space_title}
+        proposal_rejected:
+          follower:
+            email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
+            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
+            email_subject: Tillaga sem þú ert að fylgja hefur verið hafnað
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
+        proposal_update_category:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
+          email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
+        proposal_update_scope:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
+        voting_enabled:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Tillögur
+    proposals:
+      actions:
+        import: Flytja frá öðrum hlutum
+        title: Aðgerðir
+      admin:
+        actions:
+          preview: Preview
+        exports:
+          comments: Athugasemdir
+          proposals: Tillögur
+        models:
+          proposal:
+            name: Tillaga
+        proposal_answers:
+          form:
+            accepted: Samþykkt
+            answer_proposal: Svara
+            evaluating: Mat
+            rejected: Hafnað
+            title: Svar fyrir tillögu %{title}
+        proposal_notes:
+          create:
+            success: Tillaga athugasemd búin til
+          form:
+            note: Athugaðu
+            submit: Senda inn
+          leave_your_note: Skildu athugasemdina þína
+          title: Einkaskilaboð
+        proposals:
+          answer:
+            invalid: Vandamál kom upp við að svara þessari tillögu
+            success: Tillaga svarað með góðum árangri
+          create:
+            invalid: Vandamál kom upp við að búa til þessa tillögu
+            success: Tillaga búin til
+          form:
+            attachment_legend: "(Valfrjálst) Bæta við viðhengi"
+            select_a_category: Veldu flokk
+          index:
+            actions: Aðgerðir
+            cancel: Hætta við
+            change_category: Breyta flokki
+            selected: valin
+            title: Tillögur
+            update: Uppfæra
+          new:
+            create: Búa til
+            title: Búðu tillögu
+          publish_answers:
+            select_a_proposal: Vinsamlegast veldu tillögu
+          show:
+            created_at: Sköpunardegi
+            proposals: Tillögur
+          update_category:
+            select_a_category: Vinsamlegast veldu flokk
+            select_a_proposal: Vinsamlegast veldu tillögu
+          update_scope:
+            select_a_proposal: Vinsamlegast veldu tillögu
+        proposals_imports:
+          create:
+            success: "%{number} tillögur tókst að flytja inn"
+          new:
+            create: Innflutningur tillögur
+            no_components: Það eru engar aðrar tillögur í þessum þátttökustíl til að flytja tillögur frá.
+            select_component: Vinsamlegast veldu hluta
+      admin_log:
+        proposal:
+          answer: "%{user_name} svaraði %{resource_name} tillögunni á %{space_name} plássinu"
+          create: "%{user_name} skapaði %{resource_name} tillöguna á %{space_name} plássinu sem opinbera tillögu"
+        proposal_note:
+          create: "%{user_name} fór með einkapóst á %{resource_name} tillögunni á %{space_name} plássinu"
+      answers:
+        accepted: Samþykkt
+        evaluating: Mat
+        not_answered: Ekki svarað
+        rejected: Hafnað
+        withdrawn: Aftakað
+      application_helper:
+        filter_origin_values:
+          citizens: Borgarar
+          official: Opinber
+        filter_state_values:
+          not_answered: Ekki svarað
+      models:
+        proposal:
+          fields:
+            category: Flokkur
+            comments: Athugasemdir
+            id: Auðkenni
+            notes: Skýringar
+            official_proposal: Opinber tillaga
+            scope: Umfang
+            title: Titill
+            votes: Atkvæði
+      new:
+        limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
+      proposals:
+        compare:
+          no_similars_found: Vel gert! Engar svipaðar tillögur fundust
+          title: Svipaðar tillögur
+        complete:
+          send: Senda
+          title: Ljúka tillögu þinni
+        edit:
+          back: Til baka
+          select_a_category: Vinsamlegast veldu flokk
+          send: Senda
+          title: Breyta tillögu
+        edit_draft:
+          discard: Fargaðu þessari drög
+          discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
+          send: Preview
+          title: Breyta tillögu drög
+        filters:
+          category: Flokkur
+          origin: Uppruni
+          related_to: Tengjast
+          search: Leita
+        filters_small_view:
+          close_modal: Loka mát
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        index:
+          new_proposal: Ný tillaga
+          see_all_withdrawn: Sjá öll afturkallað tillögur
+          view_proposal: Skoða tillögu
+        new:
+          send: Haltu áfram
+          title: Búðu til tillögu þína
+        orders:
+          label: 'Panta tillögur með:'
+          random: Handahófi
+          recent: Nýleg
+        preview:
+          modify: Breyttu tillögunni
+          proposal_edit_before_minutes:
+            one: Þú verður að geta breytt þessari tillögu fyrstu mínútuna eftir að tillagan er birt. Þegar þessi tími gluggi fer, munt þú ekki geta breytt tillögunni.
+            other: Þú verður að geta breytt þessari tillögu á fyrstu %{count} mínútum eftir að tillagan er birt. Þegar þessi tími gluggi fer, munt þú ekki geta breytt tillögunni.
+          publish: Birta
+          title: Birta tillöguna þína
+        proposal:
+          creation_date: 'Sköpun: %{date}'
+          view_proposal: Skoða tillögu
+        show:
+          answer: Svara
+          comments: Athugasemdir
+          edit_proposal: Breyta tillögu
+          proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
+          proposal_in_evaluation_reason: Þessi tillaga er metin
+          proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
+          report: Skýrsla
+          withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
+          withdraw_proposal: Afturkalla tillögu
+        votes_count:
+          most_popular_proposal: Vinsælasta tillöguna
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Hver tillaga getur safnast meira en %{limit} styður
+          proposal_limit:
+            description: Þú getur búið til allt að %{limit} tillögur.
+          threshold_per_proposal:
+            description: Til að fullgilda tillögur þarf að ná %{limit} stuðningi
+          vote_limit:
+            left: Eftirstöðvar
+        wizard_aside:
+          back: Til baka
+          info: Þú ert að búa til <strong>tillögu</strong>.
+        wizard_steps:
+          see_steps: sjá skref
+          step_1: Búðu til tillöguna þína
+          step_2: Bera saman
+          step_3: Heill
+          step_4: Birta tillöguna þína
+          step_of: Skref %{current_step_num} af %{total_steps}

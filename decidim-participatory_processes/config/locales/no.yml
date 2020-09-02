@@ -4,35 +4,35 @@
       participatory_process:
         announcement: Kunngjøring
         area_id: Område
-        banner_image: Bannerafbeelding
+        banner_image: Bannerbilde
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_steps: Kopier trinn
         decidim_area_id: Område
         description: Beskrivelse
-        developer_group: Promotør gruppe
+        developer_group: Promotørgruppe
         domain: Domene
         end_date: Sluttdato
-        hashtag: Hastag
-        hero_image: Hjem bilde
-        local_area: Organisasjonsområdet
-        meta_scope: Omfang metadata
-        participatory_process_group_id: Prosesser gruppe
-        participatory_scope: Hva er bestemt
-        participatory_structure: Hvordan blir det bestemt
-        promoted: Forfremmet
+        hashtag: Emneknagg
+        hero_image: Hovedbilde
+        local_area: Organisasjonsområde
+        meta_scope: Tema metadata
+        participatory_process_group_id: Prosessgruppe
+        participatory_scope: Medvirkningen gjelder
+        participatory_structure: Hvordan det blir gjort
+        promoted: Fremhevet
         published_at: Publisert på
         related_process_ids: Relaterte prosesser
-        scope_id: Omfang
-        scope_type_max_depth_id: Omfang filterdybde
-        scopes_enabled: Omfang aktivert
+        scope_id: Tema
+        scope_type_max_depth_id: Temafilter
+        scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
         show_metrics: Vis statistikk
         show_statistics: Vis statistikk
-        slug: URL slug
+        slug: URL navn
         start_date: Startdato
         subtitle: Undertittel
-        target: Hvem deltar
+        target: Hvem som deltar
         title: Tittel
       participatory_process_group:
         description: Beskrivelse
@@ -40,8 +40,8 @@
         name: Navn
         participatory_process_ids: Relaterte prosesser
       participatory_process_step:
-        cta_path: Kall til handlings vei
-        cta_text: Kall til handlings tekst
+        cta_path: Annonseringsknapp
+        cta_text: Annonseringstekst
         description: Beskrivelse
         end_date: Sluttdato
         short_description: Kort beskrivelse
@@ -56,18 +56,18 @@
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Ugyldig dokumenttype. Godkjente formater er: %{valid_mime_types}'
+              invalid_document_type: 'Ugyldig filtype. Godkjente formater er: %{valid_mime_types}'
     models:
-      decidim/participatory_process_step_activated_event: Fase aktivert
+      decidim/participatory_process_step_activated_event: Fase er aktivert
       decidim/participatory_process_step_changed_event: Fase endret
   activerecord:
     models:
       decidim/participatory_process:
-        one: Deltaker prosess
-        other: Deltaker prosesser
+        one: Deltakende prosess
+        other: Deltakende prosesser
       decidim/participatory_process_group:
-        one: Deltaker prosess gruppe
-        other: Deltaker prosess grupper
+        one: Prosessgruppe
+        other: Prosessgrupper
       decidim/participatory_process_step:
         one: Fase
         other: Faser
@@ -78,22 +78,22 @@
         configure: Konfigurer
         confirm_destroy: Bekreft sletting
         destroy: Slett
-        duplicate: Dubliser
-        edit: Editar
+        duplicate: Kopier
+        edit: Rediger
         filter:
-          all_processes: Vis alle prosesser
-          process_groups: Prosess Grupper
+          all_processes: Vis alle medvirkningsprosesser
+          process_groups: Prosessgrupper
         import_process: Importer
         new_process: Ny prosess
-        new_process_group: Ny prosess gruppe
-        new_process_step: Ny fase
-        new_process_user_role: Ny prosess administrator
+        new_process_group: Ny prosessgruppe
+        new_process_step: Ny medvirkningsfase
+        new_process_user_role: Ny prosessadministrator
         preview: Forhåndsvis
         publish: Publiser
         resend_invitation: Send invitasjonen på nytt
         unpublish: Avpubliser
       menu:
-        participatory_process_groups: Prosess grupper
+        participatory_process_groups: Prosessgrupper
         participatory_processes: Prosesser
         participatory_processes_submenu:
           attachment_collections: Mapper
@@ -103,8 +103,8 @@
           components: Komponenter
           info: Info
           moderations: Moderering
-          private_users: Private deltakere
-          process_admins: Prosess administratorer
+          private_users: Private brukere
+          process_admins: Prosessadministratorer
           steps: Faser
       models:
         participatory_process:
@@ -114,110 +114,113 @@
             promoted: Fremhevet
             published: Publisert
             title: Tittel
-          name: Deltaker prosess
+          name: Deltakende prosess
         participatory_process_group:
           fields:
             name: Navn
-          name: Prosess gruppe
+          name: Prosessgruppe
         participatory_process_step:
           fields:
             end_date: Sluttdato
             start_date: Startdato
             title: Tittel
-          name: Deltaker prosess fase
+          name: Medvirkningsfase
         participatory_process_user_role:
           fields:
             email: Epost
             name: Navn
             role: Rolle
-          name: Deltaker prosess administrator
+          name: Prosessadministrator
           roles:
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
+            valuator: Evaluator
         user:
           fields:
-            invitation_accepted_at: Invitasjon godtatt på
-            invitation_sent_at: Invitasjonen sendt på
+            invitation_accepted_at: Invitasjon godtatt
+            invitation_sent_at: Invitasjonen sendt
       participatory_process_copies:
         new:
           copy: Kopier
-          select: Velg hvilke data du vil duplisere
-          title: Dupliser deltaker prosess
+          select: Velg hvilke data du vil kopiere
+          title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
-          error: Det oppstod en feil under ødeleggelsen av deltaker prosess gruppen.
-          success: Deltaker prosess gruppen ble slettet.
+          error: Det oppstod en feil under slettingen av prosessgruppen.
+          success: Prosessgruppen ble slettet.
         edit:
           title: Rediger prosessgruppe
           update: Oppdater
         new:
           create: Opprett
-          title: Ny prosess gruppe
+          title: Ny prosessgruppe
         update:
-          error: Det oppstod et problem med å oppdatere denne deltaker prosess gruppen.
-          success: Deltaker prosess gruppen ble oppdatert.
+          error: Det oppstod et problem med å oppdatere denne prosessgruppen.
+          success: Prosessgruppen ble oppdatert.
       participatory_process_imports:
         create:
-          error: Det oppstod et problem med å importere denne deltaker prosessen.
-          success: Deltaker prosess importert.
+          error: Det oppstod et problem med å importere denne prosessen.
+          success: Prosessen er blitt importert.
         new:
           import: Importer
           select: Velg hvilke data du vil importere
-          title: Importer deltaker prosess
+          title: Importer deltakende prosess
       participatory_process_publications:
         create:
-          error: Det oppstod et problem med å publisere denne deltaker prosessen.
-          success: Deltaker prosess publisert.
+          error: Det oppstod et problem med å publisere denne prosessen.
+          success: Prosessen er publisert.
         destroy:
-          error: Det oppstod et problem med å avpublisere denne deltaker prosessen.
-          success: Deltaker prosess avpublisert.
+          error: Det oppstod et problem med å avpublisere denne prosessen.
+          success: Prosessen er avpublisert.
       participatory_process_step_activations:
         create:
-          error: Det oppstod et problem med å aktivere denne deltaker prosess fasen.
-          success: Deltaker prosess fasen ble aktivert.
+          error: Det oppstod et problem med å aktivere denne medvirkningsfasen.
+          success: Medvirkningsfasen ble aktivert.
       participatory_process_steps:
         create:
-          error: Det oppstod et problem med å lage en ny deltaker prosess fase.
-          success: Deltaker prosess fasen ble opprettet.
+          error: Det oppstod et problem med å lage ny medvirkningsfase.
+          success: Medvirkningsfasen er blitt opprettet.
         default_title: Introduksjon
         destroy:
           error:
             active_step: Kan ikke slette den aktive fasen.
             last_step: Kan ikke slette den siste fasen av en prosess.
-          success: Deltaker prosess fasen ble slettet.
+          success: Medvirkningsfasen ble slettet.
         edit:
-          title: Rediger deltaker prosessfase
+          title: Rediger medvirkningsfase
           update: Oppdater
         index:
           steps_title: Faser
         new:
           create: Opprett
-          title: Ny deltaker prosess fase
+          title: Ny medvirkningsfase
         ordering:
-          error: Det oppstod et problem med å omorganisere disse fasene av deltaker prosessen.
+          error: Det oppstod et problem med å omorganisere medvirkningsfasene.
         update:
-          error: Det oppstod et problem med å oppdatere denne fasen av deltaker prosessen.
-          success: Deltaker fase oppdatert.
+          error: Det oppstod et problem med å oppdatere denne medvirkningsfasen.
+          success: Medvirkningsfase oppdatert.
       participatory_process_user_roles:
         create:
-          error: Det oppstod et problem med å legge til en deltaker for denne deltaker prosessen.
-          success: Admin ble lagt til i denne deltaker prosessen.
+          error: Det oppstod et problem med å legge til en deltaker for denne prosessen.
+          success: En administrator ble lagt til i denne prosessen.
         destroy:
-          success: Administrator slettet fra denne deltaker prosessen.
+          success: En administrator er slettet fra denne prosessen.
         edit:
+          title: Oppdater administrator for prosess
           update: Oppdater
         index:
-          process_admins_title: Deltaker prosess administratorer
+          process_admins_title: Prosessadministratorer
         new:
           create: Opprett
+          title: Ny prosessadministrator
         update:
-          error: Det oppstod et problem med å oppdatere en administrator for denne deltaker prosessen.
-          success: Admin ble oppdatert for denne deltaker prosessen.
+          error: Det oppstod et problem med å oppdatere en administrator for denne prosessen.
+          success: Admin ble oppdatert for denne prosessen.
       participatory_processes:
         create:
-          error: Det oppstod et problem med å lage en ny deltaker prosess.
-          success: Deltaker prosessen ble opprettet. Konfigurer dens faser.
+          error: Det oppstod et problem med å lage en ny prosess.
+          success: Medvirkningsprosessen er blitt opprettet. Sett opp medvirkningsfasene.
         edit:
           update: Oppdater
         index:
@@ -227,121 +230,129 @@
           published: Publisert
         new:
           create: Opprett
-          title: Ny deltaker prosess
+          title: Ny prosess
         update:
-          error: Det oppstod et problem med å oppdatere denne deltaker prosessen.
-          success: Deltaker prosess oppdatert.
+          error: Det oppstod et problem med å oppdatere denne prosessen.
+          success: Prosessen er oppdatert.
       participatory_processes_copies:
         create:
           error: Det oppstod et problem med å duplisere denne deltaker prosessen.
-          success: Deltaker prosess duplisert.
+          success: Prosessen er kopiert.
       participatory_processes_group:
         create:
-          error: Det oppstod et problem med å lage en ny deltaker prosess gruppe.
-          success: Deltaker prosess gruppen ble opprettet.
+          error: Det oppstod et problem med å lage en ny prosessgruppe.
+          success: Prosessgruppen ble opprettet.
       titles:
-        participatory_process_groups: Deltaker prosess grupper
-        participatory_processes: Deltaker prosesser
+        participatory_process_groups: Prosessgrupper
+        participatory_processes: Deltakende prosesser
       users:
         resend_invitation:
           error: Det oppstod et problem med å sende invitasjonen på nytt.
-          success: Invitasjonen sendt på nytt.
+          success: Invitasjonen er sendt på nytt.
     admin_log:
       participatory_process:
-        create: "%{user_name} opprettet %{resource_name} deltaker prosessen"
-        publish: "%{user_name} publiserte %{resource_name} deltaker prosessen"
-        unpublish: "%{user_name} avpubliserte %{resource_name} deltaker prosessen"
-        update: "%{user_name} oppdaterte %{resource_name} deltaker prosessen"
+        create: "%{user_name} opprettet prosessen %{resource_name}"
+        publish: "%{user_name} publiserte prosessen %{resource_name}"
+        unpublish: "%{user_name} avpubliserte prosessen %{resource_name}"
+        update: "%{user_name} oppdaterte prosessen %{resource_name}"
       participatory_process_group:
-        create: "%{user_name} opprettet %{resource_name} deltakernes prosessgruppe"
-        update: "%{user_name} oppdaterte %{resource_name} deltakernes prosessgruppe"
+        create: "%{user_name} opprettet prosessgruppen %{resource_name}"
+        update: "%{user_name} oppdaterte prosessgruppen %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktiverte %{resource_name} fasen i %{space_name} deltakerprosessen"
-        create: "%{user_name} opprettet %{resource_name} fasen i %{space_name} deltakerprosessen"
-        delete: "%{user_name} slettet %{resource_name} fasen i %{space_name} deltakerprosessen"
-        update: "%{user_name} oppdaterte %{resource_name} fasen i %{space_name} deltakerprosessen"
+        activate: "%{user_name} aktiverte %{resource_name}-fasen i prosessen %{space_name}"
+        create: "%{user_name} opprettet %{resource_name}-fasen i prosessen %{space_name}"
+        delete: "%{user_name} slettet %{resource_name}-fasen i prosessen %{space_name}"
+        update: "%{user_name} oppdaterte %{resource_name}-fasen i prosessen %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} inviterte deltakeren %{resource_name} til %{space_name} deltakerprosessen"
-        delete: "%{user_name} fjernet deltakeren %{resource_name} fra %{space_name} deltakerprosessen"
-        update: "%{user_name} endret deltakerrollen %{resource_name} i %{space_name} deltakerprosessen"
+        create: "%{user_name} inviterte deltakeren %{resource_name} til prosessen %{space_name}"
+        delete: "%{user_name} fjernet deltakeren %{resource_name} fra prosessen %{space_name}"
+        update: "%{user_name} endret rollen til %{resource_name} i prosessen %{space_name}"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: Du har blitt utnevnt som %{role} for prosessen "%{resource_title}".
+          email_outro: Du har mottatt dette varselet fordi du er %{role} for prosessen "%{resource_title}".
+          email_subject: Du har blitt utnevnt som %{role} for "%{resource_title}".
+          notification_title: Du har blitt utnevnt som %{role} for prosessen <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Fasen %{resource_title} er nå aktiv for %{participatory_space_title}. Du kan se den fra denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: En oppdatering til %{participatory_space_title}
-          notification_title: '%{resource_title} fasen er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler via vedlagt link.
+          email_subject: En oppdatering om %{participatory_space_title}
+          notification_title: Fasen %{resource_title} er nå aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Datoene for fasen %{resource_title} ved %{participatory_space_title} er oppdatert. Du kan se den fra denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
-          email_subject: En oppdatering til %{participatory_space_title}
+          email_intro: 'Datoene for fasen %{resource_title} ved %{participatory_space_title} er oppdatert. Du kan se oppdateringen på denne siden:'
+          email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler via vedlagt link.
+          email_subject: En oppdatering om %{participatory_space_title}
           notification_title: Datoene for fasen <a href="%{resource_path}">%{resource_title}</a> på <a href="%{participatory_space_url}">%{participatory_space_title}</a> er oppdatert.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>En <strong>deltakerprosess</strong> er en sekvens av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
+          contextual: "<p>En <strong>deltakende prosess</strong> er en serie med aktiviteter (f.eks. fylle ut en undersøkelse, komme med forslag, diskutere ansikt til ansikt eller i virtuelle møter, gi innspill til ulike forslag eller høringsutkast) med målet om å definere og ta en medvirke til en beslutning om et spesifikt tema.</p> <p> Eksempler på deltakende prosesser er: deltakende budsjettering (der forslag blir opprettet, verdisatt økonomisk og stemt på via tilgjengelig finansiering), en strategisk planprosess, samarbeid om utarbeidelse av ny politikk, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p> \n"
           page: "<p>En <strong>deltakerprosess</strong> er en sekvens av deltakende aktiviteter (f.eks. først å fylle ut en undersøkelse, deretter komme med forslag, diskutere dem ansikt til ansikt eller i virtuelle møter, og til slutt prioritere dem) med målet om å definere og ta en beslutning om et spesifikt tema.</p> <p>Eksempler på deltakende prosesser er: en prosess med valg av komitémedlemmer (der kandidater først blir presentert, deretter diskutert og til slutt valgt et kandidatur), deltaker budsjetter (der forslag blir opprettet, verdsatt økonomisk og stemt på med tilgjengelige penger), en strategisk planprosess, samarbeid om utarbeidelse av en forskrift eller norm, utforming av et byrom eller utarbeidelse av en offentlig politisk plan.</p>\n"
-          title: Hva er en deltaker prosess?
+          title: Hva er en deltakende prosess?
     menu:
       processes: Prosesser
     metrics:
       participatory_processes:
-        description: Antall deltakende prosesser i denne organisasjonen
-        object: deltaker prosesser
-        title: Deltaker prosesser
+        description: Antall deltakende prosesser gjennom denne siden
+        object: deltakende prosesser
+        title: Deltakende prosesser
+    participatory_process:
+      show:
+        related_assemblies: Relaterte forsamlinger
     participatory_process_groups:
       show:
         group_participatory_processes:
           one: 1 prosess for %{group}
-          other: "%{count} prosesser for %{group}"
-        title: Deltaker prosess grupper
+          other: "%{count} prosesser i %{group}"
+        title: Prosessgrupper
     participatory_process_steps:
       index:
-        process_steps: Prosess faser
-        title: Deltaker prosess faser
+        process_steps: Medvirkningsfaser
+        title: Medvirkningsfaser
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
-            max_results: Maksimal mengde elementer som skal vises
+            max_results: Maksimalt antall elementer som vises
         participatory_process_copies:
           form:
             slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Bruk delte stier, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Hvis den ikke er satt, vises ikke knappen. Eksempel: %{url}'
-            cta_text_help: Hvis ikke satt, vil ikke knappen vises.
+            cta_path_help: 'Bruk delte baner, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Hvis den ikke er satt, vises ikke knappen. Eksempel: %{url}'
+            cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
-            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosess informasjonen.
+            announcement_help: Teksten du skriver inn her vil vises til brukeren rett under prosessinformasjonen.
             duration: Varighet
-            filters: Filter
+            filters: Filtere
             images: Bilder
             metadata: Metadata
             other: Annet
             related_processes: Relaterte prosesser
-            scope_type_max_depth_help: Begrens omfangets filterdybde; Filteret viser fra generelt til valgt omfangstype.
+            scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
             select_an_area: Velg et Område
-            select_process_group: Velg en prosess gruppe
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
-            title: Generell Informasjon
+            select_process_group: Velg en prosessgruppe
+            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
+            title: Generell informasjon
             visbility: Synlighet
       content_blocks:
         highlighted_processes:
           name: Fremhevede prosesser
       index:
-        title: Deltaker prosesser
+        title: Deltakende prosesser
       last_activity:
-        new_participatory_process: Ny deltaker prosess
+        new_participatory_process: Ny deltakende prosess
       pages:
         home:
           highlighted_processes:
             active_processes: Aktive prosesser
-            active_step: Aktiv fase
+            active_step: Aktiv medvirkningsfase
             more_information: Mer informasjon
             participate: Delta
             see_all_processes: Se alle prosesser
@@ -363,46 +374,46 @@
           explanations:
             no_active: Ingen aktive prosesser
             no_active_nor_upcoming: Ingen aktive eller kommende prosesser
-            no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de tidligere.
+            no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de som har vært.
           names:
             active: Aktiv
             all: Alle
-            past: Fortid
+            past: Tidligere
             upcoming: Kommende
           see: Se
         index:
           loading: Laster inn resultater...
       show:
         area: Område
-        developer_group: Promotør gruppe
+        developer_group: Prosessen styres av
         end_date: Sluttdato
-        local_area: Organisasjonsområdet
-        participatory_scope: Hva er bestemt
-        participatory_structure: Hvordan blir det bestemt
-        private_space: Dette er en privat prosess
+        local_area: Organisasjonsområde
+        participatory_scope: Medvirkningen gjelder
+        participatory_structure: Hvordan det blir gjennomført
+        private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
-        scope: Omfang
+        scope: Tema
         start_date: Startdato
-        target: Hvem deltar
+        target: Hvem kan delta
         unspecified: Ikke spesifisert
       statistics:
         answers_count: Svar
         comments_count: Kommentarer
-        debates_count: Debatter
-        endorsements_count: Påtegnelser
+        debates_count: Diskusjoner
+        endorsements_count: Tilslutninger
         followers_count: Følgere
         headline: Aktivitet
-        meetings_count: Møter
+        meetings_count: Arrangementer
         no_stats: Det finnes ingen statistikk enda.
-        orders_count: Støtter
+        orders_count: Støtte
         pages_count: Sider
         participants_count: Deltakere
         processes_count: Prosesser
         projects_count: Prosjekter
         proposals_count: Forslag
         results_count: Resultater
-        supports_count: Støtter
-        surveys_count: Undersøkelse
+        supports_count: Støtte
+        surveys_count: Undersøkelser
         users_count: Deltakere
   layouts:
     decidim:

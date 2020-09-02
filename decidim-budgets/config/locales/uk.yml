@@ -114,17 +114,12 @@ uk:
             other: обраних проектів
           view: Переглянути
         project:
-          add: Додати
           count:
             one: 1 людина підтримує
             few: "%{count} людей підтримує"
             many: "%{count} людей підтримують"
             other: "%{count} людей підтримують"
-          remove: Видалити
           view: Переглянути
-        project_budget_button:
-          add: Додати
-          added: Додано
         show:
           budget: Бюджет
           view_all_projects: Переглянути всi проекти

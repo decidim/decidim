@@ -64,6 +64,12 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ sv:
   decidim:
     admin:
       actions:
+        import_assembly: Importera
         new_assembly: Ny grupp
         new_assembly_type: Ny typ av grupp
       assemblies:
@@ -101,6 +108,10 @@ sv:
         create:
           error: Det gick inte att duplicera gruppen.
           success: Gruppen har duplicerats.
+      assemblies_settings:
+        update:
+          error: Det gick inte att uppdatera inställningarna.
+          success: Inställningarna har uppdaterats.
       assemblies_types:
         create:
           error: Det gick inte att skapa en ny typ av grupp.
@@ -118,6 +129,14 @@ sv:
           copy: Kopiera
           select: Välj vilka data som ska dupliceras
           title: Duplicera grupp
+      assembly_imports:
+        create:
+          error: Det gick inte att importera församlingen.
+          success: Församlingen har importerats.
+        new:
+          import: Importera
+          select: Välj vilka data du vill importera
+          title: Importera sammansättning
       assembly_members:
         create:
           error: Det gick inte att lägga till en medlem till gruppen.
@@ -161,6 +180,7 @@ sv:
           success: Administratören för gruppen har uppdaterats.
       menu:
         assemblies: Grupper
+        assemblies_settings: Inställningar
         assemblies_submenu:
           assembly_admins: Administratörer för gruppen
           assembly_members: Medlemmar
@@ -222,6 +242,8 @@ sv:
         create: "%{user_name} skapade medlemmen %{resource_name} i gruppen %{space_name}"
         delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
         update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
+      assembly_setting:
+        update: "%{user_name} uppdaterade inställningarna för församlingarna"
       assembly_type:
         create: "%{user_name} skapade grupptypen %{resource_name}"
         delete: "%{user_name} tog bort medlemmen %{resource_name} från grupptypen %{space_name}"
@@ -251,12 +273,21 @@ sv:
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
+        assemblies_settings:
+          edit:
+            update: Uppdatera
+          form:
+            title: Inställningar för församlingar
         assemblies_types:
           form:
             title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Lägg till ett dokument
+            slug_help: 'URL-sniglar används för att generera URL:er som pekar till församlingen. Accepterar endast bokstäver, siffror och bindestreck och måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -370,6 +401,19 @@ sv:
         home:
           highlighted_conferences:
             conferences_button_title: Länk till sidan över konferenser som visar alla konferenser
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
+          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till en församling. Kolla <a href="%{resource_path}">samlingssidan</a> för att bidra!
+          email_subject: Du har blivit inbjuden att vara medlem i församlingen %{resource_name}!
+          notification_title: Du har blivit registrerad som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Kolla <a href="%{resource_path}">mötessidan</a> för att bidra!
+      assembly:
+        role_assigned:
+          email_intro: Du har tilldelats som %{role} för församlingen "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} av församlingen "%{resource_title}".
+          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats som %{role} för montering <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -400,6 +444,8 @@ sv:
         home:
           highlighted_processes:
             processes_button_title: Länk till sidan som visar alla dialoger
+      show:
+        related_assemblies: Relaterade sammankomster
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt

@@ -1,0 +1,471 @@
+ja:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: エリア
+        assembly_type: アセンブリタイプ
+        assembly_type_other: Assembly type other
+        banner_image: バナー画像
+        closing_date: 終了日
+        closing_date_reason: 終了日時の理由
+        composition: 構成
+        copy_categories: カテゴリをコピー
+        copy_components: コンポーネントをコピー
+        copy_features: 機能をコピー
+        created_by: '作成者:'
+        created_by_other: 他によって作成
+        creation_date: 作成日
+        decidim_area_id: エリア
+        decidim_assemblies_type_id: アセンブリタイプ
+        decidim_scope_id: スコープ
+        description: 説明
+        developer_group: プロモーターグループ
+        domain: ドメイン
+        duration: 期間
+        facebook: Facebook
+        github: GitHub
+        hashtag: ハッシュタグ
+        hero_image: ホーム画像
+        included_at: に含まれています
+        instagram: Instagram
+        internal_organisation: 内部組織
+        is_transparent: 透明な
+        local_area: 組織エリア
+        meta_scope: スコープメタデータ
+        parent_id: 親のアセンブリ
+        participatory_processes_ids: 関連する参加プロセス
+        participatory_scope: 決定されるもの
+        participatory_structure: どのように決められますか？
+        private_space: プライベートスペース
+        promoted: 強調表示
+        published_at: 公開日時
+        purpose_of_action: アクションの目的
+        scope_id: スコープ
+        scopes_enabled: スコープは有効です
+        short_description: 短い説明
+        show_statistics: 統計情報を表示
+        slug: URL スラグ
+        special_features: 特別な機能
+        subtitle: サブタイトル
+        target: 参加した人
+        title: タイトル
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member:
+        birthday: 誕生日
+        birthplace: 出生地
+        ceased_date: 終了日
+        designation_date: 指定日
+        designation_mode: 名称モード
+        full_name: フルネーム
+        gender: 性別
+        position: 位置
+      assembly_user_role:
+        email: Eメールアドレス
+        name: 名前
+        role: ロール
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        other: アセンブリ
+      decidim/assembly_member:
+        other: アセンブリメンバー
+      decidim/assembly_user_role:
+        other: アセンブリユーザーロール
+  decidim:
+    admin:
+      actions:
+        import_assembly: インポート
+        new_assembly: 新しいアセンブリ
+        new_assembly_type: 新しいアセンブリタイプ
+      assemblies:
+        create:
+          error: 新しいアセンブリの作成中に問題が発生しました。
+          success: アセンブリが作成されました。
+        edit:
+          update: 更新
+        index:
+          not_published: 未公開
+          private: 非公開
+          public: 公開
+          published: 公開済み
+        new:
+          create: 作成
+          title: 新しいアセンブリ
+        update:
+          error: アセンブリの更新に問題がありました。
+          success: アセンブリを更新しました。
+      assemblies_copies:
+        create:
+          error: このアセンブリの複製中に問題が発生しました。
+          success: アセンブリを複製しました。
+      assemblies_settings:
+        update:
+          error: 設定の更新中に問題が発生しました。
+          success: 設定が更新されました。
+      assemblies_types:
+        create:
+          error: 新しいアセンブリタイプの作成に問題がありました。
+          success: アセンブリタイプが正常に作成されました。
+        destroy:
+          success: アセンブリタイプを削除しました。
+        new:
+          create: 作成
+          title: 新しいアセンブリタイプ
+        update:
+          error: アセンブリタイプの更新中に問題が発生しました。
+          success: アセンブリタイプが正常に更新されました。
+      assembly_copies:
+        new:
+          copy: コピー
+          select: 複製したいデータを選択してください
+          title: アセンブリを複製
+      assembly_imports:
+        create:
+          error: このアセンブリのインポート中に問題が発生しました。
+          success: アセンブリは正常にインポートされました。
+        new:
+          import: インポート
+          select: インポートしたいデータを選択
+          title: アセンブリをインポート
+      assembly_members:
+        create:
+          error: このアセンブリにメンバーを追加する際に問題が発生しました。
+          success: メンバーは正常にこのアセンブリ用に作成されました。
+        destroy:
+          success: メンバーはこのアセンブリの削除に成功しました。
+        edit:
+          title: アセンブリメンバーを更新します。
+          update: 更新
+        index:
+          assembly_members_title: アセンブリメンバー
+        new:
+          create: 作成
+          title: 新しいアセンブリメンバー。
+        update:
+          error: このアセンブリのメンバーの更新に問題がありました。
+          success: メンバーがこのアセンブリの更新に成功しました。
+      assembly_publications:
+        create:
+          error: このアセンブリの公開中に問題がありました。
+          success: アセンブリを公開しました。
+        destroy:
+          error: このアセンブリの非公開中に問題が発生しました。
+          success: アセンブリを非公開にしました。
+      assembly_user_roles:
+        create:
+          error: このアセンブリの管理者追加中に問題が発生しました。
+          success: 管理者がこのアセンブリに追加されました。
+        destroy:
+          success: 管理者がこのアセンブリから削除されました。
+        edit:
+          title: アセンブリ管理者を更新する
+          update: 更新
+        index:
+          assembly_admins_title: 組立管理者
+        new:
+          create: 作成
+          title: 新しいアセンブリ管理者です。
+        update:
+          error: このアセンブリの管理者を更新中に問題が発生しました。
+          success: 管理者はこのアセンブリの更新に成功しました。
+      menu:
+        assemblies: アセンブリ
+        assemblies_settings: 設定
+        assemblies_submenu:
+          assembly_admins: 組立管理者
+          assembly_members: メンバー
+          attachment_collections: フォルダ
+          attachment_files: ファイル
+          attachments: 添付ファイル
+          categories: カテゴリ
+          components: コンポーネント
+          info: 情報
+          moderations: モデレーション
+          private_users: 非公開ユーザー
+        assemblies_types: アセンブリタイプ
+      models:
+        assemblies_types:
+          fields:
+            created_at: 作成日時
+            title: タイトル
+        assembly:
+          fields:
+            created_at: 作成日時
+            private: 非公開
+            promoted: 強調表示
+            published: 公開済み
+            title: タイトル
+          name: Assembly
+        assembly_member:
+          fields:
+            ceased_date: 終了日
+            designation_date: 指定日
+            full_name: 名前
+            position: 位置
+          name: メンバー
+          positions:
+            other: その他
+            president: 社長
+            secretary: 秘書官
+            vice_president: バイスプレジデントformat@@0
+        assembly_user_role:
+          fields:
+            email: Eメールアドレス
+            name: 名前
+            role: ロール
+          name: アセンブリ管理者
+          roles:
+            admin: 管理者
+            collaborator: 共同編集者
+            moderator: モデレーター
+            valuator: Valuator
+      titles:
+        assemblies: アセンブリ
+        assemblies_types: アセンブリタイプ
+    admin_log:
+      assembly:
+        create: "%{user_name} が %{resource_name} アセンブリを作成しました"
+        publish: "%{user_name} が %{resource_name} アセンブリを公開しました"
+        unpublish: "%{user_name} が %{resource_name} アセンブリを非公開にしました"
+        update: "%{user_name} が %{resource_name} アセンブリを更新しました"
+      assembly_member:
+        create: "%{user_name} が %{resource_name} アセンブリで %{space_name} メンバーを作成しました"
+        delete: "%{user_name} が %{resource_name} アセンブリから %{space_name} メンバーを削除しました"
+        update: "%{user_name} が %{resource_name} アセンブリの %{space_name} メンバーを更新しました"
+      assembly_setting:
+        update: "%{user_name} がアセンブリ設定を更新しました"
+      assembly_type:
+        create: "%{user_name} が %{resource_name} アセンブリタイプを作成しました"
+        delete: "%{user_name} が %{resource_name} アセンブリタイプから %{space_name} メンバーを削除しました"
+        publish: "%{user_name} が %{resource_name} アセンブリタイプを公開しました"
+        unpublish: "%{user_name} が %{resource_name} アセンブリタイプを非公開にしました"
+        update: "%{user_name} が %{resource_name} アセンブリタイプを更新しました"
+      assembly_user_role:
+        create: "%{user_name} が %{resource_name} を %{space_name} アセンブリに招待しました"
+        delete: "%{user_name} が参加者 %{resource_name} を %{space_name} アセンブリから削除しました"
+        update: "%{user_name} が %{resource_name} アセンブリで %{space_name} の役割を変更しました"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: 期間
+            duration_help: このアセンブリの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
+            filters: フィルタ
+            images: 画像
+            included_at_help: このアセンブリがDecidimに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
+            metadata: メタデータ
+            other: その他
+            select_a_created_by: 作成者を選択してください
+            select_an_area: エリアを選択
+            select_an_assembly_type: アセンブリタイプを選択
+            select_parent_assembly: 親アセンブリを選択
+            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            social_handlers: ソーシャル
+            title: 一般情報
+            visbility: 公開範囲
+        assemblies_settings:
+          edit:
+            update: 更新
+          form:
+            title: アセンブリの設定
+        assemblies_types:
+          form:
+            title: タイトル
+        assembly_copies:
+          form:
+            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+        assembly_imports:
+          form:
+            document_legend: ドキュメントを追加
+            slug_help: 'URLスラグは、このアセンブリを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+        assembly_members:
+          form:
+            existing_user: 既存の参加者
+            non_user: Non participant
+            select_a_position: 位置を選択
+            select_user: 参加者を選択
+            user_type: 参加者の種類
+          index:
+            filter:
+              all: すべて
+              ceased: 終了済み
+              not_ceased: 終了していません
+            filter_by: フィルター
+            search: 検索
+        content_blocks:
+          highlighted_assemblies:
+            max_results: 表示する要素の最大量
+      assembly_members:
+        index:
+          members: メンバー
+      assembly_types:
+        commission: <unk>
+        consultative_advisory: 協議/アドバイザリ
+        executive: Executive
+        government: 政府
+        others: その他
+        participatory: 参加者
+        working_group: ワーキンググループ
+      content_blocks:
+        highlighted_assemblies:
+          name: ハイライトされたアセンブリ
+      created_by:
+        city_council: 市議会（市議会）
+        others: その他
+        public: 公開
+      filter:
+        all: すべてのタイプ
+        commission: Commission
+        consultative_advisory: 協議/アドバイザリ
+        executive: Executive
+        government: 政府
+        help: '表示:'
+        others: その他
+        participatory: 参加者
+        working_group: ワーキンググループ
+      index:
+        title: アセンブリ
+      last_activity:
+        new_assembly: 新しいアセンブリ
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: アクティブなアセンブリ
+            assemblies_button_title: すべてのアセンブリを表示するアセンブリページへのリンク
+            see_all_assemblies: すべてのアセンブリを表示
+        user_profile:
+          member_of:
+            member_of: メンバー
+      show:
+        area: エリア
+        assembly_type: アセンブリタイプ
+        children: アセンブリ
+        closing_date: 終了日
+        composition: 構成
+        created_by: '作成者:'
+        creation_date: 作成日
+        developer_group: プロモーターグループ
+        duration: 期間
+        included_at: に含まれています
+        indefinite_duration: 不定義
+        internal_organisation: 内部組織
+        is_transparent:
+          'false': 不透明な
+          'true': transparent
+        local_area: 組織エリア
+        participatory_scope: 決定されるもの
+        participatory_structure: どのように決められますか？
+        private_space: これは私的集会です
+        purpose_of_action: アクションの目的
+        read_less: 未読にする
+        read_more: もっと読む
+        related_participatory_processes: 関連する参加プロセス
+        scope: スコープ
+        social_networks: ソーシャル ネットワーク
+        social_networks_title: このアセンブリを共有
+        target: 参加した人
+      statistics:
+        answers_count: 回答
+        assemblies_count: アセンブリ
+        comments_count: コメント
+        debates_count: ディベート数
+        endorsements_count: <unk>
+        headline: アクティビティ
+        meetings_count: ミーティング
+        orders_count: サポート
+        pages_count: ページ
+        posts_count: 投稿
+        projects_count: プロジェクト
+        proposals_count: 提案
+        results_count: 結果
+        surveys_count: 調査
+        users_count: 参加者
+        votes_count: サポート
+    assembly_members:
+      assembly_member:
+        designated_on: 指定日時：
+      index:
+        title: メンバー
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: すべての会議を表示する会議ページへのリンク
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name}</a> アセンブリの管理者があなたをそのメンバーの一人として追加しました。
+          email_outro: アセンブリに招待されたため、この通知を受け取りました。 <a href="%{resource_path}">アセンブリページ</a> を確認して貢献してください！
+          email_subject: あなたは %{resource_name} アセンブリのメンバーに招待されています！
+          notification_title: アセンブリ <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">アセンブリページ</a> を確認してください！
+      assembly:
+        role_assigned:
+          email_intro: アセンブリ「 %{role} 」の%{resource_title}として割り当てられました。
+          email_outro: あなたは " %{role} " アセンブリの%{resource_title}であるため、この通知を受け取りました。
+          email_subject: あなたは " %{role} " の%{resource_title} として割り当てられました。
+          notification_title: あなたは集会<a href="%{resource_url}"ｆ>%{resource_title}</a> に、%{role} として割り当てられました。
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p> <strong>集会</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>集会は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて総会の例です。</p>\n"
+          page: "<p> <strong>集会</strong>とは、組織の特定の領域や範囲について決定を下すために定期的に会合を開く組織のメンバーのグループです。</p> <p>集会は非公開のものもあれば、公開されているものもあります。公開されている場合は、その集会に参加することができます (例えば、定員に余裕があれば出席したり、議題にポイントを追加したり、この組織の提案や決定に対してコメントしたりすることができます)。</p> <p>例：総会（年に一度開催され、組織の主要な活動方針と執行機関を投票で決定する）、平等諮問評議会（組織内の男女比率等を改善する方法についての提案を行うために2ヶ月ごとに開催される）、評価委員会（プロセスを監視するために毎月開催される）、保証機関（意思決定手続きを改善するために事件や虐待、提案を収集する）などは、すべて総会の例です。</p>\n"
+          title: アセンブリとは？
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'アセンブリがデータベース上に見つかりませんでした (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'アセンブリタイプがデータベース上に見つかりませんでした (ID: %{id})'
+    menu:
+      assemblies: アセンブリ
+    metrics:
+      assemblies:
+        description: 作成されたアセンブリ数
+        object: assemblies
+        title: アセンブリ
+    pages:
+      home:
+        hero:
+          participate_title: プラットフォームのプロセスに参加する
+        sub_hero:
+          register_title: アカウントを作成するにはサインアップしてください
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
+      show:
+        related_assemblies: 関連するアセンブリ
+  errors:
+    messages:
+      cannot_be_blank: 空白にできません
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: 詳細情報
+          take_part: 参加する
+        index:
+          children: 'アセンブリ: '
+          organizational_chart: 組織図
+          promoted_assemblies: ハイライトされたアセンブリ
+          reset_chart: Reset
+        order_by_assemblies:
+          assemblies:
+            other: "%{count} 個のアセンブリ"
+        promoted_assembly:
+          more_info: 詳細情報
+          take_part: 参加する
+      assembly_navigation:
+        assembly_member_menu_item: メンバー
+        assembly_menu_item: アセンブリ（アセンブリ）
+      assembly_widgets:
+        show:
+          take_part: 参加する

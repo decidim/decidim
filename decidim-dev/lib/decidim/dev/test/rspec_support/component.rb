@@ -71,7 +71,9 @@ module Decidim
       include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::TranslatableResource
 
+      translatable_fields :title
       searchable_fields(
         scope_id: { scope: :id },
         participatory_space: { component: :participatory_space },
@@ -174,6 +176,7 @@ Decidim.register_component(:dummy) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean, readonly: ->(_context) { false }
@@ -241,7 +244,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.jsonb :translatable_text
-          t.string :title
+          t.jsonb :title
           t.string :body
           t.text :address
           t.float :latitude

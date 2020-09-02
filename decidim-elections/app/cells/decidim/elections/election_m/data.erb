@@ -1,0 +1,19 @@
+<div class="card__icondata">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <%= icon "datetime", class: "icon--big", role: "img", aria_label: t("decidim.elections.election_m.label.date") %>
+    </li>
+    <li class="card-data__item">
+      <div class="card-data__item--centerblock">
+        <strong><%= t("decidim.elections.election_m.start_date") %></strong>
+        <%= start_date ? l(start_date, format: :decidim_short) : t("decidim.elections.election_m.unspecified") %>
+      </div>
+    </li>
+    <li class="card-data__item">
+      <div class="card-data__item--centerblock">
+        <strong><%= t("decidim.elections.election_m.end_date") %></strong>
+        <%= end_date ? l(end_date, format: :decidim_short) : t("decidim.elections.election_m.unspecified") %>
+      </div>
+    </li>
+  </ul>
+</div>

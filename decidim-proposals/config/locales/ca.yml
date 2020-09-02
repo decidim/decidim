@@ -7,6 +7,7 @@ ca:
         category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        scope_id: Àmbit
         state: Estat
         title: Títol
         user_group_id: Crea un esborrany col·laboratiu com a
@@ -19,6 +20,7 @@ ca:
         category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
         title: Títol
@@ -77,24 +79,33 @@ ca:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipus
-          values:
-            'false': Propostes
-            'true': Esmenes
+        proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipus
+            values:
+              'false': Propostes
+              'true': Esmenes
+          scope_id_eq:
+            label: Àmbit
+          state_eq:
+            label: Estat
+            values:
+              accepted: Acceptades
+              evaluating: En avaluació
+              published: Publicades
+              rejected: Rebutjades
+              validating: Validació tècnica
+              withdrawn: Retirades
+          state_null:
+            label: Estat
+            values:
+              'true': No resposta
+          valuator_role_ids_has:
+            label: Assignada a avaluadora
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
-        state_eq:
-          label: Estat
-          values:
-            evaluating: En avaluació
-            withdrawn: Retirada
-        state_null:
-          label: Estat
-          values:
-            'true': No resposta
-        valuator_role_ids_has:
-          label: Assignada a avaluadora
     components:
       proposals:
         actions:
@@ -115,6 +126,7 @@ ca:
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             geocoding_enabled: Geocodificació habilitada
             minimum_votes_per_user: Suports mínims per participant
             new_proposal_body_template: Plantilla pel text de nova proposta
@@ -142,6 +154,9 @@ ca:
             amendment_reaction_enabled: Reacció a les esmenes habilitada
             amendment_reaction_enabled_help: Les autores de les propostes poden acceptar o rebutjar les esmenes proposades pels participants.
             amendments_visibility: Visibilitat de les esmenes
+            amendments_visibility_choices:
+              all: Les esmenes són visibles per a tothom
+              participants: Les esmenes són visibles només per les seves autores
             amendments_visibility_help: Si es selecciona l'opció "Les esmenes són visibles únicament per als seus autors", els participants han d'estar identificats per a veure les esmenes realitzades.
             announcement: Avís
             answers_with_costs: Habilitar cost en les respostes a propostes
@@ -158,6 +173,12 @@ ca:
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció s'amagarà el nombre de suports)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'admistració</a>
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
+            email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'admistració</a>
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_path}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè ets contribuidora de <a href="%{resource_path}">%{resource_title}</a>.
@@ -629,15 +650,23 @@ ca:
         update:
           error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
+          title: Editar l'esborrany col·laboratiu
         wizard_aside:
           back: Torna
+          back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
+          back_from_step_1: Tornar a l'esborrany col·laboratiu
+          back_from_step_2: Tornar a l'esborrany col·laboratiu
+          back_from_step_3: Tornar a comparar els esborranys col·laboratius
+          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
         wizard_steps:
+          current_step: Fase actual
           see_steps: veure els passos
           step_1: Crea el teu esborrany col·laboratiu
           step_2: Compara amb esborranys col·laboratius
           step_3: Completa el teu esborrany col·laboratiu
           step_of: Pas %{current_step_num} de %{total_steps}
+          title: Passos per a la creació d'un esborrany col·laboratiu
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -675,7 +704,6 @@ ca:
           amend: Esmena
           comment: Comentari
           comments: Comentaris
-          endorse: Adherir-se
       proposal_votes:
         create:
           error: Hi ha hagut un error en donar suport a la proposta.
@@ -758,7 +786,7 @@ ca:
           view_proposal: Veure proposta
         proposals:
           empty: Encara no hi ha cap proposta
-          empty_filters: No hi ha cap proposta amb aquests criteris
+          empty_filters: No hi ha cap proposta amb aquest criteri
         show:
           answer: Resposta
           back_to: Torna
@@ -784,10 +812,12 @@ ca:
           read_more: Llegir més
           report: Denúncia
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
-          withdraw_confirmation: Segur que vols retirar aquesta proposta?
+          withdraw_confirmation_html: Segur que vols retirar aquesta proposta? <br><br><strong>Aquesta acció no es pot desfer!</strong>
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_name}</u> per una administradora)"
+        update:
+          title: Actualitzar la proposta
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
@@ -819,14 +849,25 @@ ca:
             votes: Suports
         wizard_aside:
           back: Torna
+          back_from_step_1: Tornar a propostes
+          back_from_step_2: Tornar a propostes
+          back_from_step_3: Tornar a comparar propostes
+          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant una <strong>proposta</strong>.
         wizard_steps:
+          current_step: Pas actual
           see_steps: veure les fases
           step_1: Crea la teva proposta
           step_2: Compara
           step_3: Completa
           step_4: Publica la teva proposta
           step_of: Fase %{current_step_num} de %{total_steps}
+          title: Passos per a la creació d'una proposta
+      proposals_picker:
+        choose_proposals: Triar propostes
+        close: Tancar
+        more_proposals: Hi ha %{number} propostes més. Afina la teva cerca per localitzar-les.
+        no_proposals: No hi ha propostes que coincideixin amb el teu criteri de cerca o no hi ha cap proposta.
       publish:
         error: Hi ha hagut un error en publicar la proposta.
         success: La proposta s'ha publicat correctament.

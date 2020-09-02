@@ -40,7 +40,7 @@ module Decidim
       private
 
       def resource_path
-        resource_locator(model).path
+        resource_locator(model).path(filter_link_params)
       end
 
       def resource_title
@@ -72,9 +72,14 @@ module Decidim
       end
 
       def vote_button_label
-        return t("decidim.budgets.projects.project.remove") if resource_added?
+        if resource_added?
+          return t(
+            "decidim.budgets.projects.project.remove",
+            resource_name: resource_title
+          )
+        end
 
-        t("decidim.budgets.projects.project.add")
+        t("decidim.budgets.projects.project.add", resource_name: resource_title)
       end
     end
   end

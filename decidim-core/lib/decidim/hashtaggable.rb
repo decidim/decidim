@@ -7,14 +7,16 @@ module Decidim
 
     included do
       def search_title
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(title)
+        value = try(:i18n_title) || title
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
         renderer.render(links: false).html_safe
       end
 
       alias_method :formatted_title, :search_title
 
       def search_body
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(body)
+        value = try(:i18n_body) || title
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
         renderer.render(links: false).html_safe
       end
 

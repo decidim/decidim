@@ -194,9 +194,6 @@ id:
       participatory_process_groups:
         highlighted_results:
           results: Hasil
-    participatory_spaces:
-      highlighted_results:
-        see_all: Lihat semua (%{count})
     resource_links:
       included_projects:
         result_project: Proyek termasuk dalam hasil ini

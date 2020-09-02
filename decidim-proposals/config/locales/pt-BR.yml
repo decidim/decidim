@@ -69,22 +69,6 @@ pt:
         one: Voto
         other: Votos
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propostas
-            'true': Emendas
-        state_eq:
-          label: Estado
-          values:
-            evaluating: Avaliando
-            withdrawn: Retirado
-        state_null:
-          label: Estado
-          values:
-            'true': Não respondido
     components:
       proposals:
         actions:
@@ -590,7 +574,6 @@ pt:
           amend: Alterar
           comment: Comente
           comments: Comentários
-          endorse: Endossar
       proposal_votes:
         create:
           error: Houve erros ao votar a proposta.
@@ -680,7 +663,6 @@ pt:
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           report: Relatório
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
-          withdraw_confirmation: Tem certeza de retirar essa proposta?
           withdraw_proposal: Retirar proposta
         vote_button:
           already_voted: Já votou

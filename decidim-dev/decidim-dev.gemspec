@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.5"
+  s.required_ruby_version = ">= 2.6"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "erb_lint", "~> 0.0.28"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
-  s.add_dependency "mdl", "~> 0.5.0"
+  s.add_dependency "mdl", "~> 0.5"
   s.add_dependency "nokogiri", ">= 1.10.8"
   s.add_dependency "puma", ">= 4.3"
   s.add_dependency "rails-controller-testing", "~> 1.0"

@@ -12,6 +12,9 @@ module Decidim
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Randomable
     include Decidim::Searchable
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :subtitle, :description
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -26,6 +29,8 @@ module Decidim
              class_name: "Decidim::Consultations::Question",
              inverse_of: :consultation,
              dependent: :destroy
+
+    alias component_ids question_ids
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }

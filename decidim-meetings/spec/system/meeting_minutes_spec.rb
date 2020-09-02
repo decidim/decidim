@@ -28,7 +28,7 @@ describe "Meeting minutes", type: :system do
   end
 
   context "when meeting minutes is visible" do
-    let!(:minutes) { create(:minutes, meeting: meeting, visible: true) }
+    let!(:minutes) { create(:minutes, meeting: meeting, visible: :visible) }
 
     it "shows the minutes section" do
       visit_meeting

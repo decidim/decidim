@@ -1,13 +1,224 @@
 el:
   activemodel:
     attributes:
+      result:
+        decidim_accountability_status_id: Κατάσταση
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        end_date: Ημερομηνία λήξης
+        progress: Πρόοδος
+        project_ids: Έργα που περιλαμβάνονται
+        proposals: Προτάσεις που περιλαμβάνονται
+        start_date: Ημερομηνία έναρξης
+        title: Τίτλος
+        updated_at: Ενημερώθηκε στις
       status:
+        description: Περιγραφή
+        key: Κλειδί
         name: Όνομα
+        progress: Πρόοδος
+      timeline_entry:
+        description: Περιγραφή
+        entry_date: Ημερομηνία
+    models:
+      decidim/accountability/proposal_linked_event: Η πρόταση περιλαμβάνεται σε ένα αποτέλεσμα
+      decidim/accountability/result_progress_updated_event: Η πρόοδος των αποτελεσμάτων ενημερώθηκε
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Αποτέλεσμα
+        other: Αποτελέσματα
   decidim:
     accountability:
       actions:
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το όνομα %{name};
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        import_csv: Εισαγωγή αρχείου CSV
+        new: Νέο όνομα %{name}
         preview: Προεπισκόπηση
+        timeline_entries: Εξέλιξη έργου
+        title: Ενέργειες
+      admin:
+        exports:
+          results: Αποτελέσματα
+        import_results:
+          new:
+            import: Εισαγωγή
+            info: "<p>Σας συνιστούμε να ακολουθήσετε αυτά τα βήματα:</p><ol><li>Δημιουργήστε τις Καταστάσεις για τα Αποτελέσματα που θέλετε να προσθέσετε (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Δημιουργήστε τουλάχιστον ένα Αποτέλεσμα χειροκίνητα μέσω αυτού του Πίνακα διαχειριστή (<a href='%{link_new_result}' target='_blank'>link</a>), προτού χρησιμοποιήσετε την Εισαγωγή, προκειμένου να κατανοήσετε καλύτερα τη μορφή και τα στοιχεία που πρέπει να συμπληρώσετε.</li><li>Πραγματοποιήστε λήψη της Εξαγωγής σε μορφή CSV (%{link_export_csv})</li><li>Πραγματοποιήστε τις αλλαγές τοπικά. Μπορείτε να αλλάξετε μόνο τις παρακάτω στήλες του CSV:</li></ol><ul><li><b>κατηγορία/αναγνωριστικό:</b> Αναγνωριστικό για την Κατηγορία</li><li><b>πεδίο εφαρμογής/αναγνωριστικό:</b> Αναγνωριστικό για το Πεδίο εφαρμογής</li><li><b>γονικό στοιχείο/αναγνωριστικό:</b> Αναγνωριστικό για το γονικό στοιχείο (για σχετικά Αποτελέσματα). Προαιρετικά</li><li><b>τίτλος/I18N:</b> Τίτλος στη γλώσσα X</li><li><b>περιγραφή/I18N:</b> Περιγραφή στη γλώσσα X</li><li><b>ημερομηνία_έναρξης:</b> ημερομηνία κατά την οποία το αποτέλεσμα ξεκινά την εκτέλεση (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li><li><b>ημερομηνία_λήξης:</b> ημερομηνία κατά την οποία το αποτέλεσμα ολοκληρώνει την εκτέλεση (μορφή ΕΕΕΕ-ΜΜ-ΗΗ)</li><li><b>κατάσταση/αναγνωριστικό:</b> Αναγνωριστικό της Κατάστασης αυτού του αποτελέσματος</li><li><b>πρόοδος:</b> Ποσοστό (από 0 έως 100) της εκτέλεσης</li><li><b>αναγνωριστικά_προτάσεων:</b> εσωτερικό αναγνωριστικό των σχετικών προτάσεων (διαχωρισμένων με κόμμα). Μετατρέπεται αυτόματα σε <span class='attribute-name'>url_πρότασης</span></li></ul>"
+            link: σύνδεσμος
+            title: Εισαγωγή αποτελεσμάτων από αρχείο CSV
+        imports:
+          create:
+            success: Η εισαγωγή του αρχείου ξεκίνησε. Θα λάβετε email στα επόμενα λεπτά με το αποτέλεσμα της εισαγωγής
+        models:
+          result:
+            name: Αποτέλεσμα
+          status:
+            name: Κατάσταση
+          timeline_entry:
+            name: Καταχώρηση χρονοδιαγράμματος
+        results:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του αποτελέσματος
+            success: Το αποτέλεσμα δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Το αποτέλεσμα διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία αποτελέσματος
+            update: Ενημέρωση αποτελέσματος
+          index:
+            title: Αποτελέσματα
+          new:
+            create: Δημιουργία αποτελέσματος
+            title: Νέο αποτέλεσμα
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του αποτελέσματος
+            success: Το αποτέλεσμα ενημερώθηκε με επιτυχία
+        shared:
+          subnav:
+            statuses: Καταστάσεις
+        statuses:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της κατάστασης
+            success: Η κατάσταση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η κατάσταση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία κατάστασης
+            update: Ενημέρωση κατάστασης
+          index:
+            title: Καταστάσεις
+          new:
+            create: Δημιουργία κατάστασης
+            title: Νέα κατάσταση
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της κατάστασης
+            success: Η κατάσταση ενημερώθηκε με επιτυχία
+        timeline_entries:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της καταχώρησης
+            success: Η καταχώρηση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η καταχώρηση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία καταχώρησης
+            update: Ενημέρωση καταχώρησης
+          index:
+            title: Καταχωρήσεις χρονοδιαγράμματος έργου
+          new:
+            create: Δημιουργία καταχώρησης
+            title: Νέα καταχώρηση
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της καταχώρησης
+            success: Η καταχώρηση ενημερώθηκε με επιτυχία
+      admin_log:
+        result:
+          create: "Ο χρήστης %{user_name} δημιούργησε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
+          delete: "Ο χρήστης %{user_name} διέγραψε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε το αποτέλεσμα %{resource_name} στον χώρο %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'H γονική διαδικασία δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+      import_mailer:
+        import:
+          errors: Σφάλματα
+          errors_present: Υπήρξε ένα πρόβλημα κατά την εισαγωγή αποτελεσμάτων
+          row_number: Γραμμή
+          subject: Επιτυχής εισαγωγή αποτελεσμάτων
+          success: Επιτυχής εισαγωγή αποτελεσμάτων. Μπορείτε να δείτε τα αποτελέσματα στο περιβάλλον διαχείρισης.
+      last_activity:
+        new_result_at_html: "<span>Νέο αποτέλεσμα στο %{link}</span>"
       models:
+        result:
+          fields:
+            end_date: Ημερομηνία λήξης
+            progress: Πρόοδος
+            start_date: Ημερομηνία έναρξης
+            status: Κατάσταση
+            title: Τίτλος
         status:
           fields:
+            description: Περιγραφή
+            key: Κλειδί
             name: Όνομα
+            progress: Πρόοδος
+        timeline_entry:
+          fields:
+            description: Περιγραφή
+            entry_date: Ημερομηνία
+      results:
+        count:
+          results_count:
+            one: 1 αποτέλεσμα
+            other: "%{count} αποτελέσματα"
+        filters:
+          all: Όλα
+          scopes: Πεδία εφαρμογής
+        home:
+          categories_label: Κατηγορίες
+          subcategories_label: Υποκατηγορίες
+        home_header:
+          global_status: Κατάσταση καθολικής εκτέλεσης
+        nav_breadcrumb:
+          global: Καθολική εκτέλεση
+        search:
+          search: Αναζήτηση ενεργειών
+        show:
+          stats:
+            attendees: Συμμετέχοντες
+            back_to_resource: Επιστροφή στο αποτέλεσμα
+            comments: Σχόλια
+            contributions: Συνεισφορές
+            last_edited_by: Τελευταία επεξεργασία από
+            last_updated_at: Τελευταία ενημέρωση στις
+            meetings: Συσκέψεις
+            proposals: Προτάσεις
+            votes: Υποστηρίξεις
+        timeline:
+          title: Εξέλιξη έργου
+    components:
+      accountability:
+        name: Υπευθυνότητα
+        settings:
+          global:
+            categories_label: Όνομα για «Κατηγορίες»
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+            display_progress_enabled: Εμφάνιση προόδου
+            heading_leaf_level_results: Όνομα για «Έργα»
+            heading_parent_level_results: Όνομα για «Αποτελέσματα»
+            intro: Εισαγωγή
+            subcategories_label: Όνομα για «Υποκατηγορίες»
+          step:
+            comments_blocked: Τα σχόλια αποκλείστηκαν
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Η πρόταση με τίτλο «%{proposal_title}» έχει συμπεριληφθεί σε ένα αποτέλεσμα. Μπορείτε να τη δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση «%{proposal_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στην πρόταση %{proposal_title}
+          notification_title: Η πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει συμπεριληφθεί στο αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Το αποτέλεσμα «%{resource_title}», που περιλαμβάνει την πρόταση «%{proposal_title}», έχει ολοκληρωθεί κατά %{progress}%. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε την πρόταση «%{proposal_title}» και αυτή η πρόταση περιλαμβάνεται στο αποτέλεσμα «%{resource_title}». Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στην πρόοδο %{resource_title}
+          notification_title: Το αποτέλεσμα <a href="%{resource_path}">%{resource_title}</a>, που περιλαμβάνει την πρόταση <a href="%{proposal_path}">%{proposal_title}</a> έχει τώρα ολοκληρωθεί κατά %{progress}%.
+    metrics:
+      results:
+        description: Αριθμός αποτελεσμάτων που δημιουργήθηκαν
+        object: αποτελέσματα
+        title: Αποτελέσματα
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Αποτελέσματα
+    participatory_spaces:
+      highlighted_results:
+        see_all: Δείτε όλα τα αποτελέσματα (%{count})
+    resource_links:
+      included_projects:
+        result_project: Έργα που περιλαμβάνονται σε αυτό το αποτέλεσμα
+      included_proposals:
+        result_proposal: Προτάσεις που περιλαμβάνονται σε αυτό το αποτέλεσμα

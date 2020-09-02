@@ -8,7 +8,8 @@ Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workf
   workflow.time_between_renewals = 5.minutes
 
   workflow.options do |options|
-    options.attribute :postal_code, type: :string, default: "08001", required: false
+    options.attribute :allowed_postal_codes, type: :string, default: "08001", required: false
+    options.attribute :allowed_scope_id, type: :scope, required: false
   end
 end
 

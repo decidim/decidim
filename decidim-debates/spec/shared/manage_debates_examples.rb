@@ -148,4 +148,47 @@ RSpec.shared_examples "manage debates" do
       end
     end
   end
+
+  describe "closing a debate" do
+    it "closes a debate" do
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--close").click
+      end
+
+      within ".edit_close_debate" do
+        fill_in_i18n_editor(
+          :debate_conclusions,
+          "#debate-conclusions-tabs",
+          en: "The debate was great",
+          es: "El debate fué genial",
+          ca: "El debat ha anat molt bé"
+        )
+
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        within find("tr", text: translated(debate.title)) do
+          expect(page).to have_no_selector(".action-icon--edit")
+        end
+      end
+
+      page.find(".action-icon--close").click
+      expect(page).to have_content("The debate was great")
+    end
+
+    context "when the debate has an author" do
+      let!(:debate) { create(:debate, :with_author, component: current_component) }
+
+      it "cannot close the debate" do
+        within find("tr", text: translated(debate.title)) do
+          expect(page).to have_no_selector(".action-icon--close")
+        end
+      end
+    end
+  end
 end

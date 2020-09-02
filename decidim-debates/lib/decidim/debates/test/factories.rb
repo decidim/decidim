@@ -10,8 +10,6 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
-    start_time { 1.day.from_now }
-    end_time { start_time.advance(hours: 2) }
     component { build(:component, manifest_name: "debates") }
     author { component.try(:organization) }
 
@@ -21,6 +19,8 @@ FactoryBot.define do
     end
 
     trait :with_author do
+      start_time { nil }
+      end_time { nil }
       author do
         build(:user, organization: component.organization) if component
       end
@@ -33,6 +33,11 @@ FactoryBot.define do
       user_group do
         build(:user_group, :verified, organization: component.organization, users: [author]) if component
       end
+    end
+
+    trait :closed do
+      closed_at { Time.current }
+      conclusions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     end
   end
 
@@ -50,6 +55,37 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => { creation_enabled: true }
+        }
+      end
+    end
+
+    trait :with_votes_enabled do
+      # Needed for endorsements tests
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            endorsements_enabled: true,
+            endorsements_blocked: true
+          }
+        }
+      end
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
         }
       end
     end

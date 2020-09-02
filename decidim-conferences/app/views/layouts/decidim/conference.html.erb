@@ -8,11 +8,10 @@
 <%= render "layouts/decidim/application" do %>
   <%= render partial: "layouts/decidim/conference_hero" %>
   <%= render partial: "layouts/decidim/conferences_nav" %>
-  <section>
-    <div class="wrapper">
-      <%= yield %>
-    </div>
-  </section>
+  <%= cell "decidim/translation_bar", current_organization %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
 
   <% if content_for? :expanded %>
     <div class="expanded">

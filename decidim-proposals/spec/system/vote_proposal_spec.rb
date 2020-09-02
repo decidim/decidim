@@ -8,11 +8,12 @@ describe "Support Proposal", type: :system, slow: true do
 
   let!(:proposals) { create_list(:proposal, 3, component: component) }
   let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
+  let(:proposal_title) { translated(proposal.title) }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def expect_page_not_to_include_votes
     expect(page).to have_no_button("Support")
-    expect(page).to have_no_css(".card__support__data span", text: "0 SUPPORTS")
+    expect(page).to have_no_css(".card__support__data span", text: "0 Supports")
   end
 
   context "when votes are not enabled" do
@@ -21,7 +22,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal.title
+        click_link proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -35,7 +36,7 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
         expect_page_not_to_include_votes
 
-        click_link proposal.title
+        click_link proposal_title
         expect_page_not_to_include_votes
       end
     end
@@ -71,7 +72,7 @@ describe "Support Proposal", type: :system, slow: true do
           click_button "Support"
         end
 
-        expect(page).to have_css("#loginModal", visible: true)
+        expect(page).to have_css("#loginModal", visible: :visible)
       end
     end
 
@@ -92,7 +93,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
       end
@@ -110,7 +111,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
 
@@ -121,7 +122,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("0 SUPPORTS")
+            expect(page).to have_content("0 Supports")
           end
         end
       end
@@ -187,7 +188,7 @@ describe "Support Proposal", type: :system, slow: true do
               expect(page).to have_button("Already supported")
             end
 
-            expect(page).to have_content("REMAINING\n9\nSUPPORTS")
+            expect(page).to have_content("REMAINING\n9\nSupports")
           end
         end
 
@@ -234,10 +235,10 @@ describe "Support Proposal", type: :system, slow: true do
             end
 
             within "#proposal-#{proposal.id}-votes-count" do
-              expect(page).to have_content("0 SUPPORTS")
+              expect(page).to have_content("0 Supports")
             end
 
-            expect(page).to have_content("REMAINING\n10\nSUPPORTS")
+            expect(page).to have_content("REMAINING\n10\nSupports")
           end
         end
 
@@ -263,10 +264,10 @@ describe "Support Proposal", type: :system, slow: true do
 
             it "shows the vote count but not the vote button" do
               within "#proposal_#{proposal.id} .card__support" do
-                expect(page).to have_content("1 SUPPORT")
+                expect(page).to have_content("1 Support")
               end
 
-              expect(page).to have_content("SUPPORTS DISABLED")
+              expect(page).to have_content("Supports disabled")
             end
           end
         end
@@ -275,6 +276,7 @@ describe "Support Proposal", type: :system, slow: true do
 
     context "when the proposal is rejected", :slow do
       let!(:rejected_proposal) { create(:proposal, :rejected, component: component) }
+      let!(:rejected_proposal_title) { translated(rejected_proposal.title) }
 
       before do
         component.update!(settings: { proposal_answering_enabled: true })
@@ -289,10 +291,10 @@ describe "Support Proposal", type: :system, slow: true do
           check "Rejected"
         end
 
-        page.find_link rejected_proposal.title
+        page.find_link rejected_proposal_title
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
-        click_link rejected_proposal.title
+        click_link rejected_proposal_title
         expect(page).to have_no_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
@@ -314,11 +316,11 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("SUPPORT LIMIT REACHED")
+            expect(page).to have_content("Support limit reached")
           end
         end
       end
@@ -326,12 +328,12 @@ describe "Support Proposal", type: :system, slow: true do
       it "allows users to vote on proposals under the limit" do
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
             click_button "Support"
-            expect(page).to have_content("ALREADY SUPPORTED")
+            expect(page).to have_content("Already supported")
           end
         end
       end
@@ -355,11 +357,11 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_vote, proposal: proposal)
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("1 SUPPORT")
+            expect(page).to have_content("1 Support")
           end
         end
       end
@@ -383,33 +385,33 @@ describe "Support Proposal", type: :system, slow: true do
         visit_component
 
         proposal_elements = proposals.map do |proposal|
-          page.find("article", text: proposal.title)
+          page.find(".card--proposal", text: translated(proposal.title))
         end
 
         within proposal_elements[0] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
-          expect(page).to have_content("0 SUPPORTS")
+          expect(page).to have_content("Already supported")
+          expect(page).to have_content("0 Supports")
         end
 
         within proposal_elements[1] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
-          expect(page).to have_content("0 SUPPORTS")
+          expect(page).to have_content("Already supported")
+          expect(page).to have_content("0 Supports")
         end
 
         within proposal_elements[2] do
           click_button "Support"
-          expect(page).to have_content("ALREADY SUPPORTED")
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("Already supported")
+          expect(page).to have_content("1 Support")
         end
 
         within proposal_elements[0] do
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 Support")
         end
 
         within proposal_elements[1] do
-          expect(page).to have_content("1 SUPPORT")
+          expect(page).to have_content("1 Support")
         end
       end
     end
@@ -422,13 +424,13 @@ describe "Support Proposal", type: :system, slow: true do
       it "gives a point after voting" do
         visit_component
 
-        proposal_element = page.find("article", text: proposal.title)
+        proposal_element = page.find(".card--proposal", text: proposal_title)
 
         expect do
           within proposal_element do
             within ".card__support", match: :first do
               click_button "Support"
-              expect(page).to have_content("1 SUPPORT")
+              expect(page).to have_content("1 Support")
             end
           end
         end.to change { Decidim::Gamification.status_for(user, :proposal_votes).score }.by(1)

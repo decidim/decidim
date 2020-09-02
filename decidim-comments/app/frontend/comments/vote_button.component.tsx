@@ -4,6 +4,7 @@ import Icon from "../application/icon.component";
 interface VoteButtonProps {
   buttonClassName: string;
   iconName: string;
+  text: string;
   votes: number;
   voteAction?: () => void;
   disabled?: boolean;
@@ -18,6 +19,7 @@ const preventDefault = (event: any) => {
 const VoteButton: React.SFC<VoteButtonProps> = ({
   buttonClassName,
   iconName,
+  text,
   votes,
   voteAction,
   disabled,
@@ -28,8 +30,10 @@ const VoteButton: React.SFC<VoteButtonProps> = ({
     className={`${buttonClassName} ${selectedClass}`}
     onClick={userLoggedIn ? voteAction : preventDefault}
     disabled={disabled}
+    title={text}
     data-open={userLoggedIn ? null : "loginModal"}
   >
+    <span className="show-for-sr">{text}</span>
     <Icon name={iconName} iconExtraClassName="icon--small" />
     {` ${votes}`}
   </button>

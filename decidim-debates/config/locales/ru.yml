@@ -93,12 +93,13 @@ ru:
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
+        form:
+          select_a_category: Пожалуйста, выберите категорию
         index:
           new_debate: Начать новое обсуждение
         new:
           back: Вернуться
           create: Создать
-          select_a_category: Пожалуйста, выберите категорию
           title: Начать новое обсуждение
       models:
         debate:

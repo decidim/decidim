@@ -1,0 +1,9 @@
+sl:
+  activemodel:
+    attributes:
+      consultation:
+        description: Opis
+  decidim:
+    questions:
+      statistics:
+        meetings_count_title: Sestanki

@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
 
 module Decidim
@@ -10,6 +11,8 @@ module Decidim
       include_context "with a graphql type"
 
       let(:model) { create(:election, :published, :complete) }
+
+      it_behaves_like "attachable interface"
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -28,14 +31,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["title"]["translation"]).to eq(model.title["en"])
-        end
-      end
-
-      describe "subtitle" do
-        let(:query) { '{ subtitle { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["subtitle"]["translation"]).to eq(model.subtitle["en"])
         end
       end
 

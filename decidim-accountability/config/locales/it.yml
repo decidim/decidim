@@ -185,6 +185,7 @@ it:
           global:
             categories_label: Nome per "Categorie"
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             display_progress_enabled: Mostra avanzamento
             heading_leaf_level_results: Nome per "Progetti"
             heading_parent_level_results: Nome per "Risultati"
@@ -215,7 +216,7 @@ it:
           results: Risultati
     participatory_spaces:
       highlighted_results:
-        see_all: Vedi tutto (%{count})
+        see_all: Vedi tutti i risultati (%{count})
     resource_links:
       included_projects:
         result_project: Progetti inclusi in questo risultato

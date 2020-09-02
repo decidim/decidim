@@ -83,6 +83,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             creation_enabled_for_participants: I partecipanti possono creare riunioni
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
@@ -411,6 +412,7 @@ it:
           attendees: Conteggio dei partecipanti
           back: Torna alla lista
           contributions: Conteggio dei contributi
+          date: Data
           edit_meeting: Modifica la riunione
           going: Parteciperò
           join: Partecipa alla riunione

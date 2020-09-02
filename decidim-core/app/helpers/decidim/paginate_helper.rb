@@ -12,7 +12,9 @@ module Decidim
       # Kaminari uses url_for to generate the url, but this doesn't play nice with our engine system
       # and unless we remove these params they are added again as query string :(
       default_params = {
-        participatory_process_id: nil,
+        participatory_process_slug: nil,
+        assembly_slug: nil,
+        initiative_slug: nil,
         component_id: nil
       }
 

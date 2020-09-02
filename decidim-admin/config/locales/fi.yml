@@ -13,7 +13,7 @@ fi:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
-        title: Otsikko
+        title: Liitetiedoston tai kuvan nimi
       attachment_collection:
         description: Kuvaus
         name: Nimi
@@ -39,6 +39,7 @@ fi:
         address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
+        comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
         customize_welcome_notification: Muokkaa tervetuloilmoitusta
@@ -50,6 +51,8 @@ fi:
         from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
+        highlight_alternative_color: Korostusväri, vaihtoehtoinen
+        highlight_color: Korostusväri
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
@@ -59,6 +62,9 @@ fi:
         highlighted_content_banner_title: Otsikko
         instagram_handler: Instagram-käsittelijä
         logo: Logo
+        machine_translation_display_priority: Koneellisen käännöksen prioriteetti
+        machine_translation_display_priority_original: Alkuperäinen teksti ensin
+        machine_translation_display_priority_translation: Käännetty teksti ensin
         name: Nimi
         official_img_footer: Virallinen logo alapalkissa
         official_img_header: Virallinen logo yläpalkissa
@@ -292,6 +298,11 @@ fi:
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
         category_id_eq:
@@ -318,6 +329,8 @@ fi:
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           title_cont: '%{collection}: Hae otsikon perusteella'
+        state_eq:
+          label: Tila
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui
         form:
@@ -334,7 +347,7 @@ fi:
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
           managed: Hallittu
           name: Nimi
-          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi vahvistustapa käytössä.
           not_managed: Ei hallittu
           promote: Korota tasoa
           search: Hae
@@ -580,6 +593,7 @@ fi:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
+          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi
@@ -734,7 +748,7 @@ fi:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
-        authorization_workflows: Vahvistusmenetelmät
+        authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta

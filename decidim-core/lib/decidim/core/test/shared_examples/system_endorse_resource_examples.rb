@@ -12,6 +12,7 @@ shared_context "with resources to be endorsed or not" do
   # Should be overriden and create 3 extra resources in the current component
   let!(:resources) {}
 end
+
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
     expect(page).to have_no_button("Endorse")
@@ -64,7 +65,7 @@ shared_examples "Endorse resource system specs" do
           click_button "Endorse"
         end
 
-        expect(page).to have_css("#loginModal", visible: true)
+        expect(page).to have_css("#loginModal", visible: :visible)
       end
     end
 
@@ -138,7 +139,7 @@ shared_examples "Endorse resource system specs" do
             within ".buttons__row", match: :first do
               click_button "Endorse"
             end
-            expect(page).to have_css("#authorizationModal", visible: true)
+            expect(page).to have_css("#authorizationModal", visible: :visible)
           end
         end
 

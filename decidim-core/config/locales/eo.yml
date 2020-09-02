@@ -1,0 +1,98 @@
+eo:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Kialo forigi vian konton
+      group:
+        about: Pri
+        avatar: Avataro
+        document_number: Dokumento Nombro
+        email: retpoŝta adreso
+        name: Nomo
+        nickname: Kaŝnomo
+        phone: telefonnumero
+      report:
+        details: Pliaj komentoj
+      user:
+        about: Pri
+        email: Via Retpoŝto
+        name: Via nomo
+        nickname: Kaŝnomo
+        password: Pasvorto
+        password_confirmation: Konfirmu vian pasvorton
+        personal_url: Persona URL
+        remove_avatar: Forigi avataron
+    models:
+      decidim/attachment_created_event: Ligiteco
+      decidim/component_published_event: Aktiva komponanto
+      decidim/demoted_membership: Ne plu grupa administranto
+      decidim/gamification/badge_earned_event: Insigno gajnis
+      decidim/gamification/level_up_event: Vi nivelis
+      decidim/join_request_accepted_event: Aliĝu al peto akceptita
+      decidim/join_request_rejected_event: Aliĝi peto rifuzita
+      decidim/profile_updated_event: Profilo ĝisdatigita
+      decidim/promote_to_admin: Antaŭenigita al grupo admin
+      decidim/removed_from_group: Forigita de grupo
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Aktuala Pasvorto
+        email: retpoŝta adreso
+        name: Kaŝnomo
+        password: Pasvorto
+        password_confirmation: Pasvorta konfirmo
+        remember_me: Memori min
+  booleans:
+    'false': 'Ne'
+    'true': 'Jes'
+  carrierwave:
+    errors:
+      image_too_big: La bildo estas tro granda
+  date:
+    formats:
+      decidim_short: "%d/%m/%Y"
+      decidim_short_with_month_name_short: "%d %b %Y"
+      decidim_with_day_and_month_name: "%A %d %b %Y"
+      decidim_with_month_name: "%d %B %Y"
+      decidim_with_month_name_short: "%d %b"
+  decidim:
+    account:
+      data_portability_export:
+        file_no_exists: Dosiero ne ekzistas
+        notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
+      delete:
+        alert: Ĉi tiu ago ne eblas. Se vi forigas vian konton, vi ne povos ensaluti.
+        confirm:
+          close: Fermu la fenestron
+    amendments:
+      accepted:
+        success: La amendo estis akceptita sukcese.
+      amendable:
+        amended_by: Modifita de
+        button: Amendi %{model_name}
+        error: Okazis eraro ŝanĝante ĉi tiun rimedon.
+      edit_draft:
+        send: Antaŭvido
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Publish your amendment
+    author:
+      avatar: Avataro
+    group_admins:
+      demote:
+        success: Partoprenanto sukcese forigita de administranto
+  devise:
+    sessions:
+      new:
+        sign_in: Ensaluti
+    unlocks:
+      send_instructions: Vi ricevos retpoŝton kun instrukcioj pri kiel malŝlosi vian konton en kelkaj minutoj.
+  layouts:
+    decidim:
+      user_menu:
+        sign_out: Elsaluti
+  locale:
+    name: Angla

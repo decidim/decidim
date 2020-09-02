@@ -4,7 +4,7 @@
       project:
         budget: Budsjett
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
@@ -98,7 +98,7 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
-          scope: Omfang
+          scope: Tema
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
@@ -113,16 +113,17 @@
             one: prosjekt valgt
             other: prosjekter valgt
           view: Vis
+        orders:
+          highest_cost: Høyeste kostnad
+          label: Sorter prosjekter etter
+          lowest_cost: Laveste kostnad
+          most_voted: Mest stemte
+          random: Tilfeldig rekkefølge
         project:
-          add: Legg til
           count:
             one: 1 støtte
             other: "%{count} støttere"
-          remove: Fjern
           view: Vis
-        project_budget_button:
-          add: Legg til
-          added: Lagt til
         show:
           budget: Budsjett
           view_all_projects: Vis alle prosjekter
@@ -135,9 +136,16 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
+            form:
+              errors:
+                budget_voting_rule_only_one: Bare én regel for stemmegivning må være aktivert
+                budget_voting_rule_required: En avstemningsregel kreves
             projects_per_page: Prosjekter per side
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             total_budget: Totalt budsjett
+            vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
+            vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
             vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring

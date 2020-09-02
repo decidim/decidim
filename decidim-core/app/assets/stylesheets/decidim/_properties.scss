@@ -1,0 +1,25 @@
+// Define custom properties as css color variables
+
+:root{
+  --primary: #{$primary};
+  --primary-rgb: #{$primary-rgb};
+  --secondary: #{$secondary};
+  --secondary-rgb: #{$secondary-rgb};
+  --success: #{$success};
+  --success-rgb: #{$success-rgb};
+  --warning: #{$warning};
+  --warning-rgb: #{$warning-rgb};
+  --alert: #{$alert};
+  --alert-rgb: #{$alert-rgb};
+  --highlight: #{$highlight};
+  --highlight-rgb: #{$highlight-rgb};
+  --highlight-alternative: #{$highlight-alternative};
+  --highlight-alternative-rgb: #{$highlight-alternative-rgb};
+  --proposals: #{$proposals};
+  --actions: #{$actions};
+  --debates: #{$debates};
+  --meetings: #{$meetings};
+  --twitter: #{$twitter};
+  --facebook: #{$facebook};
+  --google: #{$google};
+}

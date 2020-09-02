@@ -13,16 +13,16 @@ cs:
         attachment_collection_id: Složka
         description: Popis
         file: Soubor
-        title: Titul
+        title: Název přílohy nebo obrázku
       attachment_collection:
         description: Popis
-        name: název
+        name: Název
       category:
         description: Popis
-        name: název
+        name: Název
         parent_id: Nadřazená
       component:
-        name: název
+        name: Název
         published_at: Publikováno v
         weight: Váha
       id: ID
@@ -39,6 +39,7 @@ cs:
         address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
+        comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
         cta_button_path: Cesta tlačítka Výzvy k akci
         cta_button_text: Text tlačítka Výzvy k akci
         customize_welcome_notification: Přizpůsobit uvítací oznámení
@@ -50,6 +51,8 @@ cs:
         from: Z e-mailové adresy
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
+        highlight_alternative_color: Zvýraznění, alternativa
+        highlight_color: Zvýraznit
         highlighted_content_banner_action_subtitle: Podnadpis Tlačítka Akce
         highlighted_content_banner_action_title: Název tlačítka akce
         highlighted_content_banner_action_url: Adresa URL tlačítka akce
@@ -59,6 +62,9 @@ cs:
         highlighted_content_banner_title: Titul
         instagram_handler: Instagram handler
         logo: Logo
+        machine_translation_display_priority: Priorita zobrazení strojového překladu
+        machine_translation_display_priority_original: Původní text přednostně
+        machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
         official_img_footer: Oficiální zápatí loga
         official_img_header: Oficiální záhlaví loga
@@ -86,13 +92,13 @@ cs:
         youtube_handler: YouTube handler
       scope:
         code: Kód
-        name: název
+        name: Název
         organization: Organizace
         parent_id: Nadřazený
         scope_type: Typ rozsahu
         scope_type_id: Typ rozsahu
       scope_type:
-        name: název
+        name: Název
         organization: Organizace
         plural: Množné číslo
       static_page:
@@ -135,7 +141,7 @@ cs:
         organization_name: Název organizace
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
-        site: webová stránka
+        site: Webová stránka
   decidim:
     admin:
       actions:
@@ -323,6 +329,8 @@ cs:
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
           title_cont: Hledat %{collection} podle názvu.
+        state_eq:
+          label: Stav
       help_sections:
         error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
@@ -400,10 +408,10 @@ cs:
         area:
           fields:
             area_type: Typ oblasti
-            name: název
+            name: Název
         area_type:
           fields:
-            name: název
+            name: Název
             plural: Množné číslo
         attachment:
           fields:
@@ -502,7 +510,7 @@ cs:
           title: Upravit zpravodaj
         index:
           all: vše
-          all_users: 'Všichni uživatelé'
+          all_users: 'Všichni uživatelé '
           and: 'a '
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
@@ -585,6 +593,7 @@ cs:
           officialize: Úředně
           title: Oficializovat uživatele "%{name}"
         show_email_modal:
+          close_modal: Zavřít okno
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
           email_address: E-mailová adresa
           full_name: Celé jméno

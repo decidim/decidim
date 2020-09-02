@@ -13,6 +13,8 @@ module Decidim
     include Decidim::ActionAuthorization
     include Decidim::ActionAuthorizationHelper
     include Decidim::ReplaceButtonsHelper
+    include Decidim::MarkupHelper
+    include Decidim::FilterParamsHelper
 
     delegate :current_organization, to: :controller
 

@@ -13,7 +13,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 2.5.3
+  RUBY_VERSION: 2.6.6
   DECIDIM_MODULE: decidim-generators
 
 jobs:
@@ -62,3 +62,5 @@ jobs:
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+        name: Upload coverage

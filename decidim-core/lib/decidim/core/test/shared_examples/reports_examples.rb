@@ -5,11 +5,11 @@ shared_examples "reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_no_css("body.is-reveal-open")
+      expect(page).to have_no_css("html.is-reveal-open")
 
       click_button "Report"
 
-      expect(page).to have_css("body.is-reveal-open")
+      expect(page).to have_css("html.is-reveal-open")
     end
   end
 
@@ -28,7 +28,7 @@ shared_examples "reports" do
           page.find("button").click
         end
 
-        expect(page).to have_css(".flag-modal", visible: true)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
         within ".flag-modal" do
           click_button "Report"
@@ -53,7 +53,7 @@ shared_examples "reports" do
           page.find("button").click
         end
 
-        expect(page).to have_css(".flag-modal", visible: true)
+        expect(page).to have_css(".flag-modal", visible: :visible)
 
         expect(page).to have_content "already reported"
       end

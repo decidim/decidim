@@ -1,0 +1,367 @@
+ja:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: バナー画像
+        decidim_highlighted_scope_id: ハイライトされたスコープ
+        description: 説明
+        end_voting_date: 投票終了
+        introductory_image: 入門画像
+        introductory_video_url: 紹介ビデオ URL
+        questions: 質問
+        slug: URL スラグ
+        start_voting_date: 投票が始まります
+        subtitle: サブタイトル
+        title: タイトル
+      question:
+        banner_image: バナー画像
+        decidim_scope_id: 市町村地域
+        hashtag: ハッシュタグ
+        hero_image: ホーム画像
+        i_frame_url: 外部投票システムURL
+        instructions: 投票の追加手順
+        max_votes: 最大投票数
+        min_votes: 投票の最小数
+        origin_scope: スコープ
+        origin_title: 原点：
+        origin_url: 原点URL
+        participatory_scope: 参加範囲
+        promoter_group: プロモーターグループ
+        question_context: コンテキスト
+        reference: 参照
+        scope: 市町村地域
+        slug: URL スラグ
+        subtitle: サブタイトル
+        vote: 外部投票システム
+        what_is_decided: 決定されるもの
+      response:
+        decidim_consultations_response_group_id: グループ
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: 投票の最大数は最小数以上である必要があります。
+      vote:
+        decidim_consultations_response_id:
+          not_found: 応答が見つかりません。
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: 投票数が無効です
+    models:
+      decidim/consultation:
+        other: コンサルテーション数
+      decidim/consultations/question:
+        other: 質問
+      decidim/consultations/response:
+        other: 回答
+      decidim/consultations/vote:
+        other: 投票
+  decidim:
+    admin:
+      actions:
+        back_to_responses: 返信に戻る
+        new_consultation: 新規のご相談
+        new_question: 新しい質問
+        new_response: 新しい応答
+        new_response_group: 新しいグループ
+        publish_results: 結果を公開
+        response_groups: 応答グループの管理
+        unpublish_results: 結果を非公開にする
+      consultation_publications:
+        create:
+          error: この相談を公表する際に問題が発生しました。
+          success: 相談が正常に公開されました。
+        destroy:
+          error: この相談を非公開にする際に問題が発生しました。
+          success: 相談を非公開にしました。
+      consultation_results_publications:
+        create:
+          error: この協議の結果を公表する際に問題が発生しました。
+          success: 相談結果の公開に成功しました。
+        destroy:
+          error: この相談の結果を非公開にする際に問題が発生しました。
+          success: 相談結果を非公開にしました。
+      consultations:
+        create:
+          error: 新しい相談を作成する際に問題がありました。
+          success: コンサルティングを作成しました。
+        edit:
+          update: 更新
+        form:
+          slug_help: 'URLスラグは、この協議を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+          title: 一般情報
+        index:
+          not_published: 未公開
+          published: 公開済み
+        new:
+          create: 作成
+          title: 新規のご相談
+        results:
+          not_visible: コンサルテーションが終了すると結果が表示されます
+          participants: "%{count} 人の参加者"
+          total_votes: '合計： %{count} 票'
+        update:
+          error: 相談の更新中に問題が発生しました。
+          success: 相談が更新されました。
+      menu:
+        consultations: コンサルテーション数
+        consultations_submenu:
+          info: 情報
+          questions: 質問
+          results: 結果
+        questions_submenu:
+          components: コンポーネント
+          configuration: 設定
+          consultation: 相談する
+          info: 情報
+          responses: 回答
+      models:
+        consultation:
+          fields:
+            created_at: 作成日時
+            published: 公開済み
+            title: タイトル
+          name:
+            other: コンサルテーション数
+        question:
+          fields:
+            created_at: 作成日時
+            published: 公開済み
+            title: タイトル
+          name:
+            other: 質問
+        response:
+          fields:
+            created_at: 作成日時
+            response_group: グループ
+            title: タイトル
+          name:
+            other: 回答
+      question_configuration:
+        disable_external_voting: 詳細設定の外部投票を無効にしてください
+        form:
+          help: 参加者が選択できる回答の最大数を増やすことで、複数の選択問題を設定します。 デフォルトの最大値は1で、1つの応答しか投票できません。
+          title: 高度な構成
+      question_publications:
+        create:
+          error: この質問を公開する際に問題が発生しました。
+          success: 質問を公開しました。
+        destroy:
+          error: この質問を非公開にする際に問題が発生しました。
+          success: 質問を非公開にしました。
+      questions:
+        create:
+          error: 新しい質問を作成中に問題が発生しました。
+          success: 問題が正常に作成されました。
+        destroy:
+          success: 問題を削除しました。
+        edit:
+          update: 更新
+        form:
+          title: 一般情報
+        index:
+          not_published: 未公開
+          published: 公開済み
+        new:
+          create: 作成
+          title: 新しい質問
+        update:
+          error: この質問の更新中に問題が発生しました。
+          success: 問題が正常に更新されました。
+      response_groups:
+        create:
+          error: 新しい応答グループの作成中に問題が発生しました。
+          success: 応答グループを作成しました。
+        destroy:
+          error: 応答グループの削除中に問題が発生しました。応答が依存していないことを確認してください。
+          success: 応答グループを削除しました。
+        edit:
+          update: 更新
+        form:
+          title: 一般情報
+        help: 複数の選択肢の質問をパッケージにまとめるためにグループを使用します。
+        new:
+          create: 作成
+          title: 新しい応答グループ
+        update:
+          error: この応答を更新中に問題が発生しました。
+          success: 応答が正常に更新されました。
+      responses:
+        create:
+          error: 新しい応答を作成する際に問題が発生しました。
+          success: レスポンスを作成しました。
+        destroy:
+          error: 応答の削除中に問題が発生しました。
+          success: 応答が正常に削除されました。
+        edit:
+          update: 更新
+        form:
+          title: 一般情報
+        new:
+          create: 作成
+          title: 新しい応答
+        update:
+          error: この応答を更新中に問題が発生しました。
+          success: 応答が正常に更新されました。
+      titles:
+        consultations: コンサルテーション数
+        questions: 質問
+        response_groups: 応答グループ
+        responses: 回答
+        results: 結果
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: 表示する要素の最大量
+      consultation:
+        start_voting_date: 投票が始まります
+        view_results: 結果を表示
+      consultation_card:
+        view_results: 結果を表示
+      consultations:
+        orders:
+          label: '並び替え相談:'
+          random: Random
+          recent: 直近のもの
+        show:
+          dates: 日付
+      content_blocks:
+        highlighted_consultations:
+          name: ハイライトされた相談
+      count:
+        title:
+          other: "%{count} 件のコンサルティング"
+      filters:
+        active: アクティブ
+        all: すべて
+        finished: 完了
+        search: 検索
+        state: ステータス
+        upcoming: 近日公開
+      filters_small_view:
+        close_modal: ウィンドウを閉じる
+        filter: フィルター
+        filter_by: フィルター
+        unfold: 展開する
+      highlighted_questions:
+        title: '%{scope_name} からの質問'
+      index:
+        title: コンサルテーション数
+      last_activity:
+        new_consultation: 新規のご相談
+        new_question_at_html: "<span> %{link}に新しい質問</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: アクティブな相談format@@0
+            see_all_consultations: すべての相談を見る
+            voting_ends_in:
+              other: 投票は <strong>%{count} 日</strong>で終了します
+            voting_ends_today: 投票は今日終了 <strong></strong>
+      question:
+        take_part: 参加する
+        view_results: 結果を表示
+        votes_out_of:
+          other: 票のうち
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: 参加者は異なるオプションに最小 %{votes} 票を配布できます。
+          title: 許可されている複数の選択
+          total_participants: 合計 %{count} 人が投票に参加しました。
+          vote_limit:
+            description: 参加者は最大 %{limit} 件のオプションに投票できます。
+        voting_rules:
+          minimum_votes_per_user:
+            description: 少なくとも %{votes} 票を異なる選択肢に配布する必要があります。
+          title: '投票は以下のルールに従います：'
+          vote_limit:
+            description: 最大 %{limit} 個のオプションに投票できます。
+            left: 残り
+            votes: 投票
+      question_votes:
+        create:
+          error: 質問に投票中に問題が発生しました
+          success: 協議が終了するまで変更できます。最後の投票のみが承認されます。
+          title_error: 投票エラー！
+          title_success: 投票が正常に登録されました
+      regular_questions:
+        title: この相談のための質問
+      show:
+        badge_name:
+          finished: 完了
+          open: 開く
+          open_votes: 投票を開く
+          published_results: 結果を公開しました
+        footer_button_text:
+          debate: ディベート
+          view: 表示
+          view_results: 結果を表示
+          vote: 投票
+        unspecified: 指定されていない
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>コンサルテーション</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。コンサルテーションの日が来たら、投票をして、その結果を公開することができます。</p><p>例: コンサルテーションは組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
+          page: "<p><strong>コンサルテーション</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。コンサルテーションの日が来たら、投票をして、その結果を公開することができます。</p><p>例: コンサルテーションは組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
+          title: コンサルティングとは何ですか?
+    menu:
+      consultations: コンサルテーション数
+    pages:
+      home:
+        statistics:
+          consultations_count: コンサルテーション数
+    questions:
+      next_button: 次の質問
+      previous_button: 前の質問
+      results:
+        title: 結果
+      show:
+        read_more: もっと読む
+      statistics:
+        assistants_count_title: アシスタント
+        comments_count_title: コメント
+        meetings_count_title: ミーティング
+        supports_count_title: 投票
+      technical_info:
+        technical_data: 技術データ
+      vote_button:
+        already_voted: すでに投票済みです
+        already_voted_hover: 投票を取り消す
+        starting_from: '%{date} から開始'
+        verification_required: 投票するアカウントを確認してください
+        vote: 投票
+      vote_modal:
+        close_modal: モーダルを閉じる
+        contextual_help: オプションを選択してください。
+        title: '相談：質問投票'
+      vote_modal_confirm:
+        change: 変更
+        close_modal: モーダルを閉じる
+        confirm: 確認する
+        contextual_help: 選択したオプションを確認してください。
+        title: '相談：投票の確認'
+    resources:
+      consultations:
+        actions:
+          vote: 投票
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: 添付ファイル
+          categories: カテゴリ
+      consultation_voting_data:
+        start_voting_date: 投票が始まります
+      question_components:
+        question_menu_item: 質問
+        unfold: 展開する
+      question_header:
+        back_to_consultation: すべての相談を見る
+        back_to_question: 質問に戻る

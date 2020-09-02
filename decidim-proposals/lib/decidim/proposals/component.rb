@@ -32,6 +32,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :allow_card_image, type: :boolean, default: false
@@ -203,8 +204,8 @@ Decidim.register_component(:proposals) do |component|
         component: component,
         category: participatory_space.categories.sample,
         scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-        title: Faker::Lorem.sentence(2),
-        body: Faker::Lorem.paragraphs(2).join("\n"),
+        title: { en: Faker::Lorem.sentence(2) },
+        body: { en: Faker::Lorem.paragraphs(2).join("\n") },
         state: state,
         answer: answer,
         answered_at: state.present? ? Time.current : nil,
@@ -269,8 +270,8 @@ Decidim.register_component(:proposals) do |component|
           component: component,
           category: participatory_space.categories.sample,
           scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-          title: "#{proposal.title} #{Faker::Lorem.sentence(1)}",
-          body: "#{proposal.body} #{Faker::Lorem.sentence(3)}",
+          title: { en: "#{proposal.title["en"]} #{Faker::Lorem.sentence(1)}" },
+          body: { en: "#{proposal.body["en"]} #{Faker::Lorem.sentence(3)}" },
           state: "evaluating",
           answer: nil,
           answered_at: Time.current,

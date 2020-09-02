@@ -13,7 +13,7 @@ es-MX:
         attachment_collection_id: Carpeta
         description: Descripción
         file: Archivo
-        title: Título
+        title: Nombre del adjunto o imagen
       attachment_collection:
         description: Descripción
         name: Nombre
@@ -39,6 +39,7 @@ es-MX:
         address: Nombre de host SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insignias
+        comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
         customize_welcome_notification: Personalizar notificación de bienvenida
@@ -50,6 +51,8 @@ es-MX:
         from: Correo electrónico del remitente
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
+        highlight_alternative_color: Destacado, alternativo
+        highlight_color: Destacar
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         highlighted_content_banner_action_title: Título del botón de acción
         highlighted_content_banner_action_url: URL del botón de acción
@@ -59,6 +62,9 @@ es-MX:
         highlighted_content_banner_title: Título
         instagram_handler: Nombre de Instagram
         logo: Logo
+        machine_translation_display_priority: Prioridad de la traducción automática
+        machine_translation_display_priority_original: Texto original primero
+        machine_translation_display_priority_translation: Texto traducido primero
         name: Nombre
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera
@@ -292,6 +298,11 @@ es-MX:
           welcome: Bienvenido al panel de administración de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
       filters:
         category_id_eq:
@@ -318,6 +329,8 @@ es-MX:
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
           title_cont: Buscar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Se ha producido un error al actualizar las secciones de ayuda
         form:
@@ -388,6 +401,9 @@ es-MX:
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios
+      metrics:
+        metrics:
+          see_more_metrics: Ver más métricas
       models:
         area:
           fields:
@@ -474,6 +490,11 @@ es-MX:
       newsletter_templates:
         index:
           preview_template: Previsualizar
+          title: Plantillas para el boletín
+          use_template: Utilizar esta plantilla
+        show:
+          preview: 'Previsualizar la plantilla: %{template_name}'
+          use_template: Utilizar esta plantilla
       newsletters:
         create:
           error: Se ha producido un error al crear este boletín.
@@ -572,6 +593,7 @@ es-MX:
           officialize: Oficializar
           title: Oficializar el usuario "%{name}"
         show_email_modal:
+          close_modal: Cierra el modal
           description: Si necesitas contactar directamente con una participante, puedes hacer clic en el botón Mostrar para ver la dirección de correo electrónico. Esta acción se registrará.
           email_address: Dirección de correo electrónico
           full_name: Nombre completo
@@ -607,6 +629,7 @@ es-MX:
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
           images:
             layout_appearance_title: Editar apariencia de diseño global
+            preview: Previsualizar
           omnipresent_banner_appearance_title: Editar banner omnipresente
       organization_homepage:
         edit:
@@ -673,6 +696,11 @@ es-MX:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      shared:
+        gallery:
+          add_images: Añadir imágenes
+          delete_image: Borrar la imagen
+          gallery_legend: Añadir una galería de imágenes (opccional)
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
@@ -724,10 +752,12 @@ es-MX:
         dashboard: Panel de control
         impersonatable_users: Usuarios manejables
         impersonations: Gestion de usuarios
+        metrics: Métricas
         participants: Usuarios
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas
+        statistics: Actividad
         user_groups: Grupos de usuarios
         users: Usuarios
       user_group:
@@ -776,6 +806,10 @@ es-MX:
       users_statistics:
         users_count:
           admins: Administradores
+          last_day: Del último día
+          last_month: El último mes
+          last_week: La última semana
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
           participants: Participantes
       view_public_page: Ver página pública
     forms:

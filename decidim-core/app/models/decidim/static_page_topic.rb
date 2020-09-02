@@ -3,6 +3,9 @@
 module Decidim
   class StaticPageTopic < ApplicationRecord
     validates :title, presence: true
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :description
 
     default_scope { order(arel_table[:weight].asc) }
 

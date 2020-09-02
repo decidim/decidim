@@ -286,14 +286,14 @@ cs:
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Byly aktualizovány datum pro krok %{resource_title} v %{participatory_space_title} . Můžete ji vidět z této stránky:'
+          email_intro: 'Byly aktualizovány datumy pro krok %{resource_title} v %{participatory_space_title}. Můžete je vidět z této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů komise</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
+          contextual: "<p> <strong>Participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: <strong>proces volby členů komise</strong> (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), <strong>participační rozpočty</strong> (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); <strong>proces strategického plánování</strong>, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           page: "<p> <strong>participační proces</strong> je sled aktivit participativního charakteru (např. Nejprve vyplnění průzkumu, následné předkládání návrhů, diskuse o nich v rámci osobních nebo virtuálních schůzek a nakonec jejich prioritizace) s cílem definovat a rozhodnout na konkrétní téma.</p> <p>Příklady participačních procesů jsou: proces volby členů komise (kde jsou kandidatury poprvé představeny, pak diskutovány a nakonec je vybrána kandidatura), participační rozpočty (kde jsou návrhy předloženy, ekonomicky oceňovány a hlasovány s dostupnými prostředky); proces strategického plánování, společné vypracování nařízení nebo normy, návrh městského prostoru nebo vypracování plánu veřejného pořádku.</p>\n"
           title: Co je participační proces?
     menu:
@@ -363,7 +363,11 @@ cs:
             active_step: Aktivní krok
             more_information: Více informací
             participate: Účastnit se
+            participate_in: Zapojte se do procesu %{resource_name}
             see_all_processes: Zobrazit všechny procesy
+      participatory_process_steps:
+        index:
+          back_to_process: Zpět na stránku procesu
       participatory_processes:
         filters:
           counters:
@@ -398,9 +402,10 @@ cs:
             upcoming: Nadcházející
           see: Vidět
         index:
-          loading: Načítá výsledky ...
+          loading: Načítání výsledků...
       show:
         area: Oblast
+        dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
         local_area: Oblast organizace
@@ -436,6 +441,7 @@ cs:
       participatory_process_groups:
         participatory_process_group:
           browse: Procházet
+          browse_resource: Procházet skupinu procesů %{resource_name}
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
@@ -447,11 +453,15 @@ cs:
         participatory_process:
           active_step: 'Aktuální krok:'
           more_info: Více informací
+          more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
+          take_part_in: Zapojte se do procesu %{resource_name}
         promoted_process:
           active_step: 'Aktuální krok:'
           more_info: Více informací
+          more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
+          take_part_in: Zapojte se do procesu %{resource_name}
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Zobrazit kroky

@@ -1,0 +1,215 @@
+is:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Tilkynning
+        banner_image: Borðamynd
+        copy_categories: Afrita flokka
+        copy_components: Afrita hluti
+        copy_steps: Afrita skref
+        description: Lýsing
+        domain: Lén
+        end_date: Loka dagsetning
+        hashtag: Kassamerki
+        hero_image: Heima mynd
+        meta_scope: Gildissvið lýsigagna
+        participatory_process_group_id: Vinnuhópur
+        promoted: Kynnt
+        published_at: Birt á
+        related_process_ids: Tengd ferli
+        scope_id: Umfang
+        scopes_enabled: Scopes virkt
+        short_description: Stutt lýsing
+        show_statistics: Sýna tölfræði
+        slug: URL slug
+        start_date: Upphafsdagur
+        subtitle: Texti
+        title: Titill
+      participatory_process_group:
+        description: Lýsing
+        hero_image: Mynd
+        name: Nafn
+        participatory_process_ids: Tengd ferli
+      participatory_process_step:
+        description: Lýsing
+        end_date: Loka dagsetning
+        short_description: Stutt lýsing
+        start_date: Upphafsdagur
+        title: Titill
+      participatory_process_user_role:
+        email: Email
+        name: Nafn
+        role: Hlutverk
+  decidim:
+    admin:
+      actions:
+        activate: Virkja
+        configure: Stilla
+        duplicate: Afrit
+        edit: Breyta
+        preview: Preview
+        publish: Birta
+        resend_invitation: Endursenda boð
+        unpublish: Unpublish
+      menu:
+        participatory_process_groups: Vinnuhópar
+        participatory_processes: Ferli
+        participatory_processes_submenu:
+          attachment_files: Skrár
+          attachments: Viðhengi
+          categories: Flokkar
+          components: Hluti
+          info: Upplýsingar
+          moderations: Moderations
+      models:
+        participatory_process:
+          fields:
+            created_at: Búið til á
+            private: Einkamál
+            promoted: Hápunktur
+            published: Published
+            title: Titill
+          name: Þátttökuferli
+        participatory_process_group:
+          fields:
+            name: Nafn
+          name: Vinnuhópur
+        participatory_process_step:
+          fields:
+            end_date: Loka dagsetning
+            start_date: Upphafsdagur
+            title: Titill
+        participatory_process_user_role:
+          fields:
+            email: Email
+            name: Nafn
+            role: Hlutverk
+          roles:
+            admin: Stjórnandi
+            collaborator: Samstarfsaðili
+            moderator: Moderator
+        user:
+          fields:
+            invitation_accepted_at: Boð samþykkt á
+            invitation_sent_at: Boð sendur á
+      participatory_process_copies:
+        new:
+          copy: Afrita
+          select: Veldu hvaða gögn þú vilt afrita
+          title: Afrit þátttakandi ferli
+      participatory_process_groups:
+        edit:
+          title: Breyta ferli hópsins
+          update: Uppfæra
+        new:
+          create: Búa til
+          title: Nýr ferli hópur
+      participatory_process_steps:
+        default_title: Kynning
+        edit:
+          update: Uppfæra
+        new:
+          create: Búa til
+      participatory_process_user_roles:
+        edit:
+          update: Uppfæra
+        new:
+          create: Búa til
+      participatory_processes:
+        edit:
+          update: Uppfæra
+        index:
+          not_published: Ekki birt
+          private: Einkamál
+          public: Opinber
+          published: Published
+        new:
+          create: Búa til
+          title: Nýtt þátttökuferli
+      titles:
+        participatory_process_groups: Þátttaka ferli hópa
+        participatory_processes: Þátttökuferli
+    admin_log:
+      participatory_process:
+        create: "%{user_name} búið til %{resource_name} þátttakandi ferli"
+        publish: "%{user_name} gaf út %{resource_name} þátttökuferlið"
+        unpublish: "%{user_name} unpublished %{resource_name} þátttökuferlinu"
+        update: "%{user_name} uppfært %{resource_name} þátttökuferlið"
+    events:
+      participatory_process:
+        step_activated:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{participatory_space_title}
+        step_changed:
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
+          email_subject: Uppfærsla á %{participatory_space_title}
+    menu:
+      processes: Ferli
+    participatory_process_groups:
+      show:
+        title: Þátttaka ferli hópa
+    participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+        participatory_processes:
+          form:
+            announcement_help: Textinn sem þú slærð inn hér verður sýndur fyrir notandann rétt fyrir neðan ferlið.
+            related_processes: Tengd ferli
+            slug_help: 'Vefslóðir eru notaðir til að búa til slóðir sem benda til þessarar ferlis. Aðeins viðurkennir stafir, tölur og bindur og verður að byrja með stafi. Dæmi: %{url}'
+            title: Almennar upplýsingar
+      index:
+        title: Þátttökuferli
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Virk ferli
+            see_all_processes: Sjá öll ferli
+      participatory_processes:
+        index:
+          loading: Loading niðurstöður ...
+      show:
+        end_date: Loka dagsetning
+        local_area: Skipulagssvæði
+        participatory_scope: Hvað er ákveðið
+        participatory_structure: Hvernig er það ákveðið
+        private_space: Þetta er einkarekið ferli
+        related_processes: Tengd ferli
+        scope: Umfang
+        start_date: Upphafsdagur
+        target: Hver tekur þátt
+      statistics:
+        answers_count: Svör
+        comments_count: Athugasemdir
+        debates_count: Umræður
+        endorsements_count: Áritanir
+        headline: Virkni
+        meetings_count: Fundir
+        pages_count: Síður
+        participants_count: Þátttakendur
+        processes_count: Ferli
+        projects_count: Verkefni
+        proposals_count: Tillögur
+        results_count: Niðurstöður
+        surveys_count: Kannanir
+        users_count: Þátttakendur
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Skoða
+          processes_count: 'Ferli:'
+      participatory_process_widgets:
+        show:
+          take_part: Taka þátt
+      participatory_processes:
+        index:
+          promoted_processes: Hápunktar ferli
+        participatory_process:
+          take_part: Taka þátt
+        promoted_process:
+          more_info: Meiri upplýsingar
+          take_part: Taka þátt
+      process_navigation:
+        process_menu_item: Árangurinn

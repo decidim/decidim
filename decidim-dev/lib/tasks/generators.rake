@@ -44,7 +44,8 @@ namespace :decidim do
         "..",
         "--recreate_db",
         "--seed_db",
-        "--demo"
+        "--demo",
+        "--profiling"
       )
     end
   end

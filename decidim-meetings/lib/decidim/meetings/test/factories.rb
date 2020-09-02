@@ -32,12 +32,6 @@ FactoryBot.define do
     end_time { start_time.advance(hours: 2) }
     private_meeting { false }
     transparent { true }
-    services do
-      [
-        { title: generate_localized_title, description: generate_localized_title },
-        { title: generate_localized_title, description: generate_localized_title }
-      ]
-    end
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
@@ -52,6 +46,18 @@ FactoryBot.define do
 
     trait :not_official do
       author { create(:user, organization: component.organization) if component }
+    end
+
+    trait :with_services do
+      transient do
+        services do
+          nil
+        end
+      end
+
+      after(:build) do |meeting, evaluator|
+        meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
+      end
     end
 
     trait :with_user_group_author do
@@ -145,5 +151,11 @@ FactoryBot.define do
     trait :rejected do
       rejected_at { Time.current }
     end
+  end
+
+  factory :service, class: "Decidim::Meetings::Service" do
+    meeting
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   end
 end

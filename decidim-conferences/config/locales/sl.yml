@@ -1,0 +1,42 @@
+sl:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Povezane združbe
+        description: Opis
+        hashtag: Ključnik
+        published_at: Objavljeno
+        short_description: Kratek opis
+        show_statistics: Pokaži statistiko
+        slogan: Moto
+      conference_speaker:
+        full_name: Polno ime
+      conference_user_role:
+        email: Email
+        name: Ime
+        role: Vloga
+  decidim:
+    admin:
+      actions:
+        confirm: Potrdi
+      conference_copies:
+        new:
+          copy: Kopiraj
+      conference_speakers:
+        edit:
+          update: Posodobi
+        new:
+          create: Ustvari
+    conferences:
+      conference_speaker:
+        go_to_twitter: Pojdi na Twitter
+        personal_website: Osebno spletno mesto
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Osebno spletno mesto
+        twitter_handle:
+          go_to_twitter: Pojdi na Twitter
+      show:
+        related_assemblies: Povezane združbe
+      statistics:
+        meetings_count: Sestanki

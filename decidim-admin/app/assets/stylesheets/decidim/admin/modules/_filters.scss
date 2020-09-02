@@ -18,7 +18,6 @@
   }
 
   .button.dropdown{
-    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: .1em;
   }
@@ -28,6 +27,8 @@
 
     & > li.is-dropdown-submenu-parent > a{
       padding-right: 1rem;
+      background-color: $button-background;
+      color: $white;
 
       &::after{
         border-top-color: $white;
@@ -58,7 +59,6 @@
 
   .label{
     font-weight: 600;
-    text-transform: uppercase;
     margin-top: .5rem;
 
     .type-icon{

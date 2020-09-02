@@ -73,20 +73,8 @@ fr:
       actions:
         new_initiative_type: Nouveau type d'initiative
       filters:
-        decidim_area_id_eq:
-          label: Zone
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
-        state_eq:
-          values:
-            accepted: Assez de signatures
-            created: Créée
-            discarded: Retirée
-            published: Publiée
-            rejected: Pas assez de signatures
-            validating: Validation technique
-        type_id_eq:
-          label: Type
       menu:
         initiatives: Initiatives
         initiatives_types: Types d'initiatives
@@ -213,6 +201,8 @@ fr:
             success: L'initiative a été envoyée à la validation technique
             update: Mettre à jour
           form:
+            attachments: Pièces jointes
+            settings: Paramètres
             title: Informations générales
           index:
             actions_title: Action
@@ -418,6 +408,11 @@ fr:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
+          not_authorized:
+            authorizations_page: Voir les autorisations
+            close: Fermer
+            explanation: Vous devez être vérifié pour créer une nouvelle initiative.
+            title: Autorisation requise
         interactions:
           comments_count:
             count:
@@ -458,8 +453,8 @@ fr:
           votes_blocked: Signatures désactivées
         votes_count:
           count:
-            one: SIGNATURE
-            other: SIGNATURES
+            one: Signature
+            other: Signatures
           most_popular_initiative: Initiative la plus populaire
           need_more_votes: Besoin de plus de signatures
       initiatives_mailer:
@@ -484,6 +479,7 @@ fr:
         badge_name:
           accepted: Assez de signatures
           created: Créé le
+          discarded: Retirée
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique

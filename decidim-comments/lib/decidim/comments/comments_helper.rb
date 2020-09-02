@@ -26,9 +26,13 @@ module Decidim
         commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
-        react_comments_component(node_id, commentableType: commentable_type,
-                                          commentableId: commentable_id,
-                                          locale: I18n.locale)
+        react_comments_component(
+          node_id, commentableType: commentable_type,
+                   commentableId: commentable_id,
+                   locale: I18n.locale,
+                   toggleTranslations: machine_translations_toggled?,
+                   commentsMaxLength: comments_max_length(resource)
+        )
       end
 
       # Private: Render Comments component using inline javascript
@@ -44,10 +48,30 @@ module Decidim
               {
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
-                locale: "#{props[:locale]}"
+                locale: "#{props[:locale]}",
+                toggleTranslations: #{props[:toggleTranslations]},
+                commentsMaxLength: "#{props[:commentsMaxLength]}"
               }
             );
           })
+      end
+
+      def comments_max_length(resource)
+        return 1000 unless resource.respond_to?(:component)
+        return component_comments_max_length(resource) if component_comments_max_length(resource)
+        return organization_comments_max_length(resource) if organization_comments_max_length(resource)
+
+        1000
+      end
+
+      def component_comments_max_length(resource)
+        return unless resource.component&.settings.respond_to?(:comments_max_length)
+
+        resource.component.settings.comments_max_length if resource.component.settings.comments_max_length.positive?
+      end
+
+      def organization_comments_max_length(resource)
+        resource.component.organization.comments_max_length if resource.component.organization.comments_max_length.positive?
       end
     end
   end

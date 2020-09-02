@@ -28,11 +28,11 @@ module Decidim::Meetings
     let(:location_hints) do
       Decidim::Faker::Localized.sentence(3)
     end
+    let(:service_objects) do
+      build_list(:service, 2)
+    end
     let(:services) do
-      [
-        { title: { en: "First service" }, description: { en: "First description" } },
-        { title: { en: "Third service" }, description: { en: "Third description" } }
-      ]
+      service_objects.map(&:attributes)
     end
     let(:address) { "Carrer Pic de Peguera 15, 17003 Girona" }
     let(:latitude) { 40.1234 }
@@ -123,7 +123,7 @@ module Decidim::Meetings
     end
 
     it "properly maps services from model" do
-      meeting = create(:meeting, services: services)
+      meeting = create(:meeting, :with_services, services: service_objects)
 
       services = described_class.from_model(meeting).services
       expect(services).to all be_an(Admin::MeetingServiceForm)

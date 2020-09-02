@@ -23,6 +23,7 @@ de:
         settings:
           global:
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
     events:
       sortitions:
         sortition_created:
@@ -124,6 +125,7 @@ de:
         show:
           algorithm: Sortieralgorithmuscode
           any_category: aus allen Kategorien
+          back: Zurück zur Liste
           cancelled: Stornierte Sortierung
           candidate_proposal_ids: Reihenfolge der Sortierungsvorschläge und IDs
           candidate_proposals_info: 'Die Sortierung wurde unter den folgenden Vorschlägen (%{category_label}) durchgeführt, mit den folgenden IDs (in Fettschrift die ausgewählten Vorschläge)  '

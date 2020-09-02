@@ -1,7 +1,11 @@
 import * as React from "react";
 import { graphql, MutationFunc } from "react-apollo";
 
+const PropTypes = require("prop-types");
+
 import VoteButton from "./vote_button.component";
+
+const { I18n } = require("react-i18nify");
 
 import {
   AddCommentFormCommentableFragment,
@@ -17,16 +21,18 @@ interface UpVoteButtonProps {
     user: any;
   } | null;
   comment: UpVoteButtonFragment;
-  upVote?: () => void;
+  upVote?: (context: any) => void;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
 }
 
-export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
-  session,
-  comment: { upVotes, upVoted, downVoted },
-  upVote
-}) => {
+export const UpVoteButton: React.SFC<UpVoteButtonProps> = (
+  {
+    session,
+    comment: { upVotes, upVoted, downVoted },
+    upVote
+  },
+  context) => {
   let selectedClass = "";
 
   if (upVoted) {
@@ -37,13 +43,15 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
 
   const userLoggedIn = session && session.user;
   const disabled = false;
+  const voteAction = () => upVote && upVote(context);
 
   return (
     <VoteButton
       buttonClassName="comment__votes--up"
       iconName="icon-chevron-top"
+      text={I18n.t("components.up_vote_button.text")}
       votes={upVotes}
-      voteAction={upVote}
+      voteAction={voteAction}
       disabled={disabled}
       selectedClass={selectedClass}
       userLoggedIn={userLoggedIn}
@@ -51,13 +59,20 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
   );
 };
 
+UpVoteButton.contextTypes = {
+  locale: PropTypes.string,
+  toggleTranslations: PropTypes.bool
+};
+
 const upVoteMutation = require("../mutations/up_vote.mutation.graphql");
 const getCommentsQuery = require("../queries/comments.query.graphql");
 
 const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVoteMutation, {
   props: ({ ownProps, mutate }: { ownProps: UpVoteButtonProps, mutate: MutationFunc<UpVoteMutation> }) => ({
-    upVote: () => mutate({
+    upVote: ({ locale, toggleTranslations }: any) => mutate({
       variables: {
+        locale,
+        toggleTranslations,
         id: ownProps.comment.id
       },
       optimisticResponse: {
@@ -74,6 +89,8 @@ const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVo
       },
       update: (store, { data }: { data: UpVoteMutation }) => {
         const variables = {
+          locale,
+          toggleTranslations,
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
           orderBy: ownProps.orderBy,

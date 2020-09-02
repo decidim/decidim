@@ -83,6 +83,7 @@ fi-pl:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
@@ -411,6 +412,7 @@ fi-pl:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
           going: Osallistumassa
           join: Liity tapahtumaan

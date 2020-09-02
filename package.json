@@ -43,6 +43,9 @@
           ],
           "ignore": [
             "after-comment"
+          ],
+          "ignoreAtRules": [
+            "else"
           ]
         }
       ],
@@ -241,7 +244,7 @@
     "style-loader": "^0.21.0",
     "ts-jest": "^22.4.1",
     "ts-loader": "^4.3.0",
-    "tslint": "^5.8.0",
+    "tslint": "^5.20.1",
     "tslint-react": "^3.2.0",
     "typescript": "^2.5.3",
     "typescript-babel-jest": "^1.0.5",
@@ -264,12 +267,15 @@
     "graphql-anywhere": "^4.1.5",
     "graphql-tag": "^2.8.0",
     "jquery": "^3.2.1",
+    "postcss": "^7.0.32",
+    "prop-types": "^15.5.7",
     "react": "^16.0.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.0.0",
     "react-i18nify": "^1.8.8",
     "react-select": "^1.2.1",
     "react-test-renderer": "^16.0.0",
+    "stylelint": "^13.6.1",
     "unfetch": "^3.0.0",
     "uuid": "^3.2.1"
   },

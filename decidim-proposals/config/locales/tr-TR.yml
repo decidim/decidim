@@ -69,22 +69,6 @@ tr:
         one: Oy
         other: oy
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: tip
-          values:
-            'false': Teklif
-            'true': Değişiklikler
-        state_eq:
-          label: Belirtmek, bildirmek
-          values:
-            evaluating: değerlendirilmesi
-            withdrawn: çekilmiş
-        state_null:
-          label: Belirtmek, bildirmek
-          values:
-            'true': Cevaplanmadı
     components:
       proposals:
         actions:
@@ -599,7 +583,6 @@ tr:
           amend: değiştirmek
           comment: Yorum Yap
           comments: Yorumlar
-          endorse: desteklemek
       proposal_votes:
         create:
           error: Teklif oylanırken hatalar oluştu.
@@ -690,7 +673,6 @@ tr:
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
           report: Rapor
           withdraw_btn_hint: Herhangi bir destek almadığınız sürece fikrinizi değiştirirseniz teklifinizi geri çekebilirsiniz. Teklif silinmemiş, iptal edilen teklifler listesinde görünecektir.
-          withdraw_confirmation: Bu teklifi geri çektiğinizden emin misiniz?
           withdraw_proposal: Teklifi geri çek
         vote_button:
           already_voted: Çoktan oy verildi

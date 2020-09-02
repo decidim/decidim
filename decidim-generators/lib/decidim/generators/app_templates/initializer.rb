@@ -14,6 +14,9 @@ Decidim.configure do |config|
   # of languages will be equal or a subset of the list in this file.
   config.available_locales = [:en, :ca, :es]
 
+  # Enable machine translations
+  config.enable_machine_translations = false
+
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
@@ -200,6 +203,29 @@ Decidim.configure do |config|
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.
   # config.amendments_visibility_options = %w(all participants)
+
+  # Machine Translation Configuration
+  #
+  # If you want to enable machine translation you can create your own service
+  # to interact with third party service to translate the user content.
+  #
+  # An example class would be something like:
+  #
+  # class MyTranslationService
+  #   attr_reader :text, :original_locale, :target_locale
+  #
+  #   def initialize(text, original_locale, target_locale)
+  #     @text = text
+  #     @original_locale = original_locale
+  #     @target_locale = target_locale
+  #   end
+  #
+  #   def translate
+  #     # Actual code to translate the text
+  #   end
+  # end
+  #
+  # config.machine_translation_service = "MyTranslationService"
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

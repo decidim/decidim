@@ -67,7 +67,8 @@ module Decidim
           handler_name: String,
           document_number: String,
           postal_code: String,
-          birthday: Date
+          birthday: Date,
+          scope_id: Integer
         }
       end
 
