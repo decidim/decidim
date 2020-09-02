@@ -67,12 +67,12 @@ module Decidim
       # - ParticipatorySpaceSearch uses `organization`
       # - Both use `current_user`
       def context_params
-        context = { current_user: current_user }
-        if respond_to?(:current_component)
-          context[:component] = current_component
-        else
-          context[:organization] = current_organization
-        end
+        context = {
+          current_user: current_user,
+          organization: current_organization
+        }
+        context[:component] = current_component if respond_to?(:current_component)
+
         context
       end
     end
