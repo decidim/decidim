@@ -305,7 +305,8 @@ shared_examples "manage meetings" do
           es: "Mi nuevo título",
           ca: "El meu nou títol"
         )
-        autocomplete_select address, from: :address
+
+        fill_in :meeting_address, with: address
 
         find("*[type=submit]").click
       end
@@ -349,7 +350,8 @@ shared_examples "manage meetings" do
         ca: "Descripció més llarga"
       )
 
-      autocomplete_select address, from: :address
+      fill_in :meeting_address, with: address
+
       page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
