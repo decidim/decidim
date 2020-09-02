@@ -9,7 +9,7 @@ pl:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
         closing_report: Zgłoś
-        contributions_count: Liczba wkładów
+        contributions_count: Liczba wsparć
         proposal_ids: Propozycje stworzone na spotkaniu
       meeting:
         address: Adres
