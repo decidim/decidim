@@ -343,6 +343,12 @@ module Decidim
     %w(all participants)
   end
 
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  config_accessor :consent_cookie_name do
+    "decidim-cc"
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
