@@ -378,7 +378,7 @@ shared_examples "manage meetings" do
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component, skip_injection: true) }
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do

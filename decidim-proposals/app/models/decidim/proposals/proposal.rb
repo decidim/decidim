@@ -416,14 +416,6 @@ module Decidim
         end
       end
 
-      def i18n_title
-        translated_attribute(title)
-      end
-
-      def i18n_body
-        translated_attribute(body)
-      end
-
       private
 
       def copied_from_other_component?
