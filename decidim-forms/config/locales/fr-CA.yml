@@ -56,9 +56,9 @@ fr-CA:
               answered: Répondu
               equal: Égale
               match: Inclus le texte
-              not_answered: Non répondu
-              not_equal: Différent de
-            condition_value: Texte comprenant
+              not_answered: Pas de réponse
+              not_equal: Pas égal à
+            condition_value: Texte inclus
             display_condition: Condition d'affichage
             mandatory: Cette condition doit toujours être satisfaite indépendamment du statut des autres conditions
             remove: Retirer
@@ -159,7 +159,7 @@ fr-CA:
           submit: Soumettre
       user_answers_serializer:
         body: Répondre
-        completion: Fin
+        completion: Achèvement
         created_at: Répondu le
         id: ID de réponse
         ip_hash: Hachage IP
