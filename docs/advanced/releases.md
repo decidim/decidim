@@ -50,12 +50,12 @@ Release Candidates are the same as beta versions. They should be ready to go to 
 
 If this is a **Release Candidate version** release, the steps to follow are:
 
-1. Go to the release's branch `git checkout release/x.y.z-stable`.
+1. Go to the release's branch `git checkout release/x.y-stable`.
 1. Update `.decidim-version` to the new version `x.y.z.rc1`
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y.z-stable`.
+1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y-stable`.
 1. Tag the release candidate with `git tag vX.Y.Z && git push origin vX.Y.Z`.
 1. Usually, at this point, the release branch is deployed to meta-decidim during, at least, one week to validate the stability of the version.
 
@@ -68,13 +68,21 @@ If this is a **Release Candidate version** release, the steps to follow are:
 
 Release Candidates will be tested in a production server (usually meta-decidim) during some period of time (a week at least), when they are considered ready, it is time for them to be merged into `master`:
 
-1. Go to the release branch `git checkout release/x.y.z`.
+1. Go to the release branch `git checkout release/x.y-stable`.
 1. Update `.decidim-version` by removing the `.rcN` suffix, leaving a clean version number like `x.y.z`
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y.z`.
-1. Follow the link resulting from the previous command to create the PR for the new version in case it has not been created already, but still don't merge it. The base for the PR should be `master`.
+1. Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y-stable`.
+1. Create the PR for the new version.
+    1. `git checkout master && git checkout -b release/x.y.z`
+    1. `git merge release/x.y-stable`
+    1. `git checkout --theirs *`
+    1. `git checkout --theirs .github/* \.*`
+    1. Review changes in `CHANGELOG.md` and manually update it if required.
+    1. `git push origin release/x.y.z`
+    1. Create the PR. The base for the PR should be `master`, but GitHub may crash if there are a lot of changes. As a workaround create the branch against `develop` and, when created, change the base to `master`.
+    1. Still don't merge it.
 1. Before merging the PR to upgrade `master`, check that the stable branch for the previous version exists. For instance, if we are going to release v0.22.0, there should be a `release/0.21-stable` branch in the repository. If such branch does not exists, it has to be created now, before merging the new release. So, if this is the release of v0.22.0, branch off `release/0.21-stable` from `master`. These stable branches will be able to receive bugfixes, backports and will be the origin of patch releases for older releases.
 1. Merge (after proper peer review) the PR to `master` and remove `release/x.y.z` branch.
 1. Run `git checkout master && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
