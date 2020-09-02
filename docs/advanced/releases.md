@@ -4,10 +4,10 @@ In order to release new version you need to be owner of all the gems at RubyGems
 
 Remember to follow the Gitflow branching workflow.
 
-## Create the release branch
+## Create the release's stable branch
 
 1. Go to develop with `git checkout develop`
-1. Create the release branch `git checkout -b release/x.y.z && git push origin release/x.y.z`, where release/x.y.z is the Gitflow release branch for this version.
+1. Create the release branch `git checkout -b release/x.y.z-stable && git push origin release/x.y.z-stable`.
 1. If required, add the release branch to Crowdin so that any pending translations will generate a PR to this branch.
 
 Mark `develop` as the reference to the next release:
@@ -50,13 +50,13 @@ Release Candidates are the same as beta versions. They should be ready to go to 
 
 If this is a **Release Candidate version** release, the steps to follow are:
 
-1. Go to the release branch `git checkout release/x.y.z`.
+1. Go to the release's branch `git checkout release/x.y.z-stable`.
 1. Update `.decidim-version` to the new version `x.y.z.rc1`
 1. Run `bin/rake update_versions`, this will update all references to the new version.
 1. Run `bin/rake bundle`, this will update all the `Gemfile.lock` files
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
-1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y.z`.
-1. Follow the link resulting from the previous command to create the PR for the new version. The base branch of the PR must be `master`.
+1. Commit all the changes: `git add . && git commit -m "Bump to rcXX version" && git push origin release/x.y.z-stable`.
+1. Tag the release candidate with `git tag vX.Y.Z && git push origin vX.Y.Z`.
 1. Usually, at this point, the release branch is deployed to meta-decidim during, at least, one week to validate the stability of the version.
 
 ### During the validation period
