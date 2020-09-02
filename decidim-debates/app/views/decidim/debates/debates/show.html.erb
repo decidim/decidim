@@ -20,7 +20,7 @@ edit_link(
   <% end %>
 
   <h2 class="heading3">
-    <%== present(debate).title %>
+    <%== present(debate).title(links: true) %>
   </h2>
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
