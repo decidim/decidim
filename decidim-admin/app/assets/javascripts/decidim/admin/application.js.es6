@@ -2,6 +2,7 @@
 // = require foundation
 // = require rails-ujs
 // = require ./tab_focus
+// = require ./choose_language
 // = require ./toggle_nav
 // = require ./sort_list.component
 // = require decidim/editor
