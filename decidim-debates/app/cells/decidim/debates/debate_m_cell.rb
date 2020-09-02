@@ -25,10 +25,14 @@ module Decidim
         super
       end
 
+      def presenter
+        present(model)
+      end
+
       private
 
       def title
-        present(model).title
+        presenter.title
       end
 
       def body

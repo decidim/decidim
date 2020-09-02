@@ -61,6 +61,16 @@ FactoryBot.define do
       }
     end
 
+    trait :with_comments_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            comments_blocked: true
+          }
+        }
+      end
+    end
+
     trait :with_creation_enabled do
       step_settings do
         {

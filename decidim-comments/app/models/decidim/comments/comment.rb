@@ -31,8 +31,17 @@ module Decidim
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
+      # Updates the counter caches for the root_commentable when a comment is
+      # created or updated.
       after_save :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # deleted.
       after_destroy :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # touched, which happens when a comment was reported and its moderation
+      # is accepted and sets the comment as hidden.
       after_touch :update_counter
 
       before_validation :compute_depth
