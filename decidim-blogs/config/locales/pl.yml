@@ -50,7 +50,7 @@ pl:
             title: tytuł
       posts:
         show:
-          view: Widok
+          view: Zobacz
         sidebar_blog:
           comments: komentarze
           most_commented_posts: Najczęściej komentowane wpisy

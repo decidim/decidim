@@ -788,7 +788,7 @@ fi:
           view_proposal: Näytä ehdotus
         show:
           answer: Vastaus
-          back_to: Takaisin
+          back_to: Takaisin sivulle
           changes_at_title: Muokkaus kohteelle "%{title}"
           edit_proposal: Muokkaa ehdotusta
           endorsements_list: Luettelo suositteluista

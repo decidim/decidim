@@ -160,7 +160,7 @@ fr:
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -313,11 +313,11 @@ fr:
             'false': Publié
             'true': Dépublié
         scope_id_eq:
-          label: Périmètre d'application
+          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
-          title_cont: Search %{collection} par titre.
+          title_cont: Rechercher %{collection} par titre.
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -577,7 +577,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url

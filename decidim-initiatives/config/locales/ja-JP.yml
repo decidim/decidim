@@ -49,7 +49,7 @@ ja:
   activerecord:
     models:
       decidim/initiative:
-        other: イニシアチブ
+        other: 取り組み
       decidim/initiative_comittee:
         other: Comittes
       decidim/initiative_vote:
@@ -57,7 +57,7 @@ ja:
   decidim:
     admin:
       actions:
-        new_initiative_type: 新しいイニシアチブ種別
+        new_initiative_type: 新しい取り組み種別
       filters:
         search_placeholder:
           title_or_description_cont: タイトルまたは説明で %{collection} を検索します。
@@ -72,7 +72,7 @@ ja:
             validating: 技術的検証
       menu:
         initiatives: イニシアチブ
-        initiatives_types: イニシアチブ種別
+        initiatives_types: 取り組み種別
       models:
         initiatives:
           fields:
