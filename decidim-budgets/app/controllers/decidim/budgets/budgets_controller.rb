@@ -9,6 +9,8 @@ module Decidim
       end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless budget
+
         redirect_to budget_projects_path(budget)
       end
 

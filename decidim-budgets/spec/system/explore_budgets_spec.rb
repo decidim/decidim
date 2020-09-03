@@ -29,4 +29,10 @@ describe "Explore Budgets", :slow, type: :system do
       end
     end
   end
+
+  context "when directly accessing from URL with an invalid budget id" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { Decidim::EngineRouter.main_proxy(component).budget_path(99_999_999) }
+    end
+  end
 end

@@ -11,6 +11,15 @@ module Decidim
 
       helper_method :projects, :project, :budget
 
+      def index
+        raise ActionController::RoutingError, "Not Found" unless budget
+      end
+
+      def show
+        raise ActionController::RoutingError, "Not Found" unless budget
+        raise ActionController::RoutingError, "Not Found" unless project
+      end
+
       private
 
       def budget
