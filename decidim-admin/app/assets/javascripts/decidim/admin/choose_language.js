@@ -1,17 +1,17 @@
 $(() => {
   $("select.language-change").change(function () {
-    var selectedValue = this.value;
-    var $select = $(this);
-    var options = $select[0].children;
-    var arr = Array.from(options);
-    var selectedOption = arr.filter(function(opt) {
-      return opt.value == selectedValue
+    let $select = $(this);
+    let selectedValue = $select[0].value;
+    let options = $select[0].children;
+    let arr = Array.from(options);
+    let selectedOption = arr.filter(function(opt) {
+      return opt.value === selectedValue
     })
-    var targetTabPane = selectedOption[0]["attributes"].href["value"];
-    var $tabsContent = $select.parent().parent().siblings();
-    $previousTab = $tabsContent.children('.is-active');
-    $previousTab.removeClass('is-active');
-    $newTab = $tabsContent.children(targetTabPane);
+    let targetTabPane = selectedOption[0].attributes.href.value;
+    let $tabsContent = $select.parent().parent().siblings();
+    let $previousTab = $tabsContent.children(".is-active");
+    $previousTab.removeClass("is-active");
+    let $newTab = $tabsContent.children(targetTabPane);
     $newTab.addClass("is-active");
   })
 });
