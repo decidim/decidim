@@ -44,6 +44,14 @@ module Decidim
         Decidim::Budgets::AdminLog::ProjectPresenter
       end
 
+      def polymorphic_resource_path(url_params)
+        ::Decidim::ResourceLocatorPresenter.new([budget, self]).path(url_params)
+      end
+
+      def polymorphic_resource_url(url_params)
+        ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         component.settings.comments_enabled?
