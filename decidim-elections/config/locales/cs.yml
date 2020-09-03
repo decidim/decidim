@@ -21,6 +21,10 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potřebuje být znovu připojen
   activerecord:
     models:
       decidim/elections/answer:
