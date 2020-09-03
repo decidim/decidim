@@ -45,6 +45,34 @@ module Decidim
     end
     # rubocop:enable Metrics/ParameterLists
 
+    def create_tab_panels(locales, tabs_id, name)
+      tab_panels = if Decidim.available_locales.count > 4
+                     content_tag(:div) do
+                       content_tag(:select, id: tabs_id, class: "language-change") do
+                         locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+                           title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+                           tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
+                           string + content_tag(:option, title, href: "##{tab_content_id}")
+                         end
+                       end
+                     end
+                   else
+                     content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+                       locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+                         string + content_tag(:li, class: tab_element_class_for("title", index)) do
+                           title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+                           element_class = nil
+                           element_class = "is-tab-error" if error?(name_with_locale(name, locale))
+                           tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
+                           content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
+                         end
+                       end
+                     end
+                   end
+
+      tab_panels
+    end
+
     # Public: Generates an form field for each locale.
     #
     # type - The form field's type, like `text_area` or `text_input`
@@ -61,31 +89,7 @@ module Decidim
         field_label = label_i18n(name, options[:label] || label_for(name))
 
         tabs_panels = "".html_safe
-        if options[:label] != false
-          tabs_panels = if Decidim.available_locales.count > 4
-                          content_tag(:div) do
-                            content_tag(:select, id: tabs_id, class: "language-change") do
-                              locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-                                title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-                                string + content_tag(:option, title, href: "##{tab_content_id}")
-                              end
-                            end
-                          end
-                        else
-                          content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
-                            locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-                              string + content_tag(:li, class: tab_element_class_for("title", index)) do
-                                title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                                element_class = nil
-                                element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-                                content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
-                              end
-                            end
-                          end
-                        end
-        end
+        tabs_panels = create_tab_panels(locales, tabs_id, name) if options[:label] != false
 
         safe_join [field_label, tabs_panels]
       end
