@@ -188,6 +188,8 @@ hu:
             success: A kezdeményezést technikai érvényesítésre továbbítottuk
             update: Frissítés
           form:
+            attachments: Csatolmányok
+            settings: Beállítások
             title: Általános információ
           index:
             actions_title: Művelet

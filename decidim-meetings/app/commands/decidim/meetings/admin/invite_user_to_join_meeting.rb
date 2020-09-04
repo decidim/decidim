@@ -50,7 +50,8 @@ module Decidim
             },
             participatory_space: {
               title: meeting.participatory_space.title
-            }
+            },
+            attendee_name: user.name
           }
 
           @invite = Decidim.traceability.create!(

@@ -19,7 +19,7 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_debate_description(debate)
-        description = present(debate).description(strip_tags: !safe_content?)
+        description = present(debate).description(strip_tags: !safe_content?, links: true)
 
         safe_content? ? decidim_sanitize(description) : simple_format(description)
       end

@@ -789,7 +789,7 @@ fi:
           empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
         show:
           answer: Vastaus
-          back_to: Takaisin
+          back_to: Takaisin sivulle
           back_to_list: Takaisin listaan
           changes_at_title: Muokkaus kohteelle "%{title}"
           comments: Kommentit

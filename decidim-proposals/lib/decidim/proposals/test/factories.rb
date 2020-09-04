@@ -265,33 +265,52 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
+      skip_i18n { false }
     end
 
     title do
-      content = generate(:title).dup
-      content.prepend("<script>alert('TITLE');</script> ") unless skip_injection
-      content
+      if skip_injection && skip_i18n
+        generate(:title)
+      elsif skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      elsif skip_i18n
+        "<script>alert(\"TITLE\");</script> " + generate(:title)
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+      end
     end
     body do
-      content = Faker::Lorem.sentences(3).join("\n")
-      content.prepend("<script>alert('BODY');</script> ") unless skip_injection
-      content
+      if skip_injection && skip_i18n
+        Faker::Lorem.sentences(3).join("\n")
+      elsif skip_injection
+        Decidim::Faker::Localized.localized { Faker::Lorem.sentences(3).join("\n") }
+      elsif skip_i18n
+        "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n")
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n") }
+      end
     end
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     after(:build) do |proposal, evaluator|
-      proposal.title = if evaluator.title.is_a?(String)
-                         { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
-                       else
-                         evaluator.title
-                       end
-      proposal.body = if evaluator.body.is_a?(String)
-                        { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
-                      else
-                        evaluator.body
-                      end
+      unless evaluator.skip_i18n
+        proposal.title = if evaluator.title.is_a?(String)
+                           { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
+                         else
+                           evaluator.title
+                         end
+        proposal.body = if evaluator.body.is_a?(String)
+                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
+                        else
+                          evaluator.body
+                        end
+
+        proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
+        proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+      end
+
       if proposal.component
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|

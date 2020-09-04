@@ -1,0 +1,10 @@
+<span class="card--list__data__number budget-list__number show-for-medium">
+  <%= budget_to_currency(model.budget_amount) %>
+
+  <% if current_settings.show_votes? %>
+    <br>
+    <span class="text-uppercase text-small">
+      <%= t("decidim.budgets.projects.project.count", count: model.confirmed_orders_count) %>
+    </span>
+  <% end %>
+</span>

@@ -3,10 +3,11 @@
 require "spec_helper"
 
 describe "Comments", type: :system do
-  let!(:component) { create(:budget_component, organization: organization) }
-  let!(:commentable) { create(:project, component: component) }
+  let!(:component) { create(:budgets_component, organization: organization) }
+  let!(:budget) { create(:budget, component: component) }
+  let!(:commentable) { create(:project, budget: budget) }
 
-  let(:resource_path) { resource_locator(commentable).path }
+  let(:resource_path) { resource_locator([budget, commentable]).path }
 
   include_examples "comments"
 end

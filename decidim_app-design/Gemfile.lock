@@ -1,11 +1,3 @@
-GIT
-  remote: https://github.com/colszowka/simplecov
-  revision: 9056bd3852d0daca2221c9b0a964b8abada1c48c
-  specs:
-    simplecov (0.18.5)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-
 PATH
   remote: ..
   specs:
@@ -160,7 +152,7 @@ PATH
       rubocop-rails (~> 2.0)
       rubocop-rspec (~> 1.21)
       selenium-webdriver (~> 3.142)
-      simplecov (~> 0.18.5)
+      simplecov (~> 0.19.0)
       simplecov-cobertura (~> 1.3.1)
       system_test_html_screenshots (~> 0.1.1)
       webmock (~> 3.6)
@@ -333,7 +325,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.3.45)
+    chef-utils (16.4.41)
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -499,7 +491,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
-    mdl (0.10.0)
+    mdl (0.11.0)
       kramdown (~> 2.3)
       kramdown-parser-gfm (~> 1.1)
       mixlib-cli (~> 2.1, >= 2.1.1)
@@ -514,7 +506,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
-    mixlib-cli (2.1.6)
+    mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
     mixlib-shellout (3.1.4)
@@ -713,6 +705,9 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     seven_zip_ruby (1.2.5)
+    simplecov (0.19.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
     simplecov-cobertura (1.3.1)
       simplecov (~> 0.8)
     simplecov-html (0.12.2)
@@ -807,7 +802,7 @@ DEPENDENCIES
   letter_opener_web (~> 1.3)
   listen (~> 3.1)
   puma (>= 4.3.5)
-  simplecov!
+  simplecov (~> 0.19.0)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   uglifier (~> 4.1)
@@ -817,4 +812,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   1.17.3
+   2.1.4

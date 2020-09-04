@@ -226,6 +226,10 @@ Decidim.configure do |config|
   # end
   #
   # config.machine_translation_service = "MyTranslationService"
+
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  # config.consent_cookie_name = "decidim-cc"
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

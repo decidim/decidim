@@ -85,6 +85,7 @@ sv:
           success: Debatten har stängts.
         close_debate_modal:
           close: Stäng
+          description: Vad är sammanfattningen för denna debatt?
           send: Stäng debatt
         closed: Stängd
         count:
@@ -126,6 +127,7 @@ sv:
           close_debate: Stäng debatt
           date: Datum
           debate_closed: Stängd
+          debate_conclusions_are: 'Debatten stängdes den %{date} med dessa slutsatser:'
           edit_conclusions: Redigera slutsatser
           edit_debate: Redigera debatt
           groups_count: Grupper

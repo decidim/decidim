@@ -12,7 +12,7 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
 
-        attribute :budget, Integer
+        attribute :budget_amount, Integer
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
@@ -22,7 +22,7 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :budget, presence: true, numericality: { greater_than: 0 }
+        validates :budget_amount, presence: true, numericality: { greater_than: 0 }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
@@ -45,6 +45,13 @@ module Decidim
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)
                          &.where(id: proposal_ids)
                          &.order(title: :asc)
+        end
+
+        # Finds the Budget from the decidim_budgets_budget_id.
+        #
+        # Returns a Decidim::Budgets:Budget
+        def budget
+          @budget ||= context[:budget]
         end
 
         # Finds the Category from the decidim_category_id.

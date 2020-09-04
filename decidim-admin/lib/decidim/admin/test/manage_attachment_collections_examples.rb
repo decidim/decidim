@@ -82,7 +82,7 @@ shared_examples "manage attachment collections examples" do
   context "when deleting a attachment collection" do
     let!(:attachment_collection2) { create(:attachment_collection, collection_for: collection_for) }
 
-    context "when the attachment collection has no associated content" do
+    context "when the attachment collection has no associated content", :slow do
       before do
         visit current_path
       end

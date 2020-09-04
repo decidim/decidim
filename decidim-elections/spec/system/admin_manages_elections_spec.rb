@@ -35,13 +35,6 @@ describe "Admin manages elections", type: :system do
         es: "Mi elección",
         ca: "La meva elecció"
       )
-      fill_in_i18n(
-        :election_subtitle,
-        "#election-subtitle-tabs",
-        en: "Vote and participate",
-        es: "Vota y participa",
-        ca: "Vota i participa"
-      )
       fill_in_i18n_editor(
         :election_description,
         "#election-description-tabs",

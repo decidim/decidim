@@ -9,9 +9,22 @@ module Decidim
       include Orderable
       include Decidim::Budgets::Orderable
 
-      helper_method :projects, :project
+      helper_method :projects, :project, :budget
+
+      def index
+        raise ActionController::RoutingError, "Not Found" unless budget
+      end
+
+      def show
+        raise ActionController::RoutingError, "Not Found" unless budget
+        raise ActionController::RoutingError, "Not Found" unless project
+      end
 
       private
+
+      def budget
+        @budget ||= Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
+      end
 
       def projects
         return @projects if @projects
@@ -21,7 +34,7 @@ module Decidim
       end
 
       def project
-        @project ||= search.results.find(params[:id])
+        @project ||= Project.find_by(id: params[:id])
       end
 
       def search_klass
@@ -53,7 +66,7 @@ module Decidim
       end
 
       def context_params
-        { component: current_component, organization: current_organization }
+        { budget: budget, component: current_component, organization: current_organization }
       end
     end
   end

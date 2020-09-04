@@ -10,6 +10,10 @@ module Decidim
           link: participatory_space_link
         )
       end
+
+      def resource_link_text
+        Decidim::Debates::DebatePresenter.new(resource).title
+      end
     end
   end
 end

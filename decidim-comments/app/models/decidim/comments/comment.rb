@@ -103,7 +103,13 @@ module Decidim
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
-        ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
+        url_params = { anchor: "comment_#{id}" }
+
+        if root_commentable&.respond_to?(:polymorphic_resource_url)
+          root_commentable.polymorphic_resource_url(url_params)
+        else
+          ResourceLocatorPresenter.new(root_commentable).url(url_params)
+        end
       end
 
       # Public: Returns the comment message ready to display (it is expected to include HTML)

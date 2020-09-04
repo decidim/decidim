@@ -72,7 +72,6 @@ Decidim.register_component(:elections) do |component|
         {
           component: component,
           title: Decidim::Faker::Localized.sentence(2),
-          subtitle: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
