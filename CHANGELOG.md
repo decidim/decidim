@@ -8,6 +8,8 @@
 
 ### Fixed
 
+- **decidim-meetings**: Fix InvitePresenter when invitation does not exist anymore. [\#6469](https://github.com/decidim/decidim/pull/6469)
+
 ### Removed
 
 ## [v0.22.0](https://github.com/decidim/decidim/releases/tag/v0.22.0)
