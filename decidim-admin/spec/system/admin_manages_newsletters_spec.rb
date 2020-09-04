@@ -199,7 +199,7 @@ describe "Admin manages newsletters", type: :system do
         end
       end
 
-      it "sends to participants" do
+      it "sends to participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
