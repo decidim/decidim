@@ -4,22 +4,23 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe Checkout do
-    subject { described_class.new(current_order, component) }
+    subject { described_class.new(current_order) }
 
     let(:user) { create(:user) }
-    let(:voting_rule) { :with_total_budget_and_vote_threshold_percent }
+    let(:voting_rule) { :with_vote_threshold_percent }
     let(:component) do
       create(
-        :budget_component,
+        :budgets_component,
         voting_rule,
         organization: user.organization
       )
     end
+    let(:budget) { create :budget, component: component }
 
-    let(:projects) { create_list(:project, 2, component: component, budget: 45_000_000) }
+    let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 45_000_000) }
 
     let(:order) do
-      order = create(:order, user: user, component: component)
+      order = create(:order, user: user, budget: budget)
       order.projects << projects
       order.save!
       order
@@ -55,7 +56,7 @@ module Decidim::Budgets
 
     context "when the voting rule is set to threshold percent" do
       context "when the order total budget doesn't exceed the threshold" do
-        let(:projects) { create_list(:project, 2, component: component, budget: 30_000_000) }
+        let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 30_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -65,7 +66,7 @@ module Decidim::Budgets
 
     context "when the voting rule is set to minimum projects number" do
       context "and the order doesn't reach the minimum number of projects" do
-        let(:voting_rule) { :with_total_budget_and_minimum_budget_projects }
+        let(:voting_rule) { :with_minimum_budget_projects }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)

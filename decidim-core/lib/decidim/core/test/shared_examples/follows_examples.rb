@@ -10,7 +10,7 @@ shared_examples "follows" do
   context "when not following the followable" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
-        visit resource_locator(followable).path
+        visit followable_path
         expect do
           click_button "Follow"
           expect(page).to have_content "Stop following"
@@ -26,7 +26,7 @@ shared_examples "follows" do
 
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
-        visit resource_locator(followable).path
+        visit followable_path
         expect do
           click_button "Stop following"
           expect(page).to have_content "Follow"
@@ -42,7 +42,7 @@ shared_examples "follows" do
 
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
-        visit resource_locator(followable).path
+        visit followable_path
         expect do
           click_button "Already following #{translated(followable.participatory_space.title)}"
           expect(page).to have_content "Stop following"

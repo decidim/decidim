@@ -11,23 +11,24 @@ describe "Sorting projects", type: :system do
   let(:project) { projects.first }
 
   let!(:component) do
-    create(:budget_component,
-           :with_total_budget_and_vote_threshold_percent,
+    create(:budgets_component,
+           :with_vote_threshold_percent,
            manifest: manifest,
            participatory_space: participatory_process)
   end
 
-  let!(:project1) { create(:project, component: component, budget: 25_000_000) }
-  let!(:project2) { create(:project, component: component, budget: 50_000_000) }
+  let(:budget) { create :budget, component: component }
+  let!(:project1) { create(:project, budget: budget, budget_amount: 25_000_000) }
+  let!(:project2) { create(:project, budget: budget, budget_amount: 50_000_000) }
 
   before do
     login_as user, scope: :user
-    visit_component
+    visit_budget
   end
 
   shared_examples "ordering projects by selected option" do |selected_option|
     before do
-      visit_component
+      visit_budget
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random order")
         page.find("a", text: "Random order").click
@@ -64,18 +65,18 @@ describe "Sorting projects", type: :system do
   describe "when the voting is finished" do
     let!(:component) do
       create(
-        :budget_component,
+        :budgets_component,
         :with_voting_finished,
         manifest: manifest,
         participatory_space: participatory_process
       )
     end
-    let!(:project1) { create(:project, component: component, budget: 25_000_000) }
-    let!(:project2) { create(:project, component: component, budget: 77_000_000) }
+    let!(:project1) { create(:project, budget: budget, budget_amount: 25_000_000) }
+    let!(:project2) { create(:project, budget: budget, budget_amount: 77_000_000) }
 
     context "when ordering by most votes" do
       before do
-        order = build :order, component: component
+        order = build :order, budget: budget
         create :line_item, order: order, project: project2
         order = Decidim::Budgets::Order.last
         order.checked_out_at = Time.zone.now
@@ -83,7 +84,7 @@ describe "Sorting projects", type: :system do
       end
 
       it "automatically sorts by votes" do
-        visit_component
+        visit_budget
 
         within "#projects li.is-dropdown-submenu-parent a" do
           expect(page).to have_content("Most voted")
@@ -93,5 +94,9 @@ describe "Sorting projects", type: :system do
         expect(page).to have_selector("#projects .budget-list .budget-list__item:last-child", text: translated(project1.title))
       end
     end
+  end
+
+  def visit_budget
+    page.visit Decidim::EngineRouter.main_proxy(component).budget_projects_path(budget)
   end
 end

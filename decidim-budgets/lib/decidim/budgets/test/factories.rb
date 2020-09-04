@@ -7,14 +7,13 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
-  factory :budget_component, parent: :component do
+  factory :budgets_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
     manifest_name { :budgets }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
-    trait :with_total_budget_and_vote_threshold_percent do
+    trait :with_vote_threshold_percent do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { true }
         vote_rule_minimum_budget_projects_enabled { false }
         vote_threshold_percent { 70 }
@@ -22,7 +21,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_threshold_percent: vote_threshold_percent
@@ -30,9 +28,8 @@ FactoryBot.define do
       end
     end
 
-    trait :with_total_budget_and_minimum_budget_projects do
+    trait :with_minimum_budget_projects do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
         vote_minimum_budget_projects_number { 3 }
@@ -40,7 +37,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
@@ -80,20 +76,49 @@ FactoryBot.define do
     end
   end
 
+  factory :budget, class: "Decidim::Budgets::Budget" do
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    total_budget { 100_000_000 }
+    component { create(:budgets_component) }
+
+    trait :with_projects do
+      transient do
+        projects_number { 2 }
+      end
+
+      after(:create) do |budget, evaluator|
+        create_list(:project, evaluator.projects_number, budget: budget)
+      end
+    end
+  end
+
   factory :project, class: "Decidim::Budgets::Project" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    budget { Faker::Number.number(8) }
-    component { create(:budget_component) }
+    budget_amount { Faker::Number.number(8) }
+    budget { create(:budget) }
   end
 
   factory :order, class: "Decidim::Budgets::Order" do
-    component { create(:budget_component) }
+    budget { create(:budget) }
     user { create(:user, organization: component.organization) }
+
+    trait :with_projects do
+      transient do
+        projects_number { 2 }
+      end
+
+      after(:create) do |order, evaluator|
+        project_budget = (order.maximum_budget / evaluator.projects_number).to_i
+        order.projects << create_list(:project, evaluator.projects_number, budget_amount: project_budget, budget: order.budget)
+        order.save!
+      end
+    end
   end
 
   factory :line_item, class: "Decidim::Budgets::LineItem" do
     order
-    project { create(:project, component: order.component) }
+    project { create(:project, budget: order.budget) }
   end
 end

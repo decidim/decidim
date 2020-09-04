@@ -10,6 +10,7 @@ module Decidim::Budgets
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
+    let(:budget) { create :budget, component: current_component }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:uploaded_photos) { [] }
@@ -30,13 +31,13 @@ module Decidim::Budgets
         current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },
-        budget: 10_000_000,
+        budget_amount: 10_000_000,
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
         photos: photos,
         add_photos: uploaded_photos,
-        current_component: current_component
+        budget: budget
       )
     end
     let(:invalid) { false }
@@ -66,15 +67,20 @@ module Decidim::Budgets
         expect(project.category).to eq category
       end
 
-      it "sets the component" do
+      it "sets the budget resource" do
         subject.call
-        expect(project.component).to eq current_component
+        expect(project.budget).to eq budget
       end
 
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Project, current_user, hash_including(:scope, :category, :component, :title, :description, :budget))
+          .with(
+            Decidim::Budgets::Project,
+            current_user,
+            hash_including(:scope, :category, :budget, :title, :description, :budget_amount),
+            visibility: "all"
+          )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

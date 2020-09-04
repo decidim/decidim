@@ -41,11 +41,11 @@ module Decidim
         end
       end
 
-      describe "budget" do
-        let(:query) { "{ budget }" }
+      describe "budget_amount" do
+        let(:query) { "{ budget_amount }" }
 
-        it "returns the budget" do
-          expect(response["budget"]).to eq(model.budget)
+        it "returns the budget amount" do
+          expect(response["budget_amount"]).to eq(model.budget_amount)
         end
       end
 

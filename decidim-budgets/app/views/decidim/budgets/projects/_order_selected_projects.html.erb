@@ -9,12 +9,12 @@
         <ul class="budget-summary__selected-list">
           <% current_order.projects.each do |project| %>
             <li class="budget-summary__selected-item">
-              <%= link_to translated_attribute(project.title), project %>
+              <%= link_to translated_attribute(project.title), resource_locator([budget, project]).path %>
               <strong class="budget-summary__selected-number">
-                <%= budget_to_currency project.budget %>
+                <%= budget_to_currency project.budget_amount %>
               </strong>
               <% unless current_order_checked_out? %>
-                <%= button_to order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true }, form: { style: "display: inline" } do %>
+                <%= button_to budget_order_line_item_path(project_id: project), method: :delete, remote: true, data: { disable: true }, form: { style: "display: inline" } do %>
                   <%= icon("trash", aria_label: t(".remove"), role: "img") %>
                 <% end %>
               <% end %>
