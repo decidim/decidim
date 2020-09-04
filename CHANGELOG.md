@@ -2,15 +2,15 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-### Added
+**Added**:
 
-### Changed
+**Changed**:
 
-### Fixed
+**Fixed**:
 
 - **decidim-meetings**: Fix InvitePresenter when invitation does not exist anymore. [\#6469](https://github.com/decidim/decidim/pull/6469)
 
-### Removed
+**Removed**:
 
 ## [v0.22.0](https://github.com/decidim/decidim/releases/tag/v0.22.0)
 
@@ -39,7 +39,7 @@ signing an initiative (decidim-initiatives/app/forms/decidim/initiatives/vote_fo
 This key may be used to persist whatever information related to the user's authentication that should not be used for authenticating her.
 The use case that originated this change is the persistence of the user's gender for statistical uses.
 
-### Added
+**Added**:
 
 - **decidim-initiative**: Skip initiative type selection if there is only one initiative type. [\#5835](https://github.com/decidim/decidim/pull/5835)
 - **decidim-docs**: Add doc in how to release following Gitflow. [\#5766](https://github.com/decidim/decidim/pull/5766)
@@ -121,7 +121,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-forms**: Request confirmation when leaving the form half-answered [\#6118](https://github.com/decidim/decidim/pull/6118)
 - **decidim-initiatives**: Add areas to initiatives. [\#6111](https://github.com/decidim/decidim/pull/6111)
 
-### Changed
+**Changed**:
 
 - **decidim-admin**, **decidim-core**: Improve explanation on image management on Layout Appearance. [\#6089](https://github.com/decidim/decidim/pull/6089)
 - **decidim-surveys**: Remove decidim-surveys legacy tables after migrating to decidim-forms. [\#6178](https://github.com/decidim/decidim/pull/6178)
@@ -136,7 +136,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-accountability**: Using the new proposals selector for choosing result proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
 - **decidim-meetings**: Using the new proposals selector for choosing meeting close proposals [\#5863](https://github.com/decidim/decidim/pull/5863)
 
-### Fixed
+**Fixed**:
 
 - **decidim-surveys**: Fix ip_hash not being saved in anonymous surveys. [\#6156](https://github.com/decidim/decidim/pull/6156)
 - **decidim-proposals**: Fix participatory text newline absence. [\#6158](https://github.com/decidim/decidim/pull/6158)
@@ -184,7 +184,7 @@ The use case that originated this change is the persistence of the user's gender
 - **decidim-core**, **decidim-assemblies**: Fix the edit link test failing seemingly randomly [\#6161](https://github.com/decidim/decidim/pull/6161)
 - **decidim-participatory_processes**: Fix the edit link test failing randomly for participatory processes spec [\#6180](https://github.com/decidim/decidim/pull/6180)
 
-### Removed
+**Removed**:
 
 - **decidim-assemblies**: Removed legacy `assembly_type` fields. [\#5617](https://github.com/decidim/decidim/pull/5617)
 
