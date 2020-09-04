@@ -135,9 +135,6 @@ fi-pl:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
-      election_m:
-        footer:
-          take_part: Osallistu
       elections:
         count:
           elections_count:

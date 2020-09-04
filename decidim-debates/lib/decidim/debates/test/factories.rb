@@ -39,6 +39,11 @@ FactoryBot.define do
       closed_at { Time.current }
       conclusions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     end
+
+    after(:build) do |debate|
+      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
+      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+    end
   end
 
   factory :debates_component, parent: :component do
@@ -55,6 +60,37 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => { creation_enabled: true }
+        }
+      end
+    end
+
+    trait :with_votes_enabled do
+      # Needed for endorsements tests
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            endorsements_enabled: true,
+            endorsements_blocked: true
+          }
+        }
+      end
+    end
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
         }
       end
     end

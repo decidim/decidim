@@ -24,7 +24,11 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def map_model(model)
-          self.decidim_category_id = model.category.try(:id)
+          self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
+          presenter = DebatePresenter.new(model)
+
+          self.title = presenter.title(all_locales: title.is_a?(Hash))
+          self.description = presenter.description(all_locales: description.is_a?(Hash))
         end
 
         def category

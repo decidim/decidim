@@ -215,6 +215,8 @@ fi-pl:
             success: Aloite on lähetetty tekniseen validointiin
             update: Päivitä
           form:
+            attachments: Liitteet
+            settings: Asetukset
             title: Yleistä tietoa
           index:
             actions_title: Toiminnot

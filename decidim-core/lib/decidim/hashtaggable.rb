@@ -7,20 +7,34 @@ module Decidim
 
     included do
       def search_title
-        value = try(:i18n_title) || title
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
-        renderer.render(links: false).html_safe
+        search_value_for(title)
       end
 
       alias_method :formatted_title, :search_title
 
       def search_body
-        value = try(:i18n_body) || title
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(value)
-        renderer.render(links: false).html_safe
+        value = try(:body) || try(:description) || title
+        search_value_for(value)
       end
 
       alias_method :formatted_body, :search_body
+
+      private
+
+      def search_value_for(attribute)
+        if attribute.is_a?(Hash)
+          attribute.inject({}) do |rendered_value, (locale, content)|
+            rendered_value.update(locale => render_hashtag_content(content))
+          end
+        else
+          render_hashtag_content(attribute)
+        end
+      end
+
+      def render_hashtag_content(content)
+        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+        renderer.render(links: false).html_safe
+      end
     end
   end
 end

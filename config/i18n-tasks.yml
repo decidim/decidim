@@ -157,6 +157,8 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
+  - decidim.elections.orders.*
+  - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -165,6 +167,19 @@ ignore_unused:
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
   - decidim.budgets.admin.models.project.name
+  - decidim.budgets.budgets_list.cancel_order.more_than_one
+  - decidim.budgets.budgets_list.cancel_order.only_one
+  - decidim.budgets.budgets_list.finished_message
+  - decidim.budgets.budgets_list.highlighted_cta
+  - decidim.budgets.budgets_list.if_change_opinion
+  - decidim.budgets.budgets_list.my_budgets
+  - decidim.budgets.budgets_list.voted_on
+  - decidim.budgets.budget_information_modal.close_modal
+  - decidim.budgets.budget_information_modal.continue
+  - decidim.budgets.budget_information_modal.more_information
+  - decidim.budgets.budget_information_modal.back_to
+  - decidim.budgets.limit_announcement.cant_vote
+  - decidim.budgets.limit_announcement.limit_reached
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*

@@ -1,0 +1,24 @@
+<%= render partial: "decidim/shared/filter_form_help", locals: { skip_to_id: "elections" } %>
+
+<%= filter_form_for filter do |form| %>
+  <div class="filters__section">
+    <div class="filters__search">
+      <div class="input-group">
+        <%= form.search_field :search_text,
+                              label: false,
+                              class: "input-group-field",
+                              placeholder: t(".search"),
+                              title: t(".search"),
+                              data: { disable_dynamic_change: true } %>
+        <div class="input-group-button">
+          <button type="submit" class="button" aria-controls="elections">
+            <%= icon "magnifying-glass", aria_label: t(".search"), role: "img" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form.check_boxes_tree :state, state_filter_values, legend_title: t(".state") %>
+  <%= hidden_field_tag :order, order, id: nil, class: "order_filter" %>
+<% end %>

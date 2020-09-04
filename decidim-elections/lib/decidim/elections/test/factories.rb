@@ -12,7 +12,6 @@ FactoryBot.define do
   factory :election, class: "Decidim::Elections::Election" do
     upcoming
     title { generate_localized_title }
-    subtitle { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     end_time { 3.days.from_now }
     published_at { nil }

@@ -12,15 +12,17 @@ module Decidim
       isolate_namespace Decidim::Budgets
 
       routes do
-        resources :projects, only: [:index, :show]
-        resource :order, only: [:destroy] do
-          member do
-            post :checkout
+        resources :budgets, only: [:index, :show] do
+          resources :projects, only: [:index, :show]
+          resource :order, only: [:destroy] do
+            member do
+              post :checkout
+            end
+            resource :line_item, only: [:create, :destroy]
           end
-          resource :line_item, only: [:create, :destroy]
         end
 
-        root to: "projects#index"
+        root to: "budgets#index"
       end
 
       initializer "decidim_budgets.assets" do |app|

@@ -61,6 +61,21 @@ hu:
     admin:
       actions:
         new_initiative_type: Új kezdeményezés típusa
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Terület
+          state_eq:
+            label: Állapot
+            values:
+              accepted: Elég aláírások
+              created: Létrehozva
+              discarded: Elvetve
+              published: Közzétéve
+              rejected: Nincsen elég aláírás
+              validating: Technikai érvényesítés
+          type_id_eq:
+            label: Típus
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
@@ -173,6 +188,8 @@ hu:
             success: A kezdeményezést technikai érvényesítésre továbbítottuk
             update: Frissítés
           form:
+            attachments: Csatolmányok
+            settings: Beállítások
             title: Általános információ
           index:
             actions_title: Művelet
@@ -358,6 +375,9 @@ hu:
           unfold: Kibont
         index_header:
           new_initiative: Új kezdeményezés
+        initiatives:
+          closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
+          no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
         interactions:
           comments_count:
             count:

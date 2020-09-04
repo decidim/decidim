@@ -39,9 +39,9 @@ module Decidim
         def reorder(projects)
           case order
           when "highest_cost"
-            projects.order(budget: :desc)
+            projects.order(budget_amount: :desc)
           when "lowest_cost"
-            projects.order(budget: :asc)
+            projects.order(budget_amount: :asc)
           when "most_voted"
             if votes_are_visible?
               ids = projects.sort_by(&:confirmed_orders_count).map(&:id).reverse

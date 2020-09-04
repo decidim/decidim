@@ -10,6 +10,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::ActsAsAuthor
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
@@ -142,6 +143,12 @@ module Decidim
 
     def machine_translation_prioritizes_translation?
       machine_translation_display_priority == "translation"
+    end
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::Debates::OfficialAuthorPresenter.new
     end
 
     private

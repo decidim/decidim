@@ -52,7 +52,7 @@ module Decidim
             category: form.category,
             title: form.title,
             description: form.description,
-            budget: form.budget
+            budget_amount: form.budget_amount
           )
         end
 
