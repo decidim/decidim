@@ -22,7 +22,6 @@ el:
         destroy: Διαγραφή
         edit: Επεξεργασία
         import: Εισαγωγή προτάσεων σε έργα
-        new: Νέο έργο
         preview: Προεπισκόπηση
         title: Ενέργειες
       admin:
@@ -69,11 +68,8 @@ el:
         order_summary:
           selected_projects: 'Τα έργα που έχετε επιλέξει είναι τα εξής:'
           subject: Ψηφίσατε για τον χώρο συμμετοχής %{space_name}
-          voted_on_space: Ψηφίσατε για τους προϋπολογισμούς του χώρου συμμετοχής %{space_name}.
-          voted_on_space_with_scope: Ψηφίσατε για τους προϋπολογισμούς του χώρου συμμετοχής %{space_name} στο πεδίο εφαρμογής %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Συμφωνείτε; Μόλις επιβεβαιώσετε την ψήφο σας, δεν μπορείτε να την αλλάξετε.
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
           description: Αυτά είναι τα έργα για τα οποία έχετε επιλέξει να συμμετάσχετε στον προϋπολογισμό.
@@ -122,9 +118,6 @@ el:
           random: Τυχαία σειρά
         project:
           add: Προσθήκη του έργου %{resource_name} στην ψήφο σας
-          count:
-            one: 1 υποστήριξη
-            other: "%{count} υποστηρίξεις"
           remove: Αφαίρεση του έργου %{resource_name} από την ψήφο σας
           view: Προβολή
         project_budget_button:
