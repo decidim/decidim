@@ -36,6 +36,7 @@ module Decidim
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
+          self.selected = model.selected?
 
           return unless model.categorization
 

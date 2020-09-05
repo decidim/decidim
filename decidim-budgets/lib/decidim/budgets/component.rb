@@ -80,7 +80,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :votes_enabled, type: :boolean, default: true
+    settings.attribute :votes, type: :enum, default: "enabled", choices: %w(disabled enabled finished)
     settings.attribute :show_votes, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
 

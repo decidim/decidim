@@ -1,9 +1,19 @@
 <div class="budget-list__data <%= data_class %>">
   <% if voting_finished? %>
-    <%= project_data_final %>
+    <div class="budget-list__data__votes">
+      <%= cell("decidim/budgets/project_votes_count", model) %>
+
+      <%= cell("decidim/budgets/project_voted_hint", model, class: "display-block margin-top-1") %>
+    </div>
   <% else %>
-    <%= project_data_voted_check if current_order_checked_out? && resource_added? %>
-    <%= project_data_numbers %>
-    <%= project_data_vote_button unless current_order_checked_out? %>
+    <span class="budget-list__data__number budget-list__number show-for-medium">
+      <%= budget_to_currency(model.budget_amount) %>
+
+      <%= cell("decidim/budgets/project_votes_count", model, layout: :one_line, class: "display-inline-block") %>
+
+      <%= cell("decidim/budgets/project_voted_hint", model, class: "display-block margin-top-1") if current_order_checked_out? && resource_added? %>
+    </span>
+
+    <%= render :project_data_vote_button if !current_order_checked_out? && voting_open? %>
   <% end %>
 </div>

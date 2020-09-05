@@ -11,39 +11,8 @@ module Decidim
       include Decidim::Budgets::ProjectsHelper
       include Decidim::Budgets::Engine.routes.url_helpers
 
-      delegate :current_user, :current_settings, :current_order, :current_component, :current_participatory_space, :can_have_order?, to: :parent_controller
-
-      def project_image
-        render
-      end
-
-      def project_text
-        render
-      end
-
-      def project_data
-        render
-      end
-
-      def project_data_voted_check
-        render
-      end
-
-      def project_data_final
-        render
-      end
-
-      def project_data_numbers
-        render
-      end
-
-      def project_data_vote_button
-        render
-      end
-
-      def voting_finished?
-        !current_settings.votes_enabled? && current_settings.show_votes?
-      end
+      delegate :current_user, :current_settings, :current_order, :current_component,
+               :current_participatory_space, :can_have_order?, :voting_open?, :voting_finished?, to: :parent_controller
 
       private
 
@@ -62,7 +31,7 @@ module Decidim
       def data_class
         [].tap do |list|
           list << "budget-list__data--added" if can_have_order? && resource_added?
-          list << "show-for-medium" if voting_finished? || (current_order_checked_out? && !resource_added?)
+          list << "show-for-medium" unless voting_open? && !resource_added? && !current_order_checked_out?
         end.join(" ")
       end
 
