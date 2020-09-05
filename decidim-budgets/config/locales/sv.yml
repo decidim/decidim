@@ -22,7 +22,6 @@ sv:
         destroy: Radera
         edit: Redigera
         import: Importera förslag till projekt
-        new: Nytt projekt
         preview: Förhandsvisa
         title: Åtgärder
       admin:
@@ -69,11 +68,8 @@ sv:
         order_summary:
           selected_projects: 'De projekt som du har valt är:'
           subject: Du har röstat i deltagarutrymmet %{space_name}
-          voted_on_space: Du har röstat på budgetarna i deltagarutrymmet %{space_name}.
-          voted_on_space_with_scope: Du har röstat på budgetarna i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
           cancel: Avbryt
           confirm: Bekräfta
           description: De projekt där du har valt att delta i budgeten.
@@ -122,9 +118,6 @@ sv:
           random: Slumpmässig ordning
         project:
           add: Lägg till projekt %{resource_name} till din röst
-          count:
-            one: En röst
-            other: "%{count} röster"
           remove: Ta bort projekt %{resource_name} från din röst
           view: Visa
         project_budget_button:
