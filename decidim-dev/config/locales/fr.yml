@@ -3,7 +3,7 @@ fr:
     attributes:
       dummy_resource:
         created_at: Créé le
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         field: Champ
         start_date: Date de début
         title: Titre
