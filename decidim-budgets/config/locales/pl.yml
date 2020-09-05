@@ -24,7 +24,6 @@ pl:
         destroy: Usuń
         edit: Edytuj
         import: Importuj propozycje do projektów
-        new: Nowy projekt
         preview: Podgląd
         title: Działania
       admin:
@@ -71,11 +70,8 @@ pl:
         order_summary:
           selected_projects: 'Wybrane przez Ciebie projekty to:'
           subject: Zagłosowałeś(-aś) w przestrzeni partycypacyjnej %{space_name}
-          voted_on_space: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name}.
-          voted_on_space_with_scope: Zagłosowałeś(-aś) w sprawie budżetów dla przestrzeni partycypacyjnej %{space_name} w zakresie %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Zgadzasz się? Po potwierdzeniu głosu, nie będzie można go zmienić.
           cancel: Anuluj
           confirm: Potwierdź
           description: Są to projekty, które wybrałeś jako część budżetu.
@@ -128,11 +124,6 @@ pl:
           random: Kolejność losowa
         project:
           add: Dodaj projekt %{resource_name} do swojego głosowania
-          count:
-            one: 1 wsparcie
-            few: "%{count} wsparć"
-            many: "%{count} wsparć"
-            other: "%{count} wsparć"
           remove: Usuń projekt %{resource_name} z Twojego głosu
           view: Zobacz
         project_budget_button:
