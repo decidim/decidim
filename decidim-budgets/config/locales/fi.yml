@@ -22,7 +22,6 @@ fi:
         destroy: Poista
         edit: Muokkaa
         import: Tuo ehdotuksia suunnitelmiksi
-        new: Uusi suunnitelma
         preview: Esikatsele
         title: Toiminnot
       admin:
@@ -69,11 +68,8 @@ fi:
         order_summary:
           selected_projects: 'Hankkeet, jotka olet valinnut:'
           subject: Olet äänestänyt osallistumistilassa %{space_name}
-          voted_on_space: Olet äänestänyt budjetista osallistumistilassa %{space_name}.
-          voted_on_space_with_scope: Olet äänestänyt budjeteista osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Oletko samaa mieltä? Kun olet vahvistanut äänesi, et voi enää muuttaa sitä.
           cancel: Peruuta
           confirm: Vahvista
           description: Olet valinnut nämä suunnitelmat osaksi budjettia.
@@ -122,9 +118,6 @@ fi:
           random: Satunnainen järjestys
         project:
           add: Lisää hanke %{resource_name} ääneesi
-          count:
-            one: 1 kannatus
-            other: "%{count} kannatusta"
           remove: Poista hanke %{resource_name} äänestäsi
           view: Näytä
         project_budget_button:
