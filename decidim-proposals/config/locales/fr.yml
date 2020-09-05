@@ -80,6 +80,28 @@ fr:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Catégorie
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Propositions
+              'true': Amendements
+          scope_id_eq:
+            label: Secteur
+          state_eq:
+            label: État
+            values:
+              accepted: Acceptée
+              evaluating: En cours d'évaluation
+              published: Publiée
+              rejected: Rejetée
+              validating: Validation technique
+              withdrawn: Retirée
+          state_null:
+            label: État
+            values:
+              'true': Non répondu
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
