@@ -1133,6 +1133,10 @@ en:
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
+    security:
+      selfxxs_warning:
+        title: Stop!
+        description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy give hackers access to your account.
     scopes:
       global: Global scope
       picker:
