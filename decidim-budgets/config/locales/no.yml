@@ -22,7 +22,6 @@
         destroy: Slett
         edit: Editar
         import: Importer forslag til prosjekter
-        new: Nytt prosjekt
         preview: Forhåndsvis
         title: Handlinger
       admin:
@@ -69,11 +68,8 @@
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'
           subject: Du har stemt på %{space_name} i deltakelsesrommet
-          voted_on_space: Du har stemt på budsjettene for deltakerrommet %{space_name}.
-          voted_on_space_with_scope: Du har stemt på budsjettene for deltakelsesrommet %{space_name} på %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
           cancel: Avbryt
           confirm: Bekreft
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
@@ -122,9 +118,6 @@
           random: Tilfeldig rekkefølge
         project:
           add: Legg til prosjektet %{resource_name} til din stemme
-          count:
-            one: 1 støtte
-            other: "%{count} støttere"
           remove: Fjern prosjektet %{resource_name} fra stemmen din
           view: Vis
         project_budget_button:
