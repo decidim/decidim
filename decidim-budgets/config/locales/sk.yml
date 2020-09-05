@@ -24,7 +24,6 @@ sk:
         destroy: Odstrániť
         edit: Upraviť
         import: Importovať návrhy do projektov
-        new: Nový projekt
         preview: Ukážka
         title: Akcie
       admin:
@@ -70,11 +69,8 @@ sk:
         order_summary:
           selected_projects: 'Vybrali ste tieto projekty:'
           subject: Hlasovali ste na participatívnom priestore %{space_name}
-          voted_on_space: Hlasovali ste za rozpočet na participatívnom priestore %{space_name}.
-          voted_on_space_with_scope: Hlasovali ste za rozpočet na participatívnom priestore %{space_name} za %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Súhlasíte? Akonáhle potvrdíte svoj hlas, nemôžete ho už zmeniť.
           cancel: Zrušiť
           confirm: Potvrdiť
           description: Na týchto projektoch ste si zvolili účasť na rozpočte.
@@ -126,11 +122,6 @@ sk:
           most_voted: Najviac hlasov
           random: Náhodné poradie
         project:
-          count:
-            one: 1 podpora
-            few: "%{count} podporení"
-            many: "%{count} podporení"
-            other: "%{count} podporení"
           view: Zobraziť
         show:
           budget: Rozpočet
