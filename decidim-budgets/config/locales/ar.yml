@@ -26,7 +26,6 @@ ar:
         destroy: حذف
         edit: تعديل
         import: استيراد مقترحات للمشاريع
-        new: مشروع جديد
         preview: معاينة
         title: أفعال
       admin:
@@ -71,7 +70,6 @@ ar:
             title: عنوان
       projects:
         budget_confirm:
-          are_you_sure: هل توافق؟ بمجرد تأكيد تصويتك ، لا يمكنك تغييره.
           cancel: إلغاء
           confirm: تؤكد
           description: هذه هي المشاريع التي اخترتها لتكون جزءًا من الميزانية.
@@ -120,13 +118,6 @@ ar:
             other: المشاريع المختارة
           view: رأي
         project:
-          count:
-            zero: "%{count} يدعم"
-            one: 1 الدعم
-            two: "%{count} يدعم"
-            few: "%{count} يدعم"
-            many: "%{count} يدعم"
-            other: "%{count} يدعم"
           view: رأي
         show:
           budget: ميزانية
