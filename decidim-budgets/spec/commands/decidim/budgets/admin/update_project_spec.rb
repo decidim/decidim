@@ -6,11 +6,12 @@ module Decidim::Budgets
   describe Admin::UpdateProject do
     subject { described_class.new(form, project) }
 
-    let(:project) { create :project }
-    let(:organization) { project.component.organization }
+    let(:budget) { create :budget }
+    let(:project) { create :project, budget: budget }
+    let(:organization) { budget.component.organization }
     let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: project.component.participatory_space }
-    let(:participatory_process) { project.component.participatory_space }
+    let(:category) { create :category, participatory_space: budget.component.participatory_space }
+    let(:participatory_process) { budget.component.participatory_space }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:uploaded_photos) { [] }
     let(:current_photos) { [] }
@@ -30,7 +31,7 @@ module Decidim::Budgets
         current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },
-        budget: 10_000_000,
+        budget_amount: 10_000_000,
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
@@ -67,7 +68,11 @@ module Decidim::Budgets
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
-          .with(project, current_user, hash_including(:scope, :category, :title, :description, :budget))
+          .with(
+            project,
+            current_user,
+            hash_including(:scope, :category, :title, :description, :budget_amount)
+          )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

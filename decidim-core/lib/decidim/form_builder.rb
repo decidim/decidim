@@ -32,7 +32,7 @@ module Decidim
     # text and errors.
     #
     # attribute       - the name of the field
-    # collection      - the collection from which we will render the check boxes
+    # collection      - the collection from which we will render the radio buttons
     # value_attribute - a Symbol or a Proc defining how to find the value attribute
     # text_attribute  - a Symbol or a Proc defining how to find the text attribute
     # options         - a Hash with options

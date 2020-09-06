@@ -1,0 +1,22 @@
+<div class="<%= card_class %>">
+  <div class="card--list__text">
+    <%= link_to budget_path(budget), class: link_class do %>
+      <% if voted? %>
+        <strong>
+          <%= translated_attribute(title) %>
+        </strong>
+        <span class="button tiny success card--list__check card--list__check--disabled">
+          <%= icon "check", class: "icon--small", role: "img" %>
+        </span>
+      <% else %>
+        <%= translated_attribute(title) %>
+
+        <% if progress? %>
+          <span class="button tiny hollow secondary card--list__check card--list__check--disabled">
+            <%= icon "bookmark", class: "icon--small", role: "img" %>
+          </span>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

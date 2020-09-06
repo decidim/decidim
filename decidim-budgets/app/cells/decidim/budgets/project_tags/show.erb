@@ -1,0 +1,5 @@
+<%= content_tag :ul, class: tags_classes do %>
+  <%= content_tag :li, link_to_category if category? %>
+
+  <%= content_tag :li, link_to_scope if scope? %>
+<% end %>
