@@ -21,6 +21,10 @@ fi:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Liitettävä uudestaan
   activerecord:
     models:
       decidim/elections/answer:
