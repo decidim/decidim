@@ -21,11 +21,33 @@ de:
         confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
+        edit_projects: Projekte verwalten
         import: Importieren Sie Vorschläge in Projekte
+        new: Neu %{name}
         preview: Vorschau
         title: Aktionen
       admin:
+        budgets:
+          create:
+            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten
+            success: Budget erfolgreich erstellt
+          destroy:
+            invalid: Es gab ein Problem beim Löschen dieses Budgets
+            success: Budget erfolgreich gelöscht
+          edit:
+            title: Budget bearbeiten
+            update: Budget aktualisieren
+          index:
+            title: Budgets
+          new:
+            create: Budget erstellen
+            title: Neues Budget
+          update:
+            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
+            success: Budget erfolgreich aktualisiert
         models:
+          budget:
+            name: Bugdet
           project:
             name: Projekt
         projects:
@@ -56,10 +78,18 @@ de:
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
       admin_log:
+        budget:
+          create: "%{user_name} erstellte das %{resource_name} Budget in dem %{space_name} Raum"
+          delete: "%{user_name} löschte das %{resource_name} Budget in dem %{space_name} Raum"
+          update: "%{user_name} aktualisierte das %{resource_name} Budget in dem %{space_name} Raum"
         project:
           create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
           delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name} Leerzeichen"
           update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name} Räumen"
+      budget:
+        view: Alle Budgetprojekte anzeigen
+      budget_information_modal:
+        back_to: Zurück zu %{component_name}
       models:
         project:
           fields:
