@@ -79,7 +79,7 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
     1. `git merge release/x.y-stable`
     1. `git checkout --theirs *`
     1. `git checkout --theirs .github/* \.*`
-    1. Review changes in `CHANGELOG.md` and manually update it if required.
+    1. Review changes in `CHANGELOG.md`, manually update and create a "changelog" commit if required.
     1. `git push origin release/x.y.z`
     1. Create the PR. The base for the PR should be `master`, but GitHub may crash if there are a lot of changes. As a workaround create the branch against `develop` and, when created, change the base to `master`.
     1. Still don't merge it.
