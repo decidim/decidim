@@ -24,7 +24,8 @@ module Decidim::Budgets
       Decidim::Faker::Localized.sentence(3)
     end
     let(:budget_amount) { Faker::Number.number(8) }
-    let(:scope) { create :scope, organization: organization }
+    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
@@ -39,6 +40,8 @@ module Decidim::Budgets
         selected: selected
       }
     end
+
+    it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
 
