@@ -16,16 +16,7 @@
       <%= translated_attribute proposal.category.name %>
     <% end %>
   </td>
-  <% if current_component.scopes_enabled? || current_participatory_space.scopes_enabled? %>
-    <td>
-      <% if proposal.scope %>
-        <%= translated_attribute proposal.scope.name %>
-      <% else %>
-        <%= t("decidim.scopes.global") %>
-      <% end %>
-    </td>
-  <% end %>
-
+  <%= td_resource_scope_for(proposal.scope) %>
   <td>
     <strong class="<%= proposal_state_css_class proposal.state %>">
       <%= t("decidim/amendment", scope: "activerecord.models", count: 1) if proposal.emendation? %>

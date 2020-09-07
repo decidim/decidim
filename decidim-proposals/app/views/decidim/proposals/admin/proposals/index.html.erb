@@ -27,7 +27,7 @@
               <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
             </th>
 
-            <% if current_component.scopes_enabled? || current_participatory_space.scopes_enabled? %>
+            <% if resource_with_scopes_enabled? %>
               <th>
                 <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
               </th>
