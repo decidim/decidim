@@ -86,6 +86,13 @@ module Decidim
       def user_allowed_to_comment?(user)
         component.can_participate_in_space?(user)
       end
+
+      # Public: Checks if the project has been selected or not.
+      #
+      # Returns Boolean.
+      def selected?
+        selected_at.present?
+      end
     end
   end
 end

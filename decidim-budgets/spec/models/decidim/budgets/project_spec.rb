@@ -54,5 +54,25 @@ module Decidim::Budgets
         expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
       end
     end
+
+    describe "#selected?" do
+      let(:project) { create :project, selected_at: selected_at }
+
+      context "when selected_at is blank" do
+        let(:selected_at) { nil }
+
+        it "returns true" do
+          expect(project.selected?).to be false
+        end
+      end
+
+      context "when selected_at is present" do
+        let(:selected_at) { Time.current }
+
+        it "returns true" do
+          expect(project.selected?).to be true
+        end
+      end
+    end
   end
 end

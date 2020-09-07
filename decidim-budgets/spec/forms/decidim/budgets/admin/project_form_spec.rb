@@ -28,13 +28,15 @@ module Decidim::Budgets
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
+    let(:selected) { nil }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
         decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
-        budget_amount: budget_amount
+        budget_amount: budget_amount,
+        selected: selected
       }
     end
 
@@ -114,6 +116,34 @@ module Decidim::Budgets
           project.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
         end
+      end
+    end
+
+    describe "#selected" do
+      context "and properly maps selected? from model" do
+        let(:project) { create :project, selected_at: selected_at }
+
+        context "when is not selected" do
+          let(:selected_at) { nil }
+
+          it { expect(described_class.from_model(project).selected).to be_falsey }
+        end
+
+        context "when selected is selected" do
+          let(:selected_at) { Time.current }
+
+          it { expect(described_class.from_model(project).selected).to be_truthy }
+        end
+      end
+
+      context "when is not selected" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when selected is selected" do
+        let(:selected) { true }
+
+        it { is_expected.to be_valid }
       end
     end
 
