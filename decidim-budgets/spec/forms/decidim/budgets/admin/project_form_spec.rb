@@ -178,7 +178,7 @@ module Decidim::Budgets
         context "when the scope is not descendant from participatory space scope" do
           let(:scope) { create(:scope, organization: organization) }
 
-          it { is_expected.to eq(scope) }
+          it { is_expected.to be_valid }
 
           it "makes the form invalid" do
             expect(form).to be_invalid

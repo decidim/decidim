@@ -16,6 +16,11 @@
             <th><%= t("models.project.fields.title", scope: "decidim.budgets") %></th>
             <th><%= t("index.confirmed_orders_count") %></th>
             <th><%= t(".selected") %></th>
+            <% if current_component.scopes_enabled? || current_participatory_space.scopes_enabled? %>
+              <th>
+                <%= t("models.project.fields.scope", scope: "decidim.budgets") %>
+              </th>
+            <% end %>
             <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
           </tr>
         </thead>
@@ -35,6 +40,15 @@
                   <%= content_tag :span, "×", class: "text-muted" %>
                 <% end %>
               </td>
+              <% if current_component.scopes_enabled? || current_participatory_space.scopes_enabled? %>
+                <td>
+                  <% if project.scope %>
+                    <%= translated_attribute project.scope.name %>
+                  <% else %>
+                    <%= t("decidim.scopes.global") %>
+                  <% end %>
+                </td>
+              <% end %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator([budget, project]).path, t("actions.preview", scope: "decidim.budgets"), target: :blank, class: "action-icon--preview" %>
 
