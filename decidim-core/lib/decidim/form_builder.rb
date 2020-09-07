@@ -52,7 +52,7 @@ module Decidim
                          locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
                            title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
                            tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-                           string + content_tag(:option, title, href: "##{tab_content_id}")
+                           string + content_tag(:option, title, value: "##{tab_content_id}")
                          end
                        end
                      end
