@@ -15,7 +15,6 @@ module.exports = env => {
     entry: {
       core: "./decidim-core/app/frontend/entry.ts",
       admin: "./decidim-admin/app/frontend/entry.ts",
-      comments: "./decidim-comments/app/frontend/entry.ts",
     },
     output: {
       path: __dirname,

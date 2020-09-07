@@ -1,0 +1,27 @@
+<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes do %>
+  <div class="comment__header">
+    <div class="author-data">
+      <div class="author-data__main">
+        <%= render :author %>
+        <span>
+          <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+        </span>
+      </div>
+      <div class="author-data__extra">
+        <%= render :utilities %>
+      </div>
+    </div>
+  </div>
+  <div class="comment__content">
+    <%= simple_format(translated_body) %>
+  </div>
+  <div class="comment__footer">
+    <%= render :actions %>
+    <%= render :votes %>
+  </div>
+  <% if has_replies? %>
+    <div id="comment-<%= model.id %>-replies">
+      <%= cell("decidim/comments/comments_thread", comment, nested: true) %>
+    </div>
+  <% end %>
+<% end %>

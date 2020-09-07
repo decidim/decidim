@@ -19,6 +19,12 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Comments
 
+      routes do
+        resources :comments, only: [:create] do
+          resources :votes, only: [:create]
+        end
+      end
+
       initializer "decidim_comments.assets" do |app|
         app.config.assets.precompile += %w(decidim_comments_manifest.js)
       end
@@ -33,6 +39,10 @@ module Decidim
         Decidim::Api::MutationType.define do
           MutationExtensions.define(self)
         end
+      end
+
+      initializer "decidim_comments.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/cells")
       end
 
       initializer "decidim.stats" do
