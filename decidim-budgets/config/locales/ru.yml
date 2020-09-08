@@ -133,7 +133,8 @@ ru:
             announcement: Объявление
             comments_blocked: Комментарии отключены
             show_votes: Показать голоса
-            votes_enabled: Голосование включено
+            votes_choices:
+              enabled: Голосование включено
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка
