@@ -7,13 +7,13 @@ module Decidim
       def title
         return unless has_threads?
 
-        render
+        render :title
       end
 
       private
 
       def has_threads?
-        obj.comment_threads.size.positive?
+        model.comment_threads.size.positive?
       end
 
       def author_name

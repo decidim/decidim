@@ -9,6 +9,7 @@ module Decidim
       attribute :alignment, Integer
       attribute :user_group_id, Integer
       attribute :commentable
+      attribute :commentable_gid
 
       mimic :comment
 

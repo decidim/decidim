@@ -1,5 +1,7 @@
 <div class="comment__actions">
-  <button class="comment__reply muted-link" aria-controls="comment<%= model.id %>-reply" data-toggle="comment<%= model.id %>-reply">
-    <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
-  </button>
+  <% if user_signed_in? %>
+    <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
+      <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
+    </button>
+  <% end %>
 </div>

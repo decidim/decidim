@@ -1,0 +1,24 @@
+<%= form_for(form_object, url: decidim_comments.comments_path, method: :post, remote: true) do |form| %>
+  <%= form.hidden_field :commentable_gid %>
+  <div class="field">
+    <label class="show-for-sr" for="<%= add_comment_id %>">
+      <%= t("decidim.components.add_comment_form.form.body.label") %>
+    </label>
+    <div class="hashtags__container">
+      <%= form.text_area(
+        :body,
+        id: add_comment_id,
+        rows: 4,
+        maxlength: comments_max_length,
+        required: true,
+        placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
+        data: {
+          tribute: "true",
+          remaining_characters: "##{add_comment_id}-remaining-characters"
+        }
+      ) %>
+    </div>
+    <button type="submit" class="button button--sc" disabled="disabled"><%= t("decidim.components.add_comment_form.form.submit") %></button>
+    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+  </div>
+<% end %>

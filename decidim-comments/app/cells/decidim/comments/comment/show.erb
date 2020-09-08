@@ -21,7 +21,17 @@
   </div>
   <% if has_replies? %>
     <div id="comment-<%= model.id %>-replies">
-      <%= cell("decidim/comments/comments_thread", comment, nested: true) %>
+      <%= cell("decidim/comments/comments_thread", comment) %>
+    </div>
+    <div class="comment__additionalreply">
+      <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
+        <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
+      </button>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
+      <%== cell("decidim/comments/comment_form", model) %>
     </div>
   <% end %>
 <% end %>

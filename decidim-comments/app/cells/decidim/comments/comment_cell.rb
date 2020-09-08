@@ -8,32 +8,17 @@ module Decidim
       include Decidim::IconHelper
       include Decidim::ResourceHelper
 
-      # include Cell::ViewModel::Partial
-      # include Decidim::LayoutHelper
-      # include Decidim::ApplicationHelper
-      # include Decidim::FormFactory
-      # include Decidim::Core::Engine.routes.url_helpers
-
       delegate :user_signed_in?, to: :controller
 
       property :commentable
       property :created_at
       property :translated_body
 
-      def author
-        # TODO: Display deleted author
-        return unless model.author
-
-        render
-      end
-
-      def actions
-        return unless user_signed_in?
-
-        render
-      end
-
       private
+
+      def reply_id
+        "comment#{model.id}-reply"
+      end
 
       def author_presenter
         if model.author.respond_to?(:official?) && model.author.official?
