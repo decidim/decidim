@@ -62,6 +62,7 @@ fi:
           index:
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
+            selected: Valittu
             title: Suunnitelmat
           new:
             create: Luo
@@ -150,6 +151,11 @@ fi:
           category: Aihepiiri
           scope: Teema
           search: Haku
+          status: Tila
+          status_values:
+            all: Kaikki
+            not_selected: Ei valittu
+            selected: Valittu
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata
@@ -169,12 +175,11 @@ fi:
           lowest_cost: Edullisin ensin
           most_voted: Eniten ääniä saaneet ensin
           random: Satunnainen järjestys
+          selected: Valitut
         project:
           add: Lisää hanke %{resource_name} ääneesi
-          count:
-            one: "%{count} ääni"
-            other: "%{count} ääntä"
           remove: Poista hanke %{resource_name} äänestäsi
+          selected: Valitut
           view: Näytä
           votes:
             one: ääni
@@ -185,6 +190,7 @@ fi:
           add_descriptive: Lisää hanke %{resource_name} ääneesi
           added: Lisätty ääneesi
           added_descriptive: Hanke %{resource_name} lisätty ääneesi
+        projects_for: Projektit kohteelle %{name}
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki suunnitelmat
@@ -223,7 +229,12 @@ fi:
             list_heading: Listan otsikko
             more_information_modal: Lisätietoikkunan teksti
             show_votes: Näytä äänet
-            votes_enabled: Äänestys on käytössä
+            title: Otsikko
+            votes: Äänestys
+            votes_choices:
+              disabled: Äänestys estetty
+              enabled: Äänestys on käytössä
+              finished: Äänestys päättynyt
     events:
       budgets:
         budget_published:
