@@ -5,6 +5,8 @@
  * @augments Component
  */
 ((exports) => {
+  const $ = exports.$; // eslint-disable-line
+
   class CommentsComponent {
     constructor($element) {
       this.$element = $element;
@@ -20,6 +22,41 @@
     mountComponent() {
       if (this.$element.length > 0 && !this.mounted) {
         this.mounted = true;
+
+        $(".add-comment", this.$element).each((_i, el) => {
+          const $add = $(el);
+          const $form = $("form", $add);
+          const $opinionButtons = $(".opinion-toggle .button", $add);
+          const $alignment = $(".alignment-input", $form);
+          const $text = $("textarea", $form);
+          const $submit = $("button[type='submit']", $form);
+
+          $opinionButtons.on("click.decidim-comments", (ev) => {
+            let $btn = $(ev.target);
+            if (!$btn.is(".button")) {
+              $btn = $btn.parents(".button");
+            }
+
+            $opinionButtons.removeClass("is-active");
+            $btn.addClass("is-active");
+
+            if ($btn.is(".opinion-toggle--ok")) {
+              $alignment.val(1);
+            } else if ($btn.is(".opinion-toggle--meh")) {
+              $alignment.val(0);
+            } else if ($btn.is(".opinion-toggle--ko")) {
+              $alignment.val(-1);
+            }
+          });
+
+          $text.on("input.decidim-comments", () => {
+            if ($text.val().length > 0) {
+              $submit.removeAttr("disabled");
+            } else {
+              $submit.attr("disabled", "disabled");
+            }
+          })
+        });
       }
     }
 
@@ -31,6 +68,9 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
+
+        $(".add-comment .opinion-toggle .button", this.$element).off("click.decidim-comments");
+        $(".add-comment textarea", this.$element).off("input.decidim-comments");
       }
     }
 
