@@ -143,7 +143,8 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             show_votes: Szavazatok megjelenítése
-            votes_enabled: Szavazás engedélyezve
+            votes_choices:
+              enabled: Szavazás engedélyezve
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során
