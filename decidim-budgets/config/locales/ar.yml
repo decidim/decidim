@@ -139,7 +139,8 @@ ar:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
             show_votes: إظهار الأصوات
-            votes_enabled: تم تمكين التصويت
+            votes_choices:
+              enabled: تم تمكين التصويت
     orders:
       checkout:
         error: حدثت مشكلة أثناء معالجة تصويتك
