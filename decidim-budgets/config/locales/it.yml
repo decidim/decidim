@@ -153,7 +153,8 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             show_votes: Mostra voti
-            votes_enabled: Voto abilitato
+            votes_choices:
+              enabled: Voto abilitato
     orders:
       checkout:
         error: C'è stato un errore durante l'acquisizione del voto.
