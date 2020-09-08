@@ -171,9 +171,6 @@ fr-CA:
           random: Ordre aléatoire
         project:
           add: Ajouter le projet %{resource_name} à votre vote
-          count:
-            one: "%{count} vote"
-            other: "%{count} votes"
           remove: Retirer le projet %{resource_name} de votre vote
           view: Voir
           votes:
@@ -223,7 +220,8 @@ fr-CA:
             list_heading: En-tête de la liste des budgets
             more_information_modal: Plus d’informations
             show_votes: Afficher les votes
-            votes_enabled: Votes activés
+            votes_choices:
+              enabled: Votes activés
     events:
       budgets:
         budget_published:
