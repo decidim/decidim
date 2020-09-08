@@ -153,6 +153,7 @@ fr-CA:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        share: Partager
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -455,6 +456,14 @@ fr-CA:
           fields:
             name: Titre
             plural: Pluriel
+        share_token:
+          fields:
+            created_at: Créée le
+            expires_at: Expire le
+            last_used_at: Dernière utilisation
+            times_used: Nombre d'utilisations
+            token: Jeton
+            user: Créé par
         static_page:
           fields:
             created_at: Créée le
@@ -696,6 +705,16 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
           success: Périmètre d'application mis à jour avec succès
+      share_tokens:
+        actions:
+          confirm_destroy: Souhaitez-vous vraiment supprimer ce jeton?
+          destroy: Supprimer
+          share: Partager
+        destroy:
+          error: Une erreur s'est produite lors de la destruction du jeton.
+          success: Jeton détruit avec succès.
+        share_tokens:
+          empty: Il n'y a pas de jeton actif
       shared:
         gallery:
           add_images: Ajouter des images
