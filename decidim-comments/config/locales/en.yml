@@ -17,7 +17,10 @@ en:
         other: Votes
   decidim:
     comments:
-      comments: Comments
+      comments:
+        create:
+          error: There was a problem creating the comment.
+      comments_title: Comments
       comments_count: Comments count
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
