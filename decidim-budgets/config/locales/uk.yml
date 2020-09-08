@@ -133,7 +133,8 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
-            votes_enabled: Голосування увімкнене
+            votes_choices:
+              enabled: Голосування увімкнене
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка
