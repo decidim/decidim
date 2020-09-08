@@ -2,17 +2,19 @@
   <h4 class="section-heading"><%= t("decidim.components.add_comment_form.title") %></h4>
 
   <% if user_signed_in? %>
-    <div class="opinion-toggle button-group">
-      <button class="button tiny button--muted opinion-toggle--ok">
-        <%= icon "thumb-up", role: "none presentation" %>
-      </button>
-      <button class="button tiny button--muted opinion-toggle--meh is-active">
-        <%= t("decidim.components.add_comment_form.opinion.neutral") %>
-      </button>
-      <button class="button tiny button--muted opinion-toggle--ko">
-        <%= icon "thumb-down", role: "none presentation" %>
-      </button>
-    </div>
+    <% if alignment_enabled? %>
+      <div class="opinion-toggle button-group">
+        <button class="button tiny button--muted opinion-toggle--ok">
+          <%= icon "thumb-up", role: "none presentation" %>
+        </button>
+        <button class="button tiny button--muted opinion-toggle--meh is-active">
+          <%= t("decidim.components.add_comment_form.opinion.neutral") %>
+        </button>
+        <button class="button tiny button--muted opinion-toggle--ko">
+          <%= icon "thumb-down", role: "none presentation" %>
+        </button>
+      </div>
+    <% end %>
     <%== cell("decidim/comments/comment_form", model) %>
   <% else %>
     <p>

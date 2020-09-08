@@ -16,13 +16,18 @@ module Decidim
         model.commentable_type
       end
 
+      def form_id
+        "new_comment_for_#{commentable_type.demodulize}_#{model.id}"
+      end
+
       def add_comment_id
         "add-comment-#{commentable_type.demodulize}-#{model.id}"
       end
 
       def form_object
         Decidim::Comments::CommentForm.new(
-          commentable_gid: model.to_signed_global_id.to_s
+          commentable_gid: model.to_signed_global_id.to_s,
+          alignment: 0
         )
       end
 

@@ -5,10 +5,13 @@
         <h2 class="order-by__text section-heading"><%= t("decidim.components.comments.title", count: comments.count) %></h2>
         <%= render :order_control %>
       </div>
+      <%= single_comment_warning %>
+      <%= blocked_comments_warning %>
       <% comments.each do |comment| %>
         <%= cell("decidim/comments/comment_thread", comment) %>
       <% end %>
       <%= render :add_comment %>
+      <%= user_comments_blocked_warning %>
     </div>
   </div>
 <% end %>

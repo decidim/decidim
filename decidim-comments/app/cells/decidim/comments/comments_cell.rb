@@ -8,9 +8,43 @@ module Decidim
 
       delegate :user_signed_in?, to: :controller
 
-      property :comments
+      def single_comment_warning
+        return unless single_comment?
+
+        render :single_comment_warning
+      end
+
+      def blocked_comments_warning
+        return unless comments_blocked?
+        return unless user_comments_blocked?
+
+        render :blocked_comments_warning
+      end
+
+      def user_comments_blocked_warning
+        return if comments_blocked? # Shows already the general warning
+        return unless user_comments_blocked?
+
+        render :user_comments_blocked_warning
+      end
 
       private
+
+      def comments
+        SortedComments.for(model, order_by: default_order)
+      end
+
+      def commentable_path(params = {})
+        resource_locator(model).path(params)
+      end
+
+      def alignment_enabled?
+        model.comments_have_alignment?
+      end
+
+      def default_order
+        "older"
+      end
 
       def decidim
         Decidim::Core::Engine.routes.url_helpers
@@ -33,8 +67,22 @@ module Decidim
         }
       end
 
+      def single_comment?
+        options[:single_comment] == true
+      end
+
       def machine_translations_toggled?
         options[:machine_translations] == true
+      end
+
+      def comments_blocked?
+        !model.accepts_new_comments?
+      end
+
+      def user_comments_blocked?
+        return false unless user_signed_in?
+
+        !model.user_allowed_to_comment?(current_user)
       end
     end
   end

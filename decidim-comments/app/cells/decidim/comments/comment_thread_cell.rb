@@ -13,11 +13,11 @@ module Decidim
       private
 
       def has_threads?
-        model.comment_threads.size.positive?
+        model.comment_threads.any?
       end
 
       def author_name
-        return t("components.comment.deleted_user") if model.author.deleted
+        return t("decidim.components.comment.deleted_user") if model.author.deleted?
 
         model.author.name
       end

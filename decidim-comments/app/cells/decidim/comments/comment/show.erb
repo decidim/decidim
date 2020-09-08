@@ -21,7 +21,9 @@
   </div>
   <% if has_replies? %>
     <div id="comment-<%= model.id %>-replies">
-      <%= cell("decidim/comments/comments_thread", comment) %>
+      <% replies.each do |reply| %>
+        <%= cell("decidim/comments/comment", reply) %>
+      <% end %>
     </div>
     <div class="comment__additionalreply">
       <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">

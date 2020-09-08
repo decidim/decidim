@@ -10,14 +10,29 @@ module Decidim
 
       delegate :user_signed_in?, to: :controller
 
-      property :commentable
+      property :root_commentable
       property :created_at
       property :translated_body
+      property :comment_threads
+      property :accepts_new_comments?
 
       private
 
+      def replies
+        SortedComments.for(model, order_by: default_order)
+      end
+
+      def default_order
+        "older"
+      end
+
       def reply_id
         "comment#{model.id}-reply"
+      end
+
+      def can_reply?
+        user_signed_in? && accepts_new_comments? &&
+          root_commentable.user_allowed_to_comment?(current_user)
       end
 
       def author_presenter
@@ -30,12 +45,15 @@ module Decidim
 
       def comment_classes
         classes = ["comment"]
-        classes << "comment--nested" if nested?
+        if nested?
+          classes << "comment--nested"
+          classes << "comment--nested--alt" if nested_level_even?
+        end
         classes.join(" ")
       end
 
       def commentable_path(params = {})
-        resource_locator(commentable).path(params)
+        resource_locator(root_commentable).path(params)
       end
 
       def up_votes_count
@@ -50,8 +68,12 @@ module Decidim
         model.depth.positive?
       end
 
+      def nested_level_even?
+        model.depth.even?
+      end
+
       def has_replies?
-        model.comments.any?
+        model.comment_threads.any?
       end
     end
   end
