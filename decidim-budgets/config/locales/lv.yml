@@ -148,7 +148,8 @@ lv:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
             show_votes: Rādīt balsis
-            votes_enabled: Balsošana ir iespējota
+            votes_choices:
+              enabled: Balsošana ir iespējota
     orders:
       checkout:
         error: Jūsu balsojuma apstrādes laikā radās problēma
