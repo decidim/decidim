@@ -127,7 +127,8 @@ tr:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
             show_votes: Oyları göster
-            votes_enabled: Oylama etkin
+            votes_choices:
+              enabled: Oylama etkin
     orders:
       checkout:
         error: Oyunuzu işleme koymada bir sorun oluştu
