@@ -77,7 +77,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= Decidim::OAuthApplication.all
+        @collection ||= Decidim::OAuthApplication.all.includes([:organization])
       end
     end
   end
