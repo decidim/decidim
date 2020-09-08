@@ -171,9 +171,6 @@ es-PY:
           random: Orden aleatorio
         project:
           add: Añadir proyecto %{resource_name} a tu voto
-          count:
-            one: "%{count} voto"
-            other: "%{count} votos"
           remove: Eliminar el proyecto %{resource_name} de tu voto
           view: Ver
           votes:
@@ -220,7 +217,8 @@ es-PY:
             landing_page_content: Página de inicio de presupuestos
             list_heading: Título de lista
             show_votes: Mostrar los votos
-            votes_enabled: Votación habilitada
+            votes_choices:
+              enabled: Votación habilitada
     events:
       budgets:
         budget_published:
