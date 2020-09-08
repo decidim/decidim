@@ -8,7 +8,7 @@
   class CommentsComponent {
     constructor($element) {
       this.$element = $element;
-      this.id = this.$form.attr("id") || this._getUID();
+      this.id = this.$element.attr("id") || this._getUID();
       this.mounted = false;
     }
 
@@ -18,7 +18,7 @@
      * @returns {Void} - Returns nothing
      */
     mountComponent() {
-      if (this.$form.length > 0 && !this.mounted) {
+      if (this.$element.length > 0 && !this.mounted) {
         this.mounted = true;
       }
     }
