@@ -171,9 +171,6 @@ ca:
           random: Ordre aleatori
         project:
           add: Afegir el projecte %{resource_name} al teu vot
-          count:
-            one: "%{count} vot"
-            other: "%{count} vots"
           remove: Esborrar el projecte %{resource_name} del teu vot
           view: Veure
           votes:
@@ -220,7 +217,8 @@ ca:
             landing_page_content: Pàgina d'inici de pressupostos
             list_heading: Títol de la llista
             show_votes: Mostra els suports
-            votes_enabled: S'ha habilitat la votació
+            votes_choices:
+              enabled: S'ha habilitat la votació
     events:
       budgets:
         budget_published:
