@@ -153,7 +153,8 @@
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
             show_votes: Vis stemmer
-            votes_enabled: Stemming aktivert
+            votes_choices:
+              enabled: Stemming aktivert
     orders:
       checkout:
         error: Det oppstod et problem med å behandle din stemme
