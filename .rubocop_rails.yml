@@ -60,6 +60,7 @@ Rails/Output:
     - decidim-core/lib/decidim/component_manifest.rb
     - decidim-core/lib/decidim/participatory_space_manifest.rb
     - decidim-system/db/seeds.rb
+    - decidim-templates/db/seeds.rb
 
 Rails/OutputSafety:
   Enabled: false
