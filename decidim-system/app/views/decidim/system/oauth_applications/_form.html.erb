@@ -7,10 +7,7 @@
 </div>
 
 <div class="row column">
-  <%= form.select :decidim_organization_id,
-                Decidim::Organization.pluck(:name, :id),
-                { include_blank: t(".select_organization") },
-                { multiple: false } %>
+  <%= form.text_field :organization_name %>
 </div>
 
 <div class="row column">

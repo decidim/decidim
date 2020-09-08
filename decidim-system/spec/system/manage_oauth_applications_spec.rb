@@ -19,8 +19,8 @@ describe "Manage OAuth applications", type: :system do
     within ".new_oauth_application" do
       fill_in :oauth_application_name, with: "Meta Decidim"
       fill_in :oauth_application_redirect_uri, with: "https://example.org/oauth/decidim"
-      select organization.name, from: :oauth_application_decidim_organization_id
-      fill_in :oauth_application_organization_url, with: organization.host
+      fill_in :oauth_application_organization_name, with: "Ajuntament de Barcelona"
+      fill_in :oauth_application_organization_url, with: "https://www.barcelona.cat"
       attach_file "Organization logo", Decidim::Dev.asset("city.jpeg")
 
       find("*[type=submit]").click

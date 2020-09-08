@@ -9,8 +9,6 @@ module Decidim
 
     mount_uploader :organization_logo, OAuthApplicationLogoUploader
 
-    before_save :set_organization_name
-
     def owner
       organization
     end
@@ -21,12 +19,6 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OAuthApplicationPresenter
-    end
-
-    private
-
-    def set_organization_name
-      self.organization_name = organization.name
     end
   end
 end

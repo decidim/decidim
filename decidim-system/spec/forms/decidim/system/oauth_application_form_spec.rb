@@ -11,7 +11,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let(:name) { "Meta Decidim" }
-      let(:decidim_organization_id) { organization.id }
+      let(:organization_name) { "Ajuntament de Barcelona" }
       let(:organization_url) { "http://www.barcelona.cat" }
       let(:organization_logo) do
         Decidim::Dev.test_file("city.jpeg", "image/jpeg")
@@ -21,7 +21,7 @@ module Decidim
         {
           "oauth_application" => {
             "name" => name,
-            "decidim_organization_id" => decidim_organization_id,
+            "organization_name" => organization_name,
             "organization_url" => organization_url,
             "organization_logo" => organization_logo,
             "redirect_uri" => redirect_uri
@@ -45,8 +45,8 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      context "when the organization id is missing" do
-        let(:decidim_organization_id) { nil }
+      context "when the organization name is missing" do
+        let(:organization_name) { nil }
 
         it { is_expected.not_to be_valid }
       end
