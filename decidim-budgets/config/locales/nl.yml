@@ -171,9 +171,6 @@ nl:
           random: Willekeurige volgorde
         project:
           add: Voeg project %{resource_name} toe aan uw stem
-          count:
-            one: "%{count} stemmen"
-            other: "%{count} stemmen"
           remove: Verwijder project %{resource_name} uit uw stem
           view: Bekijk
           votes:
@@ -223,7 +220,8 @@ nl:
             list_heading: Lijst kop
             more_information_modal: Meer informatie
             show_votes: Toon stemmen
-            votes_enabled: Stemmen ingeschakeld
+            votes_choices:
+              enabled: Stemmen ingeschakeld
     events:
       budgets:
         budget_published:
