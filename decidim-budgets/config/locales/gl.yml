@@ -127,7 +127,8 @@ gl:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votación habilitada
+            votes_choices:
+              enabled: Votación habilitada
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
