@@ -127,7 +127,7 @@ pl:
           most_voted: Z największą liczbą głosów
           random: Kolejność losowa
         project:
-          add: Dodaj projekt %{resource_name} do swojego głosowania
+          add: Dodaj projekt %{resource_name} do swojego głosu
           count:
             one: 1 wsparcie
             few: "%{count} wsparć"
