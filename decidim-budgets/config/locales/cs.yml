@@ -64,6 +64,7 @@ cs:
           index:
             finished_orders: Hotové hlasy
             pending_orders: Čeká na hlasování
+            selected: Vybrané
             title: Projekty
           new:
             create: Vytvořit
@@ -154,6 +155,11 @@ cs:
           category: Kategorie
           scope: Rozsah
           search: Vyhledávání
+          status: Stav
+          status_values:
+            all: Vše
+            not_selected: Nevybráno
+            selected: Vybrané
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -175,9 +181,11 @@ cs:
           lowest_cost: Nejnižší náklady
           most_voted: Nejvíce hlasovalo
           random: Náhodné pořadí
+          selected: Vybrané
         project:
           add: Přidejte k hlasování projekt %{resource_name}
           remove: Odebrat projekt %{resource_name} z vašeho hlasování
+          selected: Vybrané
           view: Zobrazit
           you_voted: Hlasovali jste
         project_budget_button:
@@ -185,6 +193,7 @@ cs:
           add_descriptive: Přidat k hlasování projekt %{resource_name}
           added: Přidáno k vašemu hlasování
           added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování
+        projects_for: Projekty pro %{name}
         show:
           budget: Rozpočet
           view_all_projects: Zobrazit všechny projekty
@@ -223,7 +232,12 @@ cs:
             list_heading: Nadpis seznamu
             more_information_modal: Více informací
             show_votes: Zobrazit hlasy
-            votes_enabled: Hlasování povoleno
+            title: Název
+            votes: Hlasování
+            votes_choices:
+              disabled: Hlasování zakázáno
+              enabled: Hlasování povoleno
+              finished: Hlasování dokončeno
     events:
       budgets:
         budget_published:
