@@ -12,7 +12,7 @@ module Decidim
       include Paginable
       include Flaggable
 
-      helper_method :debates, :debate, :paginated_debates, :report_form, :close_debate_form
+      helper_method :debates, :debate, :form_presenter, :paginated_debates, :report_form, :close_debate_form
 
       def new
         enforce_permission_to :create, :debate
@@ -87,6 +87,10 @@ module Decidim
       end
 
       private
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Debates::DebatePresenter)
+      end
 
       def paginated_debates
         @paginated_debates ||= paginate(debates).includes(:category)

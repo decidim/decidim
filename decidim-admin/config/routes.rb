@@ -88,6 +88,8 @@ Decidim::Admin::Engine.routes.draw do
       put :accept
     end
 
+    resources :share_tokens, only: :destroy
+
     root to: "dashboard#show"
   end
 end

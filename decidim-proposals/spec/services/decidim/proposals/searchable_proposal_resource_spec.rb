@@ -15,7 +15,7 @@ module Decidim
         :draft,
         component: current_component,
         scope: scope1,
-        body: description_1[:ca],
+        body: description_1,
         users: [author]
       )
     end
@@ -161,12 +161,11 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(translated(proposal.title)),
+        "content_a" => I18n.transliterate(proposal.search_title[locale]),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(proposal.body)),
+        "content_d" => I18n.transliterate(proposal.search_body[locale]),
         "locale" => locale,
-
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,
         "decidim_participatory_space_type" => current_component.participatory_space_type,

@@ -142,6 +142,14 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "share tokens" do
+    let(:action_subject) { :share_token }
+
+    context "when any action" do
+      it { is_expected.to eq true }
+    end
+  end
+
   describe "organization" do
     let(:action_subject) { :organization }
     let(:context) { { organization: organization } }

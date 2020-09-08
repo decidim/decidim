@@ -84,6 +84,7 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :ShareableWithToken, "decidim/shareable_with_token"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -341,6 +342,12 @@ module Decidim
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
     %w(all participants)
+  end
+
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  config_accessor :consent_cookie_name do
+    "decidim-cc"
   end
 
   # Public: Registers a global engine. This method is intended to be used

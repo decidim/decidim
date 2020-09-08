@@ -23,7 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          return broadcast(:invalid) if votes_disabled? || order.checked_out?
+          return broadcast(:invalid) if voting_not_enabled? || order.checked_out?
 
           add_line_item
           broadcast(:ok, order)
@@ -32,23 +32,20 @@ module Decidim
 
       private
 
+      attr_reader :current_user, :project
+
       def order
-        @order ||= Order.create!(user: @current_user, component: @project.component)
+        @order ||= Order.create!(user: current_user, budget: project.budget)
       end
 
       def add_line_item
         order.with_lock do
-          order.projects << @project
-          order.save!
+          order.projects << project
         end
       end
 
-      def component
-        @project.component
-      end
-
-      def votes_disabled?
-        !component.current_settings.votes_enabled?
+      def voting_not_enabled?
+        project.component.current_settings.votes != "enabled"
       end
     end
   end

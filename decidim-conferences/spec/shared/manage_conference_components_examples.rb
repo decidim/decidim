@@ -194,6 +194,8 @@ shared_examples "manage conference components" do
 
         expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
       end
+
+      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
@@ -209,5 +211,13 @@ shared_examples "manage conference components" do
         end
       end
     end
+  end
+
+  def participatory_space
+    conference
+  end
+
+  def participatory_space_components_path(participatory_space)
+    decidim_admin_conferences.components_path(participatory_space)
   end
 end

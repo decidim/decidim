@@ -33,6 +33,10 @@
         <% end %>
       <% end %>
 
+      <% if allowed_to? :share, :component, component: component %>
+        <%= icon_link_to "share", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share", target: "_blank" %>
+      <% end %>
+
       <% if allowed_to? :destroy, :component, component: component %>
         <%= icon_link_to "circle-x", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
       <% end %>
