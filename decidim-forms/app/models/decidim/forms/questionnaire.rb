@@ -25,6 +25,10 @@ module Decidim
         query = user.is_a?(String) ? { session_token: user } : { user: user }
         answers.where(query).any? if questions.present?
       end
+
+      def pristine?
+        created_at.to_i == updated_at.to_i && questions.empty?
+      end
     end
   end
 end
