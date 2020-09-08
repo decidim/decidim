@@ -124,7 +124,8 @@ id:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
             show_votes: Tampilkan suara
-            votes_enabled: Voting diaktifkan
+            votes_choices:
+              enabled: Voting diaktifkan
     orders:
       checkout:
         error: Terjadi masalah saat memproses suara Anda
