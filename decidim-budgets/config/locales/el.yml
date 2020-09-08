@@ -153,7 +153,8 @@ el:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν
             show_votes: Εμφάνιση ψήφων
-            votes_enabled: Η ψηφοφορία ενεργοποιήθηκε
+            votes_choices:
+              enabled: Η ψηφοφορία ενεργοποιήθηκε
     orders:
       checkout:
         error: Υπήρξε ένα πρόβλημα κατά την επεξεργασία της ψήφου σας
