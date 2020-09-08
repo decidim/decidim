@@ -9,6 +9,7 @@ module Decidim::System
     let(:params) do
       {
         name: "Meta Decidim",
+        decidim_organization_id: organization.id,
         organization_name: "Ajuntament de Barcelona",
         organization_url: "http://www.barcelona.cat",
         organization_logo: file,

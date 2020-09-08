@@ -82,6 +82,8 @@ en:
         edit:
           save: Save
           title: Edit application
+        form:
+          select_organization: Select an organization
         index:
           confirm_delete: Are you sure you want to delete this application?
           title: OAuth applications
