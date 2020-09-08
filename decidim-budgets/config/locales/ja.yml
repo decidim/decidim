@@ -150,7 +150,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントがブロックされました
             show_votes: 投票を表示
-            votes_enabled: 投票は有効になっています
+            votes_choices:
+              enabled: 投票は有効になっています
     orders:
       checkout:
         error: 投票処理中に問題が発生しました
