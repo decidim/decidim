@@ -156,7 +156,8 @@ ro:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             show_votes: Arată voturile
-            votes_enabled: Votare activată
+            votes_choices:
+              enabled: Votare activată
     orders:
       checkout:
         error: A apărut o problemă la procesarea votului tău
