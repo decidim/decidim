@@ -150,7 +150,8 @@ sk:
             announcement: Oznámenie
             comments_blocked: Zablokované komentáre
             show_votes: Zobraziť hlasy
-            votes_enabled: Hlasovanie povolené
+            votes_choices:
+              enabled: Hlasovanie povolené
     orders:
       checkout:
         error: Vyskytol sa problém pri spracovaní Vášho hlasu
