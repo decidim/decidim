@@ -11,7 +11,9 @@ module Decidim
       def create
         raise ActionController::RoutingError, "Not Found" unless commentable
 
-        form = Decidim::Comments::CommentForm.from_params(params).with_context(
+        form = Decidim::Comments::CommentForm.from_params(
+          params.merge(commentable: commentable)
+        ).with_context(
           current_organization: current_organization,
           current_component: commentable.component
         )
