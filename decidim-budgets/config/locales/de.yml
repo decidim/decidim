@@ -62,6 +62,7 @@ de:
           index:
             finished_orders: Beendete Stimmen
             pending_orders: Schwebende Stimmen
+            selected: Ausgewählt
             title: Projekte
           new:
             create: Erstellen
@@ -96,7 +97,21 @@ de:
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
+          only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
+        finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
+        highlighted_cta: Über %{name} abstimmen
+        if_change_opinion: Wenn sie ihr Meinung geändert haben, können sie
+        my_budgets: Meine Budgets
+        voted_on: Sie haben über %{links} abgestimmt
+      limit_announcement:
+        cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
+        limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
       models:
+        budget:
+          fields:
+            name: Name
+            projects_count: Anzahl Projekte
+            total_budget: Gesamt Budget
         project:
           fields:
             title: Titel
@@ -133,6 +148,11 @@ de:
           category: Kategorie
           scope: Umfang
           search: Suche
+          status: Status
+          status_values:
+            all: Alle
+            not_selected: Nicht ausgewählt
+            selected: Ausgewählt
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -152,15 +172,18 @@ de:
           lowest_cost: Niedrigste Kosten
           most_voted: Meiste Stimmen
           random: Zufällige Anordnung
+          selected: Ausgewählt
         project:
           add: Projekt %{resource_name} Ihrer Stimme hinzufügen
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
+          selected: Ausgewählt
           view: Aussicht
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
           added: Zu deiner Abstimmung hinzugefügt
           added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
+        projects_for: Projekte für %{name}
         show:
           budget: Budget
           view_all_projects: Alle Projekte anzeigen
@@ -189,7 +212,12 @@ de:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             show_votes: Stimmen anzeigen
-            votes_enabled: Abstimmung aktiviert
+            title: Überschrift
+            votes: Abstimmungen
+            votes_choices:
+              disabled: Abstimmung deaktiviert
+              enabled: Abstimmung aktiviert
+              finished: Abstimmung beendet
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
