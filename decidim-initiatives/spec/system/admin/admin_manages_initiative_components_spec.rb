@@ -200,6 +200,8 @@ describe "Admin manages initiative components", type: :system do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
+
+      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
@@ -215,5 +217,13 @@ describe "Admin manages initiative components", type: :system do
         end
       end
     end
+  end
+
+  def participatory_space
+    initiative
+  end
+
+  def participatory_space_components_path(participatory_space)
+    decidim_admin_initiatives.components_path(participatory_space)
   end
 end

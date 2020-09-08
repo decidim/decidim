@@ -26,6 +26,8 @@ describe "Answer a survey", type: :system do
 
   include_context "with a component"
 
+  it_behaves_like "preview component with share_token"
+
   context "when the survey doesn't allow answers" do
     it "does not allow answering the survey" do
       visit_component
