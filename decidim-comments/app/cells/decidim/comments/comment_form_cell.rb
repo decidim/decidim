@@ -24,6 +24,10 @@ module Decidim
         "add-comment-#{commentable_type.demodulize}-#{model.id}"
       end
 
+      def root_depth
+        options[:root_depth] || 0
+      end
+
       def form_object
         Decidim::Comments::CommentForm.new(
           commentable_gid: model.to_signed_global_id.to_s,

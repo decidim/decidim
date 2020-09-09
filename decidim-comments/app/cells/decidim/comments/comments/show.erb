@@ -2,15 +2,23 @@
   <div class="columns large-9" id="comments">
     <div class="comments">
       <div class="row collapse order-by">
-        <h2 class="order-by__text section-heading"><%= t("decidim.components.comments.title", count: comments.count) %></h2>
+        <h2 class="order-by__text section-heading">
+          <% if single_comment? %>
+            <%= t("decidim.components.comments.comment_details_title") %>
+          <% else %>
+            <%= t("decidim.components.comments.title", count: comments_count) %>
+          <% end %>
+        </h2>
         <%= render :order_control %>
       </div>
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
-      <% comments.each do |comment| %>
-        <%= cell("decidim/comments/comment_thread", comment) %>
-      <% end %>
-      <%= render :add_comment %>
+      <div class="comment-threads">
+        <% comments.each do |comment| %>
+          <%= cell("decidim/comments/comment_thread", comment) %>
+        <% end %>
+      </div>
+      <%= add_comment %>
       <%= user_comments_blocked_warning %>
     </div>
   </div>

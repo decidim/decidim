@@ -64,12 +64,20 @@ module Decidim
         model.down_votes.count
       end
 
+      def root_depth
+        options[:root_depth] || 0
+      end
+
+      def depth
+        model.depth - root_depth
+      end
+
       def nested?
-        model.depth.positive?
+        depth.positive?
       end
 
       def nested_level_even?
-        model.depth.even?
+        depth.even?
       end
 
       def has_replies?

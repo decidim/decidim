@@ -26,7 +26,8 @@ module Decidim
         cell(
           "decidim/comments/comments",
           resource,
-          machine_translations: machine_translations_toggled?
+          machine_translations: machine_translations_toggled?,
+          single_comment: params.fetch("commentId", nil)
         ).to_s
       end
     end

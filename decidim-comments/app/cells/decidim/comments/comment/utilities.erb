@@ -3,7 +3,7 @@
   <%= icon "flag", class: "icon--small", role: "none presentation" %>
 </button>
 
-<%= link_to commentable_path("commentId" => model.id), title: t("decidim.components.comment.single_comment_link_title") do %>
+<%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", title: t("decidim.components.comment.single_comment_link_title") do %>
   <span class="show-for-sr"><%= t("decidim.components.comment.single_comment_link_title") %></span>
   <%= icon "link-intact", class: "icon--small", role: "none presentation" %>
 <% end %>

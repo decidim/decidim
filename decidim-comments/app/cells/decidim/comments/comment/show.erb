@@ -19,21 +19,23 @@
     <%= render :actions %>
     <%= render :votes %>
   </div>
-  <% if has_replies? %>
-    <div id="comment-<%= model.id %>-replies">
+  <div id="comment-<%= model.id %>-replies">
+    <% if has_replies? %>
       <% replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply) %>
+        <%= cell("decidim/comments/comment", reply, root_depth: root_depth) %>
       <% end %>
-    </div>
-    <div class="comment__additionalreply">
+    <% end %>
+  </div>
+  <% if can_reply? %>
+    <div class="comment__additionalreply<%= " hide" unless has_replies? %>">
       <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
         <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
       </button>
     </div>
   <% end %>
-  <% if user_signed_in? %>
+  <% if can_reply? %>
     <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
-      <%== cell("decidim/comments/comment_form", model) %>
+      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth) %>
     </div>
   <% end %>
 <% end %>

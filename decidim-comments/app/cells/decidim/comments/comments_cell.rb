@@ -8,6 +8,14 @@ module Decidim
 
       delegate :user_signed_in?, to: :controller
 
+      def add_comment
+        return if single_comment?
+        return if comments_blocked?
+        return if user_comments_blocked?
+
+        render :add_comment
+      end
+
       def single_comment_warning
         return unless single_comment?
 
@@ -31,7 +39,21 @@ module Decidim
       private
 
       def comments
-        SortedComments.for(model, order_by: default_order)
+        if single_comment?
+          [single_comment]
+        else
+          SortedComments.for(model, order_by: default_order)
+        end
+      end
+
+      def comments_count
+        model.comments.count
+      end
+
+      def root_depth
+        return 0 unless single_comment?
+
+        single_comment.depth
       end
 
       def commentable_path(params = {})
@@ -60,15 +82,19 @@ module Decidim
 
       def comments_data
         {
-          commentableType: commentable_type,
-          commentableId: model.id,
-          locale: I18n.locale,
+          singleComment: single_comment?,
           toggleTranslations: machine_translations_toggled?
         }
       end
 
       def single_comment?
-        options[:single_comment] == true
+        single_comment.present?
+      end
+
+      def single_comment
+        return if options[:single_comment].blank?
+
+        @single_comment ||= model.comments.find_by(id: options[:single_comment])
       end
 
       def machine_translations_toggled?
