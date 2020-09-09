@@ -54,6 +54,9 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false
+    settings.attribute :citizen_map_pin_color, type: :string
+    settings.attribute :official_map_pin_color, type: :string
+    settings.attribute :user_group_map_pin_color, type: :string
   end
 
   component.settings(:step) do |settings|

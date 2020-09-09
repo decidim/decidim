@@ -40,9 +40,14 @@ const addMarkers = (markersData, markerClusters, map) => {
   const bounds = new L.LatLngBounds(markersData.map((markerData) => [markerData.latitude, markerData.longitude]));
 
   markersData.forEach((markerData) => {
+    let fillColor = window.Decidim.mapConfiguration.markerColor;
+    if (typeof(markerData.markerColor) != "undefined" ) {
+        fillColor = markerData.markerColor;
+    }
+
     let marker = L.marker([markerData.latitude, markerData.longitude], {
       icon: new L.DivIcon.SVGIcon.DecidimIcon({
-        fillColor: window.Decidim.mapConfiguration.markerColor
+        fillColor: fillColor
       }),
       keyboard: true,
       title: markerData.title

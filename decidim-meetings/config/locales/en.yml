@@ -85,6 +85,9 @@ en:
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
+            citizen_map_pin_color: Pin color for Citizen generated events
+            official_map_pin_color: Pin color for Official generated events
+            user_group_map_pin_color: Pin color for Group generated events
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

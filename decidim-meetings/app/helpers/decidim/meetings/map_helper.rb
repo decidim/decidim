@@ -20,8 +20,19 @@ module Decidim
                                                                icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                location: translated_attribute(meeting.location),
                                                                locationHints: decidim_html_escape(translated_attribute(meeting.location_hints)),
-                                                               link: resource_locator(meeting).path)
+                                                               link: resource_locator(meeting).path,
+                                                               markerColor: event_pin_color(meeting)
+          )
         end
+      end
+
+      def event_pin_color(meeting)
+        component = meeting.component
+        primary_color = component.organization.colors["primary"]
+
+        return component.settings.official_map_pin_color.presence || primary_color if meeting.official?
+        return component.settings.user_group_map_pin_color.presence || primary_color if meeting.group?
+        component.settings.citizen_map_pin_color.presence || primary_color
       end
     end
   end
