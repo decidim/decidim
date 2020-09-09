@@ -153,6 +153,7 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        share: Teilen
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -455,6 +456,14 @@ de:
           fields:
             name: Name
             plural: Plural
+        share_token:
+          fields:
+            created_at: Erstellt am
+            expires_at: Läuft ab am
+            last_used_at: Zuletzt verwendet
+            times_used: Anzahl Anwendungen
+            token: Token
+            user: Erstellt von
         static_page:
           fields:
             created_at: Hergestellt in
@@ -696,6 +705,18 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      share_tokens:
+        actions:
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
+          destroy: Löschen
+          share: Teilen
+        destroy:
+          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
+          success: Token wurde erfolgreich gelöscht.
+        share_tokens:
+          empty: Es gibt keine aktiven Token
+          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
+          title: Token teilen
       shared:
         gallery:
           add_images: Bilder hinzufügen
