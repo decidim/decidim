@@ -83,14 +83,14 @@ en:
         settings:
           global:
             announcement: Announcement
+            citizen_map_pin_color: Pin color for Citizen generated events
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
-            resources_permissions_enabled: Actions permissions can be set for each meeting
-            citizen_map_pin_color: Pin color for Citizen generated events
             official_map_pin_color: Pin color for Official generated events
+            resources_permissions_enabled: Actions permissions can be set for each meeting
             user_group_map_pin_color: Pin color for Group generated events
           step:
             announcement: Announcement

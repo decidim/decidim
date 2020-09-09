@@ -20,16 +20,17 @@
       </div>
     <% end %>
 
-
     <div class="row column">
       <%= form.check_box :group_highlight_enabled %>
     </div>
 
-    <div class="organization-colors">
-      <%= form.color_field :official_highlight_color, value: current_organization.colors["official_highlight_color"] %>
-      <%= form.color_field :group_highlight_color, value: current_organization.colors["group_highlight_color"] %>
-      <%= form.color_field :citizen_highlight_color, value: current_organization.colors["citizen_highlight_color"] %>
-      <p class="help-text"><%= t(".header_snippets_help") %></p>
+    <div class="row">
+      <div class="organization-colors">
+        <%= form.color_field :official_highlight_color, value: current_organization.colors["official_highlight_color"] %>
+        <%= form.color_field :group_highlight_color, value: current_organization.colors["group_highlight_color"] %>
+        <%= form.color_field :citizen_highlight_color, value: current_organization.colors["citizen_highlight_color"] %>
+      </div>
+      <p class="help-text"><%= t(".highlight_colors_help") %></p>
     </div>
   </div>
 </div>
