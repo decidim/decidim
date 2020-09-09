@@ -39,6 +39,20 @@ module Decidim
         decidim_author_type == Decidim::Organization.name
       end
 
+      # Public: Checks whether the resource is created by a or not.
+      #
+      # Returns a boolean.
+      def group?
+        decidim_user_group_id.present?
+      end
+
+      # Public: Checks whether the resource created by an user
+      #
+      # Returns a boolean.
+      def citizen?
+        !(group? || official?)
+      end
+
       private
 
       def verified_user_group
