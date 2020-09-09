@@ -153,6 +153,7 @@ pl:
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
+        share: Udostępnij
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -455,6 +456,14 @@ pl:
           fields:
             name: Nazwa
             plural: Liczba mnoga
+        share_token:
+          fields:
+            created_at: Utworzono
+            expires_at: Wygasa
+            last_used_at: Ostatnio używane
+            times_used: Ilość użyć
+            token: Token
+            user: Utworzony przez
         static_page:
           fields:
             created_at: Utworzono
@@ -696,6 +705,18 @@ pl:
         update:
           error: Podczas aktualizowania tego zakresu wystąpił błąd.
           success: Zakres został zaktualizowany
+      share_tokens:
+        actions:
+          confirm_destroy: Czy jesteś pewien, że chcesz usunąć ten token?
+          destroy: Usuń
+          share: Udostępnij
+        destroy:
+          error: Wystąpił błąd podczas usuwania tokenu.
+          success: Token został usunięty.
+        share_tokens:
+          empty: Brak aktywnych tokenów
+          help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
+          title: Udostępnij tokeny
       shared:
         gallery:
           add_images: Dodaj obrazy
