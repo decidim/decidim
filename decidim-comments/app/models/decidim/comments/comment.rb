@@ -25,7 +25,6 @@ module Decidim
       #       |--R (depth 3)
       MAX_DEPTH = 3
 
-      translatable_fields :body
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
@@ -34,15 +33,14 @@ module Decidim
       validates :body, presence: true
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
-
       validate :body_length
-
       validate :commentable_can_have_comments
 
       before_validation :compute_depth
 
       delegate :organization, to: :commentable
 
+      translatable_fields :body
       searchable_fields(
         participatory_space: :itself,
         A: :formatted_body,
@@ -116,11 +114,6 @@ module Decidim
         else
           ResourceLocatorPresenter.new(root_commentable).url(url_params)
         end
-      end
-
-      # Public: Returns the comment message ready to display (it is expected to include HTML)
-      def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
       end
 
       def self.export_serializer

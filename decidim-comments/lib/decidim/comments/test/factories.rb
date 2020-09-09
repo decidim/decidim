@@ -7,7 +7,7 @@ FactoryBot.define do
     author { build(:user, organization: commentable.organization) }
     commentable { build(:dummy_resource) }
     root_commentable { commentable }
-    body { Faker::Lorem.paragraph }
+    body { Decidim::Faker::Localized.paragraph }
 
     after(:build) do |comment, evaluator|
       comment.body = if evaluator.body.is_a?(String)
@@ -15,6 +15,7 @@ FactoryBot.define do
                      else
                        evaluator.body
                      end
+      comment.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, comment.body, current_organization: comment.root_commentable.organization).rewrite
     end
 
     trait :comment_on_comment do

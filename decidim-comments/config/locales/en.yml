@@ -21,6 +21,7 @@ en:
       comments_count: Comments count
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
+      view: View
       votes:
         create:
           error: There was a problem voting the comment.
