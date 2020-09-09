@@ -21,8 +21,7 @@ module Decidim
                                                                location: translated_attribute(meeting.location),
                                                                locationHints: decidim_html_escape(translated_attribute(meeting.location_hints)),
                                                                link: resource_locator(meeting).path,
-                                                               markerColor: event_pin_color(meeting)
-          )
+                                                               markerColor: event_pin_color(meeting))
         end
       end
 
@@ -32,6 +31,7 @@ module Decidim
 
         return component.settings.official_map_pin_color.presence || primary_color if meeting.official?
         return component.settings.user_group_map_pin_color.presence || primary_color if meeting.group?
+
         component.settings.citizen_map_pin_color.presence || primary_color
       end
     end
