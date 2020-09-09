@@ -96,7 +96,7 @@ module Decidim
       end
 
       def colors_attributes
-        {
+        hash = {
           colors: {
             primary: form.primary_color,
             secondary: form.secondary_color,
@@ -107,6 +107,17 @@ module Decidim
             "highlight-alternative": form.highlight_alternative_color
           }
         }
+
+        hash[:group_highlight_enabled] = form.group_highlight_enabled
+        if form.group_highlight_enabled?
+          hash[:colors].merge!(
+            official_highlight_color: form.official_highlight_color,
+            group_highlight_color: form.group_highlight_color,
+            citizen_highlight_color: form.citizen_highlight_color
+          )
+        end
+
+        hash
       end
     end
   end

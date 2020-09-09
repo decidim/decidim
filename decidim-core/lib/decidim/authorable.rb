@@ -43,7 +43,7 @@ module Decidim
       #
       # Returns a boolean.
       def group?
-        decidim_user_group_id.present?
+        user_group.present?
       end
 
       # Public: Checks whether the resource created by an user

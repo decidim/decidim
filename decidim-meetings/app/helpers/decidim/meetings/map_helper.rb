@@ -26,13 +26,14 @@ module Decidim
       end
 
       def event_pin_color(meeting)
-        component = meeting.component
-        primary_color = component.organization.colors["primary"]
+        organization = meeting.component.organization
+        colors = organization.colors
 
-        return component.settings.official_map_pin_color.presence || primary_color if meeting.official?
-        return component.settings.user_group_map_pin_color.presence || primary_color if meeting.group?
+        return colors["primary"] unless organization.group_highlight_enabled?
+        return colors.fetch("official_highlight_color", colors["primary"]) if meeting.official?
+        return colors.fetch("group_highlight_color", colors["primary"]) if meeting.group?
 
-        component.settings.citizen_map_pin_color.presence || primary_color
+        colors.fetch("citizen_highlight_color", colors["primary"])
       end
     end
   end

@@ -37,6 +37,11 @@ module Decidim
       attribute :highlight_color, String, default: "#be6400"
       attribute :highlight_alternative_color, String, default: "#ff5731"
 
+      attribute :group_highlight_enabled, Boolean
+      attribute :official_highlight_color, String, default: "#ef604d"
+      attribute :group_highlight_color, String, default: "#599aa6"
+      attribute :citizen_highlight_color, String, default: "#57d685"
+
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
       translatable_attribute :highlighted_content_banner_title, String
