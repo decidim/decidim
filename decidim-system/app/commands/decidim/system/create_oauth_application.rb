@@ -1,32 +1,29 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Admin
-    # Updates the OAuth application given form data.
-    class UpdateOAuthApplication < Rectify::Command
+  module System
+    # Creates an OAuthApplication.
+    class CreateOAuthApplication < Rectify::Command
       # Initializes the command.
       #
-      # application - The OAuthApplication to update.
-      # form        - The form object containing the data to update.
-      # user        - The user that updates the application.
-      def initialize(application, form, user)
-        @application = application
+      # form - The source fo data for this OAuthApplication.
+      def initialize(form)
         @form = form
-        @user = user
       end
 
       def call
         return broadcast(:invalid) unless @form.valid?
-        return broadcast(:invalid) unless @user.organization == @application.organization
 
-        @application = Decidim.traceability.update!(
-          @application,
-          @user,
+        @application = Decidim.traceability.create!(
+          OAuthApplication,
+          @form.current_user,
           name: @form.name,
+          decidim_organization_id: @form.decidim_organization_id,
           organization_name: @form.organization_name,
           organization_url: @form.organization_url,
           organization_logo: @form.organization_logo,
-          redirect_uri: @form.redirect_uri
+          redirect_uri: @form.redirect_uri,
+          scopes: "public"
         )
 
         broadcast(:ok, @application)
