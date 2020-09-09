@@ -56,7 +56,7 @@ pl:
             success: "%{number} propozycji pomyślnie zaimportowano do projektów"
           new:
             create: Importuj propozycje do projektów
-            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów propozycji do importowania propozycji do projektów.
+            no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             select_component: Wybierz komponent
       admin_log:
         project:
@@ -82,7 +82,7 @@ pl:
           title: Potwierdź głosowanie
         budget_excess:
           close: Zamknij
-          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który został już wybrany, aby dodać lub sprawić, aby głosował z Twoimi preferencjami.
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który już zaznaczyłeś do wyboru, albo zagłosować zgodnie z Twoimi preferencjami.
           ok: ok
           title: Przekroczono maksymalny budżet
         budget_summary:
@@ -119,7 +119,7 @@ pl:
             few: wybranych projektów
             many: wybrane projekty
             other: wybranych projektów
-          view: Widok
+          view: Zobacz
         orders:
           highest_cost: Najwyższy koszt
           label: Uporządkuj projekty według
@@ -127,14 +127,14 @@ pl:
           most_voted: Z największą liczbą głosów
           random: Kolejność losowa
         project:
-          add: Dodaj projekt %{resource_name} do swojego głosowania
+          add: Dodaj projekt %{resource_name} do swojego głosu
           count:
             one: 1 wsparcie
             few: "%{count} wsparć"
             many: "%{count} wsparć"
             other: "%{count} wsparć"
           remove: Usuń projekt %{resource_name} z Twojego głosu
-          view: Widok
+          view: Zobacz
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu

@@ -145,7 +145,7 @@ pl:
         browse: Przeglądaj
         export: Eksport
         manage: Zarządzanie
-        new: Nowe %{name}
+        new: 'Nowy: %{name}'
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
@@ -571,7 +571,7 @@ pl:
           badge: Odznaka
           created_at: Utworzono
           name: Nazwa
-          nickname: Alias
+          nickname: Pseudonim
           not_officialized: Nieoficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny

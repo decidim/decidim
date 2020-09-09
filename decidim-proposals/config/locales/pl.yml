@@ -293,9 +293,9 @@ pl:
       badges:
         accepted_proposals:
           conditions:
-            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z włączoną obsługą zgłoszeń
+            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
             - Spróbuj przedstawić propozycje, które można zrealizować. W ten sposób szansa na ich akceptację jest większa.
-          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach i są one akceptowane.
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje i są one akceptowane.
           description_another: Ten użytkownik ma %{score} zaakceptowanych propozycji.
           description_own: Masz %{score} zaakceptowanych propozycji.
           name: Zaakceptowane propozycje
@@ -315,9 +315,9 @@ pl:
           unearned_own: Nie udzielałeś jeszcze wsparcia żadnym propozycjom.
         proposals:
           conditions:
-            - Wybierz interesującą Cię przestrzeń partycypacyjną z włączoną obsługą zgłoszeń
+            - Wybierz przestrzeń partycypacyjną, która Cię interesuje, z możliwością dodawania propozycji
             - Utwórz nową propozycję
-          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz w nowych propozycjach.
+          description: Ta odznaka jest przyznawana, gdy aktywnie uczestniczysz dodając nowe propozycje.
           description_another: Ten użytkownik stworzył %{score} propozycji.
           description_own: Stworzyłeś %{score} propozycji.
           name: Propozycje
