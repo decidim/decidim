@@ -8,7 +8,7 @@ However, this may be delicate, specially if you need to remove them.
 
 When you create an organization, you choose the available languages for it (through the `/system/` url). However, when trying to edit it, the language selector is not available anymore. Here is a way to update that locales manually:
 
-First, be sure that your initializer file has all the locales you want:
+First, make sure that your initializer file has all the locales you want:
 
 Edit the file `config/initializers/decidim.rb` and be sure to include all the necessary locales:
 
@@ -64,7 +64,7 @@ In order to solve that you can make use of these rake tasks:
 bundle exec rake decidim:locales:sync_all
 ```
 
-Run this task if you want have changed your `config/initializers/decidim.rb` `available_locales` or `default_locale` and you want to modify all the organizations so they have the same settings.
+Run this task if you have changed `available_locales` or `default_locale` in `config/initializers/decidim.rb` and you want to modify all the organizations so they have the same settings.
 
 **Do not run this task if you have different organizations with different locale configurations**.
 In that case perform it manually through the console method.

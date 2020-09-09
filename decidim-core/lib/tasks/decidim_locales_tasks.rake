@@ -16,7 +16,7 @@ namespace :decidim do
     desc "Rebuild the search index"
     task rebuild_search: :environment do
       Decidim::SearchableResource.destroy_all
-      Decidim::Searchable.searchable_resources.pluck(0).each do |resource|
+      Decidim::Searchable.searchable_resources.keys.each do |resource|
         resource.constantize.all.each(&:try_update_index_for_search_resource)
       end
     end
