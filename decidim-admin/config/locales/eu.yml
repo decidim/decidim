@@ -380,7 +380,7 @@ eu:
           name: Buletina
         oauth_application:
           fields:
-            created_at: Sortutako at
+            created_at: Sortze-data
             name: izena
           name: OAuth aplikazioa
         participatory_space_private_user:
