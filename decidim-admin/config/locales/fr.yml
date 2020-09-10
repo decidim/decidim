@@ -550,13 +550,13 @@ fr:
           error: Une erreur s'est produite lors de la suppression de cette application.
           success: Application supprimée avec succès.
         edit:
-          save: Sauvegarder
+          save: sauvegarder
           title: Modifier l'application
         index:
           confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
           title: Applications OAuth
         new:
-          save: Sauvegarder
+          save: sauvegarder
           title: Nouvelle application
         update:
           error: Une erreur est survenue lors de la mise à jour de cette application.
