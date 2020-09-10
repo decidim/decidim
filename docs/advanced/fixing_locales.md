@@ -64,10 +64,14 @@ In order to solve that you can make use of these rake tasks:
 bundle exec rake decidim:locales:sync_all
 ```
 
-Run this task if you have changed `available_locales` or `default_locale` in `config/initializers/decidim.rb` and you want to modify all the organizations so they have the same settings.
+Run this task if you have changed `available_locales` or `default_locale` in `config/initializers/decidim.rb` and you think that some organization have values not supported by the Decidim installation.
 
-**Do not run this task if you have different organizations with different locale configurations**.
-In that case perform it manually through the console method.
+Examples:
+
+* `Decidim.available_locales` is set to `[:en, :ca, :fr]` and your organization has `available_locales` to `[:es, :ca]`, running this script will change it to `[:ca]` as `:es` is not supported.
+* `organization.default_locale` is set to `:fr` and your `available_locales` to `[:en, :es]`, running this script will change `organization.default_locale` to `:en`.
+
+It is safe to run this task as it respects organizations with less languages than the supported.
 
 ### Repair the search index
 
