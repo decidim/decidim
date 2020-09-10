@@ -10,7 +10,7 @@ module Decidim
         helper_method :election, :question, :answers, :answers, :missing_answers
 
         def index
-          flash.now[:alert] = I18n.t("answers.index.invalid_max_selections", scope: "decidim.elections.admin", missing_answers: missing_answers) if missing_answers.present?
+          flash.now[:alert] = I18n.t("answers.index.invalid_max_selections", scope: "decidim.elections.admin", missing_answers: missing_answers) if missing_answers.positive?
         end
 
         def new
