@@ -434,7 +434,7 @@ cs:
         oauth_application:
           fields:
             created_at: Vytvořeno v
-            name: Jméno
+            name: Název
           name: Žádost OAuth
         participatory_space_private_user:
           name: Účastnický prostor soukromého účastníka
