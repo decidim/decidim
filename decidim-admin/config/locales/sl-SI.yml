@@ -150,6 +150,9 @@ sl:
         scope_types: Tipi področja
         scopes: Področja
       models:
+        oauth_application:
+          fields:
+            name: Ime
         scope:
           fields:
             scope_type: Tip področja
