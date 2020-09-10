@@ -10,7 +10,6 @@ sv:
         description: Beskrivning
         end_time: Omröstningen slutar vid
         start_time: Röstningsstart vid
-        subtitle: Undertext
         title: Titel
       question:
         description: Beskrivning
