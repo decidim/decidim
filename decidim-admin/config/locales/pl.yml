@@ -33,7 +33,7 @@ pl:
         name: Nazwa
         organization_logo: Logo organizacji (kwadrat)
         organization_name: Nazwa organizacji
-        organization_url: Adres www organizacji
+        organization_url: Adres URL organizacji
         redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
