@@ -56,6 +56,7 @@ FactoryBot.define do
     election
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    min_selections { 0 }
     max_selections { 1 }
     weight { Faker::Number.number(1) }
     random_answers_order { true }
@@ -71,6 +72,7 @@ FactoryBot.define do
     trait :yes_no do
       complete
       random_answers_order { false }
+      min_selections { 1 }
     end
 
     trait :candidates do
