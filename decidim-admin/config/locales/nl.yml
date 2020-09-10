@@ -32,7 +32,7 @@ nl:
       oauth_application:
         name: Naam
         organization_logo: Logo organisatie (vierkant)
-        organization_name: Naam van de organisatie
+        organization_name: Naam organisatie
         organization_url: URL van de organisatie
         redirect_uri: URI doorsturen
       organization:
