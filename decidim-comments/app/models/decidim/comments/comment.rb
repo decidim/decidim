@@ -43,7 +43,7 @@ module Decidim
       translatable_fields :body
       searchable_fields(
         participatory_space: :itself,
-        A: :formatted_body,
+        A: :search_body,
         datetime: :created_at
       )
 
@@ -134,7 +134,18 @@ module Decidim
       end
 
       def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
+        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+      end
+
+      def search_body
+        body.inject({}) do |rendered_value, (locale, content)|
+          rendered_value.update(
+            locale => Decidim::ContentProcessor.render_without_format(
+              sanitize_content(content),
+              links: false
+            )
+          )
+        end
       end
 
       def translated_body
@@ -173,11 +184,8 @@ module Decidim
       end
 
       # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitized_body
-        Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(translated_body),
-          scrubber: Decidim::Comments::UserInputScrubber.new
-        ).try(:html_safe)
+      def sanitize_content(content)
+        Decidim::ContentProcessor.sanitize(content)
       end
 
       # Private: Initializes the Markdown parser

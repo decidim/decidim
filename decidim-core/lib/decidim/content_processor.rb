@@ -51,8 +51,8 @@ module Decidim
     #
     # @return [Result] a Result object with the content rewritten and the metadata
     def self.parse(content, context)
-      Decidim.content_processors.each_with_object(content) do |type, result|
-        parse_with_processor(type, result, context)
+      Decidim.content_processors.each_with_object(Result.new(content, {})) do |type, result|
+        result = parse_with_processor(type, result, context)
       end
     end
 
@@ -64,18 +64,18 @@ module Decidim
                  Result.new(content, {})
                end
 
-      if result[:rewrite].is_a?(Hash)
-        result[:rewrite].each do |key, value|
+      if result.rewrite.is_a?(Hash)
+        result.rewrite.each do |key, value|
           child_result = Result.new(value, {})
           child_result = parse_with_processor(type, child_result, context)
 
-          result[:rewrite][key] = child_result.rewrite
-          result[:metadata].update(child_result.metadata)
+          result.rewrite.update(key => child_result.rewrite)
+          result.metadata.update(child_result.metadata)
         end
       else
-        parser = parser_klass(type).constantize.new(result[:rewrite], context)
-        result[:rewrite] = parser.rewrite
-        result[:metadata][type] = parser.metadata
+        parser = parser_klass(type).constantize.new(result.rewrite, context)
+        result.rewrite = parser.rewrite
+        result.metadata.update(type => parser.metadata)
       end
 
       result
@@ -85,14 +85,18 @@ module Decidim
     # the processed content ready to display.
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
-    def self.render(content, wrapper_tag = "p")
+    def self.render(content, wrapper_tag = "p", options = {})
       simple_format(
-        Decidim.content_processors.reduce(content) do |result, type|
-          renderer_klass(type).constantize.new(result).render
-        end,
+        render_without_format(content, options),
         {},
         wrapper_tag: wrapper_tag
       )
+    end
+
+    def self.render_without_format(content, options = {})
+      Decidim.content_processors.reduce(content) do |result, type|
+        renderer_klass(type).constantize.new(result).render(options)
+      end
     end
 
     # This method overwrites the views `sanitize` method. This is required to

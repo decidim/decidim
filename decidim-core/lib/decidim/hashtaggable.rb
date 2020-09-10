@@ -33,8 +33,7 @@ module Decidim
       end
 
       def render_hashtag_content(content)
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-        renderer.render(links: false).html_safe
+        Decidim::ContentProcessor.render_without_format(content, links: false)
       end
     end
   end

@@ -16,7 +16,8 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class LinkRenderer < BaseRenderer
       # @return [String] the content ready to display (contains HTML)
-      def render(options = { target: "_blank", rel: "nofollow noopener" })
+      def render(options = {})
+        options = { target: "_blank", rel: "nofollow noopener" }.merge(options)
         Anchored::Linker.auto_link(content, options)
       end
     end

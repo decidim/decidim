@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class with the responsibility to mapp fields between a Searchable and a SearchableResource.
+  # A class with the responsibility to map fields between a Searchable and a SearchableResource.
   class SearchResourceFieldsMapper
     #
     # Declared fields may be of types:

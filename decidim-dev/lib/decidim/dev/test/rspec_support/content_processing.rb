@@ -12,7 +12,7 @@ module Decidim
   end
 
   class ContentRenderers::DummyFooRenderer < ContentRenderers::BaseRenderer
-    def render
+    def render(_options = nil)
       content.gsub("%lorem%", "<em>neque dicta enim quasi</em>")
     end
   end
@@ -28,7 +28,7 @@ module Decidim
   end
 
   class ContentRenderers::DummyBarRenderer < ContentRenderers::BaseRenderer
-    def render
+    def render(_options = nil)
       content.gsub("*ipsum*", "<em>illo qui voluptas</em>")
     end
   end
