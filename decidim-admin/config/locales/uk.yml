@@ -29,7 +29,7 @@ uk:
         body: Основний текст
         subject: Тема
       oauth_application:
-        name: Ім'я
+        name: Назва
         organization_logo: Логотип організації (квадрат)
         organization_name: Назва організації
         organization_url: Адреса сайту організації
@@ -352,7 +352,7 @@ uk:
         oauth_application:
           fields:
             created_at: 'Створено:'
-            name: Ім'я
+            name: Назва
           name: Додаток OAuth
         participatory_space_private_user:
           name: Приватний учасник простору співучасті
@@ -435,13 +435,11 @@ uk:
           error: При спробі видалити цей додаток сталася помилка.
           success: Додаток успішно видалено.
         edit:
-          save: Зберегти
           title: Редагувати додаток
         index:
           confirm_delete: Ви дійсно бажаєте видалити цей додаток?
           title: Додатки OAuth
         new:
-          save: Зберегти
           title: Додати додаток
         update:
           error: При спробі оновити цей додаток сталася помилка.
