@@ -1,5 +1,7 @@
 # Elections Bulletin Board
 
+:warning: This is a work in progress and is not fully working yet.
+
 In order to celebrate [End-to-end auditable votings](https://en.wikipedia.org/wiki/End-to-end_auditable_voting_systems) using the Elections module, you will need to connect your Decidim instance with an instance of the [Decidim Bulletin Board application](https://github.com/decidim/decidim-bulletin-board/), preferably run by an independent organization.
 
 ## Identification pair of keys generation
