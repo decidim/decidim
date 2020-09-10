@@ -28,12 +28,6 @@ uk:
       newsletter:
         body: Основний текст
         subject: Тема
-      oauth_application:
-        name: Ім'я
-        organization_logo: Логотип організації (квадрат)
-        organization_name: Назва організації
-        organization_url: Адреса сайту організації
-        redirect_uri: URI перенаправлення
       organization:
         cta_button_path: Шлях до кнопки "Закликати до дії"
         cta_button_text: Текст кнопки "Закликати до дії"
@@ -82,12 +76,6 @@ uk:
         organization: Організація
         slug: Скорочена веб-адреса
         title: Назва
-    errors:
-      models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI перенаправлення має бути SSL URI
   activerecord:
     attributes:
       decidim/static_page:
@@ -307,7 +295,6 @@ uk:
         homepage: Домашня сторінка
         impersonations: Виступи в ролі учасника
         newsletters: Розсилання новин
-        oauth_applications: Додатки OAuth
         scope_types: Різновиди обсягу
         scopes: Обсяги
         settings: Налаштування
@@ -349,11 +336,6 @@ uk:
             sent_at: 'Надіслане:'
             subject: Тема
           name: Розсилання новин
-        oauth_application:
-          fields:
-            created_at: 'Створено:'
-            name: Ім'я
-          name: Додаток OAuth
         participatory_space_private_user:
           name: Приватний учасник простору співучасті
         scope:
@@ -427,25 +409,6 @@ uk:
         update:
           error: При спробі оновити це розсилання новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
-      oauth_applications:
-        create:
-          error: При спробі створити цей додаток сталася помилка.
-          success: Додаток успішно створено.
-        destroy:
-          error: При спробі видалити цей додаток сталася помилка.
-          success: Додаток успішно видалено.
-        edit:
-          save: Зберегти
-          title: Редагувати додаток
-        index:
-          confirm_delete: Ви дійсно бажаєте видалити цей додаток?
-          title: Додатки OAuth
-        new:
-          save: Зберегти
-          title: Додати додаток
-        update:
-          error: При спробі оновити цей додаток сталася помилка.
-          success: Додаток успішно оновлено.
       officializations:
         create:
           success: Учаснику успішно надано службовий статус
