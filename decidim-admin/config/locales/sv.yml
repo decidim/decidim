@@ -33,7 +33,7 @@ sv:
         name: Namn
         organization_logo: Organisationslogo (kvadrat)
         organization_name: Organisationsnamn
-        organization_url: Organisationens hemsida
+        organization_url: Organisations-URL
         redirect_uri: Omdirigerings-URI
       organization:
         address: SMTP-värdnamn
@@ -433,7 +433,7 @@ sv:
           name: Nyhetsbrev
         oauth_application:
           fields:
-            created_at: Skapades
+            created_at: Skapad
             name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
