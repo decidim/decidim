@@ -403,13 +403,11 @@ is-IS:
         destroy:
           success: Umsókn eyðilagt með góðum árangri.
         edit:
-          save: Vista
           title: Breyta forritinu
         index:
           confirm_delete: Ertu viss um að þú viljir eyða þessu forriti?
           title: OAuth forrit
         new:
-          save: Vista
           title: Ný forrit
         update:
           success: Umsókn uppfærð með góðum árangri.
