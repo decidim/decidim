@@ -41,7 +41,8 @@ const addMarkers = (markersData, markerClusters, map) => {
 
   markersData.forEach((markerData) => {
     let fillColor = window.Decidim.mapConfiguration.markerColor;
-    if (typeof markerData.markerColor === "undefined") {
+
+    if (typeof markerData.markerColor !== "undefined") {
       fillColor = markerData.markerColor;
     }
 
