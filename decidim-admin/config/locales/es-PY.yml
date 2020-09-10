@@ -433,7 +433,7 @@ es-PY:
           name: Boletín
         oauth_application:
           fields:
-            created_at: Creado en
+            created_at: Fecha de creación
             name: Nombre
           name: Aplicación OAuth
         participatory_space_private_user:
@@ -550,13 +550,13 @@ es-PY:
           error: Se ha producido un error al destruir esta aplicación.
           success: Aplicación eliminada con éxito.
         edit:
-          save: Guardar
+          save: Salvar
           title: Editar aplicación
         index:
           confirm_delete: '¿Estás seguro que quieres eliminar esta aplicación?'
           title: Aplicaciones OAuth
         new:
-          save: Guardar
+          save: Salvar
           title: Nueva aplicación
         update:
           error: Se ha producido un error al actualizar esta aplicación.
