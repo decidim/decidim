@@ -29,7 +29,7 @@ tr:
         body: Vücut
         subject: konu
       oauth_application:
-        name: isim
+        name: Adı
         organization_logo: Organizasyon logosu (kare)
         organization_name: Kuruluş Adı
         organization_url: Kuruluş URL'si
@@ -388,7 +388,7 @@ tr:
         oauth_application:
           fields:
             created_at: Düzenlendi
-            name: isim
+            name: Adı
           name: OAuth uygulaması
         participatory_space_private_user:
           name: Katılımcı alan özel kullanıcısı
