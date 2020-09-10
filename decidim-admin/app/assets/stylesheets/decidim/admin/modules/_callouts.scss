@@ -5,6 +5,17 @@
   font-weight: 600;
   color: $white;
 
+  a{
+    color: inherit;
+    text-decoration: underline;
+    opacity: .8;
+    transition: opacity .5s;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+
   &.warning{
     background-color: $warning-color;
   }

@@ -8,7 +8,7 @@ module Decidim
         helper_method :elections, :election
 
         def index
-          flash.now[:alert] ||= I18n.t("elections.index.no_bulletin_board", scope: "decidim.elections.admin") unless Decidim::Elections.bulletin_board.configured?
+          flash.now[:alert] ||= I18n.t("elections.index.no_bulletin_board", scope: "decidim.elections.admin").html_safe unless Decidim::Elections.bulletin_board.configured?
         end
 
         def new
