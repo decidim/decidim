@@ -29,12 +29,6 @@ de:
       newsletter:
         body: Haupttext
         subject: Betreff
-      oauth_application:
-        name: Name
-        organization_logo: Organisationslogo (quadratisch)
-        organization_name: Name der Organisation
-        organization_url: URL der Organisation
-        redirect_uri: Weiterleitungs-URI
       organization:
         address: SMTP Hostname
         alert_color: Benachrichtigung
@@ -118,10 +112,6 @@ de:
         file: Datei
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
             official_img_footer:
@@ -394,7 +384,6 @@ de:
         homepage: Startseite
         impersonations: Identitätswechsel
         newsletters: Newsletter
-        oauth_applications: OAuth-Anwendungen
         participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -441,11 +430,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Hergestellt in
-            name: Name
-          name: OAuth-Anwendung
         participatory_space_private_user:
           name: Participatory Space privater Benutzer
         scope:
@@ -560,25 +544,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
-      oauth_applications:
-        create:
-          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich erstellt
-        destroy:
-          error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich zerstört.
-        edit:
-          save: Speichern
-          title: Anwendung bearbeiten
-        index:
-          confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
-          title: OAuth-Anwendungen
-        new:
-          save: Speichern
-          title: Neue Bewerbung
-        update:
-          error: Beim Aktualisieren dieser Anwendung ist ein Fehler aufgetreten.
-          success: Die Anwendung wurde erfolgreich aktualisiert.
       officializations:
         create:
           success: Benutzer wurde offiziell anerkannt
