@@ -464,13 +464,13 @@ pt:
           error: Houve um erro ao destruir este aplicativo.
           success: Aplicativo excluído com sucesso.
         edit:
-          save: Salvar
+          save: Salve 
           title: Editar aplicativo
         index:
           confirm_delete: Deseja mesmo excluir este aplicativo?
           title: Aplicações OAuth
         new:
-          save: Salvar
+          save: Salve 
           title: Nova aplicação
         update:
           error: Houve um erro ao atualizar este aplicativo.
