@@ -16,6 +16,7 @@ en:
         description: Description
         max_selections: Maximum number of selections
         title: Title
+        min_selections: None of the above option
     errors:
       models:
         answer:
