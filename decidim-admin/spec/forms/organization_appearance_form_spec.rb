@@ -19,6 +19,7 @@ module Decidim
           ca: "Descripció"
         }
       end
+      let(:group_highlight_enabled) { false }
       let(:organization) { create(:organization) }
       let(:cta_button_path) { nil }
       let(:highlighted_content_banner_enabled) { false }
@@ -73,7 +74,8 @@ module Decidim
             "omnipresent_banner_short_description_ca" => omnipresent_banner_short_description[:ca],
             "official_highlight_color" => official_highlight_color,
             "group_highlight_color" => group_highlight_color,
-            "citizen_highlight_color" => citizen_highlight_color
+            "citizen_highlight_color" => citizen_highlight_color,
+            "group_highlight_enabled" => group_highlight_enabled
           }
         }
       end
