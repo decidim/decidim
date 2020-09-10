@@ -29,12 +29,6 @@ pl:
       newsletter:
         body: Treść
         subject: Temat
-      oauth_application:
-        name: Nazwa
-        organization_logo: Logo organizacji (kwadrat)
-        organization_name: Nazwa organizacji
-        organization_url: Adres www organizacji
-        redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
         alert_color: Powiadomienie
@@ -118,10 +112,6 @@ pl:
         file: Plik
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Przekierowanie URI musi być identyfikatorem URI protokołu SSL
         organization:
           attributes:
             official_img_footer:
@@ -394,7 +384,6 @@ pl:
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         newsletters: Newslettery
-        oauth_applications: Aplikacje OAuth
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -441,11 +430,6 @@ pl:
             sent_to: Wysłano do
             subject: Temat
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Utworzono
-            name: Nazwa
-          name: Aplikacja OAuth
         participatory_space_private_user:
           name: Użytkownik prywatnej przestrzeni partycypacyjnej
         scope:
@@ -560,25 +544,6 @@ pl:
         update:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
-      oauth_applications:
-        create:
-          error: Wystąpił błąd podczas tworzenia tej aplikacji.
-          success: Aplikacja została utworzona pomyślnie.
-        destroy:
-          error: Wystąpił błąd podczas usuwania tej aplikacji.
-          success: Aplikacja została usunięta pomyślnie.
-        edit:
-          save: Zapisz
-          title: Edytuj aplikację
-        index:
-          confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
-          title: Aplikacje OAuth
-        new:
-          save: Zapisz
-          title: Nowa aplikacja
-        update:
-          error: Wystąpił błąd podczas aktualizowania tej aplikacji.
-          success: Aplikacja została zaktualizowana.
       officializations:
         create:
           success: Użytkownik oficjalnie z powodzeniem
