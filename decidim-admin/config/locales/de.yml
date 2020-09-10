@@ -33,8 +33,8 @@ de:
         name: Name
         organization_logo: Organisationslogo (quadratisch)
         organization_name: Name der Organisation
-        organization_url: URL der Organisation
-        redirect_uri: Weiterleitungs-URI
+        organization_url: Organisations-URL
+        redirect_uri: URI umleiten
       organization:
         address: SMTP Hostname
         alert_color: Benachrichtigung
