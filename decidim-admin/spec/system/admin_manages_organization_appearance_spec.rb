@@ -12,6 +12,15 @@ describe "Admin manages organization", type: :system do
   end
 
   describe "edit" do
+    it "updates the colors from the form" do
+      visit decidim_admin.edit_organization_appearance_path
+      check "Group highlight enabled"
+
+      click_button "Update"
+
+      expect(page).to have_content("updated successfully")
+    end
+
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_appearance_path
 
