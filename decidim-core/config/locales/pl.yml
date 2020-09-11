@@ -425,14 +425,14 @@ pl:
           nickname_help: Twój pseudonim w %{organization}
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
-          username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
+          username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -441,7 +441,7 @@ pl:
           terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Serwisu
-          username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
+          username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
           are_you_new?: Nowy na platformie?
@@ -1407,7 +1407,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
