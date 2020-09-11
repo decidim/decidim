@@ -86,7 +86,7 @@ pl:
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           official: Urzędnik
-          origin: Pochodzenie
+          origin: Źródło
           search: Szukaj
         filters_small_view:
           close_modal: Zamknij modalne
