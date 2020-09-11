@@ -7,6 +7,10 @@ module Decidim
     describe "with searchable_fields" do
       subject { resource }
 
+      before do
+        resource.organization.available_locales = %w(en ca es)
+      end
+
       context "when resource is inside a participatory space" do
         let!(:resource) do
           Decidim::DummyResources::DummyResource.new(
@@ -21,23 +25,33 @@ module Decidim
         let(:scope) { create(:scope, organization: component.organization) }
 
         context "when searchable_fields are correctly setted" do
+          it "maps default fields" do
+            mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
+
+            expected_fields = {
+              decidim_scope_id: resource.scope.id,
+              decidim_participatory_space_id: resource.component.participatory_space_id,
+              decidim_participatory_space_type: resource.component.participatory_space_type,
+              decidim_organization_id: resource.component.organization.id,
+              datetime: resource.published_at
+            }
+
+            expect(mapped_fields).to include(expected_fields)
+          end
+
           context "and resource fields are NOT localized" do
             it "correctly resolves untranslatable fields into available_locales" do
               mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
 
               expected_fields = {
-                decidim_scope_id: resource.scope.id,
-                decidim_participatory_space_id: resource.component.participatory_space_id,
-                decidim_participatory_space_type: resource.component.participatory_space_type,
-                decidim_organization_id: resource.component.organization.id,
-                datetime: resource.published_at,
-                i18n: {}
+                i18n: {
+                  "ca" => { A: kind_of(String), B: nil, C: nil, D: resource.address },
+                  "en" => { A: kind_of(String), B: nil, C: nil, D: resource.address },
+                  "es" => { A: kind_of(String), B: nil, C: nil, D: resource.address }
+                }
               }
-              i18n = expected_fields[:i18n]
-              resource.component.organization.available_locales.each do |locale|
-                i18n[locale] = { A: resource.title[locale] || "", B: nil, C: nil, D: [resource.address].join(" ") }
-              end
-              expect(mapped_fields).to eq expected_fields
+
+              expect(mapped_fields).to include(expected_fields)
             end
           end
 
@@ -46,42 +60,68 @@ module Decidim
               resource.title = { "ca" => "title ca", "en" => "title en", "es" => "title es" }
             end
 
-            it "correctly resolves untranslatable fields into available_locales" do
+            it "correctly resolves the fields into available_locales" do
               mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
               expected_fields = {
-                decidim_scope_id: resource.scope.id,
-                decidim_participatory_space_id: resource.component.participatory_space_id,
-                decidim_participatory_space_type: resource.component.participatory_space_type,
-                decidim_organization_id: resource.component.organization.id,
-                datetime: resource.published_at,
-                i18n: {}
+                i18n: {
+                  "ca" => { A: "title ca", B: nil, C: nil, D: kind_of(String) },
+                  "en" => { A: "title en", B: nil, C: nil, D: kind_of(String) },
+                  "es" => { A: "title es", B: nil, C: nil, D: kind_of(String) }
+                }
               }
-              i18n = expected_fields[:i18n]
-              i18n["ca"] = { A: resource.title["ca"] || "", B: nil, C: nil, D: resource.address }
-              i18n["en"] = { A: resource.title["en"] || "", B: nil, C: nil, D: resource.address }
-              i18n["es"] = { A: resource.title["es"] || "", B: nil, C: nil, D: resource.address }
-              expect(mapped_fields).to eq expected_fields
+
+              expect(mapped_fields).to include(expected_fields)
+            end
+          end
+
+          context "and resource fields have machine translations" do
+            before do
+              resource.title = { "en" => "title en", "machine_translations" => { "es" => "title es" } }
+            end
+
+            it "correctly resolves machine_translations into available_locales" do
+              mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
+
+              expected_fields = {
+                i18n: {
+                  "ca" => { A: "", B: nil, C: nil, D: resource.address },
+                  "en" => { A: "title en", B: nil, C: nil, D: resource.address },
+                  "es" => { A: "title es", B: nil, C: nil, D: resource.address }
+                }
+              }
+
+              expect(mapped_fields).to include(expected_fields)
+            end
+          end
+
+          context "and resource fields have content that has been processed" do
+            before do
+              allow(Decidim).to receive(:content_processors).and_return([:dummy_foo, :dummy_bar])
+              resource.title = { "en" => "title %lorem%", "machine_translations" => { "es" => "title *ipsum*" } }
+            end
+
+            it "gets the rendered value" do
+              mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
+
+              expected_fields = {
+                i18n: {
+                  "ca" => { A: "", B: nil, C: nil, D: resource.address },
+                  "en" => { A: "title neque dicta enim quasi", B: nil, C: nil, D: resource.address },
+                  "es" => { A: "title illo qui voluptas", B: nil, C: nil, D: resource.address }
+                }
+              }
+
+              expect(mapped_fields).to include(expected_fields)
             end
           end
 
           context "and scope is not setted" do
             it "correctly resolves fields" do
               resource.scope = nil
-              expected_fields = {
-                decidim_scope_id: nil,
-                decidim_participatory_space_id: resource.component.participatory_space_id,
-                decidim_participatory_space_type: resource.component.participatory_space_type,
-                decidim_organization_id: resource.component.organization.id,
-                datetime: resource.published_at,
-                i18n: {}
-              }
-              i18n = expected_fields[:i18n]
-              resource.component.organization.available_locales.each do |locale|
-                i18n[locale] = { A: resource.title[locale] || "", B: nil, C: nil, D: [resource.address].join(" ") }
-              end
+              expected_fields = { decidim_scope_id: nil }
 
               mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
-              expect(mapped_fields).to eq expected_fields
+              expect(mapped_fields).to include(expected_fields)
             end
           end
         end
@@ -102,17 +142,11 @@ module Decidim
             decidim_scope_id: nil,
             decidim_participatory_space_id: nil,
             decidim_participatory_space_type: nil,
-            decidim_organization_id: organization.id,
-            datetime: resource.created_at,
-            i18n: {}
+            decidim_organization_id: organization.id
           }
-          i18n = expected_fields[:i18n]
-          resource.organization.available_locales.each do |locale|
-            i18n[locale] = { A: resource.name, B: nil, C: nil, D: nil }
-          end
 
           mapped_fields = subject.class.search_resource_fields_mapper.mapped(subject)
-          expect(mapped_fields).to eq expected_fields
+          expect(mapped_fields).to include(expected_fields)
         end
       end
     end

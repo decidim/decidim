@@ -10,7 +10,7 @@ module Decidim
     let(:organization) { current_component.organization }
     let(:author) { create(:user, organization: organization) }
     let!(:debate) do
-      desc = "Nulla #TestCheck accumsan tincidunt description Ow!"
+      desc = "Nulla TestCheck accumsan tincidunt description Ow!"
       create(
         :debate,
         :open_ama,
@@ -131,10 +131,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(debate, locale)
       {
-        "content_a" => I18n.transliterate(debate.search_title[locale]),
+        "content_a" => I18n.transliterate(debate.title[locale]),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(debate.search_body[locale]),
+        "content_d" => I18n.transliterate(debate.description[locale]),
         "locale" => locale,
         "decidim_organization_id" => debate.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

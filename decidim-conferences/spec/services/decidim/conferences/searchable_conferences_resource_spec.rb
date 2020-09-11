@@ -13,6 +13,7 @@ module Decidim
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
+          objectives: Decidim::Faker::Localized.sentence,
           description: description_1
         )
       end
@@ -24,6 +25,7 @@ module Decidim
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
+          objectives: Decidim::Faker::Localized.sentence,
           description: description_2
         )
       end

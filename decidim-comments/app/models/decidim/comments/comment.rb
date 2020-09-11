@@ -43,7 +43,7 @@ module Decidim
       translatable_fields :body
       searchable_fields(
         participatory_space: :itself,
-        A: :search_body,
+        A: :body,
         datetime: :created_at
       )
 
@@ -135,17 +135,6 @@ module Decidim
 
       def formatted_body
         Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
-      end
-
-      def search_body
-        body.inject({}) do |rendered_value, (locale, content)|
-          rendered_value.update(
-            locale => Decidim::ContentProcessor.render_without_format(
-              sanitize_content(content),
-              links: false
-            )
-          )
-        end
       end
 
       def translated_body

@@ -52,11 +52,18 @@ module Decidim
     # @return [Result] a Result object with the content rewritten and the metadata
     def self.parse(content, context)
       Decidim.content_processors.each_with_object(Result.new(content, {})) do |type, result|
-        result = parse_with_processor(type, result, context)
+        parse_with_processor(type, result, context)
       end
     end
 
-    # TODO: Document and test this.
+    # Public: Calls the specified processors to process the given content with
+    # it. For example, to convert hashtags to its Global ID representation.
+    #
+    # @param type [String] the name of the processor to use.
+    # @param content [String] already rewritten content or regular content
+    # @param context [Hash] with information to inject to the parsers as context
+    #
+    # @return [Result] a Result object with the content rewritten and the metadata
     def self.parse_with_processor(type, content, context)
       result = if content.is_a?(Result)
                  content
@@ -84,6 +91,10 @@ module Decidim
     # This calls all registered processors one after the other and returns
     # the processed content ready to display.
     #
+    # @param content [String] with the content to be rendered.
+    # @param wrapper_tag [String] with the HTML tag to wrap the content.
+    # @param options [Hash] with options to pass to the renderer.
+    #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
     def self.render(content, wrapper_tag = "p", options = {})
       simple_format(
@@ -93,7 +104,17 @@ module Decidim
       )
     end
 
+    # This calls all registered processors one after the other and returns
+    # the processed content ready to display without wrapping the content in
+    # HTML.
+    #
+    # @param content [String] with the content to be rendered.
+    # @param options [Hash] with options to pass to the renderer.
+    #
+    # @return [String] the content processed and ready to display.
     def self.render_without_format(content, options = {})
+      return content if content.blank?
+
       Decidim.content_processors.reduce(content) do |result, type|
         renderer_klass(type).constantize.new(result).render(options)
       end
