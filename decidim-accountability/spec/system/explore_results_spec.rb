@@ -203,19 +203,20 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with linked projects" do
-      let(:project_component) do
+      let(:budgets_component) do
         create(:component, manifest_name: :budgets, participatory_space: result.component.participatory_space)
       end
-      let(:budgets) { create_list(:project, 3, component: project_component) }
-      let(:project) { budgets.first }
+      let(:budget) { create(:budget, component: budgets_component) }
+      let(:projects) { create_list(:project, 3, budget: budget) }
+      let(:project) { projects.first }
 
       before do
-        result.link_resources(budgets, "included_projects")
+        result.link_resources(projects, "included_projects")
         visit current_path
       end
 
       it "shows related projects" do
-        budgets.each do |project|
+        projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end

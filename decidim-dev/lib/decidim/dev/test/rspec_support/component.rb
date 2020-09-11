@@ -71,6 +71,7 @@ module Decidim
       include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
 
       translatable_fields :title

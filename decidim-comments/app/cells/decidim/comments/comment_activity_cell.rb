@@ -15,6 +15,8 @@ module Decidim
       end
 
       def resource_link_path
+        return root_commentable.polymorphic_resource_path(url_params) if root_commentable&.respond_to?(:polymorphic_resource_path)
+
         resource_locator(root_commentable).path(url_params)
       end
 
@@ -23,7 +25,7 @@ module Decidim
           "decidim.comments.last_activity.new_comment_at_html",
           link: link_to(
             root_commentable_title,
-            resource_locator(root_commentable).path
+            resource_link_path
           )
         )
       end

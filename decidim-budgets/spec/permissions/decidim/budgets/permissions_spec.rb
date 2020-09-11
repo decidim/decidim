@@ -5,15 +5,15 @@ require "spec_helper"
 describe Decidim::Budgets::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, organization: budget_component.organization }
+  let(:user) { create :user, organization: budgets_component.organization }
   let(:context) do
     {
-      current_component: budget_component,
+      current_component: budgets_component,
       project: project
     }
   end
-  let(:budget_component) { create :budget_component }
-  let(:project) { create :project, component: budget_component }
+  let(:budgets_component) { create :budgets_component }
+  let(:project) { create :project, component: budgets_component }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   context "when scope is admin" do
