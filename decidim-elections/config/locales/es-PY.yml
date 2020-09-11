@@ -10,7 +10,6 @@ es-PY:
         description: Descripción
         end_time: La votación acaba el
         start_time: La votación empieza el
-        subtitle: Subtítulo
         title: Título
       question:
         description: Descripción
@@ -22,6 +21,10 @@ es-PY:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
   activerecord:
     models:
       decidim/elections/answer:
@@ -135,6 +138,45 @@ es-PY:
         election:
           publish: "%{user_name} ha publicado la votación %{resource_name}"
           unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Acabada
+          ongoing: Activa
+          upcoming: Próximas
+        end_date: Termina
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Fechas
+        questions: Preguntas %{count}
+        start_date: Empieza
+        unspecified: Sin especificar
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elección"
+            other: "%{count} elecciones"
+        filters:
+          active: Activa
+          all: Todas
+          finished: Finalizada
+          search: Buscar
+          state: Estado
+          upcoming: Próximas
+        filters_small_view:
+          close_modal: Cerrar el modal
+          filter: Filtrar
+          filter_by: Filtrar por
+          unfold: Desplegar
+        show:
+          back: Todas las elecciones
+          preview: Previsualizar
+          vote: Votar
+          voting_period_status:
+            finished: La votación empezó el %{start_time} y terminó el %{end_time}
+            ongoing: La votación termina el %{end_time}
+            upcoming: La votación empieza el %{start_time}
       models:
         answer:
           fields:
@@ -150,6 +192,51 @@ es-PY:
             answers: Respuestas
             max_selections: Número máximo de elementos a seleccionar
             title: Título
+      orders:
+        label: Ordenar elecciones por
+        older: Más antigua
+        recent: Reciente
+      votes:
+        confirm:
+          answer: Respuesta
+          answer_number: respuesta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirma tu voto
+          intro: Aquí tienes un resumen del voto que estás a punto de emitir. <br> Por favor, confirma tu voto o edita tus respuestas.
+          question: Preguntas %{count}
+        confirmed:
+          back: Volver a las elecciones
+          experience: '¿Cómo valoras la experiencia?'
+          feedback: Danos tu opinión
+          header: Voto confirmado
+          lead: '¡Tu voto ha sido emitido!'
+          text: 'Puedes comprobar que tu voto se ha añadido correctamente a la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Para comprobarlo, copia el identificador y pégalo en la <a href="evote-verify">página de verificación de voto</a>
+        encrypting:
+          header: Codificando voto...
+          text: Tu voto está siendo cifrado para asegurarte que se emite de forma anónima.
+        header:
+          confirm: Confirma tu voto
+          confirmed: Voto confirmado
+          encrypting: Confirmar voto
+        messages:
+          not_allowed: No puedes votar en estas elecciones en este momento.
+        modal:
+          close: Cerrar
+          proposal_header: 'Propuestas:'
+        new:
+          answer_choices: Puedes seleccionar hasta %{choices} respuestas o ninguna
+          more_information: Más información
+          preview_alert: Esta es una vista previa de la cabina de votación.
+          question_steps: Pregunta %{current_step} de %{total_steps}
+          selections: "Seleccionada %{selected} de %{max_selections}"
+        voting_step:
+          back: Atrás
+          continue: Siguente
+      warnings:
+        no_elections_warning: No hay ninguna elección que coincida con tu búsqueda o no hay ninguna programada.
+        no_scheduled_elections_warning: Actualmente no hay elecciones programados, pero puedes ver los anteriores.
     events:
       elections:
         election_published:
@@ -160,3 +247,7 @@ es-PY:
     participatory_processes:
       statistics:
         elections_count: Votaciones
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Salir

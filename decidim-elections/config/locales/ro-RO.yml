@@ -10,7 +10,6 @@ ro:
         description: Descriere
         end_time: Votarea se încheie la
         start_time: Votarea începe la
-        subtitle: Subtitrare
         title: Titlu
       question:
         description: Descriere

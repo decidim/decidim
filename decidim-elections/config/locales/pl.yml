@@ -10,7 +10,6 @@ pl:
         description: Opis
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
-        subtitle: Podtytuł
         title: Tytuł
       question:
         description: Opis
@@ -22,6 +21,10 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Załącz ponownie
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Musi zostać ponownie załączony
   activerecord:
     models:
       decidim/elections/answer:

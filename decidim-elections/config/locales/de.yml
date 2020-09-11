@@ -10,7 +10,6 @@ de:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
-        subtitle: Untertitel
         title: Titel
       question:
         description: Beschreibung
@@ -142,7 +141,7 @@ de:
       elections:
         count:
           elections_count:
-            one: "%{count} Wahl"
+            one: "%{count} Wahlen"
             other: "%{count} Wahlen"
         show:
           back: Alle Wahlen
