@@ -147,7 +147,7 @@ pl:
       election_m:
         badge_name:
           finished: Zakończone
-          ongoing: Aktywne
+          ongoing: Aktualne
           upcoming: Nadchodzące
         end_date: Data zakończenia
         footer:
@@ -166,7 +166,7 @@ pl:
             many: "%{count} wybory"
             other: "%{count} wybory"
         filters:
-          active: Aktywne
+          active: Aktualne
           all: Wszystkie
           finished: Zakończone
           search: Szukaj
