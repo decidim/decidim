@@ -106,7 +106,7 @@ pl:
             many: "%{count} propozycji"
             other: "%{count} propozycji"
         filters:
-          active: Aktywne
+          active: Aktualne
           all: Wszystko
           cancelled: Anulowane
           category: Kategoria
