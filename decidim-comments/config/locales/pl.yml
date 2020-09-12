@@ -35,7 +35,7 @@ pl:
             label: Komentarz
             placeholder: Co o tym myślisz?
           form_error: 'Tekst jest wymagany. Maksymalna liczba znaków to: %{length}.'
-          submit: Wysłać
+          submit: Wyślij
           user_group_id:
             label: Komentuj jako
         opinion:
