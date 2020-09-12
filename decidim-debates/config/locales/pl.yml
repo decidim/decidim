@@ -111,7 +111,7 @@ pl:
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           official: Urzędnik
-          origin: Pochodzenie
+          origin: Źródło
           search: Szukaj
         filters_small_view:
           close_modal: Zamknij modalne
@@ -187,7 +187,7 @@ pl:
         debate_closed:
           email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz debatę "%{resource_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
-          email_subject: Debata "%{resource_title}" została zamknięta
+          email_subject: Debata "%{resource_title}" została zakończona
           notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została zamknięta.
     gamification:
       badges:
