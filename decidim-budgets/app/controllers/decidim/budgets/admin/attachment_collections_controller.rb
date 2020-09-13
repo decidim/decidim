@@ -17,7 +17,7 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:project_id])
+          @project ||= Decidim::Budgets::Project.find(params[:project_id])
         end
       end
     end

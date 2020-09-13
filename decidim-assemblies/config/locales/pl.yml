@@ -54,7 +54,7 @@ pl:
       assembly_member:
         birthday: Urodziny
         birthplace: Miejsce urodzenia
-        ceased_date: Przerywana data
+        ceased_date: Data zakończenia
         designation_date: Data wyboru
         designation_mode: Tryb wyboru
         full_name: Pełne imię i nazwisko
@@ -223,7 +223,7 @@ pl:
             other: Inny
             president: Przewodniczący
             secretary: Sekretarz
-            vice_president: Wiceprezydent
+            vice_president: Wiceprzewodniczący
         assembly_user_role:
           fields:
             email: E-mail
@@ -252,7 +252,7 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia zespołów"
       assembly_type:
         create: "%{user_name} utworzył(a) typ zespołu %{resource_name}"
-        delete: "%{user_name} usunął/usunęła członka %{resource_name} z typu zespołu %{space_name}"
+        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name} z przestrzeni %{space_name}"
         publish: "%{user_name} opublikował(a) typ zespołu %{resource_name}"
         unpublish: "%{user_name} anulował(a) publikację typu zespołu %{resource_name}"
         update: "%{user_name} zaktualizował(a) typ zespołu %{resource_name}"

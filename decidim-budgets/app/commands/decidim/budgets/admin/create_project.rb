@@ -25,7 +25,7 @@ module Decidim
           end
 
           transaction do
-            create_project
+            create_project!
             link_proposals
             create_gallery if process_gallery?
           end
@@ -37,16 +37,21 @@ module Decidim
 
         attr_reader :form, :project, :gallery
 
-        def create_project
+        def create_project!
+          attributes = {
+            budget: form.budget,
+            scope: form.scope,
+            category: form.category,
+            title: form.title,
+            description: form.description,
+            budget_amount: form.budget_amount
+          }
+
           @project = Decidim.traceability.create!(
             Project,
             form.current_user,
-            scope: form.scope,
-            category: form.category,
-            component: form.current_component,
-            title: form.title,
-            description: form.description,
-            budget: form.budget
+            attributes,
+            visibility: "all"
           )
           @attached_to = @project
         end

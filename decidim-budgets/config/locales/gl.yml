@@ -22,7 +22,6 @@ gl:
         destroy: Eliminar
         edit: Editar
         import: Importa propostas a proxectos
-        new: Novo proxecto
         preview: Vista previa
         title: Accións
       admin:
@@ -67,7 +66,6 @@ gl:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: Estás de acordo? Unha vez confirmado o teu voto non podes cambialo.
           cancel: Cancelar
           confirm: Confirmar
           description: Estes son os proxectos que escolleu para formar parte do orzamento.
@@ -108,9 +106,6 @@ gl:
             other: proxectos seleccionados
           view: Ver
         project:
-          count:
-            one: 1 apoio
-            other: "%{count} soporta"
           view: Ver
         show:
           budget: Orzamento
@@ -132,7 +127,8 @@ gl:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votación habilitada
+            votes_choices:
+              enabled: Votación habilitada
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto

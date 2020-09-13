@@ -26,6 +26,11 @@
     display: flex;
     justify-content: center;
     padding: 10px 0 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+
+    @include breakpoint(medium){
+      padding-bottom: 0;
+      margin-bottom: -1rem;
+    }
   }
 }
 

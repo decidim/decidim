@@ -29,12 +29,6 @@ it:
       newsletter:
         body: Testo
         subject: Oggetto
-      oauth_application:
-        name: Nome
-        organization_logo: Logo dell'organizzazione (quadrato)
-        organization_name: Nome dell'organizzazione
-        organization_url: URL dell'organizzazione
-        redirect_uri: URI di Reindirizzamento
       organization:
         address: Server SMTP
         alert_color: Notifica
@@ -115,10 +109,6 @@ it:
         file: File
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -390,7 +380,6 @@ it:
         homepage: Homepage
         impersonations: Impersonificazioni
         newsletters: Newsletters
-        oauth_applications: Applicazioni OAuth
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambito tematico
@@ -437,11 +426,6 @@ it:
             sent_to: Inviato a
             subject: Oggetto
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Creato il
-            name: Nome
-          name: Applicazione OAuth
         participatory_space_private_user:
           name: Partecipante privato allo spazio partecipativo
         scope:
@@ -548,25 +532,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
-      oauth_applications:
-        create:
-          error: Si è verificato un errore durante la creazione di questa applicazione.
-          success: Applicazione creata con successo.
-        destroy:
-          error: C'è stato un errore nella distruzione di questa applicazione.
-          success: Applicazione distrutta con successo.
-        edit:
-          save: Salvare
-          title: Modifica l'applicazione
-        index:
-          confirm_delete: Sei sicuro di voler eliminare questa applicazione?
-          title: Applicazioni OAuth
-        new:
-          save: Salvare
-          title: Nuova applicazione
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
-          success: Applicazione aggiornata con successo.
       officializations:
         create:
           success: Utente ufficializzato con successo

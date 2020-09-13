@@ -26,7 +26,7 @@ fr:
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_type:
-        area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
+        area_enabled: Permettre aux auteurs de choisir le périmètre d'application pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
         banner_image: Image d'en-tête
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
@@ -73,6 +73,20 @@ fr:
       actions:
         new_initiative_type: Nouveau type d'initiative
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Périmètre d'assemblée
+          state_eq:
+            label: État
+            values:
+              accepted: Assez de signatures
+              created: Créée
+              discarded: Rejetée
+              published: Publiée
+              rejected: Pas assez de signatures
+              validating: Validation technique
+          type_id_eq:
+            label: Type d'initiative
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
       menu:
@@ -413,6 +427,9 @@ fr:
             close: Fermer
             explanation: Vous devez être vérifié pour créer une nouvelle initiative.
             title: Autorisation requise
+        initiatives:
+          closed_initiatives_warning: À l'heure actuelle, il n'y a pas de pétitions publiées, mais vous trouverez ici une liste de toutes les pétitions fermées.
+          no_initiatives_warning: Aucune initiative ne correspond à vos critères de recherche.
         interactions:
           comments_count:
             count:

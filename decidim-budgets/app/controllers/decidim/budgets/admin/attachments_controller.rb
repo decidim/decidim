@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachments
 
         def after_destroy_path
-          projects_path
+          budget_projects_path(project.budget)
         end
 
         def attached_to
@@ -18,7 +18,7 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:project_id])
+          @project ||= Decidim::Budgets::Project.find(params[:project_id])
         end
       end
     end
