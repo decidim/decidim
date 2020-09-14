@@ -92,7 +92,7 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(3)
             end,
-            max_selections: Faker::Number.between(0, 5),
+            max_selections: Faker::Number.between(1, 5),
             weight: Faker::Number.number(1),
             random_answers_order: Faker::Boolean.boolean(0.5),
             min_selections: Faker::Number.between(0, 1)

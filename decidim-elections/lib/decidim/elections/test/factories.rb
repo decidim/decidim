@@ -43,6 +43,7 @@ FactoryBot.define do
         election.questions << build(:question, :yes_no, election: election, weight: 1)
         election.questions << build(:question, :candidates, election: election, weight: 3)
         election.questions << build(:question, :projects, election: election, weight: 2)
+        election.questions << build(:question, :nota, election: election, weight: 4)
       end
     end
   end
@@ -56,7 +57,7 @@ FactoryBot.define do
     election
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    min_selections { 0 }
+    min_selections { 1 }
     max_selections { 1 }
     weight { Faker::Number.number(1) }
     random_answers_order { true }
@@ -72,7 +73,6 @@ FactoryBot.define do
     trait :yes_no do
       complete
       random_answers_order { false }
-      min_selections { 1 }
     end
 
     trait :candidates do
@@ -86,6 +86,13 @@ FactoryBot.define do
       max_selections { 3 }
       answers { 6 }
       more_information { true }
+    end
+
+    trait :nota do
+      complete
+      max_selections { 4 }
+      answers { 8 }
+      min_selections { 0 }
     end
   end
 
