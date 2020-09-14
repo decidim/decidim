@@ -19,11 +19,13 @@ describe Decidim::Elections::Admin::QuestionForm do
   let(:max_selections) { 3 }
   let(:weight) { 10 }
   let(:random_answers_order) { true }
+  let(:min_selections) { 1 }
   let(:attributes) do
     {
       title: title,
       description: description,
       max_selections: max_selections,
+      min_selections: min_selections,
       weight: weight,
       random_answers_order: random_answers_order
     }

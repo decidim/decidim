@@ -86,6 +86,9 @@ shared_examples "uses the voting booth" do
     # shows a nota question: checkboxes, random order without extra information, nota checked
     question_step(4) do |_question|
       check(I18n.t("decidim.elections.votes.new.nota_option"), allow_label_click: true)
+
+      expect(page).to have_selector("label.is-disabled").exactly(8).times
+
       expect_valid
     end
 

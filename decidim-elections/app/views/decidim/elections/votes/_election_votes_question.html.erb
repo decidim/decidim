@@ -32,7 +32,7 @@
       <% if question.max_selections == 1 %>
         <%= radio_button_tag "question_#{question.id}", "nota_input_#{question.id}", false, class: "nota_input" %>
       <% else %>
-        <%= check_box_tag "question_#{question.id}", "nota_input_#{question.id}", false, { class: "nota_input", id: "check-nota" } %>
+        <%= check_box_tag "question_#{question.id}", "nota_input_#{question.id}", false, { class: "nota_input", id: "check-nota", data: { "disable-check": "" } } %>
       <% end %>
 
       <span class="evote__check-label" id="nota_input">
