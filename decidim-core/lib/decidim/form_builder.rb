@@ -874,6 +874,7 @@ module Decidim
         content_tag(:select, id: tabs_id, class: "language-change") do
           locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
             title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+            title += " (error!)" if error?(name_with_locale(name, locale))
             tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
             string + content_tag(:option, title, value: "##{tab_content_id}")
           end
