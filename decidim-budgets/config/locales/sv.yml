@@ -21,11 +21,33 @@ sv:
         confirm_destroy: Vill du radera projektet?
         destroy: Radera
         edit: Redigera
+        edit_projects: Hantera projekt
         import: Importera förslag till projekt
+        new: Ny %{name}
         preview: Förhandsvisa
         title: Åtgärder
       admin:
+        budgets:
+          create:
+            invalid: Det gick inte att skapa budgeten
+            success: Budgeten har skapats
+          destroy:
+            invalid: Det gick inte att radera budgeten
+            success: Budgeten har raderats
+          edit:
+            title: Redigera budget
+            update: Uppdatera budget
+          index:
+            title: Budgetar
+          new:
+            create: Skapa budget
+            title: Ny budget
+          update:
+            invalid: Det gick inte att uppdatera budgeten
+            success: Budgeten har uppdaterats
         models:
+          budget:
+            name: Budget
           project:
             name: Projekt
         projects:
@@ -57,11 +79,34 @@ sv:
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
             select_component: Välj en komponent
       admin_log:
+        budget:
+          create: "%{user_name} skapade budgeten %{resource_name} i utrymmet %{space_name}"
+          delete: "%{user_name} raderade budgeten %{resource_name} i utrymmet %{space_name}"
+          update: "%{user_name} uppdaterade budgeten %{resource_name} i utrymmet %{space_name}"
         project:
           create: "%{user_name} skapade projektet %{resource_name} i utrymmet %{space_name}"
           delete: "%{user_name} raderade projektet %{resource_name} i utrymmet %{space_name}"
           update: "%{user_name} uppdaterade projektet %{resource_name} i utrymmet %{space_name}"
+      budget:
+        view: Visa alla budgetprojekt
+      budget_information_modal:
+        back_to: Tillbaka till %{component_name}
+        close_modal: Stäng fönster
+        continue: Fortsätt
+        more_information: Mer information
+      budgets_list:
+        cancel_order:
+          more_than_one: dra tillbaka din röst på %{name} och börja om
+          only_one: dra tillbaka din röst och börja om.
+        highlighted_cta: Rösta på %{name}
+        if_change_opinion: Om du ångrar dig kan du
+        my_budgets: Mina budgetar
       models:
+        budget:
+          fields:
+            name: Namn
+            projects_count: Antal projekt
+            total_budget: Total budget
         project:
           fields:
             title: Titel
@@ -69,6 +114,8 @@ sv:
         order_summary:
           selected_projects: 'De projekt som du har valt är:'
           subject: Du har röstat i deltagarutrymmet %{space_name}
+          voted_on_space: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name}.
+          voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
           cancel: Avbryt
