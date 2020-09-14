@@ -24,8 +24,8 @@ shared_examples "a proposal form" do |options|
   let(:meeting_as_author) { false }
   let(:params) do
     {
-      title: title,
-      body: body,
+      title: { en: title },
+      body: { en: body },
       author: author,
       category_id: category_id,
       scope_id: scope_id,
@@ -56,7 +56,7 @@ shared_examples "a proposal form" do |options|
 
     it "only adds errors to this field" do
       subject.valid?
-      expect(subject.errors.keys).to eq [:title]
+      expect(subject.errors.keys).to eq [:title_en]
     end
   end
 
@@ -219,8 +219,8 @@ shared_examples "a proposal form" do |options|
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
-        expect(subject.errors.keys).to match_array([:title, :attachment])
+        expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Attachment Needs to be reattached"])
+        expect(subject.errors.keys).to match_array([:title_en, :attachment])
       end
     end
   end
@@ -287,8 +287,8 @@ shared_examples "a proposal form with meeting as author" do |options|
 
   let(:params) do
     {
-      title: title,
-      body: body,
+      title: { en: title },
+      body: { en: body },
       created_in_meeting: created_in_meeting,
       author: meeting_as_author,
       meeting_id: author.id
