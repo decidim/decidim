@@ -70,18 +70,11 @@ module Decidim
 
     private
 
-    # validation method for participatory spaces
+    # Validation to ensure that the resource is scoped within the organization's scope.
     def scope_belongs_to_organization
       return if !scope || !organization
 
       errors.add(:scope, :invalid) unless organization.scopes.where(id: scope.id).exists?
-    end
-
-    # validation method for components
-    def scope_belongs_to_participatory_space
-      return if !scopes_enabled? || !participatory_space
-
-      errors.add(:scope, :invalid) if participatory_space.out_of_scope?(scope)
     end
   end
 end

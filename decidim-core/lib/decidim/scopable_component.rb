@@ -30,6 +30,15 @@ module Decidim
       def scopes_enabled
         settings.try(:scopes_enabled)
       end
+
+      private
+
+      # Validation to ensure that the component is scoped within its participatory space Scope.
+      def scope_belongs_to_participatory_space
+        return if !scopes_enabled? || !participatory_space
+
+        errors.add(:scope, :invalid) if participatory_space.out_of_scope?(scope)
+      end
     end
   end
 end
