@@ -285,13 +285,14 @@ module Decidim
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
     # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
+    # - namespace   - prepend a custom name to the html element's DOM id.
     #
     # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
       id = if self.options.has_key?(:namespace)
-             "#{self.options[:namespace]}_#{id}"
+             "#{self.options[:namespace]}_#{sanitize_for_dom_selector(@object_name)}"
            else
              "#{sanitize_for_dom_selector(@object_name)}_#{attribute}"
            end
