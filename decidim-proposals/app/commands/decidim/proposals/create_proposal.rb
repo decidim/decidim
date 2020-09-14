@@ -58,7 +58,7 @@ module Decidim
           ) do
             proposal = Proposal.new(
               title: {
-                I18n.locale => title_with_hashtags,
+                I18n.locale => title_with_hashtags
               },
               body: {
                 I18n.locale => body_with_hashtags
