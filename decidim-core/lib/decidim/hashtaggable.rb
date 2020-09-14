@@ -8,6 +8,11 @@ module Decidim
     included do
       def search_title
         field = title
+        field = if field.is_a?(String)
+                  field
+                elsif field.is_a?(Hash)
+                  field.values.first
+                end
         search_value_for(field)
       end
 
@@ -15,6 +20,11 @@ module Decidim
 
       def search_body
         field = try(:body) || try(:description) || title
+        field = if field.is_a?(Hash)
+                  field
+                elsif field.is_a?(Hash)
+                  field.values.first
+                end
         search_value_for(field)
       end
 
