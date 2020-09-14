@@ -97,10 +97,8 @@ module Decidim
     #
     # Renders the cell contents.
     def cell(name, model, options = {}, &block)
-      instrument(:cell, identifier: name) do |_payload|
-        options = { context: { current_user: current_user } }.deep_merge(options)
-        super(name, model, options, &block).to_s
-      end
+      options = { context: { current_user: current_user } }.deep_merge(options)
+      super(name, model, options, &block)
     end
 
     # Public: Builds the URL for the step Call To Action. Takes URL params
@@ -118,12 +116,6 @@ module Decidim
         [base_url, "/", process.active_step.cta_path, "?", params].join("")
       else
         [base_url, "/", process.active_step.cta_path].join("")
-      end
-    end
-
-    def instrument(name, **options)
-      ActiveSupport::Notifications.instrument("render_#{name}.action_view", options) do |payload|
-        yield payload
       end
     end
   end
