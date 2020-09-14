@@ -32,7 +32,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
   describe "call" do
     let(:form_params) do
       {
-        title: {en: "A reasonable proposal title" },
+        title: { en: "A reasonable proposal title" },
         body: { en: "A reasonable proposal body" },
         address: address,
         has_address: has_address,

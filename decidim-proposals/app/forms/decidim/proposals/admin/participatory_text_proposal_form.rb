@@ -7,7 +7,7 @@ module Decidim
       # through the participatory texts.
       class ParticipatoryTextProposalForm < Admin::ProposalBaseForm
         translatable_attribute :title, String do |field, _locale|
-          validates field, length: { maximum: 150 }, if: Proc.new { |resource| resource.send(field).present? }
+          validates field, length: { maximum: 150 }, if: proc { |resource| resource.send(field).present? }
         end
       end
     end
