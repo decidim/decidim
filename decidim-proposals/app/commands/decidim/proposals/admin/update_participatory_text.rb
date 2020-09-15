@@ -42,8 +42,8 @@ module Decidim
             form.proposals.each do |prop_form|
               proposal = Proposal.where(component: form.current_component).find(prop_form.id)
               proposal.set_list_position(prop_form.position) if proposal.position != prop_form.position
-              proposal.title = prop_form.title
-              proposal.body = prop_form.body if proposal.participatory_text_level == ParticipatoryTextSection::LEVELS[:article]
+              proposal.title =  { I18n.locale => prop_form.title }
+              proposal.body = { I18n.locale => prop_form.body } if proposal.participatory_text_level == ParticipatoryTextSection::LEVELS[:article]
 
               add_failure(proposal) unless proposal.save
             end

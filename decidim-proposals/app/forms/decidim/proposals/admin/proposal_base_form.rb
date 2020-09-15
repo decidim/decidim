@@ -23,10 +23,6 @@ module Decidim
         attribute :photos, Array[String]
         attribute :add_photos, Array
 
-        translatable_attribute :title, String
-        translatable_attribute :body, String
-
-        validates :title, :body, translatable_presence: true
         validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
