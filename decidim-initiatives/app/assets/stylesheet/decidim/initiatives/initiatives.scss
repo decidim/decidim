@@ -51,3 +51,9 @@
 .legal_text{
   font-size: 8pt;
 }
+
+.progress__bar--horizontal{
+  &:last-of-type{
+    margin-bottom: 1.5rem;
+  }
+}
