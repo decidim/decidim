@@ -1,8 +1,14 @@
 fr:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Portée
+        description: Description
+        title: Titre
+        total_budget: Budget total
+        weight: Pondération
       project:
-        budget: Budget
+        budget_amount: Montant du budget
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -203,6 +209,9 @@ fr:
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Portée
+            scopes_enabled: Portées activées
+            title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
