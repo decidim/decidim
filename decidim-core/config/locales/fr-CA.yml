@@ -354,6 +354,8 @@ fr-CA:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            scope_id: Portée
+            scopes_enabled: Portées activées
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
