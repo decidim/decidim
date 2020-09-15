@@ -2,7 +2,6 @@ el:
   activemodel:
     attributes:
       project:
-        budget: Προϋπολογισμός
         decidim_category_id: Κατηγορία
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
