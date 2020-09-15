@@ -271,6 +271,7 @@ fr-CA:
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
+            scope: Portée du composant
             type: Type de fonctionnalité
         new:
           add: Ajouter une fonctionnalité
@@ -639,6 +640,10 @@ fr-CA:
           title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
+      resources:
+        index:
+          headers:
+            scope: Portée
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
