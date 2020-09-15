@@ -4,9 +4,11 @@
 
 ## Upgrade Notes
 
-- **Bump Ruby to v2.6**
+- **Bump Ruby to v2.7**
 
-As per [\#6320](https://github.com/decidim/decidim/pull/6320) we've bumped the minimum Ruby version to 2.6.6.
+We've bumped the minimum Ruby version to 2.7.1, thanks to 2 PRs:
+  - [\#6320](https://github.com/decidim/decidim/pull/6320)
+  - [\#6522](https://github.com/decidim/decidim/pull/6522)
 
 - **Stable branches nomenclature changes**
 
