@@ -2,7 +2,6 @@ de:
   activemodel:
     attributes:
       project:
-        budget: Budget
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
