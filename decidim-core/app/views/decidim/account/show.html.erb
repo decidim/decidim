@@ -13,7 +13,9 @@
 
       <%= f.text_field :name %>
       <%= f.text_field :nickname %>
-      <%= f.email_field :email %>
+      <% if current_organization.sign_in_enabled? %>
+        <%= f.email_field :email %>
+      <% end %>
       <%= f.url_field :personal_url %>
       <%= f.text_area :about, rows: 5 %>
 
