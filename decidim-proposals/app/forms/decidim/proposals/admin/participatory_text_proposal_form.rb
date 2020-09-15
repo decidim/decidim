@@ -9,7 +9,6 @@ module Decidim
         attribute :title, String
         attribute :body, String
         validates :title, length: { maximum: 150 }, presence: true
-        validates :body, presence: true
 
         def map_model(model)
           self.title = translated_attribute(model.title)
