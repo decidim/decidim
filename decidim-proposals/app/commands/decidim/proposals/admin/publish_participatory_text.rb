@@ -65,10 +65,12 @@ module Decidim
           body = proposal.body
 
           PaperTrail.request(enabled: false) do
+            # rubocop:disable Rails/SkipsModelValidations
             proposal.update_columns(
-              title: { I18n.locale => ""},
-              body: { I18n.locale => ""}
-            ) # rubocop:disable Rails/SkipsModelValidations
+              title: { I18n.locale => "" },
+              body: { I18n.locale => "" }
+            )
+            # rubocop:enable Rails/SkipsModelValidations
           end
 
           [title, body]
