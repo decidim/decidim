@@ -65,8 +65,8 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within ".new_proposal" do
-              fill_in :proposal_title, with: "Make decidim great again"
-              fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
+              fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
               scope_pick select_data_picker(:proposal_scope_id), scope
               find("*[type=submit]").click
@@ -100,8 +100,8 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within ".new_proposal" do
-              fill_in :proposal_title, with: "Make decidim great again"
-              fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
+              fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
               select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
             end
@@ -133,8 +133,8 @@ shared_examples "manage proposals" do
               click_link "New proposal"
 
               within ".new_proposal" do
-                fill_in :proposal_title, with: "Make decidim great again"
-                fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
+                fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+                fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
                 scope_repick select_data_picker(:proposal_scope_id), scope, child_scope
                 find("*[type=submit]").click
@@ -162,8 +162,8 @@ shared_examples "manage proposals" do
               click_link "New proposal"
 
               within ".new_proposal" do
-                fill_in :proposal_title, with: "Make decidim great again"
-                fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
+                fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+                fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 fill_in :proposal_address, with: address
                 select category.name["en"], from: :proposal_category_id
                 find("*[type=submit]").click
@@ -192,8 +192,8 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within ".new_proposal" do
-              fill_in :proposal_title, with: "Proposal with attachments"
-              fill_in_editor :proposal_body, with: "This is my proposal and I want to upload attachments."
+              fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with attachments"
+              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "This is my proposal and I want to upload attachments."
               fill_in :proposal_attachment_title, with: "My attachment"
               attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
               find("*[type=submit]").click
@@ -214,8 +214,8 @@ shared_examples "manage proposals" do
             click_link "New proposal"
 
             within ".new_proposal" do
-              fill_in :proposal_title, with: "Proposal with meeting as author"
-              fill_in_editor :proposal_body, with: "Proposal body of meeting as author"
+              fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Proposal with meeting as author"
+              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Proposal body of meeting as author"
               execute_script("$('#proposal_created_in_meeting').change()")
               find(:css, "#proposal_created_in_meeting").set(true)
               select translated(meetings.first.title), from: :proposal_meeting_id
