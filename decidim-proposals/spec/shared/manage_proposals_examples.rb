@@ -78,7 +78,7 @@ shared_examples "manage proposals" do
               proposal = Decidim::Proposals::Proposal.last
 
               expect(page).to have_content("Make decidim great again")
-              expect(proposal.body).to eq("<p>Decidim is great but it can be better</p>")
+              expect(translated proposal.body).to eq("<p>Decidim is great but it can be better</p>")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
             end
@@ -112,7 +112,7 @@ shared_examples "manage proposals" do
               proposal = Decidim::Proposals::Proposal.last
 
               expect(page).to have_content("Make decidim great again")
-              expect(proposal.body).to eq("<p>Decidim is great but it can be better</p>")
+              expect(translated proposal.body).to eq("<p>Decidim is great but it can be better</p>")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
             end
@@ -146,7 +146,7 @@ shared_examples "manage proposals" do
                 proposal = Decidim::Proposals::Proposal.last
 
                 expect(page).to have_content("Make decidim great again")
-                expect(proposal.body).to eq("<p>Decidim is great but it can be better</p>")
+                expect(translated proposal.body).to eq("<p>Decidim is great but it can be better</p>")
                 expect(proposal.category).to eq(category)
                 expect(proposal.scope).to eq(child_scope)
               end
@@ -175,7 +175,7 @@ shared_examples "manage proposals" do
                 proposal = Decidim::Proposals::Proposal.last
 
                 expect(page).to have_content("Make decidim great again")
-                expect(proposal.body).to eq("<p>Decidim is great but it can be better</p>")
+                expect(translated proposal.body).to eq("<p>Decidim is great but it can be better</p>")
                 expect(proposal.category).to eq(category)
                 expect(proposal.scope).to eq(scope)
               end
@@ -229,7 +229,7 @@ shared_examples "manage proposals" do
               proposal = Decidim::Proposals::Proposal.last
 
               expect(page).to have_content("Proposal with meeting as author")
-              expect(proposal.body).to eq("<p>Proposal body of meeting as author</p>")
+              expect(translated proposal.body).to eq("<p>Proposal body of meeting as author</p>")
               expect(proposal.category).to eq(category)
             end
           end
