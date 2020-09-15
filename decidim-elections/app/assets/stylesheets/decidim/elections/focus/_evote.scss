@@ -55,11 +55,13 @@
     border-radius: .5rem;
     background-color: $white;
     margin-bottom: 1rem;
-    &.is-disabled {
+
+    &.is-disabled{
       background-color: $medium-gray;
       cursor: not-allowed;
-      > * {
-        opacity: 0.5;
+
+      > *{
+        opacity: .5;
       }
     }
   }
@@ -84,7 +86,8 @@
       clip: rect(0, 0, 0, 0);
       border: 0;
     }
-    [aria-disabled="true"] {
+
+    [aria-disabled="true"]{
       pointer-events: none;
     }
   }
