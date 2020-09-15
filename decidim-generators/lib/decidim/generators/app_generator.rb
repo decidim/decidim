@@ -94,6 +94,19 @@ module Decidim
         template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
       end
 
+      def disable_concurrent_sprockets
+        return unless ENV["CI"]
+
+        gsub_file "config/application.rb", /class Application < Rails::Application$/, <<~RUBY.rstrip
+          class Application < Rails::Application
+            # Concurrency are raising failure during the precompile.
+            # For more information https://github.com/rails/sprockets/issues/581
+            # and https://github.com/sass/sassc-ruby/pull/138
+            config.assets.export_concurrent = false
+
+        RUBY
+      end
+
       def gemfile
         return if options[:skip_gemfile]
 
