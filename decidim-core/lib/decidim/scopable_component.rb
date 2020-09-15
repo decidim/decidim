@@ -10,7 +10,35 @@ module Decidim
     included do
       include Scopable
 
-      delegate :scopes_enabled, to: :participatory_space
+      validate :scope_belongs_to_participatory_space
+
+      # Whether the component or participatory_space has subscopes or not.
+      #
+      # Returns a boolean.
+      def has_subscopes?
+        (scopes_enabled? || participatory_space.scopes_enabled?) && subscopes.any?
+      end
+
+      # Public: Returns the component Scope
+      def scope
+        return participatory_space.scope unless scopes_enabled?
+
+        participatory_space.scopes.find_by(id: settings.scope_id)
+      end
+
+      # Returns a boolean.
+      def scopes_enabled
+        settings.try(:scopes_enabled)
+      end
+
+      private
+
+      # Validation to ensure that the component is scoped within its participatory space Scope.
+      def scope_belongs_to_participatory_space
+        return if !scopes_enabled? || !participatory_space
+
+        errors.add(:scope, :invalid) if participatory_space.out_of_scope?(scope)
+      end
     end
   end
 end

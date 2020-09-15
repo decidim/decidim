@@ -23,14 +23,16 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      belongs_to :scope,
-                 foreign_key: "decidim_scope_id",
-                 class_name: "Decidim::Scope",
-                 optional: true
-
       delegate :scopes, to: :organization
 
       validate :scope_belongs_to_organization
+    end
+
+    # Whether the resource has scopes enabled or not.
+    #
+    # Returns a boolean.
+    def scopes_enabled?
+      scopes_enabled
     end
 
     # Gets the children scopes of the object's scope.
@@ -46,7 +48,7 @@ module Decidim
     #
     # Returns a boolean.
     def has_subscopes?
-      scopes_enabled && subscopes.any?
+      scopes_enabled? && subscopes.any?
     end
 
     # Whether the passed subscope is out of the resource's scope.
@@ -68,6 +70,7 @@ module Decidim
 
     private
 
+    # Validation to ensure that the resource is scoped within the organization's scope.
     def scope_belongs_to_organization
       return if !scope || !organization
 

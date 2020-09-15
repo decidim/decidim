@@ -22,6 +22,8 @@ Decidim.register_component(:proposals) do |component|
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :vote_limit, type: :integer, default: 0
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0

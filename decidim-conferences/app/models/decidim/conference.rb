@@ -10,7 +10,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
-    include Decidim::Scopable
+    include Decidim::ScopableParticipatorySpace
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable

@@ -272,6 +272,7 @@ en:
           headers:
             actions: Actions
             name: Component name
+            scope: Component scope
             type: Component type
         new:
           add: Add component
@@ -640,6 +641,10 @@ en:
           title: Edit permissions
         update:
           success: Permissions updated successfully.
+      resources:
+        index:
+          headers:
+            scope: Scope
       scope_types:
         create:
           error: There was a problem creating a new scope type.
