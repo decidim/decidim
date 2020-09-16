@@ -70,6 +70,19 @@ module Decidim
           expect(mail.body).to include(see_more)
         end
       end
+
+      it "displays only one event" do
+        expect(events.count).to eq(3)
+
+        expect(mail.body).to include(event_instance(events.first).resource_title)
+        expect(mail.body).to include(event_instance(events.first).resource_text)
+        expect(mail.body).to include(event_instance(events.first).resource_url)
+
+        events.drop(1).each do |event|
+          expect(mail.body).not_to include(event_instance(event).resource_title)
+          expect(mail.body).not_to include(event_instance(event).resource_url)
+        end
+      end
     end
 
     private
