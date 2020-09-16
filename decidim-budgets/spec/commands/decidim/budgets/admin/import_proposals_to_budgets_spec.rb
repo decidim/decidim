@@ -27,7 +27,7 @@ module Decidim
               current_user: current_user,
               default_budget: default_budget,
               import_all_accepted_proposals: import_all_accepted_proposals,
-              scope_id: "",
+              decidim_scope_id: "",
               budget: budget,
               valid?: valid
             )

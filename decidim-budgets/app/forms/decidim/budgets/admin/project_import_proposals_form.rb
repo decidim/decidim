@@ -9,13 +9,15 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
-        attribute :scope_id, Integer
+        attribute :decidim_scope_id, Integer
         attribute :default_budget, Integer
         attribute :import_all_accepted_proposals, Boolean
 
         validates :origin_component_id, :origin_component, :current_component, presence: true
         validates :import_all_accepted_proposals, allow_nil: false, acceptance: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
+        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -31,10 +33,12 @@ module Decidim
           end
         end
 
-        def scopes_collection
-          Decidim::Scope.all.map do |scope|
-            [scope.name[I18n.locale.to_s], scope.id]
-          end
+        def scope
+          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
+        end
+
+        def decidim_scope_id
+          @decidim_scope_id || scope&.id
         end
 
         def budget
