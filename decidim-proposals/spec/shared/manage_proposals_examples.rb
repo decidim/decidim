@@ -86,6 +86,10 @@ shared_examples "manage proposals" do
         end
 
         context "when process is related to a scope" do
+          before do
+            component.update!(settings: { scopes_enabled: false })
+          end
+
           let(:participatory_process_scope) { scope }
 
           it "cannot be related to a scope, because it has no children" do

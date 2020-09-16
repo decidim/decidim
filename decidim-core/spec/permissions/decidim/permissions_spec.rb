@@ -49,7 +49,23 @@ describe Decidim::Permissions do
       let(:component) { create :component, :unpublished }
 
       context "when the user does not exist" do
-        it { is_expected.to eq false }
+        context "when a share token is provided" do
+          let(:share_token) { create :share_token, token_for: component, organization: component.organization }
+          let(:context) { { share_token: share_token.token, current_component: component } }
+
+          it { is_expected.to eq true }
+        end
+
+        context "when an invalid share token is provided" do
+          let(:share_token) { create :share_token, :expired, token_for: component, organization: component.organization }
+          let(:context) { { share_token: share_token.token, current_component: component } }
+
+          it { is_expected.to eq false }
+        end
+
+        context "when no share token is provided" do
+          it { is_expected.to eq false }
+        end
       end
 
       context "when the user has no admin access" do

@@ -4,6 +4,8 @@ module Decidim
   module Budgets
     module Admin
       class ProposalsImportsController < Admin::ApplicationController
+        helper_method :budget
+
         def new
           enforce_permission_to :import_proposals, :projects
 
@@ -13,11 +15,11 @@ module Decidim
         def create
           enforce_permission_to :import_proposals, :projects
 
-          @form = form(Admin::ProjectImportProposalsForm).from_params(params)
+          @form = form(Admin::ProjectImportProposalsForm).from_params(params, budget: budget)
           Admin::ImportProposalsToBudgets.call(@form) do
             on(:ok) do |projects|
               flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.budgets.admin", number: projects.length)
-              redirect_to EngineRouter.admin_proxy(current_component).root_path
+              redirect_to budget_projects_path(budget)
             end
 
             on(:invalid) do
@@ -25,6 +27,12 @@ module Decidim
               render action: "new"
             end
           end
+        end
+
+        private
+
+        def budget
+          @budget ||= Budget.where(component: current_component).find_by(id: params[:budget_id])
         end
       end
     end

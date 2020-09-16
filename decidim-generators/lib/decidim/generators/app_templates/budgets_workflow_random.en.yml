@@ -1,0 +1,8 @@
+en:
+  decidim:
+    components:
+      budgets:
+        settings:
+          global:
+            workflow_choices:
+              random: "Vote in a random component: allows participants to vote only in one budget, selected randomly."

@@ -6,8 +6,17 @@ shared_examples "scope helpers" do
   let(:organization) { create(:organization) }
   let(:scopes_enabled) { true }
   let(:participatory_space_scope) { nil }
-  let(:component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
+  let(:component_scope) { nil }
+  let(:component) do
+    create(
+      :component,
+      manifest_name: "dummy",
+      participatory_space: participatory_space,
+      settings: { scopes_enabled: scopes_enabled, scope_id: component_scope&.id }
+    )
+  end
   let(:scope) { create(:scope, organization: organization) }
+  let(:subscope) { create(:subscope, organization: organization) }
   let(:resource) { create(:dummy_resource, component: component, scope: scope) }
 
   before do
@@ -36,12 +45,14 @@ shared_examples "scope helpers" do
 
     context "when the process has a different scope than the organization" do
       let(:participatory_space_scope) { create(:scope, organization: organization) }
+      let(:component_scope) { participatory_space_scope }
 
       it { is_expected.to be_truthy }
     end
 
     context "when the process has the same scope as the organization" do
       let(:participatory_space_scope) { scope }
+      let(:component_scope) { scope }
 
       it { is_expected.to be_falsey }
     end

@@ -29,12 +29,6 @@ el:
       newsletter:
         body: Σώμα
         subject: Θέμα
-      oauth_application:
-        name: Όνομα
-        organization_logo: Λογότυπο οργανισμού (τετράγωνο)
-        organization_name: Όνομα οργανισμού
-        organization_url: Διεύθυνση URL οργανισμού
-        redirect_uri: URI ανακατεύθυνσης
       organization:
         address: Όνομα κεντρικού υπολογιστή SMTP
         alert_color: Ειδοποίηση
@@ -115,10 +109,6 @@ el:
         file: Αρχείο
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Το URI ανακατεύθυνσης πρέπει να είναι ένα URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -390,7 +380,6 @@ el:
         homepage: Αρχική σελίδα
         impersonations: Αναπαραστάσεις
         newsletters: Ενημερωτικά δελτία
-        oauth_applications: Εφαρμογές OAuth
         participants: Συμμετέχοντες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
@@ -437,11 +426,6 @@ el:
             sent_to: Στάλθηκε σε
             subject: Θέμα
           name: Ενημερωτικό δελτίο
-        oauth_application:
-          fields:
-            created_at: Δημιουργήθηκε στις
-            name: Όνομα
-          name: Εφαρμογή OAuth
         participatory_space_private_user:
           name: Ιδιωτικός συμμετέχων χώρου συμμετοχής
         scope:
@@ -548,25 +532,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ενημερωτικού δελτίου.
           success: Το ενημερωτικό δελτίο ενημερώθηκε με επιτυχία. Ελέγξτε το πριν από την αποστολή.
-      oauth_applications:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της αίτησης.
-          success: Η αίτηση δημιουργήθηκε με επιτυχία.
-        destroy:
-          error: Υπήρξε ένα πρόβλημα κατά την καταστροφή αυτής της αίτησης.
-          success: Η αίτηση καταστράφηκε με επιτυχία.
-        edit:
-          save: Αποθήκευση
-          title: Επεξεργασία αίτησης
-        index:
-          confirm_delete: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την αίτηση;
-          title: Εφαρμογές OAuth
-        new:
-          save: Αποθήκευση
-          title: Νέα αίτηση
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της αίτησης.
-          success: Η αίτηση ενημερώθηκε με επιτυχία.
       officializations:
         create:
           success: Ο συμμετέχων επισημοποιήθηκε με επιτυχία

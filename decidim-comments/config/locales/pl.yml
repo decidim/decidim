@@ -26,7 +26,7 @@ pl:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
       votes:
         create:
-          error: Podczas głosowania komentarza wystąpiły błędy.
+          error: Podczas dodawania komentarza wystąpił błąd.
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_url}">zarejestruj się</a>, aby dodać komentarz.

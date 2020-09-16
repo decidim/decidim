@@ -2,7 +2,7 @@
 
 module Decidim
   module Accountability
-    # Custom helpers, scoped to the meetings engine.
+    # Custom helpers, scoped to the accountability engine.
     #
     module ApplicationHelper
       include PaginateHelper

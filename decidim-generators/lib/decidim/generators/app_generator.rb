@@ -174,6 +174,15 @@ module Decidim
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
+      def budgets_workflows
+        return unless options[:demo]
+
+        copy_file "budgets_workflow_random.rb", "lib/budgets_workflow_random.rb"
+        copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
+
+        copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
+      end
+
       def timestamp_service
         return unless options[:demo]
 
