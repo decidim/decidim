@@ -274,7 +274,7 @@ module Decidim
   end
 
   config_accessor :batch_email_notifications_enabled do
-    false
+    true
   end
 
   config_accessor :batch_email_notifications_interval do
