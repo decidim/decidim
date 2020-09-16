@@ -1,0 +1,101 @@
+= Social providers integration
+
+If you want to enable sign up through social providers like Facebook you will need to generate app credentials and store them in one of the following places:
+
+* In the Rails secrets file: `config/secrets.yml`. This configuration will be shared by all tenants.
+* In the site configuration (ex. system/organizations/1/edit). This configuration overrides the one in `config/secrets.yml`.
+
+Take into account that for a social provider integration appearing in the organization form, it must also be defined in `config/secrets.yml` (but the values are optional). For example:
+
+[source,yaml]
+----
+twitter:
+  enabled: false # disabled by default, unless activated in the organization
+  api_key:
+  api_secret:
+----
+
+== Facebook
+
+. Navigate to https://developers.facebook.com/[Facebook Developers Page]
+. Follow the "Add a New App" link.
+. Click the "Website" option.
+. Fill in your application name and click "Create New Facebook App ID" button.
+. Fill in the contact email info and category.
+. Validate the captcha.
+. Ignore the source code and fill in the URL field with `+https://YOUR_DECIDIM_HOST/users/auth/facebook/callback+`
+. Navigate to the application dashboard and copy the APP_ID and APP_SECRET
+. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
+
+== Twitter
+
+. Navigate to https://dev.twitter.com/[Twitter Developers Page]
+. Follow the "My apps" link.
+. Click the "Create New App" button.
+. Fill in the `Name`, `Description` fields.
+. Fill in the `Website` and `Callback URL` fields with the same value. If you are working on a development app you need to use `+http://127.0.0.1:3000/+` instead of `+http://localhost:3000/+`.
+. Check the 'Developer Agreement' checkbox and click the 'Create your Twitter application' button.
+. Navigate to the "Keys and Access Tokens" tab and copy the API_KEY and API_SECRET.
+. (Optional) Navigate to the "Permissions" tab and check the "Request email addresses from users" checkbox.
+. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
+
+== Google
+
+. Navigate to https://console.developers.google.com[Google Developers Page]
+. Follow the 'Create projecte' link.
+. Fill in the name of your app.
+. Navigate to the projecte dashboard and click on "Enable API"
+. Click on `Google+ API` and then "Enable"
+. Navigate to the project credentials page and click on `OAuth consent screen`.
+. Fill in the `Product name` field
+. Click on `Credentials` tab and click on "Create credentials" button. Select `OAuth client ID`.
+. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
+. Copy the CLIENT_ID AND CLIENT_SECRET
+. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
+
+== Custom providers
+
+* You can define your own provider, to allow users from other external applications to login into Decidim.
+* The provider should implement an https://github.com/omniauth/omniauth[OmniAuth] strategy.
+* You can use any of the https://github.com/omniauth/omniauth/wiki/List-of-Strategies[existing OnmiAuth strategies].
+* Or you can create a new strategy, as the https://github.com/decidim/omniauth-decidim[Decidim OmniAuth Strategy]. This strategy allow users from a Decidim instance to login in other Decidim instance. For example, this strategy is used to allow https://decidim.barcelona[decidim.barcelona] users to log into https://meta.decidim.barcelona[meta.decidim.barcelona].
+* Once you have defined your strategy, you can configure it in the `config/secrets.yml` or in the organization configuration, as it is done for the built-in providers.
+* By default, Decidim will search in its icons library for an icon named as the provider. You can change this adding an `icon` or `icon_path` attribute to the provider configuration. The `icon` attribute sets the icon name to look for in the Decidim's icons library. The `icon_path` attribute sets the route to the image that should be used.
+* Here is an example of the configuration section for the Decidim strategy, using an icon located on the application's `app/assets/images` folder:
+
+[source,yaml]
+----
+    decidim:
+      enabled: true
+      client_id: <%= ENV["DECIDIM_CLIENT_ID"] %>
+      client_secret: <%= ENV["DECIDIM_CLIENT_SECRET"] %>
+      site_url: <%= ENV["DECIDIM_SITE_URL"] %>
+      icon_path: decidim-logo.svg
+----
+
+* You will need a custom initializer for your provider in order to pass the proper params to the OmniaAuth Builder.
+
+An example of custom initializer could be written as:
+
+[source,ruby]
+----
+#config/initializers/omniauth_myprovider.rb
+if Rails.application.secrets.dig(:omniauth, :myprovider).present?
+  Rails.application.config.middleware.use OmniAuth::Builder do
+    provider(
+      :myprovider,
+      setup: ->(env) {
+          request = Rack::Request.new(env)
+          organization = Decidim::Organization.find_by(host: request.host)
+          provider_config = organization.enabled_omniauth_providers[:myprovider]
+          env["omniauth.strategy"].options[:client_id] = provider_config[:client_id]
+          env["omniauth.strategy"].options[:client_secret] = provider_config[:client_secret]
+          env["omniauth.strategy"].options[:site] = provider_config[:site_url]
+        },
+      scope: :public
+    )
+  end
+end
+----
+
+The custom provider may have different configuration options, instead of `client_id`, `client_secret` and `site`.

@@ -1,0 +1,146 @@
+= Getting started with Decidim
+:source-highlighter: highlightjs
+
+== What is and what isn't Decidim?
+
+Decidim is a set of Ruby on Rails engines to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having Decidim code separated from custom code for each installation and still enabling easy updates.
+
+These libraries are published to Rubygems.org, so you can add Decidim to your Ruby on Rails app as external dependencies.
+
+If you want to start your own installation of Decidim, you don't need to clone this repo. Keep reading to find out how to install Decidim.
+
+== Creating your Decidim app
+
+=== A. Recommended: manual installation
+
+If you know Ruby and have already worked with Ruby on Rails, you need to know that decidim is a gem and a command line that generates an application that consumes this gem 😅.
+
+The flow is: install gem, generate a Ruby on Rails app, enjoy.
+
+[source,console]
+----
+gem install decidim
+decidim decidim_application
+----
+
+You can see the xref:install:manual.adoc[official manual installation tutorial], and also you have https://platoniq.github.io/decidim-install/[another manual installation tutorial] made by the nice people of http://www.platoniq.net/[Platoniq].
+
+=== B. Installation script [experimental]
+
+There's also a installation script made by http://www.platoniq.net/[Platoniq] that allows you to install Decidim automatically. You can even check it on a Vagrant virtual machine if you want to. https://platoniq.github.io/decidim-install/script/[More information].
+
+[source,console]
+----
+wget -O install-decidim.sh https://raw.githubusercontent.com/Platoniq/decidim-install/master/script/install-decidim.sh
+chmod +x decidim-install.sh
+./install-decidim.sh decidim_application
+----
+
+== Initializing your app for local development
+
+You should now setup your database:
+
+[source,console]
+----
+bin/rails db:create db:migrate db:seed
+----
+
+This will also create some default data so you can start testing the app:
+
+.Default seed's users
+|===
+|Type |Email |Password| URL |Description
+
+|Decidim::System::Admin
+|system@example.org
+|decidim123456 
+|/system 
+|Administrator for the multitenant
+
+|Decidim::User
+|admin@example.org
+|decidim123456
+|/admin
+|Administrator for the organization
+
+|Decidim::User
+|user@example.org
+|decidim123456
+|/user/sign_in
+|User for the organization
+
+|===
+
+This data won't be created in production environments, if you still want to do it, run: `$ SEED=true rails db:setup`. We recomend that you first login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `+https://example.org:3001+`, you need to write `example.org`). After it'd be good to execute the `seed` command, as that would be created with the first Organization created.
+
+You can now start your server!
+
+[source,console]
+----
+bin/rails s
+----
+
+Visit http://localhost:3000 to see your app running.
+
+== Configuration & setup
+
+Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/core.rb[the source file] (the part with the `config_accessor` calls) for more up-to-date info.
+
+=== Scheduled tasks
+
+For Decidim to function as expected, there are some background tasks that should be scheduled to be executed regularly. Alternatively you could use `whatever` gem or the scheduled jobs of your hosting provider.
+
+You can configure it with `crontab -e`, for instance if you've created your Decidim application on /home/user/decidim_application:
+
+[source,console]
+----
+# Remove expired data portability files 
+0 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files
+
+# Compute metrics
+1 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:metrics:all
+
+# Compute open data
+2 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:metrics:all
+
+# Delete old registrations forms
+3 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim_meetings:clean_registration_forms
+----
+
+=== Further configuration
+
+We also have other guides on how to configure some extra components:
+
+* xref:services:activejob.adoc[ActiveJob]: For background jobs (like sending emails).
+* xref:services:geocoding.adoc[Geocoding]: How to enable geocoding for proposals and meetings.
+* xref:services:social_providers.adoc[Social providers integration]: Enable sign up from social networks.
+
+== Deploy
+
+Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your production Ruby on Rails console:
+
+[source,ruby]
+----
+email = <your email>
+password = <a secure password>
+user = Decidim::System::Admin.new(email: email, password: password, password_confirmation: password)
+user.save!
+----
+
+This will create a system user with the email and password you set. We recommend using a random password generator and saving it to a password manager, so you have a more secure login.
+
+Then, visit the `/system` dashboard and login with the email and passwords you just entered and create your organization. You're done! :tada:
+
+You can check the https://github.com/decidim/decidim/tree/master/decidim-system/README.md[`decidim-system` README file] for more info on how organizations work.
+
+== Checklist
+
+There are several things you need to check before making your putting your application on production. See the xref:install:checklist.adoc[checklist].
+
+== Contributing
+
+We always welcome new contributors of all levels to the project. If you are not confident enough with Ruby or web development you can look for https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22[issues labeled `good first issue`] to start contibuting and learning the internals of the project by doing easy jobs.
+
+We also have a xref:develop:guide.adoc[developer's reference] that will help you getting started with your environment and our daily commands, routines, etc.
+
+Finally, you can also find other ways of helping us on our xref:contributing:index.adoc[contribution guide].

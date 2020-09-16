@@ -1,0 +1,25 @@
+= Menu
+
+The menu also known as Navigation Bar, is the main way of navigation by Decidim.
+
+image::menu.png[Decidim Menu]
+
+After you install Decidim you can see it in several ways, depending on: 
+
+. Which modules do you have activated
+. Which contents do you have in your database
+
+If you have the default modules and no contents, then you'll only see Home and Help.
+
+Depending in the kind of space and module, then you can see or not some of the spaces:
+
+- For participatory processes, it appears when there's some published content by an administrator.
+- For assemblies, it appears when there's some published content by an administrator.
+- For consultations, you need to enable the module and it appears when there's some published content by an administrator. 
+- For conferences, you need to enable the module and it appears when there's some published content by an administrator. 
+- For initiatives, you need to enable the module. Every participant can see it, as anyone can create one. That's because is a bottom-up kind of mechanism.
+
+There's also a https://github.com/OpenSourcePolitics/decidim-module-navbar_links[NavBar links module] made by the community that you can use to add your custom links.
+
+Finally if you want to dive in the code that handles this, a good starting point is the https://rubydoc.info/github/decidim/decidim/develop/Decidim/Menu[Menu API]. 
+

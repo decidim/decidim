@@ -1,0 +1,33 @@
+= Docker for development
+
+You can also use https://docs.docker.com/engine/installation/[docker] && https://docs.docker.com/compose/install/[docker-compose] to develop decidim. You'll
+need to install those but in exchange you don't need to install any other
+dependency in your computer, not even Ruby!
+
+To get started, first clone the decidim repo
+
+[source,console]
+----
+git clone https://github.com/decidim/decidim
+----
+
+Switch to the cloned folder
+
+[source,console]
+----
+cd decidim
+----
+
+Then create a development application
+
+[source,console]
+----
+d/bundle install
+d/rake development_app
+d/rails server -b 0.0.0.0
+----
+
+In general, to use the docker development environment, change any instruction in
+the docs to use its equivalent docker binstub.  So for example, instead of
+running `bundle install`, you would run `d/bundle install`.
+

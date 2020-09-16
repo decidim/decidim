@@ -1,0 +1,8 @@
+= Changelog 
+
+For keeping track of changes we like the rules of https://keepachangelog.com/en/1.0.0/[Keep A Changelog].
+
+In the past we kept a file for all the development of a given version but that was difficult to maintain, as we had conflicts all the time. See the full discussion in https://github.com/decidim/decidim/issues/5908[#5908]. We decided that:
+
+* We will not ask CHANGELOG for all the changes make on this repository. We will ask for CHANGELOG instructions only for special changes that really need some actions on part of developers/implementers or something to comunicate on the releases notes
+* The CHANGELOG will be manually made as part of the release process with the tooling from git (`git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline`) or https://github.com/decidim/decidim/compare/v0.20.0...v0.20.1[github]

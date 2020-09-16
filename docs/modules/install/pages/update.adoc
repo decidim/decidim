@@ -1,0 +1,95 @@
+= Updating Decidim
+
+IMPORTANT: This section was initially copied from https://platoniq.github.io/decidim-install/decidim-update/[Platoniq's Guide]
+
+Because Decidim is a gem in our system, to update it we will have to edit our `Gemfile` and specify the new version number.
+
+To keep our system up to date, we can visit the page https://github.com/decidim/decidim/releases and compare with our `Gemfile`. See if the lines specifying the gem called "decidim-something" are followed by the number corresponding to the latest release:
+
+[source,ruby]
+----
+gem "decidim", "0.20.1"
+gem "decidim-conferences", "0.20.1"
+gem "decidim-consultations", "0.20.1"
+gem "decidim-initiatives", "0.20.1"
+
+gem "decidim-dev", "0.20.1"
+----
+
+For example, if the latest release is 0.16 we could decide to update.
+
+To update, usually requires only to change the old version number on these gems to the new one. For instance, previous example should be:
+
+[source,ruby]
+----
+gem "decidim", "0.21"
+gem "decidim-conferences", "0.21"
+gem "decidim-consultations", "0.21"
+gem "decidim-initiatives", "0.21"
+
+gem "decidim-dev", "0.21"
+----
+
+After doing that, you need to execute these commands:
+
+[source,console]
+----
+bundle update decidim
+bin/rails decidim:upgrade
+bin/rails db:migrate
+----
+
+In theory, that would be all. However, you need to be careful in certain situations, specially if your copy of Decidim has many code modifications. We'd recommend to always test the upgrade following Ruby on Rails best practices: working with development mode in localhost, deploying to a staging/preproduction server to test it manually (specially your modifications) and finally deploying to production. As an alternative you can test the upgrade in a separate machine with the same configuration (If using Digitalocean you can create an snapshot of the server, tested the update, and then remove it, similar process on other providers).
+
+== From git repositories
+
+For managing the gems we use the standard Rails gem called Bundler, where you can also point to https://bundler.io/v2.1/guides/git.html[git repositories and branches]. This is specially useful if you want to try an unreleased version, then you can do so by pointing to the release branch. 
+
+[source,ruby]
+----
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "release/0.22-stable"
+gem "decidim-conferences", git: "https://github.com/decidim/decidim", branch: "release/0.22-stable"
+gem "decidim-consultations", git: "https://github.com/decidim/decidim", branch: "release/0.22-stable"
+gem "decidim-initiatives", git: "https://github.com/decidim/decidim", branch: "release/0.22-stable"
+
+gem "decidim-dev", git: "https://github.com/decidim/decidim", branch: "release/0.22-stable"
+----
+
+== DRY
+
+You can also work with variables in your Gemfile so you can keep it DRY (Don't Repeat Yourself):
+
+[source,ruby]
+----
+DECIDIM_VERSION = "0.21"
+
+gem "decidim", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
+
+gem "decidim-dev", DECIDIM_VERSION
+----
+
+or 
+
+[source,console]
+----
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: 'release/0.22-stable' }
+
+gem "decidim", DECIDIM_VERSION
+gem "decidim-conferences", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
+
+gem "decidim-dev", DECIDIM_VERSION
+----
+
+
+[discrete]
+== Recommendations
+
+. Make a full backup of the database before updating, just in case something unexpected happens.
+. If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
+. Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
+. Check also the file https://github.com/decidim/decidim/blob/master/CHANGELOG.md It may have relevant information for updates between versions.

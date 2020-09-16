@@ -1,0 +1,15 @@
+= Developing Decidim
+
+* xref:develop:guide_architecture.adoc[Architecture]
+* xref:develop:guide_changelog.adoc[Changelog]
+* xref:develop:guide_commands.adoc[Commands]
+* xref:develop:guide_development_app.adoc[Development App]
+* xref:develop:guide_git_conventions.adoc[Git conventions]
+* xref:develop:guide_github_projects.adoc[GitHub Projects Workflow]
+* xref:develop:guide_semver.adoc[Semantic Versioning]
+
+== Good to know
+
+* There is an application with current designs at: https://decidim-design.herokuapp.com/
+* We follow https://12factor.net/[12factor recommendations]
+* For testing, refer to the xref:develop:testing.adoc[testing] guide.

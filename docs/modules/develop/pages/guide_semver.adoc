@@ -1,0 +1,7 @@
+= Semantic Versioning
+
+For releases we follow https://semver.org/[Semantic Versioning recommendations]. Some details in our case: 
+
+* Until v1 there could be changes in the API. We'll let you know on the Release Notes for a given version 
+* Upgrading on patch versions should be safe (for instance from 0.20.0 to 0.20.1). The only things that we add are bug fixes and new languages.
+

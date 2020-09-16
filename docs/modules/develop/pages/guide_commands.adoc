@@ -1,0 +1,77 @@
+= Commands
+
+Here are some useful commands and tools for working in this project:
+
+== erb-lint
+
+We use erblint gem to ensure homogeneous formatting of erb files.
+
+[source,console]
+----
+bundle exec erblint --lint-all --autocorrect
+# shortest
+bundle exec erblint --lint-all -a
+# even shortest
+bundle exec erblint -la -a
+----
+
+== I18n
+
+We use i18n-tasks gem to keep translations ordered and without missing/unused keys.
+
+[source,console]
+----
+# from the root of the project
+bundle exec i18n-tasks normalize --locales en
+----
+
+== JavaScript linter
+
+https://eslint.org/docs/user-guide/command-line-interface[eslint] and https://palantir.github.io/tslint/[tslint] are used to ensure homogeneous formatting of JavaScript code.
+
+To lint and try to fix linting errors, run:
+
+[source,console]
+----
+npm run lint --fix
+----
+
+== Stylelinter
+
+https://stylelint.io/[stylelint] is a CSS linter and fixer that helps to avoid errors and enforce consistent conventions in the stylesheets. Is an npm package, install it using:
+
+[source,console]
+----
+npm install -g stylelint
+----
+
+Linting a `.scss` file:
+
+[source,console]
+----
+stylelint [path-to-file]
+----
+
+With `--fix` option https://stylelint.io/user-guide/cli/#autofixing-errors[stylelint] will fix as many errors as possible. The fixes are made to the actual source files. All unfixed errors will be reported.
+
+[source,console]
+----
+stylelint [path-to-file] --fix
+----
+
+== Rubocop
+
+RuboCop is a code analyzer tool we use at Decidim to enforce our code formatting guidelines.
+
+[source,console]
+----
+# Run Rubocop
+bundle exec rubocop
+# Run Rubocop and automatically correct offenses
+bundle exec rubocop -a
+----
+
+== Markdown linter
+
+This project uses https://github.com/markdownlint/markdownlint[markdownlint] to check markdown files and flag style issues.
+

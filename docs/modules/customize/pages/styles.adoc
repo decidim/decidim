@@ -1,0 +1,64 @@
+= CSS Styles with SASS
+
+One of the first things you'll want to do after you install Decidim is applying your own corporative image. You can do it on multiple ways:
+
+== Organization colors
+
+If you only want to change colors and anything more, the most easy and fast way is doing this in the Administrator panel, in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+
+image::organization-colors.png[Organization colors]
+
+This works for any Organization inside of a Muiltitenant.
+
+== Head extra file
+
+There's an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
+
+[source,stylesheet]
+----
+<style type="text/css">
+ p { color: red; }
+</style>
+----
+
+== Custom HTML Header snippets
+
+If you need changes on a multitenant installation, you can do so by enabling a configuration
+in your `config/initializers/decidim.rb` file. Please do notice that this has security implications:
+ 
+[source,ruby]
+----
+  # Custom HTML Header snippets
+  #
+  # The most common use is to integrate third-party services that require some
+  # extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+  # HTML. Note that this will only be rendered in public pages, not in the admin
+  # section.
+  #
+  # Before enabling this you should ensure that any tracking that might be done
+  # is in accordance with the rules and regulations that apply to your
+  # environment and usage scenarios. This feature also comes with the risk
+  # that an organization's administrator injects malicious scripts to spy on or
+  # take over user accounts.
+  #
+  config.enable_html_header_snippets = true
+----
+ 
+Then you'll have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+
+image::header-snippet.png[Header snippet]
+
+Notice that you can resize this textarea.
+
+== Asset pipeline 
+
+You can go to app/assets/stylesheets/application.css.sass on your generated applications. There you can override any class using CSS with SASS.
+
+In https://github.com/decidim/decidim/blob/master/decidim-core/app/assets/stylesheets/decidim/_variables.scss[decidim-core/app/assets/stylesheets/decidim/_variables.scss] you can find the `variables` that can be overriden in your `sass`.
+
+We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
+
+== Accesibility
+
+To maintain accesibility level, if you add new colors use a http://webaim.org/resources/contrastchecker/[Color contrast checker] (WCAG AA is mandatory, WCAG AAA is recommended)
+
