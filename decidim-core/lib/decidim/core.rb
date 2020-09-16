@@ -273,14 +273,18 @@ module Decidim
     1.day
   end
 
+  # Send multiple notifications in a unique mail
   config_accessor :batch_email_notifications_enabled do
     true
   end
 
+  # Interval between each notification mail batch
   config_accessor :batch_email_notifications_interval do
     24.hours
   end
 
+  # Maximum of notifications in a mail.
+  # If the number of notifications is greater than limit, displays a "see more" link in mail
   config_accessor :batch_email_notifications_max_length do
     5
   end
