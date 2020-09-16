@@ -12,7 +12,6 @@ module Decidim
       return unless data[:force_send] || notifiable?
 
       send_event(NotificationGeneratorJob, event_name, data)
-
       send_event(EmailNotificationGeneratorJob, event_name, data) unless Decidim.config.batch_email_notifications_enabled
     end
 
