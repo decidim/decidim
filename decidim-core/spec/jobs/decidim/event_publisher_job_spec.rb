@@ -5,25 +5,6 @@ require "spec_helper"
 describe Decidim::EventPublisherJob do
   subject { described_class }
 
-  shared_examples "batch email notifications enabled" do
-    context "when batch email notifications enabled" do
-      before do
-        Decidim.config.batch_email_notifications_enabled = true
-      end
-
-      after do
-        Decidim.config.batch_email_notifications_enabled = false
-      end
-
-      it "doesn't enqueues email job" do
-        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
-        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
-
-        subject
-      end
-    end
-  end
-
   describe "queue" do
     it "is queued to events" do
       expect(subject.queue_name).to eq "events"
@@ -36,9 +17,15 @@ describe Decidim::EventPublisherJob do
     end
 
     let(:event_name) { "some_event" }
+    let(:extra) do
+      {
+        priority: :high
+      }
+    end
     let(:data) do
       {
-        resource: resource
+        resource: resource,
+        extra: extra
       }
     end
 
@@ -50,14 +37,48 @@ describe Decidim::EventPublisherJob do
           resource.published_at = Time.current
         end
 
-        it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
-          expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+        context "and priority level is high" do
+          let(:extra) do
+            {
+              priority: :high
+            }
+          end
 
-          subject
+          it "enqueues the jobs" do
+            expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+            expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+            subject
+          end
         end
 
-        it_behaves_like "batch email notifications enabled"
+        context "and priority level is low" do
+          let(:extra) do
+            {
+              priority: :low
+            }
+          end
+
+          it "enqueues the jobs" do
+            expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
+            expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+            subject
+          end
+        end
+
+        context "and priority level is not defined" do
+          let(:extra) do
+            {}
+          end
+
+          it "enqueues the jobs" do
+            expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+            expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+            subject
+          end
+        end
       end
 
       context "when it is not published" do
@@ -89,6 +110,11 @@ describe Decidim::EventPublisherJob do
 
     context "when there's a component" do
       let(:resource) { build(:dummy_resource) }
+      let(:extra) do
+        {
+          priority: :low
+        }
+      end
 
       context "when it is published" do
         before do
@@ -97,13 +123,11 @@ describe Decidim::EventPublisherJob do
         end
 
         it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
 
           subject
         end
-
-        it_behaves_like "batch email notifications enabled"
       end
 
       context "when it is not published" do
@@ -136,8 +160,6 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
-
-        it_behaves_like "batch email notifications enabled"
       end
 
       context "when it is not published" do
@@ -165,8 +187,6 @@ describe Decidim::EventPublisherJob do
         subject
       end
 
-      it_behaves_like "batch email notifications enabled"
-
       context "when it is not published" do
         let(:resource) { build(:component, :unpublished) }
 
@@ -188,8 +208,6 @@ describe Decidim::EventPublisherJob do
 
         subject
       end
-
-      it_behaves_like "batch email notifications enabled"
 
       context "when it is not published" do
         let(:resource) { build(:participatory_process, :unpublished) }

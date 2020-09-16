@@ -569,6 +569,22 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+
+    trait :high_priority do
+      extra do
+        {
+          priority: :high
+        }
+      end
+    end
+
+    trait :low_priority do
+      extra do
+        {
+          priority: :low
+        }
+      end
+    end
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
