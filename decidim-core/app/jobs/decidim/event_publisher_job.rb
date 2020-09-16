@@ -11,25 +11,9 @@ module Decidim
 
       return unless data[:force_send] || notifiable?
 
-      NotificationGeneratorJob.perform_later(
-        event_name,
-        data[:event_class],
-        data[:resource],
-        data[:followers],
-        data[:affected_users],
-        data[:extra]
-      )
+      send_event(NotificationGeneratorJob, event_name, data)
 
-      return if Decidim.config.batch_email_notifications_enabled
-
-      EmailNotificationGeneratorJob.perform_later(
-        event_name,
-        data[:event_class],
-        data[:resource],
-        data[:followers],
-        data[:affected_users],
-        data[:extra]
-      )
+      send_event(EmailNotificationGeneratorJob, event_name, data) unless Decidim.config.batch_email_notifications_enabled
     end
 
     private
@@ -50,13 +34,26 @@ module Decidim
 
     def component
       return resource.component if resource.is_a?(Decidim::HasComponent)
-      return resource if resource.is_a?(Decidim::Component)
+
+      resource if resource.is_a?(Decidim::Component)
     end
 
     def participatory_space
       return resource if resource.is_a?(Decidim::ParticipatorySpaceResourceable)
 
       component&.participatory_space
+    end
+
+    # Call perform_later on Job class passing event_name and data parameters
+    def send_event(job_klass, event_name, data)
+      job_klass.perform_later(
+        event_name,
+        data[:event_class],
+        data[:resource],
+        data[:followers],
+        data[:affected_users],
+        data[:extra]
+      )
     end
   end
 end
