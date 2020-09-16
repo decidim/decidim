@@ -9,6 +9,7 @@ module Decidim
         mimic :proposals_import
 
         attribute :origin_component_id, Integer
+        attribute :scope_id, Integer
         attribute :default_budget, Integer
         attribute :import_all_accepted_proposals, Boolean
 
@@ -27,6 +28,12 @@ module Decidim
         def origin_components_collection
           origin_components.map do |component|
             [component.name[I18n.locale.to_s], component.id]
+          end
+        end
+
+        def scopes_collection
+          Decidim::Scope.all.map do |scope|
+            [scope.name[I18n.locale.to_s], scope.id]
           end
         end
 
