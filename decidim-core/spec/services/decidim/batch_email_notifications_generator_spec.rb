@@ -7,7 +7,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
   subject { described_class.new }
 
   let!(:user) { create(:user) }
-  let!(:notifications) { create_list(:notification, 5, user: user) }
+  let!(:notifications) { create_list(:notification, 2, user: user) }
   let(:serialized_event) do
     {
       resource: notifications.first.resource,
@@ -35,7 +35,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
     end
 
     it "marks the notifications has sent" do
-      expect(notifications.map(&:sent_at).any?).to eq(false)
+      subject.generate
+      expect(Decidim::Notification.where(decidim_user_id: user.id).map(&:sent_at).count).to eq(2)
     end
 
     context "when user doesn't want to receive email notification" do
@@ -64,7 +65,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
   describe "#events" do
     it "returns notifications" do
       expect(subject.send(:events)).to match_array(notifications)
-      expect(subject.send(:events).length).to eq(5)
+      expect(subject.send(:events).length).to eq(2)
     end
 
     context "when batch_email_notifications_max_length" do
@@ -77,13 +78,15 @@ describe Decidim::BatchEmailNotificationsGenerator do
     end
 
     context "when notifications has already been sent" do
-      let!(:notifications) { create_list(:notification, 5, user: user) }
+      let!(:notifications) { create_list(:notification, 2, user: user) }
+
+      before do
+        notifications.first.update!(sent_at: 12.hours.ago)
+      end
 
       it "doesn't includes it" do
-        notifications.first.update!(sent_at: 12.hours.ago)
-
         expect(subject.send(:events)).not_to include(notifications.first)
-        expect(subject.send(:events).length).to eq(4)
+        expect(subject.send(:events).length).to eq(1)
       end
     end
   end
@@ -92,10 +95,14 @@ describe Decidim::BatchEmailNotificationsGenerator do
     let(:another_user) { create(:user) }
     let(:notification) { create(:notification, user: another_user) }
 
+    before do
+      Decidim.config.batch_email_notifications_max_length = 2
+    end
+
     it "returns notifications for user" do
       expect(subject.send(:events_for, user)).not_to include(notification)
       expect(subject.send(:events_for, user)).to match_array(notifications)
-      expect(subject.send(:events_for, user).length).to eq(5)
+      expect(subject.send(:events_for, user).length).to eq(2)
     end
   end
 
