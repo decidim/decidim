@@ -73,6 +73,7 @@ PATH
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       charlock_holmes (~> 0.7)
+      concurrent-ruby (= 1.1.6)
       date_validator (~> 0.9.0)
       decidim-api (= 0.23.0.dev)
       devise (~> 4.7)

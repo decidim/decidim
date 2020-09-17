@@ -78,6 +78,7 @@ PATH
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
       charlock_holmes (~> 0.7)
+      concurrent-ruby (= 1.1.6)
       date_validator (~> 0.9.0)
       decidim-api (= 0.23.0.dev)
       devise (~> 4.7)
@@ -337,7 +338,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.6)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
