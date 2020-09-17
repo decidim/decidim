@@ -216,6 +216,21 @@ describe "Admin manages questionnaire templates", type: :system do
         expect(page).to have_content("My question")
       end
     end
+
+    it "doesn't show preview or answers buttons" do
+      within ".layout-content" do
+        click_link("Edit")
+      end
+
+      within ".container" do
+        click_link("Edit")
+      end
+
+      within ".card-title" do
+        expect(page).not_to have_button("Preview")
+        expect(page).not_to have_button("No answers yet")
+      end
+    end
   end
 
   describe "destroying a template" do
