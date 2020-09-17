@@ -23,7 +23,7 @@ module Decidim
               controller_path.match?("^decidim/templates/.*")
             end
 
-            def choose_template? (templatable = nil)
+            def choose_template?
               return false if templatable.is_a? Decidim::Templates::Template
 
               templates.any? && templatable.pristine?
