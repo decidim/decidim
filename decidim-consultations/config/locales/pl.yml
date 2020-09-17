@@ -15,7 +15,7 @@ pl:
         title: Tytuł
       question:
         banner_image: Baner
-        decidim_scope_id: Kategoria
+        decidim_scope_id: Zakres
         hashtag: Hashtag
         hero_image: Obraz główny
         i_frame_url: URL do zewnętrznego systemu głosowania
@@ -29,7 +29,7 @@ pl:
         promoter_group: Grupa inicjatorów
         question_context: Kontekst
         reference: Odniesienie
-        scope: Kategoria
+        scope: Zakres
         slug: URL slug
         subtitle: Podtytuł
         vote: Zewnętrzny system głosowania
