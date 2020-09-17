@@ -45,8 +45,8 @@ pl:
         title: Dodaj swój komentarz
       comment:
         alignment:
-          against: Przeciwko
-          in_favor: Na korzyść
+          against: Negatywny
+          in_favor: Pozytywny
         deleted_user: Usunięty użytkownik
         hide_replies: Ukryj odpowiedzi
         reply: Odpowiedz
