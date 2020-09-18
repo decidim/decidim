@@ -22,7 +22,6 @@ sv:
         destroy: Radera
         edit: Redigera
         import: Importera förslag till projekt
-        new: Nytt projekt
         preview: Förhandsvisa
         title: Åtgärder
       admin:
@@ -41,6 +40,7 @@ sv:
           index:
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
+            selected: Valda
             title: Projekt
           new:
             create: Skapa
@@ -69,11 +69,8 @@ sv:
         order_summary:
           selected_projects: 'De projekt som du har valt är:'
           subject: Du har röstat i deltagarutrymmet %{space_name}
-          voted_on_space: Du har röstat på budgetarna i deltagarutrymmet %{space_name}.
-          voted_on_space_with_scope: Du har röstat på budgetarna i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
           cancel: Avbryt
           confirm: Bekräfta
           description: De projekt där du har valt att delta i budgeten.
@@ -101,6 +98,10 @@ sv:
           category: Kategori
           scope: Omfång
           search: Sök
+          status: Status
+          status_values:
+            all: Alla
+            selected: Valda
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -120,12 +121,11 @@ sv:
           lowest_cost: Lägsta kostnad
           most_voted: Mest röster
           random: Slumpmässig ordning
+          selected: Valda
         project:
           add: Lägg till projekt %{resource_name} till din röst
-          count:
-            one: En röst
-            other: "%{count} röster"
           remove: Ta bort projekt %{resource_name} från din röst
+          selected: Valda
           view: Visa
         project_budget_button:
           add: Lägg till i din röst
@@ -160,7 +160,9 @@ sv:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
-            votes_enabled: Röstning aktiverad
+            title: Titel
+            votes_choices:
+              enabled: Röstning aktiverad
     orders:
       checkout:
         error: Det gick inte att behandla din röst

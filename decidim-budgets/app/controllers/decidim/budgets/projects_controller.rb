@@ -6,7 +6,6 @@ module Decidim
     class ProjectsController < Decidim::Budgets::ApplicationController
       include FilterResource
       include NeedsCurrentOrder
-      include Orderable
       include Decidim::Budgets::Orderable
 
       helper_method :projects, :project, :budget
@@ -44,6 +43,7 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
+          status: default_filter_status_params,
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params
         }
@@ -63,6 +63,10 @@ module Decidim
         else
           %w(all global) + current_component.participatory_space.scopes.map { |scope| scope.id.to_s }
         end
+      end
+
+      def default_filter_status_params
+        voting_finished? ? %w(selected) : %w(all)
       end
 
       def context_params

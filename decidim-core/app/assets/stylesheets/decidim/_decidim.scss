@@ -5,6 +5,8 @@
 @import "decidim/utils/settings";
 
 @include foundation-everything($flex: false);
+@include foundation-prototype-display;
+@include foundation-prototype-spacing;
 
 @import "decidim/utils/fontface";
 @import "decidim/utils/helpers";

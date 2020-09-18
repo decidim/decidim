@@ -19,6 +19,7 @@ module Decidim
         attribute :attachment, AttachmentForm
         attribute :photos, Array[String]
         attribute :add_photos, Array
+        attribute :selected, Boolean
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -35,6 +36,7 @@ module Decidim
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
+          self.selected = model.selected?
 
           return unless model.categorization
 

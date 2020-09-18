@@ -48,7 +48,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled: false
+            votes: :disabled
           }
         }
       end
@@ -68,7 +68,7 @@ FactoryBot.define do
       step_settings do
         {
           participatory_space.active_step.id => {
-            votes_enabled: false,
+            votes: :finished,
             show_votes: true
           }
         }
@@ -98,6 +98,10 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     budget_amount { Faker::Number.number(8) }
     budget { create(:budget) }
+
+    trait :selected do
+      selected_at { Time.current }
+    end
   end
 
   factory :order, class: "Decidim::Budgets::Order" do

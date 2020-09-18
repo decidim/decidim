@@ -10,7 +10,6 @@ el:
         description: Περιγραφή
         end_time: Η ψηφοφορία λήγει στις
         start_time: Η ψηφοφορία ξεκινά στις
-        subtitle: Υπότιτλος
         title: Τίτλος
       question:
         description: Περιγραφή

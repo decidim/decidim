@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  module Admin
+  module System
     describe OAuthApplicationForm, processing_uploads_for: Decidim::ImageUploader do
       subject do
         described_class.from_params(attributes).with_context(context)
@@ -11,6 +11,7 @@ module Decidim
 
       let(:organization) { create(:organization) }
       let(:name) { "Meta Decidim" }
+      let(:decidim_organization_id) { organization.id }
       let(:organization_name) { "Ajuntament de Barcelona" }
       let(:organization_url) { "http://www.barcelona.cat" }
       let(:organization_logo) do
@@ -21,6 +22,7 @@ module Decidim
         {
           "oauth_application" => {
             "name" => name,
+            "decidim_organization_id" => decidim_organization_id,
             "organization_name" => organization_name,
             "organization_url" => organization_url,
             "organization_logo" => organization_logo,
@@ -41,6 +43,12 @@ module Decidim
 
       context "when the name is missing" do
         let(:name) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when the organization id is missing" do
+        let(:decidim_organization_id) { nil }
 
         it { is_expected.not_to be_valid }
       end

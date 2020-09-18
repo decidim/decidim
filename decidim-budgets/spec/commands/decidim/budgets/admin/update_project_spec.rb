@@ -14,6 +14,7 @@ module Decidim::Budgets
     let(:participatory_process) { budget.component.participatory_space }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:uploaded_photos) { [] }
+    let(:selected) { nil }
     let(:current_photos) { [] }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
@@ -35,6 +36,7 @@ module Decidim::Budgets
         proposal_ids: proposals.map(&:id),
         scope: scope,
         category: category,
+        selected: selected,
         photos: current_photos,
         add_photos: uploaded_photos
       )
@@ -90,6 +92,18 @@ module Decidim::Budgets
         let!(:resource) { project }
         let(:resource_class) { Decidim::Budgets::Project }
         let(:command) { described_class.new(form, resource) }
+      end
+
+      context "when project is selected" do
+        let(:selected) { true }
+
+        it "saves a timestamp" do
+          subject.call
+
+          expect(project.selected_at).to be_present
+          expect(project.selected_at).to be_kind_of(Date)
+          expect(project.selected?).to be true
+        end
       end
     end
   end
