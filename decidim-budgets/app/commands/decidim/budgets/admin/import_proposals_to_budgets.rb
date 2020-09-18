@@ -67,7 +67,7 @@ module Decidim
 
         def all_proposals
           Decidim::Proposals::Proposal.where(component: origin_component)
-                                      .where(state: "accepted")
+                                      .where(state: :accepted)
         end
 
         def origin_component
