@@ -19,6 +19,8 @@ module Decidim
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      has_many :elections_trustees, dependent: :destroy
+      has_many :trustees, through: :elections_trustees, foreign_key: "decidim_elections_trustee_id", class_name: "Decidim::Elections::Trustee"
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)
