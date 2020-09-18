@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Proposals.version
   s.add_dependency "doc2text", "~> 0.4.2"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
-  s.add_dependency "ransack", "~> 2.1.1"
+  s.add_dependency "ransack", "~> 2.3"
   s.add_dependency "redcarpet", "~> 3.4"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version
