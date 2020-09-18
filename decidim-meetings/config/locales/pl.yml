@@ -94,6 +94,8 @@ pl:
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
