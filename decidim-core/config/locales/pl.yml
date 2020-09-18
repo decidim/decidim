@@ -368,6 +368,8 @@ pl:
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             amendment_creation_enabled: Tworzenie poprawek włączone
             amendment_promotion_enabled: Promowanie poprawek włączone
@@ -1181,6 +1183,10 @@ pl:
           many: "%{count} wyników"
           other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
+    security:
+      selfxss_warning:
+        description: Ta funkcja przeglądarki jest przeznaczona dla deweloperów i nie powinieneś tu nic wklejać, jeśli zostałeś o to poproszony. Wklejanie treści w tym oknie może zagrozić Twojej prywatności i zapewnić hakerom dostęp do Twojego konta.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Anuluj
@@ -1553,6 +1559,7 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: Polski
+    name_with_error: Polski (błąd!)
   password_validator:
     domain_included_in_password: jest zbyt podobne do tej nazwy domeny
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
