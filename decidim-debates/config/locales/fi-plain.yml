@@ -35,6 +35,8 @@ fi-pl:
             announcement: Ilmoitus
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
