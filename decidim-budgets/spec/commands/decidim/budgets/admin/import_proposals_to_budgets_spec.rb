@@ -70,7 +70,7 @@ module Decidim
               it "doesn't create any project" do
                 expect do
                   command.call
-                end.not_to change { Project.where(budget: budget).where(scope: scope).count }
+                end.not_to(change { Project.where(budget: budget).where(scope: scope).count })
               end
             end
 
@@ -114,7 +114,6 @@ module Decidim
               expect(new_project.scope).to eq(proposal.scope)
             end
           end
-
         end
       end
     end
