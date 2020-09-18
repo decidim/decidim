@@ -60,6 +60,7 @@ en:
         edit: Edit
         edit_answers: Edit answers
         edit_questions: Edit questions
+        feedback: Voter feedback
         import: Import proposals to answers
         new: New %{name}
         preview: Preview

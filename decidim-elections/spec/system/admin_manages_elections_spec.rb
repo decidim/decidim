@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin manages elections", type: :system do
   let(:election) { create :election, :upcoming, :published, component: current_component }
+  let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"

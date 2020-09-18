@@ -22,6 +22,11 @@ describe Decidim::Elections::Election do
   it { is_expected.not_to be_ongoing }
   it { is_expected.not_to be_finished }
 
+  it "has an association with one questionnaire" do
+    subject.questionnaire = build_stubbed(:questionnaire)
+    expect(subject.questionnaire).to be_present
+  end
+
   context "when it is ongoing" do
     subject(:election) { build :election, :ongoing }
 

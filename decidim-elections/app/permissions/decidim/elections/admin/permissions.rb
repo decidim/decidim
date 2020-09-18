@@ -31,6 +31,11 @@ module Decidim
             when :delete
               allow_if_not_related_to_any_election
             end
+          when :questionnaire
+            case permission_action.action
+            when :update
+              toggle_allow(feedback_form.present?)
+            end
           end
 
           permission_action
@@ -60,6 +65,10 @@ module Decidim
 
         def allow_if_not_related_to_any_election
           toggle_allow(trustee_participatory_space.trustee.elections.empty?)
+        end
+
+        def feedback_form
+          @feedback_form ||= context.fetch(:questionnaire, nil)
         end
       end
     end

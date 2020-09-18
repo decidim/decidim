@@ -82,6 +82,37 @@ Decidim.register_component(:elections) do |component|
         visibility: "all"
       )
 
+      questionnaire = Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: election
+      )
+
+      %w(short_answer long_answer).each do |text_question_type|
+        Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: text_question_type
+        )
+      end
+
+      %w(single_option multiple_option).each do |multiple_choice_question_type|
+        question = Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: multiple_choice_question_type
+        )
+
+        3.times do
+          question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        end
+      end
+
       2.times do
         question = Decidim.traceability.create!(
           Decidim::Elections::Question,

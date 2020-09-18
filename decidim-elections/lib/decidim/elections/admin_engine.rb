@@ -10,15 +10,18 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        get "/answer_options", to: "feedback_forms#answer_options", as: :answer_options_election_feedback, defaults: { format: "json" }
+
         resources :elections do
           member do
             put :publish
             put :unpublish
+            resource :feedback_form, only: [:edit, :update]
           end
           resources :questions do
             resources :answers do
-              get :proposals_picker, on: :collection
               collection do
+                get :proposals_picker
                 resource :proposals_import, only: [:new, :create]
               end
             end
