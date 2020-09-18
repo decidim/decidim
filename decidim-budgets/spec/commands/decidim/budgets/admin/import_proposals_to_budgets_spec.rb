@@ -19,6 +19,7 @@ module Decidim
           let(:budget) { create :budget, component: current_component }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
+          let(:scope) { create :scope, organization: organization }
           let!(:form) do
             instance_double(
               ProjectImportProposalsForm,
@@ -65,6 +66,14 @@ module Decidim
               end.to change { Project.where(budget: budget).count }.by(1)
             end
 
+            context "when there are no proposals in the selected scope" do
+              it "doesn't create any project" do
+                expect do
+                  command.call
+                end.not_to change { Project.where(budget: budget).where(scope: scope).count }
+              end
+            end
+
             context "when a proposal was already imported" do
               let(:second_proposal) { create(:proposal, :accepted, component: proposal.component) }
 
@@ -105,6 +114,7 @@ module Decidim
               expect(new_project.scope).to eq(proposal.scope)
             end
           end
+
         end
       end
     end
