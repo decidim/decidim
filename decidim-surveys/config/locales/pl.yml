@@ -25,6 +25,8 @@ pl:
           global:
             announcement: Ogłoszenie
             clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             allow_answers: Pozwól na wypełnianie
             allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
