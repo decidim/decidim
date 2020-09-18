@@ -1,7 +1,14 @@
 pl:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Zakres
+        description: Opis
+        title: Tytuł
+        total_budget: Cały budżet
+        weight: Waga
       project:
+        budget_amount: Kwota budżetu
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
@@ -219,6 +226,9 @@ pl:
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
+            title: Tytuł
             total_budget: Cały budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'
