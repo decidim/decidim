@@ -271,6 +271,7 @@ pl:
           headers:
             actions: Działania
             name: Nazwa komponentu
+            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent
@@ -639,6 +640,10 @@ pl:
           title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
+      resources:
+        index:
+          headers:
+            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
