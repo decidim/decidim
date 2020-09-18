@@ -17,7 +17,7 @@ module Decidim
         end
 
         def after_update_url
-          edit_feedback_form_path(election_id: election.id)
+          edit_feedback_form_path(id: election.id)
         end
 
         def public_url

@@ -209,6 +209,10 @@ en:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: Voting ends on %{end_time}
             upcoming: Voting begins on %{start_time}
+      feedback:
+        create:
+          invalid: There was a problem submiting your feedback.
+          success: Feedback successfully sent.
       models:
         answer:
           fields:
