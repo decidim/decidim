@@ -271,6 +271,7 @@ fi:
           headers:
             actions: Toiminnot
             name: Komponentin nimi
+            scope: Komponentin teema
             type: Komponentin tyyppi
         new:
           add: Lisää komponentti
@@ -639,6 +640,10 @@ fi:
           title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeuksien päivitys onnistui.
+      resources:
+        index:
+          headers:
+            scope: Teema
       scope_types:
         create:
           error: Uuden teematyypin luonti epäonnistui.
