@@ -1,0 +1,41 @@
+<% provide :title do %>
+  <h2><%= t ".title" %></h2>
+<% end %>
+
+<div class="actions title">
+  <%= link_to t("actions.new", scope: "decidim.system", name: t("models.oauth_application.name", scope: "decidim.system")), ["new", "oauth_application"], class: "new" %>
+</div>
+
+<table class="stack">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t("models.oauth_application.fields.name", scope: "decidim.system") %></th>
+      <th><%= t("models.oauth_application.fields.organization_name", scope: "decidim.system") %></th>
+      <th><%= t("models.oauth_application.fields.created_at", scope: "decidim.system") %></th>
+      <th class="actions"><%= t("actions.title", scope: "decidim.system") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @oauth_applications.each do |oauth_application| %>
+      <tr>
+        <td>
+          <%= image_tag oauth_application.organization_logo.url %>
+        </td>
+        <td>
+          <%= link_to oauth_application.name, oauth_application %><br>
+        </td>
+        <td>
+          <%= link_to oauth_application.organization_name, oauth_application.organization %><br>
+        </td>
+        <td>
+          <%= l oauth_application.created_at, format: :short %>
+        </td>
+        <td class="actions">
+          <%= link_to t("actions.edit", scope: "decidim.system"), ["edit", oauth_application] %>
+          <%= link_to t("actions.destroy", scope: "decidim.system"), oauth_application, method: :delete, class: "small alert button", data: { confirm: t(".confirm_delete") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

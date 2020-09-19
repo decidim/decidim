@@ -7,7 +7,11 @@ module Decidim
       class AnswersController < Admin::ApplicationController
         include Decidim::Proposals::Admin::Picker
         helper Decidim::ApplicationHelper
-        helper_method :election, :question, :answers, :answers
+        helper_method :election, :question, :answers, :answers, :missing_answers
+
+        def index
+          flash.now[:alert] = I18n.t("answers.index.invalid_max_selections", scope: "decidim.elections.admin", missing_answers: missing_answers) if missing_answers.positive?
+        end
 
         def new
           enforce_permission_to :update, :answer, election: election, question: question
@@ -85,6 +89,10 @@ module Decidim
 
         def answer
           answers.find(params[:id])
+        end
+
+        def missing_answers
+          question.max_selections - answers.count
         end
       end
     end

@@ -73,12 +73,6 @@ eo:
         error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
-      wizard_step_form:
-        steps:
-          '1': Create your amendment
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     author:
       avatar: Avataro
     group_admins:

@@ -11,7 +11,6 @@ en:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
-        subtitle: Subtitle
         title: Title
       question:
         description: Description
@@ -20,6 +19,10 @@ en:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
@@ -70,6 +73,7 @@ en:
             title: Edit answer
             update: Update answer
           index:
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
             title: Answers
           new:
             create: Create answer

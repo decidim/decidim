@@ -10,7 +10,6 @@ pt:
         description: Descrição
         end_time: Votação termina às
         start_time: Votação inicia-se às
-        subtitle: Subtítulo
         title: Título
       question:
         description: Descrição

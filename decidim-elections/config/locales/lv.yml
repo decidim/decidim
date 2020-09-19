@@ -10,7 +10,6 @@ lv:
         description: Apraksts
         end_time: Balsošana beidzas plkst.
         start_time: Balsošanas sākas plkst.
-        subtitle: Apakšvirsraksts
         title: Nosaukums
       question:
         description: Apraksts

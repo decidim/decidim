@@ -190,7 +190,7 @@ module Decidim
       def i18n_params
         {
           user_name: user_presenter.present,
-          resource_name: resource_presenter.present,
+          resource_name: resource_presenter.try(:present),
           space_name: space_presenter.present
         }
       end

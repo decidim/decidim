@@ -108,7 +108,7 @@ module Decidim
     def run_hooks(event_name, context = nil)
       return unless hooks[event_name]
 
-      hooks[event_name.to_sym].each do |hook|
+      hooks[event_name.to_sym].map do |hook|
         hook.call(context)
       end
     end

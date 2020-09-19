@@ -43,6 +43,14 @@ module Decidim
       # In order to render the badge inline with the paragraph text we need to
       # find the opening `<p>` tag and include the badge right after it. This
       # makes the layout look good.
+      def has_image?
+        model.photos.present?
+      end
+
+      def resource_image_path
+        model.photos.first.url if has_image?
+      end
+
       def description
         text = super
         text.gsub!(/^<p>/, "<p>#{render :badge}")

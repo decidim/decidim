@@ -32,4 +32,13 @@ describe Decidim::Elections::Admin::DestroyElection do
       expect { subject.call }.to broadcast(:invalid)
     end
   end
+
+  context "with attachments" do
+    let(:command) { described_class.new(election, user) }
+    let!(:image) { create(:attachment, :with_image, attached_to: election) }
+
+    it_behaves_like "admin destroys resource gallery" do
+      let(:resource) { election }
+    end
+  end
 end

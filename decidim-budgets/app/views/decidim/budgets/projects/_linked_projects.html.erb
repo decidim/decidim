@@ -2,7 +2,7 @@
   <% resources.each do |project| %>
     <div class="card--list__item">
       <%= icon "actions", class: "card--list__icon", role: "img", "aria-hidden": true, remove_icon_class: true %>
-      <%= link_to resource_locator(project).path, class: "card--list__text card__link card__link--block" do %>
+      <%= link_to resource_locator([project.budget, project]).path, class: "card--list__text card__link card__link--block" do %>
         <h5 class="card--list__heading">
           <%= translated_attribute(project.title) %>
         </h5>

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Budgets
   describe DataPortabilityBudgetsOrderSerializer do
     let(:resource) { create(:order) }
-    let!(:projects) { create_list(:project, 2, component: resource.component, budget: 25_000_000) }
+    let!(:projects) { create_list(:project, 2, budget: resource.budget, budget_amount: 25_000_000) }
 
     let(:subject) { described_class.new(resource) }
     let(:serialized) { subject.serialize }
@@ -15,8 +15,12 @@ module Decidim::Budgets
         expect(serialized).to include(id: resource.id)
       end
 
+      it "includes the budget" do
+        expect(serialized).to include(budget: resource.budget.title)
+      end
+
       it "includes the component" do
-        expect(serialized).to include(component: resource.component.name)
+        expect(serialized).to include(component: resource.budget.component.name)
       end
 
       it "includes the checked out at" do
@@ -33,8 +37,8 @@ module Decidim::Budgets
         expect(serialized[:projects].last).to include(title: projects.last.title)
         expect(serialized[:projects].first).to include(description: projects.first.description)
         expect(serialized[:projects].last).to include(description: projects.last.description)
-        expect(serialized[:projects].first).to include(budget: projects.first.budget)
-        expect(serialized[:projects].last).to include(budget: projects.last.budget)
+        expect(serialized[:projects].first).to include(budget_amount: projects.first.budget_amount)
+        expect(serialized[:projects].last).to include(budget_amount: projects.last.budget_amount)
         expect(serialized[:projects].first).to include(scope: projects.first.scope)
         expect(serialized[:projects].last).to include(scope: projects.last.scope)
         expect(serialized[:projects].first).to include(reference: projects.first.reference)

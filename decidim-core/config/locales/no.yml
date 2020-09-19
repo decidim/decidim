@@ -594,8 +594,23 @@
           email_outro: Du har mottatt denne varslingen fordi du var medlem av den gruppen.
           email_subject: Du er fjernet fra %{user_group_name} gruppen!
           notification_title: Du er fjernet fra <a href="%{resource_path}">%{user_group_name}</a> gruppen.
+        user_group_created:
+          email_intro: En ny brukergruppe har blitt opprettet med navnet %{user_group_name}. Du kan nå bekrefte det i <a href="%{groups_admin_url}">admin-panelet</a>.
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: En ny brukergruppe har blitt opprettet
+          notification_title: Brukergruppen %{user_group_name} har blitt opprettet. Du kan nå bekrefte den i <a href="%{groups_admin_path}">admin-panelet</a>.
+        user_group_updated:
+          email_intro: En brukergruppe med navnet %{user_group_name} har oppdatert sin profil, og er ubekreftet. Du kan nå bekrefte den i <a href="%{groups_admin_url}">admin-panelet</a>.
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: En brukergruppe har oppdatert sin profil
+          notification_title: Brukergruppen %{user_group_name} har oppdatert sin profil, og det er ubekreftet. Du kan nå bekrefte det i <a href="%{groups_admin_path}">admin-panelet</a>.
       notification_event:
         notification_title: En hendelse oppstod til <a href="%{resource_path}">%{resource_title}</a>.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har akkurat godkjent "%{resource_title}" og vi tror det kan være interessant for deg. Sjekk det ut og bidra:'
+        email_outro: Du har mottatt dette varselet fordi du følger %{endorser_nickname}. Du kan slutte å motta varsler ved å følge den forrige lenken.
+        email_subject: "%{endorser_nickname} har utført ny påtegning"
+        notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} er godkjent av <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsiden</a> til %{name} (%{nickname}), som du følger er blitt oppdatert.
@@ -817,8 +832,10 @@
       expired_session: Den nåværende administrasjonsøkten til en deltaker har gått ut.
     map:
       dynamic:
+        screen_reader_explanation: Følgende element er et kart som viser enhetene på denne siden som kartpunkter. Elementet kan brukes med en skjermleser, men det kan være vanskelig å forstå.
         skip_button: Hopp over kart
       static:
+        latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
     members:
       no_members: Denne gruppen har ikke noen medlemmer ennå.
@@ -827,11 +844,35 @@
       home: Hjem
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{manager} har startet en ny samtale for %{group}. Klikk her for å se den:"
+          outro: Kos deg med decidim!
+          subject: "%{manager} har startet en ny samtale som %{group}"
+        comanagers_new_message:
+          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{manager} har postet nye meldinger i en samtale for %{group}. Klikk her for å se dem:"
+          outro: Kos deg med decidim!
+          subject: "%{manager} har sendt nye meldinger som %{group}"
         new_conversation:
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
           outro: Kos deg med desidim!
           subject: "%{sender} har startet en samtale med deg"
+        new_group_conversation:
+          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{sender} har startet en ny samtale med gruppen %{group}. Klikk her for å se den:"
+          outro: Kos deg med decidim!
+          subject: "%{sender} har startet en samtale med %{group}"
+        new_group_message:
+          admin_in_group: Du mottar dette fordi du er en admin i %{group}.
+          greeting: Hei %{recipient}!
+          intro: "%{sender} har postet nye meldinger i en samtale med gruppen %{group}. Klikk her for å se den:"
+          outro: Kos deg med decidim!
+          subject: "%{group} har nye meldinger fra %{sender}"
         new_message:
           greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
@@ -839,20 +880,32 @@
           subject: Du har nye meldinger fra %{sender}
       conversations:
         add_conversation_users:
+          add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
           add_users_placeholder: Søk...
           modal_title: Ny Samtale
           no_results: Ingen resultater
           participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å sende melding
+        conversation:
+          show: Vis samtale med %{sender}
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         index:
+          ago: siden
           close: Lukk modal
+          from: Fra
+          groups: Mine grupper
+          last_message: Siste melding
+          new_conversation: Ny samtale
+          next: Neste
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         reply:
+          placeholder: Ditt svar...
           send: Send
           title: Svar
         show:
+          back: Tilbake til alle samtaler
+          chat_with: Samtale med
           title: Samtale med %{usernames}
         start:
           send: Send
@@ -1116,8 +1169,34 @@
       index:
         no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_conversations:
+      create:
+        existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
+        success: Samtalen startet vellykket!
       index:
+        add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
         add_users_placeholder: Søk..
+        close: Lukk
+        conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
+        from: Fra
+        last_message: Siste melding
+        modal_title: Ny samtale
+        new_conversation: Ny samtale
+        next: Neste
+        no_conversations_warning: Det er ingen samtaler ennå.
+        no_results: Ingen resultater
+        participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å motta melding
+        time_ago: "%{time} siden"
+      new:
+        title: Start en samtale
+      reply:
+        placeholder: Ditt svar...
+        send: Send
+        title_reply: Svar
+      show:
+        not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
+        title: Samtale med %{usernames}
+      update:
+        error: Melding ikke sendt. Prøv igjen senere
     user_interests:
       show:
         my_interests: Mine interesser
@@ -1127,9 +1206,33 @@
       update:
         error: Det oppstod et problem med å oppdatere interessene dine.
         success: Interessene dine er oppdatert.
+    version:
+      show:
+        back_to_resource: Gå tilbake
+        changes_at_title: Endringer på"%{title}
+        number_of_versions: Versjoner
+        show_all_versions: Vis alle versjoner
+        version_author: Forfatter av versjonen
+        version_created_at: Versjon opprettet på
+        version_number: Versjonsnummer
+        version_number_out_of_total: "%{current_version} av %{total_count}"
     version_author:
       show:
         deleted: Slettet deltaker
+    versions:
+      resource_version:
+        of_versions: "(av %{number})"
+        see_other_versions: se andre versjoner
+        version: Versjon %{number}
+    versions_list:
+      show:
+        back_to_resource: Gå tilbake
+        changes_at_title: Endringer på "%{title}"
+        number_of_versions: Versjoner
+        title: Versjoner
+    versions_list_item:
+      show:
+        version_index: Versjon %{index}
     welcome_notification:
       default_body: <p>Hei {{name}}, takk for at du ble med i {{organization}} og velkommen!</p><ul><li>Hvis du vil få et raskt inntrykk av hva du kan gjøre her, ta en titt på <a href="{{help_url}}">Hjelp</a> seksjonen.</li><li>Når du har lest det, får du det første merket ditt. Her er en <a href="{{badges_url}}">liste over alle merkene</a> du kan oppnå når du deltar i {{organization}}</li><li> Sist, men ikke minst, bli med andre mennesker, dele med dem opplevelsen av å være engasjert og delta i {{organization}}. Lag forslag, gi dine innspill, diskuter, tenk på hvordan du kan bidra til felleskapets beste, gi argumenter for å overbevise, lytt og les for å bli overbevist, uttrykk ideene dine på en konkret og direkte måte, svar med tålmodighet og beslutning, forsvar ideene dine og behold et åpent sinn for å samarbeide, og bli med på andres ideer.</li></ul>
       default_subject: Takk for at du ble med {{organization}}!
@@ -1305,7 +1408,13 @@
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
       too_short: er for kort (under 15 tegn)
   forms:
+    correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
+    length_validator:
+      minimum:
+        one: minst %{count} tegn
+        other: minst %{count} tegn
     required: Påkrevd
+    required_explanation: "Obligatoriske felt er markert med en stjerne"
   invisible_captcha:
     sentence_for_humans: Hvis du er menneske, ignorerer dette feltet
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
@@ -1318,6 +1427,8 @@
       edit_link:
         edit: Rediger
       footer:
+        cc_by_license: Creative Commons lisens
+        decidim_logo: Decidim logo
         download_open_data: Last ned Åpen Data filer
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">gratis programvare</a>.
       header:
@@ -1329,9 +1440,19 @@
         close_session: Lukk økt
         description_html: Du administrerer deltakeren <b>%{user_name}</b>.
         expire_time_html: Økten din går ut om <b><span class="minutes">%{minutes}</span> minutter</b>.
+      language_chooser:
+        choose_language: Velg språk
       notifications_dashboard:
         mark_all_as_read: Merk alt som lest
+        mark_as_read: Merk som lest
+      social_media_links:
+        facebook: "%{organization} på Facebook"
+        github: "%{organization} på GitHub"
+        instagram: "%{organization} på Instagram"
+        twitter: "%{organization} på Twitter"
+        youtube: "%{organization} på YouTube"
       user_menu:
+        account: 'Brukerkonto: %{name}'
         admin_dashboard: Admin hovedpanel
         conversations: Samtaler
         notifications: Varsler

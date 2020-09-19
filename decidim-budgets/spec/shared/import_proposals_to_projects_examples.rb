@@ -23,7 +23,5 @@ shared_examples "import proposals to projects" do
     proposals.each do |project|
       expect(page).to have_content(project.title["en"])
     end
-
-    expect(page).to have_current_path(manage_component_path(current_component))
   end
 end

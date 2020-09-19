@@ -33,7 +33,7 @@ module Decidim
     # text and errors.
     #
     # attribute       - the name of the field
-    # collection      - the collection from which we will render the check boxes
+    # collection      - the collection from which we will render the radio buttons
     # value_attribute - a Symbol or a Proc defining how to find the value attribute
     # text_attribute  - a Symbol or a Proc defining how to find the text attribute
     # options         - a Hash with options
@@ -45,6 +45,14 @@ module Decidim
       super + error_and_help_text(attribute, options)
     end
     # rubocop:enable Metrics/ParameterLists
+
+    def create_language_selector(locales, tabs_id, name)
+      if Decidim.available_locales.count > 4
+        language_selector_select(locales, tabs_id, name)
+      else
+        language_tabs(locales, tabs_id, name)
+      end
+    end
 
     # Public: Generates an form field for each locale.
     #
@@ -61,22 +69,10 @@ module Decidim
       label_tabs = content_tag(:div, class: "label--tabs") do
         field_label = label_i18n(name, options[:label] || label_for(name))
 
-        tabs_panels = "".html_safe
-        if options[:label] != false
-          tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
-            locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
-              string + content_tag(:li, class: tab_element_class_for("title", index)) do
-                title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
-                element_class = nil
-                element_class = "is-tab-error" if error?(name_with_locale(name, locale))
-                tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
-                content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
-              end
-            end
-          end
-        end
+        language_selector = "".html_safe
+        language_selector = create_language_selector(locales, tabs_id, name) if options[:label] != false
 
-        safe_join [field_label, tabs_panels]
+        safe_join [field_label, language_selector]
       end
 
       hashtaggable = options.delete(:hashtaggable)
@@ -286,13 +282,17 @@ module Decidim
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
     # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
+    # - namespace   - prepend a custom name to the html element's DOM id.
     #
     # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      id = "#{@object_name}_#{attribute}"
-      id = "#{self.options[:namespace]}_#{id}" if self.options.has_key?(:namespace)
+      id = if self.options.has_key?(:namespace)
+             "#{self.options[:namespace]}_#{sanitize_for_dom_selector(@object_name)}"
+           else
+             "#{sanitize_for_dom_selector(@object_name)}_#{attribute}"
+           end
 
       picker_options = {
         id: id,
@@ -819,6 +819,10 @@ module Decidim
       id.tr("[", "-").tr("]", "-")
     end
 
+    def sanitize_for_dom_selector(name)
+      name.to_s.parameterize.underscore
+    end
+
     def extension_whitelist_help(extension_whitelist)
       content_tag :p, class: "extensions-help help-text" do
         safe_join([
@@ -872,6 +876,36 @@ module Decidim
       return block unless input_size.changed?
 
       content_tag(:span, prefix + input + postfix, class: "row collapse")
+    end
+
+    def language_selector_select(locales, tabs_id, name)
+      content_tag(:div) do
+        content_tag(:select, id: tabs_id, class: "language-change") do
+          locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+            title = if error?(name_with_locale(name, locale))
+                      I18n.with_locale(locale) { I18n.t("name_with_error", scope: "locale") }
+                    else
+                      I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+                    end
+            tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
+            string + content_tag(:option, title, value: "##{tab_content_id}")
+          end
+        end
+      end
+    end
+
+    def language_tabs(locales, tabs_id, name)
+      content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
+        locales.each_with_index.inject("".html_safe) do |string, (locale, index)|
+          string + content_tag(:li, class: tab_element_class_for("title", index)) do
+            title = I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+            element_class = nil
+            element_class = "is-tab-error" if error?(name_with_locale(name, locale))
+            tab_content_id = sanitize_tabs_selector "#{tabs_id}-#{name}-panel-#{index}"
+            content_tag(:a, title, href: "##{tab_content_id}", class: element_class)
+          end
+        end
+      end
     end
   end
 end
