@@ -44,6 +44,7 @@ describe "Admin manages participatory texts", type: :system do
     click_button "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "Preview participatory text"
+    validate_proposals
   end
 
   def validate_occurrences(sections: nil, subsections: nil, articles: nil)
@@ -78,7 +79,15 @@ describe "Admin manages participatory texts", type: :system do
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
-    expect(proposals.published.order(:position).pluck(:title)).to eq(titles)
+    expect(proposals.published.order(:position).pluck(:title).map(&:values).map(&:first)).to eq(titles)
+  end
+
+  def validate_proposals
+    proposals = Decidim::Proposals::Proposal.where(component: current_component)
+    proposals.each do |proposal|
+      expect(proposal.title).to be_kind_of(Hash)
+      expect(proposal.body).to be_kind_of(Hash)
+    end
   end
 
   def edit_participatory_text_body(index, new_body)
@@ -114,7 +123,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "section" }
+    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "section" }
 
     it "renders only draft proposals" do
       visit_participatory_texts
@@ -123,7 +132,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "discarding participatory texts in draft mode" do
-    let!(:proposals) { create_list(:proposal, 5, :draft, component: current_component, participatory_text_level: "article") }
+    let!(:proposals) { create_list(:proposal, 5, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article") }
 
     it "removes all proposals in draft mode" do
       visit_participatory_texts
@@ -134,7 +143,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article" }
     let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
@@ -144,12 +153,12 @@ describe "Admin manages participatory texts", type: :system do
       save_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 1)
       proposal.reload
-      expect(proposal.body.delete("\r")).to eq(new_body)
+      expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
 
   describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
+    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article" }
     let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
@@ -159,7 +168,7 @@ describe "Admin manages participatory texts", type: :system do
       save_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 1)
       proposal.reload
-      expect(proposal.body.delete("\r")).to eq(new_body)
+      expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
 end

@@ -14,8 +14,12 @@
     </div>
   </div>
 
-  <% if current_participatory_space.has_subscopes? %>
-    <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "projects" %>
+  <% if voting_finished? %>
+    <%= form.check_boxes_tree :status, filter_status_values, legend_title: t(".status"), "aria-controls": "projects" %>
+  <% end %>
+
+  <% if current_component.has_subscopes? %>
+    <%= form.check_boxes_tree :scope_id, resource_filter_scope_values(budget.scope), legend_title: t(".scope"), "aria-controls": "projects" %>
   <% end %>
 
   <% if current_participatory_space.categories.any? %>

@@ -21,6 +21,7 @@
             <% if Decidim.geocoder.present? %>
               <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
             <% end %>
+            <%= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.meetings") %></th>
           </tr>
         </thead>
@@ -48,6 +49,7 @@
                   <%= static_map_link(meeting) %>
                 </td>
               <% end %>
+              <%= td_resource_scope_for(meeting.scope) %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(meeting).path, t("actions.preview", scope: "decidim.meetings"), class: "action-icon--preview", target: :blank %>
 

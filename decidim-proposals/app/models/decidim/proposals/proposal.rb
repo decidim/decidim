@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
@@ -414,14 +414,6 @@ module Decidim
             state_published_at: Time.current
           )
         end
-      end
-
-      def i18n_title
-        translated_attribute(title)
-      end
-
-      def i18n_body
-        translated_attribute(body)
       end
 
       private

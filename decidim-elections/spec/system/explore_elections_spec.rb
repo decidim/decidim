@@ -132,4 +132,27 @@ describe "Explore elections", :slow, type: :system do
       it_behaves_like "a paginated resource"
     end
   end
+
+  describe "show" do
+    let(:elections_count) { 1 }
+    let(:election) { elections.first }
+    let(:image) { create(:attachment, :with_image, attached_to: election) }
+
+    before do
+      election.update!(attachments: [image])
+      visit resource_locator(election).path
+    end
+
+    it "shows all election info" do
+      expect(page).to have_i18n_content(election.title)
+      expect(page).to have_i18n_content(election.description)
+      expect(page).to have_content(election.end_time.day)
+    end
+
+    context "with attached photos" do
+      it "shows the image" do
+        expect(page).to have_xpath("//img[@src=\"#{image.url}\"]")
+      end
+    end
+  end
 end

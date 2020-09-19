@@ -13,6 +13,10 @@ module Decidim
       def resource_icon
         icon "projects", class: "icon--big"
       end
+
+      def resource_path
+        resource_locator([model.budget, model]).path
+      end
     end
   end
 end

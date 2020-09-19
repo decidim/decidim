@@ -335,7 +335,7 @@ fr:
             metadata: Métadonnées
             other: Autre
             related_processes: Concertations liées
-            scope_type_max_depth_help: Restreindre la profondeur du filtre de téles; Le filtre s'affichera de général au type de télescope sélectionné.
+            scope_type_max_depth_help: Restreindre la profondeur du filtre de secteur; Le filtre s'affichera du secteur général au type de secteur sélectionné.
             select_an_area: Sélectionnez un secteur
             select_process_group: Sélectionnez un groupe de concertations
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
@@ -425,7 +425,7 @@ fr:
       participatory_process_groups:
         participatory_process_group:
           browse: Parcourir
-          browse_resource: Parcourir le groupe de processus %{resource_name}
+          browse_resource: Parcourir le groupe de concertation %{resource_name}
           processes_count: 'Concertations :'
       participatory_process_widgets:
         show:
@@ -437,15 +437,15 @@ fr:
         participatory_process:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
-          more_info_about: Plus d'infos sur le processus %{resource_name}
+          more_info_about: Plus d'infos sur la concertation %{resource_name}
           take_part: Participer
-          take_part_in: Participer au processus %{resource_name}
+          take_part_in: Participer à la concertation %{resource_name}
         promoted_process:
           active_step: 'Étape actuelle :'
           more_info: Plus d'informations
-          more_info_about: Plus d'infos sur le processus %{resource_name}
+          more_info_about: Plus d'infos sur la concertation %{resource_name}
           take_part: Participer
-          take_part_in: Participer au processus %{resource_name}
+          take_part_in: Participer à la concertation %{resource_name}
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes

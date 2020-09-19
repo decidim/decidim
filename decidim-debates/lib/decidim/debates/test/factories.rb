@@ -39,6 +39,11 @@ FactoryBot.define do
       closed_at { Time.current }
       conclusions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     end
+
+    after(:build) do |debate|
+      debate.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.title, current_organization: debate.organization).rewrite
+      debate.description = Decidim::ContentProcessor.parse_with_processor(:hashtag, debate.description, current_organization: debate.organization).rewrite
+    end
   end
 
   factory :debates_component, parent: :component do

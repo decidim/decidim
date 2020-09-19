@@ -35,9 +35,11 @@ edit_link(
   </div>
 </div>
 <div class="row section">
-  <div class="columns medium-4 mediumlarge-5">
-    <img src="<%= image_path "decidim/elections/superilles.jpg" %>" alt="">
-  </div>
+  <% if election.attachments.first.present? && election.attachments.first.file.content_type.start_with?("image") %>
+    <div class="columns medium-4 mediumlarge-5">
+      <img src="<%= election.attachments.first.url %>" alt="">
+    </div>
+  <% end %>
   <div class="columns medium-8 mediumlarge-7">
     <div class="section">
       <%= decidim_sanitize(simple_format(translated_attribute(election.description))) %>

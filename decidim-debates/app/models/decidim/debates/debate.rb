@@ -11,7 +11,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::Commentable
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasReference
@@ -20,19 +20,20 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
+      include Decidim::Hashtaggable
       include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
       include Decidim::Endorsable
-
-      translatable_fields :title, :description, :instructions, :information_updates
 
       component_manifest_name "debates"
 
       validates :title, presence: true
 
+      translatable_fields :title, :description, :instructions, :information_updates
       searchable_fields({
                           participatory_space: { component: :participatory_space },
-                          A: :title,
-                          D: :description,
+                          A: :search_title,
+                          D: :search_body,
                           datetime: :start_time
                         },
                         index_on_create: ->(debate) { debate.visible? },

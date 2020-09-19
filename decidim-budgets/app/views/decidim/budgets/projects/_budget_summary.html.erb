@@ -1,13 +1,24 @@
-<div class="card budget-summary" data-progress-reference data-safe-url="<%= projects_base_url %>">
+<div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
   <div class="card__content">
     <% if include_heading %>
       <% if current_order_checked_out? %>
-        <h3 class="heading3"><%= t(".checked_out.title") %></h3>
+        <h3 class="heading3">
+          <%= t(".checked_out.title") %>
+          <% unless current_workflow.single? %>
+            <small><%= translated_attribute(budget.title) %></small>
+          <% end %>
+        </h3>
         <p>
-          <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), order_path, method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
+          <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path(return_to: "budget"), method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
         </p>
       <% else %>
-        <h3 class="heading3"><%= t(".title") %></h3>
+        <h3 class="heading3">
+          <% if current_workflow.single? %>
+            <%= t(".title") %>
+          <% else %>
+            <%= translated_attribute(budget.title) %>
+          <% end %>
+        </h3>
         <p>
           <% if current_order.minimum_projects_rule? %>
             <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
@@ -18,10 +29,10 @@
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= component_settings.total_budget %>">
+    <div class="budget-summary__total" data-total-budget="<%= budget.total_budget %>">
       <span class="mini-title"><%= t("total_budget") %>
         <strong class="mini-title__strong mini-title__strong--highlight">
-          <%= budget_to_currency(component_settings.total_budget) %>
+          <%= budget_to_currency(budget.total_budget) %>
         </strong>
       </span>
     </div>
@@ -34,6 +45,8 @@
         <%= render partial: "order_total_budget" %>
       </span>
     </div>
+
+    <%= cell("decidim/budgets/budget_information_modal", budget) %>
   </div>
 
   <%= render partial: "order_selected_projects" %>

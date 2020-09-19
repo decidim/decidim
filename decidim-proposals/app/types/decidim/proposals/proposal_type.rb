@@ -21,16 +21,8 @@ module Decidim
       ]
 
       field :id, !types.ID
-      field :title, !types.String, "This proposal's title" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.title.values.first
-        }
-      end
-      field :body, types.String, "This proposal's body" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.body.values.first
-        }
-      end
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this title"
+      field :body, Decidim::Core::TranslatedFieldType, "The description for this body"
       field :address, types.String, "The physical address (location) of this proposal"
       field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal" do
         resolve ->(proposal, _args, _ctx) {
