@@ -191,6 +191,8 @@ en:
             heading_leaf_level_results: Name for "Projects"
             heading_parent_level_results: Name for "Results"
             intro: Intro
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             subcategories_label: Name for "Subcategories"
           step:
             comments_blocked: Comments blocked

@@ -28,12 +28,6 @@ pt:
       newsletter:
         body: Corpo
         subject: Assunto
-      oauth_application:
-        name: Nome
-        organization_logo: Logotipo da organização (quadrado)
-        organization_name: Nome da organização
-        organization_url: URL da organização
-        redirect_uri: Redirecionar URI
       organization:
         alert_color: Alerta
         badges_enabled: Ativar emblemas
@@ -100,10 +94,6 @@ pt:
         file: Arquivo
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
         organization:
           attributes:
             official_img_footer:
@@ -335,7 +325,6 @@ pt:
         homepage: Pagina inicial
         impersonations: Imitações
         newsletters: Newsletters
-        oauth_applications: Aplicações OAuth
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
@@ -378,11 +367,6 @@ pt:
             sent_at: Enviado em
             subject: Sujeito
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Criado em
-            name: Nome
-          name: Aplicação OAuth
         participatory_space_private_user:
           name: Espaço participativo usuário particular
         scope:
@@ -456,25 +440,6 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
-      oauth_applications:
-        create:
-          error: Houve um erro ao criar este aplicativo.
-          success: Aplicativo criado com sucesso.
-        destroy:
-          error: Houve um erro ao destruir este aplicativo.
-          success: Aplicativo excluído com sucesso.
-        edit:
-          save: Salvar
-          title: Editar aplicativo
-        index:
-          confirm_delete: Deseja mesmo excluir este aplicativo?
-          title: Aplicações OAuth
-        new:
-          save: Salvar
-          title: Nova aplicação
-        update:
-          error: Houve um erro ao atualizar este aplicativo.
-          success: Aplicativo atualizado com sucesso.
       officializations:
         create:
           success: Usuário oficializado com sucesso

@@ -859,7 +859,7 @@ nl:
         success: Concept succesvol bijgewerkt.
       versions:
         collaborative_drafts:
-          back_to_resource: Ga terug naar de gezamenlijk ontwerp
+          back_to_resource: Ga terug naar het gezamenlijke concept
         index:
           title: versies
         proposals:

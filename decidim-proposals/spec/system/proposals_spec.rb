@@ -36,7 +36,11 @@ describe "Proposals", type: :system do
     let!(:component) do
       create(:proposal_component,
              manifest: manifest,
-             participatory_space: participatory_process)
+             participatory_space: participatory_process,
+             settings: {
+               scopes_enabled: true,
+               scope_id: participatory_process.scope&.id
+             })
     end
 
     let!(:proposals) { create_list(:proposal, 3, component: component) }

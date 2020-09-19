@@ -22,7 +22,6 @@ tr:
         destroy: silmek
         edit: Düzenle
         import: Projelere teklif alma
-        new: Yeni proje
         preview: Ön izleme
         title: Eylemler
       admin:
@@ -67,7 +66,6 @@ tr:
             title: Başlık
       projects:
         budget_confirm:
-          are_you_sure: Katılıyor musun? Oyunuzu onayladıktan sonra, değiştiremezsiniz.
           cancel: İptal etmek
           confirm: Onaylamak
           description: Bunlar bütçenin bir parçası olmak için seçtiğiniz projeler.
@@ -108,9 +106,6 @@ tr:
             other: seçilen projeler
           view: Görünüm
         project:
-          count:
-            one: 1 destek
-            other: "%{count} destek"
           view: Görünüm
         show:
           budget: Bütçe
@@ -132,7 +127,8 @@ tr:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
             show_votes: Oyları göster
-            votes_enabled: Oylama etkin
+            votes_choices:
+              enabled: Oylama etkin
     orders:
       checkout:
         error: Oyunuzu işleme koymada bir sorun oluştu

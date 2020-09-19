@@ -26,10 +26,10 @@ fi:
         github: GitHub
         hashtag: Hashtag
         hero_image: Etusivun kuva
-        included_at: Mukana osoitteessa
+        included_at: Lisäysaika
         instagram: Instagram
         internal_organisation: Sisäinen organisaatio
-        is_transparent: On läpinäkyvä
+        is_transparent: Läpinäkyvä
         local_area: Organisaatioalue
         meta_scope: Teeman metadata
         parent_id: Liittyvä ryhmä
@@ -356,7 +356,7 @@ fi:
         creation_date: Luontipäivämäärä
         developer_group: Perustajaryhmä
         duration: Kesto
-        included_at: Mukana osoitteessa
+        included_at: Lisäysaika
         indefinite_duration: Määrittelemätön
         internal_organisation: Sisäinen organisaatio
         is_transparent:

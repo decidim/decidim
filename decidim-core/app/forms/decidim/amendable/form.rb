@@ -47,8 +47,28 @@ module Decidim
       # Validates the emendation using the amendable form.
       def amendable_form_must_be_valid
         parse_hashtaggable_params
+        original_form.validate unless defined?(@original_form) # Preserves previously added errors.
+
         amendable_form.validate unless defined?(@amendable_form) # Preserves previously added errors.
+
+        compare_amendable_form_errors(@amendable_form.errors.dup) if @original_form.present? && @original_form.errors.details.count.positive?
+
         @errors = @amendable_form.errors
+      end
+
+      # Compare the amendable_form errors and original_form errors
+      # If amendable_form add more errors than original, error is stored in amendable_form errors.
+      #
+      # Params: amendable_form_errors => Duplicated @amendable_form.errors
+      def compare_amendable_form_errors(amendable_form_errors)
+        @amendable_form.errors.clear
+        @original_form.errors.details.keys.each do |key|
+          errors = amendable_form_errors.details[key] - @original_form.errors.details[key]
+
+          errors.map do |hash|
+            @amendable_form.errors.add(key, hash[:error]) unless @amendable_form.errors.details[key].include? error: hash[:error]
+          end
+        end
       end
 
       # Parses :title and :body attribute values with HashtagParser.
@@ -65,6 +85,23 @@ module Decidim
       # constructed with the :emendation_params.
       def amendable_form
         @amendable_form ||= amendable.amendable_form.from_params(emendation_params).with_context(form_context)
+      end
+
+      def original_form
+        @original_form ||= i18n_amendable
+                           .amendable_form
+                           .from_model(@i18n_amendable)
+                           .with_context(
+                             current_component: @i18n_amendable.component,
+                             current_participatory_space: @i18n_amendable.participatory_space
+                           )
+      end
+
+      def i18n_amendable
+        @i18n_amendable ||= amendable
+        @i18n_amendable.title = translated_attribute(amendable.title)
+        @i18n_amendable.body = normalized_body(amendable)
+        @i18n_amendable
       end
 
       # Returns the amendable fields keys as String.

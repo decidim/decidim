@@ -6,15 +6,16 @@ module Decidim::Budgets
   describe ProjectSearch do
     subject { described_class.new(params) }
 
-    let(:current_component) { create :budget_component }
+    let(:current_component) { create :budgets_component }
     let(:scope1) { create :scope, organization: current_component.organization }
     let(:scope2) { create :scope, organization: current_component.organization }
     let(:parent_category) { create :category, participatory_space: current_component.participatory_space }
     let(:subcategory) { create :subcategory, parent: parent_category }
+    let(:budget) { create :budget, component: current_component }
     let!(:project1) do
       create(
         :project,
-        component: current_component,
+        budget: budget,
         category: parent_category,
         scope: scope1
       )
@@ -22,30 +23,30 @@ module Decidim::Budgets
     let!(:project2) do
       create(
         :project,
-        component: current_component,
+        budget: budget,
         category: subcategory,
         scope: scope2
       )
     end
     let(:external_project) { create :project }
-    let(:component_id) { current_component.id }
+    let(:budget_id) { budget.id }
     let(:organization_id) { current_component.organization.id }
-    let(:default_params) { { component: current_component } }
+    let(:default_params) { { budget: budget, component: current_component } }
     let(:params) { default_params }
 
     describe "base query" do
-      context "when no component is passed" do
-        let(:default_params) { { component: nil } }
+      context "when no budget is passed" do
+        let(:default_params) { { budget: nil } }
 
         it "raises an error" do
-          expect { subject.results }.to raise_error(StandardError, "Missing component")
+          expect { subject.results }.to raise_error(StandardError, "Missing budget")
         end
       end
     end
 
     describe "filters" do
-      context "with component_id" do
-        it "only returns projects from the given component" do
+      context "with budget_id" do
+        it "only returns projects from the given budget" do
           external_project = create(:project)
 
           expect(subject.results).not_to include(external_project)
@@ -70,7 +71,7 @@ module Decidim::Budgets
         end
 
         context "when `global` is being sent" do
-          let!(:resource_without_scope) { create(:project, component: current_component, scope: nil) }
+          let!(:resource_without_scope) { create(:project, budget: budget, scope: nil) }
           let(:params) { default_params.merge(scope_id: ["global"]) }
 
           it "returns resources without a scope" do
