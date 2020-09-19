@@ -123,10 +123,20 @@ describe "Organizations", type: :system do
           )
         )
 
+        # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
+
         click_link "Organizations"
         within "table tbody" do
           first("tr").click_link "Edit"
         end
+      end
+
+      after do
+        # Reload the UpdateOrganizationForm
+        Decidim::System.send(:remove_const, :UpdateOrganizationForm)
+        load "#{Decidim::System::Engine.root}/app/forms/decidim/system/update_organization_form.rb"
       end
 
       it "displays all the available OmniAuth providers" do
