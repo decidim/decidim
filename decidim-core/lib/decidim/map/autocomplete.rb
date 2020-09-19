@@ -18,6 +18,8 @@ module Decidim
         # @param options [Hash] Extra options for the field.
         # @return [String] The field element's markup.
         def geocoding_field(object_name, method, options = {})
+          options[:autocomplete] ||= "off"
+
           template.text_field(
             object_name,
             method,
