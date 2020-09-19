@@ -212,6 +212,27 @@ This will change the global geocoding settings for your application. To learn
 more about these settings, take a look at the
 [Geocoder gem's documentation][link-geocoder].
 
+### Geocoding autocompletion configurations
+
+Each autocompletion geocoder has their own configurations and this may not apply
+for all geocoding services. The geocoder autocompletion integrations shipped
+with Decidim support the configurations shown in this section.
+
+If you want to customize the address format in the geocoding autocompletion
+fields, you can apply the following configuration to your geocoder settings:
+
+```ruby
+config.maps = {
+  # ... other configs ...
+  autocomplete: {
+    # For HERE:
+    address_format: [%w(street houseNumber), "city", "country"]
+    # For OSM/Photon:
+    # address_format: ["name", %w(street housenumber), "city", "country"]
+  }
+}
+```
+
 ### Integrating with a new service provider
 
 If you want to integrate the map functionality with a new service provider, take
