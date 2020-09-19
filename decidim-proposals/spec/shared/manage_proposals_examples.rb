@@ -198,8 +198,8 @@ shared_examples "manage proposals" do
                 click_link "New proposal"
 
                 within ".new_proposal" do
-                  fill_in :proposal_title, with: "Make decidim great again"
-                  fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
+                  fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+                  fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
                 end
               end
             end
