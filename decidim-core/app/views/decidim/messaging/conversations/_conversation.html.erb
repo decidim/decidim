@@ -36,11 +36,11 @@
         </span>
       </div>
       <% if conversation.unread_count(current_user) > 0 %>
-        <span class="unread_message__counter">
+        <span class="unread_message__counter right center mr-s">
           <span><%= conversation.unread_count(current_user) %></span>
         </span>
       <% end %>
-      <div class="right center mr-s">
+      <div class="mt-s">
         <%= link_to decidim.conversation_path(conversation), id: "conversation-#{conversation.id}", class: "user-header__avatar", "data-tabs-target": "conversation" do %>
           <% if conversation.interlocutors(current_user).count == 1 %>
             <span aria-hidden="true">
