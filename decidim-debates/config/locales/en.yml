@@ -36,6 +36,8 @@ en:
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

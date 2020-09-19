@@ -20,7 +20,10 @@ module Decidim
         @component = Component.new(
           name: default_name(manifest),
           manifest_name: params[:type],
-          participatory_space: current_participatory_space
+          participatory_space: current_participatory_space,
+          settings: {
+            scope_id: current_participatory_space.scope.try(:id)
+          }
         )
 
         @form = form(@component.form_class).from_model(@component)
@@ -109,6 +112,13 @@ module Decidim
             redirect_to action: :index
           end
         end
+      end
+
+      def share
+        @component = query_scope.find(params[:id])
+        share_token = @component.share_tokens.create!(user: current_user, organization: current_organization)
+
+        redirect_to share_token.url
       end
 
       private

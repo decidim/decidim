@@ -42,6 +42,7 @@ describe "Admin manages budgets", type: :system do
       )
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
+      scope_pick select_data_picker(:budget_decidim_scope_id), scope
     end
 
     within ".new_budget" do

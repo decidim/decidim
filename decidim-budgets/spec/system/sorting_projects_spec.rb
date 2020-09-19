@@ -71,8 +71,8 @@ describe "Sorting projects", type: :system do
         participatory_space: participatory_process
       )
     end
-    let!(:project1) { create(:project, budget: budget, budget_amount: 25_000_000) }
-    let!(:project2) { create(:project, budget: budget, budget_amount: 77_000_000) }
+    let!(:project1) { create(:project, :selected, budget: budget, budget_amount: 25_000_000) }
+    let!(:project2) { create(:project, :selected, budget: budget, budget_amount: 77_000_000) }
 
     context "when ordering by most votes" do
       before do

@@ -89,6 +89,14 @@ describe "Admin manages answers", type: :system do
     end
   end
 
+  context "when max selections is higher than answers count" do
+    let(:question) { create :question, election: election, max_selections: 5 }
+
+    it "shows alert" do
+      expect(page).to have_content("You need 4 more answer/s")
+    end
+  end
+
   describe "updating an answer" do
     it "updates an answer" do
       within find("tr", text: translated(answer.title)) do

@@ -25,7 +25,9 @@ module Decidim
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
+  autoload :ScopableParticipatorySpace, "decidim/scopable_participatory_space"
   autoload :ScopableComponent, "decidim/scopable_component"
+  autoload :ScopableResource, "decidim/scopable_resource"
   autoload :ContentParsers, "decidim/content_parsers"
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
@@ -84,6 +86,7 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :ShareableWithToken, "decidim/shareable_with_token"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

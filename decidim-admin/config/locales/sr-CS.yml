@@ -28,12 +28,6 @@ sr:
       newsletter:
         body: Glavni deo teksta
         subject: Naslov
-      oauth_application:
-        name: Ime
-        organization_logo: Logo organizacije (kvadrat)
-        organization_name: Ime organizacije
-        organization_url: Link organizacije
-        redirect_uri: Preusmeren URL
       organization:
         address: SMTP domaćin
         alert_color: Upozorеnjе
@@ -111,10 +105,6 @@ sr:
         file: Fajl
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI za preusmeravanje mora biti SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -379,7 +369,6 @@ sr:
         homepage: Početna stranica
         impersonations: Predstavljanja
         newsletters: Bilteni
-        oauth_applications: OAuth aplikacije
         participants: Učesnici
         scope_types: Vrste oblasti
         scopes: Oblasti
@@ -426,11 +415,6 @@ sr:
             sent_to: Poslato
             subject: Naslov
           name: Bilten
-        oauth_application:
-          fields:
-            created_at: Kreirano
-            name: Ime
-          name: OAuth aplikacija
         participatory_space_private_user:
           name: Privatni učesnik prostora za diskusiju
         scope:
@@ -537,25 +521,6 @@ sr:
         update:
           error: Nastao je problem pri ažuriranju ovog biltena.
           success: Bilten je uspešno ažuriran. Molimo vas da ga pregledate pre slanja.
-      oauth_applications:
-        create:
-          error: Nastao je problem pri stvaranju ove aplikacije.
-          success: Aplikacija je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri uništavanju ove aplikacije.
-          success: Aplikacija je uspešno uništena.
-        edit:
-          save: Sačuvaj
-          title: Izmenite aplikaciju
-        index:
-          confirm_delete: Da li ste sigurni da želite da izbrišete ovu aplikaciju?
-          title: OAuth aplikacije
-        new:
-          save: Sačuvaj
-          title: Nova aplikacija
-        update:
-          error: Nastao je problem pri ažuriranju ove aplikacije.
-          success: Aplikacija je uspešno ažurirana.
       officializations:
         create:
           success: Učesnik je uspešno ozvaničen

@@ -308,7 +308,7 @@ describe "Orders", type: :system do
       it "cannot create new orders" do
         visit_budget
 
-        expect(page).to have_selector("button.budget-list__action[disabled]", count: 3)
+        expect(page).to have_no_selector("button.budget-list__action")
       end
     end
 
@@ -332,8 +332,24 @@ describe "Orders", type: :system do
         visit_budget
 
         within "#project-#{project.id}-item .budget-list__number" do
-          expect(page).to have_selector(".text-small", text: "1 VOTE")
+          expect(page).to have_selector(".project-votes", text: "1 VOTE")
         end
+      end
+    end
+
+    context "and votes are finished" do
+      let!(:component) do
+        create(:budgets_component,
+               :with_voting_finished,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+      let!(:projects) { create_list(:project, 2, :selected, budget: budget, budget_amount: 25_000_000) }
+
+      it "renders selected projects" do
+        visit_budget
+
+        expect(page).to have_selector(".card__text--status.success", count: 2)
       end
     end
   end
