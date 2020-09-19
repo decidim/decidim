@@ -55,7 +55,7 @@ module Decidim
           { url: "/photon_api" }.to_json
         )
         expect(form_markup).to include(%(
-          <input data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
+          <input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />
         ).strip)
       end
     end
