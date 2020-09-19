@@ -39,7 +39,9 @@ module Decidim
 
               it "prepares and returns the correct builder options" do
                 expect(utility.builder_options).to eq(
-                  url: "https://photon.example.org/api/"
+                  url: "https://photon.example.org/api/",
+                  foo: "bar",
+                  baz: "foobar"
                 )
               end
             end

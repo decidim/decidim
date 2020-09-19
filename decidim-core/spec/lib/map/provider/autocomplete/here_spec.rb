@@ -35,7 +35,7 @@ module Decidim
               end
 
               it "returns the correct builder options" do
-                expect(subject.builder_options).to eq(api_key: "key1234")
+                expect(subject.builder_options).to eq(api_key: "key1234", foo: "bar")
               end
             end
           end
