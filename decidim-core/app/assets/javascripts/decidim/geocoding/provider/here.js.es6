@@ -1,13 +1,30 @@
 // = require decidim/geocoding
 // = require_self
 
+/**
+ * For the available address format keys, refer to:
+ * https://developer.here.com/documentation/geocoder-autocomplete/dev_guide/topics/resource-type-response-suggest.html
+ */
 ((exports) => {
   const $ = exports.$; // eslint-disable-line
 
+  exports.Decidim = exports.Decidim || {};
+
   $(() => {
+    const generateAddressLabel = exports.Decidim.geocodingFormatAddress;
+
     $("[data-decidim-geocoding]").each((_i, el) => {
       const $input = $(el);
       const config = $input.data("decidim-geocoding");
+      const queryMinLength = config.queryMinLength || 2;
+      const addressFormat = config.addressFormat || [
+        ["street", "houseNumber"],
+        "district",
+        "city",
+        "county",
+        "state",
+        "country"
+      ];
       const language = $("html").attr("lang");
       let currentSuggestionQuery = null;
 
@@ -17,6 +34,12 @@
 
       $input.on("geocoder-suggest.decidim", (_ev, query, callback) => {
         clearTimeout(currentSuggestionQuery);
+
+        // Do not trigger API calls on short queries
+        if (`${query}`.trim().length < queryMinLength) {
+          return;
+        }
+
         currentSuggestionQuery = setTimeout(() => {
           $.ajax({
             method: "GET",
@@ -30,9 +53,11 @@
           }).done((resp) => {
             if (resp.suggestions) {
               return callback(resp.suggestions.map((item) => {
+                const label = generateAddressLabel(item.address, addressFormat);
+
                 return {
-                  key: item.label,
-                  value: item.label,
+                  key: label,
+                  value: label,
                   locationId: item.locationId
                 }
               }));

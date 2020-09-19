@@ -1,4 +1,5 @@
 // = require tribute
+// = require decidim/geocoding/format_address
 
 ((exports) => {
   const $ = exports.$; // eslint-disable-line
@@ -17,6 +18,7 @@
           // autocompleteSeparator: / \+ /, // See below, requires Tribute update
           allowSpaces: true,
           positionMenu: false,
+          replaceTextSuffix: "",
           menuContainer: $fieldContainer.get(0),
           noMatchTemplate: null,
           values: (text, cb) => {

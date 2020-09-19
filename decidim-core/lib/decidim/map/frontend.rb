@@ -29,7 +29,7 @@ module Decidim
       #
       # @return [Hash] The default options for the map builder.
       def builder_options
-        {}
+        configuration
       end
 
       # A general builder for any functionality needed for the views. Provides

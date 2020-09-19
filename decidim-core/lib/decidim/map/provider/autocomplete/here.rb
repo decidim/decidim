@@ -7,11 +7,6 @@ module Decidim
         # The geocoding autocomplete map utility class for the HERE map
         # services.
         class Here < ::Decidim::Map::Autocomplete
-          # @see Decidim::Map::FrontendUtility#builder_options
-          def builder_options
-            { api_key: configuration.fetch(:api_key, nil) }.compact
-          end
-
           class Builder < Decidim::Map::Autocomplete::Builder
             # @see Decidim::Map::FrontendUtility::Builder#javascript_snippets
             def javascript_snippets
