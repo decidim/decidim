@@ -45,9 +45,21 @@ module Decidim
                       } else {
                         response = {
                           suggestions: [
-                            { label: "first item", locationId: "location1" },
-                            { label: "second item", locationId: "location2" },
-                            { label: "third item", locationId: "location3" }
+                            {
+                              label: "first item",
+                              address: { street: "first item" },
+                              locationId: "location1"
+                            },
+                            {
+                              label: "second item",
+                              address: { street: "second item" },
+                              locationId: "location2"
+                            },
+                            {
+                              label: "third item",
+                              address: { street: "third item" },
+                              locationId: "location3"
+                            }
                           ]
                         };
                       }
