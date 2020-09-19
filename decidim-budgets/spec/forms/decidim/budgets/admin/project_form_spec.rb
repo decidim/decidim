@@ -24,19 +24,24 @@ module Decidim::Budgets
       Decidim::Faker::Localized.sentence(3)
     end
     let(:budget_amount) { Faker::Number.number(8) }
-    let(:scope) { create :scope, organization: organization }
+    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
+    let(:selected) { nil }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
         decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
-        budget_amount: budget_amount
+        budget_amount: budget_amount,
+        selected: selected
       }
     end
+
+    it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
 
@@ -117,6 +122,34 @@ module Decidim::Budgets
       end
     end
 
+    describe "#selected" do
+      context "and properly maps selected? from model" do
+        let(:project) { create :project, selected_at: selected_at }
+
+        context "when is not selected" do
+          let(:selected_at) { nil }
+
+          it { expect(described_class.from_model(project).selected).to be_falsey }
+        end
+
+        context "when selected is selected" do
+          let(:selected_at) { Time.current }
+
+          it { expect(described_class.from_model(project).selected).to be_truthy }
+        end
+      end
+
+      context "when is not selected" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when selected is selected" do
+        let(:selected) { true }
+
+        it { is_expected.to be_valid }
+      end
+    end
+
     describe "scope" do
       subject { form.scope }
 
@@ -148,7 +181,7 @@ module Decidim::Budgets
         context "when the scope is not descendant from participatory space scope" do
           let(:scope) { create(:scope, organization: organization) }
 
-          it { is_expected.to eq(scope) }
+          it { is_expected.to be_valid }
 
           it "makes the form invalid" do
             expect(form).to be_invalid

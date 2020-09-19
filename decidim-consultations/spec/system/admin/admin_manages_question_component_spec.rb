@@ -190,6 +190,8 @@ describe "Admin manages consultation components", type: :system do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
+
+      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
@@ -205,5 +207,13 @@ describe "Admin manages consultation components", type: :system do
         end
       end
     end
+  end
+
+  def participatory_space
+    question
+  end
+
+  def participatory_space_components_path(participatory_space)
+    decidim_admin_consultations.components_path(participatory_space)
   end
 end

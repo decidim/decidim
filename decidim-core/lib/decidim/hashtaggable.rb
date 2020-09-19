@@ -7,14 +7,15 @@ module Decidim
 
     included do
       def search_title
-        search_value_for(title)
+        field = title
+        search_value_for(field)
       end
 
       alias_method :formatted_title, :search_title
 
       def search_body
-        value = try(:body) || try(:description) || title
-        search_value_for(value)
+        field = try(:body) || try(:description) || title
+        search_value_for(field)
       end
 
       alias_method :formatted_body, :search_body

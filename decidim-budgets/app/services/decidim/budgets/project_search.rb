@@ -27,6 +27,17 @@ module Decidim
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
       end
 
+      def search_status
+        return query if status.member?("all")
+
+        selected = status.member?("selected") ? query.where.not(selected_at: nil) : nil
+        not_selected = status.member?("not_selected") ? query.where(selected_at: nil) : nil
+
+        query
+          .where(id: selected)
+          .or(query.where(id: not_selected))
+      end
+
       def search_category_id
         super
       end

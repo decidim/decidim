@@ -2,13 +2,15 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::System
   describe CreateOAuthApplication, processing_uploads_for: Decidim::ImageUploader do
     subject { described_class.call(form) }
 
+    let(:organization) { create(:organization) }
     let(:params) do
       {
         name: "Meta Decidim",
+        decidim_organization_id: organization.id,
         organization_name: "Ajuntament de Barcelona",
         organization_url: "http://www.barcelona.cat",
         organization_logo: file,
@@ -21,7 +23,6 @@ module Decidim::Admin
         "image/jpeg"
       )
     end
-    let(:organization) { create(:organization) }
     let(:context) do
       {
         current_user: create(:user, organization: organization),

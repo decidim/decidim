@@ -15,7 +15,9 @@ edit_link(
 <%= cell("decidim/budgets/limit_announcement", budget) %>
 
 <div class="row column view-header">
-  <%= render partial: "budget_summary", locals: { include_heading: false } %>
+  <% unless voting_finished? %>
+    <%= render partial: "budget_summary", locals: { include_heading: false } %>
+  <% end %>
 
   <%= link_to resource_locator(budget).path(filter_link_params), class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
@@ -33,13 +35,14 @@ edit_link(
           <span class="definition-data__number"><%= budget_to_currency project.budget_amount %></span>
         </div>
 
-        <% if current_settings.show_votes? %>
-          <div class="card__support__data">
-            <span><%= t("decidim.budgets.projects.project.count", count: project.confirmed_orders_count) %></span>
-          </div>
+        <%= cell("decidim/budgets/project_votes_count", project, layout: :one_line, class: "display-block") %>
+
+        <% if voting_finished? %>
+          <%= cell("decidim/budgets/project_voted_hint", project, class: "display-block") %>
+        <% elsif voting_open? %>
+          <%= render partial: "project_budget_button", locals: { project: project } %>
         <% end %>
 
-        <%= render partial: "project_budget_button", locals: { project: project } %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
       </div>
     </div>
@@ -47,6 +50,7 @@ edit_link(
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
+      <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
       <%= decidim_sanitize translated_attribute project.description %>
       <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>

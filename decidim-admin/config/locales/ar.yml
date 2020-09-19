@@ -28,12 +28,6 @@ ar:
       newsletter:
         body: المحتوى
         subject: الموضوع
-      oauth_application:
-        name: الاسم
-        organization_logo: شعار المنظمة (مربع)
-        organization_name: اسم المنظمة
-        organization_url: عنوان URL للمؤسسة
-        redirect_uri: إعادة توجيه URI
       organization:
         address: خادم SMTP
         alert_color: تنبيه
@@ -111,10 +105,6 @@ ar:
         file: ملف
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: يجب أن يكون URI لإعادة التوجيه SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -374,7 +364,6 @@ ar:
         homepage: الصفحة الرئيسية
         impersonations: التقليد
         newsletters: الرسائل الإخبارية
-        oauth_applications: تطبيقات OAuth
         participants: المشاركون
         scope_types: أنواع النطاق
         scopes: نطاقات
@@ -418,11 +407,6 @@ ar:
             sent_to: أُرسِلت إلى
             subject: موضوع
           name: النشرة الإخبارية
-        oauth_application:
-          fields:
-            created_at: أنشئت في
-            name: اسم
-          name: تطبيق OAuth
         participatory_space_private_user:
           name: المشاركة الفضاء المشارك الخاص
         scope:
@@ -511,25 +495,6 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه الرسالة الإخبارية.
           success: تم تحديث النشرة الإخبارية بنجاح. يرجى مراجعته قبل الإرسال.
-      oauth_applications:
-        create:
-          error: حدثت مشكلة أثناء إنشاء هذا التطبيق.
-          success: تم إنشاء التطبيق بنجاح.
-        destroy:
-          error: حدثت مشكلة أثناء تدمير هذا التطبيق.
-          success: تم تدمير التطبيق بنجاح.
-        edit:
-          save: حفظ
-          title: تحرير التطبيق
-        index:
-          confirm_delete: هل أنت متأكد أنك تريد حذف هذا التطبيق؟
-          title: تطبيقات OAuth
-        new:
-          save: حفظ
-          title: تطبيق جديد
-        update:
-          error: حدثت مشكلة أثناء تحديث هذا التطبيق.
-          success: تم تحديث التطبيق بنجاح.
       officializations:
         create:
           success: مشارك رسمي بنجاح

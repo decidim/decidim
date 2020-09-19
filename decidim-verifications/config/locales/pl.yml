@@ -218,7 +218,7 @@ pl:
               mark_as_sent: Oznacz jako wysłany
               not_yet_sent: Jeszcze nie wysłano
               title: Trwające weryfikacje
-              username: Nazwa użytkownika/Alias
+              username: Pseudonim
               verification_code: Kod weryfikacyjny
           postages:
             create:

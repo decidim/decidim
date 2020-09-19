@@ -13,6 +13,7 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Admin::LogRenderHelper
       include Decidim::Admin::UserRolesHelper
+      include Decidim::Admin::ResourceScopeHelper
 
       def title
         current_organization.name

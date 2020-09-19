@@ -160,15 +160,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_geocoding_and_collaborative_drafts_enabled do
-      settings do
-        {
-          geocoding_enabled: true,
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
     trait :with_attachments_allowed_and_collaborative_drafts_enabled do
       settings do
         {

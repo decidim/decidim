@@ -116,7 +116,7 @@ module Decidim
         #
         # Returns an ActiveRecord::Relation.
         def budgets
-          @budgets ||= Decidim::Budgets::Budget.where(component: budgets_component)
+          @budgets ||= Decidim::Budgets::Budget.where(component: budgets_component).order(weight: :asc)
         end
 
         protected

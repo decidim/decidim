@@ -691,4 +691,22 @@ FactoryBot.define do
     author { build(:user, organization: resource.organization) }
     user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
   end
+
+  factory :share_token, class: "Decidim::ShareToken" do
+    token_for { build(:component) }
+    user { build(:user, organization: token_for.organization) }
+
+    before(:create) do |object|
+      object.organization ||= object.token_for.organization
+    end
+
+    trait :expired do
+      expires_at { 1.day.ago }
+    end
+
+    trait :used do
+      times_used { 3 }
+      last_used_at { 1.hour.ago }
+    end
+  end
 end

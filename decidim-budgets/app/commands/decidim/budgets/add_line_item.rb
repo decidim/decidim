@@ -23,7 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         transaction do
-          return broadcast(:invalid) if votes_disabled? || order.checked_out?
+          return broadcast(:invalid) if voting_not_enabled? || order.checked_out?
 
           add_line_item
           broadcast(:ok, order)
@@ -44,8 +44,8 @@ module Decidim
         end
       end
 
-      def votes_disabled?
-        !project.component.current_settings.votes_enabled?
+      def voting_not_enabled?
+        project.component.current_settings.votes != "enabled"
       end
     end
   end

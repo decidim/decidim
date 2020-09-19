@@ -236,6 +236,8 @@
           label: 'Sorter konsultasjoner etter:'
           random: Tilfeldig
           recent: Nyligst
+        show:
+          dates: Datoer
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner

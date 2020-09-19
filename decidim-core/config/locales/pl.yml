@@ -11,7 +11,7 @@ pl:
         document_number: Numer dokumentu
         email: E-mail
         name: Nazwa
-        nickname: Alias
+        nickname: Pseudonim
         phone: Telefon
       report:
         details: Dodatkowe uwagi
@@ -19,7 +19,7 @@ pl:
         about: O użytkowniku
         email: Twój email
         name: Twoje imię
-        nickname: Alias
+        nickname: Pseudonim
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Prywatny adres URL
@@ -41,7 +41,7 @@ pl:
       decidim/user:
         current_password: Obecne hasło
         email: Adres e-mail
-        name: Alias
+        name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
@@ -422,7 +422,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Uzupełnij profil
-          nickname_help: Twój alias (@alias) w %{organization}
+          nickname_help: Twój pseudonim w %{organization}
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -431,7 +431,7 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          nickname_help: Twój alias (@alias) w %{organization}
+          nickname_help: Twój pseudonim w %{organization}
           password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
@@ -474,7 +474,7 @@ pl:
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
           see_name: Zobacz swoje imię
-          see_username: Zobacz swój alias
+          see_username: Zobacz swój pseudonim
           this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
@@ -536,12 +536,12 @@ pl:
           affected_user:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
+            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
             notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Poprawka odrzucona w %{amendable_title} od %{emendation_author_nickname}
+            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
             notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
@@ -801,7 +801,7 @@ pl:
       new:
         create_user_group: Utwórz grupę
         new_user_group: Nowa grupa
-        subtitle: Utwórz grupę i zaproś innych użytkowników do przyłączenia się, aby uczestniczyć w zbiorowym poziomie.
+        subtitle: Utwórz grupę, zaproś innych użytkowników i działajcie wspólnie.
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
@@ -983,7 +983,7 @@ pl:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
         body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij poniższy przycisk:'
-        body_3: Za tą zgodą będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli, wręcz przeciwnie, nie otrzymamy potwierdzenia z Twojej strony, przestaniemy wysyłać Ci nasze wiadomości. Jeśli potwierdzisz, że chcesz być na bieżąco informowany, zawsze będziesz mieć możliwość anulowania w dowolnym momencie.
+        body_3: Wyrażając zgodę będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli jej jednak nie wyrazisz, przestaniemy wysyłać Ci wiadomości. Jeśli teraz potwierdzisz, że chcesz być na bieżąco informowany, wciąż w dowolnym będziesz mógł anulować zgodę.
         button: Tak, chcę nadal otrzymywać istotne informacje
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
@@ -1201,8 +1201,8 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
-        offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
+        does_not_belong: Dotyczy nielegalnej działalności, gróźb samobójczych, zawiera informacje osobiste lub coś innego, co według Ciebie nie dotyczy do %{organization_name}.
+        offensive: Zawiera rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         report: Raport
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
@@ -1366,7 +1366,7 @@ pl:
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
-          Twoje konto nie zostanie utworzone, dopóki nie klikniesz w powyższy link i nie ustawisz aliasu i hasła.
+          Twoje konto nie zostanie utworzone, dopóki nie klikniesz w powyższy link i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
