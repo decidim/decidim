@@ -8,7 +8,7 @@ module Decidim
       include Decidim::IconHelper
       include Decidim::ResourceHelper
 
-      delegate :user_signed_in?, to: :controller
+      delegate :current_user, :user_signed_in?, to: :controller
 
       property :root_commentable
       property :created_at
@@ -17,6 +17,10 @@ module Decidim
       property :accepts_new_comments?
 
       private
+
+      def decidim_comments
+        Decidim::Comments::Engine.routes.url_helpers
+      end
 
       def replies
         SortedComments.for(model, order_by: default_order)
@@ -52,6 +56,20 @@ module Decidim
         classes.join(" ")
       end
 
+      def votes_up_classes
+        classes = ["comment__votes--up"]
+        classes << "is-vote-selected" if voted_up?
+        classes << "is-vote-notselected" if voted_down?
+        classes.join(" ")
+      end
+
+      def votes_down_classes
+        classes = ["comment__votes--down"]
+        classes << "is-vote-selected" if voted_down?
+        classes << "is-vote-notselected" if voted_up?
+        classes.join(" ")
+      end
+
       def commentable_path(params = {})
         resource_locator(root_commentable).path(params)
       end
@@ -70,6 +88,14 @@ module Decidim
 
       def depth
         model.depth - root_depth
+      end
+
+      def voted_up?
+        model.up_voted_by?(current_user)
+      end
+
+      def voted_down?
+        model.down_voted_by?(current_user)
       end
 
       def nested?

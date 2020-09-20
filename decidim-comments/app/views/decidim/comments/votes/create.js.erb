@@ -1,0 +1,23 @@
+(function() {
+  var commentId = <%= comment.id.to_json %>;
+  var upVotes = <%= comment.up_votes.count.to_json %>;
+  var downVotes = <%= comment.down_votes.count.to_json %>;
+  var $comment = $("#comment_" + commentId);
+  var $votes = $("> .comment__footer .comment__votes", $comment);
+  var $upVote = $(".comment__votes--up", $votes);
+  var $downVote = $(".comment__votes--down", $votes);
+
+  $(".comment__votes--count", $upVote).text(upVotes);
+  $(".comment__votes--count", $downVote).text(downVotes);
+
+  $upVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");
+  $downVote.removeClass("is-vote-selected is-vote-notselected").removeAttr("disabled");
+
+<% if comment.up_voted_by?(current_user) %>
+  $upVote.addClass("is-vote-selected");
+  $downVote.addClass("is-vote-notselected").attr("disabled", "disabled");
+<% elsif comment.down_voted_by?(current_user) %>
+  $upVote.addClass("is-vote-notselected").attr("disabled", "disabled");
+  $downVote.addClass("is-vote-selected");
+<% end %>
+}());

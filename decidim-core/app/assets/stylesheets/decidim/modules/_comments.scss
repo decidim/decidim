@@ -113,6 +113,10 @@ $comment-form-bg: $light-gray;
     color: $white;
     outline: none;
   }
+
+  form.button_to{
+    display: inline-block;
+  }
 }
 
 .comment__votes--up{
