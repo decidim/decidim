@@ -20,8 +20,8 @@ en:
       comments:
         create:
           error: There was a problem creating the comment.
-      comments_title: Comments
       comments_count: Comments count
+      comments_title: Comments
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
       votes:
