@@ -8,8 +8,13 @@
   const $ = exports.$; // eslint-disable-line
 
   class CommentsComponent {
-    constructor($element) {
+    constructor($element, config) {
       this.$element = $element;
+      this.commentableGid = config.commentableGid;
+      this.commentsUrl = config.commentsUrl;
+      this.rootDepth = config.rootDepth;
+      this.lastCommentId = config.lastCommentId;
+      this.pollingInterval = config.pollingInterval || 15000;
       this.id = this.$element.attr("id") || this._getUID();
       this.mounted = false;
     }
@@ -123,8 +128,11 @@
 
         $form.on("submit", () => {
           $submit.attr("disabled", "disabled");
+          this._stopPolling();
         });
       });
+
+      this._pollComments();
     }
 
     /**
@@ -132,15 +140,22 @@
      * initializes it.
      * @private
      * @param {jQuery} $target - The target element to add the comment to.
-     * @param {jQuery} $comment - The comment element to add.
+     * @param {jQuery} $container - The comment container element to add.
      * @returns {Void} - Returns nothing
      */
-    _addComment($target, $comment) {
-      $target.append($comment);
-      $comment.foundation();
-      this._initializeComments($comment);
+    _addComment($target, $container) {
+      let $comment = $(".comment", $container);
+      if ($comment.length < 1) {
+        // In case of a reply
+        $comment = $container;
+      }
+      this.lastCommentId = parseInt($comment.data("comment-id"), 10);
+
+      $target.append($container);
+      $container.foundation();
+      this._initializeComments($container);
       if (exports.Decidim.createCharacterCounter) {
-        exports.Decidim.createCharacterCounter($(".add-comment textarea", $comment));
+        exports.Decidim.createCharacterCounter($(".add-comment textarea", $container));
       }
     }
 
@@ -162,6 +177,44 @@
       if (!$add.parent().is(".comments")) {
         $add.addClass("hide");
       }
+
+      // Restart the polling
+      this._pollComments();
+    }
+
+    /**
+     * Sets a timeout to poll new comments.
+     * @private
+     * @returns {Void} - Returns nothing
+     */
+    _pollComments() {
+      this._stopPolling();
+
+      this.pollTimeout = setTimeout(() => {
+        $.ajax({
+          url: this.commentsUrl,
+          method: "GET",
+          contentType: "application/javascript",
+          data: {
+            "commentable_gid": this.commentableGid,
+            "root_depth": this.rootDepth,
+            after: this.lastCommentId
+          }
+        }).done(() => {
+          this._pollComments();
+        });
+      }, this.pollingInterval);
+    }
+
+    /**
+     * Stops polling for new comments.
+     * @private
+     * @returns {Void} - Returns nothing
+     */
+    _stopPolling() {
+      if (this.pollTimeout) {
+        clearTimeout(this.pollTimeout);
+      }
     }
   }
 
@@ -170,10 +223,11 @@
 
   $(() => {
     $("[data-decidim-comments]").each((_i, el) => {
-      const comments = new CommentsComponent($(el));
+      const $el = $(el);
+      const comments = new CommentsComponent($el, $el.data("decidim-comments"));
       comments.mountComponent();
 
       $(el).data("comments", comments);
-    })
+    });
   });
 })(window);

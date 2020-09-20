@@ -1,4 +1,4 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes do %>
+<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
   <div class="comment__header">
     <div class="author-data">
       <div class="author-data__main">

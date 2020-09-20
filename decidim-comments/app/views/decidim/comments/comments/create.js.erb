@@ -1,7 +1,7 @@
 (function() {
   var rootCommentableId = <%== "comments-for-#{@comment.root_commentable.commentable_type.demodulize}-#{@comment.root_commentable.id}".to_json %>;
   var commentHtml = '<%== j(render @comment).strip %>';
-  var inReplyTo = <%== (reply? ? @commentable.id : nil).to_json %>;
+  var inReplyTo = <%== (reply?(@comment) ? @commentable.id : nil).to_json %>;
 
   var $comments = $("#" + rootCommentableId);
   var component = $comments.data("comments");

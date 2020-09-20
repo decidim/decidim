@@ -38,6 +38,10 @@ module Decidim
 
       private
 
+      def decidim_comments
+        Decidim::Comments::Engine.routes.url_helpers
+      end
+
       def comments
         if single_comment?
           [single_comment]
@@ -83,8 +87,18 @@ module Decidim
       def comments_data
         {
           singleComment: single_comment?,
-          toggleTranslations: machine_translations_toggled?
+          toggleTranslations: machine_translations_toggled?,
+          commentableGid: model.to_signed_global_id.to_s,
+          commentsUrl: decidim_comments.comments_path,
+          rootDepth: root_depth,
+          lastCommentId: last_comment_id
         }
+      end
+
+      def last_comment_id
+        Decidim::Comments::Comment.where(
+          root_commentable: model
+        ).order(:id).pluck(:id).last
       end
 
       def single_comment?

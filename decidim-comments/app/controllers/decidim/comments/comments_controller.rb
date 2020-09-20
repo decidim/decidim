@@ -7,12 +7,17 @@ module Decidim
     class CommentsController < Decidim::Comments::ApplicationController
       before_action :authenticate_user!
       before_action :set_commentable
+      before_action :ensure_commentable!
 
-      helper_method :root_depth, :reply?
+      helper_method :root_depth, :commentable, :reply?
+
+      def index
+        @comments = Decidim::Comments::Comment.where(
+          root_commentable: commentable
+        ).where("id > ?", params.fetch(:after, 0).to_i)
+      end
 
       def create
-        raise ActionController::RoutingError, "Not Found" unless commentable
-
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: commentable)
         ).with_context(
@@ -40,16 +45,25 @@ module Decidim
         @commentable = GlobalID::Locator.locate_signed(commentable_gid)
       end
 
+      def ensure_commentable!
+        raise ActionController::RoutingError, "Not Found" unless commentable
+      end
+
       def handle_success(comment)
         @comment = comment
       end
 
       def commentable_gid
-        params.require(:comment).fetch(:commentable_gid)
+        case action_name
+        when "create"
+          params.require(:comment).fetch(:commentable_gid)
+        else
+          params.fetch(:commentable_gid, nil)
+        end
       end
 
-      def reply?
-        comment.root_commentable != commentable
+      def reply?(comment)
+        comment.root_commentable != comment.commentable
       end
 
       def root_depth
