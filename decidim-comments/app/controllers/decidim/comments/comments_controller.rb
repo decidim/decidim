@@ -9,12 +9,14 @@ module Decidim
       before_action :set_commentable
       before_action :ensure_commentable!
 
-      helper_method :root_depth, :commentable, :reply?
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
       def index
         @comments = Decidim::Comments::Comment.where(
           root_commentable: commentable
         ).where("id > ?", params.fetch(:after, 0).to_i)
+
+        render :reload if reload?
       end
 
       def create
@@ -64,6 +66,14 @@ module Decidim
 
       def reply?(comment)
         comment.root_commentable != comment.commentable
+      end
+
+      def order
+        params.fetch(:order, "older")
+      end
+
+      def reload?
+        params.fetch(:reload, 0).to_i == 1
       end
 
       def root_depth

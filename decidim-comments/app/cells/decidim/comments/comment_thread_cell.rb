@@ -21,6 +21,10 @@ module Decidim
 
         model.author.name
       end
+
+      def order
+        options[:order] || "older"
+      end
     end
   end
 end

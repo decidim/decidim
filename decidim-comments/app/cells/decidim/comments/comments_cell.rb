@@ -46,7 +46,7 @@ module Decidim
         if single_comment?
           [single_comment]
         else
-          SortedComments.for(model, order_by: default_order)
+          SortedComments.for(model, order_by: order)
         end
       end
 
@@ -68,8 +68,12 @@ module Decidim
         model.comments_have_alignment?
       end
 
-      def default_order
-        "older"
+      def available_orders
+        %w(best_rated recent older most_discussed)
+      end
+
+      def order
+        options[:order] || "older"
       end
 
       def decidim
@@ -91,7 +95,8 @@ module Decidim
           commentableGid: model.to_signed_global_id.to_s,
           commentsUrl: decidim_comments.comments_path,
           rootDepth: root_depth,
-          lastCommentId: last_comment_id
+          lastCommentId: last_comment_id,
+          order: order
         }
       end
 

@@ -20,14 +20,15 @@ module Decidim
       # resource - A commentable resource
       #
       # Returns the comments cell
-      def inline_comments_for(resource)
+      def inline_comments_for(resource, options = {})
         return unless resource.commentable?
 
         cell(
           "decidim/comments/comments",
           resource,
           machine_translations: machine_translations_toggled?,
-          single_comment: params.fetch("commentId", nil)
+          single_comment: params.fetch("commentId", nil),
+          order: options[:order]
         ).to_s
       end
     end

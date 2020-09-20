@@ -12,6 +12,10 @@ module Decidim
         Decidim::Comments::Engine.routes.url_helpers
       end
 
+      def order
+        options[:order] || "older"
+      end
+
       def commentable_type
         model.commentable_type
       end

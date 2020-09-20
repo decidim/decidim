@@ -13,6 +13,7 @@
       this.commentableGid = config.commentableGid;
       this.commentsUrl = config.commentsUrl;
       this.rootDepth = config.rootDepth;
+      this.order = config.order;
       this.lastCommentId = config.lastCommentId;
       this.pollingInterval = config.pollingInterval || 15000;
       this.id = this.$element.attr("id") || this._getUID();
@@ -28,6 +29,14 @@
       if (this.$element.length > 0 && !this.mounted) {
         this.mounted = true;
         this._initializeComments(this.$element);
+
+        $(".order-by__dropdown .is-submenu-item a", this.$element).on(
+          "click.decidim-comments",
+          () => {
+            this._stopPolling();
+            this._setLoading();
+          }
+        );
       }
     }
 
@@ -39,9 +48,11 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
+        this._stopPolling();
 
         $(".add-comment .opinion-toggle .button", this.$element).off("click.decidim-comments");
         $(".add-comment textarea", this.$element).off("input.decidim-comments");
+        $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments");
       }
     }
 
@@ -198,6 +209,7 @@
           data: {
             "commentable_gid": this.commentableGid,
             "root_depth": this.rootDepth,
+            order: this.order,
             after: this.lastCommentId
           }
         }).done(() => {
@@ -215,6 +227,17 @@
       if (this.pollTimeout) {
         clearTimeout(this.pollTimeout);
       }
+    }
+
+    /**
+     * Sets the loading comments element visible in the view.
+     * @private
+     * @returns {Void} - Returns nothing
+     */
+    _setLoading() {
+      const $container = $("> .comments-container", this.$element);
+      $("> .comments", $container).addClass("hide");
+      $("> .loading-comments", $container).removeClass("hide");
     }
   }
 

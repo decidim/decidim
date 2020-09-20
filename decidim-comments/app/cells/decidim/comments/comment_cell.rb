@@ -23,11 +23,11 @@ module Decidim
       end
 
       def replies
-        SortedComments.for(model, order_by: default_order)
+        SortedComments.for(model, order_by: order)
       end
 
-      def default_order
-        "older"
+      def order
+        options[:order] || "older"
       end
 
       def reply_id

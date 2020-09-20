@@ -14,26 +14,25 @@
         aria-label="<%= t("decidim.components.comment_order_selector.title") %>"
         aria-controls="comments-order-menu"
         aria-haspopup="true"
-        role="menuitem"><%= t("decidim.components.comment_order_selector.title") %></a>
+        role="menuitem"><%= t("decidim.components.comment_order_selector.order.#{order}") %></a>
       <ul class="menu is-dropdown-submenu submenu first-sub vertical"
-        id="language-chooser-menu"
+        id="comments-order-chooser-menu"
         role="menu"
         aria-labelledby="comments-order-menu-control"
         tabindex="-1"
         data-submenu=""
       >
-        <li role="none" class="is-submenu-item is-dropdown-submenu-item">
-          <a href="#" tabindex="-1" role="menuitem"><%= t("decidim.components.comment_order_selector.order.best_rated") %></a>
-        </li>
-        <li role="none" class="is-submenu-item is-dropdown-submenu-item">
-          <a href="#" tabindex="-1" role="menuitem"><%= t("decidim.components.comment_order_selector.order.recent") %></a>
-        </li>
-        <li role="none" class="is-submenu-item is-dropdown-submenu-item">
-          <a href="#" tabindex="-1" role="menuitem"><%= t("decidim.components.comment_order_selector.order.older") %></a>
-        </li>
-        <li role="none" class="is-submenu-item is-dropdown-submenu-item">
-          <a href="" tabindex="-1" role="menuitem"><%= t("decidim.components.comment_order_selector.order.most_discussed") %></a>
-        </li>
+        <% available_orders.each do |order_value| %>
+          <li role="none" class="is-submenu-item is-dropdown-submenu-item">
+            <%= link_to(
+              t("decidim.components.comment_order_selector.order.#{order_value}"),
+              decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
+              tabindex: -1,
+              role: "menuitem",
+              remote: true
+            ) %>
+          </li>
+        <% end %>
       </ul>
     </li>
   </ul>

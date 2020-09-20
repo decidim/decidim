@@ -1,0 +1,18 @@
+(function() {
+  var rootCommentableId = <%== "comments-for-#{commentable.commentable_type.demodulize}-#{commentable.id}".to_json %>;
+
+  var $comments = $("#" + rootCommentableId);
+  var component = $comments.data("comments");
+  component.unmountComponent();
+
+  var commentsHtml = '<%== j(render partial: "comments").strip %>';
+  $comments.replaceWith(commentsHtml);
+
+  $comments = $("#" + rootCommentableId);
+  $comments.foundation();
+
+  // Re-create the component
+  component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));
+  component.mountComponent();
+  $comments.data("comments", component);
+}());
