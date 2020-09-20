@@ -12,9 +12,10 @@ module Decidim
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
       def index
-        @comments = Decidim::Comments::Comment.where(
-          root_commentable: commentable
-        ).where("id > ?", params.fetch(:after, 0).to_i)
+        @comments = SortedComments.for(
+          commentable,
+          order_by: order
+        ).where("decidim_comments_comments.id > ?", params.fetch(:after, 0).to_i)
 
         render :reload if reload?
       end
