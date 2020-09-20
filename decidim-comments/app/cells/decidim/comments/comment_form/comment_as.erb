@@ -1,0 +1,10 @@
+<div class="field">
+  <label for="<%= comment_as_id %>">
+    <%= t("decidim.components.add_comment_form.form.user_group_id.label") %>
+  </label>
+  <select id="<%= comment_as_id %>" name="comment[user_group_id]">
+    <% comment_as_options.each do |option| %>
+      <option value="<%= option[1] %>"><%= option[0] %></option>
+    <% end %>
+  </select>
+</div>
