@@ -7,8 +7,7 @@
     data-click-open="true"
     data-close-on-click="true"
     tabindex="-1"
-    role="menubar"
-  >
+    role="menubar">
     <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
       <a href="#" id="comments-order-menu-control"
         aria-label="<%= t("decidim.components.comment_order_selector.title") %>"
@@ -20,8 +19,7 @@
         role="menu"
         aria-labelledby="comments-order-menu-control"
         tabindex="-1"
-        data-submenu=""
-      >
+        data-submenu="">
         <% available_orders.each do |order_value| %>
           <li role="none" class="is-submenu-item is-dropdown-submenu-item">
             <%= link_to(
