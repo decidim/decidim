@@ -83,11 +83,28 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
       create(:dummy_resource, component: component, published_at: Time.current)
     end
 
+    it "generate a unique hash" do
+      old_hash = cell.send(:cache_hash)
+
+      expect(cell.send(:cache_hash)).to eq(old_hash)
+    end
+
     context "when new valid activity" do
       it "generates a different hash" do
         old_hash = cell.send(:cache_hash)
         activities = [action_log, create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)]
         allow(cell).to receive(:valid_activities).and_return(activities)
+
+        expect(cell.send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
+    context "when switching locale" do
+      let(:alt_locale) { :ca }
+
+      it "generates a different hash" do
+        old_hash = cell.send(:cache_hash)
+        I18n.locale = alt_locale
 
         expect(cell.send(:cache_hash)).not_to eq(old_hash)
       end

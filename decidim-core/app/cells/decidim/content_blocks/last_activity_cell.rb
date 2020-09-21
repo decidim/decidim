@@ -45,7 +45,12 @@ module Decidim
       private
 
       def cache_hash
-        "decidim/content_blocks/last_activity/#{Digest::MD5.hexdigest(valid_activities.map(&:updated_at).to_s)}"
+        hash = []
+        hash << "decidim/content_blocks/last_activity"
+        hash << Digest::MD5.hexdigest(valid_activities.map(&:updated_at).to_s)
+        hash << I18n.locale.to_s
+
+        hash.join("/")
       end
 
       def activities
