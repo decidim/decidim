@@ -21,7 +21,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has customized the welcome text setting value" do
     let(:settings) do
       {
-          "welcome_text_en" => "This is my welcome text"
+        "welcome_text_en" => "This is my welcome text"
       }
     end
 
@@ -33,8 +33,8 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has a background image" do
     let(:background_image) do
       Rack::Test::UploadedFile.new(
-          Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-          "image/jpg"
+        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+        "image/jpg"
       )
     end
 
