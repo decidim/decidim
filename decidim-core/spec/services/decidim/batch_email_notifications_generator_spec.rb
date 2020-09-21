@@ -10,13 +10,13 @@ describe Decidim::BatchEmailNotificationsGenerator do
   let!(:notifications) { create_list(:notification, 2, user: user) }
   let(:serialized_event) do
     {
-        resource: notifications.first.resource,
-        event_class: notifications.first.event_class,
-        event_name: notifications.first.event_name,
-        user: notifications.first.user,
-        extra: notifications.first.extra,
-        user_role: notifications.first.user_role,
-        created_at: time_ago_in_words(notifications.first.created_at).capitalize
+      resource: notifications.first.resource,
+      event_class: notifications.first.event_class,
+      event_name: notifications.first.event_name,
+      user: notifications.first.user,
+      extra: notifications.first.extra,
+      user_role: notifications.first.user_role,
+      created_at: time_ago_in_words(notifications.first.created_at).capitalize
     }
   end
 
@@ -25,8 +25,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
     it "doesn't enqueues the job" do
       expect(Decidim::BatchNotificationsMailer)
-          .not_to receive(:event_received)
-                      .with(subject.send(:serialized_events, subject.send(:events_for, user)), user)
+        .not_to receive(:event_received)
+        .with(subject.send(:serialized_events, subject.send(:events_for, user)), user)
 
       expect(mailer).not_to receive(:deliver_later)
 
@@ -44,9 +44,9 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
       it "enqueues the job" do
         expect(Decidim::BatchNotificationsMailer)
-            .to receive(:event_received)
-                    .with(subject.send(:serialized_events, subject.send(:events_for, user)), user)
-                    .and_return(mailer)
+          .to receive(:event_received)
+          .with(subject.send(:serialized_events, subject.send(:events_for, user)), user)
+          .and_return(mailer)
 
         expect(mailer).to receive(:deliver_later)
 
@@ -63,7 +63,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
         it "doesn't schedule a job for each recipient" do
           expect(Decidim::BatchNotificationsMailer)
-              .not_to receive(:event_received)
+            .not_to receive(:event_received)
 
           subject.generate
         end
@@ -75,7 +75,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
       it "doesn't schedule a job for each recipient" do
         expect(Decidim::BatchNotificationsMailer)
-            .not_to receive(:event_received)
+          .not_to receive(:event_received)
 
         subject.generate
       end
@@ -146,7 +146,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
   describe "#serialized_events" do
     it "returns serialized events" do
       expect(subject.send(:serialized_events, [notifications.first]))
-          .to eq([serialized_event])
+        .to eq([serialized_event])
     end
   end
 
