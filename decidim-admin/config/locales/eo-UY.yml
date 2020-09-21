@@ -31,9 +31,6 @@ eo:
       oauth_application:
         name: Nomo
         organization_logo: Organizaĵa emblemo (kvadrata)
-        organization_name: Nomo de la organizo
-        organization_url: Organizo URL
-        redirect_uri: Adresado URL
   decidim:
     admin:
       actions:
@@ -47,6 +44,9 @@ eo:
         impersonation_log:
           fields:
             ended_at: Finita je
+        oauth_application:
+          fields:
+            name: Nomo
         participatory_space_private_user:
           name: Privata partoprenanto
         user_group:

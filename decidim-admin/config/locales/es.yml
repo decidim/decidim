@@ -433,7 +433,7 @@ es:
           name: Boletín
         oauth_application:
           fields:
-            created_at: Creado en
+            created_at: Fecha de creación
             name: Nombre
           name: Aplicación OAuth
         participatory_space_private_user:

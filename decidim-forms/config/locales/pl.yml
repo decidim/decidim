@@ -46,7 +46,7 @@ pl:
           question:
             add_answer_option: Dodaj opcję odpowiedzi
             add_matrix_row: Dodaj wiersz
-            any: Każdy
+            any: Dowolny
             collapse: Zwiń
             description: Opis
             down: Na dół

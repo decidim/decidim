@@ -29,11 +29,11 @@ sk:
         body: Telo textu
         subject: Predmet
       oauth_application:
-        name: Meno
+        name: Názov
         organization_logo: Logo organizácie (štvorec)
         organization_name: Názov organizácie
         organization_url: Odkaz na stránku organizácie 
-        redirect_uri: Presmerovať URI
+        redirect_uri: Presmerovanie URI
       organization:
         address: SMTP hostname
         alert_color: Upozornenie

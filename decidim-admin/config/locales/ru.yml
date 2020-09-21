@@ -29,7 +29,7 @@ ru:
         body: Основной текст
         subject: Тема
       oauth_application:
-        name: Название
+        name: Имя
         organization_logo: Логотип организации (квадрат)
         organization_name: Название организации
         organization_url: Веб-адрес организации

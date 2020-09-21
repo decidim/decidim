@@ -32,7 +32,7 @@ ar:
         name: الاسم
         organization_logo: شعار المنظمة (مربع)
         organization_name: اسم المنظمة
-        organization_url: عنوان URL للمؤسسة
+        organization_url: العنوان الشبكي للمؤسسة
         redirect_uri: إعادة توجيه URI
       organization:
         address: خادم SMTP
@@ -421,7 +421,7 @@ ar:
         oauth_application:
           fields:
             created_at: أنشئت في
-            name: اسم
+            name: الاسم
           name: تطبيق OAuth
         participatory_space_private_user:
           name: المشاركة الفضاء المشارك الخاص

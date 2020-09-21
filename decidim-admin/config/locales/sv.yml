@@ -33,7 +33,7 @@ sv:
         name: Namn
         organization_logo: Organisationslogo (kvadrat)
         organization_name: Organisationsnamn
-        organization_url: Organisationens hemsida
+        organization_url: Organisations-URL
         redirect_uri: Omdirigerings-URI
       organization:
         address: SMTP-värdnamn
@@ -384,7 +384,7 @@ sv:
         homepage: Hemsida
         impersonations: Uppträd som
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth-tillämpningar
+        oauth_applications: OAuth appar
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -433,7 +433,7 @@ sv:
           name: Nyhetsbrev
         oauth_application:
           fields:
-            created_at: Skapades
+            created_at: Skapad
             name: Namn
           name: OAuth ansökan
         participatory_space_private_user:
@@ -544,23 +544,23 @@ sv:
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       oauth_applications:
         create:
-          error: Det gick inte att skapa tillämpningen.
-          success: Tillämpningen har skapats.
+          error: Det gick inte att skapa appen.
+          success: Appen har skapats.
         destroy:
-          error: Det gick inte att ta bort tillämpningen.
-          success: Tillämpningen har tagits bort.
+          error: Det gick inte att ta bort appen.
+          success: Appen har tagits bort.
         edit:
           save: Spara
-          title: Redigera tillämpning
+          title: Redigera appen
         index:
-          confirm_delete: Vill du ta bort tillämpningen?
-          title: OAuth-tillämpningar
+          confirm_delete: Vill du ta bort appen?
+          title: OAuth appar
         new:
           save: Spara
-          title: Ny tillämpning
+          title: Ny app
         update:
-          error: Det gick inte att uppdatera tillämpningen.
-          success: Tillämpningen har uppdaterats.
+          error: Det gick inte att uppdatera appen.
+          success: Appen har uppdaterats.
       officializations:
         create:
           success: Deltagaren har gjorts officiell

@@ -433,7 +433,7 @@ ca:
           name: Butlletí
         oauth_application:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             name: Nom
           name: Aplicació OAuth
         participatory_space_private_user:

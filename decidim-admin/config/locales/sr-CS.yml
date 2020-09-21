@@ -428,7 +428,7 @@ sr:
           name: Bilten
         oauth_application:
           fields:
-            created_at: Kreirano
+            created_at: Stvoreno
             name: Ime
           name: OAuth aplikacija
         participatory_space_private_user:

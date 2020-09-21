@@ -34,7 +34,7 @@ it:
         organization_logo: Logo dell'organizzazione (quadrato)
         organization_name: Nome dell'organizzazione
         organization_url: URL dell'organizzazione
-        redirect_uri: URI di Reindirizzamento
+        redirect_uri: Reindirizza URI
       organization:
         address: Server SMTP
         alert_color: Notifica
@@ -550,13 +550,13 @@ it:
           error: C'è stato un errore nella distruzione di questa applicazione.
           success: Applicazione distrutta con successo.
         edit:
-          save: Salvare
+          save: Salva
           title: Modifica l'applicazione
         index:
           confirm_delete: Sei sicuro di voler eliminare questa applicazione?
           title: Applicazioni OAuth
         new:
-          save: Salvare
+          save: Salva
           title: Nuova applicazione
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa applicazione.

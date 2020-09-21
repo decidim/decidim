@@ -5,8 +5,14 @@ bg:
         area_type: Тип район
         name: Име
         organization: Организация
+      oauth_application:
+        name: Име
   decidim:
     admin:
+      models:
+        oauth_application:
+          fields:
+            name: Име
       organization_appearance:
         form:
           colors:

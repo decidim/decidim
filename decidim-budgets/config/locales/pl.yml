@@ -13,8 +13,8 @@ pl:
       decidim/budgets/project:
         one: Projekt
         few: Projekty
-        many: Projekty
-        other: Projekty
+        many: Projektów
+        other: Projektów
   decidim:
     budgets:
       actions:
@@ -98,8 +98,8 @@ pl:
         count:
           projects_count:
             one: 1 projekt
-            few: "%{count} projektów"
-            many: "%{count} projekty"
+            few: "%{count} projekty"
+            many: "%{count} projektów"
             other: "%{count} projektów"
         filters:
           category: Kategoria
@@ -116,8 +116,8 @@ pl:
           remove: Usuń
           selected_projects:
             one: wybrany projekt
-            few: wybranych projektów
-            many: wybrane projekty
+            few: wybranych projekty
+            many: wybrane projektów
             other: wybranych projektów
           view: Zobacz
         orders:
