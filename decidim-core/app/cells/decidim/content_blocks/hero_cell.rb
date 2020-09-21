@@ -22,7 +22,13 @@ module Decidim
       private
 
       def cache_hash
-        "decidim/content_blocks/hero/#{Digest::MD5.hexdigest(model.attributes.to_s)}/#{current_organization.cache_version}"
+        hash = []
+        hash << "decidim/content_blocks/hero"
+        hash << Digest::MD5.hexdigest(model.attributes.to_s)
+        hash << current_organization.cache_version
+        hash << I18n.locale.to_s
+
+        hash.join("/")
       end
     end
   end
