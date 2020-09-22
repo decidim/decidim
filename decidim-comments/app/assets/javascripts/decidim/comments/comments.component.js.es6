@@ -137,6 +137,8 @@
           }
         });
 
+        $(document).trigger("attach-mentions-element", $text.get(0));
+
         $form.on("submit", () => {
           $submit.attr("disabled", "disabled");
           this._stopPolling();
