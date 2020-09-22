@@ -83,7 +83,11 @@ module Decidim
       end
 
       def commentable_path(params = {})
-        resource_locator(root_commentable).path(params)
+        if root_commentable.is_a?(Decidim::Budgets::Project)
+          resource_locator([root_commentable.budget, root_commentable]).path(params)
+        else
+          resource_locator(root_commentable).path(params)
+        end
       end
 
       def up_votes_count
