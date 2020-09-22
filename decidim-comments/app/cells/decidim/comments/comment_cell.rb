@@ -16,6 +16,12 @@ module Decidim
       property :comment_threads
       property :accepts_new_comments?
 
+      def votes
+        return unless root_commentable.comments_have_votes?
+
+        render :votes
+      end
+
       private
 
       def decidim_comments
