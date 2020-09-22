@@ -12,9 +12,16 @@ module Decidim
 
       property :root_commentable
       property :created_at
+      property :alignment
       property :translated_body
       property :comment_threads
       property :accepts_new_comments?
+
+      def alignment_badge
+        return unless [-1, 1].include?(alignment)
+
+        render :alignment_badge
+      end
 
       def votes
         return unless root_commentable.comments_have_votes?
@@ -66,6 +73,24 @@ module Decidim
           classes << "comment--nested--alt" if nested_level_even?
         end
         classes.join(" ")
+      end
+
+      def alignment_badge_classes
+        classes = %w(label alignment)
+        if alignment == 1
+          classes << "success"
+        elsif alignment == -1
+          classes << "alert"
+        end
+        classes.join(" ")
+      end
+
+      def alignment_badge_label
+        if alignment == 1
+          I18n.t("decidim.components.comment.alignment.in_favor")
+        else
+          I18n.t("decidim.components.comment.alignment.against")
+        end
       end
 
       def votes_up_classes
