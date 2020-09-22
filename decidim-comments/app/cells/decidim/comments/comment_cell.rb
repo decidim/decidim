@@ -28,6 +28,10 @@ module Decidim
         Decidim::Comments::Engine.routes.url_helpers
       end
 
+      def comment_body
+        Decidim::ContentProcessor.render(translated_body)
+      end
+
       def replies
         SortedComments.for(model, order_by: order)
       end
