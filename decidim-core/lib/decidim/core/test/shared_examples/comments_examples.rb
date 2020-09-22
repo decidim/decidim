@@ -97,7 +97,7 @@ shared_examples "comments" do
     context "when user adds a new comment" do
       before do
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
           click_button "Send"
         end
       end
@@ -120,7 +120,7 @@ shared_examples "comments" do
         expect(page).to have_selector(".add-comment form")
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "This is a new comment"
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
           select user_group.name, from: "Comment as"
           click_button "Send"
         end
@@ -144,7 +144,7 @@ shared_examples "comments" do
         end
 
         expect(page).to have_selector("#comment_#{comment.id} .add-comment")
-        fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
+        fill_in "add-comment-Comment-#{comment.id}", with: "This is a reply"
         within ".comment-thread .add-comment" do
           click_button "Send"
         end
@@ -184,7 +184,7 @@ shared_examples "comments" do
             page.find(".opinion-toggle--ok").click
 
             within ".add-comment form" do
-              fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: "I am in favor about this!"
+              fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "I am in favor about this!"
               click_button "Send"
             end
 
@@ -237,7 +237,7 @@ shared_examples "comments" do
         visit resource_path
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
         end
       end
 
@@ -284,7 +284,7 @@ shared_examples "comments" do
         visit resource_path
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          fill_in "add-comment-#{commentable.commentable_type.demodulize.demodulize}-#{commentable.id}", with: content
           click_button "Send"
         end
       end
