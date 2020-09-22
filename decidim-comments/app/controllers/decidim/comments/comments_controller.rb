@@ -14,8 +14,9 @@ module Decidim
       def index
         @comments = SortedComments.for(
           commentable,
-          order_by: order
-        ).where("decidim_comments_comments.id > ?", params.fetch(:after, 0).to_i)
+          order_by: order,
+          after: params.fetch(:after, 0).to_i
+        )
 
         render :reload if reload?
       end

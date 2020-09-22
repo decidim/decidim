@@ -33,6 +33,12 @@ module Decidim
         scope = base_scope
                 .not_hidden
                 .includes(:author, :user_group, :up_votes, :down_votes)
+        if @options[:after]
+          scope = scope.where(
+            "decidim_comments_comments.id > ?",
+            @options[:after]
+          )
+        end
 
         scope = case @options[:order_by]
                 when "older"
