@@ -5,7 +5,7 @@ module Decidim
     # Controller that manages the comments for a commentable object.
     #
     class CommentsController < Decidim::Comments::ApplicationController
-      before_action :authenticate_user!
+      before_action :authenticate_user!, only: [:create]
       before_action :set_commentable
       before_action :ensure_commentable!
 
