@@ -78,6 +78,7 @@ pl:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
+            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę wyborów
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
