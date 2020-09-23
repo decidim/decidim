@@ -92,10 +92,10 @@ es:
           state_eq:
             label: Estado
             values:
-              accepted: Aceptadas
+              accepted: Aceptada
               evaluating: En evaluación
               published: Publicadas
-              rejected: Rechazadas
+              rejected: Rechazada
               validating: Validación técnica
               withdrawn: Retiradas
           state_null:
