@@ -74,6 +74,12 @@ In general, to use the docker development environment, change any instruction in
 the docs to use its equivalent docker binstub.  So for example, instead of
 running `bundle install`, you would run `d/bundle install`.
 
+### D. Using vagrant [experimental]
+
+Please prefer Docker usage if possible.
+
+[Vagrant advanced section](advanced/vagrant.md)
+
 ## Initializing your app for local development
 
 You should now setup your database:
