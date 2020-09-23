@@ -897,7 +897,7 @@ it:
           new_conversation: Nuova conversazione
           next: Successivo
           no_conversations: Non hai ancora conversazioni
-          title: conversazioni
+          title: Conversazioni
         reply:
           placeholder: La tua risposta...
           send: Inviare
@@ -1506,7 +1506,7 @@ it:
       user_menu:
         account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
-        conversations: conversazioni
+        conversations: Conversazioni
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo
