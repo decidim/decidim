@@ -1333,11 +1333,11 @@ pl:
     failure:
       already_authenticated: Jesteś już zalogowany.
       inactive: Twoje konto nie zostało jeszcze aktywowane.
-      invalid: Nieprawidłowe %{authentication_keys} lub hasło.
+      invalid: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       invited: Masz oczekujące zaproszenia, zaakceptuj je, aby zakończyć tworzenie konta.
       last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
       locked: Twoje konto jest zablokowane.
-      not_found_in_database: Nieprawidłowe %{authentication_keys} lub hasło.
+      not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
       unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
     invitations:
