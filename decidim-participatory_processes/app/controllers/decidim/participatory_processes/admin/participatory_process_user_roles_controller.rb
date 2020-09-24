@@ -25,12 +25,13 @@ module Decidim
           CreateParticipatoryProcessAdmin.call(@form, current_user, current_participatory_process) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_user_roles.create.success", scope: "decidim.admin")
+              redirect_to participatory_process_user_roles_path(current_participatory_process)
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("participatory_process_user_roles.create.error", scope: "decidim.admin")
+              render :new
             end
-            redirect_to participatory_process_user_roles_path(current_participatory_process)
           end
         end
 

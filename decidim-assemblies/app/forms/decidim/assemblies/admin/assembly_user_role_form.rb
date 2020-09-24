@@ -12,9 +12,10 @@ module Decidim
         attribute :email, String
         attribute :role, String
 
-        validates :email, :role, presence: true
-        validates :name, presence: true
+        validates :name, :email, :role, presence: true
         validates :role, inclusion: { in: Decidim::AssemblyUserRole::ROLES }
+
+        validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
 
         def roles
           Decidim::AssemblyUserRole::ROLES.map do |role|

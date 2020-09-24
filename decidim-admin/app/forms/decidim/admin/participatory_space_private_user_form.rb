@@ -11,8 +11,9 @@ module Decidim
       attribute :name, String
       attribute :email, String
 
-      validates :email, presence: true
-      validates :name, presence: true
+      validates :name, :email, presence: true
+
+      validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
     end
   end
 end

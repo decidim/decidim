@@ -25,12 +25,13 @@ module Decidim
           CreateAssemblyAdmin.call(@form, current_user, current_assembly) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_user_roles.create.success", scope: "decidim.admin")
+              redirect_to assembly_user_roles_path(current_assembly)
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("assembly_user_roles.create.error", scope: "decidim.admin")
+              render :new
             end
-            redirect_to assembly_user_roles_path(current_assembly)
           end
         end
 
