@@ -11,6 +11,7 @@ module Decidim
       include FilterResource
       include Paginable
       include Flaggable
+      include Decidim::Debates::Orderable
 
       helper_method :debates, :debate, :form_presenter, :paginated_debates, :report_form, :close_debate_form
 
@@ -97,7 +98,7 @@ module Decidim
       end
 
       def debates
-        @debates ||= search.results
+        @debates ||= reorder(search.results)
       end
 
       def debate
@@ -126,9 +127,12 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          order_start_time: "asc",
-          origin: "all",
-          category_id: ""
+          origin: %w(official citizens user_group),
+          activity: "all",
+          category_id: default_filter_category_params,
+          scope_id: default_filter_scope_params,
+          status: "all",
+          state: %w(open closed)
         }
       end
     end

@@ -161,10 +161,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(proposal.search_title[locale]),
+        "content_a" => I18n.transliterate(proposal.title[locale]),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(proposal.search_body[locale]),
+        "content_d" => I18n.transliterate(proposal.body[locale]),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,
