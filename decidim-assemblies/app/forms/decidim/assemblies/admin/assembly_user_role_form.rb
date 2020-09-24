@@ -16,6 +16,7 @@ module Decidim
         validates :role, inclusion: { in: Decidim::AssemblyUserRole::ROLES }
 
         validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+        validate :admin_uniqueness
 
         def roles
           Decidim::AssemblyUserRole::ROLES.map do |role|
@@ -23,6 +24,12 @@ module Decidim
               I18n.t(role, scope: "decidim.admin.models.assembly_user_role.roles"),
               role
             ]
+          end
+        end
+
+        def admin_uniqueness
+          if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
+            errors.add(:email, :taken)
           end
         end
       end
