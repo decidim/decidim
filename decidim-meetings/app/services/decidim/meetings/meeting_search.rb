@@ -6,6 +6,8 @@ module Decidim
     # `current_component` param with a `Decidim::Component` in order to
     # find the meetings.
     class MeetingSearch < ResourceSearch
+      text_search_fields :title, :description
+
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the meetings from.
       # page        - The page number to paginate the results.
@@ -15,39 +17,15 @@ module Decidim
         super(scope, options)
       end
 
-      # Handle the search_text filter
-      def search_search_text
-        query
-          .where(localized_search_text_in(:title), text: "%#{search_text}%")
-          .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
-      end
-
       # Handle the date filter
       def search_date
-        upcoming = [date].flatten.member?("upcoming") ? query.upcoming : nil
-        past = [date].flatten.member?("past") ? query.past : nil
-
-        query
-          .where(id: upcoming)
-          .or(query.where(id: past))
+        apply_scopes(%w(upcoming past), date)
       end
 
       def search_space
         return query if options[:space].blank? || options[:space] == "all"
 
         query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
-      end
-
-      # Handle the origin filter
-      def search_origin
-        official = origin.member?("official") ? query.official_origin : nil
-        citizens = origin.member?("citizens") ? query.citizens_origin : nil
-        user_group = origin.member?("user_group") ? query.user_group_origin : nil
-
-        query
-          .where(id: official)
-          .or(query.where(id: citizens))
-          .or(query.where(id: user_group))
       end
     end
   end
