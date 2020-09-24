@@ -13,9 +13,7 @@ module Decidim
       def validate_csv
         CSV.foreach(file.path) do |_email, user_name|
           errors.add(:user_name, "user_name not valid!") unless user_name.match?(/\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/)
-          if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
-            errors.add(:email, :taken)
-          end
+          errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
         end
       end
     end

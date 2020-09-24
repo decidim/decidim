@@ -17,9 +17,7 @@ module Decidim
       validate :admin_uniqueness
 
       def admin_uniqueness
-        if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
-          errors.add(:email, :taken)
-        end
+        errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
       end
     end
   end
