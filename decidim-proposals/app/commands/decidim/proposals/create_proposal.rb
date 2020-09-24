@@ -57,8 +57,12 @@ module Decidim
             visibility: "public-only"
           ) do
             proposal = Proposal.new(
-              title: title_with_hashtags,
-              body: body_with_hashtags,
+              title: {
+                I18n.locale => title_with_hashtags
+              },
+              body: {
+                I18n.locale => body_with_hashtags
+              },
               component: form.component
             )
             proposal.add_coauthor(@current_user, user_group: user_group)

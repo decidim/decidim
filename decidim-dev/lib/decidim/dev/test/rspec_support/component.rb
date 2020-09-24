@@ -255,6 +255,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false
@@ -287,6 +288,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.references :decidim_category, index: false

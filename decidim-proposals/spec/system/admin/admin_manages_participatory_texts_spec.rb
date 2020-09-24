@@ -44,6 +44,7 @@ describe "Admin manages participatory texts", type: :system do
     click_button "Upload document"
     expect(page).to have_content "The following sections have been converted to proposals. Now you can review and adjust them before publishing."
     expect(page).to have_content "Preview participatory text"
+    validate_proposals
   end
 
   def validate_occurrences(sections: nil, subsections: nil, articles: nil)
@@ -78,7 +79,15 @@ describe "Admin manages participatory texts", type: :system do
     ]
     expect(proposals.count).to eq(titles.size)
     expect(proposals.published.count).to eq(titles.size)
-    expect(proposals.published.order(:position).pluck(:title)).to eq(titles)
+    expect(proposals.published.order(:position).pluck(:title).map(&:values).map(&:first)).to eq(titles)
+  end
+
+  def validate_proposals
+    proposals = Decidim::Proposals::Proposal.where(component: current_component)
+    proposals.each do |proposal|
+      expect(proposal.title).to be_kind_of(Hash)
+      expect(proposal.body).to be_kind_of(Hash)
+    end
   end
 
   def edit_participatory_text_body(index, new_body)
@@ -144,7 +153,7 @@ describe "Admin manages participatory texts", type: :system do
       save_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 1)
       proposal.reload
-      expect(proposal.body.delete("\r")).to eq(new_body)
+      expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
 
@@ -159,7 +168,7 @@ describe "Admin manages participatory texts", type: :system do
       save_participatory_text_drafts
       validate_occurrences(sections: 0, subsections: 0, articles: 1)
       proposal.reload
-      expect(proposal.body.delete("\r")).to eq(new_body)
+      expect(translated(proposal.body).delete("\r")).to eq(new_body)
     end
   end
 end
