@@ -62,8 +62,8 @@ pl:
       decidim/initiative:
         one: Inicjatywa
         few: Inicjatywy
-        many: Inicjatywy
-        other: Inicjatywy
+        many: Inicjatyw
+        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety
@@ -413,7 +413,7 @@ pl:
         count:
           title:
             one: "%{count} inicjatywa"
-            few: "%{count} inicjatyw"
+            few: "%{count} inicjatywy"
             many: "%{count} inicjatyw"
             other: "%{count} inicjatyw"
         filters:
