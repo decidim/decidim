@@ -190,6 +190,8 @@ it:
             heading_leaf_level_results: Nome per "Progetti"
             heading_parent_level_results: Nome per "Risultati"
             intro: Introduzione
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
             subcategories_label: Nome per "Sottocategorie"
           step:
             comments_blocked: Commenti bloccati
