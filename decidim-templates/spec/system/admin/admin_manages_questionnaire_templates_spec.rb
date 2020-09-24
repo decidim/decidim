@@ -71,7 +71,7 @@ describe "Admin manages questionnaire templates", type: :system do
           es: "Mi encuesta",
           ca: "La meva enquesta"
         )
-        
+
         fill_in_i18n_editor(
           :questionnaire_tos,
           "#questionnaire-tos-tabs",
