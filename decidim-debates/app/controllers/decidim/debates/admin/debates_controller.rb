@@ -40,13 +40,13 @@ module Decidim
         def edit
           enforce_permission_to :update, :debate, debate: debate
 
-          @form = form(DebateForm).from_model(debate)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 
         def update
           enforce_permission_to :update, :debate, debate: debate
 
-          @form = form(DebateForm).from_params(params, current_component: current_component)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do
