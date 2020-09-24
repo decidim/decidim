@@ -59,7 +59,30 @@ describe "Admin manages questionnaire templates", type: :system do
       within ".container" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(Decidim::Templates::Template.last.id)
         expect(page.find("#template_name_en").value).to eq("My template")
+
+        click_link "Edit"
       end
+
+      within ".card-section" do
+        fill_in_i18n(
+          :questionnaire_title,
+          "#questionnaire-title-tabs",
+          en: "My questionnaire",
+          es: "Mi encuesta",
+          ca: "La meva enquesta"
+        )
+        
+        fill_in_i18n_editor(
+          :questionnaire_tos,
+          "#questionnaire-tos-tabs",
+          en: "My terms",
+          es: "Mis términos",
+          ca: "Els meus termes"
+        )
+      end
+
+      page.find("*[type=submit]").click
+      expect(page).to have_admin_callout("successfully")
     end
   end
 
