@@ -45,8 +45,8 @@ module Decidim
           let(:name) { "John (Wayne)" }
 
           it { is_expected.to be_invalid }
-
         end
+
         context "when email is already being used" do
           let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", email: email, organization: current_organization, admin: true) }
 

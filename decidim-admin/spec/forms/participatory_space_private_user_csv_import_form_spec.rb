@@ -38,8 +38,8 @@ module Decidim
         let(:file) { File.new Decidim::Dev.asset("import_participatory_space_private_users_nok.csv") }
 
         it { is_expected.to be_invalid }
-
       end
+
       context "when email is already being used" do
         let(:email) { "my_user@example.org" }
         let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", email: email, organization: current_organization, admin: true) }
