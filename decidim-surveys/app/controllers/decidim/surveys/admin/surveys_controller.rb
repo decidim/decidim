@@ -7,7 +7,6 @@ module Decidim
       class SurveysController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
-        helper Decidim::Templates::Admin::TemplatesHelper if defined? Decidim::Templates
 
         def questionnaire_for
           survey
