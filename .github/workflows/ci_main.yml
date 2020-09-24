@@ -39,10 +39,6 @@ jobs:
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-rubydeps-
-            ${{ runner.OS }}-
       - name: Install Ruby deps
         uses: nick-invision/retry@v1
         with:

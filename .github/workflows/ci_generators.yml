@@ -52,10 +52,6 @@ jobs:
         with:
           path: ./vendor/bundle
           key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-rubydeps-
-            ${{ runner.OS }}-
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
