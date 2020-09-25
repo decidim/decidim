@@ -4,6 +4,8 @@ module Decidim
   # The form object that handles the data behind updating a user's
   # account in her profile page.
   class AccountForm < Form
+    include Decidim::HasUploadValidations
+
     mimic :user
 
     attribute :name
@@ -24,11 +26,13 @@ module Decidim
     validates :password, confirmation: true
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    validates :avatar, passthru: { to: Decidim::User }
 
     validate :unique_email
     validate :unique_nickname
     validate :personal_url_format
+
+    alias organization current_organization
 
     def personal_url
       return if super.blank?

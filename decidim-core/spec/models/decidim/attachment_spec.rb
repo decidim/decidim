@@ -6,12 +6,16 @@ module Decidim
   describe Attachment, processing_uploads_for: Decidim::AttachmentUploader do
     subject { build(:attachment) }
 
+    let(:organization) { subject.organization }
+
     it { is_expected.to be_valid }
 
     describe "validations" do
       context "when the file is too big" do
         before do
-          allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+          organization.settings.tap do |settings|
+            settings.upload.maximum_file_size.default = 5
+          end
           expect(subject.file).to receive(:size).and_return(6.megabytes)
         end
 
@@ -22,7 +26,7 @@ module Decidim
         subject do
           build(
             :attachment,
-            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpg")
+            file: Rack::Test::UploadedFile.new(attachment_path, "image/jpeg")
           )
         end
 

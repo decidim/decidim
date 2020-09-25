@@ -2,7 +2,7 @@
 
 module Decidim
   # This class deals with uploading the organization's logo.
-  class OrganizationLogoUploader < ImageUploader
+  class OrganizationLogoUploader < RecordImageUploader
     version :medium do
       process resize_to_fit: [600, 160]
     end

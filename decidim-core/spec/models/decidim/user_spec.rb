@@ -142,7 +142,7 @@ module Decidim
         let(:user) do
           build(
             :user,
-            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpg")
+            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpeg")
           )
         end
 
