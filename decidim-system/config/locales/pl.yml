@@ -1,4 +1,18 @@
 pl:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nazwa aplikacji OAuth
+        organization_logo: Logo organizacji (kwadrat)
+        organization_name: Organizacja
+        organization_url: Adres URL organizacji
+        redirect_uri: Przekierowanie URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI przekierowania musi być URI SSL
   decidim:
     system:
       actions:
@@ -32,6 +46,7 @@ pl:
       menu:
         admins: Administratorzy
         dashboard: Panel
+        oauth_applications: Aplikacje OAuth
         organizations: Organizacje
       models:
         admin:
@@ -41,6 +56,12 @@ pl:
           name: Administrator
           validations:
             email_uniqueness: inny administrator z tym samym e-mailem już istnieje
+        oauth_application:
+          fields:
+            created_at: Utworzono
+            name: Nazwa aplikacji OAuth
+            organization_name: Organizacja
+          name: Aplikacja OAuth
         organization:
           actions:
             save_and_invite: Utwórz organizację i zaproś administratora
@@ -50,6 +71,27 @@ pl:
             omniauth_settings: Ustawienia Omniauth
             smtp_settings: Ustawienia SMTP
           name: Organizacja
+      oauth_applications:
+        create:
+          error: Wystąpił błąd podczas tworzenia tej aplikacji.
+          success: Aplikacja została utworzona.
+        destroy:
+          error: Wystąpił błąd podczas usuwania aplikacji.
+          success: Aplikacja została usunięta.
+        edit:
+          save: Zapisz
+          title: Edytuj aplikację
+        form:
+          select_organization: Wybierz organizację
+        index:
+          confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
+          title: Aplikacje OAuth
+        new:
+          save: Zapisz
+          title: Nowa aplikacja
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej aplikacji.
+          success: Aplikacja została zaktualizowana.
       organizations:
         create:
           error: Podczas tworzenia nowej organizacji wystąpił błąd.

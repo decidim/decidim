@@ -2,7 +2,6 @@
   activemodel:
     attributes:
       project:
-        budget: Budsjett
         decidim_category_id: Kategori
         decidim_scope_id: Tema
         description: Beskrivelse

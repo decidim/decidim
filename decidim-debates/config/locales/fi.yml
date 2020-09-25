@@ -35,6 +35,8 @@ fi:
             announcement: Ilmoitus
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -79,6 +81,8 @@ fi:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} osallistumistilaan %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} osallistumistilassa %{space_name}"
+      debate_m:
+        commented_time_ago: Kommentoitu %{time} sitten
       debates:
         close:
           invalid: Keskustelun sulkeminen epäonnistui.
@@ -102,13 +106,22 @@ fi:
           save: Tallenna muutokset
           title: Muokkaa keskustelua
         filters:
+          activity: Oma toiminta
           all: Kaikki
           category: Aihepiiri
           category_prompt: Valitse aihepiiri
           citizens: Kansalaiset
+          commented: Kommentoitu
+          my_debates: Omat keskustelut
           official: Virallinen
           origin: Alkuperä
+          scope: Teema
           search: Hae
+          state: Tila
+          state_values:
+            closed: Suljetut
+            open: Avoimet
+          user_groups: Ryhmät
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata
@@ -122,6 +135,12 @@ fi:
           back: Takaisin
           create: Luo
           title: Uusi keskustelu
+        orders:
+          commented: Eniten kommentoidut
+          label: Järjestä keskustelut
+          random: Satunnainen järjestys
+          recent: Viimeisimmät
+          updated: Viimeksi päivitetyt
         show:
           back: Takaisin listaan
           close_debate: Sulje keskustelu

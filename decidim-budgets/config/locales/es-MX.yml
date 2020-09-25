@@ -2,7 +2,6 @@ es-MX:
   activemodel:
     attributes:
       project:
-        budget: Presupuesto
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción

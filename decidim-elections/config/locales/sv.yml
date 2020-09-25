@@ -21,6 +21,10 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste återknytas
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Måste bifogas igen
   activerecord:
     models:
       decidim/elections/answer:
