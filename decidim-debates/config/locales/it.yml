@@ -67,6 +67,8 @@ it:
         debate:
           create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
           update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
+      debate_m:
+        commented_time_ago: Commentato %{time} fa
       debates:
         count:
           debates_count:
@@ -82,13 +84,20 @@ it:
           save: Salva le modifiche
           title: Modifica dibattito
         filters:
+          activity: La mia attività
           all: Tutti
           category: Categoria
           category_prompt: Seleziona una categoria
           citizens: Cittadini
+          my_debates: I miei dibattiti
           official: Ufficiale
           origin: Origine
+          scope: Ambito
           search: Ricerca
+          state: Stato
+          state_values:
+            closed: Chiuso
+          user_groups: Gruppi
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtro
@@ -102,6 +111,12 @@ it:
           back: Indietro
           create: Crea
           title: Nuovo dibattito
+        orders:
+          commented: I più commentati
+          label: Ordina i dibattiti per
+          random: Ordine casuale
+          recent: Più recenti
+          updated: Aggiornato di recente
         show:
           back: Torna alla lista
           date: Data
