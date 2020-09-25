@@ -54,12 +54,6 @@ Decidim.configure do |config|
   # processed by Decidim, this value helps reduce the size of the files.
   # config.image_uploader_quality = 80
 
-  # The maximum file size of an attachment
-  # config.maximum_attachment_size = 10.megabytes
-
-  # The maximum file size for a user avatar
-  # config.maximum_avatar_size = 10.megabytes
-
   # The number of reports which a resource can receive before hiding it
   # config.max_reports_before_hiding = 3
 
@@ -226,6 +220,10 @@ Decidim.configure do |config|
   # end
   #
   # config.machine_translation_service = "MyTranslationService"
+
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  # config.consent_cookie_name = "decidim-cc"
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

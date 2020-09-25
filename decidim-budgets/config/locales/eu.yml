@@ -2,7 +2,6 @@ eu:
   activemodel:
     attributes:
       project:
-        budget: Aurrekontua
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Descripción
@@ -22,7 +21,6 @@ eu:
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proposamenak proiektuetarako
-        new: Proiektu berria
         preview: Aurreikusi
         title: Ekintzak
       admin:
@@ -67,7 +65,6 @@ eu:
             title: Titulua
       projects:
         budget_confirm:
-          are_you_sure: Ados zaude? Behin zure botoa baieztatuta, ezin izanen duzu aldatu.
           cancel: Utzi
           confirm: Baieztatu
           description: Proiektu hauek hautatu dituzu aurrekontuan sartzeko.
@@ -108,9 +105,6 @@ eu:
             other: hautatutako proiektuak
           view: Ikusi
         project:
-          count:
-            one: 1 sostengu 
-            other: "%{count} sostengu"
           view: ikusi
         show:
           budget: Aurrekontua
@@ -132,7 +126,8 @@ eu:
             announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
             show_votes: Erakutsi botoak
-            votes_enabled: Botoak gaituta
+            votes_choices:
+              enabled: Botoak gaituta
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean

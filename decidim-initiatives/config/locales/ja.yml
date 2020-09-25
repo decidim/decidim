@@ -212,6 +212,8 @@ ja:
             success: このイニシアチブは技術検証に送信されました
             update: 更新
           form:
+            attachments: 添付ファイル
+            settings: 設定
             title: 一般情報
           index:
             actions_title: アクション

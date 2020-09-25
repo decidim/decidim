@@ -102,6 +102,7 @@ FactoryBot.define do
         "address" => "smtp.example.org"
       }
     end
+    file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
 
     after(:create) do |organization|
       tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
@@ -183,9 +184,9 @@ FactoryBot.define do
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
-    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
     organization
+    avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
 
     transient do
       users { [] }
@@ -297,10 +298,10 @@ FactoryBot.define do
   factory :attachment, class: "Decidim::Attachment" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
+    file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after attached_to
     file_size { 108_908 }
 
     trait :with_image do
@@ -689,5 +690,23 @@ FactoryBot.define do
     resource { build(:dummy_resource) }
     author { build(:user, organization: resource.organization) }
     user_group { create(:user_group, verified_at: Time.current, organization: resource.organization, users: [author]) }
+  end
+
+  factory :share_token, class: "Decidim::ShareToken" do
+    token_for { build(:component) }
+    user { build(:user, organization: token_for.organization) }
+
+    before(:create) do |object|
+      object.organization ||= object.token_for.organization
+    end
+
+    trait :expired do
+      expires_at { 1.day.ago }
+    end
+
+    trait :used do
+      times_used { 3 }
+      last_used_at { 1.hour.ago }
+    end
   end
 end

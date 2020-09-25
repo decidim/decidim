@@ -10,7 +10,6 @@ de:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
-        subtitle: Untertitel
         title: Titel
       question:
         description: Beschreibung
@@ -69,6 +68,7 @@ de:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
           index:
+            invalid_max_selections: Du benötigst %{missing_answers} weitere Antwort/en, um die Auswahl zu erfüllen
             title: Antworten
           new:
             create: Antwort erstellen
@@ -142,7 +142,7 @@ de:
       elections:
         count:
           elections_count:
-            one: "%{count} Wahl"
+            one: "%{count} Wahlen"
             other: "%{count} Wahlen"
         show:
           back: Alle Wahlen

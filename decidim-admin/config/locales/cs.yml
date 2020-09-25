@@ -29,12 +29,6 @@ cs:
       newsletter:
         body: Tělo
         subject: Předmět
-      oauth_application:
-        name: Název
-        organization_logo: Logo organizace (čtverec)
-        organization_name: Název organizace
-        organization_url: URL organizace
-        redirect_uri: Přesměrování URI
       organization:
         address: SMTP hostname
         alert_color: Upozornění
@@ -118,10 +112,6 @@ cs:
         file: Soubor
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI přesměrování musí být URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -153,6 +143,7 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        share: Sdílet
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -280,6 +271,7 @@ cs:
           headers:
             actions: Akce
             name: Název komponenty
+            scope: Oblast působnosti komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu
@@ -393,7 +385,6 @@ cs:
         homepage: Domovská stránka
         impersonations: Vydávání se za uživatele
         newsletters: Zpravodaje
-        oauth_applications: Žádosti OAuth
         participants: Účastníci
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -440,11 +431,6 @@ cs:
             sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
-        oauth_application:
-          fields:
-            created_at: Vytvořeno v
-            name: Jméno
-          name: Žádost OAuth
         participatory_space_private_user:
           name: Účastnický prostor soukromého účastníka
         scope:
@@ -455,6 +441,14 @@ cs:
           fields:
             name: název
             plural: Množné číslo
+        share_token:
+          fields:
+            created_at: Vytvořeno v
+            expires_at: Vyprší v
+            last_used_at: Naposledy použito
+            times_used: Kolikrát použito
+            token: Token
+            user: Vytvořil
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -551,25 +545,6 @@ cs:
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
-      oauth_applications:
-        create:
-          error: Při vytváření této žádosti došlo k chybě.
-          success: Žádost byla úspěšně vytvořena.
-        destroy:
-          error: Došlo k chybě při zničení této žádosti.
-          success: Žádost byla úspěšně zlikvidována.
-        edit:
-          save: Uložit
-          title: Upravit žádost
-        index:
-          confirm_delete: Opravdu chcete tuto žádost smazat?
-          title: Žádosti OAuth
-        new:
-          save: Uložit
-          title: Nová aplikace
-        update:
-          error: Při aktualizaci této aplikace došlo k chybě.
-          success: Žádost byla úspěšně aktualizována.
       officializations:
         create:
           success: Uživatel úspěšně oficializován
@@ -665,6 +640,10 @@ cs:
           title: Upravit oprávnění
         update:
           success: Oprávnění byla úspěšně aktualizována.
+      resources:
+        index:
+          headers:
+            scope: Oblast působnosti
       scope_types:
         create:
           error: Při vytváření nového typu rozsahu došlo k chybě.
@@ -696,6 +675,18 @@ cs:
         update:
           error: Při aktualizaci tohoto oboru došlo k chybě.
           success: Rozsah byl úspěšně aktualizován
+      share_tokens:
+        actions:
+          confirm_destroy: Jste si jisti, že chcete odstranit tento token?
+          destroy: Smazat
+          share: Sdílet
+        destroy:
+          error: Při zničení tokenu došlo k chybě.
+          success: Token byl úspěšně smazán.
+        share_tokens:
+          empty: Nejsou žádné aktivní tokeny
+          help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
+          title: Sdílet tokeny
       shared:
         gallery:
           add_images: Přidat obrázky

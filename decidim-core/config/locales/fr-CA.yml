@@ -333,7 +333,7 @@ fr-CA:
           collaborative_draft: Brouillon collaboratif
           comment: Commentaire
           debate: Débat
-          initiative: Initiative
+          initiative: Pétition
           meeting: Rencontre
           post: Publication
           proposal: Proposition
@@ -354,6 +354,8 @@ fr-CA:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -1158,6 +1160,10 @@ fr-CA:
           one: "%{count} résultat"
           other: "%{count} résultats"
         view_all: Tout voir (%{count})
+    security:
+      selfxss_warning:
+        description: Cette fonction de navigateur est destinée aux développeurs et vous ne devriez rien coller ici si vous n'avez pas avez été invité à le faire. Coller du contenu dans cette fenêtre peut compromettre votre vie privée et permettre aux hackers d'accéder à votre compte.
+        title: Arrêter !
     shared:
       confirm_modal:
         cancel: Abandonner
@@ -1211,6 +1217,10 @@ fr-CA:
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour la portée : %{resource}'
+    translation_bar:
+      help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
+      show_original: Afficher le texte original
+      show_translated: Afficher le texte automatiquement traduit
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1270,6 +1280,7 @@ fr-CA:
     versions:
       resource_version:
         of_versions: "(sur %{number})"
+        see_other_versions: voir les autres versions
         version: Version %{number}
     versions_list:
       show:
@@ -1519,6 +1530,7 @@ fr-CA:
         see_more: Voir plus
   locale:
     name: Français
+    name_with_error: Anglais (erreur !)
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

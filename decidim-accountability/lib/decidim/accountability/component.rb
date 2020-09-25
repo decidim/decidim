@@ -22,6 +22,8 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: true
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :intro, type: :text, translated: true, editor: true
@@ -68,7 +70,9 @@ Decidim.register_component(:accountability) do |component|
         categories_label: Decidim::Faker::Localized.word,
         subcategories_label: Decidim::Faker::Localized.word,
         heading_parent_level_results: Decidim::Faker::Localized.word,
-        heading_leaf_level_results: Decidim::Faker::Localized.word
+        heading_leaf_level_results: Decidim::Faker::Localized.word,
+        scopes_enabled: true,
+        scope_id: participatory_space.scope&.id
       }
     }
 

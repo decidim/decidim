@@ -2,7 +2,6 @@ ru:
   activemodel:
     attributes:
       project:
-        budget: Бюджет
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
@@ -24,7 +23,6 @@ ru:
         destroy: Удалить
         edit: Редактировать
         import: Внести в проекты позаимствованные предложения
-        new: Новый проект
         preview: Предпросмотр
         title: Действия
       admin:
@@ -69,7 +67,6 @@ ru:
             title: Название
       projects:
         budget_confirm:
-          are_you_sure: Вы согласны? Подтвердив свой голос, вы не сможете потом его изменить.
           cancel: Отменить
           confirm: Подтвердить
           description: Вот те проекты, которые вы выбрали для включения в бюджет.
@@ -114,11 +111,6 @@ ru:
             other: выбранных проектов
           view: Посмотреть
         project:
-          count:
-            one: 1 человек поддерживает
-            few: "%{count} поддерживают"
-            many: "%{count} поддерживает"
-            other: "%{count} поддерживает"
           view: Посмотреть
         show:
           budget: Бюджет
@@ -140,7 +132,8 @@ ru:
             announcement: Объявление
             comments_blocked: Комментарии отключены
             show_votes: Показать голоса
-            votes_enabled: Голосование включено
+            votes_choices:
+              enabled: Голосование включено
     orders:
       checkout:
         error: При обработке вашего голоса произошла ошибка

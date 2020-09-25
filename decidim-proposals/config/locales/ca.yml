@@ -92,10 +92,10 @@ ca:
           state_eq:
             label: Estat
             values:
-              accepted: Acceptades
+              accepted: Acceptada
               evaluating: En avaluació
               published: Publicades
-              rejected: Rebutjades
+              rejected: Rebutjada
               validating: Validació tècnica
               withdrawn: Retirades
           state_null:

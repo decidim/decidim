@@ -4,12 +4,12 @@
   </div>
 
   <div class="card-section">
-    <div class="row column">
-      <%= form.translated :text_field, :title, autofocus: true %>
+     <div class="row column hashtags__container">
+      <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
 
-    <div class="row column">
-      <%= form.translated :editor, :description %>
+     <div class="row column hashtags__container">
+      <%= form.translated :editor, :description, hashtaggable: true %>
     </div>
 
     <div class="row column">

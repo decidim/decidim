@@ -9,13 +9,21 @@ module Decidim
       # Note that it inherits from `Decidim::Components::BaseController`, which
       # override its layout and provide all kinds of useful methods.
       class ApplicationController < Decidim::Admin::Components::BaseController
-        helper_method :projects, :project
+        helper_method :budget, :projects, :project
+
+        def budget
+          @budget ||= Budget.where(component: current_component).includes(:projects).find_by(id: params[:budget_id])
+        end
 
         def projects
-          @projects ||= Project.where(component: current_component)
+          return unless budget
+
+          @projects ||= budget.projects
         end
 
         def project
+          return unless projects
+
           @project ||= projects.find(params[:id])
         end
       end

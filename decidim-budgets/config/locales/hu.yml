@@ -2,7 +2,6 @@ hu:
   activemodel:
     attributes:
       project:
-        budget: Költségvetés
         decidim_category_id: Kategória
         decidim_scope_id: Hatáskör
         description: Leírás
@@ -22,7 +21,6 @@ hu:
         destroy: Törlés
         edit: Szerkesztés
         import: Javaslatok importálása projektekhez
-        new: Új projekt
         preview: Előnézet
         title: Műveletek
       admin:
@@ -70,7 +68,6 @@ hu:
           selected_projects: 'Az általad kiválasztott projektek a következők:'
       projects:
         budget_confirm:
-          are_you_sure: Egyetértesz? Ha megerősítetted a szavazatod, már nem változtathatod meg.
           cancel: Mégse
           confirm: Megerősítés
           description: Ezek azok a projektek, amelyek a költségvetés részét képezik.
@@ -117,9 +114,6 @@ hu:
           most_voted: Legtöbb szavazattal
           random: Véletlen sorrend
         project:
-          count:
-            one: 1 támogató
-            other: "%{count} támogató"
           view: Nézet
         show:
           budget: Költségvetés
@@ -148,7 +142,8 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             show_votes: Szavazatok megjelenítése
-            votes_enabled: Szavazás engedélyezve
+            votes_choices:
+              enabled: Szavazás engedélyezve
     orders:
       checkout:
         error: Hiba történt a szavazatod feldolgozása során

@@ -2,7 +2,6 @@ id:
   activemodel:
     attributes:
       project:
-        budget: Anggaran
         decidim_category_id: Kategori
         decidim_scope_id: Cakupan
         description: Deskripsi
@@ -21,7 +20,6 @@ id:
         destroy: Menghapus
         edit: Edit
         import: Impor proposal ke proyek
-        new: Proyek baru
         preview: Pratinjau
         title: Tindakan
       admin:
@@ -66,7 +64,6 @@ id:
             title: Judul
       projects:
         budget_confirm:
-          are_you_sure: Apa kamu setuju? Setelah Anda mengkonfirmasi suara Anda, Anda tidak dapat mengubahnya.
           cancel: Membatalkan
           confirm: Memastikan
           description: Ini adalah proyek yang Anda pilih untuk menjadi bagian dari anggaran.
@@ -105,8 +102,6 @@ id:
             other: proyek yang dipilih
           view: Melihat
         project:
-          count:
-            other: "%{count} mendukung"
           view: Melihat
         show:
           budget: Anggaran
@@ -128,7 +123,8 @@ id:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
             show_votes: Tampilkan suara
-            votes_enabled: Voting diaktifkan
+            votes_choices:
+              enabled: Voting diaktifkan
     orders:
       checkout:
         error: Terjadi masalah saat memproses suara Anda

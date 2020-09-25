@@ -80,6 +80,28 @@ fr-CA:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Catégorie
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Propositions
+              'true': Amendements
+          scope_id_eq:
+            label: Secteur
+          state_eq:
+            label: État
+            values:
+              accepted: Acceptée
+              evaluating: En cours d'évaluation
+              published: Publiée
+              rejected: Rejetée
+              validating: Validation technique
+              withdrawn: Retirée
+          state_null:
+            label: État
+            values:
+              'true': Non répondu
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -122,6 +144,8 @@ fr-CA:
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:

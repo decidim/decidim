@@ -29,12 +29,6 @@ ca:
       newsletter:
         body: Cos
         subject: Assumpte
-      oauth_application:
-        name: Nom
-        organization_logo: Logotip de l'organització (quadrat)
-        organization_name: Nom de l'organització
-        organization_url: URL de l'organització
-        redirect_uri: URL de redirecció
       organization:
         address: Nom del servidor SMTP
         alert_color: Alerta
@@ -118,10 +112,6 @@ ca:
         file: Fitxer
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: L'URL de redirecció ha de ser SSL
         organization:
           attributes:
             official_img_footer:
@@ -393,7 +383,6 @@ ca:
         homepage: Pàgina d'inici
         impersonations: Impersonacions
         newsletters: Butlletins
-        oauth_applications: Aplicacions OAuth
         participants: Participants
         scope_types: Tipus d'àmbit
         scopes: Àmbits
@@ -440,11 +429,6 @@ ca:
             sent_to: Enviat a
             subject: Assumpte
           name: Butlletí
-        oauth_application:
-          fields:
-            created_at: Creat el
-            name: Nom
-          name: Aplicació OAuth
         participatory_space_private_user:
           name: Participant d'espai de participació privat
         scope:
@@ -551,25 +535,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
-      oauth_applications:
-        create:
-          error: S'ha produït un error en crear aquesta aplicació.
-          success: L'aplicació s'ha creat correctament.
-        destroy:
-          error: S'ha produït un error en eliminar aquesta aplicació.
-          success: S'ha eliminat l'aplicació correctament.
-        edit:
-          save: Desa
-          title: Edita l'aplicació
-        index:
-          confirm_delete: Estàs segura que vols eliminar aquesta aplicació?
-          title: Aplicacions OAuth
-        new:
-          save: Desa
-          title: Nova aplicació
-        update:
-          error: S'ha produït un error en actualitzar aquesta aplicació.
-          success: S'ha actualitzat l'aplicació correctament.
       officializations:
         create:
           success: La participant s'ha oficialitzat correctament

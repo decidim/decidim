@@ -8,6 +8,7 @@ module Decidim
       #
       class ParticipatoryProcessGroupForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         translatable_attribute :name, String
         translatable_attribute :description, String
@@ -20,7 +21,9 @@ module Decidim
 
         validates :name, :description, translatable_presence: true
 
-        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :hero_image, passthru: { to: Decidim::ParticipatoryProcessGroup }
+
+        alias organization current_organization
       end
     end
   end

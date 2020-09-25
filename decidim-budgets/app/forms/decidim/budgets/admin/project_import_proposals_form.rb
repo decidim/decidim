@@ -29,6 +29,10 @@ module Decidim
             [component.name[I18n.locale.to_s], component.id]
           end
         end
+
+        def budget
+          @budget ||= context[:budget]
+        end
       end
     end
   end

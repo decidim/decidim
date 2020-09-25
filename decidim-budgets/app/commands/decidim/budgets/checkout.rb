@@ -7,10 +7,8 @@ module Decidim
       # Public: Initializes the command.
       #
       # order - The current order for the user.
-      # component - The current component.
-      def initialize(order, component)
+      def initialize(order)
         @order = order
-        @component = component
       end
 
       # Executes the command. Broadcasts these events:
@@ -20,15 +18,17 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid, @order) unless checkout!
+        return broadcast(:invalid, order) unless checkout!
 
-        broadcast(:ok, @order)
+        broadcast(:ok, order)
       end
 
       private
 
+      attr_reader :order
+
       def checkout!
-        return unless @order && @order.valid?
+        return unless order && order.valid?
 
         @order.with_lock do
           SendOrderSummaryJob.perform_later(@order)

@@ -71,7 +71,7 @@ pl:
           success: Konferencja nie jest już publicznie widoczna.
       conference_registration:
         confirm:
-          error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
+          error: Wystąpił błąd podczas potwierdzania rejestracji na konferencji.
           success: Rejestracja na konferencję została potwierdzona.
       conference_speakers:
         create:
@@ -184,7 +184,7 @@ pl:
             email: E-mail
             name: Nazwa
             role: Rola
-          name: Użytkownik konferencji
+          name: Administrator konferencji
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -467,12 +467,12 @@ pl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktywne konferencje
+            active_conferences: Aktualne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       photo:
         image:
           attributes:
-            alt: Obraz dla mediów
+            alt: Obraz
         show:
           close_modal: Zamknij modalne
           photo: Zdjęcie

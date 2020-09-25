@@ -6,8 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::HasComponent
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
@@ -22,9 +21,12 @@ module Decidim
 
       translatable_fields :title, :description
 
-      component_manifest_name "budgets"
+      belongs_to :budget, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Budget", inverse_of: :projects
+      has_one :component, through: :budget, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
+
+      delegate :organization, :participatory_space, to: :component
 
       searchable_fields(
         scope_id: :decidim_scope_id,
@@ -40,6 +42,14 @@ module Decidim
 
       def self.log_presenter_class_for(_log)
         Decidim::Budgets::AdminLog::ProjectPresenter
+      end
+
+      def polymorphic_resource_path(url_params)
+        ::Decidim::ResourceLocatorPresenter.new([budget, self]).path(url_params)
+      end
+
+      def polymorphic_resource_url(url_params)
+        ::Decidim::ResourceLocatorPresenter.new([budget, self]).url(url_params)
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.
@@ -74,7 +84,19 @@ module Decidim
 
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
-        can_participate_in_space?(user)
+        component.can_participate_in_space?(user)
+      end
+
+      # Public: Checks if the project has been selected or not.
+      #
+      # Returns Boolean.
+      def selected?
+        selected_at.present?
+      end
+
+      # Public: Returns the attachment context for this record.
+      def attachment_context
+        :admin
       end
     end
   end

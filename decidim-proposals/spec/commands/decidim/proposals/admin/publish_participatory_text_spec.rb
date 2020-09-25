@@ -26,11 +26,14 @@ module Decidim
             modifs = []
             new_positions = [3, 1, 2]
             proposals.each do |proposal|
-              modifs << Decidim::Proposals::Admin::ProposalForm.new(
+              modifs << Decidim::Proposals::Admin::ParticipatoryTextProposalForm.new(
                 id: proposal.id,
                 position: new_positions.shift,
                 title: ::Faker::Books::Lovecraft.fhtagn,
-                body: ::Faker::Books::Lovecraft.fhtagn(5)
+                body: { en: ::Faker::Books::Lovecraft.fhtagn(5) }
+              ).with_context(
+                current_participatory_space: current_component.participatory_space,
+                current_component: current_component
               )
             end
             modifs
@@ -59,15 +62,12 @@ module Decidim
                 expect { command.call }.to broadcast(:ok)
                 proposals.zip(proposal_modifications).each do |proposal, proposal_form|
                   proposal.reload
-                  actual = {}
-                  expected = {}
-                  %w(position title body).each do |attr|
-                    next if (attr == "body") && (proposal.participatory_text_level != Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article])
 
-                    expected[attr] = proposal_form.send attr.to_sym
-                    actual[attr] = proposal.attributes[attr]
+                  expect(translated(proposal_form.title)).to eq translated(proposal.title)
+                  if proposal.participatory_text_level == Decidim::Proposals::ParticipatoryTextSection::LEVELS[:article]
+                    expect(translated(proposal_form.body.stringify_keys)).to eq translated(proposal.body)
                   end
-                  expect(actual).to eq(expected)
+                  expect(proposal_form.position).to eq proposal.position
                 end
               end
             end

@@ -2,7 +2,6 @@ es-PY:
   activemodel:
     attributes:
       project:
-        budget: Presupuesto
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
@@ -21,12 +20,33 @@ es-PY:
         confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
+        edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
-        new: Nuevo proyecto
+        new: Nuevo %{name}
         preview: Previsualizar
         title: Acciones
       admin:
+        budgets:
+          create:
+            invalid: Se ha producido un error al crear este proyecto
+            success: Presupuesto creado correctamente
+          destroy:
+            invalid: Hubo un problema al eliminar este presupuesto
+            success: Presupuesto eliminado correctamente
+          edit:
+            title: Editar presupuesto
+            update: Actualizar presupuesto
+          index:
+            title: Presupuestos
+          new:
+            create: Crear presupuesto
+            title: Nuevo presupuesto
+          update:
+            invalid: Hubo un problema al actualizar este presupuesto
+            success: Presupuesto actualizado correctamente
         models:
+          budget:
+            name: Presupuesto
           project:
             name: Proyecto
         projects:
@@ -57,11 +77,39 @@ es-PY:
             no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas en los proyectos.
             select_component: Por favor seleccione un componente
       admin_log:
+        budget:
+          create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el presupuesto %{resource_name} en el espacio %{space_name}"
         project:
           create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
+      budget:
+        view: Ver todos los proyectos de presupuesto
+      budget_information_modal:
+        back_to: Volver a %{component_name}
+        close_modal: Cierra el modal
+        continue: Continuar
+        more_information: Más información
+      budgets_list:
+        cancel_order:
+          more_than_one: eliminar tu voto en %{name} y empezar de nuevo
+          only_one: eliminar tu voto y empezar de nuevo.
+        finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
+        highlighted_cta: Votar en %{name}
+        if_change_opinion: Si has cambiado de opinión, puedes
+        my_budgets: Mis presupuestos
+        voted_on: Has votado en %{links}
+      limit_announcement:
+        cant_vote: No puedes votar sobre este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
+        limit_reached: Tienes votos activos en %{links}. Para votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
       models:
+        budget:
+          fields:
+            name: Nombre
+            projects_count: Número de proyectos
+            total_budget: Presupuesto total
         project:
           fields:
             title: Título
@@ -69,11 +117,11 @@ es-PY:
         order_summary:
           selected_projects: 'Lo proyectos que has seleccionado son:'
           subject: Has votado en el espacio de participación %{space_name}
-          voted_on_space: Has votado en el presupuesto del espacio de participación %{space_name}.
-          voted_on_space_with_scope: Has votado en el presupuesto del espacio de participación %{space_name} en %{scope_name} (%{scope_type}).
+          voted_on_space: Has votado en el presupuesto %{budget_name} para el espacio participativo %{space_name}.
+          voted_on_space_with_scope: Has votado en el presupuesto %{budget_name} del espacio de participación %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: '¿Estás de acuerdo? Una vez que hayas confirmado tu voto, no puedes cambiarlo.'
+          are_you_sure: Si cambias de opinión, puedes cambiar tu voto más tarde.
           cancel: Cancelar
           confirm: Confirmar
           description: Estos son los proyectos que has elegido para formar parte del presupuesto.
@@ -122,11 +170,12 @@ es-PY:
           random: Orden aleatorio
         project:
           add: Añadir proyecto %{resource_name} a tu voto
-          count:
-            one: 1 apoyo
-            other: "%{count} apoyos"
           remove: Eliminar el proyecto %{resource_name} de tu voto
           view: Ver
+          votes:
+            one: voto
+            other: votos
+          you_voted: Has votado
         project_budget_button:
           add: Añadir a tu voto
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
@@ -149,6 +198,7 @@ es-PY:
               errors:
                 budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
                 budget_voting_rule_required: Se requiere una norma para la votación
+            landing_page_content: Página de inicio de presupuestos
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada reunión
             total_budget: Presupuesto total
@@ -156,11 +206,25 @@ es-PY:
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del pressupuesto'
             vote_threshold_percent: Porcentaje de votos
+            workflow_choices:
+              all: 'Votar en todos: permite a las participantes votar en todos los presupuestos.'
+              one: 'Votar en uno: permite a las participantes votar en cualquier presupuesto, pero sólo en uno.'
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            highlighted_heading: Encabezado destacado
+            landing_page_content: Página de inicio de presupuestos
+            list_heading: Título de lista
             show_votes: Mostrar los votos
-            votes_enabled: Votación habilitada
+            votes_choices:
+              enabled: Votación habilitada
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: El componente %{resource_title} ahora está activo para %{participatory_space_title}.
+          notification_title: El presupuesto <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title} ya está activo.
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto

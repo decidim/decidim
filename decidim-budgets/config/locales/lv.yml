@@ -2,7 +2,6 @@ lv:
   activemodel:
     attributes:
       project:
-        budget: Budžets
         decidim_category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         description: Apraksts
@@ -23,7 +22,6 @@ lv:
         destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus projektos
-        new: Jauns projekts
         preview: Priekšskatīt
         title: Darbības
       admin:
@@ -70,11 +68,8 @@ lv:
         order_summary:
           selected_projects: 'Jūsu izvēlētie projekti ir:'
           subject: Jūs balsojāt par %{space_name} līdzdalības telpu
-          voted_on_space: Jūs balsojāt par budžetu %{space_name} līdzdalības telpai
-          voted_on_space_with_scope: Jūs balsojāt par budžetu %{space_name} līdzdalības telpai telpā %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Vai piekrītat? Pēc balsojuma apstiprināšanas to vairs nevar mainīt.
           cancel: Atcelt
           confirm: Apstiprināt
           description: Šie ir projekti, kurus izvēlējāties iekļaut budžetā.
@@ -124,10 +119,6 @@ lv:
           most_voted: Visvairāk balsu
           random: Nejauša secība
         project:
-          count:
-            zero: "%{count} atbalsti"
-            one: 1 atbalsts
-            other: "%{count} atbalsti"
           view: Apskatīt
         show:
           budget: Budžets
@@ -156,7 +147,8 @@ lv:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
             show_votes: Rādīt balsis
-            votes_enabled: Balsošana ir iespējota
+            votes_choices:
+              enabled: Balsošana ir iespējota
     orders:
       checkout:
         error: Jūsu balsojuma apstrādes laikā radās problēma

@@ -3,14 +3,14 @@ pl:
     attributes:
       participatory_process:
         announcement: Ogłoszenie
-        area_id: Obszar
+        area_id: Kategoria
         banner_image: Baner
         copy_categories: Kopiuj kategorie
         copy_components: Kopiuj komponenty
-        copy_steps: Skopiuj kroki
-        decidim_area_id: Obszar
+        copy_steps: Skopiuj etapy
+        decidim_area_id: Kategoria
         description: Opis
-        developer_group: Grupa twórców
+        developer_group: Grupa inicjatorów
         domain: Domena
         end_date: Data zakończenia
         hashtag: Hashtag
@@ -18,7 +18,7 @@ pl:
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów
-        participatory_scope: Co postanowiono
+        participatory_scope: Zaproponowano
         participatory_structure: Jak się decyduje
         promoted: Promowany
         published_at: Opublikowano
@@ -58,8 +58,8 @@ pl:
             document:
               invalid_document_type: 'Nieprawidłowy typ dokumentu. Dopuszczalne formaty to: %{valid_mime_types}'
     models:
-      decidim/participatory_process_step_activated_event: Aktywowany krok
-      decidim/participatory_process_step_changed_event: Zmieniono krok
+      decidim/participatory_process_step_activated_event: Aktualny etap
+      decidim/participatory_process_step_changed_event: Zmieniono etap
   activerecord:
     models:
       decidim/participatory_process:
@@ -70,13 +70,13 @@ pl:
       decidim/participatory_process_group:
         one: Grupa procesu partycypacyjnego
         few: Grupy procesu partycypacyjnego
-        many: Grupy procesu partycypacyjnego
-        other: Grupy procesu partycypacyjnego
+        many: Grup procesu partycypacyjnego
+        other: Grup procesu partycypacyjnego
       decidim/participatory_process_step:
-        one: Krok
-        few: Kroki
-        many: Kroki
-        other: Kroki
+        one: Etap
+        few: Etapów
+        many: Etapy
+        other: Etapy
   decidim:
     admin:
       actions:
@@ -92,7 +92,7 @@ pl:
         import_process: Importuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
-        new_process_step: Nowy krok
+        new_process_step: Nowy etap
         new_process_user_role: Nowy administrator procesu
         preview: Podgląd
         publish: Publikuj
@@ -111,7 +111,7 @@ pl:
           moderations: Moderacje
           private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
-          steps: Kroki
+          steps: Etapy
       models:
         participatory_process:
           fields:
@@ -130,7 +130,7 @@ pl:
             end_date: Data zakończenia
             start_date: Data rozpoczęcia
             title: Tytuł
-          name: Krok procesu partycypacyjnego
+          name: Etap procesu partycypacyjnego
         participatory_process_user_role:
           fields:
             email: Adres e-mail
@@ -181,31 +181,31 @@ pl:
           success: Publikacja procesu partycypacyjnego został cofnięta.
       participatory_process_step_activations:
         create:
-          error: Podczas aktywnego tego kroku procesu partycypacyjnego wystąpił błąd.
-          success: Został aktywowany krok procesu partycypacyjnego.
+          error: Podczas aktywowania tego etapu procesu partycypacyjnego wystąpił błąd.
+          success: Etap procesu partycypacyjnego został aktywowany.
       participatory_process_steps:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego kroku procesu partycypacyjnego.
-          success: Utworzono krok procesu partycypacyjnego.
+          error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
+          success: Utworzono etap procesu partycypacyjnego.
         default_title: Wprowadzenie
         destroy:
           error:
-            active_step: Nie można usunąć aktywnego kroku.
-            last_step: Nie można usunąć ostatniego kroku procesu.
-          success: Krok procesu partycypacyjnego został usunięty.
+            active_step: Nie można usunąć aktywnego etapu.
+            last_step: Nie można usunąć ostatniego etapu procesu.
+          success: Etap procesu partycypacyjnego został usunięty.
         edit:
-          title: Edytuj krok procesu partycypacyjnego
+          title: Edytuj etap procesu partycypacyjnego
           update: Aktualizuj
         index:
-          steps_title: Kroki
+          steps_title: Etapy
         new:
           create: Utwórz
-          title: Nowy krok procesu partycypacyjnego
+          title: Nowy etap procesu partycypacyjnego
         ordering:
-          error: Wystąpił błąd podczas zmiany kolejności kroków procesu partycypacyjnego.
+          error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
         update:
-          error: Podczas aktualizowania kroku procesu partycypacyjnego wystąpił błąd.
-          success: Zaktualizowano krok procesu partycypacyjnego.
+          error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
+          success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -226,7 +226,7 @@ pl:
       participatory_processes:
         create:
           error: Podczas tworzenia nowego procesu partycypacyjnego wystąpił błąd.
-          success: Utworzono proces partycypacyjny. Skonfiguruj teraz kroki.
+          success: Utworzono proces partycypacyjny. Skonfiguruj teraz etapy.
         edit:
           update: Aktualizuj
         index:
@@ -265,10 +265,10 @@ pl:
         create: "%{user_name} utworzył(a) grupę procesu partycypacyjnego %{resource_name}"
         update: "%{user_name} zaktualizował(a) grupę procesu partycypacyjnego %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktywował(a) krok %{resource_name} w procesie partycypacyjnym %{space_name}"
-        create: "%{user_name} utworzył(a) krok %{resource_name} w procesie partycypacyjnym %{space_name}"
-        delete: "%{user_name} usunął/usunęła %{resource_name} krok z procesu partycypacyjnego %{space_name}"
-        update: "%{user_name} zaktualizował(a) krok %{resource_name} w procesie partycypacyjnym %{space_name}"
+        activate: "%{user_name} aktywował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
+        create: "%{user_name} utworzył(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
+        delete: "%{user_name} usunął/usunęła etap %{resource_name} z procesu partycypacyjnego %{space_name}"
+        update: "%{user_name} zaktualizował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} zaprosił(a) użytkownika %{resource_name} do procesu partycypacyjnego %{space_name}"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} z procesu partycypacyjnego %{space_name}"
@@ -281,15 +281,15 @@ pl:
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w procesie partycypacyjnym <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
-          email_intro: 'Krok %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_intro: 'Etap %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Aktualizacja w %{participatory_space_title}
-          notification_title: Krok %{resource_title} jest teraz aktywny w <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Etap %{resource_title} jest teraz aktywny w <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Daty dla kroku %{resource_title} w %{participatory_space_title} zostały zaktualizowane. Możesz zobaczyć zmianę na tej stronie:'
+          email_intro: 'Daty dla etapu %{resource_title} w %{participatory_space_title} zostały zaktualizowane. Możesz zobaczyć zmianę na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Aktualizacja w %{participatory_space_title}
-          notification_title: Zmieniono daty kroku <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          notification_title: Zmieniono daty etapu <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -310,14 +310,14 @@ pl:
       show:
         group_participatory_processes:
           one: 1 proces dla %{group}
-          few: "%{count} procesów dla %{group}"
+          few: "%{count} procesy dla %{group}"
           many: "%{count} procesów dla %{group}"
           other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:
-        process_steps: Kroki procesu
-        title: Kroki procesu partycypacyjnego
+        process_steps: Etapy procesu
+        title: Etapy procesu partycypacyjnego
     participatory_processes:
       admin:
         content_blocks:
@@ -344,7 +344,7 @@ pl:
             other: Inny
             related_processes: Powiązane procesy
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
-            select_an_area: Wybierz obszar
+            select_an_area: Wybierz kategorię
             select_process_group: Wybierz grupę procesów
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego procesu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne
@@ -359,8 +359,8 @@ pl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktywne procesy
-            active_step: Aktywny krok
+            active_processes: Aktualne procesy
+            active_step: Aktualny etap
             more_information: Więcej informacji
             participate: Dołącz
             participate_in: Dołącz do procesu %{resource_name}
@@ -372,31 +372,31 @@ pl:
         filters:
           counters:
             active:
-              one: 1 aktywny proces
-              few: "%{count} aktywnych procesów"
-              many: "%{count} aktywnych procesów"
-              other: "%{count} aktywnych procesów"
+              one: 1 aktualny proces
+              few: "%{count} aktualne procesy"
+              many: "%{count} aktualnych procesów"
+              other: "%{count} aktualnych procesów"
             all:
               one: 1 proces
-              few: "%{count} procesów"
+              few: "%{count} procesy"
               many: "%{count} procesów"
               other: "%{count} procesów"
             past:
               one: 1 przeszły proces
-              few: "%{count} przeszłych procesów"
+              few: "%{count} przeszłe procesy"
               many: "%{count} przeszłych procesów"
               other: "%{count} przeszłych procesów"
             upcoming:
               one: 1 nadchodzący proces
-              few: "%{count} nadchodzących procesów"
+              few: "%{count} nadchodzące procesy"
               many: "%{count} nadchodzących procesów"
               other: "%{count} nadchodzących procesów"
           explanations:
-            no_active: Brak aktywnych procesów
-            no_active_nor_upcoming: Brak aktywnych i nadchodzących procesów
-            no_active_nor_upcoming_callout: Nie ma aktywnych ani nadchodzących procesów. Oto lista poprzednich procesów.
+            no_active: Brak aktualnych procesów
+            no_active_nor_upcoming: Brak aktualnych i nadchodzących procesów
+            no_active_nor_upcoming_callout: Nie ma aktualnych ani nadchodzących procesów. Oto lista poprzednich procesów.
           names:
-            active: Aktywne
+            active: Aktualne
             all: Wszystko
             past: Przeszłe
             upcoming: Nadchodzące
@@ -406,7 +406,7 @@ pl:
       show:
         area: Obszar
         dates: Daty
-        developer_group: Grupa twórców
+        developer_group: Grupa inicjatorów
         end_date: Data zakończenia
         local_area: Obszar Organizacji
         participatory_scope: Co zostało postanowione
@@ -445,25 +445,25 @@ pl:
           processes_count: 'Procesy:'
       participatory_process_widgets:
         show:
-          active_step: Aktywny krok
+          active_step: Aktualny etap
           take_part: Weź udział
       participatory_processes:
         index:
           promoted_processes: Wyróżnione procesy
         participatory_process:
-          active_step: 'Aktualny krok:'
+          active_step: 'Aktualny etap:'
           more_info: Więcej informacji
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
         promoted_process:
-          active_step: 'Aktualny krok:'
+          active_step: 'Aktualny etap:'
           more_info: Więcej informacji
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
           take_part_in: Dołącz do procesu %{resource_name}
       process_header_steps:
-        step: Krok %{current} z %{total}
-        view_steps: Pokaż kroki
+        step: Etap %{current} z %{total}
+        view_steps: Pokaż etapy
       process_navigation:
         process_menu_item: Proces
