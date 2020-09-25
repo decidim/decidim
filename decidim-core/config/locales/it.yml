@@ -1192,7 +1192,7 @@ it:
         close: Chiudi l'aiuto
         help: Aiuto
       follow_button:
-        sign_in_before_follow: Accede prima di eseguire questa azione
+        sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
         close_modal: Chiudi modalità
         please_sign_in: Per cortesia, effettua l'accesso
