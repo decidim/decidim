@@ -70,27 +70,6 @@ module Decidim
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
-      scope :official_origin, lambda {
-        where.not(coauthorships_count: 0)
-             .joins(:coauthorships)
-             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-      }
-      scope :citizens_origin, lambda {
-        where.not(coauthorships_count: 0)
-             .joins(:coauthorships)
-             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
-      }
-      scope :user_group_origin, lambda {
-        where.not(coauthorships_count: 0)
-             .joins(:coauthorships)
-             .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
-             .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
-      }
-      scope :meeting_origin, lambda {
-        where.not(coauthorships_count: 0)
-             .joins(:coauthorships)
-             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
-      }
       scope :sort_by_valuation_assignments_count_asc, lambda {
         order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
       }
@@ -302,19 +281,6 @@ module Decidim
       # Public: Whether the proposal is a draft or not.
       def draft?
         published_at.nil?
-      end
-
-      # method for sort_link by number of comments
-      ransacker :commentable_comments_count do
-        query = <<-SQL
-        (SELECT COUNT(decidim_comments_comments.id)
-         FROM decidim_comments_comments
-         WHERE decidim_comments_comments.decidim_commentable_id = decidim_proposals_proposals.id
-         AND decidim_comments_comments.decidim_commentable_type = 'Decidim::Proposals::Proposal'
-         GROUP BY decidim_comments_comments.decidim_commentable_id
-         )
-        SQL
-        Arel.sql(query)
       end
 
       # Defines the base query so that ransack can actually sort by this value

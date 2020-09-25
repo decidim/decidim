@@ -26,13 +26,13 @@ describe Decidim::Debates::Debate do
     end
 
     context "when author is set" do
-      let(:debate) { build :debate, :with_author }
+      let(:debate) { build :debate, :citizen_author }
 
       it { is_expected.not_to be_official }
     end
 
     context "when it is authored by a user group" do
-      let(:debate) { build :debate, :with_user_group_author }
+      let(:debate) { build :debate, :user_group_author }
 
       it { is_expected.not_to be_official }
     end
@@ -94,7 +94,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when comments are enabled" do
-      let(:debate) { build :debate, :with_author }
+      let(:debate) { build :debate, :citizen_author }
 
       before do
         allow(debate).to receive(:commentable?).and_return(true)
@@ -120,7 +120,7 @@ describe Decidim::Debates::Debate do
     end
 
     context "when the debate has been closed" do
-      let(:debate) { build :debate, :with_author, :closed }
+      let(:debate) { build :debate, :citizen_author, :closed }
 
       it { is_expected.to be_falsey }
     end

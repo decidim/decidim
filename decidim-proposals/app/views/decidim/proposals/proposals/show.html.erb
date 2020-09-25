@@ -110,7 +110,7 @@ extra_admin_link(
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
                 <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
                     <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments_count %>
                 <% end %>
               </div>
             </div>
