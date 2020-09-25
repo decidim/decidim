@@ -62,22 +62,34 @@
 
 <% if component_settings.attachments_allowed? && @proposal %>
   <fieldset>
-    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-    <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
-      <div class="field">
-        <%= nested_form.text_field :title %>
-      </div>
+    <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
-      <div class="field">
-        <%= nested_form.upload :file, optional: false %>
-        <% if @form.errors[:attachment].present? %>
-          <% @form.errors[:attachment].each do |message| %>
-            <small class="form-error is-visible">
-              <%= message %>
-            </small>
-          <% end %>
-        <% end %>
-      </div>
+    <% if @form.photos.any? %>
+      <% @form.photos.each do |photo| %>
+        <div class="callout gallery__item" data-closable>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+          <button class="close-button"
+                  aria-label="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
+                  title="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
+                  type="button"
+                  data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
     <% end %>
+
+    <div class="row column">
+      <%= form.file_field :add_photos, multiple: false, label: t("add_images", scope: "decidim.proposals.proposals.edit") %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+
+    <div class="row column">
+      <%= form.file_field :add_files, multiple: true, label: t("add_images", scope: "decidim.proposals.proposals.edit") %>
+    </div>
   </fieldset>
 <% end %>

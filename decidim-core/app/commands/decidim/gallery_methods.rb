@@ -26,7 +26,7 @@ module Decidim
     end
 
     def gallery_invalid?
-      gallery.each do |photo|
+      @gallery.each do |photo|
         if photo.invalid? && photo.errors.has_key?(:file)
           @form.errors.add(:add_photos, photo.errors[:file])
           return true

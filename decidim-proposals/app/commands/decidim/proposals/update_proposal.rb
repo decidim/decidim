@@ -4,7 +4,8 @@ module Decidim
   module Proposals
     # A command with all the business logic when a user updates a proposal.
     class UpdateProposal < Rectify::Command
-      include ::Decidim::AttachmentMethods
+      include ::Decidim::MultipleAttachmentsMethods
+      include GalleryMethods
       include HashtagsMethods
 
       # Public: Initializes the command.
@@ -26,15 +27,18 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
-        return broadcast(:invalid) unless proposal.editable_by?(current_user)
-        return broadcast(:invalid) if proposal_limit_reached?
+        return broadcast(:invalid) if invalid?
 
         if process_attachments?
           @proposal.attachments.destroy_all
 
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
+        if process_gallery?
+          build_gallery
+          return broadcast(:invalid) if gallery_invalid?
         end
 
         transaction do
@@ -43,7 +47,8 @@ module Decidim
           else
             update_proposal
           end
-          create_attachment if process_attachments?
+          create_gallery if process_gallery?
+          create_attachments if process_attachments?
         end
 
         broadcast(:ok, proposal)
@@ -52,6 +57,10 @@ module Decidim
       private
 
       attr_reader :form, :proposal, :current_user, :attachment
+
+      def invalid?
+        form.invalid? || !proposal.editable_by?(current_user) || proposal_limit_reached?
+      end
 
       # Prevent PaperTrail from creating an additional version
       # in the proposal multi-step creation process (step 3: complete)
