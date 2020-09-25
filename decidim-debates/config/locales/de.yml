@@ -35,6 +35,8 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -78,6 +80,8 @@ de:
         debate:
           create: "%{user_name} erstellt die %{resource_name} Debatte über die %{space_name} Räume"
           update: "%{user_name} aktualisierte die %{resource_name} Debatte über die %{space_name} Räume"
+      debate_m:
+        commented_time_ago: Vor %{time} kommentiert
       debates:
         count:
           debates_count:
@@ -93,13 +97,22 @@ de:
           save: Änderungen speichern
           title: Debatte bearbeiten
         filters:
+          activity: Aktivität
           all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
           citizens: Bürger
+          commented: Kommentiert
+          my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
+          scope: Bereich
           search: Suche
+          state: Status
+          state_values:
+            closed: Geschlossen
+            open: Offen
+          user_groups: Gruppen
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -113,6 +126,12 @@ de:
           back: Zurück
           create: Erstellen
           title: Neue Debatte
+        orders:
+          commented: Am meisten kommentiert
+          label: Debatten sortieren nach
+          random: Zufällige Reihenfolge
+          recent: Neueste
+          updated: Kürzlich aktualisiert
         show:
           back: Zurück zur Liste
           date: Datum

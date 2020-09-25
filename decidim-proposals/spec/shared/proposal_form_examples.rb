@@ -6,8 +6,20 @@ shared_examples "a proposal form" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "More sidewalks and less roads!" }
-  let(:body) { "Everything would be better" }
+  let(:title) do
+    if options[:i18n] == false
+      "More sidewalks and less roads!"
+    else
+      { en: "More sidewalks and less roads!" }
+    end
+  end
+  let(:body) do
+    if options[:i18n] == false
+      "Everything would be better"
+    else
+      { en: "Everything would be better" }
+    end
+  end
   let(:author) { create(:user, organization: organization) }
   let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
   let(:user_group_id) { user_group.id }
@@ -63,19 +75,35 @@ shared_examples "a proposal form" do |options|
 
     it "only adds errors to this field" do
       subject.valid?
-      expect(subject.errors.keys).to eq [:title]
+      if options[:i18n]
+        expect(subject.errors.keys).to eq [:title_en]
+      else
+        expect(subject.errors.keys).to eq [:title]
+      end
     end
   end
 
   context "when the title is too long" do
-    let(:title) { "A" * 200 }
+    let(:title) do
+      if options[:i18n] == false
+        "A" * 200
+      else
+        { en: "A" * 200 }
+      end
+    end
 
     it { is_expected.to be_invalid }
   end
 
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
-      let(:body) { "A" }
+      let(:body) do
+        if options[:i18n] == false
+          "A"
+        else
+          { en: "A" }
+        end
+      end
 
       it { is_expected.to be_invalid }
     end
@@ -180,8 +208,14 @@ shared_examples "a proposal form" do |options|
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
-        expect(subject.errors.keys).to match_array([:title, :attachment])
+
+        if options[:i18n]
+          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Attachment Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title_en, :attachment])
+        else
+          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title, :attachment])
+        end
       end
     end
   end
@@ -239,8 +273,8 @@ shared_examples "a proposal form with meeting as author" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "More sidewalks and less roads!" }
-  let(:body) { "Everything would be better" }
+  let(:title) { { en: "More sidewalks and less roads!" } }
+  let(:body) { { en: "Everything would be better" } }
   let(:created_in_meeting) { true }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_space) }
   let(:author) { create(:meeting, component: meeting_component) }
@@ -275,14 +309,26 @@ shared_examples "a proposal form with meeting as author" do |options|
   end
 
   context "when the title is too long" do
-    let(:title) { "A" * 200 }
+    let(:title) do
+      if options[:i18n] == false
+        "A" * 200
+      else
+        { en: "A" * 200 }
+      end
+    end
 
     it { is_expected.to be_invalid }
   end
 
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
-      let(:body) { "A" }
+      let(:body) do
+        if options[:i18n] == false
+          "A"
+        else
+          { en: "A" }
+        end
+      end
 
       it { is_expected.to be_invalid }
     end

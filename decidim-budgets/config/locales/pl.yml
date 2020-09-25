@@ -1,8 +1,14 @@
 pl:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Zakres
+        description: Opis
+        title: Tytuł
+        total_budget: Cały budżet
+        weight: Waga
       project:
-        budget: Budżet
+        budget_amount: Kwota budżetu
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
@@ -13,8 +19,8 @@ pl:
       decidim/budgets/project:
         one: Projekt
         few: Projekty
-        many: Projekty
-        other: Projekty
+        many: Projektów
+        other: Projektów
   decidim:
     budgets:
       actions:
@@ -148,8 +154,8 @@ pl:
         count:
           projects_count:
             one: 1 projekt
-            few: "%{count} projektów"
-            many: "%{count} projekty"
+            few: "%{count} projekty"
+            many: "%{count} projektów"
             other: "%{count} projektów"
         filters:
           category: Kategoria
@@ -171,8 +177,8 @@ pl:
           remove: Usuń
           selected_projects:
             one: wybrany projekt
-            few: wybranych projektów
-            many: wybrane projekty
+            few: wybranych projekty
+            many: wybrane projektów
             other: wybranych projektów
           view: Zobacz
         orders:
@@ -220,6 +226,9 @@ pl:
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
+            title: Tytuł
             total_budget: Cały budżet
             vote_minimum_budget_projects_number: Minimalna liczba projektów, na które można głosować
             vote_rule_minimum_budget_projects_enabled: 'Włącz regułę: minimalna liczba projektów, na które można głosować'

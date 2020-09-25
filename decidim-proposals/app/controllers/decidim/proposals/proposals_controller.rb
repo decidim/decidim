@@ -216,7 +216,7 @@ module Decidim
           origin: default_filter_origin_params,
           activity: "all",
           category_id: default_filter_category_params,
-          state: %w(accepted evaluating not_answered),
+          state: %w(accepted evaluating state_not_published),
           scope_id: default_filter_scope_params,
           related_to: "",
           type: "all"
@@ -228,22 +228,6 @@ module Decidim
         filter_origin_params << "official" if component_settings.official_proposals_enabled
         filter_origin_params << "user_group" if current_organization.user_groups_enabled?
         filter_origin_params
-      end
-
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.pluck(:id).map(&:to_s)
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.participatory_space.scopes.any?
-
-        if current_component.participatory_space.scope
-          ["all", current_component.participatory_space.scope.id] + current_component.participatory_space.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.participatory_space.scopes.pluck(:id).map(&:to_s)
-        end
       end
 
       def proposal_draft

@@ -23,6 +23,28 @@ module Decidim
       scope :from_author, ->(author) { from_all_author_identities(author).where("decidim_coauthorships.decidim_user_group_id": nil) }
       # retrieves models from the given UserGroup.
       scope :from_user_group, ->(user_group) { joins(:coauthorships).where("decidim_coauthorships.decidim_user_group_id": user_group.id) }
+      scope :official_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+      }
+      scope :citizens_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where.not(decidim_coauthorships: { decidim_author_type: "Decidim::Organization" })
+             .where(decidim_coauthorships: { decidim_user_group_id: nil })
+      }
+      scope :user_group_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
+             .where.not(decidim_coauthorships: { decidim_user_group_id: nil })
+      }
+      scope :meeting_origin, lambda {
+        where.not(coauthorships_count: 0)
+             .joins(:coauthorships)
+             .where(decidim_coauthorships: { decidim_author_type: "Decidim::Meetings::Meeting" })
+      }
 
       validates :coauthorships, presence: true
 
