@@ -48,7 +48,9 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-          working-directory: ${{ env.DECIDIM_MODULE }}
+      - run: bundle install --jobs 4 --retry 3
+        name: Install Ruby deps
+        working-directory: ${{ env.DECIDIM_MODULE }}
       - run: bundle exec rake
         name: RSpec
         working-directory: ${{ env.DECIDIM_MODULE }}
