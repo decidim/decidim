@@ -50,15 +50,20 @@ module Decidim
             subtitle: form.subtitle,
             description: form.description,
             slug: form.slug,
-            banner_image: form.banner_image,
-            remove_banner_image: form.remove_banner_image,
             highlighted_scope: form.highlighted_scope,
             introductory_video_url: form.introductory_video_url,
             start_voting_date: form.start_voting_date,
-            end_voting_date: form.end_voting_date,
+            end_voting_date: form.end_voting_date
+          }.merge(uploader_attributes)
+        end
+
+        def uploader_attributes
+          {
+            banner_image: form.banner_image,
+            remove_banner_image: form.remove_banner_image,
             introductory_image: form.introductory_image,
             remove_introductory_image: form.remove_introductory_image
-          }
+          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
         end
       end
     end
