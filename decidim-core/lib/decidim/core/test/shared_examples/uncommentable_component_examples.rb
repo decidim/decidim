@@ -14,7 +14,7 @@ shared_examples "an uncommentable component" do
 
     visit_component
 
-    ressources.each do |ressource|
+    resources.each do |ressource|
       expect(page).not_to have_link(resource_locator(ressource).path)
     end
   end

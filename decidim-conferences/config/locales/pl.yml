@@ -467,7 +467,7 @@ pl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktywne konferencje
+            active_conferences: Aktualne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       photo:
         image:

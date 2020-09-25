@@ -47,7 +47,7 @@ pl:
             email:
               already_invited: Ten e-mail został już zaproszony
     models:
-      decidim/meetings/close_meeting_event: Spotkanie zamknięte
+      decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
       decidim/meetings/meeting_registrations_enabled_event: Rejestracje włączone
       decidim/meetings/meeting_registrations_over_percentage_event: Rejestracje ponad limit
@@ -94,6 +94,8 @@ pl:
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -103,15 +105,15 @@ pl:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Twoje spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski na tej stronie:'
+            email_intro: 'Twoje spotkanie "%{resource_title}" zostało zakończone. Możesz przeczytać wnioski na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ zorganizowałeś spotkanie "%{resource_title}".
-            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+            email_subject: Spotkanie "%{resource_title}" zostało zakończone
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
           follower:
-            email_intro: 'Spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski na tej stronie:'
+            email_intro: 'Spotkanie "%{resource_title}" zostało zakończone. Możesz przeczytać wnioski na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować po kliknięciu w poprzedni link.
-            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+            email_subject: Spotkanie "%{resource_title}" zostało zakończone
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
         meeting_created:
           email_intro: Spotkanie "%{resource_title}" zostało dodane do przestrzeni "%{participatory_space_title}", którą obserwujesz.
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{participatory_space_title}". Możesz przestać ją obserwować obserwować klikając w poprzedni link.
@@ -244,7 +246,7 @@ pl:
         meetings:
           close:
             invalid: Wystąpił błąd podczas zamykania tego spotkania
-            success: Spotkanie zostało pomyślnie zamknięte
+            success: Spotkanie zostało zakończone
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd
             success: Spotkanie zostało pomyślnie utworzone
@@ -325,7 +327,7 @@ pl:
           deleted: "%{user_name} wycofał(a) zaproszenie dla %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
         meeting:
-          close: "%{user_name} zamknął/zamknęła spotkanie %{resource_name} w przestrzeni %{space_name}"
+          close: "%{user_name} zakończył(a) spotkanie %{resource_name} w przestrzeni %{space_name}"
           create: "%{user_name} utworzył(a) spotkanie %{resource_name} w przestrzeni %{space_name}"
           delete: "%{user_name} usunął/usunęła spotkanie %{resource_name} w przestrzeni %{space_name}"
           export_registrations: "%{user_name} wyeksportował(a) listę rejestracji na spotkanie %{resource_name} w przestrzeni %{space_name}"
@@ -388,7 +390,7 @@ pl:
             all: Wszystkie
             past: Przeszłe
             upcoming: Nadchodzące
-          origin: Pochodzenie
+          origin: Źródło
           origin_values:
             all: Wszystkie
             citizens: Obywatele
@@ -428,7 +430,7 @@ pl:
           contributions: Liczba wsparć
           date: Data
           edit_meeting: Edytuj spotkanie
-          going: Idę
+          going: Biorę udział
           join: Dołącz do spotkania
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
@@ -461,7 +463,7 @@ pl:
             sent: Wysłano
         meeting:
           fields:
-            closed: Zamknięte
+            closed: Zakończone
             end_time: Data zakończenia
             map: Mapa
             official_meeting: Spotkanie oficjalne

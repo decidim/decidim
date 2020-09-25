@@ -70,7 +70,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         let!(:official_meeting) { create(:meeting, :official, component: component, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :with_user_group_author, component: component) }
+        let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do

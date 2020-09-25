@@ -5,36 +5,19 @@ require "spec_helper"
 module Decidim
   module Sortitions
     describe SortitionSearch do
+      subject { described_class.new(params).results }
+
       let(:component) { create(:component, manifest_name: "sortitions") }
+      let(:default_params) { { component: component } }
+      let(:params) { default_params }
       let(:participatory_process) { component.participatory_space }
-      let(:category) { create(:category, participatory_space: participatory_process) }
-      let(:sortition) { create(:sortition, component: component) }
-      let!(:categorization) do
-        Decidim::Categorization.create!(decidim_category_id: category.id, categorizable: sortition)
-      end
+
+      it_behaves_like "a resource search", :sortition
+      it_behaves_like "a resource search with categories", :sortition
 
       describe "results" do
-        subject do
-          described_class.new(
-            component: component,
-            search_text: search_text,
-            category_id: category_id,
-            state: state
-          ).results
-        end
-
-        let(:search_text) { nil }
-        let(:category_id) { nil }
-        let(:state) { "active" }
-
-        it "only includes sortitions from the given component" do
-          other_sortition = create(:sortition)
-
-          expect(subject).to include(sortition)
-          expect(subject).not_to include(other_sortition)
-        end
-
         describe "search_text filter" do
+          let(:params) { default_params.merge(search_text: search_text) }
           let(:search_text) { "dog" }
 
           it "returns the sortitions containing the search in the title or the aditional info or or witnesses" do
@@ -47,23 +30,16 @@ module Decidim
           end
         end
 
-        describe "category_id filter" do
-          let(:category_id) { category.id }
-
-          it "Returns sortitions with the given category" do
-            create_list(:sortition, 3, component: component)
-
-            expect(subject.size).to eq(1)
-          end
-        end
-
         describe "state filter" do
+          let!(:cancelled) { create(:sortition, :cancelled, component: component) }
+          let!(:active) { create(:sortition, component: component) }
+          let(:params) { default_params.merge(state: state) }
+
           context "when Cancelled" do
             let(:state) { "cancelled" }
 
             it "Returns sortitions with the given state" do
-              create_list(:sortition, 3, :cancelled, component: component)
-              expect(subject.size).to eq(3)
+              expect(subject.size).to eq(1)
             end
           end
 
@@ -71,7 +47,6 @@ module Decidim
             let(:state) { "active" }
 
             it "Returns sortitions with the given state" do
-              create_list(:sortition, 3, :cancelled, component: component)
               expect(subject.size).to eq(1)
             end
           end
@@ -80,8 +55,7 @@ module Decidim
             let(:state) { "all" }
 
             it "Returns sortitions whatever its state is" do
-              create_list(:sortition, 3, :cancelled, component: component)
-              expect(subject.size).to eq(4)
+              expect(subject.size).to eq(2)
             end
           end
         end

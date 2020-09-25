@@ -37,6 +37,8 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány

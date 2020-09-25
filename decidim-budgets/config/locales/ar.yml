@@ -2,7 +2,6 @@ ar:
   activemodel:
     attributes:
       project:
-        budget: ميزانية
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
         description: وصف
