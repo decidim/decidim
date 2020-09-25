@@ -174,7 +174,7 @@ module Decidim
         return unless permission_action.action == :enter &&
                       permission_action.subject == :space_area
 
-        space_allows_admin_access_to_current_action?(args)
+        space_allows_admin_access_to_current_action?(**args)
       end
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
