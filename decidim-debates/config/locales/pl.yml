@@ -20,8 +20,8 @@ pl:
       decidim/debates/debate:
         one: Debata
         few: Debaty
-        many: Debaty
-        other: Debaty
+        many: Debat
+        other: Debat
   decidim:
     components:
       debates:
@@ -72,8 +72,8 @@ pl:
         count:
           debates_count:
             one: "%{count} debata"
-            few: "%{count} debat"
-            many: "%{count} debaty"
+            few: "%{count} debaty"
+            many: "%{count} debat"
             other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił błąd.

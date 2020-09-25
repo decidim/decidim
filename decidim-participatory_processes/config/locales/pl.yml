@@ -70,8 +70,8 @@ pl:
       decidim/participatory_process_group:
         one: Grupa procesu partycypacyjnego
         few: Grupy procesu partycypacyjnego
-        many: Grupy procesu partycypacyjnego
-        other: Grupy procesu partycypacyjnego
+        many: Grup procesu partycypacyjnego
+        other: Grup procesu partycypacyjnego
       decidim/participatory_process_step:
         one: Etap
         few: Etapów
@@ -310,7 +310,7 @@ pl:
       show:
         group_participatory_processes:
           one: 1 proces dla %{group}
-          few: "%{count} procesów dla %{group}"
+          few: "%{count} procesy dla %{group}"
           many: "%{count} procesów dla %{group}"
           other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
@@ -373,22 +373,22 @@ pl:
           counters:
             active:
               one: 1 aktualny proces
-              few: "%{count} aktualnych procesów"
+              few: "%{count} aktualne procesy"
               many: "%{count} aktualnych procesów"
               other: "%{count} aktualnych procesów"
             all:
               one: 1 proces
-              few: "%{count} procesów"
+              few: "%{count} procesy"
               many: "%{count} procesów"
               other: "%{count} procesów"
             past:
               one: 1 przeszły proces
-              few: "%{count} przeszłych procesów"
+              few: "%{count} przeszłe procesy"
               many: "%{count} przeszłych procesów"
               other: "%{count} przeszłych procesów"
             upcoming:
               one: 1 nadchodzący proces
-              few: "%{count} nadchodzących procesów"
+              few: "%{count} nadchodzące procesy"
               many: "%{count} nadchodzących procesów"
               other: "%{count} nadchodzących procesów"
           explanations:
