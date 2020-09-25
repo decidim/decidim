@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::ParticipatorySpaceResourceable
       include Decidim::Randomable
+      include Decidim::HasUploadValidations
       include Decidim::TranslatableResource
 
       translatable_fields :title, :subtitle, :what_is_decided, :promoter_group, :participatory_scope, :question_context, :origin_scope, :origin_title, :instructions
@@ -54,7 +55,10 @@ module Decidim
                dependent: :destroy,
                as: :participatory_space
 
+      validates_upload :hero_image
       mount_uploader :hero_image, Decidim::HeroImageUploader
+
+      validates_upload :banner_image
       mount_uploader :banner_image, Decidim::BannerImageUploader
 
       default_scope { order(order: :asc) }
@@ -195,6 +199,10 @@ module Decidim
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         true
+      end
+
+      def attachment_context
+        :admin
       end
     end
   end

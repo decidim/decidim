@@ -4,8 +4,8 @@ pl:
       decidim/pages/page:
         one: Strona
         few: Strony
-        many: Strony
-        other: Strony
+        many: Stron
+        other: Stron
   decidim:
     admin_log:
       page:

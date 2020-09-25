@@ -7,8 +7,8 @@ FactoryBot.define do
   factory :initiatives_type, class: "Decidim::InitiativesType" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
+    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     signature_type { :online }
     attachments_enabled { true }
     undo_online_signatures_enabled { true }

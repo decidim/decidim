@@ -6,14 +6,18 @@ module Decidim
     class Partner < ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::HasUploadValidations
 
       TYPES = %w(main_promotor collaborator).freeze
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
-      validates :logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
 
       default_scope { order(partner_type: :desc, weight: :asc) }
+
+      validates_avatar :logo
       mount_uploader :logo, Decidim::Conferences::PartnerLogoUploader
+
+      delegate :organization, to: :conference
 
       alias participatory_space conference
 

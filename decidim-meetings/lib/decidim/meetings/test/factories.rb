@@ -60,7 +60,7 @@ FactoryBot.define do
       end
     end
 
-    trait :with_user_group_author do
+    trait :user_group_author do
       author do
         create(:user, organization: component.organization) if component
       end

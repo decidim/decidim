@@ -109,7 +109,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
-    Decidim::Comments::Comment.where(root_commentable: proposals).count
+    proposals.sum(:comments_count)
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|

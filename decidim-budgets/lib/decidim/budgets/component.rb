@@ -54,7 +54,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
-    Decidim::Comments::Comment.where(root_commentable: projects).count
+    projects.sum(:comments_count)
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
@@ -143,21 +143,21 @@ Decidim.register_component(:budgets) do |component|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
           attachment_collection: attachment_collection,
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Comments::Seed.comments_for(project)
       end
