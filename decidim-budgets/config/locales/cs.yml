@@ -4,7 +4,7 @@ cs:
       project:
         budget: Rozpočet
         decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
         title: Titul
@@ -103,7 +103,7 @@ cs:
             other: "%{count} projektů"
         filters:
           category: Kategorie
-          scope: Rozsah
+          scope: Oblast působnosti
           search: Vyhledávání
         filters_small_view:
           close_modal: Zavřít modální
