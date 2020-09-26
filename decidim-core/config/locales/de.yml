@@ -65,6 +65,7 @@ de:
     errors:
       general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
