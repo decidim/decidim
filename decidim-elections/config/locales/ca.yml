@@ -227,7 +227,6 @@ ca:
           close: Tancar
           proposal_header: 'Propostes:'
         new:
-          answer_choices: Pots seleccionar fins a %{choices} respostes o cap
           more_information: Més informació
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}
