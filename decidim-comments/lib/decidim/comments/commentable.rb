@@ -51,6 +51,17 @@ module Decidim
         def user_allowed_to_comment?(_user)
           true
         end
+
+        # Public: Updates the comments counter cache. We have to do it these
+        # way in order to properly calculate the coutner with hidden
+        # comments.
+        #
+        # rubocop:disable Rails/SkipsModelValidations
+        def update_comments_count
+          comments_count = comments.not_hidden.count
+          update_columns(comments_count: comments_count, updated_at: Time.current)
+        end
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

@@ -18,7 +18,7 @@
     <%= form.check_boxes_tree :state, filter_proposals_state_values, legend_title: t(".state"), "aria-controls": "proposals" %>
   <% end %>
 
-  <% if current_participatory_space.has_subscopes? %>
+  <% if current_component.has_subscopes? %>
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope"), "aria-controls": "proposals" %>
   <% end %>
 

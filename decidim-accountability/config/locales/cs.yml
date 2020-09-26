@@ -194,6 +194,8 @@ cs:
             heading_leaf_level_results: Název pro "Projekty"
             heading_parent_level_results: Název pro "Výsledky"
             intro: Intro
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblast působnosti povolena
             subcategories_label: Název pro "Podkategorie"
           step:
             comments_blocked: Komentáře blokovány

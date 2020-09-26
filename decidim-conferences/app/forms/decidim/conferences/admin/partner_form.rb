@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # A form object used to create conference members from the admin dashboard.
       class PartnerForm < Form
+        include Decidim::HasUploadValidations
+
         mimic :conference_partner
 
         attribute :name, String
@@ -15,10 +17,23 @@ module Decidim
         attribute :remove_logo
 
         validates :name, :partner_type, presence: true, if: ->(form) { form.logo.present? }
-        validates :logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+        validates :logo, passthru: {
+          to: Decidim::Conferences::Partner,
+          with: {
+            # The partner gets its organization context through the conference
+            # object which is why we need to create a dummy conference in order
+            # to pass the correct organization context to the file upload
+            # validators.
+            conference: lambda do |form|
+              Decidim::Conference.new(organization: form.current_organization)
+            end
+          }
+        }
         validate :link_format
         validates :weight, numericality: { greater_than_or_equal_to: 0 }
         validates :partner_type, inclusion: { in: Decidim::Conferences::Partner::TYPES }
+
+        alias organization current_organization
 
         def link
           return if super.blank?

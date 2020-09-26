@@ -12,6 +12,7 @@ module Decidim
         attribute :max_selections, Integer, default: 1
         attribute :weight, Integer, default: 0
         attribute :random_answers_order, Boolean, default: true
+        attribute :min_selections, Integer, default: 1
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true

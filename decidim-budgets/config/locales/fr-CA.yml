@@ -1,8 +1,14 @@
 fr-CA:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Secteur
+        description: Description
+        title: Titre
+        total_budget: Budget total
+        weight: Rang d'affichage
       project:
-        budget: Budget
+        budget_amount: Montant du budget
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -62,6 +68,7 @@ fr-CA:
           index:
             finished_orders: Votes terminés
             pending_orders: Votes en cours
+            selected: Sélectionné
             title: Projets
           new:
             create: Créer
@@ -150,6 +157,11 @@ fr-CA:
           category: Catégorie
           scope: Périmètre d'application
           search: Rechercher
+          status: Statut
+          status_values:
+            all: Tous
+            not_selected: Non sélectionné
+            selected: Sélectionné
         filters_small_view:
           close_modal: Fermez la fenêtre
           filter: Filtrer
@@ -169,9 +181,11 @@ fr-CA:
           lowest_cost: Prix croissant
           most_voted: Le plus populaire
           random: Ordre aléatoire
+          selected: Sélectionné
         project:
           add: Ajouter le projet %{resource_name} à votre vote
           remove: Retirer le projet %{resource_name} de votre vote
+          selected: Sélectionné
           view: Voir
           votes:
             one: vote
@@ -182,6 +196,7 @@ fr-CA:
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
           added: Ajouté à votre vote
           added_descriptive: Projet %{resource_name} ajouté à votre vote
+        projects_for: Projets pour %{name}
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -203,6 +218,9 @@ fr-CA:
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
+            title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
@@ -220,8 +238,12 @@ fr-CA:
             list_heading: En-tête de la liste des budgets
             more_information_modal: Plus d’informations
             show_votes: Afficher les votes
+            title: Titre
+            votes: Vote
             votes_choices:
+              disabled: Vote désactivé
               enabled: Votes activés
+              finished: Vote terminé
     events:
       budgets:
         budget_published:

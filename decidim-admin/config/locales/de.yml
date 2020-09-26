@@ -271,6 +271,7 @@ de:
           headers:
             actions: Aktionen
             name: Komponentenname
+            scope: Komponentenbereich
             type: Komponententyp
         new:
           add: Komponente hinzufügen
@@ -639,6 +640,10 @@ de:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
+      resources:
+        index:
+          headers:
+            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.

@@ -8,8 +8,7 @@ $(() => {
   const $continueSpan = $vote.find("span.disabled-continue");
   let $answerCounter = 0;
   let $currentStep,
-      $currentStepMaxSelection,
-      $currentStepMinSelection = "";
+      $currentStepMaxSelection = "";
   let $formData = $vote.find(".answer_input");
 
   function initStep() {
@@ -18,6 +17,7 @@ $(() => {
     $($confirmButton).addClass("show").removeClass("hide");
     $(".evote__counter-min").text($answerCounter);
     answerCounter();
+    disableCheckbox();
   }
 
   initStep()
@@ -30,7 +30,6 @@ $(() => {
 
   function setSelections() {
     $currentStepMaxSelection = $currentStep.find(".evote__options").data("max-selection")
-    $currentStepMinSelection = $currentStep.find(".evote__options").data("min-selection")
   }
 
   function onSelectionChange() {
@@ -39,6 +38,31 @@ $(() => {
       toggleContinueButton();
       toggleConfirmAnswers();
       answerCounter();
+    });
+  }
+
+  // disable checkboxes if NOTA option is selected
+  function disableCheckbox() {
+    $("[data-disabled-by]").on("click", function(e) {
+      if ($(this).attr("aria-disabled") || $(this).hasClass("is-disabled")) {
+        e.preventDefault();
+      }
+    });
+
+    $("[data-disable-check]").on("change", function() {
+      let checkId = $(this).attr("id");
+      let checkStatus = this.checked;
+
+      $($currentStep).find("[data-disabled-by='#" + checkId + "']").each(function() {
+        if (checkStatus) {
+          $(this).addClass("is-disabled");
+          $(this).find("input[type=checkbox]").prop("checked", false);
+        } else {
+          $(this).removeClass("is-disabled");
+        }
+
+        $(this).find("input[type=checkbox]").attr("aria-disabled", checkStatus);
+      });
     });
   }
 
@@ -54,10 +78,12 @@ $(() => {
     }
   }
 
+  // check if answers are correctly checked
   function checkAnswers() {
     let currentAnswersChecked = $("#" + $currentStep.attr("id") + " .answer_input:checked").length
+    let notaAnswerChecked = $("#" + $currentStep.attr("id") + " .nota_input:checked").length
 
-    if ((currentAnswersChecked >= $currentStepMinSelection) && (currentAnswersChecked <= $currentStepMaxSelection)) {
+    if ((currentAnswersChecked >= 1 || notaAnswerChecked > 0) && (currentAnswersChecked <= $currentStepMaxSelection)) {
       return true;
     }
 
@@ -73,6 +99,16 @@ $(() => {
 
     $(".answer_input").not(":checked").each(function() {
       let confirmedAnswer = $(".evote__confirm").find("#" + this.value);
+      $(confirmedAnswer).addClass("hide")
+    })
+
+    $(".nota_input:checked").each(function() {
+      let confirmedAnswer = $(".evote__confirm").find("." + this.value);
+      $(confirmedAnswer).removeClass("hide")
+    })
+
+    $(".nota_input").not(":checked").each(function() {
+      let confirmedAnswer = $(".evote__confirm").find("." + this.value);
       $(confirmedAnswer).addClass("hide")
     })
   }

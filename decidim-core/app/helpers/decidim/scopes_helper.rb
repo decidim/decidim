@@ -13,9 +13,9 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      resource.participatory_space.scopes_enabled? &&
+      resource.component.scopes_enabled? &&
         resource.scope.present? &&
-        resource.participatory_space.scope != resource.scope
+        resource.component.scope != resource.scope
     end
 
     # Retrieves the translated name and type for an scope.

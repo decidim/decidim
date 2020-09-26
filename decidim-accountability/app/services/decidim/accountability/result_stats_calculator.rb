@@ -20,7 +20,7 @@ module Decidim
       end
 
       def comments_count
-        Decidim::Comments::Comment.where(commentable: proposals.to_a).count
+        proposals.sum(:comments_count)
       end
 
       def attendees_count

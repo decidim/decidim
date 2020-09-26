@@ -34,6 +34,8 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -71,6 +73,8 @@ nl:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
           update: "%{user_name} heeft het %{resource_name} debat bijgewerkt in de %{space_name} ruimte"
+      debate_m:
+        commented_time_ago: Reactie %{time} geleden
       debates:
         count:
           debates_count:
@@ -86,13 +90,22 @@ nl:
           save: Wijzigingen opslaan
           title: Bewerk debat
         filters:
+          activity: Mijn activiteit
           all: Alle
           category: Categorie
           category_prompt: Selecteer een categorie
           citizens: Burgers
+          commented: Reactie
+          my_debates: Mijn debatten
           official: Officieel
           origin: Oorsprong
+          scope: Scope
           search: Zoeken
+          state: Status
+          state_values:
+            closed: Gesloten
+            open: Open
+          user_groups: Gebruikersgroepen
         filters_small_view:
           close_modal: Sluit venster
           filter: Sorteren
@@ -106,6 +119,12 @@ nl:
           back: Terug
           create: Aanmaken
           title: Nieuw debat
+        orders:
+          commented: Meeste reacties
+          label: Sorteer debatten op
+          random: Willekeurige volgorde
+          recent: Meest recent
+          updated: Onlangs bijgewerkt
         show:
           back: Terug naar het overzicht
           date: 'Datum:'
