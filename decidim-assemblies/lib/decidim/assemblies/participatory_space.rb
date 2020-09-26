@@ -65,11 +65,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")),
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
+        organization: organization,
+        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
+        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
-        organization: organization,
         meta_scope: Decidim::Faker::Localized.word,
         developer_group: Decidim::Faker::Localized.sentence(1),
         local_area: Decidim::Faker::Localized.sentence(2),
@@ -148,11 +148,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")),
-        banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
+        organization: organization,
+        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
+        banner_image: File.new(File.join(seeds_root, "city2.jpeg")), # Keep after organization
         promoted: true,
         published_at: 2.weeks.ago,
-        organization: organization,
         meta_scope: Decidim::Faker::Localized.word,
         developer_group: Decidim::Faker::Localized.sentence(1),
         local_area: Decidim::Faker::Localized.sentence(2),
@@ -174,23 +174,23 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
           attachment_collection: attachment_collection,
-          attached_to: current_assembly
+          attached_to: current_assembly,
+          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "city.jpeg")),
-          attached_to: current_assembly
+          attached_to: current_assembly,
+          file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
-          attached_to: current_assembly
+          attached_to: current_assembly,
+          file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         2.times do

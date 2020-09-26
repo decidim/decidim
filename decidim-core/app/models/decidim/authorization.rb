@@ -12,6 +12,9 @@ module Decidim
   # not.
   class Authorization < ApplicationRecord
     include Decidim::Traceable
+    include Decidim::HasUploadValidations
+
+    validates_upload :verification_attachment
     mount_uploader :verification_attachment, Decidim::Verifications::AttachmentUploader
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"

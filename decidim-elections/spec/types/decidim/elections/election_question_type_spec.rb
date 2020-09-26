@@ -73,6 +73,14 @@ module Decidim
           expect(ids).not_to include(*question2.answers.map(&:id).map(&:to_s))
         end
       end
+
+      describe "minSelections" do
+        let(:query) { "{ minSelections }" }
+
+        it "returns the election min_selections" do
+          expect(response["minSelections"]).to eq(model.min_selections)
+        end
+      end
     end
   end
 end

@@ -131,8 +131,8 @@ module Decidim
       def create_proposal(title, body, participatory_text_level)
         attributes = {
           component: @component,
-          title: title,
-          body: body,
+          title: { I18n.locale => title },
+          body: { I18n.locale => body },
           participatory_text_level: participatory_text_level
         }
 
