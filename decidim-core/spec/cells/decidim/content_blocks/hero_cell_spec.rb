@@ -33,7 +33,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     let(:background_image) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpg"
+        "image/jpeg"
       )
     end
 

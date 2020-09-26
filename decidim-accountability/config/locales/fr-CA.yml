@@ -190,6 +190,8 @@ fr-CA:
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Réalisations"
             intro: Introduction
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
             subcategories_label: Nom pour "Sous-catégories"
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires

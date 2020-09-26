@@ -1525,6 +1525,7 @@ ca:
         see_more: Veure més
   locale:
     name: Català
+    name_with_error: Anglès (error!)
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic

@@ -1,4 +1,18 @@
 fi:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth-sovelluksen nimi
+        organization_logo: Organisaation logo (neliö)
+        organization_name: Organisaatio
+        organization_url: Organisaation URL-osoite
+        redirect_uri: Uudelleenohjauksen osoite (URI)
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Uudelleenohjaus osoite (URI) on oltava SSL-muotoinen osoite (URI)
   decidim:
     system:
       actions:
@@ -32,6 +46,7 @@ fi:
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
+        oauth_applications: OAuth-sovellukset
         organizations: Organisaatiot
       models:
         admin:
@@ -41,6 +56,12 @@ fi:
           name: Hallinnoija
           validations:
             email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
+        oauth_application:
+          fields:
+            created_at: Luontiaika
+            name: OAuth-sovelluksen nimi
+            organization_name: Organisaatio
+          name: OAuth-sovellus
         organization:
           actions:
             save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
@@ -50,6 +71,27 @@ fi:
             omniauth_settings: Omniauth-asetukset
             smtp_settings: SMTP-asetukset
           name: Organisaatio
+      oauth_applications:
+        create:
+          error: Sovelluksen luonti epäonnistui.
+          success: Sovelluksen luonti onnistui.
+        destroy:
+          error: Sovelluksen poisto epäonnistui.
+          success: Sovelluksen poisto onnistui.
+        edit:
+          save: Tallenna
+          title: Muokkaa sovellusta
+        form:
+          select_organization: Valitse organisaatio
+        index:
+          confirm_delete: Haluatko varmasti poistaa tämän sovelluksen?
+          title: OAuth-sovellukset
+        new:
+          save: Tallenna
+          title: Uusi sovellus
+        update:
+          error: Sovelluksen päivittäminen epäonnistui.
+          success: Sovelluksen päivittäminen onnistui.
       organizations:
         create:
           error: Uuden organisaation luonti epäonnistui.

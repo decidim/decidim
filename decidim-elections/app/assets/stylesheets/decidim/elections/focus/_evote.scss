@@ -55,6 +55,15 @@
     border-radius: .5rem;
     background-color: $white;
     margin-bottom: 1rem;
+
+    &.is-disabled{
+      background-color: $medium-gray;
+      cursor: not-allowed;
+
+      > *{
+        opacity: .5;
+      }
+    }
   }
 
   &__check{
@@ -76,6 +85,10 @@
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
       border: 0;
+    }
+
+    [aria-disabled="true"]{
+      pointer-events: none;
     }
   }
 

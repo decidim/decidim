@@ -8,6 +8,7 @@ module Decidim
       #
       class ConferenceForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
@@ -45,12 +46,14 @@ module Decidim
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
 
-        validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :hero_image, passthru: { to: Decidim::Conference }
+        validates :banner_image, passthru: { to: Decidim::Conference }
         validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
 
         validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
         validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
+
+        alias organization current_organization
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id

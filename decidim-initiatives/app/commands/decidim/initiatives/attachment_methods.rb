@@ -5,11 +5,14 @@ module Decidim
     module AttachmentMethods
       private
 
-      def build_attachment
+      def build_attachment(attached_to = nil)
+        attached_to = @attached_to if attached_to.blank?
+        attached_to = form.current_organization if attached_to.blank? && form.respond_to?(:current_organization)
+
         @attachment = Attachment.new(
           title: @form.attachment.title,
-          file: @form.attachment.file,
-          attached_to: @attached_to
+          attached_to: attached_to,
+          file: @form.attachment.file # Define attached_to before this
         )
       end
 
@@ -26,7 +29,8 @@ module Decidim
       end
 
       def process_attachments?
-        @form.attachment && @form.attachment.file.present?
+        @form.attachment && @form.attachment.file.present? &&
+          !@form.attachment.file.is_a?(Decidim::ApplicationUploader)
       end
     end
   end

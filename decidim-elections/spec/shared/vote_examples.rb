@@ -30,7 +30,7 @@ shared_examples "allows to vote" do
 
   it_behaves_like "uses the voting booth"
 
-  it "don't show the preview alert" do
+  it "doesn't show the preview alert" do
     expect(page).not_to have_content("This is a preview of the voting booth.")
   end
 end
@@ -54,7 +54,7 @@ end
 shared_examples "uses the voting booth" do
   include_context "with elections router"
 
-  it "uses the voting booth" do
+  it "uses the voting booth" do # rubocop:disable RSpec/ExampleLength
     selected_answers = []
     non_selected_answers = []
 
@@ -67,8 +67,6 @@ shared_examples "uses the voting booth" do
 
     # shows a projects question: checkboxes, 6 maximum selections, random order with extra information
     question_step(2) do |question|
-      expect_valid
-
       select_answers(question, 3, selected_answers, non_selected_answers)
 
       expect_valid
@@ -85,8 +83,17 @@ shared_examples "uses the voting booth" do
       select_answers(question, 5, selected_answers, non_selected_answers)
     end
 
+    # shows a nota question: checkboxes, random order without extra information, nota checked
+    question_step(4) do |_question|
+      check(I18n.t("decidim.elections.votes.new.nota_option"), allow_label_click: true)
+
+      expect(page).to have_selector("label.is-disabled").exactly(8).times
+
+      expect_valid
+    end
+
     # confirm step
-    non_question_step("#step-3") do
+    non_question_step("#step-4") do
       expect(page).to have_content("CONFIRM YOUR VOTE")
 
       selected_answers.each { |answer| expect(page).to have_i18n_content(answer.title) }
@@ -104,10 +111,12 @@ shared_examples "uses the voting booth" do
 
     question_step(3)
 
-    # confirm step
-    non_question_step("#step-3") do
-      expect(page).to have_content("CONFIRM YOUR VOTE")
+    question_step(4)
 
+    # confirm step
+    non_question_step("#step-4") do
+      expect(page).to have_content("CONFIRM YOUR VOTE")
+      expect(page).to have_content("Blank")
       selected_answers.each { |answer| expect(page).to have_i18n_content(answer.title) }
       non_selected_answers.each { |answer| expect(page).not_to have_i18n_content(answer.title) }
 
@@ -138,7 +147,7 @@ shared_examples "uses the voting booth" do
     expect_only_one_step
     within "#step-#{number - 1}" do
       question = election.questions[number - 1]
-      expect(page).to have_content("QUESTION #{number} OF 3")
+      expect(page).to have_content("QUESTION #{number} OF 4")
       expect(page).to have_i18n_content(question.title)
 
       yield question if block_given?

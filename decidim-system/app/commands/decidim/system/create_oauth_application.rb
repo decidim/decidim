@@ -17,6 +17,7 @@ module Decidim
         @application = Decidim.traceability.create!(
           OAuthApplication,
           @form.current_user,
+          organization: @form.current_organization,
           name: @form.name,
           decidim_organization_id: @form.decidim_organization_id,
           organization_name: @form.organization_name,

@@ -2,7 +2,6 @@ sk:
   activemodel:
     attributes:
       project:
-        budget: Rozpočet
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah
         description: Popis

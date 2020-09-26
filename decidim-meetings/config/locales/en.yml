@@ -90,6 +90,8 @@ en:
             registration_code_enabled: Registration code enabled
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
