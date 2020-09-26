@@ -235,7 +235,6 @@ cs:
           close: Zavřít
           proposal_header: 'Návrhy:'
         new:
-          answer_choices: Můžete vybrat až %{choices} odpovědí nebo žádnou
           more_information: Více informací
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
