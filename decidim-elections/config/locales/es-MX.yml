@@ -226,7 +226,6 @@ es-MX:
           close: Cerrar
           proposal_header: 'Propuestas:'
         new:
-          answer_choices: Puedes seleccionar hasta %{choices} respuestas o ninguna
           more_information: Más información
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
