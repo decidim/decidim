@@ -17,7 +17,7 @@ cs:
         creation_date: Datum vytvoření
         decidim_area_id: Oblast
         decidim_assemblies_type_id: Typ shromáždění
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         developer_group: Skupina promotérů
         domain: Doména
@@ -31,7 +31,7 @@ cs:
         internal_organisation: Vnitřní organizace
         is_transparent: Transparentní
         local_area: Oblast organizace
-        meta_scope: Rozsah metadat
+        meta_scope: Metadata Oblasti působnosti
         parent_id: Nadřazené shromáždění
         participatory_processes_ids: Související procesy účasti
         participatory_scope: Co se rozhodlo
@@ -40,8 +40,8 @@ cs:
         promoted: Propagováno
         published_at: Publikováno v
         purpose_of_action: Účel akce
-        scope_id: Rozsah
-        scopes_enabled: Schopnosti povoleny
+        scope_id: Oblast působnosti
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
         slug: URL slug
@@ -376,7 +376,7 @@ cs:
         read_less: Číst méně
         read_more: Číst více
         related_participatory_processes: Související procesy participace
-        scope: Rozsah
+        scope: Oblast působnosti
         social_networks: Sociální sítě
         social_networks_title: Sdílet toto shromáždění na
         target: Kdo se účastní
@@ -423,8 +423,8 @@ cs:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p><strong>Shromáždění</strong> je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
-          page: "<p><strong>Shromáždění</strong> je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti nebo rozsahu organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          contextual: "<p><strong>Shromáždění</strong> je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti působnosti organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
+          page: "<p><strong>Shromáždění</strong> je skupina členů organizace, která se pravidelně setkává nad rozhodováním o konkrétní oblasti působnosti organizace.</p> <p>Skupiny se scházejí, některé jsou soukromé a některé jsou otevřené. Pokud jsou otevřené, je možné se na nich podílet (například: účast, pokud to dovolí, přidání bodů do pořadu jednání nebo připomínky k návrhům a rozhodnutím tohoto orgánu).</p> <p>Příklady: Valné shromáždění (které se schází jednou ročně k definování hlavních směrů organizace a jejích výkonných orgánů hlasováním), poradní rada pro rovné postavení (která se každých dva měsíce schází, aby předložila návrhy na zlepšení genderových vztahů v organizaci) se jedná o příklady shromáždění hodnotící komise (která se schází každý měsíc ke sledování procesu) nebo záruční orgán (který shromažďuje případy, zneužívání nebo návrhy na zlepšení rozhodovacích postupů).</p>\n"
           title: Co jsou shromáždění?
     log:
       value_types:
