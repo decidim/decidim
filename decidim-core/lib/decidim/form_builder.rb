@@ -699,7 +699,7 @@ module Decidim
 
       options = { count: 1, default: defaults }
 
-      text = I18n.t(defaults.shift, options)
+      text = I18n.t(defaults.shift, **options)
       content_tag(:span, text, class: "form-error")
     end
 
