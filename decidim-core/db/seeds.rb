@@ -26,7 +26,7 @@ if !Rails.env.production? || ENV["SEED"]
     smtp_settings: {
       from: Faker::Internet.email,
       user_name: Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(min_length: 8)),
       address: ENV["DECIDIM_HOST"] || "localhost",
       port: ENV["DECIDIM_SMTP_PORT"] || "25"
     },
@@ -119,7 +119,7 @@ if !Rails.env.production? || ENV["SEED"]
     admin: true,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version,
     admin_terms_accepted_at: Time.current
   )
@@ -136,7 +136,7 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version
   )
 
@@ -152,7 +152,7 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version
   )
 
@@ -172,7 +172,7 @@ if !Rails.env.production? || ENV["SEED"]
         email: Faker::Internet.email,
         confirmed_at: Time.current,
         extended_data: {
-          document_number: Faker::Number.number(10),
+          document_number: Faker::Number.number(digits: 10),
           phone: Faker::PhoneNumber.phone_number,
           verified_at: verified_at
         },

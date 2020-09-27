@@ -57,7 +57,7 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     max_selections { 1 }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
     random_answers_order { true }
 
     trait :complete do
@@ -91,6 +91,6 @@ FactoryBot.define do
     question
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
   end
 end

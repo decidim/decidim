@@ -56,7 +56,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(5),
-        slug: Faker::Internet.unique.slug(nil, "-"),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -139,7 +139,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
       child = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
-        slug: Faker::Internet.unique.slug(nil, "-"),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -207,9 +207,9 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::AssemblyMember.create!(
             full_name: Faker::Name.name,
             gender: Faker::Lorem.word,
-            birthday: Faker::Date.birthday(18, 65),
+            birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
             birthplace: Faker::Demographic.demonym,
-            designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+            designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
             designation_mode: Faker::Lorem.word,
             position: position,
             position_other: position == "other" ? Faker::Job.position : nil,
@@ -220,9 +220,9 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim::AssemblyMember.create!(
           user: current_assembly.organization.users.first,
           gender: Faker::Lorem.word,
-          birthday: Faker::Date.birthday(18, 65),
+          birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
           birthplace: Faker::Demographic.demonym,
-          designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+          designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
           designation_mode: Faker::Lorem.word,
           position: "other",
           position_other: Faker::Job.position,

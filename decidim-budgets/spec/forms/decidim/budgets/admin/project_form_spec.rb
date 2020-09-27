@@ -23,7 +23,7 @@ module Decidim::Budgets
     let(:description) do
       Decidim::Faker::Localized.sentence(3)
     end
-    let(:budget_amount) { Faker::Number.number(8) }
+    let(:budget_amount) { Faker::Number.number(digits: 8) }
     let(:parent_scope) { create(:scope, organization: organization) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }

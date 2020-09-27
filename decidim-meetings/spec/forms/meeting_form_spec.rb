@@ -16,11 +16,11 @@ module Decidim::Meetings
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:title) { Faker::Lorem.sentence(1) }
-    let(:description) { Faker::Lorem.sentence(3) }
-    let(:short_description) { Faker::Lorem.sentence(1) }
-    let(:location) { Faker::Lorem.sentence(3) }
-    let(:location_hints) { Faker::Lorem.sentence(3) }
+    let(:title) { Faker::Lorem.sentence(word_count: 1) }
+    let(:description) { Faker::Lorem.sentence(word_count: 3) }
+    let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
+    let(:location) { Faker::Lorem.sentence(word_count: 3) }
+    let(:location_hints) { Faker::Lorem.sentence(word_count: 3) }
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }

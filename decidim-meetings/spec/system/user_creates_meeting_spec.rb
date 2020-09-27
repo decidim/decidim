@@ -40,10 +40,10 @@ describe "User creates meeting", type: :system do
                  :with_creation_enabled,
                  participatory_space: participatory_process)
         end
-        let(:meeting_title) { Faker::Lorem.sentence(1) }
-        let(:meeting_description) { Faker::Lorem.sentence(2) }
-        let(:meeting_location) { Faker::Lorem.sentence(3) }
-        let(:meeting_location_hints) { Faker::Lorem.sentence(3) }
+        let(:meeting_title) { Faker::Lorem.sentence(word_count: 1) }
+        let(:meeting_description) { Faker::Lorem.sentence(word_count: 2) }
+        let(:meeting_location) { Faker::Lorem.sentence(word_count: 3) }
+        let(:meeting_location_hints) { Faker::Lorem.sentence(word_count: 3) }
         let(:meeting_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }

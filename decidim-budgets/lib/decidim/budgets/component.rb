@@ -117,7 +117,7 @@ Decidim.register_component(:budgets) do |component|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        total_budget: Faker::Number.number(8)
+        total_budget: Faker::Number.number(digits: 8)
       )
     end
 
@@ -131,7 +131,7 @@ Decidim.register_component(:budgets) do |component|
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
-          budget_amount: Faker::Number.number(8)
+          budget_amount: Faker::Number.number(digits: 8)
         )
 
         attachment_collection = Decidim::AttachmentCollection.create!(
