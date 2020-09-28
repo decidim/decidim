@@ -13,4 +13,3 @@ entry.js
 coverage
 decidim-dev/**/*/test/**/*.js
 vendor/bundle
-decidim-comments/app/views/decidim/comments/comments/index.js.erb

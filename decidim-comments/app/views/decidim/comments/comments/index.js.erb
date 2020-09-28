@@ -10,7 +10,7 @@
   var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
 
   var $comment = $("#comment_" + commentId);
-  if ($comment.length < 1) {
+  if (1 > $comment.length) {
     if (inReplyTo) {
       component.addReply(inReplyTo, commentHtml);
     } else {
