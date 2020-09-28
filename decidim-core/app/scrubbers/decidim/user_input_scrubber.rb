@@ -21,7 +21,7 @@ module Decidim
     private
 
     def custom_allowed_attributes
-      Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES + %w(frameborder allowfullscreen)
+      Loofah::HTML5::SafeList::ALLOWED_ATTRIBUTES + %w(frameborder allowfullscreen) - %w(onerror)
     end
 
     def custom_allowed_tags
