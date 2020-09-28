@@ -18,9 +18,7 @@ describe Decidim::EventPublisherJob do
 
     let(:event_name) { "some_event" }
     let(:extra) do
-      {
-        priority: :high
-      }
+      {}
     end
     let(:data) do
       {
@@ -37,15 +35,9 @@ describe Decidim::EventPublisherJob do
           resource.published_at = Time.current
         end
 
-        context "and priority level is high" do
-          let(:extra) do
-            {
-              priority: :high
-            }
-          end
-
+        context "and priority level is not defined" do
           it "enqueues the jobs" do
-            expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+            expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
             expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
 
             subject
@@ -67,9 +59,11 @@ describe Decidim::EventPublisherJob do
           end
         end
 
-        context "and priority level is not defined" do
+        context "and priority level is high" do
           let(:extra) do
-            {}
+            {
+              priority: :high
+            }
           end
 
           it "enqueues the jobs" do
@@ -155,7 +149,7 @@ describe Decidim::EventPublisherJob do
         end
 
         it "enqueues the jobs" do
-          expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
           expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
 
           subject
@@ -181,7 +175,7 @@ describe Decidim::EventPublisherJob do
       let(:resource) { build(:component) }
 
       it "enqueues the jobs" do
-        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
         expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
 
         subject
@@ -203,7 +197,7 @@ describe Decidim::EventPublisherJob do
       let(:resource) { build(:participatory_process) }
 
       it "enqueues the jobs" do
-        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
         expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
 
         subject

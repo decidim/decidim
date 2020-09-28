@@ -12,7 +12,7 @@ module Decidim
       return unless data[:force_send] || notifiable?
 
       send_event(NotificationGeneratorJob, event_name, data)
-      send_event(EmailNotificationGeneratorJob, event_name, data) if high_priority?(data) || !Decidim.config.batch_email_notifications_enabled
+      send_event(EmailNotificationGeneratorJob, event_name, data) if high_priority?(data) || !Decidim.config.batch_email_notifications_enabled || data[:force_send]
     end
 
     private
@@ -62,7 +62,7 @@ module Decidim
     #   - False if priority is defined but unknown or different than :high
     #   - True if priority is high or blank
     def high_priority?(data)
-      priority_level = data[:extra].fetch(:priority, :high) # If not defined, priority is high by default
+      priority_level = data[:extra].fetch(:priority, :low) # If not defined, priority is high by default
       return false unless Decidim::Notification::PRIORITY_LEVELS.include? priority_level
 
       priority_level.eql? :high
