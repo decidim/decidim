@@ -367,14 +367,14 @@ shared_examples_for "update questions" do
         before do
           click_button "Add question"
           click_button "Save"
-          
+
           within ".questionnaire-question:last-of-type" do
             page.find(".question--collapse").click
           end
         end
 
         it_behaves_like "collapsing a question"
-        
+
         it "can be expanded" do
           within ".questionnaire-question:last-of-type" do
             page.find(".question--collapse").click
