@@ -47,7 +47,7 @@ describe Decidim::EventPublisherJob do
         context "and priority level is low" do
           let(:extra) do
             {
-              priority: :low
+              high_priority: false
             }
           end
 
@@ -62,7 +62,7 @@ describe Decidim::EventPublisherJob do
         context "and priority level is high" do
           let(:extra) do
             {
-              priority: :high
+              high_priority: true
             }
           end
 
@@ -106,7 +106,7 @@ describe Decidim::EventPublisherJob do
       let(:resource) { build(:dummy_resource) }
       let(:extra) do
         {
-          priority: :low
+          high_priority: false
         }
       end
 

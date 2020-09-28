@@ -59,13 +59,10 @@ module Decidim
 
     # Allows to defined whether an event as to be sent now or to be scheduled
     # Returns boolean
-    #   - False if priority is defined but unknown or different than :high
-    #   - True if priority is high or blank
+    #   - False if high_priority is undefined, unknown or false
+    #   - True if high_priority? is high
     def high_priority?(data)
-      priority_level = data[:extra].fetch(:priority, :low) # If not defined, priority is high by default
-      return false unless Decidim::Notification::PRIORITY_LEVELS.include? priority_level
-
-      priority_level.eql? :high
+      data[:extra].fetch(:high_priority, false) # If not defined, high_priority is false by default
     end
   end
 end
