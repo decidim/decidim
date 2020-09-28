@@ -5,6 +5,16 @@ They're used to define pieces of functionality that are pluggable to Decidim.
 
 Decidim's modules are no more than Ruby on Rails engines that should be required in the application's `Gemfile`.
 
+You can see some of our more popular modules at https://decidim.org/modules[Decidim's Modules].
+
+== Types
+
+You can have multiple modules types:
+
+* For Spaces
+* For xref:develop:components.adoc[Components]
+* For Verifications
+
 == Example
 
 A typical engine looks like the following:
