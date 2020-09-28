@@ -100,3 +100,18 @@ Each setting should have one or more translation texts related for the admin zon
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]`: Admin label for the setting.
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]_help`: Additional text with help for the setting use.
 * `decidim.components.[component_name].settings.[global|step].[attribute_name]_readonly`: Additional text for the setting when it is readonly.
+
+== Fixtures
+
+This sections explains how to add dummy content to a development application.
+
+=== Proposals example
+
+. In decidim-proposals open `lib/decidim/proposals/component.rb`.
+. Find the `+component.seeds do...+` block.
+. Create your dummy content as if you were in a `db/seed.rb` script.
+
+=== Tips and Tricks
+
+* Take advantage of the Faker gem, already in decidim.
+* If you need content for i18n fields, you can use https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/faker/localized.rb[Localizaed], which uses `Faker` internally.
