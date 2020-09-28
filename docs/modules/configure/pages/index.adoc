@@ -7,73 +7,10 @@ Just as a reminder, these files are important:
 * config/database.yml
 * config/secrets.yml
 
-We also have the file `config/initializer/decidim.rb` where you can change the behaviour defined on the diferent components (most notably from `decidim-core`).
+Although most of these settings you can change them through xref:configure:environment_variables.adoc[Environment Variables].
 
-== Environment Variables 
+You also have more settings in:
 
-We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You'll need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
+* xref:configure:initializer.adoc[Decidim initializer file].
+* System panel.
 
-.Decidim Env Vars
-|===
-|Name |Value
-
-|DATABASE_HOST
-|Hostname for the Postgres database. Default is `localhost`.
-
-|DATABASE_PASSWORD
-|Password for the Postgres database
-
-|DATABASE_PORT
-|Port for the Postgres database. Default is `5432`.
-
-|DATABASE_USERNAME
-|Username for the Postgres database
-
-|GEOCODER_API_KEY
-|API key for Geocoder HERE.com
-
-|OMNIAUTH_FACEBOOK_APP_ID
-|App ID for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|OMNIAUTH_FACEBOOK_APP_SECRET
-|App Secret for enabling access through Facebook.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|OMNIAUTH_GOOGLE_CLIENT_ID
-|Client ID for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|OMNIAUTH_GOOGLE_CLIENT_SECRET
-|Client Secret for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|OMNIAUTH_TWITTER_API_KEY
-|API Key for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|OMNIAUTH_TWITTER_API_SECRET
-|API Secret for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
-
-|PORT
-|Specifies the `port` that Puma will listen on to receive requests. Default is 3000.
-
-|RAILS_ENV
-|Environment for Ruby on Rails. If it's on your local machine for development, then it should be `development`. If it's on server it should be `production`. Please take care that this has security implications. You DON'T want to be running a production application on development mode.
-
-|RAILS_LOG_TO_STDOUT
-|If true it'll show the log contents on the shell Standard Out. It's special relevant on certain hosting providers (for example, Heroku or Docker). It's also part of https://12factor.net/logs[12factor's recomendations].
-
-|SECRET_KEY_BASE
-|Secret key base for the Application. It's specially important that this is kept secret from the outside word; do NOT publish it on GitHub/GitLab/BitBucket.
-
-|SMTP_ADDRESS
-|Hostname for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
-
-|SMTP_DOMAIN
-|Domain for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
-
-|SMTP_PASSWORD
-|Password for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
-
-|SMTP_USERNAME
-|Username for the SMTP server, for sending emails. See xref:services:smtp.adoc[SMTP]
-
-|===
-
-Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).

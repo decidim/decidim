@@ -1,0 +1,376 @@
+= Initializer
+
+There are some settings that you'll need to change in the `config/initializer/decidim.rb` file.
+
+This is where you can change the behaviour defined on the diferent components (most notably from `decidim-core`).
+
+After making changes to this file you'll need to also restart your application server. 
+
+== Application name
+
+The name of the application.
+
+[source,ruby]
+....
+  config.application_name = "My Application Name"
+....
+
+== Default mailer sender
+
+The email that will be used as sender in all emails from Decidim.
+
+[source,ruby]
+....
+  config.mailer_sender = "change-me@domain.org"
+....
+
+== Available locales
+
+Sets the list of available locales for the whole application.
+
+When an organization is created through the System area, system admins will
+be able to choose the available languages for that organization. That list
+of languages will be equal or a subset of the list in this file.
+
+[source,ruby]
+....
+  config.available_locales = [:en, :ca, :es]
+....
+
+== Restrict system access
+
+For extra security, restrict access to the system part with an authorized ip list.
+You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
+You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
+
+[source,ruby]
+....
+  config.system_accesslist_ips = ["127.0.0.1"]
+....
+
+== Default locale
+
+Sets the default locale for new organizations. When creating a new
+organization from the System area, system admins will be able to overwrite
+this value for that specific organization.
+
+[source,ruby]
+....
+  config.default_locale = :en
+....
+
+== Content Processors
+
+Defines a list of custom content processors. They are used to parse and
+render specific tags inside some user-provided content. Check the xref:develop:content_processor.adoc[Content Processor]
+docs for more info.
+
+[source,ruby]
+....
+  config.content_processors = []
+....
+
+== Force SSL
+
+Whether SSL should be enabled or not. Recommended for extra security.
+
+[source,ruby]
+....
+  config.force_ssl = true
+....
+
+== Geocoder configuration
+
+Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
+
+[source,ruby]
+....
+  config.geocoder = {
+    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+    here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  }
+....
+
+== Custom resource reference
+
+Custom resource reference generator method. See the See xref:admin:system_panel.adoc[System panel docs] for more information.
+
+[source,ruby]
+....
+  config.reference_generator = lambda do |resource, component|
+    # Implement your custom method to generate resources references
+    "1234-#{resource.id}"
+  end
+....
+
+== Currency unit
+
+Allows to change the currency unit, for instance to `$`. By default is `€`. 
+
+[source,ruby]
+....
+  config.currency_unit = "€"
+....
+
+
+== Image uploader settings
+
+=== Quality
+
+Defines the quality of image uploads after processing. Image uploads are
+processed by Decidim, this value helps reduce the size of the files.
+  
+[source,ruby]
+....
+  
+  config.image_uploader_quality = 80
+....
+
+=== Attachment file size
+
+The maximum file size of an attachment
+
+Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
+
+[source,ruby]
+....
+  config.maximum_attachment_size = 10.megabytes
+....
+
+=== User avatar file size
+
+  # The maximum file size for a user avatar
+
+Mind that this depends on your environment, for instance you could also need to change your web server configuration (nginx, apache, etc).
+
+[source,ruby]
+....
+  config.maximum_avatar_size = 10.megabytes
+....
+
+== Reports 
+
+The number of reports which a resource can receive before hiding it.
+
+[source,ruby]
+....
+  config.max_reports_before_hiding = 3
+....
+
+== Custom HTML Header snippets
+
+The most common use is to integrate third-party services that require some
+extra JavaScript or CSS. Also, you can use it to add extra meta tags to the
+HTML. Note that this will only be rendered in public pages, not in the admin
+section.
+
+Before enabling this you should ensure that any tracking that might be done
+is in accordance with the rules and regulations that apply to your
+environment and usage scenarios. This component also comes with the risk
+that an organization's administrator injects malicious scripts to spy on or
+take over user accounts.
+
+[source,ruby]
+....
+  config.enable_html_header_snippets = false
+....
+
+== Track newsletter links
+
+Allow organizations admins to track newsletter links, trough UTMs. See https://en.wikipedia.org/wiki/UTM_parameters[UTM parameters in Wikipedia].
+
+[source,ruby]
+....
+  config.track_newsletter_links = true
+....
+
+== Data portability expiry time
+
+Amount of time that the data portability files will be available in the server.
+
+[source,ruby]
+....
+  config.data_portability_expiry_time = 7.days
+....
+
+== Throttling settings
+
+Security settings for blocking possible attacks.
+
+=== Max requests
+
+Max requests in a time period to prevent DoS attacks. Only applied on production.
+
+[source,ruby]
+....
+  config.throttling_max_requests = 100
+....
+
+=== Period
+
+Time window in which the throttling is applied.
+
+[source,ruby]
+....
+  config.throttling_period = 1.minute
+....
+
+== Unconfirmed access for users
+
+Time window were users can access the website even if their email is not confirmed.
+
+[source,ruby]
+....
+  config.unconfirmed_access_for = 2.days
+....
+
+== Base path for uploads
+
+A base path for the uploads. If set, make sure it ends in a slash.
+Uploads will be set to `<base_path>/uploads/`. This can be useful if you
+want to use the same uploads place for both staging and production
+environments, but in different folders.
+
+If not set, it will be ignored.
+
+[source,ruby]
+....
+  config.base_uploads_path = nil
+....
+
+== SMS gateway configuration
+
+If you want to verify your users by sending a verification code via
+SMS you need to provide a SMS gateway service class.
+
+An example class would be something like:
+
+[source,ruby]
+....
+class MySMSGatewayService
+  attr_reader :mobile_phone_number, :code
+  def initialize(mobile_phone_number, code)
+    @mobile_phone_number = mobile_phone_number
+    @code = code
+  end
+  def deliver_code
+    # Actual code to deliver the code
+    true
+  end
+end
+....
+
+Then you'll need to configure it in the Decidim initializer:
+
+[source,ruby]
+....
+  config.sms_gateway_service = "MySMSGatewayService"
+....
+
+== Timestamp service configuration
+
+Used by `decidim-initiatives`.
+
+Provide a class to generate a timestamp for a document. The instances of
+this class are initialized with a hash containing the :document key with
+the document to be timestamped as value. The istances respond to a
+timestamp public method with the timestamp.
+
+An example class would be something like:
+
+[source,ruby]
+....
+class MyTimestampService
+  attr_accessor :document
+  def initialize(args = {})
+    @document = args.fetch(:document)
+  end
+  def timestamp
+    # Code to generate timestamp
+    "My timestamp"
+  end
+end
+....
+
+Then you'll need to configure it in the Decidim initializer:
+
+[source,ruby]
+....
+  config.timestamp_service = "MyTimestampService"
+....
+
+== PDF signature service
+
+Used by `decidim-initiatives`.
+
+Provide a class to process a pdf and return the document including a
+digital signature. The instances of this class are initialized with a hash
+containing the :pdf key with the pdf file content as value. The instances
+respond to a signed_pdf method containing the pdf with the signature.
+
+An example class would be something like:
+
+[source,ruby]
+....
+  class MyPDFSignatureService
+    attr_accessor :pdf
+
+    def initialize(args = {})
+      @pdf = args.fetch(:pdf)
+    end
+
+    def signed_pdf
+      # Code to return the pdf signed
+    end
+  end
+
+  config.pdf_signature_service = "MyPDFSignatureService"
+....
+
+==  Etherpad configuration
+
+
+Only needed if you want to have Etherpad integration with Decidim. See
+xref:services:etherpad.adoc[Etherpad's Decidim docs] in order to set it up.
+
+[source,ruby]
+....
+  config.etherpad = {
+    server: Rails.application.secrets.etherpad[:server],
+    api_key: Rails.application.secrets.etherpad[:api_key],
+    api_version: Rails.application.secrets.etherpad[:api_version]
+  }
+....
+
+== Default CSV column separator
+
+Sets Decidim::Exporters::CSV's default column separator
+
+[source,ruby]
+....
+  config.default_csv_col_sep = ";"
+....
+
+== User Roles
+
+The list of roles a user can have, not considering the space-specific roles.
+
+[source,ruby]
+....
+  config.user_roles = %w(admin user_manager)
+....
+
+== Visibility for Amendments
+
+The list of visibility options for amendments. An Array of Strings that
+serve both as locale keys and values to construct the input collection in Decidim::Amendment::VisibilityStepSetting::options.
+
+This collection is used in Decidim::Admin::SettingsHelper to generate a
+radio buttons collection input field form for a Decidim::Component
+step setting :amendments_visibility.
+
+
+[source,ruby]
+....
+  config.amendments_visibility_options = %w(all participants)
+....
