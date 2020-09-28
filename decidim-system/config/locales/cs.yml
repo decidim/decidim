@@ -1,4 +1,18 @@
 cs:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Jméno žádosti OAuth
+        organization_logo: Logo organizace (čtvercové)
+        organization_name: Organizace
+        organization_url: URL organizace
+        redirect_uri: Přesměrovací URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI přesměrování musí být SSL URI
   decidim:
     system:
       actions:
@@ -32,6 +46,7 @@ cs:
       menu:
         admins: Správci
         dashboard: Ovládací panel
+        oauth_applications: Žádosti OAuth
         organizations: Organizace
       models:
         admin:
@@ -41,6 +56,12 @@ cs:
           name: Správce
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
+        oauth_application:
+          fields:
+            created_at: Vytvořeno v
+            name: Jméno žádosti OAuth
+            organization_name: Organizace
+          name: Žádost OAuth
         organization:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
@@ -50,6 +71,27 @@ cs:
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
           name: Organizace
+      oauth_applications:
+        create:
+          error: Při vytváření této žádosti došlo k chybě.
+          success: Žádost byla úspěšně vytvořena.
+        destroy:
+          error: Při zničení této žádosti došlo k chybě.
+          success: Žádost byla úspěšně zlikvidována.
+        edit:
+          save: Uložit
+          title: Upravit žádost
+        form:
+          select_organization: Vybrat organizaci
+        index:
+          confirm_delete: Jste si jisti, že chcete odstranit tuto žádost?
+          title: Žádosti OAuth
+        new:
+          save: Uložit
+          title: Nová žádost
+        update:
+          error: Při aktualizaci této žádosti došlo k chybě.
+          success: Žádost byla úspěšně aktualizována.
       organizations:
         create:
           error: Při vytváření nové organizace došlo k chybě.

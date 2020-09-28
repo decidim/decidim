@@ -575,7 +575,7 @@ describe "Proposals", type: :system do
     end
 
     context "when component is not commentable" do
-      let!(:ressources) { create_list(:proposal, 3, component: component) }
+      let!(:resources) { create_list(:proposal, 3, component: component) }
 
       it_behaves_like "an uncommentable component"
     end

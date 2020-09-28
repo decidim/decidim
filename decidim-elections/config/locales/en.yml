@@ -15,6 +15,7 @@ en:
       question:
         description: Description
         max_selections: Maximum number of selections
+        min_selections: None of the above option
         title: Title
     errors:
       models:
@@ -206,6 +207,7 @@ en:
           edit: edit
           header: Confirm your vote
           intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
+          nota_option: Blank
           question: Question %{count}
         confirmed:
           back: Back to elections
@@ -228,8 +230,9 @@ en:
           close: Close
           proposal_header: 'Proposals:'
         new:
-          answer_choices: You can select up to %{choices} answers or none
+          answer_choices: You can select up to %{choices} answers
           more_information: More information
+          nota_option: Blank/ None of the above
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"

@@ -43,8 +43,8 @@ module Decidim::Conferences
             location: my_conference.location,
             slug: my_conference.slug,
             hashtag: my_conference.hashtag,
-            hero_image: nil,
-            banner_image: nil,
+            hero_image: my_conference.hero_image,
+            banner_image: my_conference.banner_image,
             promoted: my_conference.promoted,
             description_en: my_conference.description,
             description_ca: my_conference.description,
@@ -159,8 +159,10 @@ module Decidim::Conferences
           expect(linked_consultations).to match_array(questions.collect(&:consultation).uniq)
         end
 
-        context "when no homepage image is set" do
+        context "when homepage image is not updated" do
           it "does not replace the homepage image" do
+            expect(my_conference).not_to receive(:hero_image=)
+
             command.call
             my_conference.reload
 
@@ -168,8 +170,10 @@ module Decidim::Conferences
           end
         end
 
-        context "when no banner image is set" do
+        context "when banner image is not updated" do
           it "does not replace the banner image" do
+            expect(my_conference).not_to receive(:banner_image=)
+
             command.call
             my_conference.reload
 
@@ -200,7 +204,9 @@ module Decidim::Conferences
             scopes_enabled: my_conference.scopes_enabled,
             scope: my_conference.scope,
             hero_image: nil,
+            remove_hero_image: false,
             banner_image: nil,
+            remove_banner_image: false,
             promoted: my_conference.promoted,
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,

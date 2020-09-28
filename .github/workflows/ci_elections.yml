@@ -44,20 +44,10 @@ jobs:
       - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1
-      - uses: ruby/setup-ruby@master
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
-      - name: Recover Ruby dependency cache
-        uses: actions/cache@v1
-        with:
-          path: ./vendor/bundle
-          key: ${{ runner.OS }}-rubydeps-${{ hashFiles('Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-rubydeps-${{ env.cache-name }}-
-            ${{ runner.OS }}-rubydeps-
-            ${{ runner.OS }}-
-      - run: bundle install --path vendor/bundle --jobs 4 --retry 3
-        name: Install Ruby deps
+          bundler-cache: true
       - run: bundle exec rake test_app
         name: Create test app
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots

@@ -2,7 +2,6 @@ id:
   activemodel:
     attributes:
       project:
-        budget: Anggaran
         decidim_category_id: Kategori
         decidim_scope_id: Cakupan
         description: Deskripsi

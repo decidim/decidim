@@ -319,6 +319,23 @@ FactoryBot.define do
       published_at { nil }
     end
 
+    trait :citizen_author do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        user = build(:user, organization: proposal.component.participatory_space.organization)
+        proposal.coauthorships.build(author: user)
+      end
+    end
+
+    trait :user_group_author do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        user = create(:user, organization: proposal.component.participatory_space.organization)
+        user_group = create(:user_group, :verified, organization: user.organization, users: [user])
+        proposal.coauthorships.build(author: user, user_group: user_group)
+      end
+    end
+
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear
@@ -329,7 +346,7 @@ FactoryBot.define do
     trait :official_meeting do
       after :build do |proposal|
         proposal.coauthorships.clear
-        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        component = build(:meeting_component, participatory_space: proposal.component.participatory_space)
         proposal.coauthorships.build(author: build(:meeting, component: component))
       end
     end

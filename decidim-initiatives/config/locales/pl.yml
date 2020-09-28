@@ -26,7 +26,7 @@ pl:
       initiatives_committee_member:
         user: Członek Komisji
       initiatives_type:
-        area_enabled: Pozwól autorom na wybór obszaru dla ich inicjatywy
+        area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
@@ -62,8 +62,8 @@ pl:
       decidim/initiative:
         one: Inicjatywa
         few: Inicjatywy
-        many: Inicjatywy
-        other: Inicjatywy
+        many: Inicjatyw
+        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety
@@ -81,7 +81,7 @@ pl:
       filters:
         initiatives:
           decidim_area_id_eq:
-            label: Obszar
+            label: Kategoria
           state_eq:
             label: Stan
             values:
@@ -299,8 +299,8 @@ pl:
           accepted: Wystarczająca liczba podpisów
           all: Wszystkie
           answered: Z odpowiedziami
-          closed: Zamknięte
-          open: Otwarte
+          closed: Zakończone
+          open: Trwające
           rejected: Niewystarczająca liczba podpisów
         filter_type_values:
           all: Wszystkie
@@ -320,7 +320,7 @@ pl:
           fill_data_help: "<ul> <li>Popraw treść swojej inicjatywy. Czy twój tytuł jest łatwy do zrozumienia? Czy cel Twojej inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Osobiście, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy? Miasto, dzielnica?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
-          select_area: Wybierz obszar
+          select_area: Wybierz kategorię
           select_scope: Wybierz zakres
         finish:
           back: Wróć
@@ -352,7 +352,7 @@ pl:
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
           select: Chcę utworzyć inicjatywę tego typu
-          select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach się na obszarach ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
+          select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach obszaru ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
@@ -413,12 +413,12 @@ pl:
         count:
           title:
             one: "%{count} inicjatywa"
-            few: "%{count} inicjatyw"
+            few: "%{count} inicjatywy"
             many: "%{count} inicjatyw"
             other: "%{count} inicjatyw"
         filters:
-          any: Każdy
-          area: Obszar
+          any: Wszyscy
+          area: Kategoria
           author: Autor
           myself: Moje inicjatywy
           scope: Zakres
@@ -438,7 +438,7 @@ pl:
             explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
             title: Wymagana autoryzacja
         initiatives:
-          closed_initiatives_warning: Obecnie nie ma aktywnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
+          closed_initiatives_warning: Obecnie nie ma aktualnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
           no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
         interactions:
           comments_count:
@@ -506,7 +506,7 @@ pl:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktywne inicjatywy
+            active_initiatives: Aktualne inicjatywy
             see_all_initiatives: Zobacz wszystkie inicjatywy
       show:
         badge_name:

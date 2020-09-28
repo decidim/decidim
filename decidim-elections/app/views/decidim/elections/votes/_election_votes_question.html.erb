@@ -5,7 +5,7 @@
 
 <div class="evote__options" data-max-selection="<%= question.max_selections %>" data-min-selection="<%= question.min_selections %>">
   <% ordered_answers(question).each do |answer| %>
-    <%= label_tag nil, nil, class: "evote__check evote__card" do %>
+    <%= label_tag nil, data: { "disabled-by": "#check-nota" }, class: "evote__check evote__card" do %>
       <% if question.max_selections == 1 %>
         <%= radio_button_tag "question_#{question.id}", answer.id, false, class: "answer_input" %>
       <% else %>
@@ -25,6 +25,20 @@
     <% end %>
 
     <%= render("election_votes_modal", answer: answer) if more_information?(answer) %>
+  <% end %>
+
+  <% if question.min_selections == 0 %>
+    <%= label_tag nil, nil, class: "evote__check evote__card" do %>
+      <% if question.max_selections == 1 %>
+        <%= radio_button_tag "question_#{question.id}", "nota_input_#{question.id}", false, class: "nota_input" %>
+      <% else %>
+        <%= check_box_tag "question_#{question.id}", "nota_input_#{question.id}", false, { class: "nota_input", id: "check-nota", data: { "disable-check": "" } } %>
+      <% end %>
+
+      <span class="evote__check-label" id="nota_input">
+        <%= t("decidim.elections.votes.new.nota_option") %>
+      </span>
+    <% end %>
   <% end %>
 </div>
 
