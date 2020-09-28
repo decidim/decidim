@@ -21,6 +21,8 @@ module Decidim
 
       private
 
+      # A MD5 hash of model attributes because is needed because
+      # the model doesn't respond to cache_version nor updated_at method
       def cache_hash
         hash = []
         hash << "decidim/content_blocks/hero"
