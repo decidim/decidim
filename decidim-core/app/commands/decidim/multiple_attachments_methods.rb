@@ -9,8 +9,8 @@ module Decidim
       @form.add_files.each do |file|
         @files << Attachment.new(
           title: file.original_filename,
-          file: file,
-          attached_to: @attached_to
+          attached_to: @attached_to || files_attached_to,
+          file: file
         )
       end
     end
@@ -27,23 +27,30 @@ module Decidim
 
     def create_attachments
       @files.map! do |file|
-        file.attached_to = @attached_to
+        file.attached_to = files_attached_to
         file.save!
         @form.files << file.id.to_s
       end
     end
 
     def file_cleanup!
-      @attached_to.documents.each do |file|
+      files_attached_to.documents.each do |file|
         file.destroy! if @form.files.exclude? file.id.to_s
       end
 
-      @attached_to.reload
-      @attached_to.instance_variable_set(:@files, nil)
+      files_attached_to.reload
+      files_attached_to.instance_variable_set(:@files, nil)
     end
 
     def process_attachments?
       @form.add_files.any?
+    end
+
+    def files_attached_to
+      return @attached_to if @attached_to.present?
+      return form.current_organization if form.respond_to?(:current_organization)
+
+      form.current_component.organization if form.respond_to?(:current_component)
     end
   end
 end
