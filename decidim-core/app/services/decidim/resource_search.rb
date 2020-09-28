@@ -4,6 +4,8 @@ module Decidim
   # This is the base class to be used by other search services.
   # Searchlight documentation: https://github.com/nathanl/searchlight
   class ResourceSearch < Searchlight::Search
+    attr_reader :user, :organization, :component
+
     # Initialize the Searchlight::Search base class with the options provided.
     #
     # scope   - The scope used to create the base query
@@ -13,6 +15,32 @@ module Decidim
     def initialize(scope, options = {})
       super(options)
       @scope = scope
+      @user = options[:current_user] || options[:user]
+      @component = options[:component]
+      @organization = options[:organization] || component&.organization
+    end
+
+    # Public: Companion method to `search_search_text` which defines the
+    # attributes where we should search for text values in a model.
+    def self.text_search_fields(*fields)
+      @text_search_fields = fields if fields.any?
+      @text_search_fields
+    end
+
+    # Handle the search_text filter. We have to cast the JSONB columns
+    # into a `text` type so that we can search.
+    def search_search_text
+      return query unless self.class.text_search_fields.any?
+
+      fields = self.class.text_search_fields
+
+      text_query = query.where(localized_search_text_in("#{query.model_name.plural}.#{fields.shift}"), text: "%#{search_text}%")
+
+      fields.each do |field|
+        text_query = text_query.or(query.where(localized_search_text_in("#{query.model_name.plural}.#{field}"), text: "%#{search_text}%"))
+      end
+
+      text_query
     end
 
     # Creates the SearchLight base query.
@@ -51,7 +79,64 @@ module Decidim
       query.includes(:scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
     end
 
+    # Handle the origin filter.
+    def search_origin
+      renamed_origin = Array(origin).map do |search_value|
+        "#{search_value}_origin"
+      end
+      apply_scopes(%w(official_origin citizens_origin user_group_origin meeting_origin), renamed_origin)
+    end
+
+    # We overwrite the `results` method to ensure we only return unique
+    # results. We can't use `#uniq` because it returns an Array and we're
+    # adding scopes in the controller, and `#distinct` doesn't work here
+    # because in the later scopes we're ordering by `RANDOM()` in a DB level,
+    # and `SELECT DISTINCT` doesn't work with `RANDOM()` sorting, so we need
+    # to perform two queries.
+    #
+    # The correct behaviour is backed by tests.
+    def results
+      base_query.model.where(id: super.pluck(:id))
+    end
+
     private
+
+    # Private: To be used by classes that inherit from ResourceSearch.
+    #
+    # This method is useful when the values of the filters match the names of
+    # defined scopes in a model, it applies those scopes that are included in
+    # the search values.
+    #
+    # Example:
+    #   Consider you want to filter by state, and your model has an `open` and
+    #   a `closed` ActiveRecord scope.
+    #
+    #   def search_state
+    #     apply_scopes(%w(open closed), state)
+    #   end
+    #
+    #   In this scenario, the `state` variable has the input by the use, who
+    #   has selected which states they want to see. `states` here is an array
+    #   of strings.
+    #
+    # Returns an ActiveRecord::Relation.
+    def apply_scopes(scopes, search_values)
+      search_values = Array(search_values)
+
+      conditions = scopes.map do |scope|
+        search_values.member?(scope.to_s) ? query.try(scope) : nil
+      end.compact
+
+      return query unless conditions.any?
+
+      scoped_query = query.where(id: conditions.shift)
+
+      conditions.each do |condition|
+        scoped_query = scoped_query.or(query.where(id: condition))
+      end
+
+      scoped_query
+    end
 
     # Private: Creates an array of category ids.
     # It contains categories' subcategories ids as well.
@@ -67,7 +152,7 @@ module Decidim
 
     # Private: Returns an array with checked category ids.
     def category_ids
-      [category_id].flatten
+      Array(category_id)
     end
 
     # Private: Returns an array with checked scope ids.
@@ -75,14 +160,8 @@ module Decidim
       if scope_id.is_a?(Hash)
         scope_id.values
       else
-        [scope_id].flatten
+        Array(scope_id)
       end
-    end
-
-    # Private: Since component is not used by a search method we need
-    # to define the method manually.
-    def component
-      options[:component]
     end
 
     # Internal: builds the needed query to search for a text in the organization's
@@ -93,7 +172,7 @@ module Decidim
     #
     # The Hash with the `:text` key is required or it won't work.
     def localized_search_text_in(field)
-      options[:organization].available_locales.map { |l| "#{field} ->> '#{l}' ILIKE :text" }.join(" OR ")
+      organization.available_locales.map { |l| "#{field} ->> '#{l}' ILIKE :text" }.join(" OR ")
     end
   end
 end

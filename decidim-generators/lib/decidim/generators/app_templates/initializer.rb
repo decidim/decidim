@@ -115,12 +115,6 @@ Decidim.configure do |config|
   # processed by Decidim, this value helps reduce the size of the files.
   # config.image_uploader_quality = 80
 
-  # The maximum file size of an attachment
-  # config.maximum_attachment_size = 10.megabytes
-
-  # The maximum file size for a user avatar
-  # config.maximum_avatar_size = 10.megabytes
-
   # The number of reports which a resource can receive before hiding it
   # config.max_reports_before_hiding = 3
 

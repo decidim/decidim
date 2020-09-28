@@ -87,7 +87,7 @@ pl:
             add_display_condition: Dodaj warunek wyświetlania
             add_display_condition_info: Zapisz formularz, aby skonfigurować warunki wyświetlania
             add_matrix_row: Dodaj wiersz
-            any: Każdy
+            any: Dowolny
             collapse: Zwiń
             description: Opis
             down: Na dół

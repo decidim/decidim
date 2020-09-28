@@ -88,6 +88,8 @@ de:
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert

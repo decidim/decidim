@@ -63,6 +63,7 @@ module Decidim
           end
 
           before do
+            expect(form).to receive(:invalid?).and_return(false)
             expect(Decidim::Consultations::Question).to receive(:new).and_return(invalid_question)
           end
 

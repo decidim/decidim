@@ -60,3 +60,4 @@ require "decidim/core/test/shared_examples/preview_component_with_share_token_ex
 require "decidim/core/test/shared_examples/manage_component_share_tokens"
 require "decidim/core/test/shared_examples/metric_manage_shared_context"
 require "decidim/core/test/shared_examples/embed_resource_examples"
+require "decidim/core/test/shared_examples/resource_search_examples"

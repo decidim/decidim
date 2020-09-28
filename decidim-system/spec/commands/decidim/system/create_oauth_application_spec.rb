@@ -20,7 +20,7 @@ module Decidim::System
     let(:file) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpg"
+        "image/jpeg"
       )
     end
     let(:context) do

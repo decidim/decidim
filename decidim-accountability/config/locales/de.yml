@@ -190,6 +190,8 @@ de:
             heading_leaf_level_results: Name für "Projekte"
             heading_parent_level_results: Name für "Ergebnisse"
             intro: Einführung
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
             subcategories_label: Name für "Unterkategorien"
           step:
             comments_blocked: Kommentare blockiert
