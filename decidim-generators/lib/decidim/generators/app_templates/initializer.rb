@@ -84,13 +84,6 @@ Decidim.configure do |config|
   # Time window were users can access the website even if their email is not confirmed.
   # config.unconfirmed_access_for = 2.days
 
-  # Etherpad configuration. Check the docs for more info.
-  # config.etherpad = {
-  #   server: <your url>,
-  #   api_key: <your key>,
-  #   api_version: <your version>
-  # }
-
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
