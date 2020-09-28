@@ -20,7 +20,7 @@ module Decidim
     validates_avatar
     mount_uploader :avatar, Decidim::AvatarUploader
 
-    validates :name, :nickname, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+    validates :name, :nickname, format: { with: /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/ }
 
     # Public: Returns a collection with all the entities this user is following.
     #
@@ -31,17 +31,17 @@ module Decidim
     # Returns an Array of Decidim::Followable
     def following
       @following ||= begin
-                       followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
-                       grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
-                         all[type] ||= []
-                         all[type] << following_id
-                         all
-                       end
+        followings = following_follows.pluck(:decidim_followable_type, :decidim_followable_id)
+        grouped_followings = followings.each_with_object({}) do |(type, following_id), all|
+          all[type] ||= []
+          all[type] << following_id
+          all
+        end
 
-                       grouped_followings.flat_map do |type, ids|
-                         type.constantize.where(id: ids)
-                       end
-                     end
+        grouped_followings.flat_map do |type, ids|
+          type.constantize.where(id: ids)
+        end
+      end
     end
   end
 end

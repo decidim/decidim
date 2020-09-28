@@ -3,7 +3,7 @@
 module Decidim
   module Exporters
     # A dummy controller to render views while exporting questionnaires
-    class FormPDFControllerHelper < ActionController::Base
+    class FormPDFControllerHelper < ApplicationController
       helper Decidim::TranslationsHelper
       helper Decidim::Forms::Admin::QuestionnaireAnswersHelper
     end

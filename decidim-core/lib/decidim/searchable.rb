@@ -69,7 +69,7 @@ module Decidim
       # Forces the model to be indexed for the first time.
       def add_to_index_as_search_resource
         fields = self.class.search_resource_fields_mapper.mapped(self)
-        fields[:i18n].keys.each do |locale|
+        fields[:i18n].each_key do |locale|
           Decidim::SearchableResource.create!(contents_to_searchable_resource_attributes(fields, locale))
         end
       end

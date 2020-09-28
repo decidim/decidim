@@ -88,7 +88,7 @@ module Decidim
       end
 
       def document_number_uniqueness
-        errors.add(:document_number, :taken) if initiative.votes.where(hash_id: hash_id).exists?
+        errors.add(:document_number, :taken) if initiative.votes.exists?(hash_id: hash_id)
       end
 
       def personal_data_consistent_with_metadata

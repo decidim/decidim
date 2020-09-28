@@ -51,9 +51,9 @@ module Decidim
 
         def signature_type_updatable?
           @signature_type_updatable ||= begin
-                                          state ||= context.initiative.state
-                                          state == "validating" && context.current_user.admin? || state == "created"
-                                        end
+            state ||= context.initiative.state
+            state == "validating" && context.current_user.admin? || state == "created"
+          end
         end
 
         def state_updatable?

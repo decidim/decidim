@@ -7,7 +7,7 @@ module Decidim
       # Returns a link to the next/previous question if found.
       # Else, returns a disabled link to the current question.
       def display_next_previous_button(direction, optional_classes = "")
-        css = "card__button button hollow " + optional_classes
+        css = "card__button button hollow #{optional_classes}"
 
         # Do not show anything if is a lonely question
         return unless previous_published_question || next_published_question

@@ -665,7 +665,7 @@ shared_examples_for "has questionnaire" do
         end
 
         radio_buttons = page.all(".radio-button-collection input[type=radio]")
-        expect(radio_buttons.map { |b| b[:checked] }).to eq([nil, "true", nil, nil])
+        expect(radio_buttons.pluck(:checked)).to eq([nil, "true", nil, nil])
       end
 
       context "when the question is mandatory and the answer is not complete" do
@@ -830,7 +830,7 @@ shared_examples_for "has questionnaire" do
           end
 
           checkboxes = page.all(".check-box-collection input[type=checkbox]")
-          expect(checkboxes.map { |c| c[:checked] }).to eq(["true", "true", "true", nil, nil, "true"])
+          expect(checkboxes.pluck(:checked)).to eq(["true", "true", "true", nil, nil, "true"])
         end
       end
     end

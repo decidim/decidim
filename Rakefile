@@ -17,12 +17,12 @@ task test_subgems: :test_app do
 end
 
 desc "Runs all tests in the main decidim gem"
-task :test_main do
+task test_main: :environment do
   Decidim::GemManager.new(__dir__).run("rake")
 end
 
 desc "Update version in all gems to the one set in the `.decidim-version` file"
-task :update_versions do
+task update_versions: :environment do
   Decidim::GemManager.replace_versions
 end
 
@@ -31,28 +31,28 @@ Decidim::GemManager.all_dirs(include_root: false) do |dir|
   name = manager.short_name
 
   desc "Runs tests on #{name}"
-  task "test_#{name}" do
+  task "test_#{name}" => :environment do
     manager.run("rake")
   end
 end
 
 desc "Runs tests for a random participatory space"
-task :test_participatory_space do
+task test_participatory_space: :environment do
   Decidim::GemManager.test_participatory_space
 end
 
 desc "Runs tests for a random component"
-task :test_component do
+task test_component: :environment do
   Decidim::GemManager.test_component
 end
 
 desc "Installs all local gem versions globally"
-task :install_all do
+task install_all: :environment do
   Decidim::GemManager.install_all
 end
 
 desc "Uninstalls all local gem versions"
-task :uninstall_all do
+task uninstall_all: :environment do
   Decidim::GemManager.uninstall_all
 end
 
@@ -62,7 +62,7 @@ task release_all: [:update_versions, :check_locale_completeness, :webpack] do
 end
 
 desc "Makes sure all official locales are complete and clean."
-task :check_locale_completeness do
+task check_locale_completeness: :environment do
   system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
@@ -75,12 +75,12 @@ desc "Generates a development app."
 task development_app: "decidim:generate_external_development_app"
 
 desc "Build webpack bundle files"
-task :webpack do
+task webpack: :environment do
   sh "npm install && npm run build:prod"
 end
 
 desc "Bundle all Gemfiles"
-task :bundle do
+task bundle: :environment do
   [".", "decidim-generators", "decidim_app-design"].each do |dir|
     Bundler.with_original_env do
       Dir.chdir(dir) { sh "bundle install" }

@@ -579,7 +579,7 @@ module Decidim
           end
 
           it "renders an image with the current file url" do
-            expect(parsed.css('img[src="' + url + '"]')).not_to be_empty
+            expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
           end
         end
       end
@@ -595,11 +595,11 @@ module Decidim
           end
 
           it "doesn't render an image tag" do
-            expect(parsed.css('img[src="' + url + '"]')).to be_empty
+            expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 
           it "renders a link to the current file url" do
-            expect(parsed.css('a[href="' + url + '"]')).not_to be_empty
+            expect(parsed.css("a[href=\"#{url}\"]")).not_to be_empty
           end
         end
       end

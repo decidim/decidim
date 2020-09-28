@@ -121,7 +121,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(sentence_count: 2) }
+    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
@@ -184,7 +184,7 @@ FactoryBot.define do
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
-    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(sentence_count: 2) }
+    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     organization
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
 

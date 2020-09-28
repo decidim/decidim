@@ -77,7 +77,7 @@ describe "User edit meeting", type: :system do
 
       click_link meeting.title
       expect(page).to have_no_content("Edit meeting")
-      visit current_path + "/edit"
+      visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
     end

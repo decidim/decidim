@@ -29,7 +29,6 @@ module Decidim
                class_name: "Decidim::Organization"
 
     belongs_to :scoped_type,
-               foreign_key: "scoped_type_id",
                class_name: "Decidim::InitiativesTypeScope",
                inverse_of: :initiatives
 
@@ -392,7 +391,7 @@ module Decidim
 
     # method for sort_link by number of supports
     ransacker :supports_count do
-      query = <<~SQL
+      query = <<~SQL.squish
         (
           SELECT
             CASE

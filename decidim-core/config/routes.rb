@@ -91,8 +91,8 @@ Decidim::Core::Engine.routes.draw do
     end
   end
 
-  resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^\/]+} }, format: false
-  scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^\/]+} } do
+  resources :profiles, only: [:show], param: :nickname, constraints: { nickname: %r{[^/]+} }, format: false
+  scope "/profiles/:nickname", format: false, constraints: { nickname: %r{[^/]+} } do
     get "following", to: "profiles#following", as: "profile_following"
     get "followers", to: "profiles#followers", as: "profile_followers"
     get "badges", to: "profiles#badges", as: "profile_badges"

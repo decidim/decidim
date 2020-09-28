@@ -7,6 +7,9 @@ Rails/ActionFilter:
   Include:
     - decidim-*/app/controllers/**/*.rb
 
+Rails/ContentTag:
+  Enabled: false
+
 Rails/CreateTableWithTimestamps:
   Enabled: false
 

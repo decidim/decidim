@@ -81,8 +81,8 @@ module Decidim
 
       def handle_locales(content, all_locales)
         if all_locales
-          content.each_with_object({}) do |(locale, string), parsed_content|
-            parsed_content[locale] = yield(string)
+          content.transform_values do |string|
+            yield(string)
           end
         else
           yield(translated_attribute(content))

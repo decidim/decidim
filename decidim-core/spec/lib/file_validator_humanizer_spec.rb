@@ -26,6 +26,7 @@ module Decidim
         end
 
         attr_accessor :file
+
         validates_upload :file
         mount_uploader :file, mount_class
 

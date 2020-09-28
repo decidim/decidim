@@ -348,7 +348,7 @@ module Decidim
 
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-      custom_label(attribute, options[:label], options[:label_options], true) do
+      custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
         @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
@@ -642,7 +642,7 @@ module Decidim
     # Returns a String.
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
-    def custom_label(attribute, text, options, field_before_label = false, show_required = true)
+    def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
       text = default_label_text(object, attribute) if text.nil? || text == true

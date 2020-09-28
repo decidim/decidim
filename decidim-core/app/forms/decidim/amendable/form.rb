@@ -62,7 +62,7 @@ module Decidim
       # Params: amendable_form_errors => Duplicated @amendable_form.errors
       def compare_amendable_form_errors(amendable_form_errors)
         @amendable_form.errors.clear
-        @original_form.errors.details.keys.each do |key|
+        @original_form.errors.details.each_key do |key|
           errors = amendable_form_errors.details[key] - @original_form.errors.details[key]
 
           errors.map do |hash|

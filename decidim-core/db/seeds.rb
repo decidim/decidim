@@ -70,7 +70,7 @@ if !Rails.env.production? || ENV["SEED"]
       5.times do
         Decidim::Scope.create!(
           name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
-          code: parent.code + "-" + Faker::Address.unique.state_abbr,
+          code: "#{parent.code}-#{Faker::Address.unique.state_abbr}",
           scope_type: municipality,
           organization: organization,
           parent: parent

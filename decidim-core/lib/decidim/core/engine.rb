@@ -36,7 +36,6 @@ require "kaminari"
 require "doorkeeper"
 require "doorkeeper-i18n"
 require "nobspw"
-require "kaminari"
 require "batch-loader"
 require "etherpad-lite"
 require "diffy"
@@ -469,7 +468,7 @@ module Decidim
       end
 
       config.to_prepare do
-        FoundationRailsHelper::FlashHelper.send(:include, Decidim::FlashHelperExtensions)
+        FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
       end
     end
   end
