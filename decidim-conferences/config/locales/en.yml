@@ -349,7 +349,6 @@ en:
           form:
             select_conference_meetings: Select conference meetings
           index:
-            no_registrations: No registrations
             title: Registration types
         send_conference_diploma_mailer:
           diploma:
@@ -477,6 +476,7 @@ en:
         index:
           choose_an_option: 'Choose your registration option:'
           login_as: You are logged in as %{name} <%{email}>
+          no_registrations: No registrations
           register: Register
           title: Registration types
       shared:
