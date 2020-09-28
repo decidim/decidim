@@ -104,7 +104,7 @@
           <li class="card-data__item">
             <%= link_to "#comments" do %>
               <%= with_tooltip t("decidim.proposals.models.collaborative_draft.fields.comments") do %>
-                <%= icon("comment-square", class: "icon--small", role: "img", "aria-hidden": true) + " " + "#{@collaborative_draft.comments.count}" %>
+                <%= icon("comment-square", class: "icon--small", role: "img", "aria-hidden": true) + " " + "#{@collaborative_draft.comments_count}" %>
               <% end %>
             <% end %>
           </li>

@@ -2,7 +2,6 @@ eu:
   activemodel:
     attributes:
       project:
-        budget: Aurrekontua
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Descripción

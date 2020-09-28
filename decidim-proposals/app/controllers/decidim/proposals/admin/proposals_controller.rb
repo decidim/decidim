@@ -21,14 +21,14 @@ module Decidim
 
         def new
           enforce_permission_to :create, :proposal
-          @form = form(Admin::ProposalForm).from_params(
+          @form = form(Decidim::Proposals::Admin::ProposalForm).from_params(
             attachment: form(AttachmentForm).from_params({})
           )
         end
 
         def create
           enforce_permission_to :create, :proposal
-          @form = form(Admin::ProposalForm).from_params(params)
+          @form = form(Decidim::Proposals::Admin::ProposalForm).from_params(params)
 
           Admin::CreateProposal.call(@form) do
             on(:ok) do

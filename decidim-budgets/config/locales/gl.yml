@@ -2,7 +2,6 @@ gl:
   activemodel:
     attributes:
       project:
-        budget: Orzamento
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición

@@ -2,7 +2,6 @@ ro:
   activemodel:
     attributes:
       project:
-        budget: Buget
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
         description: Descriere

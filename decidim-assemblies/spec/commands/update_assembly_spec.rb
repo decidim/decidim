@@ -32,8 +32,8 @@ module Decidim::Assemblies
             slug: my_assembly.slug,
             hashtag: my_assembly.hashtag,
             meta_scope: my_assembly.meta_scope,
-            hero_image: nil,
-            banner_image: nil,
+            hero_image: my_assembly.hero_image,
+            banner_image: my_assembly.banner_image,
             promoted: my_assembly.promoted,
             description_en: my_assembly.description,
             description_ca: my_assembly.description,
@@ -164,8 +164,10 @@ module Decidim::Assemblies
           end
         end
 
-        context "when no homepage image is set" do
+        context "when homepage image is not updated" do
           it "does not replace the homepage image" do
+            expect(my_assembly).not_to receive(:hero_image=)
+
             command.call
             my_assembly.reload
 
@@ -173,8 +175,10 @@ module Decidim::Assemblies
           end
         end
 
-        context "when no banner image is set" do
+        context "when banner image is not updated" do
           it "does not replace the banner image" do
+            expect(my_assembly).not_to receive(:banner_image=)
+
             command.call
             my_assembly.reload
 

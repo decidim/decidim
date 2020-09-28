@@ -77,7 +77,7 @@ module Decidim
         let(:user_group) do
           build(
             :user_group,
-            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpg")
+            avatar: Rack::Test::UploadedFile.new(avatar_path, "image/jpeg")
           )
         end
 
