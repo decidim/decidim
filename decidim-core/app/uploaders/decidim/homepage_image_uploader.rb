@@ -2,7 +2,7 @@
 
 module Decidim
   # This class deals with uploading hero images to organizations.
-  class HomepageImageUploader < ImageUploader
+  class HomepageImageUploader < RecordImageUploader
     version :big do
       process resize_to_fill: [1920, 666]
     end

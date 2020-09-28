@@ -15,6 +15,7 @@
             <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
             <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
             <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
+            <%= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.budgets") %></th>
           </tr>
         </thead>
@@ -30,6 +31,7 @@
               <td>
                 <%= link_to budget.projects.count, budget_projects_path(budget) %>
               </td>
+              <%= td_resource_scope_for(budget.scope) %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank %>
 

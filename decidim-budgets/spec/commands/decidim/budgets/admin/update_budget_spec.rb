@@ -7,6 +7,7 @@ describe Decidim::Budgets::Admin::UpdateBudget do
 
   let(:budget) { create :budget }
   let(:organization) { budget.component.organization }
+  let(:scope) { create :scope, organization: organization }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     double(
@@ -15,6 +16,7 @@ describe Decidim::Budgets::Admin::UpdateBudget do
       title: { en: "title" },
       description: { en: "description" },
       total_budget: 101_000_000,
+      scope: scope,
       current_user: user
     )
   end
@@ -27,12 +29,13 @@ describe Decidim::Budgets::Admin::UpdateBudget do
     expect(translated(budget.description)).to eq "description"
     expect(budget.weight).to eq 1
     expect(budget.total_budget).to eq 101_000_000
+    expect(budget.scope).to eq scope
   end
 
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(:update!)
-      .with(budget, user, hash_including(:title, :description, :weight, :total_budget), visibility: "all")
+      .with(budget, user, hash_including(:title, :description, :weight, :total_budget, :scope), visibility: "all")
       .and_call_original
 
     expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -72,6 +72,7 @@ fr-CA:
             title: Modifier la réponse
             update: Mettre à jour la réponse
           index:
+            invalid_max_selections: Vous avez besoin de %{missing_answers} réponse(s) de plus pour correspondre aux sélections maximales
             title: Réponses
           new:
             create: Créer une réponse

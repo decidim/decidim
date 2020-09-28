@@ -19,8 +19,8 @@ module Decidim::ParticipatoryProcesses
             slug: my_process.slug,
             hashtag: my_process.hashtag,
             meta_scope: my_process.meta_scope,
-            hero_image: nil,
-            banner_image: nil,
+            hero_image: my_process.hero_image,
+            banner_image: my_process.banner_image,
             promoted: my_process.promoted,
             description_en: my_process.description,
             description_ca: my_process.description,
@@ -128,6 +128,8 @@ module Decidim::ParticipatoryProcesses
 
         context "when no homepage image is set" do
           it "does not replace the homepage image" do
+            expect(my_process).not_to receive(:hero_image=)
+
             command.call
             my_process.reload
 
@@ -137,6 +139,8 @@ module Decidim::ParticipatoryProcesses
 
         context "when no banner image is set" do
           it "does not replace the banner image" do
+            expect(my_process).not_to receive(:banner_image=)
+
             command.call
             my_process.reload
 

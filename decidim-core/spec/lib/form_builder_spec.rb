@@ -104,6 +104,18 @@ module Decidim
             expect(parsed.css("label[for='resource_name_en']")).not_to be_empty
             expect(parsed.css("textarea[name='resource[name_en]']")).not_to be_empty
           end
+
+          it "does not render a dropdown" do
+            expect(parsed.css("option")).to be_empty
+          end
+        end
+
+        context "when there are more than 4 locales" do
+          let(:available_locales) { %w(ca en cs es de-CH) }
+
+          it "renders dropdown with locales" do
+            expect(parsed.css("option").count).to eq 5
+          end
         end
       end
 

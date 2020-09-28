@@ -271,6 +271,7 @@ cs:
           headers:
             actions: Akce
             name: Název komponenty
+            scope: Oblast působnosti komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu
@@ -639,6 +640,10 @@ cs:
           title: Upravit oprávnění
         update:
           success: Oprávnění byla úspěšně aktualizována.
+      resources:
+        index:
+          headers:
+            scope: Oblast působnosti
       scope_types:
         create:
           error: Při vytváření nového typu rozsahu došlo k chybě.

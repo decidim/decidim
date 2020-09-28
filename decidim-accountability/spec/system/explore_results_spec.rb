@@ -17,6 +17,7 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   before do
+    component.update(settings: { scopes_enabled: true })
     visit path
   end
 
@@ -152,6 +153,10 @@ describe "Explore results", versioning: true, type: :system do
         result
       end
 
+      before do
+        visit current_path
+      end
+
       it "shows tags for scope" do
         expect(page).to have_selector("ul.tags.tags--result")
         within "ul.tags.tags--result" do
@@ -258,13 +263,14 @@ describe "Explore results", versioning: true, type: :system do
         visit_component
       end
 
-      context "when the process has a linked scope" do
+      context "when the process has a linked scope and the component has scopes disabled" do
         before do
           participatory_process.update(scope: scope)
+          component.update(settings: { scopes_enabled: false })
           visit current_path
         end
 
-        it "enables filtering by scope" do
+        it "disables filtering by scope" do
           within ".scope-filters" do
             expect(page).not_to have_content(/Scopes/i)
           end

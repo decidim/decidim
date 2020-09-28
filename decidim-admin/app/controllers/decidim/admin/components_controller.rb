@@ -20,7 +20,10 @@ module Decidim
         @component = Component.new(
           name: default_name(manifest),
           manifest_name: params[:type],
-          participatory_space: current_participatory_space
+          participatory_space: current_participatory_space,
+          settings: {
+            scope_id: current_participatory_space.scope.try(:id)
+          }
         )
 
         @form = form(@component.form_class).from_model(@component)

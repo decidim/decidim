@@ -8,6 +8,7 @@
     <td>
       <%= t "decidim.components.#{component.manifest.name}.name" %>
     </td>
+    <%= td_resource_scope_for(component.scope) %>
     <td class="table-list__actions">
       <% if component.manifest.admin_engine %>
         <%= icon_link_to "pencil", manage_component_path(component), t("actions.manage", scope: "decidim.admin"), class: "action-icon--manage" %>

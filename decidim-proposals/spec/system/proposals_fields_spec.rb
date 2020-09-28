@@ -40,7 +40,8 @@ describe "Proposals", type: :system do
           create(:proposal_component,
                  :with_creation_enabled,
                  manifest: manifest,
-                 participatory_space: participatory_process)
+                 participatory_space: participatory_process,
+                 settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         end
 
         let(:proposal_draft) { create(:proposal, :draft, component: component) }
@@ -93,9 +94,13 @@ describe "Proposals", type: :system do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
-                   :with_geocoding_enabled,
                    manifest: manifest,
-                   participatory_space: participatory_process)
+                   participatory_space: participatory_process,
+                   settings: {
+                     geocoding_enabled: true,
+                     scopes_enabled: true,
+                     scope_id: participatory_process.scope&.id
+                   })
           end
 
           let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }
@@ -194,9 +199,13 @@ describe "Proposals", type: :system do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
-                     :with_geocoding_enabled,
                      manifest: manifest,
-                     participatory_space: participatory_process)
+                     participatory_space: participatory_process,
+                     settings: {
+                       geocoding_enabled: true,
+                       scopes_enabled: true,
+                       scope_id: participatory_process.scope&.id
+                     })
             end
 
             let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "He will not solve everything") }

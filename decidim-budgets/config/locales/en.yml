@@ -2,8 +2,14 @@
 en:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Scope
+        description: Description
+        title: Title
+        total_budget: Total budget
+        weight: Weight
       project:
-        budget: Budget
+        budget_amount: Budget amount
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
@@ -213,6 +219,9 @@ en:
             more_information_modal: More information modal
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each meeting
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
+            title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'

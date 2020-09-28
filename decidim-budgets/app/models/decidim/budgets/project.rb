@@ -6,7 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
@@ -92,6 +92,11 @@ module Decidim
       # Returns Boolean.
       def selected?
         selected_at.present?
+      end
+
+      # Public: Returns the attachment context for this record.
+      def attachment_context
+        :admin
       end
     end
   end

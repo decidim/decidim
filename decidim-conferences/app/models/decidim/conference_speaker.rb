@@ -6,6 +6,7 @@ module Decidim
   class ConferenceSpeaker < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
 
     translatable_fields :position, :affiliation, :short_bio
@@ -15,10 +16,9 @@ module Decidim
     has_many :conference_speaker_conference_meetings, dependent: :destroy
     has_many :conference_meetings, through: :conference_speaker_conference_meetings, foreign_key: "conference_speaker_id", class_name: "Decidim::ConferenceMeeting"
 
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
-
     default_scope { order(full_name: :asc, created_at: :asc) }
 
+    validates_avatar
     mount_uploader :avatar, Decidim::AvatarUploader
 
     delegate :organization, to: :conference

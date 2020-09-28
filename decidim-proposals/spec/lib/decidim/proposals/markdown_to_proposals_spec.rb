@@ -19,8 +19,8 @@ module Decidim
       def proposal_should_conform(section_level, title, body)
         proposal = Decidim::Proposals::Proposal.where(component: component).last
         expect(proposal.participatory_text_level).to eq(Decidim::Proposals::ParticipatoryTextSection::LEVELS[section_level])
-        expect(proposal.title).to eq(title)
-        expect(proposal.body).to eq(body)
+        expect(translated(proposal.title)).to eq(title)
+        expect(translated(proposal.body)).to eq(body)
       end
 
       let!(:component) { create(:proposal_component) }
@@ -42,8 +42,8 @@ module Decidim
             should_parse_and_produce_proposals(1)
 
             proposal = Proposal.last
-            expect(proposal.title).to eq(title)
-            expect(proposal.body).to eq(title)
+            expect(translated(proposal.title)).to eq(title)
+            expect(translated(proposal.body)).to eq(title)
             expect(proposal.position).to eq(1)
             expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:section])
             should_have_expected_states(proposal)
@@ -63,8 +63,8 @@ module Decidim
             proposals = should_parse_and_produce_proposals(5)
 
             proposals.order(:position).each_with_index do |proposal, idx|
-              expect(proposal.title).to eq(titles[idx])
-              expect(proposal.body).to eq(titles[idx])
+              expect(translated(proposal.title)).to eq(titles[idx])
+              expect(translated(proposal.body)).to eq(titles[idx])
               expect(proposal.position).to eq(expected_pos)
               expected_pos += 1
               expect(proposal.participatory_text_level).to eq("sub-section")
@@ -86,8 +86,8 @@ module Decidim
 
           proposal = Proposal.last
           # proposal titled with its numbering (position)
-          expect(proposal.title).to eq("1")
-          expect(proposal.body).to eq(paragraph)
+          expect(translated(proposal.title)).to eq("1")
+          expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
           should_have_expected_states(proposal)
@@ -107,9 +107,9 @@ module Decidim
           proposal = Proposal.last
           # proposal titled with its numbering (position)
           # the paragraph and proposal's body
-          expect(proposal.title).to eq("1")
+          expect(translated(proposal.title)).to eq("1")
           paragraph = %q(This text links to <a href="https://meta.decidim.org" title="Community's meeting point">Meta Decidim</a>.)
-          expect(proposal.body).to eq(paragraph)
+          expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
           should_have_expected_states(proposal)
@@ -127,9 +127,9 @@ module Decidim
           should_parse_and_produce_proposals(1)
 
           proposal = Proposal.last
-          expect(proposal.title).to eq("1")
+          expect(translated(proposal.title)).to eq("1")
           paragraph = 'Text with <img src="https://meta.decidim.org/assets/decidim/decidim-logo-1f39092fb3e41d23936dc8aeadd054e2119807dccf3c395de88637e4187f0a3f.svg" alt="Important image for Decidim" title="Img title"/>.'
-          expect(proposal.body).to eq(paragraph)
+          expect(translated(proposal.body)).to eq(paragraph)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
           should_have_expected_states(proposal)
@@ -163,7 +163,7 @@ module Decidim
           should_parse_and_produce_proposals(1)
 
           proposal = Proposal.last
-          expect(proposal.title).to eq("1")
+          expect(translated(proposal.title)).to eq("1")
           paragraph = <<~EOEXPECTED
             <strong>bold text</strong> is supported, <em>italics text</em> is supported, <strong>underlined text</strong> is supported.
             As explained <a href="https://daringfireball.net/projects/markdown/syntax#em">here</a> Markdown treats asterisks
@@ -179,7 +179,7 @@ module Decidim
             - &lt;strong>double asterisks&lt;/strong>
             - &lt;strong>double underscores&lt;/strong>
           EOEXPECTED
-          expect(proposal.body).to eq(paragraph.strip)
+          expect(translated(proposal.body)).to eq(paragraph.strip)
           expect(proposal.position).to eq(1)
           expect(proposal.participatory_text_level).to eq(ParticipatoryTextSection::LEVELS[:article])
           should_have_expected_states(proposal)

@@ -10,6 +10,7 @@ module Decidim
     include Traceable
     include Loggable
     include Decidim::ShareableWithToken
+    include ScopableComponent
 
     belongs_to :participatory_space, polymorphic: true
 

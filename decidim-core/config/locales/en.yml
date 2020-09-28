@@ -66,6 +66,7 @@ en:
     errors:
       general: Error processing image
       image_too_big: The image is too big
+      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -355,6 +356,8 @@ en:
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -1168,6 +1171,10 @@ en:
           one: "%{count} result"
           other: "%{count} results"
         view_all: View all (%{count})
+    security:
+      selfxss_warning:
+        description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Cancel
@@ -1534,6 +1541,7 @@ en:
         see_more: See more
   locale:
     name: English
+    name_with_error: English (error!)
   password_validator:
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email
