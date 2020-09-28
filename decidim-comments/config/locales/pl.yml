@@ -35,7 +35,7 @@ pl:
             label: Komentarz
             placeholder: Co o tym myślisz?
           form_error: 'Tekst jest wymagany. Maksymalna liczba znaków to: %{length}.'
-          submit: Wysłać
+          submit: Wyślij
           user_group_id:
             label: Komentuj jako
         opinion:
@@ -45,8 +45,8 @@ pl:
         title: Dodaj swój komentarz
       comment:
         alignment:
-          against: Przeciwko
-          in_favor: Na korzyść
+          against: Negatywny
+          in_favor: Pozytywny
         deleted_user: Usunięty użytkownik
         hide_replies: Ukryj odpowiedzi
         reply: Odpowiedz

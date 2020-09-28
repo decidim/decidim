@@ -51,20 +51,6 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
-      scope :official_origin, lambda {
-        where(decidim_author_type: "Decidim::Organization")
-      }
-
-      scope :user_group_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where.not(decidim_user_group_id: nil)
-      }
-
-      scope :citizens_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where(decidim_user_group_id: nil)
-      }
-
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },

@@ -88,6 +88,8 @@ fr-CA:
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués

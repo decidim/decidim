@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       project:
-        budget: Бюджет
         decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис

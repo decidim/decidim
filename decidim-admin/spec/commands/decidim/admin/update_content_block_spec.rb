@@ -16,7 +16,7 @@ module Decidim::Admin
     let(:uploaded_image) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city2.jpeg", "image/jpeg"),
-        "image/jpg"
+        "image/jpeg"
       )
     end
     let(:images) do
@@ -70,7 +70,7 @@ module Decidim::Admin
         let(:original_image) do
           Rack::Test::UploadedFile.new(
             Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-            "image/jpg"
+            "image/jpeg"
           )
         end
 

@@ -28,6 +28,8 @@
     }
 
     const $input = $(container).siblings('input[type="hidden"]');
+    container.innerHTML = $input.val() || "";
+
     const quill = new Quill(container, {
       modules: {
         toolbar: quillToolbar
@@ -56,12 +58,10 @@
         $input.val(quill.root.innerHTML);
       }
     });
-
-    quill.root.innerHTML = $input.val() || "";
   };
 
   const quillEditor = () => {
-    $(".editor-container").each((idx, container) => {
+    $(".editor-container").each((_idx, container) => {
       createQuillEditor(container);
     });
   };

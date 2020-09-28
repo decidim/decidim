@@ -40,7 +40,7 @@ module Decidim
           address: meeting.address,
           location: meeting.location,
           reference: meeting.reference,
-          comments: meeting.comments.count,
+          comments: meeting.comments_count,
           attachments: meeting.attachments.count,
           followers: meeting.followers.count,
           url: url,

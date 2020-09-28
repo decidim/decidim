@@ -36,7 +36,8 @@ module Decidim
             description: form.description,
             max_selections: form.max_selections,
             weight: form.weight,
-            random_answers_order: form.random_answers_order
+            random_answers_order: form.random_answers_order,
+            min_selections: form.min_selections
           }
 
           Decidim.traceability.update!(
