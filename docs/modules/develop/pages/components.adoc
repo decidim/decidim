@@ -1,12 +1,23 @@
 = Components
 
-Components are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
+Components are the core contract between external xref:develop:modules.adoc[modules] and the core. They're used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
 
-== How do I create a new component?
+== Creating a new component
+
+If you want to create a new component, you can use https://github.com/decidim/decidim/tree/master/decidim-generators[decidim-generators] to
+automatically generate a decidim component skeleton, or copy the basic structure
+of an existing mantained plugin.
+
+[source,console]
+----
+decidim --component engine_name
+----
 
 Components are just gems with one or more Rails engines included in it. You can use as an example https://github.com/decidim/decidim/tree/master/decidim-pages[decidim-pages].
 
 Check out the `lib/decidim/pages` folder: It includes several files, the most important of which is `component.rb`.
+
+Upload the component to GitHub with the naming *decidim-module-engine_name*, so it's easier to find on the https://github.com/decidim/decidim/network/dependents[dependency graph].
 
 == Defining a component manifest
 
