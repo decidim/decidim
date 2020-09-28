@@ -1,0 +1,88 @@
+[plantuml]
+....
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+LAYOUT_TOP_DOWN
+' uncomment the following line to make proposals
+'LAYOUT_AS_SKETCH
+
+title System Component diagram for Decidim Applications (https://decidim.org)
+
+
+ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, consultations, initiatives, proposals, meetings, etc.")
+Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
+Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
+
+Container_Boundary(web_app, "Web Application") {
+
+    Component(admin, "Admin module", "Ruby On Rails Engine", "Internal. Admin panel, mounted in /admin")
+    Component(api, "API module", "Ruby On Rails Engine", "Internal. GraphQL API, mounted in /api")
+    Component(core, "Core module", "Ruby On Rails Engine", "Internal. Provides APIs as building blocks to be consumed by the rest of the modules.")
+    Component(comments, "Comments module", "Ruby On Rails Engine", "Provides the Commentable capability to other modules.")
+    Component(dev, "Dev module", "Ruby On Rails Engine", "Aids the local development of Decidim's components.")
+    Component(forms, "Forms module", "Ruby On Rails Engine", "Provides APIs for working with forms to other modules (like Surveys and Meetings)")
+    Component(generators, "Generator module", "Ruby On Rails Engine", "Provides the decidim Command Line Interface.")
+    Component(system, "System module", "Ruby On Rails Engine", "Multitenant configuration, mounted in /system. Can create and manage all the instances of an installation.")
+    Component(verifications, "Verifications module", "Ruby On Rails Engine", " Offers several methods for allowing participants to get authorization to perform certain privileged actions.")
+
+    Component(assemblies, "Assemblies module", "Ruby On Rails Engine (Space)", "A permament Space, mounted in /assemblies.")
+    Component(conferences, "Conferences module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /conferences.")
+    Component(consultations, "Consultations module", "Ruby On Rails Engine (Space)", "A temporal Space, mounted in /consultations.")
+    Component(initiatives, "Initiatives module", "Ruby On Rails Engine (Space)", "A bottom-up Space, mounted in /initiatives. A participant can collect signatures to bring an issue to the organization.")
+    Component(participatory_processes, "Participatory Processes module (Space)", "Ruby On Rails Engine", "A temporal Space, mounted in /processes.")
+
+    Component(accountability, "Accountability module", "Ruby On Rails Engine", "Component. Adds an accountability section to any participatory space so users can follow along the state of the accepted proposals.")
+    Component(proposals, "Proposals module", "Ruby On Rails Engine", "Component. Adds one of the main components of Decidim: allows users to contribute to a participatory space by creating proposals.")
+    Component(blogs, "Blogs module", "Ruby On Rails Engine", "Component. Makes possible to add posts ordered by publication time to spaces.")
+    Component(debates, "Debates module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
+    Component(meetings, "Meetings module", "Ruby On Rails Engine", "Component. Adds a CRUD engine to the admin and public view scoped inside the participatory process.")
+    Component(surveys, "Surveys module", "Ruby On Rails Engine", "Component. Makes possible to publish surveys (for registered participants or visitors users).")
+    Component(sortitions, "Sortitions module", "Ruby On Rails Engine", "Component. makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.")
+    Component(pages, "Pages module", "Ruby On Rails Engine", "Component. adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step.")
+    Component(budgets, "Budgets module", "Ruby On Rails Engine", "Component. Adds a participatory budgets system to any participatory space.")
+    Component(elections, "Elections module", "Ruby On Rails Engine", "Components. Adds voting with cryptographic capabilities.")
+
+    Rel(meetings, forms, "Consumes")
+    Rel(surveys, forms, "Consumes")
+
+    ' Rel(proposals, assemblies, "Mounts in")
+    ' Rel(proposals, participatory_processes, "Mounts in")
+    ' Rel(proposals, conferences, "Mounts in")
+' 
+    ' Rel(consultations, comments, "Consumes")
+    ' Rel(initiatives, comments, "Consumes")
+    ' Rel(accountability, comments, "Consumes")
+    ' Rel(budgets, comments, "Consumes")
+    ' Rel(sortitions, comments, "Consumes")
+    ' Rel(dev, comments, "Consumes")
+    ' Rel(meetings, comments, "Consumes")
+    ' Rel(debates, comments, "Consumes")
+    ' Rel(proposals, comments, "Consumes")
+    ' Rel(blogs, comments, "Consumes")
+' 
+    ' Rel(consultations, admin, "Managed in")
+    ' Rel(initiatives, admin, "Managed in")
+    ' Rel(accountability, admin, "Managed in")
+    ' Rel(budgets, admin, "Managed in")
+    ' Rel(sortitions, admin, "Managed in")
+    ' Rel(meetings, admin, "Managed in")
+    ' Rel(debates, admin, "Managed in")
+    ' Rel(proposals, admin, "Managed in")
+    ' Rel(blogs, admin, "Managed in")
+
+}
+
+System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")
+System_Ext(etherpad_system, "Etherpad-Lite system", "Optional. Allows real-time text edition in Meetings.")
+System_Ext(geocoding_system, "Geocoding system", "Optional. An Open Street Maps provider, allows geographical localization of Proposals and Meetings..")
+System_Ext(oauth_system, "OAUTH2 System", "Optional. Third party sign on systems. Could be Twitter, Facebook, Google or any other OAUTH2 providers.")
+
+Rel_Neighbor(worker, mail_system, "Sends e-mails", "SMTP")
+Rel(web_app, rel_db, "Uses")
+Rel(web_app, filesystem, "Uses")
+Rel(web_app, oauth_system, "Uses")
+Rel(web_app, geocoding_system, "Uses")
+Rel(web_app, etherpad_system, "Embeds", "Through an Iframe")
+@enduml
+....

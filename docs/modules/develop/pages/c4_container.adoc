@@ -1,0 +1,41 @@
+[plantuml]
+....
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_TOP_DOWN
+' uncomment the following line to make proposals
+'LAYOUT_AS_SKETCH
+
+title System Container diagram for Decidim Applications (https://decidim.org)
+
+
+Person_Ext(visitor_user, "Visitor User", "Anonymous, non registered user.")
+Person(participant_user, "Participant User", "A registered user. Could also be verified.")
+Person(administration_user, "Administration User", "A registered user with special permissions.")
+
+System_Boundary(decidim_system, "decidim"){
+    Container(web_app, "Web Application", "Ruby on Rails 5.2", "Allows participants to make decisions collaboratively through participatory processes, assemblies, consultations, initiatives, etc.")
+    ContainerDb(rel_db, "Relational Database", "PostgreSQL 9.5.x", "Stores users, participatory processes, assemblies, consultations, initiatives, proposals, meetings, etc.")
+    Container(filesystem, "File System", "Local or remote", "Stores uploads (images, documents, etc.)")
+    Container(worker, "Worker", "Ruby on Rails 5.2", "ActiveJob queues for non syncronuos jobs. Works for open data requests, sending emails, etc.")
+}
+
+System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")
+System_Ext(etherpad_system, "Etherpad-Lite system", "Optional. Allows real-time text edition in Meetings.")
+System_Ext(geocoding_system, "Geocoding system", "Optional. An Open Street Maps provider, allows geographical localization of Proposals and Meetings..")
+System_Ext(oauth_system, "OAUTH2 System", "Optional. Third party sign on systems. Could be Twitter, Facebook, Google or any other OAUTH2 providers.")
+
+Rel(visitor_user, web_app, "Uses")
+Rel(participant_user, web_app, "Uses")
+Rel(administration_user, web_app, "Uses")
+Rel_Back(participant_user, mail_system, "Sends e-mails to")
+Rel_Back(administration_user, mail_system, "Sends e-mails to")
+Rel_Neighbor(worker, mail_system, "Sends e-mails", "SMTP")
+Rel(web_app, rel_db, "Uses")
+Rel(web_app, filesystem, "Uses")
+Rel(web_app, oauth_system, "Uses")
+Rel(web_app, geocoding_system, "Uses")
+Rel(web_app, etherpad_system, "Embeds", "Through an Iframe")
+@enduml
+....
