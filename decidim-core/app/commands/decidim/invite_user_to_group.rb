@@ -50,7 +50,8 @@ module Decidim
         affected_users: [form.user],
         extra: {
           user_group_name: user_group.name,
-          user_group_nickname: user_group.nickname
+          user_group_nickname: user_group.nickname,
+          high_priority: true
         }
       )
     end
