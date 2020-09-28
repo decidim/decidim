@@ -86,13 +86,7 @@ shared_examples "manage process admins examples" do
           name: "test",
           email: "test@example.org",
           role: "admin"
-        ).with_context(
-          current_user: current_user,
-          current_organization: current_organization
         )
-
-        let(:current_organization) { create(:organization) }
-        let(:current_user) { create(:user, organization: current_organization) }
 
         Decidim::ParticipatoryProcesses::Admin::CreateParticipatoryProcessAdmin.call(
           form,
