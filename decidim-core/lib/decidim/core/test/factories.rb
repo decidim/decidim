@@ -175,7 +175,7 @@ FactoryBot.define do
 
   factory :user_group, class: "Decidim::UserGroup" do
     transient do
-      document_number { Faker::Number.number(digits: 8) + "X" }
+      document_number { "#{Faker::Number.number(digits: 8)}X" }
       phone { Faker::PhoneNumber.phone_number }
       rejected_at { nil }
       verified_at { nil }
