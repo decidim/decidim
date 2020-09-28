@@ -48,7 +48,10 @@ module Decidim
             event_class: Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent,
             resource: initiative,
             affected_users: affected_users,
-            force_send: true
+            force_send: true,
+            extra: {
+              high_priority: true
+            }
           }
 
           Decidim::EventsManager.publish(data)

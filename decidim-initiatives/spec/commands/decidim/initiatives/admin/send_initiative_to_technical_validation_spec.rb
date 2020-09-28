@@ -39,7 +39,10 @@ module Decidim
                 event_class: Decidim::Initiatives::Admin::InitiativeSentToTechnicalValidationEvent,
                 force_send: true,
                 resource: initiative,
-                affected_users: a_collection_containing_exactly(another_admin)
+                affected_users: a_collection_containing_exactly(another_admin),
+                extra: {
+                  high_priority: true
+                }
               )
 
             subject.call
