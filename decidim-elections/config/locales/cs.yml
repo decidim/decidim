@@ -10,7 +10,6 @@ cs:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
-        subtitle: Podtitulek
         title: Název
       question:
         description: Popis
@@ -19,6 +18,10 @@ cs:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
@@ -75,6 +78,7 @@ cs:
             title: Upravit odpověď
             update: Aktualizovat odpověď
           index:
+            invalid_max_selections: Potřebujete ještě %{missing_answers} odpověd/í, aby počet odpovídal maximálnímu počtu výběrů
             title: Odpovědi
           new:
             create: Vytvořit odpověď

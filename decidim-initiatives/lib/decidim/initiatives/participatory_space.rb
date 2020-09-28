@@ -103,8 +103,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(seeds_root, "city.jpeg")),
-        attached_to: initiative
+        attached_to: initiative,
+        file: File.new(File.join(seeds_root, "city.jpeg"))
       )
 
       Decidim::Initiatives.default_components.each do |component_name|

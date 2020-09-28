@@ -21,6 +21,8 @@ de:
           global:
             announcement: Ankündigung
             clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             allow_answers: Erlaube Antworten
             allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben

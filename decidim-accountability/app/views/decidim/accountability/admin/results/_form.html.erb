@@ -20,9 +20,9 @@
 
     <% else %>
 
-      <% if current_participatory_space.has_subscopes? %>
+      <% if current_component.has_subscopes? %>
         <div class="row column">
-          <%= scopes_picker_field form, :decidim_scope_id %>
+          <%= scopes_picker_field form, :decidim_scope_id, root: current_component.scope %>
         </div>
       <% end %>
 

@@ -10,7 +10,6 @@ sv:
         description: Beskrivning
         end_time: Omröstningen slutar vid
         start_time: Röstningsstart vid
-        subtitle: Undertext
         title: Titel
       question:
         description: Beskrivning
@@ -22,6 +21,10 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste återknytas
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Måste bifogas igen
   activerecord:
     models:
       decidim/elections/answer:

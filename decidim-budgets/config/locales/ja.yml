@@ -2,7 +2,6 @@ ja:
   activemodel:
     attributes:
       project:
-        budget: 予算
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
         description: 説明
@@ -21,7 +20,6 @@ ja:
         destroy: 削除
         edit: 編集
         import: プロジェクトへの提案をインポート
-        new: 新規プロジェクト
         preview: プレビュー
         title: アクション
       admin:
@@ -68,11 +66,8 @@ ja:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
           subject: '%{space_name} 参加スペースに投票しました'
-          voted_on_space: '%{space_name} 参加スペースの予算に投票しました。'
-          voted_on_space_with_scope: '%{space_name} ( %{scope_name} ) の%{scope_type} 参加スペースの予算に投票しました。'
       projects:
         budget_confirm:
-          are_you_sure: あなたは同意しますか?あなたの投票を確認したら、それを変更することはできません。
           cancel: キャンセル
           confirm: 確認する
           description: これらはあなたが予算の一部になることを選んだプロジェクトです。
@@ -119,8 +114,6 @@ ja:
           random: ランダムな注文
         project:
           add: プロジェクト %{resource_name} をあなたの投票に追加
-          count:
-            other: "%{count} のサポート"
           remove: プロジェクト %{resource_name} を投票から削除する
           view: 表示
         project_budget_button:
@@ -156,7 +149,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントがブロックされました
             show_votes: 投票を表示
-            votes_enabled: 投票は有効になっています
+            votes_choices:
+              enabled: 投票は有効になっています
     orders:
       checkout:
         error: 投票処理中に問題が発生しました

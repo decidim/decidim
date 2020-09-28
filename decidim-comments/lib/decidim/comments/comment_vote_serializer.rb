@@ -37,7 +37,11 @@ module Decidim
       private
 
       def root_commentable_url
-        @root_commentable_url ||= Decidim::ResourceLocatorPresenter.new(resource.comment.root_commentable).url
+        @root_commentable_url ||= if resource.comment.root_commentable&.respond_to?(:polymorphic_resource_url)
+                                    resource.comment.root_commentable.polymorphic_resource_url
+                                  else
+                                    ResourceLocatorPresenter.new(resource.comment.root_commentable).url
+                                  end
       end
     end
   end

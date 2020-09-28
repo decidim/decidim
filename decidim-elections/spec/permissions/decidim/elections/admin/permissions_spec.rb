@@ -28,6 +28,14 @@ describe Decidim::Elections::Admin::Permissions do
     end
   end
 
+  shared_examples "not allowed when election has invalid questions" do
+    context "when election has invalid questions" do
+      let(:question) { create :question, :candidates, max_selections: 11, election: election }
+
+      it { is_expected.to eq false }
+    end
+  end
+
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :election }
@@ -79,6 +87,7 @@ describe Decidim::Elections::Admin::Permissions do
     it { is_expected.to eq true }
 
     it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election has invalid questions"
   end
 
   describe "election delete" do

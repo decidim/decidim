@@ -187,7 +187,7 @@ ja:
         announcement:
           accepted: |-
             %{amendable_type} %{proposal_link} のこの修正は、
-             <strong>%{date}に承認されました</strong>。
+            <strong>%{date}に承認されました</strong>。
           evaluating: |-
             %{amendable_type} %{proposal_link}
             のこの修正は評価されています。

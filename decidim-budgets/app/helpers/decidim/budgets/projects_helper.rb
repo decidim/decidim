@@ -36,10 +36,6 @@ module Decidim
       def current_order_can_be_checked_out?
         current_order&.can_checkout?
       end
-
-      def projects_base_url
-        URI.parse(root_url).tap { |uri| uri.query = uri.fragment = nil } .to_s
-      end
     end
   end
 end

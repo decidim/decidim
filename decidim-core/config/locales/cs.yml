@@ -370,6 +370,8 @@ cs:
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Oprávnění zdrojů povoleno
+            scope_id: Rozsah
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
@@ -1187,6 +1189,10 @@ cs:
           many: "%{count} výsledků"
           other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
+    security:
+      selfxss_warning:
+        description: Tato funkce prohlížeče je určena pro vývojáře a pokud jste o to byli požádáni, neměli byste sem nic vkládat. Vkládání obsahu do tohoto okna může ohrozit vaše soukromí a umožnit hackerům přístup k vašemu účtu.
+        title: Zastavit!
     shared:
       confirm_modal:
         cancel: Zrušit
@@ -1559,6 +1565,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
+    name_with_error: Angličtina (chyba!)
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu

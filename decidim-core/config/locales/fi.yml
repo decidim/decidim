@@ -354,6 +354,8 @@ fi:
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             amendment_creation_enabled: Muutosten luonti käytössä
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
@@ -391,7 +393,7 @@ fi:
         name: Hero-kuvan alabanneri
     core:
       actions:
-        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
+        login_before_access: Sinun täytyy kirjautua sisään, jotta voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
@@ -1163,6 +1165,10 @@ fi:
           one: "%{count} tulos"
           other: "%{count} tulosta"
         view_all: Näytä kaikki (%{count})
+    security:
+      selfxss_warning:
+        description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinulta on pyydetty sellaista. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
+        title: Seis!
     shared:
       confirm_modal:
         cancel: Peruuta
@@ -1529,6 +1535,7 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+    name_with_error: Suomi (virhe!)
   password_validator:
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa

@@ -28,7 +28,7 @@ describe "Meeting", type: :system do
   end
 
   context "when component is not commentable" do
-    let!(:ressources) { create_list(:meeting, 3, :with_services, component: component) }
+    let!(:resources) { create_list(:meeting, 3, :with_services, component: component) }
 
     it_behaves_like "an uncommentable component"
   end

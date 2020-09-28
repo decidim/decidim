@@ -10,7 +10,6 @@ nl:
         description: Beschrijving
         end_time: Stemming eindigt op
         start_time: Stemming begint om
-        subtitle: Ondertiteling
         title: Aanspreektitel
       question:
         description: Beschrijving
@@ -19,6 +18,10 @@ nl:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Moet opnieuw worden gekoppeld
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld

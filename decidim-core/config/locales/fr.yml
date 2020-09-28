@@ -333,12 +333,12 @@ fr:
           collaborative_draft: Brouillon collaboratif
           comment: Commentaire
           debate: Débat
-          initiative: Initiative
+          initiative: Pétition
           meeting: Rencontre
-          post: Publication
+          post: Article
           proposal: Proposition
           question: Question
-        title: 'Afficher:'
+        title: 'Afficher :'
       dummy:
         actions:
           bar: Bar
@@ -354,6 +354,8 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -596,15 +598,15 @@ fr:
         user_group_updated:
           email_intro: Un groupe d'utilisateurs avec le nom %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_url}">panneau d'administration</a>.
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
-          email_subject: Un group d'utilisateurs viens de mettre à jour son profil
+          email_subject: Un groupe d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez :'
         email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-        email_subject: "%{endorser_nickname} a effectué une nouvelle approbation"
-        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_subject: "%{endorser_nickname} a soutenu un nouveau contenu"
+        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été soutenu par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -613,7 +615,7 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}.'
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}. <br/> Vous aurez besoin de <a href=''''https://www.7-zip.org/''''>7-Zip</a> pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -1158,6 +1160,10 @@ fr:
           one: "%{count} résultat"
           other: "%{count} résultats"
         view_all: Tout voir (%{count})
+    security:
+      selfxss_warning:
+        description: Cette fonction de navigateur est destinée aux développeurs et vous ne devriez rien coller ici si vous n'avez pas avez été invité à le faire. Coller du contenu dans cette fenêtre peut compromettre votre vie privée et permettre aux hackers d'accéder à votre compte.
+        title: Arrêter !
     shared:
       confirm_modal:
         cancel: Annuler
@@ -1211,6 +1217,10 @@ fr:
     tags:
       filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
       filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
+    translation_bar:
+      help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
+      show_original: Afficher le texte original
+      show_translated: Afficher le texte automatiquement traduit
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1270,6 +1280,7 @@ fr:
     versions:
       resource_version:
         of_versions: "(sur %{number})"
+        see_other_versions: voir les autres versions
         version: Numéro de version %{number}
     versions_list:
       show:
@@ -1519,6 +1530,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
+    name_with_error: Anglais (erreur !)
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
