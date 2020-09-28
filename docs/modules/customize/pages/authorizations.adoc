@@ -1,3 +1,22 @@
 = Authorizations
 
-See https://github.com/decidim/decidim/blob/master/decidim-verifications/README.md[decidim-verifications's README].
+Decidim offers several methods for allowing participants to get authorization to perform certain privileged actions. This module implements several of those methods and also offers a way for installation to implement their custom verification methods.
+
+There are several use cases for this, such as
+
+* Sending a SMS code to users to verify that their have a valid cellphone
+* Allowing users to upload a photo or scanned image of their identity document
+* Sending users a code through postal code
+* Allowing users to go to to a physical office and check their documentation
+* Checking some information through other systems (as a Municipal Census on the case of Municipalities, Cities or Towns)
+* Having a list of valid users emails
+
+Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations.
+Introduction
+
+Each decidim instance is in full control of its authorizations, and can customize:
+
+* The different methods to be used by users to get verified. For example, through a census, by uploading their identity documents, or by receiving a verification home at their address.
+* The different actions in decidim that require authorization, and which authorization method they require. For example, a decidim instance might choose to require census authorization to create proposals, but a fully verified address via a verification code sent by postal mail for voting on proposals.
+
+See https://github.com/decidim/decidim/blob/master/decidim-verifications/README.md[decidim-verifications's README] and https://decidim.org/modules[Decidim's Modules page].
