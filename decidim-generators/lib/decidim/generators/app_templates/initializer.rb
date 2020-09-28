@@ -190,6 +190,9 @@ Decidim.configure do |config|
 
   # Machine Translation Configuration
   #
+  # Enable machine translations
+  config.enable_machine_translations = false
+  #
   # If you want to enable machine translation you can create your own service
   # to interact with third party service to translate the user content.
   #
