@@ -58,7 +58,8 @@ module Decidim
                 affected_users: [membership.user],
                 extra: {
                   user_group_name: membership.user_group.name,
-                  user_group_nickname: membership.user_group.nickname
+                  user_group_nickname: membership.user_group.nickname,
+                  high_priority: true
                 }
               )
             )
