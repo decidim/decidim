@@ -15,7 +15,7 @@ pl:
         title: Tytuł
       question:
         banner_image: Baner
-        decidim_scope_id: Obszar
+        decidim_scope_id: Zakres
         hashtag: Hashtag
         hero_image: Obraz główny
         i_frame_url: URL do zewnętrznego systemu głosowania
@@ -23,17 +23,17 @@ pl:
         max_votes: Maksymalna liczba głosów
         min_votes: Minimalna liczba głosów
         origin_scope: Zakres
-        origin_title: Pochodzenie
+        origin_title: Źródło
         origin_url: Adres URL źródła pochodzenia
         participatory_scope: Zakres uczestnictwa
-        promoter_group: Grupa promotorów
+        promoter_group: Grupa inicjatorów
         question_context: Kontekst
         reference: Odniesienie
-        scope: Obszar
+        scope: Zakres
         slug: URL slug
         subtitle: Podtytuł
         vote: Zewnętrzny system głosowania
-        what_is_decided: Co postanowiono
+        what_is_decided: Zaproponowano
       response:
         decidim_consultations_response_group_id: Grupa
     errors:
@@ -262,7 +262,7 @@ pl:
           many: "%{count} konsultacji"
           other: "%{count} konsultacji"
       filters:
-        active: Aktywne
+        active: Aktualne
         all: Wszystko
         finished: Zakończone
         search: Szukaj
@@ -274,7 +274,7 @@ pl:
         filter_by: Filtruj według
         unfold: Rozwiń
       highlighted_questions:
-        title: Pytania z %{scope_name}
+        title: 'Pytania z zakresu: %{scope_name}'
       index:
         title: Konsultacje
       last_activity:
@@ -283,7 +283,7 @@ pl:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Aktywne konsultacje
+            active_consultations: Aktualne konsultacje
             see_all_consultations: Zobacz wszystkie konsultacje
             voting_ends_in:
               one: Głosowanie kończy się <strong>jutro</strong>
@@ -327,7 +327,7 @@ pl:
         badge_name:
           finished: Zakończone
           open: Otwarto
-          open_votes: Otwarte głosy
+          open_votes: Głosowanie otwarte
           published_results: Opublikowano wyniki
         footer_button_text:
           debate: Debata

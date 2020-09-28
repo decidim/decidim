@@ -35,11 +35,15 @@ module Decidim
     end
 
     describe "#dimensions_info" do
+      let(:uploader) { AvatarUploader.new(user, :avatar) }
       let(:dimensions_info) { uploader.dimensions_info }
 
       it "returns a valid hash" do
         expect(dimensions_info).to be_a(Hash)
-        expect(dimensions_info[:profile]).to eq(resize_to_fill: [536, 640])
+        expect(dimensions_info[:profile]).to eq(
+          processor: :resize_to_fill,
+          dimensions: [536, 640]
+        )
       end
     end
   end

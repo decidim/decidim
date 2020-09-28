@@ -3,6 +3,8 @@
 module Decidim
   # The form object that handles the data behind creating a user group.
   class UserGroupForm < Form
+    include Decidim::HasUploadValidations
+
     mimic :group
 
     attribute :name
@@ -18,12 +20,14 @@ module Decidim
     validates :nickname, presence: true
 
     validates :nickname, length: { maximum: Decidim::User.nickname_max_length, allow_blank: true }
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    validates :avatar, passthru: { to: Decidim::UserGroup }
 
     validate :unique_document_number
     validate :unique_email
     validate :unique_name
     validate :unique_nickname
+
+    alias organization current_organization
 
     private
 

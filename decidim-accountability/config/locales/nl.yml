@@ -189,6 +189,8 @@ nl:
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
             intro: Inleiding
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
             subcategories_label: Naam voor 'Subcategorieën'
           step:
             comments_blocked: Reacties geblokkeerd

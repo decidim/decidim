@@ -7,6 +7,8 @@ module Decidim
       # from the admin dashboard
       #
       class DiplomaForm < Form
+        include Decidim::HasUploadValidations
+
         mimic :conference
 
         attribute :main_logo
@@ -16,8 +18,10 @@ module Decidim
 
         validates :signature_name, :sign_date, :main_logo, :signature, presence: true
 
-        validates :main_logo, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :signature, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :main_logo, passthru: { to: Decidim::Conference }
+        validates :signature, passthru: { to: Decidim::Conference }
+
+        alias organization current_organization
       end
     end
   end

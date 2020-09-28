@@ -2,7 +2,6 @@ is-IS:
   activemodel:
     attributes:
       project:
-        budget: Fjárhagsáætlun
         decidim_category_id: Flokkur
         decidim_scope_id: Umfang
         description: Lýsing

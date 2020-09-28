@@ -2,7 +2,6 @@ lv:
   activemodel:
     attributes:
       project:
-        budget: Budžets
         decidim_category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         description: Apraksts

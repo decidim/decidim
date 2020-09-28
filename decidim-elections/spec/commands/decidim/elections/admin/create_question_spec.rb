@@ -18,6 +18,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
       max_selections: 3,
       weight: 10,
       random_answers_order: true,
+      min_selections: 1,
       current_user: user,
       current_component: current_component,
       current_organization: organization,

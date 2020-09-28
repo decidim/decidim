@@ -45,11 +45,11 @@ module Decidim
               form.current_user
             ) do
               ParticipatoryProcessGroup.create(
+                organization: form.current_organization,
                 name: form.name,
                 description: form.description,
-                hero_image: form.hero_image,
-                participatory_processes: participatory_processes,
-                organization: form.current_organization
+                hero_image: form.hero_image, # Keep after organization
+                participatory_processes: participatory_processes
               )
             end
           end

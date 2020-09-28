@@ -43,10 +43,10 @@ module Decidim
         @attachment = Attachment.new(
           title: form.title,
           description: form.description,
-          file: form.file,
           attached_to: @attached_to,
           weight: form.weight,
-          attachment_collection: form.attachment_collection
+          attachment_collection: form.attachment_collection,
+          file: form.file # Define attached_to before this
         )
       end
 

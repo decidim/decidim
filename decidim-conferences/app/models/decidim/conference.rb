@@ -17,6 +17,7 @@ module Decidim
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Searchable
+    include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
 
     translatable_fields :title, :slogan, :short_description, :description, :objectives, :registration_terms
@@ -54,9 +55,16 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::HomepageImageUploader
+
+    validates_upload :main_logo
     mount_uploader :main_logo, Decidim::Conferences::DiplomaUploader
+
+    validates_upload :signature
     mount_uploader :signature, Decidim::Conferences::DiplomaUploader
 
     searchable_fields({
@@ -125,6 +133,10 @@ module Decidim
       return roles if role_name.blank?
 
       roles.where(role: role_name)
+    end
+
+    def attachment_context
+      :admin
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)

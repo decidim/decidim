@@ -93,6 +93,11 @@ module Decidim
       def selected?
         selected_at.present?
       end
+
+      # Public: Returns the attachment context for this record.
+      def attachment_context
+        :admin
+      end
     end
   end
 end

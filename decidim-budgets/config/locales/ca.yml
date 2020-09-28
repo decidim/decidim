@@ -2,7 +2,6 @@ ca:
   activemodel:
     attributes:
       project:
-        budget: Pressupost
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció

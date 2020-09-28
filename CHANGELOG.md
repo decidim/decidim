@@ -20,6 +20,12 @@ When releasing v0.25 all stable branches with the nomenclature `x.y-stable` will
 
 ### Changed
 
+- **Settings `maximum_attachment_size` and `maximum_avatar_size` moved to organization system settings**
+
+As per [\#6377](https://github.com/decidim/decidim/pull/6377), the `maximum_attachment_size` and `maximum_avatar_size` settings will no longer have any effect if configured through the Decidim initializer configurations. Instead, these are now configured from the organization system settings at the `/system` path of your installation.
+
+Note that if you had these previously configured in the initializer, these previous settings have been automatically migrated to all organizations in your installation after running the Decidim upgrade migrations.
+
 ### Fixed
 
 - **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)

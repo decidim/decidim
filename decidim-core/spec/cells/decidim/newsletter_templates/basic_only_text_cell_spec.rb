@@ -31,7 +31,7 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
     let(:logo) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpg"
+        "image/jpeg"
       )
     end
 

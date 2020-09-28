@@ -190,6 +190,8 @@ fi-pl:
             heading_leaf_level_results: Nimi termille "Suunnitelmat"
             heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
             subcategories_label: Nimi termille "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
