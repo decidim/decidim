@@ -349,6 +349,7 @@ en:
           form:
             select_conference_meetings: Select conference meetings
           index:
+            no_registrations: No registrations
             title: Registration types
         send_conference_diploma_mailer:
           diploma:
