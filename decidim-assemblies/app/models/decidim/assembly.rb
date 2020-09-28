@@ -32,6 +32,7 @@ module Decidim
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::HasPrivateUsers
     include Decidim::Searchable
+    include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
@@ -68,7 +69,10 @@ module Decidim
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
     belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
+    validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
+
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     validates :slug, uniqueness: { scope: :organization }
@@ -161,6 +165,10 @@ module Decidim
       return roles if role_name.blank?
 
       roles.where(role: role_name)
+    end
+
+    def attachment_context
+      :admin
     end
 
     private

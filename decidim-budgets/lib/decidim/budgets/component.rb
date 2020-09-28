@@ -143,21 +143,21 @@ Decidim.register_component(:budgets) do |component|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
           attachment_collection: attachment_collection,
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Comments::Seed.comments_for(project)
       end

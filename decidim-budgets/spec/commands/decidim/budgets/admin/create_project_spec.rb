@@ -28,6 +28,7 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
+        current_component: current_component,
         current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },

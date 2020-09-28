@@ -88,6 +88,8 @@ nl:
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van pads in
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd

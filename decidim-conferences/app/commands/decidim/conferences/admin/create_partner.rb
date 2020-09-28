@@ -49,15 +49,15 @@ module Decidim
           @partner = Decidim.traceability.create!(
             Decidim::Conferences::Partner,
             form.current_user,
-            form.attributes.slice(
-              :name,
-              :weight,
-              :link,
-              :partner_type,
-              :logo,
-              :remove_avatar
-            ).merge(
-              conference: conference
+            { conference: conference }.merge(
+              form.attributes.slice(
+                :name,
+                :weight,
+                :link,
+                :partner_type,
+                :logo,
+                :remove_avatar
+              )
             ),
             log_info
           )
