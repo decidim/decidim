@@ -46,7 +46,6 @@ module Decidim
             create_attachment if process_attachments?
             create_gallery if process_gallery?
             photo_cleanup!
-            file_cleanup!
           end
 
           broadcast(:ok, proposal)
