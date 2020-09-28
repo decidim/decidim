@@ -95,16 +95,16 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 [source,console]
 ----
 # Remove expired data portability files 
-0 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files
+0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
 
 # Compute metrics
-1 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:metrics:all
+1 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:metrics:all
 
 # Compute open data
 2 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim:metrics:all
 
 # Delete old registrations forms
-3 0 * * * cd /home/user/decidim_application && /usr/local/bin/rake RAILS_ENV=production decidim_meetings:clean_registration_forms
+3 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_meetings:clean_registration_forms
 ----
 
 === Further configuration
