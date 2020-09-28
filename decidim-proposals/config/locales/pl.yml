@@ -152,6 +152,8 @@ pl:
             proposal_wizard_step_3_help_text: 'Tekst pomocy Kreatora - krok: "Dokończ"'
             proposal_wizard_step_4_help_text: 'Tekst pomocy Kreatora - krok: "Publikuj"'
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdej propozycji
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
             threshold_per_proposal: Prób poparcia dla propozycji
             vote_limit: Limit możliwych wsparć na użytkownika
           step:
@@ -463,7 +465,7 @@ pl:
             authors: Autorzy
             body: Treść
             comments_count: Liczba komentarzy
-            comments_negative_count: Przeciw
+            comments_negative_count: Negatywny
             comments_neutral_count: Neutralny
             comments_positive_count: Za
             created_at: Data utworzenia
@@ -752,7 +754,7 @@ pl:
           amendment_type: Typ
           category: Kategoria
           my_proposals: Moje propozycje
-          origin: Pochodzenie
+          origin: Źródło
           related_to: Związany z
           scope: Zakres
           search: Szukaj

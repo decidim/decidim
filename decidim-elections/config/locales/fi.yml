@@ -72,6 +72,7 @@ fi:
             title: Muokkaa vastausta
             update: Päivitä vastausta
           index:
+            invalid_max_selections: Sinun on valittava vielä %{missing_answers} valinta/valintaa täyttääksesi maksimivalintojen ehdon
             title: Vastaukset
           new:
             create: Luo vastaus

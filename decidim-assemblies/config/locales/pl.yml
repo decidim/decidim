@@ -2,7 +2,7 @@ pl:
   activemodel:
     attributes:
       assembly:
-        area_id: Obszar
+        area_id: Kategoria
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny
         banner_image: Banner
@@ -19,7 +19,7 @@ pl:
         decidim_assemblies_type_id: Typ zespołu
         decidim_scope_id: Zakres
         description: Opis
-        developer_group: Grupa twórców
+        developer_group: Grupa inicjatorów
         domain: Domena
         duration: Czas trwania
         facebook: Facebook
@@ -34,7 +34,7 @@ pl:
         meta_scope: Zakres metadanych
         parent_id: Zespół nadrzędny
         participatory_processes_ids: Powiązane procesy partycypacyjne
-        participatory_scope: Co postanowiono
+        participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: Przestrzeń prywatna
         promoted: Wyróżniony
@@ -214,7 +214,7 @@ pl:
           name: Zespół
         assembly_member:
           fields:
-            ceased_date: Przerywana data
+            ceased_date: Data zakończenia
             designation_date: Data wyznaczenia
             full_name: Nazwa
             position: Pozycja
@@ -272,7 +272,7 @@ pl:
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez
-            select_an_area: Wybierz obszar
+            select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół macierzysty
             slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
@@ -353,14 +353,14 @@ pl:
           member_of:
             member_of: Członek
       show:
-        area: Obszar
+        area: Kategoria
         assembly_type: Typ zespołu
         children: Zespoły
         closing_date: Data zamknięcia
         composition: Skład zespołu
         created_by: Utworzone przez
         creation_date: Data utworzenia
-        developer_group: Grupa twórców
+        developer_group: Grupa inicjatorów
         duration: Czas trwania
         included_at: Dołączono
         indefinite_duration: Nie określono
@@ -369,7 +369,7 @@ pl:
           'false': nietransparentny
           'true': transparentny
         local_area: Obszar organizacji
-        participatory_scope: Co postanowiono
+        participatory_scope: Zaproponowano
         participatory_structure: Jak decydowano
         private_space: To jest prywatny zespół
         purpose_of_action: Cel działania
@@ -423,8 +423,8 @@ pl:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
-          page: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          contextual: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonej kategorii lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          page: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonej kategorii lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
           title: Czym są zespoły?
     log:
       value_types:

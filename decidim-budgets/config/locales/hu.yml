@@ -2,7 +2,6 @@ hu:
   activemodel:
     attributes:
       project:
-        budget: Költségvetés
         decidim_category_id: Kategória
         decidim_scope_id: Hatáskör
         description: Leírás

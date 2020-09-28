@@ -92,9 +92,10 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(3)
             end,
-            max_selections: Faker::Number.between(0, 5),
+            max_selections: Faker::Number.between(1, 5),
             weight: Faker::Number.number(1),
-            random_answers_order: Faker::Boolean.boolean(0.5)
+            random_answers_order: Faker::Boolean.boolean(0.5),
+            min_selections: Faker::Number.between(0, 1)
           },
           visibility: "all"
         )
@@ -117,8 +118,8 @@ Decidim.register_component(:elections) do |component|
           Decidim::Attachment.create!(
             title: Decidim::Faker::Localized.sentence(2),
             description: Decidim::Faker::Localized.sentence(5),
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-            attached_to: answer
+            attached_to: answer,
+            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
         end
       end
