@@ -21,3 +21,72 @@ Each component and space must define a `Permissions` class, inheriting from `Dec
 There's a small limitation in the permission action state machine: once it's been disallowed it can't be reallowed. This is to avoid mischievous modules modifying permissions.
 
 Permission actions have a scope. It's usually either `:public` or `:admin`, and the `Permissions` class usually handles the `:public` scope, while it delegates the `:admin` one to another specialized class.
+
+== Add a new Action
+
+=== Proposals example
+
+We're going to reproduce the steps to add an action (endorse) for a proposal step by step.
+
+==== Configuring a new 'endorse' action
+
+. Edit decidim-proposals/lib/decidim/proposals/component.rb
+. Add the new 'endorse' action into the `component.actions` array and save the file:
+
+[source,ruby]
+----
+component.actions = %w(endorse vote create)
+----
+
+. Translate the action for the corresponding key: `en.decidim.components.proposals.actions.endorse = Endorse`
+. Edit `app/permissions/decidim/proposals/permissions.rb` and add the corresponding permission, using `authorized?` method to run the `authorization handler` logic.
+. In the endorse proposals controller, enforce that the user has permissions to perform the `endorse` action before actually doing it, using the `enforce_permission_to` method:
+
+[source,ruby]
+----
+enforce_permission_to :endorse, :proposal, proposal: proposal
+----
+
+. In the proposals templates, change regular links and buttons to endorse a proposal with calls to `action_authorized_link_to` and `action_authorized_button_to` helpers.
+. Restart the server to pick up the changes.
+
+==== Using the new 'endorse' action
+
+. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `endorse` action.
+. Go to a Proposal detail in the front-end
+. Try to endorse the current proposal
+ ** If the user has not granted the selected permission, the 'endorse' button should block the action and allow the user to grant the permission with the selected `authorization handler` logic.
+ ** If the logger user has already granted the selected permission, the user should be able to perform the endorsement.
+
+==== Allow to configure the related permissions at resource level
+
+Permissions settings could also be set for an specific resources appart from the full component. Actions should also be related to the resource.
+
+. Edit decidim-proposals/lib/decidim/proposals/component.rb
+. Add the 'endorse' action into the `resource.actions` array for the `proposal` resource definition and save the file:
+
+[source,ruby]
+----
+resource.actions = %w(endorse vote)
+----
+
+. Only if this is the first resource action added, edit the proposals admin templates and use the `resource_permissions_link` helper to link the resource permissions page from each resource in the listing.
+
+[source,erb]
+----
+<%= resource_permissions_link(proposal) %>
+----
+
+. In the proposals permission class, pass an extra `resource` named parameter to the calls to the `authorized?` method.
+
+[source,ruby]
+----
+authorized?(:endorse, resource: proposal)
+----
+
+. In the proposals templates, also add the extra `resource` parameter to the `action_authorized_link_to` and `action_authorized_button_to` helpers.
+. Restart the server to pick up the changes.
+
+==== Using permissions at resource level
+
+. Now an admin user should be able to go to a participatory space with a `proposals` component panel and click on its `Permissions` link (the icon with a key). There, an `authorization handler` can be set for the `endorse` action.
