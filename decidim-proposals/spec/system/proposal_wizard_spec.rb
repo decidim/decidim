@@ -210,7 +210,7 @@ describe "Proposal", type: :system do
       context "when in step_4: edit proposal draft" do
         let!(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: proposal_title, body: proposal_body) }
         let!(:edit_draft_proposal_path) do
-          Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft) + "/edit_draft"
+          "#{Decidim::EngineRouter.main_proxy(component).proposal_path(proposal_draft)}/edit_draft"
         end
 
         before do

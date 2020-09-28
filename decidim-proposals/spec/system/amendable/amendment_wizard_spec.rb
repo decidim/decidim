@@ -154,7 +154,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         within ".edit_amendment" do
-          fill_in :amendment_emendation_params_title, with: title + "Edited"
+          fill_in :amendment_emendation_params_title, with: "#{title}Edited"
           fill_in :amendment_emendation_params_body, with: body
           find("*[type=submit]").click
         end

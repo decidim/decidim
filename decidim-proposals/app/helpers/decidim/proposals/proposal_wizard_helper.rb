@@ -156,7 +156,7 @@ module Decidim
           compare_proposal_path
         when :step_4
           edit_draft_proposal_path
-              end
+        end
       end
 
       def wizard_aside_back_text(from = nil)

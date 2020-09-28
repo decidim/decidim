@@ -124,7 +124,7 @@ describe "Edit collaborative_drafts", type: :system do
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
       expect(page).to have_no_content("Edit collaborative draft")
-      visit current_path + "/edit"
+      visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
     end
@@ -143,7 +143,7 @@ describe "Edit collaborative_drafts", type: :system do
       click_link "Access collaborative drafts"
       click_link collaborative_draft.title
       expect(page).to have_no_content("Edit collaborative draft")
-      visit current_path + "/edit"
+      visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
     end

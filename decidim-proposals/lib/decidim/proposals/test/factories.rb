@@ -265,9 +265,9 @@ FactoryBot.define do
       elsif skip_injection
         Decidim::Faker::Localized.localized { generate(:title) }
       elsif skip_i18n
-        "<script>alert(\"TITLE\");</script> " + generate(:title)
+        "<script>alert(\"TITLE\");</script> #{generate(:title)}"
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
       end
     end
     body do
@@ -276,9 +276,9 @@ FactoryBot.define do
       elsif skip_injection
         Decidim::Faker::Localized.localized { Faker::Lorem.sentences(number: 3).join("\n") }
       elsif skip_i18n
-        "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(number: 3).join("\n")
+        "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}"
       else
-        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(number: 3).join("\n") }
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{Faker::Lorem.sentences(number: 3).join("\n")}" }
       end
     end
     component { create(:proposal_component) }
@@ -447,8 +447,8 @@ FactoryBot.define do
       user_groups { [] }
     end
 
-    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
-    body { "<script>alert(\"BODY\");</script>\n" + Faker::Lorem.sentences(number: 3).join("\n") }
+    title { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+    body { "<script>alert(\"BODY\");</script>\n#{Faker::Lorem.sentences(number: 3).join("\n")}" }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     state { "open" }
@@ -478,8 +478,8 @@ FactoryBot.define do
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
-    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
-    description { "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(number: 3).join("\n") }
+    title { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+    description { "<script>alert(\"DESCRIPTION\");</script>\n#{Faker::Lorem.sentences(number: 3).join("\n")}" }
     component { create(:proposal_component) }
   end
 

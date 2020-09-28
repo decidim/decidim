@@ -71,11 +71,11 @@ module Decidim
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
+        order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order(sort_by_valuation_assignments_count_nulls_last_query + "DESC NULLS LAST")
+        order("#{sort_by_valuation_assignments_count_nulls_last_query}DESC NULLS LAST")
       }
 
       def self.with_valuation_assigned_to(user, space)

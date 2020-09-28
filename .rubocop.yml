@@ -263,6 +263,9 @@ Style/BlockDelimiters:
     - proc
     - it
 
+Style/HashLikeCase:
+  MinBranchesCount: 5
+
 # Indentation of `when`.
 Layout/CaseIndentation:
   EnforcedStyle: case

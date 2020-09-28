@@ -18,7 +18,7 @@ module Decidim
       end
 
       def participatory_space_event?
-        extra.dig(:participatory_space)
+        extra[:participatory_space]
       end
     end
   end

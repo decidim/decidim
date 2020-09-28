@@ -124,6 +124,6 @@ describe "Manage proposal wizard steps help texts", type: :system do
   end
 
   def preview_proposal_path(current_component, proposal)
-    Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal) + "/preview"
+    "#{Decidim::EngineRouter.main_proxy(current_component).proposal_path(proposal)}/preview"
   end
 end

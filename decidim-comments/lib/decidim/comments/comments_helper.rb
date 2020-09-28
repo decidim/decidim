@@ -40,7 +40,7 @@ module Decidim
       # node_id - The id of the DOMElement to render the React component
       # props   - A hash corresponding to Comments component props
       def react_comments_component(node_id, props)
-        content_tag("div", "", id: node_id) +
+        tag.div("", id: node_id) +
           javascript_include_tag("decidim/comments/comments") +
           javascript_tag(%{
             window.DecidimComments.renderCommentsComponent(
