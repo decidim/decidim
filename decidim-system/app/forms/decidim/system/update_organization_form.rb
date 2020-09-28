@@ -29,6 +29,7 @@ module Decidim
         [:authentication, String],
         [:enable_starttls_auto, Boolean]
       ]
+      attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
@@ -53,6 +54,7 @@ module Decidim
         self.omniauth_settings = Hash[(model.omniauth_settings || []).map do |k, v|
           [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v]
         end]
+        self.file_upload_settings = FileUploadSettingsForm.from_model(model.file_upload_settings)
       end
 
       def clean_secondary_hosts

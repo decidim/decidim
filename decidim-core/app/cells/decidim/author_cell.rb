@@ -18,6 +18,10 @@ module Decidim
 
     delegate :current_user, to: :controller, prefix: false
 
+    def author_name
+      options[:author_name_text] || model.name
+    end
+
     def show
       render
     end

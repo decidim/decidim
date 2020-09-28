@@ -1,7 +1,7 @@
 <div class="<%= card_class %>">
   <div class="card--list__text">
     <%= link_to budget_path(budget), class: link_class do %>
-      <% if voted? %>
+      <% if voted? && !voting_finished? %>
         <strong>
           <%= translated_attribute(title) %>
         </strong>
@@ -11,7 +11,7 @@
       <% else %>
         <%= translated_attribute(title) %>
 
-        <% if progress? %>
+        <% if progress? && !voting_finished? %>
           <span class="button tiny hollow secondary card--list__check card--list__check--disabled">
             <%= icon "bookmark", class: "icon--small", role: "img" %>
           </span>

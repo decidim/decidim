@@ -54,7 +54,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
     projects = Decidim::Budgets::FilteredProjects.for(components, start_at, end_at)
-    Decidim::Comments::Comment.where(root_commentable: projects).count
+    projects.sum(:comments_count)
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
@@ -63,6 +63,8 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true
@@ -80,7 +82,7 @@ Decidim.register_component(:budgets) do |component|
 
   component.settings(:step) do |settings|
     settings.attribute :comments_blocked, type: :boolean, default: false
-    settings.attribute :votes_enabled, type: :boolean, default: true
+    settings.attribute :votes, type: :enum, default: "enabled", choices: %w(disabled enabled finished)
     settings.attribute :show_votes, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
 
@@ -141,21 +143,21 @@ Decidim.register_component(:budgets) do |component|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
           attachment_collection: attachment_collection,
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg"))
         )
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-          attached_to: project
+          attached_to: project,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf"))
         )
         Decidim::Comments::Seed.comments_for(project)
       end

@@ -46,6 +46,7 @@ module Decidim
                     permission_action.action == :read
 
       return allow! if component.published?
+      return allow! if user_can_preview_component?
       return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
 
@@ -150,6 +151,14 @@ module Decidim
 
     def user_group_invitations_action?
       allow! if permission_action.subject == :user_group_invitations
+    end
+
+    def user_can_preview_component?
+      return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token])
+    rescue ActiveRecord::RecordNotFound
+      nil
+    rescue StandardError
+      nil
     end
 
     def user_can_admin_component?

@@ -6,6 +6,7 @@ module Decidim
     class LimitAnnouncementCell < BaseCell
       alias budget model
       delegate :voted?, :vote_allowed?, :discardable, :limit_reached?, to: :current_workflow
+      delegate :voting_open?, to: :controller
 
       def show
         cell("decidim/announcement", announcement_args) if announce?
@@ -14,7 +15,7 @@ module Decidim
       private
 
       def announce?
-        return unless current_settings.votes_enabled?
+        return unless voting_open?
         return unless current_user
         return if vote_allowed?(budget)
         return if voted?(budget)

@@ -190,6 +190,8 @@ ca:
             heading_leaf_level_results: Nom per a "Projectes"
             heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
             subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats

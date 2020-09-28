@@ -209,7 +209,7 @@ describe "Admin manages officializations", type: :system do
   end
 
   describe "retrieving the user email address" do
-    let!(:user) { create(:user, organization: organization) }
+    let!(:users) { create_list(:user, 3, organization: organization) }
 
     before do
       within ".secondary-nav" do
@@ -217,23 +217,29 @@ describe "Admin manages officializations", type: :system do
       end
     end
 
-    it "shows the user email to admin users and logs the action" do
-      within "tr[data-user-id=\"#{user.id}\"]" do
-        click_link "Show email"
-      end
+    it "shows the users emails to admin users and logs the action" do
+      users.each do |user|
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          click_link "Show email"
+        end
 
-      within "#show-email-modal" do
-        expect(page).to have_content("Show participant email address")
-        expect(page).not_to have_content(user.email)
+        within "#show-email-modal" do
+          expect(page).to have_content("Show participant email address")
+          expect(page).not_to have_content(user.email)
 
-        click_button "Show"
+          click_button "Show"
 
-        expect(page).to have_content(user.email)
+          expect(page).to have_content(user.email)
+
+          find("button[data-close]").click
+        end
       end
 
       visit decidim_admin.root_path
 
-      expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
+      users.each do |user|
+        expect(page).to have_content("#{admin.name} retrieved the email of the participant #{user.name}")
+      end
     end
   end
 end

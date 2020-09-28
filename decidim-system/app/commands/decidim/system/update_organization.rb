@@ -27,6 +27,9 @@ module Decidim
           save_organization
         end
 
+        # Ensure the runtime settings are updated
+        OrganizationSettings.reload(organization)
+
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
@@ -49,6 +52,7 @@ module Decidim
         organization.users_registration_mode = form.users_registration_mode
         organization.omniauth_settings = form.encrypted_omniauth_settings
         organization.smtp_settings = form.encrypted_smtp_settings
+        organization.file_upload_settings = form.file_upload_settings.final
 
         organization.save!
       end

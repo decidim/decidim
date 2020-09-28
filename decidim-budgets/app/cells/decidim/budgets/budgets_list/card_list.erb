@@ -1,6 +1,6 @@
 <div id="budgets" class="card card--list card--list--mini">
   <% budgets.each do |budget| %>
-    <% next if highlighted.include?(budget) %>
+    <% next if highlighted.include?(budget) && !voting_finished? %>
 
     <%= cell("decidim/budgets/budget_list_item", budget) %>
   <% end %>

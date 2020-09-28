@@ -15,7 +15,7 @@ module Decidim
           "question/#{question.id}/comments_count",
           expires_in: Decidim::Consultations.stats_cache_expiration_time
         ) do
-          Decidim::Comments::Comment.where(root_commentable: question).count
+          question.comments_count
         end
       end
 

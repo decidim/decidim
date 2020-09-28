@@ -29,12 +29,6 @@
       newsletter:
         body: Tekst
         subject: Emne
-      oauth_application:
-        name: Navn
-        organization_logo: Organisasjonslogo (Firkant)
-        organization_name: Navn på organisasjonen
-        organization_url: Orginasjonens URL
-        redirect_uri: Omdiriger URI
       organization:
         address: SMTP vertsnavn
         alert_color: Varsel
@@ -62,6 +56,8 @@
         highlighted_content_banner_title: Tittel
         instagram_handler: Instagram brukernavn
         logo: Logo
+        machine_translation_display_priority_original: Orginal tekst først
+        machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
         official_img_footer: Offisiell logo footer
         official_img_header: Offisiell logo header
@@ -115,10 +111,6 @@
         file: Fil
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Omdirigerings URI må være en SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -326,6 +318,8 @@
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
           title_cont: Søk %{collection} etter tittel.
+        state_eq:
+          label: Tilstand
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -388,7 +382,6 @@
         homepage: Hjemmeside
         impersonations: Etterligninger
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth applikasjoner
         participants: Deltakere
         scope_types: Tematyper
         scopes: Tema
@@ -435,11 +428,6 @@
             sent_to: Send til
             subject: Emne
           name: Nyhetsbrev
-        oauth_application:
-          fields:
-            created_at: Opprettet på
-            name: Navn
-          name: OAuth applikasjon
         participatory_space_private_user:
           name: Deltakerområdets private deltaker
         scope:
@@ -546,25 +534,6 @@
         update:
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
-      oauth_applications:
-        create:
-          error: Det oppstod et problem med å oppdatere denne applikasjonen.
-          success: Søknaden ble opprettet.
-        destroy:
-          error: Det oppstod et problem med å ødelegge denne applikasjonen.
-          success: Søknaden ble ødelagt.
-        edit:
-          save: Lagre
-          title: Rediger applikasjon
-        index:
-          confirm_delete: Er du sikker på at du vil slette dette programmet?
-          title: OAuth applikasjoner
-        new:
-          save: Lagre
-          title: Ny applikasjon
-        update:
-          error: Det oppstod et problem med å oppdatere denne applikasjonen.
-          success: Søknaden ble oppdatert.
       officializations:
         create:
           success: Deltaker ble offisialisert

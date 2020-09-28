@@ -52,7 +52,8 @@ module Decidim
             category: form.category,
             title: form.title,
             description: form.description,
-            budget_amount: form.budget_amount
+            budget_amount: form.budget_amount,
+            selected_at: selected_at
           )
         end
 
@@ -62,6 +63,12 @@ module Decidim
 
         def link_proposals
           project.link_resources(proposals, "included_proposals")
+        end
+
+        def selected_at
+          return unless form.selected
+
+          Time.current
         end
       end
     end

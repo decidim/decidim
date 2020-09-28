@@ -6,7 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
@@ -85,6 +85,18 @@ module Decidim
       # Public: Whether the object can have new comments or not.
       def user_allowed_to_comment?(user)
         component.can_participate_in_space?(user)
+      end
+
+      # Public: Checks if the project has been selected or not.
+      #
+      # Returns Boolean.
+      def selected?
+        selected_at.present?
+      end
+
+      # Public: Returns the attachment context for this record.
+      def attachment_context
+        :admin
       end
     end
   end

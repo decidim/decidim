@@ -21,6 +21,8 @@ fi-pl:
           global:
             announcement: Ilmoitus
             clean_after_publish: Poista vastaukset julkaistaessa kysely
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn

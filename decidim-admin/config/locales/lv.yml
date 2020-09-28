@@ -27,12 +27,6 @@ lv:
       newsletter:
         body: Pamatteksts
         subject: Temats
-      oauth_application:
-        name: Nosaukums
-        organization_logo: Organizācijas logotips (kvadrāts)
-        organization_name: Organizācijas nosaukums
-        organization_url: Organizācijas URL
-        redirect_uri: Novirzīšanas URI
       organization:
         address: SMTP saimniekdatora nosaukums
         alert_color: Brīdinājums
@@ -109,10 +103,6 @@ lv:
         file: Fails
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Novirzīšanas URI jābūt SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -377,7 +367,6 @@ lv:
         homepage: Sākumlapa
         impersonations: Uzdošanās par citu personu
         newsletters: Informatīvie biļeteni
-        oauth_applications: OAuth lietojumprogrammas
         participants: Dalībnieki
         scope_types: Tvēruma veidi
         scopes: Darbības tvērums
@@ -423,11 +412,6 @@ lv:
             sent_to: Nosūtīts
             subject: Temats
           name: Informatīvais biļetens
-        oauth_application:
-          fields:
-            created_at: Izveidots plkst.
-            name: Nosaukums
-          name: OAuth lietojumprogramma
         participatory_space_private_user:
           name: Līdzdalības telpas privāts dalībnieks
         scope:
@@ -534,25 +518,6 @@ lv:
         update:
           error: Šī informatīvā biļetena atjaunināšanas laikā radās problēma.
           success: Informatīvais biļetens ir veiksmīgi atjaunināts. Lūdzu, pārskatiet to pirms nosūtīšanas.
-      oauth_applications:
-        create:
-          error: Šī pieteikuma izveides laikā radās problēma.
-          success: Pieteikums ir veiksmīgi izveidots.
-        destroy:
-          error: Šī pieteikuma dzēšanas laikā radās problēma.
-          success: Pieteikums ir veiksmīgi dzēsts.
-        edit:
-          save: Saglabāt
-          title: Labot pieteikumu
-        index:
-          confirm_delete: Vai tiešām vēlaties dzēst šo pieteikumu?
-          title: OAuth lietojumprogrammas
-        new:
-          save: Saglabāt
-          title: Jauns pieteikums
-        update:
-          error: Šī pieteikuma atjaunināšanas laikā radās problēma.
-          success: Pieteikums ir veiksmīgi atjaunināts.
       officializations:
         create:
           success: Oficiālais statuss dalībniekam veiksmīgi piešķirts

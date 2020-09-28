@@ -104,7 +104,7 @@ describe "Admin manages elections", type: :system do
 
   describe "publishing an election" do
     context "when the election is unpublished" do
-      let!(:election) { create(:election, :upcoming, component: current_component) }
+      let!(:election) { create(:election, :upcoming, :complete, component: current_component) }
 
       it "publishes the election" do
         within find("tr", text: translated(election.title)) do

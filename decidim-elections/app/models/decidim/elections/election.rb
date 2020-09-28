@@ -60,6 +60,15 @@ module Decidim
         started? && !finished?
       end
 
+      # Public: Checks if the election questions are valid
+      #
+      # Returns a boolean.
+      def valid_questions?
+        questions.each do |question|
+          return false unless question.valid_max_selection?
+        end
+      end
+
       # Public: Gets the voting period status of the election
       #
       # Returns one of these symbols: upcoming, ongoing or finished

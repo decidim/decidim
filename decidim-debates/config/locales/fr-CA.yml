@@ -35,6 +35,8 @@ fr-CA:
             announcement: Annonce
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -79,6 +81,8 @@ fr-CA:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+      debate_m:
+        commented_time_ago: Commenté il y a %{time}
       debates:
         close:
           invalid: Une erreur s'est produite lors de la fermeture du débat.
@@ -180,6 +184,11 @@ fr-CA:
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
+          email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+          email_subject: Le débat "%{resource_title}" est fermé
+          notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
     gamification:
       badges:
         commented_debates:

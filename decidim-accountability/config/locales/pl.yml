@@ -194,6 +194,8 @@ pl:
             heading_leaf_level_results: Nagłówek dla "Projektów"
             heading_parent_level_results: Nagłówek dla "Wyników"
             intro: Wprowadzenie
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
             subcategories_label: Nagłówek dla "Podkategorii"
           step:
             comments_blocked: Komentarze zablokowane

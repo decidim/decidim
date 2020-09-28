@@ -2,7 +2,7 @@ pl:
   activemodel:
     attributes:
       area:
-        area_type: Typ obszaru
+        area_type: Typ kategorii
         name: Nazwa
         organization: Organizacja
       area_type:
@@ -29,12 +29,6 @@ pl:
       newsletter:
         body: Treść
         subject: Temat
-      oauth_application:
-        name: Nazwa
-        organization_logo: Logo organizacji (kwadrat)
-        organization_name: Nazwa organizacji
-        organization_url: Adres www organizacji
-        redirect_uri: Przekierowanie URI
       organization:
         address: Nazwa hosta SMTP
         alert_color: Powiadomienie
@@ -118,10 +112,6 @@ pl:
         file: Plik
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Przekierowanie URI musi być identyfikatorem URI protokołu SSL
         organization:
           attributes:
             official_img_footer:
@@ -153,6 +143,7 @@ pl:
         per_page: Na stronę
         permissions: Uprawnienia
         reject: Odrzuć
+        share: Udostępnij
         verify: Zweryfikuj
       admin_terms_of_use:
         accept:
@@ -170,36 +161,36 @@ pl:
         title: Warunki użytkowania dla administratorów
       area_types:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego typu obszaru.
-          success: Typ obszaru został pomyślnie utworzony.
+          error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
+          success: Typ kategorii został pomyślnie utworzony.
         destroy:
-          success: Typ obszaru został usunięty
+          success: Typ kategorii został usunięty
         edit:
-          title: Edytuj typ obszaru
+          title: Edytuj typ kategorii
           update: Aktualizuj
         new:
-          create: Utwórz typ obszaru
-          title: Nowy typ obszaru
+          create: Utwórz typ kategorii
+          title: Nowy typ kategorii
         update:
-          error: Wystąpił błąd podczas aktualizowania tego typu obszaru.
-          success: Typ obszaru został pomyślnie zaktualizowany
+          error: Wystąpił błąd podczas aktualizowania tego typu kategorii.
+          success: Typ kategorii został pomyślnie zaktualizowany
       areas:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego obszaru.
-          success: Obszar utworzony pomyślnie.
+          error: Wystąpił błąd podczas tworzenia nowej ketegorii.
+          success: Kategoria została utworzona.
         destroy:
-          has_spaces: Obszar ma elementy zależne; aby można było go usunąć, nie może mieć elementów zależnych.
-          success: Obszar został usunięty
+          has_spaces: Kategoria ma elementy zależne; aby można było ją usunąć, nie może mieć elementów zależnych.
+          success: Kategoria została usunięta
         edit:
-          title: Edytuj obszar
+          title: Edytuj kategorię
           update: Aktualizuj
         new:
-          create: Utwórz obszar
-          title: Nowy obszar
-        no_areas: Brak obszarów
+          create: Utwórz kategorię
+          title: Nowa kategoria
+        no_areas: Brak kategorii
         update:
-          error: Wystąpił błąd podczas aktualizowania tego obszaru.
-          success: Obszar zaktualizowany pomyślnie
+          error: Wystąpił błąd podczas aktualizowania tej kategorii.
+          success: Kategoria została zaktualizowana
       attachment_collections:
         create:
           error: Wystąpił błąd podczas tworzenia nowego folderu.
@@ -272,14 +263,15 @@ pl:
           title: Edytuj komponent
           update: Aktualizuj
         form:
-          default_step_settings: Domyślne ustawienia kroków
+          default_step_settings: Domyślne ustawienia etapów
           global_settings: Ustawienia ogólne
-          step_settings: Ustawienia kroku
+          step_settings: Ustawienia etapu
         index:
           add: Dodaj komponent
           headers:
             actions: Działania
             name: Nazwa komponentu
+            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent
@@ -385,15 +377,14 @@ pl:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
-        area_types: Typy obszarów
-        areas: Obszary
+        area_types: Typy kategorii
+        areas: Kategorie
         configuration: Konfiguracja
         dashboard: Panel
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
         newsletters: Newslettery
-        oauth_applications: Aplikacje OAuth
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -407,7 +398,7 @@ pl:
       models:
         area:
           fields:
-            area_type: Typ obszaru
+            area_type: Typ kategorii
             name: Nazwa
         area_type:
           fields:
@@ -440,11 +431,6 @@ pl:
             sent_to: Wysłano do
             subject: Temat
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Utworzono
-            name: Nazwa
-          name: Aplikacja OAuth
         participatory_space_private_user:
           name: Użytkownik prywatnej przestrzeni partycypacyjnej
         scope:
@@ -455,6 +441,14 @@ pl:
           fields:
             name: Nazwa
             plural: Liczba mnoga
+        share_token:
+          fields:
+            created_at: Utworzono
+            expires_at: Wygasa
+            last_used_at: Ostatnio używane
+            times_used: Ilość użyć
+            token: Token
+            user: Utworzony przez
         static_page:
           fields:
             created_at: Utworzono
@@ -551,25 +545,6 @@ pl:
         update:
           error: Podczas aktualizowania tego newslettera wystąpił błąd.
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
-      oauth_applications:
-        create:
-          error: Wystąpił błąd podczas tworzenia tej aplikacji.
-          success: Aplikacja została utworzona pomyślnie.
-        destroy:
-          error: Wystąpił błąd podczas usuwania tej aplikacji.
-          success: Aplikacja została usunięta pomyślnie.
-        edit:
-          save: Zapisz
-          title: Edytuj aplikację
-        index:
-          confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
-          title: Aplikacje OAuth
-        new:
-          save: Zapisz
-          title: Nowa aplikacja
-        update:
-          error: Wystąpił błąd podczas aktualizowania tej aplikacji.
-          success: Aplikacja została zaktualizowana.
       officializations:
         create:
           success: Użytkownik oficjalnie z powodzeniem
@@ -580,7 +555,7 @@ pl:
           badge: Odznaka
           created_at: Utworzono
           name: Nazwa
-          nickname: Alias
+          nickname: Pseudonim
           not_officialized: Nieoficjalny
           officialize: Oficjalizuj
           officialized: Oficjalny
@@ -665,6 +640,10 @@ pl:
           title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
+      resources:
+        index:
+          headers:
+            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -696,6 +675,18 @@ pl:
         update:
           error: Podczas aktualizowania tego zakresu wystąpił błąd.
           success: Zakres został zaktualizowany
+      share_tokens:
+        actions:
+          confirm_destroy: Czy jesteś pewien, że chcesz usunąć ten token?
+          destroy: Usuń
+          share: Udostępnij
+        destroy:
+          error: Wystąpił błąd podczas usuwania tokenu.
+          success: Token został usunięty.
+        share_tokens:
+          empty: Brak aktywnych tokenów
+          help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
+          title: Udostępnij tokeny
       shared:
         gallery:
           add_images: Dodaj obrazy
@@ -746,8 +737,8 @@ pl:
           success: Strona została zaktualizowana
       titles:
         admin_log: Logi administratora
-        area_types: Rodzaje obszarów
-        areas: Obszary
+        area_types: Typy kategorii
+        areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
         impersonatable_users: Zarządzaj użytkownikami

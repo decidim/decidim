@@ -1,4 +1,18 @@
 fr:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nom de l'application OAuth
+        organization_logo: Logo de l'organisation (carré)
+        organization_name: Organisation
+        organization_url: URL de l'organisation
+        redirect_uri: URI de redirection
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirection doit être une URI SSL
   decidim:
     system:
       actions:
@@ -32,6 +46,7 @@ fr:
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
+        oauth_applications: Applications OAuth
         organizations: Organisations
       models:
         admin:
@@ -41,6 +56,12 @@ fr:
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        oauth_application:
+          fields:
+            created_at: Créée le
+            name: Nom de l'application OAuth
+            organization_name: Organisation
+          name: Application OAuth
         organization:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
@@ -50,6 +71,27 @@ fr:
             omniauth_settings: Paramètres Omniauth
             smtp_settings: Paramètres SMTP
           name: Organisation
+      oauth_applications:
+        create:
+          error: Un problème est survenu lors de la création de cette application.
+          success: Application créée avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression de cette application.
+          success: Application supprimée avec succès.
+        edit:
+          save: Enregistrer
+          title: Modifier l'application
+        form:
+          select_organization: Sélectionnez une organisation
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
+          title: Applications OAuth
+        new:
+          save: Enregistrer
+          title: Nouvelle application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette application.
+          success: Application mise à jour avec succès.
       organizations:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.

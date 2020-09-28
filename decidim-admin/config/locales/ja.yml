@@ -29,12 +29,6 @@ ja:
       newsletter:
         body: 本文
         subject: 件名
-      oauth_application:
-        name: 名前
-        organization_logo: 組織のロゴ (正方形)
-        organization_name: 組織名
-        organization_url: 取引先URL
-        redirect_uri: リダイレクトURI
       organization:
         address: SMTP hostname
         alert_color: アラート
@@ -118,10 +112,6 @@ ja:
         file: ファイル
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: リダイレクト URI は SSL URI でなければなりません
         organization:
           attributes:
             official_img_footer:
@@ -393,7 +383,6 @@ ja:
         homepage: ホームページ
         impersonations: なりすまし
         newsletters: ニュースレター
-        oauth_applications: OAuthアプリケーション
         participants: 参加者
         scope_types: スコープの種類
         scopes: スコープ
@@ -440,11 +429,6 @@ ja:
             sent_to: '送信先:'
             subject: 件名
           name: ニュースレター
-        oauth_application:
-          fields:
-            created_at: 作成日時
-            name: 名前
-          name: OAuthアプリケーション
         participatory_space_private_user:
           name: 参加スペースプライベート参加者
         scope:
@@ -551,25 +535,6 @@ ja:
         update:
           error: このニュースレターの更新中に問題が発生しました。
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
-      oauth_applications:
-        create:
-          error: このアプリケーションの作成中に問題が発生しました。
-          success: アプリケーションの作成に成功しました。
-        destroy:
-          error: このアプリケーションを破壊する際に問題が発生しました。
-          success: アプリケーションが正常に破棄されました。
-        edit:
-          save: 保存
-          title: アプリケーションを編集
-        index:
-          confirm_delete: このアプリケーションを削除してもよろしいですか？
-          title: OAuthアプリケーション
-        new:
-          save: 保存
-          title: 新しいアプリケーション
-        update:
-          error: このアプリケーションの更新に問題がありました。
-          success: アプリケーションが更新されました。
       officializations:
         create:
           success: 参加者が正常に公式化されました

@@ -10,7 +10,6 @@ ja:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
-        subtitle: サブタイトル
         title: タイトル
       question:
         description: 説明

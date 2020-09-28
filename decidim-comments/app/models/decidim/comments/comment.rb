@@ -14,7 +14,6 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::TranslatableResource
-
       include Decidim::TranslatableAttributes
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
@@ -26,20 +25,31 @@ module Decidim
       MAX_DEPTH = 3
 
       translatable_fields :body
+
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
-      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
+      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
+      # Updates the counter caches for the root_commentable when a comment is
+      # created or updated.
+      after_save :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # deleted.
+      after_destroy :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # touched, which happens when a comment was reported and its moderation
+      # is accepted and sets the comment as hidden.
+      after_touch :update_counter
+
+      before_validation :compute_depth
       validates :body, presence: true
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
-
       validate :body_length
-
       validate :commentable_can_have_comments
-
-      before_validation :compute_depth
 
       delegate :organization, to: :commentable
 
@@ -185,6 +195,12 @@ module Decidim
       # Private: converts the string from markdown to html
       def render_markdown(string)
         markdown.render(string)
+      end
+
+      def update_counter
+        return unless root_commentable
+
+        root_commentable.update_comments_count
       end
     end
   end

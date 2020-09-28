@@ -18,6 +18,8 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true

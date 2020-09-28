@@ -7,7 +7,7 @@
         <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
       </div>
     </div>
-    <% if !current_order_checked_out? && current_settings.votes_enabled? %>
+    <% if !current_order_checked_out? && voting_open? %>
       <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
         <%= t(".vote") %>
       </button>
@@ -22,7 +22,7 @@
           <span class="progress-meter-text progress-meter-text--right"><%= current_order_budget_percent %>%</span>
         </div>
       </div>
-      <% if !current_order_checked_out? && current_settings.votes_enabled? %>
+      <% if !current_order_checked_out? && voting_open? %>
         <button class="button small button--sc" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
           <%= t(".vote") %>
         </button>

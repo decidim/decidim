@@ -2,7 +2,6 @@ pt:
   activemodel:
     attributes:
       project:
-        budget: Orçamento
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -22,7 +21,6 @@ pt:
         destroy: Excluir
         edit: Editar
         import: Importar propostas para os projetos
-        new: Novo projeto
         preview: Pré-visualização
         title: Ações
       admin:
@@ -67,7 +65,6 @@ pt:
             title: Título
       projects:
         budget_confirm:
-          are_you_sure: Você concorda? Depois de confirmar o seu voto, não pode alterá-lo.
           cancel: Cancelar
           confirm: confirme
           description: Estes são os projetos que você escolheu para fazer parte do orçamento.
@@ -108,9 +105,6 @@ pt:
             other: projetos selecionados
           view: Visão
         project:
-          count:
-            one: 1 suporte
-            other: "%{count} suporta"
           view: Ver
         show:
           budget: Orçamento
@@ -132,7 +126,8 @@ pt:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votação habilitada
+            votes_choices:
+              enabled: Votação habilitada
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto

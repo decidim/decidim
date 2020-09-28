@@ -26,8 +26,11 @@
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
+        area_enabled: Muliggjør at forfattere velger område for sitt initiativ
+        attachments_enabled: Aktiver vedlegg
         banner_image: Bannerafbeelding
         collect_user_extra_fields: Samle deltakerens personlige data ved signatur
+        custom_signature_end_date_enabled: Muliggjør at forfattere kan velge slutten av signaturinnsamlingsperioden
         description: Beskrivelse
         document_number_authorization_handler: Fullmakt til å verifisere dokumentnummer på underskrifter
         extra_fields_legal_information: Juridisk informasjon om innsamling av personopplysninger
@@ -46,6 +49,14 @@
         address: Adresse
         id_document: ID dokument
         name: Komplett navn
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Filen er ugyldig
+              needs_to_be_reattached: Må festes på nytt
+              title: Tittelen bør ikke være tom
   activerecord:
     models:
       decidim/initiative:
@@ -61,6 +72,23 @@
     admin:
       actions:
         new_initiative_type: Ny intiativtype
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Område
+          state_eq:
+            label: Tilstand
+            values:
+              accepted: Nok signaturer
+              created: Opprettet
+              discarded: Forkastet
+              published: Publisert
+              rejected: Ikke nok signaturer
+              validating: Teknisk validering
+          type_id_eq:
+            label: Type
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Søk i %{collection} etter tittel, beskrivelse, ID eller forfatternavn.
       menu:
         initiatives: Initiativer
         initiatives_types: Initiativtyper
@@ -69,6 +97,7 @@
           fields:
             created_at: Opprettet på
             id: ID
+            published_at: Publisert i
             state: Status
             supports_count: Underskrifter
             title: Initiativer
@@ -101,6 +130,12 @@
         initiatives_types: Initiativtyper
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Initiativet "%{resource_title}" er sendt til teknisk validering. Sjekk det ut i <a href="%{admin_initiative_url}">admin panelet</a>
+            email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+            email_subject: Initiativ "%{resource_title}" ble sendt til teknisk validering.
+            notification_title: Initiativet "%{resource_title}" er sendt til teknisk validering. Sjekk det ut i <a href="%{admin_initiative_path}">admin panelet</a>
         initiative_extended:
           email_intro: Slutdatoen for signaturene for initiativet %{resource_title} er blitt utvidet!
           email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
@@ -117,6 +152,11 @@
             email_outro: Du har mottatt denne varslingen fordi du følger %{resource_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
             email_subject: Ny milepæl fullført!
             notification_title: <a href="%{resource_path}">%{resource_title}</a> initiativet har oppnådd de %{percentage}% av signaturer.
+        support_threshold_reached:
+          email_intro: Initiativet %{resource_title} har nådd grensen for støtte
+          email_outro: Du har mottatt dette varselet fordi du er en administrator av plattformen.
+          email_subject: Støtteterskelen er nådd
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nådd terskelen for støtte
     gamification:
       badges:
         initiatives:
@@ -161,6 +201,8 @@
         content_blocks:
           highlighted_initiatives:
             max_results: Maksimal mengde elementer som skal vises
+        exports:
+          initiatives: Initiativer
         initiatives:
           edit:
             accept: Godta initiativ
@@ -173,6 +215,7 @@
             success: Initiativet er sendt til teknisk validering
             update: Oppdater
           form:
+            attachments: Vedlegg
             title: Generell informasjon
           index:
             actions_title: Handling

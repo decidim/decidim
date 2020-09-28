@@ -17,7 +17,7 @@ module Decidim
         def available_orders
           @available_orders ||= begin
             available_orders = []
-            available_orders << "random" if voting_is_open? || !votes_are_visible?
+            available_orders << "random" if voting_open? || !votes_are_visible?
             available_orders << "most_voted" if votes_are_visible?
             available_orders += %w(highest_cost lowest_cost)
             available_orders
@@ -26,10 +26,6 @@ module Decidim
 
         def default_order
           available_orders.first
-        end
-
-        def voting_is_open?
-          current_settings.votes_enabled?
         end
 
         def votes_are_visible?
