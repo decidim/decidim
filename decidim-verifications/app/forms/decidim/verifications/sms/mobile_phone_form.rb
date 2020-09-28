@@ -26,7 +26,7 @@ module Decidim
         def mobile_phone_number
           return unless super
 
-          super.gsub(/[^\+0-9]/, "")
+          super.gsub(/[^+0-9]/, "")
         end
 
         # The verification metadata to validate in the next step.

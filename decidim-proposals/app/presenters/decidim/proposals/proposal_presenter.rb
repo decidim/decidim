@@ -95,13 +95,13 @@ module Decidim
       private
 
       def sanitize_unordered_lists(text)
-        text.gsub(%r{(?=.*<\/ul>)(?!.*?<li>.*?<\/ol>.*?<\/ul>)<li>}) { |li| li + "• " }
+        text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| li + "• " }
       end
 
       def sanitize_ordered_lists(text)
         i = 0
 
-        text.gsub(%r{(?=.*<\/ol>)(?!.*?<li>.*?<\/ul>.*?<\/ol>)<li>}) do |li|
+        text.gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
           i += 1
 
           li + "#{i}. "

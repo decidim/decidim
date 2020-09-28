@@ -11,7 +11,7 @@ class BudgetsWorkflowRandom < Decidim::Budgets::Workflows::Base
   end
 
   # User can vote in the resource where they have an order in progress or in the randomly selected resource.
-  def vote_allowed?(resource, consider_progress = true)
+  def vote_allowed?(resource, consider_progress: true)
     return false if voted.any?
 
     if consider_progress

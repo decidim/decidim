@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe NotifyProposalsMentionedJob do
-      include_context "when creating a comment"
       subject { described_class }
+
+      include_context "when creating a comment"
 
       let(:comment) { create(:comment, commentable: commentable) }
       let(:proposal_component) { create(:proposal_component, organization: organization) }

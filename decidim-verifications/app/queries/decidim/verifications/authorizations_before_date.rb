@@ -34,13 +34,11 @@ module Decidim
 
         query = query.where("#{Decidim::Authorization.table_name}.created_at < ?", date) unless date.nil?
 
-        query = if granted
-                  query.where.not(granted_at: nil)
-                else
-                  query.where(granted_at: nil)
-                end
-
-        query
+        if granted
+          query.where.not(granted_at: nil)
+        else
+          query.where(granted_at: nil)
+        end
       end
 
       private

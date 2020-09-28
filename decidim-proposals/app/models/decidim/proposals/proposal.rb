@@ -285,7 +285,7 @@ module Decidim
 
       # Defines the base query so that ransack can actually sort by this value
       def self.sort_by_valuation_assignments_count_nulls_last_query
-        <<-SQL
+        <<-SQL.squish
         (
           SELECT COUNT(decidim_proposals_valuation_assignments.id)
           FROM decidim_proposals_valuation_assignments
@@ -297,7 +297,7 @@ module Decidim
 
       # method to filter by assigned valuator role ID
       def self.valuator_role_ids_has(value)
-        query = <<-SQL
+        query = <<-SQL.squish
         :value = any(
           (SELECT decidim_proposals_valuation_assignments.valuator_role_id
           FROM decidim_proposals_valuation_assignments
@@ -338,7 +338,7 @@ module Decidim
       end
 
       ransacker :is_emendation do |_parent|
-        query = <<-SQL
+        query = <<-SQL.squish
         (
           SELECT EXISTS (
             SELECT 1 FROM decidim_amendments

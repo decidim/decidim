@@ -11,7 +11,7 @@ module Decidim
         end
 
         # Users can vote in any budget with this workflow, but only in one.
-        def vote_allowed?(resource, consider_progress = true)
+        def vote_allowed?(resource, consider_progress: true)
           return false if voted.any?
 
           if consider_progress

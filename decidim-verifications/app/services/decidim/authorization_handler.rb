@@ -48,7 +48,7 @@ module Decidim
     #
     # Returns a String.
     def to_partial_path
-      handler_name.sub!(/_handler$/, "") + "/form"
+      "#{handler_name.sub!(/_handler$/, "")}/form"
     end
 
     # Any data that the developer would like to inject to the `metadata` field

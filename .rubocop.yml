@@ -29,6 +29,7 @@ AllCops:
   # behavior by overriding ExtraDetails, or by giving the
   # -E/--extra-details option.
   ExtraDetails: false
+  NewCops: enable
   # Additional cops that do not reference a style guide rule may be enabled by
   # default. Change behavior by overriding StyleGuideCopsOnly, or by giving
   # the --only-guide-cops option.
@@ -770,6 +771,9 @@ Style/PercentQLiterals:
     - lower_case_q # Use %q when possible, %Q when necessary
     - upper_case_q # Always use %Q
 
+Style/SlicingWithRange:
+  Enabled: false
+
 Naming/PredicateName:
   # Predicate name prefixes.
   NamePrefix:
@@ -1085,19 +1089,8 @@ Metrics/ModuleLength:
 Metrics/CyclomaticComplexity:
   Max: 9
   Exclude:
+    - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
-
-Metrics/LineLength:
-  Max: 180
-  # To make it possible to copy or click on URIs in the code, we allow lines
-  # containing a URI to be longer than Max.
-  AllowHeredoc: true
-  AllowURI: true
-  URISchemes:
-    - http
-    - https
-  Exclude:
-    - "**/spec/**/*"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1113,6 +1106,7 @@ Metrics/ParameterLists:
 Metrics/PerceivedComplexity:
   Max: 10
   Exclude:
+    - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
 ##################### Lint ##################################
@@ -1125,6 +1119,10 @@ Lint/AmbiguousBlockAssociation:
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
   AllowSafeAssignment: true
+
+# Call super to initialize state of the parent class.
+Lint/MissingSuper:
+  Enabled: false
 
 # checks whether the end keywords are aligned properly for `do` `end` blocks.
 Layout/BlockAlignment:
@@ -1161,6 +1159,18 @@ Lint/InheritException:
   SupportedStyles:
     - runtime_error
     - standard_error
+
+Layout/LineLength:
+  Max: 180
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Exclude:
+    - "**/spec/**/*"
 
 # Checks for unused block arguments
 Lint/UnusedBlockArgument:
@@ -1218,6 +1228,9 @@ RSpec/MessageSpies:
 
 RSpec/MultipleExpectations:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 25
 
 RSpec/NestedGroups:
   Max: 7

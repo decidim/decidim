@@ -41,7 +41,7 @@ module Decidim
         end
 
         it "increments the accepted proposals counter" do
-          expect { subject }.to change { Gamification.status_for(proposal.creator_author, :accepted_proposals).score } .by(1)
+          expect { subject }.to change { Gamification.status_for(proposal.creator_author, :accepted_proposals).score }.by(1)
         end
 
         context "when the proposal is rejected after being accepted" do
@@ -67,7 +67,7 @@ module Decidim
           end
 
           it "decrements the accepted proposals counter" do
-            expect { subject }.to change { Gamification.status_for(proposal.coauthorships.first.author, :accepted_proposals).score } .by(-1)
+            expect { subject }.to change { Gamification.status_for(proposal.coauthorships.first.author, :accepted_proposals).score }.by(-1)
           end
         end
 

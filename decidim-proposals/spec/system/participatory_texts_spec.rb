@@ -40,7 +40,7 @@ describe "Participatory texts", type: :system do
       end
     end
 
-    context " when participatory text level is not article" do
+    context "when participatory text level is not article" do
       it "not renders the participatory text body" do
         proposal_section = proposals.first
         proposal_section.participatory_text_level = "section"

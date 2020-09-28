@@ -73,7 +73,7 @@ module Decidim
         def proposals_admin_filter_applied_filters
           html = []
           if params[:q][:is_emendation_true].present?
-            html << content_tag(:span, class: "label secondary") do
+            html << tag.span(class: "label secondary") do
               tag = "#{t("filters.type", scope: "decidim.proposals.proposals")}: "
               tag += if params[:q][:is_emendation_true].to_s == "1"
                        t("amendments", scope: "decidim.proposals.application_helper.filter_type_values")
@@ -86,7 +86,7 @@ module Decidim
             end
           end
           if params[:q][:state_null]
-            html << content_tag(:span, class: "label secondary") do
+            html << tag.span(class: "label secondary") do
               tag = "#{t("models.proposal.fields.state", scope: "decidim.proposals")}: "
               tag += humanize_proposal_state "not_answered"
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:state_null), per_page: per_page), t("decidim.admin.actions.cancel"),
@@ -95,7 +95,7 @@ module Decidim
             end
           end
           if params[:q][:state_eq]
-            html << content_tag(:span, class: "label secondary") do
+            html << tag.span(class: "label secondary") do
               tag = "#{t("models.proposal.fields.state", scope: "decidim.proposals")}: "
               tag += humanize_proposal_state params[:q][:state_eq]
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:state_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
@@ -104,7 +104,7 @@ module Decidim
             end
           end
           if params[:q][:category_id_eq]
-            html << content_tag(:span, class: "label secondary") do
+            html << tag.span(class: "label secondary") do
               tag = "#{t("models.proposal.fields.category", scope: "decidim.proposals")}: "
               tag += translated_attribute categories.find(params[:q][:category_id_eq]).name
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:category_id_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
@@ -113,7 +113,7 @@ module Decidim
             end
           end
           if params[:q][:scope_id_eq]
-            html << content_tag(:span, class: "label secondary") do
+            html << tag.span(class: "label secondary") do
               tag = "#{t("models.proposal.fields.scope", scope: "decidim.proposals")}: "
               tag += translated_attribute Decidim::Scope.where(decidim_organization_id: current_component.organization.id).find(params[:q][:scope_id_eq]).name
               tag += icon_link_to("circle-x", url_for(q: ransak_params_for_query_without(:scope_id_eq), per_page: per_page), t("decidim.admin.actions.cancel"),
