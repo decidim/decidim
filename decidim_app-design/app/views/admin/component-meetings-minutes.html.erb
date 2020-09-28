@@ -41,7 +41,7 @@
               <% 5.times do %>
                 <tr>
                   <td><input type="checkbox"></td>
-                  <td><%= Faker::FamilyGuy.quote %></td>
+                  <td><%= Faker::TvShows::FamilyGuy.quote %></td>
                   <td><%= Faker::Date.forward(1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(1).strftime("%R") %></td>
                   <td><u>Gestionar</u></td>
                   <td><%= Faker::Boolean.boolean(0.5) ? raw("<u>Gestionar</u>") : raw("&#8212;") %></td>
@@ -86,7 +86,7 @@
               <% 5.times do %>
                 <tr>
                   <td><input type="checkbox"></td>
-                  <td><%= Faker::FamilyGuy.quote %></td>
+                  <td><%= Faker::TvShows::FamilyGuy.quote %></td>
                   <td><%= Faker::Date.forward(1).strftime("%d/%m/%y") %>&nbsp;&#8212;&nbsp;<%= Faker::Time.forward(1).strftime("%R") %>&nbsp;-&nbsp;<%= Faker::Time.forward(1).strftime("%R") %></td>
                   <td><u>Ver</u></td>
                   <td><%= Faker::Boolean.boolean(0.25) ? raw("<u>Ver</u>") : raw("&#8212;") %></td>

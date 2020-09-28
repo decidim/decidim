@@ -21,7 +21,7 @@
                 <div class="card__header">
                   <%= link_to page_path("proposal-view"), class: "card__link" do %>
                   <h5 class="card__title">
-                    <%= Faker::StarWars.quote[0..75] %>
+                    <%= Faker::Movies::StarWars.quote[0..75] %>
                   </h5>
                   <% end %>
                   <div class="card__author">
@@ -107,7 +107,7 @@
                 <div class="card__header">
                   <%= link_to page_path("proposal-view"), class: "card__link" do %>
                     <h5 class="card__title">
-                      <%= Faker::StarWars.quote[0..75] %>
+                      <%= Faker::Movies::StarWars.quote[0..75] %>
                     </h5>
                   <% end %>
                   <div class="card__author">
@@ -180,7 +180,7 @@
                 </div>
                 <div class="card__text card--picture-offset">
                   <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
-                  <div><small><%= Faker::StarWars.vehicle %></small></div>
+                  <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
                   <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
                   <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
                 </div>

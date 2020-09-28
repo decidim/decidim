@@ -29,7 +29,7 @@
             Con: <strong><%= Faker::Name.name %><span class="muted">&nbsp;@<%= Faker::Twitter.screen_name %></span></strong>
           <% end %>
           <br>
-          <span class="muted"><%= Faker::FamilyGuy.quote %></span>
+          <span class="muted"><%= Faker::TvShows::FamilyGuy.quote %></span>
           <br>
           <span class="text-small">Último mensaje: <strong>hace <%= Faker::Number.between(1, 59) %> minutos</strong></span>
         </div>

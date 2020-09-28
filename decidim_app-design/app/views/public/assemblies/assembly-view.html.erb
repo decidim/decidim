@@ -99,11 +99,11 @@
         </div>
         <div class="section">
           <h2 class="section-heading">Grups de treball intern</h2>
-          <p><%= Faker::Lovecraft.paragraph %></p>
+          <p><%= Faker::Books::Lovecraft.paragraph %></p>
         </div>
         <div class="section">
           <h2 class="section-heading">Composició</h2>
-          <p><%= Faker::Lovecraft.paragraph %></p>
+          <p><%= Faker::Books::Lovecraft.paragraph %></p>
           <article id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes">
             <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart">Inicio</button>
             <select class="medium-2 m-s top right">
@@ -129,7 +129,7 @@
                     </div>
                     <div class="card__text card--picture-offset">
                       <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
-                      <div><small><%= Faker::StarWars.vehicle %></small></div>
+                      <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
                       <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
                       <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
                     </div>
