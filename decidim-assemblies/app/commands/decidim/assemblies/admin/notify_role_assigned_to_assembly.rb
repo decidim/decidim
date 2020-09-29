@@ -12,7 +12,8 @@ module Decidim
             resource: form.current_participatory_space,
             affected_users: [user],
             extra: {
-              role: form.role
+              role: form.role,
+              high_priority: true
             }
           )
         end
