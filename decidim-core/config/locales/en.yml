@@ -443,7 +443,7 @@ en:
           buttons:
             check: Check and continue
             close_modal: Close modal
-            uncheck: Keep uncheck
+            uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
