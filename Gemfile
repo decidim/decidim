@@ -16,7 +16,6 @@ gem "puma", ">= 4.3.5"
 gem "uglifier", "~> 4.1"
 
 gem "faker", "~> 2.14"
-gem "rubocop-faker"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
