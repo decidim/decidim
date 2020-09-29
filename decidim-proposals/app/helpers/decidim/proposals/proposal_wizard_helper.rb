@@ -62,18 +62,18 @@ module Decidim
         step_title = proposal_wizard_step_name(step)
         if step.to_s.split("_").last.to_i == proposal_wizard_step_number(current_step)
           current_step_title = proposal_wizard_step_name("current_step")
-          step_title = tag.span("#{current_step_title}: ", class: "show-for-sr") + step_title
+          step_title = content_tag(:span, "#{current_step_title}: ", class: "show-for-sr") + step_title
           attributes["aria-current"] = "step"
         end
 
-        tag.li(step_title, attributes)
+        content_tag(:li, step_title, attributes)
       end
 
       # Returns the list with all the steps, in html
       #
       # current_step - A symbol of the current step
       def proposal_wizard_stepper(current_step)
-        tag.ol(class: "wizard__steps") do
+        content_tag :ol, class: "wizard__steps" do
           %(
             #{proposal_wizard_stepper_step(:step_1, current_step)}
             #{proposal_wizard_stepper_step(:step_2, current_step)}
@@ -87,12 +87,12 @@ module Decidim
       #
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
-        see_steps = tag.span(class: "hide-for-large") do
+        see_steps = content_tag(:span, class: "hide-for-large") do
           concat " ("
-          concat tag.a(t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps")
+          concat content_tag :a, t(:"decidim.proposals.proposals.wizard_steps.see_steps"), "data-toggle": "steps"
           concat ")"
         end
-        tag.span(class: "text-small") do
+        content_tag :span, class: "text-small" do
           concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: total_steps)
           concat see_steps
         end

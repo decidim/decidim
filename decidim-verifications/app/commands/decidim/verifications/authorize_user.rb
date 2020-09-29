@@ -8,7 +8,6 @@ module Decidim
       #
       # handler - An AuthorizationHandler object.
       def initialize(handler)
-        super
         @handler = handler
       end
 
