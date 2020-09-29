@@ -458,7 +458,6 @@ cs:
           buttons:
             check: Zkontrolujte a pokračujte
             close_modal: Zavřít okno
-            uncheck: Zrušit zaškrtnutí
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
@@ -935,8 +934,6 @@ cs:
         start:
           send: Poslat
           title: Spusťte konverzaci
-        update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
     metrics:
       download:
         csv: Stáhnout data (csv)
