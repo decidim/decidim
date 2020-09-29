@@ -72,7 +72,10 @@ module Decidim
             event: "decidim.events.assemblies.create_assembly_member",
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
             resource: assembly,
-            followers: [form.user]
+            followers: [form.user],
+            extra: {
+              high_priority: true
+            }
           }
           Decidim::EventsManager.publish(data)
         end
