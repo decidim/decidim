@@ -11,7 +11,7 @@
         </div>
         <% if current_component.scopes_enabled? %>
           <div class="row column">
-            <%= scopes_picker_field f, :decidim_scope_id, root: budget.scope %>
+            <%= scopes_picker_field f, :scope_id, root: budget.scope %>
           </div>
         <% end %>
         <div class="row column">

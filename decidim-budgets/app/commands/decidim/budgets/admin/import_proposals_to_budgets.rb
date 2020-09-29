@@ -60,9 +60,9 @@ module Decidim
         end
 
         def proposals
-          return all_proposals if form.decidim_scope_id.blank?
+          return all_proposals if form.scope_id.blank?
 
-          all_proposals.where(decidim_scope_id: form.decidim_scope_id)
+          all_proposals.where(decidim_scope_id: form.scope_id)
         end
 
         def all_proposals

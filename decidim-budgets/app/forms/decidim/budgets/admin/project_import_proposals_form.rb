@@ -17,7 +17,7 @@ module Decidim
         validates :import_all_accepted_proposals, allow_nil: false, acceptance: true
         validates :default_budget, presence: true, numericality: { greater_than: 0 }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
 
         def origin_component
           @origin_component ||= origin_components.find_by(id: origin_component_id)
@@ -34,11 +34,11 @@ module Decidim
         end
 
         def scope
-          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
+          @scope ||= @scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
         end
 
-        def decidim_scope_id
-          @decidim_scope_id || scope&.id
+        def scope_id
+          @scope_id || scope&.id
         end
 
         def budget
