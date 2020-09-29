@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe "Admin manages initiatives", type: :system do
-  let(:states) { Decidim::Initiative.states.keys.map(&:to_sym) }
+  STATES = Decidim::Initiative.states.keys.map(&:to_sym)
+
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, organization: organization) }
   let(:model_name) { Decidim::Initiative.model_name }
@@ -44,7 +45,7 @@ describe "Admin manages initiatives", type: :system do
 
   include_context "with filterable context"
 
-  states.each do |state|
+  STATES.each do |state|
     let!("#{state}_initiative".to_sym) { create_initiative_with_trait(state) }
   end
 
@@ -55,7 +56,7 @@ describe "Admin manages initiatives", type: :system do
   end
 
   describe "listing initiatives" do
-    states.each do |state|
+    STATES.each do |state|
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.initiatives.state_eq.values")
 
       context "filtering collection by state: #{i18n_state}" do
