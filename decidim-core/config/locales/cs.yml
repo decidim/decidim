@@ -139,12 +139,12 @@ cs:
         create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
-        create: "%{user_name} vytvořilo %{resource_name} rozsah"
-        create_with_parent: "%{user_name} vytvořil %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
         delete: "%{user_name} odstranil %{resource_name} rozsah"
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
-        update: "%{user_name} aktualizoval rozsah %{resource_name}"
-        update_with_parent: "%{user_name} aktualizoval %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        update: "%{user_name} aktualizoval oblast působnosti %{resource_name}"
+        update_with_parent: "%{user_name} aktualizoval oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -842,7 +842,7 @@ cs:
         area_type_presenter:
           not_found: 'Typ oblasti nebyl nalezen v databázi (ID: %{id})'
         scope_presenter:
-          not_found: 'Rozsah nebyl nalezen v databázi (ID: %{id})'
+          not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
