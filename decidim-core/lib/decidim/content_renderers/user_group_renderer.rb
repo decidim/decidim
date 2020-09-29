@@ -17,7 +17,9 @@ module Decidim
       # invalid Decidim::UserGroup are replaced with an empty string.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render
+      def render(_options = nil)
+        return content unless content.respond_to?(:gsub)
+
         content.gsub(GLOBAL_ID_REGEX) do |user_gid|
           user = GlobalID::Locator.locate(user_gid)
           Decidim::UserGroupPresenter.new(user).display_mention

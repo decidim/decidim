@@ -59,6 +59,19 @@ module Decidim
           metric_operation.manager_class = "Decidim::Comments::Metrics::CommentParticipantsMetricMeasure"
         end
       end
+
+      initializer "decidim_comments.register_resources" do
+        Decidim.register_resource(:comment) do |resource|
+          resource.model_class_name = "Decidim::Comments::Comment"
+          resource.card = "decidim/comments/comment"
+          resource.searchable = true
+        end
+      end
+
+      initializer "decidim_comments.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/views") # for partials
+      end
     end
   end
 end
