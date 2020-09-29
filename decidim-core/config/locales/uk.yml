@@ -565,6 +565,9 @@ uk:
         close_window: Закрити вікно
         share: Поділитися
         share_link: Поділитись посиланням
+    user_conversations:
+      update:
+        error: Повідомлення не надіслано. Спробуйте ще раз пізніше
     version_author:
       show:
         deleted: Видалений учасник
