@@ -24,6 +24,11 @@ module Decidim
             when :publish
               allow_if_valid_and_not_started
             end
+          when :trustee
+            case permission_action.action
+            when :create, :update, :delete
+              allow!
+            end
           end
 
           permission_action
