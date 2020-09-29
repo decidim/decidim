@@ -173,7 +173,7 @@ if !Rails.env.production? || ENV["SEED"]
         email: Faker::Internet.email,
         confirmed_at: Time.current,
         extended_data: {
-          document_number: Faker::Number.number(digits: 10),
+          document_number: Faker::Number.number(digits: 10).to_s,
           phone: Faker::PhoneNumber.phone_number,
           verified_at: verified_at
         },
