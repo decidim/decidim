@@ -67,6 +67,9 @@ Rails/Output:
 Rails/OutputSafety:
   Enabled: false
 
+Rails/Pluck:
+  Enabled: false
+
 Rails/RakeEnvironment:
   Enabled: false
 
