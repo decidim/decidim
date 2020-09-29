@@ -1239,7 +1239,7 @@ de:
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
-        error: Nachricht wurde nicht gesendet. Versuchen Sie es später noch einmal
+        error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     user_interests:
       show:
         my_interests: Meine Interessen
