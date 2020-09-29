@@ -339,6 +339,12 @@ module Decidim
     %w(all participants)
   end
 
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
+  end
+
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config_accessor :consent_cookie_name do

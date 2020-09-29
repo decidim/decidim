@@ -896,6 +896,11 @@ en:
           show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
+        error_modal:
+          close: Close modal
+          correct_errors: Please correct the errors and try again.
+          intro: 'There were the following errors with your message:'
+          ok: OK
         index:
           ago: ago
           close: Close modal
@@ -919,7 +924,7 @@ en:
           send: Send
           title: Start a conversation
         update:
-          error: Message not sent. Try again later
+          error: Message was not sent due to an error
     metrics:
       download:
         csv: Download data (csv)
