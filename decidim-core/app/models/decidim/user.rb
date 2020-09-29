@@ -256,7 +256,10 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        affected_users: [self]
+        affected_users: [self],
+        extra: {
+          high_priority: true
+        }
       )
     end
 
