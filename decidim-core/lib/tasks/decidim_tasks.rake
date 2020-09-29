@@ -5,7 +5,7 @@ namespace :decidim do
   task upgrade: [:choose_target_plugins, :"railties:install:migrations"]
 
   desc "Setup environment so that only decidim migrations are installed."
-  task choose_target_plugins: :environment do
+  task :choose_target_plugins do
     ENV["FROM"] = %w(
       decidim
       decidim_accountability

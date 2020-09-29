@@ -20,7 +20,7 @@ namespace :decidim do
   end
 
   desc "Generates a dummy app for testing in external installations"
-  task generate_external_test_app: :environment do
+  task :generate_external_test_app do
     generate_decidim_app(
       "spec/decidim_dummy_app",
       "--app_name",
@@ -34,7 +34,7 @@ namespace :decidim do
   end
 
   desc "Generates a dummy app for trying out external modules"
-  task generate_external_development_app: :environment do
+  task :generate_external_development_app do
     Bundler.with_original_env do
       generate_decidim_app(
         "development_app",
