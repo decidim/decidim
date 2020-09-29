@@ -30,9 +30,7 @@ module Decidim::Conferences
         event_class: ConferenceRegistrationsOverPercentageEvent,
         resource: conference,
         followers: participatory_space_admins,
-        extra: extra.merge(
-          high_priority: true
-        )
+        extra: extra
       }
     end
 
