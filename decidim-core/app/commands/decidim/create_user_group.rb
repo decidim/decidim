@@ -60,7 +60,10 @@ module Decidim
         event: "decidim.events.groups.user_group_created",
         event_class: Decidim::UserGroupCreatedEvent,
         resource: @user_group,
-        affected_users: Decidim::User.org_admins_except_me(form.current_user)
+        affected_users: Decidim::User.org_admins_except_me(form.current_user),
+        extra: {
+          high_priority: true
+        }
       }
 
       Decidim::EventsManager.publish(data)

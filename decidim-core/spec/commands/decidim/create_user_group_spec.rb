@@ -94,7 +94,10 @@ module Decidim
                 event: "decidim.events.groups.user_group_created",
                 event_class: Decidim::UserGroupCreatedEvent,
                 resource: an_object_satisfying { |obj| obj.is_a?(Decidim::UserGroup) },
-                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
+                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all),
+                extra: {
+                  high_priority: true
+                }
               )
 
             command.call
