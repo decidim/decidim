@@ -68,7 +68,6 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
