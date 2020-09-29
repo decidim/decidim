@@ -106,13 +106,22 @@ fr:
           save: Enregistrer les modifications
           title: Modifier le débat
         filters:
+          activity: Mon activité
           all: Tout
           category: Catégorie
           category_prompt: Choisir une catégorie
           citizens: Citoyenne
+          commented: Commenté
+          my_debates: Mes débats
           official: Officielle
           origin: Origine
+          scope: Périmètre d'application
           search: Rechercher
+          state: Statut
+          state_values:
+            closed: Fermé
+            open: Ouvert
+          user_groups: Groupes
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtre
@@ -126,6 +135,12 @@ fr:
           back: Retour
           create: Créer
           title: Nouveau débat
+        orders:
+          commented: Les plus commentés
+          label: Trier les débats par
+          random: Ordre aléatoire
+          recent: Les plus récents
+          updated: Mis à jour récemment
         show:
           back: Retour à la liste
           close_debate: Clore le débat
