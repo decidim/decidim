@@ -56,7 +56,7 @@ describe "Registration", type: :system do
       within "form.new_user" do
         find("*[type=submit]").click
       end
-      click_button "Keep uncheck"
+      click_button "Keep unchecked"
       expect(page).to have_css("#sign-up-newsletter-modal", visible: :all)
       fill_registration_form
       within "form.new_user" do
