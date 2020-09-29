@@ -77,7 +77,6 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
-  autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -337,6 +336,12 @@ module Decidim
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
     %w(all participants)
+  end
+
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
   end
 
   # Defines the name of the cookie used to check if the user allows Decidim to

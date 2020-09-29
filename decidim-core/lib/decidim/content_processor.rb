@@ -51,50 +51,73 @@ module Decidim
     #
     # @return [Result] a Result object with the content rewritten and the metadata
     def self.parse(content, context)
-      parsed = Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
-        parser = parser_klass(type).constantize.new(result[:rewrite], context)
-        result[:rewrite] = parser.rewrite
-        result[:metadata][type] = parser.metadata
+      Decidim.content_processors.each_with_object(Result.new(content, {})) do |type, result|
+        parse_with_processor(type, result, context)
       end
-
-      Result.new(parsed[:rewrite], parsed[:metadata])
     end
 
-    def self.parse_with_processor(_type, content, context)
-      parsed = if content.is_a?(Hash)
-                 Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
-                   next unless type == :hashtag
-
-                   result[:rewrite].each do |key, value|
-                     parser = parser_klass(type).constantize.new(value, context)
-                     result[:rewrite][key] = parser.rewrite
-                     result[:metadata][type] = parser.metadata
-                   end
-                 end
+    # Public: Calls the specified processors to process the given content with
+    # it. For example, to convert hashtags to its Global ID representation.
+    #
+    # @param type [String] the name of the processor to use.
+    # @param content [String] already rewritten content or regular content
+    # @param context [Hash] with information to inject to the parsers as context
+    #
+    # @return [Result] a Result object with the content rewritten and the metadata
+    def self.parse_with_processor(type, content, context)
+      result = if content.is_a?(Result)
+                 content
                else
-                 Decidim.content_processors.each_with_object(rewrite: content, metadata: {}) do |type, result|
-                   next unless type == :hashtag
-
-                   parser = parser_klass(type).constantize.new(result[:rewrite], context)
-                   result[:rewrite] = parser.rewrite
-                   result[:metadata][type] = parser.metadata
-                 end
+                 Result.new(content, {})
                end
-      Result.new(parsed[:rewrite], parsed[:metadata])
+
+      if result.rewrite.is_a?(Hash)
+        result.rewrite.each do |key, value|
+          child_result = Result.new(value, {})
+          child_result = parse_with_processor(type, child_result, context)
+
+          result.rewrite.update(key => child_result.rewrite)
+          result.metadata.update(child_result.metadata)
+        end
+      else
+        parser = parser_klass(type).constantize.new(result.rewrite, context)
+        result.rewrite = parser.rewrite
+        result.metadata.update(type => parser.metadata)
+      end
+
+      result
     end
 
     # This calls all registered processors one after the other and returns
     # the processed content ready to display.
     #
+    # @param content [String] with the content to be rendered.
+    # @param wrapper_tag [String] with the HTML tag to wrap the content.
+    # @param options [Hash] with options to pass to the renderer.
+    #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
-    def self.render(content, wrapper_tag = "p")
+    def self.render(content, wrapper_tag = "p", options = {})
       simple_format(
-        Decidim.content_processors.reduce(content) do |result, type|
-          renderer_klass(type).constantize.new(result).render
-        end,
+        render_without_format(content, options),
         {},
         wrapper_tag: wrapper_tag
       )
+    end
+
+    # This calls all registered processors one after the other and returns
+    # the processed content ready to display without wrapping the content in
+    # HTML.
+    #
+    # @param content [String] with the content to be rendered.
+    # @param options [Hash] with options to pass to the renderer.
+    #
+    # @return [String] the content processed and ready to display.
+    def self.render_without_format(content, options = {})
+      return content if content.blank?
+
+      Decidim.content_processors.reduce(content) do |result, type|
+        renderer_klass(type).constantize.new(result).render(options)
+      end
     end
 
     # This method overwrites the views `sanitize` method. This is required to

@@ -21,6 +21,8 @@ module Decidim
       #
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true)
+        return content unless content.respond_to?(:gsub)
+
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
           hashtag = hashtags[id.to_i]

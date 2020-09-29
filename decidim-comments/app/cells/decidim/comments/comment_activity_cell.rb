@@ -4,21 +4,7 @@ module Decidim
   module Comments
     # A cell to display when a comment has been created.
     class CommentActivityCell < ActivityCell
-      delegate :root_commentable, to: :comment
-
-      def renderable?
-        comment.present? && root_commentable.present?
-      end
-
-      def resource_link_text
-        comment.formatted_body
-      end
-
-      def resource_link_path
-        return root_commentable.polymorphic_resource_path(url_params) if root_commentable&.respond_to?(:polymorphic_resource_path)
-
-        resource_locator(root_commentable).path(url_params)
-      end
+      include CommentCellsHelper
 
       def title
         I18n.t(
@@ -36,14 +22,6 @@ module Decidim
 
       def comment
         model.resource_lazy
-      end
-
-      def root_commentable_title
-        decidim_html_escape(translated_attribute(root_commentable.title))
-      end
-
-      def url_params
-        { commentId: comment.id }
       end
     end
   end

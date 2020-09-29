@@ -20,7 +20,6 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
-      include Decidim::Hashtaggable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::Endorsable
@@ -34,8 +33,8 @@ module Decidim
       translatable_fields :title, :description, :instructions, :information_updates
       searchable_fields({
                           participatory_space: { component: :participatory_space },
-                          A: :search_title,
-                          D: :search_body,
+                          A: :title,
+                          D: :description,
                           datetime: :start_time
                         },
                         index_on_create: ->(debate) { debate.visible? },

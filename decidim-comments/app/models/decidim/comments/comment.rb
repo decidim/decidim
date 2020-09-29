@@ -13,6 +13,7 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
@@ -52,6 +53,13 @@ module Decidim
       validate :commentable_can_have_comments
 
       delegate :organization, to: :commentable
+
+      translatable_fields :body
+      searchable_fields(
+        participatory_space: :itself,
+        A: :body,
+        datetime: :created_at
+      )
 
       def self.positive
         where(alignment: 1)
@@ -122,11 +130,6 @@ module Decidim
         end
       end
 
-      # Public: Returns the comment message ready to display (it is expected to include HTML)
-      def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
-      end
-
       def self.export_serializer
         Decidim::Comments::CommentSerializer
       end
@@ -144,8 +147,12 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def formatted_body
+        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+      end
+
       def translated_body
-        translated_attribute(body, organization)
+        @translated_body ||= translated_attribute(body, organization)
       end
 
       private
@@ -180,11 +187,8 @@ module Decidim
       end
 
       # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitized_body
-        Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(translated_body),
-          scrubber: Decidim::Comments::UserInputScrubber.new
-        ).try(:html_safe)
+      def sanitize_content(content)
+        Decidim::ContentProcessor.sanitize(content)
       end
 
       # Private: Initializes the Markdown parser
