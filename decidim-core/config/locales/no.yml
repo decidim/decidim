@@ -436,7 +436,6 @@
           buttons:
             check: Sjekk og fortsett
             close_modal: Lukk modal
-            uncheck: Hold usjekket
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
@@ -910,8 +909,6 @@
         start:
           send: Send
           title: Start en samtale
-        update:
-          error: Melding ikke sendt. Prøv igjen senere
     metrics:
       download:
         csv: Last ned data (csv)
