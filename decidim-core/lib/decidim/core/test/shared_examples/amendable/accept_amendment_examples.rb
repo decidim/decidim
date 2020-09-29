@@ -53,7 +53,7 @@ shared_examples "accept amendment" do
           followers: kind_of(Array),
           affected_users: kind_of(Array),
           extra: {
-              high_priority: true
+            high_priority: true
           }
         )
 

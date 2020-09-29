@@ -75,7 +75,7 @@ module Decidim
           affected_users: amendable.notifiable_identities,
           followers: amendable.followers - amendable.notifiable_identities,
           extra: {
-              high_priority: true
+            high_priority: true
           }
         )
       end

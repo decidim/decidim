@@ -36,7 +36,7 @@ shared_examples "publish amendment draft" do
           affected_users: [amendable.creator_author],
           followers: [],
           extra: {
-              high_priority: true
+            high_priority: true
           }
         )
 

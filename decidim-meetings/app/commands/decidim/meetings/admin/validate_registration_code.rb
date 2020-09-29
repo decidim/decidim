@@ -36,14 +36,14 @@ module Decidim
 
         def send_notification
           Decidim::EventsManager.publish(
-              event: "decidim.events.meetings.registration_code_validated",
-              event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
-              resource: meeting,
-              affected_users: [form.registration.user],
-              extra: {
-                  registration: form.registration,
-                  high_priority: true
-              }
+            event: "decidim.events.meetings.registration_code_validated",
+            event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
+            resource: meeting,
+            affected_users: [form.registration.user],
+            extra: {
+              registration: form.registration,
+              high_priority: true
+            }
           )
         end
       end

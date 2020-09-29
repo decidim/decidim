@@ -34,7 +34,7 @@ shared_examples "reject amendment" do
           affected_users: kind_of(Array),
           followers: kind_of(Array),
           extra: {
-              high_priority: true
+            high_priority: true
           }
         )
 

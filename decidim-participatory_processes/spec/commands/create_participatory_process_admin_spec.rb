@@ -29,8 +29,8 @@ module Decidim::ParticipatoryProcesses
         resource: my_process,
         affected_users: [user],
         extra: {
-            role: kind_of(String),
-            high_priority: true
+          role: kind_of(String),
+          high_priority: true
         }
       }
     end

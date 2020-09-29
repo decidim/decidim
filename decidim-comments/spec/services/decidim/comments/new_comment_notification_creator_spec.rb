@@ -419,8 +419,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           resource: dummy_resource,
           followers: a_collection_containing_exactly(user_following_user_group),
           extra: {
-              comment_id: user_group_comment.id,
-              high_priority: true
+            comment_id: user_group_comment.id,
+            high_priority: true
           }
         )
       expect(Decidim::EventsManager)
