@@ -18,6 +18,7 @@ describe Decidim::Elections::Admin::Permissions do
   let(:election) { create :election, component: elections_component }
   let(:question) { nil }
   let(:answer) { nil }
+  let(:trustee) { nil }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "not allowed when election has started" do
@@ -188,6 +189,15 @@ describe Decidim::Elections::Admin::Permissions do
       it { is_expected.to eq true }
 
       it_behaves_like "not allowed when election has started"
+    end
+
+    describe "trustee creation" do
+      let(:action) do
+        { scope: :admin, action: :create, subject: :trustee }
+      end
+      let(:trustee) { nil }
+
+      it { is_expected.to eq true }
     end
   end
 end
