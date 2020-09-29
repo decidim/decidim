@@ -73,7 +73,10 @@ module Decidim
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: amendable,
           affected_users: amendable.notifiable_identities,
-          followers: amendable.followers - amendable.notifiable_identities
+          followers: amendable.followers - amendable.notifiable_identities,
+          extra: {
+              high_priority: true
+          }
         )
       end
     end

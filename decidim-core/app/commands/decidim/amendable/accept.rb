@@ -72,7 +72,10 @@ module Decidim
           event_class: Decidim::Amendable::AmendmentAcceptedEvent,
           resource: emendation,
           affected_users: affected_users.uniq,
-          followers: followers.uniq
+          followers: followers.uniq,
+          extra: {
+              high_priority: true
+          }
         )
       end
     end

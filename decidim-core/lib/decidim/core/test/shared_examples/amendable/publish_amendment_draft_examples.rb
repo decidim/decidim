@@ -34,7 +34,10 @@ shared_examples "publish amendment draft" do
           event_class: Decidim::Amendable::AmendmentCreatedEvent,
           resource: amendable,
           affected_users: [amendable.creator_author],
-          followers: []
+          followers: [],
+          extra: {
+              high_priority: true
+          }
         )
 
       command.call
