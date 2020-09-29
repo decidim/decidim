@@ -1239,7 +1239,7 @@ es-MX:
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
-        error: Mensaje no enviado. Inténtalo de nuevo más tarde
+        error: Mensaje no enviado. Inténtalo más tarde
     user_interests:
       show:
         my_interests: Mis intereses
