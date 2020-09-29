@@ -348,6 +348,9 @@ is-IS:
         close_window: Lokaðu glugga
         share: Deila
         share_link: Deila tengil
+    user_conversations:
+      update:
+        error: Skilaboð ekki send. Reyndu aftur seinna
   devise:
     invitations:
       edit:
