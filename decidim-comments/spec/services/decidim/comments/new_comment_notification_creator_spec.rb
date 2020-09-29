@@ -58,7 +58,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           resource: dummy_resource,
           affected_users: a_collection_containing_exactly(*mentioned_users),
           extra: {
-            comment_id: comment.id
+            comment_id: comment.id,
+            high_priority: true
           }
         )
       expect(Decidim::EventsManager)
@@ -99,7 +100,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             resource: dummy_resource,
             affected_users: a_collection_containing_exactly(*mentioned_users_to_notify),
             extra: {
-              comment_id: comment.id
+              comment_id: comment.id,
+              high_priority: true
             }
           )
         expect(Decidim::EventsManager)
@@ -146,7 +148,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             affected_users: a_collection_containing_exactly(*affected_group_users),
             extra: {
               comment_id: comment.id,
-              group: group
+              group: group,
+              high_priority: true
             }
           )
         expect(Decidim::EventsManager)
@@ -184,7 +187,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(*mentioned_users),
               extra: {
-                comment_id: comment.id
+                comment_id: comment.id,
+                high_priority: true
               }
             )
           expect(Decidim::EventsManager)
@@ -232,7 +236,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               affected_users: a_collection_containing_exactly(*affected_group_users),
               extra: {
                 comment_id: comment.id,
-                group: group
+                group: group,
+                high_priority: true
               }
             )
 
@@ -262,7 +267,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           resource: dummy_resource,
           followers: a_collection_containing_exactly(user_following_comment_author),
           extra: {
-            comment_id: comment.id
+            comment_id: comment.id,
+            high_priority: true
           }
         )
       expect(Decidim::EventsManager)
@@ -289,7 +295,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           resource: dummy_resource,
           followers: a_collection_containing_exactly(*commentable_recipients),
           extra: {
-            comment_id: comment.id
+            comment_id: comment.id,
+            high_priority: true
           }
         )
 
@@ -323,7 +330,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             resource: dummy_resource,
             followers: a_collection_containing_exactly(commentable_recipient, commentable_author),
             extra: {
-              comment_id: comment.id
+              comment_id: comment.id,
+              high_priority: true
             }
           )
 
@@ -346,7 +354,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               resource: dummy_resource,
               affected_users: [comment_author],
               extra: {
-                comment_id: comment.id
+                comment_id: comment.id,
+                high_priority: true
               }
             )
 
@@ -374,7 +383,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(top_level_comment_author),
               extra: {
-                comment_id: comment.id
+                comment_id: comment.id,
+                high_priority: true
               }
             )
 
@@ -408,7 +418,10 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event_class: Decidim::Comments::CommentByFollowedUserGroupEvent,
           resource: dummy_resource,
           followers: a_collection_containing_exactly(user_following_user_group),
-          extra: { comment_id: user_group_comment.id }
+          extra: {
+              comment_id: user_group_comment.id,
+              high_priority: true
+          }
         )
       expect(Decidim::EventsManager)
         .to receive(:publish)

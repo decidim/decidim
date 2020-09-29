@@ -109,12 +109,13 @@ module Decidim
 
         event_class = "Decidim::Comments::#{event.to_s.camelcase}Event".constantize
         data = {
-          event: "decidim.events.comments.#{event}",
-          event_class: event_class,
-          resource: comment.root_commentable,
-          extra: {
-            comment_id: comment.id
-          }
+            event: "decidim.events.comments.#{event}",
+            event_class: event_class,
+            resource: comment.root_commentable,
+            extra: {
+                comment_id: comment.id,
+                high_priority: true
+            }
         }.deep_merge(users)
 
         Decidim::EventsManager.publish(data)
