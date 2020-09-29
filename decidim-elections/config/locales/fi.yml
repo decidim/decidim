@@ -14,6 +14,7 @@ fi:
       question:
         description: Kuvaus
         max_selections: Valintojen enimmäismäärä
+        min_selections: Ei mikään edellä mainituista
         title: Otsikko
     errors:
       models:
@@ -205,6 +206,7 @@ fi:
           edit: muokkaa
           header: Vahvista äänesi
           intro: Tässä on yhteeveto äänestäsi, jota olet jättämässä. <br> Tarkasta, että kaikki on oikein tai muuta vastauksiasi.
+          nota_option: Tyhjä
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
@@ -227,7 +229,9 @@ fi:
           close: Sulje
           proposal_header: 'Ehdotukset:'
         new:
+          answer_choices: Voit valita enintään %{choices} vastausta
           more_information: Lisätietoa
+          nota_option: Tyhjä / Ei mitään näistä
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"
