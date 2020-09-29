@@ -708,6 +708,9 @@ ru:
         close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
+    user_conversations:
+      update:
+        error: Сообщение не отправлено. Попробуйте позже
     version_author:
       show:
         deleted: Удаленный участник
