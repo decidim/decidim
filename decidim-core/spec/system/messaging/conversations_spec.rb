@@ -154,23 +154,25 @@ describe "Conversations", type: :system do
     end
 
     context "when a message is sent" do
+      let(:message_body) { "Please reply!" }
+
       before do
         visit_inbox
         click_link "conversation-#{conversation.id}"
         expect(page).to have_content("Send")
-        fill_in "message_body", with: "Please reply!"
+        fill_in "message_body", with: message_body
         click_button "Send"
       end
 
       it "appears as the last message", :slow do
         click_button "Send"
-        expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
+        expect(page).to have_selector(".conversation-chat:last-child", text: message_body)
       end
 
       context "and interlocutor sees it" do
         before do
           click_button "Send"
-          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation-chat:last-child", text: message_body)
           relogin_as interlocutor
           visit_inbox
         end
@@ -185,6 +187,16 @@ describe "Conversations", type: :system do
 
           find("a.card--list__data__icon--back").click
           expect(page).to have_no_selector(".card--list__item .unread_message__counter")
+        end
+      end
+
+      context "and message is too long" do
+        let(:message_body) { Faker::Lorem.paragraph_by_chars(max_length + 1) }
+        let(:max_length) { Decidim.config.maximum_conversation_message_length }
+
+        it "shows the error message modal", :slow do
+          expect(page).to have_selector("#messageErrorModal .reveal__title", text: "Message was not sent due to an error")
+          expect(page).to have_selector("#messageErrorModal .reveal__body", text: "Body is too long (maximum is #{max_length} characters)")
         end
       end
     end
