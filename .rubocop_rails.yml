@@ -67,6 +67,9 @@ Rails/Output:
 Rails/OutputSafety:
   Enabled: false
 
+Rails/RakeEnvironment:
+  Enabled: false
+
 Rails/ReadWriteAttribute:
   Include:
     - decidim-*/app/models/**/*.rb

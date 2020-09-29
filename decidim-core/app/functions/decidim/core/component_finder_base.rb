@@ -23,7 +23,7 @@ module Decidim
 
       def call(component, args, _ctx)
         @query = { component: component }
-        args.each_key do |key|
+        args.keys.each do |key|
           @query[key] = args[key]
         end
         query_scope.find_by(@query)

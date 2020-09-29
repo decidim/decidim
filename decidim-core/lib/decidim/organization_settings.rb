@@ -159,7 +159,7 @@ module Decidim
         end.to_h
       )
 
-      keys_map.each_key do |config|
+      keys_map.keys.each do |config|
         define_config_accessors(public_send(config), [config])
       end
     end

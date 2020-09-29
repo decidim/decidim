@@ -266,6 +266,9 @@ Style/BlockDelimiters:
 Style/ExplicitBlockArgument:
   Enabled: false
 
+Style/HashEachMethods:
+  Enabled: false
+
 Style/HashLikeCase:
   MinBranchesCount: 5
 
