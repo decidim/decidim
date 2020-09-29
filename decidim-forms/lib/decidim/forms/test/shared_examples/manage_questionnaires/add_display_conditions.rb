@@ -101,7 +101,7 @@ shared_examples_for "add display conditions" do
 
             within "select[id$=decidim_condition_question_id]" do
               elements = page.all("option[data-type]")
-              expect(elements.pluck(:data - type)).to eq(questions.map(&:question_type))
+              expect(elements.map { |element| element[:"data-type"] }).to eq(questions.map(&:question_type))
               expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
             end
           end
