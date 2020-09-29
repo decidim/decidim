@@ -102,4 +102,20 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(1) }
   end
+
+  factory :trustee, class: "Decidim::Elections::Trustee" do
+    public_key { nil }
+    user
+
+    trait :considered do
+      after(:build) do |trustee, _evaluator|
+        trustee.trustees_participatory_spaces << build(:trustees_participatory_spaces)
+      end
+    end
+  end
+
+  factory :trustees_participatory_spaces, class: "Decidim::Elections::TrusteesParticipatorySpace" do
+    participatory_space { create(:participatory_process, :with_steps) }
+    considered { true }
+  end
 end
