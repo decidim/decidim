@@ -6,7 +6,8 @@ describe "Admin filters proposals", type: :system do
   include_context "when admin manages proposals"
   include_context "with filterable context"
 
-  let(:states) { Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym) }
+  STATES = Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym)
+
   let(:model_name) { Decidim::Proposals::Proposal.model_name }
 
   def create_proposal_with_trait(trait)
@@ -23,12 +24,12 @@ describe "Admin filters proposals", type: :system do
 
   context "when filtering by state" do
     let!(:proposals) do
-      states.map { |state| create_proposal_with_trait(state) }
+      STATES.map { |state| create_proposal_with_trait(state) }
     end
 
     before { visit_component_admin }
 
-    states.without(:not_answered).each do |state|
+    STATES.without(:not_answered).each do |state|
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
       context "filtering proposals by state: #{i18n_state}" do
