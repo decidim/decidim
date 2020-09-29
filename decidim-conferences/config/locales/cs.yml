@@ -483,6 +483,7 @@ cs:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
           login_as: Jste přihlášeni jako %{name} <%{email}>
+          no_registrations: Žádné registrace
           register: Registrovat
           title: Typy registrace
       shared:
