@@ -1,0 +1,54 @@
+<div class="card" id="trustee">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.trustee.name", scope: "decidim.elections.admin")), new_trustee_path, class: "button tiny button--title new" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.trustee.fields.name", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustee.fields.email", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustee.fields.public_key", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustee.fields.notification", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustee.fields.status", scope: "decidim.elections") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.elections") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% trustees.each do |trustee| %>
+            <tr>
+              <td>
+                <%= trustee.user.name %>
+              </td>
+              <td>
+                <%= trustee.user.email %>
+              </td>
+              <td>
+                <%= trustee.public_key %>
+              </td>
+              <td>
+                <%= Time.now.ctime %>
+              </td>
+              <td>
+                <% if trustee.trustees_participatory_spaces.first.considered %>
+                  <%= t("models.trustee.fields.considered", scope: "decidim.elections") %>
+                <% else %>
+                  <%= t("models.trustee.fields.inactive", scope: "decidim.elections") %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <%= icon_link_to "pencil", edit_trustee_path(trustee), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <%= icon_link_to "circle-x", trustee_path(trustee), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
