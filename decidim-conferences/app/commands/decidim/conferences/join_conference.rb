@@ -89,7 +89,8 @@ module Decidim
           resource: @conference,
           followers: participatory_space_admins,
           extra: {
-            percentage: percentage
+            percentage: percentage,
+            high_priority: true
           }
         )
       end
