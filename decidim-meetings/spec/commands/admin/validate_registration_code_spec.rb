@@ -53,7 +53,8 @@ module Decidim::Meetings
               resource: meeting,
               affected_users: [user],
               extra: {
-                registration: registration
+                registration: registration,
+                high_priority: true
               }
             )
 
