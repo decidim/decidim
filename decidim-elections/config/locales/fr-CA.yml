@@ -14,6 +14,7 @@ fr-CA:
       question:
         description: Description
         max_selections: Nombre maximum de sélections
+        min_selections: Aucune options sélectionnées
         title: Titre
     errors:
       models:
@@ -205,6 +206,7 @@ fr-CA:
           edit: éditer
           header: Confirmer votre vote
           intro: Voici un résumé du vote que vous êtes sur le point de prononcer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          nota_option: Vide
           question: Question %{count}
         confirmed:
           back: Retour aux élections
@@ -227,8 +229,9 @@ fr-CA:
           close: Fermer
           proposal_header: 'Propositions:'
         new:
-          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses ou aucune
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses
           more_information: Plus d'informations
+          nota_option: Vierge/ Aucune des options
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"
