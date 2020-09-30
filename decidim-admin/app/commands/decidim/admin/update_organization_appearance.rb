@@ -57,8 +57,6 @@ module Decidim
 
       def appearance_attributes
         {
-          cta_button_path: form.cta_button_path,
-          cta_button_text: form.cta_button_text,
           description: form.description,
           logo: form.logo,
           remove_logo: form.remove_logo,

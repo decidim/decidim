@@ -15,6 +15,14 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     it "shows the default welcome text" do
       expect(subject).to have_text("Welcome to #{organization.name}")
     end
+
+    it "shows the default cta text" do
+      expect(subject).to have_selector("a.hero-cta", text: "Participate")
+    end
+
+    it "shows the default cta path" do
+      expect(subject).to have_link(href: "/users/sign_up")
+    end
   end
 
   context "when the content block has customized the welcome text setting value" do
@@ -26,6 +34,47 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
 
     it "shows the custom welcome text" do
       expect(subject).to have_text("This is my welcome text")
+    end
+  end
+
+  context "when the content block has customized call to action values" do
+    let(:settings) do
+      {
+        "cta_button_path_en" => "/some-path",
+        "cta_button_text_en" => "Go!"
+      }
+    end
+
+    it "shows the cta_button_text" do
+      expect(subject).to have_text("Go!")
+    end
+
+    it "shows the cta_button_path" do
+      expect(subject).to have_link(href: "/some-path")
+    end
+  end
+
+  context "when cta_button_path is a valid path with underscore" do
+    let(:settings) do
+      {
+        "cta_button_path_en" => "processes/my_process/"
+      }
+    end
+
+    it "it is a valid path" do
+      expect(subject).to have_link(href: "processes/my_process/")
+    end
+  end
+
+  context "when cta_button_path is a full URL" do
+    let(:settings) do
+      {
+        "cta_button_path_en" => "http://example.org"
+      }
+    end
+
+    it "it isn't a valid path" do
+      expect(subject).to_not have_link(href: "http://example.org")
     end
   end
 

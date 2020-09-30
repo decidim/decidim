@@ -68,58 +68,6 @@ describe "Homepage", type: :system do
         end
       end
 
-      describe "call to action" do
-        let!(:participatory_process) { create :participatory_process, :published }
-        let!(:organization) { participatory_process.organization }
-
-        before do
-          switch_to_host(organization.host)
-          visit decidim.root_path
-        end
-
-        context "when the organization has the CTA button text customized" do
-          let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
-          let(:organization) { create(:organization, cta_button_text: cta_button_text) }
-
-          it "uses the custom values for the CTA button text" do
-            within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
-              click_link "Sign up"
-            end
-
-            expect(page).to have_current_path decidim.new_user_registration_path
-          end
-        end
-
-        context "when the organization has the CTA button link customized" do
-          let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
-
-          it "uses the custom values for the CTA button" do
-            within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
-              click_link "Participate"
-            end
-
-            expect(page).to have_current_path decidim.new_user_session_path
-            expect(page).to have_content("Sign in")
-            expect(page).to have_content("New to the platform?")
-          end
-        end
-
-        context "when the organization does not have it customized" do
-          it "uses the default values for the CTA button" do
-            visit decidim.root_path
-
-            within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
-              click_link "Participate"
-            end
-
-            expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
-          end
-        end
-      end
-
       context "with header snippets" do
         let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
         let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }

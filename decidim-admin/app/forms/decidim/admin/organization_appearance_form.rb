@@ -22,7 +22,6 @@ module Decidim
       attribute :official_url
       attribute :show_statistics, Boolean
       attribute :header_snippets, String
-      attribute :cta_button_path, String
       attribute :highlighted_content_banner_enabled, Boolean, default: false
       attribute :highlighted_content_banner_action_url, String
       attribute :highlighted_content_banner_image
@@ -38,7 +37,6 @@ module Decidim
       attribute :highlight_color, String, default: "#be6400"
       attribute :highlight_alternative_color, String, default: "#ff5731"
 
-      translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
       translatable_attribute :highlighted_content_banner_title, String
       translatable_attribute :highlighted_content_banner_short_description, String
@@ -47,7 +45,6 @@ module Decidim
       translatable_attribute :omnipresent_banner_title, String
       translatable_attribute :omnipresent_banner_short_description, String
 
-      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-\_/]+\z} }, allow_blank: true
       validates :official_img_header,
                 :official_img_footer,
                 :logo,
