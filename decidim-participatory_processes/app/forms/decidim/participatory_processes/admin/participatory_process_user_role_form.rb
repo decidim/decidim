@@ -16,7 +16,7 @@ module Decidim
         validates :name, :email, :role, presence: true
         validates :role, inclusion: { in: Decidim::ParticipatoryProcessUserRole::ROLES }
 
-        validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+        validates :name, format: { with: UserBaseEntity::REGEXP_NAME }
         validate :admin_uniqueness
 
         def roles

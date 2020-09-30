@@ -8,7 +8,7 @@ module Decidim
     #
     class ParticipatorySpacePrivateUserCsvImportForm < Form
       attribute :file
-      attribute :name, String
+      attribute :user_name, String
       attribute :email, String
 
       validates :file, presence: true
@@ -17,7 +17,7 @@ module Decidim
       def validate_csv
         if file.present?
           CSV.foreach(file.path) do |email, user_name|
-            errors.add(:user_name, "user_name not valid!") unless user_name.match?(/\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/)
+            errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
             errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
           end
         end

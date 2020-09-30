@@ -17,10 +17,13 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
+    # Regex for name & nickname format validations
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/
+
     validates_avatar
     mount_uploader :avatar, Decidim::AvatarUploader
 
-    validates :name, :nickname, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+    validates :name, :nickname, format: { with: REGEXP_NAME }
 
     # Public: Returns a collection with all the entities this user is following.
     #

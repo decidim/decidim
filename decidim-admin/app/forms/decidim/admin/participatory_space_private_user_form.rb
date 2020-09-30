@@ -13,7 +13,7 @@ module Decidim
 
       validates :name, :email, presence: true
 
-      validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+      validates :name, format: { with: UserBaseEntity::REGEXP_NAME }
       validate :admin_uniqueness
 
       def admin_uniqueness
