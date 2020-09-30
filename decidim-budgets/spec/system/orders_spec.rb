@@ -259,93 +259,16 @@ describe "Orders", type: :system do
           end
         end
       end
-
-      it "displays total budget" do
-        within ".budget-summary__total" do
-          expect(page).to have_content("TOTAL BUDGET €100,000,000")
-        end
-      end
     end
-
-    context "when voting by maximum projects number" do
-      let!(:component) do
-        create(:budget_component,
-               :with_maximum_budget_projects,
-               manifest: manifest,
-               participatory_space: participatory_process)
-      end
-
-      it "adds a project to the current order" do
-        within "#project-#{project.id}-item" do
-          page.find(".budget-list__action").click
-        end
-
-        expect(page).to have_selector ".budget-list__data--added", count: 1
-
-        expect(page).to have_content "ASSIGNED: €25,000,000"
-        expect(page).to have_content "1 project selected"
-
-        within ".budget-summary__selected" do
-          expect(page).to have_content project.title[I18n.locale]
-        end
-
-        within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_content "16%"
-          expect(page).to have_selector("button.small")
-        end
-      end
-
-      it "displays total budget" do
-        within ".budget-summary__total" do
-          expect(page).to have_content("TOTAL PROJECTS 6")
-        end
-      end
-    end
-
-    context "when voting by minimum and maximum projects number" do
-      let!(:component) do
-        create(:budget_component,
-               :with_minimum_and_maximum_budget_projects,
-               manifest: manifest,
-               participatory_space: participatory_process)
-      end
-
-      it "adds a project to the current order" do
-        within "#project-#{project.id}-item" do
-          page.find(".budget-list__action").click
-        end
-
-        expect(page).to have_selector ".budget-list__data--added", count: 1
-
-        expect(page).to have_content "ASSIGNED: €25,000,000"
-        expect(page).to have_content "1 project selected"
-
-        within ".budget-summary__selected" do
-          expect(page).to have_content project.title[I18n.locale]
-        end
-
-        within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_content "16%"
-          expect(page).to have_selector("button.small")
-        end
-      end
-
-      it "displays total budget" do
-        within ".budget-summary__total" do
-          expect(page).to have_content("TOTAL PROJECTS 6")
-        end
-      end
-    end
-  end
 
     context "and isn't authorized" do
       before do
         permissions = {
-          vote: {
-            authorization_handlers: {
-              "dummy_authorization_handler" => {}
+            vote: {
+                authorization_handlers: {
+                    "dummy_authorization_handler" => {}
+                }
             }
-          }
         }
 
         component.update!(permissions: permissions)
@@ -414,108 +337,6 @@ describe "Orders", type: :system do
           end
 
           expect(page).to have_css("#budget-excess", visible: :visible)
-        end
-      end
-
-      context "and try to vote a project that exceed the total projects number" do
-        context "when voting by vote threshold percent rule" do
-          let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
-
-          it "cannot add the project" do
-            visit_component
-
-            within "#project-#{expensive_project.id}-item" do
-              page.find(".budget-list__action").click
-            end
-
-            expect(page).to have_css("#budget-excess", visible: :visible)
-
-            within ".reveal" do
-              expect(page).to have_content("Maximum budget exceeded")
-            end
-          end
-        end
-
-        context "when voting by minimum projects rules" do
-          let!(:component) do
-            create(:budget_component,
-                   :with_total_budget_and_minimum_budget_projects,
-                   manifest: manifest,
-                   participatory_space: participatory_process)
-          end
-          let!(:expensive_project) { create(:project, component: component, budget: 250_000_000) }
-
-          it "cannot add the project" do
-            visit_component
-
-            within "#project-#{expensive_project.id}-item" do
-              page.find(".budget-list__action").click
-            end
-
-            expect(page).to have_css("#budget-excess", visible: :visible)
-
-            within ".reveal" do
-              expect(page).to have_content("Maximum budget exceeded")
-            end
-          end
-        end
-
-        context "when voting by maximum projects rules" do
-          let!(:component) do
-            create(:budget_component,
-                   :with_maximum_budget_projects,
-                   manifest: manifest,
-                   participatory_space: participatory_process)
-          end
-          let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
-          let!(:another_project) { create(:project, component: component, budget: 1) }
-
-          before do
-            order.projects = projects
-          end
-
-          it "cannot add the project" do
-            visit_component
-
-            within "#project-#{another_project.id}-item" do
-              page.find(".budget-list__action").click
-            end
-
-            expect(page).to have_css("#budget-excess", visible: :visible)
-
-            within ".reveal" do
-              expect(page).to have_content("Maximum projects exceeded")
-            end
-          end
-        end
-
-        context "when voting by minimum and maximum projects rules" do
-          let!(:component) do
-            create(:budget_component,
-                   :with_minimum_and_maximum_budget_projects,
-                   manifest: manifest,
-                   participatory_space: participatory_process)
-          end
-          let!(:projects) { create_list(:project, 6, component: component, budget: 25_000_000) }
-          let!(:another_project) { create(:project, component: component, budget: 1) }
-
-          before do
-            order.projects = projects
-          end
-
-          it "cannot add the project" do
-            visit_component
-
-            within "#project-#{another_project.id}-item" do
-              page.find(".budget-list__action").click
-            end
-
-            expect(page).to have_css("#budget-excess", visible: :visible)
-
-            within ".reveal" do
-              expect(page).to have_content("Maximum projects exceeded")
-            end
-          end
         end
       end
 
