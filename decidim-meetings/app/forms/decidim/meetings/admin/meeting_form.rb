@@ -17,18 +17,26 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
+        attribute :online_meeting_url, String
+        attribute :type_of_meeting, String
+
+        TYPE_OF_MEETING = %w(in_person online).freeze
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :registration_terms, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :location, translatable_presence: true
+        validates :type_of_meeting, presence: true
+        validates :registration_type, presence: true
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
 
-        validates :address, presence: true
-        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
+        validates :address, presence: true, if: ->(form) { form.needs_address? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
+        validates :online_meeting_url, presence: true, if: ->(form) { form.online_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
@@ -89,8 +97,29 @@ module Decidim
           geocoding_enabled? && address.present?
         end
 
+        def needs_address?
+          in_person_meeting?
+        end
+
         def geocoded?
           latitude.present? && longitude.present?
+        end
+
+        def online_meeting?
+          type_of_meeting == "online"
+        end
+
+        def in_person_meeting?
+          type_of_meeting == "in_person"
+        end
+
+        def type_of_meeting_select
+          TYPE_OF_MEETING.map do |type|
+            [
+              I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
         end
       end
     end
