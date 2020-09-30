@@ -16,13 +16,15 @@ FactoryBot.define do
       transient do
         vote_rule_threshold_percent_enabled { true }
         vote_rule_minimum_budget_projects_enabled { false }
+        vote_rule_maximum_budget_projects_enabled { false }
         vote_threshold_percent { 70 }
       end
 
       settings do
         {
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
-          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
           vote_threshold_percent: vote_threshold_percent
         }
       end
@@ -32,14 +34,54 @@ FactoryBot.define do
       transient do
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
+        vote_rule_maximum_budget_projects_enabled { false }
         vote_minimum_budget_projects_number { 3 }
       end
 
       settings do
         {
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
-          vote_rule_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
           vote_minimum_budget_projects_number: vote_minimum_budget_projects_number
+        }
+      end
+    end
+
+    trait :with_maximum_budget_projects do
+      transient do
+        vote_rule_threshold_percent_enabled { false }
+        vote_rule_minimum_budget_projects_enabled { false }
+        vote_rule_maximum_budget_projects_enabled { true }
+        vote_maximum_budget_projects_number { 6 }
+      end
+
+      settings do
+        {
+          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
+          vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
+        }
+      end
+    end
+
+    trait :with_minimum_and_maximum_budget_projects do
+      transient do
+        vote_rule_threshold_percent_enabled { false }
+        vote_rule_minimum_budget_projects_enabled { true }
+        vote_rule_maximum_budget_projects_enabled { true }
+        vote_minimum_budget_projects_number { 3 }
+        vote_maximum_budget_projects_number { 6 }
+      end
+
+      settings do
+        {
+          vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
+          vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
+          vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
         }
       end
     end
