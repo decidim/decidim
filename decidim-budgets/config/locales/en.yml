@@ -204,9 +204,6 @@ en:
           selected: Selected
         project:
           add: Add project %{resource_name} to your vote
-          count:
-            one: 1 support
-            other: "%{count} supports"
           remove: Remove project %{resource_name} from your vote
           selected: Selected
           view: View
@@ -288,4 +285,3 @@ en:
         project_proposal: 'Proposals included in this project:'
   index:
     confirmed_orders_count: Votes count
-  total_budget: Total budget
