@@ -32,10 +32,7 @@
 
         $(".order-by__dropdown .is-submenu-item a", this.$element).on(
           "click.decidim-comments",
-          () => {
-            this._stopPolling();
-            this._setLoading();
-          }
+          this._onInitOrder
         );
       }
     }
@@ -52,7 +49,8 @@
 
         $(".add-comment .opinion-toggle .button", this.$element).off("click.decidim-comments");
         $(".add-comment textarea", this.$element).off("input.decidim-comments");
-        $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments");
+        $(".order-by__dropdown .is-submenu-item a", this.$element).off("click.decidim-comments");
+        $(".add-comment form", this.$element).off("submit.decidim-comments");
       }
     }
 
@@ -107,39 +105,16 @@
         const $add = $(el);
         const $form = $("form", $add);
         const $opinionButtons = $(".opinion-toggle .button", $add);
-        const $alignment = $(".alignment-input", $form);
         const $text = $("textarea", $form);
-        const $submit = $("button[type='submit']", $form);
 
-        $opinionButtons.on("click.decidim-comments", (ev) => {
-          let $btn = $(ev.target);
-          if (!$btn.is(".button")) {
-            $btn = $btn.parents(".button");
-          }
+        $opinionButtons.on("click.decidim-comments", this._onToggleOpinion);
+        $text.on("input.decidim-comments", this._onTextInput);
 
-          $opinionButtons.removeClass("is-active");
-          $btn.addClass("is-active");
+        $(document).trigger("attach-mentions-element", [$text.get(0)]);
 
-          if ($btn.is(".opinion-toggle--ok")) {
-            $alignment.val(1);
-          } else if ($btn.is(".opinion-toggle--meh")) {
-            $alignment.val(0);
-          } else if ($btn.is(".opinion-toggle--ko")) {
-            $alignment.val(-1);
-          }
-        });
+        $form.on("submit.decidim-comments", () => {
+          const $submit = $("button[type='submit']", $form);
 
-        $text.on("input.decidim-comments", () => {
-          if ($text.val().length > 0) {
-            $submit.removeAttr("disabled");
-          } else {
-            $submit.attr("disabled", "disabled");
-          }
-        });
-
-        $(document).trigger("attach-mentions-element", $text.get(0));
-
-        $form.on("submit", () => {
           $submit.attr("disabled", "disabled");
           this._stopPolling();
         });
@@ -241,6 +216,64 @@
       $("> .comments", $container).addClass("hide");
       $("> .loading-comments", $container).removeClass("hide");
     }
+
+    /**
+     * Event listener for the ordering links.
+     * @private
+     * @returns {Void} - Returns nothing
+     */
+    _onInitOrder() {
+      this._stopPolling();
+      this._setLoading();
+    }
+
+    /**
+     * Event listener for the opinion toggle buttons.
+     * @private
+     * @param {Event} ev - The event object.
+     * @returns {Void} - Returns nothing
+     */
+    _onToggleOpinion(ev) {
+      let $btn = $(ev.target);
+      if (!$btn.is(".button")) {
+        $btn = $btn.parents(".button");
+      }
+
+      const $add = $btn.closest(".add-comment");
+      const $form = $("form", $add);
+      const $opinionButtons = $(".opinion-toggle .button", $add);
+      const $alignment = $(".alignment-input", $form);
+
+      $opinionButtons.removeClass("is-active");
+      $btn.addClass("is-active");
+
+      if ($btn.is(".opinion-toggle--ok")) {
+        $alignment.val(1);
+      } else if ($btn.is(".opinion-toggle--meh")) {
+        $alignment.val(0);
+      } else if ($btn.is(".opinion-toggle--ko")) {
+        $alignment.val(-1);
+      }
+    }
+
+    /**
+     * Event listener for the comment field text input.
+     * @private
+     * @param {Event} ev - The event object.
+     * @returns {Void} - Returns nothing
+     */
+    _onTextInput(ev) {
+      const $text = $(ev.target);
+      const $add = $text.closest(".add-comment");
+      const $form = $("form", $add);
+      const $submit = $("button[type='submit']", $form);
+
+      if ($text.val().length > 0) {
+        $submit.removeAttr("disabled");
+      } else {
+        $submit.attr("disabled", "disabled");
+      }
+    }
   }
 
   exports.Decidim = exports.Decidim || {};
@@ -251,7 +284,6 @@
       const $el = $(el);
       const comments = new CommentsComponent($el, $el.data("decidim-comments"));
       comments.mountComponent();
-
       $(el).data("comments", comments);
     });
   });
