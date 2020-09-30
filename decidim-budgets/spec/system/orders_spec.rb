@@ -264,11 +264,11 @@ describe "Orders", type: :system do
     context "and isn't authorized" do
       before do
         permissions = {
-            vote: {
-                authorization_handlers: {
-                    "dummy_authorization_handler" => {}
-                }
+          vote: {
+            authorization_handlers: {
+              "dummy_authorization_handler" => {}
             }
+          }
         }
 
         component.update!(permissions: permissions)
