@@ -73,7 +73,7 @@ module Decidim
       initializer "decidim_comments.register_resources" do
         Decidim.register_resource(:comment) do |resource|
           resource.model_class_name = "Decidim::Comments::Comment"
-          resource.card = "decidim/comments/comment"
+          resource.card = "decidim/comments/comment_card"
           resource.searchable = true
         end
       end
