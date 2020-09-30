@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Trustees::NotifiyNewTrusteeEvent do
+describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.elections.trustees.new_trustee" }
