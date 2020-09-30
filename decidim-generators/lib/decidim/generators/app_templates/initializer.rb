@@ -5,7 +5,7 @@ Decidim.configure do |config|
   config.application_name = "My Application Name"
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = "change-me@domain.org"
+  config.mailer_sender = "change-me@example.org"
 
   # Sets the list of available locales for the whole application.
   #
@@ -14,18 +14,15 @@ Decidim.configure do |config|
   # of languages will be equal or a subset of the list in this file.
   config.available_locales = [:en, :ca, :es]
 
-  # Enable machine translations
-  config.enable_machine_translations = false
+  # Sets the default locale for new organizations. When creating a new
+  # organization from the System area, system admins will be able to overwrite
+  # this value for that specific organization.
+  config.default_locale = :en
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
   # config.system_accesslist_ips = ["127.0.0.1"]
-
-  # Sets the default locale for new organizations. When creating a new
-  # organization from the System area, system admins will be able to overwrite
-  # this value for that specific organization.
-  config.default_locale = :en
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -86,13 +83,6 @@ Decidim.configure do |config|
 
   # Time window were users can access the website even if their email is not confirmed.
   # config.unconfirmed_access_for = 2.days
-
-  # Etherpad configuration. Check the docs for more info.
-  # config.etherpad = {
-  #   server: <your url>,
-  #   api_key: <your key>,
-  #   api_version: <your version>
-  # }
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -199,6 +189,9 @@ Decidim.configure do |config|
   # config.amendments_visibility_options = %w(all participants)
 
   # Machine Translation Configuration
+  #
+  # Enable machine translations
+  config.enable_machine_translations = false
   #
   # If you want to enable machine translation you can create your own service
   # to interact with third party service to translate the user content.

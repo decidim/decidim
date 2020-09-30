@@ -235,7 +235,6 @@ pl:
           close: Zamknij
           proposal_header: 'Propozycje:'
         new:
-          answer_choices: Możesz wybrać do %{choices} odpowiedzi lub żadnej
           more_information: Więcej informacji
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}

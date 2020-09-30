@@ -196,7 +196,6 @@ nl:
           close: Afsluiten
           proposal_header: 'Voorstellen:'
         new:
-          answer_choices: U kunt maximaal %{choices} antwoorden selecteren of geen
           more_information: Meer informatie
           preview_alert: Dit is een voorbeeld van de stembooth.
           question_steps: Vraag %{current_step} van %{total_steps}
