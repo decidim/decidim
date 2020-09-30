@@ -177,6 +177,110 @@ describe "Homepage", type: :system do
         end
       end
 
+      describe "includes statistics" do
+        let!(:users) { create_list(:user, 4, :confirmed, organization: organization) }
+        let!(:participatory_process) do
+          create_list(
+            :participatory_process,
+            2,
+            :published,
+            organization: organization,
+            description: { en: "Description", ca: "Descripció", es: "Descripción" },
+            short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
+          )
+        end
+
+        context "when organization show_statistics attribute is false" do
+          let(:organization) { create(:organization, show_statistics: false) }
+
+          it "does not show the statistics block" do
+            expect(page).to have_no_content("Current state of #{organization.name}")
+          end
+        end
+
+        context "when organization show_statistics attribute is true" do
+          let(:organization) { create(:organization, show_statistics: true) }
+
+          before do
+            visit current_path
+          end
+
+          it "shows the statistics block" do
+            within "#statistics" do
+              expect(page).to have_content("Current state of #{organization.name}")
+              expect(page).to have_content("PROCESSES")
+              expect(page).to have_content("PARTICIPANTS")
+            end
+          end
+
+          it "has the correct values for the statistics" do
+            within ".users_count" do
+              expect(page).to have_content("4")
+            end
+
+            within ".processes_count" do
+              expect(page).to have_content("2")
+            end
+          end
+        end
+      end
+
+      describe "includes metrics" do
+        context "when organization show_statistics attribute is false" do
+          let(:organization) { create(:organization, show_statistics: false) }
+
+          it "does not show the statistics block" do
+            expect(page).to have_no_content("Participation in figures")
+          end
+        end
+
+        context "when organization show_statistics attribute is true" do
+          let(:organization) { create(:organization, show_statistics: true) }
+          let(:metrics) do
+            Decidim.metrics_registry.all.each do |metric_registry|
+              create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization: organization, cumulative: 5, quantity: 2)
+            end
+          end
+
+          context "and have metric records" do
+            before do
+              metrics
+              visit current_path
+            end
+
+            it "shows the metrics block" do
+              within "#metrics" do
+                expect(page).to have_content("Metrics")
+                Decidim.metrics_registry.filtered(highlight: true, scope: "home").each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
+                end
+                Decidim.metrics_registry.filtered(highlight: false, scope: "home").each do |metric_registry|
+                  expect(page).to have_css(%(##{metric_registry.metric_name}_chart), visible: :all)
+                end
+              end
+            end
+          end
+
+          context "and does not have metric records" do
+            before do
+              visit current_path
+            end
+
+            it "shows the metrics block empty" do
+              within "#metrics" do
+                expect(page).to have_content("Metrics")
+                Decidim.metrics_registry.highlighted.each do |metric_registry|
+                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
+                end
+                Decidim.metrics_registry.not_highlighted.each do |metric_registry|
+                  expect(page).to have_no_css("##{metric_registry.metric_name}_chart")
+                end
+              end
+            end
+          end
+        end
+      end
+
       describe "social links" do
         before do
           organization.update(
