@@ -476,6 +476,7 @@ en:
         index:
           choose_an_option: 'Choose your registration option:'
           login_as: You are logged in as %{name} <%{email}>
+          no_registrations: No registrations
           register: Register
           title: Registration types
       shared:

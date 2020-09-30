@@ -23,7 +23,7 @@ edit_link(
           <%= cell "decidim/conferences/registration_type", registration_type, allowed: allowed_to?(:join, :conference, conference: current_participatory_space) %>
         <% end %>
       <% else %>
-        No registrations
+        <%= t("registration_types.index.no_registrations", scope: "decidim.conferences") %>
       <% end %>
     </section>
   </div>

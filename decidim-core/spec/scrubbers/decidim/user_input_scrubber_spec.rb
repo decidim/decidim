@@ -43,4 +43,9 @@ describe Decidim::UserInputScrubber do
     html = "<script></script>"
     expect(html).to be_scrubbed_as("")
   end
+
+  it "does not allow onerror attributes" do
+    html = "<img src=x onerror=alert(1)>"
+    expect(html).to be_scrubbed_as("<img src=\"x\">")
+  end
 end
