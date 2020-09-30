@@ -48,6 +48,7 @@ module Decidim
             description: parsed_description,
             end_time: form.end_time,
             start_time: form.start_time,
+            online_meeting_url: form.online_meeting_url,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,

@@ -24,6 +24,9 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
+      TYPE_OF_MEETING = %w(in_person online).freeze
+      REGISTRATION_TYPE = %w(registrations_closed on_this_platform on_another_registration_system).freeze
+
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
