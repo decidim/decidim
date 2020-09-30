@@ -84,6 +84,10 @@ module Decidim
 
         ((component_settings.vote_minimum_budget_projects_number.to_f / component_settings.vote_maximum_budget_projects_number.to_f) * 100).floor
       end
+
+      def vote_maximum_budget_projects_number
+        current_component.settings.vote_maximum_budget_projects_number
+      end
     end
   end
 end

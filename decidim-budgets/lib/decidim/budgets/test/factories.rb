@@ -50,7 +50,6 @@ FactoryBot.define do
 
     trait :with_maximum_budget_projects do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { false }
         vote_rule_maximum_budget_projects_enabled { true }
@@ -59,7 +58,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,
@@ -70,7 +68,6 @@ FactoryBot.define do
 
     trait :with_minimum_and_maximum_budget_projects do
       transient do
-        total_budget { 100_000_000 }
         vote_rule_threshold_percent_enabled { false }
         vote_rule_minimum_budget_projects_enabled { true }
         vote_rule_maximum_budget_projects_enabled { true }
@@ -80,7 +77,6 @@ FactoryBot.define do
 
       settings do
         {
-          total_budget: total_budget,
           vote_rule_threshold_percent_enabled: vote_rule_threshold_percent_enabled,
           vote_rule_group_1_minimum_budget_projects_enabled: vote_rule_minimum_budget_projects_enabled,
           vote_rule_group_1_maximum_budget_projects_enabled: vote_rule_maximum_budget_projects_enabled,

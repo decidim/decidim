@@ -18,9 +18,13 @@ module Decidim
       validates :budget, presence: true
       validate :user_belongs_to_organization
 
-      validates :total_budget, numericality: { greater_than_or_equal_to: :minimum_budget }, if: -> { checked_out? && !maximum_projects_rule? }
+      validates :total_budget, numericality: {
+        greater_than_or_equal_to: :minimum_budget
+      }, if: -> { checked_out? && !maximum_projects_rule? }
 
-      validates :total_budget, numericality: { less_than_or_equal_to: :maximum_budget }, if: -> { !maximum_projects_rule? }
+      validates :total_budget, numericality: {
+        less_than_or_equal_to: :maximum_budget
+      }, if: -> { !maximum_projects_rule? }
 
       validate :reach_minimum_projects, if: :checked_out?
       validate :exceed_maximum_projects, if: :checked_out?
@@ -97,14 +101,14 @@ module Decidim
 
       # Public: Returns if it is required a maximum projects limit to checkout
       def maximum_projects_rule?
-        return unless component
+        return unless budget
 
         budget.settings.vote_rule_group_1_maximum_budget_projects_enabled
       end
 
       # Public: Returns the required maximum projects to checkout
       def maximum_projects
-        return 0 unless component
+        return 0 unless budget
 
         budget.settings.vote_maximum_budget_projects_number
       end

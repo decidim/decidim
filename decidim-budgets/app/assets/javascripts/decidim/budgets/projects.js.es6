@@ -30,6 +30,7 @@ $(() => {
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
+
     } else if (($currentTarget.attr("data-add") === "true") && (projectNumberExceeded() || budgetExceeded())) {
       $budgetExceedModal.foundation("toggle");
       cancelEvent(event);

@@ -78,7 +78,7 @@ module Decidim::Budgets
       let(:voting_rule) { :with_maximum_budget_projects }
 
       context "and the order exceed the maximum number of projects" do
-        let(:projects) { create_list(:project, 8, component: component, budget: 45_000_000) }
+        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -86,7 +86,7 @@ module Decidim::Budgets
       end
 
       context "when the total budget exceeds the maximum" do
-        let(:projects) { create_list(:project, 4, component: component, budget: 100_000_000) }
+        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
 
         it "broadcasts valid" do
           expect { subject.call }.to broadcast(:ok)
@@ -98,7 +98,7 @@ module Decidim::Budgets
       let(:voting_rule) { :with_minimum_and_maximum_budget_projects }
 
       context "and the order exceed the maximum number of projects" do
-        let(:projects) { create_list(:project, 8, component: component, budget: 45_000_000) }
+        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -106,7 +106,7 @@ module Decidim::Budgets
       end
 
       context "and the order doesn't reach the minimum number of projects" do
-        let(:projects) { create_list(:project, 2, component: component, budget: 45_000_000) }
+        let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 45_000_000) }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -114,7 +114,7 @@ module Decidim::Budgets
       end
 
       context "when the total budget exceeds the maximum" do
-        let(:projects) { create_list(:project, 4, component: component, budget: 100_000_000) }
+        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
 
         it "broadcasts valid" do
           expect { subject.call }.to broadcast(:ok)

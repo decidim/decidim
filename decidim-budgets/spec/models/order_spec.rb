@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples "an order" do
+shared_examples "an order" do |*options|
   describe "validations" do
     it "is valid" do
       expect(subject).to be_valid
@@ -24,19 +24,21 @@ shared_examples "an order" do
       expect(new_order).to be_invalid
     end
 
-    it "can't exceed a maximum order value" do
-      project1 = create(:project, budget: budget, budget_amount: 100)
-      project2 = create(:project, budget: budget, budget_amount: 20)
+    if options.include?(:with_maximum_budget)
+      it "can't exceed a maximum order value" do
+        project1 = create(:project, budget: budget, budget_amount: 100)
+        project2 = create(:project, budget: budget, budget_amount: 20)
 
-      subject.projects << project1
-      subject.projects << project2
+        subject.projects << project1
+        subject.projects << project2
 
-      subject.component.settings = {
-        "vote_threshold" => 50
-      }
-      budget.update!(total_budget: 100)
+        subject.component.settings = {
+          "vote_threshold" => 50
+        }
+        budget.update!(total_budget: 100)
 
-      expect(subject).to be_invalid
+        expect(subject).to be_invalid
+      end
     end
   end
 
@@ -45,6 +47,14 @@ shared_examples "an order" do
       subject.projects << build(:project, budget: subject.budget)
 
       expect(subject.total_budget).to eq(subject.projects.sum(&:budget_amount))
+    end
+  end
+
+  describe "#total_project" do
+    it "returns the count of projects" do
+      subject.projects << build(:project, budget: subject.budget)
+
+      expect(subject.total_projects).to eq(subject.projects.size)
     end
   end
 
@@ -70,7 +80,7 @@ module Decidim::Budgets
       let(:total_budget) { 100 }
       let!(:order) { create :order, budget: budget }
 
-      it_behaves_like "an order"
+      it_behaves_like "an order", :with_maximum_budget
 
       it "can't be lower than a minimum order value when checked out" do
         project1 = create(:project, budget: budget, budget_amount: 20)
@@ -90,7 +100,7 @@ module Decidim::Budgets
       let(:voting_rule) { :with_minimum_budget_projects }
       let(:vote_minimum_budget_projects_number) { 5 }
 
-      it_behaves_like "an order"
+      it_behaves_like "an order", :with_maximum_budget
 
       it "can't be lower than a minimum projects number when checked out" do
         project1 = create(:project, budget: budget, budget_amount: 100)
@@ -114,14 +124,14 @@ module Decidim::Budgets
     end
 
     describe "with component with a maximum projects rule" do
-      let!(:order) { create :order, component: component }
+      let!(:order) { create :order, budget: budget }
       let(:voting_rule) { :with_maximum_budget_projects }
       let(:vote_maximum_budget_projects_number) { 6 }
 
       it_behaves_like "an order"
 
       it "can't be higher than a maximum projects number when checked out" do
-        projects = create_list(:project, 7, component: component, budget: 100)
+        projects = create_list(:project, 7, budget: budget, budget_amount: 100)
 
         subject.projects << projects
 
@@ -131,7 +141,7 @@ module Decidim::Budgets
       end
 
       it "has to be under the maximum projects number when checked out" do
-        projects = create_list(:project, 6, component: component, budget: 100)
+        projects = create_list(:project, 6, budget: budget, budget_amount: 100)
 
         subject.projects << projects
 
@@ -141,7 +151,7 @@ module Decidim::Budgets
       end
 
       it "can exceed the maximum budget when checked out" do
-        projects = create_list(:project, 6, component: component, budget: 100_000_000)
+        projects = create_list(:project, 6, budget: budget, budget_amount: 100_000_000)
 
         subject.projects << projects
 
@@ -152,7 +162,7 @@ module Decidim::Budgets
     end
 
     describe "with component with a minimum and maximum projects rule" do
-      let!(:order) { create :order, component: component }
+      let!(:order) { create :order, budget: budget }
       let(:voting_rule) { :with_minimum_and_maximum_budget_projects }
       let(:vote_minimum_budget_projects_number) { 3 }
       let(:vote_maximum_budget_projects_number) { 6 }
@@ -160,7 +170,7 @@ module Decidim::Budgets
       it_behaves_like "an order"
 
       it "can't be higher than a maximum projects number when checked out" do
-        projects = create_list(:project, 7, component: component, budget: 100)
+        projects = create_list(:project, 7, budget: budget, budget_amount: 100)
 
         subject.projects << projects
 
@@ -170,7 +180,7 @@ module Decidim::Budgets
       end
 
       it "can't be lower than a minimum projects number when checked out" do
-        project1 = create(:project, component: subject.component, budget: 100)
+        project1 = create(:project, budget: subject.budget, budget_amount: 100)
 
         subject.projects << project1
 
@@ -180,7 +190,7 @@ module Decidim::Budgets
       end
 
       it "has to reach the minimum projects number when checked out" do
-        projects = create_list(:project, 4, component: component, budget: 100)
+        projects = create_list(:project, 4, budget: budget, budget_amount: 100)
 
         subject.projects << projects
 
@@ -190,7 +200,7 @@ module Decidim::Budgets
       end
 
       it "has to be under the maximum projects number when checked out" do
-        projects = create_list(:project, 6, component: component, budget: 100)
+        projects = create_list(:project, 6, budget: budget, budget_amount: 100)
 
         subject.projects << projects
 
@@ -200,7 +210,7 @@ module Decidim::Budgets
       end
 
       it "can exceed the maximum budget when checked out" do
-        projects = create_list(:project, 6, component: component, budget: 100_000_000)
+        projects = create_list(:project, 6, budget: budget, budget_amount: 100_000_000)
 
         subject.projects << projects
 

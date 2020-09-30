@@ -39,7 +39,7 @@ describe "Orders", type: :system do
       login_as user, scope: :user
     end
 
-    context "when visiting component" do
+    context "when visiting budget" do
       before do
         visit_budget
       end
@@ -60,8 +60,8 @@ describe "Orders", type: :system do
 
       context "when voting by minimum projects number" do
         let!(:component) do
-          create(:budget_component,
-                 :with_total_budget_and_minimum_budget_projects,
+          create(:budgets_component,
+                 :with_minimum_budget_projects,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
@@ -81,7 +81,7 @@ describe "Orders", type: :system do
 
       context "when voting by maximum projects number" do
         let!(:component) do
-          create(:budget_component,
+          create(:budgets_component,
                  :with_maximum_budget_projects,
                  manifest: manifest,
                  participatory_space: participatory_process)
@@ -102,7 +102,7 @@ describe "Orders", type: :system do
 
       context "when voting by minimum and maximum projects number" do
         let!(:component) do
-          create(:budget_component,
+          create(:budgets_component,
                  :with_minimum_and_maximum_budget_projects,
                  manifest: manifest,
                  participatory_space: participatory_process)
@@ -148,57 +148,115 @@ describe "Orders", type: :system do
           end
         end
 
-        within "#project-#{project.id}-item" do
-          page.find(".budget-list__action").click
-        end
-
-        expect(page).to have_selector ".budget-list__data--added", count: 1
-
-        expect(page).to have_content "ASSIGNED: €25,000,000"
-        expect(page).to have_content "1 project selected"
-
-        within ".budget-summary__selected" do
-          expect(page).to have_content project.title[I18n.locale]
-        end
-
-        within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_content "25%"
-          expect(page).to have_selector("button.small:disabled")
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL BUDGET €100,000,000")
+          end
         end
       end
 
-      it "displays total budget" do
-        within ".budget-summary__total" do
-          expect(page).to have_content("TOTAL BUDGET €100,000,000")
+      context "when voting by minimum projects number" do
+        let!(:component) do
+          create(:budgets_component,
+                 :with_minimum_budget_projects,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it "adds a project to the current order" do
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          expect(page).to have_selector ".budget-list__data--added", count: 1
+
+          expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "1 project selected"
+
+          within ".budget-summary__selected" do
+            expect(page).to have_content project.title[I18n.locale]
+          end
+
+          within "#order-progress .budget-summary__progressbox" do
+            expect(page).to have_content "25%"
+            expect(page).to have_selector("button.small:disabled")
+          end
+        end
+
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL BUDGET €100,000,000")
+          end
         end
       end
-    end
 
-    context "when voting by minimum projects number" do
-      let!(:component) do
-        create(:budget_component,
-               :with_total_budget_and_minimum_budget_projects,
-               manifest: manifest,
-               participatory_space: participatory_process)
+      context "when voting by maximum projects number" do
+        let!(:component) do
+          create(:budgets_component,
+                 :with_maximum_budget_projects,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it "adds a project to the current order" do
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          expect(page).to have_selector ".budget-list__data--added", count: 1
+
+          expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "1 project selected"
+
+          within ".budget-summary__selected" do
+            expect(page).to have_content project.title[I18n.locale]
+          end
+
+          within "#order-progress .budget-summary__progressbox" do
+            expect(page).to have_content "16%"
+            expect(page).to have_selector("button.small")
+          end
+        end
+
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL PROJECTS 6")
+          end
+        end
       end
 
-      it "adds a project to the current order" do
-        within "#project-#{project.id}-item" do
-          page.find(".budget-list__action").click
+      context "when voting by minimum and maximum projects number" do
+        let!(:component) do
+          create(:budgets_component,
+                 :with_minimum_and_maximum_budget_projects,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
         end
 
-        expect(page).to have_selector ".budget-list__data--added", count: 1
+        it "adds a project to the current order" do
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
 
-        expect(page).to have_content "ASSIGNED: €25,000,000"
-        expect(page).to have_content "1 project selected"
+          expect(page).to have_selector ".budget-list__data--added", count: 1
 
-        within ".budget-summary__selected" do
-          expect(page).to have_content project.title[I18n.locale]
+          expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "1 project selected"
+
+          within ".budget-summary__selected" do
+            expect(page).to have_content project.title[I18n.locale]
+          end
+
+          within "#order-progress .budget-summary__progressbox" do
+            expect(page).to have_content "16%"
+            expect(page).to have_selector("button.small")
+          end
         end
 
-        within "#order-progress .budget-summary__progressbox" do
-          expect(page).to have_content "25%"
-          expect(page).to have_selector("button.small:disabled")
+        it "displays total budget" do
+          within ".budget-summary__total" do
+            expect(page).to have_content("TOTAL PROJECTS 6")
+          end
         end
       end
 
