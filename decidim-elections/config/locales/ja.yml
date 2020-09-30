@@ -218,7 +218,6 @@ ja:
           close: 閉じる
           proposal_header: '提案:'
         new:
-          answer_choices: 最大 %{choices} 個の回答を選択できます。
           more_information: 詳しい情報
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'

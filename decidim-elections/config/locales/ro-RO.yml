@@ -196,7 +196,6 @@ ro:
           close: Inchide
           proposal_header: 'Propuneri:'
         new:
-          answer_choices: Poți selecta până la %{choices} răspunsuri sau nimic
           more_information: Mai multe informații
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}

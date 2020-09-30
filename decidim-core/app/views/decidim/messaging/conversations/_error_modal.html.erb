@@ -1,0 +1,21 @@
+<div class="reveal" id="messageErrorModal" data-reveal>
+  <div class="reveal__header">
+    <h2 class="reveal__title"><%= error %></h2>
+    <button class="close-button" data-close aria-label="<%= t(".close") %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="reveal__body">
+    <p><%= t(".intro") %></p>
+    <p>
+      <%= messages.join("<br>") %>
+    </p>
+    <p><%= t(".correct_errors") %></p>
+  </div>
+  <div class="reveal__footer">
+    <div class="buttons button--double">
+      <a class="button" role="button" href="#" data-close aria-label="<%= t(".ok") %>"><%= t(".ok") %></a>
+    </div>
+  </div>
+</div>

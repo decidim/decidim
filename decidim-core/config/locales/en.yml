@@ -443,7 +443,7 @@ en:
           buttons:
             check: Check and continue
             close_modal: Close modal
-            uncheck: Keep uncheck
+            uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
@@ -896,6 +896,11 @@ en:
           show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
+        error_modal:
+          close: Close modal
+          correct_errors: Please correct the errors and try again.
+          intro: 'There were the following errors with your message:'
+          ok: OK
         index:
           ago: ago
           close: Close modal
@@ -919,7 +924,7 @@ en:
           send: Send
           title: Start a conversation
         update:
-          error: Message not sent. Try again later
+          error: Message was not sent due to an error
     metrics:
       download:
         csv: Download data (csv)
