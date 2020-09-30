@@ -14,10 +14,7 @@
         maxlength: comments_max_length,
         required: true,
         placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
-        data: {
-          tribute: "true",
-          remaining_characters: "##{add_comment_id}-remaining-characters"
-        }
+        data: { remaining_characters: "##{add_comment_id}-remaining-characters" }
       ) %>
     </div>
     <button type="submit" class="button button--sc" disabled="disabled"><%= t("decidim.components.add_comment_form.form.submit") %></button>
