@@ -32,7 +32,7 @@
                 <%= trustee.public_key %>
               </td>
               <td>
-                <%= Time.now.ctime %>
+                <%= trustee.created_at.ctime %>
               </td>
               <td>
                 <% if trustee.trustees_participatory_spaces.first.considered %>
