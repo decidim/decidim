@@ -20,12 +20,12 @@ module Decidim
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
           return broadcast(:invalid) if form.invalid?
-          return broadcast(:exists) if existing_trustee?
+          return broadcast(:exists) if existing_trustee_participatory_spaces?
 
           transaction do
-            notifiy_user_about_trustee_role if new_trustee?
-            add_user_as_trustee!
+            add_user_as_trustee! if new_trustee?
             add_participatory_space
+            notify_user_about_trustee_role
           end
 
           broadcast(:ok)
@@ -43,14 +43,14 @@ module Decidim
           )
         end
 
-        def existing_trustee?
+        def existing_trustee_participatory_spaces?
           Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
                                      .where("decidim_elections_trustees_participatory_spaces.participatory_space_id = ?", form.current_participatory_space.id)
                                      .where("decidim_user_id = ?", form.user.id).any?
         end
 
         def new_trustee?
-          Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
+          @new_trustee ||= Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
         end
 
         def add_participatory_space
@@ -59,10 +59,10 @@ module Decidim
           )
         end
 
-        def notifiy_user_about_trustee_role
+        def notify_user_about_trustee_role
           data = {
             event: "decidim.events.elections.trustees.new_trustee",
-            event_class: Decidim::Elections::Trustees::NotifiyNewTrusteeEvent,
+            event_class: Decidim::Elections::Trustees::NotifyNewTrusteeEvent,
             resource: form.current_participatory_space,
             affected_users: [form.user]
           }
