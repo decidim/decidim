@@ -888,6 +888,10 @@
           show: Vis samtale med %{sender}
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        error_modal:
+          correct_errors: Vennligst korriger feilene og prøv på nytt.
+          intro: 'Det var følgende feil med din melding:'
+          ok: Ok
         index:
           ago: siden
           close: Lukk modal
@@ -909,6 +913,8 @@
         start:
           send: Send
           title: Start en samtale
+        update:
+          error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
       download:
         csv: Last ned data (csv)
