@@ -2,7 +2,6 @@ ja:
   activemodel:
     attributes:
       project:
-        budget: 予算
         decidim_category_id: カテゴリ
         decidim_scope_id: スコープ
         description: 説明

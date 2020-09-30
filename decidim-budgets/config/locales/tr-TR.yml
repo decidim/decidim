@@ -2,7 +2,6 @@ tr:
   activemodel:
     attributes:
       project:
-        budget: Bütçe
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
         description: Açıklama

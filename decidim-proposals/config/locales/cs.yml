@@ -152,6 +152,8 @@ cs:
             proposal_wizard_step_3_help_text: Návrh průvodce "Kompletní" pomocný text kroku
             proposal_wizard_step_4_help_text: Průvodce návrhem "Publikovat" pomocný text kroku
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
             vote_limit: Počet hlasů na uživatele
           step:

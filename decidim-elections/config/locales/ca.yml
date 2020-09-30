@@ -72,6 +72,7 @@ ca:
             title: Editar les respostes
             update: Actualitzar resposta
           index:
+            invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
             create: Crear resposta
@@ -226,7 +227,6 @@ ca:
           close: Tancar
           proposal_header: 'Propostes:'
         new:
-          answer_choices: Pots seleccionar fins a %{choices} respostes o cap
           more_information: Més informació
           preview_alert: Aquesta és una vista prèvia de la cabina de votació.
           question_steps: Pregunta %{current_step} de %{total_steps}

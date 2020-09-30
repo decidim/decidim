@@ -37,6 +37,8 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -81,6 +83,8 @@ cs:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
           create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name}"
           update: "%{user_name} aktualizovala %{resource_name} diskusi o %{space_name} prostoru"
+      debate_m:
+        commented_time_ago: Komentováno před %{time}
       debates:
         close:
           invalid: Při uzavírání debaty došlo k chybě.
@@ -106,13 +110,22 @@ cs:
           save: Uložit změny
           title: Upravit debatu
         filters:
+          activity: Moje aktivita
           all: Vše
           category: Kategorie
           category_prompt: Vyberte kategorii
           citizens: Občané
+          commented: Okomentováno
+          my_debates: Moje rozpravy
           official: Oficiální
           origin: Původ
+          scope: Oblast působnosti
           search: Hledat
+          state: Stav
+          state_values:
+            closed: Uzavřeno
+            open: Otevřeno
+          user_groups: Skupiny
         filters_small_view:
           close_modal: Zavřít okno
           filter: Filtr
@@ -126,6 +139,12 @@ cs:
           back: Zpět
           create: Vytvořit
           title: Nová debata
+        orders:
+          commented: Nejvíce komentované
+          label: Řazení rozprav podle
+          random: Náhodné pořadí
+          recent: Nejnovější
+          updated: Naposledy aktualizované
         show:
           back: Zpět na seznam
           close_debate: Ukončit debatu

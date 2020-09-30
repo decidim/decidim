@@ -35,6 +35,8 @@ fr:
             announcement: Annonce
             comments_enabled: Commentaires activés
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
@@ -79,6 +81,8 @@ fr:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+      debate_m:
+        commented_time_ago: Commenté il y a %{time}
       debates:
         close:
           invalid: Une erreur s'est produite lors de la fermeture du débat.
@@ -102,13 +106,22 @@ fr:
           save: Enregistrer les modifications
           title: Modifier le débat
         filters:
+          activity: Mon activité
           all: Tout
           category: Catégorie
           category_prompt: Choisir une catégorie
           citizens: Citoyenne
+          commented: Commenté
+          my_debates: Mes débats
           official: Officielle
           origin: Origine
+          scope: Périmètre d'application
           search: Rechercher
+          state: Statut
+          state_values:
+            closed: Fermé
+            open: Ouvert
+          user_groups: Groupes
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtre
@@ -122,6 +135,12 @@ fr:
           back: Retour
           create: Créer
           title: Nouveau débat
+        orders:
+          commented: Les plus commentés
+          label: Trier les débats par
+          random: Ordre aléatoire
+          recent: Les plus récents
+          updated: Mis à jour récemment
         show:
           back: Retour à la liste
           close_debate: Clore le débat

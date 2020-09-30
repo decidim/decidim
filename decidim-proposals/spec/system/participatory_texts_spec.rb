@@ -26,7 +26,7 @@ describe "Participatory texts", type: :system do
 
     expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
-    expect(prop_block).to have_link(proposal.comments.count.to_s) if component.settings.comments_enabled
+    expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
     expect(prop_block).not_to have_content(clean_proposal_body) if proposal.participatory_text_level != "article"
   end

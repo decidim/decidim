@@ -77,7 +77,6 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
-  autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -86,6 +85,9 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :OrganizationSettings, "decidim/organization_settings"
+  autoload :HasUploadValidations, "decidim/has_upload_validations"
+  autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
 
   include ActiveSupport::Configurable
@@ -218,16 +220,6 @@ module Decidim
     80
   end
 
-  # Exposes a configuration option: The maximum file size of an attachment.
-  config_accessor :maximum_attachment_size do
-    10.megabytes
-  end
-
-  # Exposes a configuration option: The maximum file size for user avatar images.
-  config_accessor :maximum_avatar_size do
-    5.megabytes
-  end
-
   # The number of reports which a resource can receive before hiding it
   config_accessor :max_reports_before_hiding do
     3
@@ -344,6 +336,12 @@ module Decidim
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
     %w(all participants)
+  end
+
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
   end
 
   # Defines the name of the cookie used to check if the user allows Decidim to
@@ -535,6 +533,29 @@ module Decidim
   # Public: Stores an instance of MetricOperation
   def self.metrics_operation
     @metrics_operation ||= MetricOperation.new
+  end
+
+  # Public: Returns the correct settings object for the given organization or
+  # the default settings object when the organization cannot be determined. The
+  # model to be passed to this method can be any model that responds to the
+  # `organization` method or the organization itself. If the given model is not
+  # an organization or does not respond to the organization method, returns the
+  # default organization settings.
+  #
+  # model - The target model for which to fetch the settings object, either an
+  #         organization or a model responding to the `organization` method.
+  #
+  def self.organization_settings(model)
+    organization = begin
+      if model.is_a?(Decidim::Organization)
+        model
+      elsif model.respond_to?(:organization)
+        model.organization
+      end
+    end
+    return Decidim::OrganizationSettings.defaults unless organization
+
+    Decidim::OrganizationSettings.for(organization)
   end
 
   def self.machine_translation_service_klass

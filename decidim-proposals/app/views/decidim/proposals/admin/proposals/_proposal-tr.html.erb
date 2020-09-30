@@ -42,7 +42,7 @@
 
   <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
     <td>
-      <%= proposal.comments.count %>
+      <%= proposal.comments_count %>
     </td>
   <% end %>
 

@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip %>
+      <%= form.translated :text_field, :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip, hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.editor :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+      <%= form.translated :editor, :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
     </div>
 
     <% if @form.component_automatic_hashtags.any? %>

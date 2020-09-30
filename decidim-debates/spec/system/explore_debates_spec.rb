@@ -6,29 +6,24 @@ describe "Explore debates", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_component) { create :debates_component, participatory_space: participatory_process }
-  let(:debates_count) { 5 }
-  let!(:debates) do
-    create_list(
-      :debate,
-      debates_count,
-      component: current_component,
-      start_time: Time.zone.local(2016, 12, 13, 14, 15),
-      end_time: Time.zone.local(2016, 12, 13, 16, 17)
-    )
-  end
-
   before do
     switch_to_host(organization.host)
   end
 
   describe "index" do
-    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, component_id: current_component.id) }
+    let(:debates_count) { 5 }
+    let!(:debates) do
+      create_list(
+        :debate,
+        debates_count,
+        component: component,
+        start_time: Time.zone.local(2016, 12, 13, 14, 15),
+        end_time: Time.zone.local(2016, 12, 13, 16, 17)
+      )
+    end
 
     it "lists all debates for the given process" do
-      visit path
+      visit_component
 
       expect(page).to have_selector(".card--debate", count: debates_count)
 
@@ -38,7 +33,7 @@ describe "Explore debates", type: :system do
     end
 
     context "when there are a lot of debates" do
-      before do
+      let!(:debates) do
         create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component: component)
       end
 
@@ -63,10 +58,10 @@ describe "Explore debates", type: :system do
       context "with the component's settings" do
         before do
           component.update!(settings: { announcement: announcement })
+          visit_component
         end
 
         it "shows the announcement" do
-          visit_component
           expect(page).to have_content("Important announcement")
         end
       end
@@ -80,10 +75,10 @@ describe "Explore debates", type: :system do
               }
             }
           )
+          visit_component
         end
 
         it "shows the announcement" do
-          visit_component
           expect(page).to have_content("Important announcement")
         end
       end
@@ -92,13 +87,15 @@ describe "Explore debates", type: :system do
     context "when filtering" do
       context "when filtering by origin" do
         context "with 'official' origin" do
+          let!(:debates) { create_list(:debate, 2, component: component) }
+
           it "lists the filtered debates" do
-            create_list(:debate, 2, component: component)
-            create(:debate, :with_author, component: component)
+            create(:debate, :citizen_author, component: component)
             visit_component
 
-            within ".filters" do
-              choose "Official"
+            within ".filters .origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Official"
             end
 
             expect(page).to have_css(".card--debate", count: 2)
@@ -107,13 +104,15 @@ describe "Explore debates", type: :system do
         end
 
         context "with 'citizens' origin" do
+          let!(:debates) { create_list(:debate, 2, :citizen_author, component: component) }
+
           it "lists the filtered debates" do
-            create_list(:debate, 2, :with_author, component: component)
             create(:debate, component: component)
             visit_component
 
-            within ".filters" do
-              choose "Citizens"
+            within ".filters .origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Citizens"
             end
 
             expect(page).to have_css(".card--debate", count: 2)
@@ -123,18 +122,19 @@ describe "Explore debates", type: :system do
       end
 
       context "when filtering by category" do
+        let(:category2) { create :category, participatory_space: participatory_space }
+        let(:debates) { create_list(:debate, 3, component: component, category: category2) }
+
         before do
+          create(:debate, component: component, category: category)
           login_as user, scope: :user
+          visit_component
         end
 
         it "can be filtered by category" do
-          create_list(:debate, 3, component: component)
-          create(:debate, component: component, category: category)
-
-          visit_component
-
-          within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: "filter[category_id]"
+          within ".filters .category_id_check_boxes_tree_filter" do
+            uncheck "All"
+            check category.name[I18n.locale.to_s]
           end
 
           expect(page).to have_css(".card--debate", count: 1)
@@ -147,20 +147,32 @@ describe "Explore debates", type: :system do
 
       before do
         create :moderation, :hidden, reportable: debate
+        visit_component
       end
 
       it "does not list the hidden debates" do
-        visit path
-
         expect(page).to have_selector(".card--debate", count: debates_count - 1)
-
         expect(page).to have_no_content(translated(debate.title))
+      end
+    end
+
+    context "with comment metadata" do
+      let!(:comment) { create(:comment, commentable: debates) }
+      let!(:debates) { create(:debate, :open_ama, component: component) }
+
+      it "shows the last comment author and the time" do
+        visit_component
+
+        within ".card__footer" do
+          expect(page).to have_content("Commented")
+        end
       end
     end
   end
 
   context "when component is not commentable" do
-    let(:ressources) { create_list(:debate, 3, component: current_component) }
+    let(:component) { create :debante_component, :with_comments_blocked, participatory_space: participatory_space }
+    let(:resources) { create_list(:debate, 3, component: component) }
 
     it_behaves_like "an uncommentable component"
   end
@@ -169,12 +181,19 @@ describe "Explore debates", type: :system do
     let(:path) do
       decidim_participatory_process_debates.debate_path(
         id: debate.id,
-        participatory_process_slug: participatory_process.slug,
-        component_id: current_component.id
+        participatory_process_slug: participatory_space.slug,
+        component_id: component.id
       )
     end
-    let(:debates_count) { 1 }
-    let(:debate) { debates.first }
+    let!(:debate) do
+      create(
+        :debate,
+        :open_ama,
+        component: component,
+        start_time: Time.zone.local(2016, 12, 13, 14, 15),
+        end_time: Time.zone.local(2016, 12, 13, 16, 17)
+      )
+    end
 
     before do
       visit path
@@ -201,8 +220,8 @@ describe "Explore debates", type: :system do
 
     context "with a category" do
       let(:debate) do
-        debate = debates.first
-        debate.category = create :category, participatory_space: participatory_process
+        debate = create(:debate, component: component)
+        debate.category = create :category, participatory_space: participatory_space
         debate.save
         debate
       end
@@ -217,13 +236,13 @@ describe "Explore debates", type: :system do
     end
 
     context "when debate is official" do
-      let(:debate) { create(:debate, author: organization, description: content, component: current_component) }
+      let!(:debate) { create(:debate, author: organization, description: content, component: component) }
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end
 
     context "when rich text editor is enabled for participants" do
-      let(:debate) { create(:debate, author: user, description: content, component: current_component) }
+      let!(:debate) { create(:debate, author: user, description: content, component: component) }
 
       before do
         organization.update(rich_text_editor_in_public_views: true)
@@ -234,7 +253,7 @@ describe "Explore debates", type: :system do
     end
 
     context "when rich text editor is NOT enabled on the frontend" do
-      let(:debate) { create(:debate, author: user, description: content, component: current_component) }
+      let!(:debate) { create(:debate, author: user, description: content, component: component) }
 
       it_behaves_like "rendering unsafe content", ".columns.mediumlarge-8.mediumlarge-pull-4"
     end

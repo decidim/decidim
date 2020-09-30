@@ -2,7 +2,7 @@ pl:
   activemodel:
     attributes:
       area:
-        area_type: Typ obszaru
+        area_type: Typ kategorii
         name: Nazwa
         organization: Organizacja
       area_type:
@@ -161,36 +161,36 @@ pl:
         title: Warunki użytkowania dla administratorów
       area_types:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego typu obszaru.
-          success: Typ obszaru został pomyślnie utworzony.
+          error: Wystąpił błąd podczas tworzenia nowego typu kategorii.
+          success: Typ kategorii został pomyślnie utworzony.
         destroy:
-          success: Typ obszaru został usunięty
+          success: Typ kategorii został usunięty
         edit:
-          title: Edytuj typ obszaru
+          title: Edytuj typ kategorii
           update: Aktualizuj
         new:
-          create: Utwórz typ obszaru
-          title: Nowy typ obszaru
+          create: Utwórz typ kategorii
+          title: Nowy typ kategorii
         update:
-          error: Wystąpił błąd podczas aktualizowania tego typu obszaru.
-          success: Typ obszaru został pomyślnie zaktualizowany
+          error: Wystąpił błąd podczas aktualizowania tego typu kategorii.
+          success: Typ kategorii został pomyślnie zaktualizowany
       areas:
         create:
-          error: Wystąpił błąd podczas tworzenia nowego obszaru.
-          success: Obszar utworzony pomyślnie.
+          error: Wystąpił błąd podczas tworzenia nowej ketegorii.
+          success: Kategoria została utworzona.
         destroy:
-          has_spaces: Obszar ma elementy zależne; aby można było go usunąć, nie może mieć elementów zależnych.
-          success: Obszar został usunięty
+          has_spaces: Kategoria ma elementy zależne; aby można było ją usunąć, nie może mieć elementów zależnych.
+          success: Kategoria została usunięta
         edit:
-          title: Edytuj obszar
+          title: Edytuj kategorię
           update: Aktualizuj
         new:
-          create: Utwórz obszar
-          title: Nowy obszar
-        no_areas: Brak obszarów
+          create: Utwórz kategorię
+          title: Nowa kategoria
+        no_areas: Brak kategorii
         update:
-          error: Wystąpił błąd podczas aktualizowania tego obszaru.
-          success: Obszar zaktualizowany pomyślnie
+          error: Wystąpił błąd podczas aktualizowania tej kategorii.
+          success: Kategoria została zaktualizowana
       attachment_collections:
         create:
           error: Wystąpił błąd podczas tworzenia nowego folderu.
@@ -263,14 +263,15 @@ pl:
           title: Edytuj komponent
           update: Aktualizuj
         form:
-          default_step_settings: Domyślne ustawienia kroków
+          default_step_settings: Domyślne ustawienia etapów
           global_settings: Ustawienia ogólne
-          step_settings: Ustawienia kroku
+          step_settings: Ustawienia etapu
         index:
           add: Dodaj komponent
           headers:
             actions: Działania
             name: Nazwa komponentu
+            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent
@@ -376,8 +377,8 @@ pl:
         admin_log: Logi aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
-        area_types: Typy obszarów
-        areas: Obszary
+        area_types: Typy kategorii
+        areas: Kategorie
         configuration: Konfiguracja
         dashboard: Panel
         help_sections: Sekcje pomocy
@@ -397,7 +398,7 @@ pl:
       models:
         area:
           fields:
-            area_type: Typ obszaru
+            area_type: Typ kategorii
             name: Nazwa
         area_type:
           fields:
@@ -639,6 +640,10 @@ pl:
           title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
+      resources:
+        index:
+          headers:
+            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -732,8 +737,8 @@ pl:
           success: Strona została zaktualizowana
       titles:
         admin_log: Logi administratora
-        area_types: Rodzaje obszarów
-        areas: Obszary
+        area_types: Typy kategorii
+        areas: Kategorie
         authorization_workflows: Metody weryfikacji
         dashboard: Panel
         impersonatable_users: Zarządzaj użytkownikami

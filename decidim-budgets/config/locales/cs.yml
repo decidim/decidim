@@ -1,10 +1,16 @@
 cs:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Oblast působnosti
+        description: Popis
+        title: Název
+        total_budget: Celkový rozpočet
+        weight: Váha
       project:
-        budget: Rozpočet
+        budget_amount: Částka rozpočtu
         decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
         title: Titul
@@ -153,7 +159,7 @@ cs:
             other: "%{count} projektů"
         filters:
           category: Kategorie
-          scope: Rozsah
+          scope: Oblast působnosti
           search: Vyhledávání
           status: Stav
           status_values:
@@ -215,6 +221,9 @@ cs:
             more_information_modal: Více informací
             projects_per_page: Projekty na stránku
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
+            title: Název
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'

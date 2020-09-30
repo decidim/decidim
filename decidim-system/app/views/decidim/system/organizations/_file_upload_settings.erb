@@ -1,0 +1,56 @@
+<div class="fieldset">
+  <h4><%= t("decidim.system.models.organization.fields.file_upload_settings") %></h4>
+  <p><%= t(".intro") %></p>
+
+  <%= f.fields_for :file_upload_settings, f.object.file_upload_settings do |settings_form| %>
+    <%= settings_form.fields_for :allowed_file_extensions, OpenStruct.new(settings_form.object.allowed_file_extensions) do |extensions_form| %>
+      <% i18n_scope = "#{f.object.class.i18n_scope}.attributes.#{settings_form.object.model_name.i18n_key}.allowed_file_extensions" %>
+
+      <h5><%= t(".file_extensions.title") %></h5>
+
+      <div class="field">
+        <%= extensions_form.text_field :default, class: "js-tags-container", label: t("default", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".file_extensions.default_hint") %></p>
+      </div>
+      <div class="field">
+        <%= extensions_form.text_field :image, class: "js-tags-container", label: t("image", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".file_extensions.image_hint") %></p>
+      </div>
+      <div class="field">
+        <%= extensions_form.text_field :admin, class: "js-tags-container", label: t("admin", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".file_extensions.admin_hint") %></p>
+      </div>
+    <% end %>
+
+    <%= settings_form.fields_for :allowed_content_types, OpenStruct.new(settings_form.object.allowed_content_types) do |extensions_form| %>
+      <% i18n_scope = "#{f.object.class.i18n_scope}.attributes.#{settings_form.object.model_name.i18n_key}.allowed_content_types" %>
+
+      <h5><%= t(".content_types.title") %></h5>
+      <p><%= t(".content_types.intro_html") %></p>
+
+      <div class="field">
+        <%= extensions_form.text_field :default, class: "js-tags-container", label: t("default", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".content_types.default_hint") %></p>
+      </div>
+      <div class="field">
+        <%= extensions_form.text_field :admin, class: "js-tags-container", label: t("admin", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".content_types.admin_hint") %></p>
+      </div>
+    <% end %>
+
+    <%= settings_form.fields_for :maximum_file_size, OpenStruct.new(settings_form.object.maximum_file_size) do |extensions_form| %>
+      <% i18n_scope = "#{f.object.class.i18n_scope}.attributes.#{settings_form.object.model_name.i18n_key}.maximum_file_size" %>
+
+      <h5><%= t(".file_sizes.title") %></h5>
+
+      <div class="field">
+        <%= extensions_form.number_field :default, step: 0.1, min: 0, label: t("default", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".file_sizes.default_hint") %></p>
+      </div>
+      <div class="field">
+        <%= extensions_form.number_field :avatar, step: 0.1, min: 0, label: t("avatar", scope: i18n_scope) %>
+        <p class="help-text"><%= t(".file_sizes.avatar_hint") %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

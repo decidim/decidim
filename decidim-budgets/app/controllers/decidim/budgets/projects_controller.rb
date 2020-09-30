@@ -49,22 +49,6 @@ module Decidim
         }
       end
 
-      def default_filter_category_params
-        return "all" unless current_component.participatory_space.categories.any?
-
-        ["all"] + current_component.participatory_space.categories.map { |category| category.id.to_s }
-      end
-
-      def default_filter_scope_params
-        return "all" unless current_component.scopes.any?
-
-        if current_component.scope
-          ["all", current_component.scope.id] + current_component.scope.children.map { |scope| scope.id.to_s }
-        else
-          %w(all global) + current_component.scopes.map { |scope| scope.id.to_s }
-        end
-      end
-
       def default_filter_status_params
         voting_finished? ? %w(selected) : %w(all)
       end

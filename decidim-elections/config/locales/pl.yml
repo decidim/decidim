@@ -78,6 +78,7 @@ pl:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
+            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę wyborów
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
@@ -147,7 +148,7 @@ pl:
       election_m:
         badge_name:
           finished: Zakończone
-          ongoing: Aktywne
+          ongoing: Aktualne
           upcoming: Nadchodzące
         end_date: Data zakończenia
         footer:
@@ -166,7 +167,7 @@ pl:
             many: "%{count} wybory"
             other: "%{count} wybory"
         filters:
-          active: Aktywne
+          active: Aktualne
           all: Wszystkie
           finished: Zakończone
           search: Szukaj
@@ -234,7 +235,6 @@ pl:
           close: Zamknij
           proposal_header: 'Propozycje:'
         new:
-          answer_choices: Możesz wybrać do %{choices} odpowiedzi lub żadnej
           more_information: Więcej informacji
           preview_alert: To jest podgląd kabiny do głosowania.
           question_steps: Pytanie %{current_step} z %{total_steps}

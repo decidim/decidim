@@ -13,6 +13,7 @@ module Decidim
       create(
         :proposal,
         :draft,
+        skip_injection: true,
         component: current_component,
         scope: scope1,
         body: description_1,
@@ -25,7 +26,7 @@ module Decidim
         context "when on create" do
           context "when proposals are NOT official" do
             let(:proposal2) do
-              create(:proposal, component: current_component)
+              create(:proposal, skip_injection: true, component: current_component)
             end
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do
@@ -161,10 +162,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(proposal.search_title[locale]),
+        "content_a" => I18n.transliterate(proposal.title[locale]),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(proposal.search_body[locale]),
+        "content_d" => I18n.transliterate(proposal.body[locale]),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

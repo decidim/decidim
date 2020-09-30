@@ -14,6 +14,7 @@ fr:
       question:
         description: Description
         max_selections: Nombre maximum de sélections
+        min_selections: Aucune options sélectionnées
         title: Titre
     errors:
       models:
@@ -72,6 +73,7 @@ fr:
             title: Modifier la réponse
             update: Mettre à jour la réponse
           index:
+            invalid_max_selections: Vous avez besoin de %{missing_answers} réponse(s) de plus pour correspondre aux sélections maximales
             title: Réponses
           new:
             create: Créer une réponse
@@ -204,6 +206,7 @@ fr:
           edit: éditer
           header: Confirmer votre vote
           intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          nota_option: Vide
           question: Question %{count}
         confirmed:
           back: Retour aux élections
@@ -226,8 +229,9 @@ fr:
           close: Fermer
           proposal_header: 'Propositions:'
         new:
-          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses ou aucune
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses
           more_information: Plus d'informations
+          nota_option: Vierge/ Aucune des options
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"

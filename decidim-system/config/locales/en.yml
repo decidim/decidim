@@ -8,6 +8,17 @@ en:
         organization_name: Organization
         organization_url: Organization URL
         redirect_uri: Redirect URI
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME types
+          default: Default MIME types
+        allowed_file_extensions:
+          admin: Admin file extensions
+          default: Default file extensions
+          image: Image file extensions
+        maximum_file_size:
+          avatar: Avatar file size
+          default: Default file size
     errors:
       models:
         oauth_application:
@@ -68,6 +79,7 @@ en:
             save_and_invite: Create organization & invite admin
           fields:
             created_at: Created at
+            file_upload_settings: File upload settings
             name: Name
             omniauth_settings: Omniauth settings
             smtp_settings: SMTP settings
@@ -99,6 +111,24 @@ en:
           success: Organization successfully created.
         edit:
           secondary_hosts_hint: Enter each one of them in a new line
+        file_upload_settings:
+          content_types:
+            admin_hint: These MIME types are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
+            default_hint: These MIME types are allowed for all users by default.
+            intro_html: You add wildcards with the asterisk character for the MIME types, e.g. <code>image/*</code>.
+            title: Allowed MIME types
+          file_extensions:
+            admin_hint: These file extensions are allowed for the admin section uploads. Admin users should be aware of the risks with uploading some document formats, so you can expect them to be more cautious with the file uploads.
+            default_hint: These file extensions are allowed for all users by default.
+            image_hint: These file extensions are allowed for any kind of image uploads.
+            title: Allowed file extensions
+          file_sizes:
+            avatar_hint: Megabytes (MB). This file size limit is used for the avatar image uploads.
+            default_hint: Megabytes (MB). This file size limit is the default which is used for all file uploads unless otherwise specified.
+            title: Maximum file sizes
+          intro: |
+            Please be extra cautious when considering to change these settings. The less you allow, the better.
+            Allowing specific file extensions or MIME types can expose the system users to security risks and it can also affect the accessibility of the website.
         index:
           title: Organizations
         new:
@@ -125,9 +155,9 @@ en:
             api_secret: API secret
         smtp_settings:
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@your-provider.org>". Leave blank to use the ''from_email'' as label'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the ''from_email'' as label'
           placeholder:
-            from_email: your-organization@your-provider.org
+            from_email: your-organization@example.org
             from_label: your-organization-name
         update:
           error: There was a problem updating this organization.

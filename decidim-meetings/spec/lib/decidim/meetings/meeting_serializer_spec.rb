@@ -85,7 +85,7 @@ module Decidim
         end
 
         it "serializes the amount of comments" do
-          expect(serialized).to include(comments: meeting.comments.count)
+          expect(serialized).to include(comments: meeting.comments_count)
         end
 
         it "serializes the amount of followers" do

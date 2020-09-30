@@ -65,6 +65,7 @@ de:
     errors:
       general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -354,6 +355,8 @@ de:
             dummy_global_translatable_text: Übersetzbarer Blindtext
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             amendment_creation_enabled: Änderungserstellung aktiviert
             amendment_promotion_enabled: Hervorheben von Änderungen aktiviert
@@ -1163,6 +1166,10 @@ de:
           one: "%{count} Ergebnis"
           other: "%{count} Ergebnisse"
         view_all: Alle anzeigen (%{count})
+    security:
+      selfxss_warning:
+        description: Diese Browser-Funktion ist nur für Entwickler gedacht und Sie sollten hier keine Daten einfügen, wenn Sie darum gebeten wurden. Das Einfügen von Inhalten in dieses Fenster kann Ihre Privatsphäre beeinträchtigen und Hackern Zugriff auf Ihr Konto ermöglichen.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Abbrechen
@@ -1529,6 +1536,7 @@ de:
         see_more: Mehr sehen
   locale:
     name: Deutsch
+    name_with_error: Englisch (Fehler!)
   password_validator:
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich

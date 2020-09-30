@@ -36,6 +36,7 @@
 // = require decidim/external_link
 // = require decidim/vizzs
 // = require decidim/responsive_horizontal_tabs.js
+// = require decidim/security/selfxss_warning
 
 // = require_self
 // = require decidim/configuration

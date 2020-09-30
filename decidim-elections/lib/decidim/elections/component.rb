@@ -118,8 +118,8 @@ Decidim.register_component(:elections) do |component|
           Decidim::Attachment.create!(
             title: Decidim::Faker::Localized.sentence(2),
             description: Decidim::Faker::Localized.sentence(5),
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-            attached_to: answer
+            attached_to: answer,
+            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
         end
       end

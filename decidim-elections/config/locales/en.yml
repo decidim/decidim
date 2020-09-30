@@ -74,6 +74,7 @@ en:
             title: Edit answer
             update: Update answer
           index:
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
             title: Answers
           new:
             create: Create answer

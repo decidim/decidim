@@ -16,10 +16,10 @@ FactoryBot.define do
     subtitle { generate_localized_title }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
-    published_at { Time.current }
     organization
+    hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
+    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
+    published_at { Time.current }
     meta_scope { Decidim::Faker::Localized.word }
     developer_group { generate_localized_title }
     local_area { generate_localized_title }

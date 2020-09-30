@@ -65,6 +65,7 @@ fr:
     errors:
       general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
+      not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -354,6 +355,8 @@ fr:
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -1158,6 +1161,10 @@ fr:
           one: "%{count} résultat"
           other: "%{count} résultats"
         view_all: Tout voir (%{count})
+    security:
+      selfxss_warning:
+        description: Cette fonction de navigateur est destinée aux développeurs et vous ne devriez rien coller ici si vous n'avez pas avez été invité à le faire. Coller du contenu dans cette fenêtre peut compromettre votre vie privée et permettre aux hackers d'accéder à votre compte.
+        title: Arrêter !
     shared:
       confirm_modal:
         cancel: Annuler
@@ -1524,6 +1531,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
+    name_with_error: Anglais (erreur !)
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

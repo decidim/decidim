@@ -100,7 +100,7 @@ it:
           attachment_files: File
           attachments: Allegati
           categories: Categorie
-          components: componenti
+          components: Componenti
           info: Informazioni
           moderations: Moderazione
           private_users: Utenti privati
@@ -404,7 +404,7 @@ it:
       statistics:
         answers_count: risposte
         comments_count: Commenti
-        debates_count: dibattiti
+        debates_count: Dibattiti
         endorsements_count: Mi piace
         followers_count: Followers
         headline: Attività

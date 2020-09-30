@@ -178,21 +178,21 @@ Decidim.register_component(:meetings) do |component|
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
         attachment_collection: attachment_collection,
-        attached_to: meeting
+        attached_to: meeting,
+        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-        attached_to: meeting
+        attached_to: meeting,
+        file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
       )
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")),
-        attached_to: meeting
+        attached_to: meeting,
+        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
       )
     end
 

@@ -26,6 +26,10 @@ module Decidim
       nil
     end
 
+    def has_header?
+      true
+    end
+
     def has_image?
       false
     end
@@ -104,9 +108,7 @@ module Decidim
     end
 
     def comments_count
-      return model.comments.not_hidden.count if model.comments.respond_to? :not_hidden
-
-      model.comments.count
+      model.comments_count
     end
 
     def statuses

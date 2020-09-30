@@ -41,7 +41,7 @@ module Decidim
         description "The number of comments in all levels this resource holds"
 
         resolve lambda { |obj, _args, _ctx|
-          obj.comments.count
+          obj.comments_count
         }
       end
 

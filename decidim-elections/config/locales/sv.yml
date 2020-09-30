@@ -21,6 +21,10 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste återknytas
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Måste bifogas igen
   activerecord:
     models:
       decidim/elections/answer:
@@ -222,7 +226,6 @@ sv:
           close: Stäng
           proposal_header: 'Förslag:'
         new:
-          answer_choices: Du kan välja upp till %{choices} svar eller ingen
           more_information: Mer information
           preview_alert: Detta är en förhandsvisning av röstlängden.
           question_steps: Fråga %{current_step} av %{total_steps}
