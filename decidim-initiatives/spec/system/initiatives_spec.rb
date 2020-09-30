@@ -100,5 +100,22 @@ describe "Initiatives", type: :system do
         end
       end
     end
+
+    context "when it is an initiative with card image enabled" do
+      before do
+        initiative.type.attachments_enabled = true
+        initiative.type.save!
+
+        create(:attachment, attached_to: initiative)
+
+        visit decidim_initiatives.initiatives_path
+      end
+
+      it "shows the card image" do
+        within "#initiative_#{initiative.id}" do
+          expect(page).to have_selector(".card__image")
+        end
+      end
+    end
   end
 end

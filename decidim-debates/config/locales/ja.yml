@@ -27,6 +27,7 @@ ja:
       debates:
         actions:
           create: 作成
+          endorse: 支持
         name: ディベート
         settings:
           global:
@@ -37,6 +38,8 @@ ja:
             announcement: お知らせ
             comments_blocked: コメントがブロックされました
             creation_enabled: 参加者によるディベートの作成が有効になりました
+            endorsements_blocked: 支持がブロックされました
+            endorsements_enabled: 支持が有効です
     debates:
       actions:
         close: 閉じる
@@ -125,6 +128,10 @@ ja:
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集
           edit_debate: ディベートを編集
+          groups_count: グループ
+          last_comment_by: 最新コメント
+          no_comments_yet: コメントがありません
+          participants_count: 参加者
         update:
           invalid: ディベートの更新に問題がありました。
           success: ディベートが正常に更新されました。

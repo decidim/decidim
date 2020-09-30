@@ -29,16 +29,21 @@ en:
       debates:
         actions:
           create: Create
+          endorse: Endorse
         name: Debates
         settings:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by participants enabled
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
     debates:
       actions:
         close: Close
@@ -77,6 +82,8 @@ en:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+      debate_m:
+        commented_time_ago: Commented %{time} ago
       debates:
         close:
           invalid: There was a problem closing the debate.
@@ -100,13 +107,22 @@ en:
           save: Save changes
           title: Edit debate
         filters:
+          activity: My activity
           all: All
           category: Category
           category_prompt: Select a category
           citizens: Citizens
+          commented: Commented
+          my_debates: My debates
           official: Official
           origin: Origin
+          scope: Scope
           search: Search
+          state: Status
+          state_values:
+            closed: Closed
+            open: Open
+          user_groups: Groups
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -120,6 +136,12 @@ en:
           back: Back
           create: Create
           title: New debate
+        orders:
+          commented: Most commented
+          label: Order debates by
+          random: Random order
+          recent: Most recent
+          updated: Recently updated
         show:
           back: Back to list
           close_debate: Close debate
@@ -128,6 +150,10 @@ en:
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
           edit_debate: Edit debate
+          groups_count: Groups
+          last_comment_by: Last comment by
+          no_comments_yet: No comments yet
+          participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
           success: Debate successfully updated.

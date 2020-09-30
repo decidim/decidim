@@ -39,9 +39,13 @@ describe "Collaborative drafts", type: :system do
         let!(:component) do
           create(:proposal_component,
                  :with_creation_enabled,
-                 :with_collaborative_drafts_enabled,
                  manifest: manifest,
-                 participatory_space: participatory_process)
+                 participatory_space: participatory_process,
+                 settings: {
+                   collaborative_drafts_enabled: true,
+                   scopes_enabled: true,
+                   scope_id: participatory_process.scope&.id
+                 })
         end
 
         context "when process is not related to any scope" do
@@ -90,9 +94,17 @@ describe "Collaborative drafts", type: :system do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
-                   :with_geocoding_and_collaborative_drafts_enabled,
                    manifest: manifest,
                    participatory_space: participatory_process)
+          end
+
+          before do
+            component.update!(settings: {
+                                geocoding_enabled: true,
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
+                              })
           end
 
           it "creates a new collaborative draft", :slow do
@@ -132,6 +144,14 @@ describe "Collaborative drafts", type: :system do
 
           let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
+
+          before do
+            component.update!(settings: {
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
+                              })
+          end
 
           it "offers and save extra hashtags", :slow do
             visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
@@ -182,9 +202,14 @@ describe "Collaborative drafts", type: :system do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
-                     :with_geocoding_and_collaborative_drafts_enabled,
                      manifest: manifest,
-                     participatory_space: participatory_process)
+                     participatory_space: participatory_process,
+                     settings: {
+                       geocoding_enabled: true,
+                       collaborative_drafts_enabled: true,
+                       scopes_enabled: true,
+                       scope_id: participatory_process.scope&.id
+                     })
             end
 
             it "creates a new collaborative draft as a user group", :slow do

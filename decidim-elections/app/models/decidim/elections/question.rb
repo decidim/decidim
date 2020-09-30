@@ -26,6 +26,13 @@ module Decidim
           0
         end
       end
+
+      # Public: Checks if enough answers are given for max_selections attribute
+      #
+      # Returns a boolean.
+      def valid_max_selection?
+        max_selections <= answers.count
+      end
     end
   end
 end

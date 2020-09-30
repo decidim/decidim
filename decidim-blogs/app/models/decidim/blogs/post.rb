@@ -65,6 +65,10 @@ module Decidim
       def users_to_notify_on_comment_created
         followers
       end
+
+      def attachment_context
+        :admin
+      end
     end
   end
 end

@@ -17,9 +17,6 @@
         proposals_imports:
           create:
             invalid: Det oppstod et problem under importen av forslag til svar
-      election_m:
-        footer:
-          take_part: Delta
       elections:
         count:
           elections_count:
@@ -63,7 +60,6 @@
           close: Lukk
           proposal_header: 'Forslag:'
         new:
-          answer_choices: Du kan velge opptil %{choices} svar eller ingen
           more_information: Mer informasjon
           preview_alert: Dette er en forhåndsvisning av stemmebåsen.
           question_steps: Spørsmål %{current_step} av %{total_steps}

@@ -9,14 +9,15 @@ module Decidim::Budgets
     let(:user) { create(:user) }
     let(:component) do
       create(
-        :budget_component,
-        :with_total_budget_and_vote_threshold_percent,
+        :budgets_component,
+        :with_vote_threshold_percent,
         organization: user.organization
       )
     end
-    let(:project) { create(:project, component: component, budget: 90_000_000) }
+    let(:budget) { create(:budget, component: component) }
+    let(:project) { create(:project, budget: budget, budget_amount: 90_000_000) }
     let(:order) do
-      order = create(:order, user: user, component: component)
+      order = create(:order, user: user, budget: budget)
       order.projects << project
       order.checked_out_at = Time.current
       order.save!
@@ -43,7 +44,7 @@ module Decidim::Budgets
     end
 
     context "when the order is not checked out" do
-      let(:order) { create(:order, user: user, component: component) }
+      let(:order) { create(:order, user: user, budget: budget) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

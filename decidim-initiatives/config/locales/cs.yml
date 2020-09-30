@@ -221,6 +221,8 @@ cs:
             success: Iniciativa byla odeslána k technickému ověření
             update: Aktualizovat
           form:
+            attachments: Přílohy
+            settings: Nastavení
             title: Obecná informace
           index:
             actions_title: Akce

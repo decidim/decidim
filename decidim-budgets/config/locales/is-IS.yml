@@ -2,7 +2,6 @@ is-IS:
   activemodel:
     attributes:
       project:
-        budget: Fjárhagsáætlun
         decidim_category_id: Flokkur
         decidim_scope_id: Umfang
         description: Lýsing
@@ -46,7 +45,6 @@ is-IS:
             title: Titill
       projects:
         budget_confirm:
-          are_you_sure: Ertu sammála? Þegar þú hefur staðfest atkvæði þitt getur þú ekki breytt því.
           cancel: Hætta við
           confirm: Staðfesta
           description: Þetta eru þau verkefni sem þú hefur valið að vera hluti af fjárhagsáætluninni.
@@ -86,10 +84,6 @@ is-IS:
             one: verkefni valin
             other: verkefni valin
           view: Útsýni
-        project:
-          count:
-            one: 1 stuðningur
-            other: "%{count} styður"
         show:
           budget: Fjárhagsáætlun
           view_all_projects: Skoða öll verkefni

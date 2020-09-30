@@ -36,8 +36,12 @@ module Decidim
               },
               omniauth_settings_facebook_enabled: true,
               omniauth_settings_facebook_app_id: "facebook-app-id",
-              omniauth_settings_facebook_app_secret: "facebook-app-secret"
+              omniauth_settings_facebook_app_secret: "facebook-app-secret",
+              file_upload_settings: params_for_uploads(upload_settings)
             }
+          end
+          let(:upload_settings) do
+            Decidim::OrganizationSettings.default(:upload)
           end
 
           it "returns a valid response" do
@@ -53,6 +57,7 @@ module Decidim
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
+            expect(organization.file_upload_settings).to eq(upload_settings)
             expect(
               Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
             ).to eq("facebook-app-id")
@@ -125,6 +130,20 @@ module Decidim
           it "returns an invalid response" do
             expect { command.call }.to broadcast(:invalid)
           end
+        end
+
+        private
+
+        def params_for_uploads(hash)
+          hash.map do |key, value|
+            if value.is_a?(Hash)
+              value = params_for_uploads(value)
+            elsif value.is_a?(Array)
+              value = value.join(",")
+            end
+
+            [key, value]
+          end.to_h
         end
       end
     end

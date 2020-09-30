@@ -201,6 +201,8 @@ de:
             success: Die Initiative wurde an die technische Validierung gesendet
             update: Aktualisieren
           form:
+            attachments: Beilagen
+            settings: Einstellungen
             title: Allgemeine Information
           index:
             actions_title: Aktion

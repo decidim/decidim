@@ -1,5 +1,5 @@
-<%= decidim_form_for(@form, html: { class: "form edit_project" })  do |f| %>
-  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
+<%= decidim_form_for([budget, @form], html: { class: "form edit_project" })  do |f| %>
+  <%= render partial: "form", object: f, locals: { title: "#{translated_attribute(budget.title)} &gt; #{t(".title")}" } %>
 
   <div class="button--double form-general-submit">
     <%= f.submit t(".update") %>

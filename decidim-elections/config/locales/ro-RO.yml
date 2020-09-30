@@ -10,7 +10,6 @@ ro:
         description: Descriere
         end_time: Votarea se încheie la
         start_time: Votarea începe la
-        subtitle: Subtitrare
         title: Titlu
       question:
         description: Descriere
@@ -138,9 +137,6 @@ ro:
         election:
           publish: "%{user_name} a publicat alegerile pentru %{resource_name}"
           unpublish: "%{user_name} nepublicat alegerea %{resource_name}"
-      election_m:
-        footer:
-          take_part: Participă
       elections:
         count:
           elections_count:
@@ -200,7 +196,6 @@ ro:
           close: Inchide
           proposal_header: 'Propuneri:'
         new:
-          answer_choices: Poți selecta până la %{choices} răspunsuri sau nimic
           more_information: Mai multe informații
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}

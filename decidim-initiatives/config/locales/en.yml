@@ -216,6 +216,8 @@ en:
             success: The initiative has been sent to technical validation
             update: Update
           form:
+            attachments: Attachments
+            settings: Settings
             title: General information
           index:
             actions_title: Action

@@ -42,10 +42,6 @@ module Decidim
         current_order&.can_checkout?
       end
 
-      def projects_base_url
-        URI.parse(root_url).tap { |uri| uri.query = uri.fragment = nil }.to_s
-      end
-
       def current_rule_explanation
         return unless current_order
 

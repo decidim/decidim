@@ -146,7 +146,7 @@ fr:
           postal_codes:
             one: La participation est réservée aux utilisateurs avec le code postal %{postal_codes}.
             other: 'La participation est réservée aux utilisateurs avec l''un des codes postaux suivants: %{postal_codes}.'
-          scope: La participation est réservée aux participants ayant la portée %{scope_name}.
+          scope: La participation est réservée aux participants avec le secteur %{scope_name}.
       id_documents:
         admin:
           config:

@@ -160,15 +160,6 @@ FactoryBot.define do
       end
     end
 
-    trait :with_geocoding_and_collaborative_drafts_enabled do
-      settings do
-        {
-          geocoding_enabled: true,
-          collaborative_drafts_enabled: true
-        }
-      end
-    end
-
     trait :with_attachments_allowed_and_collaborative_drafts_enabled do
       settings do
         {
@@ -265,33 +256,52 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
+      skip_i18n { false }
     end
 
     title do
-      content = generate(:title).dup
-      content.prepend("<script>alert('TITLE');</script> ") unless skip_injection
-      content
+      if skip_injection && skip_i18n
+        generate(:title)
+      elsif skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      elsif skip_i18n
+        "<script>alert(\"TITLE\");</script> " + generate(:title)
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+      end
     end
     body do
-      content = Faker::Lorem.sentences(3).join("\n")
-      content.prepend("<script>alert('BODY');</script> ") unless skip_injection
-      content
+      if skip_injection && skip_i18n
+        Faker::Lorem.sentences(3).join("\n")
+      elsif skip_injection
+        Decidim::Faker::Localized.localized { Faker::Lorem.sentences(3).join("\n") }
+      elsif skip_i18n
+        "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n")
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n") }
+      end
     end
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     after(:build) do |proposal, evaluator|
-      proposal.title = if evaluator.title.is_a?(String)
-                         { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
-                       else
-                         evaluator.title
-                       end
-      proposal.body = if evaluator.body.is_a?(String)
-                        { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
-                      else
-                        evaluator.body
-                      end
+      unless evaluator.skip_i18n
+        proposal.title = if evaluator.title.is_a?(String)
+                           { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
+                         else
+                           evaluator.title
+                         end
+        proposal.body = if evaluator.body.is_a?(String)
+                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
+                        else
+                          evaluator.body
+                        end
+
+        proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
+        proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+      end
+
       if proposal.component
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
@@ -309,6 +319,23 @@ FactoryBot.define do
       published_at { nil }
     end
 
+    trait :citizen_author do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        user = build(:user, organization: proposal.component.participatory_space.organization)
+        proposal.coauthorships.build(author: user)
+      end
+    end
+
+    trait :user_group_author do
+      after :build do |proposal|
+        proposal.coauthorships.clear
+        user = create(:user, organization: proposal.component.participatory_space.organization)
+        user_group = create(:user_group, :verified, organization: user.organization, users: [user])
+        proposal.coauthorships.build(author: user, user_group: user_group)
+      end
+    end
+
     trait :official do
       after :build do |proposal|
         proposal.coauthorships.clear
@@ -319,7 +346,7 @@ FactoryBot.define do
     trait :official_meeting do
       after :build do |proposal|
         proposal.coauthorships.clear
-        component = create(:meeting_component, participatory_space: proposal.component.participatory_space)
+        component = build(:meeting_component, participatory_space: proposal.component.participatory_space)
         proposal.coauthorships.build(author: build(:meeting, component: component))
       end
     end

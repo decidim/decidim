@@ -8,7 +8,9 @@ module Decidim
     include TranslationsHelper
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::ActsAsAuthor
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
@@ -41,14 +43,32 @@ module Decidim
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
+    validates_upload :official_img_header
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
+
+    validates_upload :official_img_footer
     mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
+
+    validates_upload :logo
     mount_uploader :logo, Decidim::OrganizationLogoUploader
+
+    validates_upload :favicon
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
+
+    validates_upload :highlighted_content_banner_image
     mount_uploader :highlighted_content_banner_image, ImageUploader
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
+    end
+
+    def settings
+      Decidim::OrganizationSettings.for(self)
+    end
+
+    # This is needed for the upload validations
+    def maximum_upload_size
+      settings.upload_maximum_file_size
     end
 
     def available_authorization_handlers
@@ -123,6 +143,12 @@ module Decidim
 
     def machine_translation_prioritizes_translation?
       machine_translation_display_priority == "translation"
+    end
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::Debates::OfficialAuthorPresenter.new
     end
 
     private

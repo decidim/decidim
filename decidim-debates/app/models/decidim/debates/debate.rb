@@ -11,7 +11,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::Commentable
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasReference
@@ -21,13 +21,16 @@ module Decidim
       include Decidim::NewsletterParticipant
       include Decidim::Searchable
       include Decidim::TranslatableResource
+      include Decidim::TranslatableAttributes
+      include Decidim::Endorsable
+      include Decidim::Randomable
 
-      translatable_fields :title, :description, :instructions, :information_updates
-
+      belongs_to :last_comment_by, polymorphic: true, foreign_key: "last_comment_by_id", foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
 
       validates :title, presence: true
 
+      translatable_fields :title, :description, :instructions, :information_updates
       searchable_fields({
                           participatory_space: { component: :participatory_space },
                           A: :title,
@@ -36,6 +39,19 @@ module Decidim
                         },
                         index_on_create: ->(debate) { debate.visible? },
                         index_on_update: ->(debate) { debate.visible? })
+
+      scope :open, -> { where(closed_at: nil) }
+      scope :closed, -> { where.not(closed_at: nil) }
+      scope :authored_by, ->(author) { where(author: author) }
+      scope :commented_by, lambda { |author|
+        joins(:comments).where(
+          decidim_comments_comments:
+          {
+            decidim_author_id: author.id,
+            decidim_author_type: author.class.base_class.name
+          }
+        )
+      }
 
       def self.log_presenter_class_for(_log)
         Decidim::Debates::AdminLog::DebatePresenter
@@ -140,6 +156,25 @@ module Decidim
       def closeable_by?(user)
         authored_by?(user)
       end
+
+      # Public: Updates the comments counter cache. We have to do it these
+      # way in order to properly calculate the counter with hidden
+      # comments.
+      #
+      # rubocop:disable Rails/SkipsModelValidations
+      def update_comments_count
+        comments_count = comments.not_hidden.count
+        last_comment = comments.not_hidden.order("created_at DESC").first
+
+        update_columns(
+          last_comment_at: last_comment&.created_at,
+          last_comment_by_id: last_comment&.decidim_author_id,
+          last_comment_by_type: last_comment&.decidim_author_type,
+          comments_count: comments_count,
+          updated_at: Time.current
+        )
+      end
+      # rubocop:enable Rails/SkipsModelValidations
 
       private
 

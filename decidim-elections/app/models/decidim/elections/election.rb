@@ -5,6 +5,8 @@ module Decidim
     # The data store for an Election in the Decidim::Elections component. It stores a
     # title, description and any other useful information to perform an election.
     class Election < ApplicationRecord
+      include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::Publicable
       include Decidim::Resourceable
       include Decidim::HasComponent
@@ -17,6 +19,21 @@ module Decidim
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+
+      scope :active, lambda {
+        where("start_time <= ?", Time.current)
+          .where("end_time >= ?", Time.current)
+      }
+
+      scope :upcoming, lambda {
+        where("start_time > ?", Time.current)
+          .where("end_time > ?", Time.current)
+      }
+
+      scope :finished, lambda {
+        where("start_time < ?", Time.current)
+          .where("end_time < ?", Time.current)
+      }
 
       def self.log_presenter_class_for(_log)
         Decidim::Elections::AdminLog::ElectionPresenter
@@ -41,6 +58,15 @@ module Decidim
       # Returns a boolean.
       def ongoing?
         started? && !finished?
+      end
+
+      # Public: Checks if the election questions are valid
+      #
+      # Returns a boolean.
+      def valid_questions?
+        questions.each do |question|
+          return false unless question.valid_max_selection?
+        end
       end
 
       # Public: Gets the voting period status of the election

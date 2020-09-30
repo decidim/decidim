@@ -48,9 +48,9 @@
   </div>
 <% end %>
 
-<% if current_participatory_space.has_subscopes? %>
+<% if current_component.has_subscopes? %>
   <div class="field">
-    <%= scopes_picker_field form, :scope_id %>
+    <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
   </div>
 <% end %>
 

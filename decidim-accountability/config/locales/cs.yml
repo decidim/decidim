@@ -4,7 +4,7 @@ cs:
       result:
         decidim_accountability_status_id: Stav
         decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
         progress: Pokrok
@@ -159,7 +159,7 @@ cs:
             other: "%{count} výsledků"
         filters:
           all: Vše
-          scopes: Rozsahy
+          scopes: Oblasti působnosti
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie
@@ -194,6 +194,8 @@ cs:
             heading_leaf_level_results: Název pro "Projekty"
             heading_parent_level_results: Název pro "Výsledky"
             intro: Intro
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblast působnosti povolena
             subcategories_label: Název pro "Podkategorie"
           step:
             comments_blocked: Komentáře blokovány

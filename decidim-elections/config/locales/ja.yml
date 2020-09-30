@@ -10,7 +10,6 @@ ja:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
-        subtitle: サブタイトル
         title: タイトル
       question:
         description: 説明
@@ -133,12 +132,35 @@ ja:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
       election_m:
+        badge_name:
+          finished: 完了
+          ongoing: 有効
+          upcoming: 今後の予定
+        end_date: 終了
         footer:
-          take_part: 参加する
+          view: 表示
+          vote: 投票
+        label:
+          date: 日付
+        questions: 質問 %{count}
+        start_date: 開始
+        unspecified: 指定されていません
       elections:
         count:
           elections_count:
             other: "%{count} 選挙"
+        filters:
+          active: 有効
+          all: 全て
+          finished: 完了
+          search: 検索
+          state: 状態
+          upcoming: 今後の予定
+        filters_small_view:
+          close_modal: ウィンドウを閉じる
+          filter: 絞り込み
+          filter_by: 絞り込み条件
+          unfold: 展開
         show:
           back: すべての選挙
           preview: プレビュー
@@ -162,6 +184,10 @@ ja:
             answers: 回答
             max_selections: 最大選挙数
             title: タイトル
+      orders:
+        label: 選挙の順序
+        older: 古い
+        recent: 新しい
       votes:
         confirm:
           answer: 回答
@@ -192,7 +218,6 @@ ja:
           close: 閉じる
           proposal_header: '提案:'
         new:
-          answer_choices: 最大 %{choices} 個の回答を選択できます。
           more_information: 詳しい情報
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
@@ -200,6 +225,9 @@ ja:
         voting_step:
           back: 戻る
           continue: 次へ
+      warnings:
+        no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
+        no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
     events:
       elections:
         election_published:

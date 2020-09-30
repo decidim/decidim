@@ -1032,7 +1032,7 @@ sv:
           pages_count: Sidor
           processes_count: Dialoger
           projects_count: Projekt
-          proposals_accepted: Godkända förslag
+          proposals_accepted: Accepterade förslag
           proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
@@ -1215,6 +1215,10 @@ sv:
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
       filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
+    translation_bar:
+      help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
+      show_original: Visa originaltexten
+      show_translated: Visa maskinöversatt texten
     user_activity:
       index:
         no_activities_warning: Den här användaren har inte haft någon aktivitet än.
@@ -1274,6 +1278,7 @@ sv:
     versions:
       resource_version:
         of_versions: "(av %{number})"
+        see_other_versions: visa andra versioner
         version: Versionsnummer %{number}
     versions_list:
       show:

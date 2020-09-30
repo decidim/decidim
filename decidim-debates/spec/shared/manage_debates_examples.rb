@@ -39,7 +39,7 @@ RSpec.shared_examples "manage debates" do
     end
 
     context "when the debate has an author" do
-      let!(:debate) { create(:debate, :with_author, component: current_component) }
+      let!(:debate) { create(:debate, :citizen_author, component: current_component) }
 
       it "cannot edit the debate" do
         within find("tr", text: translated(debate.title)) do
@@ -139,7 +139,7 @@ RSpec.shared_examples "manage debates" do
     end
 
     context "when the debate has an author" do
-      let!(:debate2) { create(:debate, :with_author, component: current_component) }
+      let!(:debate2) { create(:debate, :citizen_author, component: current_component) }
 
       it "cannot delete the debate" do
         within find("tr", text: translated(debate2.title)) do
@@ -182,7 +182,7 @@ RSpec.shared_examples "manage debates" do
     end
 
     context "when the debate has an author" do
-      let!(:debate) { create(:debate, :with_author, component: current_component) }
+      let!(:debate) { create(:debate, :citizen_author, component: current_component) }
 
       it "cannot close the debate" do
         within find("tr", text: translated(debate.title)) do

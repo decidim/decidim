@@ -22,6 +22,8 @@ en:
           global:
             announcement: Announcement
             clean_after_publish: Delete answers when publishing the survey
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             allow_answers: Allow answers
             allow_unregistered: Allow unregistered users to answer the survey

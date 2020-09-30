@@ -159,6 +159,10 @@ sv:
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
+        invalid_destroy:
+          proposals_count:
+            one: 'Mötet kan inte raderas eftersom det finns %{count} relaterat förslag:'
+            other: 'Mötet kan inte raderas eftersom det finns %{count} relaterade förslag:'
         minutes: Anteckningar
         new: Nytt möte
         preview: Förhandsvisa
@@ -237,6 +241,10 @@ sv:
             invalid: Det gick inte att skapa mötet
             success: Möte skapades
           destroy:
+            invalid:
+              proposals_count:
+                one: Mötet kan inte raderas eftersom det finns %{count} relaterat förslag
+                other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag
             success: Mötet har tagits bort
           edit:
             update: Uppdatera

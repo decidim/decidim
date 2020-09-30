@@ -10,7 +10,6 @@ pt:
         description: Descrição
         end_time: Votação termina às
         start_time: Votação inicia-se às
-        subtitle: Subtítulo
         title: Título
       question:
         description: Descrição
@@ -135,9 +134,6 @@ pt:
         election:
           publish: "%{user_name} publicou a eleição %{resource_name}"
           unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
-      election_m:
-        footer:
-          take_part: Fazer parte
       elections:
         count:
           elections_count:
@@ -196,7 +192,6 @@ pt:
           close: Fechar
           proposal_header: 'Propostas:'
         new:
-          answer_choices: Pode selecionar até %{choices} respostas ou nenhuma
           more_information: Mais informações
           preview_alert: Isto é uma pré-visualização da cabina de voto.
           question_steps: Questão %{current_step} de %{total_steps}

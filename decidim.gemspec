@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-system", Decidim.version
   s.add_dependency "decidim-verifications", Decidim.version
 
-  s.add_development_dependency "bundler", "~> 1.12"
+  s.add_development_dependency "bundler", "~> 2.1.2"
   s.add_development_dependency "rake", "~> 12.0"
   s.add_development_dependency "rspec", "~> 3.0"
 end

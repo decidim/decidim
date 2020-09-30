@@ -10,7 +10,6 @@ ca:
         description: Descripció
         end_time: La votació finalitza el
         start_time: La votació comença el
-        subtitle: Subtítol
         title: Títol
       question:
         description: Descripció
@@ -19,6 +18,10 @@ ca:
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
@@ -69,6 +72,7 @@ ca:
             title: Editar les respostes
             update: Actualitzar resposta
           index:
+            invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
             create: Crear resposta
@@ -135,6 +139,45 @@ ca:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Acabada
+          ongoing: Activa
+          upcoming: Properes
+        end_date: Finalitza
+        footer:
+          view: Veure
+          vote: Votar
+        label:
+          date: Dates
+        questions: Preguntes %{count}
+        start_date: Inici
+        unspecified: Sense especificar
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elecció"
+            other: "%{count} eleccions"
+        filters:
+          active: Activa
+          all: Totes
+          finished: Finalizada
+          search: Cercar
+          state: Estat
+          upcoming: Properes
+        filters_small_view:
+          close_modal: Tancar el modal
+          filter: Filtrar
+          filter_by: Filtra per
+          unfold: Desplegar
+        show:
+          back: Totes les eleccions
+          preview: Previsualitzar
+          vote: Votar
+          voting_period_status:
+            finished: La votació va començar el %{start_time} y va acabar el %{end_time}
+            ongoing: La votació finalitza el %{end_time}
+            upcoming: La votació comença el %{start_time}
       models:
         answer:
           fields:
@@ -150,6 +193,50 @@ ca:
             answers: Respostes
             max_selections: Número màxim d'elements a seleccionar
             title: Títol
+      orders:
+        label: Ordena eleccions per
+        older: Més antiga
+        recent: Recent
+      votes:
+        confirm:
+          answer: Resposta
+          answer_number: resposta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirmar el teu vot
+          intro: Aquí trobarás un resum dels votes que estàs a punt d'emetre. <br> Si us plau, confirma el teu vot o edita les teves respostes.
+          question: Preguntes %{count}
+        confirmed:
+          back: Tornar a les eleccions
+          experience: Com valores l'experiència?
+          feedback: Dona'ns la teva opinió
+          header: Vot confirmat
+          lead: El teu vot ha estat emès!
+          text: 'Pots comprovar que el teu vot s''ha afegit correctament a la urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Per comprovar-ho, copia el identificador i enganxa'l a la <a href="evote-verify">pàgina de verificació de vot</a>
+        encrypting:
+          header: Xifrant el vot...
+          text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
+        header:
+          confirm: Confirma el teu vot
+          confirmed: Vot confirmat
+          encrypting: Confirmar vot
+        messages:
+          not_allowed: No pots votar en aquesta elecció en aquest moment.
+        modal:
+          close: Tancar
+          proposal_header: 'Propostes:'
+        new:
+          more_information: Més informació
+          preview_alert: Aquesta és una vista prèvia de la cabina de votació.
+          question_steps: Pregunta %{current_step} de %{total_steps}
+          selections: "Seleccionada %{selected} de %{max_selections}"
+        voting_step:
+          back: Enrere
+          continue: Següent
+      warnings:
+        no_elections_warning: No hi ha cap elecció que coincideixi amb la teva cerca o no n'hi ha programada.
+        no_scheduled_elections_warning: Actualment no hi ha eleccions programades, però pots veure les anteriors.
     events:
       elections:
         election_published:
@@ -160,3 +247,7 @@ ca:
     participatory_processes:
       statistics:
         elections_count: Votacions
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sortir

@@ -8,87 +8,58 @@
   <%= partial "process_header" %>
 
   <div class="wrapper">
-    <section class="section row collapse">
-      <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-        <% 3.times do %>
-        <div class="column">
-          <article class="card card--process">
-            <a href="">
-              <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
-            </a>
-            <div class="card__content">
-              <div class="card__header">
-                <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                  <h5 class="card__title">
-                    <%= Faker::StarWars.quote[0..75] %>
-                  </h5>
-                <% end %>
-              </div>
-              <div class="card__text">
-                <div class="card__text--paragraph">
-                  <%= Faker::Hipster.paragraph[0..140] %>
+    <section class="section row">
+      <div class="columns">
+        <%= partial "order_by_evote" %>
+        <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+          <% 3.times do %>
+          <div class="column">
+            <article class="card card--process">
+              <a href="">
+                <%= image_tag Faker::Boolean.boolean(0.3) ? "hero-home.jpg" : Faker::Boolean.boolean(0.3) ? "gracia.jpg" : "superilles.jpg", class: "card__image" %>
+              </a>
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("proposal-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      <%= Faker::StarWars.quote[0..75] %>
+                    </h5>
+                  <% end %>
+                </div>
+                <div class="card__text">
+                  <div class="card__text--paragraph">
+                    <%= Faker::Hipster.paragraph[0..140] %>
+                  </div>
                 </div>
               </div>
-              <ul class="tags tags--proposal">
-                <li>
-                  <a href="#">
-                    El Raval
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Transició ecològica</a>
-                </li>
-              </ul>
-            </div>
-            <div class="card__icondata">
-              <ul class="card-data">
-                <li class="card-data__item">
-                  <%= icon "datetime", class: "icon--big" %>
-                </li>
-                <li class="card-data__item">
-                  <div class="card-data__item--centerblock">
-                    <strong>Comienzo</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
-                  </div>
-                </li>
-                <li class="card-data__item">
-                  <div class="card-data__item--centerblock">
-                    <strong>Fin</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="card__status">
-              <ul class="card-data">
-                <li class="card-data__item">
-                  <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
-                </li>
-                <li class="card-data__item">
-                  <a href="">
-                    <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
-                  </a>
-                </li>
-                <li class="card-data__item">
-                  <a href="">
-                    <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="card__footer card__footer--spaces">
-              <div class="card__support">
-                <div class="card__support__data--left">
-                  <div class="text-uppercase">Fase actual</div>
-                  <div class="text-ellipsis"><strong><%= Faker::Company.catch_phrase %></strong></div>
-                </div>
-                <button class="card__button button button--sc secondary light small">
-                  participar
-                </button>
+              <div class="card__icondata">
+                <ul class="card-data">
+                  <li class="card-data__item">
+                    <%= icon "datetime", class: "icon--big" %>
+                  </li>
+                  <li class="card-data__item">
+                    <div class="card-data__item--centerblock">
+                      <strong>Starts</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                    </div>
+                  </li>
+                  <li class="card-data__item">
+                    <div class="card-data__item--centerblock">
+                      <strong>Ends</strong>&nbsp;<%= Faker::Date.forward(365).strftime("%d/%m/%y") %>
+                    </div>
+                  </li>
+                </ul>
               </div>
-            </div>
-          </article>
+              <div class="card__footer card__footer--spaces">
+                <div class="card__support">
+                  <button class="card__button button button--sc light small">
+                    Vote
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </section>
   </div>

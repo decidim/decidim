@@ -87,7 +87,9 @@ module Decidim
 
         context "when hero_image is too big" do
           before do
-            allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+            organization.settings.tap do |settings|
+              settings.upload.maximum_file_size.default = 5
+            end
             expect(subject.hero_image).to receive(:size).twice.and_return(6.megabytes)
           end
 
@@ -96,7 +98,9 @@ module Decidim
 
         context "when banner_image is too big" do
           before do
-            allow(Decidim).to receive(:maximum_attachment_size).and_return(5.megabytes)
+            organization.settings.tap do |settings|
+              settings.upload.maximum_file_size.default = 5
+            end
             expect(subject.banner_image).to receive(:size).twice.and_return(6.megabytes)
           end
 

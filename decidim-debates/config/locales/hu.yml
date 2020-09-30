@@ -3,6 +3,7 @@ hu:
     attributes:
       debate:
         category_id: Kategória
+        conclusions: Következtetések
         decidim_category_id: Kategória
         description: Leírás
         end_time: Lejár ekkor
@@ -12,6 +13,7 @@ hu:
         title: Cím
         user_group_id: Vita létrehozása
     models:
+      decidim/debates/close_debate_event: Vita lezárva
       decidim/debates/create_debate_event: Vita
       decidim/debates/creation_disabled_event: Viták letiltva
       decidim/debates/creation_enabled_event: Viták engedélyezve
@@ -25,6 +27,7 @@ hu:
       debates:
         actions:
           create: Létrehozás
+          endorse: Jóváhagy
         name: Viták
         settings:
           global:
@@ -34,14 +37,21 @@ hu:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
             creation_enabled: Felhasználók általi viták létrehozása engedélyezve
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
     debates:
       actions:
+        close: Bezár
         confirm_destroy: Biztos vagy benne?
         destroy: Törlés
         edit: Szerkesztés
         new: Új %{name}
         title: Műveletek
       admin:
+        debate_closes:
+          edit:
+            close: Bezár
+            title: Vita lezárása
         debates:
           create:
             invalid: Probléma merült fel a vita létrehozása során.
@@ -67,6 +77,14 @@ hu:
           create: "%{user_name} létrehozta a(z) %{resource_name} vitát itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} vitát itt: %{space_name}"
       debates:
+        close:
+          invalid: Probléma merült fel a vita lezárása során.
+          success: Vita sikeresen lezárva.
+        close_debate_modal:
+          close: Bezár
+          description: Mi a vita összefoglalása vagy az abból levont következtetés?
+          send: Vita lezárása
+        closed: Lezárva
         count:
           debates_count:
             one: "%{count} vita"
@@ -99,6 +117,10 @@ hu:
           title: Új vita
         show:
           back: Vissza a listához
+          close_debate: Vita lezárása
+          debate_closed: Lezárva
+          debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
+          edit_conclusions: Következtetések szerkesztése
       last_activity:
         new_debate_at_html: "<span>Új vita %{link}</span>"
       models:

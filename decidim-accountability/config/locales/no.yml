@@ -4,7 +4,7 @@
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         end_date: Sluttdato
         progress: Framgang
@@ -155,7 +155,7 @@
             other: "%{count} resultater"
         filters:
           all: Alle
-          scopes: Omfang
+          scopes: Tema
         home:
           categories_label: Kategorier
           subcategories_label: Underkategorier

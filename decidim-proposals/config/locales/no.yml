@@ -5,7 +5,7 @@
         address: Adresse
         body: Body
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         title: Tittel
@@ -17,7 +17,7 @@
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
@@ -519,7 +519,7 @@
           open: Åpen
           published: Publisert
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -606,7 +606,7 @@
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
-            scope: Omfang
+            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -652,7 +652,7 @@
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           type: Type

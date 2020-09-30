@@ -2,7 +2,7 @@ ja:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: 関連する会議体
+        assemblies_ids: 関連する参加スペース
         banner_image: バナー画像
         consultations_ids: 関連する議案
         copy_categories: カテゴリをコピー
@@ -483,7 +483,7 @@ ja:
         details: 詳細
         introduction: はじめに
         objectives: 目的
-        related_assemblies: 関連する会議体
+        related_assemblies: 関連する参加スペース
         related_consultations: 関連する議案
         related_participatory_processes: 関連する参加型プロセス
       statistics:

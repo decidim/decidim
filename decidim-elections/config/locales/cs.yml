@@ -10,15 +10,19 @@ cs:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
-        subtitle: Podtitulek
         title: Název
       question:
         description: Popis
         max_selections: Maximální počet výběrů
+        min_selections: Žádná z výše uvedených možností
         title: Název
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potřebuje být znovu připojen
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
@@ -75,6 +79,7 @@ cs:
             title: Upravit odpověď
             update: Aktualizovat odpověď
           index:
+            invalid_max_selections: Potřebujete ještě %{missing_answers} odpověd/í, aby počet odpovídal maximálnímu počtu výběrů
             title: Odpovědi
           new:
             create: Vytvořit odpověď
@@ -142,8 +147,19 @@ cs:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
           unpublish: "%{user_name} zrušil zveřejnění volby %{resource_name}"
       election_m:
+        badge_name:
+          finished: Dokončeno
+          ongoing: Aktivní
+          upcoming: Nadcházející
+        end_date: Končí
         footer:
-          take_part: Zapojte se
+          view: Zobrazit
+          vote: Hlasovat
+        label:
+          date: Data
+        questions: Otázky %{count}
+        start_date: Začíná
+        unspecified: Nespecifikováno
       elections:
         count:
           elections_count:
@@ -151,6 +167,18 @@ cs:
             few: "%{count} zvolení"
             many: "%{count} zvolení"
             other: "%{count} voleb"
+        filters:
+          active: Aktivní
+          all: Vše
+          finished: Dokončeno
+          search: Hledat
+          state: Stav
+          upcoming: Nadcházející
+        filters_small_view:
+          close_modal: Zavřít okno
+          filter: Filtr
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
         show:
           back: Všechny volby
           preview: Náhled
@@ -174,6 +202,10 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+      orders:
+        label: Seřadit volby podle
+        older: Starší
+        recent: Nedávné
       votes:
         confirm:
           answer: Odpověď
@@ -182,6 +214,7 @@ cs:
           edit: upravit
           header: Potvrďte svůj hlas
           intro: Zde je shrnutí hlasů, které se chystáte odeslat. <br> Prosím potvrďte svůj hlas nebo upravte své odpovědi.
+          nota_option: Prázdné
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
@@ -204,14 +237,18 @@ cs:
           close: Zavřít
           proposal_header: 'Návrhy:'
         new:
-          answer_choices: Můžete vybrat až %{choices} odpovědí nebo žádnou
+          answer_choices: Můžete vybrat až %{choices} odpovědí
           more_information: Více informací
+          nota_option: Prázdná/Nic z výše uvedených
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"
         voting_step:
           back: Zpět
           continue: Další
+      warnings:
+        no_elections_warning: Žádné volby neodpovídají zadaným kritériím nebo nejsou naplánovány žádné volby.
+        no_scheduled_elections_warning: V současné době nejsou žádné plánované volby, ale zde najdete všechny minulé volby na seznamu.
     events:
       elections:
         election_published:

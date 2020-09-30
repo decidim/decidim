@@ -76,10 +76,12 @@ module Decidim
       end
 
       def project_supports_query
-        Decidim::Budgets::Order
-          .where(component: space_components)
-          .pluck(:decidim_user_id)
-          .uniq
+        Decidim::Budgets::Order.joins(budget: [:component])
+                               .where(budget: {
+                                        decidim_components: { id: space_components.pluck(:id) }
+                                      })
+                               .pluck(:decidim_user_id)
+                               .uniq
       end
 
       def survey_answer_query

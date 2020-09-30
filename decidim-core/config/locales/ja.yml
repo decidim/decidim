@@ -187,7 +187,7 @@ ja:
         announcement:
           accepted: |-
             %{amendable_type} %{proposal_link} のこの修正は、
-             <strong>%{date}に承認されました</strong>。
+            <strong>%{date}に承認されました</strong>。
           evaluating: |-
             %{amendable_type} %{proposal_link}
             のこの修正は評価されています。
@@ -325,7 +325,7 @@ ja:
           collaborative_draft: 共同草案
           comment: コメント
           debate: ディベート
-          initiative: イニシアチブ
+          initiative: 取り組み
           meeting: 会議
           post: 投稿
           proposal: 提案
@@ -788,7 +788,7 @@ ja:
     help:
       main_topic:
         default_page:
-          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや会議体、イニシアチブ、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
+          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
@@ -1013,7 +1013,7 @@ ja:
           headline: メトリック
         statistics:
           answers_count: 完了した調査
-          assemblies_count: 会議体
+          assemblies_count: 参加スペース
           comments_count: コメント
           conferences_count: カンファレンス
           debates_count: ディベート
@@ -1206,6 +1206,10 @@ ja:
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
+    translation_bar:
+      help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
+      show_original: 元テキストを表示する
+      show_translated: 機械翻訳されたテキストを表示する
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。

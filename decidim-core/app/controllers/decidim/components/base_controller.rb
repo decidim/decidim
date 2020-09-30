@@ -24,13 +24,14 @@ module Decidim
       helper Decidim::AttachmentsHelper
       helper Decidim::SanitizeHelper
       helper Decidim::PadHelper
+      helper Decidim::FilterParamsHelper
 
       helper_method :current_component,
                     :current_participatory_space,
                     :current_manifest
 
       before_action do
-        enforce_permission_to :read, :component, component: current_component
+        enforce_permission_to :read, :component, component: current_component, share_token: share_token
       end
 
       before_action :redirect_unless_feature_private
@@ -45,6 +46,10 @@ module Decidim
 
       def current_manifest
         @current_manifest ||= current_component.manifest
+      end
+
+      def share_token
+        params[:share_token]
       end
 
       def permission_scope

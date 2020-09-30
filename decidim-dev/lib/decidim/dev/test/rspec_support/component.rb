@@ -58,7 +58,7 @@ module Decidim
       include Reportable
       include Authorable
       include HasCategory
-      include ScopableComponent
+      include ScopableResource
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -68,9 +68,9 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
 
       translatable_fields :title
@@ -175,6 +175,8 @@ Decidim.register_component(:dummy) do |component|
   component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
@@ -252,6 +254,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false
@@ -284,6 +287,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.references :decidim_category, index: false

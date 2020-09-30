@@ -18,12 +18,16 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
   component.settings(:step) do |settings|
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
     settings.attribute :creation_enabled, type: :boolean, default: false
     settings.attribute :comments_blocked, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -38,13 +42,19 @@ Decidim.register_component(:debates) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Debates::Debate", decidim_followable_id: debates_ids).count
   end
 
+  component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
+    debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
+    Decidim::Endorsement.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
+  end
+
   component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"
     resource.searchable = true
+    resource.actions = %w(create endorse)
   end
 
-  component.actions = %w(create)
+  component.actions = %w(create endorse)
 
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(

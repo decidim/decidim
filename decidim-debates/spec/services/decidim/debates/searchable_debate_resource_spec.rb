@@ -136,7 +136,6 @@ module Decidim
         "content_c" => "",
         "content_d" => I18n.transliterate(debate.description[locale]),
         "locale" => locale,
-
         "decidim_organization_id" => debate.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,
         "decidim_participatory_space_type" => current_component.participatory_space_type,

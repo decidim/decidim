@@ -5,39 +5,23 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe CollaborativeDraftSearch do
+      subject { described_class.new(params).results }
+
       let(:component) { create(:component, manifest_name: "proposals") }
-      let(:scope1) { create :scope, organization: component.organization }
-      let(:scope2) { create :scope, organization: component.organization }
-      let(:subscope1) { create :scope, organization: component.organization, parent: scope1 }
+      let(:default_params) { { component: component, user: user } }
+      let(:params) { default_params }
       let(:participatory_process) { component.participatory_space }
       let(:user) { create(:user, organization: component.organization) }
-      let!(:collaborative_draft) { create(:collaborative_draft, component: component, scope: scope1) }
+
+      it_behaves_like "a resource search", :collaborative_draft
+      it_behaves_like "a resource search with scopes", :collaborative_draft
+      it_behaves_like "a resource search with categories", :collaborative_draft
 
       describe "results" do
-        subject do
-          described_class.new(
-            component: component,
-            search_text: search_text,
-            state: states,
-            related_to: related_to,
-            scope_id: scope_ids
-            # current_user: user
-          ).results
-        end
-
-        let(:search_text) { nil }
-        let(:related_to) { nil }
-        let(:states) { %w(open) }
-        let(:scope_ids) { nil }
-
-        it "only includes drafts from the given component" do
-          other_draft = create(:collaborative_draft)
-
-          expect(subject).to include(collaborative_draft)
-          expect(subject).not_to include(other_draft)
-        end
+        let!(:collaborative_draft) { create(:collaborative_draft, component: component) }
 
         describe "search_text filter" do
+          let(:params) { default_params.merge(search_text: search_text) }
           let(:search_text) { "giraffe" }
 
           it "returns the drafts containing the search in the title or the body" do
@@ -50,6 +34,8 @@ module Decidim
         end
 
         describe "state filter" do
+          let(:params) { default_params.merge(state: states) }
+
           context "when filtering open collaborative_drafts" do
             let(:states) { %w(open) }
 
@@ -87,54 +73,9 @@ module Decidim
           end
         end
 
-        describe "scope_ids filter" do
-          let!(:draft2) { create(:collaborative_draft, component: component, scope: scope2) }
-          let!(:draft3) { create(:collaborative_draft, component: component, scope: subscope1) }
-
-          context "when a parent scope id is being sent" do
-            let(:scope_ids) { [scope1.id] }
-
-            it "filters collaborative_drafts by scope" do
-              expect(subject).to match_array [collaborative_draft, draft3]
-            end
-          end
-
-          context "when a subscope id is being sent" do
-            let(:scope_ids) { [subscope1.id] }
-
-            it "filters collaborative_drafts by scope" do
-              expect(subject).to eq [draft3]
-            end
-          end
-
-          context "when multiple ids are sent" do
-            let(:scope_ids) { [scope2.id, scope1.id] }
-
-            it "filters collaborative_drafts by scope" do
-              expect(subject).to match_array [collaborative_draft, draft2, draft3]
-            end
-          end
-
-          context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:collaborative_draft, component: component, scope: nil) }
-            let(:scope_ids) { ["global"] }
-
-            it "returns collaborative_draft without a scope" do
-              expect(subject).to eq [resource_without_scope]
-            end
-          end
-
-          context "when `global` and some ids is being sent" do
-            let!(:resource_without_scope) { create(:collaborative_draft, component: component, scope: nil) }
-            let(:scope_ids) { ["global", scope2.id, scope1.id] }
-
-            it "returns collaborative_drafts without a scope and with selected scopes" do
-              expect(subject).to match_array [resource_without_scope, collaborative_draft, draft2, draft3]
-            end
-          end
-        end
-
         describe "related_to filter" do
+          let(:params) { default_params.merge(related_to: related_to) }
+
           context "when filtering by related to meetings" do
             let(:related_to) { "Decidim::Meetings::Meeting".underscore }
             let(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }

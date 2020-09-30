@@ -302,7 +302,7 @@ sv:
             select_user: Välj deltagare
           index:
             filter:
-              accepted: Accepterat
+              accepted: Accepterad
               all: Alla
               rejected: Avvisade
               sent: Skickade

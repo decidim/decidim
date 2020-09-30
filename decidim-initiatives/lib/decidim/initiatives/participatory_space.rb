@@ -100,6 +100,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
       Decidim::Comments::Seed.comments_for(initiative)
 
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.sentence(5),
+        attached_to: initiative,
+        file: File.new(File.join(seeds_root, "city.jpeg"))
+      )
+
       Decidim::Initiatives.default_components.each do |component_name|
         component = Decidim::Component.create!(
           name: Decidim::Components::Namer.new(initiative.organization.available_locales, component_name).i18n_name,

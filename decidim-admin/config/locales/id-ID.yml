@@ -28,12 +28,6 @@ id:
       newsletter:
         body: Tubuh
         subject: Subyek
-      oauth_application:
-        name: Nama
-        organization_logo: Logo organisasi (persegi)
-        organization_name: Nama Organisasi
-        organization_url: URL Organisasi
-        redirect_uri: Alihkan URI
       organization:
         alert_color: Waspada
         badges_enabled: Aktifkan lencana
@@ -100,10 +94,6 @@ id:
         file: Mengajukan
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI pengalihan harus berupa URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -335,7 +325,6 @@ id:
         homepage: Homepage
         impersonations: Peniruan identitas
         newsletters: Nawala
-        oauth_applications: Aplikasi OAuth
         participants: Peserta
         scope_types: Tipe lingkup
         scopes: Scopes
@@ -378,11 +367,6 @@ id:
             sent_at: Dikirim pada
             subject: Subyek
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Dibuat di
-            name: Nama
-          name: Aplikasi OAuth
         participatory_space_private_user:
           name: Ruang partisipatif pengguna pribadi
         scope:
@@ -456,25 +440,6 @@ id:
         update:
           error: Terjadi kesalahan saat memperbarui buletin ini.
           success: Buletin berhasil diperbarui. Harap tinjau sebelum mengirim.
-      oauth_applications:
-        create:
-          error: Terjadi kesalahan saat membuat aplikasi ini.
-          success: Aplikasi berhasil dibuat.
-        destroy:
-          error: Terjadi kesalahan saat menghancurkan aplikasi ini.
-          success: Aplikasi berhasil dihancurkan.
-        edit:
-          save: Menyimpan
-          title: Edit aplikasi
-        index:
-          confirm_delete: Anda yakin ingin menghapus aplikasi ini?
-          title: Aplikasi OAuth
-        new:
-          save: Menyimpan
-          title: Aplikasi baru
-        update:
-          error: Terjadi kesalahan saat memperbarui aplikasi ini.
-          success: Aplikasi berhasil diperbarui.
       officializations:
         create:
           success: Pengguna resmi berhasil
