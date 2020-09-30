@@ -134,7 +134,7 @@ module Decidim
         end
 
         it "sanitizes user input" do
-          expect(comment).to receive(:sanitized_body)
+          expect(comment).to receive(:sanitize_content)
           comment.formatted_body
         end
 

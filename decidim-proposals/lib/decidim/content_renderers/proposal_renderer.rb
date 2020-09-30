@@ -17,7 +17,9 @@ module Decidim
       # invalid Decidim::Proposals::Proposal are replaced with '???' string.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render
+      def render(_options = nil)
+        return content unless content.respond_to?(:gsub)
+
         content.gsub(GLOBAL_ID_REGEX) do |proposal_gid|
           proposal = GlobalID::Locator.locate(proposal_gid)
           Decidim::Proposals::ProposalPresenter.new(proposal).display_mention

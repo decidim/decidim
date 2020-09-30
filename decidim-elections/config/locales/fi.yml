@@ -227,7 +227,6 @@ fi:
           close: Sulje
           proposal_header: 'Ehdotukset:'
         new:
-          answer_choices: Voit valita enintään %{choices} vaihtoehtoa tai jättää vastauksen tyhjäksi
           more_information: Lisätietoa
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}

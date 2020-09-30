@@ -17,7 +17,6 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
