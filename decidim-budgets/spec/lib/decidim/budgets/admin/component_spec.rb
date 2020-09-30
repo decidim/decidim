@@ -13,13 +13,13 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
     let(:form) do
       Decidim::Budgets::Admin::ComponentForm.from_params(
-          id: component.id,
-          weight: 0,
-          manifest: manifest,
-          participatory_space: participatory_space,
-          name: generate_localized_title,
-          default_step_settings: {},
-          settings: new_settings(:global, settings)
+        id: component.id,
+        weight: 0,
+        manifest: manifest,
+        participatory_space: participatory_space,
+        name: generate_localized_title,
+        default_step_settings: {},
+        settings: new_settings(:global, settings)
       ).with_context(current_organization: organization)
     end
 
@@ -32,13 +32,13 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
     let(:settings) do
       {
-          total_budget: 100_000_000,
-          vote_rule_threshold_percent_enabled: percent_enabled,
-          vote_threshold_percent: percent,
-          vote_rule_group_1_minimum_budget_projects_enabled: minimum_enabled,
-          vote_rule_group_1_maximum_budget_projects_enabled: maximum_enabled,
-          vote_minimum_budget_projects_number: minimum_number,
-          vote_maximum_budget_projects_number: maximum_number
+        total_budget: 100_000_000,
+        vote_rule_threshold_percent_enabled: percent_enabled,
+        vote_threshold_percent: percent,
+        vote_rule_group_1_minimum_budget_projects_enabled: minimum_enabled,
+        vote_rule_group_1_maximum_budget_projects_enabled: maximum_enabled,
+        vote_minimum_budget_projects_number: minimum_number,
+        vote_maximum_budget_projects_number: maximum_number
       }
     end
 

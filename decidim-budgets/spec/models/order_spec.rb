@@ -33,7 +33,7 @@ shared_examples "an order" do |*options|
         subject.projects << project2
 
         subject.component.settings = {
-            "vote_threshold" => 50
+          "vote_threshold" => 50
         }
         budget.update!(total_budget: 100)
 

@@ -19,11 +19,11 @@ module Decidim
       validate :user_belongs_to_organization
 
       validates :total_budget, numericality: {
-          greater_than_or_equal_to: :minimum_budget
+        greater_than_or_equal_to: :minimum_budget
       }, if: -> { checked_out? && !maximum_projects_rule? }
 
       validates :total_budget, numericality: {
-          less_than_or_equal_to: :maximum_budget
+        less_than_or_equal_to: :maximum_budget
       }, if: -> { !maximum_projects_rule? }
 
       validate :reach_minimum_projects, if: :checked_out?
