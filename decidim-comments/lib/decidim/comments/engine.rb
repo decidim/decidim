@@ -41,10 +41,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_comments.add_cells_view_paths" do
-        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Comments::Engine.root}/app/cells")
-      end
-
       initializer "decidim.stats" do
         Decidim.stats.register :comments_count, priority: StatsRegistry::MEDIUM_PRIORITY do |organization|
           Decidim.component_manifests.sum do |component|
