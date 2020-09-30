@@ -223,8 +223,10 @@ en:
             scopes_enabled: Scopes enabled
             title: Title
             total_budget: Total budget
+            vote_maximum_budget_projects_number: Maximum number of projects to vote
             vote_minimum_budget_projects_number: Minimum number of projects to vote
-            vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
+            vote_rule_group_1_maximum_budget_projects_enabled: 'Enable rule: Maximum number of projects to be voted on'
+            vote_rule_group_1_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
             vote_threshold_percent: Vote threshold percent
             workflow: Workflow
