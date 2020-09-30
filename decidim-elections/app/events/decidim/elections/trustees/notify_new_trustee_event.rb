@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Trustees
-      class NotifiyNewTrusteeEvent < Decidim::Events::SimpleEvent
+      class NotifyNewTrusteeEvent < Decidim::Events::SimpleEvent
         i18n_attributes :resource_name
 
         def resource_name
