@@ -18,7 +18,7 @@ module Decidim
 
           @form = meeting_form.from_params(params, current_component: current_component)
 
-          CreateMeeting.call(@form) do
+          Decidim::Meetings::Admin::CreateMeeting.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
@@ -58,7 +58,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :meeting, meeting: meeting
 
-          DestroyMeeting.call(meeting, current_user) do
+          Decidim::Meetings::Admin::DestroyMeeting.call(meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
 
