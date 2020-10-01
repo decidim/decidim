@@ -1,0 +1,20 @@
+<%= decidim_form_for(@form, url: questionnaire_template_path, html: { class: "form edit_questionnaire_template" }) do |f| %>
+  <%= render partial: "form", object: f %>
+<% end %>
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".questionnaire") %></h2>
+      <%= link_to t(".edit"), edit_questionnaire_path(template), class: "button tiny button--title" %>
+  </div>
+
+  <div class="card-section questionnaire-template-preview">
+    <div class="row column">
+      <% if template.templatable.questions.any? %>
+        <%= render partial: "preview", locals: { questionnaire: template.templatable } %>
+      <% else %>
+        <%= t(".empty") %>
+      <% end %>
+    </div>
+  </div>
+</div>
