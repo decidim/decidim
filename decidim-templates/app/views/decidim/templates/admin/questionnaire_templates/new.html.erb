@@ -1,0 +1,7 @@
+<% content_for :title do %>
+  <%= t("templates", scope: "decidim.admin.titles") %>
+<% end %>
+
+<%= decidim_form_for(@form, url: questionnaire_templates_path, html: { class: "form new_questionnaire_template" }) do |f| %>
+  <%= render partial: "form", object: f %>
+<% end %>
