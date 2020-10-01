@@ -17,15 +17,17 @@ module Decidim
     # translated_text - A String with the value of the field_name, translated
     #   into the target_locale
     def perform(resource, field_name, target_locale, translated_text)
-      if resource[field_name]["machine_translations"].present?
-        resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge(target_locale => translated_text)
-      else
-        resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
-      end
+      resource.with_lock do
+        if resource[field_name]["machine_translations"].present?
+          resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge(target_locale => translated_text)
+        else
+          resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
+        end
 
-      # rubocop:disable Rails/SkipsModelValidations
-      resource.update_column field_name.to_sym, resource[field_name]
-      # rubocop:enable Rails/SkipsModelValidations
+        # rubocop:disable Rails/SkipsModelValidations
+        resource.update_column field_name.to_sym, resource[field_name]
+        # rubocop:enable Rails/SkipsModelValidations
+      end
     end
   end
 end
