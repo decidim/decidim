@@ -32,7 +32,9 @@
 
         $(".order-by__dropdown .is-submenu-item a", this.$element).on(
           "click.decidim-comments",
-          this._onInitOrder
+          () => {
+            this._onInitOrder();
+          }
         );
       }
     }

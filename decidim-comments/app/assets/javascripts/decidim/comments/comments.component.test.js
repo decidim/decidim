@@ -406,7 +406,7 @@ describe("CommentsComponent", () => {
     it("binds the order selector events", () => {
       expect(orderLinks.on).toHaveBeenCalledWith(
         "click.decidim-comments",
-        subject._onInitOrder
+        expect.any(Function)
       );
     });
 
