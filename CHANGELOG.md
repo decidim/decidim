@@ -50,6 +50,7 @@ Note that if you had these previously configured in the initializer, these previ
 ### Removed
 
 - **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
+- **decidim-core**: Remove legacy 'show statistics' checkbox in Appearance. [\#6575](https://github.com/decidim/decidim/pull/6575)
 
 ## Previous versions
 
