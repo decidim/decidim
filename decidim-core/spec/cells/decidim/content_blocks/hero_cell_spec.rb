@@ -61,7 +61,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
       }
     end
 
-    it "it is a valid path" do
+    it "is a valid path" do
       expect(subject).to have_link(href: "processes/my_process/")
     end
   end
@@ -73,8 +73,8 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
       }
     end
 
-    it "it isn't a valid path" do
-      expect(subject).to_not have_link(href: "http://example.org")
+    it "isn't a valid path" do
+      expect(subject).not_to have_link(href: "http://example.org")
     end
   end
 

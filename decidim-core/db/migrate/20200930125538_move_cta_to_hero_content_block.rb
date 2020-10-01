@@ -15,7 +15,7 @@ class MoveCtaToHeroContentBlock < ActiveRecord::Migration[5.2]
 
       unless organization.cta_button_path.empty?
         # Adds i18n support to cta_button_path for every defined lang in cta_button_text
-        settings = cta_button_text.inject(settings) { |acc, (k, v)| acc.update("cta_button_path_#{k}" => organization.cta_button_path) }
+        settings = cta_button_text.inject(settings) { |acc, (k, _v)| acc.update("cta_button_path_#{k}" => organization.cta_button_path) }
       end
 
       content_block.settings = settings
