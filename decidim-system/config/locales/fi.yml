@@ -153,7 +153,10 @@ fi:
             api_key: API-avain
             api_secret: API-salausavain
         smtp_settings:
+          instructions:
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <sinun-organisaatiosi@example.org>". Jätä tyhjäksi käyttääksesi lähetyssähköpostia (''from_email'') lähettäjän nimenä'
           placeholder:
+            from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi
         update:
           error: Organisaation päivitys epäonnistui.
