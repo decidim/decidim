@@ -31,6 +31,18 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
     expect(trustee.trustees_participatory_spaces.count).to eq 1
   end
 
+  it "sends a notification to a new trustee" do
+    expect(Decidim::EventsManager)
+      .to receive(:publish)
+      .with(
+        event: "decidim.events.elections.trustees.new_trustee",
+        event_class: Decidim::Elections::Trustees::NotifyNewTrusteeEvent,
+        resource: form.current_participatory_space,
+        affected_users: [form.user]
+      )
+    subject.call
+  end
+
   context "when user and participatory space exist" do
     let!(:trustee) do
       trustee = create(:trustee,
