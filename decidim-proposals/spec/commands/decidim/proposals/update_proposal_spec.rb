@@ -190,13 +190,31 @@ module Decidim
             let(:component) { create(:proposal_component, :with_attachments_allowed) }
             let(:uploaded_files) do
               [
-                Decidim::Dev.test_file("city.jpeg", ""),
-                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+                Decidim::Dev.test_file("Exampledocument.pdf", "")
               ]
             end
 
             it "does not create atachments for the proposal" do
               expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+            end
+
+            it "broadcasts invalid" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when documents and gallery are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+            let(:component) { create(:proposal_component, :with_attachments_allowed) }
+            let(:uploaded_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
+            let(:uploaded_files) do
+              [
+                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+              ]
+            end
+
+            it "Create gallery and documents for the proposal" do
+              expect { command.call }.to change(Decidim::Attachment, :count).by(2)
             end
           end
 
