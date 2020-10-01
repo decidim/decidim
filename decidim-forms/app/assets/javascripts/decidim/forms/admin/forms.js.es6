@@ -123,6 +123,15 @@
     });
   }
 
+  const createCollapsibleQuestion = ($target) => {
+    const $collapsible = $target.find(".collapsible");
+    if ($collapsible.length > 0) {
+      const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
+      const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
+      $target.find(".question--collapse").data("toggle", toggleAttr);
+    }
+  };
+
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
     const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
@@ -281,6 +290,7 @@
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
+    createCollapsibleQuestion($target);
     createDynamicQuestionTitle(fieldId);
 
     createFieldDependentInputs({
@@ -367,13 +377,6 @@
     moveUpFieldButtonSelector: ".move-up-question",
     moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
-      const $collapsible = $field.find(".collapsible");
-      if ($collapsible.length > 0) {
-        const collapsibleId = $collapsible.attr("id").replace("-question-card", "");
-        const toggleAttr = `${collapsibleId}-question-card button--collapse-question-${collapsibleId} button--expand-question-${collapsibleId}`;
-        $field.find(".question--collapse").data("toggle", toggleAttr);
-      }
-
       setupInitialQuestionAttributes($field);
       createSortableList();
 
