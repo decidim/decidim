@@ -140,6 +140,13 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+        trustee_participatory_space:
+          actions:
+            enable: Consider
+            disable: disable
+          update:
+            invalid: There was a problem updating %{trustee} trustee
+            success: Trustee %{trustee} successfully updated
         trustees:
           create:
             exists: Trustee exists for this participatory space
@@ -148,9 +155,6 @@ en:
           destroy:
             invalid: There was a problem deleting this trustee
             success: Trustee successfully deleted
-          edit:
-            title: Edit Trustee
-            update: Update Trustee
           form:
             select_user: Select user
           index:
@@ -158,9 +162,6 @@ en:
           new:
             create: Create Trustee
             title: New Trustee
-          update:
-            invalid: There was a problem updating this trustee
-            success: Trustee successfully updated
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"
