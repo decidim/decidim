@@ -92,6 +92,7 @@ fr:
             title: Modifier l'élection
             update: Mettre à jour l'élection
           index:
+            no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
             title: Élections
           new:
             create: Créer une élection
