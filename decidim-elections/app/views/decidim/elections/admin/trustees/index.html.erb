@@ -35,14 +35,19 @@
                 <%= trustee.created_at.ctime %>
               </td>
               <td>
-                <% if trustee.trustees_participatory_spaces.first.considered %>
+                <% if trustee_current_participatory_space(trustee).considered %>
                   <%= t("models.trustee.fields.considered", scope: "decidim.elections") %>
                 <% else %>
                   <%= t("models.trustee.fields.inactive", scope: "decidim.elections") %>
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "pencil", edit_trustee_path(trustee), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <% if allowed_to?(:update, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
+                  <%= icon_link_to considered_icon_action_for(trustee), edit_trustees_participatory_space_path(trustee_current_participatory_space(trustee)), considered_label_action_for(trustee), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon considered_icon_action_for(trustee), class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+
                 <%= icon_link_to "circle-x", trustee_path(trustee), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
               </td>
             </tr>
