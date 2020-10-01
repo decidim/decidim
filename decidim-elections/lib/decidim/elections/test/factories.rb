@@ -115,7 +115,7 @@ FactoryBot.define do
   end
 
   factory :trustees_participatory_spaces, class: "Decidim::Elections::TrusteesParticipatorySpace" do
-    participatory_space { create(:participatory_process, :with_steps) }
+    participatory_space { create(:participatory_process) }
     considered { true }
   end
 end

@@ -1,4 +1,4 @@
-<div class="card" id="trustee">
+<div class="card" id="trustees">
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
@@ -49,6 +49,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate trustees, theme: "decidim" %>
     </div>
   </div>
 </div>
