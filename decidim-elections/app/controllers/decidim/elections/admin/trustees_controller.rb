@@ -77,6 +77,7 @@ module Decidim
         def trustees
           @trustees ||= Trustee.joins(:trustees_participatory_spaces)
                                .where("decidim_elections_trustees_participatory_spaces.participatory_space_id = ?", current_participatory_space.id)
+                               .page(params[:page]).per(15)
         end
 
         def trustee
