@@ -59,7 +59,7 @@ module Decidim
         def destroy
           enforce_permission_to :delete, :trustee, trustee: trustee
 
-          DestroyTrustee.call(trustee, current_user) do
+          RemoveTrusteeFromParticipatorySpace.call(trustee, current_user, current_participatory_space) do
             on(:ok) do
               flash[:notice] = I18n.t("trustees.destroy.success", scope: "decidim.elections.admin")
             end
@@ -75,9 +75,8 @@ module Decidim
         private
 
         def trustees
-          @trustees ||= Trustee.joins(:trustees_participatory_spaces)
-                               .where("decidim_elections_trustees_participatory_spaces.participatory_space_id = ?", current_participatory_space.id)
-                               .page(params[:page]).per(15)
+          trustees_space = TrusteesParticipatorySpace.where(participatory_space: current_participatory_space).includes(:trustee)
+          @trustees ||= Trustee.where(trustees_participatory_spaces: trustees_space).page(params[:page]).per(15)
         end
 
         def trustee

@@ -12,7 +12,6 @@ module Decidim
         def initialize(form, current_user)
           @form = form
           @current_user = current_user
-          # @current_participatory_space = current_participatory_space
         end
 
         # Creates the trustee if valid.
@@ -23,9 +22,9 @@ module Decidim
           return broadcast(:exists) if existing_trustee_participatory_spaces?
 
           transaction do
-            add_user_as_trustee! if new_trustee?
+            notify_user_about_trustee_role if new_trustee?
+            add_user_as_trustee!
             add_participatory_space
-            notify_user_about_trustee_role
           end
 
           broadcast(:ok)
@@ -44,9 +43,10 @@ module Decidim
         end
 
         def existing_trustee_participatory_spaces?
-          Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
-                                     .where("decidim_elections_trustees_participatory_spaces.participatory_space_id = ?", form.current_participatory_space.id)
-                                     .where("decidim_user_id = ?", form.user.id).any?
+          trustees_space = TrusteesParticipatorySpace.where(participatory_space: form.current_participatory_space).includes(:trustee)
+          @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
+                                                                                .where(trustees_participatory_spaces: trustees_space)
+                                                                                .where("decidim_user_id = ?", form.user.id).any?
         end
 
         def new_trustee?
