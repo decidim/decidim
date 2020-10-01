@@ -9,7 +9,6 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   let(:resource) { create(:participatory_process) }
   let(:participatory_space_title) { resource.title["en"] }
   let(:resource_title) { resource.title["en"] }
-  let(:create_public_key_path) { "{create_public_key_path}" }
 
   it_behaves_like "a simple event"
 
@@ -26,17 +25,17 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
     end
   end
 
-  # describe "email_outro" do
-  #   it "is generated correctly" do
-  #     expect(subject.email_outro)
-  #       .to eq("You have received this notification because you are following #{participatory_space_title}. You can stop receiving notifications following the previous link.")
-  #   end
-  # end
+  describe "email_outro" do
+    it "is generated correctly" do
+      expect(subject.email_outro)
+        .to eq("You have received this notification because you've been added as trustee for #{participatory_space_title}.")
+    end
+  end
 
-  # describe "notification_title" do
-  #   it "is generated correctly" do
-  #     expect(subject.notification_title)
-  #       .to eq("The <a href=\"#{resource_path}\">#{resource_title}</a> election is now active for #{participatory_space_title}.")
-  #   end
-  # end
+  describe "notification_title" do
+    it "is generated correctly" do
+      expect(subject.notification_title)
+        .to eq("You are a trustee for <a href=\"#{resource_url}\">#{participatory_space_title}</a>.")
+    end
+  end
 end
