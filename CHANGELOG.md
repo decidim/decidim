@@ -43,6 +43,8 @@ Decidim.configure do |config|
     units: :km
   }
 end
+```
+
 - **Debates and Comments are now in global search**
 
 Debates and Comments have been added to the global search and need to be
