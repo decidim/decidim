@@ -7,7 +7,7 @@
 </div>
 
 <div class="field">
-  <%= form.text_field :address %>
+  <%= form.geocoding_field :address %>
   <p class="help-text"><%= t(".address_help") %></p>
 </div>
 
@@ -47,3 +47,5 @@
     label: t(".create_as")
   ) %>
 </div>
+
+<%= javascript_include_tag "decidim/meetings/meetings_form" %>

@@ -18,6 +18,20 @@ $help-text-margin-top: ($form-spacing * .5) * -1;
   padding: .5rem 1rem;
 }
 
+label,
+.field{
+  &.has-tribute{
+    position: relative;
+
+    .tribute-container{
+      top: auto;
+      margin-top: -$form-spacing;
+      max-width: none;
+      width: 100%;
+    }
+  }
+}
+
 .help-text{
   display: block;
   line-height: 1.2;

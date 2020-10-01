@@ -32,13 +32,13 @@
   </div>
 <% end %>
 
-<% if component_settings.geocoding_enabled? %>
+<% if @form.geocoding_enabled? %>
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
 
   <div class="field" id="address_input">
-    <%= form.text_field :address %>
+    <%= form.geocoding_field :address %>
   </div>
 <% end %>
 
