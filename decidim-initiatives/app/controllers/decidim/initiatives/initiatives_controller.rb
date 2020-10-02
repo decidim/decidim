@@ -49,15 +49,6 @@ module Decidim
         enforce_permission_to :read, :initiative, initiative: current_initiative
       end
 
-      # GET /initiatives/:id/signature_identities
-      def signature_identities
-        @voted_groups = InitiativesVote
-                        .supports
-                        .where(initiative: current_initiative, author: current_user)
-                        .pluck(:decidim_user_group_id)
-        render layout: false
-      end
-
       private
 
       alias current_initiative current_participatory_space
