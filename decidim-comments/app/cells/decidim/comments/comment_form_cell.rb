@@ -53,6 +53,8 @@ module Decidim
       end
 
       def verified_user_groups
+        return [] unless current_user
+
         @verified_user_groups ||= Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
       end
 
