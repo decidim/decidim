@@ -70,6 +70,10 @@ As per [\#6377](https://github.com/decidim/decidim/pull/6377), the `maximum_atta
 
 Note that if you had these previously configured in the initializer, these previous settings have been automatically migrated to all organizations in your installation after running the Decidim upgrade migrations.
 
+- **Comments no longer use react**
+
+As per [\#6498](https://github.com/decidim/decidim/pull/6498), the comments component is no longer implemented with the react component. In case you had customized the react component, it will still work as you would expect as the GraphQL API has not disappeared anywhere. You should, however, gradually migrate to the "new way" (Trailblazer cells) in order to ensure compatibility with future versions too.
+
 ### Fixed
 
 - **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)
