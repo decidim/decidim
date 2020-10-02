@@ -39,7 +39,7 @@ describe "Admin manages trustees", type: :system do
     let!(:collection) do
       create_list(:trustee, collection_size) do |trustee|
         trustee.trustees_participatory_spaces << build(
-          :trustees_participatory_spaces,
+          :trustees_participatory_space,
           participatory_space: participatory_space
         )
       end

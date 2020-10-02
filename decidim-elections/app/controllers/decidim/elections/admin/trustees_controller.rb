@@ -39,27 +39,10 @@ module Decidim
           @form = form(TrusteeForm).from_model(trustee)
         end
 
-        def update
-          enforce_permission_to :update, :trustee, trustee: trustee
-          @form = form(TrusteeForm).from_params(params)
-
-          UpdateTrustee.call(@form, trustee) do
-            on(:ok) do
-              flash[:notice] = I18n.t("trustees.update.success", scope: "decidim.elections.admin")
-              redirect_to trustees_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("trustees.update.invalid", scope: "decidim.elections.admin")
-              render action: "edit"
-            end
-          end
-        end
-
         def destroy
           enforce_permission_to :delete, :trustee, trustee: trustee
 
-          RemoveTrusteeFromParticipatorySpace.call(trustee, current_user, current_participatory_space) do
+          RemoveTrusteeFromParticipatorySpace.call(trustee, current_participatory_space) do
             on(:ok) do
               flash[:notice] = I18n.t("trustees.destroy.success", scope: "decidim.elections.admin")
             end
