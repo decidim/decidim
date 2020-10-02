@@ -6,9 +6,8 @@ module Decidim
       # This command is executed when the admin user removes a trustee
       # from a participatory space from the admin panel.
       class RemoveTrusteeFromParticipatorySpace < Rectify::Command
-        def initialize(trustee, current_user, current_participatory_space)
+        def initialize(trustee, current_participatory_space)
           @trustee = trustee
-          @current_user = current_user
           @current_participatory_space = current_participatory_space
         end
 

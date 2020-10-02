@@ -109,13 +109,20 @@ FactoryBot.define do
 
     trait :considered do
       after(:build) do |trustee, _evaluator|
-        trustee.trustees_participatory_spaces << build(:trustees_participatory_spaces)
+        trustee.trustees_participatory_spaces << build(:trustees_participatory_space)
+      end
+    end
+
+    trait :with_elections do
+      after(:build) do |trustee, _evaluator|
+        trustee.elections << build(:election)
       end
     end
   end
 
-  factory :trustees_participatory_spaces, class: "Decidim::Elections::TrusteesParticipatorySpace" do
+  factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do
     participatory_space { create(:participatory_process) }
     considered { true }
+    trustee
   end
 end
