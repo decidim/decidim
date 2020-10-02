@@ -47,7 +47,7 @@ module Decidim
           it "updates the associated SearchableResource after Debate update" do
             searchable = SearchableResource.find_by(resource_type: debate.class.name, resource_id: debate.id)
             created_at = searchable.created_at
-            updated_title = {"en" => "Brand new title" }
+            updated_title = { "en" => "Brand new title" }
             debate.update(title: updated_title)
 
             debate.save!
@@ -78,7 +78,7 @@ module Decidim
             :debate,
             component: current_component,
             title: Decidim::Faker::Localized.name,
-            description: {en: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!" }
+            description: { en: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!" }
           )
         end
 
