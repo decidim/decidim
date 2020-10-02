@@ -50,8 +50,8 @@ module Decidim
             attachment: attachment_params,
             photos: current_photos,
             add_photos: uploaded_photos,
-            files: current_files,
-            add_files: uploaded_files,
+            documents: current_files,
+            add_documents: uploaded_files,
             errors: errors
           }
         end

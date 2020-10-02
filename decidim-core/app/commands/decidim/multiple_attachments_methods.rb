@@ -5,20 +5,20 @@ module Decidim
     private
 
     def build_attachments
-      @files = []
-      @form.add_files.each do |file|
-        @files << Attachment.new(
+      @documents = []
+      @form.add_documents.each do |file|
+        @documents << Attachment.new(
           title: file.original_filename,
-          attached_to: @attached_to || files_attached_to,
+          attached_to: @attached_to || documents_attached_to,
           file: file
         )
       end
     end
 
     def attachments_invalid?
-      @files.each do |file|
+      @documents.each do |file|
         if file.invalid? && file.errors.has_key?(:file)
-          @form.errors.add(:add_files, file.errors[:file])
+          @form.errors.add(:add_documents, file.errors[:file])
           return true
         end
       end
@@ -26,27 +26,27 @@ module Decidim
     end
 
     def create_attachments
-      @files.map! do |file|
-        file.attached_to = files_attached_to
+      @documents.map! do |file|
+        file.attached_to = documents_attached_to
         file.save!
-        @form.files << file.id.to_s
+        @form.documents << file.id.to_s
       end
     end
 
-    def file_cleanup!
-      files_attached_to.documents.each do |file|
-        file.destroy! if @form.files.exclude? file.id.to_s
+    def document_cleanup!
+      documents_attached_to.documents.each do |file|
+        file.destroy! if @form.documents.exclude? file.id.to_s
       end
 
-      files_attached_to.reload
-      files_attached_to.instance_variable_set(:@files, nil)
+      documents_attached_to.reload
+      documents_attached_to.instance_variable_set(:@documents, nil)
     end
 
     def process_attachments?
-      @form.add_files.any?
+      @form.add_documents.any?
     end
 
-    def files_attached_to
+    def documents_attached_to
       return @attached_to if @attached_to.present?
       return form.current_organization if form.respond_to?(:current_organization)
 

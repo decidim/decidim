@@ -18,8 +18,8 @@ module Decidim
       attribute :suggested_hashtags, Array[String]
       attribute :photos, Array[String]
       attribute :add_photos, Array
-      attribute :files, Array[String]
-      attribute :add_files, Array
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
 
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
