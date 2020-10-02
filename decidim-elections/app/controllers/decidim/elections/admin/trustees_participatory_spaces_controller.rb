@@ -15,14 +15,13 @@ module Decidim
               flash[:notice] = I18n.t("trustee_participatory_space.update.success", scope: "decidim.elections.admin", trustee: trustee.user.name)
             end
 
-            on(:invalid) do  |trustee|
+            on(:invalid) do |trustee|
               flash.now[:alert] = I18n.t("trustee_participatory_space.update.invalid", scope: "decidim.elections.admin", trustee: trustee.user.name)
             end
 
             redirect_to trustees_path
           end
         end
-
 
         private
 
