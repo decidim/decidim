@@ -7,7 +7,7 @@ module Decidim
       #
       module TrusteesHelper
         def trustee_current_participatory_space(trustee)
-          trustee.trustees_participatory_spaces.where(participatory_space: current_participatory_space).first
+          trustee.trustees_participatory_spaces.find_by(participatory_space: current_participatory_space)
         end
 
         def considered_icon_action_for(trustee)
