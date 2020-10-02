@@ -10,6 +10,8 @@ module Decidim
       after_create :machine_translation
       after_update :machine_translation
 
+      validate :translatable_fields_are_hashes
+
       def self.translatable_fields(*list)
         @translatable_fields = list
 
@@ -61,6 +63,15 @@ module Decidim
 
       def translatable_previous_changes
         previous_changes.slice(*self.class.translatable_fields_list)
+      end
+
+      def translatable_fields_are_hashes
+        self.class.translatable_fields_list.each do |field|
+          value = self.send(field).presence
+          next if value.nil? || value.is_a?(Hash)
+
+          errors.add(field, :invalid)
+        end
       end
     end
   end
