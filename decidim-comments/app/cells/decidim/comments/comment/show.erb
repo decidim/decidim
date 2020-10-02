@@ -33,8 +33,6 @@
         <%= icon "pencil", class: "icon--small", role: "none presentation" %>&nbsp;<%= t("decidim.components.comment.reply") %>
       </button>
     </div>
-  <% end %>
-  <% if can_reply? %>
     <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
       <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
     </div>
