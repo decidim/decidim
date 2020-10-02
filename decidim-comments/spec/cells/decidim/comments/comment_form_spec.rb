@@ -19,8 +19,8 @@ module Decidim::Comments
       it "renders the form" do
         expect(subject).to have_css(".hashtags__container textarea#add-comment-DummyResource-#{commentable.id}[maxlength='1000']")
         expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-remaining-characters")
-        expect(subject).to have_css("input.alignment-input[name='comment[alignment]'][value='0']", :hidden)
-        expect(subject).to have_css("input[name='comment[commentable_gid]']", :hidden)
+        expect(subject).to have_css("input.alignment-input[name='comment[alignment]'][value='0']", visible: :hidden)
+        expect(subject).to have_css("input[name='comment[commentable_gid]']", visible: :hidden)
         expect(subject).to have_css("button", text: "Send")
 
         expect(subject).not_to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
