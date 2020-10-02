@@ -45,6 +45,7 @@ module Decidim
         def existing_trustee_participatory_spaces?
           trustees_space = TrusteesParticipatorySpace.where(participatory_space: form.current_participatory_space).includes(:trustee)
           @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
+                                                                                .includes([:user])
                                                                                 .where(trustees_participatory_spaces: trustees_space)
                                                                                 .where("decidim_user_id = ?", form.user.id).any?
         end

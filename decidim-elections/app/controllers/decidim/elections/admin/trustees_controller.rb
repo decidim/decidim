@@ -76,7 +76,7 @@ module Decidim
 
         def trustees
           trustees_space = TrusteesParticipatorySpace.where(participatory_space: current_participatory_space).includes(:trustee)
-          @trustees ||= Trustee.where(trustees_participatory_spaces: trustees_space).page(params[:page]).per(15)
+          @trustees ||= Trustee.where(trustees_participatory_spaces: trustees_space).includes([:user]).page(params[:page]).per(15)
         end
 
         def trustee
