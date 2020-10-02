@@ -11,7 +11,8 @@ describe Decidim::Elections::Admin::Permissions do
       current_component: elections_component,
       election: election,
       question: question,
-      answer: answer
+      answer: answer,
+      trustee: trustee
     }
   end
   let(:elections_component) { create :elections_component }
@@ -19,6 +20,7 @@ describe Decidim::Elections::Admin::Permissions do
   let(:question) { nil }
   let(:answer) { nil }
   let(:trustee) { nil }
+  let(:trustee_participatory_space) { nil }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "not allowed when election has started" do
@@ -32,6 +34,14 @@ describe Decidim::Elections::Admin::Permissions do
   shared_examples "not allowed when election has invalid questions" do
     context "when election has invalid questions" do
       let(:question) { create :question, :candidates, max_selections: 11, election: election }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  shared_examples "not allowed when trustee has elections" do
+    context "when trustee has elections" do
+      let(:trustee) { create :trustee, :with_elections }
 
       it { is_expected.to eq false }
     end
@@ -191,11 +201,31 @@ describe Decidim::Elections::Admin::Permissions do
       it_behaves_like "not allowed when election has started"
     end
 
-    describe "trustee creation" do
+    describe "add user as trustee" do
       let(:action) do
         { scope: :admin, action: :create, subject: :trustee }
       end
       let(:trustee) { nil }
+
+      it { is_expected.to eq true }
+    end
+
+    describe "remove trustee from participatory space" do
+      let(:trustee) { create :trustee }
+      let(:action) do
+        { scope: :admin, action: :delete, subject: :trustee }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when trustee has elections"
+    end
+
+    describe "update trustee participatory space" do
+      let(:trustee_participatory_space) { create :trustee_participatory_space }
+      let(:action) do
+        { scope: :admin, action: :update, subject: :trustee_participatory_space }
+      end
 
       it { is_expected.to eq true }
     end
