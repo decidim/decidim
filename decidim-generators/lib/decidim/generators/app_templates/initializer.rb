@@ -32,10 +32,71 @@ Decidim.configure do |config|
   # Whether SSL should be enabled or not.
   # config.force_ssl = true
 
-  # Geocoder configuration
+  # Map and Geocoder configuration
+  #
+  # == HERE Maps ==
+  # config.maps = {
+  #   provider: :here,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  # }
+  #
+  # == OpenStreetMap (OSM) services ==
+  # To use the OSM map service providers, you will need a service provider for
+  # the following map servers or host all of them yourself:
+  # - A tile server for the dynamic maps
+  #   (https://wiki.openstreetmap.org/wiki/Tile_servers)
+  # - A Nominatim geocoding server for the geocoding functionality
+  #   (https://wiki.openstreetmap.org/wiki/Nominatim)
+  # - A static map server for static map images
+  #   (https://github.com/jperelli/osm-static-maps)
+  #
+  # When used, please read carefully the terms of service for your service
+  # provider.
+  #
+  # config.maps = {
+  #   provider: :osm,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   dynamic: {
+  #     tile_layer: {
+  #       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+  #       api_key: true,
+  #       foo: "bar=baz",
+  #       attribution: %(
+  #         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+  #       ).strip
+  #       # Translatable attribution:
+  #       # attribution: -> { I18n.t("tile_layer_attribution") }
+  #     }
+  #   },
+  #   static: { url: "https://staticmap.example.org/" },
+  #   geocoding: { host: "nominatim.example.org", use_https: true }
+  # }
+  #
+  # == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
+  # config.maps = {
+  #   provider: :osm,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   dynamic: {
+  #     provider: :here,
+  #     api_key: Rails.application.secrets.maps[:here_api_key]
+  #   },
+  #   static: { url: "https://staticmap.example.org/" },
+  #   geocoding: { host: "nominatim.example.org", use_https: true }
+  # }
+
+  # Geocoder configurations if you want to customize the default geocoding
+  # settings. The maps configuration will manage which geocoding service to use,
+  # so that does not need any additional configuration here. Use this only for
+  # the global geocoder preferences.
   # config.geocoder = {
-  #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-  #   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  #   # geocoding service request timeout, in seconds (default 3):
+  #   timeout: 5,
+  #   # set default units to kilometers:
+  #   units: :km,
+  #   # caching (see https://github.com/alexreisner/geocoder#caching for details):
+  #   cache: Redis.new,
+  #   cache_prefix: "..."
   # }
 
   # Custom resource reference generator method. Check the docs for more info.

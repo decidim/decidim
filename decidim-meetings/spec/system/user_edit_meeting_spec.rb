@@ -48,6 +48,28 @@ describe "User edit meeting", type: :system do
       expect(page).to have_content(new_description)
     end
 
+    context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+      it_behaves_like(
+        "a record with front-end geocoding address field",
+        Decidim::Meetings::Meeting,
+        within_selector: ".edit_meeting",
+        address_field: :meeting_address
+      ) do
+        let(:geocoded_address_value) { meeting.address }
+        let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+        before do
+          # Prepare the view for submission (other than the address field)
+          visit_component
+
+          click_link meeting.title
+          click_link "Edit meeting"
+
+          expect(page).to have_content "EDIT YOUR MEETING"
+        end
+      end
+    end
+
     context "when updating with wrong data" do
       it "returns an error message" do
         visit_component
