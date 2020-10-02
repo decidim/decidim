@@ -6,7 +6,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
   subject { presenter.present }
 
   let(:presenter) { described_class.new(resource, helper, extra) }
-  let(:resource) { create(:dummy_resource, title: {en: "Jeffery O'Conner 246" }) }
+  let(:resource) { create(:dummy_resource, title: { en: "Jeffery O'Conner 246" }) }
   let(:extra) do
     {
       "title" => resource.title

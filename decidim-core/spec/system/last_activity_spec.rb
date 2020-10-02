@@ -69,9 +69,9 @@ describe "Last activity", type: :system do
 
       it "shows all activities" do
         expect(page).to have_css(".card--activity", count: 3)
-        expect(page).to have_content(translated resource.title)
-        expect(page).to have_content(translated comment.commentable.title)
-        expect(page).to have_content(translated another_comment.commentable.title)
+        expect(page).to have_content(translated(resource.title))
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
@@ -79,9 +79,9 @@ describe "Last activity", type: :system do
           choose "Comment"
         end
 
-        expect(page).to have_content(translated comment.commentable.title)
-        expect(page).to have_content(translated another_comment.commentable.title)
-        expect(page).to have_no_content(translated resource.title)
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
+        expect(page).to have_no_content(translated(resource.title))
         expect(page).to have_css(".card--activity", count: 2)
       end
 

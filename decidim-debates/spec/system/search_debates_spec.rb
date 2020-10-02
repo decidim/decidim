@@ -10,7 +10,7 @@ describe "Search debates", type: :system do
   let(:hashtag) { "#decidim" }
 
   before do
-    hashtag_debate = create(:debate, component: component, title: {en: "A debate with a hashtag #{hashtag}"})
+    hashtag_debate = create(:debate, component: component, title: { en: "A debate with a hashtag #{hashtag}" })
     searchables << hashtag_debate
   end
 
