@@ -79,8 +79,12 @@ module Decidim
 
       def attributes
         {
-          title: title_with_hashtags,
-          body: body_with_hashtags,
+          title: {
+            I18n.locale => title_with_hashtags
+          },
+          body: {
+            I18n.locale => body_with_hashtags
+          },
           category: form.category,
           scope: form.scope,
           address: form.address,
