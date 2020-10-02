@@ -81,10 +81,7 @@ pt:
             api_key: Chave de API
             api_secret: Segredo de API
         smtp_settings:
-          instructions:
-            from_label: 'O remetente do e-mail será: "nome-da-sua-organização <a-sua-organização@o-seu-fornecedor.org>". Deixe em branco para utilizar ''from_email'' como etiqueta'
           placeholder:
-            from_email: a-sua-organização@o-seu-fornecedor.org
             from_label: nome-da-sua-organização
         update:
           error: Ocorreu um problema ao atualizar esta organização.

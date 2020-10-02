@@ -439,7 +439,6 @@ es-PY:
           buttons:
             check: Verificar y continuar
             close_modal: Cerrar modal
-            uncheck: Mantener desmarcado
           notice: |-
             <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
             Por favor, considera volver a marcar la casilla de verificación del boletín de abajo.<br>
@@ -910,8 +909,6 @@ es-PY:
         start:
           send: Enviar
           title: Iniciar una conversación
-        update:
-          error: Mensaje no enviado. Inténtalo más tarde
     metrics:
       download:
         csv: Descargar datos (csv)

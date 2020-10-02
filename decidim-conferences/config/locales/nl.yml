@@ -475,6 +475,7 @@ nl:
         index:
           choose_an_option: 'Kies uw registratieoptie:'
           login_as: U bent ingelogd als %{name} <%{email}>
+          no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten
       shared:

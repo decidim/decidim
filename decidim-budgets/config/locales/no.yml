@@ -1,7 +1,12 @@
 "no":
   activemodel:
     attributes:
+      budget:
+        description: Beskrivelse
+        title: Tittel
+        total_budget: Totalt budsjett
       project:
+        budget_amount: Budsjettbeløp
         decidim_category_id: Kategori
         decidim_scope_id: Tema
         description: Beskrivelse
@@ -20,10 +25,15 @@
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         destroy: Slett
         edit: Editar
+        edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
+        new: Ny %{name}
         preview: Forhåndsvis
         title: Handlinger
       admin:
+        budgets:
+          create:
+            invalid: Det oppsto et problem med å opprette dette budsjettet
         models:
           project:
             name: Prosjekt

@@ -103,7 +103,6 @@ it:
             up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
-            success: Questionari salvati correttamente.
       errors:
         answer:
           body: Il corpo non può essere vuoto
