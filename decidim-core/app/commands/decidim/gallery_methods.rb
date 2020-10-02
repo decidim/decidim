@@ -12,7 +12,7 @@ module Decidim
         next unless image? photo
 
         @gallery << Attachment.new(
-          title: photo.original_filename,
+          title: { I18n.locale => photo.original_filename },
           attached_to: attached_to || gallery_attached_to,
           file: photo # Define attached_to before this
         )
