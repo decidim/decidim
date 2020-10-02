@@ -142,8 +142,8 @@ en:
             success: Question successfully updated
         trustee_participatory_space:
           actions:
-            enable: Consider
             disable: disable
+            enable: Consider
           update:
             invalid: There was a problem updating %{trustee} trustee
             success: Trustee %{trustee} successfully updated
