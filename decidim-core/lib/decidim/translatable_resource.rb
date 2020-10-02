@@ -67,7 +67,7 @@ module Decidim
 
       def translatable_fields_are_hashes
         self.class.translatable_fields_list.each do |field|
-          value = self.send(field).presence
+          value = send(field).presence
           next if value.nil? || value.is_a?(Hash)
 
           errors.add(field, :invalid)
