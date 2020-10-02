@@ -327,7 +327,7 @@ shared_examples "comments" do
         visit resource_path
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
           click_button "Send"
         end
       end
