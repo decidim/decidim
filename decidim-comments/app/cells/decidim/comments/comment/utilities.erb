@@ -8,4 +8,6 @@
   <%= icon "link-intact", class: "icon--small", role: "none presentation" %>
 <% end %>
 
-<%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+<% if current_user.present? %>
+  <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+<% end %>
