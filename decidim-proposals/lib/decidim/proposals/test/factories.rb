@@ -478,8 +478,8 @@ FactoryBot.define do
   end
 
   factory :participatory_text, class: "Decidim::Proposals::ParticipatoryText" do
-    title { "<script>alert(\"TITLE\");</script> " + generate(:title) }
-    description { "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(3).join("\n") }
+    title { {en: "<script>alert(\"TITLE\");</script> " + generate(:title) } }
+    description { { en: "<script>alert(\"DESCRIPTION\");</script>\n" + Faker::Lorem.sentences(3).join("\n") } }
     component { create(:proposal_component) }
   end
 
