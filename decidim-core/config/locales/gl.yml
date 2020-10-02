@@ -344,7 +344,6 @@ gl:
           buttons:
             check: Comprobar e continuar
             close_modal: Pechar modal
-            uncheck: Mantente desmarcada
           notice: |-
             <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
             Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
@@ -724,8 +723,6 @@ gl:
         start:
           send: Enviar
           title: Comezar unha conversa
-        update:
-          error: Mensaxe non enviada. Téntao de novo máis tarde
     metrics:
       download:
         csv: Descargar datos (csv)
@@ -982,6 +979,9 @@ gl:
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
+    user_conversations:
+      update:
+        error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
       show:
         my_interests: Os meus intereses

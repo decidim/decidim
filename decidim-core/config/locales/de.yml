@@ -442,7 +442,6 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
-            uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -913,8 +912,6 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
-        update:
-          error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
       download:
         csv: Daten herunterladen (csv)

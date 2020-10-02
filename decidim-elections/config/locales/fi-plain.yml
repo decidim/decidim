@@ -14,6 +14,7 @@ fi-pl:
       question:
         description: Kuvaus
         max_selections: Valintojen enimmäismäärä
+        min_selections: Ei mikään edellä mainituista
         title: Otsikko
     errors:
       models:
@@ -91,6 +92,7 @@ fi-pl:
             title: Muokkaa vaalia
             update: Päivitä vaali
           index:
+            no_bulletin_board: Järjestelmässä ei ole <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board -palvelinta</a> määritettynä, mitä tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
             title: Vaalit
           new:
             create: Luo vaali
@@ -205,6 +207,7 @@ fi-pl:
           edit: muokkaa
           header: Vahvista äänesi
           intro: Tässä on yhteeveto äänestäsi, jota olet jättämässä. <br> Tarkasta, että kaikki on oikein tai muuta vastauksiasi.
+          nota_option: Tyhjä
           question: Kysymys %{count}
         confirmed:
           back: Takaisin vaaleihin
@@ -227,7 +230,9 @@ fi-pl:
           close: Sulje
           proposal_header: 'Ehdotukset:'
         new:
+          answer_choices: Voit valita enintään %{choices} vastausta
           more_information: Lisätietoa
+          nota_option: Tyhjä / Ei mitään näistä
           preview_alert: Tämä on äänestyskopin esikatselunäkymä.
           question_steps: Kysymys %{current_step} / %{total_steps}
           selections: "Valittu<br>\n%{selected} / %{max_selections}"

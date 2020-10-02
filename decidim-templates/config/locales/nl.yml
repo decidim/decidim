@@ -1,0 +1,60 @@
+nl:
+  decidim:
+    admin:
+      menu:
+        templates: Templates
+      templates:
+        apply:
+          error: Er is een fout opgetreden bij het bijwerken van dit template.
+          success: Template met succes toegepast
+        copy:
+          error: Er is een fout opgetreden bij het kopiëren van dit template.
+          success: Template met succes gekopieerd
+        create:
+          error: Er is een fout opgetreden bij het maken van dit template.
+          success: Template met succes aangemaakt
+        destroy:
+          success: Template met succes verwijderd
+        empty: Er zijn nog geen templates.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit template.
+          success: Template met succes bijgewerkt
+      titles:
+        template_types:
+          questionnaires: Vragenlijst templates
+        templates: Templates
+    models:
+      questionnaire_template:
+        fields:
+          questions: Aantal vragen
+          title: Vragenlijst titel
+      template:
+        fields:
+          created_at: Aangemaakt op
+        name: Template
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Met template aanmaken
+            description: Je staat op het punt een nieuwe vragenlijst te maken. Je kunt een vooraf gedefinieerd template kiezen en daarna wijzigen.
+            label: Template kiezen
+            placeholder: Template kiezen
+            skip_template: Overslaan
+          edit:
+            edit: Bewerk
+            empty: Er zijn nog geen vragen
+            questionnaire: Vragenlijst
+          form:
+            save: Opslaan
+            template_title: Template informatie
+            title: Vragenlijst
+          index:
+            confirm_delete: Weet je zeker dat je dit template wilt verwijderen?
+            title: Vragenlijst templates
+          preview:
+            current_step: Stap %{step}
+            of_total_steps: van %{total_steps}
+            tos_agreement: Door deel te nemen accepteer je de gebruiksvoorwaarden
+      template_types:
+        questionnaires: Vragenlijsten

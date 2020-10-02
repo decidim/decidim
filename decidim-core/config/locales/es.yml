@@ -436,7 +436,6 @@ es:
           buttons:
             check: Verifica y continúa
             close_modal: Cierra modal
-            uncheck: Mantener desmarcado
           notice: |-
             <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
@@ -907,8 +906,6 @@ es:
         start:
           send: Enviar
           title: Inicia una conversación
-        update:
-          error: Mensaje no enviado. Inténtalo de nuevo más tarde
     metrics:
       download:
         csv: Descargar datos (csv)
