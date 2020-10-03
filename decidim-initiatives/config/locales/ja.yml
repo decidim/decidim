@@ -449,12 +449,8 @@ ja:
           any_vote_method: この市民イニシアチブは、オンラインと対面の署名の両方を収集します。
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
           offline_method: この市民イニシアチブは、個人の署名のみを収集します。
-        signature_identities:
-          select_identity: 出席者識別子を選択
         signatures_count:
           other: " 署名"
-        supports:
-          title: 署名一覧
         vote_cabin:
           already_voted: 既に署名されています
           supports_required: "%{total_supports} 署名が必要です"
