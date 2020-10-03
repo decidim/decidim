@@ -5,6 +5,7 @@ fi:
         decidim_user_group_id: Laatija
         description: Kuvaus
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
+        offline_votes_for_scope: Fyysisesti kerätyt allekirjoitukset kohteelle %{scope_name}
         scope_id: Teema
         signature_end_date: Allekirjoitusten keräämisen viimeinen päivä
         signature_start_date: Allekirjoitusten keräämisen alkamispäivä
@@ -29,6 +30,7 @@ fi:
         area_enabled: Salli alueen valinta aloitteille
         attachments_enabled: Salli liitteet
         banner_image: Bannerikuva
+        child_scope_threshold_enabled: Ota käyttöön alateemojen allekirjoitukset
         collect_user_extra_fields: Kerää käyttäjän henkilötietoja allekirjoituksen yhteydessä
         custom_signature_end_date_enabled: Salli laatijoiden valita allekirjoitusten keräyksen loppumisaika
         description: Kuvaus
@@ -36,6 +38,7 @@ fi:
         extra_fields_legal_information: Oikeudelliset tiedot koskien henkilötietojen keräämistä
         minimum_committee_members: Komitean jäsenten vähimmäismäärä
         online_signature_enabled: Online-allekirjoitus on käytössä
+        only_global_scope_enabled: Salli aloitteiden luonti ainoastaan pääteemalle
         promoting_committee_enabled: Ota käyttöön kannatuskomitea
         title: Otsikko
         undo_online_signatures_enabled: Verkossa tehtyjen allekirjoitusten peruuttaminen käytössä
@@ -123,6 +126,7 @@ fi:
             initiative_title: Aloitteen otsikko
             name_and_surname: Nimi ja sukunimi
             postal_code: Postinumero
+            scope: Teema
             time_and_date: Aika ja päivämäärä
             timestamp: Aikaleima
       titles:
@@ -262,6 +266,10 @@ fi:
             destroy: Poista
             update: Päivitä
           form:
+            authorizations: Varmennuksen asetukset
+            child_scope_threshold_enabled_help: 'Tämä asetus ei toimi fyysisesti kerätyille allekirjoituksille. Se mahdollistaa arvioinnit ja toimii sellaisten varmennusten kanssa, jotka määrittävät käyttäjälle tietyn teeman. Valitse kyseinen varmennustapa varmennuksen asetuksista alapuolelta. Toimiakseen, teemat tulee olla määritelty hierarkisesti: 1 yläteema - N alateemaa. Lisätietoja tästä ominaisuudesta löydät <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">hallinnointikäyttäjän ohjeista</a>.'
+            only_global_scope_enabled_help: Ota tämä asetus käyttöön, jos otit köyttöön "alateemojen allekirjoitukset" ja asetit järjestelmänlaajuisen yläteeman. Ottamalla tämän asetuksen käyttöön, aloitteen tyypin valinta sivuutetaan aloitteiden luontinäkymässä. Saat <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lisätietoja tästä ominaisuudesta täältä</a>.
+            options: Valinnat
             title: Yleistä tietoa
           initiative_type_scopes:
             title: Aloitetyypin teemat
@@ -455,13 +463,9 @@ fi:
           any_vote_method: Tämä kansalaisaloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä kansalaisaloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
-        signature_identities:
-          select_identity: Valitse käyttäjätunniste
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
-        supports:
-          title: Allekirjoitusten luettelo
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
           supports_required: "%{total_supports} allekirjoitusta vaaditaan"
