@@ -11,11 +11,11 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.trustee.fields.name", scope: "decidim.elections") %></th>
-            <th><%= t("models.trustee.fields.email", scope: "decidim.elections") %></th>
-            <th><%= t("models.trustee.fields.public_key", scope: "decidim.elections") %></th>
-            <th><%= t("models.trustee.fields.notification", scope: "decidim.elections") %></th>
-            <th><%= t("models.trustee.fields.status", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.name", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.email", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.public_key", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.notification", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.status", scope: "decidim.elections") %></th>
             <th class="actions"><%= t("actions.title", scope: "decidim.elections") %></th>
           </tr>
         </thead>
@@ -36,19 +36,23 @@
               </td>
               <td>
                 <% if trustee_current_participatory_space(trustee).considered %>
-                  <%= t("models.trustee.fields.considered", scope: "decidim.elections") %>
+                  <%= t("models.trustees_participatory_space.fields.considered", scope: "decidim.elections") %>
                 <% else %>
-                  <%= t("models.trustee.fields.inactive", scope: "decidim.elections") %>
+                  <%= t("models.trustees_participatory_space.fields.inactive", scope: "decidim.elections") %>
                 <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to?(:update, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
-                  <%= icon_link_to considered_icon_action_for(trustee), edit_trustees_participatory_space_path(trustee_current_participatory_space(trustee)), considered_label_action_for(trustee), class: "action-icon--edit" %>
+                  <%= icon_link_to considered_icon_action_for(trustee), edit_trustee_path(trustee_current_participatory_space(trustee)), considered_label_action_for(trustee), class: "action-icon--edit" %>
                 <% else %>
                   <%= icon considered_icon_action_for(trustee), class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
 
-                <%= icon_link_to "circle-x", trustee_path(trustee), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                <% if allowed_to?(:delete, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
+                  <%= icon_link_to "circle-x", trustee_path(trustee_current_participatory_space(trustee)), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
               </td>
             </tr>
           <% end %>
