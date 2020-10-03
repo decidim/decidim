@@ -3,19 +3,20 @@
 require "spec_helper"
 
 describe Decidim::Elections::Admin::RemoveTrusteeFromParticipatorySpace do
-  subject { described_class.new(trustee, current_participatory_space) }
+  subject { described_class.new(trustee_participatory_space) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:current_participatory_space) { create :participatory_process, organization: organization }
-  let(:trustee) { create :trustee }
+  let(:trustee_participatory_space) { create :trustees_participatory_space }
+  let(:current_participatory_space) { trustee_participatory_space.participatory_space }
 
   it "removes participatory space from trustee" do
     subject.call
-    expect(trustee.trustees_participatory_spaces).not_to include(current_participatory_space)
+    expect(trustee_participatory_space.trustee.trustees_participatory_spaces).not_to include(current_participatory_space)
   end
 
   context "when trustee has elections" do
     let(:trustee) { create :trustee, :with_elections }
+    let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

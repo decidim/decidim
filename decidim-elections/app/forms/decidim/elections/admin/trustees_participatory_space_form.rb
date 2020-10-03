@@ -4,11 +4,13 @@ module Decidim
   module Elections
     module Admin
       # This class holds a form to add and edit users as trustees from Decidim's admin panel.
-      class TrusteeForm < Decidim::Form
+      class TrusteesParticipatorySpaceForm < Decidim::Form
         attribute :user_id, Integer
 
-        def map_model(model)
-          self.user_id = model.decidim_user_id
+        validates :user_id, presence: true
+
+        def map_model(trustee)
+          self.user_id = trustee.decidim_user_id
         end
 
         def user

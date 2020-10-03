@@ -25,8 +25,7 @@ module Decidim
           end
         end
 
-        resources :trustees, only: [:index, :new, :create, :destroy]
-        resources :trustees_participatory_spaces, only: [:edit]
+        resources :trustees, only: [:index, :new, :edit, :create, :destroy], controller: "trustees_participatory_spaces"
 
         root to: "elections#index"
       end
