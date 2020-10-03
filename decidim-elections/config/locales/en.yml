@@ -140,21 +140,18 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
-        trustee_participatory_space:
+        trustees_participatory_spaces:
           actions:
-            disable: disable
+            disable: Disable
             enable: Consider
-          update:
-            invalid: There was a problem updating %{trustee} trustee
-            success: Trustee %{trustee} successfully updated
-        trustees:
           create:
             exists: Trustee exists for this participatory space
             invalid: There was a problem creating a trustee
+            missing_user: User must exist
             success: Trustee successfully created
-          destroy:
-            invalid: There was a problem deleting this trustee
-            success: Trustee successfully deleted
+          delete:
+            invalid: There was a problem removing this trustee
+            success: Trustee successfully removed
           form:
             select_user: Select user
           index:
@@ -162,6 +159,9 @@ en:
           new:
             create: Create Trustee
             title: New Trustee
+          update:
+            invalid: There was a problem updating %{trustee} trustee
+            success: Trustee %{trustee} successfully updated
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"
@@ -220,7 +220,7 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
-        trustee:
+        trustees_participatory_space:
           fields:
             considered: considered
             email: Email

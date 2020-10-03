@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe "Admin manages trustees", type: :system do
-  let(:trustee) { create :trustee, :considered }
   let!(:participatory_space) { create :participatory_process }
   let(:manifest_name) { "elections" }
 
@@ -59,6 +58,49 @@ describe "Admin manages trustees", type: :system do
       expect(page).to have_selector(".pagination .current", text: "2")
 
       expect(page).to have_css(resource_selector, count: 5)
+    end
+  end
+
+  context "when updating status" do
+    let!(:trustees) do
+      create_list(:trustee, 4) do |trustee|
+        trustee.trustees_participatory_spaces << build(
+          :trustees_participatory_space,
+          participatory_space: participatory_space
+        )
+      end
+    end
+
+    before do
+      visit current_path
+    end
+
+    it "toggles considered status" do
+      first("a.action-icon--edit").click
+
+      within "#trustees table" do
+        expect(page).to have_content("inactive")
+      end
+    end
+  end
+
+  context "when removing trustee from participatory space" do
+    let!(:trustee_participatory_space) { create :trustees_participatory_space, participatory_space: participatory_space }
+
+    before do
+      visit current_path
+    end
+
+    it "removes trustee" do
+      accept_confirm do
+        page.first("a.action-icon--remove").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "#trustees table" do
+        expect(page).not_to have_content(trustee_participatory_space.trustee.user.name)
+      end
     end
   end
 

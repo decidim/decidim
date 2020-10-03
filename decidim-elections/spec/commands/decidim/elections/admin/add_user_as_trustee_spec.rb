@@ -22,25 +22,29 @@ describe Decidim::Elections::Admin::AddUserAsTrustee do
 
   let(:trustee) { Decidim::Elections::Trustee.last }
 
-  it "add the user to trustees" do
-    expect { subject.call }.to change { Decidim::Elections::Trustee.count }.by(1)
+  context "when new trustee" do
+    let(:trustee) { nil }
+
+    it "adds the user to trustees" do
+      expect { subject.call }.to change { Decidim::Elections::Trustee.count }.by(1)
+    end
+
+    it "sends a notification to a new trustee" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.elections.trustees.new_trustee",
+          event_class: Decidim::Elections::Trustees::NotifyNewTrusteeEvent,
+          resource: form.current_participatory_space,
+          affected_users: [form.user]
+        )
+      subject.call
+    end
   end
 
   it "adds a participatory space to trustee" do
     subject.call
     expect(trustee.trustees_participatory_spaces.count).to eq 1
-  end
-
-  it "sends a notification to a new trustee" do
-    expect(Decidim::EventsManager)
-      .to receive(:publish)
-      .with(
-        event: "decidim.events.elections.trustees.new_trustee",
-        event_class: Decidim::Elections::Trustees::NotifyNewTrusteeEvent,
-        resource: form.current_participatory_space,
-        affected_users: [form.user]
-      )
-    subject.call
   end
 
   context "when user and participatory space exist" do
