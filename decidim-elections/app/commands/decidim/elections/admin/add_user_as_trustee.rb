@@ -22,9 +22,9 @@ module Decidim
           return broadcast(:exists) if existing_trustee_participatory_spaces?
 
           transaction do
-            notify_user_about_trustee_role if new_trustee?
-            add_user_as_trustee!
+            add_user_as_trustee! if new_trustee?
             add_participatory_space
+            notify_user_about_trustee_role if new_trustee?
           end
 
           broadcast(:ok)
@@ -55,7 +55,8 @@ module Decidim
         end
 
         def add_participatory_space
-          @trustee.trustees_participatory_spaces.create!(
+          trustee = Decidim::Elections::Trustee.find_by(decidim_user_id: form.user.id)
+          trustee.trustees_participatory_spaces.create!(
             participatory_space: form.current_participatory_space
           )
         end
