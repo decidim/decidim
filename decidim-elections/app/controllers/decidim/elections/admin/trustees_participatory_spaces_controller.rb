@@ -3,7 +3,8 @@
 module Decidim
   module Elections
     module Admin
-      # This controller handles requests for a trustee.
+      # This controller allows to add a user as trustee, update the status and remove a
+      # trustee from a participatory space.
       class TrusteesParticipatorySpacesController < Admin::ApplicationController
         helper_method :trustees, :trustee
 

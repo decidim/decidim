@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      # This class holds a form to add and edit users as trustees from Decidim's admin panel.
+      # This class holds a form to add users as trustees from Decidim's admin panel.
       class TrusteesParticipatorySpaceForm < Decidim::Form
         attribute :user_id, Integer
 
