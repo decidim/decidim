@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module Admin
-      # This command is executed when the user creates a Trustee
+      # This command is executed when the admin user creates a trustee
       # from the admin panel.
       class AddUserAsTrustee < Rectify::Command
         # Public: Initializes the command.
@@ -42,6 +42,7 @@ module Decidim
           )
         end
 
+        # If a trustee exists for this participatory space, it won't get created again
         def existing_trustee_participatory_spaces?
           trustees_space = TrusteesParticipatorySpace.where(participatory_space: form.current_participatory_space).includes(:trustee)
           @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)
@@ -50,6 +51,8 @@ module Decidim
                                                                                 .where("decidim_user_id = ?", form.user.id).any?
         end
 
+        # if there's no user - trustee relation, the trustee gets created and the notification
+        # gets send.
         def new_trustee?
           @new_trustee ||= Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
         end
