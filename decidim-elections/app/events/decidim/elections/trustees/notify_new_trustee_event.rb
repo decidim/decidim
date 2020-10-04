@@ -4,6 +4,7 @@ module Decidim
   module Elections
     module Trustees
       class NotifyNewTrusteeEvent < Decidim::Events::SimpleEvent
+        # This event sends a notification when a new trustee gets created.
         i18n_attributes :resource_name
 
         def resource_name

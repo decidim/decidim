@@ -3,8 +3,8 @@
 module Decidim
   module Elections
     module Admin
-      # This command is executed when the user updates a Trustee
-      # from the admin panel.
+      # This command is executed when the user updates a trustee
+      # status from the admin panel.
       class UpdateTrusteeParticipatorySpace < Rectify::Command
         # Public: Initializes the command.
         #
@@ -13,7 +13,7 @@ module Decidim
           @trustee_participatory_space = trustee_participatory_space
         end
 
-        #  Toggle the considered attr if valid.
+        # Toggle the considered attr if valid.
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
