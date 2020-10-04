@@ -431,7 +431,6 @@ ja:
           buttons:
             check: 確認して続ける
             close_modal: モーダルを閉じる
-            uncheck: チェックを外し続ける
           notice: |-
             <p>本当にニュースレターを購読しなくて良いですか？<br>
             ニュースレターのチェックボックスを是非オンにしてください。<br>
@@ -901,8 +900,6 @@ ja:
         start:
           send: 送信
           title: 会話を開始
-        update:
-          error: メッセージが送信されませんでした。後でもう一度お試しください。
     metrics:
       download:
         csv: ダウンロードデータ (csv)

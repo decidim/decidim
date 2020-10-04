@@ -439,7 +439,6 @@ it:
           buttons:
             check: Controlla e continua
             close_modal: Chiudi modalità
-            uncheck: Mantieni deseleziona
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
             Si prega di riconsiderare spuntando la casella di controllo "newsletter", in fondo.<br>
@@ -910,8 +909,6 @@ it:
         start:
           send: Invia
           title: Inizia una conversazione
-        update:
-          error: Messaggio non inviato. Riprova più tardi
     metrics:
       download:
         csv: Scarica dati (csv)
@@ -1310,7 +1307,7 @@ it:
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
-      unauthenticated: È necessario accedere o registrarsi prima di continuare.
+      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account

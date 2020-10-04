@@ -27,6 +27,7 @@ namespace :decidim do
       decidim_sortitions
       decidim_surveys
       decidim_system
+      decidim_templates
       decidim_verifications
     ).join(",")
   end

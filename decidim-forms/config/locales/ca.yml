@@ -103,7 +103,6 @@ ca:
             up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
-            success: Els formularis s'han desat correctament.
       errors:
         answer:
           body: El camp no pot estar en blanc

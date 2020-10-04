@@ -1,4 +1,6 @@
 $(() => {
+  const { attachGeocoding } = window.Decidim;
+
   window.DecidimProposals = window.DecidimProposals || {};
 
   window.DecidimProposals.bindProposalAddress = () => {
@@ -15,6 +17,10 @@ $(() => {
       }
       toggleInput();
       $checkbox.on("change", toggleInput);
+    }
+
+    if ($addressInput.length > 0) {
+      attachGeocoding($("input", $addressInput));
     }
   };
 

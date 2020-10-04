@@ -81,10 +81,7 @@ lv:
             api_key: API atslēga
             api_secret: API noslēpums
         smtp_settings:
-          instructions:
-            from_label: 'E-pasta sūtītājs būs: "jūsu-organizācijas-nosaukums <jūsu-organizācija@jūsu-pakalpojuma-sniedzējs.org>". Atstājiet tukšu, lai izmantotu ''no_e-pasta'' kā marķējumu'
           placeholder:
-            from_email: jūsu-organizācija@jūsu-pakalpojuma-sniedzējs.org
             from_label: jūsu-organizācijas-nosaukums
         update:
           error: Šīs organizācijas atjaunināšanas laikā radās problēma.

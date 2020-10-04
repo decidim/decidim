@@ -271,8 +271,6 @@ is-IS:
         start:
           send: Senda
           title: Byrjaðu samtal
-        update:
-          error: Skilaboð ekki send. Reyndu aftur seinna
     newsletter_mailer:
       newsletter:
         note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
@@ -348,6 +346,9 @@ is-IS:
         close_window: Lokaðu glugga
         share: Deila
         share_link: Deila tengil
+    user_conversations:
+      update:
+        error: Skilaboð ekki send. Reyndu aftur seinna
   devise:
     invitations:
       edit:

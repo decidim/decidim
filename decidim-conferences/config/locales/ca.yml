@@ -475,6 +475,7 @@ ca:
         index:
           choose_an_option: 'Tria el teu tipus d''inscripció:'
           login_as: Has iniciat la sessió com a %{name} <%{email}>
+          no_registrations: Sense insripcions
           register: Inscriu-te
           title: Tipus d'inscripció
       shared:
