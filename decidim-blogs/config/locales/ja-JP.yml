@@ -60,12 +60,12 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
-            endorsements_blocked: エンドースメントがブロックされました
-            endorsements_enabled: エンドースメントを有効にする
+            comments_blocked: コメントをブロック
+            endorsements_blocked: 支持をブロック
+            endorsements_enabled: 支持が有効
     events:
       blogs:
         post_created:
