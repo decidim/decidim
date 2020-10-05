@@ -19,8 +19,8 @@ module Decidim
 
       let(:form_params) do
         {
-          initiative_id: initiative.id,
-          author_id: current_user.id
+          initiative: initiative,
+          signer: current_user
         }
       end
 
@@ -34,7 +34,7 @@ module Decidim
       end
 
       describe "User votes initiative" do
-        let(:command) { described_class.new(form, current_user) }
+        let(:command) { described_class.new(form) }
 
         it "broadcasts ok" do
           expect { command.call }.to broadcast :ok
@@ -50,7 +50,7 @@ module Decidim
           expect do
             command.call
             initiative.reload
-          end.to change(initiative, :initiative_votes_count).by(1)
+          end.to change(initiative, :online_votes_count).by(1)
         end
 
         it "notifies the creation" do
@@ -176,22 +176,11 @@ module Decidim
             form_klass.from_params(form_params.merge(personal_data_params)).with_context(current_organization: organization)
           end
 
-          let(:invalid_command) { described_class.new(form, current_user) }
-          let(:command_with_personal_data) { described_class.new(form_with_personal_data, current_user) }
+          let(:invalid_command) { described_class.new(form) }
+          let(:command_with_personal_data) { described_class.new(form_with_personal_data) }
 
           it "broadcasts invalid when form doesn't contain personal data" do
             expect { invalid_command.call }.to broadcast :invalid
-          end
-
-          it "broadcasts ok when form contains personal data" do
-            expect { command_with_personal_data.call }.to broadcast :ok
-          end
-
-          it "stores encrypted user personal data in vote" do
-            command_with_personal_data.call
-            vote = InitiativesVote.last
-            expect(vote.encrypted_metadata).to be_present
-            expect(form_klass.from_model(vote).decrypted_metadata).to eq personal_data_params
           end
 
           context "when another signature exists with the same hash_id" do
@@ -207,7 +196,12 @@ module Decidim
           context "when initiative type has document number authorization handler" do
             let(:handler_name) { "dummy_authorization_handler" }
             let(:unique_id) { "test_digest" }
-            let(:metadata) { { test: "dummy" } }
+            let(:metadata) do
+              {
+                test: "dummy",
+                scope_id: initiative.scoped_type.scope.id
+              }
+            end
             let!(:authorization_handler) { Decidim::AuthorizationHandler.handler_for(handler_name) }
 
             before do
@@ -233,18 +227,17 @@ module Decidim
                 it "broadcasts ok" do
                   expect { command_with_personal_data.call }.to broadcast :ok
                 end
+
+                it "stores encrypted user personal data in vote" do
+                  command_with_personal_data.call
+                  vote = InitiativesVote.last
+                  expect(vote.encrypted_metadata).to be_present
+                  expect(vote.decrypted_metadata).to eq personal_data_params
+                end
               end
 
               context "when authorization unique_id is different of handler unique_id" do
                 let(:authorization_unique_id) { "other" }
-
-                it "broadcasts invalid" do
-                  expect { command_with_personal_data.call }.to broadcast :invalid
-                end
-              end
-
-              context "when authorization metadata is different of handler metadata" do
-                let(:authorization_metadata) { { test: "other" } }
 
                 it "broadcasts invalid" do
                   expect { command_with_personal_data.call }.to broadcast :invalid
@@ -260,36 +253,6 @@ module Decidim
               end
             end
           end
-        end
-      end
-
-      describe "Organization supports initiative" do
-        let(:user_group) { create(:user_group) }
-        let(:user_group_membership) { create(:user_group_membership, user: current_user, user_group: user_group) }
-        let(:group_form) do
-          form_klass.from_params(form_params.merge(group_id: user_group.id))
-        end
-        let(:command) { described_class.new(group_form, current_user) }
-
-        it "broadcasts ok" do
-          expect { command.call }.to broadcast :ok
-        end
-
-        it "creates a vote" do
-          expect do
-            command.call
-          end.to change(InitiativesVote, :count).by(1)
-        end
-
-        it "does not increases the vote counter by one" do
-          command.call
-          initiative.reload
-          expect(initiative.initiative_votes_count).to be_zero
-        end
-
-        it "does not notify the endorsement" do
-          expect(Decidim::EventsManager).not_to receive(:publish)
-          command.call
         end
       end
     end

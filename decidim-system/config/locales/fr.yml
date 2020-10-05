@@ -154,9 +154,9 @@ fr:
             api_secret: Secret de l'API
         smtp_settings:
           instructions:
-            from_label: 'L''expéditeur de l''e-mail sera : "votre-nom d''organisation <your-organization@your-provider.org>". Laissez vide pour utiliser le "from_email" comme étiquette'
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
           placeholder:
-            from_email: votre-organisation@votre-fournisseur.org
+            from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.

@@ -24,6 +24,7 @@ cs:
       comments_count: Počet komentářů
       last_activity:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
+      view: Zobrazit
       votes:
         create:
           error: Při hlasování o komentáři došlo k chybě.

@@ -8,11 +8,9 @@ module Decidim
       #
       # initiative   - A Decidim::Initiative object.
       # current_user - The current user.
-      # group_id     - Decidim user group id
-      def initialize(initiative, current_user, group_id)
+      def initialize(initiative, current_user)
         @initiative = initiative
         @current_user = current_user
-        @decidim_user_group_id = group_id
       end
 
       # Executes the command. Broadcasts these events:
@@ -29,13 +27,9 @@ module Decidim
       private
 
       def destroy_initiative_vote
-        @initiative
-          .votes
-          .where(
-            author: @current_user,
-            decidim_user_group_id: @decidim_user_group_id
-          )
-          .destroy_all
+        Initiative.transaction do
+          @initiative.votes.where(author: @current_user).destroy_all
+        end
       end
     end
   end

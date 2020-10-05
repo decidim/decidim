@@ -103,7 +103,6 @@ es:
             up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
-            success: Formularios guardados correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco

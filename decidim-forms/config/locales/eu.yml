@@ -47,7 +47,6 @@ eu:
             up: up
           update:
             invalid: Akatsik egon da galdeketa gordetzean.
-            success: Galdeketak arrakastaz gorde dira.
       errors:
         answer:
           body: Gorputza ezin da hutsik egon

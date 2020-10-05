@@ -1,0 +1,54 @@
+de:
+  decidim:
+    admin:
+      menu:
+        templates: Vorlagen
+      templates:
+        apply:
+          error: Es gab ein Problem beim Anwenden dieser Vorlage.
+          success: Vorlage erfolgreich angewendet
+        copy:
+          error: Beim Kopieren dieser Vorlage ist ein Problem aufgetreten.
+          success: Vorlage erfolgreich kopiert
+        create:
+          error: Es gab ein Problem beim Erstellen dieser Vorlage.
+          success: Vorlage erfolgreich erstellt
+        destroy:
+          success: Vorlage erfolgreich gelöscht
+        empty: Es gibt noch keine Vorlagen.
+        update:
+          error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
+          success: Vorlage erfolgreich aktualisiert
+      titles:
+        template_types:
+          questionnaires: Fragebogenvorlagen
+        templates: Vorlagen
+    models:
+      questionnaire_template:
+        fields:
+          questions: Anzahl der Fragen
+          title: Fragebogenname
+      template:
+        fields:
+          created_at: Erstellt am
+        name: Vorlage
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Aus Vorlage erstellen
+            description: Sie sind im Begriff, einen neuen Fragebogen zu erstellen. Sie können eine vordefinierte Vorlage auswählen und sie anschließend ändern.
+            label: Vorlage auswählen
+            placeholder: Vorlage auswählen
+            skip_template: Überspringen
+          edit:
+            edit: Bearbeiten
+            empty: Es gibt noch keine Fragen
+            questionnaire: Fragebogen
+          form:
+            save: Speichern
+            template_title: Vorlageninformation
+            title: Fragebogen
+          index:
+            confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
+            title: Fragebogenvorlagen
