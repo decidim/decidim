@@ -28,10 +28,10 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
             creation_enabled: 参加者によるディベートの作成が有効になりました
     debates:
       actions:
