@@ -19,7 +19,10 @@ module Decidim
       validate :max_depth
 
       def max_length
-        return current_component.settings.comments_max_length if current_component.try { settings.comments_max_length.positive? }
+        if current_component&.settings.respond_to?(:comments_max_length)
+          component_length = current_component.try { settings.comments_max_length.positive? }
+          return current_component.settings.comments_max_length if component_length
+        end
         return current_organization.comments_max_length if current_organization.comments_max_length.positive?
 
         1000
