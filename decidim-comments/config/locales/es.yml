@@ -88,8 +88,8 @@ es:
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
           notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
-          email_intro: '%{author_name} ha dejado un comentario en %{resource_title}. Puede leerlo en esta página:'
-          email_outro: Recibes esta notificación porque sigues a %{author_name}. Puedes dejar de seguir a este grupo des de su página de perfil.
+          email_intro: '%{author_name} ha dejado un comentario en %{resource_title}. Puedes leerlo en esta página:'
+          email_outro: Recibes esta notificación porque sigues a %{author_name}. Puedes dejar de seguir a este grupo desde su página de perfil.
           email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
           notification_title: Hay un nuevo comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
