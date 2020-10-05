@@ -277,6 +277,20 @@ FactoryBot.define do
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     after(:build) do |proposal, evaluator|
+      proposal.title = if evaluator.title.is_a?(String)
+                         { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
+                       else
+                         evaluator.title
+                       end
+      proposal.body = if evaluator.body.is_a?(String)
+                        { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
+                      else
+                        evaluator.body
+                      end
+
+      proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
+      proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
+
       if proposal.component
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
