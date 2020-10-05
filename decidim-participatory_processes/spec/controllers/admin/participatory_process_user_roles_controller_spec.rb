@@ -46,8 +46,10 @@ module Decidim
               expect(flash[:alert]).not_to be_present
             end
           end
+
           describe "with an invalid nickname" do
             let(:new_pp_admin_name) { "new pp (admin) name" }
+
             it "must detect invalid nickname chars" do
               post(:create, params: new_pp_admin_params)
               expect(flash[:alert]).to be_present
