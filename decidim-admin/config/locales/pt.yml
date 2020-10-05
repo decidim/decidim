@@ -618,7 +618,6 @@ pt:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
-          explanation: Carregue o seu ficheiro CSV. Deverá possuir duas colunas com o e-mail na primeira coluna do ficheiro e o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que pretende adicionar ao espaço participativo, sem cabeçalhos.
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
