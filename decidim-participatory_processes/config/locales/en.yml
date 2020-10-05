@@ -95,6 +95,9 @@ en:
         unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
+        participatory_process_groups_submenu:
+          homepage: Homepage
+          info: Info
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
