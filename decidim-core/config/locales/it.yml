@@ -1300,7 +1300,7 @@ it:
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
-      unauthenticated: È necessario accedere o registrarsi prima di continuare.
+      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account

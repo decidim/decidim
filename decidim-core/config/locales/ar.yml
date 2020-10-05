@@ -1033,6 +1033,9 @@ ar:
     user_activity:
       index:
         no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
+    user_conversations:
+      update:
+        error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_interests:
       show:
         my_interests: اهتماماتي

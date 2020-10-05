@@ -1114,6 +1114,9 @@ hu:
       index:
         no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
+    user_conversations:
+      update:
+        error: Üzenet elküldése sikertelen. Próbáld újra később
     user_interests:
       show:
         my_interests: Érdeklődési köreim

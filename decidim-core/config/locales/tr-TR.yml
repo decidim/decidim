@@ -997,6 +997,9 @@ tr:
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
+    user_conversations:
+      update:
+        error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
       show:
         my_interests: İlgi alanlarım

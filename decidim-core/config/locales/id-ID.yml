@@ -979,6 +979,9 @@ id:
     user_activity:
       index:
         no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
+    user_conversations:
+      update:
+        error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:
       show:
         my_interests: Minat saya

@@ -982,6 +982,9 @@ gl:
     user_activity:
       index:
         no_activities_warning: Este usuario aínda non tivo ningunha actividade.
+    user_conversations:
+      update:
+        error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
       show:
         my_interests: Os meus intereses

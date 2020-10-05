@@ -982,6 +982,9 @@ eu:
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
+    user_conversations:
+      update:
+        error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
       show:
         my_interests: Nire interesak

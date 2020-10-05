@@ -981,6 +981,9 @@ pt:
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
+    user_conversations:
+      update:
+        error: Mensagem não enviada. Tente mais tarde
     user_interests:
       show:
         my_interests: Meus interesses

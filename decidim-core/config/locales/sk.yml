@@ -1130,6 +1130,9 @@ sk:
       index:
         no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
+    user_conversations:
+      update:
+        error: Zpráva nebyla odeslána. Zkuste to později znovu
     user_interests:
       show:
         my_interests: Moje záujmy
