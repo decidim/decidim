@@ -103,7 +103,20 @@ ja:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
+        finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
+        highlighted_cta: '%{name} に投票'
+        if_change_opinion: 気が変わった場合は、
+        my_budgets: 私の予算
+        voted_on: '%{links} に投票しました'
+      limit_announcement:
+        cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
+        limit_reached: '%{links} に有効な投票があります。この予算に投票するには、 <a href="%{landing_path}">投票を削除し、</a> やり直す必要があります。'
       models:
+        budget:
+          fields:
+            name: 名前
+            projects_count: プロジェクト数
+            total_budget: 予算の合計
         project:
           fields:
             title: タイトル
@@ -111,8 +124,11 @@ ja:
         order_summary:
           selected_projects: '選択したプロジェクトは次のとおりです。'
           subject: '%{space_name} 参加スペースに投票しました'
+          voted_on_space: '%{budget_name} 参加スペースの %{space_name} 予算に投票しました。'
+          voted_on_space_with_scope: '%{budget_name} (%{space_name}) の %{scope_name} 参加スペースの %{scope_type} 予算に投票しました。'
       projects:
         budget_confirm:
+          are_you_sure: 気が変わった場合は、後で投票を変更できます。
           cancel: キャンセル
           confirm: 確認する
           description: これらはあなたが予算の一部になることを選んだプロジェクトです。
@@ -139,6 +155,11 @@ ja:
           category: カテゴリ
           scope: スコープ
           search: 検索
+          status: 状態
+          status_values:
+            all: 全て
+            not_selected: 未選択
+            selected: 選択済
         filters_small_view:
           close_modal: モーダルを閉じる
           filter: フィルター
@@ -157,15 +178,21 @@ ja:
           lowest_cost: 最低コスト
           most_voted: Most voted
           random: ランダムな注文
+          selected: 選択済
         project:
           add: プロジェクト %{resource_name} をあなたの投票に追加
           remove: プロジェクト %{resource_name} を投票から削除する
+          selected: 選択済
           view: 表示
+          votes:
+            other: 投票
+          you_voted: 投票済
         project_budget_button:
           add: 投票に追加
           add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
           added: 投票に追加しました
           added_descriptive: プロジェクト %{resource_name} が投票に追加されました
+        projects_for: '%{name} のプロジェクト'
         show:
           budget: 予算
           view_all_projects: すべてのプロジェクトを表示
@@ -177,25 +204,49 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             form:
               errors:
                 budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
                 budget_voting_rule_required: 1つの投票ルールが必要です
+            landing_page_content: 予算ランディングページ
+            more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
+            scope_id: スコープ
+            scopes_enabled: スコープは有効です
+            title: タイトル
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
             vote_threshold_percent: 投票しきい値パーセント
+            workflow: ワークフロー
+            workflow_choices:
+              all: '全てに投票: 参加者はすべての予算に投票できます。'
+              one: '1つの投票: 参加者はどの予算にも一度だけ投票できます。'
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
+            highlighted_heading: ハイライトされた見出し
+            landing_page_content: 予算ランディングページ
+            list_heading: 見出しのリスト
+            more_information_modal: 詳しい情報
             show_votes: 投票を表示
+            title: タイトル
+            votes: 投票
             votes_choices:
+              disabled: 投票は無効です
               enabled: 投票は有効になっています
+              finished: 投票完了
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。このページから確認できます:'
+          email_outro: '%{participatory_space_title} をフォローしているため、この通知を受け取りました。前のリンク先から、通知の受信を停止することができます。'
+          email_subject: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
     orders:
       checkout:
         error: 投票処理中に問題が発生しました
