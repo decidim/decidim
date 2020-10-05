@@ -94,6 +94,9 @@ es:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
+        participatory_process_groups_submenu:
+          homepage: Página principal
+          info: Información
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas

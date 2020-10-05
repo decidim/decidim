@@ -94,6 +94,9 @@ ca:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
+        participatory_process_groups_submenu:
+          homepage: Pàgina d'inici
+          info: Informació
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
