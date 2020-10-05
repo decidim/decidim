@@ -256,27 +256,18 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
       skip_injection { false }
-      skip_i18n { false }
     end
 
     title do
-      if skip_injection && skip_i18n
-        generate(:title)
-      elsif skip_injection
+      if skip_injection
         Decidim::Faker::Localized.localized { generate(:title) }
-      elsif skip_i18n
-        "<script>alert(\"TITLE\");</script> " + generate(:title)
       else
         Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
       end
     end
     body do
-      if skip_injection && skip_i18n
-        Faker::Lorem.sentences(3).join("\n")
-      elsif skip_injection
+      if skip_injection
         Decidim::Faker::Localized.localized { Faker::Lorem.sentences(3).join("\n") }
-      elsif skip_i18n
-        "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n")
       else
         Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + Faker::Lorem.sentences(3).join("\n") }
       end
@@ -286,22 +277,6 @@ FactoryBot.define do
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     after(:build) do |proposal, evaluator|
-      unless evaluator.skip_i18n
-        proposal.title = if evaluator.title.is_a?(String)
-                           { proposal.try(:organization).try(:default_locale) || "en" => evaluator.title }
-                         else
-                           evaluator.title
-                         end
-        proposal.body = if evaluator.body.is_a?(String)
-                          { proposal.try(:organization).try(:default_locale) || "en" => evaluator.body }
-                        else
-                          evaluator.body
-                        end
-
-        proposal.title = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.title, current_organization: proposal.organization).rewrite
-        proposal.body = Decidim::ContentProcessor.parse_with_processor(:hashtag, proposal.body, current_organization: proposal.organization).rewrite
-      end
-
       if proposal.component
         users = evaluator.users || [create(:user, organization: proposal.component.participatory_space.organization)]
         users.each_with_index do |user, idx|
