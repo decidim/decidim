@@ -16,7 +16,9 @@ module Decidim
 
       routes do
         resources :participatory_process_groups do
-          resource :homepage, only: [:edit, :update], controller: "participatory_process_group_homepage"
+          resource :homepage, only: [:edit, :update], controller: "participatory_process_group_homepage" do
+            resources :content_blocks, only: [:edit, :update], controller: "participatory_process_group_homepage_content_blocks"
+          end
         end
         resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]

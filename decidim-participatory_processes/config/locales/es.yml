@@ -148,6 +148,13 @@ es:
           copy: Copiar
           select: Seleccione los datos que deseas duplicar
           title: Duplicar proceso participativo
+      participatory_process_group_homepage:
+        edit:
+          active_content_blocks: Bloques de contenido activos
+          inactive_content_blocks: Bloques de contenido inactivos
+      participatory_process_group_homepage_content_blocks:
+        edit:
+          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
