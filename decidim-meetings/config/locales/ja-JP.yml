@@ -77,13 +77,13 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントが有効
             default_registration_terms: デフォルトの登録条件
             enable_pads_creation: パッドの作成を有効にする
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
     events:
       meetings:
         meeting_closed:
