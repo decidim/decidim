@@ -605,7 +605,6 @@ sk:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
           success: Súbor CSV nahraný úspešne, posielame pozvánku e-mailom pre používateľov. Môže to chvíľu trvať.
         new:
-          explanation: Nahrajte súbor CSV. Musí obsahovať 2 stĺpce - v prvom stĺpci je e-mail a v druhom meno užívateľov, ktorých chcete pridať do participatívneho priestoru. Súbor musí byť bez hlavičky.
           title: Nahrať súbor CSV
           upload: Nahrať
       resource_permissions:
