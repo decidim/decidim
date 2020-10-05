@@ -27,12 +27,12 @@ describe "Filter Participatory Processes", type: :system do
   end
 
   context "when filtering processes by date" do
-    let!(:active_process) { create :participatory_process, title: "Started today", start_date: Date.current, organization: organization }
-    let!(:active_process_2) { create :participatory_process, title: "Started 1 day ago", start_date: 1.day.ago, organization: organization }
-    let!(:past_process) { create :participatory_process, :past, title: "Ended 1 week ago", organization: organization }
-    let!(:past_process_2) { create :participatory_process, :past, title: "Ended 1 month ago", end_date: 1.month.ago, organization: organization }
-    let!(:upcoming_process) { create :participatory_process, :upcoming, title: "Starts 1 week from now", organization: organization }
-    let!(:upcoming_process_2) { create :participatory_process, :upcoming, title: "Starts 1 year from now", start_date: 1.year.from_now, organization: organization }
+    let!(:active_process) { create :participatory_process, title: { en: "Started today" }, start_date: Date.current, organization: organization }
+    let!(:active_process_2) { create :participatory_process, title: { en: "Started 1 day ago" }, start_date: 1.day.ago, organization: organization }
+    let!(:past_process) { create :participatory_process, :past, title: { en: "Ended 1 week ago" }, organization: organization }
+    let!(:past_process_2) { create :participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization: organization }
+    let!(:upcoming_process) { create :participatory_process, :upcoming, title: { en: "Starts 1 week from now" }, organization: organization }
+    let!(:upcoming_process_2) { create :participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization: organization }
     let(:titles) { page.all(".card__title") }
 
     before do
@@ -94,8 +94,8 @@ describe "Filter Participatory Processes", type: :system do
       let(:time_zone) { Time.zone } # UTC
 
       before do
-        past_process.update(title: "Started 2 weeks ago")
-        past_process_2.update(title: "Started 3 weeks ago", start_date: 3.weeks.ago)
+        past_process.update(title: { en: "Started 2 weeks ago" })
+        past_process_2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
         allow(Time).to receive(:zone).and_return(time_zone)
         within ".order-by__tabs" do
           click_link "All"
