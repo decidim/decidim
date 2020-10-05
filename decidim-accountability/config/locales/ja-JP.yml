@@ -182,14 +182,14 @@ ja:
         settings:
           global:
             categories_label: '「カテゴリ」の名前'
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             display_progress_enabled: 進行状況を表示
             heading_leaf_level_results: プロジェクトの名前
             heading_parent_level_results: 検索結果の名前
             intro: はじめに
             subcategories_label: サブカテゴリの名前
           step:
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
     events:
       accountability:
         proposal_linked:
