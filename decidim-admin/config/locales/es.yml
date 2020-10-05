@@ -51,7 +51,7 @@ es:
         github_handler: Nombre en GitHub
         header_snippets: Snippets de encabezado
         highlight_alternative_color: Destacado, alternativo
-        highlight_color: Destacar
+        highlight_color: Destacado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         highlighted_content_banner_action_title: Título del botón de acción
         highlighted_content_banner_action_url: URL del botón de acción
@@ -691,7 +691,7 @@ es:
         gallery:
           add_images: Añadir imágenes
           delete_image: Borrar la imagen
-          gallery_legend: Añadir una galería de imágenes (opccional)
+          gallery_legend: Añadir una galería de imágenes (opcional)
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
@@ -797,10 +797,10 @@ es:
       users_statistics:
         users_count:
           admins: Administradoras
-          last_day: Del último día
-          last_month: El último mes
-          last_week: La última semana
-          no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
+          last_day: Último día
+          last_month: Último mes
+          last_week: Última semana
+          no_users_count_statistics_yet: Aún no hay estadísticas de recuento de usuarias
           participants: Participantes
       view_public_page: Ver página pública
     forms:
