@@ -139,7 +139,7 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             form:
               errors:
                 budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
@@ -153,7 +153,7 @@ ja:
             vote_threshold_percent: 投票しきい値パーセント
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
             show_votes: 投票を表示
             votes_enabled: 投票は有効になっています
     orders:
