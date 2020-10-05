@@ -797,7 +797,7 @@ ca:
       users_statistics:
         users_count:
           admins: Administradores
-          last_day: Del darrer dia
+          last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
