@@ -147,7 +147,6 @@ en:
           create:
             exists: Trustee exists for this participatory space
             invalid: There was a problem creating a trustee
-            missing_user: User must exist
             success: Trustee successfully created
           delete:
             invalid: There was a problem removing this trustee
