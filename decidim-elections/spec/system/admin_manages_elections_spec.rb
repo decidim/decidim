@@ -18,7 +18,9 @@ describe "Admin manages elections", type: :system do
 
   it_behaves_like "manage announcements"
 
-  it_behaves_like "manage questionnaires"
+  it_behaves_like "manage questionnaires" do
+    let(:election) { create :election, :ongoing, :published, component: current_component }
+  end
 
   describe "admin form" do
     before { click_on "New Election" }

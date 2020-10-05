@@ -16,7 +16,13 @@ module Decidim
           member do
             put :publish
             put :unpublish
-            resource :feedback_form, only: [:edit, :update]
+            resource :feedback_form, only: [:edit, :update] do
+              collection do
+                get :answers, to: "feedback_forms#index"
+                get "/answer/:session_token", to: "feedback_forms#show", as: :answer
+                get "/answer/:session_token/export", to: "feedback_forms#export_response", as: :answer_export
+              end
+            end
           end
           resources :questions do
             resources :answers do

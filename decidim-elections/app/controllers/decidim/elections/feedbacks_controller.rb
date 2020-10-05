@@ -41,7 +41,7 @@ module Decidim
       end
 
       def allow_answers?
-        current_user.present?
+        current_user.present? && election.ongoing?
       end
     end
   end

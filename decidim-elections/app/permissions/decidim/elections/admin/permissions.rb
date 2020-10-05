@@ -33,8 +33,15 @@ module Decidim
             end
           when :questionnaire
             case permission_action.action
+            when :export_answers
+              permission_action.allow!
             when :update
               toggle_allow(feedback_form.present?)
+            end
+          when :questionnaire_answers
+            case permission_action.action
+            when :index, :show, :export_response
+              permission_action.allow!
             end
           end
 

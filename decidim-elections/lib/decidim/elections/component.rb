@@ -43,6 +43,16 @@ Decidim.register_component(:elections) do |component|
     resource.model_class_name = "Decidim::Elections::Answer"
   end
 
+  component.exports :feedback_form_answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Forms::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Forms::UserAnswersSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,

@@ -28,6 +28,22 @@ module Decidim
           answer_options_election_feedback_path(**params)
         end
 
+        def questionnaire_participants_url
+          answers_feedback_form_path(id: election.id)
+        end
+
+        def questionnaire_participant_answers_url(session_token)
+          answer_feedback_form_path(id: election.id, session_token: session_token)
+        end
+
+        def questionnaire_export_response_url(session_token)
+          answer_export_feedback_form_path(id: election.id, session_token: session_token, format: "pdf")
+        end
+
+        def questionnaire_url
+          edit_feedback_form_path(id: election.id)
+        end
+
         private
 
         def election
