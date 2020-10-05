@@ -30,7 +30,7 @@ es:
         attachments_enabled: Habilitar archivos adjuntos
         banner_image: Imagen de banner
         collect_user_extra_fields: Recopilar datos personales de la participante con la firma
-        custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de la recogida de firmas
+        custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de recogida de firmas
         description: Descripción
         document_number_authorization_handler: Autorización para verificar el número de documento en las firmas
         extra_fields_legal_information: Información legal sobre la recogida de datos personales
@@ -55,7 +55,7 @@ es:
           attributes:
             attachment:
               file: Este archivo es invalido
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
               title: El título no puede estar vacío
   activerecord:
     models:
@@ -83,7 +83,7 @@ es:
               created: Creada
               discarded: Descartada
               published: Publicada
-              rejected: No ha conseguido las firmas necesarias
+              rejected: Sin las firmas necesarias
               validating: Validación técnica
           type_id_eq:
             label: Tipo
@@ -132,10 +132,10 @@ es:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébalo a través <a href="%{admin_initiative_url}"> panel de administración</a>
+            email_intro: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_url}"> panel de administración</a>
             email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
             email_subject: La iniciativa %{resource_title} ha solicitado validación técnica.
-            notification_title: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébalo a través <a href="%{admin_initiative_path}"> panel de administración</a>
+            notification_title: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_path}"> panel de administración</a>
         initiative_extended:
           email_intro: '¡El plazo de finalización de la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -153,10 +153,10 @@ es:
             email_subject: '¡Nuevo hito completado!'
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
         support_threshold_reached:
-          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de apoyos
+          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de firmas
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Umbral de apoyos alcanzado
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha llegado el umbral de apoyos
+          email_subject: Umbral de firmas alcanzado
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha llegado al umbral de firmas
     gamification:
       badges:
         initiatives:
@@ -276,7 +276,7 @@ es:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
-        accepted: Ha conseguido las firmas
+        accepted: Ha conseguido las firmas necesarias
         created: Creada
         discarded: Descartada
         published: Publicada
@@ -312,7 +312,7 @@ es:
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. Presencial, en línea o una combinación de ambas</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿Distrito, ciudad?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
-          select_area: Selecciona una área
+          select_area: Selecciona un área
           select_scope: Seleccione un alcance
         finish:
           back: Volver
@@ -322,7 +322,7 @@ es:
           edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
-          send_my_initiative: Enviar la meva iniciativa
+          send_my_initiative: Enviar mi iniciativa
         finish_help:
           access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de participante.
           help_for_organizations: Si eres una asociación, tendrás que subir las actias del consejo de administración de todas las organizaciones que formen la Comisión Promotora
@@ -460,8 +460,8 @@ es:
           votes_blocked: Se ha desactivado la firma
         votes_count:
           count:
-            one: FIRMA
-            other: FIRMAS
+            one: Firma
+            other: Firmas
           most_popular_initiative: Iniciativa más popular
           need_more_votes: Necesita más firmas
       initiatives_mailer:
