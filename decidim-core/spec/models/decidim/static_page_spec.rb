@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe StaticPage do
     let(:page) { build(:static_page) }
-    let(:default_pages) { described_class::DEFAULT_PAGES - ["terms-and-conditions"] }
+    let(:default_pages) { described_class::DEFAULT_PAGES }
 
     it { is_expected.to be_versioned }
 

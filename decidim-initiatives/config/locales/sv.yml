@@ -455,13 +455,9 @@ sv:
           any_vote_method: Detta medborgarinitiativ samlar in både digitala och fysiska underskrifter.
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
           offline_method: Detta medborgarinitiativ samlar bara in fysiska underskrifter.
-        signature_identities:
-          select_identity: Välj deltagaridentifierare
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
-        supports:
-          title: Lista över undertecknare
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} underskrifter krävs"
