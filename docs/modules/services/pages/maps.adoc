@@ -1,0 +1,311 @@
+= Maps and geocoding
+
+Decidim has the ability to geocode proposals and meetings and display them on a map.
+Decidim has built-in support for the following map service providers:
+
+* http://here.com[HERE Maps] (Recommended)
+ ** Supports map tiles, static map images, geocoding and geocoding autocompletion
+ ** Easy to get started with, comes with a rather generous free plan
+ ** <<configuring-here-maps,Configuring HERE Maps>>
+* https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services[Open Street Maps based services]
+ ** Please pick a service provider that provides all needed services (map tiles, static map images, geocoding and geocoding autocompletion)
+ ** We can't use the OSM's own services by their https://operations.osmfoundation.org/policies/tiles/[tile usage policy].
+ ** In case your service provider does not offer static map images, Decidim will use the dynamic map tiles to generate a similar map element.
+ ** As an alternative, you may also want to use your own self-hosted map servers (see <<hosting-your-own-map-services,Hosting your own map services>> for more information)
+ ** <<configuring-open-street-maps-based-service-providers,Configuring Open Street Maps based service providers>>
+
+If you want to integrate Decidim to some other map service provider, read how to xref:/docs/customization/maps.adoc[write your own integration code] for that.
+
+== Configuring maps and geocoding
+
+After generating your app, you'll see that your `config/initializers/decidim.rb` file includes commented code about map services:
+
+[source,ruby]
+----
+# Map and Geocoder configuration
+# config.maps = {
+#   ...
+# }
+----
+
+The initializer comments provide examples for the services mentioned in this documentation.
+Please refer to the section below for the service you have registered for the maps functionality.
+
+If you want to enable geocoding in your app:
+
+. Select a service provider for the maps functionality and register an account with that provider
+. Uncomment or add the code under the selected service provider in your `config/initializers/decidim.rb`.
+. Make sure your `config/secrets.yml` file has the needed section (it should be added by the generator automatically).
+. Configure the service provider credentials in `config/secrets.yml` and refer to them from your `config/initializers/decidim.rb`.
+. If you had your Rails server running, restart it so the changes apply.
+
+=== Configuring HERE Maps
+
+Use the following configuration for HERE Maps:
+
+`config/initializers/decidim.rb`:
+
+[source,ruby]
+----
+# Map and Geocoder configuration
+# == HERE Maps ==
+config.maps = {
+  provider: :here,
+  api_key: Rails.application.secrets.maps[:api_key],
+  static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+}
+----
+
+`config/secrets.yml`:
+
+[source,yaml]
+----
+default: &default
+  # ...
+  maps:
+    api_key: <%= ENV["MAPS_API_KEY"] %>
+----
+
+`.env`:
+
+[source,bash]
+----
+MAPS_API_KEY=your_api_key_here
+----
+
+=== Configuring Open Street Maps based service providers
+
+Use the following configuration for Open Street Maps based service providers:
+
+`config/initializers/decidim.rb`:
+
+[source,ruby]
+----
+# Map and Geocoder configuration
+# == OpenStreetMap (OSM) services ==
+config.maps = {
+  provider: :osm,
+  api_key: Rails.application.secrets.maps[:api_key],
+  dynamic: {
+    tile_layer: {
+      url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}",
+      api_key: true,
+      attribution: %(
+        <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+      ).strip
+      # Translatable attribution:
+      # attribution: -> { I18n.t("tile_layer_attribution") }
+    }
+  },
+  # static: { url: "https://staticmap.example.org/" }, # optional
+  geocoding: { host: "nominatim.example.org", use_https: true },
+  autocomplete: { url: "https://photon.example.org/api/" }
+}
+----
+
+`config/secrets.yml`:
+
+[source,yaml]
+----
+default: &default
+  # ...
+  maps:
+    api_key: <%= ENV["MAPS_API_KEY"] %>
+----
+
+`.env`:
+
+[source,bash]
+----
+MAPS_API_KEY=your_api_key_here
+----
+
+For further information, see the service provider's documentation or take a look at the <<hosting-your-own-map-services,Hosting your own map services>> section.
+
+=== Combining multiple service providers
+
+It is also possible to combine multiple service providers for the different categories of map services.
+For instance, if you want to use HERE Maps for the map tiles but host the other services yourself, use the following configuration:
+
+[source,ruby]
+----
+# Map and Geocoder configuration
+# == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
+config.maps = {
+  provider: :osm,
+  dynamic: {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:here_api_key]
+  },
+  static: { url: "https://staticmap.example.org/" },
+  geocoding: { host: "nominatim.example.org", use_https: true },
+  autocomplete: { url: "https://photon.example.org/api/" }
+}
+----
+
+`config/secrets.yml`:
+
+[source,yaml]
+----
+default: &default
+  # ...
+  maps:
+    here_api_key: <%= ENV["MAPS_HERE_API_KEY"] %>
+----
+
+`.env`:
+
+[source,bash]
+----
+MAPS_HERE_API_KEY=your_api_key_here
+----
+
+=== Disabling some of the map services
+
+When using the maps functionality, you should always aim to provide all the services for the user that are available in Decidim.
+However, not all service providers provide all these services, so at times you may need to disable some of them.
+
+The configuration syntax allows you to disable the map services one by one.
+For example, if you want to use HERE Maps as your default but disable the static map images and geocoding autocompletion functionality, you can use the following configuration:
+
+[source,ruby]
+----
+config.maps = {
+  provider: :here,
+  api_key: Rails.application.secrets.maps[:api_key],
+  static: false,
+  autocomplete: false
+}
+----
+
+Decidim works fine when some of the services are disabled individually but obviously, the disabled services are not available for Decidim users.
+
+=== Global geocoder configurations
+
+In the Dedicim initialiser (`config/initializers/decidim.rb`) you will also see a commented section for the global geocoder configurations commented as follows:
+
+[source,ruby]
+----
+# Geocoder configurations ...
+# config.geocoder = {
+#   # geocoding service request timeout, in seconds (default 3):
+#   timeout: 5,
+#   # set default units to kilometers:
+#   units: :km,
+#   # caching (see https://github.com/alexreisner/geocoder#caching for details):
+#   cache: Redis.new,
+#   cache_prefix: "..."
+# }
+----
+
+This will change the global geocoding settings for your application.
+To learn more about these settings, take a look at the https://github.com/alexreisner/geocoder[Geocoder gem's documentation].
+
+=== Geocoding autocompletion configurations
+
+Each autocompletion geocoder has their own configurations and this may not apply for all geocoding services.
+The geocoder autocompletion integrations shipped with Decidim support the configurations shown in this section.
+
+If you want to customize the address format in the geocoding autocompletion fields, you can apply the following configuration to your geocoder settings:
+
+[source,ruby]
+----
+config.maps = {
+  # ... other configs ...
+  autocomplete: {
+    # For HERE:
+    address_format: [%w(street houseNumber), "city", "country"]
+    # For OSM/Photon:
+    # address_format: ["name", %w(street housenumber), "city", "country"]
+  }
+}
+----
+
+=== Integrating with a new service provider
+
+If you want to integrate the map functionality with a new service provider, take a look at the xref:/docs/customization/maps.adoc[Custom map providers] documentation.
+
+== Enabling maps and geocoding
+
+Once the maps functionality is configured, you'll need to activate it.
+As of April 2017, only proposals and meetings have maps and geocoding.
+
+=== Proposals
+
+In order to enable geocoding for proposals you'll need to edit the component configuration and turn on "Geocoding enabled" configuration.
+This works for that specific component, so you can have geocoding enabled for proposals in a participatory process, and disabled for another proposals component in the same participatory process.
+
+=== Meetings
+
+Meetings do not have a configuration option for geocoding.
+Instead, if geocoding is configured it will try to geocode the address every time you create or update a meeting.
+As of April 2017 there is no way to enable or disable geocoding per meetings component.
+
+== Hosting your own map services
+
+It is recommended to use a commercial service provider for all the map functionality to get up and running more easily.
+Hosting all these services yourself and keeping everything up to date is time consuming and rather complex.
+If the related complexity or the required time is not an issue, feel free to setup the following services on your own servers.
+
+=== Map tiles: Open Street Maps tile server
+
+You will need a https://wiki.openstreetmap.org/wiki/Tiles[map tiles] server which is used for the dynamic maps that the user can move themselves.
+
+Follow these instructions to setup your tiles server:
+
+https://opentileserver.org/
+
+In the example configuration, we assume you have used the following domain for the tiles server:
+
+https://tiles.example.org
+
+=== Static map images: Openstreetmap static maps server (osm-static-maps)
+
+Some pages in Decidim display static map images which need to be fetched from an external server.
+The tiles server does not provide such static images by itself because one static map image may need multiple tiles to be combined into one.
+The static map image is therefore dynamically generated based on the parameters passed for the static map request (such as image dimensions and the geocoordinates of the map image position).
+
+The Open Street Maps community has made multiple open source https://wiki.openstreetmap.org/wiki/Static_map_images[static maps image services] from which you can pick freely but Decidim currently supports only https://github.com/jperelli/osm-static-maps[osm-static-maps] with the Open Street Maps services.
+
+Follow these instructions to setup your static map images server:
+
+https://github.com/jperelli/osm-static-maps#3-standalone-sample-server
+
+In the example configuration, we assume you have used the following domain for the static maps image server:
+
+https://staticmap.example.org
+
+Setting up this service is optional.
+If you do not configure a static map URL for the OSM based map services, Decidim will use the dynamic map tiles to generate a similar map element.
+
+=== Geocoding: Nominatim geocoding server
+
+https://wiki.openstreetmap.org/wiki/Nominatim[Nominatim] makes it possible to place points on the Decidim maps based on addresses.
+This service provides geocoding capabilities by turning human readable addresses to https://en.wikipedia.org/wiki/Geographic_coordinate_system[geographic coordinates].
+
+Follow these instructions to setup your geocoding server:
+
+http://nominatim.org/release-docs/latest/admin/Installation/
+
+In the example configuration, we assume you have used the following domain for the geocoding server:
+
+https://nominatim.example.org
+
+=== Geocoding autocompletion: Photon geocoding server
+
+https://github.com/komoot/photon[Photon] makes it possible to provide the autocompletion service for people writing addresses to the address fields available in Decidim.
+It uses the Open Street Maps data to serve the autocompletion requests.
+When people select one of the suggested addresses, it will also tell Decidim the map point for that address.
+
+Follow these instructions to setup your geocoding autocompletion server:
+
+https://github.com/komoot/photon#installation
+
+In the example configuration, we assume you have used the following domain for the Photon geocoding server for the autocompletion functionality:
+
+https://photon.example.org
+
+=== Configure Decidim
+
+After you have all these services running, change your Decidim configurations to use these services.
+Read the <<configuring-open-street-maps-based-service-providers,Configuring Open Street Maps based service providers>> section for more information.
