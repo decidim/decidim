@@ -33,10 +33,12 @@ module Decidim
       let(:suggested_hashtags) { [] }
 
       describe "call" do
+        let(:title) { "A reasonable proposal title" }
+        let(:body) { "A reasonable proposal body" }
         let(:form_params) do
           {
-            title: "A reasonable proposal title",
-            body: "A reasonable proposal body",
+            title: title,
+            body: body,
             address: address,
             has_address: has_address,
             user_group_id: user_group.try(:id),
@@ -95,9 +97,12 @@ module Decidim
           end
 
           it "updates the proposal" do
-            expect do
-              command.call
-            end.to change(proposal, :title)
+            command.call
+            proposal.reload
+            expect(proposal.title).to be_kind_of(Hash)
+            expect(proposal.title["en"]).to eq title
+            expect(proposal.body).to be_kind_of(Hash)
+            expect(proposal.body["en"]).to match(/^#{body}/)
           end
 
           context "with an author" do
@@ -128,8 +133,8 @@ module Decidim
             it "saves the extra hashtags" do
               command.call
               proposal = Decidim::Proposals::Proposal.last
-              expect(proposal.body).to include("_Hashtag1")
-              expect(proposal.body).to include("_Hashtag2")
+              expect(proposal.body["en"]).to include("_Hashtag1")
+              expect(proposal.body["en"]).to include("_Hashtag2")
             end
           end
 
