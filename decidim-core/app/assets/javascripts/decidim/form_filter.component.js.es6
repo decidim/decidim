@@ -47,6 +47,9 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
+        if(this.$form.find(".spinner-container").length == 0){
+          this.$form.append('<div class="spinner-container hide"><span class="loading-spinner full-screen-spinner"></span></div>');
+        }
 
         this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
 
@@ -56,6 +59,15 @@
             this.currentFormRequest.abort();
           }
           this.currentFormRequest = e.originalEvent.detail[0];
+          this.$form.find(".spinner-container").removeClass("hide");
+        });
+
+        this.$form.on("ajax:success", (e) => {
+          this.$form.find(".spinner-container").addClass("hide");
+        });
+
+        this.$form.on("ajax:error", (e) => {
+          this.$form.find(".spinner-container").addClass("hide");
         });
 
         exports.theCheckBoxesTree.setContainerForm(this.$form);
