@@ -844,7 +844,6 @@ id:
           error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
           success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
         form:
-          agreement: Saya setuju dengan ketentuan ini
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_body: Jika Anda menolak, Anda tidak akan dapat menggunakan platform, Anda dapat <a href="%{data_portability_path}">mengunduh data Anda</a> dan / atau <a href="%{delete_path}">menghapus akun Anda</a>.
