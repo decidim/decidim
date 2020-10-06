@@ -861,7 +861,6 @@ tr:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
-          agreement: Bu şartları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
