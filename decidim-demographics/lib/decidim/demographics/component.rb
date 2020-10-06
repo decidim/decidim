@@ -39,7 +39,6 @@ Decidim.register_component(:demographics) do |component|
   # end
 end
 
-
 Decidim.register_global_engine(
   :demographics_engine,
   Decidim::Demographics::DirectoryEngine,

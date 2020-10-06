@@ -21,14 +21,14 @@ module Decidim
         Decidim.menu :user_menu do |menu|
           if current_organization.demographics_data_collection?
             menu.item t("demographics", scope: "layouts.decidim.user_profile"),
-                    demographics_engine.new_path,
-                    position: 1.0,
-                    active: :exact
+                      demographics_engine.new_path,
+                      position: 1.0,
+                      active: :exact
           end
         end
       end
       initializer "decidim_demographics.assets" do |app|
-        app.config.assets.precompile += %w[decidim_demographics_manifest.js decidim_demographics_manifest.css]
+        app.config.assets.precompile += %w(decidim_demographics_manifest.js decidim_demographics_manifest.css)
       end
     end
   end

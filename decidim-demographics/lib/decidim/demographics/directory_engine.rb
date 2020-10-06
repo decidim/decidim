@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Demographics
     # This is the engine that runs on the public interface of `decidim-meetings`.
@@ -11,9 +12,9 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        scope path: '/', controller: :demographics do
+        scope path: "/", controller: :demographics do
           get :new, as: :new
-          post :create
+          patch :create
         end
       end
 
