@@ -31,6 +31,12 @@ module Decidim
       let(:latitude) { 40.1234 }
       let(:longitude) { 2.1234 }
       let(:suggested_hashtags) { [] }
+      let(:attachment_params) { nil }
+      let(:uploaded_photos) { [] }
+      let(:current_photos) { [] }
+      let(:current_files) { [] }
+      let(:uploaded_files) { [] }
+      let(:errors) { double.as_null_object }
 
       describe "call" do
         let(:title) { "A reasonable proposal title" }
@@ -42,7 +48,13 @@ module Decidim
             address: address,
             has_address: has_address,
             user_group_id: user_group.try(:id),
-            suggested_hashtags: suggested_hashtags
+            suggested_hashtags: suggested_hashtags,
+            attachment: attachment_params,
+            photos: current_photos,
+            add_photos: uploaded_photos,
+            documents: current_files,
+            add_documents: uploaded_files,
+            errors: errors
           }
         end
 
@@ -159,6 +171,67 @@ module Decidim
                   expect(proposal.longitude).to eq(longitude)
                 end
               end
+            end
+          end
+
+          context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+            let(:component) { create(:proposal_component, :with_attachments_allowed) }
+            let(:uploaded_files) do
+              [
+                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+              ]
+            end
+
+            it "creates multiple atachments for the proposal" do
+              expect { command.call }.to change(Decidim::Attachment, :count).by(2)
+              last_proposal = Decidim::Proposals::Proposal.last
+              last_attachment = Decidim::Attachment.last
+              expect(last_attachment.attached_to).to eq(last_proposal)
+            end
+          end
+
+          context "when attachments are allowed and file is invalid", processing_uploads_for: Decidim::AttachmentUploader do
+            let(:component) { create(:proposal_component, :with_attachments_allowed) }
+            let(:uploaded_files) do
+              [
+                Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+                Decidim::Dev.test_file("Exampledocument.pdf", "")
+              ]
+            end
+
+            it "does not create atachments for the proposal" do
+              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+            end
+
+            it "broadcasts invalid" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+
+          context "when documents and gallery are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+            let(:component) { create(:proposal_component, :with_attachments_allowed) }
+            let(:uploaded_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
+            let(:uploaded_files) do
+              [
+                Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+              ]
+            end
+
+            it "Create gallery and documents for the proposal" do
+              expect { command.call }.to change(Decidim::Attachment, :count).by(2)
+            end
+          end
+
+          context "when gallery are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+            let(:component) { create(:proposal_component, :with_attachments_allowed) }
+            let(:uploaded_photos) { [Decidim::Dev.test_file("city.jpeg", "image/jpeg")] }
+
+            it "creates an image attachment for the proposal" do
+              expect { command.call }.to change(Decidim::Attachment, :count).by(1)
+              last_proposal = Decidim::Proposals::Proposal.last
+              last_attachment = Decidim::Attachment.last
+              expect(last_attachment.attached_to).to eq(last_proposal)
             end
           end
         end

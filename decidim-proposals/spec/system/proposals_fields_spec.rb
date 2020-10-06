@@ -295,8 +295,7 @@ describe "Proposals", type: :system do
             within ".edit_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
-              fill_in :proposal_attachment_title, with: "My attachment"
-              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
+              attach_file :proposal_add_photos, Decidim::Dev.asset("city.jpeg")
               find("*[type=submit]").click
             end
 
