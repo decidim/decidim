@@ -20,6 +20,7 @@ nl:
       comments_count: Aantal reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
+      view: Bekijk
       votes:
         create:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.

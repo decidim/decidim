@@ -27,7 +27,7 @@ ja:
         scope_type_max_depth_id: スコープフィルタの深さ
         scopes_enabled: スコープは有効です
         short_description: 短い説明
-        show_metrics: メトリックを表示
+        show_metrics: 指標を表示
         show_statistics: 統計情報を表示
         slug: URL スラグ
         start_date: 開始日

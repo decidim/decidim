@@ -846,7 +846,6 @@ eu:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
           success: Great! Baldintzak eta baldintzak onartu dituzu.
         form:
-          agreement: Baldintzak ados nago
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
           modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.

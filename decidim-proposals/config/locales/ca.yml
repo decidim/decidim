@@ -144,6 +144,8 @@ ca:
             proposal_wizard_step_3_help_text: Text d'ajuda pel pas "Completar" de l'assistent de propostes
             proposal_wizard_step_4_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
@@ -827,8 +829,8 @@ ca:
           votes_blocked: Suports deshabilitats
         votes_count:
           count:
-            one: SUPORT
-            other: SUPORTS
+            one: Suport
+            other: Suports
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més suports
         voting_rules:
