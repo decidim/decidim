@@ -255,16 +255,10 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
-            available_slots_link_help: Leave it to 0 if you have unlimited slots available
-            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} aren''t responsible for the data provided by the users to the external service.'
-            external_registration_system_link_help: 'Link: allow participants to go to external service you are using for registrations'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
             select_a_meeting_type: Please select a meeting type
-            select_a_registration_type: Please select a registration type
-            terms_and_conditions: 'I agree to the '
-            terms_and_conditions_text: terms and conditions.
           index:
             title: Meetings
           new:
@@ -402,18 +396,12 @@ en:
           unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
-          available_slots_link_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} aren''t responsible for the data provided by the users to the external service.'
-          external_registration_system_link_help: 'Link: allow participants to go to external service you are using for registrations'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
-          select_a_registration_type: Please select a registration type
-          terms_and_conditions: 'I agree to the '
-          terms_and_conditions_text: terms and conditions.
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -478,10 +466,6 @@ en:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
           registration_code: Your registration code is %{code}.
-      registration_type:
-        another_registration_system: On another registration system
-        on_this_platform: On this platform
-        registration_disabled: Registrations disabled
       registrations:
         create:
           invalid: There was a problem joining this meeting.
