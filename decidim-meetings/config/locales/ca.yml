@@ -88,6 +88,8 @@ ca:
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats

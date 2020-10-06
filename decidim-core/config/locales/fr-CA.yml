@@ -1059,7 +1059,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
           success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: Je suis d'accord avec les conditions d'utilisation
+          agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.

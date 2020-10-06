@@ -846,7 +846,6 @@ gl:
           error: Produciuse un erro ao aceptar os termos e condicións.
           success: Grande! Aceptou os termos e condicións.
         form:
-          agreement: Acepto estes termos
           legend: Concorda cos termos e condicións de uso
         refuse:
           modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.

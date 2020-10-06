@@ -103,6 +103,7 @@ es-PY:
             up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
