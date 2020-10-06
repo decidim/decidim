@@ -378,13 +378,9 @@ eu:
           any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
           follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
           offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
-        signature_identities:
-          select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
-        supports:
-          title: Sinadura zerrenda
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"

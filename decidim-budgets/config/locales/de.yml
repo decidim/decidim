@@ -224,9 +224,16 @@ de:
             vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_threshold_percent: Abstimmungsschwelle in Prozent
             workflow: Workflow
+            workflow_choices:
+              all: 'Gesamthaft abstimmen: erlaubt es den Teilnehmern, in allen Budget‘s abzustimmen.'
+              one: 'Selektiv abstimmen: erlaubt es den Teilnehmern, in einem (1) der Budget’s abzustimmen.'
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            highlighted_heading: Hervorgehobene Überschrift
+            landing_page_content: Budgets Landingpage
+            list_heading: Listenüberschrift
+            more_information_modal: Weitere Informationen modal
             show_votes: Stimmen anzeigen
             title: Überschrift
             votes: Abstimmungen

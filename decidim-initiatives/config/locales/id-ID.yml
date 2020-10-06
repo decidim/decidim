@@ -372,12 +372,8 @@ id:
           any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
           follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
           offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
-        signature_identities:
-          select_identity: Pilih pengenal pengguna
         signatures_count:
           other: " tanda tangan"
-        supports:
-          title: Daftar tanda tangan
         vote_cabin:
           already_voted: Sudah ditandatangani
           supports_required: "%{total_supports} tanda tangan diperlukan"

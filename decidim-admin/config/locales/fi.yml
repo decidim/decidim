@@ -631,7 +631,6 @@ fi:
           invalid: CSV-tiedostossa on ongelma.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
-          explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi).'
           title: Lataa CSV-tiedosto
           upload: Lataa
       resource_permissions:

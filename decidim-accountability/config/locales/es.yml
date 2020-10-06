@@ -46,12 +46,12 @@ es:
         import_results:
           new:
             import: Importar
-            info: "<p>Te recomendamos que sigas los siguientes pasos:</p><ol><li> Crea los estados para los resultados que quieras agregar (<a href='%{link_new_status}' target='_blank'> link </a>)</li><li> Crea por lo menos un resultado manualmente a través del panel de administración (<a href='%{link_new_result}' target='_blank'>link</a>) antes de importar, para entender mejor el formato y cómo rellenarlo.</li><li>Descarga el archivo en formato CSV (%{link_export_csv})</li><li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:</li></ol><ul><li><b> id category /id:</b> ID para la categoría</li><li><b>scope /id:</b> ID para el ámbito</li><li><b>parent /id:</b> ID para el padre (para resultados relacionados). Opcional</li> <li><b>title /I18N:</b> título en la lengua X</li> <li><b>description /I18N:</b> descripción en la lleguna X</li><li><b>start_date:</b> date en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li><li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li><li><b> status /id:</b> ID del estado para este resultado</li><li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li><li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li></ul>"
+            info: "<p>Te recomendamos que sigas los siguientes pasos:</p><ol><li> Crea los estados para los resultados que quieras agregar (<a href='%{link_new_status}' target='_blank'> link </a>)</li><li> Crea por lo menos un resultado manualmente a través del panel de administración (<a href='%{link_new_result}' target='_blank'>link</a>) antes de importar, para entender mejor el formato y cómo rellenarlo.</li><li>Descarga el archivo en formato CSV (%{link_export_csv})</li><li>Haz los cambios en local. Sólo puedes modificar las siguientes columnas del CSV:</li></ol><ul><li><b> id category /id:</b> ID para la categoría</li><li><b>scope /id:</b> ID para el ámbito</li><li><b>parent /id:</b> ID para el padre (para resultados relacionados). Opcional</li> <li><b>title /I18N:</b> título en el idioma X</li> <li><b>description /I18N:</b> descripción en el idioma X</li><li><b>start_date:</b> fecha en la que se inicia la ejecución del resultado (formato AAAA-MM-DD)</li><li><b>end_date:</b> fecha en la que finaliza la ejecución del resultado (formato AAAA-MM-DD) </li><li><b> status /id:</b> ID del estado para este resultado</li><li><b>progress:</b> Tanto por ciento (de 0 a 100) de ejecución</li><li><b>proposals_ids:</b> ID interno de las propuestas relacionadas (separadas por comas). Se convertirá automáticamente en <span class = 'attribute-name'>proposal_url</span></li></ul>"
             link: enlace
-            title: Importa resultados vía CSV
+            title: Importar resultados vía CSV
         imports:
           create:
-            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la imporación
+            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la importación
         models:
           result:
             name: Resultado
@@ -127,7 +127,7 @@ es:
           errors_present: Ha habido un problema importando los resultados
           row_number: Fila
           subject: Los resultados se han importado correctamente
-          success: Los resultados se han importante correctamente. Puedes revisar los resultados a través del panel de administración.
+          success: Los resultados se han importado correctamente. Puedes revisar los resultados a través del panel de administración.
       last_activity:
         new_result_at_html: "<span>Nuevo resultado en %{link}</span>"
       models:

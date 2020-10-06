@@ -630,7 +630,6 @@ sv:
           invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
-          explanation: Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn).
           title: Skicka CSV-fil
           upload: Skicka
       resource_permissions:
