@@ -598,7 +598,6 @@ lv:
           invalid: CSV faila lasīšanas laikā radās problēma.
           success: CSV fails ir veiksmīgi augšupielādēts, nosūtām dalībniekiem uzaicinājuma e-pastu. Tas var aizņemt kādu laiku.
         new:
-          explanation: Augšupielādējiet savu CSV failu. Tajā jābūt divām kolonnām, bet lietotāju, kurus vēlaties pievienot līdzdalības telpai, e-pastam jābūt norādītam faila pirmajā kolonnā, vārdam – pēdējā kolonnā bez galvenēm.
           title: Augšupielādējiet savu CSV failu
           upload: Augšupielādēt
       resource_permissions:

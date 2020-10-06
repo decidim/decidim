@@ -436,13 +436,9 @@ it:
           any_vote_method: Questa iniziativa cittadina raccoglie firme online e in presenza.
           follow_description: Ricevi una notifica quando ci sono novità in questa iniziativa
           offline_method: Questa iniziativa cittadina raccoglie solo supporti in presenza.
-        signature_identities:
-          select_identity: Seleziona l'identificativo dell'utente
         signatures_count:
           one: " firma"
           other: " firme"
-        supports:
-          title: Elenco delle firme
         vote_cabin:
           already_voted: Già firmata
           supports_required: "%{total_supports} firme richieste"

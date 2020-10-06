@@ -144,6 +144,8 @@ es-MX:
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_4_help_text: 'Asistente de propuesta: texto de ayuda paso "Publicar"'
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por usuario
           step:

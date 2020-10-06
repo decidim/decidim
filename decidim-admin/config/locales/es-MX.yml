@@ -143,6 +143,7 @@ es-MX:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        share: Compartir
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -270,6 +271,7 @@ es-MX:
           headers:
             actions: Comportamiento
             name: Nombre del componente
+            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar componente
@@ -439,6 +441,14 @@ es-MX:
           fields:
             name: Nombre
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creado el
+            expires_at: Caduca el
+            last_used_at: Último uso
+            times_used: Veces utilizado
+            token: Token
+            user: Creado por
         static_page:
           fields:
             created_at: Fecha de creación
@@ -621,7 +631,7 @@ es-MX:
           invalid: Se ha producido un error al leer el archivo CSV.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
-          explanation: Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y nombre en la última columna del archivo (correo electrónico, nombre) de las participantes que quieras añadir al espacio participativo, sin cabeceras.
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
           title: Sube tu archivo CSV
           upload: Subir
       resource_permissions:
@@ -630,6 +640,10 @@ es-MX:
           title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
+      resources:
+        index:
+          headers:
+            scope: Ámbito
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -661,6 +675,18 @@ es-MX:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      share_tokens:
+        actions:
+          confirm_destroy: '¿Seguro que quieres eliminar este token?'
+          destroy: Eliminar
+          share: Compartir
+        destroy:
+          error: Se ha producido un error al eliminar este token.
+          success: Token eliminado correctamente.
+        share_tokens:
+          empty: No hay tokens activos
+          help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
+          title: Compartir tokens
       shared:
         gallery:
           add_images: Añadir imágenes

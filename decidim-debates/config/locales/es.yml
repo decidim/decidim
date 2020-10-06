@@ -28,16 +28,21 @@ es:
       debates:
         actions:
           create: Crear
+          endorse: Adherirse
         name: Debates
         settings:
           global:
             announcement: Aviso
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled: Creación de debates por parte de las participantes habilitada
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
     debates:
       actions:
         close: Cerrar
@@ -76,6 +81,8 @@ es:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           create: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           update: "La participante %{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}"
+      debate_m:
+        commented_time_ago: Comentado hace %{time}
       debates:
         close:
           invalid: Se ha producido un error al cerrar el debate.
@@ -99,13 +106,22 @@ es:
           save: Guardar cambios
           title: Editar debate
         filters:
+          activity: Mi actividad
           all: Todos
           category: Categoría
           category_prompt: Selecciona una categoría
           citizens: Ciudadanía
+          commented: Comentado
+          my_debates: Mis debates
           official: Oficial
           origin: Origen
+          scope: Ámbito
           search: Buscar
+          state: Estado
+          state_values:
+            closed: Cerrado
+            open: Abierto
+          user_groups: Grupos
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -119,6 +135,12 @@ es:
           back: Volver
           create: Crear
           title: Nuevo debate
+        orders:
+          commented: Más comentados
+          label: Ordenar debates por
+          random: Orden aleatorio
+          recent: Más recientes
+          updated: Actualizados recientemente
         show:
           back: Volver al listado
           close_debate: Cerrar debate
@@ -127,6 +149,10 @@ es:
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
           edit_debate: Editar debate
+          groups_count: Grupos
+          last_comment_by: Último comentario de
+          no_comments_yet: No hay comentarios todavía
+          participants_count: Participantes
         update:
           invalid: Se ha producido un error al actualizar este debate.
           success: Debate actualizado correctamente.
@@ -175,9 +201,9 @@ es:
           notification_title: Ya puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha cerrado el debate "%{resource_title}"
-          notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> ha sido cerrado.
+          notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> se ha cerrado.
     gamification:
       badges:
         commented_debates:
