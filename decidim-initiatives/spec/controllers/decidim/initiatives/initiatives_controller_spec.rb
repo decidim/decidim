@@ -87,6 +87,17 @@ module Decidim
           end
         end
       end
+
+      describe "Edit initiative as promoter" do
+        before do
+          sign_in created_initiative.author, scope: :user
+        end
+
+        it "Unpublished initiatives are shown too" do
+          get :edit, params: { slug: created_initiative.slug }
+          expect(response).to have_http_status(:ok)
+        end
+      end
     end
   end
 end

@@ -21,12 +21,14 @@ module Decidim
       include InitiativeSlug
       include FilterResource
       include Paginable
+      include Decidim::FormFactory
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
+      helper_method :initiative_type
 
       # GET /initiatives
       def index
@@ -47,6 +49,21 @@ module Decidim
       # GET /initiatives/:id
       def show
         enforce_permission_to :read, :initiative, initiative: current_initiative
+      end
+
+      # GET /initiatives/:slug/edit
+      def edit
+        # enforce_permission_to :edit, :initiative, initiative: current_initiative
+
+        form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
+        @form = form(Decidim::Initiatives::Admin::InitiativeForm)
+                .from_model(
+                  current_initiative,
+                  initiative: current_initiative
+                )
+        @form.attachment = form_attachment_model
+
+        render layout: "decidim/initiative"
       end
 
       private
