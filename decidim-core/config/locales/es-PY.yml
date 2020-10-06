@@ -907,7 +907,7 @@ es-PY:
           send: Enviar
           title: Iniciar una conversación
         update:
-          error: Mensaje no enviado. Inténtalo más tarde
+          error: Mensaje no enviado. Inténtalo de nuevo más tarde
     metrics:
       download:
         csv: Descargar datos (csv)
@@ -1239,7 +1239,7 @@ es-PY:
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
-        error: Mensaje no enviado. Inténtalo más tarde
+        error: Mensaje no enviado. Inténtalo de nuevo más tarde
     user_interests:
       show:
         my_interests: Mis intereses
