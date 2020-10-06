@@ -8,8 +8,10 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
       Decidim::Attachment.find_each do |attachment|
         next if attachment.title.is_a?(Hash) && attachment.description.is_a?(Hash)
 
-        locale = attached_to.try(:locale).presence || attached_to.try(:default_locale).presence ||
-          attached_to.try(:organization).try(:default_locale).presence || Decidim.default_locale
+        locale = attached_to.try(:locale).presence ||
+                 attached_to.try(:default_locale).presence ||
+                 attached_to.try(:organization).try(:default_locale).presence ||
+                 Decidim.default_locale
 
         attachment.title = {
           locale => attachment.title
