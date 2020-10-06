@@ -114,6 +114,19 @@ describe "Admin manages participatory process groups", type: :system do
         expect(page).to have_no_content(participatory_process_group.name["en"])
       end
     end
+
+    it "has sub nav with Info active by default" do
+      within find("tr", text: participatory_process_group.name["en"]) do
+        click_link "Edit"
+      end
+
+      within "div.secondary-nav" do
+        expect(page).to have_content("Info")
+        expect(page).to have_content("Homepage")
+        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
+        expect(active_secondary_nav.text).to eq("Info")
+      end
+    end
   end
 
   context "when rendering the main menu" do
