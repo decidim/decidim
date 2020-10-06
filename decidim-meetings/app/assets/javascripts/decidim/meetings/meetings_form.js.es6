@@ -26,8 +26,8 @@
         toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
       });
 
-      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
-      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
+      toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
     }
   });
 })(window);
