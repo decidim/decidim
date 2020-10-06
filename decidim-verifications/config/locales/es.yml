@@ -86,7 +86,7 @@ es:
           unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
-          success: Ha eliminado correctamente la autorización.
+          success: Has eliminado correctamente la autorización.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización

@@ -631,7 +631,6 @@ cs:
           invalid: Při čtení souboru CSV došlo k chybě.
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
-          explanation: 'Nahrávejte soubor CSV bez záhlaví, který musí mít dva sloupce: email v prvním sloupci a jméno uživatele v posledním sloupci (e-mail, jméno), které chcete přidat do participačního prostoru.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
       resource_permissions:

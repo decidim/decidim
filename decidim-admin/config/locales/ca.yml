@@ -621,7 +621,6 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
         new:
-          explanation: Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l'adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l'espai de participació, sense capçaleres.
           title: Puja el fitxer CSV
           upload: Carrega
       resource_permissions:
@@ -771,7 +770,7 @@ ca:
       users_statistics:
         users_count:
           admins: Administradores
-          last_day: Del darrer dia
+          last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
