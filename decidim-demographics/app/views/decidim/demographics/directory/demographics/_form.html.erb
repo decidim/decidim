@@ -1,0 +1,52 @@
+<div class="field">
+  <%= form.collection_select(
+          :gender,
+          Decidim::Demographics::Demographics::AVAILABLE_GENDERS,
+          :to_s,
+          ->(gender) { t(".genders.#{gender}") },
+          prompt: t(".gender_prompt")
+      ) %>
+  <p class="help-text"><%= t ".gender_help" %></p>
+</div>
+
+<div class="field">
+  <%= form.select(
+          :age,
+          Decidim::Demographics::Demographics::AGE_GROUPS,
+          prompt: t(".age_prompt")
+      ) %>
+</div>
+
+<div class="field">
+  <%= form.select(
+          :nationality,
+          Decidim::Demographics::Demographics::MEMBER_STATES.map{|t| t(".nationalities.#{t}")}, {},
+          { multiple:true, size: 28, prompt: t(".nationality_prompt") }
+      ) %>
+</div>
+
+<div class="field">
+  <%= form.text_field :postal_code %>
+</div>
+
+<div class="field">
+  <%= form.select(
+          :background,
+          Decidim::Demographics::Demographics::PROFESSIONAL_CATEGORIES
+      ) %>
+</div>
+
+<%#= form.hidden_field :handler_name %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        var last_valid_selection = null;
+        $('#authorization_handler_nationality').change(function(event) {
+            if ($(this).val().length > 3) {
+                $(this).val(last_valid_selection);
+            } else {
+                last_valid_selection = $(this).val();
+            }
+        });
+    });
+</script>

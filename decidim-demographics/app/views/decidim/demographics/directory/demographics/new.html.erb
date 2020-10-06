@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="columns large-12">
+    <div class="card__content">
+      <%= decidim_form_for(@form, url: demographics_engine.create_path) do |f| %>
+        <%= render partial: "form", object: f %>
+        <div class="actions">
+          <%= f.submit t(".save"), class: "button expanded", data: { disable: true } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

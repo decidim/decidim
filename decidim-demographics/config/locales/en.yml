@@ -1,0 +1,55 @@
+---
+
+en:
+  layouts:
+    decidim:
+      user_profile:
+        demographics: "Demographic data"
+  decidim:
+    components:
+      demographics:
+        name: Demographics
+    demographics:
+      directory:
+        demographics:
+          new:
+            demographics: "Demographic Data Collection"
+            save: "Save"
+          form:
+            gender_prompt: "Your gender"
+            genders:
+              man: "Man"
+              woman: "Woman"
+              non_binary: "undefined"
+            gender_help: ""
+            age_prompt: ""
+            nationality_prompt: ""
+            nationalities:
+              austrian: ""
+              belgian: ""
+              bulgarian: ""
+              croat: ""
+              cypriote: ""
+              czech: ""
+              dane: ""
+              estonian: ""
+              finn: ""
+              french: ""
+              german: ""
+              greek: ""
+              hungarian: ""
+              irish: ""
+              italian: ""
+              latvian: ""
+              lithuanian: ""
+              luxembourger: ""
+              maltese: ""
+              dutch: ""
+              polish: ""
+              portuguese: ""
+              romanian: ""
+              slovak: ""
+              slovenian: ""
+              spanish: ""
+              swede: ""
+              other: ""
