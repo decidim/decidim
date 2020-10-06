@@ -21,6 +21,8 @@ ca:
           global:
             announcement: Avís
             clean_after_publish: Esborrar les respostes en publicar l'enquesta
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             allow_answers: Permetre respostes
             allow_unregistered: Permet a usuàries no registrades contestar l'enquesta

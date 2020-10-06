@@ -14,6 +14,7 @@ es-MX:
       question:
         description: Descripción
         max_selections: Número máximo de opciones
+        min_selections: Ninguna de las anteriores
         title: Título
     errors:
       models:
@@ -72,6 +73,7 @@ es-MX:
             title: Editar las respuestas
             update: Actualizar respuesta
           index:
+            invalid_max_selections: Necesitas %{missing_answers} respuesta(s) más para coincidir con la selección máxima
             title: Respuestas
           new:
             create: Crear respuesta
@@ -90,6 +92,7 @@ es-MX:
             title: Editar la votación
             update: Actualizar la votación
           index:
+            no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
             title: Votaciones
           new:
             create: Crear una votación
@@ -204,6 +207,7 @@ es-MX:
           edit: editar
           header: Confirma tu voto
           intro: Aquí tienes un resumen del voto que estás a punto de emitir. <br> Por favor, confirma tu voto o edita tus respuestas.
+          nota_option: En blanco
           question: Preguntas %{count}
         confirmed:
           back: Volver a las votaciones
@@ -226,10 +230,12 @@ es-MX:
           close: Cerrar
           proposal_header: 'Propuestas:'
         new:
+          answer_choices: Puedes seleccionar hasta %{choices} respuestas
           more_information: Más información
+          nota_option: En blanco / Ninguna de las anteriores
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
-          selections: "Seleccionada %{selected} de %{max_selections}"
+          selections: "Seleccionada <br> %{selected} de %{max_selections}"
         voting_step:
           back: Atrás
           continue: Siguiente

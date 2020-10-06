@@ -974,7 +974,6 @@ hu:
           error: Hiba történt az általános szerződési feltételek elfogadása során.
           success: Remek! Elfogadtad a feltételeket.
         form:
-          agreement: Elfogadom a feltételeket
           legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_body: Ha elutasítod, akkor nem fogod tudni használi a platformot. <a href="%{data_portability_path}">Töltsd le az adataidat</a> és/vagy <a href="%{delete_path}">töröld a fiókod</a>.
