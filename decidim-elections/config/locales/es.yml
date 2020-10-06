@@ -8,7 +8,7 @@ es:
         title: Título
       election:
         description: Descripción
-        end_time: La votación acaba el
+        end_time: La votación termina el
         start_time: La votación empieza el
         subtitle: Subtítulo
         title: Título
@@ -59,7 +59,7 @@ es:
             invalid: Se ha producido un error al borrar esta respuesta
             success: Respuesta creada con éxito
           edit:
-            title: Editar las respuestas
+            title: Editar respuesta
             update: Actualizar respuesta
           index:
             title: Respuestas
@@ -72,7 +72,7 @@ es:
         elections:
           create:
             invalid: Se ha producido un error al crear esta votación
-            success: Se ha creado la votación correctamente
+            success: La votación se ha creado correctamente
           destroy:
             invalid: Se ha producido un error al crear esta votación
             success: Se ha eliminado la votación correctamente

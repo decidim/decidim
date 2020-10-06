@@ -293,7 +293,7 @@ ja:
           view_more_logs: もっとログを見る
           welcome: Decidim Admin Panelへようこそ。
       exports:
-        export_as: "%{name} として %{export_format}"
+        export_as: "%{name} を %{export_format} 形式で取得"
         notice: エクスポートが進行中です。完了するとメールが届きます。
       filters:
         category_id_eq:
@@ -394,7 +394,7 @@ ja:
         users: 参加者
       metrics:
         metrics:
-          see_more_metrics: さらにメトリックを見る
+          see_more_metrics: さらに指標を見る
       models:
         area:
           fields:
@@ -743,7 +743,7 @@ ja:
         dashboard: ダッシュボード
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
-        metrics: メトリック
+        metrics: 指標
         participants: 参加者
         scope_types: スコープの種類
         scopes: スコープ

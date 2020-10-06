@@ -445,7 +445,7 @@ es:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
-        see_all: Ver todo (%{count})
+        see_all: Ver todos los encuentros (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunion

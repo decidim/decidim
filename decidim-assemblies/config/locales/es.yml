@@ -392,7 +392,7 @@ es:
       assembly:
         role_assigned:
           email_intro: Te han asignado el rol de %{role} en la asamblea "%{resource_title}".
-          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en la asamblea "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la asamblea "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
           notification_title: Se te ha asignado el rol de %{role} en la asamblea <a href="%{resource_url}">%{resource_title}</a>.
     help:

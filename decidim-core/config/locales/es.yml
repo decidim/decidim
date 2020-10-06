@@ -321,7 +321,7 @@ es:
       see_more: "(ver más)"
     components:
       component_order_selector:
-        no_content: No podemos encontrar ningún contenido con este criterio
+        no_content: No hemos podido encontrar ningún contenido con este criterio
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -587,15 +587,15 @@ es:
           email_subject: '¡Has sido eliminada del grupo %{user_group_name}!'
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
-          email_intro: Se ha creado un nuevo grupo de usuarias con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
+          email_intro: Se ha creado un nuevo grupo con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Se ha creado un nuevo grupo de usuarias
-          notification_title: Se ha creado el grupo de usuarias %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
+          email_subject: Se ha creado un nuevo grupo
+          notification_title: Se ha creado el grupo %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
         user_group_updated:
-          email_intro: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
+          email_intro: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Un grupo de usuarias ha actualizado su perfil
-          notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+          email_subject: Un grupo ha actualizado su perfil
+          notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       notification_event:
         notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -664,7 +664,7 @@ es:
           message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
         image:
           explanation: 'Instrucciones para la imagen:'
-          message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
+          message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
           message_2: El servicio recorta la imagen.
       file_validation:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
@@ -882,13 +882,13 @@ es:
         create:
           error: No se ha iniciado la conversación. Inténtalo de nuevo más tarde
         index:
-          ago: anteriores
+          ago: hace
           close: Cierra modal
-          from: 'De:'
+          from: De
           groups: Mis grupos
           last_message: Último mensaje
           new_conversation: Nueva conversación
-          next: Siguente
+          next: Siguiente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
@@ -931,7 +931,7 @@ es:
         name: Básica (sólo texto)
       basic_only_text_settings_form:
         body: Cuerpo
-        interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre de la destinataria.'
+        interpolations_hint: 'Pista: puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre de la destinataria.'
       image_text_cta:
         body_preview: 'Texto ficticio para el cuerpo: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Texto del botón de acción
@@ -1174,7 +1174,7 @@ es:
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte o de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
-        title: Denuncia un problema
+        title: Reportar contenido inapropiado
       floating_help:
         close: Cerrar la ayuda
         help: Ayuda
@@ -1215,13 +1215,13 @@ es:
       index:
         add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
         add_users_placeholder: Buscar...
-        close: Cerar
+        close: Cerrar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
-        from: 'De:'
+        from: De
         last_message: Último mensaje
         modal_title: Nueva conversación
         new_conversation: Nueva conversación
-        next: Siguente
+        next: Siguiente
         no_conversations_warning: Aún no hay ninguna conversación.
         no_results: No hay resultados
         participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
