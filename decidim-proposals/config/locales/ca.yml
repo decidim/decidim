@@ -826,8 +826,8 @@ ca:
           votes_blocked: Suports deshabilitats
         votes_count:
           count:
-            one: SUPORT
-            other: SUPORTS
+            one: Suport
+            other: Suports
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més suports
         voting_rules:
