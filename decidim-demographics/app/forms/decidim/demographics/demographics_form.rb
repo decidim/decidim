@@ -14,6 +14,11 @@ module Decidim
       validates_presence_of :gender, :age, :nationalities
       validates :postal_code, format: { with: /\A[0-9]*\z/ }
 
+      def self.from_params(params, additional_params = {})
+        params["demographic"]["nationalities"] = params["demographic"]["nationalities"].reject(&:empty?).compact
+        super
+      end
+
       def map_model(model)
         Hash[(model.data || [])].map do |k, v|
           self[k.to_sym] = Decidim::AttributeEncryptor.decrypt(v)

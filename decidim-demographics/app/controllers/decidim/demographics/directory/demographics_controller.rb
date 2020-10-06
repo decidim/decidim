@@ -17,11 +17,11 @@ module Decidim
 
           Decidim::Demographics::RegisterDemographicsData.call(demographics_data, @form) do
             on(:ok) do
-              flash[:notice] = "Success" # t("organizations.update.success", scope: "decidim.system")
+              flash[:notice] = t("data.update.success", scope: "decidim.demographics")
               redirect_to demographics_engine.new_path
             end
             on(:invalid) do
-              flash.now[:alert] = "Error" # I18n.t("organizations.update.error", scope: "decidim.system")
+              flash.now[:alert] = I18n.t("data.update.error", scope: "decidim.demographics")
               render :new
             end
           end

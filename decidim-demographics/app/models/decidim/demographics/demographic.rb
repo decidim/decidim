@@ -38,6 +38,22 @@ module Decidim
         other
       ).freeze
       PROFESSIONAL_CATEGORIES = ["Self-employed", "Manager", "White collar", "Manual worker", "House worker", "Unemployed", "Retired", "Student"].freeze
+
+      # DataPortability compatibility
+      def self.user_collection(user)
+        where(decidim_user_id: user.id)
+      end
+
+      def self.export_serializer
+        Decidim::Demographics::DataPortabilityDemographicSerializer
+      end
+
+      # Returns a collection of images scoped by User.
+      # Returns nil for default.
+      def self.data_portability_images(_user)
+        nil
+      end
+      # DataPortability compatibility
     end
   end
 end

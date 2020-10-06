@@ -6,6 +6,7 @@ Decidim.register_component(:demographics) do |component|
   component.engine = Decidim::Demographics::Engine
   component.admin_engine = Decidim::Demographics::AdminEngine
   component.icon = "decidim/demographics/icon.svg"
+  component.data_portable_entities = ["Decidim::Demographics::Demographic"]
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
