@@ -107,9 +107,9 @@ ja:
         actions:
           amend: 修正
           create: 作成
-          endorse: 承認する
+          endorse: 支持する
           vote: サポート
-          withdraw: 出金する
+          withdraw: 撤回する
         name: 提案
         settings:
           global:
@@ -213,10 +213,10 @@ ja:
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
           notification_title: <a href="%{resource_path}">新しい提案</a> を <a href="%{participatory_space_url}">%{participatory_space_title}</a>で提出できるようになりました。
         endorsing_enabled:
-          email_intro: 'あなたは %{participatory_space_title}で提案を承認することができます! このページへの参加を開始します:'
+          email_intro: 'あなたは %{participatory_space_title}で提案を支持することができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} の推薦提案が開始されました'
-          notification_title: <a href="%{resource_path}">承認する提案</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> を開始することができます。
+          notification_title: <a href="%{resource_path}">提案の支持</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> を開始することができます。
         proposal_accepted:
           affected_user:
             email_intro: 'あなたの提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
