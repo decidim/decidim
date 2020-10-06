@@ -4,7 +4,8 @@
           Decidim::Demographics::Demographics::AVAILABLE_GENDERS,
           :to_s,
           ->(gender) { t(".genders.#{gender}") },
-          prompt: t(".gender_prompt")
+          prompt: t(".gender_prompt"),
+          selected: @demographic_data["gender"]
       ) %>
   <p class="help-text"><%= t ".gender_help" %></p>
 </div>
@@ -13,26 +14,30 @@
   <%= form.select(
           :age,
           Decidim::Demographics::Demographics::AGE_GROUPS,
-          prompt: t(".age_prompt")
+          prompt: t(".age_prompt"),
+          selected: @demographic_data["age"]
       ) %>
+  <p class="help-text"><%= t ".age_help" %></p>
 </div>
 
 <div class="field">
   <%= form.select(
-          :nationality,
-          Decidim::Demographics::Demographics::MEMBER_STATES.map{|t| t(".nationalities.#{t}")}, {},
+          :nationalities,
+          Decidim::Demographics::Demographics::MEMBER_STATES.map{|t| t(".nationalities.#{t}")}, {selected: @demographic_data["nationalities"]},
           { multiple:true, size: 28, prompt: t(".nationality_prompt") }
       ) %>
+  <p class="help-text"><%= t ".nationalities_help" %></p>      
 </div>
 
 <div class="field">
-  <%= form.text_field :postal_code %>
+  <%= form.text_field :postal_code, value:  @demographic_data["postal_code"] %>
 </div>
 
 <div class="field">
   <%= form.select(
           :background,
-          Decidim::Demographics::Demographics::PROFESSIONAL_CATEGORIES
+          Decidim::Demographics::Demographics::PROFESSIONAL_CATEGORIES,
+          selected: @demographic_data["background"]
       ) %>
 </div>
 

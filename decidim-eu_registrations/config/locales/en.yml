@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    components:
+      eu_registrations:
+        name: EuRegistrations
