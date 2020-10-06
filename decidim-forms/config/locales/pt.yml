@@ -103,7 +103,6 @@ pt:
             up: Acima
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
-            success: Questionários guardados corretamente.
       errors:
         answer:
           body: O corpo não pode ficar em branco

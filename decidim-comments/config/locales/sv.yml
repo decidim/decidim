@@ -20,6 +20,7 @@ sv:
       comments_count: Antal kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
+      view: Visa
       votes:
         create:
           error: Det gick inte att rösta om kommentaren.

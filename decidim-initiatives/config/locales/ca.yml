@@ -455,13 +455,9 @@ ca:
           any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
           offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
-        signature_identities:
-          select_identity: Selecciona l'identificador de la participant
         signatures_count:
           one: " signatura"
           other: " signatures"
-        supports:
-          title: Llistat d'adhesions
         vote_cabin:
           already_voted: Ja has signat
           supports_required: "Es requereixen %{total_supports} signatures"

@@ -613,7 +613,6 @@ ro:
           invalid: A apărut o problemă la citirea fișierului CSV.
           success: Fișier CSV încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura un timp.
         new:
-          explanation: Încărcaţi fişierul CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană a fișierului (email, numele utilizatorilor pe care doriţi să îi adăugaţi în spaţiul participativ, fără antete.
           title: Încarcă fișierul tău CSV
           upload: Incarca
       resource_permissions:

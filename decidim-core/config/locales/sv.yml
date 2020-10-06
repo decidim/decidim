@@ -438,7 +438,6 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
-            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -909,8 +908,6 @@ sv:
         start:
           send: Skicka
           title: Starta en konversation
-        update:
-          error: Meddelandet har inte skickats. Försök igen senare
     metrics:
       download:
         csv: Hämta data (csv)

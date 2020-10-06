@@ -65,6 +65,7 @@ es-MX:
     errors:
       general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
+      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -354,6 +355,8 @@ es-MX:
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Habilitar permisos de recursos
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
@@ -888,6 +891,10 @@ es-MX:
           show: Mostrar la conversación con %{sender}
         create:
           error: Conversación no iniciada. Inténtalo más tarde
+        error_modal:
+          close: Cerrar modal
+          correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
+          intro: 'Se han producido los siguientes errores en tu mensaje:'
         index:
           ago: anteriores
           close: Cerrar modal
@@ -910,8 +917,6 @@ es-MX:
         start:
           send: Enviar
           title: Iniciar una conversación
-        update:
-          error: Mensaje no enviado. Inténtalo más tarde
     metrics:
       download:
         csv: Descargar datos (csv)

@@ -103,7 +103,6 @@ ro:
             up: Sus
           update:
             invalid: A apărut o eroare la salvarea formularului.
-            success: Formulare salvate cu succes.
       errors:
         answer:
           body: Corpul nu poate fi gol

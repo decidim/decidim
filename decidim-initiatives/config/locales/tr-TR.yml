@@ -378,13 +378,9 @@ tr:
           any_vote_method: Bu vatandaş girişimi, yüz yüze olduğu kadar çevrimiçi destek toplar.
           follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
           offline_method: Bu vatandaş girişimi sadece yüz yüze destekleri toplar.
-        signature_identities:
-          select_identity: Kullanıcı tanımlayıcıyı seç
         signatures_count:
           one: " imza"
           other: " imzalar"
-        supports:
-          title: İmzaların listesi
         vote_cabin:
           already_voted: Zaten imzalanmış
           supports_required: "%{total_supports} imza gerekli"

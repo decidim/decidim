@@ -440,13 +440,9 @@ nl:
           any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
           offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
-        signature_identities:
-          select_identity: Selecteer gebruikers-ID
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"
-        supports:
-          title: Lijst van handtekeningen
         vote_cabin:
           already_voted: Al getekend
           supports_required: "%{total_supports} handtekeningen vereist"

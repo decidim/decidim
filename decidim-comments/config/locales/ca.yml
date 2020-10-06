@@ -20,6 +20,7 @@ ca:
       comments_count: Número de comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
+      view: Mostrar
       votes:
         create:
           error: S'ha produït un error en votar el comentari.

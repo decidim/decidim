@@ -447,7 +447,6 @@ ro:
           buttons:
             check: Verificați și continuați
             close_modal: Închide fereastra
-            uncheck: Mențineți debifarea
           notice: |-
             <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
             Te rugăm să bifezi din nou căsuța de selectare a buletinului informativ de mai jos.<br>
@@ -923,8 +922,6 @@ ro:
         start:
           send: Trimite
           title: Începe o conversație
-        update:
-          error: Mesajul nu a fost trimis. Încercați din nou mai târziu
     metrics:
       download:
         csv: Descarcă date (csv)

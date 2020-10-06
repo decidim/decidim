@@ -433,14 +433,10 @@ lv:
           any_vote_method: Šī pilsoņu iniciatīva vāc gan tiešsaistes, gan klātienes parakstus.
           follow_description: Saņemiet paziņojumu, kad ir jaunumi par šo iniciatīvu
           offline_method: Šī pilsoņu iniciatīva vāc tikai klātienes parakstus.
-        signature_identities:
-          select_identity: Izvēlieties dalībnieku identifikatoru
         signatures_count:
           zero: "paraksti"
           one: "paraksts"
           other: "paraksti"
-        supports:
-          title: Parakstu uzskaite
         vote_cabin:
           already_voted: Jau parakstīta
           supports_required: "Nepieciešami %{total_supports} paraksti"

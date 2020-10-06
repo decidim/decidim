@@ -441,7 +441,7 @@ nl:
           buttons:
             check: Controleer en ga door
             close_modal: Sluit venster
-            uncheck: Blijf uitgeschakeld
+            uncheck: Uitgeschakeld houden
           notice: |-
             <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
             Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
@@ -890,6 +890,11 @@ nl:
           show: Toon gesprek met %{sender}
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
+        error_modal:
+          close: Sluit venster
+          correct_errors: Corrigeer de fouten en probeer opnieuw.
+          intro: 'Er waren de volgende fouten met je bericht:'
+          ok: OK
         index:
           ago: geleden
           close: Sluit venster
@@ -913,7 +918,7 @@ nl:
           send: Verzenden
           title: Een gesprek beginnen
         update:
-          error: Bericht niet verzonden. Probeer het later nogmaals
+          error: Bericht is niet verzonden vanwege een fout
     metrics:
       download:
         csv: Gegevens downloaden (csv)

@@ -108,7 +108,7 @@ ca:
         budget:
           fields:
             name: Nom
-            projects_count: Numero de projectes
+            projects_count: Número de projectes
             total_budget: Pressupost total
         project:
           fields:
@@ -117,7 +117,7 @@ ca:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
           subject: Has votat a l'espai de participació %{space_name}
-          voted_on_space: Has votat al pressupost %{budget_name} en el espacio de participación %{space_name}.
+          voted_on_space: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name}.
           voted_on_space_with_scope: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
@@ -202,7 +202,7 @@ ca:
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             total_budget: Pressupost total
-            vote_minimum_budget_projects_number: Nombre màxim de projectes a votar
+            vote_minimum_budget_projects_number: Número màxim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot

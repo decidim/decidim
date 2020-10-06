@@ -261,7 +261,7 @@ FactoryBot.define do
     organization { build(:organization) }
 
     trait :default do
-      slug { (Decidim::StaticPage::DEFAULT_PAGES - ["terms-and-conditions"]).sample }
+      slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
 
     trait :tos do
