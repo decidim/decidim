@@ -18,7 +18,7 @@ describe "I18n sanity" do
     i18n = I18n::Tasks::BaseTask.new(locales: "no")
     forest = i18n.data_forest(["no"])
     stats = i18n.forest_stats(forest)
-    expect(stats[:locales]).to eq(["no"])
+    expect(stats[:locales]).to eq("no")
   end
 
   it "does not have missing keys" do
