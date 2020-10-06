@@ -49,7 +49,6 @@ sk:
             up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
-            success: Formulár úspešne uložený.
       errors:
         answer:
           body: Telo nemôže byť prázdne

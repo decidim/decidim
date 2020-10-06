@@ -44,7 +44,7 @@
                         {
                           disabled: !@form.signature_type_updatable?,
                           "data-scope-selector": "initiative_decidim_scope_id",
-                          "data-scope-id": form.object.decidim_scope_id,
+                          "data-scope-id": form.object.decidim_scope_id.to_s,
                           "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
                           "data-signature-types-selector": "initiative_signature_type",
                           "data-signature-type": current_initiative.signature_type,
@@ -96,7 +96,10 @@
     <% if current_initiative.accepts_offline_votes? && current_user.admin? %>
       <div class="row">
         <div class="columns xlarge-6">
-          <%= form.number_field :offline_votes, min: 1 %>
+          <% @form.offline_votes.each do |scope_id, (votes, scope_name)| %>
+            <%= label_tag "initiative_offline_votes_#{scope_id}", t("activemodel.attributes.initiative.offline_votes_for_scope", scope_name: translated_attribute(scope_name)) %>
+            <%= number_field_tag "initiative[offline_votes][#{scope_id}]", votes, min: 0, id: "initiative_offline_votes_#{scope_id}" %>
+          <% end %>
         </div>
       </div>
     <% end %>

@@ -7,11 +7,8 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # current_user - The current user.
-      def initialize(form, current_user)
+      def initialize(form)
         @form = form
-        @initiative = form.initiative
-        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -23,41 +20,45 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        build_initiative_vote
-        set_vote_timestamp
+        percentage_before = initiative.percentage
 
-        percentage_before = @initiative.percentage
-        vote.save!
+        Initiative.transaction do
+          create_votes
+        end
+
+        percentage_after = initiative.reload.percentage
+
         send_notification
-        percentage_after = @initiative.reload.percentage
-
         notify_percentage_change(percentage_before, percentage_after)
         notify_support_threshold_reached(percentage_before, percentage_after)
 
-        broadcast(:ok, vote)
+        broadcast(:ok, votes)
       end
 
-      attr_reader :vote
+      attr_reader :votes
 
       private
 
-      attr_reader :form, :current_user
+      attr_reader :form
 
-      def build_initiative_vote
-        @vote = @initiative.votes.build(
-          author: @current_user,
-          decidim_user_group_id: form.group_id,
-          encrypted_metadata: form.encrypted_metadata,
-          hash_id: form.hash_id
-        )
+      delegate :initiative, to: :form
+
+      def create_votes
+        @votes = form.authorized_scopes.map do |scope|
+          initiative.votes.create!(
+            author: form.signer,
+            encrypted_metadata: form.encrypted_metadata,
+            timestamp: timestamp,
+            hash_id: form.hash_id,
+            scope: scope
+          )
+        end
       end
 
-      def set_vote_timestamp
+      def timestamp
         return unless timestamp_service
 
-        @vote.assign_attributes(
-          timestamp: timestamp_service.new(document: vote.encrypted_metadata).timestamp
-        )
+        @timestamp ||= timestamp_service.new(document: form.encrypted_metadata).timestamp
       end
 
       def timestamp_service
@@ -65,13 +66,11 @@ module Decidim
       end
 
       def send_notification
-        return if vote.user_group.present?
-
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.initiative_endorsed",
           event_class: Decidim::Initiatives::EndorseInitiativeEvent,
-          resource: @initiative,
-          followers: @initiative.author.followers
+          resource: initiative,
+          followers: initiative.author.followers
         )
       end
 
@@ -85,9 +84,9 @@ module Decidim
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.milestone_completed",
           event_class: Decidim::Initiatives::MilestoneCompletedEvent,
-          resource: @initiative,
-          affected_users: [@initiative.author],
-          followers: @initiative.followers - [@initiative.author],
+          resource: initiative,
+          affected_users: [initiative.author],
+          followers: initiative.followers - [initiative.author],
           extra: {
             percentage: percentage
           }
@@ -101,13 +100,13 @@ module Decidim
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.support_threshold_reached",
           event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
-          resource: @initiative,
+          resource: initiative,
           followers: organization_admins
         )
       end
 
       def organization_admins
-        Decidim::User.where(organization: @initiative.organization, admin: true)
+        Decidim::User.where(organization: initiative.organization, admin: true)
       end
     end
   end

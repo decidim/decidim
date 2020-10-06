@@ -3,7 +3,7 @@ ca:
     attributes:
       debate:
         category_id: Categoria
-        closed_at: Tancant el
+        closed_at: Tancat el
         conclusions: Conclusions
         decidim_category_id: Categoria
         description: Descripció
@@ -28,16 +28,21 @@ ca:
       debates:
         actions:
           create: Crear
+          endorse: Adherir-se
         name: Debats
         settings:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Creació de debats per part de les participants habilitada
+            endorsements_blocked: Adhesions bloquejades
+            endorsements_enabled: Adhesions habilitades
     debates:
       actions:
         close: Tanca
@@ -50,7 +55,7 @@ ca:
         debate_closes:
           edit:
             close: Tanca
-            title: Tanca el debat
+            title: Tancar el debat
         debates:
           create:
             invalid: S'ha produït un error en crear el debat.
@@ -76,14 +81,16 @@ ca:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+      debate_m:
+        commented_time_ago: Comentat fa %{time}
       debates:
         close:
-          invalid: S'ha produït un error al tancar el debat.
+          invalid: S'ha produït un error en tancar el debat.
           success: Debat tancat correctament.
         close_debate_modal:
           close: Tanca
-          description: Quin són el resum o conclusions d'aquest debat?
-          send: Tanca el debat
+          description: Quin és el resum o conclusions d'aquest debat?
+          send: Tancar el debat
         closed: Tancat
         count:
           debates_count:
@@ -99,13 +106,22 @@ ca:
           save: Guardar canvis
           title: Editar debat
         filters:
+          activity: La meva activitat
           all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
           citizens: Ciutadania
+          commented: Comentat
+          my_debates: Els meus debats
           official: Oficial
           origin: Origen
+          scope: Àmbit
           search: Cerca
+          state: Estat
+          state_values:
+            closed: Tancat
+            open: Obert
+          user_groups: Grups
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -119,17 +135,27 @@ ca:
           back: Torna
           create: Crear
           title: Nou debat
+        orders:
+          commented: Més comentats
+          label: Ordenar debats per
+          random: Ordre aleatori
+          recent: Més recents
+          updated: Recentment actualitzats
         show:
           back: Torna al llistat
-          close_debate: Tanca el debat
+          close_debate: Tancar el debat
           date: Data
           debate_closed: Tancat
           debate_conclusions_are: 'El debat es va tancar el %{date} amb aquestes conclusions:'
-          edit_conclusions: Edita les conclusions
+          edit_conclusions: Editar conclusions
           edit_debate: Editar debat
+          groups_count: Grups
+          last_comment_by: Darrer comentari de
+          no_comments_yet: Encara no hi ha comentaris
+          participants_count: Participants
         update:
           invalid: S'ha produït un error en actualitzar aquest debat.
-          success: Debate actualizado correctament.
+          success: Debat actualitzat correctament.
         versions:
           debates:
             back_to_resource: Tornar al debat

@@ -475,6 +475,7 @@ es:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
           login_as: Has iniciado sesión como %{name} <%{email}>
+          no_registrations: No hay inscripciones
           register: Inscribirse
           title: Tipos de inscripción
       shared:
@@ -530,7 +531,7 @@ es:
           notification_title: Se han habilitado las inscripciones a la conferencia <a href="%{resource_path}">%{resource_title}</a>.
         role_assigned:
           email_intro: Te han asignado el rol de %{role} en la jornada "%{resource_title}".
-          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en la jornada "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la jornada "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
           notification_title: Se te ha asignado el rol de %{role} en la jornada <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:

@@ -16,6 +16,35 @@ Legacy names for stable branches will be kept for a while but won't be created a
 The plan is to keep new and old nomenclatures until the release of v0.25, so they will coexist until that release.
 When releasing v0.25 all stable branches with the nomenclature `x.y-stable` will be removed.
 
+- **Maps**
+
+Maps functionality is now fully configurable. It defaults to HERE Maps as you'd expect when upgrading from an older version and it works still fine with your legacy style geocoder configuration after the update. This is, however, deprecated and it is highly recommended to define your maps configuration with the new style:
+
+```ruby
+# Before:
+Decidim.configure do |config|
+  config.geocoder = {
+    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+    here_api_key: Rails.application.secrets.geocoder[:here_api_key],
+    timeout: 5,
+    units: :km
+  }
+end
+
+# After (remember to also update your secrets):
+Decidim.configure do |config|
+  config.maps = {
+    provider: :here,
+    api_key: Rails.application.secrets.maps[:api_key],
+    static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  }
+  config.geocoder = {
+    timeout: 5,
+    units: :km
+  }
+end
+```
+
 - **Debates and Comments are now in global search**
 
 Debates and Comments have been added to the global search and need to be

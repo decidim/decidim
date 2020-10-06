@@ -458,7 +458,7 @@ cs:
           buttons:
             check: Zkontrolujte a pokračujte
             close_modal: Zavřít okno
-            uncheck: Zrušit zaškrtnutí
+            uncheck: Ponechat nezaškrtnuté
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
@@ -913,6 +913,11 @@ cs:
           show: Zobrazit konverzaci s %{sender}
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
+        error_modal:
+          close: Zavřít okno
+          correct_errors: Opravte chyby a zkuste to znovu.
+          intro: 'Došlo k následujícím chybám ve vaší zprávě:'
+          ok: OK
         index:
           ago: před
           close: Zavřít okno
@@ -936,7 +941,7 @@ cs:
           send: Poslat
           title: Spusťte konverzaci
         update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
+          error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
         csv: Stáhnout data (csv)
@@ -1081,7 +1086,6 @@ cs:
           error: Při přijímání smluvních podmínek došlo k chybě.
           success: Skvělý! Souhlasíte s podmínkami.
         form:
-          agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.

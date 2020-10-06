@@ -1,0 +1,11 @@
+/* eslint-disable no-var, prefer-template */
+(function () {
+  var $preview = $(".choose-template-preview");
+  var $templateName = $(".template-name");
+  var $templateDescription = $(".template-description");
+
+  $templateName.html("<%= translated_attribute @template.name %>");
+  $templateDescription.html("<%= translated_attribute @template.description %>");
+
+  $preview.html("<%= j(render partial: "preview", locals: { questionnaire: @questionnaire }) %>");
+}());

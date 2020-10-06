@@ -1,4 +1,5 @@
 <% question = form.object %>
+<% is_expanded = question.errors.any? %>
 
 <div class="card questionnaire-question" id="<%= id %>-field">
   <div class="card-divider question-divider">
@@ -11,11 +12,11 @@
     </span>
 
     <button type="button" class="button small secondary button--title question--collapse" data-toggle="<%= id %>-question-card button--collapse-question-<%= id %> button--expand-question-<%= id %>">
-      <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse hide">
+      <span id="button--collapse-question-<%= id %>" data-toggler=".hide" class="icon-collapse <%= "hide" unless is_expanded %>">
         <%== icon("caret-top", aria_label: t(".collapse"), role: "img") %>
       </span>
 
-      <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand">
+      <span id="button--expand-question-<%= id %>" data-toggler=".hide" class="icon-expand <%= "hide" if is_expanded %>">
         <%== icon("caret-bottom", aria_label: t(".expand"), role: "img") %>
       </span>
     </button>
@@ -36,7 +37,7 @@
     </h2>
   </div>
 
-  <div class="card-section collapsible hide" data-toggler=".hide" id="<%= id %>-question-card">
+  <div class="card-section collapsible <%= "hide" unless is_expanded %>" data-toggler=".hide" id="<%= id %>-question-card">
     <div class="row column">
       <%=
         form.translated(

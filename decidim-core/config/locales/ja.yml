@@ -61,6 +61,7 @@ ja:
     errors:
       general: 画像処理中にエラー
       image_too_big: 画像が大きすぎます
+      not_inside_organization: ファイルはどの組織にも添付されていません
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -338,20 +339,22 @@ ja:
         name: ダミーコンポーネント
         settings:
           global:
-            amendments_enabled: 修正は有効になっています
-            comments_enabled: コメントは有効です
+            amendments_enabled: 修正を有効にする
+            comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長
             dummy_global_attribute_1: ダミーステータス１
             dummy_global_attribute_2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
             enable_pads_creation: パッドの作成を有効にする
-            resources_permissions_enabled: リソースの権限が有効です
+            resources_permissions_enabled: リソースの権限を有効にする
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
           step:
             amendment_creation_enabled: 修正の作成は有効です
-            amendment_promotion_enabled: 修正プロモーションが有効になっています
+            amendment_promotion_enabled: プロモーションの修正を有効にする
             amendment_reaction_enabled: 修正反応は有効です
             amendments_visibility: 修正の表示
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
             dummy_step_attribute_1: ダミーステップ属性１
             dummy_step_attribute_2: ダミーステップ属性2
             dummy_step_translatable_text: ダミーステップ翻訳可能なテキスト
@@ -376,7 +379,7 @@ ja:
         title: 最後のアクティビティ
         view_all: すべて表示
       metrics:
-        name: 組織のメトリック
+        name: 組織の指標
       stats:
         name: 組織の統計
       sub_hero:
@@ -400,17 +403,17 @@ ja:
           email_already_exists: 別のアカウントは同じメールアドレスを使用しています
         new:
           complete_profile: プロファイルを完了
-          nickname_help: '%{organization} のエイリアス'
+          nickname_help: '%{organization} での別名'
           sign_up: プロフィールを完成してください
           subtitle: サインアップを完了するには、次のフォームに記入してください
-          username_help: 投稿に表示される公名。匿名性を保証する目的で、任意の名前にすることができます。
+          username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       registrations:
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連情報を含む時折ニュースレターを受け取る
-          newsletter_title: 連絡先の権限
-          nickname_help: '%{organization} のエイリアス'
-          password_help: "%{minimun_characters} 文字以上は一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
+          newsletter_title: 連絡の許可
+          nickname_help: '%{organization} での別名'
+          password_help: "%{minimun_characters} 文字以上。一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
           sign_in: ログイン
           sign_up: 新規登録
           sign_up_as:
@@ -419,7 +422,7 @@ ja:
           terms: 利用規約や
           tos_agreement: サインアップすることで、 %{link} に同意したことになります。
           tos_title: 利用規約
-          username_help: 投稿に表示される公名。匿名性を保証する目的で、任意の名前にすることができます。
+          username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
       sessions:
         new:
           are_you_new?: プラットフォームは初めてですか？
@@ -431,7 +434,7 @@ ja:
           buttons:
             check: 確認して続ける
             close_modal: モーダルを閉じる
-            uncheck: チェックを外し続ける
+            uncheck: チェックを外してください
           notice: |-
             <p>本当にニュースレターを購読しなくて良いですか？<br>
             ニュースレターのチェックボックスを是非オンにしてください。<br>
@@ -462,7 +465,7 @@ ja:
       endorsements_count: 支持数
     endorsement_buttons_cell:
       already_endorsed: 承認済み
-      endorse: 承認する
+      endorse: 支持する
     endorsements:
       identities:
         done: 完了
@@ -628,7 +631,7 @@ ja:
       check: 指紋を確認
       explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
-      replicate_help: この指紋はSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
+      replicate_help: このフィンガープリントはSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
       source: ソース
       title: フィンガープリント
       value: 値
@@ -642,7 +645,7 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
-        participatory_space: 既に<span class="show-for-sr">%{resource_name}</span>をフォローしています
+        participatory_space: フォロー済:<span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -879,6 +882,11 @@ ja:
           show: '%{sender} との会話を表示'
         create:
           error: 会話が開始されませんでした。後でもう一度お試しください。
+        error_modal:
+          close: ウィンドウを閉じる
+          correct_errors: エラーを修正して、再度お試しください
+          intro: 'あなたのメッセージには次のエラーがありました:'
+          ok: OK
         index:
           ago: 前
           close: モーダルを閉じる
@@ -902,7 +910,7 @@ ja:
           send: 送信
           title: 会話を開始
         update:
-          error: メッセージが送信されませんでした。後でもう一度お試しください。
+          error: エラーのためメッセージは送信されませんでした
     metrics:
       download:
         csv: ダウンロードデータ (csv)
@@ -1003,14 +1011,14 @@ ja:
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
-          footer_sub_hero_body: より開かれた透明で協働的な社会を作りましょう。<br /> 参加し、決断しましょう。
+          footer_sub_hero_body: より開かれた透明で協働的な社会を作りましょう。<br /> 参加し、決定しましょう。
           footer_sub_hero_headline: '%{organization} 参加型プラットフォームへようこそ。'
           register: 登録
         hero:
           participate: 参加
           welcome: '%{organization} へようこそ！'
         metrics:
-          headline: メトリック
+          headline: 指標
         statistics:
           answers_count: 完了した調査
           assemblies_count: 参加スペース
@@ -1040,14 +1048,13 @@ ja:
         topics: トピック
       participatory_space:
         metrics:
-          headline: メトリック
-          link: すべてのメトリックを表示
+          headline: 指標
+          link: すべての指標を表示
       terms_and_conditions:
         accept:
           error: 利用規約を受け入れる際に問題が発生しました。
           success: 素晴らしい! あなたは利用規約に同意しました。
         form:
-          agreement: この条件に同意します
           legend: 利用規約に同意する
         refuse:
           modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
@@ -1153,6 +1160,10 @@ ja:
         results:
           other: "%{count} 件の結果"
         view_all: すべて表示 (%{count})
+    security:
+      selfxss_warning:
+        description: このブラウザー機能は開発者向けのもので、もし要求されてもこの中身をどこにも公開しないでください。 この中身が漏れると、あなたのプライバシーが侵害され、ハッカーがあなたのアカウントにアクセスできるようになります。
+        title: 停止
     shared:
       confirm_modal:
         cancel: キャンセル
@@ -1379,7 +1390,7 @@ ja:
         change_your_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
-        password_help: "%{minimun_characters} 文字以上は一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
+        password_help: "%{minimun_characters} 文字以上。一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
@@ -1474,7 +1485,7 @@ ja:
         cc_by_license: クリエイティブコモンズライセンス
         decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
-        made_with_open_source: <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られたウェブサイト。
+        made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
       header:
         close_menu: メニューを閉じる
         navigation: Navigation
@@ -1516,6 +1527,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
+    name_with_error: 英語 (エラー!)
   password_validator:
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
