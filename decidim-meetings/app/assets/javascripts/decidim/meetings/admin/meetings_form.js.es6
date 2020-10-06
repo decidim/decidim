@@ -98,9 +98,8 @@
     attachGeocoding($form.find("#meeting_address"));
 
     const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
-    const $meetingAddress = $form.find("#address");
-    const $meetingLocation = $form.find("#location");
-    const $meetingOnlineMeetingUrl = $form.find("#meeting_online_meeting_url")
+    const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -112,13 +111,11 @@
 
     $meetingTypeOfMeeting.on("change", (ev) => {
       const $target = $(ev.target);
-      toggleDependsOnSelect($target, $meetingAddress, "in_person");
-      toggleDependsOnSelect($target, $meetingLocation, "in_person");
-      toggleDependsOnSelect($target, $meetingOnlineMeetingUrl, "online");
+      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
+      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
     });
 
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingAddress, "in_person");
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingLocation, "in_person");
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineMeetingUrl, "online");
+    toggleDependsOnSelect($target, $meetingOnlineFields, "online");
+    toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
   }
 })(window);
