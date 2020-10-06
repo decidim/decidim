@@ -32,7 +32,7 @@ module Decidim
           initiative ? "/initiatives/#{initiative.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { initiative_id: /[0-9]+/ }
 
-        resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
+        resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
           resources :initiative_signatures
 
           member do

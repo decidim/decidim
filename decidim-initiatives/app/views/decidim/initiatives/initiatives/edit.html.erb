@@ -1,0 +1,69 @@
+<%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".update"), class: "button" if allowed_to? :update, :initiative, initiative: current_initiative %>
+
+    <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
+      <%= link_to t("send_to_technical_validation", scope: "decidim.initiatives.edit"),
+                  send_to_technical_validation_initiative_path(current_initiative),
+                  class: "button muted",
+                  data: { confirm: t(".confirm") } %>
+    <% elsif current_initiative.created? %>
+      <%= link_to t("send_to_technical_validation", scope: "decidim.initiatives.edit"), "#", class: "button muted disabled" %>
+    <% end %>
+
+    <% if allowed_to? :publish, :initiative, initiative: current_initiative %>
+      <%= link_to t("actions.publish", scope: "decidim.admin"),
+                  publish_initiative_path(current_initiative),
+                  method: :post,
+                  class: "button hollow",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :unpublish, :initiative, initiative: current_initiative %>
+      <%= link_to t("actions.unpublish", scope: "decidim.admin"),
+                  unpublish_initiative_path(current_initiative),
+                  method: :delete,
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :accept, :initiative, initiative: current_initiative %>
+        <%= link_to t(".accept"),
+                    accept_initiative_path(current_initiative),
+                    method: :post,
+                    class: "button hollow",
+                    data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :reject, :initiative, initiative: current_initiative %>
+        <%= link_to t(".reject"),
+                    reject_initiative_path(current_initiative),
+                    method: :delete,
+                    class: "button alert",
+                    data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :discard, :initiative, initiative: current_initiative %>
+      <%= link_to t(".discard"),
+                  discard_initiative_path(current_initiative),
+                  method: :delete,
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :export_votes, :initiative, initiative: current_initiative %>
+      <%= link_to t(".export_votes"),
+                  export_votes_initiative_path(current_initiative, format: :csv),
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
+      <%= link_to t(".export_pdf_signatures"),
+                  export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+   </div>
+<% end %>

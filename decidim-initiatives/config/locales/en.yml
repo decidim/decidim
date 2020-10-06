@@ -357,6 +357,16 @@ en:
           compare_help: If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.
           continue: My initiative is different
           more_information: "(More information)"
+      edit:
+        accept: Accept initiative
+        confirm: Are you sure?
+        discard: Discard the initiative
+        export_pdf_signatures: Export PDF of signatures
+        export_votes: Export signatures
+        reject: Reject initiative
+        send_to_technical_validation: Send to technical validation
+        success: The initiative has been sent to technical validation
+        update: Update
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
@@ -368,6 +378,10 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        attachments: Attachments
+        settings: Settings
+        title: General information
       index:
         title: Initiatives
       initiative_signatures:
