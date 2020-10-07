@@ -3,6 +3,8 @@ cs:
     attributes:
       answer:
         body: Odpovědět
+        choices: Možnosti
+        selected_choices: Vyberte možnosti
       question:
         max_choices: Maximální počet možností
         question_type: Typ
