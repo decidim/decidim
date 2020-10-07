@@ -436,7 +436,6 @@
           buttons:
             check: Sjekk og fortsett
             close_modal: Lukk modal
-            uncheck: Hold usjekket
           notice: |-
             <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
             Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
@@ -889,6 +888,10 @@
           show: Vis samtale med %{sender}
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
+        error_modal:
+          correct_errors: Vennligst korriger feilene og prøv på nytt.
+          intro: 'Det var følgende feil med din melding:'
+          ok: Ok
         index:
           ago: siden
           close: Lukk modal
@@ -911,7 +914,7 @@
           send: Send
           title: Start en samtale
         update:
-          error: Melding ikke sendt. Prøv igjen senere
+          error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
       download:
         csv: Last ned data (csv)
@@ -1035,7 +1038,6 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
-          agreement: Jeg er enig med disse vilkårene
           legend: Godta vilkårene for bruk
         refuse:
           modal_body: Hvis du nekter, vil du ikke kunne bruke platformen, du kan <a href="%{data_portability_path}"> laste ned dataen din</a> og/eller <a href="%{delete_path}">slette brukeren din</a>.

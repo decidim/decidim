@@ -475,6 +475,7 @@ fr:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
+          no_registrations: Pas d'inscriptions
           register: S'inscrire
           title: Types d'inscription
       shared:

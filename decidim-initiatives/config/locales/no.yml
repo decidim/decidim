@@ -427,13 +427,9 @@
           any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
           follow_description: Motta et varsel når det er nyheter i dette initiativet
           offline_method: Dette innbyggerinitiativet samler bare inn personlige underskrifter.
-        signature_identities:
-          select_identity: Velg deltaker identifikator
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
-        supports:
-          title: Liste over underskrifter
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"

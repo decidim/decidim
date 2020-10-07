@@ -65,6 +65,7 @@ de:
     errors:
       general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -441,7 +442,6 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
-            uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -912,8 +912,6 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
-        update:
-          error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
       download:
         csv: Daten herunterladen (csv)
@@ -1058,7 +1056,6 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
-          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.

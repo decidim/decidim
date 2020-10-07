@@ -192,7 +192,6 @@ it:
           close: Chiuso
           proposal_header: 'Proposte:'
         new:
-          answer_choices: Puoi selezionare fino a %{choices} risposte o nessuna risposta
           more_information: Altre informazioni
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}

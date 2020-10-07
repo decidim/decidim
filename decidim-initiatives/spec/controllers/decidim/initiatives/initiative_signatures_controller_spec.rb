@@ -38,24 +38,6 @@ module Decidim
           end
         end
 
-        context "and not authorized user" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
-
-          it "can't vote" do
-            sign_in user, scope: :user
-            post :create, params: { initiative_slug: initiative.slug, format: :js }
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:found)
-          end
-
-          it "do not register the vote" do
-            expect do
-              sign_in user, scope: :user
-              post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
-          end
-        end
-
         context "and Guest users" do
           it "receives unauthorized response" do
             post :create, params: { initiative_slug: initiative.slug, format: :js }
@@ -80,18 +62,6 @@ module Decidim
             get :show, params: { initiative_slug: initiative.slug, id: :fill_personal_data }
             expect(subject.helpers.current_initiative).to eq(initiative)
             expect(subject.helpers.extra_data_legal_information).to eq(initiative.scoped_type.type.extra_fields_legal_information)
-          end
-        end
-
-        context "and not Authorized user" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
-
-          it "can't get first step" do
-            sign_in user, scope: :user
-
-            get :show, params: { initiative_slug: initiative.slug, id: :fill_personal_data }
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:found)
           end
         end
       end

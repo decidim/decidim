@@ -4,6 +4,7 @@ module Decidim
   module Forms
     # The data store for a Questionnaire in the Decidim::Forms component.
     class Questionnaire < Forms::ApplicationRecord
+      include Decidim::Templates::Templatable if defined? Decidim::Templates
       include Decidim::Publicable
       include Decidim::TranslatableResource
 
@@ -23,6 +24,10 @@ module Decidim
       def answered_by?(user)
         query = user.is_a?(String) ? { session_token: user } : { user: user }
         answers.where(query).any? if questions.present?
+      end
+
+      def pristine?
+        created_at.to_i == updated_at.to_i && questions.empty?
       end
     end
   end

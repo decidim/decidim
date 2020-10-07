@@ -14,6 +14,7 @@ es-PY:
       question:
         description: Descripción
         max_selections: Número máximo de opciones
+        min_selections: Ninguna de las anteriores
         title: Título
     errors:
       models:
@@ -24,7 +25,7 @@ es-PY:
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
   activerecord:
     models:
       decidim/elections/answer:
@@ -72,6 +73,7 @@ es-PY:
             title: Editar las respuestas
             update: Actualizar respuesta
           index:
+            invalid_max_selections: Necesitas %{missing_answers} respuesta(s) más para coincidir con la selección máxima
             title: Respuestas
           new:
             create: Crear respuesta
@@ -90,6 +92,7 @@ es-PY:
             title: Editar la votación
             update: Actualizar la votación
           index:
+            no_bulletin_board: No hay ningún <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurado, el cual es necesario para utilizar este módulo. Esta tarea debe ser realizada por la persona administradora del sistema.
             title: Votaciones
           new:
             create: Crear una votación
@@ -140,7 +143,7 @@ es-PY:
           unpublish: "%{user_name} ha despublicado la votación %{resource_name}"
       election_m:
         badge_name:
-          finished: Acabada
+          finished: Finalizada
           ongoing: Activa
           upcoming: Próximas
         end_date: Termina
@@ -155,12 +158,12 @@ es-PY:
       elections:
         count:
           elections_count:
-            one: "%{count} elección"
-            other: "%{count} elecciones"
+            one: "%{count} votación"
+            other: "%{count} votaciones"
         filters:
-          active: Activa
+          active: Activas
           all: Todas
-          finished: Finalizada
+          finished: Finalizadas
           search: Buscar
           state: Estado
           upcoming: Próximas
@@ -170,7 +173,7 @@ es-PY:
           filter_by: Filtrar por
           unfold: Desplegar
         show:
-          back: Todas las elecciones
+          back: Todas las votaciones
           preview: Previsualizar
           vote: Votar
           voting_period_status:
@@ -193,7 +196,7 @@ es-PY:
             max_selections: Número máximo de elementos a seleccionar
             title: Título
       orders:
-        label: Ordenar elecciones por
+        label: Ordenar votaciones por
         older: Más antigua
         recent: Reciente
       votes:
@@ -204,9 +207,10 @@ es-PY:
           edit: editar
           header: Confirma tu voto
           intro: Aquí tienes un resumen del voto que estás a punto de emitir. <br> Por favor, confirma tu voto o edita tus respuestas.
+          nota_option: En blanco
           question: Preguntas %{count}
         confirmed:
-          back: Volver a las elecciones
+          back: Volver a las votaciones
           experience: '¿Cómo valoras la experiencia?'
           feedback: Danos tu opinión
           header: Voto confirmado
@@ -215,28 +219,29 @@ es-PY:
           verify_text: Para comprobarlo, copia el identificador y pégalo en la <a href="evote-verify">página de verificación de voto</a>
         encrypting:
           header: Codificando voto...
-          text: Tu voto está siendo cifrado para asegurarte que se emite de forma anónima.
+          text: Tu voto está siendo cifrado para asegurar que se emite de forma anónima.
         header:
           confirm: Confirma tu voto
           confirmed: Voto confirmado
-          encrypting: Confirmar voto
+          encrypting: Confirmando voto
         messages:
-          not_allowed: No puedes votar en estas elecciones en este momento.
+          not_allowed: En este momento no puedes votar en esta votación.
         modal:
           close: Cerrar
           proposal_header: 'Propuestas:'
         new:
-          answer_choices: Puedes seleccionar hasta %{choices} respuestas o ninguna
+          answer_choices: Puedes seleccionar hasta %{choices} respuestas
           more_information: Más información
+          nota_option: En blanco / Ninguna de las anteriores
           preview_alert: Esta es una vista previa de la cabina de votación.
           question_steps: Pregunta %{current_step} de %{total_steps}
-          selections: "Seleccionada %{selected} de %{max_selections}"
+          selections: "Seleccionada <br> %{selected} de %{max_selections}"
         voting_step:
           back: Atrás
-          continue: Siguente
+          continue: Siguiente
       warnings:
-        no_elections_warning: No hay ninguna elección que coincida con tu búsqueda o no hay ninguna programada.
-        no_scheduled_elections_warning: Actualmente no hay elecciones programados, pero puedes ver los anteriores.
+        no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
+        no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
     events:
       elections:
         election_published:

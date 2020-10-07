@@ -14,6 +14,7 @@ cs:
       question:
         description: Popis
         max_selections: Maximální počet výběrů
+        min_selections: Žádná z výše uvedených možností
         title: Název
     errors:
       models:
@@ -97,6 +98,7 @@ cs:
             title: Upravit volbu
             update: Aktualizovat volby
           index:
+            no_bulletin_board: Není nastaven žádný <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a>, který je potřebný pro použití tohoto modulu. Tento úkol by měl provést správce systému.
             title: Volby
           new:
             create: Vytvořit volbu
@@ -213,6 +215,7 @@ cs:
           edit: upravit
           header: Potvrďte svůj hlas
           intro: Zde je shrnutí hlasů, které se chystáte odeslat. <br> Prosím potvrďte svůj hlas nebo upravte své odpovědi.
+          nota_option: Prázdné
           question: Otázka %{count}
         confirmed:
           back: Zpět k volbám
@@ -235,8 +238,9 @@ cs:
           close: Zavřít
           proposal_header: 'Návrhy:'
         new:
-          answer_choices: Můžete vybrat až %{choices} odpovědí nebo žádnou
+          answer_choices: Můžete vybrat až %{choices} odpovědí
           more_information: Více informací
+          nota_option: Prázdná/Nic z výše uvedených
           preview_alert: To je náhled hlasovacího pultu.
           question_steps: Otázka %{current_step} z %{total_steps}
           selections: "%{selected} z %{max_selections}<br> výběrů"

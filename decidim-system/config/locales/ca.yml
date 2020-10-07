@@ -1,4 +1,29 @@
 ca:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nom de l'aplicació OAuth
+        organization_logo: Logo de l'organització (quadrat)
+        organization_name: Organització
+        organization_url: URL de l'organització
+        redirect_uri: URI de redirecció
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipus MIME del panell de administració
+          default: Tipus MIME per defecte
+        allowed_file_extensions:
+          admin: Extensions d'arxiu del panell d'administració
+          default: Extensions d'arxiu per defecte
+          image: Extensions d'arxiu d'imatge
+        maximum_file_size:
+          avatar: Mida d'imatge de l'avatar
+          default: Mida d'arxiu per defecte
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirecció ha de ser una URI SSL
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ ca:
       menu:
         admins: Administradores
         dashboard: Tauler d'administració
+        oauth_applications: Aplicacions OAuth
         organizations: Organitzacions
       models:
         admin:
@@ -41,21 +67,67 @@ ca:
           name: Administradora
           validations:
             email_uniqueness: ja existeix una altra administradora amb aquest correu electrònic
+        oauth_application:
+          fields:
+            created_at: Creat el
+            name: Nom de l'aplicació OAuth
+            organization_name: Organització
+          name: Aplicació OAuth
         organization:
           actions:
             save_and_invite: Crear organització i convidar l'administradora
           fields:
             created_at: Data de creació
+            file_upload_settings: Configuració de pujada d'arxius
             name: Nom
             omniauth_settings: Configuració de l'Omniauth
             smtp_settings: Configuració d'SMTP
           name: Organització
+      oauth_applications:
+        create:
+          error: S'ha produït un error en crear aquesta aplicació.
+          success: L'aplicació s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquesta aplicació.
+          success: S'ha eliminat l'aplicació correctament.
+        edit:
+          save: Guardar
+          title: Editar aplicació
+        form:
+          select_organization: Seleccionar una organització
+        index:
+          confirm_delete: Segur que vols eliminar aquesta aplicació?
+          title: Aplicacions OAuth
+        new:
+          save: Guardar
+          title: Nova aplicació
+        update:
+          error: S'ha produït un error en actualitzar aquesta aplicació.
+          success: S'ha actualitzat l'aplicació correctament.
       organizations:
         create:
           error: S'ha produït un error en crear una nova organització.
           success: L'organització s'ha creat correctament.
         edit:
           secondary_hosts_hint: Introdueix cada un d'ells en una nova línia
+        file_upload_settings:
+          content_types:
+            admin_hint: Aquests tipus MIME estan permesos per a pujar-se des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
+            default_hint: Aquests tipus MIME estan permesos per defecte per a totes les usuàries.
+            intro_html: Pots afegir comodins amb el caràcter asterisc per als tipus MIME, per exemple, <code>image/*</code>.
+            title: Tipus MIME permesos
+          file_extensions:
+            admin_hint: Aquestes extensions d'arxiu estan permeses per pujades des del panell d'administració. Les persones administradores han de ser conscients dels riscos en pujar alguns formats de documents, per la qual cosa cal esperar que siguin més cauteloses amb les pujades d'arxius.
+            default_hint: Aquestes extensions d'arxiu estan permeses per defecte per a totes les usuàries.
+            image_hint: Aquestes extensions d'arxiu estan permeses per a qualsevol pujada d'imatges.
+            title: Extensions d'arxiu permeses
+          file_sizes:
+            avatar_hint: Megabytes (MB). Aquest límit de mida d'arxiu s'utilitza per pujar imatges d'avatar.
+            default_hint: Megabytes (MB). Aquest límit de mida d'arxiu és el predeterminat que s'utilitza per a totes les pujades d'arxius tret que s'especifiqui el contrari.
+            title: Mida màxima d'arxius
+          intro: |
+            Si us plau, vés en compte en considerar canviar aquests ajustos. Com menys opcions permetis, millor.
+            Permetre extensions d'arxius específiques o tipus MIME pot exposar a les usuàries del sistema a riscos de seguretat i també pot afectar l'accessibilitat del lloc web.
         index:
           title: Organitzacions
         new:
@@ -82,9 +154,9 @@ ca:
             api_secret: Clau secreta de l'API
         smtp_settings:
           instructions:
-            from_label: 'L''adreça electrònica d''enviament serà: "el-nom-de-la-vostra-organització <la-vostra-organització@el-vostre-proveidor.org>". Deixeu-ho en blanc per a usar el "des de" com a etiqueta'
+            from_label: 'El remitent de correu electrònic serà: "la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar el ''from_email'' com a etiqueta'
           placeholder:
-            from_email: la-vostra-organitzacio@el-vostre-proveidor.org
+            from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
