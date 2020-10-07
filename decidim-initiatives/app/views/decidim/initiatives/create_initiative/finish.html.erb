@@ -28,7 +28,7 @@
                       class: "button success light expanded",
                       data: { confirm: t(".confirm") } %>
         <% end %>
-        <%= link_to t(".edit_my_initiative"), decidim_admin_initiatives.edit_initiative_path(current_initiative), class: "button expanded light secondary" %>
+        <%= link_to t(".edit_my_initiative"), edit_initiative_path(current_initiative), class: "button expanded light secondary" %>
         <%= link_to t(".go_to_my_initiatives"), decidim_admin_initiatives.initiatives_path, class: "button expanded" %>
         <%= link_to t(".back_to_initiatives"), initiatives_path, class: "button white-button expanded" %>
       </div>
