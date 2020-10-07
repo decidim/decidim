@@ -7,18 +7,18 @@ describe "Edit a page", type: :system do
   let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
   let(:manifest_name) { "pages" }
 
+  let(:body) do
+    {
+      "en" => "<p>Content</p>",
+      "ca" => "<p>Contingut</p>",
+      "es" => "<p>Contenido</p>"
+    }
+  end
+
   describe "admin page" do
     before do
       create(:page, component: component, body: body)
       visit_component_admin
-    end
-
-    let(:body) do
-      {
-        "en" => "<p>Content</p>",
-        "ca" => "<p>Contingut</p>",
-        "es" => "<p>Contenido</p>"
-      }
     end
 
     it "updates the page" do
