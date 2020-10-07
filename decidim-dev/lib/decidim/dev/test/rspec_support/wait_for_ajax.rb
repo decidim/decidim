@@ -4,9 +4,19 @@ module WaitForAjax
   # We should show the user that there's been an ajax call so the spinner should always be used.
   # Not using a spinner should have a justified reason.
   def wait_for_ajax(with_spinner: true)
-    Timeout.timeout(Capybara.default_max_wait_time) do
-      loop until finished_all_ajax_requests? && (with_spinner ? spinner_hidden? : true)
+    (Capybara.default_max_wait_time * 2).times do
+      sleep(0.5)
+      expect(ajax_finished?(with_spinner)).to be_truthy
+      break
+    rescue StandardError
+      # ignore and loop again if ajax has not finished
+      nil
     end
+    expect(ajax_finished?(with_spinner)).to be_truthy
+  end
+
+  def ajax_finished?(with_spinner)
+    finished_all_ajax_requests? && (with_spinner ? spinner_hidden? : true)
   end
 
   def finished_all_ajax_requests?
