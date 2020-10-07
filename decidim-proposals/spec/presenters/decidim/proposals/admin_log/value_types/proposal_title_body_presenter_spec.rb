@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter do
+  subject { described_class.new(value, _helpers) }
+
   let(:value) do
     {
       "en" => "My value",
@@ -10,8 +12,6 @@ describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter do
     }
   end
   let(:_helpers) { nil }
-
-  subject { described_class.new(value, _helpers) }
 
   describe "#present" do
     it "handles i18n fields" do
