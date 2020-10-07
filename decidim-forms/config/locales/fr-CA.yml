@@ -3,6 +3,8 @@ fr-CA:
     attributes:
       answer:
         body: Répondre
+        choices: Choix
+        selected_choices: Choix sélectionnés
       question:
         max_choices: Nombre maximum de choix
         question_type: Type
