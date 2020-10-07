@@ -54,7 +54,8 @@ module Decidim
         # if there's no user - trustee relation, the trustee gets created and the notification
         # gets send.
         def new_trustee?
-          @new_trustee ||= Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
+          return @new_trustee if defined?(@new_trustee)
+          @new_trustee = Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
         end
 
         def add_participatory_space
