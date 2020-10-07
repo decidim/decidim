@@ -4,6 +4,8 @@
 
 ### Added
 
+- **decidim-core**: Add support for Visual Code Remote Containers and GitHub Codespaces [\6638](https://github.com/decidim/decidim/pull/6638)
+
 ### Changed
 
 ### Fixed
