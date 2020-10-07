@@ -184,6 +184,10 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      def online_meeting?
+        online_meeting_url.present?
+      end
+
       private
 
       def can_participate_in_meeting?(user)

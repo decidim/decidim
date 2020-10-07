@@ -49,7 +49,6 @@ describe "User creates meeting", type: :system do
         let(:longitude) { 2.1234 }
         let!(:meeting_start_time) { Time.current + 2.days }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
-        let(:meeting_type_of_meeting) { "online" }
         let(:online_meeting_url) { "http://decidim.org" }
         let(:meeting_scope) { create :scope, organization: organization }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
@@ -79,6 +78,7 @@ describe "User creates meeting", type: :system do
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
             fill_in :meeting_description, with: meeting_description
+            select "In person", from: :meeting_type_of_meeting
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
@@ -86,8 +86,6 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
             select translated(category.name), from: :meeting_decidim_category_id
             scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
-            fill_in :meeting_online_meeting_url, with: meeting_online_meeting_url
-            fill_in :meeting_type_of_meeting, with: meeting_type_of_meeting
 
             find("*[type=submit]").click
           end
@@ -119,6 +117,7 @@ describe "User creates meeting", type: :system do
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
                 fill_in :meeting_description, with: meeting_description
+                select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
                 fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
@@ -141,11 +140,10 @@ describe "User creates meeting", type: :system do
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
               fill_in :meeting_description, with: meeting_description
+              select "In person", from: :meeting_type_of_meeting
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
-              fill_in :meeting_online_meeting_url, with: meeting_online_meeting_url
-              fill_in :meeting_type_of_meeting, with: meeting_type_of_meeting
               fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
               fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
               select translated(category.name), from: :meeting_decidim_category_id
