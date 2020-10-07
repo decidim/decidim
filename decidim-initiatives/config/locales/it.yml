@@ -5,6 +5,7 @@ it:
         decidim_user_group_id: Autore
         description: Descrizione
         offline_votes: Firme in presenza
+        offline_votes_for_scope: Firme in presenza per %{scope_name}
         scope_id: Ambito
         signature_end_date: Fine del periodo di raccolta delle firme
         signature_start_date: Fine del periodo di raccolta delle firme
@@ -109,6 +110,7 @@ it:
             initiative_title: Titolo dell'iniziativa
             name_and_surname: Nome e cognome
             postal_code: Codice postale
+            scope: Ambito
             time_and_date: Ora e data
             timestamp: timestamp
       titles:
@@ -246,6 +248,8 @@ it:
             destroy: Elimina
             update: Aggiornare
           form:
+            authorizations: Impostazioni di autorizzazione
+            options: Opzioni
             title: Informazione generale
           initiative_type_scopes:
             title: Ambiti per il tipo di iniziativa
