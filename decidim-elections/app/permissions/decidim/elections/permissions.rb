@@ -12,6 +12,9 @@ module Decidim
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Elections::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
 
+        # Delegate the trustee_zone permission checks to the trustee zone permissions class
+        return Decidim::Elections::TrusteeZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :trustee_zone
+
         return permission_action if permission_action.scope != :public
         return permission_action if permission_action.subject != :election
 
