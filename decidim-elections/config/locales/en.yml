@@ -232,6 +232,31 @@ en:
         label: Order elections by
         older: Older
         recent: Recent
+      trustee_zone:
+        menu:
+          trustee_zone: Trustee zone
+        trustee:
+          index:
+            elections:
+              list:
+                election: Election
+                status: Status
+                voting_period: Voting period
+              no_elections: There are no elections where you act as a Trustee.
+              title: Elections
+            identification_keys:
+              download_keys: Download your identification keys
+              download_keys_legend: Ensure you have a backup of your identification
+                keys. Download and store them in a safe place.
+              generate_keys: Generate keys
+              generate_keys_legend: You need to generate an identification pair of
+                keys to participate on elections as a Trustee.
+              title: Trustee identification keys
+              upload_keys: Upload your identification keys
+              upload_keys_legend: You need to import your keys to your computer from
+                a backup to act as a Trustee.
+            trustee_role_description: You have been assigned to act as a Trustee in
+              the some of the elections celebrated in this platform.
       votes:
         confirm:
           answer: Answer

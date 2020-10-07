@@ -1,0 +1,11 @@
+#download_identification_keys {
+  display: none;
+}
+
+#download_identification_keys.visible {
+  display: inherit;
+
+  & + #upload_identification_keys {
+    display: none;
+  }
+}

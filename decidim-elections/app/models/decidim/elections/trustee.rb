@@ -13,6 +13,10 @@ module Decidim
       def self.trustee?(user)
         exists?(user: user)
       end
+
+      def self.for(user)
+        find_by(user: user)
+      end
     end
   end
 end

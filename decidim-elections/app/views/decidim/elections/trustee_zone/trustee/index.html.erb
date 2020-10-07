@@ -1,0 +1,53 @@
+<%= stylesheet_link_tag "decidim/elections/trustee_zone", media: "all" %>
+
+<div class="callout success">
+  <p><%= t(".trustee_role_description") %></p>
+</div>
+
+<h2><%= t(".identification_keys.title") %></h2>
+<% if trustee.public_key.blank? %>
+  <p><%= t(".identification_keys.generate_keys_legend") %></p>
+  <button class="button" type="button">
+    <%= icon "key", role: "img" %> <%= t(".identification_keys.generate_keys") %>
+  </button>
+<% else %>
+  <div id="download_identification_keys" data-public-key="<%= trustee.public_key %>">
+    <p><%= t(".identification_keys.download_keys_legend") %></p>
+    <button class="button" type="button">
+      <%= icon "data-transfer-download", role: "img" %> <%= t(".identification_keys.download_keys") %>
+    </button>
+  </div>
+  <div id="upload_identification_keys" >
+    <p><%= t(".identification_keys.upload_keys_legend") %></p>
+    <button class="button" type="button">
+      <%= icon "data-transfer-upload", role: "img" %> <%= t(".identification_keys.upload_keys") %>
+    </button>
+  </div>
+
+  <h2><%= t(".elections.title") %></h2>
+  <% if trustee.elections.any? %>
+    <div class="table-scroll">
+      <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t(".elections.list.election") %></th>
+          <th><%= t(".elections.list.status") %></th>
+          <th><%= t(".elections.list.voting_period") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trustee.elections.each do |election| %>
+          <tr>
+            <td><%= present(election).title %></td>
+            <td><%= election.voting_period_status %></td>
+            <td><%= l(election.start_time, format: :decidim_short)%> - <%= l(election.end_time, format: :decidim_short)%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="callout warning">
+      <%= t(".elections.no_elections") %>
+    </div>
+  <% end %>
+<% end %>
