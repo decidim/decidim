@@ -1,4 +1,5 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
  * A plain Javascript component that handles the form filter.
