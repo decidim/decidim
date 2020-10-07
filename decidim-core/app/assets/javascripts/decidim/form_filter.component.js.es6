@@ -47,7 +47,7 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        if(this.$form.find(".spinner-container").length == 0){
+        if (this.$form.find(".spinner-container").length === 0) {
           this.$form.append('<div class="spinner-container hide"><span class="loading-spinner full-screen-spinner"></span></div>');
         }
 
@@ -62,11 +62,11 @@
           this.$form.find(".spinner-container").removeClass("hide");
         });
 
-        this.$form.on("ajax:success", (e) => {
+        this.$form.on("ajax:success", () => {
           this.$form.find(".spinner-container").addClass("hide");
         });
 
-        this.$form.on("ajax:error", (e) => {
+        this.$form.on("ajax:error", () => {
           this.$form.find(".spinner-container").addClass("hide");
         });
 
