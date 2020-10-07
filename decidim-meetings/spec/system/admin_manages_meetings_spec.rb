@@ -269,6 +269,28 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
+  context "when online meetings are enabled" do
+    before do
+      component.update!(settings: { allow_online_meetings: true, creation_enabled_for_participants: true })
+    end
+
+    it "lets the user choose the meeting type" do
+      find(".card-title a.button").click
+
+      within ".new_meeting" do
+        select "In person", from: :meeting_type_of_meeting
+        expect(page).to have_field("Address")
+        expect(page).to have_field(:meeting_location_en)
+        expect(page).to have_no_field("Online meeting URL")
+
+        select "Online", from: :meeting_type_of_meeting
+        expect(page).to have_no_field("Address")
+        expect(page).to have_no_field(:meeting_location_en)
+        expect(page).to have_field("Online meeting URL")
+      end
+    end
+  end
+
   describe "duplicating a meeting" do
     it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
