@@ -7,7 +7,7 @@ module Decidim
     describe UnvoteInitiative do
       describe "User unvotes initiative" do
         let(:vote) { create(:initiative_user_vote) }
-        let(:command) { described_class.new(vote.initiative, vote.author, nil) }
+        let(:command) { described_class.new(vote.initiative, vote.author) }
 
         it "broadcasts ok" do
           expect(vote).to be_valid
@@ -21,39 +21,13 @@ module Decidim
           end.to change(InitiativesVote, :count).by(-1)
         end
 
-        it "Decreases the vote counter by one" do
+        it "decreases the vote counter by one" do
           initiative = vote.initiative
           expect(InitiativesVote.count).to eq(1)
           expect do
             command.call
             initiative.reload
-          end.to change { initiative.initiative_votes_count }.by(-1)
-        end
-      end
-
-      describe "Organization supports initiative" do
-        let(:vote) { create(:organization_user_vote) }
-        let(:command) { described_class.new(vote.initiative, vote.author, vote.decidim_user_group_id) }
-
-        it "broadcasts ok" do
-          expect(vote).to be_valid
-          expect { command.call }.to broadcast :ok
-        end
-
-        it "Removes the vote" do
-          expect(vote).to be_valid
-          expect do
-            command.call
-          end.to change(InitiativesVote, :count).by(-1)
-        end
-
-        it "Do not decreases the vote counter by one" do
-          expect(vote).to be_valid
-          command.call
-
-          initiative = vote.initiative
-          initiative.reload
-          expect(initiative.initiative_votes_count).to be_zero
+          end.to change { initiative.online_votes_count }.by(-1)
         end
       end
     end

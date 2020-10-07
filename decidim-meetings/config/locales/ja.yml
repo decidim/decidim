@@ -79,15 +79,17 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントが有効
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             creation_enabled_for_participants: 出席者はミーティングを作成できます
             default_registration_terms: デフォルトの登録条件
             enable_pads_creation: パッドの作成を有効にする
             resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
             creation_enabled_for_user_groups: ユーザーグループによるミーティングの作成が有効です
     events:

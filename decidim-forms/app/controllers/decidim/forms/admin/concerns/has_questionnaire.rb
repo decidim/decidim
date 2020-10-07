@@ -18,6 +18,19 @@ module Decidim
             helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
                           :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url
 
+            if defined? Decidim::Templates
+              include Decidim::Templates::Admin::Concerns::Templatable
+              helper Decidim::Templates::Admin::TemplatesHelper if defined? Decidim::Templates
+
+              def templatable_type
+                "Decidim::Forms::Questionnaire"
+              end
+
+              def templatable
+                questionnaire
+              end
+            end
+
             def edit
               enforce_permission_to :update, :questionnaire, questionnaire: questionnaire
 

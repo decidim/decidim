@@ -121,6 +121,8 @@ describe "Admin manages surveys", type: :system do
     main_component_path(component)
   end
 
+  it_behaves_like "uses questionnaire templates", :survey
+
   private
 
   def find_nested_form_field(attribute, visible: :visible)

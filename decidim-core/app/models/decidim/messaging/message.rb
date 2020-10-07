@@ -25,7 +25,7 @@ module Decidim
                inverse_of: :message
 
       validates :sender, :body, presence: true
-      validates :body, length: { maximum: 1_000 }
+      validates :body, length: { maximum: ->(_message) { Decidim.config.maximum_conversation_message_length } }
 
       default_scope { order(created_at: :asc) }
 

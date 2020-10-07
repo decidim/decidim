@@ -9,42 +9,91 @@ module Decidim
     # resource - A geolocalizable resource
     # options - An optional hash of options (default: { zoom: 17 })
     #           * zoom: A number to represent the zoom value of the map
-    def static_map_link(resource, options = {})
+    def static_map_link(resource, options = {}, map_html_options = {}, &block)
       return unless resource.geocoded?
-
-      zoom = options[:zoom] || 17
-      latitude = resource.latitude
-      longitude = resource.longitude
+      return unless map_utility_static || map_utility_dynamic
 
       address_text = resource.try(:address)
       address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.map.static")
       map_service_brand = t("map_service_brand", scope: "decidim.map.static")
 
-      map_url = "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=#{zoom}/#{latitude}/#{longitude}"
+      if map_utility_static
+        map_url = map_utility_static.link(
+          latitude: resource.latitude,
+          longitude: resource.longitude,
+          options: options
+        )
 
-      link_to map_url, target: "_blank", rel: "noopener" do
-        image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+        # Check that the static map utility actually returns a URL before
+        # creating the static map utility. If it does not, the image would be
+        # otherwise blank.
+        if map_utility_static.url(latitude: resource.latitude, longitude: resource.longitude)
+          return link_to map_url, target: "_blank", rel: "noopener" do
+            image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+          end
+        end
       end
+
+      # Fall back to the dynamic map utility in case static maps are not
+      # provided.
+      builder = map_utility_dynamic.create_builder(self, {
+        type: :static,
+        latitude: resource.latitude,
+        longitude: resource.longitude,
+        zoom: 15,
+        title: "#{map_service_brand} - #{address_text}",
+        link: map_url
+      }.merge(options))
+
+      unless snippets.any?(:map)
+        snippets.add(:map, builder.stylesheet_snippets)
+        snippets.add(:map, builder.javascript_snippets)
+
+        # This will display the snippets in the <head> part of the page.
+        snippets.add(:head, snippets.for(:map))
+      end
+
+      builder.map_element(
+        { class: "static-map", tabindex: "0" }.merge(map_html_options),
+        &block
+      )
     end
 
-    def dynamic_map_for(markers_data)
-      return if Decidim.geocoder.blank?
+    def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
+      return unless map_utility_dynamic
 
-      map_html_options = {
-        class: "google-map",
-        id: "map",
-        "data-markers-data" => markers_data.to_json
+      options = {
+        popup_template_id: "marker-popup"
       }
-
-      if Decidim.geocoder[:here_api_key]
-        map_html_options["data-here-api-key"] = Decidim.geocoder[:here_api_key]
+      if options_or_markers.is_a?(Array)
+        options[:markers] = options_or_markers
       else
-        # Compatibility mode for old api_id/app_code configurations
-        map_html_options["data-here-app-id"] = Decidim.geocoder[:here_app_id]
-        map_html_options["data-here-app-code"] = Decidim.geocoder[:here_app_code]
+        options = options.merge(options_or_markers)
       end
 
-      content = capture { yield }.html_safe
+      builder = map_utility_dynamic.create_builder(self, options)
+
+      # The map snippets are stored to the snippets utility in order to ensure
+      # that they are only loaded once during each page load. In case they were
+      # loaded multiple times, the maps would break. We store the map assets to
+      # a special "map" snippets category in order to avoid displaying them
+      # multiple times. Then we inject them to the "head" category during the
+      # first load which will actually display them in the <head> section of the
+      # view.
+      #
+      # Ideally we would use Rails' native content_for here (which is exactly
+      # for this purpose) but unfortunately it does not work in the cells which
+      # also need to display maps.
+      unless snippets.any?(:map)
+        snippets.add(:map, builder.stylesheet_snippets)
+        snippets.add(:map, builder.javascript_snippets)
+
+        # This will display the snippets in the <head> part of the page.
+        snippets.add(:head, snippets.for(:map))
+      end
+
+      map_html_options = { id: "map", class: "google-map" }.merge(html_options)
+
       help = content_tag(:div, class: "map__help") do
         sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
         link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "#map_bottom", class: "skip")
@@ -52,11 +101,25 @@ module Decidim
         sr_content + link
       end
       content_tag :div, class: "row column" do
-        map = content_tag(:div, "", map_html_options)
+        map = builder.map_element(map_html_options, &block)
         link = link_to("", "#", id: "map_bottom")
 
-        help + map + content + link
+        help + map + link
       end
+    end
+
+    private
+
+    def map_utility_dynamic
+      @map_utility_dynamic ||= Decidim::Map.dynamic(
+        organization: current_organization
+      )
+    end
+
+    def map_utility_static
+      @map_utility_static ||= Decidim::Map.static(
+        organization: current_organization
+      )
     end
   end
 end

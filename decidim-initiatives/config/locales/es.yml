@@ -5,6 +5,7 @@ es:
         decidim_user_group_id: Autoria
         description: Descripción
         offline_votes: Firmas presenciales
+        offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Ámbito
         signature_end_date: Fin del período de recogida de firmas
         signature_start_date: Inicio del período de recogida de firmas
@@ -29,13 +30,15 @@ es:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
         banner_image: Imagen de banner
+        child_scope_threshold_enabled: Activar firmas por subámbito
         collect_user_extra_fields: Recopilar datos personales de la participante con la firma
-        custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de la recogida de firmas
+        custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de recogida de firmas
         description: Descripción
         document_number_authorization_handler: Autorización para verificar el número de documento en las firmas
         extra_fields_legal_information: Información legal sobre la recogida de datos personales
         minimum_committee_members: Mínimo de miembros del comité
         online_signature_enabled: Firma digital habilitada
+        only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
         title: Título
         undo_online_signatures_enabled: Permitir a las participantes deshacer sus firmas digitales
@@ -55,7 +58,7 @@ es:
           attributes:
             attachment:
               file: Este archivo es invalido
-              needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              needs_to_be_reattached: Es necesario volver a adjuntar el archivo
               title: El título no puede estar vacío
   activerecord:
     models:
@@ -83,7 +86,7 @@ es:
               created: Creada
               discarded: Descartada
               published: Publicada
-              rejected: No ha conseguido las firmas necesarias
+              rejected: Sin las firmas necesarias
               validating: Validación técnica
           type_id_eq:
             label: Tipo
@@ -123,6 +126,7 @@ es:
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
             postal_code: Código postal
+            scope: Ámbito
             time_and_date: Hora y fecha
             timestamp: Marca de tiempo
       titles:
@@ -132,10 +136,10 @@ es:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébalo a través <a href="%{admin_initiative_url}"> panel de administración</a>
+            email_intro: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_url}"> panel de administración</a>
             email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
             email_subject: La iniciativa %{resource_title} ha solicitado validación técnica.
-            notification_title: La iniciativa "%{resource_title}" ha sido enviada a la validación técnica. Compruébalo a través <a href="%{admin_initiative_path}"> panel de administración</a>
+            notification_title: La iniciativa "%{resource_title}" ha sido enviada a validación técnica. Compruébalo a través del <a href="%{admin_initiative_path}"> panel de administración</a>
         initiative_extended:
           email_intro: '¡El plazo de finalización de la iniciativa %{resource_title} se ha ampliado!'
           email_outro: Has recibido esta notificación porque está siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -153,10 +157,10 @@ es:
             email_subject: '¡Nuevo hito completado!'
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha logrado el %{percentage}% de las firmas.
         support_threshold_reached:
-          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de apoyos
+          email_intro: La iniciativa %{resource_title} ha alcanzado el umbral de firmas
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Umbral de apoyos alcanzado
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha llegado el umbral de apoyos
+          email_subject: Umbral de firmas alcanzado
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha llegado al umbral de firmas
     gamification:
       badges:
         initiatives:
@@ -215,6 +219,8 @@ es:
             success: La iniciativa se ha enviado a validación técnica
             update: Actualizar
           form:
+            attachments: Archivos adjuntos
+            settings: Ajustes
             title: Información general
           index:
             actions_title: Acción
@@ -260,6 +266,10 @@ es:
             destroy: Borrar
             update: Actualizar
           form:
+            authorizations: Ajustes de autorización
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no soporta recogida de firmas en persona, habilita indicadores de firmas por subámbitos y funciona con un controlador de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización más abajo, en la configuración de autorización. Para que funcione debe configurarse de manera jerárquica : 1 ámbito - N subámbitos. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.
+            options: Opciones
             title: Información general
           initiative_type_scopes:
             title: Ámbitos del tipo de iniciativa
@@ -276,7 +286,7 @@ es:
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
       admin_states:
-        accepted: Ha conseguido las firmas
+        accepted: Ha conseguido las firmas necesarias
         created: Creada
         discarded: Descartada
         published: Publicada
@@ -312,7 +322,7 @@ es:
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. Presencial, en línea o una combinación de ambas</li> <li>¿Cuál es el alcance geográfico de la iniciativa? ¿Distrito, ciudad?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
-          select_area: Selecciona una área
+          select_area: Selecciona un área
           select_scope: Seleccione un alcance
         finish:
           back: Volver
@@ -322,7 +332,7 @@ es:
           edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
-          send_my_initiative: Enviar la meva iniciativa
+          send_my_initiative: Enviar mi iniciativa
         finish_help:
           access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de participante.
           help_for_organizations: Si eres una asociación, tendrás que subir las actias del consejo de administración de todas las organizaciones que formen la Comisión Promotora
@@ -453,13 +463,9 @@ es:
           any_vote_method: Esta iniciativa ciudadana recoge firmas digitales y presenciales.
           follow_description: Recibir una notificación cuando haya novedades sobre esta iniciativa
           offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
-        signature_identities:
-          select_identity: Selecciona el identificador de la participante
         signatures_count:
           one: " firma"
           other: " firmas"
-        supports:
-          title: Listado de adhesiones
         vote_cabin:
           already_voted: Ya has firmado
           supports_required: "Se requieren %{total_supports} firmas"
@@ -468,8 +474,8 @@ es:
           votes_blocked: Se ha desactivado la firma
         votes_count:
           count:
-            one: FIRMA
-            other: FIRMAS
+            one: Firma
+            other: Firmas
           most_popular_initiative: Iniciativa más popular
           need_more_votes: Necesita más firmas
       initiatives_mailer:

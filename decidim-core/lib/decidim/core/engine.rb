@@ -100,28 +100,67 @@ module Decidim
         ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
       end
 
-      initializer "decidim.geocoding" do
-        if Decidim.geocoder.present?
-          config = {
-            # geocoding service (see below for supported options):
-            lookup: :here
-            # IP address geocoding service (see below for supported options):
-            # :ip_lookup => :maxmind,
-            # geocoding service request timeout, in seconds (default 3):
-            # :timeout => 5,
-            # set default units to kilometers:
-            # :units => :km,
-            # caching (see below for details):
-            # :cache => Redis.new,
-            # :cache_prefix => "..."
+      initializer "decidim.geocoding", after: :load_config_initializers do
+        Geocoder.configure(Decidim.geocoder) if Decidim.geocoder.present?
+      end
+
+      initializer "decidim.geocoding_extensions", after: "geocoder.insert_into_active_record" do
+        # Include it in ActiveRecord base in order to apply it to all models
+        # that may be using the `geocoded_by` or `reverse_geocoded_by` class
+        # methods injected by the Geocoder gem.
+        ActiveSupport.on_load :active_record do
+          ActiveRecord::Base.send(:include, Decidim::Geocodable)
+        end
+      end
+
+      initializer "decidim.maps" do
+        Decidim::Map.register_category(:dynamic, Decidim::Map::Provider::DynamicMap)
+        Decidim::Map.register_category(:static, Decidim::Map::Provider::StaticMap)
+        Decidim::Map.register_category(:geocoding, Decidim::Map::Provider::Geocoding)
+        Decidim::Map.register_category(:autocomplete, Decidim::Map::Provider::Autocomplete)
+      end
+
+      # This keeps backwards compatibility with the old style of map
+      # configuration through Decidim.geocoder.
+      initializer "decidim.maps_legacysupport", after: :load_config_initializers do
+        next if Decidim.maps.present?
+        next if Decidim.geocoder.blank?
+
+        legacy_api_key ||= begin
+          if Decidim.geocoder[:here_api_key].present?
+            Decidim.geocoder.fetch(:here_api_key)
+          elsif Decidim.geocoder[:here_app_id].present?
+            [
+              Decidim.geocoder.fetch(:here_app_id),
+              Decidim.geocoder.fetch(:here_app_code)
+            ]
+          end
+        end
+        next unless legacy_api_key
+
+        ActiveSupport::Deprecation.warn(
+          <<~DEPRECATION.strip
+            Configuring maps functionality has changed.
+
+            Please update your current Decidim.geocoder configurations to the following format:
+
+              Decidim.configure do |config|
+                config.maps = {
+                  provider: :here,
+                  api_key: Rails.application.secrets.maps[:api_key],
+                  static: { url: "#{Decidim.geocoder.fetch(:static_map_url)}" }
+                }
+              end
+          DEPRECATION
+        )
+        Decidim.configure do |config|
+          config.maps = {
+            provider: :here,
+            api_key: legacy_api_key,
+            static: {
+              url: Decidim.geocoder.fetch(:static_map_url)
+            }
           }
-          # to use an API key:
-          config[:api_key] = if Decidim.geocoder[:here_api_key].present?
-                               Decidim.geocoder.fetch(:here_api_key)
-                             else
-                               [Decidim.geocoder.fetch(:here_app_id), Decidim.geocoder.fetch(:here_app_code)]
-                             end
-          Geocoder.configure(config)
         end
       end
 

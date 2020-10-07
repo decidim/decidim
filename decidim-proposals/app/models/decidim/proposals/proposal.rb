@@ -19,7 +19,6 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Fingerprintable
       include Decidim::DataPortability
-      include Decidim::Hashtaggable
       include Decidim::Proposals::ParticipatoryTextSection
       include Decidim::Amendable
       include Decidim::NewsletterParticipant
@@ -53,7 +52,7 @@ module Decidim
 
       validates :title, :body, presence: true
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
+      geocoded_by :address
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
@@ -90,8 +89,8 @@ module Decidim
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
-                          D: :search_body,
-                          A: :search_title,
+                          D: :body,
+                          A: :title,
                           datetime: :published_at
                         },
                         index_on_create: ->(proposal) { proposal.official? },

@@ -47,7 +47,6 @@ tr:
             up: yukarı
           update:
             invalid: Formu kaydederken bir sorun oluştu.
-            success: Formlar başarıyla kaydedildi.
       errors:
         answer:
           body: Vücut boş olamaz

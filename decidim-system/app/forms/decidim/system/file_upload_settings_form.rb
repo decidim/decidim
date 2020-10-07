@@ -15,7 +15,13 @@ module Decidim
       attribute :maximum_file_size, Hash[Symbol => Float]
 
       def map_model(settings_hash)
-        settings_hash = default_settings.deep_merge(settings_hash.deep_stringify_keys)
+        settings_hash = begin
+          if settings_hash.is_a?(Hash)
+            default_settings.deep_merge(settings_hash.deep_stringify_keys)
+          else
+            default_settings
+          end
+        end
 
         attribute_set.each do |attr|
           key = attr.name.to_s

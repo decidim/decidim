@@ -6,6 +6,7 @@ en:
         decidim_user_group_id: Author
         description: Description
         offline_votes: In-person signatures
+        offline_votes_for_scope: In-person signatures for %{scope_name}
         scope_id: Scope
         signature_end_date: End of signature collection period
         signature_start_date: Start of signature collection period
@@ -30,6 +31,7 @@ en:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
         banner_image: Banner image
+        child_scope_threshold_enabled: Enable child scope signatures
         collect_user_extra_fields: Collect participant personal data on signature
         custom_signature_end_date_enabled: Enable authors to choose the end of signature collection period
         description: Description
@@ -37,6 +39,7 @@ en:
         extra_fields_legal_information: Legal information about the collection of personal data
         minimum_committee_members: Minimum of committee members
         online_signature_enabled: Online signature enabled
+        only_global_scope_enabled: Only allow global scope initiatives creation
         promoting_committee_enabled: Enable promoting committee
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
@@ -124,6 +127,7 @@ en:
             initiative_title: Initiative title
             name_and_surname: Name and surname
             postal_code: Postal code
+            scope: Scope
             time_and_date: Time and date
             timestamp: Timestamp
       titles:
@@ -263,6 +267,10 @@ en:
             destroy: Delete
             update: Update
           form:
+            authorizations: Authorization settings
+            child_scope_threshold_enabled_help: 'This config flag doesn''t support offline votes, it enables sub-jauges and works with an authorization handler that associates a scope to the user, make sure you select that authorization, bellow in authorization settings. For it to work scopes need to be configured in hierarchical way : 1 Parent - N Child. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.'
+            only_global_scope_enabled_help: Tick this flag if you enabled "Child scope signature" and configured the global scope as your parent scope. By enabling this, initiative type selection will be skipped in the initiative creation wizard. For more info on how this configuration works, see this <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">link</a>.
+            options: Options
             title: General information
           initiative_type_scopes:
             title: Scopes for the initiative type
@@ -456,13 +464,9 @@ en:
           any_vote_method: This citizen initiative collects both online and in-person signatures.
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This citizen initiative only collects in-person signatures.
-        signature_identities:
-          select_identity: Select participant identifier
         signatures_count:
           one: " signature"
           other: " signatures"
-        supports:
-          title: Listing of signatures
         vote_cabin:
           already_voted: Already signed
           supports_required: "%{total_supports} signatures required"

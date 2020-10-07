@@ -424,7 +424,6 @@ lv:
           buttons:
             check: Pārbaudīt un turpināt
             close_modal: Aizvērt modal
-            uncheck: Atstāt neatzīmētu
           notice: |-
             <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
             Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
@@ -867,8 +866,6 @@ lv:
         start:
           send: Sūtīt
           title: Sākt sarunu
-        update:
-          error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
     metrics:
       download:
         csv: Lejupielādēt datus (csv)
@@ -1010,7 +1007,6 @@ lv:
           error: Piekrītot lietošanas noteikumiem, radās problēma.
           success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
         form:
-          agreement: Es piekrītu šiem noteikumiem
           legend: Piekrist lietošanas noteikumiem
         refuse:
           modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.

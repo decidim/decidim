@@ -14,6 +14,7 @@ fr:
       question:
         description: Description
         max_selections: Nombre maximum de sélections
+        min_selections: Aucune des options ci-dessus
         title: Titre
     errors:
       models:
@@ -91,6 +92,7 @@ fr:
             title: Modifier l'élection
             update: Mettre à jour l'élection
           index:
+            no_bulletin_board: Il n'y a pas de <a href="https://github.com/decidim/decidim-bulletin-board">serveur Bulletin Board</a> configuré, ce qui est nécessaire pour utiliser ce module. Cette tâche doit être effectuée par l'administrateur système.
             title: Élections
           new:
             create: Créer une élection
@@ -205,6 +207,7 @@ fr:
           edit: éditer
           header: Confirmer votre vote
           intro: Voici un résumé du vote que vous êtes sur le point d'envoyer. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+          nota_option: Vide
           question: Question %{count}
         confirmed:
           back: Retour aux élections
@@ -227,8 +230,9 @@ fr:
           close: Fermer
           proposal_header: 'Propositions:'
         new:
-          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses ou aucune
+          answer_choices: Vous pouvez sélectionner jusqu'à %{choices} réponses
           more_information: Plus d'informations
+          nota_option: Vide / Aucune des options ci-dessus
           preview_alert: Ceci est un aperçu de la cabine de vote.
           question_steps: Question %{current_step} sur %{total_steps}
           selections: "%{selected} sur %{max_selections}<br> sélections"

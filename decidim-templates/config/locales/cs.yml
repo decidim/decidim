@@ -1,0 +1,60 @@
+cs:
+  decidim:
+    admin:
+      menu:
+        templates: Šablony
+      templates:
+        apply:
+          error: Při použití této šablony došlo k chybě.
+          success: Šablona byla úspěšně použita
+        copy:
+          error: Při kopírování této šablony došlo k chybě.
+          success: Šablona byla úspěšně zkopírována
+        create:
+          error: Při vytváření této šablony došlo k chybě.
+          success: Šablona byla úspěšně vytvořena
+        destroy:
+          success: Šablona byla úspěšně odstraněna
+        empty: Zatím nejsou žádné šablony.
+        update:
+          error: Při aktualizaci této šablony došlo k chybě.
+          success: Šablona byla úspěšně aktualizována
+      titles:
+        template_types:
+          questionnaires: Šablony dotazníků
+        templates: Šablony
+    models:
+      questionnaire_template:
+        fields:
+          questions: Počet otázek
+          title: Nadpis dotazníku
+      template:
+        fields:
+          created_at: Vytvořeno v
+        name: Šablona
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Vytvořit ze šablony
+            description: Chystáte se vytvořit nový dotazník. Můžete si vybrat předem definovanou šablonu a poté ji upravit.
+            label: Vyberte šablonu
+            placeholder: Vyberte šablonu
+            skip_template: Přeskočit
+          edit:
+            edit: Upravit
+            empty: Zatím nejsou žádné otázky
+            questionnaire: Dotazník
+          form:
+            save: Uložit
+            template_title: Informace o šabloně
+            title: Dotazník
+          index:
+            confirm_delete: Jste si jisti, že chcete odstranit tuto šablonu?
+            title: Šablony dotazníků
+          preview:
+            current_step: Krok %{step}
+            of_total_steps: z %{total_steps}
+            tos_agreement: Zúčastněním souhlasíte s podmínkami služby
+      template_types:
+        questionnaires: Dotazníky

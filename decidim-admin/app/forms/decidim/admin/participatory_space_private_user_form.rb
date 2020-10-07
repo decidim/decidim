@@ -11,8 +11,14 @@ module Decidim
       attribute :name, String
       attribute :email, String
 
-      validates :email, presence: true
-      validates :name, presence: true
+      validates :name, :email, presence: true
+
+      validates :name, format: { with: UserBaseEntity::REGEXP_NAME }
+      validate :admin_uniqueness
+
+      def admin_uniqueness
+        errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
+      end
     end
   end
 end

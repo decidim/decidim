@@ -447,7 +447,6 @@ ro:
           buttons:
             check: Verificați și continuați
             close_modal: Închide fereastra
-            uncheck: Mențineți debifarea
           notice: |-
             <p>Hei, ești sigur că nu vrei să primești un buletin informativ?<br>
             Te rugăm să bifezi din nou căsuța de selectare a buletinului informativ de mai jos.<br>
@@ -923,8 +922,6 @@ ro:
         start:
           send: Trimite
           title: Începe o conversație
-        update:
-          error: Mesajul nu a fost trimis. Încercați din nou mai târziu
     metrics:
       download:
         csv: Descarcă date (csv)
@@ -1069,7 +1066,6 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
-          agreement: Sunt de acord cu acești termeni
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.

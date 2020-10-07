@@ -81,10 +81,7 @@ it:
             api_key: API Key
             api_secret: API secret
         smtp_settings:
-          instructions:
-            from_label: 'Il mittente email sarà: "nome-della-tua-organizzazione <tuaorganizzazione@tuoprovider.org>". Lascia vuoto per usare ''from_email'' come etichetta'
           placeholder:
-            from_email: tuaorganizzazione@ytuoprovider.org
             from_label: nome-della-tua-organizzazione
         update:
           error: C'è stato un errore durante l'aggiornamento di questa organizzazione.

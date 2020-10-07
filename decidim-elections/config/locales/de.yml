@@ -197,7 +197,6 @@ de:
           close: Schließen
           proposal_header: 'Vorschläge:'
         new:
-          answer_choices: Sie können bis zu %{choices} Antworten oder keine auswählen
           more_information: Weitere Informationen
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}

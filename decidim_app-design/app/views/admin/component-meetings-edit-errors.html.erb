@@ -89,7 +89,7 @@
             <div class="cell">
               <ul>
                 <% 2.times do %>
-                <li><u><%= Faker::Zelda.character %>.<%= Faker::File.extension %></u>&nbsp;<a href="" class="text-alert"><u>remove</u></a></li>
+                <li><u><%= Faker::Games::Zelda.character %>.<%= Faker::File.extension %></u>&nbsp;<a href="" class="text-alert"><u>remove</u></a></li>
                 <% end %>
               </ul>
             </div>
@@ -169,7 +169,7 @@
             <div class="cell">
               <ul>
                 <% 2.times do %>
-                <li><u><%= Faker::Zelda.character %>.<%= Faker::File.extension %></u>&nbsp;<a href="" class="text-alert"><u>remove</u></a></li>
+                <li><u><%= Faker::Games::Zelda.character %>.<%= Faker::File.extension %></u>&nbsp;<a href="" class="text-alert"><u>remove</u></a></li>
                 <% end %>
               </ul>
             </div>
@@ -190,7 +190,7 @@
                     <div class="grid-x grid-padding-x pt-s pb-s">
                       <div class="cell shrink text-center"><%= icon "move" %></div>
                       <div class="cell small-3"><%= Faker::Time.forward(7, :morning).strftime("%R") %>-<%= Faker::Time.forward(7, :evening).strftime("%R") %>&nbsp;<small>(<%= Faker::Number.between(10, 180) %> min)</small></div>
-                      <div class="cell auto"><strong><%= Faker::StarWars.quote[0..50] %></strong>&nbsp;<small><%= Faker::StarWars.quote %></small></div>
+                      <div class="cell auto"><strong><%= Faker::Movies::StarWars.quote[0..50] %></strong>&nbsp;<small><%= Faker::Movies::StarWars.quote %></small></div>
                       <div class="cell shrink text-center"><%= icon "circle-x" %></div>
                     </div>
                   <% end %>

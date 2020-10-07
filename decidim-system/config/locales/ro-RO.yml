@@ -81,10 +81,7 @@ ro:
             api_key: Cheie API
             api_secret: API secret
         smtp_settings:
-          instructions:
-            from_label: 'Expeditorul de e-mail va fi: "organizația-nume <your-organization@your-provider.org>". Lăsați necompletat pentru a utiliza ''from_email'' ca etichetă'
           placeholder:
-            from_email: organizație@provider.org
             from_label: numele tău de organizatorie
         update:
           error: A apărut o eroare la actualizarea acestei organizații.

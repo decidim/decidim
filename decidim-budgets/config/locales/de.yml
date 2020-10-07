@@ -125,8 +125,11 @@ de:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
           subject: Sie haben im Beteiligungsbereich %{space_name} abgestimmt
+          voted_on_space: Sie haben für das %{budget_name} Budget for the %{space_name} abgestimmt.
+          voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
+          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Abstimmung nachträglich ändern.
           cancel: Stornieren
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
@@ -184,6 +187,7 @@ de:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Aussicht
+          you_voted: Du hast abgestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
@@ -207,6 +211,8 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+            landing_page_content: Budgets Landingpage
+            more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
@@ -217,9 +223,17 @@ de:
             vote_rule_minimum_budget_projects_enabled: 'Regel aktivieren: Mindestanzahl von Projekten, um abzustimmen'
             vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_threshold_percent: Abstimmungsschwelle in Prozent
+            workflow: Workflow
+            workflow_choices:
+              all: 'Gesamthaft abstimmen: erlaubt es den Teilnehmern, in allen Budget‘s abzustimmen.'
+              one: 'Selektiv abstimmen: erlaubt es den Teilnehmern, in einem (1) der Budget’s abzustimmen.'
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            highlighted_heading: Hervorgehobene Überschrift
+            landing_page_content: Budgets Landingpage
+            list_heading: Listenüberschrift
+            more_information_modal: Weitere Informationen modal
             show_votes: Stimmen anzeigen
             title: Überschrift
             votes: Abstimmungen

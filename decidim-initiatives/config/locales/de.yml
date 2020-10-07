@@ -438,13 +438,9 @@ de:
           any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
           follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
           offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
-        signature_identities:
-          select_identity: Wählen Sie die Benutzerkennung aus
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
-        supports:
-          title: Auflistung der Signaturen
         vote_cabin:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"

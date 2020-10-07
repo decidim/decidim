@@ -26,6 +26,10 @@ module Decidim
       nil
     end
 
+    def has_header?
+      true
+    end
+
     def has_image?
       false
     end

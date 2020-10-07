@@ -27,7 +27,7 @@ ca:
         questionnaires:
           actions:
             back: Tornar a les preguntes
-            show: Mostra les respostes
+            show: Mostrar les respostes
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
@@ -35,7 +35,7 @@ ca:
             statement: Declaració
           answers:
             actions:
-              back: Torna a les respostes
+              back: Tornar a les respostes
               export: Exportar
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
@@ -45,7 +45,7 @@ ca:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "%{total} total de respostes"
+              title: "%{total} respostes totals"
             show:
               title: 'Resposta #%{number}'
           display_condition:
@@ -63,7 +63,7 @@ ca:
             mandatory: Aquesta condició s'ha de complir sempre independentment de l'estat d'altres condicions
             remove: Eliminar
             save_warning: Recorda de guardar l'enquesta abans de configurar les condicions de visualitzacióó
-            select_answer_option: Elimina l'opció de resposta
+            select_answer_option: Eliminar l'opció de resposta
             select_condition_question: Seleccionar una pregunta
             select_condition_type: Seleccionar un tipus de condició
           edit:
@@ -103,7 +103,7 @@ ca:
             up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
-            success: Els formularis s'han desat correctament.
+            success: Formulari desat correctament.
       errors:
         answer:
           body: El camp no pot estar en blanc
@@ -111,7 +111,7 @@ ca:
         extension_whitelist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Esta imagen medirà:'
+        dimensions_info: 'Aquesta imatge medirà:'
         processors:
           resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
@@ -126,7 +126,7 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
-          max_choices_alert: Hi ha masses opcions seleccionades
+          max_choices_alert: Hi ha massa opcions seleccionades
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
@@ -146,7 +146,7 @@ ca:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
           questionnaire_js_disabled:
-            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per a millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
+            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
             title: JavaScript està desactivat
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
