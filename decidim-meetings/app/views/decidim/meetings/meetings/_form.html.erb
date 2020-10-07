@@ -16,7 +16,7 @@
 <% end %>
 
 <div class="field" data-meeting-type="in_person">
-  <%= form.geocoding_field :address %>
+  <%= form.geocoding_field :address, input_html: { required: false } %>
   <p class="help-text"><%= t(".address_help") %></p>
 </div>
 
