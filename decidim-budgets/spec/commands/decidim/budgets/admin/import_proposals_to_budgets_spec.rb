@@ -19,7 +19,7 @@ module Decidim
           let(:budget) { create :budget, component: current_component }
           let!(:current_user) { create(:user, :admin, organization: current_component.participatory_space.organization) }
           let!(:organization) { current_component.participatory_space.organization }
-          let(:scope) { create :scope, organization: organization }
+          let(:scope) { nil }
           let!(:form) do
             instance_double(
               ProjectImportProposalsForm,
@@ -28,7 +28,7 @@ module Decidim
               current_user: current_user,
               default_budget: default_budget,
               import_all_accepted_proposals: import_all_accepted_proposals,
-              scope_id: "",
+              scope_id: scope,
               budget: budget,
               valid?: valid
             )
@@ -67,6 +67,8 @@ module Decidim
             end
 
             context "when there are no proposals in the selected scope" do
+              let(:scope) { create :scope, organization: organization }
+
               it "doesn't create any project" do
                 expect do
                   command.call
