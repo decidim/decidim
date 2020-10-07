@@ -55,6 +55,7 @@ module Decidim
         # gets send.
         def new_trustee?
           return @new_trustee if defined?(@new_trustee)
+
           @new_trustee = Decidim::Elections::Trustee.where(decidim_user_id: form.user.id).empty?
         end
 
