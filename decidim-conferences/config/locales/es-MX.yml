@@ -475,6 +475,7 @@ es-MX:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
           login_as: Has iniciado sesión como %{name} <%{email}>
+          no_registrations: No hay inscripciones
           register: Inscribirse
           title: Tipos de inscripción
       shared:

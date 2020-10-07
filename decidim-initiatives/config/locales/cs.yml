@@ -5,6 +5,7 @@ cs:
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Podpora tváří v tvář
+        offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
         signature_start_date: Začátek doby sběru podpisu
@@ -29,6 +30,7 @@ cs:
         area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
+        child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
@@ -36,6 +38,7 @@ cs:
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
+        only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
         title: Titul
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
@@ -129,6 +132,7 @@ cs:
             initiative_title: Název iniciativy
             name_and_surname: Jméno a příjmení
             postal_code: Poštovní směrovací číslo
+            scope: Oblast působnosti
             time_and_date: Čas a datum
             timestamp: Časové razítko
       titles:
@@ -268,6 +272,10 @@ cs:
             destroy: Odstranit
             update: Aktualizovat
           form:
+            authorizations: Nastavení autorizace
+            child_scope_threshold_enabled_help: 'Tento znak konfigurace nepodporuje offline hlasování, umožňuje dílčí hlasování a pracuje s autorizačním handlerem, který uživateli přiřazuje oblast působnosti. Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala oblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.'
+            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.
+            options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
             title: Zaměřuje se na typ iniciativy
@@ -467,15 +475,11 @@ cs:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
-        signature_identities:
-          select_identity: Vyberte identifikátor uživatele
         signatures_count:
           one: " podpis"
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        supports:
-          title: Výpis podpisů
         vote_cabin:
           already_voted: Již jste podepsal
           supports_required: "Vyžaduje se %{total_supports} podpisů"

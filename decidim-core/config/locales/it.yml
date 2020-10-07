@@ -1053,7 +1053,6 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
           success: Grande! Hai accettato i termini e le condizioni.
         form:
-          agreement: Sono d'accordo con questi termini
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.

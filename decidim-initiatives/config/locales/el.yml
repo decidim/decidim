@@ -431,13 +431,9 @@ el:
           any_vote_method: Αυτή η πρωτοβουλία πολιτών συλλέγει τόσο ηλεκτρονικές όσο και υπογραφές αυτοπροσώπως.
           follow_description: Λήψη ειδοποίησης όταν υπάρχουν νέα σε αυτήν την πρωτοβουλία
           offline_method: Αυτή η πρωτοβουλία πολιτών συλλέγει μόνο υπογραφές αυτοπροσώπως.
-        signature_identities:
-          select_identity: Επιλέξτε αναγνωριστικό συμμετέχοντα
         signatures_count:
           one: "υπογραφή"
           other: "υπογραφές"
-        supports:
-          title: Λίστα υπογραφών
         vote_cabin:
           already_voted: Έχει ήδη υπογραφεί
           supports_required: "Απαιτούνται %{total_supports} υπογραφές"

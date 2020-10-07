@@ -103,6 +103,7 @@ ja:
             up: 上へ
           update:
             invalid: フォームの保存に失敗しました。
+            success: フォームを保存しました。
       errors:
         answer:
           body: 本文は空白にできません
