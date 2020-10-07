@@ -22,6 +22,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        online_meeting_url: Online meeting URL
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
