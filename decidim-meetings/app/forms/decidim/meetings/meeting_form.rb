@@ -18,7 +18,7 @@ module Decidim
       attribute :decidim_category_id, Integer
       attribute :user_group_id, Integer
       attribute :online_meeting_url, String
-      attribute :type_of_meeting, String
+      attribute :type_of_meeting, String, default: "in_person"
 
       TYPE_OF_MEETING = %w(in_person online).freeze
 

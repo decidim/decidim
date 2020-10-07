@@ -157,7 +157,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
   it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
     find(".card-title a.button").click
 
-    select "In person", from: :meeting_type_of_meeting
     fill_in_i18n(
       :meeting_title,
       "#meeting-title-tabs",
@@ -228,7 +227,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         # Prepare the view for submission (other than the address field)
         find(".card-title a.button").click
 
-        select "In person", from: :meeting_type_of_meeting
         fill_in_i18n(
           :meeting_title,
           "#meeting-title-tabs",
@@ -387,7 +385,6 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     it "creates a new meeting", :slow do
       find(".card-title a.button").click
 
-      select "In person", from: :meeting_type_of_meeting
       fill_in_i18n(
         :meeting_title,
         "#meeting-title-tabs",

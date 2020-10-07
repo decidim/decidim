@@ -6,7 +6,7 @@
     // Adds the latitude/longitude inputs after the geocoding is done
     attachGeocoding($("#meeting_address"));
 
-    const $form = $(".meetings_form");
+    const $form = $(".meetings_form:not([data-online='false'])");
     if ($form.length > 0) {
       const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
       const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");

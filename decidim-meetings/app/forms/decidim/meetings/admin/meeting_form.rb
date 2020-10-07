@@ -18,7 +18,7 @@ module Decidim
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :online_meeting_url, String
-        attribute :type_of_meeting, String
+        attribute :type_of_meeting, String, default: "in_person"
 
         TYPE_OF_MEETING = %w(in_person online).freeze
 

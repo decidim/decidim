@@ -96,10 +96,13 @@
     toggleDisabledHiddenFields();
 
     attachGeocoding($form.find("#meeting_address"));
+  }
 
-    const $meetingTypeOfMeeting = $form.find("#meeting_type_of_meeting");
-    const $meetingOnlineFields = $form.find(".field[data-meeting-type='online']");
-    const $meetingInPersonFields = $form.find(".field[data-meeting-type='in_person']");
+  const $meetingForm = $(".meetings_form:not([data-online='false'])");
+  if ($meetingForm.length > 0) {
+    const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
+    const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
