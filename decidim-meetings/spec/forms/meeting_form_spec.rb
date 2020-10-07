@@ -33,7 +33,7 @@ module Decidim::Meetings
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
-    let(:type_of_meeting) { "online" }
+    let(:type_of_meeting) { "in_person" }
     let(:online_meeting_url) { "http://decidim.org" }
     let(:attributes) do
       {
@@ -136,6 +136,7 @@ module Decidim::Meetings
     end
 
     describe "when online meeting link is missing and type of meeting is online" do
+      let(:type_of_meeting) { "online" }
       let(:online_meeting_url) { nil }
 
       it { is_expected.not_to be_valid }

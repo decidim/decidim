@@ -26,12 +26,10 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
-        translatable_attribute :registration_terms, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :type_of_meeting, presence: true
-        validates :registration_type, presence: true
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
