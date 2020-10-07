@@ -23,8 +23,8 @@ describe "Sorting elections", type: :system do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child .card__title", text: translated(election1.title))
-      expect(page).to have_selector("#elections .card-grid .column:last-child .card__title", text: translated(election2.title))
+      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election1.title))
+      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election2.title))
     end
   end
 
