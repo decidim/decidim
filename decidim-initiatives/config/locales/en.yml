@@ -516,6 +516,9 @@ en:
         accepted: Accepted
         expired: Expired
       unavailable_scope: Unavailable scope
+      update:
+        error: An error has occurred
+        success: The initiative has been successfully updated
       versions:
         shared:
           back_to_resource: Go back to initiative
