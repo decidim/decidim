@@ -35,10 +35,13 @@ FactoryBot.define do
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
-    online_meeting_url { "https://decidim.org" }
 
     author do
       component.try(:organization)
+    end
+
+    trait :online do
+      online_meeting_url { "https://decidim.org" }
     end
 
     trait :official do

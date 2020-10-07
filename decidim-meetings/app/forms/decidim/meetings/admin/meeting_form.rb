@@ -55,6 +55,11 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.type_of_meeting = if model.online_meeting?
+                                   "online"
+                                 else
+                                   "in_person"
+                                 end
         end
 
         def services_to_persist

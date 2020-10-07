@@ -44,6 +44,11 @@ module Decidim
         presenter = MeetingPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
+        self.type_of_meeting = if model.online_meeting?
+                                 "online"
+                               else
+                                 "in_person"
+                               end
       end
 
       alias component current_component
