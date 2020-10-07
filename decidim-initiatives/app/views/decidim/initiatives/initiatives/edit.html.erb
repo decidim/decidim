@@ -1,7 +1,7 @@
 <%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t(".update"), class: "button" if allowed_to? :update, :initiative, initiative: current_initiative %>
+    <%= f.submit t("update", scope: "decidim.initiatives.edit"), class: "button" if allowed_to? :update, :initiative, initiative: current_initiative %>
 
     <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
       <%= link_to t("send_to_technical_validation", scope: "decidim.initiatives.edit"),

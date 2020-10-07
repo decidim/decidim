@@ -93,9 +93,29 @@ module Decidim
           sign_in created_initiative.author, scope: :user
         end
 
-        it "Unpublished initiatives are shown too" do
+        let(:valid_attributes) do
+          attrs = attributes_for(:initiative, organization: organization)
+          attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
+          attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
+          attrs
+        end
+
+        it "edit when user is allowed" do
           get :edit, params: { slug: created_initiative.slug }
+          expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:ok)
+        end
+
+        context "and update an initiative" do
+          it "are allowed" do
+            put :update,
+                params: {
+                  slug: created_initiative.to_param,
+                  initiative: valid_attributes
+                }
+            expect(flash[:alert]).to be_nil
+            expect(response).to have_http_status(:found)
+          end
         end
       end
     end
