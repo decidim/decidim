@@ -123,10 +123,7 @@ sv:
             api_key: API-nyckel
             api_secret: API-hemlighet
         smtp_settings:
-          instructions:
-            from_label: 'E-postavsändare kommer att vara: "din-organisation-namn <your-organization@your-provider.org>". Lämna tomt för att använda ''from_email'' som etikett'
           placeholder:
-            from_email: ditt-organisation@ditt-leverantör.org
             from_label: din-organisation-namn
         update:
           error: Det gick inte att uppdatera organisationen.

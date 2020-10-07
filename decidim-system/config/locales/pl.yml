@@ -123,10 +123,7 @@ pl:
             api_key: Klucz API
             api_secret: Sekret API
         smtp_settings:
-          instructions:
-            from_label: 'Nadawcą wiadomości e-mail będzie: „nazwa-twojej-organizacji <your-organization@twoj-dostawca.pl>”. Pozostaw puste, aby użyć ''from_email'' jako etykiety'
           placeholder:
-            from_email: twoja-organizacja@twoj-dostawca.pl
             from_label: twoja-nazwa-organizacji
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.

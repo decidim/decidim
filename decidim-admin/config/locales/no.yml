@@ -56,6 +56,7 @@
         highlighted_content_banner_title: Tittel
         instagram_handler: Instagram brukernavn
         logo: Logo
+        machine_translation_display_priority: Maskinoversettelse viser prioritet
         machine_translation_display_priority_original: Orginal tekst først
         machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
@@ -142,6 +143,7 @@
         per_page: Per side
         permissions: Tillatelser
         reject: Avvis
+        share: Del
         verify: Verifiser
       admin_terms_of_use:
         accept:
@@ -438,6 +440,13 @@
           fields:
             name: Navn
             plural: Flertall
+        share_token:
+          fields:
+            created_at: Opprettet i
+            expires_at: Utløper
+            last_used_at: Sist brukt
+            times_used: Ganger brukt
+            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -619,7 +628,6 @@
           invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
-          explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
           title: Last opp din CSV fil
           upload: Last opp
       resource_permissions:
@@ -659,6 +667,10 @@
         update:
           error: Det oppstod et problem med å oppdatere dette temaet.
           success: Temaet ble oppdatert
+      share_tokens:
+        actions:
+          destroy: Slett
+          share: Del
       shared:
         gallery:
           add_images: Legg til bilder

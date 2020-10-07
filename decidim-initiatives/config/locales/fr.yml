@@ -5,6 +5,7 @@ fr:
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
+        offline_votes_for_scope: Signatures en personne pour %{scope_name}
         scope_id: Secteur
         signature_end_date: Fin de la période de collecte des signatures
         signature_start_date: Début de la période de collecte des signatures
@@ -29,6 +30,7 @@ fr:
         area_enabled: Permettre aux auteurs de choisir le périmètre d'application pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
         banner_image: Image d'en-tête
+        child_scope_threshold_enabled: Activer les signatures de portée enfant
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
@@ -36,6 +38,7 @@ fr:
         extra_fields_legal_information: Informations juridiques sur la collecte de données personnelles
         minimum_committee_members: Minimum de membres du comité
         online_signature_enabled: Signature en ligne activée
+        only_global_scope_enabled: Autoriser uniquement la création d'initiatives de portée globale
         promoting_committee_enabled: Activer les comités de promotion sur ce type d'initiative (témoin. s dont l'invitation par l'auteur est obligatoire pour la validation de l'initiative si cette fonctionnalité est activée)
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
@@ -123,6 +126,7 @@ fr:
             initiative_title: Titre de l'initiative
             name_and_surname: Nom et surnom
             postal_code: Code postal
+            scope: Portée
             time_and_date: Heure et date
             timestamp: Horodatage
       titles:
@@ -262,6 +266,10 @@ fr:
             destroy: Supprimer
             update: Mettre à jour
           form:
+            authorizations: Paramètres d'autorisation
+            child_scope_threshold_enabled_help: 'Cette option de configuration ne prends pas en compte les votes hors-ligne, il active les sous-jauges et fonctionne avec un gestionnaire d''autorisation qui associe une portée à l''utilisateur. Assurez-vous de sélectionner cette autorisation ci-dessous dans les paramètres d''autorisation. Pour que cela fonctionne, les portées doivent être configurées de manière hiérarchique : 1 Parent - N Enfant. Pour plus d''informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.'
+            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Signature de la portée enfant" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
+            options: Paramètres
             title: informations générales
           initiative_type_scopes:
             title: Secteurs pour ce type d'initiative
@@ -455,13 +463,9 @@ fr:
           any_vote_method: Cette initiative recueille des signatures en ligne ainsi qu'en présentiel.
           follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
           offline_method: Cette initiative ne recueille que des soutiens en présentiel.
-        signature_identities:
-          select_identity: Sélectionner l'identifiant de l'utilisateur
         signatures_count:
           one: " signature"
           other: " signatures"
-        supports:
-          title: Liste des signatures
         vote_cabin:
           already_voted: Déjà signée
           supports_required: "%{total_supports} signatures requises"

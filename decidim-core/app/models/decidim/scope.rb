@@ -56,7 +56,7 @@ module Decidim
     end
 
     def descendants
-      organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
+      @descendants ||= organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
     def ancestor_of?(scope)

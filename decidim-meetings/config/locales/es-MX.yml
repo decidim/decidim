@@ -88,6 +88,8 @@ es-MX:
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados

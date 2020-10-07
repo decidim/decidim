@@ -154,9 +154,9 @@ cs:
             api_secret: API heslo
         smtp_settings:
           instructions:
-            from_label: 'Odesílatel e-mailu bude: "jméno-vaší-organizace <your-organization@your-provider.org>". Nechte prázdné pro použití štítku ''from_email'''
+            from_label: 'Odesílatel e-mailu bude: "jméno-vaší-organizace <your-organization@example.org>". Nechte prázdné pro použití štítku ''from_email'''
           placeholder:
-            from_email: vaše-organizace@váš-poskytovatel-domény.org
+            from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
         update:
           error: Při aktualizaci této organizace došlo k chybě.

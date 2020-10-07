@@ -9,7 +9,7 @@
           <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: geolocalizable } %>
         </div>
       </div>
-      <% if Decidim.geocoder.present? %>
+      <% if Decidim::Map.available?(:static) || Decidim::Map.available?(:dynamic) %>
         <div class="address__map">
           <%= static_map_link(geolocalizable) %>
         </div>

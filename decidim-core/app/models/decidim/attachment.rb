@@ -15,7 +15,7 @@ module Decidim
     validates_upload :file
     mount_uploader :file, Decidim::AttachmentUploader
 
-    default_scope { order(arel_table[:weight].asc) }
+    default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
 
     # Returns the organization related to this attachment in case the
     # attached_to model belongs to an organization. Otherwise will return nil.

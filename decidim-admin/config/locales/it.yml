@@ -618,7 +618,6 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
-          explanation: Carica il tuo file CSV. Deve avere due colonne con email nella prima colonna del file e nome nell'ultima colonna del file (email, nome) degli utenti che si desidera aggiungere allo spazio partecipativo, senza intestazioni.
           title: Carica il tuo file CSV
           upload: Carica File
       resource_permissions:

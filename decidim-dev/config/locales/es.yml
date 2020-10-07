@@ -15,7 +15,7 @@ es:
         settings:
           global:
             readonly_attribute: Atributo de sólo lectura
-            test: Test A
+            test: Una prueba
             test_choices:
               a: Opción A
               b: Opción B

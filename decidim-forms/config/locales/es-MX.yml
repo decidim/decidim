@@ -103,7 +103,7 @@ es-MX:
             up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
-            success: Cuestionarios guardados con éxito.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco

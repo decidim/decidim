@@ -355,7 +355,6 @@ tr:
           buttons:
             check: Kontrol et ve devam et
             close_modal: Yakın kalıcı
-            uncheck: İşaretini kaldır
           notice: |-
             <p>Hey, bir haber bülteni almak istemediğine emin misin?<br>
             Lütfen aşağıdaki haber bülteni onay kutusunu tekrar işaretleyin.<br>
@@ -739,8 +738,6 @@ tr:
         start:
           send: göndermek
           title: Bir görüşme başlat
-        update:
-          error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     metrics:
       download:
         csv: Veri indir (csv)
@@ -864,7 +861,6 @@ tr:
           error: Şartları ve koşulları kabul ederken bir hata oluştu.
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
-          agreement: Bu şartları kabul ediyorum
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_body: Eğer kabul ederseniz, platformu kullanmak mümkün olmayacaktır şunları yapabilirsiniz <a href="%{data_portability_path}">verileri indirme</a> ve / veya <a href="%{delete_path}">Hesabınızı silmek</a>.
@@ -997,6 +993,9 @@ tr:
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
+    user_conversations:
+      update:
+        error: Mesaj gönderilmedi. Daha sonra tekrar deneyin
     user_interests:
       show:
         my_interests: İlgi alanlarım

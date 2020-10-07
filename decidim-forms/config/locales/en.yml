@@ -4,6 +4,8 @@ en:
     attributes:
       answer:
         body: Answer
+        choices: Choices
+        selected_choices: Selected choices
       question:
         max_choices: Maximum number of choices
         question_type: Type

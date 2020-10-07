@@ -125,7 +125,7 @@ describe "Explore meetings", :slow, type: :system do
         end
       end
 
-      it "allows searching by text" do
+      it "allows searching by text", :slow do
         visit_component
         within ".filters" do
           fill_in "filter[search_text]", with: translated(meetings.first.title)
