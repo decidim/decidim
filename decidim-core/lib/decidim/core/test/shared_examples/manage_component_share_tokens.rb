@@ -37,19 +37,21 @@ RSpec.shared_examples "manage component share tokens" do
       end
 
       it "displays relevant attributes for each token" do
-        within ".share_tokens tbody tr:first-child" do
-          expect(page).to have_content share_token.token
-          expect(page).to have_content share_token.user.name
-          expect(page).to have_content share_token.user.name
+        share_tokens.each do |share_token|
+          within ".share_tokens tbody" do
+            expect(page).to have_content share_token.token
+            expect(page).to have_content share_token.user.name
+          end
         end
       end
 
       it "has a share link for each token" do
+        urls = share_tokens.map(&:url).map { |url| url.split("?").first }
         within ".share_tokens tbody tr:first-child" do
           share_window = window_opened_by { click_link "Share" }
 
           within_window share_window do
-            expect(page).to have_current_path share_token.url
+            expect(urls).to include(page.current_path)
           end
         end
       end

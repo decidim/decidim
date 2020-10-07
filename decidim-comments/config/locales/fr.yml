@@ -20,6 +20,7 @@ fr:
       comments_count: Nombre de commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
+      view: Voir
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.

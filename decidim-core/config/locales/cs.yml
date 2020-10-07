@@ -73,6 +73,7 @@ cs:
     errors:
       general: Chyba při zpracování obrázku
       image_too_big: Obraz je příliš velký
+      not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -139,12 +140,12 @@ cs:
         create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
-        create: "%{user_name} vytvořilo %{resource_name} rozsah"
-        create_with_parent: "%{user_name} vytvořil %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
         delete: "%{user_name} odstranil %{resource_name} rozsah"
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
-        update: "%{user_name} aktualizoval rozsah %{resource_name}"
-        update_with_parent: "%{user_name} aktualizoval %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        update: "%{user_name} aktualizoval oblast působnosti %{resource_name}"
+        update_with_parent: "%{user_name} aktualizoval oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -370,7 +371,7 @@ cs:
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Oprávnění zdrojů povoleno
-            scope_id: Rozsah
+            scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
@@ -457,7 +458,7 @@ cs:
           buttons:
             check: Zkontrolujte a pokračujte
             close_modal: Zavřít okno
-            uncheck: Zrušit zaškrtnutí
+            uncheck: Ponechat nezaškrtnuté
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
@@ -848,7 +849,7 @@ cs:
         area_type_presenter:
           not_found: 'Typ oblasti nebyl nalezen v databázi (ID: %{id})'
         scope_presenter:
-          not_found: 'Rozsah nebyl nalezen v databázi (ID: %{id})'
+          not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
@@ -912,6 +913,11 @@ cs:
           show: Zobrazit konverzaci s %{sender}
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
+        error_modal:
+          close: Zavřít okno
+          correct_errors: Opravte chyby a zkuste to znovu.
+          intro: 'Došlo k následujícím chybám ve vaší zprávě:'
+          ok: OK
         index:
           ago: před
           close: Zavřít okno
@@ -935,7 +941,7 @@ cs:
           send: Poslat
           title: Spusťte konverzaci
         update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
+          error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
         csv: Stáhnout data (csv)
@@ -1080,7 +1086,6 @@ cs:
           error: Při přijímání smluvních podmínek došlo k chybě.
           success: Skvělý! Souhlasíte s podmínkami.
         form:
-          agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.

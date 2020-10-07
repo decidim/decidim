@@ -90,7 +90,7 @@ describe "Collaborative drafts", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map do
+        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -114,7 +114,7 @@ describe "Collaborative drafts", type: :system do
               check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-              fill_in :collaborative_draft_address, with: address
+              fill_in_geocoding :collaborative_draft_address, with: address
               select translated(category.name), from: :collaborative_draft_category_id
               scope_pick scope_picker, scope
 
@@ -128,6 +128,27 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
+          end
+
+          it_behaves_like(
+            "a record with front-end geocoding address field",
+            Decidim::Proposals::CollaborativeDraft,
+            within_selector: ".new_collaborative_draft",
+            address_field: :collaborative_draft_address
+          ) do
+            let(:geocoded_address_value) { address }
+            let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+            before do
+              # Prepare the view for submission (other than the address field)
+              visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+
+              within ".new_collaborative_draft" do
+                check :collaborative_draft_has_address
+                fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+                fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+              end
+            end
           end
         end
 
@@ -198,7 +219,7 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map do
+          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,

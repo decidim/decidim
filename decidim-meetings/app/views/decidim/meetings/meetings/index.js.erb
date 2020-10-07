@@ -7,7 +7,14 @@ $meetingsCount.html('<%= j(render partial: "count").strip.html_safe %>');
 var $dropdownMenu = $('.dropdown.menu', $meetings);
 $dropdownMenu.foundation();
 
-window.Decidim.currentMap = window.Decidim.loadMap(
-  'map',
-  JSON.parse('<%= escape_javascript meetings_data_for_map(search.results.select(&:geocoded?)).to_json.html_safe %>')
-);
+var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.results.select(&:geocoded?)).to_json.html_safe %>');
+
+var $map = $("#map");
+var controller = $map.data("map-controller");
+if (controller) {
+  controller.clearMarkers();
+  controller.addMarkers(markerData);
+} else {
+  // @deprecated Legacy support
+  window.Decidim.currentMap = window.Decidim.loadMap('map', markerData);
+}

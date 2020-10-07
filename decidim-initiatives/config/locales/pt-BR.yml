@@ -378,13 +378,9 @@ pt:
           any_vote_method: Essa iniciativa cidadã coleta suporte on-line e também presencial.
           follow_description: Receber uma notificação quando houver notícias nesta iniciativa
           offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
-        signature_identities:
-          select_identity: Selecione o identificador de usuários
         signatures_count:
           one: " assinatura"
           other: " assinaturas"
-        supports:
-          title: Listagem de assinaturas
         vote_cabin:
           already_voted: Já assinadas
           supports_required: "São necessárias %{total_supports} assinaturas"

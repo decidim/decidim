@@ -143,6 +143,7 @@ ca:
         per_page: Per pàgina
         permissions: Permisos
         reject: Rebutjar
+        share: Compartir
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -270,6 +271,7 @@ ca:
           headers:
             actions: Accions
             name: Nom del component
+            scope: Àmbit del component
             type: Tipus de component
         new:
           add: Afegeix un component
@@ -439,6 +441,14 @@ ca:
           fields:
             name: Nom
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creat el
+            expires_at: Caduca el
+            last_used_at: Darrer cop que es va fer servir
+            times_used: Cops utilitzat
+            token: Token
+            user: Creat per
         static_page:
           fields:
             created_at: Data de creació
@@ -621,7 +631,7 @@ ca:
           invalid: S'ha produït un error en llegir el fitxer CSV.
           success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
         new:
-          explanation: Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l'adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l'espai de participació, sense capçaleres.
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
           title: Puja el fitxer CSV
           upload: Carrega
       resource_permissions:
@@ -630,6 +640,10 @@ ca:
           title: Edita els permisos
         update:
           success: Els permisos s'han actualitzat correctament.
+      resources:
+        index:
+          headers:
+            scope: Àmbit
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -661,6 +675,18 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest àmbit.
           success: Àmbit actualitzat correctament
+      share_tokens:
+        actions:
+          confirm_destroy: Segur que vols eliminar aquest token?
+          destroy: Eliminar
+          share: Compartir
+        destroy:
+          error: S'ha produït un error en eliminar aquest token.
+          success: El token s'ha eliminat correctament.
+        share_tokens:
+          empty: No hi ha tokens actius
+          help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
+          title: Compartir tokens
       shared:
         gallery:
           add_images: Afegir imatges
@@ -771,7 +797,7 @@ ca:
       users_statistics:
         users_count:
           admins: Administradores
-          last_day: Del darrer dia
+          last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
           no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries

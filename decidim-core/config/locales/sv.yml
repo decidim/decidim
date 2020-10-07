@@ -438,7 +438,6 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
-            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -909,8 +908,6 @@ sv:
         start:
           send: Skicka
           title: Starta en konversation
-        update:
-          error: Meddelandet har inte skickats. Försök igen senare
     metrics:
       download:
         csv: Hämta data (csv)
@@ -1055,7 +1052,6 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag godkänner användarvillkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.

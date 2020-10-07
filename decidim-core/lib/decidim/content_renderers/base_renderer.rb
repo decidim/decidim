@@ -29,7 +29,7 @@ module Decidim
       #
       # @abstract Subclass is expected to implement it
       # @return [String] the content processed and ready to display
-      def render
+      def render(_options = nil)
         content
       end
     end

@@ -77,7 +77,6 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
-  autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -86,6 +85,9 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Map, "decidim/map"
+  autoload :Geocodable, "decidim/geocodable"
+  autoload :Snippets, "decidim/snippets"
   autoload :OrganizationSettings, "decidim/organization_settings"
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
@@ -174,6 +176,10 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: an object to configure the mapping
+  # functionality. See Decidim::Map for more information.
+  config_accessor :maps
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.

@@ -471,6 +471,7 @@ ja:
         index:
           choose_an_option: '登録オプションを選択：'
           login_as: '%{name} <%{email} >としてログインしています'
+          no_registrations: 登録なし
           register: 登録
           title: 登録タイプ
       shared:

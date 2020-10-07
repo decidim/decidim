@@ -443,7 +443,7 @@ en:
           buttons:
             check: Check and continue
             close_modal: Close modal
-            uncheck: Keep uncheck
+            uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
@@ -1069,7 +1069,7 @@ en:
           error: There was a problem accepting the terms and conditions.
           success: Great! You have accepted the terms and conditions.
         form:
-          agreement: I agree this terms
+          agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
           modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.

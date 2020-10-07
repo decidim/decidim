@@ -90,7 +90,7 @@ describe "Proposals", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map do
+        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
@@ -112,7 +112,7 @@ describe "Proposals", type: :system do
               check :proposal_has_address
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
-              fill_in :proposal_address, with: address
+              fill_in_geocoding :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
               scope_pick scope_picker, scope
 
@@ -128,6 +128,26 @@ describe "Proposals", type: :system do
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
+          end
+
+          it_behaves_like(
+            "a record with front-end geocoding address field",
+            Decidim::Proposals::Proposal,
+            within_selector: ".edit_proposal",
+            address_field: :proposal_address
+          ) do
+            let(:geocoded_record) { proposal_draft }
+            let(:geocoded_address_value) { address }
+            let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+            before do
+              # Prepare the view for submission (other than the address field)
+              visit complete_proposal_path(component, proposal_draft)
+
+              check :proposal_has_address
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
+            end
           end
         end
 
@@ -195,7 +215,7 @@ describe "Proposals", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map do
+          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
@@ -275,8 +295,7 @@ describe "Proposals", type: :system do
             within ".edit_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
               fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
-              fill_in :proposal_attachment_title, with: "My attachment"
-              attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
+              attach_file :proposal_add_photos, Decidim::Dev.asset("city.jpeg")
               find("*[type=submit]").click
             end
 

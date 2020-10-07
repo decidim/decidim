@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe StaticMapGenerator do
+  describe StaticMapGenerator, configures_map: true do
     subject { described_class.new(dummy_resource, options) }
 
     let(:dummy_resource) { create(:dummy_resource) }
@@ -17,7 +17,7 @@ module Decidim
     let(:body) { "1234" }
 
     before do
-      stub_request(:get, Regexp.new(Decidim.geocoder.fetch(:static_map_url))).to_return(body: body)
+      stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: body)
     end
 
     describe "#data" do
@@ -33,9 +33,12 @@ module Decidim
         end
       end
 
-      context "when no geocoder is configured" do
+      context "when the static map service is disabled" do
         before do
-          allow(Decidim).to receive(:geocoder).and_return(nil)
+          Decidim.maps = {
+            provider: :test,
+            static: false
+          }
         end
 
         it "returns nil" do

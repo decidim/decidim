@@ -24,8 +24,8 @@ module Decidim
 
     enum signature_type: [:online, :offline, :any], _suffix: true
 
-    validates :signature_type, presence: true
-    validates :title, :description, presence: true
+    validates :title, :description, :signature_type, presence: true
+    validates :document_number_authorization_handler, presence: true, if: ->(form) { form.collect_user_extra_fields? }
 
     mount_uploader :banner_image, Decidim::BannerImageUploader
 

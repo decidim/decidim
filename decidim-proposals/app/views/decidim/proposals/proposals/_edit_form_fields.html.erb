@@ -32,13 +32,13 @@
   </div>
 <% end %>
 
-<% if component_settings.geocoding_enabled? %>
+<% if @form.geocoding_enabled? %>
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
 
   <div class="field" id="address_input">
-    <%= form.text_field :address %>
+    <%= form.geocoding_field :address %>
   </div>
 <% end %>
 
@@ -62,22 +62,50 @@
 
 <% if component_settings.attachments_allowed? && @proposal %>
   <fieldset>
-    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
-    <%= form.fields_for :attachment, @form.attachment do |nested_form| %>
-      <div class="field">
-        <%= nested_form.text_field :title %>
-      </div>
+    <legend><%= t("gallery_legend", scope: "decidim.proposals.proposals.edit") %></legend>
 
-      <div class="field">
-        <%= nested_form.upload :file, optional: false %>
-        <% if @form.errors[:attachment].present? %>
-          <% @form.errors[:attachment].each do |message| %>
-            <small class="form-error is-visible">
-              <%= message %>
-            </small>
-          <% end %>
-        <% end %>
-      </div>
+    <% if @form.photos.any? %>
+      <% @form.photos.each do |photo| %>
+        <div class="callout gallery__item" data-closable>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+          <button class="close-button"
+                  aria-label="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
+                  title="<%= t("delete_image", scope: "decidim.proposals.proposals.edit") %>"
+                  type="button"
+                  data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
     <% end %>
+
+    <div class="row column">
+      <%= form.file_field :add_photos, multiple: false, label: t("add_images", scope: "decidim.proposals.proposals.edit") %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend><%= t("attachment_legend", scope: "decidim.proposals.proposals.edit") %></legend>
+
+    <% if @form.documents.any? %>
+      <% @form.documents.each do |document| %>
+        <div class="callout" data-closable>
+          <%= link_to translated_attribute(document.title), document.url %>
+          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+          <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
+          <button class="close-button"
+                  aria-label="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
+                  title="<%= t("delete_document", scope: "decidim.proposals.proposals.edit") %>"
+                  type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="row column">
+      <%= form.file_field :add_documents, multiple: true, label: t("add_documents", scope: "decidim.proposals.proposals.edit") %>
+    </div>
   </fieldset>
 <% end %>

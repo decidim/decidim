@@ -33,11 +33,11 @@
             </strong>
           </h6>
           <p>
-            <%= Faker::Lovecraft.paragraph(Faker::Number.between(8, 15)) %>
+            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(8, 15)) %>
           </p>
           <% if Faker::Boolean.boolean %>
           <p>
-            <%= Faker::Lovecraft.paragraph(Faker::Number.between(3, 8)) %>
+            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(3, 8)) %>
           </p>
           <% end %>
           <% end %>

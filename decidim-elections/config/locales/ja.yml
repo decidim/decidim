@@ -14,10 +14,15 @@ ja:
       question:
         description: 説明
         max_selections: 選択範囲の最大数
+        min_selections: 上記のどれでもない
         title: タイトル
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 再接続が必要
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
@@ -65,6 +70,7 @@ ja:
             title: 回答を編集
             update: 回答を更新
           index:
+            invalid_max_selections: 最大選択数に届くには %{missing_answers} 個以上の回答が必要です
             title: 回答
           new:
             create: 回答を作成
@@ -83,6 +89,7 @@ ja:
             title: 選挙を編集
             update: 選挙を更新
           index:
+            no_bulletin_board: <a href="https://github.com/decidim/decidim-bulletin-board">BBS</a> が設定されていませんが、このモジュールを使用するためには必要です。このタスクはシステム管理者が行う必要があります。
             title: 選挙
           new:
             create: 選挙を作成
@@ -196,6 +203,7 @@ ja:
           edit: 編集
           header: 投票を確定
           intro: あなたが投じようとしている投票の概要です。 <br> 投票を確定するか、回答を編集してください。
+          nota_option: 空白
           question: 質問 %{count}
         confirmed:
           back: 選挙に戻る
@@ -218,8 +226,9 @@ ja:
           close: 閉じる
           proposal_header: '提案:'
         new:
-          answer_choices: 最大 %{choices} 個の回答を選択できます。
+          answer_choices: 最大 %{choices} 個の回答を選択できます
           more_information: 詳しい情報
+          nota_option: 空白、もしくは上記のどれでもない
           preview_alert: これは投票ブースのプレビューです。
           question_steps: '%{current_step} / %{total_steps} の質問'
           selections: "%{selected} / %{max_selections}<br> の選択"

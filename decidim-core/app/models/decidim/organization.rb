@@ -32,6 +32,8 @@ module Decidim
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
+    has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
+
     # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
     #  existing: Users can't be registered in the system. Only existing users can sign in.
