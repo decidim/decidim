@@ -134,6 +134,7 @@ describe "Explore meetings", :slow, type: :system do
           # somehow it's not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find(".icon--magnifying-glass").click
+          wait_for_ajax
         end
 
         expect(page).to have_css("#meetings-count", text: "1 MEETING")
