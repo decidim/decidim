@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 require "decidim/elections/admin"
+require "decidim/elections/trustee_zone"
 require "decidim/elections/engine"
 require "decidim/elections/admin_engine"
+require "decidim/elections/trustee_zone_engine"
 require "decidim/elections/component"
 
 module Decidim

@@ -9,6 +9,10 @@ module Decidim
       has_many :elections_trustees, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
       has_many :elections, through: :elections_trustees
       has_many :trustees_participatory_spaces, inverse_of: :trustee, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
+
+      def self.trustee?(user)
+        exists?(user: user)
+      end
     end
   end
 end
