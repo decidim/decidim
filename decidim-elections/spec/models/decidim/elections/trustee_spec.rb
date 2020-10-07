@@ -19,7 +19,7 @@ describe Decidim::Elections::Trustee do
     let(:trustee) { create(:trustee) }
     let(:user) { trustee.user }
 
-    before { trustee && non_trustee_user }
+    before { trustee }
 
     it { is_expected.to be_trustee(user) }
     it { expect(subject.for(user)).to eq(trustee) }

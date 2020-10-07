@@ -15,7 +15,6 @@ describe Decidim::Elections::TrusteeZone::Permissions do
   let!(:trustee) { create(:trustee, user: user) }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
-
   shared_examples "not allowed when the user is not a trustee" do
     context "when the user is not a trustee" do
       let!(:trustee) { create(:trustee) }
