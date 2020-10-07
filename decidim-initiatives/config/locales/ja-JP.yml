@@ -18,7 +18,7 @@ ja:
       initiative_author:
         address: 住所
         city: 市区町村名
-        id_document: DNI/NIE
+        id_document: 免許証/保険証/マイナンバーカード
         name: 氏名と姓
         phone_number: 電話番号
         post_code: 郵便番号
@@ -202,7 +202,7 @@ ja:
           initiatives: イニシアチブ
         initiatives:
           edit:
-            accept: イニシアチブを承認する
+            accept: 取り組みを承認する
             confirm: よろしいですか？
             discard: イニシアチブを破棄する
             export_pdf_signatures: 署名の PDF をエクスポート

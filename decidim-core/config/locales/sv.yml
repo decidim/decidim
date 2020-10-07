@@ -906,7 +906,7 @@ sv:
           send: Skicka
           title: Starta en konversation
         update:
-          error: Meddelandet har inte skickats. Försök igen senare
+          error: Meddelandet skickades inte. Försök igen senare
     metrics:
       download:
         csv: Hämta data (csv)
@@ -1238,7 +1238,7 @@ sv:
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:
-        error: Meddelandet har inte skickats. Försök igen senare
+        error: Meddelandet skickades inte. Försök igen senare
     user_interests:
       show:
         my_interests: Mina intressen

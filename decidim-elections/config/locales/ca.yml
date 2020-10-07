@@ -45,7 +45,7 @@ ca:
     elections:
       actions:
         confirm_destroy: N'estàs segura?
-        destroy: Destruir
+        destroy: Eliminar
         edit: Editar
         new: Nova %{name}
         preview: Previsualitzar
@@ -56,8 +56,8 @@ ca:
             invalid: Hi ha hagut un problema en crear aquesta resposta
             success: Resposta creada amb èxit
           destroy:
-            invalid: Hi ha hagut un problema en borrar aquesta resposta
-            success: Resposta creada amb èxit
+            invalid: Hi ha hagut un problema en eliminar aquesta resposta
+            success: Resposta eliminada amb èxit
           edit:
             title: Editar les respostes
             update: Actualitzar resposta
@@ -67,14 +67,14 @@ ca:
             create: Crear resposta
             title: Nova resposta
           update:
-            invalid: Hi ha hagut un problema en crear aquesta resposta
+            invalid: Hi ha hagut un problema en actualitzar aquesta resposta
             success: Resposta actualitzada amb èxit
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
             success: S'ha creat la votació correctament
           destroy:
-            invalid: S'ha produït un error en crear aquesta votació
+            invalid: S'ha produït un error en eliminar aquesta votació
             success: S'ha eliminat la votació correctament
           edit:
             title: Editar la votació

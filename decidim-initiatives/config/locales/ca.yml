@@ -153,10 +153,10 @@ ca:
             email_subject: S'ha completat una nova fita!
             notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha aconseguit el %{percentage}% de les signatures.
         support_threshold_reached:
-          email_intro: La iniciativa %{resource_title} ha arribat al llindar de suports
+          email_intro: La iniciativa %{resource_title} ha arribat al llindar de signatures
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
-          email_subject: Llindar de suports aconseguit
-          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de suports
+          email_subject: Llindar de signatures aconseguit
+          notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> ha arribat al llindar de signatures
     gamification:
       badges:
         initiatives:
@@ -286,7 +286,7 @@ ca:
         filter_area_values:
           all: Totes
         filter_scope_values:
-          all: Todos
+          all: Tots
         filter_state_values:
           accepted: Ha aconseguit les signatures
           all: Tots

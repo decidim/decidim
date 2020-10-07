@@ -321,7 +321,7 @@ ca:
       see_more: "(veure més)"
     components:
       component_order_selector:
-        no_content: No podem trobar cap contingut amb aquest criteri
+        no_content: No hem pogut trobar cap contingut amb aquest criteri
         order:
           all_types: Tots els tipus
           collaborative_draft: Esborrany col·laboratiu
@@ -884,7 +884,7 @@ ca:
         index:
           ago: anteriors
           close: Tanca modal
-          from: 'De:'
+          from: De
           groups: Els meus grups
           last_message: Darrer missatge
           new_conversation: Nova conversa
@@ -1174,7 +1174,7 @@ ca:
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
-        title: Denuncia un problema
+        title: Reportar contingut inapropiat
       floating_help:
         close: Tanca l'ajuda
         help: Ajuda
@@ -1201,7 +1201,7 @@ ca:
         share: Compartir
         share_link: Compartir l'enllaç
     tags:
-      filter_results_for_category: 'Resultats al filtrar per al categoria: %{resource}'
+      filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
     user_activity:
       index:
@@ -1216,8 +1216,8 @@ ca:
         add_max_users: 'Afegir usuàries a la conversa: màxim 9 usuàries'
         add_users_placeholder: Cercar...
         close: Tancar
-        conversations_info: Les converses son privades. Ningú més les pot veure. Una conversa es poden iniciar converses amb qualsevol participant o grup registrat a la plataforma.
-        from: 'De:'
+        conversations_info: Les converses son privades. Ningú més les pot veure. Es pot iniciar una conversa amb qualsevol participant o grup registrat a la plataforma.
+        from: De
         last_message: Darrer missatge
         modal_title: Nova conversa
         new_conversation: Nova conversa

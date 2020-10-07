@@ -15,7 +15,7 @@ ca:
         settings:
           global:
             readonly_attribute: Atribut de només lectura
-            test: Test A
+            test: Una prova
             test_choices:
               a: Opció A
               b: Opció B

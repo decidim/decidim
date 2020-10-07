@@ -201,8 +201,8 @@ ja:
           update:
             error: ドキュメントの再アップロード中に問題が発生しました
             success: ドキュメントを再アップロードしました
-        dni: DNI
-        nie: NIE
+        dni: 免許証
+        nie: マイナンバーカード
         passport: パスポート
       postal_letter:
         admin:

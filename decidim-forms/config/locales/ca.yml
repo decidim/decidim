@@ -70,7 +70,7 @@ ca:
         extension_whitelist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
-        dimensions_info: 'Esta imagen medirà:'
+        dimensions_info: 'Aquesta imatge medirà:'
         processors:
           resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
@@ -85,7 +85,7 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
-          max_choices_alert: Hi ha masses opcions seleccionades
+          max_choices_alert: Hi ha massa opcions seleccionades
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'

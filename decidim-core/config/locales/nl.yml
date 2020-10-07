@@ -907,7 +907,7 @@ nl:
           send: Verzenden
           title: Een gesprek beginnen
         update:
-          error: Bericht niet verzonden. Probeer het later nogmaals
+          error: Bericht niet verzonden. Probeer het later opnieuw
     metrics:
       download:
         csv: Gegevens downloaden (csv)
@@ -1239,7 +1239,7 @@ nl:
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
-        error: Bericht niet verzonden. Probeer het later nogmaals
+        error: Bericht niet verzonden. Probeer het later opnieuw
     user_interests:
       show:
         my_interests: Mijn interesses

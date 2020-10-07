@@ -929,7 +929,7 @@ cs:
           send: Poslat
           title: Spusťte konverzaci
         update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
+          error: Zpráva nebyla odeslána. Zkuste to později
     metrics:
       download:
         csv: Stáhnout data (csv)
@@ -1263,7 +1263,7 @@ cs:
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
         title: Konverzace s %{usernames}
       update:
-        error: Zpráva nebyla odeslána. Zkuste to později znovu
+        error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
       show:
         my_interests: Mé zájmy
