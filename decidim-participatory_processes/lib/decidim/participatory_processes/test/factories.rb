@@ -90,6 +90,13 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
     hashtag { Faker::Internet.slug }
+    group_url { Faker::Internet.url }
+    developer_group { generate_localized_title }
+    local_area { generate_localized_title }
+    meta_scope { Decidim::Faker::Localized.word }
+    target { generate_localized_title }
+    participatory_scope { generate_localized_title }
+    participatory_structure { generate_localized_title }
 
     trait :with_participatory_processes do
       after(:create) do |participatory_process_group|

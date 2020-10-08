@@ -24,6 +24,21 @@ module Decidim
             ca: "Descripció"
           }
         end
+        let(:meta_attributes) do
+          %w(
+          developer_group
+          local_area
+          meta_scope
+          target
+          participatory_scope
+          participatory_structure
+          ).inject({}) do |attrs, attr|
+            [:en, :es, :ca].each do |locale|
+              attrs.update("#{attr}_#{locale}" => "#{attr.titleize} #{locale}")
+            end
+            attrs
+          end
+        end
         let(:hashtag) { "hashtag" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
@@ -36,9 +51,10 @@ module Decidim
             "description_es" => description[:es],
             "description_ca" => description[:ca],
             "hashtag" => hashtag,
+            "group_url" => "http://example.org",
             "hero_image" => attachment,
             "participatory_processes" => participatory_processes
-          }
+          }.merge(meta_attributes)
         end
 
         context "when everything is OK" do

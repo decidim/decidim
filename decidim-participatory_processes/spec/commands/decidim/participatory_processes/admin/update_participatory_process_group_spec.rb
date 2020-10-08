@@ -11,6 +11,7 @@ module Decidim::ParticipatoryProcesses
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:invalid) { false }
     let(:name_en) { "name es" }
+    let(:developer_group) { participatory_process_group.developer_group }
 
     let(:params) do
       {
@@ -23,10 +24,17 @@ module Decidim::ParticipatoryProcesses
           description_es: "description es",
           description_ca: "description ca",
           hashtag: "hashtag",
+          group_url: "http://example.org",
           hero_image: nil,
           current_organization: organization,
           current_user: current_user,
-          participatory_process_ids: []
+          participatory_process_ids: [],
+          developer_group: developer_group,
+          local_area: participatory_process_group.local_area,
+          meta_scope: participatory_process_group.meta_scope,
+          target: participatory_process_group.target,
+          participatory_scope: participatory_process_group.participatory_scope,
+          participatory_structure: participatory_process_group.participatory_structure
         }
       }
     end
@@ -63,6 +71,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when everything is ok" do
       let(:name_en) { "new_name" }
+      let(:developer_group) { { en: "new developer group" } }
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
@@ -73,6 +82,7 @@ module Decidim::ParticipatoryProcesses
         participatory_process_group.reload
 
         expect(participatory_process_group.name["en"]).to eq("new_name")
+        expect(participatory_process_group.developer_group["en"]).to eq("new developer group")
       end
 
       it "traces the creation", versioning: true do

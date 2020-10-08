@@ -37,6 +37,14 @@ describe "Admin manages participatory process groups", type: :system do
         ca: "Descripció més llarga"
       )
       fill_in :participatory_process_group_hashtag, with: "hashtag"
+      fill_in :participatory_process_group_group_url, with: "http://example.org"
+      fill_in_i18n(
+        :participatory_process_group_developer_group,
+        "#participatory_process_group-developer_group-tabs",
+        en: "X corporation",
+        es: "La corporación X",
+        ca: "La corporació X"
+      )
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
       attach_file :participatory_process_group_hero_image, image1_path
 
@@ -46,6 +54,8 @@ describe "Admin manages participatory process groups", type: :system do
     expect(page).to have_admin_callout("successfully")
     expect(page).to have_content("My group")
     expect(page).to have_content("hashtag")
+    expect(page).to have_content("http://example.org")
+    expect(page).to have_content("X corporation")
     expect(page).to have_content(participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
@@ -82,6 +92,14 @@ describe "Admin manages participatory process groups", type: :system do
           ca: "Nova descripció"
         )
         fill_in :participatory_process_group_hashtag, with: "new_hashtag"
+        fill_in :participatory_process_group_group_url, with: "http://new-example.org"
+        fill_in_i18n(
+          :participatory_process_group_developer_group,
+          "#participatory_process_group-developer_group-tabs",
+          en: "Z corporation",
+          es: "La corporación Z",
+          ca: "La corporació Z"
+        )
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
         attach_file :participatory_process_group_hero_image, image2_path
 
@@ -92,6 +110,8 @@ describe "Admin manages participatory process groups", type: :system do
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
       expect(page).to have_content("new_hashtag")
+      expect(page).to have_content("http://new-example.org")
+      expect(page).to have_content("Z corporation")
       expect(page).to have_content(participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end

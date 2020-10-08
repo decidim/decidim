@@ -56,7 +56,14 @@ module Decidim
             remove_hero_image: form.remove_hero_image,
             description: form.description,
             hashtag: form.hashtag,
-            participatory_processes: participatory_processes
+            group_url: form.group_url,
+            participatory_processes: participatory_processes,
+            developer_group: form.developer_group,
+            local_area: form.local_area,
+            meta_scope: form.meta_scope,
+            participatory_scope: form.participatory_scope,
+            participatory_structure: form.participatory_structure,
+            target: form.target
           }
         end
 
