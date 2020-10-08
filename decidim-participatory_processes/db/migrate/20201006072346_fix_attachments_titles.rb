@@ -14,14 +14,14 @@ class FixAttachmentsTitles < ActiveRecord::Migration[5.2]
                  attached_to.try(:organization).try(:default_locale).presence ||
                  Decidim.default_locale
 
-        attachment.title = {
-          locale => attachment.title
-        }
-        attachment.description = {
-          locale => attachment.description
-        }
-
-        attachment.save!
+        attachment.update_columns(
+          title: {
+            locale => attachment.title
+          },
+          description: {
+            locale => attachment.description
+          }
+        )
       end
     end
 
