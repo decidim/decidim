@@ -30,6 +30,12 @@ module Decidim
       initializer "decidim_demographics.assets" do |app|
         app.config.assets.precompile += %w(decidim_demographics_manifest.js decidim_demographics_manifest.css)
       end
+
+      initializer "decidim_demographics.query_extensions" do
+        Decidim::Api::QueryType.define do
+          QueryExtensions.define(self)
+        end
+      end
     end
   end
 end
