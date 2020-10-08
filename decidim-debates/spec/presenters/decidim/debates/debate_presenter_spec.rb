@@ -44,4 +44,3 @@ module Decidim::Debates
     end
   end
 end
-
