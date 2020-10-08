@@ -8,8 +8,8 @@ module Decidim
       # Lists which attributes will be diffable and how they should be rendered.
       def attribute_types
         {
-          title: :string_or_i18n,
-          body: :string_or_i18n,
+          title: :i18n,
+          body: :i18n,
           decidim_category_id: :category,
           decidim_scope_id: :scope,
           address: :string,
@@ -26,14 +26,6 @@ module Decidim
         values = parse_values(attribute, values)
         old_value = values[0]
         new_value = values[1]
-
-        if type == :string_or_i18n
-          type = if old_value.is_a?(String)
-                   :string
-                 else
-                   :i18n
-                 end
-        end
 
         diff.update(
           attribute => {

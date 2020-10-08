@@ -3,9 +3,6 @@
 module Decidim
   module Forms
     class AnswerChoice < Forms::ApplicationRecord
-      include Decidim::TranslatableResource
-
-      translatable_fields :body
       belongs_to :answer,
                  class_name: "Answer",
                  foreign_key: "decidim_answer_id"
