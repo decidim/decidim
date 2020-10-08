@@ -36,10 +36,17 @@ ca:
         title: Títol
       participatory_process_group:
         description: Descripció
+        developer_group: Grup promotor
+        group_url: Lloc web
         hashtag: Etiqueta (hashtag)
         hero_image: Imatge
+        local_area: Àrea d'organització
+        meta_scope: Metadades d'àmbit
         name: Nom
         participatory_process_ids: Processos relacionats
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
+        target: Qui hi participa
       participatory_process_step:
         cta_path: Ruta del botó d'acció
         cta_text: Text del botó d'acció
@@ -326,6 +333,10 @@ ca:
         content_blocks:
           highlighted_processes:
             max_results: Quantitat màxima d'elements que es mostraran
+        participatory_process_groups:
+          form:
+            metadata: Metadades
+            title: Informació general
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
