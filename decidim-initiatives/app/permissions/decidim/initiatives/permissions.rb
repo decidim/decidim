@@ -20,7 +20,6 @@ module Decidim
         search_initiative_types_and_scopes?
         request_membership?
 
-
         return permission_action unless user
 
         create_initiative?
