@@ -2,6 +2,7 @@
 
 require "rails"
 require "decidim/core"
+require "graphlient"
 
 module Decidim
   module Elections

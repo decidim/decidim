@@ -19,6 +19,14 @@ module Decidim
         private_key && server && api_key
       end
 
+      def graphql_client
+        Graphlient::Client.new(server, 
+          headers: {
+            'Authorization' => api_key
+          }  
+        )
+      end
+
       private
 
       attr_reader :identification_private_key, :server, :api_key, :private_key
