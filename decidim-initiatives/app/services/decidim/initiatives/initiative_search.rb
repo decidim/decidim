@@ -51,13 +51,8 @@ module Decidim
         closed = state.member?("closed") ? query.closed : nil
         draft = state.member?("created") ? query.created : nil
 
-        query
-          .where(id: accepted)
-          .or(query.where(id: rejected))
-          .or(query.where(id: answered))
-          .or(query.where(id: open))
-          .or(query.where(id: closed))
-          .or(query.where(id: draft).where(published_at: nil))
+        query.where(id: [accepted, rejected, answered, open, closed])
+             .or(query.where(id: draft, published_at: nil))
       end
 
       def search_type_id
