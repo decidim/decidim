@@ -40,6 +40,7 @@ module Decidim
           end
         end
         let(:hashtag) { "hashtag" }
+        let(:group_url) { "http://example.org" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
         let(:attributes) do
@@ -51,7 +52,7 @@ module Decidim
             "description_es" => description[:es],
             "description_ca" => description[:ca],
             "hashtag" => hashtag,
-            "group_url" => "http://example.org",
+            "group_url" => group_url,
             "hero_image" => attachment,
             "participatory_processes" => participatory_processes
           }.merge(meta_attributes)
@@ -94,6 +95,20 @@ module Decidim
               ca: "Descripció"
             }
           end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when group_url doesn't start with http" do
+          let(:group_url) { "example.org" }
+
+          it "adds it" do
+            expect(subject.group_url).to eq("http://example.org")
+          end
+        end
+
+        context "when it's not a valid URL" do
+          let(:group_url) { "Groundhog Day" }
 
           it { is_expected.to be_invalid }
         end
