@@ -4,6 +4,7 @@ module Decidim
   # The controller to handle the user's public profile page.
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
+    include Flaggable
 
     helper Decidim::Messaging::ConversationHelper
 

@@ -42,6 +42,10 @@ module Decidim
       render
     end
 
+    def flag_raw
+      render
+    end
+
     def withdraw
       render
     end

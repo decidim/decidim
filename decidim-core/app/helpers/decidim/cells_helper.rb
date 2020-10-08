@@ -27,9 +27,15 @@ module Decidim
     end
 
     def flaggable?
+      return unless raw_flaggable?
+      return if index_action?
+
+      true
+    end
+
+    def raw_flaggable?
       return unless from_context
       return unless context[:controller].try(:flaggable_controller?)
-      return if index_action?
 
       true
     end

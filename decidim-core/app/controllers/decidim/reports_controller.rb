@@ -33,10 +33,15 @@ module Decidim
     end
 
     def permission_class_chain
-      [
-        reportable.participatory_space.manifest.permissions_class,
-        Decidim::Permissions
-      ]
+      if reportable.is_a?(Decidim::User)
+        [ Decidim::Permissions,
+          Decidim::ReportUserPermissions ]
+      else
+        [
+            reportable.participatory_space.manifest.permissions_class,
+            Decidim::Permissions
+        ]
+      end
     end
 
     def permission_scope

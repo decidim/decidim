@@ -10,6 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
+    include Decidim::Reportable
 
     class Roles
       def self.all
