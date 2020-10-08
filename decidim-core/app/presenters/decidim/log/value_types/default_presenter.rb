@@ -16,7 +16,7 @@ module Decidim
       #
       # Check the other presenters in this folder for more examples.
       class DefaultPresenter
-        # value - the vakue to render, can be of any type.
+        # value - the value to render, can be of any type.
         # view_helpers - an object encapsulating all the view helpers,
         #   it will most likely come from the top of the chain.
         def initialize(value, view_helpers)
