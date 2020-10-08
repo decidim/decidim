@@ -11,6 +11,8 @@ module Decidim
             return unless value
 
             translated_value = translated_attribute(value)
+            return unless translated_value.present?
+
             renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_value)
             renderer.render(links: false).html_safe
           end
