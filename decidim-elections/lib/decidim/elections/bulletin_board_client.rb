@@ -20,11 +20,10 @@ module Decidim
       end
 
       def graphql_client
-        Graphlient::Client.new(server, 
-          headers: {
-            'Authorization' => api_key
-          }  
-        )
+        Graphlient::Client.new(server,
+                               headers: {
+                                 "Authorization" => api_key
+                               })
       end
 
       private
