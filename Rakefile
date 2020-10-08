@@ -87,3 +87,43 @@ task :bundle do
     end
   end
 end
+
+desc "Parses git-log output and produces CHANGELOG friendly entries"
+task :parse_git_log, [:log_path] do |t, args|
+  log_path= args[:log_path]
+  puts "Usage: bin/rake parse_git_log[path_to_log_file]" unless log_path.present? && File.exists?(log_path)
+  puts "Parsing: #{log_path}"
+
+  full_log= File.open(log_path).read.strip
+  entries= full_log.split(/^commit \w+[^\n]*$/)
+  entries.shift # remove first empty entry from split
+  puts "Found #{entries.size} entries"
+
+  categorized= {}
+  uncategorized= []
+  entries.each do |entry|
+    puts "ENTRY:-------------------"
+    content, notes= entry.split(/^Notes:$/)
+    content= content.strip
+    notes= notes&.strip
+    if notes.present?
+      puts "CONTENT: #{content}"
+      puts "NOTES: #{notes}"
+      type, modules= notes.split(':')
+      categorized[type]||= []
+      categorized[type] << "- #{modules}: #{content}"
+    else
+      next if content.start_with?("New Crowdin updates")
+      uncategorized << content
+    end
+  end
+  puts "CHANGELOG ENTRIES:"
+  categorized.keys.each do |type|
+    puts "#{type}:"
+    categorized[type].each do |entry|
+      puts entry
+    end
+  end
+  puts "UNCATEGORIZED ENTRIES:"
+  puts uncategorized.join("\n")
+end
