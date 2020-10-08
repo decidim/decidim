@@ -49,8 +49,15 @@ module Decidim
                 name: form.name,
                 description: form.description,
                 hashtag: form.hashtag,
+                group_url: form.group_url,
                 hero_image: form.hero_image, # Keep after organization
-                participatory_processes: participatory_processes
+                participatory_processes: participatory_processes,
+                developer_group: form.developer_group,
+                local_area: form.local_area,
+                meta_scope: form.meta_scope,
+                participatory_scope: form.participatory_scope,
+                participatory_structure: form.participatory_structure,
+                target: form.target
               )
             end
           end

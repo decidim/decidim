@@ -16,10 +16,17 @@ module Decidim::ParticipatoryProcesses
         name: { en: "name" },
         description: { en: "description" },
         hashtag: "hashtag",
+        group_url: "http://example.org",
         hero_image: nil,
         current_organization: organization,
         current_user: current_user,
-        participatory_process_ids: []
+        participatory_process_ids: [],
+        developer_group: { en: "developer group"},
+        local_area: { en: "local area" },
+        meta_scope: { en: "meta scope" },
+        target: { en: "target" },
+        participatory_scope: { en: "participatory scope" },
+        participatory_structure: { en: "participatory structure" }
       )
     end
     let(:invalid) { false }

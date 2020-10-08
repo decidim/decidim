@@ -37,10 +37,17 @@ en:
         title: Title
       participatory_process_group:
         description: Description
+        developer_group: Promoter group
+        group_url: Website
         hashtag: Hashtag
         hero_image: Image
+        local_area: Organization area
+        meta_scope: Scope metadata
         name: Name
         participatory_process_ids: Related processes
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        target: Who participates
       participatory_process_step:
         cta_path: Call to Action path
         cta_text: Call to Action text
@@ -330,6 +337,10 @@ en:
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: General Information
         participatory_process_imports:
           form:
             document_legend: Add a document

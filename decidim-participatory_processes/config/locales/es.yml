@@ -36,10 +36,17 @@ es:
         title: Título
       participatory_process_group:
         description: Descripción
+        developer_group: Grupo promotor
+        group_url: Sitio web
         hashtag: Hashtag
         hero_image: Imagen
+        local_area: Área de organización
+        meta_scope: Metadatos de ámbito
         name: Nombre
         participatory_process_ids: Procesos relacionados
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
+        target: Quién participa
       participatory_process_step:
         cta_path: Ruta del botón de acción
         cta_text: Texto del botón de acción
@@ -329,6 +336,10 @@ es:
         participatory_process_copies:
           form:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadatos
+            title: Información general
         participatory_process_imports:
           form:
             document_legend: Añadir un documento

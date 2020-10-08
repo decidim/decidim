@@ -72,8 +72,15 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
           Decidim::Faker::Localized.paragraph(3)
         end,
         hashtag: Faker::Internet.slug,
+        group_url: Faker::Internet.url,
         organization: organization,
-        hero_image: File.new(File.join(seeds_root, "city.jpeg")) # Keep after organization
+        hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
+        developer_group: Decidim::Faker::Localized.sentence(1),
+        local_area: Decidim::Faker::Localized.sentence(2),
+        meta_scope: Decidim::Faker::Localized.word,
+        target: Decidim::Faker::Localized.sentence(3),
+        participatory_scope: Decidim::Faker::Localized.sentence(1),
+        participatory_structure: Decidim::Faker::Localized.sentence(2)
       )
     end
 

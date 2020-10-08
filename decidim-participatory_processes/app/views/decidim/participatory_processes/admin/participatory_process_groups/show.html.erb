@@ -2,7 +2,14 @@
   <%= display_for participatory_process_group,
     :name,
     :description,
-    :hashtag %>
+    :hashtag,
+    :group_url,
+    :developer_group,
+    :local_area,
+    :meta_scope,
+    :target,
+    :participatory_scope,
+    :participatory_structure %>
 
   <dt><%= display_label(participatory_process_group, :participatory_processes) %></dt>
   <% if participatory_process_group.participatory_processes.any? %>
