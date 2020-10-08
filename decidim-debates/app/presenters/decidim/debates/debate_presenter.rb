@@ -47,10 +47,14 @@ module Decidim
         end
       end
 
-      def handle_locales(content, all_locales)
+      def handle_locales(content, all_locales, &block)
         if all_locales
-          content.each_with_object({}) do |(locale, string), parsed_content|
-            parsed_content[locale] = yield(string)
+          content.each_with_object({}) do |(key, value), parsed_content|
+            if key == "machine_translations"
+              parsed_content[key] = handle_locales(value, all_locales, &block)
+            else
+              parsed_content[key] = block.call(value)
+            end
           end
         else
           yield(translated_attribute(content))
