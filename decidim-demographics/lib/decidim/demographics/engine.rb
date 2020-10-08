@@ -3,6 +3,7 @@
 require "rails"
 require "decidim/core"
 
+require_relative "query_extensions"
 module Decidim
   module Demographics
     # This is the engine that runs on the public interface of demographics.

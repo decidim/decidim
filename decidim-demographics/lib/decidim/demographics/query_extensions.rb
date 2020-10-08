@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Demobraphics
+  module Demographics
     # This module's job is to extend the API with custom fields related to
     # decidim-participatory_processes.
     module QueryExtensions
@@ -12,23 +12,23 @@ module Decidim
       # Returns nothing.
       def self.define(type)
         type.field :demographicsTypes do
-          type !types[DemographicsTypeType]
+          type !types[DemographicsType]
           description "Demographics Data"
 
           resolve lambda { |_obj, _args, ctx|
-            Decidim::Demographics.where(
+            Decidim::Demographics::Demographic.where(
               organization: ctx[:current_organization]
             )
           }
         end
 
         type.field :demographicsType do
-          type DemographicsTypeType
+          type DemographicsType
           description "Finds an demographic type group"
           argument :id, !types.ID, "The ID of the Demographics type"
 
           resolve lambda { |_obj, args, ctx|
-            Decidim::DemographicType.find_by(
+            Decidim::Demographics::Demographic.find_by(
               organization: ctx[:current_organization],
               id: args[:id]
             )

@@ -30,7 +30,10 @@ module Decidim
         protected
 
         def demographics_data
-          Decidim::Demographics::Demographic.where(user: current_user).first_or_create(data: {})
+          Decidim::Demographics::Demographic.where(
+            user: current_user,
+            organization: current_user.organization
+          ).first_or_create(data: {})
         end
 
         def demographics_form

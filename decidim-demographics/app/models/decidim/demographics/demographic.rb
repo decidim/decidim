@@ -4,6 +4,7 @@ module Decidim
   module Demographics
     class Demographic < ApplicationRecord
       belongs_to :user, foreign_key: :decidim_user_id, class_name: "Decidim::User"
+      belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
       AVAILABLE_GENDERS = %w(man woman non_binary).freeze
       AGE_GROUPS = ["< 15", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +"].freeze
