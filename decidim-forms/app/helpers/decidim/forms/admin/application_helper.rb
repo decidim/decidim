@@ -33,6 +33,12 @@ module Decidim
             truncate translated_attribute(title), length: options[:max_length], omission: options[:omission]
           end
         end
+
+        def template?(questionnaire_for)
+          return unless defined? Decidim::Templates::Template
+
+          questionnaire_for.is_a? Decidim::Templates::Template
+        end
       end
     end
   end
