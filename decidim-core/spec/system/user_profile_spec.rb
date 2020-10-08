@@ -94,9 +94,9 @@ describe "Profile", type: :system do
       it "lists the followings" do
         click_link "Follows"
 
-        expect(page).to have_content(other_user.name)
-        expect(page).to have_content(user_to_follow.name)
-        expect(page).to have_content(followed_resource.title)
+        expect(page).to have_content(translated(other_user.name))
+        expect(page).to have_content(translated(user_to_follow.name))
+        expect(page).to have_content(translated(followed_resource.title))
       end
     end
 
