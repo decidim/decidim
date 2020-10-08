@@ -11,7 +11,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        root to: "trustee#index"
+        resource :trustee, path: "/", only: [:show, :update]
       end
 
       def load_seed
@@ -21,7 +21,7 @@ module Decidim
       initializer "decidim_elections.trustee_zone.menu" do
         Decidim.menu :user_menu do |menu|
           menu.item I18n.t("menu.trustee_zone", scope: "decidim.elections.trustee_zone"),
-                    decidim_elections_trustee_zone.root_path,
+                    decidim.decidim_elections_trustee_zone_path,
                     active: :inclusive,
                     if: Decidim::Elections::Trustee.trustee?(current_user)
         end

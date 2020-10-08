@@ -6,10 +6,15 @@
 
 <h2><%= t(".identification_keys.title") %></h2>
 <% if trustee.public_key.blank? %>
-  <p><%= t(".identification_keys.generate_keys_legend") %></p>
-  <button class="button" type="button">
-    <%= icon "key", role: "img" %> <%= t(".identification_keys.generate_keys") %>
-  </button>
+  <div id="generate_identification_keys">
+    <p><%= t(".identification_keys.generate_keys_legend") %></p>
+    <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
+      <%= f.hidden_field :public_key %>
+      <button class="button" type="submit">
+        <%= icon "key", role: "img" %> <%= t(".identification_keys.generate_keys") %>
+      </button>
+    <% end %>
+  </div>
 <% else %>
   <div id="download_identification_keys" data-public-key="<%= trustee.public_key %>">
     <p><%= t(".identification_keys.download_keys_legend") %></p>
@@ -51,3 +56,5 @@
     </div>
   <% end %>
 <% end %>
+
+<%= javascript_include_tag("decidim/elections/trustee_zone") %>

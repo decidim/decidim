@@ -9,7 +9,7 @@ module Decidim
 
           case permission_action.subject
           when :trustee
-            toggle_allow(trustee?) if permission_action.action == :view
+            toggle_allow(trustee_for_user?) if %i(view update).member?(permission_action.action)
           when :user
             allow! if permission_action.action == :update_profile
           end
@@ -19,8 +19,12 @@ module Decidim
 
         private
 
-        def trustee?
-          @trustee ||= Decidim::Elections::Trustee.trustee?(user)
+        def trustee_for_user?
+          trustee && trustee.user == user
+        end
+
+        def trustee
+          @trustee ||= context.fetch(:trustee, nil)
         end
       end
     end
