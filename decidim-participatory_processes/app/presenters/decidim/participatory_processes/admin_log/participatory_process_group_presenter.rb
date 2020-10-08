@@ -18,7 +18,8 @@ module Decidim
         def diff_fields_mapping
           {
             name: :i18n,
-            description: :i18n
+            description: :i18n,
+            hashtag: :string
           }
         end
 

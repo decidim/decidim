@@ -89,6 +89,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization
+    hashtag { Faker::Internet.slug }
 
     trait :with_participatory_processes do
       after(:create) do |participatory_process_group|

@@ -36,6 +36,7 @@ ca:
         title: Títol
       participatory_process_group:
         description: Descripció
+        hashtag: Etiqueta (hashtag)
         hero_image: Imatge
         name: Nom
         participatory_process_ids: Processos relacionats

@@ -37,6 +37,7 @@ en:
         title: Title
       participatory_process_group:
         description: Description
+        hashtag: Hashtag
         hero_image: Image
         name: Name
         participatory_process_ids: Related processes

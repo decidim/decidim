@@ -12,6 +12,7 @@ module Decidim
 
         translatable_attribute :name, String
         translatable_attribute :description, String
+        attribute :hashtag, String
         attribute :participatory_process_ids, Array[Integer]
 
         mimic :participatory_process_group
