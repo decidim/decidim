@@ -32,7 +32,28 @@ module Decidim
 
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcessGroup }
 
+        validate :group_url_format
+
         alias organization current_organization
+
+        def group_url
+          return if super.blank?
+
+          return "http://" + super.strip unless super.match?(%r{\A(http|https)://}i)
+
+          super.strip
+        end
+
+        private
+
+        def group_url_format
+          return if group_url.blank?
+
+          uri = URI.parse(group_url)
+          errors.add :group_url, :invalid if !uri.is_a?(URI::HTTP) || uri.host.nil?
+        rescue URI::InvalidURIError
+          errors.add :group_url, :invalid
+        end
       end
     end
   end
