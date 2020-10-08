@@ -36,6 +36,7 @@ describe "Admin manages participatory process groups", type: :system do
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
+      fill_in :participatory_process_group_hashtag, with: "hashtag"
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
       attach_file :participatory_process_group_hero_image, image1_path
 
@@ -44,6 +45,7 @@ describe "Admin manages participatory process groups", type: :system do
 
     expect(page).to have_admin_callout("successfully")
     expect(page).to have_content("My group")
+    expect(page).to have_content("hashtag")
     expect(page).to have_content(participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
@@ -79,6 +81,7 @@ describe "Admin manages participatory process groups", type: :system do
           es: "Nueva descripción",
           ca: "Nova descripció"
         )
+        fill_in :participatory_process_group_hashtag, with: "new_hashtag"
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
         attach_file :participatory_process_group_hero_image, image2_path
 
@@ -88,6 +91,7 @@ describe "Admin manages participatory process groups", type: :system do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
+      expect(page).to have_content("new_hashtag")
       expect(page).to have_content(participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end

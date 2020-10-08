@@ -24,6 +24,7 @@ module Decidim
             ca: "Descripció"
           }
         end
+        let(:hashtag) { "hashtag" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
         let(:attributes) do
@@ -34,6 +35,7 @@ module Decidim
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
+            "hashtag" => hashtag,
             "hero_image" => attachment,
             "participatory_processes" => participatory_processes
           }

@@ -71,6 +71,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
+        hashtag: Faker::Internet.slug,
         organization: organization,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")) # Keep after organization
       )

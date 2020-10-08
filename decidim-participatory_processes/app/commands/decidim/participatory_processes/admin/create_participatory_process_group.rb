@@ -48,6 +48,7 @@ module Decidim
                 organization: form.current_organization,
                 name: form.name,
                 description: form.description,
+                hashtag: form.hashtag,
                 hero_image: form.hero_image, # Keep after organization
                 participatory_processes: participatory_processes
               )
