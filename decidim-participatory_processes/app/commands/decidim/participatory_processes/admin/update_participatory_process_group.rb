@@ -55,6 +55,7 @@ module Decidim
             hero_image: form.hero_image,
             remove_hero_image: form.remove_hero_image,
             description: form.description,
+            hashtag: form.hashtag,
             participatory_processes: participatory_processes
           }
         end
