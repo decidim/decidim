@@ -9,7 +9,7 @@ module Decidim
 
           case permission_action.subject
           when :trustee
-            toggle_allow(trustee_for_user?) if %i(view update).member?(permission_action.action)
+            toggle_allow(trustee_for_user?) if [:view, :update].member?(permission_action.action)
           when :user
             allow! if permission_action.action == :update_profile
           end

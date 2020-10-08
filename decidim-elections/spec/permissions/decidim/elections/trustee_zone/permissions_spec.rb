@@ -8,16 +8,26 @@ describe Decidim::Elections::TrusteeZone::Permissions do
   let(:user) { create :user, organization: elections_component.organization }
   let(:context) do
     {
-      current_component: elections_component
+      current_component: elections_component,
+      trustee: permission_trustee
     }
   end
   let(:elections_component) { create :elections_component }
-  let!(:trustee) { create(:trustee, user: user) }
+  let(:trustee) { create(:trustee, user: user) }
+  let(:permission_trustee) { trustee }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "not allowed when the user is not a trustee" do
     context "when the user is not a trustee" do
       let!(:trustee) { create(:trustee) }
+
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  shared_examples "not allowed when the given trustee is not the same than the user trustee" do
+    context "when the trustee is not the same than the user trustee" do
+      let(:permission_trustee) { create(:trustee) }
 
       it { is_expected.to be_falsey }
     end
@@ -55,5 +65,18 @@ describe Decidim::Elections::TrusteeZone::Permissions do
     it { is_expected.to eq true }
 
     it_behaves_like "not allowed when the user is not a trustee"
+    it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
   end
+
+  describe "update trustee" do
+    let(:action) do
+      { scope: :trustee_zone, action: :update, subject: :trustee }
+    end
+
+    it { is_expected.to eq true }
+
+    it_behaves_like "not allowed when the user is not a trustee"
+    it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
+  end
+  # TODO: test different trustee!
 end

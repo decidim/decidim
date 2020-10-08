@@ -25,16 +25,21 @@ describe "Trustee zone", type: :system do
   end
 
   it "can generate their identification keys" do
-    visit decidim_elections_trustee_zone.root_path
+    visit decidim.decidim_elections_trustee_zone_path
 
-    expect(page).to have_content("Generate keys")
+    expect(page).to have_content("Generate identification keys")
+
+    click_button "Generate identification keys"
+
+    expect(page).to have_content("Your identification public key was successfully stored.")
+    expect(page).to have_content("Upload your identification keys")
   end
 
   context "when the trustee has a public key" do
     let(:public_key) { "abcd" }
 
     it "can upload their identification keys" do
-      visit decidim_elections_trustee_zone.root_path
+      visit decidim.decidim_elections_trustee_zone_path
 
       expect(page).to have_content("Upload your identification keys")
     end
@@ -48,7 +53,7 @@ describe "Trustee zone", type: :system do
 
       expect(page).not_to have_content("Trustee zone")
 
-      visit decidim_elections_trustee_zone.root_path
+      visit decidim.decidim_elections_trustee_zone_path
 
       expect(page).to have_content("You are not authorized to perform this action")
 
