@@ -2,11 +2,10 @@
 <% add_decidim_meta_tags(title: t("participatory_process_groups.show.title", scope: "decidim")) %>
 
 <div class="wrapper">
-  <section id="processes-grid" class="section row collapse">
-    <h1 class="section-heading"><%= t("participatory_process_groups.show.group_participatory_processes", scope: "decidim", count: participatory_processes.count, group: translated_attribute(group.name)) %></h1>
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-      <%= render participatory_processes %>
-    </div>
-  </section>
-  <%= render_participatory_processes_hook(:process_group_highlighted_elements) %>
-</div>
+  <div class="row column">
+    <% Decidim::ContentBlock.published.for_scope(:participatory_process_group_homepage, organization: current_organization).where(scoped_resource_id: group.id).each do |content_block| %>
+      <% next unless content_block.manifest %>
+      <%= cell content_block.manifest.cell, content_block %>
+    <% end %>
+  </div>
+</main>
