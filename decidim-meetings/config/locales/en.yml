@@ -390,6 +390,11 @@ en:
             user_groups: Groups
           scope: Scope
           search: Search
+          type: Meeting type
+          type_values:
+            all: All
+            in_person: In-person
+            online: Online
         filters_small_view:
           close_modal: Close modal
           filter: Filter
