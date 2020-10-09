@@ -6,10 +6,10 @@ $(() => {
     const div = $("#generate_identification_keys")
     $("form", div).submit((event) => {
       $("#trustee_public_key", div).val((Math.random()).toString(16).substr(2))
-    });
+    })
   }
 
   $(document).ready((event) => {
     identificationKeys()
-  });
-});
+  })
+})
