@@ -8,11 +8,13 @@
           <%= icon "grid-three-up", role: "img", class: "mr-xs" %>
           <%= t(".participatory_processes", count: participatory_processes_count) %>
         </div>
-        <div class="column medium-3 end text-muted">
-          <%= icon "globe", class: "mr-xs" %>
-          <strong><%= t(".meta_scope") %></strong>
-          <%= translated_attribute(meta_scope) %>
-        </div>
+        <% if has_meta_scope? %>
+          <div class="column medium-3 end text-muted">
+            <%= icon "globe", class: "mr-xs" %>
+            <strong><%= t(".meta_scope") %></strong>
+            <%= translated_attribute(meta_scope) %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="columns medium-3">

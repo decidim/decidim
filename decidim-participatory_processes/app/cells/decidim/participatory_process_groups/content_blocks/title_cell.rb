@@ -26,7 +26,7 @@ module Decidim
         end
 
         def meta_scope
-          @meta_scope ||= participatory_process_group.meta_scope
+          @meta_scope ||= translated_attribute(participatory_process_group.meta_scope)
         end
 
         def has_meta_scope?
