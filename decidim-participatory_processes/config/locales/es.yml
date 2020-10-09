@@ -319,6 +319,13 @@ es:
       show:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Ámbito
+          name: Título, descripción y hashtag
+          participatory_processes:
+            one: "1 proceso"
+            other: "%{count} procesos"
       show:
         group_participatory_processes:
           one: Un proceso en %{group}

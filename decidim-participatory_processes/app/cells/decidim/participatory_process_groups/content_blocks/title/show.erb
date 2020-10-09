@@ -1,0 +1,41 @@
+<section class="section">
+  <h2 class="heading2"><%= translated_attribute(participatory_process_group.name) %></h2>
+  <div class="row">
+    <div class="columns medium-9">
+      <%= decidim_sanitize translated_attribute(participatory_process_group.description) %>
+      <div class="row">
+        <div class="column medium-2 text-muted">
+          <%= icon "grid-three-up", role: "img", class: "mr-xs" %>
+          <%= t(".participatory_processes", count: participatory_processes_count) %>
+        </div>
+        <div class="column medium-3 end text-muted">
+          <%= icon "globe", class: "mr-xs" %>
+          <strong><%= t(".meta_scope") %></strong>
+          <%= translated_attribute(meta_scope) %>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-3">
+      <% if has_hashtag? %>
+        <div class="mb-s text-muted">
+          <%= icon "twitter", role: "img", aria_label: "Twitter", class: "mr-xs" %>
+          <%= link_to(
+            "##{hashtag_text}",
+            "https://twitter.com/hashtag/#{hashtag_text}",
+            target: "_blank"
+          ) %>
+        </div>
+      <% end %>
+      <% if has_group_url? %>
+        <div class="text-muted">
+          <%= icon "external-link", class: "mr-xs" %>
+          <%= link_to(
+            group_url_text,
+            group_url,
+            target: "_blank"
+          ) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
