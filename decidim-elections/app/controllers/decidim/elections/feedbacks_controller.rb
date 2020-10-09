@@ -7,24 +7,6 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       helper_method :election
 
-      def answer
-        enforce_permission_to :answer, :questionnaire, election: election
-
-        @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token, ip_hash: ip_hash)
-
-        Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
-          on(:ok) do
-            flash[:notice] = I18n.t("feedback.create.success", scope: "decidim.elections")
-            redirect_to after_answer_path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("feedback.create.invalid", scope: "decidim.elections")
-            render template: "decidim/forms/questionnaires/show"
-          end
-        end
-      end
-
       def questionnaire_for
         election
       end
@@ -42,6 +24,14 @@ module Decidim
 
       def allow_answers?
         current_user.present? && election.ongoing?
+      end
+
+      def i18n_flashes_scope
+        "decidim.elections.feedback"
+      end
+
+      def enforce_permission_to_answer_questionnaire
+        enforce_permission_to :answer, :questionnaire, election: election
       end
     end
   end

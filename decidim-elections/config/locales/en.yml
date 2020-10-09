@@ -212,8 +212,9 @@ en:
             ongoing: Voting ends on %{end_time}
             upcoming: Voting begins on %{start_time}
       feedback:
-        create:
+        answer:
           invalid: There was a problem submiting your feedback.
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
           success: Feedback successfully sent.
       models:
         answer:

@@ -56,7 +56,7 @@ module Decidim
       end
 
       def can_answer_feedback?
-        return unless user
+        return unless user && election
 
         authorized_to_vote? && !election.questionnaire.answered_by?(user)
       end
