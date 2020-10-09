@@ -14,7 +14,7 @@ module Decidim
         end
 
         def hashtag_text
-          @hashtag_text ||= decidim_html_escape(participatory_process_group.hashtag)
+          @hashtag_text ||= decidim_html_escape(participatory_process_group.hashtag || "")
         end
 
         def has_hashtag?
