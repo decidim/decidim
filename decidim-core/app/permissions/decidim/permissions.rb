@@ -3,9 +3,6 @@
 module Decidim
   class Permissions < DefaultPermissions
     def permissions
-      # raise ActionController("!!!!!!!!!!!!!!!!!!1") if permission_action.action == :create
-      # Rails.logger.debug [permission_scope, action, subject, permission_class_chain].map(&:inspect).join("\n")
-
       return permission_action unless permission_action.scope == :public
 
       read_public_pages_action?
