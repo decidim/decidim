@@ -320,6 +320,13 @@ en:
       show:
         related_assemblies: Related assemblies
     participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Scope
+          name: Title, description and hashtag
+          participatory_processes:
+            one: "1 process"
+            other: "%{count} processes"
       show:
         group_participatory_processes:
           one: 1 process for %{group}

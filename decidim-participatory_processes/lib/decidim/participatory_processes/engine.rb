@@ -102,6 +102,12 @@ module Decidim
         end
       end
 
+      Decidim.content_blocks.register(:participatory_process_group_homepage, :title) do |content_block|
+        content_block.cell = "decidim/participatory_process_groups/content_blocks/title"
+        content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.title.name"
+        content_block.default!
+      end
+
       initializer "decidim_participatory_processes.stats" do
         Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
           Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)

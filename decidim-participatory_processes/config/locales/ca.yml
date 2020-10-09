@@ -319,6 +319,13 @@ ca:
       show:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
+      content_blocks:
+        title:
+          meta_scope: Àmbit
+          name: Títol, descripció i hashtag
+          participatory_processes:
+            one: "1 procés"
+            other: "%{count} processos"
       show:
         group_participatory_processes:
           one: Un procés per a %{group}
