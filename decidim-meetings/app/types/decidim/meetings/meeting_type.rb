@@ -60,6 +60,7 @@ module Decidim
           [meeting.latitude, meeting.longitude]
         }
       end
+      field :typeOfMeeting, !types.String, "The type of the meeting (online or in-person)"
     end
   end
 end
