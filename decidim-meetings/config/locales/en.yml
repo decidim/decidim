@@ -32,6 +32,7 @@ en:
         start_time: Start Time
         title: Title
         transparent: Transparent
+        type_of_meeting: Type
       minutes:
         audio_url: Audio url
         description: Description
