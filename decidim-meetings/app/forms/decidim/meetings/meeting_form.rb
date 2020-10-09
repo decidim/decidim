@@ -36,6 +36,7 @@ module Decidim
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+      validates :clean_type_of_meeting, presence: true
 
       delegate :categories, to: :current_component
 
@@ -103,6 +104,12 @@ module Decidim
 
       def online_meetings_allowed?
         current_component.settings.allow_online_meetings?
+      end
+
+      def clean_type_of_meeting
+        return "in_person" unless online_meetings_allowed?
+
+        type_of_meeting.presence
       end
 
       def type_of_meeting_select

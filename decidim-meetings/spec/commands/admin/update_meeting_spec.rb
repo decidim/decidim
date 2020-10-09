@@ -45,7 +45,7 @@ module Decidim::Meetings
         services_to_persist: services_to_persist,
         current_user: user,
         current_organization: organization,
-        type_of_meeting: type_of_meeting,
+        clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url
       )
     end
@@ -129,7 +129,7 @@ module Decidim::Meetings
             services_to_persist: services_to_persist,
             current_user: user,
             current_organization: organization,
-            type_of_meeting: type_of_meeting,
+            clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url
           )
         end

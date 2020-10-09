@@ -185,7 +185,7 @@ module Decidim
       end
 
       def online_meeting?
-        online_meeting_url.present?
+        type_of_meeting == "online"
       end
 
       private

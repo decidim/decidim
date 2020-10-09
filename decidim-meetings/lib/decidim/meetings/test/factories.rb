@@ -42,6 +42,7 @@ FactoryBot.define do
     transparent { true }
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
+    type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
 
     author do
@@ -49,6 +50,7 @@ FactoryBot.define do
     end
 
     trait :online do
+      type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
     end
 
