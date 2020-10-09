@@ -18,7 +18,7 @@ describe Decidim::Comments::UserMentionedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("You have been mentioned in #{resource.title}")
+      expect(subject.email_subject).to eq("You have been mentioned in #{translated resource.title}")
     end
   end
 
@@ -31,14 +31,14 @@ describe Decidim::Comments::UserMentionedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you have been mentioned in #{resource.title}.")
+        .to eq("You have received this notification because you have been mentioned in #{translated resource.title}.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource.title}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{translated resource.title}</a>")
 
       expect(subject.notification_title)
         .to include(" by <a href=\"/profiles/#{comment_author.nickname}\">#{comment_author.name} @#{comment_author.nickname}</a>")

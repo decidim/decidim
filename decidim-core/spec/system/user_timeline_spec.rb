@@ -75,19 +75,19 @@ describe "User timeline", type: :system do
     end
 
     it "displays activities from followed users" do
-      expect(page).to have_content(comment.commentable.title)
+      expect(page).to have_content(translated(comment.commentable.title))
     end
 
     it "displays activities from followed spaces" do
-      expect(page).to have_content(resource.title)
+      expect(page).to have_content(translated(resource.title))
     end
 
     it "displays activities from followed resources" do
-      expect(page).to have_content(resource2.title)
+      expect(page).to have_content(translated(resource2.title))
     end
 
     it "doesn't show irrelevant resources" do
-      expect(page).to have_no_content(resource3.title)
+      expect(page).to have_no_content(translated(resource3.title))
     end
 
     it "displays activities filter with the correct options" do
