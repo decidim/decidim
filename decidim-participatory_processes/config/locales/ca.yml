@@ -320,9 +320,6 @@ ca:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: Un procés per a %{group}
-          other: "%{count} processos per a %{group}"
         title: Grups de processos participatius
     participatory_process_steps:
       index:

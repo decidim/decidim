@@ -320,9 +320,6 @@ es:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: Un proceso en %{group}
-          other: "%{count} procesos en %{group}"
         title: Grupos de procesos participativos
     participatory_process_steps:
       index:
