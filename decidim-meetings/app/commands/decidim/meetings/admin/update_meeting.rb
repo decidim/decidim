@@ -49,6 +49,7 @@ module Decidim
             end_time: form.end_time,
             start_time: form.start_time,
             online_meeting_url: form.online_meeting_url,
+            type_of_meeting: form.clean_type_of_meeting,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,

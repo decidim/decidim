@@ -47,6 +47,7 @@ module Decidim
           decidim_user_group_id: form.user_group_id,
           online_meeting_url: form.online_meeting_url,
           registration_terms: { I18n.locale => form.current_component.settings.default_registration_terms },
+          type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component
         }
 
