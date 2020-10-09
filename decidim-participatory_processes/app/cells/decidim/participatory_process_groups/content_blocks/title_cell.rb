@@ -10,7 +10,7 @@ module Decidim
         delegate :group_url, to: :participatory_process_group
 
         def participatory_process_group
-          @participatory_process_group ||= controller.send(:group)
+          @participatory_process_group ||= Decidim::ParticipatoryProcessGroup.find(model.scoped_resource_id)
         end
 
         def hashtag_text
