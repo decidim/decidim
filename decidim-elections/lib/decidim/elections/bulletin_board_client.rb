@@ -22,8 +22,20 @@ module Decidim
       def graphql_client
         Graphlient::Client.new(server,
                                headers: {
-                                 "Authorization" => api_key
+                                 "api_key" => api_key
                                })
+      end
+
+      def encode_data(setup_election_data)
+        JWT.encode setup_election_data, private_key, 'RS256'
+      end
+
+      def create_election(election_data)
+        graphql_client.query do
+          mutation do
+            createElection(signedData: encode_data(election_data), apiKey: api_key)
+          end
+        end
       end
 
       private
