@@ -8,9 +8,9 @@
 } %>
 
 <%=
-  render partial: "decidim/shared/flag_modal", locals: {
+  render partial: "decidim/shared/flag_user_modal", locals: {
     reportable: user,
     form: report_form,
-    url: decidim.report_path(sgid: user.to_sgid.to_s)
+    url: decidim.report_user_path(sgid: user.to_sgid.to_s)
   }
 %>

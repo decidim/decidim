@@ -30,7 +30,7 @@
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>
-              <td>0</td>
+              <td><%= user.report_count %></td>
 
               <td class="table-list__actions">
                 <%# if user.banned? %>

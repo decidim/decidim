@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -1205,6 +1206,15 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
+      flag_user_modal:
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        description: What is inappropriate about the user?
+        spam: Contains clickbait, advertising, scams or script bots.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        report: Report
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        close: Close
+        title: Report inappropriate User
       floating_help:
         close: Close help
         help: Help

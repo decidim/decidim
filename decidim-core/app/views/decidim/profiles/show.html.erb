@@ -3,9 +3,9 @@
 <%= cell "decidim/profile", profile_holder, context: { content_cell: @content_cell } %>
 
 <%=
-  render partial: "decidim/shared/flag_modal", locals: {
-    reportable: profile_holder,
-    form: report_form,
-    url: decidim.report_path(sgid: profile_holder.to_sgid.to_s)
+  render partial: "decidim/shared/flag_user_modal", locals: {
+      reportable: profile_holder,
+      form: report_form,
+      url: decidim.report_user_path(sgid: profile_holder.to_sgid.to_s)
   }
 %>

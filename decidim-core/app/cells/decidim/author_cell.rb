@@ -42,8 +42,8 @@ module Decidim
       render
     end
 
-    def flag_raw
-      render
+    def flag_user
+      render unless current_user == model
     end
 
     def withdraw

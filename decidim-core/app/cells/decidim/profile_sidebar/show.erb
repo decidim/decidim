@@ -5,7 +5,7 @@
       <strong><%= profile_user.name %></strong>
       <span class="text-small">
         <%= profile_user.nickname %>
-        <%== cell("decidim/author", profile_user, from:profile_user).flag_raw %>
+        <%== cell("decidim/author", profile_user, from:profile_user).flag_user %>
       </span>
       <% if can_contact_user? %>
         <span class="user-contact_link">

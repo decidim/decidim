@@ -10,7 +10,6 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
-    include Decidim::Reportable
 
     class Roles
       def self.all
@@ -72,6 +71,14 @@ module Decidim
                       index_on_update: ->(user) { !user.deleted? })
 
     before_save :ensure_encrypted_password
+
+    has_many :reporters, class_name: "Decidim::UserReport", foreign_key: :reported_id
+
+    has_many :reported, class_name: "Decidim::UserReport", foreign_key: :reporter_id
+
+    def reported_by?(user)
+      self.reporters.where(reporter_id: user.id).exists?
+    end
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?

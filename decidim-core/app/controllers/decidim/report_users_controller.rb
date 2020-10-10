@@ -1,19 +1,18 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Exposes the report resource so users can report a reportable.
-  class ReportsController < Decidim::ApplicationController
+  class ReportUsersController < ApplicationController
     include FormFactory
     include NeedsPermission
 
     before_action :authenticate_user!
 
     def create
-      enforce_permission_to :create, :moderation
+      enforce_permission_to :create, :user_report
 
       @form = form(Decidim::ReportForm).from_params(params)
 
-      CreateReport.call(@form, reportable, current_user) do
+      CreateUserReport.call(@form, reportable, current_user) do
         on(:ok) do
           flash[:notice] = I18n.t("decidim.reports.create.success")
           redirect_back fallback_location: root_path
@@ -33,10 +32,7 @@ module Decidim
     end
 
     def permission_class_chain
-      [
-        reportable.participatory_space.manifest.permissions_class,
-        Decidim::Permissions
-      ]
+      [Decidim::ReportUserPermissions, Decidim::Permissions]
     end
 
     def permission_scope
