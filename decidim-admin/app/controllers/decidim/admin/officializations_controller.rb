@@ -60,7 +60,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.not_deleted
+        @collection ||= current_organization.users.not_deleted.includes(:user_moderation)
       end
 
       def user

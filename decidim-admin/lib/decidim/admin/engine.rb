@@ -59,6 +59,7 @@ module Decidim
                       decidim/admin/user_groups
                       decidim/admin/user_groups_csv_verifications
                       decidim/admin/officializations
+                      decidim/admin/moderated_users
                       decidim/admin/impersonatable_users
                       decidim/admin/managed_users/impersonation_logs
                       decidim/admin/managed_users/promotions

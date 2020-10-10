@@ -24,6 +24,7 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       transaction do
+        find_or_create_moderation!
         create_report!
         update_report_count!
       end
@@ -37,17 +38,21 @@ module Decidim
 
     attr_reader :form, :report
 
+    def find_or_create_moderation!
+      @moderation = UserModeration.find_or_create_by!(user: @reportable)
+    end
+
     def create_report!
       @report = UserReport.create!(
-        reporter: @current_user,
-        reported: @reportable,
+        moderation: @moderation,
+        user: @current_user,
         reason: form.reason,
         details: form.details
       )
     end
 
     def update_report_count!
-      @reportable.increment!(:report_count)
+      @moderation.increment!(:report_count)
     end
 
     def send_email_to_moderators

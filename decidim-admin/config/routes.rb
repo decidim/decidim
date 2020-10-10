@@ -44,6 +44,12 @@ Decidim::Admin::Engine.routes.draw do
       get :show_email, on: :member
     end
 
+    resources :moderated_users, only: [ :index, :ignore ] do
+      member do
+        put :ignore
+      end
+    end
+
     resources :impersonatable_users, only: [:index] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]
       resources :impersonation_logs, controller: "managed_users/impersonation_logs", only: [:index]

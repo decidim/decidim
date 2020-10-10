@@ -71,7 +71,7 @@ module Decidim
       end
 
       def reportable
-        @reportable ||= participatory_space_moderations.find(params[:id]).reportable
+        @reportable ||= participatory_space_moderations.find(params[:id])
       end
 
       def participatory_space_moderations

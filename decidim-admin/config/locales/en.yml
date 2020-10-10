@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -135,6 +136,20 @@ en:
         site: Website
   decidim:
     admin:
+      moderated_users:
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
+        index:
+          name: "Name"
+          reason: "Reason"
+          title: "Listing reported users"
+          nickname: "Nickname"
+          actions:
+            title: "Actions"
+            unreport: "Unreport"
       actions:
         add: Add
         browse: Browse
@@ -375,6 +390,7 @@ en:
             new_managed_user_promotion: New managed participant promotion
             promote: Promote
       menu:
+        reported_users: Reported Users
         admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
