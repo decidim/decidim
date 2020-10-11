@@ -31,7 +31,7 @@ bg:
         subject: Тема
       organization:
         address: Име на SMTP хост
-        alert_color: Предупреждение
+        alert_color: Аларма
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
         cta_button_path: Път на бутона "призив към действие"
@@ -80,6 +80,50 @@ bg:
         twitter_handler: Манипулатор на Twitter
         user_groups_enabled: Разреши групи
         user_name: Потребителско име
+        warning_color: Предупреждение
+        welcome_notification_body: Тяло на приветствието
+        welcome_notification_subject: Тема на приветствието
+        youtube_handler: Манипулатор на YouTube
+      scope:
+        code: Код
+        name: Име
+        organization: Организация
+        parent_id: Родител
+        scope_type: Тип сфера
+        scope_type_id: Тип сфера
+      scope_type:
+        name: Име
+        organization: Организация
+        plural: Множествено число
+      static_page:
+        changed_notably: Настъпиха значителни промени.
+        content: Съдържание
+        organization: Организация
+        show_in_footer: Покажи в долния колонтитул
+        slug: Съкратен URL
+        title: Заглавие
+        weight: Тегло
+      static_page_topic:
+        description: Описание
+        show_in_footer: Покажи в долния колонтитул
+        title: Заглавие
+        weight: Тегло
+      user_group_csv_verification:
+        file: Файл
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Невалиден файл на изображението
+            official_img_header:
+              allowed_file_content_types: Невалиден файл на изображението
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Съдържание
+        slug: Съкратен URL
+        title: Заглавие
   decidim:
     admin:
       organization_appearance:
