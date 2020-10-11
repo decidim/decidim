@@ -5,6 +5,9 @@ bg:
         area_type: Тип район
         name: Име
         organization: Организация
+      area_type:
+        name: Име
+        organization: Организация
   decidim:
     admin:
       organization_appearance:
