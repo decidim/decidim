@@ -282,6 +282,7 @@ it:
           all: Tutti
           answered: Risposto
           closed: Chiuso
+          draft: Bozza
           open: Aperto
           rejected: Firme non sufficienti
         filter_type_values:
