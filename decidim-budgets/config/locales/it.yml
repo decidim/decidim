@@ -1,7 +1,14 @@
 it:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Ambito
+        description: Descrizione
+        title: Titolo
+        total_budget: Budget totale
+        weight: Peso
       project:
+        budget_amount: Importo del budget
         decidim_category_id: Categoria
         decidim_scope_id: Ambito tematico
         description: Descrizione
@@ -20,11 +27,33 @@ it:
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
         edit: Modifica
+        edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
+        new: Nuovo %{name}
         preview: Anteprima
         title: Azioni
       admin:
+        budgets:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo progetto
+            success: Budget creato con successo
+          destroy:
+            invalid: Si è verificato un errore durante l'eliminazione di questo budget
+            success: Budget eliminato con successo
+          edit:
+            title: Modifica budget
+            update: Aggiorna budget
+          index:
+            title: Budgets
+          new:
+            create: Crea un bilancio
+            title: Nuovo budget
+          update:
+            invalid: Si è verificato un errore durante l'aggiornamento di questo budget
+            success: Budget aggiornato con successo
         models:
+          budget:
+            name: Bilancio
           project:
             name: Progetto
         projects:
@@ -39,6 +68,7 @@ it:
           index:
             finished_orders: Votazione finale
             pending_orders: Votazione pendente
+            selected: Selezionato
             title: Progetti
           new:
             create: Crea
@@ -55,10 +85,30 @@ it:
             no_components: Non ci sono altri componenti della proposta in questo spazio partecipativo per importare le proposte in progetti.
             select_component: Si prega di selezionare un componente
       admin_log:
+        budget:
+          create: "%{user_name} ha creato il budget %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} ha eliminato il budget %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il budget %{resource_name} nello spazio %{space_name}"
         project:
           create: "%{user_name} ha creato il progetto %{resource_name} nello spazio %{space_name}"
           delete: "%{user_name} eliminato il progetto %{resource_name} nello spazio %{space_name}"
           update: "%{user_name} ha aggiornato il progetto %{resource_name} nello spazio %{space_name}"
+      budget:
+        view: Visualizza tutti i progetti budget
+      budget_information_modal:
+        back_to: Torna a %{component_name}
+        close_modal: Chiudi modalità
+        continue: Prosegui
+        more_information: Altre informazioni
+      budgets_list:
+        cancel_order:
+          more_than_one: elimina il tuo voto su %{name} e ricomincia
+          only_one: cancella il tuo voto e ricomincia.
+        finished_message: Hai terminato il processo di votazione. Grazie per aver partecipato!
+        highlighted_cta: Vota su %{name}
+        if_change_opinion: Se hai cambiato idea, puoi
+        my_budgets: I miei budget
+        voted_on: Hai votato il %{links}
       models:
         project:
           fields:
