@@ -109,7 +109,15 @@ it:
         if_change_opinion: Se hai cambiato idea, puoi
         my_budgets: I miei budget
         voted_on: Hai votato il %{links}
+      limit_announcement:
+        cant_vote: Non puoi votare su questo budget. <a href="%{landing_path}">Prova con un altro budget</a>.
+        limit_reached: Hai voti attivi in %{links}. Per votare su questo budget devi <a href="%{landing_path}">eliminare il tuo voto e ricominciare da</a>.
       models:
+        budget:
+          fields:
+            name: Nome
+            projects_count: Conteggio progetti
+            total_budget: Budget totale
         project:
           fields:
             title: Titolo
@@ -117,8 +125,11 @@ it:
         order_summary:
           selected_projects: 'I progetti che hai selezionato sono:'
           subject: Hai votato nello spazio partecipativo %{space_name}
+          voted_on_space: Hai votato il budget %{budget_name} per lo spazio partecipativo %{space_name}.
+          voted_on_space_with_scope: Hai votato il budget %{budget_name} per lo spazio partecipativo %{space_name} su %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Se cambi idea, puoi cambiare il tuo voto più tardi.
           cancel: Annulla
           confirm: Conferma
           description: Questi sono i progetti per i quali hai scelto di partecipare al budget.
@@ -146,6 +157,11 @@ it:
           category: Categoria
           scope: Ambito tematico
           search: Cerca
+          status: Stato
+          status_values:
+            all: Tutti
+            not_selected: Non selezionato
+            selected: Selezionato
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtra
@@ -165,9 +181,11 @@ it:
           lowest_cost: Costo più basso
           most_voted: Più votate
           random: Ordine sparso
+          selected: Selezionato
         project:
           add: Aggiungi progetto %{resource_name} al tuo voto
           remove: Rimuovi il progetto %{resource_name} dal tuo voto
+          selected: Selezionato
           view: vista
         project_budget_button:
           add: Aggiungi al tuo voto
