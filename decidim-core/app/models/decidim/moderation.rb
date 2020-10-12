@@ -15,5 +15,13 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ModerationPresenter
     end
+
+    ransacker :reportable_id_string do
+      Arel.sql(%{cast("decidim_moderations"."decidim_reportable_id" as text)})
+    end
+
+    ransacker :reportable_type_string do
+      Arel.sql(%{cast("decidim_moderations"."decidim_reportable_type" as text)})
+    end
   end
 end
