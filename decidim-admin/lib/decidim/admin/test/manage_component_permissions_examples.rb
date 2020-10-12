@@ -201,7 +201,7 @@ shared_examples "Managing component permissions" do
     end
 
     it "shows the resource permissions settings" do
-      expect(page).to have_content(resource.title)
+      expect(page).to have_content(translated(resource.title))
     end
 
     context "when resources permissions are disabled" do
