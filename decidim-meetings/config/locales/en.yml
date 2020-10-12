@@ -84,6 +84,7 @@ en:
         settings:
           global:
             allow_online_meetings: Allow online meetings
+            allow_external_registrations: Allow external registrations
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -256,10 +257,14 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
+            available_slots_help: Leave it to 0 if you have unlimited slots available
+            disclaimer: "Disclaimer: By using an external registration system, you're aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service."
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
+            select_a_registration_type: Please select a registration type
           index:
             title: Meetings
           new:
@@ -397,12 +402,16 @@ en:
           unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
+          available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
+          disclaimer: "Disclaimer: By using an external registration system, you're aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service."
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+          registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
+          select_a_registration_type: Please select a registration type
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -477,6 +486,10 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+      registration_type:
+        registration_disabled: Registration disabled
+        on_this_platform: On this platform
+        on_different_platform: On a different platform
       type_of_meeting:
         in_person: In person
         online: Online

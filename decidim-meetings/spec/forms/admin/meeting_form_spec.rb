@@ -183,17 +183,21 @@ module Decidim::Meetings
       it { is_expected.to eq(services.size) }
     end
 
-    describe "when online meeting link is missing and type of meeting is online" do
-      let(:type_of_meeting) { "online" }
-      let(:online_meeting_url) { nil }
+    context "when component allows online meetings" do
+      let(:current_component) { create :meeting_component, :with_online_meetings_enabled, participatory_space: participatory_process }
 
-      it { is_expected.not_to be_valid }
-    end
+      describe "when online meeting link is missing and type of meeting is online" do
+        let(:type_of_meeting) { "online" }
+        let(:online_meeting_url) { nil }
 
-    describe "when type of meeting is missing" do
-      let(:type_of_meeting) { nil }
+        it { is_expected.not_to be_valid }
+      end
 
-      it { is_expected.not_to be_valid }
+      describe "when type of meeting is missing" do
+        let(:type_of_meeting) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
     end
   end
 end

@@ -19,8 +19,12 @@ module Decidim
         attribute :transparent, Boolean
         attribute :online_meeting_url, String
         attribute :type_of_meeting, String
+        attribute :registration_type, String
+        attribute :registration_url, String
+        attribute :available_slots, Integer, default: 0
 
         TYPE_OF_MEETING = %w(in_person online).freeze
+        REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -31,6 +35,9 @@ module Decidim
         validates :description, translatable_presence: true
         validates :type_of_meeting, presence: true, if: ->(form) { form.online_meetings_allowed? }
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
+        validates :registration_type, presence: true
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.registration_type == "on_this_platform" }
+        validates :registration_url, presence: true, if: ->(form) { form.registration_type == "on_different_platform" }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
@@ -131,6 +138,17 @@ module Decidim
               type
             ]
           end
+        end
+
+        def registration_type_select
+          REGISTRATION_TYPE.map do |type|
+            next if !current_component.settings.allow_external_registrations? && type == "on_different_platform"
+
+            [
+              I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end.compact
         end
       end
     end

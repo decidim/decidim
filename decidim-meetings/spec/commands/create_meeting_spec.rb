@@ -19,7 +19,10 @@ module Decidim::Meetings
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
+    let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
     let(:form) do
       double(
         invalid?: invalid,
@@ -39,7 +42,11 @@ module Decidim::Meetings
         current_component: current_component,
         current_organization: organization,
         type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        registration_terms: Faker::Lorem.sentence(3)
       )
     end
 

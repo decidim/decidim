@@ -56,7 +56,11 @@ module Decidim
             location_hints: { I18n.locale => form.location_hints },
             author: form.current_user,
             decidim_user_group_id: form.user_group_id,
-            online_meeting_url: form.online_meeting_url
+            online_meeting_url: form.online_meeting_url,
+            registration_type: form.registration_type,
+            registration_url: form.registration_url,
+            available_slots: form.available_slots,
+            registration_terms: { I18n.locale => form.registration_terms }
           },
           visibility: "public-only"
         )

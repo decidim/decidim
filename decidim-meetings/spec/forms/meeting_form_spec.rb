@@ -34,7 +34,11 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "in_person" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_terms) { Faker::Lorem.sentence(3) }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -50,7 +54,11 @@ module Decidim::Meetings
         private_meeting: private_meeting,
         transparent: transparent,
         type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_terms: registration_terms,
+        registration_url: registration_url
       }
     end
 
@@ -135,15 +143,32 @@ module Decidim::Meetings
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
 
-    describe "when online meeting link is missing and type of meeting is online" do
-      let(:type_of_meeting) { "online" }
-      let(:online_meeting_url) { nil }
+    context "when component allows online meetings" do
+      let(:current_component) { create :meeting_component, :with_online_meetings_enabled, participatory_space: participatory_process }
+
+      describe "when online meeting link is missing and type of meeting is online" do
+        let(:type_of_meeting) { "online" }
+        let(:online_meeting_url) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      describe "when type of meeting is missing" do
+        let(:type_of_meeting) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+    end
+
+    describe "when registration url is missing and registration type of meeting is on this platform" do
+      let(:registration_type) { "on_this_platform" }
+      let(:registration_url) { nil }
 
       it { is_expected.not_to be_valid }
     end
 
-    describe "when type of meeting is missing" do
-      let(:type_of_meeting) { nil }
+    describe "when registration type of meeting is missing" do
+      let(:registration_type) { nil }
 
       it { is_expected.not_to be_valid }
     end
