@@ -51,8 +51,8 @@ FactoryBot.define do
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    type_of_meeting { :in_person }
     registration_type { :on_this_platform }
+    type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
 
     author do

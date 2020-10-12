@@ -178,16 +178,16 @@ module Decidim::Meetings
     end
 
     context "when registration type is on this platform" do
+      let(:registration_type) { "on_this_platform" }
+
       describe "available slots are missing" do
         let(:available_slots) { nil }
-        let(:registration_type) { "on_this_platform" }
 
         it { is_expected.not_to be_valid }
       end
 
       describe "registration terms are missing" do
         let(:registration_terms) { nil }
-        let(:registration_type) { "on_this_platform" }
 
         it { is_expected.not_to be_valid }
       end
