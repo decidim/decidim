@@ -41,12 +41,12 @@ module Decidim::Meetings
         user_group_id: user_group_id,
         current_user: current_user,
         current_organization: organization,
-        type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
         registration_type: registration_type,
         available_slots: available_slots,
         registration_url: registration_url,
-        registration_terms: "The meeting registration terms"
+        registration_terms: "The meeting registration terms",
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 
@@ -137,11 +137,12 @@ module Decidim::Meetings
             services_to_persist: [],
             current_user: current_user,
             current_organization: organization,
-            online_meeting_url: online_meeting_url,
             registration_type: registration_type,
             available_slots: available_slots,
             registration_url: registration_url,
-            registration_terms: meeting.registration_terms
+            registration_terms: meeting.registration_terms,
+            clean_type_of_meeting: type_of_meeting,
+            online_meeting_url: online_meeting_url
           )
         end
 

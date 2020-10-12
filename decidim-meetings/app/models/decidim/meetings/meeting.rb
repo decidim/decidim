@@ -52,6 +52,9 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
+      scope :online, -> { where(type_of_meeting: :online) }
+      scope :in_person, -> { where(type_of_meeting: :in_person) }
+
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
@@ -185,7 +188,7 @@ module Decidim
       end
 
       def online_meeting?
-        online_meeting_url.present?
+        type_of_meeting == "online"
       end
 
       private

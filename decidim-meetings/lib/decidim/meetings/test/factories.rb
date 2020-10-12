@@ -18,6 +18,22 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_online_meetings_enabled do
+      settings do
+        {
+          allow_online_meetings: true
+        }
+      end
+    end
+
+    trait :with_external_registrations_enabled do
+      settings do
+        {
+          allow_external_registrations: true
+        }
+      end
+    end
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do
@@ -35,6 +51,8 @@ FactoryBot.define do
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    type_of_meeting { :in_person }
+    registration_type { :on_this_platform }
     component { build(:component, manifest_name: "meetings") }
 
     author do
@@ -42,6 +60,7 @@ FactoryBot.define do
     end
 
     trait :online do
+      type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
     end
 

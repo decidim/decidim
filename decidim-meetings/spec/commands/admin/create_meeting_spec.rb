@@ -60,11 +60,11 @@ module Decidim::Meetings
         current_user: current_user,
         current_component: current_component,
         current_organization: organization,
-        type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
         registration_type: registration_type,
         available_slots: available_slots,
-        registration_url: registration_url
+        registration_url: registration_url,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 

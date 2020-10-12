@@ -160,17 +160,37 @@ module Decidim::Meetings
       end
     end
 
-    describe "when registration url is missing and registration type of meeting is on this platform" do
-      let(:registration_type) { "on_this_platform" }
-      let(:registration_url) { nil }
+    context "when component allows external registrations" do
+      let(:current_component) { create :meeting_component, :with_online_meetings_enabled, participatory_space: participatory_process }
 
-      it { is_expected.not_to be_valid }
+      describe "when registration url is missing and registration type of meeting is on different platform" do
+        let(:registration_type) { "on_different_platform" }
+        let(:registration_url) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
     describe "when registration type of meeting is missing" do
       let(:registration_type) { nil }
 
       it { is_expected.not_to be_valid }
+    end
+
+    context "when registration type is on this platform" do
+      describe "available slots are missing" do
+        let(:available_slots) { nil }
+        let(:registration_type) { "on_this_platform" }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      describe "registration terms are missing" do
+        let(:registration_terms) { nil }
+        let(:registration_type) { "on_this_platform" }
+
+        it { is_expected.not_to be_valid }
+      end
     end
   end
 end

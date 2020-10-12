@@ -36,12 +36,12 @@ module Decidim
         validates :type_of_meeting, presence: true, if: ->(form) { form.online_meetings_allowed? }
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
         validates :registration_type, presence: true
-        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.registration_type == "on_this_platform" }
-        validates :registration_url, presence: true, if: ->(form) { form.registration_type == "on_different_platform" }
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
+        validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
-        validates :online_meeting_url, presence: true, if: ->(form) { form.online_meeting? }
+        validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
@@ -49,6 +49,7 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :clean_type_of_meeting, presence: true
 
         delegate :categories, to: :current_component
 
@@ -131,6 +132,12 @@ module Decidim
           current_component.settings.allow_online_meetings?
         end
 
+        def clean_type_of_meeting
+          return "in_person" unless online_meetings_allowed?
+
+          type_of_meeting.presence
+        end
+
         def type_of_meeting_select
           TYPE_OF_MEETING.map do |type|
             [
@@ -140,9 +147,21 @@ module Decidim
           end
         end
 
+        def on_this_platform?
+          registration_type == "on_this_platform"
+        end
+
+        def on_different_platform?
+          registration_type == "on_different_platform"
+        end
+
+        def external_registrations_allowed?
+          current_component.settings.allow_external_registrations?
+        end
+
         def registration_type_select
           REGISTRATION_TYPE.map do |type|
-            next if !current_component.settings.allow_external_registrations? && type == "on_different_platform"
+            next if !external_registrations_allowed? && type == "on_different_platform"
 
             [
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),

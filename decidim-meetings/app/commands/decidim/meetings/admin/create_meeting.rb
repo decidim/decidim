@@ -44,6 +44,7 @@ module Decidim
             registration_type: form.registration_type,
             registration_url: form.registration_url,
             available_slots: form.available_slots,
+            type_of_meeting: form.clean_type_of_meeting,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
