@@ -123,7 +123,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "accessing participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "section" }
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "section" }
 
     it "renders only draft proposals" do
       visit_participatory_texts
@@ -132,7 +132,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "discarding participatory texts in draft mode" do
-    let!(:proposals) { create_list(:proposal, 5, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article") }
+    let!(:proposals) { create_list(:proposal, 5, :draft, component: current_component, participatory_text_level: "article") }
 
     it "removes all proposals in draft mode" do
       visit_participatory_texts
@@ -143,7 +143,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article" }
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
     let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
@@ -158,7 +158,7 @@ describe "Admin manages participatory texts", type: :system do
   end
 
   describe "updating participatory texts in draft mode" do
-    let!(:proposal) { create :proposal, :draft, skip_i18n: true, component: current_component, participatory_text_level: "article" }
+    let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
     let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do

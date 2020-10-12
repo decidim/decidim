@@ -66,6 +66,18 @@ module Decidim
         end
 
         context "when the filter includes state" do
+          context "and filtering draft initiatives" do
+            let(:state) { ["created"] }
+
+            it "returns only draft initiatives" do
+              draft_initiatives = create_list(:initiative, 3, organization: organization, state: "created", published_at: nil)
+              create_list(:initiative, 3, :acceptable, organization: organization)
+
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(draft_initiatives)
+            end
+          end
+
           context "and filtering open initiatives" do
             let(:state) { ["open"] }
 

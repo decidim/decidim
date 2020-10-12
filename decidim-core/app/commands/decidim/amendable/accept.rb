@@ -50,12 +50,18 @@ module Decidim
       end
 
       def update_amendable!
-        @amendable = Decidim.traceability.update!(
+        @amendable = Decidim.traceability.perform_action!(
+          :update,
           @amendable,
           @amender,
-          form.emendation_params,
           visibility: "public-only"
-        )
+        ) do
+          @amendable.assign_attributes(form.emendation_params)
+          @amendable.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
+          @amendable.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
+          @amendable.save!
+          @amendable
+        end
         @amendable.add_coauthor(@amender, user_group: @user_group)
       end
 

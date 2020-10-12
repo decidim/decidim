@@ -74,7 +74,7 @@ module Decidim
             it "updates the associated SearchableResource after published Proposal update" do
               searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
               created_at = searchable.created_at
-              updated_title = "Brand new title"
+              updated_title = { "en" => "Brand new title" }
               proposal.update(title: updated_title)
 
               proposal.save!
@@ -82,7 +82,7 @@ module Decidim
 
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
-                expect(searchable.content_a).to eq updated_title
+                expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
                 expect(searchable.updated_at).to be > created_at
               end
             end
