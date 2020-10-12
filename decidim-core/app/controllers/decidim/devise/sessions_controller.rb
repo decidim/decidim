@@ -6,7 +6,6 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
 
-
       before_action :check_sign_in_enabled, only: :create
 
       def create

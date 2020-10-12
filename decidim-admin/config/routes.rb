@@ -38,7 +38,7 @@ Decidim::Admin::Engine.routes.draw do
       member do
         post :resend_invitation, to: "users#resend_invitation"
       end
-      resource :suspend, only: [ :new, :create, :destroy ], controller: :user_suspension
+      resource :suspend, only: [:new, :create, :destroy], controller: :user_suspension
     end
 
     resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id do

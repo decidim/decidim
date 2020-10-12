@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   class UserSuspension < ApplicationRecord
     MINIMUM_JUSTIFICATION_LENGTH = 10
