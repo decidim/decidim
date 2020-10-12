@@ -44,7 +44,7 @@ Decidim::Admin::Engine.routes.draw do
       get :show_email, on: :member
     end
 
-    resources :moderated_users, only: [ :index, :ignore ] do
+    resources :moderated_users, only: [:index, :ignore] do
       member do
         put :ignore
       end

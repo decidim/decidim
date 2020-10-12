@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class ModeratedUsersController < Decidim::Admin::ApplicationController
-
       layout "decidim/admin/users"
 
       def index
@@ -35,13 +34,11 @@ module Decidim
       #   end
       # end
 
-
       private
 
       def reportable
         @reportable ||= UserModeration.find(params[:id]).user
       end
-
     end
   end
 end

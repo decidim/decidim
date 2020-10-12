@@ -8,7 +8,6 @@ class GeocodingValidator < ActiveModel::EachValidator
       geocoder = geocoder_for(record.component.organization)
       coordinates = geocoder.coordinates(value)
 
-      raise geocoder.inspect
       if coordinates.present?
         record.latitude = coordinates.first
         record.longitude = coordinates.last

@@ -76,12 +76,13 @@ module Decidim
     #
     # has_many :reported, class_name: "Decidim::UserReport", foreign_key: :reporter_id
 
-    has_one :user_moderation, class_name: "Decidim::UserModeration", foreign_key: :decidim_user_id
+    has_one :user_moderation, class_name: "Decidim::UserModeration", foreign_key: :decidim_user_id, dependent: :destroy
     has_many :user_reports, through: :user_moderation, source: :reports, class_name: "Decidim::UserReport"
 
     def report_count
       user_moderation&.report_count.to_i
     end
+
     # Public: Check if the user has reported the reportable.
     #
     # Returns Boolean.

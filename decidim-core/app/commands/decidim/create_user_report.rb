@@ -52,7 +52,7 @@ module Decidim
     end
 
     def update_report_count!
-      @moderation.increment!(:report_count)
+      @moderation.update!(report_count: @moderation.report_count + 1)
     end
 
     def send_email_to_moderators
