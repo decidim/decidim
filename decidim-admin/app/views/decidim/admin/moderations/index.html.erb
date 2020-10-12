@@ -18,10 +18,10 @@
           <tr>
             <th><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></th>
-            <th><%= t("models.moderation.fields.report_count", scope: "decidim.moderations") %></th>
+            <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
             <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
-            <th><%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %></th>
+            <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
             <% if params[:hidden] %>
               <th><%= t("models.moderation.fields.hidden_at", scope: "decidim.moderations") %></th>
             <% end %>
