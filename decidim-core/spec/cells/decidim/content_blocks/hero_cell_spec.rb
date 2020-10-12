@@ -8,7 +8,6 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   let(:organization) { create(:organization) }
   let(:content_block) { create :content_block, organization: organization, manifest_name: :hero, scope_name: :homepage, settings: settings }
   let(:settings) { {} }
-  let(:original_locale) { :en }
 
   controller Decidim::PagesController
 
@@ -21,7 +20,7 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has customized the welcome text setting value" do
     let(:settings) do
       {
-        "welcome_text_en" => "This is my welcome text"
+          "welcome_text_en" => "This is my welcome text"
       }
     end
 
@@ -33,8 +32,8 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
   context "when the content block has a background image" do
     let(:background_image) do
       Rack::Test::UploadedFile.new(
-        Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
-        "image/jpeg"
+          Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+          "image/jpeg"
       )
     end
 
@@ -79,16 +78,12 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
     context "when current locale change" do
       let(:alt_locale) { :ca }
 
-      after do
-        I18n.locale = original_locale
+      before do
+        allow(I18n).to receive(:locale).and_return(alt_locale)
       end
 
       it "generates a different hash" do
-        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
-
-        I18n.locale = alt_locale
-
-        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to match(/en$/)
       end
     end
   end

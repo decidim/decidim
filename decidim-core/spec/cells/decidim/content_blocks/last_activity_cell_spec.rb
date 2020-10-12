@@ -102,11 +102,12 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     context "when switching locale" do
       let(:alt_locale) { :ca }
 
-      it "generates a different hash" do
-        old_hash = cell.send(:cache_hash)
-        I18n.locale = alt_locale
+      before do
+        allow(I18n).to receive(:locale).and_return(alt_locale)
+      end
 
-        expect(cell.send(:cache_hash)).not_to eq(old_hash)
+      it "generates a different hash" do
+        expect(cell.send(:cache_hash)).not_to match(/en$/)
       end
     end
   end
