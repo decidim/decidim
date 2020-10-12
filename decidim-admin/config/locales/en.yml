@@ -1,17 +1,4 @@
 ---
-
-#show_suspend_modals:
-#  close_modal: Close modal
-#  unsuspend:
-#    action: Unblock user
-#    description: Lorem ipsum
-#    title: "Unsuspend User"
-#  suspend:
-#    justification: Justification
-#
-#
-#    title:
-
 en:
   activemodel:
     attributes:
@@ -148,12 +135,6 @@ en:
         site: Website
   decidim:
     admin:
-      user_suspension:
-        new:
-          title: "Suspend User %{name}"
-          justification: Justification
-          action: Block user
-          description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       actions:
         add: Add
         browse: Browse
@@ -566,19 +547,11 @@ en:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
-        suspend:
-          success: Participant successfully suspended
-          error: There wes an error suspending the participant
-        unsuspend:
-          success: Participant successfully unsuspended
-          error: There wes an error unsuspending the participant
         create:
           success: Participant successfully officialized
         destroy:
           success: Participant successfully unofficialized
         index:
-          unsuspend: Unsuspend User
-          suspend: Suspend User
           actions: Actions
           badge: Badge
           created_at: Created At
@@ -590,7 +563,9 @@ en:
           reofficialize: Reofficialize
           show_email: Show email address
           status: Status
+          suspend: Suspend User
           unofficialize: Unofficialize
+          unsuspend: Unsuspend User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -603,6 +578,12 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
+        suspend:
+          error: There wes an error suspending the participant
+          success: Participant successfully suspended
+        unsuspend:
+          error: There wes an error unsuspending the participant
+          success: Participant successfully unsuspended
       organization:
         edit:
           title: Edit organization
@@ -808,6 +789,12 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
+      user_suspension:
+        new:
+          action: Block user
+          description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          justification: Justification
+          title: Suspend User %{name}
       users:
         create:
           error: There was a problem inviting this admin.
