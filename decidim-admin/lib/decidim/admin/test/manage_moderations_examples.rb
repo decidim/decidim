@@ -62,6 +62,16 @@ shared_examples "manage moderations" do
         end
       end
     end
+
+    it "user can filter by reportable type" do
+      reportable_type = moderation.reportable.class.name.demodulize
+      within ".filters__section" do
+        find(:xpath, "//a[contains(text(), 'Filter')]").hover
+        find(:xpath, "//a[contains(text(), 'Type')]").hover
+        click_link reportable_type
+      end
+      expect(page).to have_selector("tbody tr", count: moderations.length)
+    end
   end
 
   context "when listing hidden resources" do
