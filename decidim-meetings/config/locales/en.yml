@@ -84,8 +84,8 @@ en:
         name: Meetings
         settings:
           global:
-            allow_online_meetings: Allow online meetings
             allow_external_registrations: Allow external registrations
+            allow_online_meetings: Allow online meetings
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -259,7 +259,7 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             available_slots_help: Leave it to 0 if you have unlimited slots available
-            disclaimer: "Disclaimer: By using an external registration system, you're aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service."
+            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -410,7 +410,7 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
-          disclaimer: "Disclaimer: By using an external registration system, you're aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service."
+          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -482,6 +482,10 @@ en:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
           registration_code: Your registration code is %{code}.
+      registration_type:
+        on_different_platform: On a different platform
+        on_this_platform: On this platform
+        registration_disabled: Registration disabled
       registrations:
         create:
           invalid: There was a problem joining this meeting.
@@ -492,10 +496,6 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
-      registration_type:
-        registration_disabled: Registration disabled
-        on_this_platform: On this platform
-        on_different_platform: On a different platform
       type_of_meeting:
         in_person: In person
         online: Online
