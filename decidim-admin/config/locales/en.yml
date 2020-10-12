@@ -148,19 +148,6 @@ en:
         site: Website
   decidim:
     admin:
-      user_suspension_mailer:
-        notify:
-          body_1: Your account was blocked.
-          body_2: "Reason: %{justification}"
-          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-          hello: Hello,
-          subject: Your account was blocked by %{organization_name}?
-      user_suspension:
-        new:
-          title: "Suspend User %{name}"
-          justification: Justification
-          action: Block account and send justification
-          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
       actions:
         add: Add
         browse: Browse
@@ -584,8 +571,6 @@ en:
         destroy:
           success: Participant successfully unofficialized
         index:
-          unsuspend: Unsuspend User
-          suspend: Suspend User
           actions: Actions
           badge: Badge
           created_at: Created At
@@ -597,7 +582,9 @@ en:
           reofficialize: Reofficialize
           show_email: Show email address
           status: Status
+          suspend: Suspend User
           unofficialize: Unofficialize
+          unsuspend: Unsuspend User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -815,6 +802,19 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
+      user_suspension_mailer:
+        notify:
+          body_1: Your account was blocked.
+          body_2: "Reason: %{justification}"
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello,
+          subject: Your account was blocked by %{organization_name}?
+      user_suspension:
+        new:
+          title: "Suspend User %{name}"
+          justification: Justification
+          action: Block account and send justification
+          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
       users:
         create:
           error: There was a problem inviting this admin.
