@@ -51,8 +51,8 @@ module Decidim::Meetings
       it "updates the meeting" do
         subject.call
 
-        expect(meeting.title).to eq "The meeting title"
-        expect(meeting.description).to eq "The meeting description text"
+        expect(meeting.title).to eq("en" => "The meeting title")
+        expect(meeting.description).to eq("en" => "The meeting description text")
       end
 
       it "sets the scope" do
