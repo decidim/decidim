@@ -303,6 +303,7 @@ en:
           all: All
           answered: Answered
           closed: Closed
+          draft: Draft
           open: Open
           rejected: Not enough signatures
         filter_type_values:
