@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -136,20 +135,6 @@ en:
         site: Website
   decidim:
     admin:
-      moderated_users:
-        report:
-          reasons:
-            does_not_belong: Does not belong
-            offensive: Offensive
-            spam: Spam
-        index:
-          name: "Name"
-          reason: "Reason"
-          title: "Listing reported users"
-          nickname: "Nickname"
-          actions:
-            title: "Actions"
-            unreport: "Unreport"
       actions:
         add: Add
         browse: Browse
@@ -390,7 +375,6 @@ en:
             new_managed_user_promotion: New managed participant promotion
             promote: Promote
       menu:
-        reported_users: Reported Users
         admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
@@ -403,6 +387,7 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         participants: Participants
+        reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -490,6 +475,20 @@ en:
             phone: Phone
             state: State
             users_count: Participants count
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          title: Listing reported users
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       moderations:
         index:
           title: Moderations
