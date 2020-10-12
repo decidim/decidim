@@ -42,9 +42,7 @@ module Decidim
         )
       end
 
-      def notify_user!
-
-      end
+      def notify_user!; end
 
       def suspend!
         Decidim.traceability.perform_action!(

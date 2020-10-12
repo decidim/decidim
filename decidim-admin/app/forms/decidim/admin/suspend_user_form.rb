@@ -4,7 +4,6 @@ module Decidim
   module Admin
     # A form object used to officialize users from the admin dashboard.
     class SuspendUserForm < Form
-
       attribute :user_id, Integer
       attribute :justification, String
 

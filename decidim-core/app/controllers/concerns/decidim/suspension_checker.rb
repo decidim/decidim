@@ -22,6 +22,5 @@ module Decidim
         root_path
       end
     end
-
   end
 end

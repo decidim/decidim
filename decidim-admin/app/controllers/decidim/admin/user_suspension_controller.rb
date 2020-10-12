@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class UserSuspensionController < Decidim::Admin::ApplicationController
-
       layout "decidim/admin/users"
 
       helper_method :user
@@ -60,7 +59,6 @@ module Decidim
           organization: current_organization
         )
       end
-
     end
   end
 end
