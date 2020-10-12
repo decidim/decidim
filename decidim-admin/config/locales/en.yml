@@ -829,9 +829,11 @@ en:
       models:
         moderation:
           fields:
+            created_at: Creation date
             hidden_at: Hidden at
             report_count: Count
-            reportable: Reportable
+            reportable_id: Id
+            reportable_type: Type
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
