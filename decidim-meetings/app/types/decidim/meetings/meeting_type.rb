@@ -61,6 +61,7 @@ module Decidim
         }
       end
       field :typeOfMeeting, !types.String, "The type of the meeting (online or in-person)"
+      field :onlineMeetingUrl, !types.String, "The URL of the meeting (when the type is online)"
     end
   end
 end

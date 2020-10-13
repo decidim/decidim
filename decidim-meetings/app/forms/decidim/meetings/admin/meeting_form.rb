@@ -33,11 +33,11 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :type_of_meeting, presence: true, if: ->(form) { form.online_meetings_allowed? }
-        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
         validates :registration_type, presence: true
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
+        validates :type_of_meeting, presence: true
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
@@ -117,24 +117,14 @@ module Decidim
         end
 
         def online_meeting?
-          online_meetings_allowed? && type_of_meeting == "online"
+          type_of_meeting == "online"
         end
 
         def in_person_meeting?
-          if online_meetings_allowed?
-            type_of_meeting == "in_person"
-          else
-            type_of_meeting == "in_person" || type_of_meeting.presence.nil?
-          end
-        end
-
-        def online_meetings_allowed?
-          current_component.settings.allow_online_meetings?
+          type_of_meeting == "in_person" || type_of_meeting.presence.nil?
         end
 
         def clean_type_of_meeting
-          return "in_person" unless online_meetings_allowed?
-
           type_of_meeting.presence
         end
 

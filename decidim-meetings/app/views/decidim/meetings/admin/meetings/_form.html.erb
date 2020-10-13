@@ -11,14 +11,12 @@
       <%= form.translated :editor, :description, hashtaggable: true %>
     </div>
 
-    <% if current_component.settings.allow_online_meetings? %>
-      <div class="row column">
-        <%= form.select :type_of_meeting,
-          @form.type_of_meeting_select,
-          { include_blank: t(".select_a_meeting_type") },
-          { multiple: false } %>
-      </div>
-    <% end %>
+    <div class="row column">
+      <%= form.select :type_of_meeting,
+        @form.type_of_meeting_select,
+        { include_blank: t(".select_a_meeting_type") },
+        { multiple: false } %>
+    </div>
 
     <div class="field" data-meeting-type="in_person">
       <%= form.geocoding_field :address %>
@@ -35,12 +33,10 @@
       <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
 
-    <% if current_component.settings.allow_online_meetings? %>
-      <div class="field" data-meeting-type="online">
-        <%= form.text_field :online_meeting_url %>
-        <p class="help-text"><%= t(".online_meeting_url_help") %></p>
-      </div>
-    <% end %>
+    <div class="field" data-meeting-type="online">
+      <%= form.text_field :online_meeting_url %>
+      <p class="help-text"><%= t(".online_meeting_url_help") %></p>
+    </div>
 
     <div class="row">
       <div class="columns xlarge-6">

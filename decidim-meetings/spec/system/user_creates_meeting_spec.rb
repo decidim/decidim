@@ -78,6 +78,7 @@ describe "User creates meeting", type: :system do
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
             fill_in :meeting_description, with: meeting_description
+            select "In person", from: :meeting_type_of_meeting
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
@@ -117,6 +118,7 @@ describe "User creates meeting", type: :system do
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
                 fill_in :meeting_description, with: meeting_description
+                select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
                 fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
@@ -140,6 +142,7 @@ describe "User creates meeting", type: :system do
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
               fill_in :meeting_description, with: meeting_description
+              select "In person", from: :meeting_type_of_meeting
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
@@ -186,35 +189,10 @@ describe "User creates meeting", type: :system do
           end
         end
 
-        context "when online meetings are allowed" do
-          before do
-            component.update!(settings: { allow_online_meetings: true, creation_enabled_for_participants: true })
-          end
-
-          it "lets the user choose the meeting type" do
-            visit_component
-
-            click_link "New meeting"
-
-            within ".new_meeting" do
-              select "In person", from: :meeting_type_of_meeting
-              expect(page).to have_field("Address")
-              expect(page).to have_field(:meeting_location)
-              expect(page).to have_no_field("Online meeting URL")
-
-              select "Online", from: :meeting_type_of_meeting
-              expect(page).to have_no_field("Address")
-              expect(page).to have_no_field(:meeting_location)
-              expect(page).to have_field("Online meeting URL")
-            end
-          end
-        end
-
         context "when external registrations are enabled" do
           before do
             component.update!(settings: { allow_external_registrations: true, creation_enabled_for_participants: true })
           end
-
           it "lets the user choose the registrations type" do
             visit_component
 
@@ -236,6 +214,24 @@ describe "User creates meeting", type: :system do
               expect(page).to have_no_field("Registration url")
               expect(page).to have_field("Registration terms")
             end
+          end
+        end
+
+        it "lets the user choose the meeting type" do
+          visit_component
+
+          click_link "New meeting"
+
+          within ".new_meeting" do
+            select "In person", from: :meeting_type_of_meeting
+            expect(page).to have_field("Address")
+            expect(page).to have_field(:meeting_location)
+            expect(page).to have_no_field("Online meeting URL")
+
+            select "Online", from: :meeting_type_of_meeting
+            expect(page).to have_no_field("Address")
+            expect(page).to have_no_field(:meeting_location)
+            expect(page).to have_field("Online meeting URL")
           end
         end
       end

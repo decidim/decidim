@@ -261,11 +261,11 @@ en:
             available_slots_help: Leave it to 0 if you have unlimited slots available
             disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
-            location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
-            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
             select_a_registration_type: Please select a registration type
+            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
           index:
             title: Meetings
           new:
@@ -396,7 +396,7 @@ en:
             user_groups: Groups
           scope: Scope
           search: Search
-          type: Meeting type
+          type: Type
           type_values:
             all: All
             in_person: In-person
@@ -412,12 +412,12 @@ en:
           create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor of the building'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
+          select_a_registration_type: Please select a registration type
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
-          select_a_registration_type: Please select a registration type
         index:
           new_meeting: New meeting
         meeting_minutes:

@@ -18,6 +18,8 @@
     <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
   <% end %>
 
+  <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>
+
   <% if current_component.has_subscopes? %>
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
