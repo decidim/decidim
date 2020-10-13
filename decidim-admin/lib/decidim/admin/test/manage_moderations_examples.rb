@@ -48,6 +48,20 @@ shared_examples "manage moderations" do
       expect(page).to have_admin_callout("Resource successfully hidden")
       expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
+
+    it "user can sort by report count" do
+      moderations.each_with_index { |moderation, index| moderation.update(report_count: index + 1) }
+      moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)
+
+      within "table" do
+        click_link "Count"
+
+        all("tbody tr").each_with_index do |row, index|
+          reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
+          expect(row.find("td:first-child")).to have_content(reportable_id)
+        end
+      end
+    end
   end
 
   context "when listing hidden resources" do
