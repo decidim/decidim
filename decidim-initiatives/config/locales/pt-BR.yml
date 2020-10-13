@@ -15,14 +15,6 @@ pt:
           online: Conectados
         state: Estado
         title: Título
-      initiative_author:
-        address: Endereço
-        city: Cidade
-        id_document: DNI / NIE
-        name: Nome e sobrenome
-        phone_number: Número de telefone
-        post_code: CEP
-        province: Província
       initiatives_committee_member:
         user: membro do Comitê
       initiatives_type:
