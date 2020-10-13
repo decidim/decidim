@@ -16,14 +16,6 @@ zh-CN:
           online: 在线
         state: 状态
         title: 标题
-      initiative_author:
-        address: 地址
-        city: 城市
-        id_document: DNI/NIE
-        name: 姓名：
-        phone_number: 电话号码
-        post_code: 邮编
-        province: 省
       initiatives_committee_member:
         user: 委员会成员
       initiatives_type:
