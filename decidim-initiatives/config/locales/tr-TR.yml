@@ -15,14 +15,6 @@ tr:
           online: İnternet üzerinden
         state: Belirtmek, bildirmek
         title: Başlık
-      initiative_author:
-        address: Adres
-        city: Kent
-        id_document: DNI / NIE
-        name: Ad ve soyadı
-        phone_number: Telefon numarası
-        post_code: Posta kodu
-        province: il
       initiatives_committee_member:
         user: Komite Üyesi
       initiatives_type:
