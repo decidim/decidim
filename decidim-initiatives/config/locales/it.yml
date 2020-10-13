@@ -16,14 +16,6 @@ it:
           online: In linea
         state: Stato
         title: Titolo
-      initiative_author:
-        address: Indirizzo
-        city: Città
-        id_document: DNI / NIE
-        name: Nome e cognome
-        phone_number: Numero di telefono
-        post_code: Codice postale
-        province: Provincia
       initiatives_committee_member:
         user: membro del Comitato
       initiatives_type:
