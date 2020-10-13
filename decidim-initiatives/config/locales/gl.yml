@@ -15,14 +15,6 @@ gl:
           online: OnLine
         state: Estado
         title: Título
-      initiative_author:
-        address: Enderezo
-        city: Cidade
-        id_document: DNI / NIE
-        name: Nome e apelidos
-        phone_number: Número de teléfono
-        post_code: Código postal
-        province: Provincia
       initiatives_committee_member:
         user: Membro do comité
       initiatives_type:
