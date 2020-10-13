@@ -1,0 +1,223 @@
+zh-CN:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: 状态
+        decidim_category_id: 类别
+        decidim_scope_id: 范围
+        description: 描述
+        end_date: 结束日期
+        progress: 进展情况
+        project_ids: 包括项目
+        proposals: 包括的建议
+        start_date: 开始日期
+        title: 标题
+        updated_at: 更新于
+      status:
+        description: 描述
+        key: 关键字
+        name: 名称
+        progress: 进展情况
+      timeline_entry:
+        description: 描述
+        entry_date: 日期
+    models:
+      decidim/accountability/proposal_linked_event: 结果中包括的提案
+      decidim/accountability/result_progress_updated_event: 结果进度更新
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: 成果
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: 您确定要删除此 %{name} 吗？
+        destroy: 删除
+        edit: 编辑
+        import_csv: 导入 CSV
+        new: 新建 %{name}
+        preview: 预览
+        timeline_entries: 项目进化
+        title: 行动
+      admin:
+        exports:
+          results: 成果
+        import_results:
+          new:
+            import: 导入
+            link: 链接
+            title: 从 CSV 导入结果
+        imports:
+          create:
+            success: 该文件已经开始导入。您将在几分钟内收到一封电子邮件，其导入的结果将会被导入。
+        models:
+          result:
+            name: 结果
+          status:
+            name: 状态
+          timeline_entry:
+            name: 时间线条目
+        results:
+          create:
+            invalid: 创建此结果时出现问题
+            success: 结果已成功创建
+          destroy:
+            success: 结果删除成功
+          edit:
+            title: 编辑结果
+            update: 更新结果
+          index:
+            title: 成果
+          new:
+            create: 创建结果
+            title: 新结果
+          update:
+            invalid: 更新此结果时出现问题
+            success: 结果已成功更新
+        shared:
+          subnav:
+            statuses: Statuses
+        statuses:
+          create:
+            invalid: 创建此状态时出现问题
+            success: 状态创建成功
+          destroy:
+            success: 状态删除成功
+          edit:
+            title: 编辑状态
+            update: 更新状态
+          index:
+            title: Statuses
+          new:
+            create: 创建状态
+            title: 新状态
+          update:
+            invalid: 更新此状态时出现问题
+            success: 状态已更新
+        timeline_entries:
+          create:
+            invalid: 创建此条目时出错
+            success: 条目创建成功
+          destroy:
+            success: 条目删除成功
+          edit:
+            title: 编辑条目
+            update: 更新条目
+          index:
+            title: 项目时间表条目
+          new:
+            create: 创建条目
+            title: 新建条目
+          update:
+            invalid: 更新此条目时出错
+            success: 条目已成功更新
+      admin_log:
+        result:
+          create: "%{user_name} 在 %{resource_name} 创建了结果 %{space_name}"
+          delete: "%{user_name} 刪除 %{resource_name} 結果在 %{space_name}"
+          update: "%{user_name} 更新结果 %{resource_name} 在 %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: '在数据库中找不到父级(ID: %{id})'
+      import_mailer:
+        import:
+          errors: 错误
+          errors_present: 导入结果时出现问题
+          row_number: 行
+          subject: 成功导入结果
+          success: 成功导入结果。您可以在管理界面查看结果。
+      last_activity:
+        new_result_at_html: "<span>在 %{link}的新结果</span>"
+      models:
+        result:
+          fields:
+            end_date: 结束日期
+            progress: 进展情况
+            start_date: 开始日期
+            status: 状态
+            title: 标题
+        status:
+          fields:
+            description: 描述
+            key: 关键字
+            name: 名称
+            progress: 进展情况
+        timeline_entry:
+          fields:
+            description: 描述
+            entry_date: 日期
+      results:
+        count:
+          results_count:
+            other: "%{count} 个结果"
+        filters:
+          all: 所有的
+          scopes: 范围
+        home:
+          categories_label: 类别管理
+          subcategories_label: 子类别
+        home_header:
+          global_status: 全局执行状态
+        nav_breadcrumb:
+          global: 全局执行
+        search:
+          search: 搜索操作
+        show:
+          stats:
+            attendees: 参与者
+            back_to_resource: 返回结果
+            comments: 评论
+            contributions: 二. 捐款
+            last_edited_by: 最后编辑者
+            last_updated_at: 最后更新于
+            meetings: 会议
+            proposals: 建议
+            votes: 支持
+        timeline:
+          title: 项目进化
+    components:
+      accountability:
+        name: 问责制
+        settings:
+          global:
+            categories_label: '"类别"的名称'
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+            display_progress_enabled: 显示进度
+            heading_leaf_level_results: '“项目”的名称'
+            heading_parent_level_results: '"结果"的名称'
+            intro: 简介
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+            subcategories_label: '"子类别"的名称'
+          step:
+            comments_blocked: 评论已阻止
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: '提议 "%{proposal_title}" 已被包含在结果中。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 "%{proposal_title}"。您可以停止收到跟随上一个链接的通知。
+          email_subject: 更新到 %{proposal_title}
+          notification_title: 提议 <a href="%{proposal_path}">%{proposal_title}</a> 已被包含在 <a href="%{resource_path}">%{resource_title}</a> 结果中。
+        result_progress_updated:
+          email_intro: '结果"%{resource_title}", 其中包括"%{proposal_title}", 现在完成了 %{progress}%。你可以从这个页面看到它：'
+          email_outro: 您收到此通知是因为您正在关注"%{proposal_title}"，此建议包含在结果"%{resource_title}"中。 您可以停止接收跟随上一个链接的通知。
+          email_subject: 更新到 %{resource_title} 进度
+          notification_title: 结果 <a href="%{resource_path}">%{resource_title}</a>, 其中包括提议 <a href="%{proposal_path}">%{proposal_title}</a>, 现在已完成 %{progress}%。
+    metrics:
+      results:
+        description: 生成的结果数
+        object: 结果
+        title: 成果
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: 成果
+    participatory_spaces:
+      highlighted_results:
+        see_all: 查看所有结果 (%{count})
+    resource_links:
+      included_projects:
+        result_project: B. 列入这一结果的项目
+      included_proposals:
+        result_proposal: B. 列入这一结果的建议
