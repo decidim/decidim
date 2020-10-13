@@ -16,14 +16,6 @@ fi-pl:
           online: Verkossa
         state: Tila
         title: Otsikko
-      initiative_author:
-        address: Osoite
-        city: Kaupunki
-        id_document: HETU
-        name: Nimi ja sukunimi
-        phone_number: Puhelinnumero
-        post_code: Postinumero
-        province: Maakunta
       initiatives_committee_member:
         user: Komitean jäsen
       initiatives_type:
@@ -302,6 +294,7 @@ fi-pl:
           all: Kaikki
           answered: Vastattu
           closed: Suljettu
+          draft: Luonnokset
           open: Avaa
           rejected: Liian vähän allekirjoituksia
         filter_type_values:
