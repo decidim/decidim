@@ -18,6 +18,10 @@
     <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
   <% end %>
 
+  <% if component_settings.allow_online_meetings? %>
+    <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>
+  <% end %>
+
   <% if current_component.has_subscopes? %>
     <%= form.check_boxes_tree :scope_id, filter_scopes_values, legend_title: t(".scope") %>
   <% end %>
@@ -28,9 +32,5 @@
 
   <% if component_settings.creation_enabled_for_participants? %>
     <%= form.check_boxes_tree :origin, filter_origin_values, legend_title: t(".origin") %>
-  <% end %>
-
-  <% if component_settings.allow_online_meetings? %>
-    <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>
   <% end %>
 <% end %>
