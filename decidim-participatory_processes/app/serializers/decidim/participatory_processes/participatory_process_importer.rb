@@ -54,7 +54,7 @@ module Decidim
       def import_process_group(attributes)
         Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
-            name: attributes["name"],
+            title: attributes["title"],
             description: attributes["description"],
             organization: @organization
           )

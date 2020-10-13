@@ -23,8 +23,8 @@ describe "Admin manages participatory process groups", type: :system do
 
     within ".new_participatory_process_group" do
       fill_in_i18n(
-        :participatory_process_group_name,
-        "#participatory_process_group-name-tabs",
+        :participatory_process_group_title,
+        "#participatory_process_group-title-tabs",
         en: "My group",
         es: "Mi grupo",
         ca: "El meu grup"
@@ -72,14 +72,14 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     it "can edit them" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
       within ".edit_participatory_process_group" do
         fill_in_i18n(
-          :participatory_process_group_name,
-          "#participatory_process_group-name-tabs",
+          :participatory_process_group_title,
+          "#participatory_process_group-title-tabs",
           en: "My old group",
           es: "Mi grupo antiguo",
           ca: "El meu grup antic"
@@ -117,7 +117,7 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     it "can remove its image" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
@@ -128,19 +128,19 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     it "can delete them" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(participatory_process_group.name["en"])
+        expect(page).to have_no_content(participatory_process_group.title["en"])
       end
     end
 
     it "has sub nav with Info active by default" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 

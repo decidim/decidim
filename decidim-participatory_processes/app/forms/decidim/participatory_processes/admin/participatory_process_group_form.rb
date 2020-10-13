@@ -14,7 +14,7 @@ module Decidim
         translatable_attribute :developer_group, String
         translatable_attribute :local_area, String
         translatable_attribute :meta_scope, String
-        translatable_attribute :name, String
+        translatable_attribute :title, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
         translatable_attribute :target, String
@@ -28,7 +28,7 @@ module Decidim
         attribute :hero_image
         attribute :remove_hero_image
 
-        validates :name, :description, translatable_presence: true
+        validates :title, :description, translatable_presence: true
 
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcessGroup }
 

@@ -46,7 +46,7 @@ module Decidim
             ) do
               ParticipatoryProcessGroup.create(
                 organization: form.current_organization,
-                name: form.name,
+                title: form.title,
                 description: form.description,
                 hashtag: form.hashtag,
                 group_url: form.group_url,

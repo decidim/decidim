@@ -10,7 +10,7 @@ describe "Participatory Process Groups", type: :system do
       :participatory_process_group,
       :with_participatory_processes,
       organization: organization,
-      name: { en: "Name", ca: "Nom", es: "Nombre" }
+      title: { en: "Title", ca: "Títol", es: "Título" }
     )
   end
   let(:group_processes) { participatory_process_group.participatory_processes }
@@ -28,15 +28,15 @@ describe "Participatory Process Groups", type: :system do
 
     it "lists all the groups among the processes" do
       within "#processes-grid" do
-        expect(page).to have_content(translated(participatory_process_group.name, locale: :en))
+        expect(page).to have_content(translated(participatory_process_group.title, locale: :en))
         expect(page).to have_selector(".card", count: 1)
 
-        expect(page).to have_no_content(translated(other_group.name, locale: :en))
+        expect(page).to have_no_content(translated(other_group.title, locale: :en))
       end
     end
 
     it "links to the individual group page" do
-      first(".card__link", text: translated(participatory_process_group.name, locale: :en)).click
+      first(".card__link", text: translated(participatory_process_group.title, locale: :en)).click
 
       expect(page).to have_current_path decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     end

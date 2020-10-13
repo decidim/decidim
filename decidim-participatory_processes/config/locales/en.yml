@@ -43,11 +43,11 @@ en:
         hero_image: Image
         local_area: Organization area
         meta_scope: Scope metadata
-        name: Name
         participatory_process_ids: Related processes
         participatory_scope: What is decided
         participatory_structure: How is it decided
         target: Who participates
+        title: Title
       participatory_process_step:
         cta_path: Call to Action path
         cta_text: Call to Action text
@@ -129,7 +129,7 @@ en:
           name: Participatory process
         participatory_process_group:
           fields:
-            name: Name
+            title: Title
           name: Process group
         participatory_process_step:
           fields:

@@ -42,11 +42,11 @@ es:
         hero_image: Imagen
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
-        name: Nombre
         participatory_process_ids: Procesos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
         target: Quién participa
+        title: Título
       participatory_process_step:
         cta_path: Ruta del botón de acción
         cta_text: Texto del botón de acción
@@ -128,7 +128,7 @@ es:
           name: Proceso participativo
         participatory_process_group:
           fields:
-            name: Nombre
+            title: Título
           name: Grupo de procesos
         participatory_process_step:
           fields:

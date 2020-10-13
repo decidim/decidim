@@ -42,11 +42,11 @@ ca:
         hero_image: Imatge
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
-        name: Nom
         participatory_process_ids: Processos relacionats
         participatory_scope: El que es decideix
         participatory_structure: Com es decideix
         target: Qui hi participa
+        title: Títol
       participatory_process_step:
         cta_path: Ruta del botó d'acció
         cta_text: Text del botó d'acció
@@ -128,7 +128,7 @@ ca:
           name: Procés participatiu
         participatory_process_group:
           fields:
-            name: Nom
+            title: Títol
           name: Grup de processos
         participatory_process_step:
           fields:

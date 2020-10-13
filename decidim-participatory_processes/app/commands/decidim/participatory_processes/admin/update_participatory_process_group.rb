@@ -51,7 +51,7 @@ module Decidim
 
         def attributes
           {
-            name: form.name,
+            title: form.title,
             hero_image: form.hero_image,
             remove_hero_image: form.remove_hero_image,
             description: form.description,

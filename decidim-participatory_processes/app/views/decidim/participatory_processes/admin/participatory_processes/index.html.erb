@@ -13,7 +13,7 @@
 
       <% if process_group %>
         <span>&lt;</span>
-        <%= link_to translated_attribute(process_group.name),
+        <%= link_to translated_attribute(process_group.title),
                     edit_participatory_process_group_path(process_group) %>
       <% end %>
 
@@ -31,9 +31,9 @@
           <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
             <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
           <% end %>
-          <% process_groups_for_select.each do |group_name, group_id| %>
+          <% process_groups_for_select.each do |group_title, group_id| %>
             <%= link_to query_params_with(decidim_participatory_process_group_id_eq: group_id) do %>
-              <li><%= group_name %></li>
+              <li><%= group_title %></li>
             <% end %>
           <% end %>
         </ul>
