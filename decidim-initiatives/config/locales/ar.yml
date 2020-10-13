@@ -15,14 +15,6 @@ ar:
           online: عبر الانترنت
         state: الحالة
         title: عنوان
-      initiative_author:
-        address: عنوان
-        city: مدينة
-        id_document: DNI / NIE
-        name: اسم ولقب
-        phone_number: رقم الهاتف
-        post_code: الرمز البريدي
-        province: المحافظة
       initiatives_committee_member:
         user: عضو لجنة
       initiatives_type:
