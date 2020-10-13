@@ -16,14 +16,6 @@ ja:
           online: オンライン
         state: ステータス
         title: タイトル
-      initiative_author:
-        address: 住所
-        city: 市区町村名
-        id_document: 免許証/保険証/マイナンバーカード
-        name: 氏名と姓
-        phone_number: 電話番号
-        post_code: 郵便番号
-        province: 県
       initiatives_committee_member:
         user: 委員会メンバー
       initiatives_type:
