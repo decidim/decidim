@@ -15,14 +15,6 @@ eu:
           online: OnLine
         state: Estatu
         title: Izenburua
-      initiative_author:
-        address: Helbidea
-        city: hiria
-        id_document: DNI / NIE
-        name: Izena eta abizena
-        phone_number: Telefono zenbakia
-        post_code: Posta kodea
-        province: Probintzia
       initiatives_committee_member:
         user: Batzordeko kidea
       initiatives_type:
