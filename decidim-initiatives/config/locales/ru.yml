@@ -14,14 +14,6 @@ ru:
           offline: Лицом к лицу
           online: Онлайн
         title: Заголовок
-      initiative_author:
-        address: Адрес
-        city: Город
-        id_document: ИНН/СНИЛС
-        name: Имя и фамилия
-        phone_number: Номер телефона
-        post_code: Почтовый индекс
-        province: Область
       initiatives_committee_member:
         user: Член рабочей группы
       initiatives_type:
