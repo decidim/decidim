@@ -618,6 +618,9 @@ en:
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
         email_subject: "%{endorser_nickname} has performed a new endorsement"
         notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      reports:
+        report_created:
+          notification_title: <a href="%{resource_path}">Your content</a> has been reported as %{report_reason}</a>.
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
