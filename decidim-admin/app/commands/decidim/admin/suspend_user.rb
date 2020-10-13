@@ -23,6 +23,7 @@ module Decidim
         transaction do
           suspend!
           register_justification!
+          notify_user!
         end
 
         notify_user!
@@ -43,7 +44,8 @@ module Decidim
       end
 
       def notify_user!
-
+        Decidim::Admin::UserSuspensionJob
+            .perform_later(user, form.user, form.justification)
       end
 
       def suspend!
