@@ -16,29 +16,12 @@ module Decidim
           description "Demographics Data"
 
           resolve lambda { |_obj, _args, ctx|
-            Decidim::Demographics::Demographic.where(
-              organization: ctx[:current_organization]
-            )
+            Decidim::Demographics::Demographic.all
           }
         end
 
-        type.field :demographicsType do
-          type DemographicsType
-          description "Finds an demographic type group"
-          argument :id, !types.ID, "The ID of the Demographics type"
-
-          resolve lambda { |_obj, args, ctx|
-            Decidim::Demographics::Demographic.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
-        end
+        
       end
     end
   end
 end
-
-
-
-

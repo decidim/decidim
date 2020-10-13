@@ -55,6 +55,22 @@ module Decidim
         nil
       end
       # DataPortability compatibility
+      def age_group
+        Decidim::AttributeEncryptor.decrypt(data["age"]) || ""
+      end
+
+      def gender
+        Decidim::AttributeEncryptor.decrypt(data["gender"]) || ""
+      end
+      def nationality
+        Decidim::AttributeEncryptor.decrypt(data["nationality"]) || ""
+      end
+      def postal_code
+        Decidim::AttributeEncryptor.decrypt(data["postal_code"]) || ""
+      end
+      def background
+        Decidim::AttributeEncryptor.decrypt(data["background"]) || ""
+      end
     end
   end
 end
