@@ -42,6 +42,12 @@ module Decidim
       def reported_content_url
         raise NotImplementedError
       end
+
+      # Public: The reported content in a text format so moderations can
+      #         be filtered by content.
+      def reported_content
+        raise NotImplementedError
+      end
     end
   end
 end

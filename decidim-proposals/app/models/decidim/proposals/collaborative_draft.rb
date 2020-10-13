@@ -58,6 +58,14 @@ module Decidim
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
       end
+
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        [
+          authors.map(&:name).join("\n"),
+          body
+        ].join("\n")
+      end
     end
   end
 end

@@ -322,7 +322,7 @@ en:
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
           title_cont: Search %{collection} by title.
-          reportable_id_string_cont: Search %{collection} by reportable id.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
         state_eq:
           label: State
         moderations:

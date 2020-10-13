@@ -16,8 +16,12 @@ module Decidim
       Decidim::AdminLog::ModerationPresenter
     end
 
-    ransacker :reportable_id_string do
+    ransacker :reported_id_string do
       Arel.sql(%{cast("decidim_moderations"."decidim_reportable_id" as text)})
+    end
+
+    ransacker :reported_content do
+      Arel.sql(%{cast("decidim_moderations"."reported_content" as text)})
     end
 
     ransacker :reportable_type_string do
