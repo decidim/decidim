@@ -4,7 +4,7 @@
     <% if current_organization.logo.present? %>
       <%= image_tag current_organization.logo.url, alt: title %>
     <% else %>
-      <%= title %>
+      <%= current_organization.name %>
     <% end %>
   <% end %>
   <div class='tool-bar'>

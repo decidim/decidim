@@ -15,10 +15,6 @@ module Decidim
       include Decidim::Admin::UserRolesHelper
       include Decidim::Admin::ResourceScopeHelper
 
-      def title
-        current_organization.name
-      end
-
       # Adds a link to the secondary navigation so admins can easily access the public page of the
       # element their working on.
       #
