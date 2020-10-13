@@ -15,14 +15,6 @@ pl:
           online: Online
         state: Stan
         title: Tytuł
-      initiative_author:
-        address: Adres
-        city: Miasto
-        id_document: Numer dokumentu
-        name: Imię i nazwisko
-        phone_number: Numer telefonu
-        post_code: Kod pocztowy
-        province: Województwo
       initiatives_committee_member:
         user: Członek Komisji
       initiatives_type:
