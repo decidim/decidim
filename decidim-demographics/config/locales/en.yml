@@ -54,7 +54,6 @@ en:
           new:
             demographics: Demographic Data Collection
             save: Save
-          successfully_saved: Data successfully saved
   layouts:
     decidim:
       user_profile:
