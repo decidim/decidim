@@ -10,7 +10,7 @@
       </div>
     </h2>
   </div>
-
+  <%= admin_filter_selector(:moderations) %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -83,6 +83,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate moderations, theme: "decidim" %>
     </div>
   </div>
 </div>
