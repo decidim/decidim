@@ -164,6 +164,9 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       es: "Mi meeting",
       ca: "El meu meeting"
     )
+
+    select "In person", from: :meeting_type_of_meeting
+
     fill_in_i18n(
       :meeting_location,
       "#meeting-location-tabs",
@@ -234,6 +237,9 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
           es: "Mi meeting",
           ca: "El meu meeting"
         )
+
+        select "In person", from: :meeting_type_of_meeting
+
         fill_in_i18n(
           :meeting_location,
           "#meeting-location-tabs",
@@ -414,6 +420,9 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         es: "Mi meeting",
         ca: "El meu meeting"
       )
+
+      select "In person", from: :meeting_type_of_meeting
+
       fill_in_i18n(
         :meeting_location,
         "#meeting-location-tabs",

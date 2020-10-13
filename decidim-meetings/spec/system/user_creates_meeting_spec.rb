@@ -78,6 +78,7 @@ describe "User creates meeting", type: :system do
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
             fill_in :meeting_description, with: meeting_description
+            select "In person", from: :meeting_type_of_meeting
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
@@ -116,6 +117,7 @@ describe "User creates meeting", type: :system do
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
                 fill_in :meeting_description, with: meeting_description
+                select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
                 fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
@@ -138,6 +140,7 @@ describe "User creates meeting", type: :system do
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
               fill_in :meeting_description, with: meeting_description
+              select "In person", from: :meeting_type_of_meeting
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
