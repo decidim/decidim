@@ -3,7 +3,7 @@
 shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 1)
+      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_content)
       create(:report, moderation: moderation)
       moderation
     end
@@ -11,7 +11,7 @@ shared_examples "manage moderations" do
   let!(:moderation) { moderations.first }
   let!(:hidden_moderations) do
     reportables.last(1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 3, hidden_at: Time.current)
+      moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_content, hidden_at: Time.current)
       create_list(:report, 3, moderation: moderation, reason: :spam)
       moderation
     end
@@ -71,6 +71,15 @@ shared_examples "manage moderations" do
         click_link reportable_type
       end
       expect(page).to have_selector("tbody tr", count: moderations.length)
+    end
+
+    it "user can filter by reported content" do
+      search = moderation.reportable.id
+      within ".filters__section" do
+        fill_in("Search Moderation by reportable id or content.", with: search)
+        find(:xpath, "//button[@type='submit']").click
+      end
+      expect(page).to have_selector("tbody tr", count: 1)
     end
   end
 
