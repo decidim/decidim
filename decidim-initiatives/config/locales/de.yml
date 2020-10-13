@@ -15,14 +15,6 @@ de:
           online: Online
         state: Zustand
         title: Titel
-      initiative_author:
-        address: Adresse
-        city: Stadt
-        id_document: DNI / NIE
-        name: Name und Nachname
-        phone_number: Telefonnummer
-        post_code: Postleitzahl
-        province: Provinz
       initiatives_committee_member:
         user: Ausschussmitglied
       initiatives_type:
