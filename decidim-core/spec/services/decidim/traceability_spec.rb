@@ -110,8 +110,8 @@ describe Decidim::Traceability, versioning: true do
 
   describe "last_editor" do
     it "finds the editor of the last version" do
-      resource = subject.update!(dummy_resource, user, title: "New title")
-      resource = subject.update!(resource, "my user name", title: "Another title")
+      resource = subject.update!(dummy_resource, user, title: { en: "New title" })
+      resource = subject.update!(resource, "my user name", title: { en: "Another title" })
       editor = subject.last_editor(resource)
 
       expect(editor).to eq "my user name"

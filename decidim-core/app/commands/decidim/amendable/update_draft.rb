@@ -45,6 +45,8 @@ module Decidim
       def update_draft
         PaperTrail.request(enabled: false) do
           emendation.assign_attributes(form.emendation_params)
+          emendation.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
+          emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
           emendation.add_author(current_user, user_group)
           emendation.save!
         end

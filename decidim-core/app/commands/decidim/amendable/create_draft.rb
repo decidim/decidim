@@ -49,6 +49,8 @@ module Decidim
             visibility: "public-only"
           ) do
             emendation = amendable.class.new(form.emendation_params)
+            emendation.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
+            emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
             emendation.component = amendable.component
             emendation.add_author(current_user, user_group)
             emendation.save!

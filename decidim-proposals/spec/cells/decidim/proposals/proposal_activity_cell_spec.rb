@@ -30,7 +30,7 @@ module Decidim
           before do
             body = "Proposal with #myhashtag"
             parsed_body = Decidim::ContentProcessor.parse(body, current_organization: proposal.organization)
-            proposal.body = parsed_body.rewrite
+            proposal.body = { en: parsed_body.rewrite }
             proposal.save
           end
 
