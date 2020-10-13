@@ -15,14 +15,6 @@ el:
           online: Ηλεκτρονική
         state: Κατάσταση
         title: Τίτλος
-      initiative_author:
-        address: Διεύθυνση
-        city: Πόλη
-        id_document: NI/NIE
-        name: Όνομα και επώνυμο
-        phone_number: Αριθμός τηλεφώνου
-        post_code: Τ.Κ.
-        province: Επαρχία
       initiatives_committee_member:
         user: Μέλος επιτροπής
       initiatives_type:
