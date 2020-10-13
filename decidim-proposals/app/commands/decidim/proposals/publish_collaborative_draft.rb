@@ -59,8 +59,8 @@ module Decidim
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.title, current_organization: @collaborative_draft.organization).rewrite
         parsed_body = Decidim::ContentProcessor.parse_with_processor(:hashtag, @collaborative_draft.body, current_organization: @collaborative_draft.organization).rewrite
 
-        fields[:title] = parsed_title
-        fields[:body] = parsed_body
+        fields[:title] = { I18n.locale => parsed_title }
+        fields[:body] = { I18n.locale => parsed_body }
         fields[:component] = @collaborative_draft.component
         fields[:scope] = @collaborative_draft.scope
         fields[:address] = @collaborative_draft.address

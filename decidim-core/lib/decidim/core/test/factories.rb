@@ -450,7 +450,7 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
     end
-    title { generate(:name) }
+    title { Decidim::Faker::Localized.localized { generate(:name) } }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }
