@@ -10,7 +10,7 @@ module Decidim
       password = SecureRandom.urlsafe_base64
 
       generate_zip_file(user, path, password, export_format)
-      save_or_upload_file(path)
+      save_or_upload_file(user, path)
 
       ExportMailer.data_portability_export(user, filename, password).deliver_later
     end
@@ -22,8 +22,8 @@ module Decidim
     end
 
     # Saves to file system or uploads to storage service depending on the configuration.
-    def save_or_upload_file(path)
-      DataPortabilityUploader.new.store!(File.open(path, "rb"))
+    def save_or_upload_file(user, path)
+      DataPortabilityUploader.new(user).store!(File.open(path, "rb"))
     end
   end
 end
