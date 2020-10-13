@@ -15,14 +15,6 @@ id:
           online: On line
         state: Negara
         title: Judul
-      initiative_author:
-        address: Alamat
-        city: Kota
-        id_document: DNI / NIE
-        name: Nama dan nama keluarga
-        phone_number: Nomor telepon
-        post_code: Kode Pos
-        province: Propinsi
       initiatives_committee_member:
         user: anggota Komite
       initiatives_type:
