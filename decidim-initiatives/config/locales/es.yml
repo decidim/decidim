@@ -16,14 +16,6 @@ es:
           online: Digital
         state: Estado
         title: Título
-      initiative_author:
-        address: Dirección
-        city: Ciudad
-        id_document: DNI / NIE
-        name: Nombre y apellido
-        phone_number: Número de teléfono
-        post_code: Código postal
-        province: Provincia
       initiatives_committee_member:
         user: Miembro del Comité
       initiatives_type:
