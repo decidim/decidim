@@ -93,6 +93,12 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      def reported_content
+        [
+          normalized_author.name
+        ].join("\n")
+      end
+
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled
       end
