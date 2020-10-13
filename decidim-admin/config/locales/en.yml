@@ -301,6 +301,9 @@ en:
         category_id_eq:
           label: Category
         filter_label: Filter
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: State
           values:
@@ -321,6 +324,7 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
         state_eq:
           label: State
@@ -830,9 +834,11 @@ en:
       models:
         moderation:
           fields:
+            created_at: Creation date
             hidden_at: Hidden at
             report_count: Count
-            reportable: Reportable
+            reportable_id: Id
+            reportable_type: Type
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
