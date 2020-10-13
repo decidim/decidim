@@ -15,14 +15,6 @@
           online: Online
         state: Status
         title: Tittel
-      initiative_author:
-        address: Adresse
-        city: By
-        id_document: DNI/NIE
-        name: Navn og Etternavn
-        phone_number: Telefonnummer
-        post_code: Postnummer
-        province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
