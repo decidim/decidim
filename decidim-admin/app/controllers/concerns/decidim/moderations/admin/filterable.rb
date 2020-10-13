@@ -37,8 +37,11 @@ module Decidim
             value.constantize.name.demodulize
           end
 
+          # Private: the predicate used by `Ransack` to perform a search. We used `reported` instead
+          #          of `reportable` because otherwise `Ransack` try to traverse the polymorphic
+          #          association automatically and it fails.
           def search_field_predicate
-            :reportable_id_string_cont
+            :reported_id_string_or_reported_content_cont
           end
 
           def reportable_types

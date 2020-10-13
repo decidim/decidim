@@ -62,6 +62,16 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        [
+          normalized_author.name,
+          title.values.join("\n"),
+          description.values.join("\n"),
+          instructions.values.join("\n")
+        ].join("\n")
+      end
+
       # Public: Calculates whether the current debate is an AMA-styled one or not.
       # AMA-styled debates are those that have a start and end time set, and comments
       # are only open during that timelapse. AMA stands for Ask Me Anything, a type

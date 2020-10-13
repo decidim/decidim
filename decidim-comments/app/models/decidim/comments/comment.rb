@@ -130,6 +130,14 @@ module Decidim
         end
       end
 
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        [
+          normalized_author.name,
+          body.values.join("\n")
+        ].join("\n")
+      end
+
       def self.export_serializer
         Decidim::Comments::CommentSerializer
       end
