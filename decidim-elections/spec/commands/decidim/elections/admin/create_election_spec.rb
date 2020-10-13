@@ -13,10 +13,12 @@ describe Decidim::Elections::Admin::CreateElection do
     double(
       invalid?: invalid,
       title: { en: "title" },
-      subtitle: { en: "subtitle" },
       description: { en: "description" },
       start_time: start_time,
       end_time: end_time,
+      attachment: attachment_params,
+      photos: photos,
+      add_photos: uploaded_photos,
       current_user: user,
       current_component: current_component,
       current_organization: organization
@@ -25,6 +27,9 @@ describe Decidim::Elections::Admin::CreateElection do
   let(:start_time) { 1.day.from_now }
   let(:end_time) { 2.days.from_now }
   let(:invalid) { false }
+  let(:attachment_params) { nil }
+  let(:photos) { [] }
+  let(:uploaded_photos) { [] }
 
   let(:election) { Decidim::Elections::Election.last }
 
@@ -35,7 +40,6 @@ describe Decidim::Elections::Admin::CreateElection do
   it "stores the given data" do
     subject.call
     expect(translated(election.title)).to eq "title"
-    expect(translated(election.subtitle)).to eq "subtitle"
     expect(translated(election.description)).to eq "description"
     expect(election.start_time).to be_within(1.second).of start_time
     expect(election.end_time).to be_within(1.second).of end_time
@@ -52,7 +56,7 @@ describe Decidim::Elections::Admin::CreateElection do
       .with(
         Decidim::Elections::Election,
         user,
-        hash_including(:title, :subtitle, :description, :end_time, :start_time, :component),
+        hash_including(:title, :description, :end_time, :start_time, :component),
         visibility: "all"
       )
       .and_call_original
@@ -68,6 +72,19 @@ describe Decidim::Elections::Admin::CreateElection do
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "with attachment" do
+    it_behaves_like "admin creates resource gallery" do
+      let(:command) { described_class.new(form) }
+      let(:resource_class) { Decidim::Elections::Election }
+      let(:attachment_params) do
+        {
+          title: "My attachment",
+          file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
+        }
+      end
     end
   end
 end

@@ -9,16 +9,16 @@ module Decidim
       include_context "with a graphql type"
 
       describe "initiativesTypes" do
-        let!(:initiativesType1) { create(:initiatives_type, organization: current_organization) }
-        let!(:initiativesType2) { create(:initiatives_type, organization: current_organization) }
-        let!(:initiativesType3) { create(:initiatives_type) }
+        let!(:initiatives_type_1) { create(:initiatives_type, organization: current_organization) }
+        let!(:initiatives_type_2) { create(:initiatives_type, organization: current_organization) }
+        let!(:initiatives_type_3) { create(:initiatives_type) }
 
         let(:query) { %({ initiativesTypes { id }}) }
 
         it "returns all the groups" do
-          expect(response["initiativesTypes"]).to include("id" => initiativesType1.id.to_s)
-          expect(response["initiativesTypes"]).to include("id" => initiativesType2.id.to_s)
-          expect(response["initiativesTypes"]).not_to include("id" => initiativesType3.id.to_s)
+          expect(response["initiativesTypes"]).to include("id" => initiatives_type_1.id.to_s)
+          expect(response["initiativesTypes"]).to include("id" => initiatives_type_2.id.to_s)
+          expect(response["initiativesTypes"]).not_to include("id" => initiatives_type_3.id.to_s)
         end
       end
 

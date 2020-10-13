@@ -51,7 +51,7 @@ module Decidim::Meetings
         it "traces the action", versioning: true do
           expect(Decidim.traceability)
             .to receive(:create!)
-            .with(Decidim::Meetings::Invite, current_user, kind_of(Hash), hash_including(resource: hash_including(:title), participatory_space: hash_including(:title)))
+            .with(Decidim::Meetings::Invite, current_user, kind_of(Hash), hash_including(resource: hash_including(:title), participatory_space: hash_including(:title), attendee_name: attendee_name))
             .and_call_original
 
           expect { subject.call }.to change(Decidim::ActionLog, :count)
@@ -66,6 +66,7 @@ module Decidim::Meetings
 
       context "when the form provides an existing user" do
         let!(:user) { create(:user, :confirmed, organization: organization) }
+        let(:attendee_name) { user.name }
         let(:existing_user) { true }
         let(:user_id) { user.id }
 
@@ -87,6 +88,7 @@ module Decidim::Meetings
 
       context "when a user already exists" do
         let!(:user) { create(:user, :confirmed, email: form.email, organization: organization) }
+        let(:attendee_name) { user.name }
 
         it "does not create another user" do
           expect do
@@ -105,6 +107,8 @@ module Decidim::Meetings
       end
 
       context "when a user does not exist for the given email" do
+        let(:attendee_name) { "name" }
+
         it "creates it" do
           expect do
             subject.call

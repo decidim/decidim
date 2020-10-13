@@ -45,7 +45,7 @@ es:
             export_response:
               title: survey_user_answers_%{token}
             index:
-              title: "%{total} total de respuestas"
+              title: "%{total} respuestas totales"
             show:
               title: 'Respuesta #%{number}'
           display_condition:
@@ -59,13 +59,13 @@ es:
               not_answered: No contestada
               not_equal: No es igual
             condition_value: Texto incluido
-            display_condition: Condiciones de visualización
+            display_condition: Condición de visualización
             mandatory: Esta condición debe cumplirse siempre independientemente del estado de otras condiciones
             remove: Eliminar
-            save_warning: Recuerda guardar la encuesta antes de configurar las condiciones de visualización
-            select_answer_option: Eliminar la opción de respuesta
+            save_warning: Recuerda guardar el formulario antes de configurar las condiciones de visualización
+            select_answer_option: Seleccionar opción de respuesta
             select_condition_question: Seleccionar una pregunta
-            select_condition_type: Seleccionar un tipo de confirmación
+            select_condition_type: Seleccione un tipo de condición
           edit:
             save: Guardar
             title: Editar el cuestionario
@@ -85,7 +85,7 @@ es:
           question:
             add_answer_option: Añadir una opción de respuesta
             add_display_condition: Agregar condición de visualización
-            add_display_condition_info: Guardar la encuesta para configurar las condiciones de visualización
+            add_display_condition_info: Guardar el formulario para configurar las condiciones de visualización
             add_matrix_row: Añadir fila
             any: Alguna
             collapse: Contraer
@@ -103,7 +103,7 @@ es:
             up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
-            success: Formularios guardados correctamente.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
@@ -113,7 +113,7 @@ es:
         dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'
         processors:
-          resize_and_pad: Redimensionado y ajustado a
+          resize_and_pad: Redimensionada y ajustada a
           resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga

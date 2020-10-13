@@ -32,13 +32,13 @@
   </div>
 <% end %>
 
-<% if component_settings.geocoding_enabled? %>
+<% if @form.geocoding_enabled? %>
   <div class="field">
     <%= form.check_box :has_address, checked: form_has_address? %>
   </div>
 
   <div class="field" id="address_input">
-    <%= form.text_field :address %>
+    <%= form.geocoding_field :address %>
   </div>
 <% end %>
 
@@ -48,13 +48,13 @@
   </div>
 <% end %>
 
-<% if current_participatory_space.has_subscopes? %>
+<% if current_component.has_subscopes? %>
   <div class="field">
-    <%= scopes_picker_field form, :scope_id %>
+    <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
   </div>
 <% end %>
 
-<% if  current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+<% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
   <div class="field">
     <%= user_group_select_field form, :user_group_id %>
   </div>

@@ -5,6 +5,9 @@ module Decidim
   class AssembliesType < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::TranslatableResource
+
+    translatable_fields :title
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

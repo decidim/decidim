@@ -10,6 +10,9 @@ module Decidim
   class StaticPage < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :content
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :static_pages
     belongs_to :topic, foreign_key: "topic_id", class_name: "Decidim::StaticPageTopic", optional: true
@@ -19,7 +22,7 @@ module Decidim
 
     # These pages will be created by default when registering an organization
     # and cannot be deleted.
-    DEFAULT_PAGES = %w(faq terms-and-conditions accessibility).freeze
+    DEFAULT_PAGES = %w(terms-and-conditions).freeze
 
     after_create :update_organization_tos_version
     before_destroy :can_be_destroyed?

@@ -11,6 +11,12 @@ describe "Explore meetings", :slow, type: :system do
     create_list(:meeting, meetings_count, :not_official, component: component)
   end
 
+  before do
+    component_scope = create :scope, parent: participatory_process.scope
+    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component.update!(settings: component_settings)
+  end
+
   describe "index" do
     it "shows all meetings for the given process" do
       visit_component
@@ -64,7 +70,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         let!(:official_meeting) { create(:meeting, :official, component: component, author: organization) }
-        let!(:user_group_meeting) { create(:meeting, :with_user_group_author, component: component) }
+        let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
@@ -119,7 +125,7 @@ describe "Explore meetings", :slow, type: :system do
         end
       end
 
-      it "allows searching by text" do
+      it "allows searching by text", :slow do
         visit_component
         within ".filters" do
           fill_in "filter[search_text]", with: translated(meetings.first.title)

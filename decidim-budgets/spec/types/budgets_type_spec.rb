@@ -8,40 +8,41 @@ module Decidim
   module Budgets
     describe BudgetsType, type: :graphql do
       include_context "with a graphql type"
-      let(:model) { create(:budget_component) }
+      let(:model) { create(:budgets_component) }
 
       it_behaves_like "a component query type"
 
-      describe "projects" do
-        let!(:component_projects) { create_list(:project, 2, component: model) }
-        let!(:other_projects) { create_list(:project, 2) }
+      describe "budgets" do
+        let!(:budgets) { create_list(:budget, 2, component: model) }
+        let!(:other_budgets) { create_list(:budget, 2) }
 
-        let(:query) { "{ projects { edges { node { id } } } }" }
+        let(:query) { "{ budgets { edges { node { id } } } }" }
 
-        it "returns the projects" do
-          ids = response["projects"]["edges"].map { |edge| edge["node"]["id"] }
-          expect(ids).to include(*component_projects.map(&:id).map(&:to_s))
-          expect(ids).not_to include(*other_projects.map(&:id).map(&:to_s))
+        it "returns the budgets" do
+          ids = response["budgets"]["edges"].map { |edge| edge["node"]["id"] }
+          expect(ids).to include(*budgets.map(&:id).map(&:to_s))
+          expect(ids).not_to include(*other_budgets.map(&:id).map(&:to_s))
         end
       end
 
-      describe "project" do
-        let(:query) { "query Project($id: ID!){ project(id: $id) { id } }" }
-        let(:variables) { { id: project.id.to_s } }
+      describe "budget" do
+        let(:query) { "query Budget($id: ID!){ budget(id: $id) { id } }" }
+        let(:budget) { budgets.sample }
+        let(:variables) { { id: budget.id.to_s } }
 
-        context "when the project belongs to the component" do
-          let!(:project) { create(:project, component: model) }
+        context "when the budget belongs to the component" do
+          let!(:budget) { create(:budget, component: model) }
 
-          it "finds the project" do
-            expect(response["project"]["id"]).to eq(project.id.to_s)
+          it "finds the budget" do
+            expect(response["budget"]["id"]).to eq(budget.id.to_s)
           end
         end
 
-        context "when the project does not belong to the component" do
-          let!(:project) { create(:project, component: create(:budget_component)) }
+        context "when the budget does not belong to the component" do
+          let!(:budget) { create(:budget, component: create(:budgets_component)) }
 
           it "returns null" do
-            expect(response["project"]).to be_nil
+            expect(response["budget"]).to be_nil
           end
         end
       end

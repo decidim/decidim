@@ -17,9 +17,9 @@
         creation_date: Dato opprettet
         decidim_area_id: Område
         decidim_assemblies_type_id: Forsamlingstype
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
-        developer_group: Promotør gruppe
+        developer_group: Prosessen styres av
         domain: Domene
         duration: Varighet
         facebook: Facebook
@@ -30,8 +30,8 @@
         instagram: Instagram
         internal_organisation: Intern organisasjon
         is_transparent: Er transparent
-        local_area: Organisasjonsområdet
-        meta_scope: Omfang metadata
+        local_area: Organisasjonsområde
+        meta_scope: Tema metadata
         parent_id: Foreldre forsamling
         participatory_processes_ids: Relaterte deltakerprosesser
         participatory_scope: Hva er bestemt
@@ -40,8 +40,8 @@
         promoted: Fremhevet
         published_at: Publisert på
         purpose_of_action: Hensikt med handlingen
-        scope_id: Omfang
-        scopes_enabled: Omfang aktivert
+        scope_id: Tema
+        scopes_enabled: Temaer aktivert
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         slug: URL slug
@@ -370,7 +370,7 @@
         read_less: Les mindre
         read_more: Les mer
         related_participatory_processes: Relaterte deltakerprosesser
-        scope: Omfang
+        scope: Tema
         social_networks: Sosiale nettverk
         social_networks_title: Del denne forsamlingen på
         target: Hvem deltar
@@ -462,8 +462,8 @@
           reset_chart: Tilbakestill
         order_by_assemblies:
           assemblies:
-            one: "%{count} sammenstillinger"
-            other: "%{count} sammenstillingene"
+            one: "%{count} forsamling"
+            other: "%{count} forsamlinger"
         promoted_assembly:
           more_info: Mer info
           take_part: Delta

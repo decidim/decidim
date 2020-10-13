@@ -1,0 +1,18 @@
+bg:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Достъпни методи
+        offline: Извън линия
+        offline_explanation: Инструкции за проверка извън линия
+        online: На линия
+      id_document_information:
+        document_number: Номер на документ (с буквите)
+        document_type: Тип на документа
+  decidim:
+    verifications:
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Участието е ограничено до участници с пощенски код %{postal_codes}.
+            other: 'Участието е ограничено до участници с пощенски кодове %{postal_codes}.'

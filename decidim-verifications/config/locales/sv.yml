@@ -100,7 +100,9 @@ sv:
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         index:
           expired_verification: Verifieringen har gått ut
+          pending_verification: Väntar på verifiering
           show_renew_info: Klicka för att förnya verifieringen
+          unauthorized_verification: Ny verifiering
         new:
           authorize: Skicka
           authorize_with: Verifiera med %{authorizer}
@@ -144,6 +146,7 @@ sv:
           postal_codes:
             one: Deltagande är begränsat till deltagare med postnummer %{postal_codes}.
             other: 'Deltagande är begränsat till deltagare med något av följande postnummer: %{postal_codes}.'
+          scope: Deltagandet är begränsat till deltagare med omfattningen %{scope_name}.
       id_documents:
         admin:
           config:

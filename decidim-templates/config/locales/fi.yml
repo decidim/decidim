@@ -1,0 +1,60 @@
+fi:
+  decidim:
+    admin:
+      menu:
+        templates: Mallipohjat
+      templates:
+        apply:
+          error: Mallipohjan käyttöönotto epäonnistui.
+          success: Mallipohjan käyttöönotto onnistui
+        copy:
+          error: Mallipohjan kopiointi epäonnistui.
+          success: Mallipohjan kopiointi onnistui
+        create:
+          error: Mallipohjan luonti epäonnistui.
+          success: Mallipohjan luonti onnistui
+        destroy:
+          success: Mallipohjan poistaminen onnistui
+        empty: Mallipohjia ei ole vielä lisätty.
+        update:
+          error: Mallipohjan päivitys epäonnistui.
+          success: Mallipohjan päivitys onnistui
+      titles:
+        template_types:
+          questionnaires: Kyselymallit
+        templates: Mallipohjat
+    models:
+      questionnaire_template:
+        fields:
+          questions: Kysymysten määrä
+          title: Kyselyn otsikko
+      template:
+        fields:
+          created_at: Luonnin ajankohta
+        name: Mallipohja
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Luo mallipohjasta
+            description: Olet luomassa uutta kyselyä. Voit valita etukäteen määritellyn mallipohjan ja muokata sitä sen jälkeen.
+            label: Valitse mallipohja
+            placeholder: Valitse mallipohja
+            skip_template: Ohita
+          edit:
+            edit: Muokkaa
+            empty: Kysymyksiä ei ole vielä
+            questionnaire: Kysely
+          form:
+            save: Tallenna
+            template_title: Mallipohjan tiedot
+            title: Mallipohja
+          index:
+            confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
+            title: Kyselymallit
+          preview:
+            current_step: Vaihe %{step}
+            of_total_steps: / %{total_steps}
+            tos_agreement: Osallistumalla hyväksyt käyttöehdot
+      template_types:
+        questionnaires: Kyselyt

@@ -6,41 +6,31 @@ module Decidim
     # `current_component` param with a `Decidim::Component` in order to
     # find the debates.
     class DebateSearch < ResourceSearch
+      text_search_fields :title, :description
+
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the debates from.
       # page        - The page number to paginate the results.
-      # per_page    - The number of proposals to return per page.
+      # per_page    - The number of debates to return per page.
       def initialize(options = {})
         super(Debate.not_hidden, options)
       end
 
-      # Handle the search_text filter. We have to cast the JSONB columns
-      # into a `text` type so that we can search.
-      def search_search_text
-        query
-          .where("decidim_debates_debates.title::text ILIKE ?", "%#{search_text}%")
-          .or(query.where("decidim_debates_debates.description::text ILIKE ?", "%#{search_text}%"))
-      end
-
-      # Handle the origin filter
-      def search_origin
-        if origin == "official"
-          query.where(author: component.organization)
-        elsif origin == "citizens"
-          query.where.not(decidim_author_type: "Decidim::Organization")
+      # Handle the activity filter
+      def search_activity
+        case activity
+        when "commented"
+          query.commented_by(user)
+        when "my_debates"
+          query.authored_by(user)
         else # Assume 'all'
           query
         end
       end
 
-      def search_order_start_time
-        if order_start_time == "asc"
-          query.order("start_time ASC")
-        elsif order_start_time == "desc"
-          query.order("start_time DESC")
-        else
-          query.order("start_time ASC")
-        end
+      # Handle the state filter
+      def search_state
+        apply_scopes(%w(open closed), state)
       end
     end
   end

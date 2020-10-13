@@ -48,7 +48,7 @@ pt:
             title: título
       posts:
         show:
-          back: Regressar à lista
+          back: Retroceder à lista
           comments: Comentários
           view: Visão
         sidebar_blog:

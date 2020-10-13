@@ -65,6 +65,7 @@ ca:
     errors:
       general: Error en processar la imatge
       image_too_big: La imatge és massa gran
+      not_inside_organization: L'arxiu no està relacionat amb cap organització
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -261,7 +262,7 @@ ca:
       dummy_authorization_handler:
         explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
-          allowed_postal_codes: Codis postal permesos (separats per comes)
+          allowed_postal_codes: Codis postals permesos (separats per comes)
           allowed_scope_id: Àmbit permès
           document_number: Número de document
           postal_code: Codi postal
@@ -324,7 +325,7 @@ ca:
       see_more: "(veure més)"
     components:
       component_order_selector:
-        no_content: No podem trobar cap contingut amb aquest criteri
+        no_content: No hem pogut trobar cap contingut amb aquest criteri
         order:
           all_types: Tots els tipus
           collaborative_draft: Esborrany col·laboratiu
@@ -351,6 +352,8 @@ ca:
             dummy_global_translatable_text: Text traduïble de proves
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Permisos de recursos habilitats
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_promotion_enabled: Promoció d'esmenes habilitada
@@ -885,10 +888,15 @@ ca:
           show: Mostrar la conversa amb %{sender}
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
+        error_modal:
+          close: Tanca la finestra
+          correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
+          intro: 'Hi ha els següents errors al vostre missatge:'
+          ok: D'acord
         index:
           ago: anteriors
           close: Tanca modal
-          from: 'De:'
+          from: De
           groups: Els meus grups
           last_message: Darrer missatge
           new_conversation: Nova conversa
@@ -908,7 +916,7 @@ ca:
           send: Enviar
           title: Comença una conversa
         update:
-          error: Missatge no enviat. Torna-ho a provar més tard
+          error: El missatge no ha estat enviat degut a un error
     metrics:
       download:
         csv: Descarrega les dades (csv)
@@ -1160,6 +1168,10 @@ ca:
           one: "%{count} resultat"
           other: "%{count} resultats"
         view_all: Mostra-ho tot (%{count})
+    security:
+      selfxss_warning:
+        description: Aquesta funció de navegador està pensada per a desenvolupadors i no hauries d'enganxar res aquí si se t'ha demanat que ho facis. Enganxar contingut en aquesta finestra pot comprometre la teva privacitat i donar accés a hackers al teu compte.
+        title: Aturar!
     shared:
       confirm_modal:
         cancel: Cancel·lar
@@ -1184,7 +1196,7 @@ ca:
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
-        title: Denuncia un problema
+        title: Reportar contingut inapropiat
       floating_help:
         close: Tanca l'ajuda
         help: Ajuda
@@ -1211,8 +1223,12 @@ ca:
         share: Compartir
         share_link: Compartir l'enllaç
     tags:
-      filter_results_for_category: 'Resultats al filtrar per al categoria: %{resource}'
+      filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
+      show_original: Mostra el text original
+      show_translated: Mostra el text de la traducció automàtica
     user_activity:
       index:
         no_activities_warning: Aquesta participant encara no ha tingut cap activitat.
@@ -1226,8 +1242,8 @@ ca:
         add_max_users: 'Afegir usuàries a la conversa: màxim 9 usuàries'
         add_users_placeholder: Cercar...
         close: Tancar
-        conversations_info: Les converses son privades. Ningú més les pot veure. Una conversa es poden iniciar converses amb qualsevol participant o grup registrat a la plataforma.
-        from: 'De:'
+        conversations_info: Les converses son privades. Ningú més les pot veure. Es pot iniciar una conversa amb qualsevol participant o grup registrat a la plataforma.
+        from: De
         last_message: Darrer missatge
         modal_title: Nova conversa
         new_conversation: Nova conversa
@@ -1521,6 +1537,7 @@ ca:
         see_more: Veure més
   locale:
     name: Català
+    name_with_error: Anglès (error!)
   password_validator:
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic

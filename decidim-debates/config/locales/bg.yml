@@ -1,0 +1,15 @@
+bg:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Категория
+        decidim_category_id: Категория
+        description: Описание
+  decidim:
+    debates:
+      debates:
+        show:
+          groups_count: Групи
+          last_comment_by: Последно коментиран от
+          no_comments_yet: Все още няма коментари
+          participants_count: Участници

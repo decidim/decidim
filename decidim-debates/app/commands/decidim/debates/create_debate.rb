@@ -30,15 +30,17 @@ module Decidim
       attr_reader :debate, :form
 
       def create_debate
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
         params = {
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
           category: form.category,
           title: {
-            I18n.locale => form.title
+            I18n.locale => parsed_title
           },
           description: {
-            I18n.locale => form.description
+            I18n.locale => parsed_description
           },
           component: form.current_component
         }

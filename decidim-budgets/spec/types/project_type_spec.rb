@@ -41,11 +41,29 @@ module Decidim
         end
       end
 
-      describe "budget" do
-        let(:query) { "{ budget }" }
+      describe "budget_amount" do
+        let(:query) { "{ budget_amount }" }
 
-        it "returns the budget" do
-          expect(response["budget"]).to eq(model.budget)
+        it "returns the budget amount" do
+          expect(response["budget_amount"]).to eq(model.budget_amount)
+        end
+      end
+
+      describe "selected" do
+        let(:query) { "{ selected }" }
+
+        context "when the project is selected" do
+          let(:model) { create(:project, :selected) }
+
+          it "returns true " do
+            expect(response["selected"]).to be true
+          end
+        end
+
+        context "when the project is not selected" do
+          it "returns false" do
+            expect(response["selected"]).to be_falsey
+          end
         end
       end
 

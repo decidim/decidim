@@ -4,6 +4,8 @@ import * as React from "react";
 import { graphql } from "react-apollo";
 import * as uuid from "uuid";
 
+const PropTypes = require("prop-types");
+
 import Icon from "../application/icon.component";
 
 const { I18n, Translate } = require("react-i18nify");
@@ -27,7 +29,7 @@ interface AddCommentFormProps {
   autoFocus?: boolean;
   arguable?: boolean;
   userAllowedToComment?: boolean;
-  addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
+  addComment?: (data: { body: string, alignment: number, userGroupId?: string }, context: any) => void;
   onCommentAdded?: () => void;
   orderBy: string;
   commentsMaxLength: number;
@@ -51,6 +53,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     submitButtonClassName: "button button--sc",
     arguable: false,
     autoFocus: false
+  };
+
+  public static contextTypes: any = {
+    locale: PropTypes.string,
+    toggleTranslations: PropTypes.bool
   };
 
   public bodyTextArea: HTMLTextAreaElement;
@@ -343,7 +350,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     }
 
     if (addComment) {
-      addComment(addCommentParams);
+      addComment(addCommentParams, this.context);
     }
 
     this.bodyTextArea.value = "";
@@ -360,10 +367,12 @@ const getCommentsQuery = require("../queries/comments.query.graphql");
 
 const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormProps>(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => {
+    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }, { locale, toggleTranslations }: any) => {
       if (mutate) {
         mutate({
           variables: {
+            locale,
+            toggleTranslations,
             commentableId: ownProps.commentable.id,
             commentableType: ownProps.commentable.type,
             body,
@@ -381,10 +390,14 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 createdAt: new Date().toISOString(),
                 body,
                 formattedBody: body,
+                formattedCreatedAt: new Date().toISOString(),
                 alignment,
                 author: {
                   __typename: "User",
                   name: ownProps.session && ownProps.session.user.name,
+                  nickname: ownProps.session && ownProps.session.user.name,
+                  profilePath: null,
+                  badge: null,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
                   deleted: false
                 },
@@ -402,6 +415,8 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
           },
           update: (store, { data }: { data: addCommentMutation }) => {
             const variables = {
+              locale,
+              toggleTranslations,
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
               orderBy: ownProps.orderBy,

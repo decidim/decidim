@@ -49,18 +49,6 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          values:
-            'false': Предложения
-        state_eq:
-          values:
-            evaluating: Рассматривается
-            withdrawn: Отозван
-        state_null:
-          values:
-            'true': Без ответов
     components:
       proposals:
         actions:

@@ -7,6 +7,7 @@ it:
         category_id: Categoria
         decidim_scope_id: Scopo
         has_address: Ha un indirizzo
+        scope_id: Ambito
         state: Stato
         title: Titolo
         user_group_id: Crea una bozza collaborativa come
@@ -19,6 +20,7 @@ it:
         category_id: Categoria
         decidim_scope_id: Ambito
         has_address: Ha un indirizzo
+        scope_id: Ambito
         state: Stato
         suggested_hashtags: Hashtag consigliati
         title: Titolo
@@ -77,23 +79,11 @@ it:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Proposte
-            'true': Emendamenti
+        proposals:
+          valuator_role_ids_has:
+            label: Assegnato al valutatore
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o titolo.
-        state_eq:
-          values:
-            evaluating: Valutazione
-            withdrawn: Ritirato
-        state_null:
-          label: Stato
-          values:
-            'true': Non risposto
-        valuator_role_ids_has:
-          label: Assegnato al valutatore
     components:
       proposals:
         actions:
@@ -638,15 +628,23 @@ it:
         update:
           error: Si sono verificati errori durante il salvataggio della bozza collaborativa.
           success: Bozza collaborativa aggiornata correttamente.
+          title: Modifica bozza collaborativa
         wizard_aside:
           back: Indietro
+          back_from_collaborative_draft: Torna alle bozze collaborative
+          back_from_step_1: Torna alle bozze collaborative
+          back_from_step_2: Torna alle bozze collaborative
+          back_from_step_3: Torna a confrontare le bozze collaborative
+          back_from_step_4: Torna a modificare la bozza
           info: Stai creando una bozza collaborativa <strong></strong>.
         wizard_steps:
+          current_step: Fase attuale
           see_steps: visualizza le fasi
           step_1: Crea la tua bozza collaborativa
           step_2: Confronta con bozze collaborative
           step_3: Completa la tua bozza collaborativa
           step_of: Passaggio %{current_step_num} di %{total_steps}
+          title: Fasi di creazione bozza collaborativa
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
@@ -792,9 +790,12 @@ it:
           read_more: Leggi di più
           report: Report
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
+          withdraw_confirmation_html: Sei sicuro di voler ritirare questa proposta?<br><br><strong>Questa azione non può essere annullata!</strong>
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_name}</u> da un amministratore)"
+        update:
+          title: Aggiorna proposta
         vote_button:
           already_voted: Già votata
           already_voted_hover: Ritira il supporto
@@ -826,14 +827,20 @@ it:
             votes: Voti
         wizard_aside:
           back: Indietro
+          back_from_step_1: Torna alle proposte
+          back_from_step_2: Torna alle proposte
+          back_from_step_3: Torna a confrontare le proposte
+          back_from_step_4: Torna a modificare la bozza
           info: Stai creando una <strong>proposta</strong>.
         wizard_steps:
+          current_step: Fase attuale
           see_steps: vedere i passaggi
           step_1: Crea la tua proposta
           step_2: Confronta
           step_3: Completa
           step_4: Pubblica la tua proposta
           step_of: Step %{current_step_num} di %{total_steps}
+          title: Fasi di creazione delle proposte
       proposals_picker:
         choose_proposals: Scegli proposte
         close: Chiudi

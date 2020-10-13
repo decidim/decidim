@@ -82,13 +82,13 @@ shared_examples_for "add display conditions" do
               select "Answered", from: "Condition"
 
               expect(page).to have_no_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
+              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
 
               select question_single_option.body["en"], from: "Question"
               select "Equal", from: "Condition"
 
               expect(page).to have_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: true)
+              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
             end
           end
         end

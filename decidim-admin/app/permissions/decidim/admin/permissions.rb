@@ -45,13 +45,13 @@ module Decidim
           allow! if permission_action.subject == :scope_type
           allow! if permission_action.subject == :area
           allow! if permission_action.subject == :area_type
-          allow! if permission_action.subject == :oauth_application
           allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
           allow! if permission_action.subject == :help_sections
+          allow! if permission_action.subject == :share_token
         end
 
         permission_action

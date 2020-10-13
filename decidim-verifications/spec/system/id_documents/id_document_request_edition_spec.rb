@@ -23,7 +23,7 @@ describe "Identity document request edition", type: :system do
         "document_type" => "DNI",
         "document_number" => "XXXXXXXX"
       },
-      verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpg")
+      verification_attachment: Decidim::Dev.test_file("id.jpg", "image/jpeg")
     )
   end
 

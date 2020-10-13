@@ -85,23 +85,11 @@ sk:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Návrhy
-            'true': Zmeny
+        proposals:
+          valuator_role_ids_has:
+            label: Priradené ku hodnotiteľov
         search_placeholder:
           id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
-        state_eq:
-          values:
-            evaluating: Hodnotenie
-            withdrawn: Stiahnuté
-        state_null:
-          label: Štát
-          values:
-            'true': Nezodpovedané
-        valuator_role_ids_has:
-          label: Priradené ku hodnotiteľov
     components:
       proposals:
         actions:

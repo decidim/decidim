@@ -54,6 +54,21 @@
   </div>
 </div>
 
+<% if Decidim.config.enable_machine_translations %>
+  <div class="row">
+    <div class="columns xlarge-6">
+      <%= form.check_box :enable_machine_translations %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns xlarge-6">
+      <%= form.label :machine_translation_display_priority, t("activemodel.attributes.organization.machine_translation_display_priority") %>
+      <%= form.collection_radio_buttons :machine_translation_display_priority, form.object.machine_translation_priorities, :first, :last %>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <div class="columns xlarge-6">
     <%= form.text_field :comments_max_length %>

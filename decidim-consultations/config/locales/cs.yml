@@ -3,7 +3,7 @@ cs:
     attributes:
       consultation:
         banner_image: Obrázek banneru
-        decidim_highlighted_scope_id: Zvýrazněný rozsah
+        decidim_highlighted_scope_id: Zvýrazněná oblast působnosti
         description: Popis
         end_voting_date: Hlasování končí
         introductory_image: Úvodní obrázek
@@ -22,7 +22,7 @@ cs:
         instructions: Další pokyny pro hlasování
         max_votes: Maximální počet hlasů
         min_votes: Minimální počet hlasů
-        origin_scope: Rozsah
+        origin_scope: Oblast působnosti
         origin_title: Původ
         origin_url: Původní URL
         participatory_scope: Rozsah účastníků

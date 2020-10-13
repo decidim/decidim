@@ -1,8 +1,14 @@
 ca:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Àmbit
+        description: Descripció
+        title: Títol
+        total_budget: Pressupost total
+        weight: Pes
       project:
-        budget: Pressupost
+        budget_amount: Import del pressupost
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
@@ -21,12 +27,33 @@ ca:
         confirm_destroy: Estàs segura que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
+        edit_projects: Gestionar projectes
         import: Importa propostes a projectes
-        new: Nou projecte
+        new: Nou %{name}
         preview: Previsualitzar
         title: Accions
       admin:
+        budgets:
+          create:
+            invalid: S'ha produït un error en crear aquest pressupost
+            success: Pressupost creat correctament
+          destroy:
+            invalid: S'ha produït un error en eliminar aquest pressupost
+            success: Pressupost eliminat correctament
+          edit:
+            title: Edita el pressupost
+            update: Actualitza el pressupost
+          index:
+            title: Pressupostos
+          new:
+            create: Crea pressupost
+            title: Nou pressupost
+          update:
+            invalid: S'ha produït un error en actualitzar aquest pressupost
+            success: Pressupost actualitzat correctament
         models:
+          budget:
+            name: Pressupost
           project:
             name: Projecte
         projects:
@@ -41,6 +68,7 @@ ca:
           index:
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
+            selected: Seleccionat
             title: Projectes
           new:
             create: Crear
@@ -57,11 +85,39 @@ ca:
             no_components: No hi ha cap component de propostes en aquest espai participatiu per importar les propostes a projectes.
             select_component: Selecciona un component
       admin_log:
+        budget:
+          create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el pressupost %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el pressupost %{resource_name} de l'espai %{space_name}"
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
+      budget:
+        view: Veure tots els projectes de pressupost
+      budget_information_modal:
+        back_to: Tornar a %{component_name}
+        close_modal: Tancar el modal
+        continue: Continuar
+        more_information: Més informació
+      budgets_list:
+        cancel_order:
+          more_than_one: eliminar el teu vot a %{name} i començar de nou
+          only_one: eliminar el teu vot i començar de nou.
+        finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
+        highlighted_cta: Votar a %{name}
+        if_change_opinion: Si has canviat d'opinió, pots
+        my_budgets: Els meus pressupostos
+        voted_on: Has votat a %{links}
+      limit_announcement:
+        cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
+        limit_reached: Tens vots actius a %{links}. Per votar en aquest pressupot has d' <a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
       models:
+        budget:
+          fields:
+            name: Nom
+            projects_count: Número de projectes
+            total_budget: Pressupost total
         project:
           fields:
             title: Títol
@@ -69,11 +125,11 @@ ca:
         order_summary:
           selected_projects: 'Els projectes que has seleccionat són:'
           subject: Has votat a l'espai de participació %{space_name}
-          voted_on_space: Has votat en el pressupost de l'espai de participació %{space_name}.
-          voted_on_space_with_scope: Has votat en el pressupost de l'espai de participació %{space_name} a %{scope_name} (%{scope_type}).
+          voted_on_space: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name}.
+          voted_on_space_with_scope: Has votat al pressupost %{budget_name} de l'espai de participació %{space_name} de %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Hi estàs d'acord? Un cop hagis confirmat el teu vot, no podràs canviar-lo.
+          are_you_sure: Si canvies d'opinió, pots modificar el teu vot més tard.
           cancel: Cancel·lar
           confirm: Confirmar
           description: Aquests són els projectes que has seleccionat per formar part del pressupost.
@@ -101,6 +157,11 @@ ca:
           category: Categoria
           scope: Àmbit
           search: Cerca
+          status: Estat
+          status_values:
+            all: Tots
+            not_selected: No seleccionat
+            selected: Seleccionat
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -120,18 +181,22 @@ ca:
           lowest_cost: Menor cost
           most_voted: Més votats
           random: Ordre aleatori
+          selected: Seleccionat
         project:
           add: Afegir el projecte %{resource_name} al teu vot
-          count:
-            one: 1 suport
-            other: "%{count} suports"
           remove: Esborrar el projecte %{resource_name} del teu vot
+          selected: Seleccionat
           view: Veure
+          votes:
+            one: vot
+            other: vots
+          you_voted: Has votat
         project_budget_button:
           add: Afegir al teu vot
           add_descriptive: Afegir el projecte %{resource_name} al teu vot
           added: Afegit al teu vot
           added_descriptive: El projecte %{resource_name} s'ha afegit al teu vot
+        projects_for: Projectes per a %{name}
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
@@ -149,18 +214,43 @@ ca:
               errors:
                 budget_voting_rule_only_one: Cal activar com a mínim una norma per a la votació
                 budget_voting_rule_required: Es requereix una norma per a la votació
+            landing_page_content: Pàgina d'inici de pressupostos
+            more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
+            title: Títol
             total_budget: Pressupost total
-            vote_minimum_budget_projects_number: Nombre màxim de projectes a votar
+            vote_minimum_budget_projects_number: Número màxim de projectes a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínim de projectes a votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: percentatge mínim del pressupost'
             vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
+            workflow: Workflow
+            workflow_choices:
+              all: 'Votar a tots: permet a les participants votar a tots els pressupostos.'
+              one: 'Votar a un: permet a les participants votar a qualsevol pressupost, però només a un.'
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
+            highlighted_heading: Capçalera destacada
+            landing_page_content: Pàgina d'inici de pressupostos
+            list_heading: Títol de la llista
+            more_information_modal: Finestra de "Més informació"
             show_votes: Mostra els suports
-            votes_enabled: S'ha habilitat la votació
+            title: Títol
+            votes: Votació
+            votes_choices:
+              disabled: Votació inhabilitada
+              enabled: S'ha habilitat la votació
+              finished: Votació finalitzada
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Ja està activa la fase %{resource_title} per a %{participatory_space_title}. Pots veure-la des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions a través de l'enllaç anterior.
+          email_subject: El component %{resource_title} ja està actiu per %{participatory_space_title}.
+          notification_title: El pressupost <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està actiu.
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot

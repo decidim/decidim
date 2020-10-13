@@ -16,10 +16,12 @@ ro:
         available_slots: Sloturi disponibile pentru această ședință
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
+        decidim_user_group_id: Grup de utilizatori
         description: Descriere
         end_time: Ora de încheiere
         location: Locaţie
         location_hints: Sugestii de localizare
+        organizer_gid: Creează ca
         organizer_id: Organizator
         private_meeting: Întâlnire privată
         registration_form_enabled: Formular de înregistrare activat
@@ -84,12 +86,16 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            creation_enabled_for_participants: Participanții pot crea întâlniri
             default_registration_terms: Condiții de înregistrare implicite
             enable_pads_creation: Activează crearea de pad-uri
             resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare întâlnire
           step:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
+            creation_enabled_for_participants: Crearea de şedinţe de către participanţi este activată
+            creation_enabled_for_user_groups: Crearea de ședințe de către grupuri de utilizatori activată
     events:
       meetings:
         meeting_closed:
@@ -346,21 +352,56 @@ ro:
       meeting:
         not_allowed: Nu aveţi permisiunea să vizualizaţi această întâlnire
       meetings:
+        count:
+          meetings_count:
+            one: "Întâlnire %{count}"
+            few: "%{count} întâlniri"
+            other: "%{count} întâlniri"
+        create:
+          invalid: A apărut o problemă la crearea acestei întâlniri.
+          success: Ați creat o ședință cu succes.
+        edit:
+          back: Înapoi
+          title: Editează-ți ședința
+          update: Actualizare
         filters:
           category: Categorie
           date: Data
+          date_values:
+            all: Toate
+            past: Trecute
+            upcoming: Urmează
+          origin: Origine
+          origin_values:
+            all: Toate
+            citizens: Cetățeni
+            official: Oficial
+            user_groups: Grupuri
+          scope: Domeniu
           search: Caută
         filters_small_view:
           close_modal: Închide fereastra
           filter: Filtrare
           filter_by: Filtrare după
           unfold: Desfășurat
+        form:
+          address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
+          create_as: Creaza o sedinta ca
+          location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
+          location_hints_help: 'Indice privind locația: informații suplimentare. Exemplu: podeaua clădirii'
+          select_a_category: Vă rugăm să selectaţi o categorie
+        index:
+          new_meeting: Ședință nouă
         meeting_minutes:
           meeting_minutes: Procesul-verbal al şedinţei
           related_information: Informații conexe
         meetings:
           no_meetings_warning: Nici o întâlnire nu corespunde criteriilor de căutare sau nu există nicio întrunire programată.
           upcoming_meetings_warning: În prezent, nu există întâlniri programate, dar aici se află pe listă toate reuniunile anterioare.
+        new:
+          back: Înapoi
+          create: Crează
+          title: Creează-ți o întâlnire
         registration_confirm:
           cancel: Anulează
           confirm: Confirmare
@@ -368,6 +409,8 @@ ro:
           attendees: Numărul participanților
           back: Înapoi la listă
           contributions: Număr de contribuții
+          date: Data
+          edit_meeting: Editați ședința
           going: Merge
           join: Alătură-te ședinței
           meeting_report: Raportul reuniunii
@@ -382,6 +425,9 @@ ro:
             few: "%{count} sloturi rămase"
             other: "%{count} sloturi rămase"
           view: Vizualizare
+        update:
+          invalid: A apărut o eroare la actualizarea ședinței.
+          success: Ați actualizat întâlnirea cu succes.
       meetings_map:
         view_meeting: Vezi ședință
       models:
@@ -400,6 +446,7 @@ ro:
             closed: Închis
             end_time: Data de încheiere
             map: Hartă
+            official_meeting: Ședința oficială
             start_time: Data de început
             title: Titlu
       read_more: "(citește mai mult)"
@@ -421,6 +468,8 @@ ro:
       types:
         private_meeting: Întâlnire privată
         transparent: Transparență
+      versions:
+        back_to_resource: Înapoi la ședință
     metrics:
       meetings:
         description: Numărul de şedinţe create

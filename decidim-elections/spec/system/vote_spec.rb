@@ -6,6 +6,9 @@ describe "Vote in an election", type: :system do
   let(:manifest_name) { "elections" }
   let(:election) { create :election, :complete, :published, :ongoing, component: component }
   let(:user) { create(:user, :confirmed, organization: component.organization) }
+  let!(:elections) do
+    create_list(:election, 2, :complete, :published, :ongoing, component: component)
+  end
 
   before do
     election.reload
@@ -92,5 +95,31 @@ describe "Vote in an election", type: :system do
     end
 
     it_behaves_like "allow admins to preview the voting booth"
+  end
+
+  context "when the voting is confirmed" do
+    before do
+      visit_component
+
+      click_link translated(election.title)
+      click_link "Vote"
+    end
+
+    it_behaves_like "uses the voting booth"
+  end
+
+  context "when the voting is not confirmed" do
+    it "is alerted when trying to leave the component before completing" do
+      visit_component
+
+      click_link translated(election.title)
+      click_link "Vote"
+
+      dismiss_prompt do
+        page.find("a.focus__exit").click
+      end
+
+      expect(page).to have_content("Next")
+    end
   end
 end

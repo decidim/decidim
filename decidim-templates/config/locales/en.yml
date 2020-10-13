@@ -1,0 +1,61 @@
+---
+en:
+  decidim:
+    admin:
+      menu:
+        templates: Templates
+      templates:
+        apply:
+          error: There was a problem applying this template.
+          success: Template applied successfully
+        copy:
+          error: There was a problem copying this template.
+          success: Template copied successfully
+        create:
+          error: There was a problem creating this template.
+          success: Template created successfully
+        destroy:
+          success: Template deleted successfully
+        empty: There are no templates yet.
+        update:
+          error: There was a problem upadting this template.
+          success: Template updated successfully
+      titles:
+        template_types:
+          questionnaires: Questionnaire templates
+        templates: Templates
+    models:
+      questionnaire_template:
+        fields:
+          questions: Number of questions
+          title: Questionnaire Title
+      template:
+        fields:
+          created_at: Created at
+        name: Template
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Create from template
+            description: You are about to create a new questionnaire. You may choose a predefined template and modify it afterwards.
+            label: Choose template
+            placeholder: Choose template
+            skip_template: Skip
+          edit:
+            edit: Edit
+            empty: There are no questions yet
+            questionnaire: Questionnaire
+          form:
+            save: Save
+            template_title: Template information
+            title: Questionnaire
+          index:
+            confirm_delete: Are you sure you want to delete this template?
+            title: Questionnaire templates
+          preview:
+            current_step: Step %{step}
+            of_total_steps: of %{total_steps}
+            tos_agreement: By participating you accept its Terms of Service
+      template_types:
+        questionnaires: Questionnaires

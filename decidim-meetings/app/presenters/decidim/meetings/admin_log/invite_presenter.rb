@@ -24,9 +24,13 @@ module Decidim
           end
         end
 
+        # Tries to use the attendee name from the invitation (resource).
+        # If invitation does not exist anymore use the one in extras.
         def i18n_params
+          attendee_name = action_log.resource ? action_log.resource.user.name : action_log.extra["attendee_name"]
           super.merge(
-            attendee_name: action_log.resource.user.name
+            # before Decidim v0.23.0 attendee_name was not being copied into the extras so it may be nil
+            attendee_name: attendee_name || "????"
           )
         end
       end

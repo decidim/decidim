@@ -124,6 +124,7 @@ ja:
           email_intro: '「%{registration_code}」会議の登録コード「%{resource_title}」が確認されました。'
           email_outro: '"%{resource_title}" 会議の登録コードが検証されたため、この通知を受け取りました。'
           email_subject: あなたの "%{registration_code}" 会議の登録コード "%{resource_title}" が検証されました
+          notification_title: ミーティング <a href="%{resource_path}">%{resource_title} </a> に対するあなたの登録コード "%{registration_code}" が認証されました。
         registrations_enabled:
           email_intro: '"%{resource_title}" ミーティングは登録を有効にしました．あなた自身をそのページに登録することができます:'
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
@@ -155,6 +156,9 @@ ja:
         confirm_destroy: このミーティングを削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        invalid_destroy:
+          proposals_count:
+            other: '%{count} 件の提案が関連付けられているため、会議を破壊できません:'
         minutes: 分
         new: 新しいミーティング
         preview: プレビュー
@@ -233,6 +237,9 @@ ja:
             invalid: このミーティングを作成する際に問題が発生しました
             success: ミーティングを作成しました
           destroy:
+            invalid:
+              proposals_count:
+                other: '%{count} 件の提案が関連付けられているため、会議を破壊できません'
             success: ミーティングを削除しました
           edit:
             update: 更新
@@ -398,6 +405,7 @@ ja:
           attendees: 出席者数
           back: リストに戻る
           contributions: コントリビューション数
+          date: 日付
           edit_meeting: ミーティングを編集
           going: 次へ
           join: 会議に参加
@@ -469,6 +477,7 @@ ja:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去のミーティング
+        see_all: すべてのミーティングを見る (%{count})
         upcoming_meetings: 今後のミーティング
       upcoming_meeting_for_card:
         upcoming_meeting: 今後のミーティング

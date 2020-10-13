@@ -47,8 +47,8 @@ module Decidim
         def create_answer_from_proposal(original_proposal)
           params = {
             question: form.question,
-            title: answer_localized(original_proposal.title),
-            description: answer_localized(original_proposal.body),
+            title: original_proposal.title,
+            description: original_proposal.body,
             weight: form.weight
           }
 
@@ -80,12 +80,6 @@ module Decidim
           original_proposal.linked_resources(:answers, "related_proposals").any? do |answer|
             answer.question == target_question
           end
-        end
-
-        def answer_localized(text)
-          Decidim.available_locales.inject({}) do |result, locale|
-            result.update(locale => text)
-          end.with_indifferent_access
         end
       end
     end

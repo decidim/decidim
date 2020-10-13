@@ -1,0 +1,26 @@
+<div class="row column">
+  <%= form.text_field :name %>
+</div>
+
+<div class="row column">
+  <%= form.text_field :redirect_uri %>
+</div>
+
+<div class="row column">
+  <%= form.select :decidim_organization_id,
+                Decidim::Organization.pluck(:name, :id),
+                { include_blank: t(".select_organization") },
+                { multiple: false } %>
+</div>
+
+<div class="row column">
+  <%= form.text_field :organization_name %>
+</div>
+
+<div class="row column">
+  <%= form.text_field :organization_url %>
+</div>
+
+<div class="row column">
+  <%= form.upload :organization_logo %>
+</div>

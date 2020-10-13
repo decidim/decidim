@@ -1,0 +1,445 @@
+lv:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Paziņojums
+        area_id: Joma
+        banner_image: Reklāmkaroga attēls
+        copy_categories: Kopēt kategorijas
+        copy_components: Kopēt komponentus
+        copy_steps: Kopēt soļus
+        decidim_area_id: Joma
+        description: Apraksts
+        developer_group: Atbalstītāju grupa
+        domain: Domēns
+        end_date: Beigu datums
+        hashtag: Tēmturis
+        hero_image: Sākuma attēls
+        local_area: Organizācijas joma
+        meta_scope: Tvēruma metadati
+        participatory_process_group_id: Procesu grupa
+        participatory_scope: Kas tiek izlemts
+        participatory_structure: Kā tas tiek izlemts
+        promoted: Veicināts
+        published_at: Publicēts plkst.
+        related_process_ids: Saistītie procesi
+        scope_id: Darbības tvērums
+        scope_type_max_depth_id: Tvēruma filtra dziļums
+        scopes_enabled: Darbības tvērumi ir iespējoti
+        short_description: Īss apraksts
+        show_metrics: Rādīt rādītājus
+        show_statistics: Rādīt statistiku
+        slug: URL sadaļas adrese (slug)
+        start_date: Sākuma datums
+        subtitle: Apakšvirsraksts
+        target: Kas piedalās
+        title: Nosaukums
+      participatory_process_group:
+        description: Apraksts
+        hero_image: Attēls
+        name: Nosaukums
+        participatory_process_ids: Saistītie procesi
+      participatory_process_step:
+        cta_path: Call To Action ceļš
+        cta_text: Call To Action teksts
+        description: Apraksts
+        end_date: Beigu datums
+        short_description: Īss apraksts
+        start_date: Sākuma datums
+        title: Nosaukums
+      participatory_process_user_role:
+        email: E-pasts
+        name: Nosaukums
+        role: Loma
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Nederīgs dokumenta tips. Pieņemtie formāti ir: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Fāze aktivizēta
+      decidim/participatory_process_step_changed_event: Fāze mainīta
+  activerecord:
+    models:
+      decidim/participatory_process:
+        zero: Līdzdalības procesi
+        one: Līdzdalības process
+        other: Līdzdalības procesi
+      decidim/participatory_process_group:
+        zero: Līdzdalības procesa grupas
+        one: Līdzdalības procesa grupa
+        other: Līdzdalības procesa grupas
+      decidim/participatory_process_step:
+        zero: Fāzes
+        one: Fāze
+        other: Fāzes
+  decidim:
+    admin:
+      actions:
+        activate: Aktivizēt
+        configure: Konfigurēt
+        confirm_destroy: Apstiprināt dzēšanu
+        destroy: Dzēst
+        duplicate: Dublēt
+        edit: Labot
+        filter:
+          all_processes: Rādīt visus procesus
+          process_groups: Procesa grupas
+        import_process: Importēt
+        new_process: Jauns process
+        new_process_group: Jauna procesa grupa
+        new_process_step: Jauna fāze
+        new_process_user_role: Jauns procesa administrators
+        preview: Priekšskatīt
+        publish: Publicēt
+        resend_invitation: Atkārtoti nosūtīt ielūgumu
+        unpublish: Atcelt publicēšanu
+      menu:
+        participatory_process_groups: Procesa grupas
+        participatory_processes: Procesi
+        participatory_processes_submenu:
+          attachment_collections: Mapes
+          attachment_files: Faili
+          attachments: Pielikumi
+          categories: Kategorijas
+          components: Komponenti
+          info: Informācija
+          moderations: Moderācijas
+          private_users: Privātie dalībnieki
+          process_admins: Procesa administratori
+          steps: Fāzes
+      models:
+        participatory_process:
+          fields:
+            created_at: Izveidots plkst.
+            private: Privāts
+            promoted: Izcelts
+            published: Publicēts
+            title: Nosaukums
+          name: Līdzdalības process
+        participatory_process_group:
+          fields:
+            name: Nosaukums
+          name: Procesa grupa
+        participatory_process_step:
+          fields:
+            end_date: Beigu datums
+            start_date: Sākuma datums
+            title: Nosaukums
+          name: Līdzdalības procesa fāze
+        participatory_process_user_role:
+          fields:
+            email: E-pasts
+            name: Nosaukums
+            role: Loma
+          name: Līdzdalības procesa administrators
+          roles:
+            admin: Administrators
+            collaborator: Līdzizstrādātājs
+            moderator: Moderators
+            valuator: Vērtētājs
+        user:
+          fields:
+            invitation_accepted_at: Ielūgums pieņemts
+            invitation_sent_at: Ielūgumus nosūtīts
+      participatory_process_copies:
+        new:
+          copy: Kopēt
+          select: Atlasiet, kurus datus vēlaties dublēt
+          title: Dublēt līdzdalības procesu
+      participatory_process_groups:
+        destroy:
+          error: Līdzdalības procesa grupas dzēšanas laikā radās kļūda.
+          success: Līdzdalības procesa grupa ir veiksmīgi dzēsta.
+        edit:
+          title: Rediģēt procesa grupu
+          update: Atjaunināt
+        new:
+          create: Izveidot
+          title: Jauna procesa grupa
+        update:
+          error: Šīs līdzdalības procesa grupas atjaunināšanas laikā radās problēma.
+          success: Līdzdalības procesa grupa ir veiksmīgi atjaunināta.
+      participatory_process_imports:
+        create:
+          error: Importējot šo līdzdalības procesu, radās problēma.
+          success: Līdzdalības process ir veiksmīgi importēts.
+        new:
+          import: Importēt
+          select: Atlasiet, kurus datus vēlaties importēt
+          title: Importēt līdzdalības procesu
+      participatory_process_publications:
+        create:
+          error: Publicējot šo līdzdalības procesu, radās problēma.
+          success: Līdzdalības process ir veiksmīgi publicēts.
+        destroy:
+          error: Atceļot šī līdzdalības procesa publicēšanu, radās problēma.
+          success: Līdzdalības procesam ir veiksmīgi atcelta publicēšana.
+      participatory_process_step_activations:
+        create:
+          error: Aktivizējot šo līdzdalības procesa fāzi, radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi aktivizēta.
+      participatory_process_steps:
+        create:
+          error: Jaunas līdzdalības procesa fāzes izveides laikā radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi izveidota.
+        default_title: Ievads
+        destroy:
+          error:
+            active_step: Nevar izdzēst aktīvo fāzi.
+            last_step: Nevar izdzēst procesa pēdējo fāzi.
+          success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
+        edit:
+          title: Rediģēt līdzdalības procesa fāzi
+          update: Atjaunināt
+        index:
+          steps_title: Fāzes
+        new:
+          create: Izveidot
+          title: Jauna līdzdalības procesa fāze
+        ordering:
+          error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
+        update:
+          error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
+      participatory_process_user_roles:
+        create:
+          error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
+          success: Administrators ir veiksmīgi pievienots šim līdzdalības procesam.
+        destroy:
+          success: Administrators ir veiksmīgi noņemts no šī līdzdalības procesa.
+        edit:
+          title: Atjaunināt līdzdalības procesa administratoru
+          update: Atjaunināt
+        index:
+          process_admins_title: Līdzdalības procesa administratori
+        new:
+          create: Izveidot
+          title: Jauns līdzdalības procesa administrators
+        update:
+          error: Šī līdzdalības procesa administratora atjaunināšanas laikā radās problēma.
+          success: Līdzdalības procesa administrators ir veiksmīgi atjaunināts.
+      participatory_processes:
+        create:
+          error: Jauna līdzdalības procesa izveides laikā radās problēma.
+          success: Līdzdalības process ir veiksmīgi izveidots. Tagad konfigurējiet tā fāzes.
+        edit:
+          update: Atjaunināt
+        index:
+          not_published: Nav publicēts
+          private: Privāts
+          public: Publisks
+          published: Publicēts
+        new:
+          create: Izveidot
+          title: Jauns līdzdalības process
+        update:
+          error: Šī līdzdalības procesa atjaunināšanas laikā radās problēma.
+          success: Līdzdalības process ir veiksmīgi atjaunināts.
+      participatory_processes_copies:
+        create:
+          error: Dublējot šo līdzdalības procesu, radās problēma.
+          success: Līdzdalības process ir veiksmīgi dublēts.
+      participatory_processes_group:
+        create:
+          error: Jaunas līdzdalības procesa grupas izveides laikā radās problēma.
+          success: Līdzdalības procesa grupa ir veiksmīgi izveidota.
+      titles:
+        participatory_process_groups: Līdzdalības procesa grupas
+        participatory_processes: Līdzdalības procesi
+      users:
+        resend_invitation:
+          error: Atkārtoti nosūtot ielūgumu, radās problēma.
+          success: Ielūgums ir veiksmīgi nosūtīts atkārtoti.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} izveidoja %{resource_name} līdzdalības procesu"
+        publish: "%{user_name} publicēja %{resource_name} līdzdalības procesu"
+        unpublish: "%{user_name} atsauca %{resource_name} līdzdalības procesa publicēšanu"
+        update: "%{user_name} atjaunināja %{resource_name} līdzdalības procesu"
+      participatory_process_group:
+        create: "%{user_name} izveidoja %{resource_name} līdzdalības procesa grupu"
+        update: "%{user_name} atjaunināja %{resource_name} līdzdalības procesa grupu"
+      participatory_process_step:
+        activate: "%{user_name} aktivizēja %{resource_name} fāzi %{space_name} līdzdalības procesā"
+        create: "%{user_name} izveidoja %{resource_name} fāzi %{space_name} līdzdalības procesā"
+        delete: "%{user_name} izdzēsa %{resource_name} fāzi %{space_name} līdzdalības procesā"
+        update: "%{user_name} atjaunināja %{resource_name} fāzi %{space_name} līdzdalības procesā"
+      participatory_process_user_role:
+        create: "%{user_name} uzaicināja dalībnieku %{resource_name} %{space_name} līdzdalības procesā"
+        delete: "%{user_name} noņēma dalībnieku %{resource_name} no %{space_name} līdzdalības procesa"
+        update: "%{user_name} mainīja dalībnieka %{resource_name} lomu %{space_name} līdzdalības procesā"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Jums piešķirta loma kā %{role} līdzdalības procesā “%{resource_title}”.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{role} līdzdalības procesā "%{resource_title}".
+          email_subject: Jūs esat norīkots par %{role} asamblejā “%{resource_title}”.
+          notification_title: Jūs esat norīkots par %{role} līdzdalības procesā <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: '%{resource_title} fāze tagad ir aktīva līdzdalības procesā %{participatory_space_title}. To var redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Atjaunināts %{participatory_space_title}
+          notification_title: '%{resource_title} fāze tagad ir aktīva <a href="%{resource_path}">%{participatory_space_title}</a>'
+        step_changed:
+          email_intro: '%{resource_title} fāzes datumi līdzdalības procesam %{participatory_space_title} ir atjaunināti. To var redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Atjaunināts %{participatory_space_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> fāzes datumi līdzdalības procesam <a href="%{participatory_space_url}">%{activatory_space_title}</a> ir atjaunināti.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p><strong>Līdzdalības process</strong> ir virkne ar līdzdalības darbībām (piemēram, aptauju aizpildīšana, priekšlikumu sagatavošana, to apspriešana klātienes vai tiešsaistes sanāksmēs un visbeidzot, to prioritizēšana) ar mērķi definēt un pieņemt lēmumu par kādu konkrētu tēmu. </p><p>Līdzdalības procesu piemēri ir šādi: komitejas locekļu ievēlēšana (vispirms tiek iesniegtas kandidatūras, tad tās tiek apspriestas un visbeidzot tiek izvēlēti kandidāti), līdzdalības budžeti (kur tiek izteikti priekšlikumi, tie tiek ekonomiski novērtēti un par tiem, izmantojot pieejamos līdzekļus, tiek balsots), stratēģiskās plānošanas process, kopēja regulējuma vai normas izstrāde, kā arī pilsētvides projektēšana vai sabiedriskās politikas plāna izstrāde. </p>"
+          page: "<p><strong>Līdzdalības process</strong> ir virkne ar līdzdalības darbībām (piemēram, aptauju aizpildīšana, priekšlikumu sagatavošana, to apspriešana klātienes vai tiešsaistes sanāksmēs un visbeidzot, to prioritizēšana) ar mērķi definēt un pieņemt lēmumu par kādu konkrētu tēmu. </p><p>Līdzdalības procesu piemēri ir šādi: komitejas locekļu ievēlēšana (vispirms tiek iesniegtas kandidatūras, tad tās tiek apspriestas un visbeidzot tiek izvēlēti kandidāti), līdzdalības budžeti (kur tiek izteikti priekšlikumi, tie tiek ekonomiski novērtēti un par tiem, izmantojot pieejamos līdzekļus, tiek balsots), stratēģiskās plānošanas process, kopēja regulējuma vai normas izstrāde, kā arī pilsētvides projektēšana vai sabiedriskās politikas plāna izstrāde. </p>"
+          title: Kas ir līdzdalības process?
+    menu:
+      processes: Procesi
+    metrics:
+      participatory_processes:
+        description: Līdzdalības procesu skaits šajā organizācijā
+        object: līdzdalības procesi
+        title: Līdzdalības procesi
+    participatory_process:
+      show:
+        related_assemblies: Saistītās asamblejas
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          zero: "%{count} procesi %{group}"
+          one: viens process %{group}
+          other: "%{count} procesi %{group}"
+        title: Līdzdalības procesa grupas
+    participatory_process_steps:
+      index:
+        process_steps: Procesa fāzes
+        title: Līdzdalības procesa fāzes
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maksimālais parādāmo elementu daudzums
+        participatory_process_copies:
+          form:
+            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Pievienot dokumentu
+            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Ja tas nav iestatīts, poga netiks rādīta. Piemērs:%{url}'
+            cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
+        participatory_processes:
+          form:
+            announcement_help: Šeit ievadītais teksts tiks parādīts lietotājam tieši zem procesa informācijas.
+            duration: Ilgums
+            filters: Filtri
+            images: Attēli
+            metadata: Metadati
+            other: Cits
+            related_processes: Saistītie procesi
+            scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
+            select_an_area: Izvēlieties jomu
+            select_process_group: Atlasiet procesa grupu
+            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+            title: Vispārēja informācija
+            visbility: Redzamība
+      content_blocks:
+        highlighted_processes:
+          name: Izceltie procesi
+      index:
+        title: Līdzdalības procesi
+      last_activity:
+        new_participatory_process: Jauns līdzdalības process
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktīvie procesi
+            active_step: Aktīvā fāze
+            more_information: Papildu informācija
+            participate: Piedalīties
+            see_all_processes: Skatīt visus procesus
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              zero: "%{count} aktīvie procesi"
+              one: 1 aktīvais process
+              other: "%{count} aktīvie procesi"
+            past:
+              zero: "%{count} agrākie procesi"
+              one: viens agrākais process
+              other: "%{count} agrākie procesi"
+            upcoming:
+              zero: "%{count} gaidāmie procesi"
+              one: viens gaidāmais process
+              other: "%{count} gaidāmie procesi"
+          explanations:
+            no_active: Nav aktīvu procesu
+            no_active_nor_upcoming: Nav ne aktīvu, ne gaidāmu procesu
+            no_active_nor_upcoming_callout: Nav ne aktīvu, ne gaidāmu procesu. Šeit ir saraksts ar agrākajiem.
+          names:
+            active: Aktīvas
+            all: Visi
+            past: Iepriekšējie
+            upcoming: Gaidāmās
+          see: Skatīt
+        index:
+          loading: Notiek rezultātu ielāde ...
+      show:
+        area: Joma
+        developer_group: Atbalstītāju grupa
+        end_date: Beigu datums
+        local_area: Organizācijas joma
+        participatory_scope: Kas tiek izlemts
+        participatory_structure: Kā tas tiek izlemts
+        private_space: Šis ir privāts process
+        related_processes: Saistītie procesi
+        scope: Darbības tvērums
+        start_date: Sākuma datums
+        target: Kas piedalās
+        unspecified: Nav norādīts
+      statistics:
+        answers_count: Atbildes
+        comments_count: Komentāri
+        endorsements_count: Atbalsts
+        followers_count: Sekotāji
+        headline: Statistika
+        meetings_count: Sanāksmes
+        no_stats: Pagaidām nav statistikas.
+        orders_count: Atbalsta
+        pages_count: Lapas
+        participants_count: Dalībnieki
+        processes_count: Procesi
+        projects_count: Projekti
+        proposals_count: Priekšlikumi
+        results_count: Rezultāti
+        supports_count: Atbalsta
+        surveys_count: Aptaujas
+        users_count: Dalībnieki
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Pārlūkot
+          processes_count: 'Procesi:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktīvā fāze
+          take_part: Piedalīties
+      participatory_processes:
+        index:
+          promoted_processes: Izceltie procesi
+        participatory_process:
+          active_step: 'Pašreizējā fāze:'
+          more_info: Sīkāka informācija
+          take_part: Piedalīties
+        promoted_process:
+          active_step: 'Pašreizējā fāze:'
+          more_info: Sīkāka informācija
+          take_part: Piedalīties
+      process_header_steps:
+        step: Fāze %{current} no %{total}
+      process_navigation:
+        process_menu_item: Process

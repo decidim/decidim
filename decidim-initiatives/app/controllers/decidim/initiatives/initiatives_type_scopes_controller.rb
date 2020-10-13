@@ -15,7 +15,15 @@ module Decidim
       private
 
       def scoped_types
-        @scoped_types ||= InitiativesType.find(params[:type_id]).scopes
+        @scoped_types ||= if initiative_type.only_global_scope_enabled?
+                            initiative_type.scopes.where(scope: nil)
+                          else
+                            initiative_type.scopes
+                          end
+      end
+
+      def initiative_type
+        @initiative_type ||= InitiativesType.find(params[:type_id])
       end
     end
   end

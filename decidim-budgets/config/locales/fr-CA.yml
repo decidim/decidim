@@ -1,8 +1,14 @@
 fr-CA:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Secteur
+        description: Description
+        title: Titre
+        total_budget: Budget total
+        weight: Rang d'affichage
       project:
-        budget: Budget
+        budget_amount: Montant du budget
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
@@ -21,12 +27,33 @@ fr-CA:
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
         edit: Modifier
+        edit_projects: Gérer les projets
         import: Importer des propositions dans des projets
-        new: Nouveau projet
+        new: Nouveau %{name}
         preview: Aperçu
         title: Actions
       admin:
+        budgets:
+          create:
+            invalid: Un problème est survenu lors de la création de ce budget
+            success: Budget créé avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de ce budget
+            success: Budget supprimé avec succès
+          edit:
+            title: Modifier le budget
+            update: Mettre à jour le budget
+          index:
+            title: Budgets
+          new:
+            create: Créer un budget
+            title: Nouveau budget
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce budget
+            success: Budget mis à jour avec succès
         models:
+          budget:
+            name: Budget
           project:
             name: Projet
         projects:
@@ -41,6 +68,7 @@ fr-CA:
           index:
             finished_orders: Votes terminés
             pending_orders: Votes en cours
+            selected: Sélectionné
             title: Projets
           new:
             create: Créer
@@ -57,11 +85,39 @@ fr-CA:
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             select_component: Veuillez sélectionner un module
       admin_log:
+        budget:
+          create: "%{user_name} a créé le budget %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le budget %{resource_name} dans l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le budget %{resource_name} dans l'espace %{space_name}"
         project:
           create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
           delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
           update: "%{user_name} a mis à jour le projet %{resource_name} dans l'espace %{space_name}"
+      budget:
+        view: Voir tous les projets
+      budget_information_modal:
+        back_to: Retour à %{component_name}
+        close_modal: Fermer la fenêtre de dialogue
+        continue: Continuer
+        more_information: Plus d'information
+      budgets_list:
+        cancel_order:
+          more_than_one: supprimer votre vote sur %{name} et recommencer
+          only_one: supprimer votre vote et recommencez.
+        finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
+        highlighted_cta: Voter pour %{name}
+        if_change_opinion: Si vous avez changé d'avis, vous pouvez
+        my_budgets: Mes Budgets
+        voted_on: Vous avez voté sur %{links}
+      limit_announcement:
+        cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
+        limit_reached: Vous avez des votes actifs dans %{links}. Pour voter sur ce budget, vous devez <a href="%{landing_path}">supprimer votre vote et recommencer</a>.
       models:
+        budget:
+          fields:
+            name: Nom
+            projects_count: Nombre de projets
+            total_budget: Budget total
         project:
           fields:
             title: Titre
@@ -69,11 +125,11 @@ fr-CA:
         order_summary:
           selected_projects: 'Les projets que vous avez sélectionnés sont :'
           subject: Vous avez voté sur l'espace participatif %{space_name}
-          voted_on_space: Vous avez voté sur les budgets pour l'espace participatif %{space_name}.
-          voted_on_space_with_scope: Vous avez voté sur les budgets pour l'espace participatif %{space_name} dans %{scope_name} (%{scope_type}).
+          voted_on_space: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name}.
+          voted_on_space_with_scope: Vous avez voté sur le budget %{budget_name} pour l'espace participatif %{space_name} sur %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, si vous changez d'avis, vous devrez tout annuler et recommencer de zéro.
+          are_you_sure: Si vous changez d'avis, vous pourrez modifier votre vote plus tard.
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.
@@ -101,6 +157,11 @@ fr-CA:
           category: Catégorie
           scope: Périmètre d'application
           search: Rechercher
+          status: Statut
+          status_values:
+            all: Tous
+            not_selected: Non sélectionné
+            selected: Sélectionné
         filters_small_view:
           close_modal: Fermez la fenêtre
           filter: Filtrer
@@ -120,11 +181,22 @@ fr-CA:
           lowest_cost: Prix croissant
           most_voted: Le plus populaire
           random: Ordre aléatoire
+          selected: Sélectionné
         project:
-          count:
-            one: 1 soutien
-            other: "%{count} soutiens"
+          add: Ajouter le projet %{resource_name} à votre vote
+          remove: Retirer le projet %{resource_name} de votre vote
+          selected: Sélectionné
           view: Voir
+          votes:
+            one: vote
+            other: votes
+          you_voted: Vous avez voté
+        project_budget_button:
+          add: Ajouter à votre vote
+          add_descriptive: Ajouter le projet %{resource_name} à votre vote
+          added: Ajouté à votre vote
+          added_descriptive: Projet %{resource_name} ajouté à votre vote
+        projects_for: Projets pour %{name}
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
@@ -137,22 +209,48 @@ fr-CA:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             form:
               errors:
                 budget_voting_rule_only_one: Une seule règle de vote doit être activée
                 budget_voting_rule_required: Une règle de vote est requise
+            landing_page_content: Page d'accueil des budgets
+            more_information_modal: Plus d’informations
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
+            title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
+            workflow: Processus
+            workflow_choices:
+              all: 'Voter sur tous les budgets : autorise les participants à voter sur tous les budgets.'
+              one: 'Voter sur un seul budget : autorise les participants à voter sur un seul budget parmi les budgets proposés.'
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
+            highlighted_heading: En-tête en surbrillance
+            landing_page_content: Page d'accueil des budgets
+            list_heading: En-tête de la liste des budgets
+            more_information_modal: Plus d’informations
             show_votes: Afficher les votes
-            votes_enabled: Votes activés
+            title: Titre
+            votes: Vote
+            votes_choices:
+              disabled: Vote désactivé
+              enabled: Votes activés
+              finished: Vote terminé
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
+          email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
+          notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote

@@ -3,11 +3,27 @@ de:
     attributes:
       dummy_resource:
         created_at: Hergestellt in
+        decidim_scope_id: Umfang
         field: Mein Feld
         start_date: Anfangsdatum
         title: Titel
+        translatable_text: Übersetzbarer Text
         updated_at: Aktualisiert am
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Attribut schreibgeschützt
+            test: Test A
+            test_choices:
+              a: Wahl A
+              b: Wahl B
+              c: Wahl C
+          step:
+            endorsements_blocked: Befürwortungen blockiert
+            endorsements_enabled: Befürwortungen aktiviert
+            readonly_step_attribute: Schritt-Attribut schreibgeschützt
     dummy:
       admin:
         exports:

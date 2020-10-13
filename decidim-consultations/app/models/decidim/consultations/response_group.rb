@@ -3,6 +3,10 @@
 module Decidim
   module Consultations
     class ResponseGroup < ApplicationRecord
+      include Decidim::TranslatableResource
+
+      translatable_fields :title
+
       belongs_to :question,
                  foreign_key: "decidim_consultations_questions_id",
                  class_name: "Decidim::Consultations::Question",

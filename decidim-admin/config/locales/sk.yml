@@ -28,12 +28,6 @@ sk:
       newsletter:
         body: Telo textu
         subject: Predmet
-      oauth_application:
-        name: Meno
-        organization_logo: Logo organizácie (štvorec)
-        organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
-        redirect_uri: Presmerovať URI
       organization:
         address: SMTP hostname
         alert_color: Upozornenie
@@ -111,10 +105,6 @@ sk:
         file: Súbor
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Presmerovacie URI musí byť SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -379,7 +369,6 @@ sk:
         homepage: Domovská stránka
         impersonations: Vydávanie sa za používateľa
         newsletters: Spravodaje
-        oauth_applications: OAuth aplikácie
         participants: Účastníci
         scope_types: Typy rozsahu
         scopes: Rozsahy
@@ -426,11 +415,6 @@ sk:
             sent_to: Odoslané
             subject: Predmet
           name: Spravodaj
-        oauth_application:
-          fields:
-            created_at: Vytvorené
-            name: Názov
-          name: OAuth aplikácia
         participatory_space_private_user:
           name: Účastníci participatívnych procesov
         scope:
@@ -537,25 +521,6 @@ sk:
         update:
           error: Vyskytol sa problém s aktualizáciou spravodaja.
           success: Spravodaj úspešne aktualizovaný. Prosíme skontrolujte ho pred odoslaním.
-      oauth_applications:
-        create:
-          error: Pri vytváraní aplikácie došlo k chybe.
-          success: Aplikácia úspešne vytvorená.
-        destroy:
-          error: Pri mazaní aplikácie došlo k chybe.
-          success: Aplikácia úspešne vymazaná.
-        edit:
-          save: Uložiť
-          title: Upraviť aplikáciu
-        index:
-          confirm_delete: Naozaj chcete túto aplikáciu vymazať?
-          title: OAuth aplikácie
-        new:
-          save: Uložiť
-          title: Nová aplikácia
-        update:
-          error: Pri aktualizácii aplikácie došlo k chybe.
-          success: Aplikácia úspešne aktualizovaná.
       officializations:
         create:
           success: Užívateľ úspešne zoficiálnený
@@ -640,7 +605,6 @@ sk:
           invalid: Vyskytol sa problém s čítaním súboru CSV.
           success: Súbor CSV nahraný úspešne, posielame pozvánku e-mailom pre používateľov. Môže to chvíľu trvať.
         new:
-          explanation: Nahrajte súbor CSV. Musí obsahovať 2 stĺpce - v prvom stĺpci je e-mail a v druhom meno užívateľov, ktorých chcete pridať do participatívneho priestoru. Súbor musí byť bez hlavičky.
           title: Nahrať súbor CSV
           upload: Nahrať
       resource_permissions:

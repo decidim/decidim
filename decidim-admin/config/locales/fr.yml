@@ -13,6 +13,7 @@ fr:
         attachment_collection_id: Dossier
         description: Description
         file: Fichier
+        title: Nom de la pièce jointe ou de l'image
       attachment_collection:
         description: Description
         name: Titre
@@ -28,16 +29,11 @@ fr:
       newsletter:
         body: Corps de texte
         subject: Objet
-      oauth_application:
-        name: Titre
-        organization_logo: Logo de l'organisation (carré)
-        organization_name: Nom de l'organisation
-        organization_url: URL de l'organisation
-        redirect_uri: Rediriger l'URI
       organization:
         address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
+        comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
         customize_welcome_notification: Personnaliser le mail de bienvenue
@@ -49,6 +45,8 @@ fr:
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
+        highlight_alternative_color: Surligner, alternative
+        highlight_color: Surbrillance
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
@@ -58,6 +56,9 @@ fr:
         highlighted_content_banner_title: Titre
         instagram_handler: Gestionnaire Instagram
         logo: Logo
+        machine_translation_display_priority: Priorité de l'affichage de la traduction automatique
+        machine_translation_display_priority_original: Texte original en premier
+        machine_translation_display_priority_translation: Texte traduit en premier
         name: Nom
         official_img_footer: Logo officiel - pied de page
         official_img_header: Logo officiel - barre de navigation
@@ -111,10 +112,6 @@ fr:
         file: Fichier
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: L'URI de redirection doit être un URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -146,6 +143,7 @@ fr:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        share: Partager
         verify: Vérifier
       admin_terms_of_use:
         accept:
@@ -159,7 +157,7 @@ fr:
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation administrateur. Sinon, vous ne pourrez pas utiliser la plateforme en tant qu'administrateur.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -273,6 +271,7 @@ fr:
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
+            scope: Secteur de la fonctionnalité
             type: Type de fonctionnalité
         new:
           add: Ajouter une fonctionnalité
@@ -317,11 +316,13 @@ fr:
             'false': Publié
             'true': Dépublié
         scope_id_eq:
-          label: Périmètre d'application
+          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
-          title_cont: Search %{collection} par titre.
+          title_cont: Rechercher %{collection} par titre.
+        state_eq:
+          label: État
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
@@ -384,7 +385,6 @@ fr:
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
-        oauth_applications: Applications OAuth
         participants: Participants
         scope_types: Types de secteur
         scopes: Périmètres d’application
@@ -431,11 +431,6 @@ fr:
             sent_to: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
-        oauth_application:
-          fields:
-            created_at: Créée le
-            name: Titre
-          name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -446,6 +441,14 @@ fr:
           fields:
             name: Titre
             plural: Pluriel
+        share_token:
+          fields:
+            created_at: Créée le
+            expires_at: Expire le
+            last_used_at: Dernière utilisation
+            times_used: Nombre d'utilisations
+            token: Jeton
+            user: Créé par
         static_page:
           fields:
             created_at: Créée le
@@ -542,25 +545,6 @@ fr:
         update:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
-      oauth_applications:
-        create:
-          error: Une erreur s'est produite lors de la création de cette application.
-          success: Application créée avec succès.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression de cette application.
-          success: Application supprimée avec succès.
-        edit:
-          save: Sauvegarder
-          title: Modifier l'application
-        index:
-          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
-          title: Applications OAuth
-        new:
-          save: Sauvegarder
-          title: Nouvelle application
-        update:
-          error: Une erreur est survenue lors de la mise à jour de cette application.
-          success: Application mise à jour avec succès.
       officializations:
         create:
           success: Utilisateur validé avec succès
@@ -584,6 +568,7 @@ fr:
           officialize: Valider
           title: Valider l'utilisateur "%{name}"
         show_email_modal:
+          close_modal: Fermer la fenêtre de dialogue
           description: Si vous avez besoin de contacter directement un participant, vous pouvez cliquer sur le bouton Afficher pour voir l'adresse e-mail. Cette action sera enregistrée.
           email_address: Adresse e-mail
           full_name: Nom complet
@@ -598,7 +583,7 @@ fr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
+          rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
           url: Url
@@ -646,7 +631,7 @@ fr:
           invalid: Il y a eu un problème de lecture du fichier CSV.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
-          explanation: Téléchargez votre fichier CSV. Il doit comprendre deux colonnes avec l'email dans la première colonne du fichier et le nom dans la dernière colonne du fichier (email, nom) des utilisateurs que vous souhaitez ajouter à l'espace participatif, sans en-tête.
+          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       resource_permissions:
@@ -655,6 +640,10 @@ fr:
           title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
+      resources:
+        index:
+          headers:
+            scope: Secteur
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
@@ -686,6 +675,18 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'application.
           success: Périmètre d'application mis à jour avec succès
+      share_tokens:
+        actions:
+          confirm_destroy: Souhaitez-vous vraiment supprimer ce jeton?
+          destroy: Supprimer
+          share: Partager
+        destroy:
+          error: Une erreur s'est produite lors de la destruction du jeton.
+          success: Jeton détruit avec succès.
+        share_tokens:
+          empty: Il n'y a pas de jeton actif
+          help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
+          title: Partager les jetons
       shared:
         gallery:
           add_images: Ajouter des images

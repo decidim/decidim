@@ -42,6 +42,10 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
     ActiveRecord::Base.transaction do
       Decidim::Surveys::Survey.find_each do |survey|
         puts "Migrating survey #{survey.id}..."
+        if survey.questionnaire.present?
+          puts("already migrated at questionnaire #{survey.questionnaire.id}")
+          next
+        end
 
         questionnaire = ::Decidim::Forms::Questionnaire.create!(
           questionnaire_for: survey,

@@ -19,6 +19,7 @@ ro:
   decidim:
     comments:
       comments: Comentarii
+      comments_count: Numărul de comentarii
       last_activity:
         new_comment_at_html: "<span>Comentariu nou la %{link}</span>"
       votes:
@@ -57,6 +58,7 @@ ro:
             does_not_belong: Conține activitate ilegală, amenințări la sinucidere, informații personale sau altceva credeți că nu aparțin de %{organization_name}.
             offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau roboți script.
+          title: Raportează conținut nepotrivit
         show_replies: Arată %{replies_count} răspunsuri
         single_comment_link_title: Obțineți link-ul către un singur comentariu
       comment_order_selector:
@@ -76,6 +78,10 @@ ro:
         single_comment_warning: Puteţi verifica restul comentariilor <a href="%{url}">aici</a>.
         single_comment_warning_title: Vedeți un singur comentariu
         title: "%{count} comentarii"
+      down_vote_button:
+        text: Nu sunt de acord cu acest comentariu
+      up_vote_button:
+        text: Sunt de acord cu acest comentariu
     events:
       comments:
         comment_by_followed_user:

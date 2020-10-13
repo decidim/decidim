@@ -16,15 +16,11 @@ module Decidim
 
       default_scope { order(weight: :asc, id: :asc) }
 
-      # Public: Gets the number of minimum number of selected answers needed for the question
+      # Public: Checks if enough answers are given for max_selections attribute
       #
-      # Returns an integer.
-      def min_selections
-        if max_selections == 1
-          1
-        else
-          0
-        end
+      # Returns a boolean.
+      def valid_max_selection?
+        max_selections <= answers.count
       end
     end
   end

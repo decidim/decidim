@@ -132,6 +132,21 @@ ja:
         election:
           publish: "%{user_name} が %{resource_name} 選挙を公開しました"
           unpublish: "%{user_name} が %{resource_name} 選挙を非公開にしました"
+      election_m:
+        footer:
+          take_part: 参加する
+      elections:
+        count:
+          elections_count:
+            other: "%{count} 選挙"
+        show:
+          back: すべての選挙
+          preview: プレビュー
+          vote: 投票
+          voting_period_status:
+            finished: '%{start_time} に投票が開始され、 %{end_time} に終了しました'
+            ongoing: '%{end_time} に投票が終了します'
+            upcoming: '%{start_time} に投票が終了します'
       models:
         answer:
           fields:
@@ -147,6 +162,44 @@ ja:
             answers: 回答
             max_selections: 最大選択
             title: タイトル
+      votes:
+        confirm:
+          answer: 回答
+          answer_number: 回答 %{number}
+          confirm: 確定
+          edit: 編集
+          header: 投票を確定
+          intro: あなたが投じようとしている投票の概要です。 <br> 投票を確定するか、回答を編集してください。
+          question: 質問 %{count}
+        confirmed:
+          back: 選挙に戻る
+          experience: ご利用いただき、どう思われますか?
+          feedback: フィードバックを送る
+          header: 投票が確定されました
+          lead: あなたの票は既に投じられました！
+          text: '投票が投票箱に正常に追加されたことを、次の識別子で確認できます: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: 確認するには、識別子をコピーして <a href="evote-verify">投票検証ページ</a> に貼り付けてください。
+        encrypting:
+          header: 投票の暗号化...
+          text: 投票は暗号化されており、匿名で投票することができます。
+        header:
+          confirm: 投票を確定
+          confirmed: 投票が確定されました
+          encrypting: 投票を確定
+        messages:
+          not_allowed: 現在、この選挙に投票することはできません。
+        modal:
+          close: 閉じる
+          proposal_header: '提案:'
+        new:
+          answer_choices: 最大 %{choices} 個の回答を選択できます。
+          more_information: 詳しい情報
+          preview_alert: これは投票ブースのプレビューです。
+          question_steps: '%{current_step} / %{total_steps} の質問'
+          selections: "%{selected} / %{max_selections}<br> の選択"
+        voting_step:
+          back: 戻る
+          continue: 次へ
     events:
       elections:
         election_published:
@@ -157,3 +210,7 @@ ja:
     participatory_processes:
       statistics:
         elections_count: <unk>
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: 終了

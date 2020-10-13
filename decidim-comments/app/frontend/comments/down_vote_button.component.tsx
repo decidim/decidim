@@ -1,6 +1,8 @@
 import * as React from "react";
 import { graphql, MutationFunc } from "react-apollo";
 
+const PropTypes = require("prop-types");
+
 import VoteButton from "./vote_button.component";
 
 import {
@@ -19,16 +21,18 @@ interface DownVoteButtonProps {
     user: any;
   } | null;
   comment: DownVoteButtonFragment;
-  downVote?: () => void;
+  downVote?: (context: any) => void;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
 }
 
-export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
-  session,
-  comment: { downVotes, upVoted, downVoted },
-  downVote
-}) => {
+export const DownVoteButton: React.SFC<DownVoteButtonProps> = (
+  {
+    session,
+    comment: { downVotes, upVoted, downVoted },
+    downVote
+  },
+  context) => {
   let selectedClass = "";
 
   if (downVoted) {
@@ -39,6 +43,7 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
 
   const userLoggedIn = session && session.user;
   const disabled = false;
+  const voteAction = () => downVote && downVote(context);
 
   return (
     <VoteButton
@@ -46,7 +51,7 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
       iconName="icon-chevron-bottom"
       text={I18n.t("components.down_vote_button.text")}
       votes={downVotes}
-      voteAction={downVote}
+      voteAction={voteAction}
       disabled={disabled}
       selectedClass={selectedClass}
       userLoggedIn={userLoggedIn}
@@ -54,13 +59,20 @@ export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
   );
 };
 
+DownVoteButton.contextTypes = {
+  locale: PropTypes.string,
+  toggleTranslations: PropTypes.bool
+};
+
 const downVoteMutation = require("../mutations/down_vote.mutation.graphql");
 const getCommentsQuery = require("../queries/comments.query.graphql");
 
 const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps>(downVoteMutation, {
   props: ({ ownProps, mutate }: { ownProps: DownVoteButtonProps, mutate: MutationFunc<DownVoteMutation> }) => ({
-    downVote: () => mutate({
+    downVote: ({ locale, toggleTranslations }: any) => mutate({
       variables: {
+        locale,
+        toggleTranslations,
         id: ownProps.comment.id
       },
       optimisticResponse: {
@@ -77,6 +89,8 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
       },
       update: (store, { data }: { data: DownVoteMutation }) => {
         const variables = {
+          locale,
+          toggleTranslations,
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
           orderBy: ownProps.orderBy,

@@ -185,6 +185,7 @@ ro:
           global:
             categories_label: Nume pentru "Categorii"
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             display_progress_enabled: Afișare progres
             heading_leaf_level_results: Nume pentru "Proiecte"
             heading_parent_level_results: Nume pentru "Rezultate"
@@ -213,6 +214,9 @@ ro:
       participatory_process_groups:
         highlighted_results:
           results: Rezultate
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vezi toate rezultatele (%{count})
     resource_links:
       included_projects:
         result_project: Proiecte incluse în acest rezultat

@@ -88,12 +88,12 @@ describe "Notifications", type: :system do
     end
 
     context "when setting a single notification as read" do
-      let(:notification_title) { "An event occured to #{resource.title}" }
+      let(:notification_title) { "An event occured to #{translated resource.title}" }
 
       it "hides the notification from the page" do
-        expect(page).to have_content(notification_title)
+        expect(page).to have_content(translated(notification_title))
         find(".mark-as-read-button").click
-        expect(page).to have_no_content(notification_title)
+        expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
       end
     end

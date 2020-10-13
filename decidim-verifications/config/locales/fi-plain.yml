@@ -100,7 +100,9 @@ fi-pl:
           verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
+          pending_verification: Odottava vahvistus
           show_renew_info: Paina vahvistaaksesi uudestaan
+          unauthorized_verification: Uusi vahvistus
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}

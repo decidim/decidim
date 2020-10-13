@@ -26,6 +26,18 @@ de:
   decidim:
     admin:
       menu:
+        authorization_revocation:
+          before_date_info: Das ist nützlich, wenn der Prozess bereits begonnen hat und Sie die Rechte des vorherigen Prozesses zurückziehen möchten.
+          button: Alle entziehen
+          button_before: Entziehen vor Datum
+          destroy:
+            confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+            confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
+          destroy_nok: Beim Entziehen von Berechtigungen ist ein Fehler aufgetreten.
+          destroy_ok: Alle passenden Berechtigungen wurden erfolgreich entzogen!
+          info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
+          no_data: Keine verifizierten Teilnehmer
+          title: Entziehen von Verifizierungen
         authorization_workflows: Überprüfungen
     admin_log:
       organization:
@@ -65,10 +77,16 @@ de:
         name: Code per Post
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Dies sind die Daten der aktuellen Verifizierung:'
+          no_data_stored: Keine gespeicherten Daten.
         create:
           error: Beim Erstellen der Autorisierung ist ein Fehler aufgetreten.
           success: Sie wurden erfolgreich autorisiert.
           unconfirmed: Sie müssen Ihre E-Mail bestätigen, um sich zu autorisieren.
+        destroy:
+          error: Beim Löschen der Berechtigung ist ein Fehler aufgetreten.
+          success: Sie haben die Berechtigung erfolgreich gelöscht.
         first_login:
           actions:
             another_dummy_authorization_handler: Überprüfen Sie anhand eines anderen Beispiels des Autorisierungshandlers
@@ -77,13 +95,23 @@ de:
             dummy_authorization_workflow: Überprüfen Sie anhand des beispielhaften Autorisierungsworkflows
             id_documents: Bestätigen Sie, indem Sie Ihr Identitätsdokument hochladen
             postal_letter: Bestätigen Sie, indem Sie einen Bestätigungscode per Post erhalten
+            sms: Lassen Sie sich über einen Bestätigungscode per SMS verifizieren
           title: Bestätigen Sie Ihre Identität
           verify_with_these_options: 'Mit diesen Optionen können Sie Ihre Identität überprüfen:'
+        index:
+          expired_verification: Verifizierung abgelaufen
+          pending_verification: Ausstehende Verifizierung
+          show_renew_info: Klicken Sie, um die Verifizierung zu erneuern
+          unauthorized_verification: Neue Verifizierung
         new:
           authorize: Senden
           authorize_with: Bestätigen Sie mit %{authorizer}
         renew_modal:
           cancel: Stornieren
+          close: Schließen
+          continue: Weiter
+          info_renew: Fahren Sie mit der Erneuerung fort, wenn Sie die Daten aktualisieren möchten
+          title: Verifizierung erneuern
         skip_verification: Sie können dies für jetzt und %{link}überspringen
         start_exploring: Fang an zu erforschen
       csv_census:
@@ -106,6 +134,7 @@ de:
             title: Sie müssen die csv-Zählung für diese Organisation aktivieren
           new:
             file: "CSV-Datei mit E-Mail-Daten"
+            info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
             submit: Datei hochladen
             title: Laden Sie eine neue Volkszählung hoch
         authorizations:
@@ -117,6 +146,7 @@ de:
           postal_codes:
             one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
             other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+          scope: Die Teilnahme ist auf Benutzer mit dem Umgang %{scope_name} begrenzt.
       id_documents:
         admin:
           config:

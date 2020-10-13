@@ -66,6 +66,7 @@ en:
     errors:
       general: Error processing image
       image_too_big: The image is too big
+      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -355,6 +356,8 @@ en:
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -440,7 +443,7 @@ en:
           buttons:
             check: Check and continue
             close_modal: Close modal
-            uncheck: Keep uncheck
+            uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
@@ -638,7 +641,7 @@ en:
         proposal: Proposals
         result: Results
     fingerprint:
-      check: Check fingerprint for %{resource_name}
+      check: Check fingerprint
       explanation: The piece of text below is a shortened, hashed representation of this content. It's useful to ensure the content hasn't been tampered with, as a single modification would result in a totally different value.
       online_calculator_name: MD5 calculator online
       replicate_help: This fingerprint is calculated using a SHA256 hashing algorithm. In order to replicate it yourself, you can use an %{online_calculator_link} and copy-paste the source data.
@@ -893,6 +896,11 @@ en:
           show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
+        error_modal:
+          close: Close modal
+          correct_errors: Please correct the errors and try again.
+          intro: 'There were the following errors with your message:'
+          ok: OK
         index:
           ago: ago
           close: Close modal
@@ -916,7 +924,7 @@ en:
           send: Send
           title: Start a conversation
         update:
-          error: Message not sent. Try again later
+          error: Message was not sent due to an error
     metrics:
       download:
         csv: Download data (csv)
@@ -1061,7 +1069,7 @@ en:
           error: There was a problem accepting the terms and conditions.
           success: Great! You have accepted the terms and conditions.
         form:
-          agreement: I agree this terms
+          agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
           modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
@@ -1168,6 +1176,10 @@ en:
           one: "%{count} result"
           other: "%{count} results"
         view_all: View all (%{count})
+    security:
+      selfxss_warning:
+        description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Cancel
@@ -1221,6 +1233,10 @@ en:
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
+    translation_bar:
+      help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
+      show_original: Show original text
+      show_translated: Show automatically-translated text
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
@@ -1280,7 +1296,7 @@ en:
     versions:
       resource_version:
         of_versions: "(of %{number})"
-        see_other_versions: see other versions for %{resource_name}
+        see_other_versions: see other versions
         version: Version number %{number}
     versions_list:
       show:
@@ -1530,6 +1546,7 @@ en:
         see_more: See more
   locale:
     name: English
+    name_with_error: English (error!)
   password_validator:
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email

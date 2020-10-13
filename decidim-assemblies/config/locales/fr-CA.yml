@@ -64,6 +64,12 @@ fr-CA:
         email: E-mail
         name: "Nom\n"
         role: Fonction
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Type de document invalide. Les formats acceptés sont : %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ fr-CA:
   decidim:
     admin:
       actions:
+        import_assembly: Importation
         new_assembly: Nouvelle assemblée
         new_assembly_type: Nouveau type d'assemblée
       assemblies:
@@ -122,6 +129,14 @@ fr-CA:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer l'assemblée
+      assembly_imports:
+        create:
+          error: Un problème est survenu lors de l'importation de cette assemblée.
+          success: L'assemblage a été importé avec succès.
+        new:
+          import: Importation
+          select: Sélectionnez les données que vous souhaitez importer
+          title: Importer un assemblage
       assembly_members:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
@@ -269,6 +284,10 @@ fr-CA:
         assembly_copies:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Ajouter un document
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant

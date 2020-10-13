@@ -2,40 +2,56 @@ pl:
   activemodel:
     attributes:
       consultation:
-        banner_image: Obraz baneru
+        banner_image: Baner
         decidim_highlighted_scope_id: Wyróżniony zakres
         description: Opis
-        end_voting_date: Głosowanie się kończy
+        end_voting_date: Głosowanie kończy się
         introductory_image: Obraz wprowadzający
-        introductory_video_url: Wprowadzający adres URL filmu
-        questions: pytania
-        slug: Strumień URL
-        start_voting_date: Rozpocznie się głosowanie
+        introductory_video_url: Adres URL filmu wprowadzającego
+        questions: Pytania
+        slug: URL slug
+        start_voting_date: Głosowanie rozpoczyna się
         subtitle: Podtytuł
         title: Tytuł
       question:
-        banner_image: Obraz baneru
-        decidim_scope_id: Obszar gminy
+        banner_image: Baner
+        decidim_scope_id: Zakres
         hashtag: Hashtag
-        hero_image: Obraz domowy
-        i_frame_url: Zewnętrzny adres URL systemu głosowania
+        hero_image: Obraz główny
+        i_frame_url: URL do zewnętrznego systemu głosowania
+        instructions: Dodatkowe instrukcje dotyczące głosowania
+        max_votes: Maksymalna liczba głosów
+        min_votes: Minimalna liczba głosów
         origin_scope: Zakres
-        origin_title: Pochodzenie
-        origin_url: Oryginalny adres URL
+        origin_title: Źródło
+        origin_url: Adres URL źródła pochodzenia
         participatory_scope: Zakres uczestnictwa
-        promoter_group: Grupa promotorów
+        promoter_group: Grupa inicjatorów
         question_context: Kontekst
         reference: Odniesienie
-        scope: Obszar gminy
-        slug: Strumień URL
+        scope: Zakres
+        slug: URL slug
         subtitle: Podtytuł
         vote: Zewnętrzny system głosowania
-        what_is_decided: Co postanowiono
+        what_is_decided: Zaproponowano
+      response:
+        decidim_consultations_response_group_id: Grupa
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksymalna liczba głosów powinna być większa od lub równa minimalnej.
       vote:
         decidim_consultations_response_id:
-          not_found: Odpowiedź nie znaleziono.
+          not_found: Nie znaleziono odpowiedzi.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Nieprawidłowa liczba głosów
     models:
       decidim/consultation:
         one: Konsultacja
@@ -44,74 +60,83 @@ pl:
         other: Konsultacje
       decidim/consultations/question:
         one: Pytanie
-        few: pytania
-        many: pytania
-        other: pytania
+        few: Pytań
+        many: Pytania
+        other: Pytania
       decidim/consultations/response:
         one: Odpowiedź
         few: Odpowiedzi
         many: Odpowiedzi
         other: Odpowiedzi
       decidim/consultations/vote:
-        one: Głosować
-        few: Głosować
-        many: Głosować
-        other: Głosować
+        one: Głos
+        few: Głosy
+        many: Głosy
+        other: Głosy
   decidim:
     admin:
       actions:
+        back_to_responses: Powrót do odpowiedzi
         new_consultation: Nowa konsultacja
         new_question: Nowe pytanie
         new_response: Nowa odpowiedź
+        new_response_group: Nowa grupa
         publish_results: Opublikuj wyniki
+        response_groups: Zarządzaj grupami odpowiedzi
         unpublish_results: Cofnij publikację wyników
       consultation_publications:
         create:
           error: Wystąpił błąd podczas publikowania tej konsultacji.
-          success: Konsultacje opublikowano pomyślnie.
+          success: Konsultacja została opublikowana pomyślnie.
         destroy:
           error: Wystąpił błąd podczas publikowania tej konsultacji.
-          success: Konsultacje nie zostały pomyślnie opublikowane.
+          success: Konsultacja nie jest już publicznie widoczna.
       consultation_results_publications:
         create:
-          error: Wystąpił błąd podczas publikowania wyników dla tej konsultacji.
+          error: Wystąpił błąd podczas publikowania wyników tej konsultacji.
           success: Wyniki konsultacji opublikowano pomyślnie.
         destroy:
-          error: Wystąpił błąd podczas publikowania wyników dla tej konsultacji.
-          success: Wyniki konsultacji nie zostały pomyślnie opublikowane.
+          error: Wystąpił błąd podczas cofania upublicznienia wyników dla tej konsultacji.
+          success: Wyniki konsultacji nie są już publicznie widoczne.
       consultations:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
-          success: Konsultacje zostały pomyślnie utworzone.
+          success: Konsultacja została pomyślnie utworzona.
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
         form:
-          slug_help: 'Strumienie adresów URL służą do generowania adresów URL wskazujących na tę konsultację. Akceptuje tylko litery, cyfry i łączniki i musi zaczynać się od litery. Przykład: %{url}'
+          slug_help: 'URL slugi służą do generowania adresów URL kierujących do tej konsultacji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
           title: Informacje ogólne
         index:
-          not_published: Nie publikowany
-          published: Opublikowany
+          not_published: Nie opublikowano
+          published: Opublikowano
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowa konsultacja
+        results:
+          not_visible: Wyniki będą dostępne po zamknięciu konsultacji
+          participants: "Liczba uczestników: %{count}"
+          total_votes: 'Całkowita liczba głosów: %{count}'
         update:
           error: Wystąpił błąd podczas aktualizowania tej konsultacji.
-          success: Konsultacja zaktualizowana pomyślnie.
+          success: Konsultacja została zaktualizowana pomyślnie.
       menu:
         consultations: Konsultacje
         consultations_submenu:
           info: Informacja
-          questions: pytania
+          questions: Pytania
+          results: Wyniki
         questions_submenu:
-          components: składniki
+          components: Komponenty
+          configuration: Konfiguracja
           consultation: Konsultacja
           info: Informacja
           responses: Odpowiedzi
       models:
         consultation:
           fields:
-            created_at: Utworzono w
-            published: Opublikowany
+            created_at: Utworzono
+            published: Opublikowano
             title: Tytuł
           name:
             one: Konsultacja
@@ -120,49 +145,73 @@ pl:
             other: Konsultacje
         question:
           fields:
-            created_at: Utworzono w
-            published: Opublikowany
+            created_at: Utworzono
+            published: Opublikowano
             title: Tytuł
           name:
             one: Pytanie
-            few: pytania
-            many: pytania
-            other: pytania
+            few: Pytania
+            many: Pytania
+            other: Pytania
         response:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
+            response_group: Grupa
             title: Tytuł
           name:
             one: Odpowiedź
             few: Odpowiedzi
             many: Odpowiedzi
             other: Odpowiedzi
+      question_configuration:
+        disable_external_voting: Wyłącz głosowanie zewnętrzne dla ustawień zaawansowanych
+        form:
+          help: Skonfiguruj pytania wielokrotnego wyboru, zwiększając maksymalną liczbę odpowiedzi, jakiej może udzielić użytkownik. Domyślna wartość maksymalna to 1, co oznacza, że można głosować tylko na jedną odpowiedź.
+          title: Ustawienia zaawansowane
       question_publications:
         create:
           error: Wystąpił błąd podczas publikowania tego pytania.
-          success: Pytanie opublikowane pomyślnie.
+          success: Pytanie zostało opublikowane pomyślnie.
         destroy:
-          error: Podczas wysyłania tego pytania wystąpił błąd.
-          success: Pytanie nieopublikowane pomyślnie.
+          error: Podczas cofania publikacji tego pytania wystąpił błąd.
+          success: Pytanie nie jest już publicznie widoczne.
       questions:
         create:
           error: Wystąpił błąd podczas tworzenia nowego pytania.
           success: Pytanie zostało pomyślnie utworzone.
         destroy:
-          success: Pytanie zostało pomyślnie usunięte.
+          success: Pytanie zostało usunięte.
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
         form:
           title: Informacje ogólne
         index:
-          not_published: Nie publikowany
-          published: Opublikowany
+          not_published: Nie opublikowano
+          published: Opublikowano
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowe pytanie
         update:
           error: Wystąpił błąd podczas aktualizowania tego pytania.
-          success: Pytanie zaktualizowane pomyślnie.
+          success: Pytanie zostało zaktualizowane pomyślnie.
+      response_groups:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowej grupy odpowiedzi.
+          success: Grupa odpowiedzi została pomyślnie utworzona.
+        destroy:
+          error: Wystąpił problem podczas usuwania grupy odpowiedzi. Sprawdź, czy żadne odpowiedzi nie są od niej zależne.
+          success: Grupa odpowiedzi została pomyślnie usunięta.
+        edit:
+          update: Aktualizuj
+        form:
+          title: Informacje ogólne
+        help: Użyj grup, aby zorganizować pytania wielokrotnego wyboru w pakiety.
+        new:
+          create: Utwórz
+          title: Nowa grupa odpowiedzi
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej odpowiedzi.
+          success: Odpowiedź została pomyślnie zaktualizowana.
       responses:
         create:
           error: Wystąpił błąd podczas tworzenia nowej odpowiedzi.
@@ -171,34 +220,38 @@ pl:
           error: Wystąpił błąd podczas usuwania odpowiedzi.
           success: Odpowiedź została pomyślnie usunięta.
         edit:
-          update: Aktualizacja
+          update: Aktualizuj
         form:
           title: Informacje ogólne
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowa odpowiedź
         update:
           error: Wystąpił błąd podczas aktualizowania tej odpowiedzi.
-          success: Odpowiedź zaktualizowana pomyślnie.
+          success: Odpowiedź została zaktualizowana pomyślnie.
       titles:
         consultations: Konsultacje
-        questions: pytania
+        questions: Pytania
+        response_groups: Grupy odpowiedzi
         responses: Odpowiedzi
+        results: Wyniki
     consultations:
       admin:
         content_blocks:
           highlighted_consultations:
-            max_results: Maksymalna ilość elementów do pokazania
+            max_results: Maksymalna ilość elementów do wyświetlenia
       consultation:
-        start_voting_date: Rozpocznie się głosowanie
-        view_results: Pokaż wyniki
+        start_voting_date: Głosowanie rozpoczyna się
+        view_results: Zobacz wyniki
       consultation_card:
-        view_results: Pokaż wyniki
+        view_results: Zobacz wyniki
       consultations:
         orders:
-          label: 'Sortuj konsultacje według:'
-          random: Losowy
-          recent: Najnowszy
+          label: 'Porządkuj konsultacje według:'
+          random: Losowo
+          recent: Najnowsze
+        show:
+          dates: Według daty
       content_blocks:
         highlighted_consultations:
           name: Wyróżnione konsultacje
@@ -209,19 +262,19 @@ pl:
           many: "%{count} konsultacji"
           other: "%{count} konsultacji"
       filters:
-        active: Aktywny
+        active: Aktualne
         all: Wszystko
-        finished: Skończone
+        finished: Zakończone
         search: Szukaj
-        state: Stan
+        state: Status
         upcoming: Nadchodzące
       filters_small_view:
         close_modal: Zamknij okno
-        filter: Filtr
+        filter: Filtruj
         filter_by: Filtruj według
-        unfold: Rozwijać się
+        unfold: Rozwiń
       highlighted_questions:
-        title: Pytania od %{scope_name}
+        title: 'Pytania z zakresu: %{scope_name}'
       index:
         title: Konsultacje
       last_activity:
@@ -230,44 +283,63 @@ pl:
       pages:
         home:
           highlighted_consultations:
-            active_consultations: Aktywne konsultacje
+            active_consultations: Aktualne konsultacje
             see_all_consultations: Zobacz wszystkie konsultacje
             voting_ends_in:
-              one: Głosowanie kończy się na <strong>jutro</strong>
-              few: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
-              many: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
-              other: Głosowanie kończy się w ciągu <strong>%{count} dni</strong>
-            voting_ends_today: Głosowanie kończy się dzisiaj <strong></strong>
+              one: Głosowanie kończy się <strong>jutro</strong>
+              few: Głosowanie kończy się za <strong>%{count} dni</strong>
+              many: Głosowanie kończy się za <strong>%{count} dni</strong>
+              other: Głosowanie kończy się za <strong>%{count} dni</strong>
+            voting_ends_today: Głosowanie kończy się <strong>dzisiaj</strong>
       question:
         take_part: Weź udział
         view_results: Pokaż wyniki
         votes_out_of:
-          one: zagłosuj na
+          one: głos z
           few: głosów z
           many: głosów z
           other: głosów z
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Uczestnicy mogli udzielić co najmniej %{votes} głosy/głosów na różne odpowiedzi.
+          title: W tym pytaniu dozwolone było wybranie kilku odpowiedzi
+          total_participants: 'Łączna liczba osób, które wzięły udział w głosowaniu: %{count}.'
+          vote_limit:
+            description: 'Maksymalna liczba opcji, na które użytkownicy mogli głosować: %{limit}.'
+        voting_rules:
+          minimum_votes_per_user:
+            description: Musisz udzielić co najmniej %{votes} głosy/głosów na różne odpowiedzi.
+          title: 'Głosowanie podlega następującym zasadom:'
+          vote_limit:
+            description: 'Maksymalna liczba opcji, na które możesz głosować: %{limit}.'
+            left: Pozostało
+            votes: Głosy
       question_votes:
         create:
-          error: Wystąpiły błędy podczas głosowania na pytanie
+          error: Wystąpił błąd podczas głosowania
+          success: Możesz zmienić swoją odpowiedź do końca trwania konsultacji. Tylko ostatni głos zostanie zapisany.
+          title_error: Błąd głosowania!
+          title_success: Głos został pomyślnie zarejestrowany
       regular_questions:
         title: Pytania do tej konsultacji
       show:
         badge_name:
-          finished: Skończone
-          open: otwarty
-          open_votes: Otwarte głosy
-          published_results: Wyniki opublikowane
+          finished: Zakończone
+          open: Otwarto
+          open_votes: Głosowanie otwarte
+          published_results: Opublikowano wyniki
         footer_button_text:
           debate: Debata
-          view: Widok
-          view_results: Pokaż wyniki
-          vote: Głosować
+          view: Zobacz
+          view_results: Zobacz wyniki
+          vote: Głosuj
         unspecified: Nieokreślony
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
-          page: "<p>Konsultacje to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, wezwać do wzięcia udziału w konsultacjach, nakręcić i zlecić debatę za lub przeciw odpowiedzi. Po nadejściu daty konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: niektóre przykłady zmieniają nazwę lub logo organizacji oferującej kilka alternatyw, decydując Tak lub Nie, aby stać się częścią większej organizacji, zatwierdzając lub odrzucając nowy strategiczny plan lub wynik grupy roboczej, lub określenie, czy stanowiska powinny pozostać maksymalnie 1, 2, czy 3 mandatami w organizacji.</p>\n"
+          contextual: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: przykładowo zmiana nazwę lub logo organizacji, która oferuje kilka alternatyw, decyzja Tak lub Nie, w sprawie stania się częścią większej organizacji, zatwierdzenie lub odrzucenie nowej strategii działania lub wyników grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
+          page: "<p><strong>Konsultacje</strong> to przestrzeń, która pozwala zadać jednoznaczne pytanie wszystkim osobom, które tworzą organizację, zaprosić do wzięcia udziału w konsultacjach, zapoczątkować i utworzyć debatę za lub przeciw uzyskanej odpowiedzi. Wraz z datą rozpoczęcia konsultacji można głosować i publikować wyniki głosowania.</p> <p>Przykłady: Konsultacje mogą dotyczyć niemal każdego aspektu, który wpływa na organizację: przykładowo zmiana nazwę lub logo organizacji, która oferuje kilka alternatyw, decyzja Tak lub Nie, w sprawie stania się częścią większej organizacji, zatwierdzenie lub odrzucenie nowej strategii działania lub wyników grupy roboczej, lub określenie, czy stanowiska powinny wynosić maksymalnie 1, 2, czy 3 mandatów.</p>\n"
           title: Czym są konsultacje?
     menu:
       consultations: Konsultacje
@@ -276,30 +348,39 @@ pl:
         statistics:
           consultations_count: Konsultacje
     questions:
+      next_button: Następne pytanie
+      previous_button: Poprzednie pytanie
       results:
         title: Wyniki
       show:
-        read_more: Czytaj więcej
+        read_more: Pokaż więcej
       statistics:
         assistants_count_title: Asystenci
         comments_count_title: Komentarze
         meetings_count_title: Spotkania
-        supports_count_title: Obsługuje
+        supports_count_title: Głosy
       technical_info:
         technical_data: Dane techniczne
       vote_button:
         already_voted: Już głosowałem
-        already_voted_hover: Odwołaj wsparcie
-        starting_from: Począwszy od %{date}
-        vote: Głosować
+        already_voted_hover: Cofnij głos
+        starting_from: Zaczyna się %{date}
+        verification_required: Aby zagłosować, zweryfikuj swoje konto
+        vote: Głosuj
       vote_modal:
+        close_modal: Zamknij modalny
         contextual_help: Proszę wybrać opcję.
-        title: 'Konsultacje: wsparcie pytania'
+        title: 'Konsultacja: głos oddany na pytanie'
       vote_modal_confirm:
-        change: Zmiana
-        confirm: Potwierdzać
+        change: Zmień
+        close_modal: Zamknij modalny
+        confirm: Potwierdź
         contextual_help: Potwierdź wybraną opcję.
-        title: 'Konsultacje: potwierdź wsparcie'
+        title: 'Konsultacja: potwierdź głos'
+    resources:
+      consultations:
+        actions:
+          vote: Głosuj
   layouts:
     decidim:
       admin:
@@ -307,9 +388,10 @@ pl:
           attachments: Załączniki
           categories: Kategorie
       consultation_voting_data:
-        start_voting_date: Rozpocznie się głosowanie
+        start_voting_date: Głosowanie rozpoczyna się
       question_components:
         question_menu_item: Pytanie
-        unfold: Rozwijać się
+        unfold: Rozwiń
       question_header:
         back_to_consultation: Zobacz wszystkie konsultacje
+        back_to_question: Wróć do pytania

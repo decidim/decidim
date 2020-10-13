@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="row column hashtags__container">
-      <%= form.text_field :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip %>
+      <%= form.translated :text_field, :title, class: "js-hashtags", value: form_presenter.title(extras: false).strip, hashtaggable: true %>
     </div>
 
     <div class="row column hashtags__container">
-      <%= form.editor :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
+      <%= form.translated :editor, :body, hashtaggable: true, value: form_presenter.body(extras: false).strip %>
     </div>
 
     <% if @form.component_automatic_hashtags.any? %>
@@ -51,9 +51,9 @@
       </div>
     <% end %>
 
-    <% if component_settings.geocoding_enabled? %>
+    <% if @form.geocoding_enabled? %>
       <div class="row column">
-        <%= form.text_field :address %>
+        <%= form.geocoding_field :address %>
       </div>
     <% end %>
 
@@ -63,9 +63,9 @@
       </div>
     <% end %>
 
-    <% if current_participatory_space.has_subscopes? %>
+    <% if current_component.has_subscopes? %>
       <div class="row column">
-        <%= scopes_picker_field form, :scope_id %>
+        <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
       </div>
     <% end %>
 

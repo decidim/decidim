@@ -178,32 +178,37 @@ module Decidim
     context "when percentage" do
       context "and online initiatives" do
         let!(:initiative) { create(:initiative) }
+        let(:scope_id) { initiative.scope.id.to_s }
 
         it "ignores any value in offline_votes attribute" do
-          initiative.update(offline_votes: 1000, initiative_votes_count: initiative.scoped_type.supports_required / 2)
+          initiative.update(offline_votes: { scope_id => 1000, "total" => 1000 },
+                            online_votes: { scope_id => initiative.scoped_type.supports_required / 2, "total" => initiative.scoped_type.supports_required / 2 })
           expect(initiative.percentage).to eq(50)
         end
 
         it "can't be greater than 100" do
-          initiative.update(initiative_votes_count: initiative.scoped_type.supports_required * 2)
+          initiative.update(online_votes: { scope_id => initiative.scoped_type.supports_required, "total" => initiative.scoped_type.supports_required * 2 })
           expect(initiative.percentage).to eq(100)
         end
       end
 
       context "and face-to-face support" do
         let!(:initiative) { create(:initiative, signature_type: "any") }
+        let(:scope_id) { initiative.scope.id.to_s }
 
         it "returns the percentage of votes reached" do
           online_votes = initiative.scoped_type.supports_required / 4
           offline_votes = initiative.scoped_type.supports_required / 4
-          initiative.update(offline_votes: offline_votes, initiative_votes_count: online_votes)
+          initiative.update(offline_votes: { scope_id => offline_votes, "total" => offline_votes },
+                            online_votes: { scope_id => online_votes, "total" => online_votes })
           expect(initiative.percentage).to eq(50)
         end
 
         it "can't be greater than 100" do
           online_votes = initiative.scoped_type.supports_required * 4
           offline_votes = initiative.scoped_type.supports_required * 4
-          initiative.update(offline_votes: offline_votes, initiative_votes_count: online_votes)
+          initiative.update(offline_votes: { scope_id => offline_votes, "total" => offline_votes },
+                            online_votes: { scope_id => online_votes, "total" => online_votes })
           expect(initiative.percentage).to eq(100)
         end
       end
@@ -258,11 +263,11 @@ module Decidim
 
       before do
         create(:initiative, organization: organization, signature_type: "offline")
-        create(:initiative, organization: organization, signature_type: "offline", offline_votes: 4)
-        create(:initiative, organization: organization, signature_type: "online", initiative_votes_count: 1, initiative_supports_count: 4)
-        create(:initiative, organization: organization, signature_type: "online", initiative_votes_count: 2, initiative_supports_count: 1)
-        create(:initiative, organization: organization, signature_type: "any", initiative_votes_count: 1, initiative_supports_count: 0)
-        create(:initiative, organization: organization, signature_type: "any", initiative_votes_count: 3, initiative_supports_count: 2, offline_votes: 3)
+        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total" => 4 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total" => 5 })
+        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total" => 3 })
+        create(:initiative, organization: organization, signature_type: "any", online_votes: { "total" => 1 })
+        create(:initiative, organization: organization, signature_type: "any", online_votes: { "total" => 5 }, offline_votes: { "total" => 3 })
       end
 
       it "sorts initiatives by supports count" do

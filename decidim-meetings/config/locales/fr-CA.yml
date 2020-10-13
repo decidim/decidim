@@ -83,10 +83,13 @@ fr-CA:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             creation_enabled_for_participants: Les participants peuvent créer des réunions
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -158,6 +161,10 @@ fr-CA:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        invalid_destroy:
+          proposals_count:
+            one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
+            other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
@@ -236,6 +243,10 @@ fr-CA:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
           destroy:
+            invalid:
+              proposals_count:
+                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
+                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour
@@ -347,6 +358,10 @@ fr-CA:
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meetings:
+        count:
+          meetings_count:
+            one: "Réunion %{count}"
+            other: "%{count} réunions"
         create:
           invalid: Une erreur s'est produite lors de la création de cette réunion.
           success: La réunion a été créée avec succès.
@@ -399,6 +414,7 @@ fr-CA:
           attendees: Nombre de participants
           back: Retour à la liste
           contributions: Décompte des contributions
+          date: Date
           edit_meeting: Modifier la réunion
           going: J'y vais
           join: Participer à la rencontre

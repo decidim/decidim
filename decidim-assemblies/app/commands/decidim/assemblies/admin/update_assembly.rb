@@ -62,10 +62,6 @@ module Decidim
             subtitle: form.subtitle,
             slug: form.slug,
             hashtag: form.hashtag,
-            hero_image: form.hero_image,
-            remove_hero_image: form.remove_hero_image,
-            banner_image: form.banner_image,
-            remove_banner_image: form.remove_banner_image,
             promoted: form.promoted,
             description: form.description,
             short_description: form.short_description,
@@ -99,7 +95,16 @@ module Decidim
             instagram_handler: form.instagram_handler,
             youtube_handler: form.youtube_handler,
             github_handler: form.github_handler
-          }
+          }.merge(uploader_attributes)
+        end
+
+        def uploader_attributes
+          {
+            hero_image: form.hero_image,
+            remove_hero_image: form.remove_hero_image,
+            banner_image: form.banner_image,
+            remove_banner_image: form.remove_banner_image
+          }.delete_if { |_k, val| val.is_a?(Decidim::ApplicationUploader) }
         end
 
         def participatory_processes(assembly)

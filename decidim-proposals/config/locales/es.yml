@@ -79,23 +79,33 @@ es:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propuestas
-            'true': Enmiendas
+        proposals:
+          category_id_eq:
+            label: Categoría
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propuestas
+              'true': Enmiendas
+          scope_id_eq:
+            label: Ámbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceptada
+              evaluating: En evaluación
+              published: Publicada
+              rejected: Rechazada
+              validating: Validación técnica
+              withdrawn: Retirada
+          state_null:
+            label: Estado
+            values:
+              'true': No contestada
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
-        state_eq:
-          values:
-            evaluating: En evaluación
-            withdrawn: Retirada
-        state_null:
-          label: Estado
-          values:
-            'true': No contestada
-        valuator_role_ids_has:
-          label: Asignada a evaluadora
     components:
       proposals:
         actions:
@@ -134,6 +144,8 @@ es:
             proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuestas
             proposal_wizard_step_4_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por participante
           step:
@@ -330,7 +342,7 @@ es:
           proposals: Propuestas
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todo (%{count})
+        see_all: Ver todas las propuestas (%{count})
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -364,14 +376,14 @@ es:
             info_1: Las secciones siguientes se han convertido en propuestas. Ahora puedes revisarlas y ajustarlas antes de publicar.
             publish_document: Publicar documento
             save_draft: Guardar borrador
-            title: PREVISUALIZAR TEXTO PARTICIPATIVO
+            title: Previsualizar texto participativo
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
             document_legend: 'Sube un documento de menos de 2 Mb, cada una de las secciones (hasta 3 niveles de profundidad) se convertirán en propuestas. Los formatos soportados son: %{valid_mime_types}'
-            title: AÑADIR DOCUMENTO
+            title: Añadir documento
             upload_document: Subir documento
           publish:
             invalid: No se pudieron publicar las propuestas
@@ -643,9 +655,9 @@ es:
           title: Editar el borrador colaborativo
         wizard_aside:
           back: Volver
-          back_from_collaborative_draft: Volver al borrador colaborativo
-          back_from_step_1: Volver al borrador colaborativo
-          back_from_step_2: Volver al borrador colaborativo
+          back_from_collaborative_draft: Volver a borradores colaborativos
+          back_from_step_1: Volver a borradores colaborativos
+          back_from_step_2: Volver a borradores colaborativos
           back_from_step_3: Volver a comparar los borradores colaborativos
           back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
@@ -656,7 +668,7 @@ es:
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
-          title: Pasos para la creación de borradores de colaborativos
+          title: Pasos para la creación del borrador colaborativo
       create:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta creada correctamente. Guardada como borrador.
@@ -817,8 +829,8 @@ es:
           votes_blocked: Apoyos deshabilitados
         votes_count:
           count:
-            one: APOYO
-            other: APOYOS
+            one: Apoyo
+            other: Apoyos
           most_popular_proposal: Propuesta más popular
           need_more_votes: Necesita más apoyos
         voting_rules:

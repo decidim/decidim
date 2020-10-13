@@ -18,6 +18,7 @@ module Decidim
       include ImpersonateUsers
       include NeedsPermission
       include Decidim::SafeRedirect
+      include NeedsSnippets
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper

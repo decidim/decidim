@@ -236,6 +236,8 @@ nl:
           label: 'Sorteer door:'
           random: Willekeurig
           recent: Meest recent
+        show:
+          dates: Datums
       content_blocks:
         highlighted_consultations:
           name: Gemarkeerde raadplegingen
@@ -346,10 +348,12 @@ nl:
         verification_required: Verifieer je account om te kunnen stemmen
         vote: Stem
       vote_modal:
+        close_modal: Sluit venster
         contextual_help: Maak een keuze a.u.b.
         title: 'Raadpleging: vraag stemming'
       vote_modal_confirm:
         change: Wijzigen
+        close_modal: Sluit venster
         confirm: Bevestig
         contextual_help: Bevestig de geselecteerde optie.
         title: 'Raadpleging: bevestig stem'

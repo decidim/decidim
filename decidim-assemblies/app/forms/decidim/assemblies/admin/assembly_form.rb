@@ -8,6 +8,7 @@ module Decidim
       #
       class AssemblyForm < Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
 
         CREATED_BY = %w(city_council public others).freeze
 
@@ -75,12 +76,10 @@ module Decidim
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
 
-        validates :banner_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :hero_image,
-                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image, passthru: { to: Decidim::Assembly }
+        validates :hero_image, passthru: { to: Decidim::Assembly }
+
+        alias organization current_organization
 
         def ensure_parent_cannot_be_child
           return if id.blank?

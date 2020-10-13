@@ -23,6 +23,7 @@ sv:
         settings:
           global:
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
     events:
       sortitions:
         sortition_created:

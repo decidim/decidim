@@ -69,7 +69,7 @@ es:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento invalido. Los formatos que se aceptan son: %{valid_mime_types}'
+              invalid_document_type: 'Tipo de documento inválido. Los formatos que se aceptan son: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -407,11 +407,11 @@ es:
           email_intro: Una administradora de la asamblea <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
           email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
           email_subject: '¡Te han invitado a ser miembro de la asamblea %{resource_name}!'
-          notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+          notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">la página de la asamblea</a> para contribuir!
       assembly:
         role_assigned:
           email_intro: Te han asignado el rol de %{role} en la asamblea "%{resource_title}".
-          email_outro: Recibes esta notifiación porque se te ha asignado el rol de %{role} en la asamblea "%{resource_title}".
+          email_outro: Recibes esta notificación porque se te ha asignado el rol de %{role} en la asamblea "%{resource_title}".
           email_subject: Se te ha asignado el rol de %{role} en "%{resource_title}".
           notification_title: Se te ha asignado el rol de %{role} en la asamblea <a href="%{resource_url}">%{resource_title}</a>.
     help:

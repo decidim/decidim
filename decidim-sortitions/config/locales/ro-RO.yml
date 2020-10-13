@@ -24,6 +24,7 @@ ro:
         settings:
           global:
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
     events:
       sortitions:
         sortition_created:

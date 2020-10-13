@@ -2,7 +2,6 @@ it:
   activemodel:
     attributes:
       project:
-        budget: Budget
         decidim_category_id: Categoria
         decidim_scope_id: Ambito tematico
         description: Descrizione
@@ -22,7 +21,6 @@ it:
         destroy: Cancella
         edit: Modifica
         import: Importa proposte nei progetti
-        new: Nuovo progetto
         preview: Anteprima
         title: Azioni
       admin:
@@ -69,11 +67,8 @@ it:
         order_summary:
           selected_projects: 'I progetti che hai selezionato sono:'
           subject: Hai votato nello spazio partecipativo %{space_name}
-          voted_on_space: Hai votato i budget per lo spazio partecipativo %{space_name}.
-          voted_on_space_with_scope: Hai votato i budget per lo spazio partecipativo %{space_name} in %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Sei d'accordo? Dopo che avrai confermato il tuo voto non potrai più modificarlo
           cancel: Annulla
           confirm: Conferma
           description: Questi sono i progetti per i quali hai scelto di partecipare al budget.
@@ -122,9 +117,6 @@ it:
           random: Ordine sparso
         project:
           add: Aggiungi progetto %{resource_name} al tuo voto
-          count:
-            one: 1 supporto/voto
-            other: "%{count} supportati/voti"
           remove: Rimuovi il progetto %{resource_name} dal tuo voto
           view: vista
         project_budget_button:
@@ -160,7 +152,8 @@ it:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
             show_votes: Mostra voti
-            votes_enabled: Voto abilitato
+            votes_choices:
+              enabled: Voto abilitato
     orders:
       checkout:
         error: C'è stato un errore durante l'acquisizione del voto.

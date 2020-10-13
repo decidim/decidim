@@ -3,6 +3,8 @@ ja:
     attributes:
       account:
         delete_reason: アカウントを削除する理由
+      common:
+        created_at: 作成日時
       group:
         about: About
         avatar: アバター
@@ -68,6 +70,7 @@ ja:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: 外部リンク
       logo: "%{organization}の公式ロゴ"
       skip_button: メインコンテンツにスキップ
     account:
@@ -144,6 +147,10 @@ ja:
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
+    admin_terms_of_use:
+      default_body: "<h2>管理者向け利用規約</h2><p>システム管理者からレクチャーを受けたと思います。通常、以下の3つのことに集約されます。</p><ol><li>他社のプライバシーを尊重する</li><li>クリックする前に考える</li><li>大きな力には大きな責任が伴う</li></ol>"
+    alert:
+      dismiss: 通知を消去
     amendments:
       accepted:
         error: 修正を承認中にエラーが発生しました。
@@ -268,6 +275,7 @@ ja:
           foo: Foo
         name: Foo authorization
       granted_at: '%{timestamp} で付与されます'
+      renew: 検証を更新する
       sms:
         explanation: 身分証を確認するために、携帯電話番号を提出してください。
         name: SMSによるコード
@@ -302,6 +310,8 @@ ja:
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
+      show:
+        close_modal: ウィンドウを閉じる
     collapsible_list:
       hidden_elements_count:
         other: 他 %{count} 名
@@ -422,6 +432,13 @@ ja:
             check: 確認して続ける
             close_modal: モーダルを閉じる
             uncheck: チェックを外し続ける
+          notice: |-
+            <p>本当にニュースレターを購読しなくて良いですか？<br>
+            ニュースレターのチェックボックスを是非オンにしてください。<br>
+            重要なお知らせメールを受け取ってもらうことは、私たちにとって非常に重要なことです。通知設定ページでいつでもこれを変更することができます。</p>
+            <p>ボックスにチェックを入れないと、プラットフォーム内での新しい参加機会についての関連情報を見逃してしまう可能性があります。<br>
+            それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
+            <p>読んでくれてありがとうございます！</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -442,6 +459,7 @@ ja:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     endorsable:
       endorsements: <unk>
+      endorsements_count: 支持数
     endorsement_buttons_cell:
       already_endorsed: 承認済み
       endorse: 承認する
@@ -464,10 +482,12 @@ ja:
             email_intro: '%{amendable_title}の修正が承認されました。このページから確認できます:'
             email_outro: あなたは %{amendable_title} の作成者であるため、この通知を受け取りました。
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正を承認しました'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> が作成した <a href="%{emendation_path}">修正</a> が <a href="%{amendable_path}">%{amendable_title}</a> に採用されました。
           follower:
             email_intro: '%{amendable_title}の修正が承認されました。このページから確認できます:'
             email_outro: '%{amendable_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
             email_subject: '%{amendable_title} から %{emendation_author_nickname} の修正を承認しました'
+            notification_title: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> が作成した <a href="%{emendation_path}">修正</a> が <a href="%{amendable_path}">%{amendable_title}</a> に採用されました。
         amendment_created:
           affected_user:
             email_intro: '%{amendable_title}の新しい修正が作成されました。このページから確認できます:'
@@ -525,8 +545,10 @@ ja:
           email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
+          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
           email_outro: 当社のウェブサイトでアクティビティを行ったため、この通知を受け取りました。
           email_subject: '%{current_level} のバッジがレベル %{badge_name} に達しました！'
+          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
@@ -569,6 +591,7 @@ ja:
           email_subject: 新しいユーザーグループが作成されました
           notification_title: '%{user_group_name} ユーザーグループが作成されました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
         user_group_updated:
+          email_intro: ユーザーグループ「 %{user_group_name} 」がプロフィールページをアップデートし、未承認のままになっています。 <a href="%{groups_admin_url}">管理画面</a>から承認してください。
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理パネル</a> で確認できるようになりました。'
@@ -581,10 +604,13 @@ ja:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によって承認されました。
       users:
         profile_updated:
+          email_intro: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_url}">プロフィールページ</a> が更新されました。
           email_outro: '%{nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: "%{nickname} がプロフィールを更新しました"
+          notification_title: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_path}">プロフィールページ</a> が更新されました。
     export_mailer:
       data_portability_export:
+        click_button: '次のボタンを押してあなたのデータをダウンロードしてください。 <br/> %{date} までにファイルが利用できるようになります。 <br/> ファイルを開くには<a href=''https://www.7-zip.org/''>7-Zip</a> が必要です。Password: %{password}'
         download: ダウンロード
       export:
         ready: エクスポートのzipバージョンを見つけてください。
@@ -599,6 +625,7 @@ ja:
         proposal: 提案
         result: 結果
     fingerprint:
+      check: 指紋を確認
       explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: この指紋はSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
@@ -606,6 +633,8 @@ ja:
       title: フィンガープリント
       value: 値
     followers:
+      followers_count:
+        other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
       no_followings: まだ誰にも何にも従っていません。
@@ -613,6 +642,7 @@ ja:
       create:
         button: フォロー
         error: このリソースの後に問題がありました。
+        participatory_space: 既に<span class="show-for-sr">%{resource_name}</span>をフォローしています
       destroy:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
@@ -625,6 +655,18 @@ ja:
           password: パスワードが短すぎます。
           password_confirmation: パスワードの確認はパスワードと一致する必要があります。
         error: このフィールドにはエラーがあります。
+      file_help:
+        file:
+          explanation: 'ファイルのガイダンス:'
+          message_1: 画像またはドキュメントである必要があります。
+          message_2: 画像の場合、風景画像が適しています。システムが画像を切り抜きます。
+        image:
+          explanation: '画像のガイダンス:'
+          message_1: テキストを含まない風景画像が適しています。
+          message_2: システムが画像を切り抜きます。
+      file_validation:
+        allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
+        max_file_size: '最大ファイルサイズ: %{megabytes}MB'
       remove_this_file: このファイルを削除
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
@@ -649,6 +691,7 @@ ja:
             - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
             - 必要に応じて、送信するメッセージをカスタマイズします
             - 招待状を送信して登録することでレベルアップします。
+          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
           description_another: この参加者は %{score} 人を招待しました。
           description_own: '%{score} 人を招待しました。'
           name: 招待
@@ -745,6 +788,7 @@ ja:
     help:
       main_topic:
         default_page:
+          content: "<p>%{organization} では、トップメニューにあるスペース（プロセスや集会、イニシアチブ、コンサルテーション）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、討論会に参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
@@ -776,6 +820,13 @@ ja:
           not_found: 'The scope type was not found on the データベース (ID: %{id})'
     managed_users:
       expired_session: 出席者の現在の管理セッションの有効期限が切れています。
+    map:
+      dynamic:
+        screen_reader_explanation: 以下の要素は、このページ上のアイテムを地図上のポイントとして表示するマップです。 この要素はスクリーンリーダーで使用することができますが、理解しにくいかもしれません。
+        skip_button: 地図をスキップ
+      static:
+        latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: このグループにはまだメンバーがいません。
     menu:
@@ -824,6 +875,8 @@ ja:
           modal_title: 新しい会話
           no_results: 結果がありません
           participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
+        conversation:
+          show: '%{sender} との会話を表示'
         create:
           error: 会話が開始されませんでした。後でもう一度お試しください。
         index:
@@ -841,6 +894,7 @@ ja:
           send: 送信
           title: 返信
         show:
+          back: すべての会話に戻る
           chat_with: 会話
           not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
@@ -945,6 +999,7 @@ ja:
           how_to_participate: プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
+          more_info: '%{resource_name} に関する詳細情報'
           proposals: 提案
           proposals_explanation: 提案を行い、既存のものをサポートし、見たい変更を促進します。
         footer_sub_hero:
@@ -1021,6 +1076,7 @@ ja:
         following: フォロー
         groups: グループ
         members: メンバー
+        officialized: 正規参加者
         timeline: タイムライン
         view_full_profile: 全プロファイルを表示
       sidebar:
@@ -1067,11 +1123,16 @@ ja:
       global: グローバルスコープ
       picker:
         cancel: キャンセル
+        change: 選択したスコープを変更
         choose: 選択
+        currently_selected: 現在選択中のスコープ
         title: '%{field} を選択'
       prompt: スコープを選択
       scopes: スコープ
+      scopes_picker_input:
+        select_scope: 'スコープを選択 (現在: %{current})'
     search:
+      results: 検索結果
       results_found_for_term: '%{count} 検索結果: "%{term}"'
       term_input_placeholder: 検索
     searches:
@@ -1093,6 +1154,11 @@ ja:
           other: "%{count} 件の結果"
         view_all: すべて表示 (%{count})
     shared:
+      confirm_modal:
+        cancel: キャンセル
+        close_modal: ウィンドウを閉じる
+        ok: OK
+        title: 確定
       embed_modal:
         close_window: ウィンドウを閉じる
         embed: このコードをページに貼り付けてください
@@ -1100,6 +1166,9 @@ ja:
       extended_navigation_bar:
         more: もっと見る
         unfold: 展開する
+      filter_form_help:
+        help: 以下のフォームは、検索条件が変更されたときに検索結果を動的にフィルタリングします。
+        skip: 結果にスキップ
       flag_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
@@ -1108,11 +1177,14 @@ ja:
         offensive: 人種差別、性差別、スラー、個人攻撃、死の脅威、自殺要求やあらゆる形態の憎悪スピーチが含まれています。
         report: レポート
         spam: クリックベイト、広告、詐欺やスクリプトボットが含まれています。
+        title: 不適切な内容を報告する
       floating_help:
+        close: ヘルプを閉じる
         help: ヘルプ
       follow_button:
         sign_in_before_follow: このアクションを実行する前にサインインしてください
       login_modal:
+        close_modal: ウィンドウを閉じる
         please_sign_in: サインインしてください
         sign_up: 新規登録
       participatory_space_filters:
@@ -1131,6 +1203,9 @@ ja:
         close_window: ウィンドウを閉じる
         share: 共有
         share_link: リンクを共有
+    tags:
+      filter_results_for_category: 'カテゴリの検索結果: %{resource}'
+      filter_results_for_scope: 'スコープの検索結果: %{resource}'
     user_activity:
       index:
         no_activities_warning: この参加者はまだアクティビティを行っていません。
@@ -1184,9 +1259,13 @@ ja:
         version_created_at: バージョン作成日時
         version_number: バージョン番号
         version_number_out_of_total: "%{current_version} / %{total_count}"
+    version_author:
+      show:
+        deleted: 削除された参加者
     versions:
       resource_version:
         of_versions: "( %{number} の)"
+        version: バージョン %{number}
     versions_list:
       show:
         back_to_resource: 戻る
@@ -1197,6 +1276,7 @@ ja:
       show:
         version_index: バージョン %{index}
     welcome_notification:
+      default_body: <p>こんにちは {{name}}, {{organization}} へ参加いただきありがとうございます。歓迎します！</p><ul><li>もし、あなたがここでできることを知りたい場合、 <a href="{{help_url}}">Help</a> セクションをご参照ください。</li><li>目を通していただけると、最初のバッジを獲得できます。<a href="{{badges_url}}">全てのバッジの一覧</a> から、この {{organization}} への参加で獲得できるバッジを見ることができます。</li><li>他の人と一緒に参加し、この {{organization}} へ参加した経験をシェアしましょう。 提案を作り、コメントし、議論し、共通善への貢献の仕方について考え、議論に説得力をもたせ、主張を聞いたり読んだりしながら納得し、具体的かつ直接的な方法であなたの考えを表明し、忍耐と決断を持って対応し、 自らの考えを守り、他人の考えを取り入れて協力し合いましょう。</li></ul>
       default_subject: '{{organization}} に参加していただきありがとうございます！'
     wizard_step_form:
       wizard_aside:
@@ -1367,16 +1447,27 @@ ja:
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: 短すぎます（15文字未満）
+  forms:
+    correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
+    length_validator:
+      minimum:
+        other: 少なくとも %{count} 文字
+    required: 必須項目
+    required_explanation: "* 必須項目にはアスタリスクが付いています"
   invisible_captcha:
     sentence_for_humans: あなたが人間である場合、このフィールドを無視してください
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
       cookie_warning:
+        description_html: このサイトはCookieを使用しています。引き続きサイトを閲覧することで、Cookieの使用に同意したものとみなされます。 %{link}
+        link_label: Cookie についての詳細
         ok: 同意します
       edit_link:
         edit: 編集
       footer:
+        cc_by_license: クリエイティブコモンズライセンス
+        decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られたウェブサイト。
       header:
@@ -1387,9 +1478,20 @@ ja:
       impersonation_warning:
         close_session: セッションを閉じる
         description_html: 参加者 <b>%{user_name}</b> を管理しています。
+        expire_time_html: このログインセッションは <b><span class="minutes">%{minutes}</span> 分後に無効になります。</b>.
+      language_chooser:
+        choose_language: 言語を選択
       notifications_dashboard:
         mark_all_as_read: すべて既読にする
+        mark_as_read: 既読にする
+      social_media_links:
+        facebook: "Facebook の %{organization}"
+        github: "GitHub の %{organization}"
+        instagram: "Instagramの%{organization}"
+        twitter: "Twitter の %{organization}"
+        youtube: "YouTube の %{organization}"
       user_menu:
+        account: 'ユーザーアカウント: %{name}'
         admin_dashboard: 管理ダッシュボード
         conversations: 会話
         notifications: 通知
@@ -1478,6 +1580,7 @@ ja:
       last_title: 最後のページへのリンク
       next: 次へ &rsaquo;
       next_title: 次のページへのリンク
+      pagination: 改ページ
       previous: "&lsaquo; 前"
       previous_title: 前のページへのリンク
       title: 'ページ番号: '

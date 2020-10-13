@@ -1,0 +1,60 @@
+es-PY:
+  decidim:
+    admin:
+      menu:
+        templates: Plantillas
+      templates:
+        apply:
+          error: Se ha producido un error al aplicar esta plantilla.
+          success: Plantilla aplicada correctamente
+        copy:
+          error: Se ha producido un error al copiar esta plantilla.
+          success: Plantilla copiada correctamente
+        create:
+          error: Se ha producido un error al crear esta plantilla.
+          success: Plantilla creada correctamente
+        destroy:
+          success: Plantilla eliminada correctamente
+        empty: Todavía no hay plantillas.
+        update:
+          error: Se ha producido un error al actualizar esta plantilla.
+          success: Plantilla actualizada correctamente
+      titles:
+        template_types:
+          questionnaires: Plantillas de cuestionario
+        templates: Plantillas
+    models:
+      questionnaire_template:
+        fields:
+          questions: Número de preguntas
+          title: Título del cuestionario
+      template:
+        fields:
+          created_at: Creado el
+        name: Plantilla
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Crear desde plantilla
+            description: Estás a punto de crear un nuevo cuestionario. Puedes elegir una plantilla predefinida y modificarla después.
+            label: Elegir una plantilla
+            placeholder: Elegir una plantilla
+            skip_template: Omitir
+          edit:
+            edit: Editar
+            empty: Aún no hay preguntas
+            questionnaire: Cuestionario
+          form:
+            save: Guardar
+            template_title: Información de la plantilla
+            title: Cuestionario
+          index:
+            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+            title: Plantillas de cuestionario
+          preview:
+            current_step: Paso %{step}
+            of_total_steps: de %{total_steps}
+            tos_agreement: Al participar aceptas los Términos y condiciones de uso
+      template_types:
+        questionnaires: Cuestionarios

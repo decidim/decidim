@@ -44,6 +44,15 @@
     text-decoration: underline;
   }
 
+  .card__text--paragraph{
+    text-decoration: none;
+    color: #3d393c !important;
+  }
+
+  .card__text--paragraph:hover{
+    text-decoration: none;
+  }
+
   > *{
     display: inline-flex;
     margin: 0 0 .5rem;

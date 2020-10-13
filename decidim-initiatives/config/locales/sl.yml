@@ -1,0 +1,24 @@
+sl:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Avtor
+  decidim:
+    admin:
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Področje
+          state_eq:
+            values:
+              created: Ustvarjeno
+              discarded: Zavrženo
+              published: Objavljeno
+          type_id_eq:
+            label: Tip
+    initiatives:
+      initiatives:
+        index_header:
+          not_authorized:
+            close: Zapri
+            title: Potrebna je overitev

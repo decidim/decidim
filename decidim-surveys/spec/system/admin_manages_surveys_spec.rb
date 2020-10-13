@@ -121,13 +121,11 @@ describe "Admin manages surveys", type: :system do
     main_component_path(component)
   end
 
+  it_behaves_like "uses questionnaire templates", :survey
+
   private
 
-  def find_nested_form_field_locator(attribute, visible: true)
-    find_nested_form_field(attribute, visible: visible)["id"]
-  end
-
-  def find_nested_form_field(attribute, visible: true)
+  def find_nested_form_field(attribute, visible: :visible)
     current_scope.find(nested_form_field_selector(attribute), visible: visible)
   end
 
