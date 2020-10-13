@@ -50,7 +50,7 @@ shared_examples "manage moderations" do
     end
 
     it "user can sort by report count" do
-      moderations.each { |moderation| moderation.update(report_count: rand(1..5)) }
+      moderations.each_with_index { |moderation, index| moderation.update(report_count: index + 1) }
       moderations_ordered_by_report_count_asc = moderations.sort_by(&:report_count)
 
       within "table" do
