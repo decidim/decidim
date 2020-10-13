@@ -258,7 +258,7 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the users implying the spot to meet at'
-            location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
             select_a_meeting_type: Please select a meeting type
           index:
@@ -405,7 +405,7 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           create_as: Create meeting as
           location_help: 'Location: message directed to the users implying the spot to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it\'s an in-person meeting, or the meeting password if it\'s an online meeting with restricted access.'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
