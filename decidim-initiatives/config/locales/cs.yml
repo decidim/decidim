@@ -16,14 +16,6 @@ cs:
           online: OnLine
         state: Stát
         title: Titul
-      initiative_author:
-        address: Adresa
-        city: Město
-        id_document: DNI / NIE
-        name: Jméno a příjmení
-        phone_number: Telefonní číslo
-        post_code: PSČ
-        province: Okres
       initiatives_committee_member:
         user: člen komise
       initiatives_type:
