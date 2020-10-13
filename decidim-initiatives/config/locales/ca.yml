@@ -16,14 +16,6 @@ ca:
           online: Digital
         state: Estat
         title: Títol
-      initiative_author:
-        address: Adreça
-        city: Ciutat
-        id_document: DNI / NIE
-        name: Nom i cognom
-        phone_number: Número de telèfon
-        post_code: Codi postal
-        province: Província
       initiatives_committee_member:
         user: Membre del comitè
       initiatives_type:
