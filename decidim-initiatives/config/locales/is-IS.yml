@@ -8,14 +8,6 @@ is-IS:
         signature_type_values:
           any: Blandað
         title: Titill
-      initiative_author:
-        address: Heimilisfang
-        city: Borg
-        id_document: DNI / NIE
-        name: Nafn og eftirnafn
-        phone_number: Símanúmer
-        post_code: Póstnúmer
-        province: Héraði
       initiatives_committee_member:
         user: Nefndarmaður
       initiatives_type:
