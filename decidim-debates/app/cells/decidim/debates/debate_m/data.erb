@@ -1,8 +1,10 @@
-<div class="card__icondata">
-  <ul class="card-data">
-    <li class="card-data__item">
-      <%= icon "datetime", class: "icon--big", role: "img", aria_label: t("decidim.debates.debates.show.date") %>
-    </li>
-    <%= debate_date %>
-  </ul>
-</div>
+<% if debate_date.present? %>
+  <div class="card__icondata">
+    <ul class="card-data">
+      <li class="card-data__item">
+        <%= icon "datetime", class: "icon--big", role: "img", aria_label: t("decidim.debates.debates.show.date") %>
+      </li>
+      <%= debate_date %>
+    </ul>
+  </div>
+<% end %>

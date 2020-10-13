@@ -3,12 +3,27 @@ nl:
     attributes:
       dummy_resource:
         created_at: Aangemaakt op
+        decidim_scope_id: Bereik
         field: Mijn veld
         start_date: Begindatum
         title: Titel
         translatable_text: Vertaal mijn tekst
         updated_at: Bijgewerkt op
   decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Alleen-lezen attribuut
+            test: Een test
+            test_choices:
+              a: Een keuze
+              b: B keuze
+              c: C keuze
+          step:
+            endorsements_blocked: Aanbevelingen geblokkeerd
+            endorsements_enabled: Aanbevelingen ingeschakeld
+            readonly_step_attribute: Kenmerk van alleen-lezenstap
     dummy:
       admin:
         exports:

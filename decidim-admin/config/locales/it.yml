@@ -29,12 +29,6 @@ it:
       newsletter:
         body: Testo
         subject: Oggetto
-      oauth_application:
-        name: Nome
-        organization_logo: Logo dell'organizzazione (quadrato)
-        organization_name: Nome dell'organizzazione
-        organization_url: URL dell'organizzazione
-        redirect_uri: URI di Reindirizzamento
       organization:
         address: Server SMTP
         alert_color: Notifica
@@ -115,10 +109,6 @@ it:
         file: File
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: L'URI di reindirizzamento deve essere un URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -352,8 +342,8 @@ it:
           view_logs: Visualizza i registri
       impersonations:
         close_session:
-          error: Si è verificato un errore durante la chiusura della sessione di impersonazione corrente.
-          success: La sessione di impersonazione corrente è stata terminata con successo.
+          error: Si è verificato un errore durante la chiusura della sessione di impersonificazione corrente.
+          success: La sessione di impersonificazione corrente è stata terminata con successo.
         create:
           error: Si è verificato un errore impersonando l'utente.
           success: L'utente gestito è stato creato con successo.
@@ -390,14 +380,13 @@ it:
         homepage: Homepage
         impersonations: Impersonificazioni
         newsletters: Newsletters
-        oauth_applications: Applicazioni OAuth
         participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
         static_pages: Pagine
         user_groups: Gruppi
-        users: Utenti
+        users: Partecipanti
       metrics:
         metrics:
           see_more_metrics: Visualizza Ulteriori Dettagli
@@ -437,11 +426,6 @@ it:
             sent_to: Inviato a
             subject: Oggetto
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Creato il
-            name: Nome
-          name: Applicazione OAuth
         participatory_space_private_user:
           name: Partecipante privato allo spazio partecipativo
         scope:
@@ -548,25 +532,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
-      oauth_applications:
-        create:
-          error: Si è verificato un errore durante la creazione di questa applicazione.
-          success: Applicazione creata con successo.
-        destroy:
-          error: C'è stato un errore nella distruzione di questa applicazione.
-          success: Applicazione distrutta con successo.
-        edit:
-          save: Salvare
-          title: Modifica l'applicazione
-        index:
-          confirm_delete: Sei sicuro di voler eliminare questa applicazione?
-          title: Applicazioni OAuth
-        new:
-          save: Salvare
-          title: Nuova applicazione
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa applicazione.
-          success: Applicazione aggiornata con successo.
       officializations:
         create:
           success: Utente ufficializzato con successo
@@ -653,7 +618,6 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
-          explanation: Carica il tuo file CSV. Deve avere due colonne con email nella prima colonna del file e nome nell'ultima colonna del file (email, nome) degli utenti che si desidera aggiungere allo spazio partecipativo, senza intestazioni.
           title: Carica il tuo file CSV
           upload: Carica File
       resource_permissions:
@@ -729,7 +693,7 @@ it:
           none: Nessuna
           slug_help: 'Usa URL relativi, non URL assoluti. Accetta lettere, numeri, trattini e barre, e deve iniziare con una lettera. Esempio: %{url}'
         index:
-          last_notable_change: Ultimo cambiamento notevole
+          last_notable_change: Ultimo cambiamento significativo
         new:
           create: Crea pagina
           title: Nuova pagina
@@ -747,10 +711,10 @@ it:
         areas: Ambiti territoriali
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
-        impersonatable_users: Utenti gestibili
-        impersonations: Gestione degli utenti
+        impersonatable_users: Partecipanti gestibili
+        impersonations: Gestione dei partecipanti
         metrics: Partecipazione in cifre
-        participants: Utenti
+        participants: Partecipanti
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
@@ -807,7 +771,7 @@ it:
           last_month: Mese precedente
           last_week: Settimana precedente
           no_users_count_statistics_yet: Non ci sono ancora statistiche per utenti
-          participants: I partecipanti
+          participants: Partecipanti
       view_public_page: Visualizza la pagina pubblica
     forms:
       errors:
@@ -852,4 +816,4 @@ it:
         settings:
           title: Impostazioni
         users:
-          title: Utenti
+          title: Partecipanti

@@ -4,7 +4,7 @@
       actions:
         confirm_destroy: Er du sikker på at du vil slette dette?
         destroy: Slett
-        edit: Editar
+        edit: Rediger
         new: Nytt
         save: Lagre
         title: Handlinger

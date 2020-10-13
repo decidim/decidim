@@ -20,13 +20,11 @@ module Decidim
     end
 
     def resource_cell
-      if model.respond_to?(:resource_manifest) && model.resource_manifest.card.present?
-        @resource_cell ||= model.resource_manifest.card
-      elsif ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
-        @resource_cell ||= "decidim/author"
-      elsif ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
-        @resource_cell ||= "decidim/author"
-      end
+      @resource_cell ||= if resource_card
+                           resource_card
+                         elsif official_author? || user_or_user_group?
+                           "decidim/author"
+                         end
     end
 
     def title
@@ -35,6 +33,22 @@ module Decidim
 
     def body
       model.try(:body) || model.try(:about) || ""
+    end
+
+    def resource_manifest
+      model.try(:resource_manifest) || Decidim.find_resource_manifest(model.class)
+    end
+
+    def resource_card
+      resource_manifest&.card.presence
+    end
+
+    def official_author?
+      ["Decidim::Proposals::OfficialAuthorPresenter", "Decidim::Debates::OfficialAuthorPresenter"].include? model.class.to_s
+    end
+
+    def user_or_user_group?
+      ["Decidim::User", "Decidim::UserGroup"].include? model.model_name.name
     end
   end
 end

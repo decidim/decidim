@@ -9,9 +9,6 @@ module Decidim
         end
 
         def save
-          return @registry if @registry
-
-          @registry = []
           query.each do |key, results|
             cumulative_value = results[:cumulative]
             next if cumulative_value.zero?
@@ -23,10 +20,8 @@ module Decidim
                                                            organization: @organization, decidim_category_id: category_id,
                                                            related_object_type: related_object_type, related_object_id: related_object_id)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
-            @registry << record
+            record.save!
           end
-          @registry.each(&:save!)
-          @registry
         end
 
         private

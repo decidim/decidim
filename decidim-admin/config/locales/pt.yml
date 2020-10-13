@@ -13,6 +13,7 @@ pt:
         attachment_collection_id: Pasta
         description: Descrição
         file: Arquivo
+        title: Anexo ou nome da imagem
       attachment_collection:
         description: Descrição
         name: Nome
@@ -28,12 +29,6 @@ pt:
       newsletter:
         body: Corpo
         subject: Assunto
-      oauth_application:
-        name: Nome
-        organization_logo: Logótipo da organização (quadrado)
-        organization_name: Nome da organização
-        organization_url: URL da organização
-        redirect_uri: URI de redirecionamento
       organization:
         address: Nome do anfitrião SMTP
         alert_color: Alerta
@@ -50,6 +45,8 @@ pt:
         from: Endereço de e-mail do remetente
         github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
+        highlight_alternative_color: Realçar, alternativo
+        highlight_color: Realçar
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
         highlighted_content_banner_action_title: Título do botão de ação
         highlighted_content_banner_action_url: URL do botão de ação
@@ -112,10 +109,6 @@ pt:
         file: Ficheiro
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: O URI de redirecionamento deve ser um URI de SSL
         organization:
           attributes:
             official_img_footer:
@@ -323,6 +316,8 @@ pt:
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
           title_cont: Pesquisar %{collection} por título.
+        state_eq:
+          label: Estado
       help_sections:
         error: Ocorreu um problema ao atualizar as secções de ajuda
         form:
@@ -385,7 +380,6 @@ pt:
         homepage: Página inicial
         impersonations: Personificações
         newsletters: Boletins informativos
-        oauth_applications: Aplicações OAuth
         participants: Participantes
         scope_types: Tipos de âmbito
         scopes: Âmbitos
@@ -432,11 +426,6 @@ pt:
             sent_to: Enviado para
             subject: Assunto
           name: Boletim Informativo
-        oauth_application:
-          fields:
-            created_at: Criado em
-            name: Nome
-          name: Aplicação OAuth
         participatory_space_private_user:
           name: Participante privado de espaço participativo
         scope:
@@ -543,25 +532,6 @@ pt:
         update:
           error: Ocorreu um problema ao atualizar este boletim informativo.
           success: Boletim informativo atualizado corretamente. Por favor, reveja-o antes de enviar.
-      oauth_applications:
-        create:
-          error: Ocorreu um problema ao criar esta aplicação.
-          success: Aplicação criada corretamente.
-        destroy:
-          error: Ocorreu um problema ao destruir esta aplicação.
-          success: Aplicação destruída corretamente.
-        edit:
-          save: Guardar
-          title: Editar aplicação
-        index:
-          confirm_delete: Tem a certeza de que deseja eliminar esta aplicação?
-          title: Aplicações OAuth
-        new:
-          save: Guardar
-          title: Nova aplicação
-        update:
-          error: Ocorreu um problema ao atualizar esta aplicação.
-          success: Aplicação atualizada corretamente.
       officializations:
         create:
           success: Participante oficializado corretamente
@@ -585,6 +555,7 @@ pt:
           officialize: Oficializar
           title: Oficializar participante "%{name}"
         show_email_modal:
+          close_modal: Fechar modal
           description: Caso necessite de contactar um participante diretamente, poderá clicar no botão Mostrar para ver o endereço de e-mail. Esta ação será registada.
           email_address: Endereço de e-mail
           full_name: Nome completo
@@ -647,7 +618,6 @@ pt:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
-          explanation: Carregue o seu ficheiro CSV. Deverá possuir duas colunas com o e-mail na primeira coluna do ficheiro e o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que pretende adicionar ao espaço participativo, sem cabeçalhos.
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
@@ -753,7 +723,7 @@ pt:
         users: Participantes
       user_group:
         csv_verify:
-          invalid: Ocorreu um problema ao ler o arquivo CSV.
+          invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: O ficheiro CSV foi enviado com sucesso, estamos a verificar os grupos que correspondem aos critérios. Isto pode demorar um pouco.
         reject:
           invalid: Ocorreu um problema ao rejeitar este grupo.

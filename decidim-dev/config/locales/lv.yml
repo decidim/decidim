@@ -1,0 +1,54 @@
+lv:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Izveidots plkst.
+        decidim_scope_id: Darbības tvērums
+        field: Mans lauks
+        start_date: Sākuma datums
+        title: Nosaukums
+        translatable_text: Tulkojamais teksts
+        updated_at: Atjaunināts plkst.
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Tikai lasāms atribūts
+            test: A tests
+            test_choices:
+              a: A izvēle
+              b: B izvēle
+              c: C izvēle
+          step:
+            endorsements_blocked: Atbalsti ir bloķēti
+            endorsements_enabled: Atbalsti ir iespējoti
+            readonly_step_attribute: Tikai lasāms soļa atribūts
+    dummy:
+      admin:
+        exports:
+          dummies: Vietturi
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Izmantot testa vidi decidim.
+          description: Dalībnieki iegūst šo žetonu, izveidojot testus.
+          description_another: Šis dalībnieks ir izveidojis %{score} testus.
+          description_own: Jūs esat izveidojis %{score} testus.
+          name: Testi
+          next_level_in: Izveidojiet vēl dažus %{score} testus, lai sasniegtu nākamo līmeni!
+          unearned_another: Šis dalībnieks vēl nav izveidojis nevienu testu.
+          unearned_own: Jūs vēl neesat izveidojis nevienu testu.
+    pages:
+      home:
+        statistics:
+          dummies_count_high: Augstie vietturi
+          dummies_count_medium: Vidējie vietturi
+    participatory_processes:
+      statistics:
+        dummies_count_high: Augstie vietturi
+        dummies_count_medium: Vidējie vietturi
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Saistītie vietturi

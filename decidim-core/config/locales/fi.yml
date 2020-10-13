@@ -65,6 +65,7 @@ fi:
     errors:
       general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
+      not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
       decidim_short: "%d.%m.%Y"
@@ -271,9 +272,9 @@ fi:
           scope_id: Teema
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
-        name: Dummy-varmennuksen työnkulku
+        name: Esimerkkivahvistuksen työnkulku
       errors:
-        duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
+        duplicate_authorization: Toinen käyttäjätili on jo vahvistettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:
@@ -297,23 +298,23 @@ fi:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä vahvistettu palvelulla "%{authorization}", tarvitsemme uuden vahvistuksen, koska seuraavat tiedot puuttuvat:'
           invalid_field: "%{field}"
-          reauthorize: Varmenna uudestaan
-          title: Varmenna uudestaan
+          reauthorize: Vahvista uudestaan
+          title: Vahvista uudestaan
         missing:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
         pending:
-          explanation: Tämän toiminnon suorittamiseksi sinun varmennettava itsesi palvelulla "%{authorization}", mutta varmennuksesi on edelleen kesken
-          resume: Tarkista "%{authorization}" varmennuksen eteneminen
+          explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava käyttäjätilisi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken
+          resume: Tarkista "%{authorization}" vahvistuksen eteneminen
           title: Vahvistus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska vahvistustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
-          title: Ei varmennettu
+          title: Ei vahvistettu
         unconfirmed:
-          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää niitä uudelleen:'
+          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää ne uudestaan:'
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
@@ -354,6 +355,8 @@ fi:
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             amendment_creation_enabled: Muutosten luonti käytössä
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
@@ -391,7 +394,7 @@ fi:
         name: Hero-kuvan alabanneri
     core:
       actions:
-        login_before_access: Sinun täytyy kirjautua sisään, jotta kuin voit tarkastella tätä sisältöä
+        login_before_access: Sinun täytyy kirjautua sisään, jotta voit tarkastella tätä sisältöä
         unauthorized: Tiliäsi ei ole varmennettu tämän toiminnon suorittamiseen
     data_portability:
       export:
@@ -633,7 +636,7 @@ fi:
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
-      check: Tarkista sormenjälki kohteelle %{resource_name}
+      check: Tarkista sormenjälki
       explanation: Alla oleva teksti on tämän sisällön lyhennetty ja hajautettu esitystapa. Tämä on hyödyllinen varmentaaksesi, että sisältöä ei ole muokattu kenenkään toimesta, koska yksittäinen muutos johtaisi täysin erilaiseen arvoon.
       online_calculator_name: MD5-verkkolaskuri
       replicate_help: Tämä sormenjälki lasketaan käyttäen SHA256-hajautusalgoritmia. Jos haluat tuottaa sormenjäljen itse, voit käyttää %{online_calculator_link} -palvelua ja liittää lähdetiedot kyseiseen palveluun.
@@ -888,6 +891,11 @@ fi:
           show: Näytä keskustelu henkilöiden %{sender} kanssa
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
+        error_modal:
+          close: Sulje ikkuna
+          correct_errors: Korjaa virheet ja yritä uudestaan.
+          intro: 'Viestisi sisältää seuraavia virheitä:'
+          ok: OK
         index:
           ago: sitten
           close: Sulje ikkuna
@@ -911,7 +919,7 @@ fi:
           send: Lähetä
           title: Aloita keskustelu
         update:
-          error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+          error: Viestiä ei lähetetty virheen takia
     metrics:
       download:
         csv: Lataa tiedot (csv)
@@ -1163,6 +1171,10 @@ fi:
           one: "%{count} tulos"
           other: "%{count} tulosta"
         view_all: Näytä kaikki (%{count})
+    security:
+      selfxss_warning:
+        description: Tämä selainominaisuus on tarkoitettu kehittäjille ja sinun ei tule liittää tähän mitään tekstiä, jos sinulta on pyydetty sellaista. Tekstin liittäminen tähän ikkunaan voi vaarantaa yksityisyytesi ja antaa hakkereille pääsyn tilillesi.
+        title: Seis!
     shared:
       confirm_modal:
         cancel: Peruuta
@@ -1216,6 +1228,10 @@ fi:
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
+    translation_bar:
+      help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
+      show_original: Näytä alkuperäinen teksti
+      show_translated: Näytä automaattisesti käännetty teksti
     user_activity:
       index:
         no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
@@ -1275,7 +1291,7 @@ fi:
     versions:
       resource_version:
         of_versions: "(yhteensä %{number} kpl)"
-        see_other_versions: näytä muut versiot kohteelle %{resource_name}
+        see_other_versions: näytä muut versiot
         version: Versio %{number}
     versions_list:
       show:
@@ -1514,7 +1530,7 @@ fi:
         sign_out: Kirjaudu ulos
       user_profile:
         account: Käyttäjätili
-        authorizations: Varmennukset
+        authorizations: Vahvistukset
         delete_my_account: Poista tilini
         my_data: Omat tiedot
         my_interests: Kiinnostuksen kohteeni
@@ -1525,6 +1541,7 @@ fi:
         see_more: Näytä lisää
   locale:
     name: Suomi
+    name_with_error: Suomi (virhe!)
   password_validator:
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa

@@ -11,15 +11,19 @@ en:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
-        subtitle: Subtitle
         title: Title
       question:
         description: Description
         max_selections: Maximum number of selections
+        min_selections: None of the above option
         title: Title
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
@@ -70,6 +74,7 @@ en:
             title: Edit answer
             update: Update answer
           index:
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
             title: Answers
           new:
             create: Create answer
@@ -88,6 +93,7 @@ en:
             title: Edit election
             update: Update election
           index:
+            no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
             title: Elections
           new:
             create: Create election
@@ -137,13 +143,36 @@ en:
           publish: "%{user_name} published the %{resource_name} election"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
+        badge_name:
+          finished: Finished
+          ongoing: Active
+          upcoming: Upcoming
+        end_date: Ends
         footer:
-          take_part: Take part
+          view: View
+          vote: Vote
+        label:
+          date: Dates
+        questions: Questions %{count}
+        start_date: Starts
+        unspecified: Not specified
       elections:
         count:
           elections_count:
             one: "%{count} election"
             other: "%{count} elections"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
         show:
           back: All elections
           preview: Preview
@@ -167,6 +196,10 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      orders:
+        label: Order elections by
+        older: Older
+        recent: Recent
       votes:
         confirm:
           answer: Answer
@@ -175,6 +208,7 @@ en:
           edit: edit
           header: Confirm your vote
           intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
+          nota_option: Blank
           question: Question %{count}
         confirmed:
           back: Back to elections
@@ -197,14 +231,18 @@ en:
           close: Close
           proposal_header: 'Proposals:'
         new:
-          answer_choices: You can select up to %{choices} answers or none
+          answer_choices: You can select up to %{choices} answers
           more_information: More information
+          nota_option: Blank/ None of the above
           preview_alert: This is a preview of the voting booth.
           question_steps: Question %{current_step} of %{total_steps}
           selections: "%{selected} of %{max_selections}<br> selections"
         voting_step:
           back: Back
           continue: Next
+      warnings:
+        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
       elections:
         election_published:

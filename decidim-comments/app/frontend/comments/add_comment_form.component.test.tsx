@@ -19,6 +19,7 @@ describe("<AddCommentForm commentsMaxLength={commentsMaxLength} />", () => {
   const addCommentStub = (): any => {
     return null;
   };
+  const context = {locale: undefined, toggleTranslations: undefined};
 
   beforeEach(() => {
     loadLocaleTranslations("en");
@@ -129,7 +130,7 @@ describe("<AddCommentForm commentsMaxLength={commentsMaxLength} />", () => {
 
     it("should call addComment prop with the textarea value and state property alignment", () => {
       wrapper.find("form").simulate("submit");
-      expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0 });
+      expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0 }, context);
     });
 
     it("should reset textarea", () => {
@@ -189,7 +190,7 @@ describe("<AddCommentForm commentsMaxLength={commentsMaxLength} />", () => {
       it("should call addComment prop with the state's property alignment", () => {
         wrapper.find("button.opinion-toggle--ko").simulate("click");
         wrapper.find("form").simulate("submit");
-        expect(addComment).toHaveBeenCalledWith({ body: message, alignment: -1 });
+        expect(addComment).toHaveBeenCalledWith({ body: message, alignment: -1 }, context);
       });
 
       it("should reset the state to its initial state", () => {
@@ -235,7 +236,7 @@ describe("<AddCommentForm commentsMaxLength={commentsMaxLength} />", () => {
 
       it("should call addComment prop with the body textarea, alignment and user_group_id select values", () => {
         wrapper.find("form").simulate("submit");
-        expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0, userGroupId });
+        expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0, userGroupId }, context);
       });
 
       describe("when user_group_id is blank", () => {
@@ -245,7 +246,7 @@ describe("<AddCommentForm commentsMaxLength={commentsMaxLength} />", () => {
 
         it("should call addComment prop with the body textarea and alignment", () => {
           wrapper.find("form").simulate("submit");
-          expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0 });
+          expect(addComment).toHaveBeenCalledWith({ body: message, alignment: 0 }, context);
         });
       });
     });

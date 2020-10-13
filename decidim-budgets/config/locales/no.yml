@@ -1,10 +1,14 @@
 "no":
   activemodel:
     attributes:
+      budget:
+        description: Beskrivelse
+        title: Tittel
+        total_budget: Totalt budsjett
       project:
-        budget: Budsjett
+        budget_amount: Budsjettbeløp
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         title: Tittel
@@ -21,11 +25,15 @@
         confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
         destroy: Slett
         edit: Editar
+        edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
-        new: Nytt prosjekt
+        new: Ny %{name}
         preview: Forhåndsvis
         title: Handlinger
       admin:
+        budgets:
+          create:
+            invalid: Det oppsto et problem med å opprette dette budsjettet
         models:
           project:
             name: Prosjekt
@@ -69,11 +77,8 @@
         order_summary:
           selected_projects: 'Prosjektene du har valgt er:'
           subject: Du har stemt på %{space_name} i deltakelsesrommet
-          voted_on_space: Du har stemt på budsjettene for deltakerrommet %{space_name}.
-          voted_on_space_with_scope: Du har stemt på budsjettene for deltakelsesrommet %{space_name} på %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Er du enig? Når du har bekrefter din stemme, kan du ikke endre den.
           cancel: Avbryt
           confirm: Bekreft
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
@@ -91,6 +96,7 @@
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
           description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
+          description_minimum_projects_rule: Hvilke prosjekter tror du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du ønsker, og stem på dine preferanser for å definere budsjettet.
           title: Du bestemmer budsjettet
         count:
           projects_count:
@@ -98,7 +104,7 @@
             other: "%{count} prosjekter"
         filters:
           category: Kategori
-          scope: Omfang
+          scope: Tema
           search: Søk
         filters_small_view:
           close_modal: Lukk modal
@@ -120,10 +126,14 @@
           most_voted: Mest stemte
           random: Tilfeldig rekkefølge
         project:
-          count:
-            one: 1 støtte
-            other: "%{count} støttere"
+          add: Legg til prosjektet %{resource_name} til din stemme
+          remove: Fjern prosjektet %{resource_name} fra stemmen din
           view: Vis
+        project_budget_button:
+          add: Legg til i stemmen din
+          add_descriptive: Legg til prosjektet %{resource_name} til din stemme
+          added: Lagt til stemmen din
+          added_descriptive: Prosjektet %{resource_name} er lagt til din stemme
         show:
           budget: Budsjett
           view_all_projects: Vis alle prosjekter
@@ -146,12 +156,14 @@
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
+            vote_rule_threshold_percent_enabled: 'Aktiver regel: Minimum budsjettprosent'
             vote_threshold_percent: Stemmeterskel prosent
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
             show_votes: Vis stemmer
-            votes_enabled: Stemming aktivert
+            votes_choices:
+              enabled: Stemming aktivert
     orders:
       checkout:
         error: Det oppstod et problem med å behandle din stemme

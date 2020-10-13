@@ -1,0 +1,166 @@
+sl:
+  activemodel:
+    attributes:
+      area:
+        name: Ime
+        organization: Organizacija
+      area_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      attachment:
+        attachment_collection_id: Mapa
+        description: Opis
+        file: Datoteka
+        title: Ime priponke
+      attachment_collection:
+        description: Opis
+        name: Ime
+      category:
+        description: Opis
+        name: Ime
+        parent_id: Nadrejeni
+      component:
+        name: Ime
+        published_at: Objavljeno
+        weight: Teža
+      id: ID
+      newsletter:
+        body: Telo
+        subject: Zadeva
+      organization:
+        address: SMTP Gostitelj
+        alert_color: Opozorilo
+        badges_enabled: Omogoči značke
+        comments_max_length: Maksimalna dolžina komentarjev (0 je privzeta)
+        customize_welcome_notification: Priredi obvestilo dobrodošlice
+        default_locale: Privzeto območje
+        description: Opis
+        facebook_handler: Facebook krmilnik
+        favicon: Ikona
+        from: Iz elektronskega naslova
+        github_handler: GitHub krmilnik
+        header_snippets: Deli glave
+        highlight_alternative_color: Poudarek, alternativno
+        highlight_color: Poudarek
+        highlighted_content_banner_action_subtitle: Tipka podnaslov
+        highlighted_content_banner_action_title: Tipka naslov
+        highlighted_content_banner_action_url: Tipka URL
+        highlighted_content_banner_image: Slika
+        highlighted_content_banner_short_description: Kratek opis
+        highlighted_content_banner_title: Naslov
+        instagram_handler: Instagram krmilnik
+        logo: Logotip
+        name: Ime
+        official_img_footer: Uradni logo - noga
+        official_img_header: Uradni logo - glava
+        official_url: Domača stran organizacije
+        omnipresent_banner_short_description: Kratek opis
+        omnipresent_banner_title: Naziv
+        omnipresent_banner_url: URL
+        password: Geslo
+        port: Vrata
+        primary_color: Primarni
+        rich_text_editor_in_public_views: Omogoči napredni tekstovni urejevalnik za obiskovalce
+        secondary_color: Sekundarni
+        send_welcome_notification: Pošli sporočilo dobrodošlice
+        show_statistics: Pokaži statistiko
+        success_color: Uspeh
+        time_zone: Časovni pas
+        tos_version: Pogoji storitve - verzija
+        twitter_handler: Twitter krmilnik
+        user_groups_enabled: Omogoči grupe
+        user_name: Uporabniško ime
+        warning_color: Opozorilo
+        welcome_notification_body: Sporočilo dobrodošlice - vsebina
+        welcome_notification_subject: Sporočilo dobrodošlice - naslov
+        youtube_handler: YouTube krmilnik
+      scope:
+        code: Koda
+        name: Ime
+        organization: Organizacija
+        parent_id: Nadrejeni
+        scope_type: Tip področja
+        scope_type_id: Tip področja
+      scope_type:
+        name: Ime
+        organization: Organizacija
+        plural: Množina
+      static_page:
+        content: Vsebina
+        organization: Organizacija
+        show_in_footer: Prikaži v nogi
+        slug: URL okrajšava
+        title: Naziv
+        weight: Teža
+      static_page_topic:
+        description: Opis
+        show_in_footer: Prikaži v nogi
+        title: Naziv
+        weight: Teža
+      user_group_csv_verification:
+        file: Datoteka
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Neveljavna slikovna datoteka
+            official_img_header:
+              allowed_file_content_types: Neveljavna slikovna datoteka
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Vsebina
+        slug: URL okrajšava
+        title: Naziv
+      doorkeeper/application:
+        authorize_url: Pooblasti URL
+        client_id: ID odjemalca
+        client_secret: Skrivnost odjemalca
+        organization_name: Ime organizacije
+        organization_url: Domača stran organizacije
+        redirect_uri: Preusmeritev URI
+        site: Spletna stran
+  decidim:
+    admin:
+      actions:
+        add: Dodaj
+        browse: Brskaj
+        export: Izvozi
+        manage: Uredi
+        new: Novo %{name}
+        per_page: Na stran
+        permissions: Dovoljenja
+        reject: Zavrni
+        verify: Preveri
+      filters:
+        scope_id_eq:
+          label: Področje
+      menu:
+        scope_types: Tipi področja
+        scopes: Področja
+      models:
+        scope:
+          fields:
+            scope_type: Tip področja
+      newsletters:
+        index:
+          no_scopes: Ni področij
+        select_recipients_to_deliver:
+          scopes_help: Pošilja obvestilo uporabnikom, ki imajo v nastavitvah »Moja zanimanja« v računu aktivirano katero od izbranih področij.
+      organization_appearance:
+        form:
+          colors:
+            colors_title: Barve organizacije
+      scope_types:
+        create:
+          error: Pojavila se je težava pri kreiranju novega tipa področja.
+          success: Tip področja uspešno kreiran.
+        destroy:
+          success: Tip področja uspešno izbrisan
+        edit:
+          title: Uredi tip področja
+        new:
+          create: Ustvari tip področja
+          title: Novo področje

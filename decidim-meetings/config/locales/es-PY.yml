@@ -88,6 +88,8 @@ es-PY:
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -412,6 +414,7 @@ es-PY:
           attendees: Número de asistentes
           back: Volver al listado
           contributions: Número de contribuciones
+          date: Fecha
           edit_meeting: Editar el encuentro
           going: Yendo
           join: Inscribirse al encuentro

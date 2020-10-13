@@ -412,6 +412,7 @@ it:
           attendees: Conteggio dei partecipanti
           back: Torna alla lista
           contributions: Conteggio dei contributi
+          date: Data
           edit_meeting: Modifica la riunione
           going: Parteciperò
           join: Partecipa alla riunione

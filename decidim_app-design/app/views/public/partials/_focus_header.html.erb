@@ -1,19 +1,19 @@
 <div class="focus__header">
   <div class="row">
   <% if locals[:step] == 1 %>
-    <div class="focus__steps"><strong>Pregunta 1</strong> de 4</div>
+    <div class="focus__steps"><strong>Question 1</strong> of 3</div>
   <% elsif locals[:step] == 2 %>
-    <div class="focus__steps"><strong>Pregunta 2</strong> de 4</div>
+    <div class="focus__steps"><strong>Question 2</strong> of 3</div>
   <% elsif locals[:step] == 3 %>
-    <div class="focus__steps"><strong>Pregunta 3</strong> de 4</div>
-  <% elsif locals[:step] == 4 %>
-    <div class="focus__steps"><strong>Pregunta 4</strong> de 4</div>
+    <div class="focus__steps"><strong>Question 3</strong> of 3</div>
+  <% elsif locals[:step] == 'edit' %>
+    <div class="focus__steps"><strong>Edit your vote</strong></div>
   <% elsif locals[:step] == 'confirm' || locals[:step] == 'encrypting' %>
-    <div class="focus__steps"><strong>Confirmar votación</strong></div>
+    <div class="focus__steps"><strong>Confirm your vote</strong></div>
   <% elsif locals[:step] == 'confirmed' %>
-    <div class="focus__steps"><strong>Votación confirmada</strong></div>
+    <div class="focus__steps"><strong>Vote confirmed</strong></div>
   <% elsif locals[:step] == 'verify' %>
-    <div class="focus__steps"><strong>Verifica tu voto</strong></div>
+    <div class="focus__steps"><strong>Verify your vote</strong></div>
   <% end %>
   <div class="heading5 focus__header-title">
       Consulta sobre el sistema de organización del Comité de Fiestas del Barrio del Fort Pienc

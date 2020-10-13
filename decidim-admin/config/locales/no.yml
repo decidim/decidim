@@ -2,7 +2,7 @@
   activemodel:
     attributes:
       area:
-        area_type: Områdetype
+        area_type: Nivå
         name: Navn
         organization: Organisasjon
       area_type:
@@ -13,6 +13,7 @@
         attachment_collection_id: Mapper
         description: Beskrivelse
         file: Fil
+        title: Vedlegg eller bildenavn
       attachment_collection:
         description: Beskrivelse
         name: Navn
@@ -28,38 +29,36 @@
       newsletter:
         body: Tekst
         subject: Emne
-      oauth_application:
-        name: Navn
-        organization_logo: Organisasjonslogo (Firkant)
-        organization_name: Navn på organisasjonen
-        organization_url: Orginasjonens URL
-        redirect_uri: Omdiriger URI
       organization:
         address: SMTP vertsnavn
         alert_color: Varsel
-        badges_enabled: Aktiver merker
-        cta_button_path: Kall til Handlingsknappens vei
-        cta_button_text: Kall til Handlingsknappens tekst
-        customize_welcome_notification: Tilpass dine velkomst varsler
-        default_locale: Standard språk
+        badges_enabled: Aktiver utmerkelse
+        comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
+        cta_button_path: Sti for handlingsknapp
+        cta_button_text: Tekst til handlingsknapp
+        customize_welcome_notification: Tilpass dine velkomstvarsler
+        default_locale: Standardspråk
         description: Beskrivelse
-        enable_omnipresent_banner: Vis enerådende banner
+        enable_omnipresent_banner: Vis overstyrende banner
         facebook_handler: Facebook brukernavn
         favicon: Ikon
         from: Fra e-postadresse
         github_handler: GitHub brukernavn
-        header_snippets: Topptekstutdrag
+        header_snippets: Utdrag topptekst
         highlight_alternative_color: Fremhev, alternativ
         highlight_color: Fremhev
         highlighted_content_banner_action_subtitle: Handlingsknapp undertittel
         highlighted_content_banner_action_title: Handlingsknapp tittel
         highlighted_content_banner_action_url: Handlingsknapp URL
-        highlighted_content_banner_enabled: Vis det markerte innholdsbanner
+        highlighted_content_banner_enabled: Vis markert innholdsbanner
         highlighted_content_banner_image: Bilde
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Tittel
         instagram_handler: Instagram brukernavn
         logo: Logo
+        machine_translation_display_priority: Maskinoversettelse viser prioritet
+        machine_translation_display_priority_original: Orginal tekst først
+        machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
         official_img_footer: Offisiell logo footer
         official_img_header: Offisiell logo header
@@ -90,8 +89,8 @@
         name: Navn
         organization: Organisasjon
         parent_id: Forelder
-        scope_type: Omfangstype
-        scope_type_id: Omfangstype
+        scope_type: Tematype
+        scope_type_id: Tematype
       scope_type:
         name: Navn
         organization: Organisasjon
@@ -113,10 +112,6 @@
         file: Fil
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Omdirigerings URI må være en SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -148,6 +143,7 @@
         per_page: Per side
         permissions: Tillatelser
         reject: Avvis
+        share: Del
         verify: Verifiser
       admin_terms_of_use:
         accept:
@@ -319,11 +315,13 @@
             'false': Publisert
             'true': Avpublisert
         scope_id_eq:
-          label: Omfang
+          label: Tema
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
           title_cont: Søk %{collection} etter tittel.
+        state_eq:
+          label: Tilstand
       help_sections:
         error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
@@ -386,10 +384,9 @@
         homepage: Hjemmeside
         impersonations: Etterligninger
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth applikasjoner
         participants: Deltakere
-        scope_types: Omfangstyper
-        scopes: Omfang
+        scope_types: Tematyper
+        scopes: Tema
         settings: Innstillinger
         static_pages: Sider
         user_groups: Grupper
@@ -433,21 +430,23 @@
             sent_to: Send til
             subject: Emne
           name: Nyhetsbrev
-        oauth_application:
-          fields:
-            created_at: Opprettet på
-            name: Navn
-          name: OAuth applikasjon
         participatory_space_private_user:
           name: Deltakerområdets private deltaker
         scope:
           fields:
             name: Navn
-            scope_type: Omfangstype
+            scope_type: Tematype
         scope_type:
           fields:
             name: Navn
             plural: Flertall
+        share_token:
+          fields:
+            created_at: Opprettet i
+            expires_at: Utløper
+            last_used_at: Sist brukt
+            times_used: Ganger brukt
+            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -508,7 +507,7 @@
           confirm_delete: Er du sikker på at du vil slette dette nyhetsbrevet?
           followers: 'følgere '
           has_been_sent_to: 'Har blitt sendt til: '
-          no_scopes: Ingen omfang
+          no_scopes: Ingen tema
           not_sent: Ikke sendt
           participants: 'deltakere '
           segmented_to: 'Segmentert til %{subject}: '
@@ -526,8 +525,8 @@
           none: Ingen
           participants_help: Sender nyhetsbrev til alle bekreftede brukere som har deltatt i noen av de valgte deltakerområdene på listen.
           recipients_count: Dette nyhetsbrevet vil bli sendt til <strong id='recipients_count'>%{count}</strong> brukere.
-          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte omfangene aktivert i kontoens "Mine interesser" innstillinger.
-          select_scopes: Filtrer for brukere som har aktivert et valgt omfang i innstillingene for Mine interesser.
+          scopes_help: Sender nyhetsbrev til brukere som har noen av de valgte temaene aktivert i kontoens "Mine interesser" innstillinger.
+          select_scopes: Filtrer for brukere som har aktivert et valgt tema i innstillingene for Mine interesser.
           select_spaces: Velg rom for å segmentere nyhetsbrevet
           select_users: Velg hvilke brukere du vil sende nyhetsbrevet
           send_to_all_users: Send til alle brukere
@@ -544,25 +543,6 @@
         update:
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
-      oauth_applications:
-        create:
-          error: Det oppstod et problem med å oppdatere denne applikasjonen.
-          success: Søknaden ble opprettet.
-        destroy:
-          error: Det oppstod et problem med å ødelegge denne applikasjonen.
-          success: Søknaden ble ødelagt.
-        edit:
-          save: Lagre
-          title: Rediger applikasjon
-        index:
-          confirm_delete: Er du sikker på at du vil slette dette programmet?
-          title: OAuth applikasjoner
-        new:
-          save: Lagre
-          title: Ny applikasjon
-        update:
-          error: Det oppstod et problem med å oppdatere denne applikasjonen.
-          success: Søknaden ble oppdatert.
       officializations:
         create:
           success: Deltaker ble offisialisert
@@ -648,7 +628,6 @@
           invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
-          explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
           title: Last opp din CSV fil
           upload: Last opp
       resource_permissions:
@@ -659,35 +638,39 @@
           success: Tillatelsene ble oppdatert.
       scope_types:
         create:
-          error: Det oppstod et problem med å lage en ny omfangstype.
-          success: Omfangstypen ble opprettet.
+          error: Det oppstod et problem med å lage en ny tematype.
+          success: Tematypen ble opprettet.
         destroy:
-          success: Omfangstype ble ødelagt
+          success: Temastypen ble ødelagt
         edit:
-          title: Rediger omfangstype
+          title: Rediger tematype
           update: Oppdater
         new:
-          create: Opprett omfangstype
-          title: Nytt omfang
+          create: Opprett tematype
+          title: Nytt tema
         update:
-          error: Det oppstod et problem med å oppdatere denne omfangstypen.
-          success: Omfangstypen ble oppdatert
+          error: Det oppstod et problem med å oppdatere denne tematypen.
+          success: Tematypen ble oppdatert
       scopes:
         create:
-          error: Det oppstod et problem med å opprette et nytt omfang.
-          success: Omfang ble opprettet.
+          error: Det oppstod et problem med å opprette et nytt tema.
+          success: Tema ble opprettet.
         destroy:
-          success: Omfanget ble ødelagt
+          success: Temaet ble ødelagt
         edit:
-          title: Rediger omfang
+          title: Rediger tema
           update: Oppdater
         new:
-          create: Opprett omfang
-          title: Nytt omfang
-        no_scopes: Ingen omfang på dette nivået.
+          create: Opprett tema
+          title: Nytt tema
+        no_scopes: Ingen tema på dette nivået.
         update:
-          error: Det oppstod et problem med å oppdatere dette omfanget.
-          success: Omfanget ble oppdatert
+          error: Det oppstod et problem med å oppdatere dette temaet.
+          success: Temaet ble oppdatert
+      share_tokens:
+        actions:
+          destroy: Slett
+          share: Del
       shared:
         gallery:
           add_images: Legg til bilder
@@ -746,8 +729,8 @@
         impersonations: Deltakernes administrasjon
         metrics: Måltall
         participants: Deltakere
-        scope_types: Omfangstyper
-        scopes: Omfang
+        scope_types: Tematyper
+        scopes: Tema
         static_pages: Sider
         statistics: Aktivitet
         user_groups: Grupper

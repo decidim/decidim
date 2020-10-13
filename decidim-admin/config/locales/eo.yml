@@ -1,0 +1,51 @@
+eo:
+  activemodel:
+    attributes:
+      area:
+        area_type: Areo tipo
+        name: Nomo
+        organization: Organizo
+      area_type:
+        name: Nomo
+        organization: Organizo
+        plural: Multnombro
+      attachment:
+        attachment_collection_id: Dosierujo
+        description: Priskribo
+        file: Dosiero
+      attachment_collection:
+        description: Priskribo
+        name: Nomo
+      category:
+        description: Priskribo
+        name: Nomo
+        parent_id: Gepatro
+      component:
+        name: Nomo
+        published_at: Eldonita ĉe
+        weight: Pezo
+      id: ID
+      newsletter:
+        body: Korpo
+        subject: Temo
+  decidim:
+    admin:
+      actions:
+        new: Nova %{name}
+      managed_users:
+        promotions:
+          new:
+            explanation: Administritaj partoprenantoj povas esti promociitaj al normaj partoprenantoj. Ĝi signifas, ke ili estos invititaj al la sistemo kaj vi ne povos administri ilin denove. La invitita partoprenanto ricevos retpoŝton por akcepti vian inviton.
+            new_managed_user_promotion: Nova administrita partoprenanto-promocio
+      models:
+        impersonation_log:
+          fields:
+            ended_at: Finita je
+        participatory_space_private_user:
+          name: Privata partoprenanto
+        user_group:
+          fields:
+            document_number: Dokumento Nombro
+      newsletters:
+        select_recipients_to_deliver:
+          all_users_help: Sendu la informilon al ĉiuj konfirmitaj partoprenantoj.

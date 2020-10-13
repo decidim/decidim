@@ -8,9 +8,10 @@ module Decidim::Budgets
 
     let(:user) { create(:user) }
     let(:participatory_process) { create :participatory_process, :with_steps, organization: user.organization }
-    let(:component) { create(:budget_component, participatory_space: participatory_process, settings: settings) }
-    let(:project) { create(:project, component: component, budget: 60_000) }
-    let(:settings) { { "total_budget" => 100_000, vote_threshold_percent: 50 } }
+    let(:component) { create(:budgets_component, participatory_space: participatory_process, settings: settings) }
+    let(:budget) { create(:budget, component: component, total_budget: 100_000) }
+    let(:project) { create(:project, budget: budget, budget_amount: 60_000) }
+    let(:settings) { { vote_threshold_percent: 50 } }
     let(:order) { nil }
 
     context "when everything is ok" do
@@ -19,7 +20,7 @@ module Decidim::Budgets
       end
 
       context "when a order for the current user does exist" do
-        let!(:order) { create(:order, user: user, component: component) }
+        let!(:order) { create(:order, user: user, budget: budget) }
 
         it "doesn't create a new order" do
           expect { subject.call }.not_to change(Order, :count)
@@ -41,13 +42,13 @@ module Decidim::Budgets
 
     context "when the order is checked out" do
       let(:projects) do
-        build_list(:project, 2, budget: 30_000, component: component)
+        build_list(:project, 2, budget_amount: 30_000, budget: budget)
       end
 
       let!(:order) do
         order = create(:order,
                        user: user,
-                       component: component)
+                       budget: budget)
         order.projects << projects
         order.checked_out_at = Time.current
         order.save!
@@ -60,7 +61,8 @@ module Decidim::Budgets
     end
 
     context "when the votes are not enabled" do
-      let(:component) { create(:budget_component, :with_votes_disabled, participatory_space: participatory_process, settings: settings) }
+      let(:component) { create(:budgets_component, :with_votes_disabled, participatory_space: participatory_process, settings: settings) }
+      let!(:budget) { create(:budget, component: component, total_budget: 100_000) }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)

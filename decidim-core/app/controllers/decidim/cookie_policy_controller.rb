@@ -6,9 +6,12 @@ module Decidim
     skip_before_action :store_current_location
 
     def accept
-      response.set_cookie "decidim-cc", value: "true",
-                                        path: "/",
-                                        expires: 1.year.from_now.utc
+      response.set_cookie(
+        Decidim.config.consent_cookie_name,
+        value: "true",
+        path: "/",
+        expires: 1.year.from_now.utc
+      )
 
       respond_to do |format|
         format.js

@@ -6,16 +6,12 @@ module Decidim
     class InitiativeStatsPresenter < Rectify::Presenter
       attribute :initiative, Decidim::Initiative
 
-      def supports_count
-        initiative.initiative_supports_count
-      end
-
       def comments_count
         Rails.cache.fetch(
           "initiative/#{initiative.id}/comments_count",
           expires_in: Decidim::Initiatives.stats_cache_expiration_time
         ) do
-          Decidim::Comments::Comment.where(root_commentable: initiative).count
+          initiative.comments_count
         end
       end
 

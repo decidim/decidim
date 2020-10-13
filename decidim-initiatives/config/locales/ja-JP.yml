@@ -70,20 +70,8 @@ ja:
       actions:
         new_initiative_type: 新しいイニシアチブタイプ
       filters:
-        decidim_area_id_eq:
-          label: エリア
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
-        state_eq:
-          values:
-            accepted: 十分な署名
-            created: 作成済み
-            discarded: 破棄しました
-            published: 公開済み
-            rejected: 十分な署名がありません
-            validating: 技術的検証
-        type_id_eq:
-          label: タイプ
       menu:
         initiatives: 取り組み
         initiatives_types: イニシアティブの種類
@@ -168,6 +156,8 @@ ja:
     help:
       participatory_spaces:
         initiatives:
+          contextual: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
+          page: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
           title: イニシアチブとは？
     initiatives:
       actions:
@@ -284,6 +274,8 @@ ja:
           accepted: 十分な署名
           all: すべて
           answered: 回答済み
+          closed: 終了
+          open: 公開
           rejected: 十分な署名がありません
         filter_type_values:
           all: すべて
@@ -300,6 +292,7 @@ ja:
         fill_data:
           back: 戻る
           continue: 続ける
+          fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。件名はわかりやすいですか? イニシアチブの目的は明確ですか? </li> <li>署名の種類を選択する必要があります。直接署名、オンライン署名、または両方の組み合わせ</li> <li>イニシアチブの対象範囲はどのようなものですか? 市ですか？地区ですか?</li></ul>"
           initiative_type: イニシアティブの種類
           more_information: "(詳細)"
           select_area: エリアを選択
@@ -408,6 +401,14 @@ ja:
           unfold: 展開する
         index_header:
           new_initiative: 新たなイニシアチブを作成
+          not_authorized:
+            authorizations_page: 権限を表示
+            close: 閉じる
+            explanation: 新しいイニシアチブを作成するには、認証が必要です。
+            title: 認証が必要です
+        initiatives:
+          closed_initiatives_warning: 現在、オープンなイニシアチブはありませんが、ここに記載されているすべてのクローズドイニシアチブを見つけることができます。
+          no_initiatives_warning: 検索基準に一致するイニシアチブは見つかりませんでした
         interactions:
           comments_count:
             count:
@@ -445,6 +446,8 @@ ja:
           vote: サイン
           votes_blocked: サインインが無効になりました
         votes_count:
+          count:
+            other: 署名
           most_popular_initiative: 最も人気のあるイニシアチブです
           need_more_votes: もっと署名が必要です
       initiatives_mailer:

@@ -1,7 +1,7 @@
 pl:
   activemodel:
     models:
-      decidim/surveys/closed_survey_event: Ankieta zakończyła się
+      decidim/surveys/closed_survey_event: Ankieta zamknięta
       decidim/surveys/opened_survey_event: Rozpoczęto ankietę
   activerecord:
     models:
@@ -24,37 +24,43 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
+            clean_after_publish: Usuń odpowiedzi podczas publikowania ankiety
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
-            allow_answers: Pozwól odpowiedzi
+            allow_answers: Pozwól na wypełnianie
+            allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
+            allow_unregistered_help: Jeśli jest aktywna, do wypełnienia ankiety nie będzie wymagane logowanie. Może to doprowadzić do słabej jakości lub niewiarygodnych danych i ankieta będzie bardziej podatna na automatyczne ataki. Zalecamy ostrożność!
             announcement: Ogłoszenie
     events:
       surveys:
         survey_closed:
           email_intro: Ankieta %{resource_title} w %{participatory_space_title} została zamknięta.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Ankieta zakończyła się w %{participatory_space_title}
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Ankieta w %{participatory_space_title} została zakończona
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> została zakończona.
         survey_opened:
-          email_intro: 'Ankieta %{resource_title} w %{participatory_space_title} jest teraz otwarta. Możesz wziąć w nim udział z tej strony:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_intro: 'Ankieta %{resource_title} w %{participatory_space_title} jest teraz otwarta. Możesz ją wypełnić na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Nowa ankieta w %{participatory_space_title}
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
     metrics:
       survey_answers:
-        description: Liczba ankiet odebranych przez użytkowników
+        description: Liczba ankiet wypełnionych przez użytkowników
         object: odpowiedzi na ankiety
         title: Odpowiedzi na ankiety
     surveys:
       admin:
         exports:
-          survey_user_answers: Odpowiedzi na pytania użytkowników
+          survey_user_answers: Odpowiedzi użytkowników na pytania z ankiety
         surveys:
           update:
-            invalid: Podczas zapisywania ankiety wystąpiły błędy.
+            invalid: Podczas zapisywania ankiety wystąpił błąd.
             success: Ankieta została zapisana pomyślnie.
       last_activity:
-        new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
+        new_survey_at_html: "<span>Nowa ankieta %{link}</span>"
       surveys:
         answer:
-          invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
-          success: Twoja ankieta została przesłana.
+          invalid: Podczas wypełniania ankiety pojawił się błąd.
+          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
+          success: Twoja ankieta została wypełniona.

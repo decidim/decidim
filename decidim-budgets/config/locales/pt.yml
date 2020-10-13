@@ -2,7 +2,6 @@ pt:
   activemodel:
     attributes:
       project:
-        budget: Orçamento
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -22,7 +21,6 @@ pt:
         destroy: Eliminar
         edit: Editar
         import: Importar propostas para projetos
-        new: Novo projeto
         preview: Pré-visualização
         title: Ações
       admin:
@@ -69,11 +67,8 @@ pt:
         order_summary:
           selected_projects: 'Os projetos que selecionou são:'
           subject: Votou no espaço participativo %{space_name}
-          voted_on_space: Votou nos orçamentos para o espaço participativo %{space_name}.
-          voted_on_space_with_scope: Votou nos orçamentos para o espaço participativo %{space_name} em %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Você concorda? Depois de confirmar o seu voto, não pode alterá-lo.
           cancel: Cancelar
           confirm: Confirmar
           description: Estes são os projetos que escolheu para fazer parte do orçamento.
@@ -121,10 +116,14 @@ pt:
           most_voted: Mais votado
           random: Ordem aleatória
         project:
-          count:
-            one: 1 suporta
-            other: "%{count} suportam"
+          add: Adicionar projeto %{resource_name} à sua votação
+          remove: Remover projeto %{resource_name} da sua votação
           view: Visualização
+        project_budget_button:
+          add: Adicionar à sua votação
+          add_descriptive: Adicionar projeto %{resource_name} à sua votação
+          added: Adicionado à sua votação
+          added_descriptive: Projeto %{resource_name} adicionado à sua votação
         show:
           budget: Orçamento
           view_all_projects: Ver todos os projetos
@@ -153,7 +152,8 @@ pt:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
             show_votes: Mostrar votos
-            votes_enabled: Votação habilitada
+            votes_choices:
+              enabled: Votação habilitada
     orders:
       checkout:
         error: Ocorreu um problema ao processar o seu voto

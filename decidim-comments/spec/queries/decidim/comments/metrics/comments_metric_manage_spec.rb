@@ -12,6 +12,8 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
   let!(:comments) { create_list(:comment, 5, created_at: day, author: author, commentable: commentable) }
   let!(:old_comments) { create_list(:comment, 5, created_at: day - 1.week, author: author, commentable: commentable) }
 
+  include_context "when managing metrics"
+
   context "when executing" do
     it "creates new metric records" do
       registry = generate_metric_registry
@@ -37,9 +39,4 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
       expect(registry.collect(&:quantity)).to eq([5])
     end
   end
-end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.new(date, organization)
-  metric.save
 end

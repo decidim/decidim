@@ -1,7 +1,7 @@
 #import "../fragments/comment.fragment.graphql"
 
-mutation DownVote($id: ID!) {
-  comment(id: $id) {
+mutation DownVote($id: ID!, $locale: String!, $toggleTranslations: Boolean!) {
+  comment(id: $id, locale: $locale, toggleTranslations: $toggleTranslations) {
     downVote {
       ...Comment
     }

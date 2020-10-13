@@ -8,15 +8,15 @@
         copy_categories: Kopier kategorier
         copy_components: Kopier komponenter
         copy_features: Kopier funksjoner
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         description: Beskrivelse
         hashtag: Hastag
         hero_image: Hjem bilde
         participatory_processes_ids: Relaterte deltakerprosesser
         promoted: Fremhevet
         published_at: Publisert på
-        scope_id: Omfang
-        scopes_enabled: Omfang aktivert
+        scope_id: Tema
+        scopes_enabled: Aktiverte temaer
         short_description: Kort beskrivelse
         show_statistics: Vis statistikk
         slogan: Slagord
@@ -183,6 +183,7 @@
             admin: Administrator
             collaborator: Samarbeidspartner
             moderator: Moderator
+            valuator: Takstmann
         media_link:
           fields:
             date: Dato
@@ -461,6 +462,9 @@
             active_conferences: Aktive konferanser
             see_all_conferences: Se alle konferanser
       photo:
+        image:
+          attributes:
+            alt: Media bilde
         show:
           close_modal: Lukk modal
           photo: Bilde
@@ -524,6 +528,11 @@
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.
           email_subject: Konferansen "%{resource_title}" har muliggjort registreringer.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansen har muliggjort registreringer.
+        role_assigned:
+          email_intro: Du har blitt utnevnt som %{role} for prosessen "%{resource_title}".
+          email_outro: Du har mottatt dette varselet fordi du er %{role} av konferansen%{resource_title}.
+          email_subject: Du har blitt utnevnt som %{role} for "%{resource_title}".
+          notification_title: Du har blitt utnevnt som %{role} for konferansen <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'Konferansen "%{resource_title}" holdes om 2 dager. Du kan lese beskrivelsen fra siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger "%{resource_title}" konferansen. Du kan slutte å følge den fra den forrige lenken.

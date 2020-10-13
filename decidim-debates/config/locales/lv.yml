@@ -1,0 +1,135 @@
+lv:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorija
+        decidim_category_id: Kategorija
+        description: Apraksts
+        end_time: Beidzas plkst.
+        information_updates: Informācijas atjauninājumi
+        instructions: Norādījumi dalībai
+        start_time: Sākas plkst.
+        title: Nosaukums
+        user_group_id: Izveidojiet debates kā
+    models:
+      decidim/debates/create_debate_event: Debates
+      decidim/debates/creation_disabled_event: Debates ir atspējotas
+      decidim/debates/creation_enabled_event: Debates ir iespējotas
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Izveidot
+        settings:
+          global:
+            announcement: Paziņojums
+            comments_enabled: Komentāri ir iespējoti
+          step:
+            announcement: Paziņojums
+            comments_blocked: Komentāri ir bloķēti
+            creation_enabled: Iespējota dalībnieku debašu veidošana
+    debates:
+      actions:
+        confirm_destroy: Vai esat pārliecināts?
+        destroy: Dzēst
+        edit: Labot
+        new: Jauns %{name}
+        title: Darbības
+      admin:
+        debates:
+          create:
+            invalid: Debašu izveides laikā radās problēma.
+            success: Debates ir veiksmīgi izveidotas.
+          destroy:
+            success: Debates ir veiksmīgi dzēstas.
+          edit:
+            title: Rediģēt debates
+            update: Atjaunināt debates
+          new:
+            create: Izveidot debates
+            title: Jaunas debates
+          update:
+            invalid: Šo debašu atjaunināšanas laikā radās problēma.
+            success: Debates ir veiksmīgi atjauninātas
+        models:
+          debate:
+            name: Debates
+      admin_log:
+        debate:
+          create: "%{user_name} izveidoja %{resource_name} debates telpā %{space_name}"
+          update: "%{user_name} atjaunināja %{resource_name} debates telpā %{space_name}"
+      debates:
+        create:
+          invalid: Debašu izveides laikā radās problēma.
+          success: Debates ir veiksmīgi izveidotas.
+        debate:
+          participate: Piedalīties
+        filters:
+          all: Visi
+          category: Kategorija
+          category_prompt: Izvēlieties kategoriju
+          citizens: Pilsoņi
+          official: Oficiālā
+          origin: Izcelsme
+          search: Meklēt
+        filters_small_view:
+          close_modal: Aizvērt modal
+          filter: Filtrēt
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        index:
+          new_debate: Jaunas debates
+        new:
+          back: Atpakaļ
+          create: Izveidot
+          title: Jaunas debates
+        show:
+          back: Atpakaļ uz sarakstu
+      last_activity:
+        new_debate_at_html: "<span>Jaunas debates %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Beigu datums
+            official_debate: Oficiālās debates
+            start_time: Sākuma datums
+            title: Nosaukums
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Sveiki, %{space_title} līdzdalības telpā ir izveidotas jaunas debates "%{resource_title}", aplūkojiet tās un piedalieties:
+            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+            email_subject: Jaunas debates "%{resource_title}" par %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> debates tika izveidotas telpā <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Sveiki,%{author_name}%{author_nickname}, kam jūs sekojat, ir izveidojis jaunas debates "%{resource_title}". Aplūkojiet tās un piedalieties:
+            email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+            email_subject: Jaunas debates "%{resource_title}", ko iesniedza %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> izveidoja <a href="%{resource_path}">%{resource_title}</a> debates.
+        creation_disabled:
+          email_intro: 'Debašu izveidošana vairs nav pieejama telpā %{participatory_space_title}. Jūs joprojām varat piedalīties atklātajās debatēs šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Debašu izveidošana ir atspējota telpā %{participatory_space_title}
+          notification_title: Debašu izveidošana tagad ir atspējota <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Tagad jūs varat sākt jaunas debates telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Debates tagad ir pieejamas telpā %{participatory_space_title}
+          notification_title: Tagad jūs varat sākt <a href="%{resource_path}"> jaunas debates </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - Izvēlieties kādas no atvērtajām debatēm, lai piedalītos
+          description: Šis žetons tiek piešķirts, kad jūs aktīvi piedalāties dažādās debatēs, ievietojot tajās komentārus.
+          description_another: Šis dalībnieks ir piedalījies %{score} debatēs.
+          description_own: Jūs esat piedalījies %{score} debatēs.
+          next_level_in: Piedalieties %{score} debatēs vēlreiz, lai sasniegtu nākamo līmeni!
+          unearned_another: Šis dalībnieks vēl nav piedalījies nevienās debatēs.
+          unearned_own: Jūs vēl neesat piedalījies nevienās debatēs.
+    metrics:
+      debates:
+        description: Izveidoto debašu skaits

@@ -9,10 +9,6 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :text_field, :subtitle %>
-    </div>
-
-    <div class="row column">
       <%= form.translated :editor, :description %>
     </div>
 
@@ -24,5 +20,7 @@
         <%= form.datetime_field :end_time %>
       </div>
     </div>
+
+    <%= render partial: "decidim/admin/shared/gallery", locals: { form: form } %>
   </div>
 </div>

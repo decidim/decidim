@@ -79,23 +79,33 @@ fi:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tyyppi
-          values:
-            'false': Ehdotukset
-            'true': Muutokset
+        proposals:
+          category_id_eq:
+            label: Aihepiiri
+          is_emendation_true:
+            label: Tyyppi
+            values:
+              'false': Ehdotukset
+              'true': Muutokset
+          scope_id_eq:
+            label: Teema
+          state_eq:
+            label: Tila
+            values:
+              accepted: Hyväksytty
+              evaluating: Arvioitavana
+              published: Julkaistu
+              rejected: Hylätty
+              validating: Teknisessä validoinnissa
+              withdrawn: Peruutettu
+          state_null:
+            label: Tila
+            values:
+              'true': Vastaamaton
+          valuator_role_ids_has:
+            label: Annettu tehtäväksi arvioijalle
         search_placeholder:
           id_string_or_title_cont: '%{collection}: Hae ID-numeron tai otsikon perusteella'
-        state_eq:
-          values:
-            evaluating: Arvioitavana
-            withdrawn: Peruutettu
-        state_null:
-          label: Tila
-          values:
-            'true': Vastaamaton
-        valuator_role_ids_has:
-          label: Annettu tehtäväksi arvioijalle
     components:
       proposals:
         actions:
@@ -134,6 +144,8 @@ fi:
             proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Viimeistele" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
             threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien kannatusten määrä käyttäjää kohden
           step:
@@ -779,7 +791,7 @@ fi:
           empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
         show:
           answer: Vastaus
-          back_to: Takaisin
+          back_to: Takaisin sivulle
           back_to_list: Takaisin listaan
           changes_at_title: Muokkaus kohteelle "%{title}"
           comments: Kommentit

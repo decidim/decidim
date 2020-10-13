@@ -13,6 +13,7 @@ hu:
         attachment_collection_id: Mappa
         description: Leírás
         file: Fájl
+        title: Melléklet vagy kép neve
       attachment_collection:
         description: Leírás
         name: Név
@@ -28,16 +29,11 @@ hu:
       newsletter:
         body: Szöveg
         subject: Tárgy
-      oauth_application:
-        name: Név
-        organization_logo: Szervezet logója (négyzet)
-        organization_name: Szervezet neve
-        organization_url: Szervezet URL
-        redirect_uri: Redirect URI
       organization:
         address: SMTP host név
         alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
+        comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
         cta_button_path: Felhívás gomb elérési útvonala
         cta_button_text: Felhívás gomb szövege
         customize_welcome_notification: Az üdvözlő értesítések testreszabása
@@ -49,6 +45,8 @@ hu:
         from: Küldő email címe
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
+        highlight_alternative_color: Kiemelés, alternatíva
+        highlight_color: Kiemelés
         highlighted_content_banner_action_subtitle: Felhívás gomb alcíme
         highlighted_content_banner_action_title: Felhívás gomb szövege
         highlighted_content_banner_action_url: Felhívás gomb URL
@@ -58,6 +56,9 @@ hu:
         highlighted_content_banner_title: Cím
         instagram_handler: Instagram handler
         logo: Logó
+        machine_translation_display_priority: A gépi fordítás megjelenítési prioritása
+        machine_translation_display_priority_original: Először az eredeti szöveg
+        machine_translation_display_priority_translation: Először a lefordított szöveg
         name: Név
         official_img_footer: Hivatalos logó lábléc
         official_img_header: Hivatalos logó fejléc
@@ -111,10 +112,6 @@ hu:
         file: Fájl
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Az átirányítási URI-nak SSL URI-nak kell lennie
         organization:
           attributes:
             official_img_footer:
@@ -291,6 +288,11 @@ hu:
           welcome: Üdvözöljük a Decidim Admin Panelben.
       exports:
         export_as: "%{name} mint %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Az exportálás folyamatban. Amint elkészült, egy emailt fogsz kapni róla.
       filters:
         category_id_eq:
@@ -317,6 +319,8 @@ hu:
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
           title_cont: Keresés %{collection} cím alapján.
+        state_eq:
+          label: Állapot
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -379,7 +383,6 @@ hu:
         homepage: Homepage
         impersonations: Felhatalmazások
         newsletters: Hírlevelek
-        oauth_applications: OAuth alkalmazások
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
@@ -426,11 +429,6 @@ hu:
             sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
-        oauth_application:
-          fields:
-            created_at: 'Létrehozva:'
-            name: Név
-          name: OAuth alkalmazás
         participatory_space_private_user:
           name: Részvételi tér privát felhasználó
         scope:
@@ -479,6 +477,7 @@ hu:
           title: Hírlevél sablonok
           use_template: Sablon használata
         show:
+          preview: 'Sablon előnézet: %{template_name}'
           use_template: Sablon használata
       newsletters:
         create:
@@ -536,25 +535,6 @@ hu:
         update:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
-      oauth_applications:
-        create:
-          error: Hiba történt az alkalmazás létrehozása során.
-          success: Alkalmazás létrehozása sikeres.
-        destroy:
-          error: Hiba történt az alkalmazás eltávolítása során.
-          success: Alkalmazás eltávolítása sikeres.
-        edit:
-          save: Mentés
-          title: Alkalmazás szerkesztése
-        index:
-          confirm_delete: Biztosan törölni szeretnéd ezt az alkalmazást?
-          title: OAuth alkalmazások
-        new:
-          save: Mentés
-          title: Új alkalmazás
-        update:
-          error: Hiba történt az alkalmazás frissítése során.
-          success: Alkalmazás frissítse sikeres.
       officializations:
         create:
           success: A felhasználó hivatalos lett
@@ -578,6 +558,7 @@ hu:
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
+          close_modal: Ablak bezárás
           description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
@@ -640,7 +621,6 @@ hu:
           invalid: Hiba történt a CSV fájl olvasásakor.
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
-          explanation: Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában a névvel (e-mail, név) azoknak a felhasználóknak, akiket fel akar venni a részvételi térbe, fejlécek nélkül.
           title: Töltse fel a CSV fájlod
           upload: Feltölt
       resource_permissions:
@@ -684,6 +664,7 @@ hu:
         gallery:
           add_images: Képek hozzáadása
           delete_image: Kép törlése
+          gallery_legend: Képgaléria hozzáadása (opcionális)
       static_page_topics:
         create:
           error: Hiba történt egy új téma létrehozásakor.

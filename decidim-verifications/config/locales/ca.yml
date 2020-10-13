@@ -110,7 +110,7 @@ ca:
           cancel: Cancel·lar
           close: Tanca
           continue: Continua
-          info_renew: Si vols actualitzar les dades, continueu amb la renovació
+          info_renew: Si vols actualitzar les dades, continua amb la renovació
           title: Renova la verificació
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar

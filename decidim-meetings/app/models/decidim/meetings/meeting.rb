@@ -10,19 +10,21 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::HasReference
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
       include Decidim::Reportable
       include Decidim::Authorable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -34,7 +36,7 @@ module Decidim
 
       validates :title, presence: true
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
+      geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
@@ -47,20 +49,6 @@ module Decidim
                                   }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
-
-      scope :official_origin, lambda {
-        where(decidim_author_type: "Decidim::Organization")
-      }
-
-      scope :user_group_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where.not(decidim_user_group_id: nil)
-      }
-
-      scope :citizens_origin, lambda {
-        where(decidim_author_type: "Decidim::UserBaseEntity")
-          .where(decidim_user_group_id: nil)
-      }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,

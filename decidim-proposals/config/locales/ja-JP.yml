@@ -7,6 +7,7 @@ ja:
         category_id: カテゴリ
         decidim_scope_id: スコープ
         has_address: 住所有り
+        scope_id: 対象範囲
         state: 都道府県：
         title: タイトル
         user_group_id: 以下として共同ドラフトを作成します。
@@ -19,6 +20,7 @@ ja:
         category_id: カテゴリ
         decidim_scope_id: スコープ
         has_address: 住所有り
+        scope_id: 対象範囲
         state: 都道府県：
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
@@ -73,23 +75,11 @@ ja:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: タイプ
-          values:
-            'false': 提案
-            'true': 修正
+        proposals:
+          valuator_role_ids_has:
+            label: 評価者にアサインされました
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
-        state_eq:
-          values:
-            evaluating: 評価
-            withdrawn: 引き落し
-        state_null:
-          label: ステータス
-          values:
-            'true': 応答がありません
-        valuator_role_ids_has:
-          label: 評価者にアサインされました
     components:
       proposals:
         actions:
@@ -118,6 +108,7 @@ ja:
             new_proposal_help_text: 新しい提案ヘルプテキスト
             official_proposals_enabled: 役職の提案は有効になっています
             participatory_texts_enabled: 参加者のテキストは有効です
+            participatory_texts_enabled_readonly: 既存の提案がある場合は、この設定は操作できません。 この機能を有効にする場合は、新しい `提案 コンポーネント` を作成し、もし無効にしたい場合はインポートされたすべての提案を `参加型 テキスト` メニューから破棄してください。
             proposal_answering_enabled: 提案の回答を有効にする
             proposal_edit_before_minutes: 提案は、この多くの分が経過する前に著者によって編集することができます
             proposal_length: 提案本文の最大長
@@ -186,10 +177,12 @@ ja:
           email_intro: <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの投稿者としてアクセスが拒否されました。
           email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
           email_subject: '%{resource_title} の貢献者として拒否されました。'
+          notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトを撤回しました。
           email_outro: <a href="%{resource_path}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同ドラフトを撤回しました。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が、共同草稿 <a href="%{resource_path}">%{resource_title}</a> を<strong>撤回しました。</strong>
         creation_enabled:
           email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -319,6 +312,9 @@ ja:
       participatory_process_groups:
         highlighted_proposals:
           proposals: 提案
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: すべての提案を見る (%{count})
     proposals:
       actions:
         answer_proposal: 提案に回答
@@ -352,12 +348,14 @@ ja:
             info_1: 次のセクションが提案に変換されました。公開する前に確認して調整できます。
             publish_document: 文書を公開
             save_draft: 下書きを保存
+            title: 参加者のテキストをプレビュー
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
             document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案に解析されます。提案書式は次のとおりです: %{valid_mime_types}'
+            title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
           publish:
             invalid: 提案を公開できませんでした
@@ -623,15 +621,23 @@ ja:
         update:
           error: 共同作業のドラフトを保存する際に問題が発生しました。
           success: 共同作業の下書きが正常に更新されました。
+          title: 共同草案の下書きを編集
         wizard_aside:
           back: 戻る
+          back_from_collaborative_draft: 共同草案に戻る
+          back_from_step_1: 共同草案に戻る
+          back_from_step_2: 共同草案に戻る
+          back_from_step_3: 共同草案の比較に戻る
+          back_from_step_4: 下書き編集に戻る
           info: <strong>共同ドラフト</strong>を作成しています。
         wizard_steps:
+          current_step: 現在のステップ
           see_steps: 手順を見る
           step_1: 共同作業の下書きを作成する
           step_2: 共同作業の下書きと比較
           step_3: 共同作業の下書きを完成させましょう
           step_of: '%{current_step_num} / %{total_steps}'
+          title: 共同草稿作成手順
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。ドラフトとして保存されました。
@@ -773,9 +779,12 @@ ja:
           read_more: もっと読む
           report: レポート
           withdraw_btn_hint: サポートを受けていない限り、気が変わった場合は提案を撤回することができます。 提案は削除されず、撤回された提案のリストに表示されます。
+          withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
           withdraw_proposal: 提案を撤回する
         tags:
           changed_from: "(管理者によって <u>%{previous_name}</u> から変更されました)"
+        update:
+          title: 提案を更新
         vote_button:
           already_voted: サポート済みです
           already_voted_hover: サポートを撤回する
@@ -784,6 +793,8 @@ ja:
           vote: サポート
           votes_blocked: サポートは無効です
         votes_count:
+          count:
+            other: サポート
           most_popular_proposal: 最も人気のある提案
           need_more_votes: さらにサポートが必要です
         voting_rules:
@@ -804,14 +815,20 @@ ja:
             votes: サポート
         wizard_aside:
           back: 戻る
+          back_from_step_1: 提案に戻る
+          back_from_step_2: 提案に戻る
+          back_from_step_3: 提案の比較に戻る
+          back_from_step_4: 下書き編集に戻る
           info: <strong>提案</strong> を作成しています。
         wizard_steps:
+          current_step: 現在のステップ
           see_steps: 手順を見る
           step_1: 提案を作成
           step_2: 比較
           step_3: Complete
           step_4: 提案を公開
           step_of: '%{current_step_num} / %{total_steps}'
+          title: 提案の作成手順
       proposals_picker:
         choose_proposals: 提案を選択
         close: 閉じる
@@ -829,8 +846,12 @@ ja:
         error: 共同作業のドラフトを保存する際に問題が発生しました。
         success: 提案ドラフトが正常に更新されました。
       versions:
+        collaborative_drafts:
+          back_to_resource: 共同草案に戻る
         index:
           title: バージョン
+        proposals:
+          back_to_resource: 提案に戻る
       withdraw:
         errors:
           has_supports: すでにサポートがあるため、この提案は撤回できません。

@@ -16,25 +16,19 @@ cs:
         title: Název přílohy nebo obrázku
       attachment_collection:
         description: Popis
-        name: název
+        name: Název
       category:
         description: Popis
-        name: název
+        name: Název
         parent_id: Nadřazená
       component:
-        name: název
+        name: Název
         published_at: Publikováno v
         weight: Váha
       id: ID
       newsletter:
         body: Tělo
         subject: Předmět
-      oauth_application:
-        name: Název
-        organization_logo: Logo organizace (čtverec)
-        organization_name: Název organizace
-        organization_url: URL organizace
-        redirect_uri: Přesměrování URI
       organization:
         address: SMTP hostname
         alert_color: Upozornění
@@ -62,6 +56,9 @@ cs:
         highlighted_content_banner_title: Titul
         instagram_handler: Instagram handler
         logo: Logo
+        machine_translation_display_priority: Priorita zobrazení strojového překladu
+        machine_translation_display_priority_original: Původní text přednostně
+        machine_translation_display_priority_translation: Přeložený text přednostně
         name: Název
         official_img_footer: Oficiální zápatí loga
         official_img_header: Oficiální záhlaví loga
@@ -89,13 +86,13 @@ cs:
         youtube_handler: YouTube handler
       scope:
         code: Kód
-        name: název
+        name: Název
         organization: Organizace
         parent_id: Nadřazený
-        scope_type: Typ rozsahu
-        scope_type_id: Typ rozsahu
+        scope_type: Typ oblasti působnosti
+        scope_type_id: Typ oblasti působnosti
       scope_type:
-        name: název
+        name: Název
         organization: Organizace
         plural: Množné číslo
       static_page:
@@ -115,10 +112,6 @@ cs:
         file: Soubor
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI přesměrování musí být URI SSL
         organization:
           attributes:
             official_img_footer:
@@ -138,7 +131,7 @@ cs:
         organization_name: Název organizace
         organization_url: URL organizace
         redirect_uri: Přesměrování URI
-        site: webová stránka
+        site: Webová stránka
   decidim:
     admin:
       actions:
@@ -150,6 +143,7 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        share: Sdílet
         verify: Ověřit
       admin_terms_of_use:
         accept:
@@ -277,6 +271,7 @@ cs:
           headers:
             actions: Akce
             name: Název komponenty
+            scope: Oblast působnosti komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu
@@ -321,7 +316,7 @@ cs:
             'false': Zveřejněno
             'true': Nezveřejněno
         scope_id_eq:
-          label: Rozsah
+          label: Oblast působnosti
         search_label: Vyhledávání
         search_placeholder:
           name_or_nickname_or_email_cont: Hledat %{collection} podle e-mailu, jména nebo přezdívky.
@@ -390,10 +385,9 @@ cs:
         homepage: Domovská stránka
         impersonations: Vydávání se za uživatele
         newsletters: Zpravodaje
-        oauth_applications: Žádosti OAuth
         participants: Účastníci
-        scope_types: Typy rozsahu
-        scopes: Rozsahy
+        scope_types: Typ oblasti působnosti
+        scopes: Oblasti působnosti
         settings: Nastavení
         static_pages: Stránky
         user_groups: Skupiny
@@ -405,10 +399,10 @@ cs:
         area:
           fields:
             area_type: Typ oblasti
-            name: název
+            name: Název
         area_type:
           fields:
-            name: název
+            name: Název
             plural: Množné číslo
         attachment:
           fields:
@@ -437,21 +431,24 @@ cs:
             sent_to: Odeslána
             subject: Předmět
           name: Zpravodaj
-        oauth_application:
-          fields:
-            created_at: Vytvořeno v
-            name: Jméno
-          name: Žádost OAuth
         participatory_space_private_user:
           name: Účastnický prostor soukromého účastníka
         scope:
           fields:
             name: název
-            scope_type: Typ rozsahu
+            scope_type: Typ oblasti působnosti
         scope_type:
           fields:
             name: název
             plural: Množné číslo
+        share_token:
+          fields:
+            created_at: Vytvořeno v
+            expires_at: Vyprší v
+            last_used_at: Naposledy použito
+            times_used: Kolikrát použito
+            token: Token
+            user: Vytvořil
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -507,12 +504,12 @@ cs:
           title: Upravit zpravodaj
         index:
           all: vše
-          all_users: 'Všichni uživatelé'
+          all_users: 'Všichni uživatelé '
           and: 'a '
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné rozsahy
+          no_scopes: Žádné oblasti působnosti
           not_sent: Neodesláno
           participants: 'uživatelé '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -530,8 +527,8 @@ cs:
           none: Žádný
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných rozsahů aktivovaný v nastavení svého účtu "Moje zájmy".
-          select_scopes: Filtrovat uživatele, kteří aktivovali jakýkoli vybraný rozsah v nastavení jejich účtu Moje Zájmy.
+          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných oblastí působnosti aktivovaný v nastavení svého účtu "Moje zájmy".
+          select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
           select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
           send_to_all_users: Odeslat všem uživatelům
@@ -548,25 +545,6 @@ cs:
         update:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
-      oauth_applications:
-        create:
-          error: Při vytváření této žádosti došlo k chybě.
-          success: Žádost byla úspěšně vytvořena.
-        destroy:
-          error: Došlo k chybě při zničení této žádosti.
-          success: Žádost byla úspěšně zlikvidována.
-        edit:
-          save: Uložit
-          title: Upravit žádost
-        index:
-          confirm_delete: Opravdu chcete tuto žádost smazat?
-          title: Žádosti OAuth
-        new:
-          save: Uložit
-          title: Nová aplikace
-        update:
-          error: Při aktualizaci této aplikace došlo k chybě.
-          success: Žádost byla úspěšně aktualizována.
       officializations:
         create:
           success: Uživatel úspěšně oficializován
@@ -653,7 +631,7 @@ cs:
           invalid: Při čtení souboru CSV došlo k chybě.
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
-          explanation: 'Nahrávejte soubor CSV bez záhlaví, který musí mít dva sloupce: email v prvním sloupci a jméno uživatele v posledním sloupci (e-mail, jméno), které chcete přidat do participačního prostoru.'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
       resource_permissions:
@@ -662,37 +640,53 @@ cs:
           title: Upravit oprávnění
         update:
           success: Oprávnění byla úspěšně aktualizována.
+      resources:
+        index:
+          headers:
+            scope: Oblast působnosti
       scope_types:
         create:
-          error: Při vytváření nového typu rozsahu došlo k chybě.
-          success: Typ oboru byl úspěšně vytvořen.
+          error: Při vytváření nového typu oblasti působnosti došlo k chybě.
+          success: Typ oblasti působnosti byl úspěšně vytvořen.
         destroy:
-          success: Typ pole rozsahu byl úspěšně zlikvidován
+          success: Typ oblasti působnosti byl úspěšně odstraněn
         edit:
-          title: Upravit typ pole
+          title: Upravit typ oblasti působnosti
           update: Aktualizace
         new:
-          create: Vytvořit typ rozsahu
-          title: Nový rozsah
+          create: Vytvořit typ oblasti působnosti
+          title: Nová oblast působnosti
         update:
-          error: Při aktualizaci tohoto typu pole došlo k chybě.
-          success: Typ rozsahu bylo úspěšně aktualizováno
+          error: Při aktualizaci tohoto typu oblasti působnosti došlo k chybě.
+          success: Typ oblasti působnosti byl úspěšně aktualizován
       scopes:
         create:
           error: Při vytváření nového oboru došlo k chybě.
-          success: Rozsah byl úspěšně vytvořen.
+          success: Oblast působnosti byla úspěšně vytvořena.
         destroy:
-          success: Rozsah úspěšně zničen
+          success: Oblast působnosti úspěšně zničena
         edit:
-          title: Úprava rozsahu
+          title: Upravit oblast působnosti
           update: Aktualizace
         new:
-          create: Vytvořte oblast
-          title: Nový rozsah
-        no_scopes: Na této úrovni nejsou žádné oblasti.
+          create: Vytvořit oblast působnosti
+          title: Nová oblast působnosti
+        no_scopes: Na této úrovni nejsou žádné oblasti působnosti.
         update:
-          error: Při aktualizaci tohoto oboru došlo k chybě.
-          success: Rozsah byl úspěšně aktualizován
+          error: Při aktualizaci této oblasti působnosti došlo k chybě.
+          success: Oblast působnosti byla úspěšně aktualizována
+      share_tokens:
+        actions:
+          confirm_destroy: Jste si jisti, že chcete odstranit tento token?
+          destroy: Smazat
+          share: Sdílet
+        destroy:
+          error: Při zničení tokenu došlo k chybě.
+          success: Token byl úspěšně smazán.
+        share_tokens:
+          empty: Nejsou žádné aktivní tokeny
+          help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
+          title: Sdílet tokeny
       shared:
         gallery:
           add_images: Přidat obrázky
@@ -751,8 +745,8 @@ cs:
         impersonations: Správa účastníků
         metrics: Metriky
         participants: Uživatelé
-        scope_types: Typy rozsahu
-        scopes: Rozsahy
+        scope_types: Typy oblastí působnosti
+        scopes: Oblasti působnosti
         static_pages: Stránky
         statistics: Aktivita
         user_groups: Skupiny

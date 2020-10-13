@@ -344,7 +344,6 @@ pt:
           buttons:
             check: Verificar e continuar
             close_modal: Fechar modal
-            uncheck: Manter desmarcado
           notice: |-
             <p>Tem certeza de que não quer receber uma newsletter?<br>
             Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
@@ -724,8 +723,6 @@ pt:
         start:
           send: Enviar
           title: Comece uma conversa
-        update:
-          error: Mensagem não enviada. Tente mais tarde
     metrics:
       download:
         csv: Download de dados (csv)
@@ -849,7 +846,6 @@ pt:
           error: Houve um erro ao aceitar os termos e condições.
           success: Ótimo! Você aceitou os termos e condições.
         form:
-          agreement: Eu concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
           modal_body: Se recusar, você não será capaz de usar a plataforma, você pode <a href="%{data_portability_path}">baixar seus dados</a> e / ou <a href="%{delete_path}">excluir sua conta</a>.
@@ -981,6 +977,9 @@ pt:
     user_activity:
       index:
         no_activities_warning: Este usuário ainda não possui nenhuma atividade.
+    user_conversations:
+      update:
+        error: Mensagem não enviada. Tente mais tarde
     user_interests:
       show:
         my_interests: Meus interesses

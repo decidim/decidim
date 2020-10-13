@@ -69,21 +69,6 @@ eu:
         one: Bozkatu
         other: Botoak
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Mota
-          values:
-            'false': proposamenak
-            'true': Aldaketak
-        state_eq:
-          values:
-            evaluating: Ebaluatzen
-            withdrawn: kendu
-        state_null:
-          label: Estatu
-          values:
-            'true': Erantzun gabe
     components:
       proposals:
         actions:

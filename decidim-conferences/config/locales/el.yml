@@ -2,9 +2,28 @@ el:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Σχετικές συνελεύσεις
+        banner_image: Εικόνα διαφημιστικού πλαισίου
+        consultations_ids: Σχετικές διαβουλεύσεις
+        copy_categories: Αντιγραφή κατηγοριών
+        copy_components: Αντιγραφή στοιχείων
+        copy_features: Αντιγραφή χαρακτηριστικών
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        hashtag: Hashtag
+        hero_image: Εικόνα αρχικής σελίδας
+        participatory_processes_ids: Σχετικές διαδικασίες συμμετοχής
+        promoted: Επισημάνθηκε
+        published_at: Δημοσιεύτηκε στις
+        scope_id: Πεδίο εφαρμογής
+        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
+        short_description: Σύντομη περιγραφή
+        show_statistics: Εμφάνιση στατιστικών
+        slogan: Σύνθημα
+        slug: Slug διεύθυνσης URL
         title: Τίτλος
       conference_speaker:
-        full_name: Πλήρες όνομα
+        full_name: Ονοματεπώνυμο
       conference_user_role:
         email: Email
         name: Όνομα
@@ -14,199 +33,209 @@ el:
         conference_registration_invite:
           attributes:
             email:
-              already_invited: Αυτό το email έχει ήδη προσκληθεί
+              already_invited: Αυτή η διεύθυνση email έχει ήδη προσκληθεί
   activerecord:
     models:
       decidim/conference:
-        one: Συνδιάσκεψη
-        other: Συνδιασκέψεις
+        one: Διάσκεψη
+        other: Διασκέψεις
       decidim/conference_speaker:
-        one: Ομιλητής συνδιάσκεψης
-        other: Ομιλητές συνδιάσκεψης
+        one: Ομιλητής διάσκεψης
+        other: Ομιλητές διάσκεψης
       decidim/conference_user_role:
-        one: Ρόλος χρήστη συνδιάσκεψης
-        other: Ρόλοι χρηστών συνδιάσκεψης
+        one: Ρόλος χρήστη διάσκεψης
+        other: Ρόλοι χρήστη διάσκεψης
   decidim:
     admin:
       actions:
         confirm: Επιβεβαίωση
-        new_conference: Νέα συνδιάσκεψη
-        send_diplomas: Αποστολή πιστοποιητικών συμμετοχής
+        new_conference: Νέα διάσκεψη
+        send_diplomas: Αποστολή πιστοποιητικών παρακολούθησης
       conference_copies:
         new:
           copy: Αντιγραφή
-          select: Επιλέξετε ποιά δεδομένα θα θέλατε να διπλοτυπήσετε
-          title: Διπλότυπο συνδιάσκεψης
+          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
+          title: Αντιγραφή διάσκεψης
       conference_publications:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της συνδιάσκεψης.
-          success: Η συνδιάσκεψη δημοσιεύτηκε με επιτυχία.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της διάσκεψης.
+          success: Η διάσκεψη δημοσιεύτηκε με επιτυχία.
         destroy:
-          error: Υπήρξε ένα πρόβλημα κατά τη αποδημοσίευση της συνδιάσκεψης.
-          success: Η συνδιάσκεψη αποδημοσιεύτηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την κατάργηση δημοσίευσης αυτής της διάσκεψης.
+          success: Η δημοσίευση της διάσκεψης καταργήθηκε με επιτυχία.
       conference_registration:
         confirm:
-          error: Παρουσιάστηκε πρόβλημα κατά την επιβεβαίωση αυτής της εγγραφής στη συνδιάσκεψη.
-          success: Η εγγραφή στη συνδιάσκεψη επιβεβαιώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την επιβεβαίωση αυτής της εγγραφής διάσκεψης.
+          success: Η εγγραφή διάσκεψης επιβεβαιώθηκε με επιτυχία.
       conference_speakers:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη ομιλητών σε αυτή τη συνδιάσκεψη.
-          success: Ο ομιλητής της συνδιάσκεψης δημιουργήθηκε με επιτυχία.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ομιλητή για αυτήν τη διάσκεψη.
+          success: Ο ομιλητής διάσκεψης δημιουργήθηκε με επιτυχία.
         destroy:
-          success: Ο ομιλητής της συνδιάσκεψης διεγράφη επιτυχώς.
+          success: Ο ομιλητής διάσκεψης διαγράφηκε με επιτυχία.
         edit:
-          title: Ενημέρωση ομιλητή συνδιάσκεψης.
+          title: Ενημέρωση ομιλητή διάσκεψης.
           update: Ενημέρωση
         index:
-          conference_speakers_title: Ομιλητές συνδιάσκεψης
+          conference_speakers_title: Ομιλητές διάσκεψης
         new:
           create: Δημιουργία
-          title: Νέος ομιλητής συνδιάσκεψης.
+          title: Νέος ομιλητής διάσκεψης.
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση αυτού του ομιλητή συνδιάσκεψης.
-          success: Ο ομιλητής της συνδιάσκεψης ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ομιλητή διάσκεψης.
+          success: Ο ομιλητής διάσκεψης ενημερώθηκε με επιτυχία.
       conference_user_roles:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός διαχειριστή για αυτή τη συνδιάσκεψη.
-          success: Ο διαχειριστής της συνδιάσκεψης προστέθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός διαχειριστή σε αυτήν τη διάσκεψη.
+          success: Ο διαχειριστής διάσκεψης προστέθηκε με επιτυχία.
         destroy:
-          success: Ο διαχειριστής της συνδιάσκεψης αφαιρέθηκε επιτυχώς.
+          success: Ο διαχειριστής διάσκεψης καταργήθηκε με επιτυχία.
         edit:
-          title: Ενημέρωση διαχειριστή συνδιάσκεψης.
+          title: Ενημέρωση διαχειριστή διάσκεψης.
           update: Ενημέρωση
         index:
-          conference_admins_title: διαχειριστές συνδιάσκεψης
+          conference_admins_title: διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
-          title: Νέος διαχειριστής συνδιάσκεψης.
+          title: Νέος διαχειριστής διάσκεψης.
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση αυτού του διαχειριστή συνδιάσκεψης.
-          success: Ο διαχειριστής της συνδιάσκεψης ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του διαχειριστή διάσκεψης.
+          success: Ο διαχειριστής διάσκεψης ενημερώθηκε με επιτυχία.
       conferences:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία της συνδιάσκεψη.
-          success: Η συνδιάσκεψη δημιουργήθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της διάσκεψης.
+          success: Η διάσκεψη δημιουργήθηκε με επιτυχία.
         edit:
           update: Ενημέρωση
         exports:
           registrations: Εγγραφές
         form:
-          title: Γενικές Πληροφορίες
+          title: Γενικές πληροφορίες
         index:
-          not_published: Μη δημοσιευμένη
-          published: Δημοσιεύθηκε
+          not_published: Δεν έχει δημοσιευτεί
+          published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
-          title: Συνδιάσκεψη
+          title: Διάσκεψη
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση της συνδιάσκεψης.
-          success: Η συνδιάσκεψη ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διάσκεψης.
+          success: Η διάσκεψη ενημερώθηκε με επιτυχία.
       conferences_copies:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά την αντιγραφή της συνδιάσκεψης.
-          success: Η συνδιάσκεψη αντιγράφηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της διάσκεψης.
+          success: Η διάσκεψη αντιγράφτηκε με επιτυχία.
       media_links:
         create:
-          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία ενός νέου συνδέσμου μέσων επικοινωνίας.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου συνδέσμου πολυμέσων.
+          success: Ο σύνδεσμος πολυμέσων δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο σύνδεσμος πολυμέσων διαγράφηκε με επιτυχία.
+        edit:
+          title: Ενημέρωση συνδέσμου πολυμέσων.
+          update: Ενημέρωση
+        index:
+          media_links_title: Σύνδεσμοι πολυμέσων
         new:
           create: Δημιουργία
+          title: Σύνδεσμος πολυμέσων
         update:
-          success: Ο Σύνδεσμος Μέσων ανανεώθηκε με επιτυχία.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του συνδέσμου πολυμέσων.
+          success: Ο σύνδεσμος πολυμέσων ενημερώθηκε με επιτυχία.
       menu:
-        conferences: Συνδιασκέψεις
+        conferences: Διασκέψεις
         conferences_submenu:
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
-          attachments: Συνημμένα αρχεία
+          attachments: Συνημμένα
           categories: Κατηγορίες
           components: Στοιχεία
-          conference_admins: Διαχειριστές συνδιάσκεψης
+          conference_admins: Διαχειριστές διάσκεψης
           conference_invites: Προσκλήσεις
           conference_speakers: Ομιλητές
-          diploma: Πιστοποιητικό Συμμετοχής
+          diploma: Πιστοποιητικό παρακολούθησης
           info: Πληροφορίες
-          media_links: Σύνδεσμοι Μέσων
-          moderations: Συντονισμοί
-          partners: Εταίροι
-          registration_types: Τύποι Εγγραφής
+          media_links: Σύνδεσμοι πολυμέσων
+          moderations: Εποπτεύσεις
+          partners: Συνεργάτες
+          registration_types: Τύποι εγγραφής
           registrations: Εγγραφές
-          user_registrations: Εγγραφές χρηστών
+          user_registrations: Εγγραφές χρήστη
       models:
         conference:
           fields:
             created_at: Δημιουργήθηκε στις
-            promoted: Επισημασμένα
-            published: Δημοσιεύθηκε
+            promoted: Επισημάνθηκε
+            published: Δημοσιεύτηκε
             title: Τίτλος
         conference_speaker:
           fields:
-            affiliation: Δεσμός συνεργασίας
-            full_name: Πλήρες όνομα
+            affiliation: Σχέση
+            full_name: Ονοματεπώνυμο
             position: Θέση
-          name: Ομιλητής Συνδιάσκεψης
+          name: Ομιλητής διάσκεψης
         conference_user_role:
           fields:
             email: Email
             name: Όνομα
             role: Ρόλος
-          name: Διαχειριστής Συνδιάσκεψης
+          name: Διαχειριστής διάσκεψης
           roles:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
-            moderator: Συντονιστής
+            moderator: Επόπτης
             valuator: Εκτιμητής
         media_link:
           fields:
             date: Ημερομηνία
             link: Σύνδεσμος
             title: Τίτλος
-          name: Σύνδεσμος Μέσου
+          name: Σύνδεσμος πολυμέσων
         partner:
           fields:
             link: Σύνδεσμος
             logo: Λογότυπο
             name: Όνομα
             partner_type: Τύπος
-          name: Εταίρος
+          name: Συνεργάτης
           types:
             collaborator: Συνεργάτης
-            main_promotor: Κύριος προωθητής
+            main_promotor: Κύριος υπεύθυνος προώθησης
         registration_type:
           fields:
-            conference_meetings: Συναντήσεις συνδιασκέψεων
+            conference_meetings: Συσκέψεις διάσκεψης
             price: Τιμή
-            registrations_count: Καταμέτρηση εγγραφών
+            registrations_count: Αριθμός εγγραφών
             title: Τίτλος
             weight: Βάρος
           name: Τύπος εγγραφής
       partners:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη εταίρου σε αυτή τη συνδιάσκεψη.
-          success: Ο εταίρος της συνδιάσκεψης προστέθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συνεργάτη για αυτήν τη διάσκεψη.
+          success: Ο συνεργάτης διάσκεψης προστέθηκε με επιτυχία.
         destroy:
-          success: Ο εταίρος της συνδιάσκεψης αφαιρέθηκε επιτυχώς.
+          success: Ο συνεργάτης διάσκεψης καταργήθηκε με επιτυχία.
         edit:
-          title: Ενημέρωση εταίρου.
+          title: Ενημέρωση συνεργάτη.
           update: Ενημέρωση
         new:
           create: Δημιουργία
-          title: Νέος εταίρος
+          title: Νέος συνεργάτης
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση εταίρου σε αυτή τη συνδιάσκεψη.
-          success: Ο εταίρος της συνδιάσκεψης ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός συνεργάτη για αυτήν τη διάσκεψη.
+          success: Ο συνεργάτης διάσκεψης ενημερώθηκε με επιτυχία.
       registration_type_publications:
         create:
-          error: Παρουσιάστηκε πρόβλημα στην δημοσίευση αυτού του τύπου εγγραφής.
-          success: Ο τύπος εγγραφής δημοσιεύτηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτού του τύπου εγγραφής.
+          success: Ο τύπος εγγραφής δημοσιεύτηκε με επιτυχία.
         destroy:
-          error: Παρουσιάστηκε πρόβλημα στην αποδημοσίευση αυτού του τύπου εγγραφής.
-          success: Ο τύπος εγγραφής αποδημοσιεύτηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την κατάργηση δημοσίευσης αυτού του τύπου εγγραφής.
+          success: Η δημοσίευση του τύπου εγγραφής καταργήθηκε με επιτυχία.
       registration_types:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη τύπου εγγραφής σε αυτή τη συνδιάσκεψη.
-          success: Ο τύπος εγγραφής στης συνδιάσκεψη προστέθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός τύπου εγγραφής για αυτήν τη διάσκεψη.
+          success: Ο τύπος εγγραφής διάσκεψης προστέθηκε με επιτυχία.
         destroy:
-          success: Ο τύπος εγγραφής στης συνδιάσκεψη αφαιρέθηκε επιτυχώς.
+          success: Ο τύπος εγγραφής διάσκεψης καταργήθηκε με επιτυχία.
         edit:
           title: Ενημέρωση τύπου εγγραφής.
           update: Ενημέρωση
@@ -214,10 +243,42 @@ el:
           create: Δημιουργία
           title: Νέος τύπος εγγραφής
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση ενός τύπου εγγραφής σε αυτή τη συνδιάσκεψη.
-          success: Ο τύπος εγγραφής στης συνδιάσκεψη ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός τύπου εγγραφής για αυτήν τη διάσκεψη.
+          success: Ο τύπος εγγραφής διάσκεψης ενημερώθηκε με επιτυχία.
       titles:
-        conferences: Συνδιασκέψεις
+        conferences: Διασκέψεις
+    admin_log:
+      conference:
+        create: "Ο χρήστης %{user_name} δημιούργησε τη διάσκεψη %{resource_name}"
+        publish: "Ο χρήστης %{user_name} δημοσίευσε τη διάσκεψη %{resource_name}"
+        send_conference_diplomas: "Ο χρήστης %{user_name} έστειλε πιστοποιητικά παρακολούθησης στους συμμετέχοντες της διάσκεψης %{resource_name}"
+        unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση της διάσκεψης %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη διάσκεψη %{resource_name}"
+        update_diploma: "Ο χρήστης %{user_name} ενημέρωσε τη διαμόρφωση των πιστοποιητικών παρακολούθησης για τη διάσκεψη %{resource_name}"
+      conference_speaker:
+        create: "Ο χρήστης %{user_name} δημιούργησε τον ομιλητή %{resource_name} στη διάσκεψη %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον ομιλητή %{resource_name} από τη διάσκεψη %{space_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τον ομιλητή %{resource_name} στη διάσκεψη %{space_name}"
+      conference_user_role:
+        create: "Ο χρήστης %{user_name} προσκάλεσε τον/την %{resource_name} στη διάσκεψη %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον διαχειριστή %{resource_name} από τη διάσκεψη %{space_name}"
+        update: "Ο χρήστης %{user_name} άλλαξε τον ρόλο του/της %{resource_name} στη διάσκεψη %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "Ο χρήστης %{user_name} επιβεβαίωση μια εγγραφή διάσκεψης στη διάσκεψη %{resource_name}"
+        partner:
+          create: "Ο χρήστης %{user_name} δημιούργησε %{resource_name} στη διάσκεψη %{space_name}"
+          delete: "Ο χρήστης %{user_name} κατάργησε τον διαχειριστή %{resource_name} από τη διάσκεψη %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε το στοιχείο %{resource_name} στη διάσκεψη %{space_name}"
+        registration_type:
+          create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+          publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+          unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+      media_link:
+        create: "Ο χρήστης %{user_name} δημιούργησε τον σύνδεσμο πολυμέσων %{resource_name} στη διάσκεψη %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον σύνδεσμο πολυμέσων %{resource_name} από τη διάσκεψη %{space_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τον σύνδεσμο πολυμέσων %{resource_name} στη διάσκεψη %{space_name}"
     conference_program:
       index:
         title: Πρόγραμμα
@@ -226,24 +287,31 @@ el:
         title: Ομιλητές
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         conference_invites:
+          create:
+            error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση του συμμετέχοντα στη διάσκεψη.
+            success: Ο συμμετέχων προσκλήθηκε με επιτυχία στη διάσκεψη.
           form:
             attendee_type: Τύπος συμμετέχοντα
             existing_user: Υπάρχων συμμετέχων
-            non_user: Ανύπαρκτος συμμετέχων
-            select_user: Επιλογή συμμετέχοντα
+            invite_explanation: Ο συμμετέχων θα προσκληθεί να συμμετάσχει στη διάσκεψη και στον οργανισμό.
+            non_user: Ο συμμετέχων δεν υπάρχει
+            select_user: Επιλέξτε συμμετέχοντα
           index:
             filter:
-              accepted: Αποδεκτοί
-              all: Όλοι
-              rejected: Απορριφθέντες
-              sent: Απεσταλμένα
-            filter_by: Φιλτράρετε κατά
-            invite_attendee: Προσκαλέστε συμμετέχοντα
+              accepted: Έγινε αποδοχή
+              all: Όλα
+              rejected: Απορρίφθηκε
+              sent: Στάλθηκε
+            filter_by: Φιλτράρισμα κατά
+            invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
             search: Αναζήτηση
           new:
-            explanation: Ο συμμετέχων θα κληθεί να συμμετάσχει σε μία συνδιάσκεψη. Εάν το email του δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
+            explanation: Η συμμετέχουσα θα προσκληθεί να συμμετάσχει σε διάσκεψη. Εάν το email της δεν είναι καταχωρημένο, θα προσκληθεί και στον οργανισμό.
             invite: Πρόσκληση
             new_invite: Πρόσκληση συμμετέχοντα
         conference_registrations:
@@ -253,31 +321,51 @@ el:
           form:
             existing_user: Υπάρχων συμμετέχων
             non_user: Μη συμμετέχων
-            select_user: Επιλογή συμμετέχοντα
+            select_user: Επιλέξτε συμμετέχοντα
             user_type: Τύπος συμμετέχοντα
           index:
             search: Αναζήτηση
+        conferences:
+          form:
+            available_slots_help: Αφήστε το σε 0, εάν έχετε απεριόριστες διαθέσιμες θέσεις.
+            registrations_count:
+              one: Πραγματοποιήθηκε 1 εγγραφή.
+              other: Πραγματοποιήθηκαν %{count} εγγραφές.
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         diplomas:
           edit:
             save: Αποθήκευση
-            title: Πιστοποιητικό συμμετοχής
+            title: Πιστοποιητικό παρακολούθησης
+        invite_join_conference_mailer:
+          invite:
+            decline: Απόρριψη πρόσκλησης «%{conference_title}»
+            invited_you_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            registration: Εγγραφή για τη διάσκεψη «%{conference_title}»
         partners:
           index:
-            title: Εταίροι
+            title: Συνεργάτες
         registration_types:
+          form:
+            select_conference_meetings: Επιλέξτε συσκέψεις διασκέψεων
           index:
             title: Τύποι εγγραφής
         send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Θα βρείτε το πιστοποιητικό παρακολούθησης για τη διάσκεψη <a href="%{url}">%{title}</a> στα συνημμένα.
           diploma_user:
-            attendance_verified_by: Η συμμετοχή πιστοποιήθηκε από
-            certificate_of_attendance: Πιστοποιητικό Συμμετοχής
+            attendance_verified_by: Η παρακολούθηση επαληθεύτηκε από
+            certificate_of_attendance: Πιστοποιητικό παρακολούθησης
+            certificate_of_attendance_description: Με το παρόν βεβαιώνεται ότι ο χρήστης <strong>%{user}</strong> παρακολούθησε και έλαβε μέρος στη διάσκεψη <strong>%{title}</strong> που πραγματοποιήθηκε στην τοποθεσία <strong>%{location}</strong> στις <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: Υπήρξε ένα πρόβλημα κατά την αποστολή των πιστοποιητικών παρακολούθησης της διάσκεψης.
+          success: Τα πιστοποιητικά παρακολούθησης της διάσκεψης στάλθηκαν με επιτυχία
       conference:
         registration_confirm:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
         show:
-          free: Ελεύθερα
-          going: Παρευρισκόμενοι
+          free: Δωρεάν
+          going: Συμμετέχοντες
           no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
           registration: Εγγραφή
       conference_program:
@@ -285,61 +373,80 @@ el:
           content: Περιεχόμενο
           location: Τοποθεσία
           speakers: Ομιλητές
-          streaming: Ροή βίντεο
+          streaming: Ροή
         show:
           day: Ημέρα
           program: Πρόγραμμα
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Η εγγραφή σας στη διάσκεψη <a href="%{url}">%{title}</a> έχει επιβεβαιωθεί.
+          details_1: 'Έχετε εγγραφεί στη διάσκεψη με τύπο %{registration_type}. Κοστίζει %{price} και μπορείτε να παρακολουθήσετε τις παρακάτω εκδηλώσεις:'
+          details_2: Θα βρείτε τις λεπτομέρειες της διάσκεψης στο συνημμένο.
+        pending_validation:
+          confirmation_pending: Θα λάβετε την επιβεβαίωση σύντομα
+          details: 'Έχετε εγγραφεί στη διάσκεψη με τύπο %{registration_type} με κόστος %{price} και μπορείτε να παρακολουθήσετε τις παρακάτω εκδηλώσεις:'
+          pending_html: Εκκρεμεί επιβεβαίωση για την εγγραφή σας στη διάσκεψη <a href="%{url}">%{title}</a>.
+      conference_registrations:
+        create:
+          invalid: Υπήρξε ένα πρόβλημα κατά τη συμμετοχή σε αυτήν τη διάσκεψη.
+          success: Συμμετείχατε στη διάσκεψη με επιτυχία.
+        decline_invitation:
+          invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη της πρόσκλησης.
+          success: Απορρίψατε την πρόσκληση με επιτυχία.
+        destroy:
+          invalid: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από αυτήν τη διάσκεψη.
+          success: Αποχωρήσατε από τη διάσκεψη με επιτυχία.
       conference_speaker:
-        go_to_twitter: Πηγαίνετε στο Twitter
+        go_to_twitter: Μετάβαση στο Twitter
         more_info: περισσότερες πληροφορίες
-        personal_website: Προσωπική ιστοσελίδα
+        personal_website: Προσωπικός ιστότοπος
         show:
           more_info: περισσότερες πληροφορίες
       conference_speaker_cell:
         personal_url:
-          personal_website: Προσωπική ιστοσελίδα
+          personal_website: Προσωπικός ιστότοπος
         twitter_handle:
-          go_to_twitter: Πηγαίνετε στο Twitter
+          go_to_twitter: Μετάβαση στο Twitter
       conference_speakers:
         index:
           speakers: Ομιλητές
       conferences:
         partners:
-          collaborators: Εταίροι
+          collaborators: Συνεργάτες
           main_promotors: Διοργανωτές
         show:
           login_as: Έχετε συνδεθεί ως %{name} <%{email}>
-          make_conference_registration: 'Εγγραφείτε στην συνδιάσκεψη:'
+          make_conference_registration: 'Εγγραφείτε στη διάσκεψη:'
           register: Εγγραφή
       content_blocks:
         highlighted_conferences:
-          name: Επισημασμένες συνδιασκέψεις
+          name: Επισημασμένες διασκέψεις
       index:
-        title: Συνδιασκέψεις
+        title: Διασκέψεις
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: Έχει επιβεβαιωθεί η εγγραφή σας στην συνδιάσκεψη
+            subject: Η εγγραφή σας στη διάσκεψη επιβεβαιώθηκε
           pending_validation:
-            subject: Η εγγραφή σας στην συνδιάσκεψη είναι σε αναμονή επιβεβαίωσης
+            subject: Εκκρεμεί επιβεβαίωση για την εγγραφή σας στη διάσκεψη
         invite_join_conference_mailer:
           invite:
-            subject: Πρόσκληση συμμετοχής σε συνδιάσκεψη
+            subject: Πρόσκληση συμμετοχής σε διάσκεψη
         send_conference_diploma_mailer:
           diploma:
-            subject: Το Πιστοποιητικό Συμμετοχής σας σε συνδιάσκεψη, απεστάλη
+            subject: Το πιστοποιητικό παρακολούθησης στη διάσκεψη έχει σταλεί σε εσάς
       models:
         conference_invite:
           fields:
             email: Email
             name: Όνομα
             registration_type: Τύπος εγγραφής
-            sent_at: Απεστάλη στις
+            sent_at: Στάλθηκε στις
             status: Κατάσταση
           status:
-            accepted: Απεδέχθη (%{at})
-            rejected: Απερρίφθη (%{at})
-            sent: Απεσταλμένα
+            accepted: Έγινε αποδοχή (%{at})
+            rejected: Απορρίφθηκε (%{at})
+            sent: Στάλθηκε
         conference_registration:
           fields:
             email: Email
@@ -347,26 +454,26 @@ el:
             registration_type: Τύπος εγγραφής
             state: Κατάσταση
             states:
-              confirmed: Επιβεβαιωμένο
+              confirmed: Επιβεβαιώθηκε
               pending: Σε εκκρεμότητα
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Ενεργές συνδιασκέψεις
-            see_all_conferences: Δείτε όλες τις συνδιασκέψεις
+            active_conferences: Ενεργές διασκέψεις
+            see_all_conferences: Δείτε όλες τις διασκέψεις
       photo:
         image:
           attributes:
-            alt: Εικόνα Μέσου
+            alt: Εικόνα πολυμέσων
         show:
-          close_modal: Κλείσιμο παραθύρου
+          close_modal: Κλείσιμο βοηθητικού στοιχείου
           photo: Εικόνα
       photos_list:
         show:
           related_photos: Εικόνες
       registration_types:
         index:
-          choose_an_option: 'Διαλέξτε τις επιλογές εγγραφής σας:'
+          choose_an_option: 'Ορίστε την επιλογή εγγραφής σας:'
           login_as: Έχετε συνδεθεί ως %{name} <%{email}>
           register: Εγγραφή
           title: Τύποι εγγραφής
@@ -374,23 +481,100 @@ el:
         conference_user_login:
           already_account: Έχετε ήδη λογαριασμό στο decidim;
           new_user: Νέος χρήστης;
-          sign_in: Συνδεθείτε για να εγγραφείτε στη συνδιάσκεψη
-          sign_up: Δημιουργήστε ένα λογαριασμό στο decidim για να εγγραφείτε στην συνδιάσκεψη
+          sign_in: Συνδεθείτε για να εγγραφείτε στη διάσκεψη
+          sign_up: Δημιουργήστε έναν λογαριασμό στο decidim για να εγγραφείτε στη διάσκεψη
       show:
         details: Λεπτομέρειες
         introduction: Εισαγωγή
         objectives: Στόχοι
-        related_assemblies: Συσχετισμένες συνελεύσεις
-        related_consultations: Συσχετισμένες Διαβουλεύσεις
-        related_participatory_processes: Σχετικές συμμετοχικές διαδικασίες
+        related_assemblies: Σχετικές συνελεύσεις
+        related_consultations: Σχετικές διαβουλεύσεις
+        related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
       statistics:
         answers_count: Απαντήσεις
         comments_count: Σχόλια
-        conference_count: Συνδιασκέψεις
-        debates_count: Δημόσιες συζητήσεις
+        conference_count: Διασκέψεις
+        debates_count: Συζητήσεις
         endorsements_count: Επιδοκιμασίες
         headline: Δραστηριότητα
-        meetings_count: Συναντήσεις
+        meetings_count: Συσκέψεις
         orders_count: Υποστηρίξεις
         pages_count: Σελίδες
+        posts_count: Δημοσιεύσεις
+        projects_count: Έργα
+        proposals_count: Προτάσεις
+        results_count: Αποτελέσματα
+        surveys_count: Έρευνες
         users_count: Συμμετέχοντες
+        votes_count: Υποστηρίξεις
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Η εγγραφή σας στη διάσκεψη <a href="%{resource_url}">%{resource_title}</a> έχει επιβεβαιωθεί.
+        conference_registration_validation_pending:
+          notification_title: Εκκρεμεί επιβεβαίωση για την εγγραφή σας στη διάσκεψη <a href="%{resource_url}">%{resource_title}</a>.
+        conference_registrations_over_percentage:
+          email_intro: Οι κατειλημμένες θέσεις της διάσκεψης «%{resource_title}» είναι πάνω από %{percentage}%.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε διαχειριστής του χώρου συμμετοχής της διάσκεψης.
+          email_subject: Οι κατειλημμένες θέσεις της διάσκεψης «%{resource_title}» είναι πάνω από %{percentage}%
+          notification_title: Οι κατειλημμένες θέσεις της διάσκεψης <a href="%{resource_path}">%{resource_title}</a> είναι πάνω από %{percentage}%.
+        conference_updated:
+          email_intro: 'Η διάσκεψη «%{resource_title}» ενημερώθηκε. Μπορείτε να διαβάσετε τη νέα έκδοση από τη σελίδα της:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τη διάσκεψη «%{resource_title}». Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Η διάσκεψη «%{resource_title}» ενημερώθηκε
+          notification_title: Η διάσκεψη <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε.
+        registrations_enabled:
+          email_intro: 'Οι εγγραφές για τη διάσκεψη «%{resource_title}» έχουν ενεργοποιηθεί. Μπορείτε να εγγραφείτε στη σελίδα της:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τη διάσκεψη «%{resource_title}». Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Οι εγγραφές για τη διάσκεψη «%{resource_title}» έχουν ενεργοποιηθεί.
+          notification_title: Οι εγγραφές για τη διάσκεψη <a href="%{resource_path}">%{resource_title}</a> έχουν ενεργοποιηθεί.
+        role_assigned:
+          email_intro: Έχετε εκχωρηθεί ως %{role} για τη διάσκεψη «%{resource_title}».
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε %{role} της διάσκεψης «%{resource_title}».
+          email_subject: Έχετε εκχωρηθεί ως %{role} για «%{resource_title}».
+          notification_title: Έχετε εκχωρηθεί ως %{role} για τη διάσκεψη <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Η διάσκεψη «%{resource_title}» θα λάβει χώρα σε 2 ημέρες. Μπορείτε να διαβάσετε την περιγραφή από τη σελίδα της:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τη διάσκεψη «%{resource_title}». Μπορείτε να σταματήσετε να την ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Η διάσκεψη «%{resource_title}» έρχεται σύντομα κοντά σας!
+          notification_title: Η διάσκεψη <a href="%{resource_path}">%{resource_title}</a> θα πραγματοποιηθεί σε 2 ημέρες.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Η διάσκεψη δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+    media:
+      index:
+        description: Σύνδεσμοι σχετικά με αυτήν τη διάσκεψη
+        title: Πολυμέσα και σύνδεσμοι
+    menu:
+      conferences: Διασκέψεις
+  devise:
+    mailer:
+      join_conference:
+        subject: Πρόσκληση συμμετοχής σε διάσκεψη
+  layouts:
+    decidim:
+      conference_hero:
+        register: Εγγραφή
+      conference_widgets:
+        show:
+          take_part: Συμμετάσχετε
+      conferences:
+        conference:
+          more_info: Περισσότερες πληροφορίες
+          take_part: Συμμετάσχετε
+        index:
+          promoted_conferences: Επισημασμένες διασκέψεις
+        order_by_conferences:
+          conferences:
+            one: "%{count} διάσκεψη"
+            other: "%{count} διασκέψεις"
+        promoted_conference:
+          more_info: Περισσότερες πληροφορίες
+          take_part: Συμμετάσχετε
+      conferences_nav:
+        conference_menu_item: Πληροφορίες
+        conference_partners_menu_item: Συνεργάτες
+        conference_speaker_menu_item: Ομιλητές
+        media: Πολυμέσα
+        venues: Χώροι διοργάνωσης

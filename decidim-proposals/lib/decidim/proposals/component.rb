@@ -22,6 +22,8 @@ Decidim.register_component(:proposals) do |component|
   component.permissions_class_name = "Decidim::Proposals::Permissions"
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :vote_limit, type: :integer, default: 0
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0
     settings.attribute :proposal_limit, type: :integer, default: 0
@@ -44,7 +46,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :amendments_enabled, type: :boolean, default: false
     settings.attribute :amendments_wizard_help_text, type: :text, translated: true, editor: true, required: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :new_proposal_body_template, type: :text, translated: true, editor: false, required: false
+    settings.attribute :new_proposal_body_template, type: :text, translated: true, editor: true, required: false
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
@@ -107,7 +109,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.register_stat :comments_count, tag: :comments do |components, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(components, start_at, end_at).published.not_hidden
-    Decidim::Comments::Comment.where(root_commentable: proposals).count
+    proposals.sum(:comments_count)
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|

@@ -60,19 +60,37 @@ module Decidim
         {}
       end
 
+      def default_filter_category_params
+        return "all" unless current_component.participatory_space.categories.any?
+
+        ["all"] + current_component.participatory_space.categories.pluck(:id).map(&:to_s)
+      end
+
+      def default_filter_scope_params
+        return "all" unless current_component.scopes.any?
+
+        if current_component.scope
+          ["all", current_component.scope.id] + current_component.scope.children.map { |scope| scope.id.to_s }
+        else
+          %w(all global) + current_component.scopes.pluck(:id).map(&:to_s)
+        end
+      end
+
       # If the controller responds to current_component, its search service uses the
       # base class Decidim::ResourceSearch; else it uses the ParticipatorySpaceSearch.
       # They need different context_params to set up the base_query:
       # - ResourceSearch uses `component`
       # - ParticipatorySpaceSearch uses `organization`
       # - Both use `current_user`
+      # - Both need `organization` for localized searches in order to fetch the
+      #   available locales from the organization in Decidim::ResourceSearch.
       def context_params
-        context = { current_user: current_user }
-        if respond_to?(:current_component)
-          context[:component] = current_component
-        else
-          context[:organization] = current_organization
-        end
+        context = {
+          current_user: current_user,
+          organization: current_organization
+        }
+        context[:component] = current_component if respond_to?(:current_component)
+
         context
       end
     end

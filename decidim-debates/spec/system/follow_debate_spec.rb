@@ -9,5 +9,7 @@ describe "Follow debates", type: :system do
     create(:debate, component: component)
   end
 
+  let(:followable_path) { resource_locator(followable).path }
+
   include_examples "follows"
 end

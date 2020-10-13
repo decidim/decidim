@@ -7,6 +7,9 @@ module Decidim
       include Decidim::Publicable
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :title, :description
 
       belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
       has_many :conference_meeting_registration_types, dependent: :destroy

@@ -12,6 +12,10 @@ module Decidim
     include Decidim::ParticipatorySpaceResourceable
     include Decidim::Randomable
     include Decidim::Searchable
+    include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :subtitle, :description
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -32,7 +36,10 @@ module Decidim
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Consultation.slug_format }
 
+    validates_upload :banner_image
     mount_uploader :banner_image, Decidim::BannerImageUploader
+
+    validates_upload :introductory_image
     mount_uploader :introductory_image, Decidim::BannerImageUploader
 
     scope :upcoming, -> { published.where("start_voting_date > ?", Time.now.utc) }

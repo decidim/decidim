@@ -17,11 +17,27 @@ module Decidim
       process resize_to_limit: [nil, 1000]
     end
 
-    protected
-
     def extension_whitelist
-      %w(jpg jpeg gif png bmp pdf doc docx xls xlsx ppt ppx rtf txt odt ott odf otg ods ots)
+      case upload_context
+      when :admin
+        Decidim.organization_settings(model).upload_allowed_file_extensions_admin
+      else
+        Decidim.organization_settings(model).upload_allowed_file_extensions
+      end
     end
+
+    # CarrierWave automatically calls this method and validates the content
+    # type fo the temp file to match against any of these options.
+    def content_type_whitelist
+      case upload_context
+      when :admin
+        Decidim.organization_settings(model).upload_allowed_content_types_admin
+      else
+        Decidim.organization_settings(model).upload_allowed_content_types
+      end
+    end
+
+    protected
 
     # Strips out all embedded information from the image
     def strip
@@ -33,20 +49,10 @@ module Decidim
       end
     end
 
-    # CarrierWave automatically calls this method and validates the content
-    # type fo the temp file to match against any of these options.
-    def content_type_whitelist
-      [
-        %r{image\/},
-        %r{application\/vnd.oasis.opendocument},
-        %r{application\/vnd.ms-},
-        %r{application\/msword},
-        %r{application\/vnd.ms-word},
-        %r{application\/vnd.openxmlformats-officedocument},
-        %r{application\/vnd.oasis.opendocument},
-        %r{application\/pdf},
-        %r{application\/rtf}
-      ]
+    def upload_context
+      return :participant unless model.respond_to?(:context)
+
+      model.context
     end
 
     # Checks if the file is an image based on the content type. We need this so

@@ -1,0 +1,19 @@
+bg:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Обявление
+        area_id: Район
+        banner_image: Банер изображение
+        copy_categories: Копирай категории
+        copy_components: Копирай компоненти
+        copy_steps: Копирай стъпки
+        decidim_area_id: Район
+        description: Описание
+        developer_group: Група за популяризиране
+        domain: Домейн
+        end_date: Крайна дата
+        hashtag: Хаштаг
+        hero_image: Изображение за начална страница
+        local_area: Район на организацията
+        meta_scope: Метаданни сфера

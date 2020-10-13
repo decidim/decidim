@@ -15,6 +15,7 @@
             <th><%= t("models.debate.fields.title", scope: "decidim.debates") %></th>
             <th><%= t("models.debate.fields.start_time", scope: "decidim.debates") %></th>
             <th><%= t("models.debate.fields.end_time", scope: "decidim.debates") %></th>
+            <%= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.debates") %></th>
           </tr>
         </thead>
@@ -22,7 +23,7 @@
           <% debates.each do |debate| %>
             <tr data-id="<%= debate.id %>">
               <td>
-                <%= link_to translated_attribute(debate.title), resource_locator(debate).path, target: :blank %><br>
+                <%= link_to present(debate).title, resource_locator(debate).path, target: :blank %><br>
               </td>
               <td>
                 <% if debate.start_time %>
@@ -34,9 +35,14 @@
                   <%= l debate.end_time, format: :long %>
                 <% end %>
               </td>
+              <%= td_resource_scope_for(debate.scope) %>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :debate, debate: debate %>
                   <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
+                <% end %>
+
+                <% if allowed_to? :close, :debate, debate: debate %>
+                  <%= icon_link_to "lock-locked", edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
                 <% end %>
 
                 <% if allowed_to? :delete, :debate, debate: debate %>

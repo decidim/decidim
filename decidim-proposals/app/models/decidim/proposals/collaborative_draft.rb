@@ -6,7 +6,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
@@ -28,7 +28,7 @@ module Decidim
                class_name: "Decidim::User",
                foreign_key: :decidim_user_id
 
-      geocoded_by :address, http_headers: ->(collaborative_draft) { { "Referer" => collaborative_draft.component.organization.host } }
+      geocoded_by :address
 
       scope :open, -> { where(state: "open") }
       scope :withdrawn, -> { where(state: "withdrawn") }

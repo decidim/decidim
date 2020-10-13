@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       project:
-        budget: Бюджет
         decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
@@ -24,7 +23,6 @@ uk:
         destroy: Видалити
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
-        new: Додати новий проект
         preview: Попередній перегляд
         title: Дії
       admin:
@@ -69,7 +67,6 @@ uk:
             title: Назва
       projects:
         budget_confirm:
-          are_you_sure: Чи ви згодні? Підтвердивши свій голос, ви не зможете його потім змінити.
           cancel: Скасувати
           confirm: Підтвердити
           description: Ось проекти, які ви обрали складовими бюджету.
@@ -114,11 +111,6 @@ uk:
             other: обраних проектів
           view: Переглянути
         project:
-          count:
-            one: 1 людина підтримує
-            few: "%{count} людей підтримує"
-            many: "%{count} людей підтримують"
-            other: "%{count} людей підтримують"
           view: Переглянути
         show:
           budget: Бюджет
@@ -140,7 +132,8 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
-            votes_enabled: Голосування увімкнене
+            votes_choices:
+              enabled: Голосування увімкнене
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка

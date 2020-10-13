@@ -83,15 +83,18 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
-            creation_enabled_for_participants: Les participants peuvent créer des réunions
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            creation_enabled_for_participants: Les participants peuvent créer des rencontres
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
-            creation_enabled_for_participants: La création de réunions par les participants est activée
-            creation_enabled_for_user_groups: La création de réunions par des groupes d'utilisateurs est activée
+            creation_enabled_for_participants: La création de rencontre par les participants est activée
+            creation_enabled_for_user_groups: La création de rencontres par des groupes d'utilisateurs est activée
     events:
       meetings:
         meeting_closed:
@@ -158,6 +161,10 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        invalid_destroy:
+          proposals_count:
+            one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
+            other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
@@ -236,6 +243,10 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
           destroy:
+            invalid:
+              proposals_count:
+                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
+                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour
@@ -347,19 +358,23 @@ fr:
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} rencontre"
+            other: "%{count} rencontres"
         create:
-          invalid: Une erreur s'est produite lors de la création de cette réunion.
-          success: La réunion a été créée avec succès.
+          invalid: Une erreur s'est produite lors de la création de cette rencontre.
+          success: La rencontre a été créée avec succès.
         edit:
-          back: Précédent
-          title: Modifier votre réunion
-          update: Mise à jour
+          back: Retour
+          title: Modifier votre rencontre
+          update: Mettre à jour
         filters:
           category: Catégorie
           date: Date
           date_values:
             all: Toutes
-            past: Passé
+            past: Passées
             upcoming: À venir
           origin: Origine
           origin_values:
@@ -367,7 +382,7 @@ fr:
             citizens: Citoyens
             official: Officiel
             user_groups: Groupes
-          scope: Périmètre d'application
+          scope: Secteur
           search: Rechercher
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
@@ -376,12 +391,12 @@ fr:
           unfold: Voir la suite
         form:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
-          create_as: Créer une réunion en tant que
-          location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
+          create_as: Créer une rencontre en tant que
+          location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
           location_hints_help: 'Indices de localisation : informations supplémentaires. Exemple: l''étage du bâtiment'
           select_a_category: Veuillez sélectionner une catégorie
         index:
-          new_meeting: Nouvelle réunion
+          new_meeting: Nouvelle rencontre
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
@@ -391,7 +406,7 @@ fr:
         new:
           back: Précédent
           create: Créer
-          title: Créez votre réunion
+          title: Créez votre rencontre
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -399,7 +414,8 @@ fr:
           attendees: Nombre de participants
           back: Retour à la liste
           contributions: Décompte des contributions
-          edit_meeting: Modifier la réunion
+          date: Date
+          edit_meeting: Modifier la rencontre
           going: J'y vais
           join: Participer à la rencontre
           meeting_report: Compte rendu de la rencontre
@@ -414,8 +430,8 @@ fr:
             other: "Il reste %{count} places"
           view: Voir
         update:
-          invalid: Une erreur s'est produite lors de la mise à jour de la réunion.
-          success: La réunion a été mise à jour avec succès.
+          invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
+          success: La rencontre a été mise à jour avec succès.
       meetings_map:
         view_meeting: Voir la réunion
       models:
@@ -434,7 +450,7 @@ fr:
             closed: Fermée
             end_time: Date de fin
             map: Carte
-            official_meeting: Réunion officielle
+            official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
       read_more: "(Voir la suite)"
@@ -457,7 +473,7 @@ fr:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
       versions:
-        back_to_resource: Revenir à la réunion
+        back_to_resource: Revenir à la rencontre
     metrics:
       meetings:
         description: Nombre de rencontres créées

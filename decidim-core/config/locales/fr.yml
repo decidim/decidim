@@ -3,6 +3,8 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+      common:
+        created_at: Créé le
       group:
         about: A propos
         avatar: Avatar
@@ -33,6 +35,7 @@ fr:
       decidim/profile_updated_event: Profil mis à jour
       decidim/promote_to_admin: Promu au groupe admin
       decidim/removed_from_group: Retiré du groupe
+      decidim/resource_endorsed_event: Ressource soutenue
   activerecord:
     attributes:
       decidim/user:
@@ -62,6 +65,7 @@ fr:
     errors:
       general: Erreur de traitement de l'image
       image_too_big: L'image est trop grande
+      not_inside_organization: Le fichier n'est relié à aucune organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -71,6 +75,7 @@ fr:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Lien externe
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
@@ -149,6 +154,8 @@ fr:
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
     admin_terms_of_use:
       default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
+    alert:
+      dismiss: Rejeter la notification
     amendments:
       accepted:
         error: Une erreur s'est produite lors de l'acceptation de l'amendement.
@@ -259,9 +266,10 @@ fr:
         explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
           allowed_postal_codes: Codes postaux autorisés (séparés par des virgules)
-          allowed_scope_id: Portée autorisée
+          allowed_scope_id: Secteur autorisé
           document_number: Numéro de document
           postal_code: Code postal
+          scope_id: Secteur
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
@@ -275,6 +283,7 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
+      renew: Renouveler la vérification
       sms:
         explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
         name: Code par SMS
@@ -309,6 +318,8 @@ fr:
           explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
+      show:
+        close_modal: Fermer la fenêtre de dialogue
     collapsible_list:
       hidden_elements_count:
         one: et %{count} plus
@@ -323,12 +334,12 @@ fr:
           collaborative_draft: Brouillon collaboratif
           comment: Commentaire
           debate: Débat
-          initiative: Initiative
+          initiative: Pétition
           meeting: Rencontre
-          post: Publication
+          post: Article
           proposal: Proposition
           question: Question
-        title: 'Afficher:'
+        title: 'Afficher :'
       dummy:
         actions:
           bar: Bar
@@ -338,11 +349,14 @@ fr:
           global:
             amendments_enabled: Modifications activées
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur maximale des commentaires
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut factice 2
             dummy_global_translatable_text: Texte traduisible factice
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Autorisations de ressources activées
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             amendment_creation_enabled: Création d'amendement activée
             amendment_promotion_enabled: Promotion d'amendement activée
@@ -428,7 +442,7 @@ fr:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
-            uncheck: Non merci, je m'informerai autrement
+            uncheck: Garder décoché
           notice: |-
             La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Inscription à la newsletter
@@ -451,6 +465,7 @@ fr:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     endorsable:
       endorsements: Soutiens
+      endorsements_count: Nombre de soutiens
     endorsement_buttons_cell:
       already_endorsed: Soutenue
       endorse: Soutenir
@@ -584,15 +599,15 @@ fr:
         user_group_updated:
           email_intro: Un groupe d'utilisateurs avec le nom %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_url}">panneau d'administration</a>.
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
-          email_subject: Un group d'utilisateurs viens de mettre à jour son profil
+          email_subject: Un groupe d'utilisateurs viens de mettre à jour son profil
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez :'
         email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-        email_subject: "%{endorser_nickname} a effectué une nouvelle approbation"
-        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été approuvé par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_subject: "%{endorser_nickname} a soutenu un nouveau contenu"
+        notification_title: Le <a href="%{resource_path}">%{resource_title}</a> %{resource_type} a été soutenu par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -601,7 +616,7 @@ fr:
           notification_title: Le <a href="%{resource_path}">profil public</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       data_portability_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}.'
+        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données. <br/> Le fichier sera disponible jusqu''au %{date}. <br/> Vous aurez besoin de <a href=''''https://www.7-zip.org/''''>7-Zip</a> pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -624,6 +639,9 @@ fr:
       title: Empreinte numérique
       value: Valeur
     followers:
+      followers_count:
+        one: "%{count} abonné"
+        other: "%{count} abonnés"
       no_followers: Aucun abonné pour le moment.
     following:
       no_followings: Aucun abonnement
@@ -631,6 +649,7 @@ fr:
       create:
         button: Suivre
         error: Une erreur s'est produite lors du traitement de votre demande de suivre ce contenu.
+        participatory_space: Déjà abonné <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
@@ -643,6 +662,18 @@ fr:
           password: Le mot de passe est trop court.
           password_confirmation: La confirmation du mot de passe doit correspondre au mot de passe.
         error: Ce champ contient une erreur.
+      file_help:
+        file:
+          explanation: 'Orientation pour le fichier :'
+          message_1: Doit être une image ou un document.
+          message_2: Pour les images, utilisez de préférence des images en format paysage, le service recadre l'image.
+        image:
+          explanation: 'Orientation pour l''image:'
+          message_1: De préférence une image au format paysage qui n'a pas de texte.
+          message_2: Le service recadre l'image.
+      file_validation:
+        allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
+        max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
       remove_this_file: Supprimer ce fichier
     gamification:
       all_badges_link: Voir tous les badges disponibles.
@@ -796,6 +827,13 @@ fr:
           not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
+    map:
+      dynamic:
+        screen_reader_explanation: L'élément suivant est une carte qui présente les éléments de cette page comme des points de carte. L'élément peut être utilisé avec un lecteur d'écran, mais il peut être difficile à comprendre.
+        skip_button: Passer la carte
+      static:
+        latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
@@ -844,8 +882,15 @@ fr:
           modal_title: Nouvelle conversation
           no_results: Aucun résultat
           participant_with_disabled_message_reception: Ce participant a désactivé la réception de message
+        conversation:
+          show: Afficher la conversation avec %{sender}
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
+        error_modal:
+          close: Fermer la fenêtre de dialogue
+          correct_errors: Veuillez corriger les erreurs et réessayer.
+          intro: 'Il y a eu les erreurs suivantes avec votre message :'
+          ok: Ok
         index:
           ago: il y a
           close: Fermer la fenêtre
@@ -861,6 +906,7 @@ fr:
           send: Envoyer
           title: Répondre
         show:
+          back: Retour à toutes les conversations
           chat_with: Conversation avec
           not_allowed: Cet utilisateur n'accepte plus de messages directs.
           title: Conversation avec %{usernames}
@@ -868,7 +914,7 @@ fr:
           send: Envoyer
           title: Commencer une conversation
         update:
-          error: Message non envoyé. Réessayez plus tard
+          error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
       download:
         csv: Données de téléchargement (csv)
@@ -900,11 +946,12 @@ fr:
         body_preview: 'Faux texte pour le corps: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Texte d'appel à l'action
         introduction_preview: 'Faux texte pour l''introduction: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Bouton Image, texte et appel à l'action
+        name: Image, texte et bouton d'appel à l'action
       image_text_cta_settings_form:
         body: Corps du texte
         cta_text: Texte du bouton d'Appel à action
         cta_url: URL du bouton d'appel à l'action
+        interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans l''introduction, le corps, le texte du bouton d''action ou le sujet et il sera remplacé par le nom du destinataire.'
         introduction: Introduction
         main_image: Image principale
     newsletters:
@@ -932,7 +979,7 @@ fr:
       no_notifications: Il n'y a pas encore de notifications.
     notifications_settings:
       show:
-        allow_public_contact: Permettre à quelqu'un de m'envoyer un message direct, même si je ne les suis pas.
+        allow_public_contact: Permettre à n'importe quoi de m'envoyer un message direct, même si je ne les suis pas.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_notification: Je souhaite recevoir un email à chaque fois que je reçois une notification.
         everything_followed: Tout ce que je suis
@@ -1012,7 +1059,7 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
           success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: Je suis d'accord avec les conditions d'utilisation
+          agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
@@ -1041,6 +1088,7 @@ fr:
         following: Est abonné à
         groups: Groupes
         members: Membres
+        officialized: Participant officiel
         timeline: Chronologie
         view_full_profile: Voir le profil complet
       sidebar:
@@ -1082,16 +1130,21 @@ fr:
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     resource_endorsements:
       create:
-        error: Il y a eu un problème lors de l'action d'approbation.
+        error: Il y a eu un problème lors de l'action de soutien.
     scopes:
       global: Portée générale
       picker:
         cancel: Annuler
+        change: Changer le secteur sélectionné
         choose: Sélectionner
+        currently_selected: Secteur actuellement sélectionné
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
       scopes: Périmètre d'application
+      scopes_picker_input:
+        select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
+      results: Résultats de recherche
       results_found_for_term: '%{count} résultats pour la recherche : "%{term}"'
       term_input_placeholder: Rechercher
     searches:
@@ -1113,7 +1166,16 @@ fr:
           one: "%{count} résultat"
           other: "%{count} résultats"
         view_all: Tout voir (%{count})
+    security:
+      selfxss_warning:
+        description: Cette fonction de navigateur est destinée aux développeurs et vous ne devriez rien coller ici si vous n'avez pas avez été invité à le faire. Coller du contenu dans cette fenêtre peut compromettre votre vie privée et permettre aux hackers d'accéder à votre compte.
+        title: Arrêter !
     shared:
+      confirm_modal:
+        cancel: Annuler
+        close_modal: Fermer la fenêtre de dialogue
+        ok: Ok
+        title: Valider
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
@@ -1121,6 +1183,9 @@ fr:
       extended_navigation_bar:
         more: Plus
         unfold: Afficher
+      filter_form_help:
+        help: Le formulaire ci-dessous filtre dynamiquement les résultats de la recherche lorsque les conditions de recherche sont modifiées.
+        skip: Passer aux résultats
       flag_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -1129,12 +1194,14 @@ fr:
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
-        title: Signaler un problème
+        title: Signaler un contenu inapproprié
       floating_help:
+        close: Fermer l'aide
         help: Aidez-moi
       follow_button:
         sign_in_before_follow: Veuillez vous connecter avant d'effectuer cette action
       login_modal:
+        close_modal: Fermer la fenêtre de dialogue
         please_sign_in: Veuillez vous connecter
         sign_up: S'inscrire
       participatory_space_filters:
@@ -1153,6 +1220,13 @@ fr:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
+    tags:
+      filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
+      filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
+    translation_bar:
+      help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
+      show_original: Afficher le texte original
+      show_translated: Afficher le texte automatiquement traduit
     user_activity:
       index:
         no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
@@ -1160,11 +1234,11 @@ fr:
     user_conversations:
       create:
         error: Le message n'a pas pu être créé. Réessayez plus tard
-        existing_error: Le message n'a pas pu être créé. La conversation existe déjà, veuillez réessayer maintenant.
+        existing_error: Le message n'a pas pu être créé. La conversation existe déjà, veuillez réessayer.
         success: La conversation a commencé avec succès !
       index:
         add_max_users: 'Ajouter des utilisateurs à la conversation: 9 utilisateurs max'
-        add_users_placeholder: Chercher...
+        add_users_placeholder: Rechercher...
         close: Fermer
         conversations_info: Les conversations sont privées. Personne d'autre ne peut les voir. Une conversation peut être lancée avec n'importe quel participant ou groupe enregistré sur la plateforme.
         from: De
@@ -1199,6 +1273,7 @@ fr:
     version:
       show:
         back_to_resource: Revenir en arrière
+        changes_at_title: Changements à%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1212,10 +1287,11 @@ fr:
       resource_version:
         of_versions: "(sur %{number})"
         see_other_versions: voir les autres versions
-        version: Version %{number}
+        version: Numéro de version %{number}
     versions_list:
       show:
         back_to_resource: Revenir en arrière
+        changes_at_title: Changements à%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:
@@ -1396,7 +1472,13 @@ fr:
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (moins de 15 caractères)
   forms:
-    required: Champs obligatoires
+    correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
+    length_validator:
+      minimum:
+        one: au moins %{count} caractères
+        other: au moins %{count} caractères
+    required: Champ obligatoire
+    required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:
     sentence_for_humans: Si vous êtes humain, ignorez ce champ
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
@@ -1409,6 +1491,8 @@ fr:
       edit_link:
         edit: Modifier
       footer:
+        cc_by_license: Licence Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
@@ -1420,9 +1504,19 @@ fr:
         close_session: Fermer la session
         description_html: Vous agissez en tant que l'utilisateur <b>%{user_name}</b>.
         expire_time_html: Votre session expirera dans <b><span class="minutes">%{minutes}</span> minutes</b>.
+      language_chooser:
+        choose_language: Choisir la langue
       notifications_dashboard:
         mark_all_as_read: Marquer tout comme lu
+        mark_as_read: Marquer comme lu
+      social_media_links:
+        facebook: "%{organization} sur Facebook"
+        github: "%{organization} sur GitHub"
+        instagram: "%{organization} sur Instagram"
+        twitter: "%{organization} sur Twitter"
+        youtube: "%{organization} sur YouTube"
       user_menu:
+        account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
         conversations: Conversations
         notifications: Notifications
@@ -1442,6 +1536,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
+    name_with_error: Anglais (erreur !)
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
@@ -1511,6 +1606,7 @@ fr:
       last_title: Lien vers la dernière page
       next: Suivant &rsaquo;
       next_title: Lien vers la page suivante
+      pagination: Pagination
       previous: "&lsaquo; Précédent"
       previous_title: Lien vers la page précédente
       title: 'Numéro de page : '

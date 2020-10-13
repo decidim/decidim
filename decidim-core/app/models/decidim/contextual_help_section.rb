@@ -2,6 +2,10 @@
 
 module Decidim
   class ContextualHelpSection < ApplicationRecord
+    include Decidim::TranslatableResource
+
+    translatable_fields :content
+
     belongs_to :organization, class_name: "Decidim::Organization"
     validates :organization, presence: true
     validates :content, presence: true

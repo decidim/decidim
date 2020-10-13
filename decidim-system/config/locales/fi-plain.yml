@@ -1,4 +1,29 @@
 fi-pl:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth-sovelluksen nimi
+        organization_logo: Organisaation logo (neliö)
+        organization_name: Organisaatio
+        organization_url: Organisaation URL-osoite
+        redirect_uri: Uudelleenohjauksen osoite (URI)
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Hallintakäyttäjien MIME-tyypit
+          default: Oletusarvoiset MIME-tyypit
+        allowed_file_extensions:
+          admin: Hallintakäyttäjien tiedostopäätteet
+          default: Oletusarvoiset tiedostopäätteet
+          image: Kuvatiedostojen tiedostopäätteet
+        maximum_file_size:
+          avatar: Avatar-kuvien tiedoston koko
+          default: Oletusarvoinen tiedoston koko
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Uudelleenohjaus osoite (URI) on oltava SSL-muotoinen osoite (URI)
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ fi-pl:
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
+        oauth_applications: OAuth-sovellukset
         organizations: Organisaatiot
       models:
         admin:
@@ -41,21 +67,67 @@ fi-pl:
           name: Hallinnoija
           validations:
             email_uniqueness: toinen hallinnointikäyttäjä on jo olemassa samalla sähköpostilla
+        oauth_application:
+          fields:
+            created_at: Luontiaika
+            name: OAuth-sovelluksen nimi
+            organization_name: Organisaatio
+          name: OAuth-sovellus
         organization:
           actions:
             save_and_invite: Luo organisaatioita ja kutsu hallinnointikäyttäjiä
           fields:
             created_at: Luotu
+            file_upload_settings: Tiedostojen latauksen asetukset
             name: Nimi
             omniauth_settings: Omniauth-asetukset
             smtp_settings: SMTP-asetukset
           name: Organisaatio
+      oauth_applications:
+        create:
+          error: Sovelluksen luonti epäonnistui.
+          success: Sovelluksen luonti onnistui.
+        destroy:
+          error: Sovelluksen poisto epäonnistui.
+          success: Sovelluksen poisto onnistui.
+        edit:
+          save: Tallenna
+          title: Muokkaa sovellusta
+        form:
+          select_organization: Valitse organisaatio
+        index:
+          confirm_delete: Haluatko varmasti poistaa tämän sovelluksen?
+          title: OAuth-sovellukset
+        new:
+          save: Tallenna
+          title: Uusi sovellus
+        update:
+          error: Sovelluksen päivittäminen epäonnistui.
+          success: Sovelluksen päivittäminen onnistui.
       organizations:
         create:
           error: Uuden organisaation luonnissa tapahtui virhe.
           success: Organisaatio luotu onnistuneesti.
         edit:
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+        file_upload_settings:
+          content_types:
+            admin_hint: Nämä MIME-tyypit sallitaan hallintakäyttäjien tiedostolatauksiin. Hallintakäyttäjien tulisi ymmärtää riskit tietyntyyppisten tiedostoformaattien kanssa, joten voit olettaa heidän olevan varovaisempia tiedostojen lataamisen suhteen.
+            default_hint: Nämä MIME-tyypit sallitaan kaikille käyttäjille oletusarvoisesti.
+            intro_html: Voit merkitä tähtimerkillä kaikki mahdolliset MIME-tyypit, joissa on tietynlainen alkuosa, esimerkiksi <code>image/*</code>.
+            title: Sallitut MIME-tyypit
+          file_extensions:
+            admin_hint: Nämä tiedostopäätteet sallitaan hallintakäyttäjien tiedostolatauksiin. Hallintakäyttäjien tulisi ymmärtää riskit tietyntyyppisten tiedostoformaattien kanssa, joten voit olettaa heidän olevan varovaisempia tiedostojen lataamisen suhteen.
+            default_hint: Nämä tiedostopäätteet sallitaan kaikille käyttäjille oletusarvoisesti.
+            image_hint: Nämä tiedostopäätteet sallitaan kaikille kuvalatauksille.
+            title: Sallitut tiedostopäätteet
+          file_sizes:
+            avatar_hint: Megatavuja (MB). Tätä tiedostokokorajaa käytetään avatar-kuvien latauksessa.
+            default_hint: Megatavuja (MB). Tätä tiedostokokorajaa käytetään oletusarvoisesti kaikille tiedostolatauksille, ellei kyseisenlaisille tiedostoille ole erikseen muuta asetusta.
+            title: Tiedostojen enimmäiskoot
+          intro: |
+            Ole erityisen varovainen harkitessasi näiden asetusten muuttamista. Mitä vähemmän sallit, sitä parempi.
+            Sallimalla tietyt tiedostopäätteet tai MIME-tyypit voit altistaa järjestelmän käyttäjät turvallisuusriskeille ja se voi myös vaikuttaa sivuston saavutettavuuteen.
         index:
           title: Organisaatiot
         new:
@@ -82,9 +154,9 @@ fi-pl:
             api_secret: API-salausavain
         smtp_settings:
           instructions:
-            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@your-provider.org>". Jätä tyhjäksi käyttääksesi lähetysosoitetta nimenä'
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <sinun-organisaatiosi@example.org>". Jätä tyhjäksi käyttääksesi lähetyssähköpostia (''from_email'') lähettäjän nimenä'
           placeholder:
-            from_email: organisaatiosi@osoitteesi.org
+            from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi
         update:
           error: Organisaation päivityksessä tapahtui virhe.

@@ -13,6 +13,7 @@ de:
         attachment_collection_id: Verzeichnis
         description: Beschreibung
         file: Datei
+        title: Anhang oder Bildname
       attachment_collection:
         description: Beschreibung
         name: Name
@@ -28,16 +29,11 @@ de:
       newsletter:
         body: Haupttext
         subject: Betreff
-      oauth_application:
-        name: Name
-        organization_logo: Organisationslogo (quadratisch)
-        organization_name: Name der Organisation
-        organization_url: URL der Organisation
-        redirect_uri: Weiterleitungs-URI
       organization:
         address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
+        comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
         cta_button_path: Call To Action Schaltfläche Pfad
         cta_button_text: Call To Action Schaltfläche Text
         customize_welcome_notification: Willkommens-Benachrichtigung anpassen
@@ -49,6 +45,8 @@ de:
         from: Absender E-Mail
         github_handler: GitHub-Handler
         header_snippets: Header-Snippets
+        highlight_alternative_color: Hervorhebung, Alternative
+        highlight_color: Hervorheben
         highlighted_content_banner_action_subtitle: Aktion Schaltfläche Untertitel
         highlighted_content_banner_action_title: Titel der Aktionsschaltfläche
         highlighted_content_banner_action_url: Aktionsschaltflächen-URL
@@ -58,6 +56,9 @@ de:
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram-Handler
         logo: Logo
+        machine_translation_display_priority: Priorität der maschinellen Übersetzung
+        machine_translation_display_priority_original: Originaltext zuerst
+        machine_translation_display_priority_translation: Übersetzter Text zuerst
         name: Name
         official_img_footer: Offizielles Logo Fußzeile
         official_img_header: Offizieller Logo-Header
@@ -111,10 +112,6 @@ de:
         file: Datei
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
         organization:
           attributes:
             official_img_footer:
@@ -146,6 +143,7 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        share: Teilen
         verify: Überprüfen
       admin_terms_of_use:
         accept:
@@ -273,6 +271,7 @@ de:
           headers:
             actions: Aktionen
             name: Komponentenname
+            scope: Komponentenbereich
             type: Komponententyp
         new:
           add: Komponente hinzufügen
@@ -291,6 +290,11 @@ de:
           welcome: Willkommen im Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
         category_id_eq:
@@ -317,6 +321,8 @@ de:
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
           title_cont: Suche in %{collection} nach Titel.
+        state_eq:
+          label: Bundesland
       help_sections:
         error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten
         form:
@@ -379,7 +385,6 @@ de:
         homepage: Startseite
         impersonations: Identitätswechsel
         newsletters: Newsletter
-        oauth_applications: OAuth-Anwendungen
         participants: Teilnehmer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -426,11 +431,6 @@ de:
             sent_to: Gesendet an
             subject: Gegenstand
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Hergestellt in
-            name: Name
-          name: OAuth-Anwendung
         participatory_space_private_user:
           name: Participatory Space privater Benutzer
         scope:
@@ -441,6 +441,14 @@ de:
           fields:
             name: Name
             plural: Plural
+        share_token:
+          fields:
+            created_at: Erstellt am
+            expires_at: Läuft ab am
+            last_used_at: Zuletzt verwendet
+            times_used: Anzahl Anwendungen
+            token: Token
+            user: Erstellt von
         static_page:
           fields:
             created_at: Hergestellt in
@@ -537,25 +545,6 @@ de:
         update:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
-      oauth_applications:
-        create:
-          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich erstellt
-        destroy:
-          error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
-          success: Anwendung erfolgreich zerstört.
-        edit:
-          save: Speichern
-          title: Anwendung bearbeiten
-        index:
-          confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
-          title: OAuth-Anwendungen
-        new:
-          save: Speichern
-          title: Neue Bewerbung
-        update:
-          error: Beim Aktualisieren dieser Anwendung ist ein Fehler aufgetreten.
-          success: Die Anwendung wurde erfolgreich aktualisiert.
       officializations:
         create:
           success: Benutzer wurde offiziell anerkannt
@@ -579,6 +568,7 @@ de:
           officialize: Offizialisieren
           title: Benutzer "%{name}" offiziellisieren
         show_email_modal:
+          close_modal: Modal schließen
           description: Wenn Sie einen Teilnehmer direkt kontaktieren möchten, können Sie auf die Schaltfläche "Anzeigen" klicken, um die E-Mail-Adresse zu sehen. Diese Aktion wird protokolliert.
           email_address: E-Mail-Adresse
           full_name: Voller Name
@@ -614,6 +604,7 @@ de:
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
           images:
             layout_appearance_title: Layout-Layout bearbeiten
+            preview: Vorschau
           omnipresent_banner_appearance_title: Bearbeiten Sie das allgegenwärtige Banner
       organization_homepage:
         edit:
@@ -640,7 +631,6 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
-          explanation: Laden Sie Ihre CSV-Datei hoch. Diese Datei darf nur zwei Spalten und keine Kopfzeile haben. Die erste Spalte enthält die E-Mail-Adressen und und die zweite Spalte die Namen der Benutzer, die Sie zum Teilnehmerraum hinzufügen möchten.
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -649,6 +639,10 @@ de:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
+      resources:
+        index:
+          headers:
+            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -680,6 +674,18 @@ de:
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich aktualisiert
+      share_tokens:
+        actions:
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
+          destroy: Löschen
+          share: Teilen
+        destroy:
+          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
+          success: Token wurde erfolgreich gelöscht.
+        share_tokens:
+          empty: Es gibt keine aktiven Token
+          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
+          title: Token teilen
       shared:
         gallery:
           add_images: Bilder hinzufügen

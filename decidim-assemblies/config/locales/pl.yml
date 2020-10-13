@@ -2,61 +2,61 @@ pl:
   activemodel:
     attributes:
       assembly:
-        area_id: Powierzchnia
+        area_id: Kategoria
         assembly_type: Typ zespołu
         assembly_type_other: Typ zespołu inny
-        banner_image: Obraz baneru
+        banner_image: Banner
         closing_date: Data zamknięcia
-        closing_date_reason: Termin zamknięcia terminu
-        composition: Kompozycja
-        copy_categories: Kopiuj kategorie
+        closing_date_reason: Powód zamknięcia w podanym terminie
+        composition: Skład zespołu
+        copy_categories: Skopiuj kategorie
         copy_components: Skopiuj komponenty
-        copy_features: Kopiuj funkcje
-        created_by: Stworzone przez
-        created_by_other: Stworzony przez inne
+        copy_features: Skopiuj funkcje
+        created_by: Stworzono przez
+        created_by_other: Stworzono przez inne
         creation_date: Data utworzenia
         decidim_area_id: Powierzchnia
         decidim_assemblies_type_id: Typ zespołu
         decidim_scope_id: Zakres
         description: Opis
-        developer_group: Grupa promotorów
+        developer_group: Grupa inicjatorów
         domain: Domena
-        duration: Trwanie
+        duration: Czas trwania
         facebook: Facebook
         github: GitHub
-        hashtag: Hasztag
-        hero_image: Obraz w domu
-        included_at: Zawarte w
+        hashtag: Hashtag
+        hero_image: Obraz główny
+        included_at: Dołączono
         instagram: Instagram
         internal_organisation: Organizacja wewnętrzna
-        is_transparent: Jest przezroczysty
+        is_transparent: Jest transparentny
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
-        parent_id: Montaż rodziców
-        participatory_processes_ids: Powiązane procesy uczestnictwa
-        participatory_scope: Co postanowiono
-        participatory_structure: Jak to się decyduje
-        private_space: Prywatna przestrzeń
-        promoted: Lansowany
-        published_at: Opublikowano na
+        parent_id: Zespół nadrzędny
+        participatory_processes_ids: Powiązane procesy partycypacyjne
+        participatory_scope: Zaproponowano
+        participatory_structure: Jak decydowano
+        private_space: Przestrzeń prywatna
+        promoted: Wyróżniony
+        published_at: Opublikowano
         purpose_of_action: Cel działania
         scope_id: Zakres
-        scopes_enabled: Zakresy włączone
+        scopes_enabled: Zakresy dozwolone
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
-        slug: Ślimak URL
+        slug: URL slug
         special_features: Cechy szczególne
         subtitle: Podtytuł
-        target: Kto uczestniczy
+        target: Do kogo kierowane
         title: Tytuł
         twitter: Twitter
-        youtube: Youtube
+        youtube: YouTube
       assembly_member:
         birthday: Urodziny
         birthplace: Miejsce urodzenia
-        ceased_date: Przerywana data
-        designation_date: Data wyznaczenia
-        designation_mode: Tryb oznaczania
+        ceased_date: Data zakończenia
+        designation_date: Data wyboru
+        designation_mode: Tryb wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
         position: Pozycja
@@ -64,189 +64,236 @@ pl:
         email: E-mail
         name: Nazwa
         role: Rola
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
-        one: montaż
-        few: Złożenia
-        many: Złożenia
-        other: Złożenia
+        one: Zespół
+        few: Zespoły
+        many: Zespoły
+        other: Zespoły
       decidim/assembly_member:
         one: Członek zespołu
-        few: Członkowie zgromadzenia
-        many: Członkowie zgromadzenia
-        other: Członkowie zgromadzenia
+        few: Członkowie zespołu
+        many: Członkowie zespołu
+        other: Członkowie zespołu
       decidim/assembly_user_role:
-        one: Zbierz rolę użytkownika
-        few: Zbierz role użytkowników
-        many: Zbierz role użytkowników
-        other: Zbierz role użytkowników
+        one: Rola użytkownika zespołu
+        few: Role użytkowników zespołu
+        many: Role użytkowników zespołu
+        other: Role użytkowników zespołu
   decidim:
     admin:
       actions:
-        new_assembly: Nowy montaż
+        import_assembly: Importuj
+        new_assembly: Nowy zespół
+        new_assembly_type: Nowy typ zespołu
       assemblies:
         create:
-          error: Podczas tworzenia nowego zestawu wystąpił błąd.
-          success: Zgromadzenie zostało utworzone.
+          error: Podczas tworzenia nowego zespołu wystąpił błąd.
+          success: Zespół został utworzony.
         edit:
           update: Aktualizuj
         index:
-          not_published: Nie opublikowane
+          not_published: Nieopublikowane
           private: Prywatny
           public: Publiczny
           published: Opublikowany
         new:
           create: Utwórz
-          title: Nowy montaż
+          title: Nowy zespół
         update:
-          error: Podczas aktualizowania tego zestawu wystąpił błąd.
-          success: Zgromadzenie zostało zaktualizowane.
+          error: Podczas aktualizowania tego zespołu wystąpił błąd.
+          success: Zespół został zaktualizowany.
       assemblies_copies:
         create:
-          error: Podczas duplikowania tego zestawu wystąpił błąd.
-          success: Złożenie zostało powielone.
+          error: Podczas duplikowania tego zespołu wystąpił błąd.
+          success: Zespół został zduplikowany.
+      assemblies_settings:
+        update:
+          error: Podczas aktualizowania ustawień wystąpił błąd.
+          success: Pomyślnie zaktualizowano ustawienia.
       assemblies_types:
+        create:
+          error: Podczas tworzenia nowego typu zespołu wystąpił błąd.
+          success: Pomyślnie utworzono typ zespołu.
+        destroy:
+          success: Pomyślnie usunięto typ zespołu.
         new:
           create: Utwórz
+          title: Nowy typ zespołu
+        update:
+          error: Podczas aktualizowania tego typu zespołu wystąpił błąd.
+          success: Pomyślnie zaktualizowano typ zespołu.
       assembly_copies:
         new:
           copy: Kopiuj
           select: Wybierz dane, które chcesz zduplikować
-          title: Duplikat montażu
+          title: Zduplikuj zespół
+      assembly_imports:
+        create:
+          error: Wystąpił błąd podczas importowania tego zespołu.
+          success: Zespół został pomyślnie zaimportowany.
+        new:
+          import: Importuj
+          select: Wybierz dane, które chcesz zaimportować
+          title: Importuj zespół
       assembly_members:
         create:
-          error: Wystąpił błąd podczas dodawania elementu dla tego zespołu.
+          error: Wystąpił błąd podczas dodawania członka do tego zespołu.
           success: Członek utworzony pomyślnie dla tego zespołu.
         destroy:
-          success: Członek usunięty pomyślnie dla tego zespołu.
+          success: Członek usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj element złożenia.
-          update: Aktualizacja
+          title: Aktualizuj członka zespołu.
+          update: Aktualizuj
         index:
-          assembly_members_title: Członkowie zgromadzenia
+          assembly_members_title: Członkowie zespołu
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowy członek zespołu.
         update:
-          error: Wystąpił błąd podczas aktualizowania elementu dla tego zespołu.
-          success: Członek zaktualizowany pomyślnie dla tego zespołu.
+          error: Wystąpił błąd podczas aktualizowania członka tego zespołu.
+          success: Członek zespołu zaktualizowany pomyślnie.
       assembly_publications:
         create:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie zostało opublikowane pomyślnie.
+          error: Podczas publikowania tego zespołu wystąpił błąd.
+          success: Zespół został opublikowane pomyślnie.
         destroy:
-          error: Podczas publikowania tego wystąpienia wystąpił błąd.
-          success: Zgromadzenie nie zostało pomyślnie opublikowane.
+          error: Wystąpił błąd podczas próby cofnięcia publikacji tego zespołu.
+          success: Zespół nie jest już publicznie widoczny.
       assembly_user_roles:
         create:
-          error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
-          success: Użytkownik został pomyślnie dodany do tego zespołu.
+          error: Wystąpił błąd podczas dodawania administratora do tego zespołu.
+          success: Administrator został pomyślnie dodany do tego zespołu.
         destroy:
-          success: Użytkownik usunięty pomyślnie z tego zestawu.
+          success: Administrator został usunięty pomyślnie z tego zespołu.
         edit:
-          title: Zaktualizuj użytkownika złożenia.
-          update: Aktualizacja
+          title: Zaktualizuj administratora zespołu.
+          update: Aktualizuj
         index:
-          assembly_admins_title: Użytkownicy montażu
+          assembly_admins_title: Administratorzy zespołu
         new:
-          create: Stwórz
-          title: Nowy użytkownik złożenia.
+          create: Utwórz
+          title: Nowy administrator zespołu.
         update:
-          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego zespołu.
-          success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
+          error: Wystąpił błąd podczas aktualizacji administratora tego zespołu.
+          success: Administrator zespołu został zaktualizowany pomyślnie.
       menu:
         assemblies: Zespoły
+        assemblies_settings: Ustawienia
         assemblies_submenu:
-          assembly_admins: Użytkownicy montażu
+          assembly_admins: Administratorzy zespołu
           assembly_members: Członkowie
-          attachment_collections: Lornetka składana
-          attachment_files: Akta
+          attachment_collections: Foldery
+          attachment_files: Pliki
           attachments: Załączniki
           categories: Kategorie
-          components: składniki
+          components: Komponenty
           info: Informacje
-          moderations: Modernizacje
+          moderations: Moderacje
           private_users: Prywatni użytkownicy
+        assemblies_types: Typy zespołów
       models:
         assemblies_types:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             title: Tytuł
         assembly:
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             private: Prywatny
-            promoted: Podświetlony
+            promoted: Wyróżniony
             published: Opublikowany
             title: Tytuł
-          name: Montaż
+          name: Zespół
         assembly_member:
           fields:
-            ceased_date: Przerywana data
+            ceased_date: Data zakończenia
             designation_date: Data wyznaczenia
             full_name: Nazwa
             position: Pozycja
           name: Członek
           positions:
             other: Inny
-            president: Prezydent
+            president: Przewodniczący
             secretary: Sekretarz
-            vice_president: Wiceprezydent
+            vice_president: Wiceprzewodniczący
         assembly_user_role:
           fields:
             email: E-mail
             name: Nazwa
             role: Rola
-          name: Użytkownik złożenia
+          name: Administrator zespołu
           roles:
             admin: Administrator
             collaborator: Współpracownik
             moderator: Moderator
+            valuator: Taksator
       titles:
         assemblies: Zespoły
+        assemblies_types: Typy zespołów
     admin_log:
       assembly:
-        create: "%{user_name} utworzył zespół %{resource_name}"
-        publish: "%{user_name} opublikował montaż %{resource_name}"
-        unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
-        update: "%{user_name} zaktualizował zespół %{resource_name}"
+        create: "%{user_name} utworzył(a) zespół %{resource_name}"
+        publish: "%{user_name} upublicznił(a) zespół %{resource_name}"
+        unpublish: "%{user_name} anulował(a) publikację zespołu %{resource_name}"
+        update: "%{user_name} zaktualizował(a) zespół %{resource_name}"
       assembly_member:
-        create: "%{user_name} utworzył %{resource_name} element w %{space_name} zespole"
-        delete: "%{user_name} usunął %{resource_name} element z %{space_name} zespołu"
-        update: "%{user_name} zaktualizowało %{resource_name} członka w %{space_name} zestawie"
+        create: "%{user_name} utworzył(a) członka %{resource_name} w zespole %{space_name}"
+        delete: "%{user_name} usunął/usunęła członka %{resource_name} z zespołu %{space_name}"
+        update: "%{user_name} zaktualizował(a) członka %{resource_name} w zespole %{space_name}"
+      assembly_setting:
+        update: "%{user_name} zaktualizował(a) ustawienia zespołów"
+      assembly_type:
+        create: "%{user_name} utworzył(a) typ zespołu %{resource_name}"
+        delete: "%{user_name} usunął/usunęła typ zespołu %{resource_name} z przestrzeni %{space_name}"
+        publish: "%{user_name} opublikował(a) typ zespołu %{resource_name}"
+        unpublish: "%{user_name} anulował(a) publikację typu zespołu %{resource_name}"
+        update: "%{user_name} zaktualizował(a) typ zespołu %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
-        delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
-        update: "%{user_name} zmienił rolę %{resource_name} w zespole %{space_name}"
+        create: "%{user_name} zaprosił(a) %{resource_name} do zespołu %{space_name}"
+        delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} z zespołu %{space_name}"
+        update: "%{user_name} zmienił(a) rolę %{resource_name} w zespole %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            duration: Trwanie
-            duration_help: Jeśli czas trwania tego zestawu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
+            duration: Czas trwania
+            duration_help: Jeśli czas trwania tego zespołu jest ograniczony, wybierz datę końcową. W przeciwnym razie pojawi się jako nieokreślony.
             filters: Filtry
             images: Obrazy
-            included_at_help: Wybierz datę dodania tego zestawu do Decidim. To niekoniecznie musi być takie samo jak data utworzenia.
+            included_at_help: Wybierz datę dodania tego zespołu do Decidim. To niekoniecznie musi być ta sama data co data utworzenia.
             metadata: Metadane
             other: Inny
             select_a_created_by: Wybierz utworzony przez
-            select_an_area: Wybierz obszar
+            select_an_area: Wybierz kategorię
             select_an_assembly_type: Wybierz typ zespołu
             select_parent_assembly: Wybierz zespół macierzysty
-            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
-            social_handlers: Społeczny
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+            social_handlers: Profile społecznościowe
             title: Informacje ogólne
             visbility: Widoczność
         assemblies_settings:
           edit:
             update: Aktualizuj
+          form:
+            title: Ustawienia zespołów
         assemblies_types:
           form:
             title: Tytuł
         assembly_copies:
           form:
-            slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można używać: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dodaj dokument
+            slug_help: 'URL slugi służą do generowania adresów URL kierujących do tego zespołu. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
         assembly_members:
           form:
             existing_user: Istniejący użytkownik
@@ -257,8 +304,8 @@ pl:
           index:
             filter:
               all: Wszystko
-              ceased: Przestałem
-              not_ceased: Nie przestał
+              ceased: Byli
+              not_ceased: Aktualni
             filter_by: Filtruj według
             search: Szukaj
         content_blocks:
@@ -268,106 +315,143 @@ pl:
         index:
           members: Członkowie
       assembly_types:
-        commission: Prowizja
+        commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
-        executive: Wykonawczy
+        executive: Wykonawcze
         government: Rząd
-        others: Inni
-        participatory: Uczestniczy
+        others: Inne
+        participatory: Uczestniczące
         working_group: Grupa robocza
       content_blocks:
         highlighted_assemblies:
-          name: Wyróżnione złożenia
+          name: Wyróżnione zespoły
       created_by:
         city_council: Rada Miejska
         others: Inni
         public: Publiczny
       filter:
+        all: Wszystkie typy
         commission: Komisja
         consultative_advisory: Konsultacyjne / doradcze
-        executive: Wykonawczy
+        executive: Wykonawcze
         government: Rząd
-        help: 'Pokazać:'
+        help: 'Pokaż:'
         others: Inni
-        participatory: Uczestniczy
+        participatory: Uczestniczące
         working_group: Grupa robocza
       index:
         title: Zespoły
       last_activity:
-        new_assembly: Nowy montaż
+        new_assembly: Nowy zespół
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktywne złożenia
+            active_assemblies: Aktywne zespoły
+            assemblies_button_title: Link do strony Zespołów wyświetlającej wszystkie zespoły
             see_all_assemblies: Zobacz wszystkie zespoły
         user_profile:
           member_of:
-            member_of: Członkiem
+            member_of: Członek
       show:
-        area: Powierzchnia
+        area: Kategoria
         assembly_type: Typ zespołu
-        children: Złożenia
+        children: Zespoły
         closing_date: Data zamknięcia
-        composition: Kompozycja
-        created_by: Stworzone przez
+        composition: Skład zespołu
+        created_by: Utworzone przez
         creation_date: Data utworzenia
-        developer_group: Grupa promotorów
-        duration: Trwanie
-        included_at: Zawarte w
-        indefinite_duration: Nieokreślony
+        developer_group: Grupa inicjatorów
+        duration: Czas trwania
+        included_at: Dołączono
+        indefinite_duration: Nie określono
         internal_organisation: Organizacja wewnętrzna
         is_transparent:
-          'false': nieprzezroczysty
-          'true': przezroczysty
+          'false': nietransparentny
+          'true': transparentny
         local_area: Obszar organizacji
-        participatory_scope: Co postanowiono
-        participatory_structure: Jak to się decyduje
-        private_space: To jest prywatne zgromadzenie
+        participatory_scope: Zaproponowano
+        participatory_structure: Jak decydowano
+        private_space: To jest prywatny zespół
         purpose_of_action: Cel działania
-        read_less: Mniej czytać
+        read_less: Czytaj mniej
         read_more: Czytaj więcej
-        related_participatory_processes: Powiązane procesy uczestnictwa
+        related_participatory_processes: Powiązane procesy partycypacyjne
         scope: Zakres
         social_networks: Portale społecznościowe
-        target: Kto uczestniczy
+        social_networks_title: Udostępnij zespół na
+        target: Do kogo kierowane
       statistics:
         answers_count: Odpowiedzi
         assemblies_count: Zespoły
         comments_count: Komentarze
         debates_count: Debaty
-        endorsements_count: Adnotacje
-        headline: Czynność
+        endorsements_count: Rekomendacje
+        headline: Działania
         meetings_count: Spotkania
-        orders_count: Głosowania
+        orders_count: Wsparcia
         pages_count: Strony
+        posts_count: Posty
         projects_count: Projekty
         proposals_count: Propozycje
         results_count: Wyniki
         surveys_count: Ankiety
-        users_count: Uczestnicy
-        votes_count: Głosowania
+        users_count: Użytkownicy
+        votes_count: Głosy
     assembly_members:
       assembly_member:
         designated_on: Wyznaczony na
       index:
         title: Członkowie
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link do strony Konferencji wyświetlającej wszystkie konferencje
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Administrator zespołu <a href="%{resource_url}">%{resource_name}</a> ustanowił Cię jego członkiem.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ zaproszono Cię do zespołu. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby dołączyć!
+          email_subject: Zaproszono Cię do grona członków zespołu %{resource_name}!
+          notification_title: Zarejestrowano Cię jako członka Zespołu <a href="%{resource_path}">%{resource_name}</a>. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby wnieść swój wkład!
+      assembly:
+        role_assigned:
+          email_intro: Przypisano Ci rolę %{role} w zespole „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie jako %{role} zespołu „%{resource_title}”.
+          email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
+          notification_title: Przypisano Ci rolę %{role} w zespole <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
-          page: "<p>Zgromadzenie to grupa członków organizacji, którzy okresowo spotykają się, aby podejmować decyzje dotyczące określonego obszaru lub zakresu organizacji.</p> <p>Zgromadzenia organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to przepustowość, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
-          title: Czym są zgromadzenia?
+          contextual: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonej kategorii lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          page: "<p><strong>Zespół</strong> to grupa członków organizacji, którzy regularnie spotykają się, aby podejmować decyzje dotyczące określonej kategorii lub zakresu organizacji.</p> <p>Zespoły organizują spotkania, niektóre są prywatne, a niektóre są otwarte. Jeśli są otwarte, można w nich uczestniczyć (na przykład: uczestniczyć, jeśli pozwala na to liczba dostępnych miejsc, dodawać punkty do porządku obrad lub komentować propozycje i decyzje podjęte przez ten organ).</p> <p>Przykłady: zgromadzenie ogólne (które spotyka się raz w roku w celu określenia głównych kierunków działania organizacji, a także jej organów wykonawczych w drodze głosowania), rada doradcza ds. Równości (która zbiera się co dwa miesiące w celu przedstawienia propozycji dotyczących poprawy stosunków między płciami w organizacji), komisje oceniające (które zbierają się co miesiąc w celu monitorowania procesu) lub organ gwarancyjny (który zbiera incydenty, nadużycia lub propozycje ulepszenia procedur decyzyjnych) to przykłady zespołów.</p>\n"
+          title: Czym są zespoły?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Zestaw nie został znaleziony w bazie danych (ID: %{id})'
+          not_found: 'Zespół nie został znaleziony w bazie danych (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Nie znaleziono typu zespołu w bazie danych (ID: %{id})'
     menu:
       assemblies: Zespoły
     metrics:
       assemblies:
-        description: Liczba utworzonych złożeń
+        description: Liczba utworzonych zespołów
         object: zespoły
-        title: Złożenia
+        title: Zespoły
+    pages:
+      home:
+        hero:
+          participate_title: Weź udział w procesach udostępnionych na platformie
+        sub_hero:
+          register_title: Zarejestruj się, aby utworzyć konto na platformie
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link do strony Procesy wyświetlającej wszystkie procesy
+      show:
+        related_assemblies: Powiązane zespoły
   errors:
     messages:
       cannot_be_blank: nie może być puste
@@ -376,23 +460,24 @@ pl:
       assemblies:
         assembly:
           more_info: Więcej informacji
-          take_part: Weź udział
+          take_part: Dołącz
         index:
+          children: 'Zespoły: '
           organizational_chart: Schemat organizacyjny
-          promoted_assemblies: Podświetlone zespoły
-          reset_chart: Nastawić
+          promoted_assemblies: Wyróżnione zespoły
+          reset_chart: Resetuj
         order_by_assemblies:
           assemblies:
-            one: "%{count} montaż"
-            few: "%{count} złożeń"
-            many: "%{count} złożeń"
-            other: "%{count} złożeń"
+            one: "%{count} zespół"
+            few: "%{count} zespoły"
+            many: "%{count} zespołów"
+            other: "%{count} zespołów"
         promoted_assembly:
           more_info: Więcej informacji
-          take_part: Weź udział
+          take_part: Dołącz
       assembly_navigation:
         assembly_member_menu_item: Członkowie
-        assembly_menu_item: Zgromadzenie
+        assembly_menu_item: Zespół
       assembly_widgets:
         show:
-          take_part: Weź udział
+          take_part: Dołącz

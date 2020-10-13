@@ -13,6 +13,7 @@ module Decidim
       desc = "Nulla TestCheck accumsan tincidunt description Ow!"
       create(
         :debate,
+        :open_ama,
         component: current_component,
         title: Decidim::Faker::Localized.name,
         description: { ca: "CA:#{desc}", en: "EN:#{desc}", es: "ES:#{desc}" },
@@ -46,7 +47,7 @@ module Decidim
           it "updates the associated SearchableResource after Debate update" do
             searchable = SearchableResource.find_by(resource_type: debate.class.name, resource_id: debate.id)
             created_at = searchable.created_at
-            updated_title = "Brand new title"
+            updated_title = { "en" => "Brand new title" }
             debate.update(title: updated_title)
 
             debate.save!
@@ -54,7 +55,7 @@ module Decidim
 
             organization.available_locales.each do |locale|
               searchable = SearchableResource.find_by(resource_type: debate.class.name, resource_id: debate.id, locale: locale)
-              expect(searchable.content_a).to eq updated_title
+              expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
               expect(searchable.updated_at).to be > created_at
             end
           end
@@ -76,8 +77,8 @@ module Decidim
           create(
             :debate,
             component: current_component,
-            title: Decidim::Faker.name,
-            description: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
+            title: Decidim::Faker::Localized.name,
+            description: { en: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!" }
           )
         end
 
@@ -135,7 +136,6 @@ module Decidim
         "content_c" => "",
         "content_d" => I18n.transliterate(debate.description[locale]),
         "locale" => locale,
-
         "decidim_organization_id" => debate.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,
         "decidim_participatory_space_type" => current_component.participatory_space_type,

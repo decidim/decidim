@@ -13,6 +13,7 @@ ro:
         attachment_collection_id: Dosar
         description: Descriere
         file: Fişier
+        title: Atașament sau nume imagine
       attachment_collection:
         description: Descriere
         name: Nume
@@ -28,16 +29,11 @@ ro:
       newsletter:
         body: Corp
         subject: Subiect
-      oauth_application:
-        name: Nume
-        organization_logo: Sigla organizației (pătrat)
-        organization_name: Numele organizației
-        organization_url: URL organizație
-        redirect_uri: URI de redirecționare
       organization:
         address: SMTP hostname
         alert_color: Alertă
         badges_enabled: Activează insigne
+        comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
         cta_button_path: Calea butonului Apel la acţiune
         cta_button_text: Text buton Apel la Acțiune
         customize_welcome_notification: Personalizați notificarea de bun venit
@@ -49,6 +45,8 @@ ro:
         from: De la adresa de e-mail
         github_handler: GitHub handler
         header_snippets: Snippet-uri antet
+        highlight_alternative_color: Evidențiază, alternativă
+        highlight_color: Evidențiere
         highlighted_content_banner_action_subtitle: Subtitrare buton acțiune
         highlighted_content_banner_action_title: Titlu buton actiune
         highlighted_content_banner_action_url: URL buton acțiune
@@ -111,10 +109,6 @@ ro:
         file: Fişier
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URL-ul de redirecționare trebuie să fie un URL SSL
         organization:
           attributes:
             official_img_footer:
@@ -291,6 +285,11 @@ ro:
           welcome: Bine ați venit în Panoul de administrare Decidim.
       exports:
         export_as: "%{name} ca %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Exportul dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este complet.
       filters:
         category_id_eq:
@@ -316,6 +315,8 @@ ro:
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Căutare %{collection} după e-mail, nume sau poreclă.
+        state_eq:
+          label: Județ
       help_sections:
         error: A apărut o eroare la actualizarea secțiunilor de ajutor
         form:
@@ -378,7 +379,6 @@ ro:
         homepage: Pagina principală
         impersonations: Impersonări
         newsletters: Newslettere
-        oauth_applications: Aplicații OAuth
         participants: Participanți
         scope_types: Tipuri de domeniu
         scopes: Domeniu
@@ -425,11 +425,6 @@ ro:
             sent_to: Trimis către
             subject: Subiect
           name: Newsletter
-        oauth_application:
-          fields:
-            created_at: Creat la
-            name: Nume
-          name: Aplicație OAuth
         participatory_space_private_user:
           name: Participant privat la spațiu
         scope:
@@ -536,25 +531,6 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestui buletin informativ.
           success: Newsletter actualizat cu succes. Vă rugăm să îl revizuiți înainte de a trimite.
-      oauth_applications:
-        create:
-          error: A apărut o eroare la crearea acestei aplicații.
-          success: Aplicație creată cu succes.
-        destroy:
-          error: A apărut o problemă la distrugerea acestei aplicații.
-          success: Aplicație distrusă cu succes.
-        edit:
-          save: Salvează
-          title: Editați aplicația
-        index:
-          confirm_delete: Sunteţi sigur că doriţi să ştergeţi această aplicaţie?
-          title: Aplicații OAuth
-        new:
-          save: Salvează
-          title: Aplicație nouă
-        update:
-          error: A apărut o eroare la actualizarea acestei aplicații.
-          success: Aplicație actualizată cu succes.
       officializations:
         create:
           success: Participant oficializat cu succes
@@ -578,6 +554,7 @@ ro:
           officialize: Oficializare
           title: Oficialul participantului"%{name}"
         show_email_modal:
+          close_modal: Închide fereastra
           description: Dacă trebuie să contactați direct un participant, puteți face clic pe butonul Arată pentru a vedea adresa de e-mail. Această acțiune va fi înregistrată.
           email_address: Adresa de e-mail
           full_name: Numele complet
@@ -636,7 +613,6 @@ ro:
           invalid: A apărut o problemă la citirea fișierului CSV.
           success: Fișier CSV încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura un timp.
         new:
-          explanation: Încărcaţi fişierul CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană a fișierului (email, numele utilizatorilor pe care doriţi să îi adăugaţi în spaţiul participativ, fără antete.
           title: Încarcă fișierul tău CSV
           upload: Incarca
       resource_permissions:

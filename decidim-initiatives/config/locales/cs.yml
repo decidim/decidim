@@ -5,6 +5,7 @@ cs:
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Podpora tváří v tvář
+        offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
         signature_start_date: Začátek doby sběru podpisu
@@ -29,6 +30,7 @@ cs:
         area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
+        child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
@@ -36,6 +38,7 @@ cs:
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
+        only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
         title: Titul
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
@@ -79,20 +82,22 @@ cs:
       actions:
         new_initiative_type: Nový typ iniciativy
       filters:
-        decidim_area_id_eq:
-          label: Oblast
+        initiatives:
+          decidim_area_id_eq:
+            label: Oblast
+          state_eq:
+            label: Stav
+            values:
+              accepted: Dostatek podpisů
+              created: Vytvořeno
+              discarded: Vyřazeno
+              published: Publikováno
+              rejected: Nedostatek podpisů
+              validating: Technické ověření
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
-        state_eq:
-          values:
-            accepted: Dostatek podpisů
-            created: Vytvořeno
-            discarded: Vyřazeno
-            published: Publikováno
-            rejected: Nedostatek podpisů
-            validating: Technická validace
-        type_id_eq:
-          label: Typ
       menu:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
@@ -127,6 +132,7 @@ cs:
             initiative_title: Název iniciativy
             name_and_surname: Jméno a příjmení
             postal_code: Poštovní směrovací číslo
+            scope: Oblast působnosti
             time_and_date: Čas a datum
             timestamp: Časové razítko
       titles:
@@ -177,7 +183,7 @@ cs:
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p>Iniciativa je návrh, který může být podporován kýmkoliv z vlastního podnětu (nezávisle na jiných kanálech nebo účastnických skupinách) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu, změna názvu oddělení nebo ulice apod.).</p> <p>Propagátoři iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace, nebo pro vytvoření, nebo svolání shromáždění, nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přispět k této poptávce a přenést ji dopředu v organizaci.</p>\n"
+          contextual: "<p><strong>Iniciativa</strong> je návrh, který může být podporován kýmkoliv z vlastního podnětu (nezávisle na jiných kanálech nebo účastnických skupinách) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu, změna názvu oddělení nebo ulice apod.).</p> <p>Propagátoři iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace, nebo pro vytvoření, nebo svolání shromáždění, nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přispět k této poptávce a přenést ji dopředu v organizaci.</p>\n"
           page: "<p> <strong>Iniciativa</strong> je návrh, který může být podporován kdokoli z vlastního podnětu (nezávisle na jiných kanálech nebo prostorách účasti) prostřednictvím shromáždění (digitálních) podpisů pro organizaci k provedení specifické akce (změna nařízení, zahájení projektu, změňte název oddělení nebo jméno ulice apod.).</p> <p>Poskytovatelé iniciativy mohou definovat své cíle, shromáždit podporu, diskutovat, šířit je a definovat místa setkání, kde mohou být shromažďovány podpisy od účastníků nebo diskuse přístupné ostatním účastníkům.</p> <p>Příklady: Iniciativa může shromažďovat podpisy pro svolání konzultace mezi všemi lidmi organizace nebo pro vytvoření nebo svolání shromáždění nebo pro zahájení procesu zvýšení rozpočtu pro území nebo oblast organizace. Během procesu shromažďování podpisů může více lidí přidat k této poptávce a přenést ji dopředu v organizaci.</p>\n"
           title: Co jsou iniciativy?
     initiatives:
@@ -219,6 +225,8 @@ cs:
             success: Iniciativa byla odeslána k technickému ověření
             update: Aktualizovat
           form:
+            attachments: Přílohy
+            settings: Nastavení
             title: Obecná informace
           index:
             actions_title: Akce
@@ -264,6 +272,10 @@ cs:
             destroy: Odstranit
             update: Aktualizovat
           form:
+            authorizations: Nastavení autorizace
+            child_scope_threshold_enabled_help: 'Tento znak konfigurace nepodporuje offline hlasování, umožňuje dílčí hlasování a pracuje s autorizačním handlerem, který uživateli přiřazuje oblast působnosti. Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala oblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.'
+            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.
+            options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
             title: Zaměřuje se na typ iniciativy
@@ -428,6 +440,14 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
+          not_authorized:
+            authorizations_page: Zobrazit autorizace
+            close: Zavřít
+            explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
+            title: Vyžadována autorizace
+        initiatives:
+          closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
+          no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
         interactions:
           comments_count:
             count:
@@ -455,15 +475,11 @@ cs:
           any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
-        signature_identities:
-          select_identity: Vyberte identifikátor uživatele
         signatures_count:
           one: " podpis"
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        supports:
-          title: Výpis podpisů
         vote_cabin:
           already_voted: Již jste podepsal
           supports_required: "Vyžaduje se %{total_supports} podpisů"

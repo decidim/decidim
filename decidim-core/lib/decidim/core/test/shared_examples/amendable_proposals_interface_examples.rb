@@ -5,14 +5,14 @@ require "spec_helper"
 shared_examples_for "amendable proposals interface" do
   describe "amendments" do
     let(:query) do
-      "{ amendments {
+      '{ amendments {
       state
-      amendable { ...on Proposal { title } }
+      amendable { ...on Proposal { title { translation(locale: "en") } } }
       amendableType
-      emendation { ...on Proposal { title } }
+      emendation { ...on Proposal { title { translation(locale: "en") } } }
       emendationType
       amender { name }
-    } }"
+    } }'
     end
 
     it "includes the amendments states" do
@@ -33,13 +33,13 @@ shared_examples_for "amendable proposals interface" do
     end
 
     it "returns amendable as parent proposal" do
-      amendment_amendables = response["amendments"].map { |amendment| amendment["amendable"] }
-      expect(amendment_amendables).to include(*model.amendments.map(&:amendable).map { |p| { "title" => p.i18n_title } })
+      amendment_amendables = response["amendments"].map { |amendment| amendment["amendable"] }.map { |title| title["title"]["translation"] }
+      expect(amendment_amendables).to include(*model.amendments.map(&:amendable).map { |p| p.title["en"] })
     end
 
     it "returns emendations received" do
-      amendment_emendations = response["amendments"].map { |amendment| amendment["emendation"] }
-      expect(amendment_emendations).to include(*model.amendments.map(&:emendation).map { |p| { "title" => p.i18n_title } })
+      amendment_emendations = response["amendments"].map { |amendment| amendment["emendation"] }.map { |title| title["title"]["translation"] }
+      expect(amendment_emendations).to include(*model.amendments.map(&:emendation).map { |p| p.title["en"] })
     end
 
     it "returns amender as emendation author" do

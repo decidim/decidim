@@ -362,6 +362,29 @@ shared_examples_for "update questions" do
 
         it_behaves_like "collapsing a question"
       end
+
+      context "when submitting a new question with an error" do
+        before do
+          click_button "Add question"
+          click_button "Save"
+
+          within ".questionnaire-question:last-of-type" do
+            page.find(".question--collapse").click
+          end
+        end
+
+        it_behaves_like "collapsing a question"
+
+        it "can be expanded" do
+          within ".questionnaire-question:last-of-type" do
+            page.find(".question--collapse").click
+          end
+
+          within ".questionnaire-question:last-of-type" do
+            expect(page).to have_selector(".icon-collapse")
+          end
+        end
+      end
     end
 
     it "properly decides which button to show after adding/removing questions" do

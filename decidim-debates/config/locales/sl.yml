@@ -1,0 +1,22 @@
+sl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorija
+        closed_at: Zaključeno ob
+  decidim:
+    debates:
+      actions:
+        close: Zapri
+      admin:
+        debate_closes:
+          edit:
+            close: Zapri
+      debates:
+        close_debate_modal:
+          close: Zapri
+        closed: Zaprto
+        form:
+          select_a_category: Prosim izberi kategorijo
+        show:
+          debate_closed: Zaprto

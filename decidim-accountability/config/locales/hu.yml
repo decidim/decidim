@@ -125,6 +125,8 @@ hu:
           errors: Hibák
           errors_present: Probléma merült fel az eredmények importálásakor
           row_number: Sor
+          subject: Eredmények sikeres importálása
+          success: Eredmények sikeres importálása. Az eredményeket az adminisztrációs felületen tekintheti meg.
       last_activity:
         new_result_at_html: "<span>Új eredmény %{link}</span>kor"
       models:
@@ -182,6 +184,7 @@ hu:
           global:
             categories_label: '"Kategóriák" neve'
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             display_progress_enabled: Állapot megjelenítése
             heading_leaf_level_results: '"Projektek" neve'
             heading_parent_level_results: '"Eredmények" neve'
@@ -210,6 +213,9 @@ hu:
       participatory_process_groups:
         highlighted_results:
           results: Eredmények
+    participatory_spaces:
+      highlighted_results:
+        see_all: Eredmények megtekintése (%{count})
     resource_links:
       included_projects:
         result_project: Ebben az eredményben szereplő projektek

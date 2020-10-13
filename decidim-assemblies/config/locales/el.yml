@@ -2,52 +2,52 @@ el:
   activemodel:
     attributes:
       assembly:
-        area_id: Περιοχή
+        area_id: Τομέας
         assembly_type: Τύπος συνέλευσης
-        assembly_type_other: Τύπος συνέλευσης, άλλος
-        banner_image: Εικόνα banner
+        assembly_type_other: Άλλος τύπος συνέλευσης
+        banner_image: Εικόνα διαφημιστικού πλαισίου
         closing_date: Ημερομηνία κλεισίματος
-        closing_date_reason: Αιτιολόγηση ημερομηνίας κλεισίματος
+        closing_date_reason: Αιτία ημερομηνίας κλεισίματος
         composition: Σύνθεση
         copy_categories: Αντιγραφή κατηγοριών
         copy_components: Αντιγραφή στοιχείων
-        copy_features: Αντιγραφή λειτουργιών
+        copy_features: Αντιγραφή χαρακτηριστικών
         created_by: Δημιουργήθηκε από
-        created_by_other: Δημιουργήθηκε από, άλλο
+        created_by_other: Δημιουργήθηκε από άλλο
         creation_date: Ημερομηνία δημιουργίας
-        decidim_area_id: Περιοχή
+        decidim_area_id: Τομέας
         decidim_assemblies_type_id: Τύπος συνέλευσης
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
-        developer_group: Όμάδα προώθησης
-        domain: Τομέας (Domain)
+        developer_group: Ομάδα προώθησης
+        domain: Τομέας
         duration: Διάρκεια
         facebook: Facebook
         github: GitHub
-        hashtag: Ετικέτα
-        hero_image: Αρχική Εικόνα
-        included_at: Περιλαμβάνεται στο
+        hashtag: Hashtag
+        hero_image: Εικόνα αρχικής σελίδας
+        included_at: Συμπεριλήφθηκε στις
         instagram: Instagram
         internal_organisation: Εσωτερικός οργανισμός
-        is_transparent: Είναι διάφανο
-        local_area: Περιοχή οργανισμού
+        is_transparent: Είναι διαφανής
+        local_area: Τομέας οργανισμού
         meta_scope: Μεταδεδομένα πεδίου εφαρμογής
         parent_id: Γονική συνέλευση
-        participatory_processes_ids: Σχετικές συμμετοχικές διαδικασίες
-        participatory_scope: Τί αποφασίστηκε
-        participatory_structure: Πώς αποφασίστηκε
+        participatory_processes_ids: Σχετικές διαδικασίες συμμετοχής
+        participatory_scope: Τι αποφασίστηκε
+        participatory_structure: Πώς αποφασίζεται
         private_space: Ιδιωτικός χώρος
-        promoted: Επισημασμένα
-        published_at: Δημοσιευμένο στις
-        purpose_of_action: Σκοπός δράσης
+        promoted: Επισημάνθηκε
+        published_at: Δημοσιεύτηκε στις
+        purpose_of_action: Σκοπός της δράσης
         scope_id: Πεδίο εφαρμογής
-        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
+        scopes_enabled: Ενεργοποιημένα πεδία εφαρμογών
         short_description: Σύντομη περιγραφή
         show_statistics: Εμφάνιση στατιστικών
-        slug: Επίθεμα URL
-        special_features: Ειδικές λειτουργικότητες
+        slug: Slug διεύθυνσης URL
+        special_features: Ειδικά χαρακτηριστικά
         subtitle: Υπότιτλος
-        target: Ποιός συμμετέχει
+        target: Ποιος συμμετέχει
         title: Τίτλος
         twitter: Twitter
         youtube: YouTube
@@ -55,9 +55,9 @@ el:
         birthday: Γενέθλια
         birthplace: Τόπος γέννησης
         ceased_date: Ημερομηνία παύσης
-        designation_date: Hμερομηνία προσδιορισμού
-        designation_mode: Λειτουργία προσδιορισμού
-        full_name: Πλήρες όνομα
+        designation_date: Ημερομηνία διορισμού
+        designation_mode: Λειτουργία διορισμού
+        full_name: Ονοματεπώνυμο
         gender: Φύλο
         position: Θέση
       assembly_user_role:
@@ -79,8 +79,8 @@ el:
         one: Μέλος συνέλευσης
         other: Μέλη συνέλευσης
       decidim/assembly_user_role:
-        one: Ρόλος μέλους συνέλευσης
-        other: Ρόλοι μέλους συνέλευσης
+        one: Ρόλος χρήστη συνέλευσης
+        other: Ρόλοι χρήστη συνέλευσης
   decidim:
     admin:
       actions:
@@ -89,45 +89,45 @@ el:
         new_assembly_type: Νέος τύπος συνέλευσης
       assemblies:
         create:
-          error: Υπήρξε πρόβλημα στη δημιουργία μίας νέας συνέλευσης.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας συνέλευσης.
           success: Η συνέλευση δημιουργήθηκε με επιτυχία.
         edit:
           update: Ενημέρωση
         index:
-          not_published: Μη δημοσιευμένο
+          not_published: Δεν έχει δημοσιευτεί
           private: Ιδιωτικό
           public: Δημόσιο
-          published: Δημοσιευμένο
+          published: Δημοσιεύτηκε
         new:
           create: Δημιουργία
           title: Νέα συνέλευση
         update:
-          error: Υπήρξε ένα πρόβλημα κατά την ανανέωση της συνέλευσης.
-          success: Η συνέλευση ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συνέλευσης.
+          success: Η συνέλευση ενημερώθηκε με επιτυχία.
       assemblies_copies:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή της συνέλευσης.
-          success: Η συνέλευση αντιγράφηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την αντιγραφή αυτής της συνέλευσης.
+          success: Η συνέλευση αντιγράφτηκε με επιτυχία.
       assemblies_settings:
         update:
-          error: Προέκυψε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων.
-          success: Οι ρυθμίσεις ενημερώθηκαν επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ρυθμίσεων.
+          success: Οι ρυθμίσεις ενημερώθηκαν με επιτυχία.
       assemblies_types:
         create:
-          error: Προέκυψε ένα πρόβλημα κατά την δημιουργία ενός νέου τύπου συνέλευσης.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου συνέλευσης.
           success: Ο τύπος συνέλευσης δημιουργήθηκε με επιτυχία.
         destroy:
-          success: Ο τύπος συνέλευσης διεγράφη επιτυχώς.
+          success: Ο τύπος συνέλευσης διαγράφηκε με επιτυχία.
         new:
           create: Δημιουργία
           title: Νέος τύπος συνέλευσης
         update:
-          error: Προέκυψε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου συνέλευσης.
-          success: Ο τύπος συνέλευσης ενημερώθηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου συνέλευσης.
+          success: Ο τύπος συνέλευσης ενημερώθηκε με επιτυχία.
       assembly_copies:
         new:
           copy: Αντιγραφή
-          select: Επιλέξετε ποιά δεδομένα θα θέλατε να διπλοτυπήσετε
+          select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
           title: Αντιγραφή συνέλευσης
       assembly_imports:
         create:
@@ -139,10 +139,10 @@ el:
           title: Εισαγωγή συνέλευσης
       assembly_members:
         create:
-          error: Παρουσιάστηκε πρόβλημα κατά την προσθήκη μέλους σε αυτή τη συνέλευση.
-          success: Το μέλος δημιουργήθηκε επιτυχώς για αυτή τη συνέλευση.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός μέλους για αυτήν τη συνέλευση.
+          success: Το μέλος δημιουργήθηκε με επιτυχία για αυτήν τη συνέλευση.
         destroy:
-          success: Το μέλος διεγράφη επιτυχώς από αυτή τη συνέλευση.
+          success: Το μέλος διαγράφηκε με επιτυχία για αυτήν τη συνέλευση.
         edit:
           title: Ενημέρωση μέλους συνέλευσης.
           update: Ενημέρωση
@@ -152,21 +152,21 @@ el:
           create: Δημιουργία
           title: Νέο μέλος συνέλευσης.
         update:
-          error: Παρουσιάστηκε πρόβλημα κατά την ενημέρωση του μέλους για αυτή τη συνέλευση.
-          success: Το μέλος ενημερώθηκε επιτυχώς για αυτή τη συνέλευση.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση του μέλους για αυτήν τη συνέλευση.
+          success: Το μέλος ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
       assembly_publications:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση της συνέλευσης.
-          success: Η συνέλευση δημοσιεύτηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της συνέλευσης.
+          success: Η συνέλευση δημοσιεύτηκε με επιτυχία.
         destroy:
-          error: Υπήρξε ένα πρόβλημα κατά τη αποδημοσίευση της συνέλευσης.
-          success: Η συνέλευση αποδημοσιεύτηκε επιτυχώς.
+          error: Υπήρξε ένα πρόβλημα κατά την κατάργηση δημοσίευσης αυτής της συνέλευσης.
+          success: Η δημοσίευση της συνέλευσης καταργήθηκε με επιτυχία.
       assembly_user_roles:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός διαχειριστή για αυτή τη συνέλευση.
-          success: Ο διαχειριστής προστέθηκε επιτυχώς σε αυτή τη συνέλευση.
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός διαχειριστή για αυτήν τη συνέλευση.
+          success: Ο διαχειριστής προστέθηκε με επιτυχία σε αυτήν τη συνέλευση.
         destroy:
-          success: Ο διαχειριστής αφαιρέθηκε επιτυχώς από αυτή τη συνέλευση.
+          success: Ο διαχειριστής καταργήθηκε με επιτυχία από αυτήν τη συνέλευση.
         edit:
           title: Ενημέρωση διαχειριστή συνέλευσης.
           update: Ενημέρωση
@@ -176,8 +176,8 @@ el:
           create: Δημιουργία
           title: Νέος διαχειριστής συνέλευσης.
         update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενηγμέρωση ενός διαχειριστή για αυτή τη συνέλευση.
-          success: Ο διαχειριστής ενημερώθηκε επιτυχώς για αυτή τη συνέλευση.
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση ενός διαχειριστή για αυτήν τη συνέλευση.
+          success: Ο διαχειριστής ενημερώθηκε με επιτυχία για αυτήν τη συνέλευση.
       menu:
         assemblies: Συνελεύσεις
         assemblies_settings: Ρυθμίσεις
@@ -186,13 +186,13 @@ el:
           assembly_members: Μέλη
           attachment_collections: Φάκελοι
           attachment_files: Αρχεία
-          attachments: Συνημμένα αρχεία
+          attachments: Συνημμένα
           categories: Κατηγορίες
           components: Στοιχεία
           info: Πληροφορίες
-          moderations: Συντονισμοί
+          moderations: Εποπτεύσεις
           private_users: Ιδιωτικοί χρήστες
-        assemblies_types: Τύποι συνελεύσεων
+        assemblies_types: Τύποι συνέλευσης
       models:
         assemblies_types:
           fields:
@@ -202,14 +202,14 @@ el:
           fields:
             created_at: Δημιουργήθηκε στις
             private: Ιδιωτικό
-            promoted: Επισημασμένα
-            published: Δημοσιευμένο
+            promoted: Επισημάνθηκε
+            published: Δημοσιεύτηκε
             title: Τίτλος
           name: Συνέλευση
         assembly_member:
           fields:
             ceased_date: Ημερομηνία παύσης
-            designation_date: Hμερομηνία ορισμού
+            designation_date: Ημερομηνία διορισμού
             full_name: Όνομα
             position: Θέση
           name: Μέλος
@@ -227,27 +227,51 @@ el:
           roles:
             admin: Διαχειριστής
             collaborator: Συνεργάτης
-            moderator: Συντονιστής
+            moderator: Επόπτης
             valuator: Εκτιμητής
       titles:
         assemblies: Συνελεύσεις
-        assemblies_types: Τύποι συνελεύσεων
+        assemblies_types: Τύποι συνέλευσης
+    admin_log:
+      assembly:
+        create: "Ο χρήστης %{user_name} δημιούργησε τη συνέλευση %{resource_name}"
+        publish: "Ο χρήστης %{user_name} δημοσίευσε τη συνέλευση %{resource_name}"
+        unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση της συνέλευσης %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τη συνέλευση %{resource_name}"
+      assembly_member:
+        create: "Ο χρήστης %{user_name} δημιούργησε το μέλος %{resource_name} στη συνέλευση %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε το μέλος %{resource_name} από τη συνέλευση %{space_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε το μέλος %{resource_name} στη συνέλευση %{space_name}"
+      assembly_setting:
+        update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις των συνελεύσεων"
+      assembly_type:
+        create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο συνέλευσης %{resource_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε το μέλος %{resource_name} από τον τύπο συνέλευσης %{space_name}"
+        publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο συνέλευσης %{resource_name}"
+        unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου συνέλευσης %{resource_name}"
+        update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο συνέλευσης %{resource_name}"
+      assembly_user_role:
+        create: "Ο χρήστης %{user_name} προσκάλεσε τον/την %{resource_name} στη συνέλευση %{space_name}"
+        delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} από τη συνέλευση %{space_name}"
+        update: "Ο χρήστης %{user_name} άλλαξε τον ρόλο του/της %{resource_name} στη συνέλευση %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Διάρκεια
+            duration_help: Εάν η διάρκεια αυτής της συνέλευσης είναι περιορισμένη, επιλέξτε την ημερομηνία λήξης. Διαφορετικά, θα εμφανίζεται ως απεριόριστη.
             filters: Φίλτρα
             images: Εικόνες
+            included_at_help: Επιλέξτε την ημερομηνία προσθήκης αυτής της συνέλευσης στο Decidim. Δεν χρειάζεται απαραίτητα να είναι ίδια με την ημερομηνία δημιουργίας.
             metadata: Μεταδεδομένα
             other: Άλλο
-            select_a_created_by: Επιλέξτε ένα δημιουργήθηκε από
-            select_an_area: Επιλέξτε μία Περιοχή
-            select_an_assembly_type: Επιλέξτε ένα τύπο συνέλευσης
-            select_parent_assembly: Επιλέξτε μία γονική συνέλευση
-            slug_help: 'Τα επιθέματα URL χρησιμοποιούνται για να δημιουργήσουν τα URL που δρομολογούν προς αυτή την συνέλευση. Εϊναι αποδεκτά μόνο γράμματα, αριθμοί και παύλες και πρέπει να ξεκινούν με γράμμα. Παράδειγμα: %{url}'
-            social_handlers: Κοινωνικά
-            title: Γενικές Πληροφορίες
+            select_a_created_by: Επιλέξτε «Δημιουργήθηκε από»
+            select_an_area: Επιλέξτε «Τομέα»
+            select_an_assembly_type: Επιλέξτε «Τύπο συνέλευσης»
+            select_parent_assembly: Επιλέξτε «Γονική συνέλευση»
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη συνέλευση. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+            social_handlers: Μέσα κοινωνικής δικτύωσης
+            title: Γενικές πληροφορίες
             visbility: Ορατότητα
         assemblies_settings:
           edit:
@@ -259,7 +283,7 @@ el:
             title: Τίτλος
         assembly_copies:
           form:
-            slug_help: 'Τα επιθέματα URL χρησιμοποιούνται για να δημιουργήσουν τα URL που δρομολογούν προς αυτή την συνέλευση. Εϊναι αποδεκτά μόνο γράμματα, αριθμοί και παύλες και πρέπει να ξεκινούν με γράμμα. Παράδειγμα: %{url}'
+            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη συνέλευση. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         assembly_imports:
           form:
             document_legend: Προσθήκη εγγράφου
@@ -268,28 +292,28 @@ el:
           form:
             existing_user: Υπάρχων συμμετέχων
             non_user: Μη συμμετέχων
-            select_a_position: Επιλέξτε μία θέση
-            select_user: Επιλέξτε έναν συμμετέχοντα
+            select_a_position: Επιλέξτε θέση
+            select_user: Επιλέξτε συμμετέχοντα
             user_type: Τύπος συμμετέχοντα
           index:
             filter:
-              all: Όλοι
-              ceased: Σε παύση
-              not_ceased: Δεν είναι σε παύση
+              all: Όλα
+              ceased: Τέθηκε σε παύση
+              not_ceased: Δεν τέθηκε σε παύση
             filter_by: Φιλτράρισμα κατά
             search: Αναζήτηση
         content_blocks:
           highlighted_assemblies:
-            max_results: Μέγιστος αριθμός στοιχείων προς εμφάνιση
+            max_results: Μέγιστη ποσότητα στοιχείων προς εμφάνιση
       assembly_members:
         index:
           members: Μέλη
       assembly_types:
         commission: Επιτροπή
-        consultative_advisory: Συμβουλευτική θέση
-        executive: Εκτελεστικό στέλεχος
-        government: Κυβερνητικό
-        others: Άλλο
+        consultative_advisory: Γνωμοδοτικό/Συμβουλευτικό σώμα
+        executive: Εκτελεστικό σώμα
+        government: Κυβέρνηση
+        others: Άλλα
         participatory: Συμμετοχικό
         working_group: Ομάδα εργασίας
       content_blocks:
@@ -297,16 +321,16 @@ el:
           name: Επισημασμένες συνελεύσεις
       created_by:
         city_council: Δημοτικό συμβούλιο
-        others: Άλλο
+        others: Άλλα
         public: Δημόσιο
       filter:
         all: Όλοι οι τύποι
         commission: Επιτροπή
-        consultative_advisory: Συμβουλευτική θέση
-        executive: Εκτελεστικό στέλεχος
-        government: Κυβερνητικό
+        consultative_advisory: Γνωμοδοτικό/Συμβουλευτικό σώμα
+        executive: Εκτελεστικό σώμα
+        government: Κυβέρνηση
         help: 'Εμφάνιση:'
-        others: Άλλο
+        others: Άλλα
         participatory: Συμμετοχικό
         working_group: Ομάδα εργασίας
       index:
@@ -317,50 +341,50 @@ el:
         home:
           highlighted_assemblies:
             active_assemblies: Ενεργές συνελεύσεις
-            assemblies_button_title: Σύνδεσμος προς τη σελίδα Συνελεύσεων όπου εμφανίζονται όλες οι συνελεύσεις
-            see_all_assemblies: Εμφάνισε όλες τις συνελεύσεις
+            assemblies_button_title: Σύνδεσμος προς τη σελίδα «Συνελεύσεις» που εμφανίζει όλες τις συνελεύσεις
+            see_all_assemblies: Δείτε όλες τις συνελεύσεις
         user_profile:
           member_of:
-            member_of: Μέλος των
+            member_of: Μέλος
       show:
-        area: Περιοχή
+        area: Τομέας
         assembly_type: Τύπος συνέλευσης
         children: Συνελεύσεις
         closing_date: Ημερομηνία κλεισίματος
         composition: Σύνθεση
         created_by: Δημιουργήθηκε από
         creation_date: Ημερομηνία δημιουργίας
-        developer_group: Όμάδα προώθησης
+        developer_group: Ομάδα προώθησης
         duration: Διάρκεια
-        included_at: Περιλαμβάνεται στο
-        indefinite_duration: Αόριστο
+        included_at: Συμπεριλήφθηκε στις
+        indefinite_duration: Αόριστη
         internal_organisation: Εσωτερικός οργανισμός
         is_transparent:
           'false': αδιαφανής
-          'true': διαφανές
-        local_area: Περιοχή οργανισμού
-        participatory_scope: Τί αποφασίστηκε
-        participatory_structure: Πώς αποφασίστηκε
-        private_space: Αυτή είναι ιδιωτική συνέλευση
-        purpose_of_action: Σκοπός δράσης
+          'true': διαφανής
+        local_area: Τομέας οργανισμού
+        participatory_scope: Τι αποφασίστηκε
+        participatory_structure: Πώς αποφασίζεται
+        private_space: Αυτή είναι μια ιδιωτική συνέλευση
+        purpose_of_action: Σκοπός της δράσης
         read_less: Διαβάστε λιγότερα
         read_more: Διαβάστε περισσότερα
-        related_participatory_processes: Σχετικές συμμετοχικές διαδικασίες
+        related_participatory_processes: Σχετικές διαδικασίες συμμετοχής
         scope: Πεδίο εφαρμογής
-        social_networks: Κοινωνικά Δίκτυα
-        social_networks_title: Μοιραστείτε αυτή τη συνέλευση στο
-        target: Ποιός συμμετέχει
+        social_networks: Κοινωνικά δίκτυα
+        social_networks_title: Κοινοποίηση αυτής της συνέλευσης σε
+        target: Ποιος συμμετέχει
       statistics:
         answers_count: Απαντήσεις
         assemblies_count: Συνελεύσεις
         comments_count: Σχόλια
-        debates_count: Δημόσιες συζητήσεις
+        debates_count: Συζητήσεις
         endorsements_count: Επιδοκιμασίες
         headline: Δραστηριότητα
-        meetings_count: Συναντήσεις
+        meetings_count: Συσκέψεις
         orders_count: Υποστηρίξεις
         pages_count: Σελίδες
-        posts_count: Αναρτήσεις
+        posts_count: Δημοσιεύσεις
         projects_count: Έργα
         proposals_count: Προτάσεις
         results_count: Αποτελέσματα
@@ -369,18 +393,39 @@ el:
         votes_count: Υποστηρίξεις
     assembly_members:
       assembly_member:
-        designated_on: Προσδιορισμός σε
+        designated_on: Διορίστηκε στις
       index:
         title: Μέλη
     conferences:
       pages:
         home:
           highlighted_conferences:
-            conferences_button_title: Σύνδεσμος προς τη σελίδα Συνδιασκέψεων όπου εμφανίζονται όλες οι συνδιασκέψεις
+            conferences_button_title: Σύνδεσμος προς τη σελίδα «Διασκέψεις» που εμφανίζει όλες τις διασκέψεις
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Ένας διαχειριστής της συνέλευσης <a href="%{resource_url}">%{resource_name}</a> σας πρόσθεσε ως ένα από τα μέλη της.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή έχετε προσκληθεί σε συνέλευση. Ελέγξτε τη <a href="%{resource_path}">σελίδα συνέλευσης</a> για να συνεισφέρετε!
+          email_subject: Έχετε προσκληθεί να γίνετε μέλος της συνέλευσης %{resource_name}!
+          notification_title: Έχετε εγγραφεί ως μέλος της Συνέλευσης <a href="%{resource_path}">%{resource_name}</a>. Ελέγξτε τη <a href="%{resource_path}">σελίδα συνέλευσης</a> για να συνεισφέρετε!
+      assembly:
+        role_assigned:
+          email_intro: Έχετε εκχωρηθεί ως %{role} για τη συνέλευση «%{resource_title}».
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε %{role} της συνέλευσης «%{resource_title}».
+          email_subject: Έχετε εκχωρηθεί ως %{role} για «%{resource_title}».
+          notification_title: Έχετε εκχωρηθεί ως %{role} για τη συνέλευση <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          title: Τί είναι οι συνελεύσεις;
+          contextual: "<p>Μια <strong>συνέλευση</strong> είναι μια ομάδα μελών ενός οργανισμού, που συναντώνται περιοδικά για να λάβουν αποφάσεις σχετικά με έναν συγκεκριμένο τομέα ή πεδίο εφαρμογής του οργανισμού.</p> <p>Οι συνελεύσεις πραγματοποιούν συσκέψεις, μερικές είναι ιδιωτικές και μερικές είναι ανοιχτές. Εάν είναι ανοιχτές, είναι δυνατόν να συμμετάσχετε σε αυτές (για παράδειγμα: να παρακολουθήσετε, εάν το επιτρέπει η ικανότητα, να προσθέσετε σημεία στην ημερήσια διάταξη ή να σχολιάσετε τις προτάσεις και τις αποφάσεις που λαμβάνονται από αυτό το όργανο).</p> <p>Παραδείγματα: Μια γενική συνέλευση (η οποία συνεδριάζει μία φορά τον χρόνο για τον καθορισμό των βασικών γραμμών δράσης του οργανισμού καθώς και των εκτελεστικών οργάνων του με ψηφοφορία), ένα γνωμοδοτικό συμβούλιο για την ισότητα (το οποίο συνεδριάζει κάθε δύο μήνες για να υποβάλει προτάσεις σχετικά με τον τρόπο βελτίωσης των σχέσεων μεταξύ των φύλων στον οργανισμό), μια επιτροπή αξιολόγησης (η οποία συνεδριάζει κάθε μήνα για την παρακολούθηση μιας διαδικασίας) ή ένας οργανισμός εγγύησης (ο οποίος συλλέγει περιστατικά, καταχρήσεις ή προτάσεις για τη βελτίωση των διαδικασιών λήψης αποφάσεων) αποτελούν όλα παραδείγματα συνελεύσεων.</p>"
+          page: "<p>Μια <strong>συνέλευση</strong> είναι μια ομάδα μελών ενός οργανισμού, που συναντώνται περιοδικά για να λάβουν αποφάσεις σχετικά με έναν συγκεκριμένο τομέα ή πεδίο εφαρμογής του οργανισμού.</p> <p>Οι συνελεύσεις πραγματοποιούν συσκέψεις, μερικές είναι ιδιωτικές και μερικές είναι ανοιχτές. Εάν είναι ανοιχτές, είναι δυνατόν να συμμετάσχετε σε αυτές (για παράδειγμα: να παρακολουθήσετε, εάν το επιτρέπει η ικανότητα, να προσθέσετε σημεία στην ημερήσια διάταξη ή να σχολιάσετε τις προτάσεις και τις αποφάσεις που λαμβάνονται από αυτό το όργανο).</p> <p>Παραδείγματα: Μια γενική συνέλευση (η οποία συνεδριάζει μία φορά τον χρόνο για τον καθορισμό των βασικών γραμμών δράσης του οργανισμού καθώς και των εκτελεστικών οργάνων του με ψηφοφορία), ένα γνωμοδοτικό συμβούλιο για την ισότητα (το οποίο συνεδριάζει κάθε δύο μήνες για να υποβάλει προτάσεις σχετικά με τον τρόπο βελτίωσης των σχέσεων μεταξύ των φύλων στον οργανισμό), μια επιτροπή αξιολόγησης (η οποία συνεδριάζει κάθε μήνα για την παρακολούθηση μιας διαδικασίας) ή ένας οργανισμός εγγύησης (ο οποίος συλλέγει περιστατικά, καταχρήσεις ή προτάσεις για τη βελτίωση των διαδικασιών λήψης αποφάσεων) αποτελούν όλα παραδείγματα συνελεύσεων.</p>"
+          title: Τι είναι οι συνελεύσεις;
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Η συνέλευση δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
+        assembly_type_presenter:
+          not_found: 'Ο τύπος συνέλευσης δεν βρέθηκε στη βάση δεδομένων (αναγνωριστικό: %{id})'
     menu:
       assemblies: Συνελεύσεις
     metrics:
@@ -393,14 +438,14 @@ el:
         hero:
           participate_title: Συμμετάσχετε στις διαδικασίες της πλατφόρμας
         sub_hero:
-          register_title: Εγγραφείτε για να δημιουργήσετε ένα λογαριασμό στην πλατφόρμα
+          register_title: Εγγραφείτε για να δημιουργήσετε έναν λογαριασμό στην πλατφόρμα
     participatory_processes:
       pages:
         home:
           highlighted_processes:
-            processes_button_title: Σύνδεσμος προς τη σελίδα Διαδικασιών όπου εμφανίζονται όλες οι διαδικασίες
+            processes_button_title: Σύνδεσμος προς τη σελίδα «Διαδικασίες» που εμφανίζει όλες τις διαδικασίες
       show:
-        related_assemblies: Συσχετισμένες συνελεύσεις
+        related_assemblies: Σχετικές συνελεύσεις
   errors:
     messages:
       cannot_be_blank: δεν μπορεί να είναι κενό
@@ -409,10 +454,10 @@ el:
       assemblies:
         assembly:
           more_info: Περισσότερες πληροφορίες
-          take_part: Πάρτε μέρος
+          take_part: Συμμετάσχετε
         index:
-          children: 'Συνελεύσεις: '
-          organizational_chart: Οργανωτικός χάρτης
+          children: 'Συνελεύσεις:'
+          organizational_chart: Οργανόγραμμα
           promoted_assemblies: Επισημασμένες συνελεύσεις
           reset_chart: Επαναφορά
         order_by_assemblies:
@@ -421,10 +466,10 @@ el:
             other: "%{count} συνελεύσεις"
         promoted_assembly:
           more_info: Περισσότερες πληροφορίες
-          take_part: Πάρτε μέρος
+          take_part: Συμμετάσχετε
       assembly_navigation:
         assembly_member_menu_item: Μέλη
         assembly_menu_item: Η συνέλευση
       assembly_widgets:
         show:
-          take_part: Πάρτε μέρος
+          take_part: Συμμετάσχετε

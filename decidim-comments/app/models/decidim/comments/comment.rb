@@ -13,7 +13,8 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Traceable
       include Decidim::Loggable
-
+      include Decidim::Searchable
+      include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
@@ -24,22 +25,41 @@ module Decidim
       #       |--R (depth 3)
       MAX_DEPTH = 3
 
+      translatable_fields :body
+
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
-      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
+      belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
       has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
 
+      # Updates the counter caches for the root_commentable when a comment is
+      # created or updated.
+      after_save :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # deleted.
+      after_destroy :update_counter
+
+      # Updates the counter caches for the root_commentable when a comment is
+      # touched, which happens when a comment was reported and its moderation
+      # is accepted and sets the comment as hidden.
+      after_touch :update_counter
+
+      before_validation :compute_depth
       validates :body, presence: true
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
-
       validate :body_length
-
       validate :commentable_can_have_comments
 
-      before_validation :compute_depth
-
       delegate :organization, to: :commentable
+
+      translatable_fields :body
+      searchable_fields(
+        participatory_space: :itself,
+        A: :body,
+        datetime: :created_at
+      )
 
       def self.positive
         where(alignment: 1)
@@ -101,12 +121,13 @@ module Decidim
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
-        ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
-      end
+        url_params = { anchor: "comment_#{id}" }
 
-      # Public: Returns the comment message ready to display (it is expected to include HTML)
-      def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
+        if root_commentable&.respond_to?(:polymorphic_resource_url)
+          root_commentable.polymorphic_resource_url(url_params)
+        else
+          ResourceLocatorPresenter.new(root_commentable).url(url_params)
+        end
       end
 
       def self.export_serializer
@@ -126,14 +147,19 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def formatted_body
+        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+      end
+
       def translated_body
-        translated_attribute(body)
+        @translated_body ||= translated_attribute(body, organization)
       end
 
       private
 
       def body_length
-        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+        language = (body.keys - ["machine_translations"]).first
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body[language].length <= comment_maximum_length
       end
 
       def comment_maximum_length
@@ -162,11 +188,8 @@ module Decidim
       end
 
       # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitized_body
-        Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(translated_body),
-          scrubber: Decidim::Comments::UserInputScrubber.new
-        ).try(:html_safe)
+      def sanitize_content(content)
+        Decidim::ContentProcessor.sanitize(content)
       end
 
       # Private: Initializes the Markdown parser
@@ -177,6 +200,12 @@ module Decidim
       # Private: converts the string from markdown to html
       def render_markdown(string)
         markdown.render(string)
+      end
+
+      def update_counter
+        return unless root_commentable
+
+        root_commentable.update_comments_count
       end
     end
   end

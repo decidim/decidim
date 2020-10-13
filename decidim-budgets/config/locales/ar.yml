@@ -2,7 +2,6 @@ ar:
   activemodel:
     attributes:
       project:
-        budget: ميزانية
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
         description: وصف
@@ -26,7 +25,6 @@ ar:
         destroy: حذف
         edit: تعديل
         import: استيراد مقترحات للمشاريع
-        new: مشروع جديد
         preview: معاينة
         title: أفعال
       admin:
@@ -71,7 +69,6 @@ ar:
             title: عنوان
       projects:
         budget_confirm:
-          are_you_sure: هل توافق؟ بمجرد تأكيد تصويتك ، لا يمكنك تغييره.
           cancel: إلغاء
           confirm: تؤكد
           description: هذه هي المشاريع التي اخترتها لتكون جزءًا من الميزانية.
@@ -120,13 +117,6 @@ ar:
             other: المشاريع المختارة
           view: رأي
         project:
-          count:
-            zero: "%{count} يدعم"
-            one: 1 الدعم
-            two: "%{count} يدعم"
-            few: "%{count} يدعم"
-            many: "%{count} يدعم"
-            other: "%{count} يدعم"
           view: رأي
         show:
           budget: ميزانية
@@ -148,7 +138,8 @@ ar:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
             show_votes: إظهار الأصوات
-            votes_enabled: تم تمكين التصويت
+            votes_choices:
+              enabled: تم تمكين التصويت
     orders:
       checkout:
         error: حدثت مشكلة أثناء معالجة تصويتك

@@ -65,7 +65,7 @@ shared_examples "Endorse resource system specs" do
           click_button "Endorse"
         end
 
-        expect(page).to have_css("#loginModal", visible: true)
+        expect(page).to have_css("#loginModal", visible: :visible)
       end
     end
 
@@ -139,7 +139,7 @@ shared_examples "Endorse resource system specs" do
             within ".buttons__row", match: :first do
               click_button "Endorse"
             end
-            expect(page).to have_css("#authorizationModal", visible: true)
+            expect(page).to have_css("#authorizationModal", visible: :visible)
           end
         end
 

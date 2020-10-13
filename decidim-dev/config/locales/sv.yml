@@ -3,6 +3,7 @@ sv:
     attributes:
       dummy_resource:
         created_at: Skapad
+        decidim_scope_id: Omfattning
         field: Mitt fält
         start_date: Startdatum
         title: Titel
@@ -12,9 +13,17 @@ sv:
     components:
       dummy:
         settings:
+          global:
+            readonly_attribute: Skrivskyddat attribut
+            test: Ett test
+            test_choices:
+              a: Ett val
+              b: B val
+              c: C val
           step:
             endorsements_blocked: Instämmanden är blockerade
             endorsements_enabled: Instämmanden tillåtna
+            readonly_step_attribute: Skrivskyddade steg attribut
     dummy:
       admin:
         exports:

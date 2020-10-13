@@ -1,0 +1,14 @@
+bg:
+  activemodel:
+    attributes:
+      answer:
+        body: Отговор
+      question:
+        max_choices: Максимален брой възможности
+        question_type: Тип
+  decidim:
+    forms:
+      step_navigation:
+        show:
+          are_you_sure: Това действие не може да се отмени и Вие не можете да редактирате отговорите си. Сигурни ли сте?
+          submit: Изпрати

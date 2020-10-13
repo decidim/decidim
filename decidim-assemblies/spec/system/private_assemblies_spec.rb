@@ -84,29 +84,29 @@ describe "Private Assemblies", type: :system do
       context "when user is loged in and is not a assembly private user" do
         before do
           switch_to_host(organization.host)
-          login_as user, scope: :user
+          login_as logged_in_user, scope: :user
           visit decidim_assemblies.assemblies_path
         end
 
-        it "lists only the not private assembly" do
-          within "#parent-assemblies" do
-            within "#parent-assemblies h3" do
-              expect(page).to have_content("1")
+        context "when the user is admin" do
+          let(:logged_in_user) { user }
+
+          it "lists only the not private assembly" do
+            within "#parent-assemblies" do
+              within "#parent-assemblies h3" do
+                expect(page).to have_content("1")
+              end
+
+              expect(page).to have_content(translated(assembly.title, locale: :en))
+              expect(page).to have_selector(".card--assembly", count: 1)
+
+              expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
             end
-
-            expect(page).to have_content(translated(assembly.title, locale: :en))
-            expect(page).to have_selector(".card--assembly", count: 1)
-
-            expect(page).to have_no_content(translated(private_assembly.title, locale: :en))
           end
         end
 
         context "when the user is admin" do
-          before do
-            switch_to_host(organization.host)
-            login_as admin, scope: :user
-            visit decidim_assemblies.assemblies_path
-          end
+          let(:logged_in_user) { admin }
 
           it "lists private assemblies" do
             within "#parent-assemblies" do

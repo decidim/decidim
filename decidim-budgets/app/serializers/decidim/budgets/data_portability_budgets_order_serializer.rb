@@ -12,7 +12,8 @@ module Decidim
       def serialize
         {
           id: order.id,
-          component: order.component.name,
+          budget: order.budget.title,
+          component: order.budget.component.name,
           checked_out_at: order.checked_out_at,
           projects: all_projects,
           created_at: order.created_at,
@@ -30,7 +31,7 @@ module Decidim
             id: project.id,
             title: project.title,
             description: project.description,
-            budget: project.budget,
+            budget_amount: project.budget_amount,
             scope: project.try(:scope).try(:name),
             reference: project.reference,
             created_at: project.created_at,

@@ -3,23 +3,25 @@ pl:
     attributes:
       agenda:
         description: Opis
-        duration: Trwanie
+        duration: Czas trwania
         title: Tytuł
       close_meeting:
         attendees_count: Liczba osób biorących udział
         attending_organizations: Lista organizacji biorących udział
         closing_report: Zgłoś
-        contributions_count: Liczba wkładów
+        contributions_count: Liczba wsparć
         proposal_ids: Propozycje stworzone na spotkaniu
       meeting:
         address: Adres
         available_slots: Dostępne miejsca na to spotkanie
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
+        decidim_user_group_id: Grupa użytkowników
         description: Opis
         end_time: Czas zakończenia
         location: Miejsce
         location_hints: Wskazówki co do miejsca
+        organizer_gid: Utwórz jako
         organizer_id: Organizator
         private_meeting: Prywatne spotkanie
         registration_form_enabled: Włączono formularz rejestracyjny
@@ -27,29 +29,29 @@ pl:
         registrations_enabled: Rejestracje włączone
         start_time: Czas rozpoczęcia
         title: Tytuł
-        transparent: Przezroczysty
+        transparent: Transparentny
       minutes:
-        audio_url: Adres audio
+        audio_url: Adres URL do audio
         description: Opis
-        video_url: URL wideo
-        visible: Jest widoczny
+        video_url: Adres URL do wideo
+        visible: Jest widoczne
     errors:
       models:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Czas trwania przedmiotów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów potomnych przekracza czas trwania okresu rodzicielskiego "%{parent_title}" w porządku obrad o %{count} minutę
+              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
+              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut
         meeting_registration_invite:
           attributes:
             email:
               already_invited: Ten e-mail został już zaproszony
     models:
-      decidim/meetings/close_meeting_event: Spotkanie zamknięte
+      decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
       decidim/meetings/meeting_registrations_enabled_event: Rejestracje włączone
       decidim/meetings/meeting_registrations_over_percentage_event: Rejestracje ponad limit
-      decidim/meetings/upcoming_meeting_event: Najbliższe spotkanie
+      decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
       decidim/meetings/update_meeting_event: Spotkanie zaktualizowane
   activerecord:
     models:
@@ -59,7 +61,7 @@ pl:
         many: Spotkania
         other: Spotkania
       decidim/meetings/minutes:
-        one: Minuty
+        one: Minuta
         few: Minuty
         many: Minuty
         other: Minuty
@@ -73,93 +75,105 @@ pl:
       meeting_copies:
         create:
           error: Wystąpił błąd podczas duplikowania tego spotkania.
-          success: Zduplikowane spotkanie powiodło się.
+          success: Zduplikowano spotkanie.
         new:
           copy: Kopiuj
-          select: Wybierz dane, które chcesz powielić
+          select: Wybierz dane, które chcesz zduplikować
           title: Duplikat spotkania
     components:
       meetings:
         actions:
-          join: Przystąpić
+          join: Dołącz
         name: Spotkania
         settings:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie klocków
-            resources_permissions_enabled: Uprawnienia akcji można ustawić dla każdego spotkania
+            resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
+            creation_enabled_for_participants: Możliwe tworzenie spotkań przez uczestników
+            creation_enabled_for_user_groups: Możliwe tworzenie spotkań przez grupy użytkowników
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Twoje spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski z jej strony:'
+            email_intro: 'Twoje spotkanie "%{resource_title}" zostało zakończone. Możesz przeczytać wnioski na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ zorganizowałeś spotkanie "%{resource_title}".
-            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+            email_subject: Spotkanie "%{resource_title}" zostało zakończone
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
           follower:
-            email_intro: 'Spotkanie "%{resource_title}" zostało zamknięte. Możesz przeczytać wnioski z jej strony:'
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
-            email_subject: Spotkanie "%{resource_title}" zostało zamknięte
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+            email_intro: 'Spotkanie "%{resource_title}" zostało zakończone. Możesz przeczytać wnioski na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować po kliknięciu w poprzedni link.
+            email_subject: Spotkanie "%{resource_title}" zostało zakończone
+            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
         meeting_created:
-          email_intro: Spotkanie "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_intro: Spotkanie "%{resource_title}" zostało dodane do przestrzeni "%{participatory_space_title}", którą obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{participatory_space_title}". Możesz przestać ją obserwować obserwować klikając w poprzedni link.
           email_subject: Nowe spotkanie zostało dodane do %{participatory_space_title}
-          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
+          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało dodane do %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Twoja rejestracja na spotkanie <a href="%{resource_url}">%{resource_title}</a> została potwierdzona. Twój kod rejestracyjny to %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" zajmowanych miejsc spotkań przekroczyło %{percentage}%.'
+          email_intro: Liczba zarezerwowanych miejsc na spotkanie "%{resource_title}" przekroczyła %{percentage}%.
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej spotkania.
-          email_subject: Zajęte "%{resource_title}" spotkania się skończyły %{percentage}%
-          notification_title: Liczba zajmowanych slotów <a href="%{resource_path}">%{resource_title}</a> przekracza %{percentage}%.
+          email_subject: Liczba zarezerwowanych miejsc na spotkanie "%{resource_title}" przekroczyła %{percentage}%
+          notification_title: Liczba zarezerwowanych miejsc na spotkanie <a href="%{resource_path}">%{resource_title}"</a> przekroczyła %{percentage}%.
         meeting_updated:
-          email_intro: 'Spotkanie "%{resource_title}" zostało zaktualizowane. Możesz przeczytać nową wersję ze swojej strony:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_intro: 'Spotkanie "%{resource_title}" zostało zaktualizowane. Możesz sprawdzić aktualną wersję na stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
           email_subject: Spotkanie "%{resource_title}" zostało zaktualizowane
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zaktualizowane.
         registration_code_validated:
-          email_intro: Twój kod rejestracyjny "%{registration_code}" dla spotkania "%{resource_title}" został zatwierdzony.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny spotkania "%{resource_title}" został zatwierdzony.
-          email_subject: Twój kod rejestracyjny "%{registration_code}" dla spotkania "%{resource_title}" został zatwierdzony
-          notification_title: Twój kod rejestracyjny "%{registration_code}" dla spotkania <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
+          email_intro: Twój kod rejestracyjny "%{registration_code}" na spotkanie "%{resource_title}" został zatwierdzony.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ Twój kod rejestracyjny na spotkanie "%{resource_title}" został zatwierdzony.
+          email_subject: Twój kod rejestracyjny "%{registration_code}" na spotkanie "%{resource_title}" został zatwierdzony
+          notification_title: Twój kod rejestracyjny "%{registration_code}" na spotkanie <a href="%{resource_path}">%{resource_title}</a> został zatwierdzony.
         registrations_enabled:
-          email_intro: 'Spotkanie "%{resource_title}" umożliwiło rejestrację. Możesz zarejestrować się na swojej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Spotkanie "%{resource_title}" umożliwiło rejestrację.
-          notification_title: W spotkaniu <a href="%{resource_path}">%{resource_title}</a> włączono rejestracje.
+          email_intro: 'Otwarto rejestrację na spotkanie "%{resource_title}". Możesz zarejestrować się na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
+          email_subject: Otwarto rejestracje na spotkanie "%{resource_title}".
+          notification_title: Otwarto rejestracje na spotkanie <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
           email_intro: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać je obserwować klikając w poprzedni link.
           email_subject: Spotkanie "%{resource_title}" rozpocznie się za mniej niż 48 godzin.
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> rozpocznie się za mniej niż 48 godzin.
     gamification:
       badges:
         attended_meetings:
           conditions:
-            - Zarejestruj się na spotkaniach, które chcesz wziąć udział
-          description: Ta odznaka jest przyznawana, gdy bierzesz udział w kilku spotkaniach twarzą w twarz.
+            - Zarejestruj się na spotkania, w których chcesz wziąć udział
+          description: Ta odznaka jest przyznawana, gdy weźmiesz udział w kilku spotkaniach twarzą w twarz.
           description_another: Ten użytkownik uczestniczył w %{score} spotkaniach.
-          description_own: Brałeś udział w %{score} spotkaniach.
-          name: Udział w spotkaniach
-          next_level_in: Weź udział w %{score} dodatkowych spotkaniach, aby przejść do następnego poziomu!
+          description_own: Uczestniczyłeś w %{score} spotkaniach.
+          name: Spotkania w których uczestniczyłeś/-łaś
+          next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
           unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
-        attachment_collections: Lornetka składana
+        attachment_collections: Folder
         attachments: Załączniki
         close: Zamknij
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
-        minutes: Minuty
+        invalid_destroy:
+          proposals_count:
+            one: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję:'
+            few: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje:'
+            many: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+            other: 'Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji:'
+        minutes: Protokół
         new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
@@ -167,56 +181,56 @@ pl:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: Dodaj dziecko elementu porządku
-            agenda_item: Punkt porządku obrad
-            agenda_item_children: Agenda Item Childs
+            add_agenda_item_child: Dodaj podpunk do programu
+            agenda_item: Punkt programu
+            agenda_item_children: Podpunkty programu
             down: Na dół
-            remove: Usunąć
+            remove: Usuń
             up: W górę
           agenda_item_child:
-            agenda_item_child: Agenda Item Child
+            agenda_item_child: Podpunkt programu
             down: Na dół
-            remove: Usunąć
+            remove: Usuń
             up: W górę
           create:
-            invalid: Podczas tworzenia tego programu wystąpił problem
-            success: Agenda została pomyślnie utworzona
+            invalid: Podczas tworzenia tego programu wystąpił błąd
+            success: Program został utworzony
           edit:
-            title: Edytuj agendę
-            update: Aktualizacja
+            title: Edytuj program
+            update: Aktualizuj
           form:
-            add_agenda_item: Dodaj element porządku obrad
-            agenda_items: Agenda przedmiotów
-            end_date: Data końcowa
+            add_agenda_item: Dodaj punkt programu
+            agenda_items: Punkty programu
+            end_date: Data zakończenia
             start_date: Data rozpoczęcia
           new:
-            create: Stwórz
-            title: Nowa agenda
+            create: Utwórz
+            title: Nowy program
           update:
-            invalid: Wystąpił problem podczas aktualizacji tego programu
-            success: Agenda została zaktualizowana
+            invalid: Wystąpił problem podczas aktualizowania tego programu
+            success: Program został zaktualizowany
         exports:
           meetings: Spotkania
           registrations: Rejestracje
         invite_join_meeting_mailer:
           invite:
             decline: Odrzuć zaproszenie
-            invited_you_to_join_a_meeting: "%{invited_by} zaprosił_a Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+            invited_you_to_join_a_meeting: "%{invited_by} zaprosił(a) Cię do udziału w spotkaniu w %{application}. Możesz zaakceptować lub odrzucić zaproszenie przy pomocy poniższego linku."
             join: Dołącz do spotkania "%{meeting_title}"
         invites:
           create:
             error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
-            success: Udało się zaprosić użytkownika do udziału w spotkaniu.
+            success: Zaproszono użytkownika do udziału w spotkaniu.
           form:
             attendee_type: Typ uczestnika
             existing_user: Istniejący użytkownik
             invite: Zaproś
-            invite_explanation: Użytkownik zostanie zaproszony do przyłączenia się do spotkania i do organizacji.
+            invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu spotkaniu i do organizacji.
             non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
             filter:
-              accepted: Przyjęty
+              accepted: Zaakceptowano
               all: Wszystko
               rejected: Odrzucono
               sent: Wysłane
@@ -231,15 +245,25 @@ pl:
             title: Zamknij spotkanie
         meetings:
           close:
-            invalid: Wystąpił problem podczas zamykania tego spotkania
-            success: Spotkanie zostało pomyślnie zamknięte
+            invalid: Wystąpił błąd podczas zamykania tego spotkania
+            success: Spotkanie zostało zakończone
           create:
-            invalid: Podczas tworzenia tego spotkania wystąpił problem
+            invalid: Podczas tworzenia tego spotkania wystąpił błąd
             success: Spotkanie zostało pomyślnie utworzone
           destroy:
+            invalid:
+              proposals_count:
+                one: Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję
+                few: Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje
+                many: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
+                other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             update: Aktualizuj
+          form:
+            address_help: 'Adres: używany przez Geocoder do znalezienia lokalizacji'
+            location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
+            location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku'
           index:
             title: Spotkania
           new:
@@ -248,7 +272,7 @@ pl:
           service:
             description: Opis
             down: Na dół
-            remove: Usunąć
+            remove: Usuń
             service: Usługa
             title: Tytuł
             up: W górę
@@ -256,64 +280,66 @@ pl:
             add_service: Dodaj usługę
             services: Usługi
           update:
-            invalid: Podczas aktualizowania tego spotkania wystąpił problem
-            success: Spotkanie zostało pomyślnie zaktualizowane
+            invalid: Podczas aktualizowania tego spotkania wystąpił błąd
+            success: Spotkanie zostało zaktualizowane
         minutes:
           create:
-            invalid: Podczas tworzenia tej minuty wystąpił problem
-            success: Udało się utworzyć minuty
+            invalid: Podczas tworzenia tego protokołu błąd
+            success: Protokół został utworzony
           edit:
-            update: Aktualizacja
+            update: Aktualizuj
           new:
-            create: Stwórz
-            title: Twórz minuty
+            create: Utwórz
+            title: Utwórz protokół
           update:
-            invalid: Podczas aktualizowania tych minut wystąpił problem
-            success: Minuty zostały pomyślnie zaktualizowane
+            invalid: Podczas aktualizowania tego protokołu wystąpił błąd
+            success: Protokół został zaktualizowany
         models:
           meeting:
             name: Spotkanie
         registrations:
           edit:
-            save: Zapisać
-            validate: Uprawomocnić
+            save: Zapisz
+            validate: Zatwierdź
             validate_registration_code: Zatwierdź kod rejestracyjny
           form:
-            available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
-            invites: Zaprasza
+            available_slots_help: Zostaw 0, jeśli dostępna jest nieograniczona liczba miejsc.
+            invites: Zaproszenia
+            recommendation_message: Ze względu na ochronę prywatności zalecamy usunięcie tego podpisu, gdy nie będzie już wymagany. Standardowo są to 3 miesiące od zakończenia spotkania.
             registration_form: Formularz rejestracyjny
             registrations_count:
-              one: Nie było rejestracji %{count}.
-              few: Zarejestrowano %{count} rejestracji.
-              many: Zarejestrowano %{count} rejestracji.
-              other: Zarejestrowano %{count} rejestracji.
-            reserved_slots_help: Pozostaw to 0, jeśli nie masz zarezerwowanych miejsc
+              one: Była%{count} rejestracja.
+              few: Było %{count} rejestracji.
+              many: Było %{count} rejestracji.
+              other: Było %{count} rejestracji.
+            reserved_slots_help: Pozostaw 0, jeśli nie rezerwujesz miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
+            title: Rejestracje
           update:
-            invalid: Wystąpił problem z zapisaniem ustawień rejestracji.
-            success: Dokonano pomyślnego zapisania ustawień rejestracji rejestracji.
+            invalid: Wystąpił błąd przy zapisywaniu ustawień rejestracji.
+            success: Zapisano ustawienia rejestracji.
           validate_registration_code:
             invalid: Ten kod rejestracyjny jest nieprawidłowy.
-            success: Kod rejestracyjny pomyślnie sprawdzony.
+            success: Kod rejestracyjny został zatwierdzony.
       admin_log:
         invite:
-          create: "%{user_name} zaproszono %{attendee_name} aby dołączyć %{resource_name} spotkania na %{space_name} przestrzeni"
-          deleted: "%{user_name} niezaproszone %{attendee_name} z dołączenia %{resource_name} spotkania na %{space_name} spacje"
-          update: "%{user_name} zaproszono %{attendee_name} aby dołączyć %{resource_name} spotkania na %{space_name} przestrzeni"
+          create: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
+          deleted: "%{user_name} wycofał(a) zaproszenie dla %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
+          update: "%{user_name} zaprosił(a) %{attendee_name} do wzięcia udziału w spotkaniu %{resource_name} w przestrzeni %{space_name}"
         meeting:
-          close: "%{user_name} zamknął spotkanie %{resource_name} na przestrzeni %{space_name}"
-          create: "%{user_name} utworzył spotkanie %{resource_name} na przestrzeni %{space_name}"
-          delete: "%{user_name} usunął spotkanie %{resource_name} na przestrzeni %{space_name}"
-          export_registrations: "%{user_name} wyeksportował zapisy spotkania %{resource_name} na przestrzeni %{space_name}"
-          update: "%{user_name} zaktualizował spotkanie %{resource_name} na przestrzeni %{space_name}"
+          close: "%{user_name} zakończył(a) spotkanie %{resource_name} w przestrzeni %{space_name}"
+          create: "%{user_name} utworzył(a) spotkanie %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} usunął/usunęła spotkanie %{resource_name} w przestrzeni %{space_name}"
+          export_registrations: "%{user_name} wyeksportował(a) listę rejestracji na spotkanie %{resource_name} w przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) spotkanie %{resource_name} w przestrzeni %{space_name}"
           value_types:
             organizer_presenter:
-              not_found: 'Organizatora nie znaleziono w bazie danych (ID: %{id})'
+              not_found: 'Nie znaleziono organizatora w bazie danych (ID: %{id})'
         minutes:
-          create: "%{user_name} utworzył minuty spotkania %{resource_name} na przestrzeni %{space_name}"
-          update: "%{user_name} zaktualizował minuty spotkania %{resource_name} na przestrzeni %{space_name}"
+          create: "%{user_name} utworzył(a) protokół ze spotkania %{resource_name} w przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) protokół ze spotkania %{resource_name} w przestrzeni %{space_name}"
       calendar_modal:
-        calendar_url: URL kalendarza
+        calendar_url: Adres URL kalendarza
         close_window: Zamknij okno
         export_calendar: Eksportuj kalendarz
       conference_venues: Sale konferencyjne
@@ -328,58 +354,100 @@ pl:
             all: Wszystko
             date: Data
             meetings: Spotkania
-            past: Przeszłość
+            past: Przeszłe
             search: Szukaj
-            space_type: Przestrzeń uczestnicząca
+            space_type: Przestrzeń partycypacyjna
             upcoming: Nadchodzące
       last_activity:
-        new_meeting_at_html: "<span>Nowe spotkanie o %{link}</span>"
+        new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Zaproszenie do przyłączenia się do spotkania
+            subject: Zaproszenie do wzięcia udziału w spotkaniu
         registration_mailer:
           confirmation:
-            subject: Swoje spotkania rejestracja zostanie potwierdzona
+            subject: Twoja rejestracja na spotkanie została potwierdzona
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} spotkanie"
+            few: "%{count} spotkań"
+            many: "%{count} spotkań"
+            other: "%{count} spotkań"
+        create:
+          invalid: Wystąpił błąd podczas tworzenia tego spotkania.
+          success: Spotkanie zostało utworzone.
+        edit:
+          back: Powrót
+          title: Edytuj swoje spotkanie
+          update: Aktualizuj
         filters:
           category: Kategoria
           date: Data
+          date_values:
+            all: Wszystkie
+            past: Przeszłe
+            upcoming: Nadchodzące
+          origin: Źródło
+          origin_values:
+            all: Wszystkie
+            citizens: Obywatele
+            official: Oficjalny
+            user_groups: Grupy
+          scope: Zakres
           search: Szukaj
         filters_small_view:
           close_modal: Zamknij modal
           filter: Filtruj
           filter_by: Filtruj według
           unfold: Rozwiń
+        form:
+          address_help: 'Adres: używany przez Geocodera do znalezienia lokalizacji'
+          create_as: Utwórz spotkanie jako
+          location_help: 'Lokalizacja: informacja dla użytkowników dotycząca miejsca spotkania'
+          location_hints_help: 'Wskazówki dotyczące lokalizacji: dodatkowe informacje. Przykład: piętro budynku'
+          select_a_category: Wybierz kategorię
+        index:
+          new_meeting: Nowe spotkanie
         meeting_minutes:
-          meeting_minutes: Protokół ze spotkań
+          meeting_minutes: Protokół ze spotkania
           related_information: Powiązana informacja
         meetings:
-          no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma zaplanowanego spotkania.
-          upcoming_meetings_warning: Obecnie nie ma zaplanowanych spotkań, ale są tu wymienione wszystkie poprzednie spotkania.
+          no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
+          upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
+        new:
+          back: Powrót
+          create: Utwórz
+          title: Utwórz spotkanie
         registration_confirm:
           cancel: Anuluj
-          confirm: Potwierdzać
+          confirm: Potwierdź
         show:
           attendees: Liczba osób biorących udział
-          contributions: Liczba składek
-          going: Chodzenie
+          back: Powrót do listy
+          contributions: Liczba wsparć
+          date: Data
+          edit_meeting: Edytuj spotkanie
+          going: Biorę udział
           join: Dołącz do spotkania
           meeting_report: Notatka ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje biorące udział
           registration_code_help_text: Twój kod rejestracyjny
           registration_state:
-            validated: WALIDACJA
-            validation_pending: OCZEKUJE WERYFIKACJI
+            validated: ZWERYFIKOWANO
+            validation_pending: OCZEKUJE NA WERYFIKACJĘ
           remaining_slots:
-            one: "Pozostało %{count} szczelin"
-            few: "Pozostało %{count} gniazd"
-            many: "Pozostało %{count} gniazd"
-            other: "Pozostało %{count} gniazd"
-          view: Widok
+            one: "Pozostało %{count} miejsce"
+            few: "Pozostało %{count} miejsc"
+            many: "Pozostało %{count} miejsc"
+            other: "Pozostało %{count} miejsc"
+          view: Zobacz
+        update:
+          invalid: Wystąpił błąd podczas aktualizowania spotkania.
+          success: Spotkanie zostało zaktualizowane.
       meetings_map:
         view_meeting: Zobacz spotkanie
       models:
@@ -387,38 +455,41 @@ pl:
           fields:
             email: E-mail
             name: Nazwa
-            sent_at: Wysłane pod adresem
+            sent_at: Wysłano
             status: Status
           status:
             accepted: Zaakceptowano (%{at})
-            rejected: Odrzucony (%{at})
-            sent: Wysłane
+            rejected: Odrzucono (%{at})
+            sent: Wysłano
         meeting:
           fields:
-            closed: Zamknięte
+            closed: Zakończone
             end_time: Data zakończenia
             map: Mapa
+            official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
-      read_more: "(czytaj więcej)"
+      read_more: "(zobacz więcej)"
       registration_mailer:
         confirmation:
-          confirmed_html: Rejestracji dla <a href="%{url}">%{title}</a> spotkanie zostało potwierdzone.
+          confirmed_html: Twoja rejestracja na spotkanie <a href="%{url}">%{title}</a> została zatwierdzona.
           details: Szczegóły spotkania znajdą Państwo w załączniku.
           registration_code: Twój kod rejestracyjny to %{code}.
       registrations:
         create:
-          invalid: Wystąpił problem z dołączeniem tego spotkania.
-          success: Dołączyłeś do tego spotkanie.
+          invalid: Wystąpił błąd podczas dołączania do spotkania.
+          success: Dołączyłeś do tego spotkanie. Ponieważ zarejestrowałeś się na to spotkanie, będziesz otrzymywał powiadomienia dotyczące aktualizacji tego spotkania.
         decline_invitation:
-          invalid: Wystąpił problem z odrzuceniem zaproszenia.
-          success: Odrzuciłeś zaproszenie z powodzeniem.
+          invalid: Wystąpił błąd podczas próby odrzucenia zaproszenia.
+          success: Zaproszenie zostało odrzucone.
         destroy:
-          invalid: Wystąpił problem z tym spotkaniem.
-          success: Opuściłeś spotkanie pomyślnie.
+          invalid: Wystąpił problem podczas próby opuszczenia tego spotkania.
+          success: Opuściłeś spotkanie.
       types:
         private_meeting: Prywatne spotkanie
-        transparent: Przezroczysty
+        transparent: Transparentne
+      versions:
+        back_to_resource: Wróć do spotkania
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
@@ -427,15 +498,15 @@ pl:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Poprzednie spotkania
+          past_meetings: Przeszłe spotkania
           upcoming_meetings: Nadchodzące spotkania
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Poprzednie spotkania
-        see_all: Zobacz wszystko (%{count})
+        past_meetings: Przeszłe spotkania
+        see_all: Zobacz wszystkie spotkania (%{count})
         upcoming_meetings: Nadchodzące spotkania
       upcoming_meeting_for_card:
-        upcoming_meeting: Najbliższe spotkanie
+        upcoming_meeting: Nadchodzące spotkanie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Powiązane wyniki:'
@@ -446,4 +517,4 @@ pl:
   devise:
     mailer:
       join_meeting:
-        subject: Zaproszenie do przyłączenia się do spotkania
+        subject: Zaproszenie do wzięcia udziału w spotkaniu

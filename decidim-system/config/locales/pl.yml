@@ -1,57 +1,101 @@
 pl:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nazwa aplikacji OAuth
+        organization_logo: Logo organizacji (kwadrat)
+        organization_name: Organizacja
+        organization_url: Adres URL organizacji
+        redirect_uri: Przekierowanie URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI przekierowania musi być URI SSL
   decidim:
     system:
       actions:
         confirm_destroy: Czy na pewno chcesz to usunąć?
-        destroy: Kasować
+        destroy: Usuń
         edit: Edytuj
         new: Nowy
-        save: Zapisać
-        title: działania
+        save: Zapisz
+        title: Działania
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
-          success: Admin został utworzony
+          success: Administrator został utworzony
         destroy:
-          success: Administrator został pomyślnie usunięty
+          success: Administrator został usunięty
         edit:
           title: Edytuj administratora
-          update: Aktualizacja
+          update: Aktualizuj
         index:
           title: Administratorzy
         new:
-          create: Stwórz
+          create: Utwórz
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
-          success: Admin został zaktualizowany
+          success: Administrator został zaktualizowany
       default_pages:
         placeholders:
-          content: Proszę dodać istotne treści do strony statyczne %{page} na panelu administratora.
+          content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
           title: Domyślny tytuł dla %{page}
       menu:
         admins: Administratorzy
-        dashboard: Deska rozdzielcza
+        dashboard: Panel
+        oauth_applications: Aplikacje OAuth
         organizations: Organizacje
       models:
         admin:
           fields:
-            created_at: Utworzono w
-            email: E-mail
-          name: Admin
+            created_at: Utworzono
+            email: Adres e-mail
+          name: Administrator
           validations:
-            email_uniqueness: Inny admin z tym samym e-mailem już istnieje
+            email_uniqueness: inny administrator z tym samym e-mailem już istnieje
+        oauth_application:
+          fields:
+            created_at: Utworzono
+            name: Nazwa aplikacji OAuth
+            organization_name: Organizacja
+          name: Aplikacja OAuth
         organization:
           actions:
-            save_and_invite: Utwórz organizację i zapraszaj administratora
+            save_and_invite: Utwórz organizację i zaproś administratora
           fields:
-            created_at: Utworzono w
+            created_at: Utworzono
             name: Nazwa
+            omniauth_settings: Ustawienia Omniauth
+            smtp_settings: Ustawienia SMTP
           name: Organizacja
+      oauth_applications:
+        create:
+          error: Wystąpił błąd podczas tworzenia tej aplikacji.
+          success: Aplikacja została utworzona.
+        destroy:
+          error: Wystąpił błąd podczas usuwania aplikacji.
+          success: Aplikacja została usunięta.
+        edit:
+          save: Zapisz
+          title: Edytuj aplikację
+        form:
+          select_organization: Wybierz organizację
+        index:
+          confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
+          title: Aplikacje OAuth
+        new:
+          save: Zapisz
+          title: Nowa aplikacja
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej aplikacji.
+          success: Aplikacja została zaktualizowana.
       organizations:
         create:
           error: Podczas tworzenia nowej organizacji wystąpił błąd.
-          success: Organizacja powiodła się.
+          success: Organizacja została utworzona.
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         index:
@@ -60,6 +104,27 @@ pl:
           reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
+        omniauth_settings:
+          decidim:
+            client_id: Identyfikator klienta
+            client_secret: Sekret klienta
+            site_url: URL strony
+          enabled: Włączone
+          enabled_by_default: Ten dostawca jest włączony domyślnie. Można go edytować, ale nie można go wyłączyć.
+          facebook:
+            app_id: ID aplikacji
+            app_secret: Sekret aplikacji
+          google_oauth2:
+            client_id: ID klienta
+            client_secret: Sekret klienta
+          icon: Ikona
+          icon_path: Ścieżka ikony
+          twitter:
+            api_key: Klucz API
+            api_secret: Sekret API
+        smtp_settings:
+          placeholder:
+            from_label: twoja-nazwa-organizacji
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.
@@ -69,7 +134,7 @@ pl:
           existing: Nie zezwalaj użytkownikom na rejestrację, ale zezwalaj istniejącym użytkownikom na logowanie
       shared:
         notices:
-          no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj, czy przeczytasz %{guide}.
-          our_getting_started_guide: Nasz przewodnik
+          no_organization_warning_html: Aby rozpocząć, musisz utworzyć organizację. Przed kontynuowaniem przeczytaj %{guide}.
+          our_getting_started_guide: nasz przewodnik
       titles:
-        dashboard: Deska rozdzielcza
+        dashboard: Panel

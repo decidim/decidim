@@ -92,4 +92,18 @@ describe Decidim::Debates::Permissions do
 
     it { is_expected.to eq true }
   end
+
+  context "when endorsing a debate" do
+    let(:action) do
+      { scope: :public, action: :endorse, subject: :debate }
+    end
+
+    it { is_expected.to eq true }
+
+    context "when the debate is closed" do
+      let(:debate) { create :debate, :closed, component: debates_component }
+
+      it { is_expected.to eq false }
+    end
+  end
 end

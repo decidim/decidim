@@ -12,18 +12,18 @@ pl:
         proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
-        updated_at: Zaktualizowano na
+        updated_at: Zaktualizowano
       status:
         description: Opis
-        key: Klawisz
+        key: Klucz
         name: Nazwa
         progress: Postęp
       timeline_entry:
         description: Opis
         entry_date: Data
     models:
-      decidim/accountability/proposal_linked_event: Wniosek zawarty w wyniku
-      decidim/accountability/result_progress_updated_event: Aktualizacja wyników
+      decidim/accountability/proposal_linked_event: Propozycja zawarta w wyniku
+      decidim/accountability/result_progress_updated_event: Aktualizacja postępu wyników
   activerecord:
     models:
       decidim/accountability/result:
@@ -34,91 +34,104 @@ pl:
   decidim:
     accountability:
       actions:
-        confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
-        destroy: Kasować
+        confirm_destroy: Czy na pewno chcesz usunąć %{name}?
+        destroy: Usuń
         edit: Edytuj
-        import_csv: Importuj z CSV
-        new: Nowe %{name}
+        import_csv: Importuj CSV
+        new: Nowa %{name}
         preview: Podgląd
-        timeline_entries: Ewolucja projektu
+        timeline_entries: Rozwój projektu
         title: Działania
       admin:
         exports:
-          results: wyniki
+          results: Wyniki
         import_results:
           new:
-            import: Import
+            import: Importuj
+            info: "<p> Zalecamy wykonanie następujących kroków:</p><ol><li>Utwórz Statusy dla Wyników, które chcesz dodać (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Utwórz co najmniej jeden wynik ręcznie z poziomu tego Panelu administracyjnego (<a href='%{link_new_result}' target='_blank'>link</a>) przed wybraniem opcji Importuj, aby lepiej zrozumieć format oraz jakie informacje należy załączyć.</li><li>Pobierz plik Eksport w formacie CSV (%{link_export_csv})</li><li>Wprowadź zmiany lokalnie. Możesz zmienić tylko następujące kolumny pliku CSV:</li></ol><ul><li><b>kategoria/id:</b> ID kategorii</li><li><b>zakres/id:</b> ID zakresu</li><li><b>element nadrzędny/id:</b> ID elementu nadrzędnego (dla powiązanych wyników). Opcjonalnie</li><li><b>tytuł/I18N:</b> Tytuł w języku X</li><li><b>opis/I18N:</b> Opis w języku X</li><li><b>start_date:</b> data rozpoczęcia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>end_date:</b> data zakończenia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu dla tego wyniku</li><li><b>postęp:</b> Postęp prac nad wynikiem wyrażony procentowo (od 0 do 100)</li><li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest ono automatycznie konwertowane na <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: link
+            title: Importuj wyniki z CSV
+        imports:
+          create:
+            success: Rozpoczęło się importowanie pliku. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania
         models:
           result:
             name: Wynik
           status:
             name: Status
           timeline_entry:
-            name: Wprowadzenie do osi czasu
+            name: Wpis na osi czasu
         results:
           create:
-            invalid: Podczas tworzenia tego wyniku wystąpił problem
-            success: Wynik został pomyślnie utworzony
+            invalid: Podczas tworzenia tego wyniku wystąpił błąd
+            success: Wynik został utworzony
           destroy:
-            success: Wynik został pomyślnie usunięty
+            success: Wynik został usunięty
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
           index:
-            title: wyniki
+            title: Wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
           update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
             success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
           create:
-            invalid: Podczas tworzenia tego stanu wystąpił problem
-            success: Status został pomyślnie utworzony
+            invalid: Podczas tworzenia tego statusu wystąpił błąd
+            success: Status został utworzony
           destroy:
-            success: Status został pomyślnie usunięty
+            success: Status został usunięty
           edit:
             title: Edytuj status
-            update: Stan aktualizacji
+            update: Aktualizuj status
           index:
             title: Statusy
           new:
-            create: Utwórz stan
+            create: Utwórz status
             title: Nowy status
           update:
-            invalid: Wystąpił problem z aktualizacją tego stanu
-            success: Stan został zaktualizowany
+            invalid: Wystąpił błąd podczas aktualizacji tego statusu
+            success: Status został zaktualizowany
         timeline_entries:
           create:
-            invalid: Podczas tworzenia tego wpisu wystąpił problem
-            success: Wpis został pomyślnie utworzony
+            invalid: Podczas tworzenia tego wpisu wystąpił błąd
+            success: Wpis został utworzony
           destroy:
-            success: Wpis został pomyślnie usunięty
+            success: Wpis został usunięty
           edit:
             title: Edytuj wpis
             update: Aktualizuj wpis
           index:
-            title: Projekty linii czasu
+            title: Wpisy na osi czasu projektów
           new:
             create: Utwórz wpis
-            title: Nowe wejście
+            title: Nowy wpis
           update:
-            invalid: Podczas aktualizowania tego wpisu wystąpił problem
-            success: Wprowadzono pomyślnie
+            invalid: Podczas aktualizowania tego wpisu wystąpił błąd
+            success: Wpis został zaktualizowany
       admin_log:
         result:
-          create: "%{user_name} utworzony wynik %{resource_name} w %{space_name}"
-          delete: "%{user_name} usunął %{resource_name} wynik w %{space_name}"
-          update: "%{user_name} zaktualizowany wynik %{resource_name} w %{space_name}"
+          create: "%{user_name} utworzył(a) wynik %{resource_name} w %{space_name}"
+          delete: "%{user_name} usunął/usunęła wynik %{resource_name} z %{space_name}"
+          update: "%{user_name} zaktualizował(a) wynik %{resource_name} w %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Błędy
+          errors_present: Podczas importowania wyników wystąpił błąd
+          row_number: Wiersz
+          subject: Importowanie wyników zakończyło się pomyślnie
+          success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
       last_activity:
-        new_result_at_html: "<span>Nowy wynik na %{link}</span>"
+        new_result_at_html: "<span>Nowy wynik w %{link}</span>"
       models:
         result:
           fields:
@@ -130,7 +143,7 @@ pl:
         status:
           fields:
             description: Opis
-            key: Klawisz
+            key: Klucz
             name: Nazwa
             progress: Postęp
         timeline_entry:
@@ -142,7 +155,7 @@ pl:
           results_count:
             one: 1 wynik
             few: "%{count} wyników"
-            many: "%{count} wyniki"
+            many: "%{count} wyników"
             other: "%{count} wyników"
         filters:
           all: Wszystkie
@@ -158,43 +171,46 @@ pl:
           search: Szukaj działań
         show:
           stats:
-            attendees: Uczestnicy i uczestniczki
+            attendees: Uczestnicy
             back_to_resource: Wróć do wyniku
             comments: Komentarze
             contributions: Wkład
             last_edited_by: Ostatnio edytowane przez
-            last_updated_at: 'Ostatnia aktualizacja:'
+            last_updated_at: Ostatnia aktualizacja
             meetings: Spotkania
             proposals: Propozycje
-            votes: Pomoc
+            votes: Wsparcia
         timeline:
-          title: Ewolucja projektu
+          title: Rozwój projektu
     components:
       accountability:
-        name: Odpowiedzialność
+        name: Rozliczenie
         settings:
           global:
-            categories_label: Nazwa dla "kategorii"
+            categories_label: Nagłówek dla "Kategorii"
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             display_progress_enabled: Wyświetl postęp
-            heading_leaf_level_results: Nazwa dla "projektów"
-            heading_parent_level_results: Nazwa dla "Wyniki"
+            heading_leaf_level_results: Nagłówek dla "Projektów"
+            heading_parent_level_results: Nagłówek dla "Wyników"
             intro: Wprowadzenie
-            subcategories_label: Nazwa dla "podkategorii"
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
+            subcategories_label: Nagłówek dla "Podkategorii"
           step:
             comments_blocked: Komentarze zablokowane
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Wniosek "%{proposal_title}" został uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Aktualizacja do %{proposal_title}
-          notification_title: Wniosek <a href="%{proposal_path}">%{proposal_title}</a> został uwzględniony w wyniku <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Propozycja "%{proposal_title}" została uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Aktualizacja w %{proposal_title}
+          notification_title: Propozycja <a href="%{proposal_path}">%{proposal_title}</a> została uwzględniona w wyniku <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'Wynik "%{resource_title}", który obejmuje propozycję "%{proposal_title}", jest teraz %{progress}% ukończony. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}", a ta propozycja jest uwzględniona w wyniku "%{resource_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Aktualizacja do %{resource_title} postępów
-          notification_title: Wynik <a href="%{resource_path}">%{resource_title}</a>, który obejmuje wniosek <a href="%{proposal_path}">%{proposal_title}</a>, jest teraz ukończony w %{progress}%.
+          email_intro: 'Wynik "%{resource_title}", który uwzględnia propozycję "%{proposal_title}", został ukończony w %{progress}%. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}", a ta propozycja jest uwzględniona w wyniku "%{resource_title}". Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Aktualizacja postępów dla %{resource_title}
+          notification_title: Wynik <a href="%{resource_path}">%{resource_title}</a>, który uwzględnia propozycję <a href="%{proposal_path}">%{proposal_title}</a>, został ukończony w %{progress}%.
     metrics:
       results:
         description: Liczba wygenerowanych wyników
@@ -204,8 +220,11 @@ pl:
       participatory_process_groups:
         highlighted_results:
           results: Wyniki
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zobacz wszystkie wyniki (%{count})
     resource_links:
       included_projects:
         result_project: Projekty uwzględnione w tym wyniku
       included_proposals:
-        result_proposal: Propozycje zawarte w tym wyniku
+        result_proposal: Propozycje uwzględnione w tym wyniku

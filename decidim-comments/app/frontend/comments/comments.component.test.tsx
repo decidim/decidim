@@ -19,6 +19,8 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
   const commentableId = "1";
   const commentableType = "Decidim::DummyResources::DummyResource";
   const orderBy = "older";
+  const locale = "en";
+  const toggleTranslations = false;
   const reorderComments = jasmine.createSpy("reorderComments");
 
   beforeEach(() => {
@@ -53,19 +55,19 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
   });
 
   it("renders loading-comments class and the respective loading text", () => {
-    const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} loading={true} />);
+    const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} loading={true} />);
     expect(wrapper.find(".loading-comments").exists()).toBeTruthy();
     expect(wrapper.find("h2").text()).toEqual("Loading comments ...");
   });
 
   it("renders a div of id comments", () => {
-    const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+    const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     expect(wrapper.find("#comments").exists()).toBeTruthy();
   });
 
   describe("renders a CommentThread component for each comment", () => {
     it("and pass filter comment data as a prop to it", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentThread).length).toEqual(commentable.comments.length);
       wrapper.find(CommentThread).forEach((node, idx) => {
         expect(node.prop("comment")).toEqual(commentable.comments[idx]);
@@ -73,7 +75,7 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
     });
 
     it("and pass the session as a prop to it", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentThread).length).toEqual(commentable.comments.length);
       wrapper.find(CommentThread).forEach((node) => {
         expect(node.prop("session")).toEqual(session);
@@ -81,7 +83,7 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
     });
 
     it("and pass the commentable 'commentsHaveVotes' property as a prop to it", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentThread).length).toEqual(commentable.comments.length);
       wrapper.find(CommentThread).forEach((node) => {
         expect(node.prop("votable")).toBeTruthy();
@@ -90,13 +92,13 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
   });
 
   it("renders comments count", () => {
-    const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+    const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     const rex = new RegExp(`${commentable.comments.length} comments`);
     expect(wrapper.find("h2.section-heading").text()).toMatch(rex);
   });
 
   it("renders a AddCommentForm component and pass the commentable 'commentsHaveAlignment' as a prop", () => {
-    const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+    const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
     expect(wrapper.find(AddCommentForm).length).toEqual(1);
     expect(wrapper.find(AddCommentForm).prop("arguable")).toBeTruthy();
   });
@@ -108,12 +110,12 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
     });
 
     it("doesn't render an AddCommentForm component", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(AddCommentForm).exists()).toBeFalsy();
     });
 
     it("renders a callout message to inform the user that comments are blocked", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(".callout.warning").text()).toContain("disabled");
     });
   });
@@ -124,24 +126,24 @@ describe("<Comments commentsMaxLength={commentsMaxLength} />", () => {
     });
 
     it("doesn't render an AddCommentForm component", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(AddCommentForm).exists()).toBeFalsy();
     });
 
     it("renders a callout message to inform the user that comments are blocked", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(".callout.warning").text()).toContain("not able");
     });
   });
 
   describe("renders a CommentOrderSelector component", () => {
     it("and pass the reorderComments as a prop to it", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentOrderSelector).prop("reorderComments")).toEqual(reorderComments);
     });
 
     it("and pass the orderBy as a prop to it", () => {
-      const wrapper = shallow(<Comments commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
+      const wrapper = shallow(<Comments locale={locale} toggleTranslations={toggleTranslations} commentsMaxLength={commentsMaxLength} commentable={commentable} session={session} reorderComments={reorderComments} orderBy={orderBy} />);
       expect(wrapper.find(CommentOrderSelector).prop("defaultOrderBy")).toEqual("older");
     });
   });

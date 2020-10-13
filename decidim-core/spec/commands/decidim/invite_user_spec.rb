@@ -53,6 +53,7 @@ module Decidim
       end
 
       it "does not send the confirmation email" do
+        clear_enqueued_jobs
         command.call
 
         jobs = ActiveJob::Base.queue_adapter.enqueued_jobs
@@ -86,6 +87,7 @@ module Decidim
       end
 
       it "sends an invitation email with the given instructions" do
+        clear_enqueued_jobs
         command.call
 
         _, _, _, queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args])

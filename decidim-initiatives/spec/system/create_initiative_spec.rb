@@ -136,13 +136,13 @@ describe "Initiative", type: :system do
         end
 
         it "Has a hidden field with the selected initiative type" do
-          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: false)
-          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: :all)
+          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
         it "Have fields for title and description" do
           expect(page).to have_xpath("//input[@id='initiative_title']")
-          expect(page).to have_xpath("//input[@id='initiative_description']", visible: false)
+          expect(page).to have_xpath("//input[@id='initiative_description']", visible: :all)
         end
 
         it "Offers contextual help" do
@@ -166,13 +166,13 @@ describe "Initiative", type: :system do
         end
 
         it "Has a hidden field with the selected initiative type" do
-          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: false)
-          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+          expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: :all)
+          expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
         end
 
         it "Have fields for title and description" do
           expect(page).to have_xpath("//input[@id='initiative_title']")
-          expect(page).to have_xpath("//input[@id='initiative_description']", visible: false)
+          expect(page).to have_xpath("//input[@id='initiative_description']", visible: :all)
         end
 
         it "Offers contextual help" do
@@ -250,9 +250,9 @@ describe "Initiative", type: :system do
           end
 
           it "Information collected in previous steps is already filled" do
-            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
-            expect(find(:xpath, "//input[@id='initiative_description']", visible: false).value).to eq(translated(initiative.description, locale: :en))
+            expect(find(:xpath, "//input[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
           end
 
           context "when only one signature collection and scope are available" do
@@ -262,8 +262,8 @@ describe "Initiative", type: :system do
             it "hides and automatically selects the values" do
               expect(page).not_to have_content("Signature collection type")
               expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: false).value).to eq(initiative_type.id.to_s)
-              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: false).value).to eq("offline")
+              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
           end
 

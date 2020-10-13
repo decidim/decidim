@@ -3,6 +3,8 @@ ja:
     attributes:
       debate:
         category_id: カテゴリ
+        closed_at: 終了日時
+        conclusions: まとめ
         decidim_category_id: カテゴリ
         description: 説明
         end_time: 終了時刻
@@ -12,6 +14,7 @@ ja:
         title: タイトル
         user_group_id: ディベートを作成
     models:
+      decidim/debates/close_debate_event: ディベートが終了しました
       decidim/debates/create_debate_event: ディベート
       decidim/debates/creation_disabled_event: ディベートは無効です
       decidim/debates/creation_enabled_event: ディベートは有効です
@@ -36,12 +39,17 @@ ja:
             creation_enabled: 参加者によるディベートの作成が有効になりました
     debates:
       actions:
+        close: 閉じる
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
         new: 新しい %{name}
         title: アクション
       admin:
+        debate_closes:
+          edit:
+            close: 閉じる
+            title: 議論を閉じる
         debates:
           create:
             invalid: 議論を起こすのに問題があった。
@@ -64,9 +72,18 @@ ja:
             name: ディベート
       admin_log:
         debate:
+          close: "%{user_name} は、 %{resource_name} スペースの %{space_name} 議論を終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
       debates:
+        close:
+          invalid: 議論を閉じるのに失敗しました。
+          success: 議論が正常に終了しました。
+        close_debate_modal:
+          close: 閉じる
+          description: この討論の要約または結論は何ですか?
+          send: 議論を閉じる
+        closed: 終了
         count:
           debates_count:
             other: "%{count} 個のディベート数"
@@ -92,6 +109,8 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        form:
+          select_a_category: カテゴリを選択してください
         index:
           new_debate: 新しい議論
         new:
@@ -100,6 +119,11 @@ ja:
           title: 新しい議論
         show:
           back: リストに戻る
+          close_debate: 議論を終了する
+          date: 日付
+          debate_closed: 終了
+          debate_conclusions_are: '議論は %{date} に、以下の結論を持って終了しました。'
+          edit_conclusions: 結論を編集
           edit_debate: ディベートを編集
         update:
           invalid: 議論の更新に問題がありました。
@@ -146,6 +170,12 @@ ja:
           email_intro: '%{participatory_space_title}で新しいディベートを開始できます! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: ディベートは %{participatory_space_title} で利用可能になりました
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> 内で <a href="%{resource_path}">新しい討論</a> を開始できます。
+        debate_closed:
+          email_intro: '「%{resource_title}」の議論は終了しました。そのページから結論を読むことができます。'
+          email_outro: '%{resource_title} をフォローしているため、この通知を受け取りました。前のリンクから通知の受信を停止することができます。'
+          email_subject: '「%{resource_title}」の議論は終了しました'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> の議論は終了しました。
     gamification:
       badges:
         commented_debates:

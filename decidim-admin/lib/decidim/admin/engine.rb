@@ -54,7 +54,16 @@ module Decidim
                     allowed_to?(:read, :admin_user) ? decidim_admin.users_path : decidim_admin.impersonatable_users_path,
                     icon_name: "person",
                     position: 5,
-                    active: [%w(user_groups users managed_users impersonatable_users authorization_workflows).map { |segment| "/decidim/admin/#{segment}" }, []],
+                    active: [%w(
+                      decidim/admin/users
+                      decidim/admin/user_groups
+                      decidim/admin/user_groups_csv_verifications
+                      decidim/admin/officializations
+                      decidim/admin/impersonatable_users
+                      decidim/admin/managed_users/impersonation_logs
+                      decidim/admin/managed_users/promotions
+                      decidim/admin/authorization_workflows
+                    ), []],
                     if: allowed_to?(:read, :admin_user) || allowed_to?(:read, :managed_user)
 
           menu.item I18n.t("menu.newsletters", scope: "decidim.admin"),
@@ -89,13 +98,6 @@ module Decidim
                     position: 10,
                     active: [%w(decidim/admin/logs), []],
                     if: allowed_to?(:read, :admin_log)
-
-          menu.item I18n.t("menu.oauth_applications", scope: "decidim.admin"),
-                    decidim_admin.oauth_applications_path,
-                    icon_name: "dashboard",
-                    position: 11,
-                    active: [%w(decidim/admin/oauth_applications), []],
-                    if: allowed_to?(:read, :oauth_application)
         end
       end
 

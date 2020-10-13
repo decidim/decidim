@@ -16,6 +16,7 @@ describe Decidim::Elections::Admin::UpdateQuestion do
       title: { en: "title" },
       description: { en: "description" },
       max_selections: 3,
+      min_selections: 1,
       weight: 10,
       random_answers_order: true,
       election: election

@@ -8,7 +8,7 @@ describe "User edit meeting", type: :system do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:meeting) { create :meeting, title: "Meeting title with #hashtag", description: "Meeting description", author: user, component: component }
+  let!(:meeting) { create :meeting, title: { en: "Meeting title with #hashtag" }, description: { en: "Meeting description" }, author: user, component: component }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:component) do
@@ -33,7 +33,7 @@ describe "User edit meeting", type: :system do
     it "can be updated" do
       visit_component
 
-      click_link meeting.title
+      click_link translated(meeting.title)
       click_link "Edit meeting"
 
       expect(page).to have_content "EDIT YOUR MEETING"
@@ -48,11 +48,33 @@ describe "User edit meeting", type: :system do
       expect(page).to have_content(new_description)
     end
 
+    context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+      it_behaves_like(
+        "a record with front-end geocoding address field",
+        Decidim::Meetings::Meeting,
+        within_selector: ".edit_meeting",
+        address_field: :meeting_address
+      ) do
+        let(:geocoded_address_value) { meeting.address }
+        let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+        before do
+          # Prepare the view for submission (other than the address field)
+          visit_component
+
+          click_link translated(meeting.title)
+          click_link "Edit meeting"
+
+          expect(page).to have_content "EDIT YOUR MEETING"
+        end
+      end
+    end
+
     context "when updating with wrong data" do
       it "returns an error message" do
         visit_component
 
-        click_link meeting.title
+        click_link translated(meeting.title)
         click_link "Edit meeting"
 
         expect(page).to have_content "EDIT YOUR MEETING"
@@ -75,7 +97,7 @@ describe "User edit meeting", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link meeting.title
+      click_link translated(meeting.title)
       expect(page).to have_no_content("Edit meeting")
       visit current_path + "/edit"
 
