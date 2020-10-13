@@ -54,7 +54,8 @@ module Decidim
           form.user,
           form.current_user,
           extra: {
-            reportable_type: form.user.class.name
+            reportable_type: form.user.class.name,
+            current_justification: form.justification
           }
         ) do
           form.user.suspended = true
