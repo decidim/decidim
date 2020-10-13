@@ -79,7 +79,6 @@ $datetime-bg: var(--primary);
   @extend .heading5;
 }
 
-
 a.card__title,
 a .card__title{
   &:hover{
@@ -258,14 +257,10 @@ a .card__title{
 
 .card__author{
   margin-bottom: .5rem;
-  margin-top: .5rem;
-
 
   // Hack when there's a toggler list
   [data-toggler]{
     margin-bottom: -.5rem;
-    margin-top: -.5rem;
-
   }
 
   &.inline-block{
