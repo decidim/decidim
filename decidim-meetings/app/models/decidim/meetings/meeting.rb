@@ -194,7 +194,7 @@ module Decidim
           description.values.join("\n"),
           location.values.join("\n"),
           location_hints.values.join("\n"),
-          registration_terms.values.join("\n")
+          registration_terms.present? ? registration_terms.values.join("\n") : ""
         ].join("\n")
       end
 
