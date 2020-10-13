@@ -15,14 +15,6 @@ sk:
           online: OnLine
         state: Štát
         title: Titul
-      initiative_author:
-        address: Adresa
-        city: Mesto
-        id_document: ID
-        name: Meno a priezvisko
-        phone_number: Telefónne číslo
-        post_code: PSČ
-        province: Okres
       initiatives_committee_member:
         user: člen komisie
       initiatives_type:
