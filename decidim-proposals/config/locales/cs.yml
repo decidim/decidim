@@ -738,8 +738,13 @@ cs:
             many: "%{count} návrhů"
             other: "%{count} návrhů"
         edit:
+          add_documents: Dokumenty
+          add_images: Soubor
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
+          delete_document: Smazat dokument
+          delete_image: Smazat obrázek
+          gallery_legend: "(Volitelné) Přidejte obrázek na kartu návrhu"
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh

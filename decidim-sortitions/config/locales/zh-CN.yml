@@ -1,0 +1,147 @@
+zh-CN:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: 排序信息
+        decidim_category_id: 您想要应用绘图的一组建议的类别
+        decidim_proposals_component_id: 提案集
+        dice: 死亡登记的结果。 旋转一个6边的死亡或寻找另一个随机的方法生成一个从1到6之间的数字。 然后在这里当着一些证人的面输入由此产生的号码。 这有助于提高结果的质量并保证结果的随机性
+        target_items: 要选择的建议数量 (表示您想要选择的建议的数量，您先前选择的建议群组)
+        title: 标题
+        witnesses: 证人
+    models:
+      decidim/sortitions/create_sortition_event: 排序方式
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        other: 联谊会
+  decidim:
+    components:
+      sortitions:
+        name: 联谊会
+        settings:
+          global:
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: 对不起，%{resource_title}" 已添加到您关注的"%{participatory_space_title}"。
+          email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以从上一个链接取消关注它。
+          email_subject: 新的排序添加到 %{participatory_space_title}
+          notification_title: 吸附 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: 联谊会
+    participatory_processes:
+      statistics:
+        sortitions_count: 联谊会
+    sortitions:
+      admin:
+        actions:
+          destroy: 取消排序方式
+          edit: 编辑
+          new: 新的排序方式
+          show: 排序详情
+        models:
+          sortition:
+            fields:
+              category: 类别
+              created_at: 创建日期
+              decidim_proposals_component: 二. 提议的构成部分
+              dice: 爱好
+              reference: 参考
+              request_timestamp: 绘制时间
+              seed: 种子
+              target_items: 要选择的项目
+              title: 标题
+            name:
+              other: 联谊会
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: 您确定要取消这个分类吗？
+            destroy: 取消排序方式
+            title: 取消吸附性
+          create:
+            error: 出现了一个问题，造成了新的怨恨。
+            success: 排序成功创建
+          destroy:
+            error: 不能取消排序。
+            success: 排序成功取消
+          edit:
+            title: 更新有关分类的信息
+            update: 更新
+          form:
+            all_categories: 所有类别
+            select_proposal_component: 选择提案集
+            title: 对建议书的新排序方式
+          index:
+            title: 联谊会
+          new:
+            confirm: 按下下一个按钮后，Decidim将录制日期和时间(精确度为秒)，并同时录制染色卷， 此信息将用于生成随机选择。 此动作将不可逆，一旦点击此按钮，绘图的结果将被发布， 请仔细检查内容，并在此表单中输入的数据，不能修改
+            create: 创建
+            title: 新的排序方式
+          show:
+            selected_proposals: 选择绘图提案
+          update:
+            error: 有一个问题是更新厌恶。
+            success: 排序成功更新
+      admin_log:
+        sortition:
+          create: "%{user_name} 在 %{resource_name} 中创建了 %{space_name} 个排序。"
+          delete: "%{user_name} 取消了 %{resource_name} 在 %{space_name} 中的排序。"
+          update: "%{user_name} 更新了 %{resource_name} 个排序在 %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            other: "%{count} 个提议"
+        filters:
+          active: 已启用
+          all: 所有的
+          cancelled: 已取消
+          category: 类别
+          category_prompt: 选择一个类别
+          search: 搜索
+          state: 状态
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        linked_sortitions:
+          selected_proposals: 选定的建议
+        orders:
+          label: '排序方式：'
+          random: 随机播放
+          recent: 最近的
+        results_count:
+          count:
+            other: 选定的建议
+        show:
+          algorithm: 排序算法
+          any_category: 来自所有类别
+          back: 返回列表
+          cancelled: 取消排序方式
+          candidate_proposal_ids: 排序建议订单和 ID
+          candidate_proposals_info: '排序是在下列建议中进行的 (%{category_label})，具有以下ID(以选定建议的黑体字)  '
+          category: 来自 %{category} 类别
+          dice_result: "(1) 致残结果"
+          introduction: '此页面包含排序 %{reference}的结果。 通过这种道歉， 已经随机选择了 %{target_items} 个结果，并且显示在下面的一组建议中同样的概率分布。 本页所显示的信息连同结果，提供了最大限度保证和复制结果所需的所有信息。 这种区分的质量的关键是由证人核实的法官滚动所提供的双倍随机性和为产生随机选择的算法提供输入的吸附确切时间。 难度的时间种子非常精确(秒)，人类无法控制，因此提供了双个“无法控制的”输入以保证结果的公允。  '
+          mathematical_result: 结果(1) x (2)
+          proposals_selected_by_sortition: 按排序选择的提议
+          sortition_reproducibility_details: 排序详细信息
+          time_seed: "(2) 时间种子"
+          witnesses: 证人
+        sortition:
+          random_seed: 随机种子
+          selected_proposals:
+            other: 建议已选择
+          view: 查看
+        sortition_author:
+          deleted: 删除参与者
+        sortition_cancel_author:
+          deleted: 删除参与者
+        sortitions_count:
+          count:
+            other: "%{count} 排序方式"
