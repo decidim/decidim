@@ -15,12 +15,6 @@ lv:
           online: Tiešsaistē
         state: Statuss
         title: Nosaukums
-      initiative_author:
-        address: Adrese
-        city: Pilsēta
-        name: Vārds un uzvārds
-        phone_number: Tālruņa numurs
-        post_code: Pasta indekss
       initiatives_committee_member:
         user: Komitejas loceklis
       initiatives_type:
