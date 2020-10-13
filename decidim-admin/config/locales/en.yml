@@ -300,6 +300,9 @@ en:
         category_id_eq:
           label: Category
         filter_label: Filter
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: State
           values:
@@ -320,13 +323,10 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
-          title_cont: Search %{collection} by title.
           reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
+          title_cont: Search %{collection} by title.
         state_eq:
           label: State
-        moderations:
-          reportable_type_string_eq:
-            label: "Type"
       help_sections:
         error: There was a problem updating the help sections
         form:
