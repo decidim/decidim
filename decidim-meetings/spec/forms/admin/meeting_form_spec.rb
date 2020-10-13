@@ -216,7 +216,7 @@ module Decidim::Meetings
     end
 
     context "when component allows external registrations" do
-      let(:current_component) { create :meeting_component, :with_online_meetings_enabled, participatory_space: participatory_process }
+      let(:current_component) { create :meeting_component, :with_external_registrations_enabled, participatory_space: participatory_process }
 
       describe "when registration url is missing and registration type of meeting is on different platform" do
         let(:registration_type) { "on_different_platform" }

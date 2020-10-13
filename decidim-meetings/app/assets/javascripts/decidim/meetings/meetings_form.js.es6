@@ -28,23 +28,11 @@
 
       toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
       toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
-    }
 
-    const $meetingForm = $(".edit_meeting, .new_meeting");
-    if ($meetingForm.length > 0) {
-
-      const toggleDependsOnSelect = ($target, $showDiv, type) => {
-        const value = $target.val();
-        $showDiv.hide();
-        if (value === type) {
-          $showDiv.show();
-        }
-      };
-
-      const $meetingRegistrationType = $meetingForm.find("#meeting_registration_type");
-      const $meetingRegistrationTerms = $meetingForm.find("#meeting_registration_terms");
-      const $meetingRegistrationUrl = $meetingForm.find("#meeting_registration_url");
-      const $meetingAvailableSlots = $meetingForm.find("#meeting_available_slots");
+      const $meetingRegistrationType = $form.find("#meeting_registration_type");
+      const $meetingRegistrationTerms = $form.find("#meeting_registration_terms");
+      const $meetingRegistrationUrl = $form.find("#meeting_registration_url");
+      const $meetingAvailableSlots = $form.find("#meeting_available_slots");
 
       $meetingRegistrationType.on("change", (ev) => {
         const $target = $(ev.target);

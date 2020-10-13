@@ -193,6 +193,7 @@ describe "User creates meeting", type: :system do
           before do
             component.update!(settings: { allow_external_registrations: true, creation_enabled_for_participants: true })
           end
+
           it "lets the user choose the registrations type" do
             visit_component
 
