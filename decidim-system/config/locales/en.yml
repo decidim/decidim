@@ -2,19 +2,19 @@
 en:
   activemodel:
     attributes:
-      organization:
-        from_email: Email address
-        from_label: Label
-        address: SMTP hostname
-        password: Password
-        port: Port
-        user_name: Username
       oauth_application:
         name: OAuth Application Name
         organization_logo: Organization logo (square)
         organization_name: Organization
         organization_url: Organization URL
         redirect_uri: Redirect URI
+      organization:
+        address: SMTP hostname
+        from_email: Email address
+        from_label: Label
+        password: Password
+        port: Port
+        user_name: Username
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME types
