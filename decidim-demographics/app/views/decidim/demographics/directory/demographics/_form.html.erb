@@ -35,7 +35,9 @@
 <div class="field">
   <%= form.select(
           :background,
-          Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES
+          Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES,
+          :to_s,
+          ->(gender) { t(".professional_categories.#{gender}") }
       ) %>
 </div>
 

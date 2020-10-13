@@ -51,6 +51,15 @@ en:
               swede: Swede
             nationalities_help: Please select up to 3 nationalities
             nationality_prompt: ''
+            professional_categories:
+              house-worker: House worker
+              manager: Manager
+              manual-worker: Manual worker
+              retired: Retired
+              self-employed: Self-employed
+              student: Student
+              unemployed: Unemployed
+              white-collar: White collar
           new:
             save: Save
   layouts:

@@ -38,7 +38,7 @@ module Decidim
         swede
         other
       ).freeze
-      PROFESSIONAL_CATEGORIES = ["Self-employed", "Manager", "White collar", "Manual worker", "House worker", "Unemployed", "Retired", "Student"].freeze
+      PROFESSIONAL_CATEGORIES = %w[self-employed manager white-collar manual-worker house-worker unemployed retired student].freeze
 
       # DataPortability compatibility
       def self.user_collection(user)
@@ -54,7 +54,12 @@ module Decidim
       def self.data_portability_images(_user)
         nil
       end
-      # DataPortability compatibility
+
+      %w(age background gender nationality postal_code).each do |field|
+        define_method(field) do
+          Decidim::AttributeEncryptor.decrypt(self.data[__method__]) || ""
+        end
+      end
     end
   end
 end
