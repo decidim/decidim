@@ -4,7 +4,7 @@ en:
     attributes:
       organization:
         from_email: Email address
-        from_label: Name
+        from_label: Label
         address: SMTP hostname
         password: Password
         port: Port
