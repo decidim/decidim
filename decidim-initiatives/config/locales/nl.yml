@@ -15,14 +15,6 @@ nl:
           online: Online
         state: Status
         title: Titel
-      initiative_author:
-        address: Adres
-        city: stad
-        id_document: DNI / NIE
-        name: Naam en familienaam
-        phone_number: Telefoonnummer
-        post_code: Postcode
-        province: Provincie
       initiatives_committee_member:
         user: Commissielid
       initiatives_type:
