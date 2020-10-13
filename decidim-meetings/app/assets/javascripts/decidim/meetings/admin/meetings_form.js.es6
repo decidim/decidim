@@ -98,7 +98,7 @@
     attachGeocoding($form.find("#meeting_address"));
   }
 
-  const $meetingForm = $(".meetings_form:not([data-online='false'])");
+  const $meetingForm = $(".meetings_form");
   if ($meetingForm.length > 0) {
     const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");

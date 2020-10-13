@@ -126,8 +126,6 @@ module Decidim
       end
 
       def default_filter_type_params
-        return ["all"] unless current_component.settings.allow_online_meetings?
-
         %w(all online in_person)
       end
 

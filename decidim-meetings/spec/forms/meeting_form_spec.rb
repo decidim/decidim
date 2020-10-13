@@ -135,21 +135,17 @@ module Decidim::Meetings
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
 
-    context "when component allows online meetings" do
-      let(:current_component) { create :meeting_component, :with_online_meetings_enabled, participatory_space: participatory_process }
+    describe "when online meeting link is missing and type of meeting is online" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { nil }
 
-      describe "when online meeting link is missing and type of meeting is online" do
-        let(:type_of_meeting) { "online" }
-        let(:online_meeting_url) { nil }
+      it { is_expected.not_to be_valid }
+    end
 
-        it { is_expected.not_to be_valid }
-      end
+    describe "when type of meeting is missing" do
+      let(:type_of_meeting) { nil }
 
-      describe "when type of meeting is missing" do
-        let(:type_of_meeting) { nil }
-
-        it { is_expected.not_to be_valid }
-      end
+      it { is_expected.not_to be_valid }
     end
   end
 end

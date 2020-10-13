@@ -183,27 +183,21 @@ describe "User creates meeting", type: :system do
           end
         end
 
-        context "when online meetings are allowed" do
-          before do
-            component.update!(settings: { allow_online_meetings: true, creation_enabled_for_participants: true })
-          end
+        it "lets the user choose the meeting type" do
+          visit_component
 
-          it "lets the user choose the meeting type" do
-            visit_component
+          click_link "New meeting"
 
-            click_link "New meeting"
+          within ".new_meeting" do
+            select "In person", from: :meeting_type_of_meeting
+            expect(page).to have_field("Address")
+            expect(page).to have_field(:meeting_location)
+            expect(page).to have_no_field("Online meeting URL")
 
-            within ".new_meeting" do
-              select "In person", from: :meeting_type_of_meeting
-              expect(page).to have_field("Address")
-              expect(page).to have_field(:meeting_location)
-              expect(page).to have_no_field("Online meeting URL")
-
-              select "Online", from: :meeting_type_of_meeting
-              expect(page).to have_no_field("Address")
-              expect(page).to have_no_field(:meeting_location)
-              expect(page).to have_field("Online meeting URL")
-            end
+            select "Online", from: :meeting_type_of_meeting
+            expect(page).to have_no_field("Address")
+            expect(page).to have_no_field(:meeting_location)
+            expect(page).to have_field("Online meeting URL")
           end
         end
       end

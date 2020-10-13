@@ -18,14 +18,6 @@ FactoryBot.define do
         }
       end
     end
-
-    trait :with_online_meetings_enabled do
-      settings do
-        {
-          allow_online_meetings: true
-        }
-      end
-    end
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do

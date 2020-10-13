@@ -29,7 +29,7 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :type_of_meeting, presence: true, if: ->(form) { form.online_meetings_allowed? }
+        validates :type_of_meeting, presence: true
         validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
@@ -110,24 +110,14 @@ module Decidim
         end
 
         def online_meeting?
-          online_meetings_allowed? && type_of_meeting == "online"
+          type_of_meeting == "online"
         end
 
         def in_person_meeting?
-          if online_meetings_allowed?
-            type_of_meeting == "in_person"
-          else
-            type_of_meeting == "in_person" || type_of_meeting.presence.nil?
-          end
-        end
-
-        def online_meetings_allowed?
-          current_component.settings.allow_online_meetings?
+          type_of_meeting == "in_person" || type_of_meeting.presence.nil?
         end
 
         def clean_type_of_meeting
-          return "in_person" unless online_meetings_allowed?
-
           type_of_meeting.presence
         end
 
