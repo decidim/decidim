@@ -15,14 +15,6 @@ sv:
           online: Online
         state: Status
         title: Titel
-      initiative_author:
-        address: Adress
-        city: Stad
-        id_document: Personnummer
-        name: Namn och efternamn
-        phone_number: Telefonnummer
-        post_code: Postnummer
-        province: Län
       initiatives_committee_member:
         user: Kommittémedlem
       initiatives_type:
