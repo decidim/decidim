@@ -15,14 +15,6 @@ pt:
           online: On-line
         state: Estado
         title: Título
-      initiative_author:
-        address: Endereço
-        city: Cidade
-        id_document: DNI / NIE
-        name: Nome e Apelido
-        phone_number: Número de telefone
-        post_code: Código postal
-        province: Província
       initiatives_committee_member:
         user: Membro do Comité
       initiatives_type:
