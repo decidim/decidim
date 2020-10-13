@@ -16,14 +16,6 @@ fr:
           online: En ligne
         state: Etat
         title: Titre
-      initiative_author:
-        address: Adresse
-        city: Ville
-        id_document: Carte d'identité ou titre de séjour
-        name: Nom et prénom
-        phone_number: Numéro de téléphone
-        post_code: Code postal
-        province: Région
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_type:
