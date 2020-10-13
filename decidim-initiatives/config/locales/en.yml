@@ -17,14 +17,6 @@ en:
           online: Online
         state: Status
         title: Title
-      initiative_author:
-        address: Address
-        city: City
-        id_document: DNI/NIE
-        name: Name and Surname
-        phone_number: Phone number
-        post_code: Post code
-        province: Province
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
