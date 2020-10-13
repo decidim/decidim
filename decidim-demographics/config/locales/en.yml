@@ -52,9 +52,7 @@ en:
             nationalities_help: Please select up to 3 nationalities
             nationality_prompt: ''
           new:
-            demographics: Demographic Data Collection
             save: Save
-          successfully_saved: Data successfully saved
   layouts:
     decidim:
       user_profile:

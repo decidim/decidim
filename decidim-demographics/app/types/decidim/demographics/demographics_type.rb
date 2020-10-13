@@ -9,7 +9,6 @@ module Decidim
       description "A demographics component."
 
       field :id, !types.ID
-           
     end
   end
 end
