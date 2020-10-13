@@ -1,17 +1,4 @@
 ---
-
-#show_suspend_modals:
-#  close_modal: Close modal
-#  unsuspend:
-#    action: Unblock user
-#    description: Lorem ipsum
-#    title: "Unsuspend User"
-#  suspend:
-#    justification: Justification
-#
-#
-#    title:
-
 en:
   activemodel:
     attributes:
