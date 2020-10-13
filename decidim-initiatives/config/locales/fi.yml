@@ -16,14 +16,6 @@ fi:
           online: Verkossa
         state: Tila
         title: Otsikko
-      initiative_author:
-        address: Osoite
-        city: Kaupunki
-        id_document: HETU
-        name: Nimi ja sukunimi
-        phone_number: Puhelinnumero
-        post_code: Postinumero
-        province: Maakunta
       initiatives_committee_member:
         user: Komitean jäsen
       initiatives_type:
