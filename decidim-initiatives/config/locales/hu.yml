@@ -15,14 +15,6 @@ hu:
           online: Online
         state: Állapot
         title: Cím
-      initiative_author:
-        address: Lakcím
-        city: Település
-        id_document: Szig. szám
-        name: Kereszt és családnév
-        phone_number: Telefonszám
-        post_code: Irányítószám
-        province: Megye
       initiatives_committee_member:
         user: Bizottsági tag
       initiatives_type:
