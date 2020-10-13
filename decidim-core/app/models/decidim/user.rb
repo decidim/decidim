@@ -206,6 +206,10 @@ module Decidim
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
     end
 
+    def user_name
+      extended_data["user_name"] || name
+    end
+
     # Caches a Decidim::DataPortabilityUploader with the retrieved file.
     def data_portability_file(filename)
       @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
