@@ -15,14 +15,6 @@ ro:
           online: Online
         state: Status
         title: Titlu
-      initiative_author:
-        address: Adresa
-        city: Oraș
-        id_document: DNI/NIE
-        name: Nume și prenume
-        phone_number: Număr de telefon
-        post_code: Cod poștal
-        province: Județ
       initiatives_committee_member:
         user: Membru al Comitetului
       initiatives_type:
