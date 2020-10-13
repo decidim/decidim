@@ -84,10 +84,10 @@ bin/rails db:create db:migrate db:seed
 
 This will also create some default data so you can start testing the app:
 
-* A `Decidim::System::Admin` with email `system@example.org` and password `decidim123456`, to log in at `/system`.
-* A `Decidim::Organization` named `Decidim Staging`. You probably want to change its name and hostname to match your needs.
-* A `Decidim::User` acting as an admin for the organization, with email `admin@example.org` and password `decidim123456`.
-* A `Decidim::User` that also belongs to the organization but it's a regular user, with email `user@example.org` and password `decidim123456`.
+- A `Decidim::System::Admin` with email `system@example.org` and password `decidim123456`, to log in at `/system`.
+- A `Decidim::Organization` named `Decidim Staging`. You probably want to change its name and hostname to match your needs.
+- A `Decidim::User` acting as an admin for the organization, with email `admin@example.org` and password `decidim123456`.
+- A `Decidim::User` that also belongs to the organization but it's a regular user, with email `user@example.org` and password `decidim123456`.
 
 This data won't be created in production environments, if you still want to do it, run: ``` $ SEED=true rails db:setup ```
 
@@ -116,10 +116,10 @@ For Decidim to function as expected, there are some background tasks that should
 
 We also have other guides on how to configure some extra components:
 
-* [ActiveJob](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md)
-* [Analytics](https://github.com/decidim/decidim/blob/master/docs/services/analytics.md): How to enable analytics
-* [Geocoding](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md): How to enable geocoding for proposals and meetings
-* [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md): Enable sign up from social networks.
+- [ActiveJob](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md)
+- [Analytics](https://github.com/decidim/decidim/blob/master/docs/services/analytics.md): How to enable analytics
+- [Geocoding](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md): How to enable geocoding for proposals and meetings
+- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md): Enable sign up from social networks.
 
 ## Deploy
 

@@ -8,7 +8,7 @@ module Decidim
 
     let(:current_component) { create(:component) }
     let!(:current_user) { create(:user, organization: current_component.organization) }
-    let(:title) { "Dummy resource title" }
+    let(:title) { { "en" => "Dummy resource title" } }
     let(:body) { "Dummy resource body" }
     let(:uploaded_images) { [] }
     let(:photos) { [] }
