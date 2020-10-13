@@ -19,8 +19,6 @@ module Decidim
             Decidim::Demographics::Demographic.all
           }
         end
-
-        
       end
     end
   end
