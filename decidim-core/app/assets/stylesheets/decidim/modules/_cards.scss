@@ -77,8 +77,8 @@ $datetime-bg: var(--primary);
 
 .card__title{
   @extend .heading5;
-  margin-bottom: 5px; //Added to try and fix bug #6545
 }
+
 
 a.card__title,
 a .card__title{
@@ -89,7 +89,9 @@ a .card__title{
 
 .card__header{
   margin-bottom: $card-padding / 2;
-
+  .card__title {
+    margin-bottom: 0.5rem;
+  }
   &.collapse{
     margin-bottom: 0;
   }
