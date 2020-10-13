@@ -14,14 +14,6 @@ uk:
           offline: На особистих зустрічах
           online: Онлайн
         title: Назва
-      initiative_author:
-        address: Адреса
-        city: Місто
-        id_document: ІПН / РНОКПП
-        name: Ім'я та прізвище
-        phone_number: Номер телефону
-        post_code: Поштовий індекс
-        province: Область
       initiatives_committee_member:
         user: Член робочого гурту
       initiatives_type:
