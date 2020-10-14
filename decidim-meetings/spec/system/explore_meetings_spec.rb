@@ -129,7 +129,7 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
         within ".filters" do
           # It seems that there's another field with the same name in another form on page.
-          # Because of that we try to select the correct field to set the value and submit the right form 
+          # Because of that we try to select the correct field to set the value and submit the right form
           find(:css, "#content form.new_filter [name='filter[search_text]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
