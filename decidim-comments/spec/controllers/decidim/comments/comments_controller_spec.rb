@@ -76,10 +76,10 @@ module Decidim
           context "when comments are disabled for the component" do
             let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
 
-            it "raises a routing error" do
-              expect do
-                post :create, xhr: true, params: { comment: comment_params }
-              end.to raise_error(ActionController::RoutingError)
+            it "redirects with a flash alert" do
+              post :create, xhr: true, params: { comment: comment_params }
+              expect(flash[:alert]).to be_present
+              expect(response).to have_http_status(:redirect)
             end
           end
 
