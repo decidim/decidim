@@ -45,13 +45,6 @@ module Decidim
         end
       end
 
-      def permission_class_chain
-        [
-          ::Decidim::Comments::Permissions,
-          ::Decidim::Permissions
-        ]
-      end
-
       private
 
       attr_reader :commentable, :comment
