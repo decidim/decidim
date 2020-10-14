@@ -153,7 +153,6 @@ is-IS:
         select_initiative_type:
           back: Til baka
           more_information: "(Meiri upplýsingar)"
-          select_initiative_type_help: Citizen frumkvæði er leið til þess að ríkisborgararétt geti gripið til þess að borgarstjórnar geti gripið til aðgerða til varnar almannahagsmunum sem falla undir lögsögu sveitarfélaga. Hvaða frumkvæði viltu hleypa af stokkunum?
         share_committee_link:
           continue: Haltu áfram
         show_similar_initiatives:
