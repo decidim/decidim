@@ -48,7 +48,7 @@ ja:
     elections:
       actions:
         confirm_destroy: よろしいですか？
-        destroy: 破壊
+        destroy: 削除
         edit: 編集
         edit_answers: 回答を編集
         edit_questions: 質問を編集
