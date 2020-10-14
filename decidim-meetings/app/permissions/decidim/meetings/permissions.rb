@@ -61,7 +61,9 @@ module Decidim
 
       def can_close_meeting?
         component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user)
+          meeting.authored_by?(user) &&
+          !meeting.closed? &&
+          meeting.past?
       end
     end
   end
