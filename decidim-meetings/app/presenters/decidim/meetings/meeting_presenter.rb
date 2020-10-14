@@ -81,12 +81,12 @@ module Decidim
 
       def handle_locales(content, all_locales, &block)
         if all_locales
-          content.transform_values do |value|
-            if key == "machine_translations"
-              handle_locales(value, all_locales, &block)
-            else
-              block.call(value)
-            end
+          content.each_with_object({}) do |(key, value), parsed_content|
+            parsed_content[key] = if key == "machine_translations"
+                                    handle_locales(value, all_locales, &block)
+                                  else
+                                    block.call(value)
+                                  end
           end
         else
           yield(translated_attribute(content))
