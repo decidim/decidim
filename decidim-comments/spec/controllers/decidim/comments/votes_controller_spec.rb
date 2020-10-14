@@ -30,6 +30,16 @@ module Decidim
             sign_in user, scope: :user
           end
 
+          context "when trying to vote on a private space where the user is not assigned to" do
+            let(:participatory_process) { create :participatory_process, :private, organization: organization }
+
+            it "redirects with a flash alert" do
+              post :create, xhr: true, params: { comment_id: comment.id, weight: 1 }
+              expect(flash[:alert]).to be_present
+              expect(response).to have_http_status(:redirect)
+            end
+          end
+
           context "when vote weight is positive" do
             it "adds an upvote to the comment" do
               post :create, xhr: true, params: { comment_id: comment.id, weight: 1 }

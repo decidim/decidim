@@ -11,6 +11,8 @@ module Decidim
           can_read_comments?
         when :create
           can_create_comment?
+        when :vote
+          can_vote_comment?
         end
 
         permission_action
@@ -32,8 +34,25 @@ module Decidim
         allow!
       end
 
+      def can_vote_comment?
+        return disallow! unless user
+        return disallow! unless commentable&.user_allowed_to_comment?(user)
+
+        allow!
+      end
+
       def commentable
-        @commentable ||= context.fetch(:commentable, nil)
+        @commentable ||= begin
+          if comment
+            comment.root_commentable
+          else
+            context.fetch(:commentable, nil)
+          end
+        end
+      end
+
+      def comment
+        @comment ||= context.fetch(:comment, nil)
       end
     end
   end
