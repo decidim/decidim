@@ -104,10 +104,7 @@
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
-      $showDiv.hide();
-      if (value === type) {
-        $showDiv.show();
-      }
+      $showDiv.toggle(value === type);
     };
 
     $meetingRegistrationType.on("change", (ev) => {
@@ -117,9 +114,7 @@
       toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
     });
 
-    toggleDependsOnSelect($meetingRegistrationType, $meetingAvailableSlots, "on_this_platform");
-    toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationTerms, "on_this_platform");
-    toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationUrl, "on_different_platform");
+    $meetingRegistrationType.trigger("change");
   }
 
   const $meetingForm = $(".meetings_form");
