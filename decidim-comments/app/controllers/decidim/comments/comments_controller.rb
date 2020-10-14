@@ -50,7 +50,7 @@ module Decidim
       end
 
       def ensure_commentable!
-        raise ActionController::RoutingError, "Not Found" unless commentable
+        raise ActionController::RoutingError, "Not Found" if commentable.blank? || !commentable.commentable?
       end
 
       def handle_success(comment)

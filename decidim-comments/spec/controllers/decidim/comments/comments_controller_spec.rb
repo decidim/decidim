@@ -12,6 +12,16 @@ module Decidim
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:commentable) { create(:dummy_resource, component: component) }
 
+      shared_context "with component comments disabled" do
+        let(:component) do
+          create(
+            :component,
+            participatory_space: participatory_process,
+            settings: { comments_enabled: false }
+          )
+        end
+      end
+
       before do
         request.env["decidim.current_organization"] = organization
       end
@@ -26,6 +36,16 @@ module Decidim
           it "renders the reload template" do
             get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s, reload: 1 }
             expect(subject).to render_template(:reload)
+          end
+        end
+
+        context "when comments are disabled for the component" do
+          include_context "with component comments disabled"
+
+          it "raises a routing error" do
+            expect do
+              get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
+            end.to raise_error(ActionController::RoutingError)
           end
         end
       end
@@ -61,6 +81,16 @@ module Decidim
             expect(comment.body.values.first).to eq("This is a new comment")
             expect(comment.alignment).to eq(comment_alignment)
             expect(subject).to render_template(:create)
+          end
+
+          context "when comments are disabled for the component" do
+            include_context "with component comments disabled"
+
+            it "raises a routing error" do
+              expect do
+                post :create, xhr: true, params: { comment: comment_params }
+              end.to raise_error(ActionController::RoutingError)
+            end
           end
 
           context "when comment alignment is positive" do
