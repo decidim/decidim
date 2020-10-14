@@ -40,7 +40,7 @@ module Decidim
           end
 
           context "when vote weight is negative" do
-            it "adds an upvote to the comment" do
+            it "adds a downvote to the comment" do
               post :create, xhr: true, params: { comment_id: comment.id, weight: -1 }
               expect(comment.down_voted_by?(user)).to be(true)
               expect(comment.down_votes.count).to eq(1)
@@ -49,7 +49,7 @@ module Decidim
           end
 
           context "when vote weight is invalid" do
-            it "adds an upvote to the comment" do
+            it "renders the error template" do
               post :create, xhr: true, params: { comment_id: comment.id, weight: 0 }
               expect(comment.up_voted_by?(user)).to be(false)
               expect(comment.up_votes.count).to eq(0)
