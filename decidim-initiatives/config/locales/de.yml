@@ -289,7 +289,6 @@ de:
         fill_data:
           back: Zurück
           continue: Fortsetzen
-          fill_data_help: "<ul> <li>Überarbeiten Sie den Inhalt Ihrer Initiative. Ist dein Titel leicht zu verstehen? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Welche geografische Reichweite hat die Initiative? Stadtteil?</li> </ul>"
           initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
@@ -297,7 +296,6 @@ de:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
-          callout_text: Herzliche Glückwünsche! Ihre Bürgerinitiative wurde erfolgreich erstellt.
           confirm: Bestätigen
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
@@ -317,14 +315,12 @@ de:
           more_information: "(Weitere Informationen)"
         promotal_committee:
           back: Zurück
-          individual_help_text: Diese Art von Bürgerinitiative erfordert eine Beförderungskommission, die aus mindestens %{committee_size} Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie den angegebenen Schritten folgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong>erstellen
           more_information: "(Weitere Informationen)"
           select: Ich möchte diese Initiative fördern
-          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürgerschaft eingreifen kann, so dass der Stadtrat Maßnahmen zur Verteidigung des allgemeinen Interesses ergreifen kann, die in Bereichen der kommunalen Gerichtsbarkeit liegen. Welche Initiative möchten Sie starten?
         share_committee_link:
           continue: Fortsetzen
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
@@ -427,9 +423,7 @@ de:
             validating: Dieser Vorschlag wird geprüft
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
-          any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
           follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
-          offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
