@@ -102,8 +102,9 @@ shared_examples "comments" do
         end
       end
 
-      it "shows comment to the user" do
+      it "shows comment to the user and updates the comments counter" do
         expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
+        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
       end
     end
 
@@ -152,6 +153,7 @@ shared_examples "comments" do
         expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
         expect(page).to have_selector(".comment__additionalreply")
         expect(page).to have_reply_to(comment, "This is a reply")
+        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
       end
     end
 

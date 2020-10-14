@@ -19,6 +19,7 @@ module Decidim
           order_by: order,
           after: params.fetch(:after, 0).to_i
         )
+        @comments_count = commentable.comments.count
 
         render :reload if reload?
       end
@@ -59,6 +60,14 @@ module Decidim
 
       def handle_success(comment)
         @comment = comment
+        @comments_count = begin
+          case commentable
+          when Decidim::Comments::Comment
+            commentable.root_commentable.comments.count
+          else
+            commentable.comments.count
+          end
+        end
       end
 
       def commentable_gid
