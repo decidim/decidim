@@ -40,7 +40,7 @@
         toggleDependsOnSelect($target, $meetingRegistrationTerms, "on_this_platform");
         toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
       });
-  
+
       $meetingRegistrationType.trigger("change");
     }
   });
