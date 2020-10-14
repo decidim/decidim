@@ -154,7 +154,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
+  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
     find(".card-title a.button").click
 
     fill_in_i18n(
