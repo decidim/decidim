@@ -88,6 +88,10 @@ module Decidim
         closed_at.present?
       end
 
+      def past?
+        end_time < Time.current
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
