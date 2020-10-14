@@ -160,7 +160,7 @@ ja:
         edit: 編集
         invalid_destroy:
           proposals_count:
-            other: '%{count} 件の提案が関連付けられているため、会議を破壊できません:'
+            other: '%{count} 件の提案が関連付けられているため、会議を削除できません:'
         minutes: 分
         new: 新しいミーティング
         preview: プレビュー
@@ -241,7 +241,7 @@ ja:
           destroy:
             invalid:
               proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、会議を破壊できません'
+                other: '%{count} 件の提案が関連付けられているため、会議を削除できません'
             success: ミーティングを削除しました
           edit:
             update: 更新
