@@ -17,6 +17,7 @@ module Decidim
     end
 
     context "without name" do
+      subject(:area_type) { build(:area_type, name: { en: "Name" }) }
       before do
         area_type.name = {}
       end
