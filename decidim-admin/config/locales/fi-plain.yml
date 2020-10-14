@@ -73,7 +73,6 @@ fi-pl:
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
         send_welcome_notification: Lähetä tervetuloilmoitus
-        show_statistics: Näytä tilastot
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
