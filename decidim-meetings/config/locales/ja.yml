@@ -58,7 +58,7 @@ ja:
       decidim/meetings/meeting:
         other: ミーティング
       decidim/meetings/minutes:
-        other: 分
+        other: 議事録
       decidim/meetings/registration:
         other: 登録
   decidim:
@@ -161,7 +161,7 @@ ja:
         invalid_destroy:
           proposals_count:
             other: '%{count} 件の提案が関連付けられているため、会議を削除できません:'
-        minutes: 分
+        minutes: 議事録
         new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -270,15 +270,15 @@ ja:
         minutes:
           create:
             invalid: この分を作成する際に問題が発生しました
-            success: 正常に作成された分
+            success: 議事録が正常に作成された
           edit:
             update: 更新
           new:
             create: 作成
-            title: 分を作成
+            title: 議事録を作成
           update:
             invalid: この議事録の更新中に問題が発生しました
-            success: 分が正常に更新されました
+            success: 議事録が正常に更新されました
         models:
           meeting:
             name: 会議
@@ -391,7 +391,7 @@ ja:
         index:
           new_meeting: 新しいミーティング
         meeting_minutes:
-          meeting_minutes: ミーティング時間
+          meeting_minutes: ミーティング議事録
           related_information: 関連情報
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，スケジュールされたミーティングがありません．
