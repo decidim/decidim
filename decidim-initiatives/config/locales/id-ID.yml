@@ -238,14 +238,12 @@ id:
         fill_data:
           back: Kembali
           continue: Terus
-          fill_data_help: "<ul> <li>Merevisi isi inisiatif Anda. Apakah judul Anda mudah dimengerti? Apakah tujuan dari inisiatif Anda jelas?</li> <li>Anda harus memilih jenis tanda tangan. In-person, online atau kombinasi keduanya</li> <li>Manakah ruang lingkup geografis dari inisiatif ini? Distrik kota?</li> </ul>"
           initiative_type: Jenis inisiatif
           more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
           back: Kembali
           back_to_initiatives: Kembali ke inisiatif
-          callout_text: Selamat! Inisiatif warga Anda telah berhasil dibuat.
           go_to_my_initiatives: Pergi ke inisiatif saya
           more_information: "(Informasi lebih lanjut)"
         finish_help:
@@ -262,14 +260,12 @@ id:
           more_information: "(Informasi lebih lanjut)"
         promotal_committee:
           back: Kembali
-          individual_help_text: Inisiatif warga negara semacam ini membutuhkan Komisi Promosi yang terdiri dari setidaknya %{committee_size} orang (pengacara). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini, mereka harus mengikuti langkah-langkah yang ditunjukkan.
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: "(Informasi lebih lanjut)"
           select: Saya ingin mempromosikan inisiatif ini
-          select_initiative_type_help: Inisiatif warga adalah cara yang dapat dilakukan oleh kewarganegaraan sehingga Dewan Kota dapat melakukan tindakan untuk membela kepentingan umum yang berada di dalam wilayah yurisdiksi kota. Inisiatif apa yang ingin Anda luncurkan?
         share_committee_link:
           continue: Terus
           invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
@@ -361,9 +357,7 @@ id:
             validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
-          any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
           follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
-          offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
         signatures_count:
           other: " tanda tangan"
         vote_cabin:
