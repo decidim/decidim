@@ -21,6 +21,7 @@ fr-CA:
         end_time: Date de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
+        online_meeting_url: URL de la réunion
         organizer_gid: Créer en tant que
         organizer_id: Organisateur
         private_meeting: Rencontre privée
@@ -30,6 +31,7 @@ fr-CA:
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
+        type_of_meeting: Type
       minutes:
         audio_url: Lien vers l'audio
         description: Description
@@ -90,6 +92,7 @@ fr-CA:
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             scope_id: Secteur
             scopes_enabled: Secteurs activés
+            terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les créateurs de réunion
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -253,7 +256,6 @@ fr-CA:
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
-            location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
           index:
             title: Rencontres
           new:
@@ -393,7 +395,6 @@ fr-CA:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
           create_as: Créer une réunion en tant que
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
-          location_hints_help: 'Indices de localisation : informations supplémentaires. Exemple: l''étage du bâtiment'
           select_a_category: Veuillez sélectionner une catégorie
         index:
           new_meeting: Nouvelle réunion
