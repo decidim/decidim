@@ -253,7 +253,6 @@ fr:
           form:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
-            location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
           index:
             title: Rencontres
           new:
@@ -393,7 +392,6 @@ fr:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
           create_as: Créer une rencontre en tant que
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
-          location_hints_help: 'Indices de localisation : informations supplémentaires. Exemple: l''étage du bâtiment'
           select_a_category: Veuillez sélectionner une catégorie
         index:
           new_meeting: Nouvelle rencontre
