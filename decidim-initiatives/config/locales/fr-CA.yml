@@ -312,6 +312,7 @@ fr-CA:
         fill_data:
           back: Retour
           continue: Continuer
+          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative: le titre est-il facile à comprendre ? L'objectif de votre initiative est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ? (quartier, ville, ...)</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
@@ -319,6 +320,7 @@ fr-CA:
         finish:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
+          callout_text: Bravo ! Votre initiative a été créée avec succès.
           confirm: Confirmer
           edit_my_initiative: Modifier mes initiatives
           go_to_my_initiatives: Consulter mes initiatives
@@ -338,12 +340,14 @@ fr-CA:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
+          individual_help_text: Ce type d’initiative citoyenne nécessite une Commission de promotion composée d’au moins %{committee_size} personnes (attesteurs). Vous devez partager le lien suivant avec les autres participants à cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
           select: Créer une initiative
+          select_initiative_type_help: Les initiatives sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle initiative voulez-vous lancer?
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
@@ -449,7 +453,9 @@ fr-CA:
             validating: Cette proposition est en cours d'évaluation
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
+          any_vote_method: Cette initiative recueille des signatures en ligne ainsi qu'en présentiel.
           follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
+          offline_method: Cette initiative ne recueille que des signatures en présentiel.
         signatures_count:
           one: " signature"
           other: " signatures"
