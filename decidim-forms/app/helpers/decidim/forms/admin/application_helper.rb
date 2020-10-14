@@ -39,6 +39,14 @@ module Decidim
 
           questionnaire_for.is_a? Decidim::Templates::Template
         end
+
+        def title_for_questionnaire(templates_defined)
+          if templates_defined
+            t("form.title", scope: "decidim.templates.admin.questionnaire_templates")
+          else
+            t(".title")
+          end
+        end
       end
     end
   end
