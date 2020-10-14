@@ -22,6 +22,8 @@ module Decidim
       end
 
       def create
+        enforce_permission_to :create, :comment, commentable: commentable
+
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: commentable)
         ).with_context(
@@ -39,6 +41,13 @@ module Decidim
             render :error
           end
         end
+      end
+
+      def permission_class_chain
+        [
+          ::Decidim::Comments::Permissions,
+          ::Decidim::Permissions
+        ]
       end
 
       private

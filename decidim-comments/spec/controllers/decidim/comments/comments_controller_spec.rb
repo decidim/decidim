@@ -93,6 +93,16 @@ module Decidim
             end
           end
 
+          context "when trying to comment on a private space where the user is not assigned to" do
+            let(:participatory_process) { create :participatory_process, :private, organization: organization }
+
+            it "redirects with a flash alert" do
+              post :create, xhr: true, params: { comment: comment_params }
+              expect(flash[:alert]).to be_present
+              expect(response).to have_http_status(:redirect)
+            end
+          end
+
           context "when comment alignment is positive" do
             let(:comment_alignment) { 1 }
 
