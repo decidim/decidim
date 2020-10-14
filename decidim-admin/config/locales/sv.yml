@@ -73,7 +73,6 @@ sv:
         rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
         secondary_color: Sekundär
         send_welcome_notification: Skicka välkomstmeddelande
-        show_statistics: Visa statistik
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
