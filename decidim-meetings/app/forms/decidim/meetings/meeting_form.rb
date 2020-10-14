@@ -95,7 +95,7 @@ module Decidim
       end
 
       def in_person_meeting?
-        type_of_meeting == "in_person" || type_of_meeting.presence.nil?
+        type_of_meeting == "in_person"
       end
 
       def clean_type_of_meeting
