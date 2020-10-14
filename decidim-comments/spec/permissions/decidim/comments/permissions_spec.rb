@@ -45,6 +45,12 @@ module Decidim
           let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
 
           it { is_expected.to eq true }
+
+          context "with comments disabled for the component" do
+            let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
+
+            it { is_expected.to eq false }
+          end
         end
 
         context "with a user who is not allowed to comment" do

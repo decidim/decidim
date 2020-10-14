@@ -18,9 +18,10 @@ module Decidim
 
       def can_create_comment?
         return disallow! unless user
-        return allow! if commentable&.user_allowed_to_comment?(user)
+        return disallow! unless commentable.commentable?
+        return disallow! unless commentable&.user_allowed_to_comment?(user)
 
-        disallow!
+        allow!
       end
 
       def commentable
