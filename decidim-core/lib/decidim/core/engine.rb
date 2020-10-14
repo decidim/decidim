@@ -108,7 +108,7 @@ module Decidim
         # that may be using the `geocoded_by` or `reverse_geocoded_by` class
         # methods injected by the Geocoder gem.
         ActiveSupport.on_load :active_record do
-          ActiveRecord::Base.send(:include, Decidim::Geocodable)
+          ActiveRecord::Base.include Decidim::Geocodable
         end
       end
 

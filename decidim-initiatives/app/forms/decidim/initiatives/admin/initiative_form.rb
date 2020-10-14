@@ -38,6 +38,8 @@ module Decidim
         validate :notify_missing_attachment_if_errored
         validate :area_is_not_removed
 
+        # rubocop:disable Metrics/CyclomaticComplexity
+        # rubocop:disable Metrics/PerceivedComplexity
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope&.id
@@ -59,6 +61,8 @@ module Decidim
             end
           end
         end
+        # rubocop:enable Metrics/CyclomaticComplexity
+        # rubocop:enable Metrics/PerceivedComplexity
 
         def signature_type_updatable?
           @signature_type_updatable ||= begin
