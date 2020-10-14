@@ -67,6 +67,10 @@ FactoryBot.define do
   end
 
   factory :organization, class: "Decidim::Organization" do
+    transient do
+      create_static_pages { true }
+    end
+
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
@@ -104,9 +108,11 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
 
-    after(:create) do |organization|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-      create(:static_page, :tos, organization: organization) if tos_page.nil?
+    after(:create) do |organization, evaluator|
+      if evaluator.create_static_pages
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+        create(:static_page, :tos, organization: organization) if tos_page.nil?
+      end
     end
   end
 
