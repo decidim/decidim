@@ -30,8 +30,8 @@ module Decidim
                 .not_hidden
                 .where(
                   "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
-                  emendation.title,
-                  emendation.body,
+                  translated_attribute(emendation.title),
+                  translated_attribute(emendation.body),
                   amendable_module.similarity_threshold
                 )
                 .limit(amendable_module.similarity_limit)

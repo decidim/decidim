@@ -402,13 +402,9 @@ hu:
           any_vote_method: Az állampolgári kezdeményezés online és személyes támogatást igényel.
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
           offline_method: Az állampolgári kezdeményezés csak személyesen támogatható.
-        signature_identities:
-          select_identity: Válassz felhasználói azonosítót
         signatures_count:
           one: " aláírás"
           other: " aláírások"
-        supports:
-          title: Aláírások listája
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"

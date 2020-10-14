@@ -1052,7 +1052,6 @@ pt:
           error: Ocorreu um problema ao aceitar os termos e condições.
           success: Ótimo! Aceitou os termos e condições.
         form:
-          agreement: Eu concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
           modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.

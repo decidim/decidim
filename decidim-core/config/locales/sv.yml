@@ -1052,7 +1052,6 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag godkänner användarvillkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.

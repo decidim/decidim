@@ -10,7 +10,7 @@ module Decidim
       attached_to = form.current_organization if attached_to.blank? && form.respond_to?(:current_organization)
 
       @attachment = Attachment.new(
-        title: @form.attachment.title,
+        title: { I18n.locale => @form.attachment.title },
         attached_to: attached_to,
         file: @form.attachment.file # Define attached_to before this
       )

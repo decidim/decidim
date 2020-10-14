@@ -371,15 +371,11 @@ sk:
           any_vote_method: Táto občianska iniciatíva zhromažďuje podporu online i tvárou v tvár.
           follow_description: Dostanete oznámenia, ak sú v tejto iniciatíve správy
           offline_method: Táto iniciatíva občanov iba zhromažďuje podporu tvárou v tvár.
-        signature_identities:
-          select_identity: Vyberte identifikátor užívateľa
         signatures_count:
           one: "podpis"
           few: "podpisy"
           many: "podpisy"
           other: "podpisy"
-        supports:
-          title: Výpis podpisov
         vote_cabin:
           already_voted: Už ste podpísal
           supports_required: "Vyžaduje sa%{total_supports} podpisov"

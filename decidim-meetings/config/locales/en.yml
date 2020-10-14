@@ -22,6 +22,7 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        online_meeting_url: Online meeting URL
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
@@ -31,6 +32,7 @@ en:
         start_time: Start Time
         title: Title
         transparent: Transparent
+        type_of_meeting: Type
       minutes:
         audio_url: Audio url
         description: Description
@@ -91,6 +93,7 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -254,7 +257,9 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the users implying the spot to meet at'
-            location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+            online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            select_a_meeting_type: Please select a meeting type
           index:
             title: Meetings
           new:
@@ -385,6 +390,11 @@ en:
             user_groups: Groups
           scope: Scope
           search: Search
+          type: Type
+          type_values:
+            all: All
+            in_person: In-person
+            online: Online
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -394,8 +404,10 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           create_as: Create meeting as
           location_help: 'Location: message directed to the users implying the spot to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+          online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           select_a_category: Please select a category
+          select_a_meeting_type: Please select a meeting type
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -470,6 +482,9 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+      type_of_meeting:
+        in_person: In person
+        online: Online
       types:
         private_meeting: Private meeting
         transparent: Transparent

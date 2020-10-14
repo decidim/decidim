@@ -17,14 +17,6 @@ en:
           online: Online
         state: Status
         title: Title
-      initiative_author:
-        address: Address
-        city: City
-        id_document: DNI/NIE
-        name: Name and Surname
-        phone_number: Phone number
-        post_code: Post code
-        province: Province
       initiatives_committee_member:
         user: Committee member
       initiatives_type:
@@ -303,6 +295,7 @@ en:
           all: All
           answered: Answered
           closed: Closed
+          draft: Draft
           open: Open
           rejected: Not enough signatures
         filter_type_values:
@@ -320,7 +313,7 @@ en:
         fill_data:
           back: Back
           continue: Continue
-          fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative? City, district?</li> </ul>"
+          fill_data_help: "<ul> <li>Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?</li> <li>You have to choose the type of signature. In-person, online or a combination of both</li> <li>Which is the geographic scope of the initiative?</li> </ul>"
           initiative_type: Initiative type
           more_information: "(More information)"
           select_area: Select an area
@@ -328,7 +321,7 @@ en:
         finish:
           back: Back
           back_to_initiatives: Back to initiatives
-          callout_text: Congratulations! Your citizen initiative has been successfully created.
+          callout_text: Congratulations! Your initiative has been successfully created.
           confirm: Confirm
           edit_my_initiative: Edit my initiatives
           go_to_my_initiatives: Go to my initiatives
@@ -348,14 +341,14 @@ en:
           more_information: "(More information)"
         promotal_committee:
           back: Back
-          individual_help_text: This kind of citizen initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
+          individual_help_text: This kind of initiative requires a Promoting Commission consisting of at least %{committee_size} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.
           more_information: "(More information)"
         select_initiative_type:
           back: Back
           choose_html: I want to create a <strong>%{title}</strong>
           more_information: "(More information)"
           select: I want to promote this initiative
-          select_initiative_type_help: Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?
+          select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
         share_committee_link:
           continue: Continue
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
@@ -461,9 +454,9 @@ en:
             validating: This proposal is being evaluated
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
-          any_vote_method: This citizen initiative collects both online and in-person signatures.
+          any_vote_method: This initiative collects both online and in-person signatures.
           follow_description: Receive a notification when there are news in this initiative
-          offline_method: This citizen initiative only collects in-person signatures.
+          offline_method: This initiative only collects in-person signatures.
         signatures_count:
           one: " signature"
           other: " signatures"

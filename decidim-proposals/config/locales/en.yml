@@ -723,8 +723,13 @@ en:
             one: "%{count} proposal"
             other: "%{count} proposals"
         edit:
+          add_documents: Documents
+          add_images: File
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          delete_document: Delete Document
+          delete_image: Delete Image
+          gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
           title: Edit proposal

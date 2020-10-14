@@ -32,14 +32,16 @@ ja:
         settings:
           global:
             announcement: お知らせ
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
           step:
             announcement: お知らせ
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
             creation_enabled: 参加者によるディベートの作成が有効になりました
             endorsements_blocked: 支持がブロックされました
-            endorsements_enabled: 支持が有効です
+            endorsements_enabled: 支持を有効にする
     debates:
       actions:
         close: 閉じる
@@ -78,6 +80,8 @@ ja:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
+      debate_m:
+        commented_time_ago: コメント %{time} 前
       debates:
         close:
           invalid: ディベートを閉じるのに失敗しました。
@@ -100,13 +104,22 @@ ja:
           save: 変更を保存
           title: ディベートを編集
         filters:
+          activity: 私のアクティビティ
           all: すべて
           category: カテゴリ
           category_prompt: カテゴリを選択
           citizens: Citizens
+          commented: 'コメント:'
+          my_debates: 私の議論
           official: オフィシャル
           origin: 原点：
+          scope: スコープ
           search: 検索
+          state: ステータス
+          state_values:
+            closed: 終了
+            open: 公開
+          user_groups: グループ
         filters_small_view:
           close_modal: モーダルを閉じる
           filter: フィルター
@@ -120,6 +133,12 @@ ja:
           back: 戻る
           create: 作成
           title: 新しいディベート
+        orders:
+          commented: コメントが多い順
+          label: '議論の並び替え:'
+          random: ランダムに並び替え
+          recent: 新着順
+          updated: 更新が新しい順
         show:
           back: リストに戻る
           close_debate: ディベートを終了する

@@ -1066,7 +1066,6 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
-          agreement: Sunt de acord cu acești termeni
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
