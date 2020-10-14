@@ -1126,13 +1126,15 @@ en:
       report:
         authors: Authors
         content: Reported content
+        content_original_language: Content original language
         date: Reported on
         details: Details
         hello: Hello %{name},
-        manage_moderations: Manage moderations
+        id: ID
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        see_report: See report
         subject: A resource has been reported
     reports:
       create:
