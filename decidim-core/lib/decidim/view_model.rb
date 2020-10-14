@@ -27,7 +27,20 @@ module Decidim
       context&.dig(:current_user) || controller&.current_user
     end
 
+    def call(*)
+      identifier = self.class.name.sub(/Cell$/, "").underscore
+      instrument(:cell, identifier: identifier) do |_payload|
+        super
+      end
+    end
+
     private
+
+    def instrument(name, **options)
+      ActiveSupport::Notifications.instrument("render_#{name}.action_view", options) do |payload|
+        yield payload
+      end
+    end
 
     def perform_caching?
       cache_hash.present?
