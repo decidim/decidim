@@ -73,7 +73,6 @@ ja:
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
         send_welcome_notification: ウェルカム通知を送信
-        show_statistics: 統計情報を表示
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
