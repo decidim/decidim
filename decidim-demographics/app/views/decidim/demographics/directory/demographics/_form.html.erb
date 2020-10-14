@@ -33,7 +33,7 @@
 </div>
 
 <div class="field">
-  <%= form.select(
+  <%= form.collection_select(
           :background,
           Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES,
           :to_s,
