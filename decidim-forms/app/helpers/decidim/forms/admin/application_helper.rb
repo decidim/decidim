@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.templates.admin.questionnaire_templates.form.title')
+
 module Decidim
   module Forms
     module Admin
