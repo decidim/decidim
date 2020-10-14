@@ -70,7 +70,6 @@ it:
         rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
         send_welcome_notification: Invia notifica di benvenuto
-        show_statistics: Mostra statistiche
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
