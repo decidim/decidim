@@ -140,6 +140,10 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+        setup:
+          show:
+            title: Election setup
+            update: Setup election
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -212,8 +216,10 @@ en:
         election:
           fields:
             end_time: End at
+            public_key: Identification Public Key
             start_time: Starts at
             title: Title
+            user: User
         question:
           fields:
             answers: Answers
