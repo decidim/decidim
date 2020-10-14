@@ -259,14 +259,12 @@ hu:
         fill_data:
           back: Vissza
           continue: Tovább
-          fill_data_help: "<ul> <li>Nézd át a kezdeményezés tartalmát. Könnyű megérteni a címét? Egyértelmű a kezdeményezés célja?</li> <li>Válaszd ki az aláírás típusát: személyesen, online, esetleg a kettő együtt</li> <li>Mi a kezdeményezés földrajzi kiterjedése? Megye, járás, város?</li> </ul>"
           initiative_type: Kezdeményezés típusa
           more_information: "(További információk)"
           select_scope: Válassz hatáskört
         finish:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
-          callout_text: Gratulálunkk! Sikeresen létrehoztad az állampolgári kezdeményezést.
           confirm: Megerősít
           edit_my_initiative: Kezdeményezéseim szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
@@ -286,14 +284,12 @@ hu:
           more_information: "(További információk)"
         promotal_committee:
           back: Vissza
-          individual_help_text: Az ilyen jellegű polgári kezdeményezéshez legalább %{committee_size} főből álló bizottság szükséges. A következő linket meg kell osztania a többi emberrel, akik e kezdeményezés részét képezik. Amikor a kapcsolattartók ezt a linket kapják, követniük kell a megadott lépéseket.
           more_information: "(További információk)"
         select_initiative_type:
           back: Vissza
           choose_html: Szeretnék létrehozni egy <strong>%{title}</strong>
           more_information: "(További információk)"
           select: Szeretném támogatni ezt a kezdeményezést
-          select_initiative_type_help: A polgári kezdeményezés egy olyan eszköz, amellyel az állampolgárok beavatkozhatnak a képviselőtestület munkájába és kiharcolhatják az önkormányzat hatáskörébe tartozó célok elérését. Milyen kezdeményezést szeretnél indítani?
         share_committee_link:
           continue: Tovább
           invite_to_committee_help: Link azok meghívásához, akik részt vesznek a kezdeményező bizottságban
@@ -391,9 +387,7 @@ hu:
             validating: Ezt a javaslatot értékelik
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
         show:
-          any_vote_method: Az állampolgári kezdeményezés online és személyes támogatást igényel.
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
-          offline_method: Az állampolgári kezdeményezés csak személyesen támogatható.
         signatures_count:
           one: " aláírás"
           other: " aláírások"
