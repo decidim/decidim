@@ -248,7 +248,6 @@ ja:
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
             location_help: '場所: ユーザーにメッセージが表示されます。'
-            location_hints_help: '位置情報：追加情報。例：建物の床。'
           index:
             title: ミーティング
           new:
@@ -386,7 +385,6 @@ ja:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           create_as: 次のユーザとしてミーティングを作成：
           location_help: '場所: ユーザーにメッセージが表示されます。'
-          location_hints_help: '位置情報：追加情報。例：建物の床。'
           select_a_category: カテゴリを選択してください
         index:
           new_meeting: 新しいミーティング
