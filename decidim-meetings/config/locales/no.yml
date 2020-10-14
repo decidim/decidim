@@ -370,6 +370,8 @@
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
         meeting_minutes:
           meeting_minutes: Møte referater
           related_information: Relatert Informasjon
