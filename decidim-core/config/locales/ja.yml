@@ -1055,6 +1055,7 @@ ja:
           error: 利用規約を受け入れる際に問題が発生しました。
           success: 素晴らしい! あなたは利用規約に同意しました。
         form:
+          agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
           modal_body: 拒否した場合は、プラットフォームを使用できなくなります。 <a href="%{data_portability_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
