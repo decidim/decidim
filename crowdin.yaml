@@ -28,6 +28,7 @@ files:
         is-IS: is
         it: it
         ja: ja
+        ko: ko
         lt: lt
         lv: lv
         mt: mt
@@ -44,3 +45,6 @@ files:
         sv-SE: sv
         tr-TR: tr
         ukmany: uk
+        vi: vi
+        zh-CN: zh-CN
+        zh-TW: zh-TW
