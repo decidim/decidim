@@ -615,7 +615,7 @@ en:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         report_created:
-          notification_title: <a href="%{resource_path}">Your content</a> has been reported as %{report_reason}</a>.
+          notification_title: <a href="%{resource_path}">Your %{resource_type}</a> has been reported as "%{report_reason}"</a>.
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
