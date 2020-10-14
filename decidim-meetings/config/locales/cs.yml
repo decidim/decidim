@@ -263,7 +263,6 @@ cs:
           form:
             address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
-            location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
           index:
             title: Setkání
           new:
@@ -407,7 +406,6 @@ cs:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           create_as: Vytvořit schůzku jako
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
-          location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
           select_a_category: Vyberte prosím kategorii
         index:
           new_meeting: Nová schůzka
