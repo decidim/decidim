@@ -45,6 +45,8 @@ module Decidim
         presenter = MeetingPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
+        self.location = presenter.location(all_locales: false)
+        self.location_hints = presenter.location_hints(all_locales: false)
         self.type_of_meeting = if model.online_meeting?
                                  "online"
                                else
