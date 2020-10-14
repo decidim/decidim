@@ -20,13 +20,14 @@ module Decidim
 
       validates :total_budget, numericality: {
         greater_than_or_equal_to: :minimum_budget
-      }, if: :checked_out?
+      }, if: -> { checked_out? && !maximum_projects_rule? }
 
       validates :total_budget, numericality: {
         less_than_or_equal_to: :maximum_budget
-      }
+      }, if: -> { !maximum_projects_rule? }
 
       validate :reach_minimum_projects, if: :checked_out?
+      validate :exceed_maximum_projects, if: :checked_out?
 
       scope :finished, -> { where.not(checked_out_at: nil) }
       scope :pending, -> { where(checked_out_at: nil) }
@@ -36,6 +37,11 @@ module Decidim
         projects.to_a.sum(&:budget_amount)
       end
 
+      # Public: Returns the count of projects
+      def total_projects
+        projects.count
+      end
+
       # Public: Returns true if the order has been checked out
       def checked_out?
         checked_out_at.present?
@@ -43,8 +49,12 @@ module Decidim
 
       # Public: Check if the order total budget is enough to checkout
       def can_checkout?
-        if minimum_projects_rule?
-          projects.count >= minimum_projects
+        if minimum_projects_rule? && maximum_projects_rule?
+          total_projects >= minimum_projects && total_projects <= maximum_projects
+        elsif minimum_projects_rule?
+          total_projects >= minimum_projects
+        elsif maximum_projects_rule?
+          total_projects <= maximum_projects && !total_projects.zero?
         else
           total_budget.to_f >= minimum_budget
         end
@@ -53,6 +63,11 @@ module Decidim
       # Public: Returns the order budget percent from the settings total budget
       def budget_percent
         (total_budget.to_f / budget.total_budget.to_f) * 100
+      end
+
+      # Public: Returns the order projects percent from the settings maximum projects to checkout
+      def projects_percent
+        (total_projects.to_f / maximum_projects.to_f) * 100
       end
 
       # Public: Returns the required minimum budget to checkout
@@ -74,7 +89,7 @@ module Decidim
       def minimum_projects_rule?
         return unless budget
 
-        budget.settings.vote_rule_minimum_budget_projects_enabled
+        budget.settings.vote_rule_group_1_minimum_budget_projects_enabled
       end
 
       # Public: Returns the required minimum projects to checkout
@@ -82,6 +97,20 @@ module Decidim
         return 0 unless budget
 
         budget.settings.vote_minimum_budget_projects_number
+      end
+
+      # Public: Returns if it is required a maximum projects limit to checkout
+      def maximum_projects_rule?
+        return unless budget
+
+        budget.settings.vote_rule_group_1_maximum_budget_projects_enabled
+      end
+
+      # Public: Returns the required maximum projects to checkout
+      def maximum_projects
+        return 0 unless budget
+
+        budget.settings.vote_maximum_budget_projects_number
       end
 
       def self.user_collection(user)
@@ -116,6 +145,12 @@ module Decidim
         return unless minimum_projects_rule?
 
         errors.add(:projects, :invalid) if minimum_projects > projects.count
+      end
+
+      def exceed_maximum_projects
+        return unless maximum_projects_rule?
+
+        errors.add(:projects, :invalid) if projects.count > maximum_projects
       end
     end
   end

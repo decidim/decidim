@@ -7,6 +7,7 @@ $(() => {
   const $budgetExceedModal = $("#budget-excess");
   const $budgetSummary = $(".budget-summary__progressbox");
   const totalBudget = parseInt($budgetSummaryTotal.attr("data-total-budget"), 10);
+  const totalProjects = parseInt($budgetSummaryTotal.attr("data-total-projects"), 10);
 
   const cancelEvent = (event) => {
     event.stopPropagation();
@@ -15,13 +16,22 @@ $(() => {
 
   $projects.on("click", ".budget-list__action", (event) => {
     const currentBudget = parseInt($budgetSummary.attr("data-current-budget"), 10);
+    const currentProjects = parseInt($budgetSummary.attr("data-current-projects"), 10);
     const $currentTarget = $(event.currentTarget);
     const projectBudget = parseInt($currentTarget.attr("data-budget"), 10);
+
+    const projectNumberExceeded = () => {
+      return (isNaN(totalBudget) && ((currentProjects + 1) > totalProjects))
+    };
+
+    const budgetExceeded = () => {
+      return (isNaN(totalProjects) && ((currentBudget + projectBudget) > totalBudget));
+    };
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
 
-    } else if (($currentTarget.attr("data-add") === "true") && ((currentBudget + projectBudget) > totalBudget)) {
+    } else if (($currentTarget.attr("data-add") === "true") && (projectNumberExceeded() || budgetExceeded())) {
       $budgetExceedModal.foundation("toggle");
       cancelEvent(event);
     }
