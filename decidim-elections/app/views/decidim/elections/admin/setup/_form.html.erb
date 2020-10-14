@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= title %></h2>
+  </div>
+
+  <div class="card-section">
+    <p>The definition for the election <strong><%= translated_attribute(election.title) %></strong> consists in <strong><%= election.questions.size %> questions </strong>and all of them are valid.</p>
+    <p>The trustees that are going to participate in this election are:</p>
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.election.fields.user", scope: "decidim.elections") %></th>
+            <th><%= t("models.election.fields.public_key", scope: "decidim.elections") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% #elections.each do |election| %>
+            <!--<tr data-id="<%#= election.id %>">
+              <td>
+                <%#= link_to translated_attribute(election.title), resource_locator(election).path %>
+              </td>
+              <td>
+                <% #if election.start_time %>
+                  <%#= l election.start_time, format: :long %>
+                <% #end %>
+              </td>
+               </tr>-->
+          <% #end %>
+        </tbody>
+      </table>
+    </div>
+    <p>The size of this list of trustees is correct and it will be needed at least <strong>2 trustees</strong> to perform the tally process.</p>
+  </div>
+</div>

@@ -93,11 +93,6 @@ module Decidim
           end
         end
 
-        def setup
-          enforce_permission_to :update, :election, election: election
-          @form = form(ElectionForm).from_model(election)
-        end
-
         private
 
         def elections
