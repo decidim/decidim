@@ -351,6 +351,8 @@ el:
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
+        form:
+          location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: το δάπεδο του κτιρίου'
         meeting_minutes:
           meeting_minutes: Πρακτικά σύσκεψης
           related_information: Σχετικές πληροφορίες
