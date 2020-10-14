@@ -312,7 +312,6 @@ fi:
         fill_data:
           back: Takaisin
           continue: Jatka
-          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoite selkeä?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat</li> <li>Mikä on aloitteen maantieteellinen laajuus? Kaupunki, kunta, maakunta vai mikä?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
@@ -320,7 +319,6 @@ fi:
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
-          callout_text: Onnittelut! Kansalaisaloitteesi luonti onnistui.
           confirm: Vahvista
           edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
@@ -340,14 +338,12 @@ fi:
           more_information: "(Lisää tietoa)"
         promotal_committee:
           back: Takaisin
-          individual_help_text: Tämäntyyppisen kansalaisaloite edellyttää, että kannatuskomitea koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
           more_information: "(Lisää tietoa)"
           select: Haluan tukea tätä aloitetta
-          select_initiative_type_help: Kansalaisaloitteet ovat keino, jolla kansalaiset voivat osallistua viralliseen päätöksentekoon. Päättävät elimet, kuten kaupungin- tai kunnanvaltuusto, voivat tehdä toimenpiteitä, jotka vaikuttavat kansalaisten edun mukaisesti lainsäädäntöön. Millaisen aloitteen sinä haluat laatia?
         share_committee_link:
           continue: Jatka
           invite_to_committee_help: Kutsulinkki lähetettäväksi kannatuskomitean jäsenille
@@ -453,9 +449,7 @@ fi:
             validating: Tätä ehdotusta arvioidaan
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
-          any_vote_method: Tämä kansalaisaloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
-          offline_method: Tämä kansalaisaloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
