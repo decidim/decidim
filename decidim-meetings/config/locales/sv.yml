@@ -251,7 +251,6 @@ sv:
           form:
             address_help: 'Adress: anger en plats för Geocoder'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
-            location_hints_help: 'Detaljer om platsen: ytterligare information, som våning i byggnaden'
           index:
             title: Möten
           new:
@@ -391,7 +390,6 @@ sv:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           create_as: Skapa möte som
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
-          location_hints_help: 'Plats tips: ytterligare info. Exempel: golvet i byggnaden'
           select_a_category: Välj en kategori
         index:
           new_meeting: Nytt möte
