@@ -12,16 +12,6 @@ module Decidim
       let(:component) { create(:component, participatory_space: participatory_process) }
       let(:commentable) { create(:dummy_resource, component: component) }
 
-      shared_context "with component comments disabled" do
-        let(:component) do
-          create(
-            :component,
-            participatory_space: participatory_process,
-            settings: { comments_enabled: false }
-          )
-        end
-      end
-
       before do
         request.env["decidim.current_organization"] = organization
       end
@@ -40,7 +30,7 @@ module Decidim
         end
 
         context "when comments are disabled for the component" do
-          include_context "with component comments disabled"
+          let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
 
           it "raises a routing error" do
             expect do
@@ -84,7 +74,7 @@ module Decidim
           end
 
           context "when comments are disabled for the component" do
-            include_context "with component comments disabled"
+            let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
 
             it "raises a routing error" do
               expect do

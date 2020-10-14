@@ -402,6 +402,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
