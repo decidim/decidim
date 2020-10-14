@@ -12,6 +12,8 @@ module Decidim
       helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
       def index
+        enforce_permission_to :read, :comment, commentable: commentable
+
         @comments = SortedComments.for(
           commentable,
           order_by: order,
@@ -59,7 +61,7 @@ module Decidim
       end
 
       def ensure_commentable!
-        raise ActionController::RoutingError, "Not Found" if commentable.blank? || !commentable.commentable?
+        raise ActionController::RoutingError, "Not Found" unless commentable
       end
 
       def handle_success(comment)

@@ -7,6 +7,8 @@ module Decidim
         return permission_action if permission_action.subject != :comment
 
         case permission_action.action
+        when :read
+          can_read_comments?
         when :create
           can_create_comment?
         end
@@ -15,6 +17,12 @@ module Decidim
       end
 
       private
+
+      def can_read_comments?
+        return disallow! unless commentable.commentable?
+
+        allow!
+      end
 
       def can_create_comment?
         return disallow! unless user

@@ -32,10 +32,10 @@ module Decidim
         context "when comments are disabled for the component" do
           let(:component) { create(:component, :with_comments_disabled, participatory_space: participatory_process) }
 
-          it "raises a routing error" do
-            expect do
-              get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
-            end.to raise_error(ActionController::RoutingError)
+          it "redirects with a flash alert" do
+            get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s }
+            expect(flash[:alert]).to be_present
+            expect(response).to have_http_status(:redirect)
           end
         end
       end
