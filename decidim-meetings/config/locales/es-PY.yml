@@ -393,7 +393,7 @@ es-PY:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           create_as: Crear encuentro como
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
-          location_hints_help: 'Ayudas de localización: información adicional. Ejemplo: la planta del edificio'
+          location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
           select_a_category: Por favor, selecciona una categoría
         index:
           new_meeting: Nuevo encuentro
