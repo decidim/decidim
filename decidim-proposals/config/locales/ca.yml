@@ -722,8 +722,13 @@ ca:
             one: "%{count} proposta"
             other: "%{count} propostes"
         edit:
+          add_documents: Documents
+          add_images: Arxiu
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
+          delete_document: Eliminar document
+          delete_image: Eliminar imatge
+          gallery_legend: "(Opcional) Afegir una imatge a la targeta de proposta"
           select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita proposta

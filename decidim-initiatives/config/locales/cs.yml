@@ -308,6 +308,7 @@ cs:
           all: Vše
           answered: Odpovězeno
           closed: Uzavřeno
+          draft: Návrh
           open: otevřeno
           rejected: Nedostatek podpisů
         filter_type_values:

@@ -1,0 +1,445 @@
+zh-CN:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: 通 知
+        area_id: 区域
+        banner_image: 横幅图像
+        copy_categories: 复制类别
+        copy_components: 复制组件
+        copy_steps: 复制步骤
+        decidim_area_id: 区域
+        description: 描述
+        developer_group: 促销者组
+        domain: 域
+        end_date: 结束日期
+        hashtag: 标签
+        hero_image: 首页图像
+        local_area: 组织区域
+        meta_scope: 范围元数据
+        participatory_process_group_id: 进程组
+        participatory_scope: 决定的内容
+        participatory_structure: 如何决定
+        promoted: 已升级
+        published_at: 发布于
+        related_process_ids: 相关进程
+        scope_id: 范围
+        scope_type_max_depth_id: 范围过滤器深度：
+        scopes_enabled: 范围已启用
+        short_description: 简短描述
+        show_metrics: 显示指标
+        show_statistics: 显示统计
+        slug: URL 名称
+        start_date: 开始日期
+        subtitle: 字幕
+        target: 谁参与
+        title: 标题
+      participatory_process_group:
+        description: 描述
+        hero_image: 图片
+        name: 名称
+        participatory_process_ids: 相关进程
+      participatory_process_step:
+        cta_path: 调用行动路径
+        cta_text: 呼吁行动文本
+        description: 描述
+        end_date: 结束日期
+        short_description: 简短描述
+        start_date: 开始日期
+        title: 标题
+      participatory_process_user_role:
+        email: 电子邮件地址
+        name: 名称
+        role: 作用
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: 相位激活
+      decidim/participatory_process_step_changed_event: 相位已更改
+  activerecord:
+    models:
+      decidim/participatory_process:
+        other: 参与进程
+      decidim/participatory_process_group:
+        other: 参与性进程组
+      decidim/participatory_process_step:
+        other: 阶段
+  decidim:
+    admin:
+      actions:
+        activate: 激活
+        configure: 配置
+        confirm_destroy: 确认删除
+        destroy: 删除
+        duplicate: Duplicate
+        edit: 编辑
+        filter:
+          all_processes: 显示所有进程
+          process_groups: 流程组
+        import_process: 导入
+        new_process: 新建进程
+        new_process_group: 新建流程组
+        new_process_step: 新阶段
+        new_process_user_role: 新建进程管理员
+        preview: 预览
+        publish: 发布
+        resend_invitation: 重新发送邀请
+        unpublish: 取消发布
+      menu:
+        participatory_process_groups: 流程组
+        participatory_processes: 进程
+        participatory_processes_submenu:
+          attachment_collections: 文件夹
+          attachment_files: 文件
+          attachments: 附件
+          categories: 类别管理
+          components: 组件
+          info: 信息
+          moderations: 版面
+          private_users: 私人参与者
+          process_admins: 进程管理员
+          steps: 阶段
+      models:
+        participatory_process:
+          fields:
+            created_at: 创建于
+            private: 非公开的
+            promoted: 高亮
+            published: 已发布
+            title: 标题
+          name: 参与性进程
+        participatory_process_group:
+          fields:
+            name: 名称
+          name: 流程组
+        participatory_process_step:
+          fields:
+            end_date: 结束日期
+            start_date: 开始日期
+            title: 标题
+          name: 参与进程阶段
+        participatory_process_user_role:
+          fields:
+            email: 电子邮件地址
+            name: 名称
+            role: 作用
+          name: 参与进程管理员
+          roles:
+            admin: 管理员
+            collaborator: 协作者
+            moderator: 版主
+            valuator: 值者
+        user:
+          fields:
+            invitation_accepted_at: 邀请接受于
+            invitation_sent_at: 邀请发送于
+      participatory_process_copies:
+        new:
+          copy: 复制
+          select: 选择要重复的数据
+          title: 重复的参与进程
+      participatory_process_groups:
+        destroy:
+          error: 销毁参与性进程小组时出错。
+          success: 参与进程组已成功删除。
+        edit:
+          title: 编辑流程组
+          update: 更新
+        new:
+          create: 创建
+          title: 新建流程组
+        update:
+          error: 在更新这一参与进程小组方面存在问题。
+          success: 参与进程组已成功更新。
+      participatory_process_imports:
+        create:
+          error: 在引入这种参与进程时遇到了问题。
+          success: 成功导入参与过程。
+        new:
+          import: 导入
+          select: 选择您想要导入的数据
+          title: 导入参与进程
+      participatory_process_publications:
+        create:
+          error: 在公布这一参与过程时遇到了问题。
+          success: 参与进程已成功发布。
+        destroy:
+          error: 出现了一个不公布这一参与进程的问题。
+          success: 参与进程已成功取消发布。
+      participatory_process_step_activations:
+        create:
+          error: 启动这一参与进程阶段时遇到了问题。
+          success: 参与进程阶段已成功激活。
+      participatory_process_steps:
+        create:
+          error: 在建立新的参与进程阶段时遇到了问题。
+          success: 参与进程阶段成功创建。
+        default_title: 一. 导言
+        destroy:
+          error:
+            active_step: 无法删除活动阶段。
+            last_step: 无法删除进程的最后一个阶段。
+          success: 参与进程阶段已成功删除。
+        edit:
+          title: 编辑参与进程阶段
+          update: 更新
+        index:
+          steps_title: 阶段
+        new:
+          create: 创建
+          title: 新的参与进程阶段
+        ordering:
+          error: 在重新安排参与进程这些阶段的顺序方面存在问题。
+        update:
+          error: 在更新这一阶段的参与进程时遇到了问题。
+          success: 参与阶段更新成功。
+      participatory_process_user_roles:
+        create:
+          error: 在这个参与进程中增加参与者时遇到了问题。
+          success: 管理员成功地添加到这个参与进程。
+        destroy:
+          success: 管理员成功地从这个参与进程中移除。
+        edit:
+          title: 更新参与进程管理员
+          update: 更新
+        index:
+          process_admins_title: 参与性进程管理员
+        new:
+          create: 创建
+          title: 新的参与进程管理员
+        update:
+          error: 在更新这一参与进程的管理员时遇到了问题。
+          success: 管理员已成功更新此参与进程。
+      participatory_processes:
+        create:
+          error: 在创造新的参与进程方面遇到了问题。
+          success: 成功创建参与进程。现在配置阶段。
+        edit:
+          update: 更新
+        index:
+          not_published: 未发布
+          private: 非公开的
+          public: 公开的
+          published: 已发布
+        new:
+          create: 创建
+          title: 新的参与进程
+        update:
+          error: 在更新这一参与进程方面存在问题。
+          success: 参与进程已成功更新。
+      participatory_processes_copies:
+        create:
+          error: 出现了重复这一参与进程的问题。
+          success: 参与进程成功地重复。
+      participatory_processes_group:
+        create:
+          error: 建立一个新的参与性进程小组存在问题。
+          success: 参与进程组已成功创建。
+      titles:
+        participatory_process_groups: 参与性进程组
+        participatory_processes: 参与进程
+      users:
+        resend_invitation:
+          error: 发出邀请时出现问题。
+          success: 邀请已成功重新发送。
+    admin_log:
+      participatory_process:
+        create: "%{user_name} 创建了 %{resource_name} 参与进程"
+        publish: "%{user_name} 发布了 %{resource_name} 参与进程"
+        unpublish: "%{user_name} 未发布了 %{resource_name} 参与进程"
+        update: "%{user_name} 更新了 %{resource_name} 参与进程"
+      participatory_process_group:
+        create: "%{user_name} 创建了 %{resource_name} 参与进程组"
+        update: "%{user_name} 更新了 %{resource_name} 参与进程组"
+      participatory_process_step:
+        activate: "%{user_name} 在 %{space_name} 参与进程中激活了 %{resource_name} 阶段"
+        create: "%{user_name} 在 %{space_name} 参与进程中创建了 %{resource_name} 阶段"
+        delete: "%{user_name} 删除了 %{resource_name} 阶段的 %{space_name} 参与进程"
+        update: "%{user_name} 更新了 %{resource_name} 阶段的 %{space_name} 参与进程"
+      participatory_process_user_role:
+        create: "%{user_name} 邀请参与者 %{resource_name} 加入 %{space_name} 的参与进程"
+        delete: "%{user_name} 将 %{resource_name} 移出了 %{space_name} 参与进程"
+        update: "%{user_name} 更改了参与者 %{resource_name} 在 %{space_name} 参与进程中的角色"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: 您已被分配为 %{role} 用于参与进程 "%{resource_title}"。
+          email_outro: 您收到此通知是因为您是 %{role} 的 "%{resource_title}"参与过程。
+          email_subject: 您已被分配为 %{role} 给 "%{resource_title}"。
+          notification_title: 您已被分配为 %{role} 用于参与进程 <a href="%{resource_url}">%{resource_title}</a>。
+        step_activated:
+          email_intro: '%{resource_title} 阶段现在对 %{participatory_space_title}生效。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 更新到 %{participatory_space_title}
+          notification_title: '%{resource_title} 阶段现在已对 <a href="%{resource_path}">%{participatory_space_title}</a> 激活'
+        step_changed:
+          email_intro: '%{resource_title} 阶段 %{participatory_space_title} 的日期已更新。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 更新到 %{participatory_space_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 阶段 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的日期已更新。
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>一个 <strong>参与性进程</strong> 是一系列参与性活动(例如： 首先填写调查表，然后提出建议，在面对面或虚拟会议上讨论这些建议， 最后确定优先事项，以便界定一个具体专题并就此作出决定。</p> <p>参与进程的例子有：选举委员会成员的过程(在第一次提出候选人时) 然后进行辩论并最后选定候选资格，参与性预算(在提出提案时)。 1. 注意到联合国系统各组织和机构在经济和社会发展方面的作用,并以现有资金进行表决,这是一个战略规划过程, 合作起草一项条例或规范、设计城市空间或制定一项公共政策计划。</p>\n"
+          page: "<p>一个 <strong>参与性进程</strong> 是一系列参与性活动(例如： 首先填写调查表，然后提出建议，在面对面或虚拟会议上讨论这些建议， 最后确定优先事项，以便界定一个具体专题并就此作出决定。</p> <p>参与进程的例子有：选举委员会成员的过程(在第一次提出候选人时) 然后进行辩论并最后选定候选资格，参与性预算(在提出提案时)。 1. 注意到联合国系统各组织和机构在经济和社会发展方面的作用,并以现有资金进行表决,这是一个战略规划过程, 合作起草一项条例或规范、设计城市空间或制定一项公共政策计划。</p>\n"
+          title: 什么是参与性进程？
+    menu:
+      processes: 进程
+    metrics:
+      participatory_processes:
+        description: 本组织参与进程的数目
+        object: 参与进程
+        title: 参与进程
+    participatory_process:
+      show:
+        related_assemblies: 相关的会议
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          other: "%{count} 的 %{group} 进程"
+        title: 参与性进程组
+    participatory_process_steps:
+      index:
+        process_steps: 流程阶段
+        title: 参与进程阶段
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: 显示元素的最大数量
+        participatory_process_copies:
+          form:
+            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: 添加文档
+            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。 如果未设置，按钮将不会显示。例如： %{url}'
+            cta_text_help: 如果未设置，按钮将不会显示。
+        participatory_processes:
+          form:
+            announcement_help: 您在此输入的文本将会显示给流程信息下方的用户。
+            duration: 期限
+            filters: 筛选器
+            images: 图像
+            metadata: 元数据
+            other: 其他
+            related_processes: 相关进程
+            scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
+            select_an_area: 选择区域
+            select_process_group: 选择一个流程组
+            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+            title: 一般信息
+            visbility: 可见性
+      content_blocks:
+        highlighted_processes:
+          name: 高亮的进程
+      index:
+        title: 参与进程
+      last_activity:
+        new_participatory_process: 新的参与进程
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: 活动进程
+            active_step: 活动阶段
+            more_information: 更多信息
+            participate: 参与
+            participate_in: 参与进程 %{resource_name}
+            see_all_processes: 查看所有进程
+      participatory_process_steps:
+        index:
+          back_to_process: 返回进程页面
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              other: "%{count} 个活动进程"
+            all:
+              other: "%{count} 进程"
+            past:
+              other: "%{count} 过期进程"
+            upcoming:
+              other: "%{count} 个即将进行的进程"
+          explanations:
+            no_active: 没有活动的进程
+            no_active_nor_upcoming: 没有活动或即将进行的进程
+            no_active_nor_upcoming_callout: 没有活跃或即将开始的进程。这里是过去进程的清单。
+          names:
+            active: 已启用
+            all: 所有的
+            past: 过去的
+            upcoming: 即将到来的
+          see: 查看
+        index:
+          loading: 正在加载结果...
+      show:
+        area: 区域
+        dates: 日期
+        developer_group: 促销者组
+        end_date: 结束日期
+        local_area: 组织区域
+        participatory_scope: 决定的内容
+        participatory_structure: 如何决定
+        private_space: 这是一个私密进程
+        related_processes: 相关进程
+        scope: 范围
+        start_date: 开始日期
+        target: 谁参与
+        unspecified: 未指定
+      statistics:
+        answers_count: 答案
+        comments_count: 评论
+        debates_count: 辩论
+        endorsements_count: 授权
+        followers_count: 关注者
+        headline: 统计
+        meetings_count: 会议
+        no_stats: 尚无统计数据。
+        orders_count: 支持
+        pages_count: 页 次
+        participants_count: 参加者
+        processes_count: 进程
+        projects_count: 项目
+        proposals_count: 建议
+        results_count: 成果
+        supports_count: 支持
+        surveys_count: 调查
+        users_count: 参加者
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: 浏览
+          browse_resource: 浏览流程组 %{resource_name}
+          processes_count: '进程：'
+      participatory_process_widgets:
+        show:
+          active_step: 活动阶段
+          take_part: 参与
+      participatory_processes:
+        index:
+          promoted_processes: 高亮的进程
+        participatory_process:
+          active_step: '当前阶段：'
+          more_info: 更多信息
+          more_info_about: 更多关于进程 %{resource_name} 的信息
+          take_part: 参与
+          take_part_in: 参与进程 %{resource_name}
+        promoted_process:
+          active_step: '当前阶段：'
+          more_info: 更多信息
+          more_info_about: 更多关于进程 %{resource_name} 的信息
+          take_part: 参与
+          take_part_in: 参与进程 %{resource_name}
+      process_header_steps:
+        step: '%{current} 的 %{total} 阶段'
+        view_steps: 流程阶段
+      process_navigation:
+        process_menu_item: 二. 进程

@@ -54,6 +54,8 @@ module Decidim
         presenter = MeetingPresenter.new(model)
         self.title = presenter.title(all_locales: false)
         self.description = presenter.description(all_locales: false)
+        self.location = presenter.location(all_locales: false)
+        self.location_hints = presenter.location_hints(all_locales: false)
         self.type_of_meeting = if model.online_meeting?
                                  "online"
                                else
@@ -104,7 +106,7 @@ module Decidim
       end
 
       def in_person_meeting?
-        type_of_meeting == "in_person" || type_of_meeting.presence.nil?
+        type_of_meeting == "in_person"
       end
 
       def clean_type_of_meeting

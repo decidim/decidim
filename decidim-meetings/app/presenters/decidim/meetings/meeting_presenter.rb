@@ -32,6 +32,22 @@ module Decidim
         end
       end
 
+      def location(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.location, all_locales) do |content|
+          content
+        end
+      end
+
+      def location_hints(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.location_hints, all_locales) do |content|
+          content
+        end
+      end
+
       # Next methods are used for present a Meeting As Proposal Author
       def name
         title
