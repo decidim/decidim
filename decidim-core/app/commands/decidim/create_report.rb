@@ -75,7 +75,10 @@ module Decidim
       data = {
         event: "decidim.events.reports.report_created",
         event_class: Decidim::ReportCreatedEvent,
-        resource: @report,
+        resource: @report.moderation.reportable,
+        extra: {
+          report_reason: @report.reason
+        },
         affected_users: @report.moderation.reportable.try(:authors)
       }
       Decidim::EventsManager.publish(data)
