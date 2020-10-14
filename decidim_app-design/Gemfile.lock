@@ -58,7 +58,7 @@ PATH
       searchlight (~> 4.1)
     decidim-comments (0.24.0.dev)
       decidim-core (= 0.24.0.dev)
-      jquery-rails (~> 4.3)
+      jquery-rails (~> 4.4)
       redcarpet (~> 3.4)
     decidim-conferences (0.24.0.dev)
       decidim-core (= 0.24.0.dev)
