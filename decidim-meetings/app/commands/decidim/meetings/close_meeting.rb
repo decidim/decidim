@@ -42,7 +42,7 @@ module Decidim
         ) do
           meeting.update!(
             closed_at: form.closed_at,
-            closing_report: { I18n.locale => parsed_closing_report}
+            closing_report: { I18n.locale => parsed_closing_report }
           )
         end
 
