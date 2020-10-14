@@ -318,7 +318,6 @@ cs:
         fill_data:
           back: Zpět
           continue: Pokračovat
-          fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
           initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
@@ -326,7 +325,6 @@ cs:
         finish:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
-          callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
           confirm: Potvrdit
           edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
@@ -346,14 +344,12 @@ cs:
           more_information: "(Více informací)"
         promotal_committee:
           back: Zpět
-          individual_help_text: Tento druh občanské iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
           more_information: "(Více informací)"
         select_initiative_type:
           back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
-          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Kterou iniciativu chcete spustit?
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
@@ -465,9 +461,7 @@ cs:
             validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
-          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
-          offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
         signatures_count:
           one: " podpis"
           few: " podpisy"
