@@ -257,7 +257,7 @@ shared_examples_for "has questionnaire" do
     end
 
     context "when a question has a rich text description" do
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, description: "<b>This question is important</b>") }
+      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0, description: { en: "<b>This question is important</b>" }) }
 
       it "properly interprets HTML descriptions" do
         visit questionnaire_public_path
@@ -509,11 +509,11 @@ shared_examples_for "has questionnaire" do
           questionnaire: questionnaire,
           question_type: "sorting",
           options: [
-            { "body" => "idiotas" },
-            { "body" => "trates" },
-            { "body" => "No" },
-            { "body" => "por" },
-            { "body" => "nos" }
+            { "body" => { "en" => "chocolate" } },
+            { "body" => { "en" => "like" } },
+            { "body" => { "en" => "We" } },
+            { "body" => { "en" => "dark" } },
+            { "body" => { "en" => "all" } }
           ]
         )
       end
@@ -523,25 +523,25 @@ shared_examples_for "has questionnaire" do
 
         expect(page).to have_selector(".sortable-check-box-collection input[type=checkbox]", count: 5)
 
-        expect(page).to have_content("idiotas\ntrates\nNo\npor\nnos")
+        expect(page).to have_content("chocolate\nlike\nWe\ndark\nall")
 
-        check "No"
-        check "nos"
-        check "trates"
-        check "por"
-        check "idiotas"
+        check "We"
+        check "all"
+        check "like"
+        check "dark"
+        check "chocolate"
 
-        expect(page).to have_content("1. No\n2. nos\n3. trates\n4. por\n5. idiotas")
+        expect(page).to have_content("1. We\n2. all\n3. like\n4. dark\n5. chocolate")
       end
 
       it "properly saves valid sortings" do
         visit questionnaire_public_path
 
-        check "No"
-        check "nos"
-        check "trates"
-        check "por"
-        check "idiotas"
+        check "We"
+        check "all"
+        check "like"
+        check "dark"
+        check "chocolate"
 
         check "questionnaire_tos_agreement"
 
@@ -552,14 +552,14 @@ shared_examples_for "has questionnaire" do
         end
 
         expect(Decidim::Forms::Answer.first.choices.pluck(:position, :body)).to eq(
-          [[0, "No"], [1, "nos"], [2, "trates"], [3, "por"], [4, "idiotas"]]
+          [[0, "We"], [1, "all"], [2, "like"], [3, "dark"], [4, "chocolate"]]
         )
       end
 
       it "displays errors on incomplete sortings" do
         visit questionnaire_public_path
 
-        check "No"
+        check "We"
 
         accept_confirm { click_button "Submit" }
 
@@ -573,9 +573,9 @@ shared_examples_for "has questionnaire" do
       it "displays maintains sorting order if errors" do
         visit questionnaire_public_path
 
-        check "No"
-        check "por"
-        check "idiotas"
+        check "We"
+        check "dark"
+        check "chocolate"
 
         accept_confirm { click_button "Submit" }
 
@@ -585,13 +585,13 @@ shared_examples_for "has questionnaire" do
 
         # Check the next round to ensure a re-submission conserves status
         expect(page).to have_content("are not complete")
-        expect(page).to have_content("1. No\n2. por\n3. idiotas\ntrates\nnos")
+        expect(page).to have_content("1. We\n2. dark\n3. chocolate\nlike\nall")
 
         checkboxes = page.all("input[type=checkbox]")
 
         checkboxes[0].uncheck
-        check "No"
-        check "nos"
+        check "We"
+        check "all"
 
         accept_confirm { click_button "Submit" }
 
@@ -600,7 +600,7 @@ shared_examples_for "has questionnaire" do
         end
 
         expect(page).to have_content("are not complete")
-        expect(page).to have_content("1. por\n2. idiotas\n3. No\n4. nos\ntrates")
+        expect(page).to have_content("1. dark\n2. chocolate\n3. We\n4. all\nlike")
       end
     end
 

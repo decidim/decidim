@@ -85,6 +85,9 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Map, "decidim/map"
+  autoload :Geocodable, "decidim/geocodable"
+  autoload :Snippets, "decidim/snippets"
   autoload :OrganizationSettings, "decidim/organization_settings"
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
@@ -146,7 +149,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -173,6 +176,10 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: an object to configure the mapping
+  # functionality. See Decidim::Map for more information.
+  config_accessor :maps
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.

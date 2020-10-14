@@ -54,6 +54,34 @@ module Decidim
           expect(questionnaire).to be_answered_by(user)
         end
       end
+
+      describe "#pristine?" do
+        context "when created_at and updated_at are equal" do
+          let(:questionnaire) { create(:questionnaire) }
+
+          context "when questionnaire has no questions" do
+            it "returns true" do
+              expect(questionnaire.pristine?).to eq(true)
+            end
+          end
+
+          context "when questionnaire has questions" do
+            let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+
+            it "returns false" do
+              expect(questionnaire.pristine?).to eq(false)
+            end
+          end
+        end
+
+        context "when created_at and updated_at are different" do
+          let(:questionnaire) { create(:questionnaire, created_at: 1.day.ago) }
+
+          it "returns false" do
+            expect(questionnaire.pristine?).to eq(false)
+          end
+        end
+      end
     end
   end
 end

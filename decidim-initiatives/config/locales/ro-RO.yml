@@ -437,14 +437,10 @@ ro:
           any_vote_method: Această inițiativă cetățenească colectează semnături online și personale.
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
           offline_method: Această iniţiativă cetăţenească nu face decât să strângă semnături personale.
-        signature_identities:
-          select_identity: Selectați identificatorul de participant
         signatures_count:
           one: " semnătură"
           few: " semnături"
           other: " semnături"
-        supports:
-          title: Listarea semnăturilor
         vote_cabin:
           already_voted: Deja semnat
           supports_required: "%{total_supports} semnături necesare"

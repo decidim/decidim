@@ -6,7 +6,7 @@ describe "UserTosAcceptance", type: :system do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :confirmed, organization: organization) }
   let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
-  let(:btn_accept) { "I agree this terms" }
+  let(:btn_accept) { "I agree with these terms" }
   let(:btn_refuse) { "Refuse the terms" }
 
   before do

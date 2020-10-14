@@ -399,10 +399,10 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when accepting the initiative" do
         let(:action_name) { :accept }
         let(:initiative) { create :initiative, organization: organization, signature_end_date: 2.days.ago }
-        let(:percentage) { 110 }
+        let(:goal_reached) { true }
 
         before do
-          allow(initiative).to receive(:percentage).and_return(percentage)
+          allow(initiative).to receive(:supports_goal_reached?).and_return(goal_reached)
         end
 
         it { is_expected.to eq true }
@@ -420,7 +420,7 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
 
         context "when the initiative percentage is not complete" do
-          let(:percentage) { 90 }
+          let(:goal_reached) { false }
 
           it { is_expected.to eq false }
         end
@@ -429,10 +429,10 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when rejecting the initiative" do
         let(:action_name) { :reject }
         let(:initiative) { create :initiative, organization: organization, signature_end_date: 2.days.ago }
-        let(:percentage) { 90 }
+        let(:goal_reached) { false }
 
         before do
-          allow(initiative).to receive(:percentage).and_return(percentage)
+          allow(initiative).to receive(:supports_goal_reached?).and_return(goal_reached)
         end
 
         it { is_expected.to eq true }
@@ -450,7 +450,7 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
 
         context "when the initiative percentage is complete" do
-          let(:percentage) { 110 }
+          let(:goal_reached) { true }
 
           it { is_expected.to eq false }
         end

@@ -384,7 +384,6 @@ ar:
           buttons:
             check: تحقق واستمر
             close_modal: إغلاق مشروط
-            uncheck: تبقي إلغاء
           notice: |-
             <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
             يرجى النظر مرة أخرى في تحديد خانة الاختيار النشرة الإخبارية أدناه.<br>
@@ -771,8 +770,6 @@ ar:
         start:
           send: إرسال
           title: بدء محادثة
-        update:
-          error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     metrics:
       download:
         csv: تنزيل البيانات (csv)
@@ -896,7 +893,6 @@ ar:
           error: كانت هناك مشكلة في قبول الشروط والأحكام.
           success: عظيم! لقد قبلت الشروط والأحكام.
         form:
-          agreement: أوافق على هذه الشروط
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
           modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
@@ -1033,6 +1029,9 @@ ar:
     user_activity:
       index:
         no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
+    user_conversations:
+      update:
+        error: لم يتم إرسال الرسالة. حاول مرة أخرى في وقت لاحق
     user_interests:
       show:
         my_interests: اهتماماتي

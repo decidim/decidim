@@ -38,22 +38,10 @@ content.
 
 ### Changed
 
-- **Settings `maximum_attachment_size` and `maximum_avatar_size` moved to organization system settings**
-
-As per [\#6377](https://github.com/decidim/decidim/pull/6377), the `maximum_attachment_size` and `maximum_avatar_size` settings will no longer have any effect if configured through the Decidim initializer configurations. Instead, these are now configured from the organization system settings at the `/system` path of your installation.
-
-Note that if you had these previously configured in the initializer, these previous settings have been automatically migrated to all organizations in your installation after running the Decidim upgrade migrations.
-
 ### Fixed
-
-- **decidim-comments**: Fix comments JS errors and delays [\#6193](https://github.com/decidim/decidim/pull/6193)
-- **decidim-elections**: Improve navigation consistency in the admin zone for elections questions and answers [\#6139](https://github.com/decidim/decidim/pull/6139)
-- **decidim-assemblies**, **decidim-core**, **decidim-dev**, **decidim-forms**, **decidim-participatory_processes**, **decidim-proposals**: Fix rubocop errors arising from capybara upgrade [\#6197](https://github.com/decidim/decidim/pull/6197)
 
 ### Removed
 
-- **decidim-proposals**: Remove legacy proposal endorsements. [\#5643](https://github.com/decidim/decidim/pull/5643)
-
 ## Previous versions
 
-Please check [release/0.22-stable](https://github.com/decidim/decidim/blob/release/0.22-stable/CHANGELOG.md) for previous changes.
+Please check [release/0.23-stable](https://github.com/decidim/decidim/blob/release/0.23-stable/CHANGELOG.md) for previous changes.

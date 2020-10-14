@@ -5,6 +5,7 @@ ja:
         decidim_user_group_id: 作成者
         description: 説明
         offline_votes: In-personal 署名
+        offline_votes_for_scope: '%{scope_name} の In-personal 署名'
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
@@ -18,7 +19,7 @@ ja:
       initiative_author:
         address: 住所
         city: 市区町村名
-        id_document: DNI/NIE
+        id_document: 免許証/保険証/マイナンバーカード
         name: 氏名と姓
         phone_number: 電話番号
         post_code: 郵便番号
@@ -29,6 +30,7 @@ ja:
         area_enabled: 作成者が取り組みの領域を選択できるようにする
         attachments_enabled: 添付ファイルを有効化
         banner_image: バナー画像
+        child_scope_threshold_enabled: 下層スコープの署名を有効にする
         collect_user_extra_fields: 署名に参加者の個人データを収集する
         custom_signature_end_date_enabled: 著者が署名の収集期間の終わりを選択できるようにする
         description: 説明
@@ -36,6 +38,7 @@ ja:
         extra_fields_legal_information: 個人データの収集に関する法的情報
         minimum_committee_members: 委員の最小数
         online_signature_enabled: オンライン署名は有効です
+        only_global_scope_enabled: グローバルスコープの取り組みの作成のみを許可する
         promoting_committee_enabled: プロモーション委員会を有効にする
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
@@ -120,6 +123,7 @@ ja:
             initiative_title: イニシアチブのタイトル
             name_and_surname: 氏名と姓名
             postal_code: 郵便番号
+            scope: スコープ
             time_and_date: 日時
             timestamp: タイムスタンプ
       titles:
@@ -202,7 +206,7 @@ ja:
           initiatives: イニシアチブ
         initiatives:
           edit:
-            accept: イニシアチブを承認する
+            accept: 取り組みを承認する
             confirm: よろしいですか？
             discard: イニシアチブを破棄する
             export_pdf_signatures: 署名の PDF をエクスポート
@@ -259,6 +263,10 @@ ja:
             destroy: 削除
             update: 更新
           form:
+            authorizations: 認証設定
+            child_scope_threshold_enabled_help: 'この設定フラグはオフライン投票をサポートしておらず、サブjaugesを有効にし、スコープをユーザに関連付ける権限ハンドラで動作します。 設置が間違っていないことを確認してください。正しく動作させるためには、スコープを 親1-子N の階層構造で構成する必要があります。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
+            only_global_scope_enabled_help: '「子スコープ署名」を有効にし、グローバルスコープを親スコープとして設定する場合、このフラグをチェックします。 これを有効にすると、取り組み作成ウィザードで取り組みタイプの選択がスキップされます。 この設定の仕組みについての詳細は、この <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">リンク</a> を参照してください。'
+            options: オプション
             title: 一般情報
           initiative_type_scopes:
             title: イニシアチブの種別のスコープ
@@ -449,12 +457,8 @@ ja:
           any_vote_method: この市民イニシアチブは、オンラインと対面の署名の両方を収集します。
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
           offline_method: この市民イニシアチブは、個人の署名のみを収集します。
-        signature_identities:
-          select_identity: 出席者識別子を選択
         signatures_count:
           other: " 署名"
-        supports:
-          title: 署名一覧
         vote_cabin:
           already_voted: 既に署名されています
           supports_required: "%{total_supports} 署名が必要です"

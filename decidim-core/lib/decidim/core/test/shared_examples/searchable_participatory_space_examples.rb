@@ -36,7 +36,7 @@ shared_examples "global search of participatory spaces" do
         it "updates the associated SearchableResource after published ParticipatorySpace update" do
           searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
           created_at = searchable.created_at
-          updated_title = "Brand new title"
+          updated_title = { "en" => "Brand new title" }
           participatory_space.update(title: updated_title)
 
           participatory_space.save!
@@ -44,7 +44,7 @@ shared_examples "global search of participatory spaces" do
 
           organization.available_locales.each do |locale|
             searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
-            expect(searchable.content_a).to eq updated_title
+            expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
             expect(searchable.updated_at).to be > created_at
           end
         end

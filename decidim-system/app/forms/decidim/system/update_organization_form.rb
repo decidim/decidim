@@ -31,7 +31,7 @@ module Decidim
       ]
       attribute :file_upload_settings, FileUploadSettingsForm
 
-      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.map do |provider|
+      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
           if setting == :enabled
             ["omniauth_settings_#{provider}_enabled".to_sym, Boolean]

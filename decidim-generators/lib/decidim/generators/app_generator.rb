@@ -115,7 +115,7 @@ module Decidim
         if current_gem == "decidim"
           gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-          %w(conferences consultations elections initiatives).each do |component|
+          %w(conferences consultations elections initiatives templates).each do |component|
             if options[:demo]
               gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
             else

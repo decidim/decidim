@@ -18,6 +18,7 @@ ja:
       comments_count: コメント数
       last_activity:
         new_comment_at_html: "<span> %{link}に新しいコメント</span>"
+      view: 表示
       votes:
         create:
           error: コメントに投票中に問題がありました。
@@ -33,7 +34,7 @@ ja:
           user_group_id:
             label: 'コメント:'
         opinion:
-          neutral: ニュートラル
+          neutral: 中立
         remaining_characters: "残り %{count} 文字"
         remaining_characters_1: "残り%{count} 文字"
         title: コメントを追加

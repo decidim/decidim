@@ -438,7 +438,6 @@ pt:
           buttons:
             check: Verificar e continuar
             close_modal: Fechar modal
-            uncheck: Manter desmarcado
           notice: |-
             <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
             Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
@@ -909,8 +908,6 @@ pt:
         start:
           send: Enviar
           title: Iniciar uma conversa
-        update:
-          error: Mensagem não enviada. Tente novamente mais tarde
     metrics:
       download:
         csv: Transferência de dados (csv)
@@ -1055,7 +1052,6 @@ pt:
           error: Ocorreu um problema ao aceitar os termos e condições.
           success: Ótimo! Aceitou os termos e condições.
         form:
-          agreement: Eu concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
           modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.

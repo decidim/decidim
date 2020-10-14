@@ -455,7 +455,6 @@ pl:
           buttons:
             check: Sprawdź i kontynuuj
             close_modal: Zamknij modalne
-            uncheck: Pozostaw niezaznaczone
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
@@ -928,8 +927,6 @@ pl:
         start:
           send: Wyślij
           title: Zacznij konwersację
-        update:
-          error: Wiadomość nie została wysłana. Spróbuj ponownie później
     metrics:
       download:
         csv: Pobierz dane (csv)
@@ -1074,7 +1071,6 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
-          agreement: Zgadzam się na te warunki
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.

@@ -631,7 +631,7 @@ cs:
           invalid: Při čtení souboru CSV došlo k chybě.
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
-          explanation: 'Nahrávejte soubor CSV bez záhlaví, který musí mít dva sloupce: email v prvním sloupci a jméno uživatele v posledním sloupci (e-mail, jméno), které chcete přidat do participačního prostoru.'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
       resource_permissions:

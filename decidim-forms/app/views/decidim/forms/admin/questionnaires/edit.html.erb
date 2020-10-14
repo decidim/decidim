@@ -1,7 +1,11 @@
-<%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
-  <%= render partial: "decidim/forms/admin/questionnaires/form", object: form, locals: { title: t(".title") } %>
+<% if (defined? Decidim::Templates) && choose_template? %>
+  <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
+<% else %>
+  <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form edit_questionnaire" }) do |form| %>
+    <%= render partial: "decidim/forms/admin/questionnaires/form", object: form, locals: { title: t("form.title", scope: "decidim.templates.admin.questionnaire_templates") } %>
 
-  <div class="button--double form-general-submit">
-    <%= form.submit t(".save"), class: "button" %>
-  </div>
+    <div class="button--double form-general-submit">
+      <%= form.submit t(".save"), class: "button" %>
+    </div>
+  <% end %>
 <% end %>

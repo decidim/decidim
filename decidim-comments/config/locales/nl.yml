@@ -20,6 +20,7 @@ nl:
       comments_count: Aantal reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
+      view: Bekijk
       votes:
         create:
           error: Er is een probleem opgetreden bij het stemmen op de opmerking.
@@ -29,7 +30,7 @@ nl:
         form:
           body:
             label: Reactie
-            placeholder: Wat vind u hierover?
+            placeholder: Wat wil je hierover zeggen?
           form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:
@@ -38,7 +39,7 @@ nl:
           neutral: Neutraal
         remaining_characters: "%{count} tekens over"
         remaining_characters_1: "%{count} teken over"
-        title: Voeg uw reactie toe
+        title: Voeg je reactie toe
       comment:
         alignment:
           against: Tegen

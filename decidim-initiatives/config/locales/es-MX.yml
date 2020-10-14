@@ -5,6 +5,7 @@ es-MX:
         decidim_user_group_id: Autor
         description: Descripción
         offline_votes: Apoyo cara a cara
+        offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Alcance
         signature_end_date: Fin del período de recogida de firmas
         signature_start_date: Inicio del período de recogida de firmas
@@ -29,6 +30,7 @@ es-MX:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
         banner_image: Imagen de banner
+        child_scope_threshold_enabled: Activar firmas por subámbito
         collect_user_extra_fields: Recopilar datos personales del usuario en la firma
         custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de la recogida de firmas
         description: Descripción
@@ -36,6 +38,7 @@ es-MX:
         extra_fields_legal_information: Información legal sobre la recogida de datos personales.
         minimum_committee_members: Mínimo de miembros del comité.
         online_signature_enabled: Firma en línea habilitada
+        only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
@@ -123,6 +126,7 @@ es-MX:
             initiative_title: Título de la iniciativa
             name_and_surname: Nombre y apellido
             postal_code: código postal
+            scope: Ámbito
             time_and_date: Hora y fecha
             timestamp: Marca de tiempo
       titles:
@@ -215,6 +219,8 @@ es-MX:
             success: La iniciativa ha sido enviada a validación técnica
             update: Actualizar
           form:
+            attachments: Archivos adjuntos
+            settings: Ajustes
             title: Información general
           index:
             actions_title: Acción
@@ -260,6 +266,10 @@ es-MX:
             destroy: Borrar
             update: Actualizar
           form:
+            authorizations: Ajustes de autorización
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no soporta recogida de firmas en persona, habilita indicadores de firmas por subámbitos y funciona con un controlador de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización más abajo, en la configuración de autorización. Para que funcione debe configurarse de manera jerárquica : 1 ámbito - N subámbitos. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">enlace</a>.
+            options: Opciones
             title: Información general
           initiative_type_scopes:
             title: Ámbitos de aplicación para el tipo de iniciativa
@@ -453,13 +463,9 @@ es-MX:
           any_vote_method: Esta iniciativa ciudadana recoge apoyos en línea y presencialmente.
           follow_description: Recibir una notificación cuando haya novedades en esta iniciativa.
           offline_method: Esta iniciativa ciudadana solo recoge firmas presenciales.
-        signature_identities:
-          select_identity: Selecciona un identificador de usuario
         signatures_count:
           one: " firma"
           other: " firmas"
-        supports:
-          title: Listado de firmas
         vote_cabin:
           already_voted: Ha sido firmado
           supports_required: "Se requieren %{total_supports} firmas"

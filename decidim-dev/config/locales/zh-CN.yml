@@ -1,0 +1,56 @@
+zh-CN:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: 创建于
+        decidim_scope_id: 范围
+        field: 我的字段
+        start_date: 开始日期
+        title: 标题
+        translatable_text: 可翻译文本
+        updated_at: 更新于
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: 只读属性
+            test: 测试
+            test_choices:
+              a: 一个选择
+              b: B 选择
+              c: C 选择
+          step:
+            endorsements_blocked: 已阻止授权
+            endorsements_enabled: 授权已启用
+            readonly_step_attribute: 只读步骤属性
+    dummy:
+      admin:
+        exports:
+          dummies: 杜姆文
+    gamification:
+      badges:
+        test:
+          conditions:
+            - 对判定环境使用测试环境。
+          description: 参与者通过创建测试获得这个徽章。
+          description_another: 此参与者已创建了 %{score} 个测试。
+          description_own: 您已创建了 %{score} 个测试。
+          name: 测试
+          next_level_in: 再创建 %{score} 个测试以达到下一关！
+          unearned_another: 此参与者尚未创建任何测试。
+          unearned_own: 您还没有创建测试。
+    pages:
+      home:
+        statistics:
+          bar: 条形图
+          dummies_count_high: 倾角高
+          dummies_count_medium: 虚拟机介质
+          foo: Foo
+    participatory_processes:
+      statistics:
+        dummies_count_high: 倾角高
+        dummies_count_medium: 虚拟机介质
+    resource_links:
+      test_link:
+        dummy_resource_dummy: 相关虚假的

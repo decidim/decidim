@@ -3,7 +3,7 @@
 require "spec_helper"
 require "decidim/proposals/test/capybara_proposals_picker"
 
-describe "Admin manages meetings", type: :system, serves_map: true do
+describe "Admin manages meetings", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
 

@@ -19,6 +19,18 @@ module Decidim
       end
     end
 
+    describe "validations" do
+      let(:new_title) { "New Title" }
+
+      context "when saving a simple string" do
+        it "raises a validation error" do
+          dummy_resource.title = new_title
+          expect(dummy_resource).not_to be_valid
+          expect(dummy_resource.errors[:title]).to eq ["is invalid"]
+        end
+      end
+    end
+
     describe "when resource has machine translations and is updated" do
       let(:new_title) { { en: "New Title", machine_translations: { ca: "nou títol" } } }
       let!(:process) { create :participatory_process, title: new_title }
@@ -41,7 +53,10 @@ module Decidim
 
       it "enqueues the machine translation job when resource is updated" do
         updated_title = Decidim::Faker::Localized.name
-        dummy_resource.update(title: updated_title)
+        dummy_resource.title = updated_title
+        expect(dummy_resource).to be_valid
+        dummy_resource.save
+
         expect(Decidim::MachineTranslationResourceJob).to have_been_enqueued.on_queue("default").with(
           dummy_resource,
           dummy_resource.translatable_previous_changes,

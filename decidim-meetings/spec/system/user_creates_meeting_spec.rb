@@ -25,7 +25,7 @@ describe "User creates meeting", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when creating a new meeting" do
+  context "when creating a new meeting", :serves_geocoding_autocomplete do
     let(:user) { create :user, :confirmed, organization: organization }
     let!(:category) { create :category, participatory_space: participatory_space }
 
@@ -79,7 +79,7 @@ describe "User creates meeting", type: :system do
             fill_in :meeting_description, with: meeting_description
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
-            fill_in :meeting_address, with: meeting_address
+            fill_in_geocoding :meeting_address, with: meeting_address
             fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
             fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
             select translated(category.name), from: :meeting_decidim_category_id
@@ -99,6 +99,31 @@ describe "User creates meeting", type: :system do
           expect(page).to have_selector(".author-data", text: user.name)
         end
 
+        context "when using the front-end geocoder" do
+          it_behaves_like(
+            "a record with front-end geocoding address field",
+            Decidim::Meetings::Meeting,
+            within_selector: ".new_meeting",
+            address_field: :meeting_address
+          ) do
+            before do
+              # Prepare the view for submission (other than the address field)
+              visit_component
+
+              click_link "New meeting"
+
+              within ".new_meeting" do
+                fill_in :meeting_title, with: meeting_title
+                fill_in :meeting_description, with: meeting_description
+                fill_in :meeting_location, with: meeting_location
+                fill_in :meeting_location_hints, with: meeting_location_hints
+                fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
+                fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              end
+            end
+          end
+        end
+
         context "when creating as a user group" do
           let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
 
@@ -114,7 +139,7 @@ describe "User creates meeting", type: :system do
               fill_in :meeting_description, with: meeting_description
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
-              fill_in :meeting_address, with: meeting_address
+              fill_in_geocoding :meeting_address, with: meeting_address
               fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
               fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
               select translated(category.name), from: :meeting_decidim_category_id
