@@ -1,0 +1,83 @@
+zh-CN:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: 新博客文章
+  activerecord:
+    models:
+      decidim/blogs/post:
+        other: 员额
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: 您确定要删除此帖子？
+        destroy: 删除
+        edit: 编辑
+        new: 新建帖子
+        title: 行动
+      admin:
+        models:
+          components:
+            body: 正文内容
+          post:
+            name: 帖子
+        posts:
+          create:
+            invalid: 创建这个帖子时出错
+            success: 帖子创建成功
+          destroy:
+            success: 帖子已成功删除
+          edit:
+            save: 更新
+          index:
+            title: 员额
+          new:
+            create: 创建
+            title: 创建帖子
+          update:
+            invalid: 保存帖子时出错。
+            success: 帖子保存成功
+      last_activity:
+        new_post_at_html: "<span>在 %{link}的新帖</span>"
+      models:
+        post:
+          fields:
+            author: 作者
+            body: 正文内容
+            created_at: 创建于
+            title: 标题
+      posts:
+        show:
+          back: 返回列表
+          comments: 评论
+          view: 查看
+        sidebar_blog:
+          comments: 评论
+          most_commented_posts: 评论最多的帖子
+      read_more: 阅读更多
+    components:
+      blogs:
+        name: 博客
+        settings:
+          global:
+            announcement: 通 知
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+          step:
+            announcement: 通 知
+            comments_blocked: 评论已阻止
+            endorsements_blocked: 已阻止授权
+            endorsements_enabled: 授权已启用
+    events:
+      blogs:
+        post_created:
+          email_intro: 帖子"%{resource_title}" 已经发布在"%{participatory_space_title}"，您关注的是这个帖子。
+          email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以从上一个链接取消关注它。
+          email_subject: 新帖子发布于 %{participatory_space_title}
+          notification_title: 帖子 <a href="%{resource_path}">%{resource_title}</a> 已经在 %{participatory_space_title} 中发布
+    pages:
+      home:
+        statistics:
+          posts_count: 员额
+    participatory_processes:
+      statistics:
+        posts_count: 员额

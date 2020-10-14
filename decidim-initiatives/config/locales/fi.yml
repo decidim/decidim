@@ -302,6 +302,7 @@ fi:
           all: Kaikki
           answered: Vastattu
           closed: Suljettu
+          draft: Luonnokset
           open: Avaa
           rejected: Liian vähän allekirjoituksia
         filter_type_values:
