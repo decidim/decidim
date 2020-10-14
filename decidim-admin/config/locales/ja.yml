@@ -164,7 +164,7 @@ ja:
           error: 新しいエリアタイプの作成中に問題が発生しました。
           success: エリアタイプが正常に作成されました。
         destroy:
-          success: エリアタイプを破壊しました
+          success: エリアタイプを削除しました
         edit:
           title: エリアタイプの編集
           update: 更新
@@ -180,7 +180,7 @@ ja:
           success: エリアの作成に成功しました。
         destroy:
           has_spaces: 領域には依存スペースがあり、削除するために依存関係を持っていてはなりません。
-          success: エリアの破壊に成功しました
+          success: エリアの削除に成功しました
         edit:
           title: エリアを編集
           update: 更新
@@ -257,7 +257,7 @@ ja:
           error: このコンポーネントの作成に問題がありました。
           success: 構成部品が作成されました。
         destroy:
-          error: このコンポーネントの破壊中に問題が発生しました。
+          error: このコンポーネントの削除中に問題が発生しました。
           success: 構成部品は正常に削除されました。
         edit:
           title: コンポーネントを編集
@@ -631,6 +631,7 @@ ja:
           invalid: CSVファイルの読み込みに問題が発生しました。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
+          explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
       resource_permissions:
@@ -648,7 +649,7 @@ ja:
           error: 新しいスコープタイプの作成中に問題が発生しました。
           success: スコープタイプが正常に作成されました。
         destroy:
-          success: スコープの種類が破壊されました
+          success: スコープの種類が削除されました
         edit:
           title: スコープの種類を編集
           update: 更新
@@ -663,7 +664,7 @@ ja:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
         destroy:
-          success: スコープが破壊されました
+          success: スコープが削除されました
         edit:
           title: スコープを編集
           update: 更新
@@ -680,7 +681,7 @@ ja:
           destroy: 削除
           share: 共有
         destroy:
-          error: トークンを破壊する際に問題が発生しました。
+          error: トークンを削除する際に問題が発生しました。
           success: トークンが正常に破棄されました。
         share_tokens:
           empty: アクティブなトークンはありません
@@ -696,7 +697,7 @@ ja:
           error: 新しいトピックを作成中に問題が発生しました。
           success: トピックを正常に作成しました。
         destroy:
-          success: トピックを破壊しました
+          success: トピックを削除しました
         edit:
           title: トピックを編集
           update: トピックを更新
@@ -713,7 +714,7 @@ ja:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
         destroy:
-          success: ページを破壊しました
+          success: ページを削除しました
         edit:
           changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集
