@@ -249,6 +249,10 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
           notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Élections
     participatory_processes:
       statistics:
         elections_count: Élections
