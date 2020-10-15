@@ -6,6 +6,7 @@ Decidim.register_component(:elections) do |component|
   component.engine = Decidim::Elections::Engine
   component.admin_engine = Decidim::Elections::AdminEngine
   component.icon = "decidim/elections/icon.svg"
+  component.stylesheet = "decidim/elections/elections"
   component.permissions_class_name = "Decidim::Elections::Permissions"
   component.query_type = "Decidim::Elections::ElectionsType"
   # component.on(:before_destroy) do |instance|
@@ -23,9 +24,15 @@ Decidim.register_component(:elections) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
+  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
+    elections = Decidim::Elections::FilteredElections.for(components, start_at, end_at)
+    elections.count
+  end
+
   component.register_resource(:election) do |resource|
     resource.model_class_name = "Decidim::Elections::Election"
     resource.actions = %w(vote)
+    resource.card = "decidim/elections/election"
   end
 
   component.register_resource(:question) do |resource|
@@ -34,10 +41,6 @@ Decidim.register_component(:elections) do |component|
 
   component.register_resource(:answer) do |resource|
     resource.model_class_name = "Decidim::Elections::Answer"
-  end
-
-  component.register_stat :elections_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Elections::Election.where(component: components).count
   end
 
   component.seeds do |participatory_space|
@@ -69,12 +72,12 @@ Decidim.register_component(:elections) do |component|
         {
           component: component,
           title: Decidim::Faker::Localized.sentence(2),
-          subtitle: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(3)
           end,
           start_time: 3.weeks.from_now,
-          end_time: 3.weeks.from_now + 4.hours
+          end_time: 3.weeks.from_now + 4.hours,
+          published_at: Faker::Boolean.boolean(0.5) ? 1.week.ago : nil
         },
         visibility: "all"
       )
@@ -89,9 +92,10 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(3)
             end,
-            max_selections: Faker::Number.between(0, 5),
+            max_selections: Faker::Number.between(1, 5),
             weight: Faker::Number.number(1),
-            random_answers_order: Faker::Boolean.boolean(0.5)
+            random_answers_order: Faker::Boolean.boolean(0.5),
+            min_selections: Faker::Number.between(0, 1)
           },
           visibility: "all"
         )
@@ -114,8 +118,8 @@ Decidim.register_component(:elections) do |component|
           Decidim::Attachment.create!(
             title: Decidim::Faker::Localized.sentence(2),
             description: Decidim::Faker::Localized.sentence(5),
-            file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
-            attached_to: answer
+            attached_to: answer,
+            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
         end
       end

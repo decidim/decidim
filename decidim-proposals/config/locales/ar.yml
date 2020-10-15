@@ -91,22 +91,9 @@ ar:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: نوع
-          values:
-            'false': اقتراحات
-            'true': تعديلات
-        state_eq:
-          label: حالة
-          values:
-            evaluating: تقييم
-            withdrawn: سحب
-        state_null:
-          label: الحالة
-          values:
-            'true': بلا جواب
-        valuator_role_ids_has:
-          label: تم إسناده إلى مُقيِّم
+        proposals:
+          valuator_role_ids_has:
+            label: تم إسناده إلى مُقيِّم
     components:
       proposals:
         actions:
@@ -636,7 +623,6 @@ ar:
           amend: تعديل
           comment: تعليق
           comments: تعليقات
-          endorse: تأييد
       proposal_votes:
         create:
           error: كانت هناك مشكلة في دعم الاقتراح.
@@ -753,7 +739,6 @@ ar:
           read_more: اقرأ المزيد
           report: أبلغ عن
           withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
-          withdraw_confirmation: هل أنت متأكد أنك تريد سحب هذا الاقتراح؟
           withdraw_proposal: سحب الاقتراح
         vote_button:
           already_voted: معتمد بالفعل

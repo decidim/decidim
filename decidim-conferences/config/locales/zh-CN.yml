@@ -1,0 +1,576 @@
+zh-CN:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: 相关程序集
+        banner_image: 横幅图像
+        consultations_ids: 相关协商
+        copy_categories: 复制类别
+        copy_components: 复制组件
+        copy_features: 复制功能
+        decidim_scope_id: 范围
+        description: 描述
+        hashtag: 标签
+        hero_image: 首页图像
+        participatory_processes_ids: 相关的参与进程
+        promoted: 高亮
+        published_at: 发布于
+        scope_id: 范围
+        scopes_enabled: 范围已启用
+        short_description: 简短描述
+        show_statistics: 显示统计
+        slogan: 斯洛根文
+        slug: URL 名称
+        title: 标题
+      conference_speaker:
+        full_name: 全名
+      conference_user_role:
+        email: 电子邮件地址
+        name: 名称
+        role: 作用
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: 此电子邮件已被邀请
+  activerecord:
+    models:
+      decidim/conference:
+        other: 会议
+      decidim/conference_speaker:
+        other: 会议发言者：
+      decidim/conference_user_role:
+        other: 会议用户角色
+  decidim:
+    admin:
+      actions:
+        confirm: 确认
+        new_conference: 新会议
+        send_diplomas: 发送出勤证书
+      conference_copies:
+        new:
+          copy: 复制
+          select: 选择要重复的数据
+          title: 复制会议
+      conference_publications:
+        create:
+          error: 发布此会议时出现问题。
+          success: 会议已成功发布。
+        destroy:
+          error: 取消发布此会议时出现问题。
+          success: 会议已成功取消发布。
+      conference_registration:
+        confirm:
+          error: 确认此会议注册时出现问题。
+          success: 会议注册成功确认。
+      conference_speakers:
+        create:
+          error: 在这个会议上添加发言者时出现问题。
+          success: 会议发言者已成功创建。
+        destroy:
+          success: 会议发言者已成功删除。
+        edit:
+          title: 更新会议扬声器。
+          update: 更新
+        index:
+          conference_speakers_title: 会议发言者：
+        new:
+          create: 创建
+          title: 新会议发言者。
+        update:
+          error: 更新这个会议发言者时出现问题。
+          success: 会议发言者已成功更新。
+      conference_user_roles:
+        create:
+          error: 添加管理员到此会议时出现问题。
+          success: 成功添加会议管理员。
+        destroy:
+          success: 会议管理员已成功删除。
+        edit:
+          title: 更新会议管理员。
+          update: 更新
+        index:
+          conference_admins_title: 会议管理员
+        new:
+          create: 创建
+          title: 新的会议管理员。
+        update:
+          error: 更新会议管理员时出错。
+          success: 会议管理员已成功更新。
+      conferences:
+        create:
+          error: 创建此会议时出现问题。
+          success: 会议成功创建。
+        edit:
+          update: 更新
+        exports:
+          registrations: 注册
+        form:
+          title: 一般信息
+        index:
+          not_published: 未发布
+          published: 已发布
+        new:
+          create: 创建
+          title: 'Original: ENGLISH'
+        update:
+          error: 更新此会议时出现问题。
+          success: 会议已成功更新。
+      conferences_copies:
+        create:
+          error: 复制此会议时出现问题。
+          success: 会议成功重复。
+      media_links:
+        create:
+          error: 创建新媒体链接时出现问题。
+          success: 媒体链接成功创建。
+        destroy:
+          success: 媒体链接删除成功
+        edit:
+          title: 更新媒体链接。
+          update: 更新
+        index:
+          media_links_title: 媒体链接
+        new:
+          create: 创建
+          title: 媒体链接
+        update:
+          error: 更新此媒体链接时出现问题。
+          success: 媒体链接已成功更新。
+      menu:
+        conferences: 会议
+        conferences_submenu:
+          attachment_collections: 文件夹
+          attachment_files: 文件
+          attachments: 附件
+          categories: 类别管理
+          components: 组件
+          conference_admins: 会议管理员
+          conference_invites: 邀请
+          conference_speakers: 发言者：
+          diploma: 出席证书
+          info: 信息
+          media_links: 媒体链接
+          moderations: 版面
+          partners: 合作伙伴
+          registration_types: 注册类型
+          registrations: 注册
+          user_registrations: 用户注册
+      models:
+        conference:
+          fields:
+            created_at: 创建于
+            promoted: 高亮
+            published: 已发布
+            title: 标题
+        conference_speaker:
+          fields:
+            affiliation: 从属关系
+            full_name: 全名
+            position: 位置
+          name: 会议扬声器
+        conference_user_role:
+          fields:
+            email: 电子邮件地址
+            name: 名称
+            role: 作用
+          name: 会议管理
+          roles:
+            admin: 管理员
+            collaborator: 协作者
+            moderator: 版主
+            valuator: 值者
+        media_link:
+          fields:
+            date: 日期
+            link: 链接
+            title: 标题
+          name: 媒体链接
+        partner:
+          fields:
+            link: 链接
+            logo: 徽标
+            name: 名称
+            partner_type: 类型
+          name: 合作伙伴
+          types:
+            collaborator: 协作者
+            main_promotor: 主要促销商
+        registration_type:
+          fields:
+            conference_meetings: 会议开幕
+            price: 价格
+            registrations_count: 注册次数
+            title: 标题
+            weight: 权重
+          name: 注册类型
+      partners:
+        create:
+          error: 为这个会议添加合作伙伴时出现问题。
+          success: 成功添加了会议伙伴。
+        destroy:
+          success: 会议合作伙伴已成功删除。
+        edit:
+          title: 更新伙伴。
+          update: 更新
+        new:
+          create: 创建
+          title: 新建合作伙伴
+        update:
+          error: 更新此会议的合作伙伴时出现问题。
+          success: 会议合作伙伴已成功更新。
+      registration_type_publications:
+        create:
+          error: 发布此注册类型时出现问题。
+          success: 注册类型发布成功。
+        destroy:
+          error: 取消发布此注册类型时出现问题。
+          success: 注册类型已取消发布。
+      registration_types:
+        create:
+          error: 添加此会议的注册类型时出现问题。
+          success: 会议注册类型添加成功。
+        destroy:
+          success: 会议注册类型已成功删除。
+        edit:
+          title: 更新注册类型。
+          update: 更新
+        new:
+          create: 创建
+          title: 新注册类型
+        update:
+          error: 更新此会议的注册类型时出现问题。
+          success: 会议注册类型已成功更新。
+      titles:
+        conferences: 会议
+    admin_log:
+      conference:
+        create: "%{user_name} 创建了 %{resource_name} 次会议"
+        publish: "%{user_name} 发布了 %{resource_name} 次会议"
+        send_conference_diplomas: "%{user_name} 發送了 %{resource_name} 次会议的出勤证书"
+        unpublish: "%{user_name} 取消发布了 %{resource_name} 会议"
+        update: "%{user_name} 更新了 %{resource_name} 次会议"
+        update_diploma: "%{user_name} 更新了 %{resource_name} 次会议的出席证书配置"
+      conference_speaker:
+        create: "%{user_name} 在 %{space_name} 次会议上创建了 %{resource_name} 扬声器"
+        delete: "%{user_name} 将 %{resource_name} 扬声器移出了 %{space_name} 次会议"
+        update: "%{user_name} 更新了 %{resource_name} 扬声器在 %{space_name} 次会议 上的扬声器"
+      conference_user_role:
+        create: "%{user_name} 邀请了 %{resource_name} 参加了 %{space_name} 次会议"
+        delete: "%{user_name} 将 %{resource_name} 管理员从 %{space_name} 次会议中删除"
+        update: "%{user_name} 更改了 %{resource_name} 在 %{space_name} 次会议中的角色"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} 在 %{resource_name} 次会议上确认了会议注册"
+        partner:
+          create: "%{user_name} 创建了 %{resource_name} 到 %{space_name} 会议"
+          delete: "%{user_name} 将 %{resource_name} 管理员从 %{space_name} 次会议中删除"
+          update: "%{user_name} 在 %{space_name} 次会议上更新 %{resource_name}"
+        registration_type:
+          create: "%{user_name} 在 %{space_name} 次会议上创建了 %{resource_name} 注册类型"
+          publish: "%{user_name} 在 %{space_name} 次会议上发布了 %{resource_name} 注册类型"
+          unpublish: "%{user_name} 在 %{space_name} 次会议上取消发布了 %{resource_name} 注册类型"
+          update: "%{user_name} 更新了 %{resource_name} 注册类型在 %{space_name} 会议"
+      media_link:
+        create: "%{user_name} 在 %{space_name} 次会议上创建了 %{resource_name} 媒体链接"
+        delete: "%{user_name} 将 %{resource_name} 媒体链接从 %{space_name} 会议中删除"
+        update: "%{user_name} 更新了 %{resource_name} 个媒体链接在 %{space_name} 会议"
+    conference_program:
+      index:
+        title: 程序
+    conference_speakers:
+      index:
+        title: 发言者：
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+        conference_invites:
+          create:
+            error: 邀请与会者参加会议时出现问题。
+            success: 参加者成功地被邀请加入会议。
+          form:
+            attendee_type: 参与者类型
+            existing_user: 现有参与者
+            invite_explanation: 与会者将应邀参加会议，也将应邀参加本组织。
+            non_user: 非现有参与者
+            select_user: 选择参与者
+          index:
+            filter:
+              accepted: 已接受
+              all: 所有的
+              rejected: 已拒绝
+              sent: 已发送
+            filter_by: 筛选方式
+            invite_attendee: Invite participant
+            invites: 邀请
+            search: 搜索
+          new:
+            explanation: 与会者将被邀请参加会议。如果她的电子邮件未注册，她也将被邀请加入组织。
+            invite: 邀请
+            new_invite: Invite participant
+        conference_registrations:
+          index:
+            registrations: 注册
+        conference_speakers:
+          form:
+            existing_user: 现有参与者
+            non_user: Non participant
+            select_user: 选择参与者
+            user_type: 参与者类型
+          index:
+            search: 搜索
+        conferences:
+          form:
+            available_slots_help: 如果您有无限空位可用，则将其留给0。
+            registrations_count:
+              other: 有 %{count} 个注册。
+            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+        diplomas:
+          edit:
+            save: 保存
+            title: 出席证书
+        invite_join_conference_mailer:
+          invite:
+            decline: 拒绝邀请 '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} 邀请您在 %{application}加入会议。您可以拒绝或接受以下链接。"
+            registration: 注册%{conference_title}'
+        partners:
+          index:
+            title: 合作伙伴
+        registration_types:
+          form:
+            select_conference_meetings: 选择会议
+          index:
+            title: 注册类型
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: 您将在附件中找到会议 <a href="%{url}">%{title}</a> 的出席证书。
+          diploma_user:
+            attendance_verified_by: 验证出勤者
+            certificate_of_attendance: 出席证书
+            certificate_of_attendance_description: 这是为了证明 <strong>%{user}</strong> 出席并参加了 <strong>%{title}</strong> 在 <strong>%{location}</strong> 在 <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: 签发与会证书时遇到问题。
+          success: 会议出勤证明已成功发送
+      conference:
+        registration_confirm:
+          cancel: 取消
+          confirm: 确认
+        show:
+          free: 免费的
+          going: 正在参加
+          no_slots_available: 无可用槽位
+          registration: 登记
+      conference_program:
+        program_meeting:
+          content: 内容
+          location: 地点
+          speakers: 发言者：
+          streaming: 流流
+        show:
+          day: 日
+          program: 程序
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: 您注册的会议 <a href="%{url}">%{title}</a> 已被确认。
+          details_1: '您注册的会议类型为 %{registration_type} 。它的费用为 %{price} 并且您可以参加以下活动：'
+          details_2: 您可以在附件中找到会议的详细信息。
+        pending_validation:
+          confirmation_pending: 您将很快收到确认
+          details: '您已注册到 %{registration_type} 类型，费用为 %{price} 并且您可以参加以下事件：'
+          pending_html: 您注册的会议 <a href="%{url}">%{title}</a> 正在等待确认。
+      conference_registrations:
+        create:
+          invalid: 加入这个会议时出现问题。
+          success: 您已成功加入会议。
+        decline_invitation:
+          invalid: 有一个问题拒绝邀请。
+          success: 您已成功拒绝邀请。
+        destroy:
+          invalid: 离开此会议时出现问题。
+          success: 您已经成功离开了会议。
+      conference_speaker:
+        go_to_twitter: 转到Twitter
+        more_info: 更多信息
+        personal_website: 个人网站
+        show:
+          more_info: 更多信息
+      conference_speaker_cell:
+        personal_url:
+          personal_website: 个人网站
+        twitter_handle:
+          go_to_twitter: 转到Twitter
+      conference_speakers:
+        index:
+          speakers: 发言者：
+      conferences:
+        partners:
+          collaborators: 合作伙伴
+          main_promotors: 组织者
+        show:
+          login_as: 您已登录为 %{name} <%{email}>
+          make_conference_registration: '让您在会议上注册：'
+          register: 注册
+      content_blocks:
+        highlighted_conferences:
+          name: 主要会议
+      index:
+        title: 会议
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: 您的会议注册已确认
+          pending_validation:
+            subject: 您的会议注册正在等待确认
+        invite_join_conference_mailer:
+          invite:
+            subject: 邀请加入会议
+        send_conference_diploma_mailer:
+          diploma:
+            subject: 您的会议出席证书已发送
+      models:
+        conference_invite:
+          fields:
+            email: 电子邮件地址
+            name: 名称
+            registration_type: 注册类型
+            sent_at: 发送于
+            status: 状态
+          status:
+            accepted: 已接受 (%{at})
+            rejected: 已拒绝 (%{at})
+            sent: 已发送
+        conference_registration:
+          fields:
+            email: 电子邮件地址
+            name: 名称
+            registration_type: 注册类型
+            state: 状态
+            states:
+              confirmed: 已确认
+              pending: 待定
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: 活跃的会议
+            see_all_conferences: 查看所有会议
+      photo:
+        image:
+          attributes:
+            alt: 媒体图片
+        show:
+          close_modal: 关闭模式
+          photo: 图片
+      photos_list:
+        show:
+          related_photos: 图像
+      registration_types:
+        index:
+          choose_an_option: '选择您的注册选项：'
+          login_as: 您已登录为 %{name} <%{email}>
+          no_registrations: 无注册
+          register: 注册
+          title: 注册类型
+      shared:
+        conference_user_login:
+          already_account: 您在决定中是否已经有一个帐户？
+          new_user: 新用户？
+          sign_in: 登录以注册会议
+          sign_up: 创建一个帐号来注册会议
+      show:
+        details: 详细信息
+        introduction: 一. 导言
+        objectives: 目标
+        related_assemblies: 相关的会议
+        related_consultations: 相关协商
+        related_participatory_processes: 相关的参与进程
+      statistics:
+        answers_count: 答案
+        comments_count: 评论
+        conference_count: 会议
+        debates_count: 辩论
+        endorsements_count: 授权
+        headline: 活动
+        meetings_count: 会议
+        orders_count: 支持
+        pages_count: 页 次
+        posts_count: 员额
+        projects_count: 项目
+        proposals_count: 建议
+        results_count: 成果
+        surveys_count: 调查
+        users_count: 参加者
+        votes_count: 支持
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: 您注册的会议 <a href="%{resource_url}">%{resource_title}</a> 已被确认。
+        conference_registration_validation_pending:
+          notification_title: 您的会议注册 <a href="%{resource_url}">%{resource_title}</a> 正在等待确认。
+        conference_registrations_over_percentage:
+          email_intro: '"%{resource_title}" 会议占用的空档超过 %{percentage}%。'
+          email_outro: 您收到此通知是因为您是会议参与空间的管理员。
+          email_subject: '"%{resource_title}" 会议占用的空档超过 %{percentage}%'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议占用时间超过 %{percentage}%。
+        conference_updated:
+          email_intro: '"%{resource_title}"会议已更新。您可以从其页面读取新版本：'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '“%{resource_title}”会议已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议已更新。
+        registrations_enabled:
+          email_intro: '"%{resource_title}"会议已启用注册。您可以在其页面上注册：'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '"%{resource_title}"会议已启用注册。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议已启用注册。
+        role_assigned:
+          email_intro: 您已被分配为 %{role} 用于会议 "%{resource_title}"。
+          email_outro: 您收到此通知是因为您是 %{role} 的 "%{resource_title}" 会议。
+          email_subject: 您已被分配为 %{role} 给 "%{resource_title}"。
+          notification_title: 您已被分配为 %{role} 用于会议 <a href="%{resource_url}">%{resource_title}</a>。
+        upcoming_conference:
+          email_intro: '"%{resource_title}"会议将在 2 天内进行。您可以从其页面阅读描述：'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '"%{resource_title}"会议即将来临！'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议将在 2 天内到来。
+    log:
+      value_types:
+        conference_presenter:
+          not_found: '会议未在数据库中找到 (ID: %{id})'
+    media:
+      index:
+        description: 关于此会议的链接
+        title: 媒体和链接
+    menu:
+      conferences: 会议
+  devise:
+    mailer:
+      join_conference:
+        subject: 邀请加入会议
+  layouts:
+    decidim:
+      conference_hero:
+        register: 注册
+      conference_widgets:
+        show:
+          take_part: 参与
+      conferences:
+        conference:
+          more_info: 更多信息
+          take_part: 参与
+        index:
+          promoted_conferences: 主要会议
+        order_by_conferences:
+          conferences:
+            other: "%{count} 个会议"
+        promoted_conference:
+          more_info: 更多信息
+          take_part: 参与
+      conferences_nav:
+        conference_menu_item: 信息
+        conference_partners_menu_item: 合作伙伴
+        conference_speaker_menu_item: 发言者：
+        media: 媒体
+        venues: 地点

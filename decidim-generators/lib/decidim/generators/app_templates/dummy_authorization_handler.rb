@@ -23,6 +23,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # Define the attributes you need for this authorization handler. Attributes
   # are defined using Virtus.
   #
+  attribute :name_and_surname, String
   attribute :document_number, String
   attribute :postal_code, String
   attribute :birthday, Decidim::Attributes::LocalizedDate

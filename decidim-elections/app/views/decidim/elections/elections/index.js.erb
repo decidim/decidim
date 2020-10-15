@@ -1,0 +1,10 @@
+var $elections = $('#elections');
+var $electionsCount = $('#elections-count');
+var $orderFilterInput = $('.order_filter');
+
+$elections.html('<%= j(render partial: "elections").strip.html_safe %>');
+$electionsCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $elections);
+$dropdownMenu.foundation();

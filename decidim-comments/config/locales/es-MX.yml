@@ -17,8 +17,10 @@ es-MX:
   decidim:
     comments:
       comments: Comentarios
+      comments_count: Número de comentarios
       last_activity:
         new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
+      view: Ver
       votes:
         create:
           error: Ha habido errores al votar el comentario.
@@ -55,6 +57,7 @@ es-MX:
             does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
+          title: Notificar contenido inapropiado
         show_replies: Mostrar %{replies_count} respuestas
         single_comment_link_title: Obtener enlace a un solo comentario
       comment_order_selector:
@@ -74,6 +77,10 @@ es-MX:
         single_comment_warning: Puedes revisar el resto de los comentarios <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estás viendo un solo comentario
         title: "%{count} comentarios"
+      down_vote_button:
+        text: No estoy de acuerdo con este comentario
+      up_vote_button:
+        text: Estoy de acuerdo con este comentario
     events:
       comments:
         comment_by_followed_user:

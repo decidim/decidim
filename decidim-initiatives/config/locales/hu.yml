@@ -62,12 +62,20 @@ hu:
       actions:
         new_initiative_type: Új kezdeményezés típusa
       filters:
-        state_eq:
-          values:
-            created: Létrehozva
-            discarded: Elvetve
-            published: Közzétéve
-            validating: Technikai érvényesítés
+        initiatives:
+          decidim_area_id_eq:
+            label: Terület
+          state_eq:
+            label: Állapot
+            values:
+              accepted: Elég aláírások
+              created: Létrehozva
+              discarded: Elvetve
+              published: Közzétéve
+              rejected: Nincsen elég aláírás
+              validating: Technikai érvényesítés
+          type_id_eq:
+            label: Típus
       menu:
         initiatives: Kezdeményezések
         initiatives_types: Kezdeményezések típusa
@@ -180,6 +188,8 @@ hu:
             success: A kezdeményezést technikai érvényesítésre továbbítottuk
             update: Frissítés
           form:
+            attachments: Csatolmányok
+            settings: Beállítások
             title: Általános információ
           index:
             actions_title: Művelet
@@ -365,6 +375,9 @@ hu:
           unfold: Kibont
         index_header:
           new_initiative: Új kezdeményezés
+        initiatives:
+          closed_initiatives_warning: Jelenleg nincs nyitott találkozó, de itt megtalálhatod az összes zárt találkozó listáját.
+          no_initiatives_warning: Egyik kezdeményezés sem felel meg a keresési feltételnek.
         interactions:
           comments_count:
             count:
@@ -389,13 +402,9 @@ hu:
           any_vote_method: Az állampolgári kezdeményezés online és személyes támogatást igényel.
           follow_description: Értesítést kapjon, ha ebben a kezdeményezésben vannak hírek
           offline_method: Az állampolgári kezdeményezés csak személyesen támogatható.
-        signature_identities:
-          select_identity: Válassz felhasználói azonosítót
         signatures_count:
           one: " aláírás"
           other: " aláírások"
-        supports:
-          title: Aláírások listája
         vote_cabin:
           already_voted: Már aláírtad
           supports_required: "%{total_supports} aláírás szükséges"

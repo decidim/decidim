@@ -24,8 +24,10 @@ nl:
         published_at: Gepubliceerd op
         related_process_ids: Verwante thema's
         scope_id: Scope
+        scope_type_max_depth_id: Scope filterdiepte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
+        show_metrics: Toon statistieken
         show_statistics: Toon statistieken
         slug: URL pad
         start_date: Startdatum
@@ -133,6 +135,7 @@ nl:
             admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
+            valuator: 'Waarde:'
         user:
           fields:
             invitation_accepted_at: Uitnodiging geaccepteerd op
@@ -204,11 +207,13 @@ nl:
         destroy:
           success: Admin succesvol verwijderd van dit participatief proces.
         edit:
+          title: Update participatieve procesbeheerder
           update: Bijwerken
         index:
           process_admins_title: Admins van het participatieve proces
         new:
           create: Aanmaken
+          title: Nieuwe participatieve procesbeheerder
         update:
           error: Er is een probleem opgetreden bij het bijwerken van een admin voor dit participatief proces.
           success: Admin succesvol bijgewerkt voor dit participatief proces.
@@ -264,6 +269,11 @@ nl:
         update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in het %{space_name} participatief proces"
     events:
       participatory_process:
+        role_assigned:
+          email_intro: U bent toegewezen als %{role} voor participatief proces "%{resource_title}".
+          email_outro: Je hebt deze melding ontvangen omdat je de burgerinspraak %{role} van de "%{resource_title}" uitvoert.
+          email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
+          notification_title: U bent toegewezen als %{role} voor participatief proces <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
@@ -287,6 +297,9 @@ nl:
         description: Aantal participatieve processen in deze organisatie
         object: participatieve processen
         title: Participatieve processen
+    participatory_process:
+      show:
+        related_assemblies: Verwante assemblies
     participatory_process_groups:
       show:
         group_participatory_processes:
@@ -322,6 +335,7 @@ nl:
             metadata: Metadata
             other: Overige
             related_processes: Verwante thema's
+            scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
@@ -341,7 +355,11 @@ nl:
             active_step: Actieve stap
             more_information: Meer informatie
             participate: Deelnemen
+            participate_in: Deelnemen aan proces %{resource_name}
             see_all_processes: Bekijk alle thema's
+      participatory_process_steps:
+        index:
+          back_to_process: Terug naar de procespagina
       participatory_processes:
         filters:
           counters:
@@ -371,6 +389,7 @@ nl:
           loading: Laden van resultaten...
       show:
         area: Onderwerp
+        dates: Datums
         developer_group: Organisator
         end_date: Einddatum
         local_area: Organisatiegebied
@@ -387,8 +406,10 @@ nl:
         comments_count: Reacties
         debates_count: Debatten
         endorsements_count: Ondersteuningen
+        followers_count: Volgers
         headline: Activiteit
         meetings_count: Vergaderingen
+        no_stats: Er zijn nog geen statistieken.
         orders_count: Stemmen
         pages_count: Pagina's
         participants_count: Deelnemers
@@ -404,6 +425,7 @@ nl:
       participatory_process_groups:
         participatory_process_group:
           browse: Bladeren
+          browse_resource: Bekijk de procesgroep %{resource_name}
           processes_count: 'Processen:'
       participatory_process_widgets:
         show:
@@ -415,11 +437,15 @@ nl:
         participatory_process:
           active_step: 'Huidige stap:'
           more_info: Meer informatie
+          more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
+          take_part_in: Neem deel aan proces %{resource_name}
         promoted_process:
           active_step: 'Huidige stap:'
           more_info: Meer informatie
+          more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
+          take_part_in: Neem deel aan proces %{resource_name}
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen

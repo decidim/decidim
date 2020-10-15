@@ -1,7 +1,7 @@
 #import "../fragments/add_comment_form_session.fragment.graphql"
 #import "../fragments/comment_thread.fragment.graphql"
 #import "../fragments/add_comment_form_commentable.fragment.graphql"
-query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String, $singleCommentId: String) {
+query GetComments($commentableId: String!, $commentableType: String!, $orderBy: String, $singleCommentId: String, $locale: String!, $toggleTranslations: Boolean!) {
   session {
     user {
       name
@@ -11,7 +11,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
     }
     ...AddCommentFormSession
   }
-  commentable(id: $commentableId, type: $commentableType) {
+  commentable(id: $commentableId, type: $commentableType, locale: $locale, toggleTranslations: $toggleTranslations) {
     acceptsNewComments
     userAllowedToComment
     commentsHaveAlignment

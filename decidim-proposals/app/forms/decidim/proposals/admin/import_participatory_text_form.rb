@@ -33,7 +33,7 @@ module Decidim
 
         # Return ACCEPTED_MIME_TYPES plus `text/plain` for better markdown support
         def valid_mime_types
-          ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE]
+          ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE] + ["application/octet-stream"]
         end
 
         def document_type

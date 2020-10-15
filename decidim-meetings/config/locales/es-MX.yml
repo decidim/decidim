@@ -88,6 +88,8 @@ es-MX:
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -159,6 +161,10 @@ es-MX:
         confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'El encuentro no se puede eliminar porque tiene %{count} propuesta asociada:'
+            other: 'El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas:'
         minutes: Acta
         new: Nuevo encuentro
         preview: Previsualizar
@@ -237,6 +243,10 @@ es-MX:
             invalid: Ha habido un problema al crear este encuentro
             success: Encuentro creado con éxito
           destroy:
+            invalid:
+              proposals_count:
+                one: El encuentro no se puede eliminar porque tiene %{count} propuesta asociada
+                other: El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas
             success: El encuentro se ha eliminado correctamente
           edit:
             update: Actualizar
@@ -404,6 +414,7 @@ es-MX:
           attendees: Número de asistentes
           back: Volver al listado
           contributions: Número de contribuciones
+          date: Fecha
           edit_meeting: Editar el encuentro
           going: Yendo
           join: Inscribirse al encuentro

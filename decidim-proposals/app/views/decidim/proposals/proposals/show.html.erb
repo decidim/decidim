@@ -34,7 +34,7 @@ extra_admin_link(
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
 
-  <%= link_to :proposals, class: "small hollow" do %>
+  <%= link_to proposals_path(filter_link_params), class: "small hollow" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back_to_list") %>
   <% end %>
@@ -110,7 +110,7 @@ extra_admin_link(
               <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
                 <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
                     <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments.count %>
+                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments_count %>
                 <% end %>
               </div>
             </div>
@@ -127,7 +127,7 @@ extra_admin_link(
     <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
     <%= cell("decidim/fingerprint", @proposal) %>
     <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-    <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js), locals: { resource: @proposal } %>
+    <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
     <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
     <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
   </div>

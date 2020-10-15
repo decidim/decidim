@@ -3,6 +3,8 @@ cs:
     attributes:
       answer:
         body: Odpovědět
+        choices: Možnosti
+        selected_choices: Vyberte možnosti
       question:
         max_choices: Maximální počet možností
         question_type: Typ
@@ -103,7 +105,7 @@ cs:
             up: Nahoru
           update:
             invalid: Při ukládání dotazníku došlo k chybám.
-            success: Dotazníky byly úspěšně uloženy.
+            success: Formulář byl úspěšně uložen.
       errors:
         answer:
           body: Tělo nemůže být prázdné

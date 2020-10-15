@@ -1,9 +1,169 @@
 el:
+  activemodel:
+    attributes:
+      project:
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο εφαρμογής
+        description: Περιγραφή
+        proposal_ids: Σχετικές προτάσεις
+        title: Τίτλος
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Έργο
+        other: Έργα
   decidim:
     budgets:
       actions:
+        attachment_collections: Φάκελοι
+        attachments: Συνημμένα
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έργο;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        import: Εισαγωγή προτάσεων σε έργα
         preview: Προεπισκόπηση
+        title: Ενέργειες
       admin:
+        models:
+          project:
+            name: Έργο
         projects:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του έργου
+            success: Το έργο δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Το έργο διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία έργου
+            update: Ενημέρωση
+          index:
+            finished_orders: Ολοκληρωμένες ψηφοφορίες
+            pending_orders: Ψηφοφορίες σε εκκρεμότητα
+            title: Έργα
           new:
             create: Δημιουργία
+            title: Νέο έργο
+          update:
+            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του έργου
+            success: Το έργο ενημερώθηκε με επιτυχία
+        proposals_imports:
+          create:
+            invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων σε έργα
+            success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε έργα"
+          new:
+            create: Εισαγωγή προτάσεων σε έργα
+            no_components: Δεν υπάρχουν άλλα στοιχεία προτάσεων σε αυτόν τον χώρο συμμετοχής για εισαγωγή των προτάσεων σε έργα.
+            select_component: Επιλέξτε ένα στοιχείο
+      admin_log:
+        project:
+          create: "Ο χρήστης %{user_name} δημιούργησε το έργο %{resource_name} στον χώρο %{space_name}"
+          delete: "Ο χρήστης %{user_name} διέγραψε το έργο %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε το έργο %{resource_name} στον χώρο %{space_name}"
+      models:
+        project:
+          fields:
+            title: Τίτλος
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Τα έργα που έχετε επιλέξει είναι τα εξής:'
+          subject: Ψηφίσατε για τον χώρο συμμετοχής %{space_name}
+      projects:
+        budget_confirm:
+          cancel: Ακύρωση
+          confirm: Επιβεβαίωση
+          description: Αυτά είναι τα έργα για τα οποία έχετε επιλέξει να συμμετάσχετε στον προϋπολογισμό.
+          title: Επιβεβαίωση ψήφου
+        budget_excess:
+          close: Κλείσιμο
+          description: Αυτό το έργο υπερβαίνει τον μέγιστο προϋπολογισμό και δεν μπορεί να προστεθεί. Εάν θέλετε, μπορείτε να διαγράψετε ένα έργο που έχετε ήδη επιλέξει να προσθέσετε, ή να ψηφίσετε με τις προτιμήσεις σας.
+          ok: OK
+          title: Υπέρβαση του μέγιστου προϋπολογισμού
+        budget_summary:
+          are_you_sure: Είστε βέβαιοι ότι θέλετε να ακυρώσετε την ψήφο σας;
+          assigned: 'Εκχωρήθηκε:'
+          cancel_order: διαγράψτε την ψήφο σας και ξεκινήστε από την αρχή
+          checked_out:
+            description: Έχετε ήδη ψηφίσει για τον προϋπολογισμό. Εάν αλλάξατε γνώμη, μπορείτε να %{cancel_link}.
+            title: Ολοκληρώθηκε η ψηφοφορία για τον προϋπολογισμό
+          description: Σε ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό; Εκχωρήστε τουλάχιστον %{minimum_budget} στα έργα που θέλετε και ψηφίστε με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.
+          description_minimum_projects_rule: Σε ποια έργα πιστεύετε ότι πρέπει να διαθέσουμε προϋπολογισμό; Επιλέξτε τουλάχιστον %{minimum_number} έργα που θέλετε και ψηφίστε με τις προτιμήσεις σας για να καθορίσετε τον προϋπολογισμό.
+          title: Εσείς αποφασίζετε τον προϋπολογισμό
+        count:
+          projects_count:
+            one: 1 έργο
+            other: "%{count} έργα"
+        filters:
+          category: Κατηγορία
+          scope: Πεδίο εφαρμογής
+          search: Αναζήτηση
+        filters_small_view:
+          close_modal: Κλείσιμο βοηθητικού στοιχείου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Αποκάλυψη
+        order_progress:
+          vote: Ψηφοφορία
+        order_selected_projects:
+          remove: Κατάργηση
+          selected_projects:
+            one: επιλεγμένο έργο
+            other: επιλεγμένα έργα
+          view: Προβολή
+        orders:
+          highest_cost: Υψηλότερο κόστος
+          label: Ταξινόμηση έργων κατά
+          lowest_cost: Χαμηλότερο κόστος
+          most_voted: Με τις περισσότερες ψήφους
+          random: Τυχαία σειρά
+        project:
+          add: Προσθήκη του έργου %{resource_name} στην ψήφο σας
+          remove: Αφαίρεση του έργου %{resource_name} από την ψήφο σας
+          view: Προβολή
+        project_budget_button:
+          add: Προσθήκη στην ψήφο
+          add_descriptive: Προσθήκη του έργου %{resource_name} στην ψήφο σας
+          added: Προστέθηκε στην ψήφο σας
+          added_descriptive: Το έργο %{resource_name} προστέθηκε στην ψήφο σας
+        show:
+          budget: Προϋπολογισμός
+          view_all_projects: Προβολή όλων των έργων
+    components:
+      budgets:
+        actions:
+          vote: Ψηφοφορία
+        name: Προϋπολογισμοί
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+            form:
+              errors:
+                budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος
+                budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας
+            projects_per_page: Έργα ανά σελίδα
+            resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε σύσκεψη
+            total_budget: Συνολικός προϋπολογισμός
+            vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
+            vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψηφοφορία'
+            vote_rule_threshold_percent_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστο ποσοστό προϋπολογισμού'
+            vote_threshold_percent: Ποσοστό ορίου ψηφοφορίας
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Τα σχόλια αποκλείστηκαν
+            show_votes: Εμφάνιση ψήφων
+            votes_choices:
+              enabled: Η ψηφοφορία ενεργοποιήθηκε
+    orders:
+      checkout:
+        error: Υπήρξε ένα πρόβλημα κατά την επεξεργασία της ψήφου σας
+        success: Η ψήφος σας έγινε δεκτή με επιτυχία
+      destroy:
+        error: Υπήρξε ένα πρόβλημα κατά την ακύρωση της ψήφου σας
+        success: Η ψήφος σας ακυρώθηκε με επιτυχία
+    resource_links:
+      included_proposals:
+        project_proposal: 'Προτάσεις που περιλαμβάνονται σε αυτό το έργο:'
+  index:
+    confirmed_orders_count: Πλήθος ψήφων
+  total_budget: Συνολικός προϋπολογισμός

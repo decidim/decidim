@@ -16,8 +16,7 @@ edit_link(
 %>
 
 <div class="row column view-header">
-
-  <%= link_to :meetings, class: "small hollow" do %>
+  <%= link_to meetings_path(filter_link_params), class: "small hollow" do %>
     <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
     <%= t(".back") %>
   <% end %>
@@ -105,7 +104,7 @@ edit_link(
     <%= resource_reference(meeting) %>
     <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
     <%= render partial: "decidim/shared/share_modal" %>
-    <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
+    <%= embed_modal_for meeting_widget_url(meeting, format: :js) %>
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
@@ -120,7 +119,13 @@ edit_link(
         </span>
       <% end %>
       <%= decidim_sanitize(present(meeting).description(links: true)) %>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+
+      <% if meeting.online_meeting? %>
+        <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% else %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+      <% end %>
+
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
 

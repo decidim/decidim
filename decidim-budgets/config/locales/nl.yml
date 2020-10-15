@@ -1,8 +1,14 @@
 nl:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Scope
+        description: Omschrijving
+        title: Titel
+        total_budget: Totale budget
+        weight: Gewicht
       project:
-        budget: Begroting
+        budget_amount: Budget bedrag
         decidim_category_id: Categorie
         decidim_scope_id: Reikwijdte
         description: Beschrijving
@@ -21,12 +27,33 @@ nl:
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
-        new: Nieuw project
+        new: Nieuwe %{name}
         preview: Voorbeeld
         title: Acties
       admin:
+        budgets:
+          create:
+            invalid: Er is een fout opgetreden bij het aanmaken van dit budget
+            success: Budget succesvol aangemaakt
+          destroy:
+            invalid: Er is een probleem opgetreden bij het verwijderen van dit budget
+            success: Budget succesvol verwijderd
+          edit:
+            title: Budget bewerken
+            update: Budget bijwerken
+          index:
+            title: Budgetten
+          new:
+            create: Budget maken
+            title: Nieuw budget
+          update:
+            invalid: Er is een fout opgetreden bij het bijwerken van dit budget
+            success: Budget succesvol bijgewerkt
         models:
+          budget:
+            name: Budget
           project:
             name: Project
         projects:
@@ -57,17 +84,51 @@ nl:
             no_components: Er zijn geen andere voorstelcomponenten in deze participatieruimte om de voorstellen in projecten te importeren.
             select_component: Selecteer een component
       admin_log:
+        budget:
+          create: "%{user_name} heeft het %{resource_name} budget aangemaakt in de %{space_name} ruimte"
+          delete: "%{user_name} heeft het %{resource_name} budget in de %{space_name} ruimte verwijderd"
+          update: "%{user_name} heeft het budget %{resource_name} bijgewerkt in de ruimte %{space_name}"
         project:
           create: "%{user_name} heeft het project %{resource_name} in de ruimte %{space_name} gemaakt"
           delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} ruimte"
           update: "%{user_name} heeft het project %{resource_name} bijgewerkt in de ruimte %{space_name}"
+      budget:
+        view: Bekijk alle budgetprojecten
+      budget_information_modal:
+        back_to: Terug naar %{component_name}
+        close_modal: Sluit venster
+        continue: Doorgaan
+        more_information: Meer informatie
+      budgets_list:
+        cancel_order:
+          more_than_one: verwijder je stem op %{name} en begin opnieuw
+          only_one: verwijder je stem en begin opnieuw.
+        finished_message: Je hebt het stemproces voltooid. Bedankt voor je deelname!
+        highlighted_cta: Stem op %{name}
+        if_change_opinion: Als je van gedachten veranderd bent, kun je
+        my_budgets: Mijn budgetten
+        voted_on: Je hebt gestemd op %{links}
+      limit_announcement:
+        cant_vote: Je kunt niet stemmen op dit budget. <a href="%{landing_path}">Probeer een ander budget</a>.
+        limit_reached: Je hebt actieve stemmen in %{links}. Om op deze begroting te stemmen, moet je <a href="%{landing_path}">je stem verwijderen en opnieuw beginnen</a>.
       models:
+        budget:
+          fields:
+            name: Naam
+            projects_count: Aantal projecten
+            total_budget: Totale budget
         project:
           fields:
             title: Titel
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'De projecten die je hebt geselecteerd zijn:'
+          subject: Je hebt gestemd op de %{space_name} inspraakruimte
+          voted_on_space: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte.
+          voted_on_space_with_scope: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte op %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Bent u het eens? Zodra u uw stem hebt bevestigd, kunt u deze niet meer wijzigen.
+          are_you_sure: Als je van gedachten verandert, kun je later je stem wijzigen.
           cancel: Annuleer
           confirm: Bevestigen
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
@@ -85,6 +146,7 @@ nl:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
           description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description_minimum_projects_rule: Voor welke projecten moeten we volgens u de begroting uittrekken? Selecteer ten minste %{minimum_number} projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -107,11 +169,25 @@ nl:
             one: Geselecteerd project
             other: Geselecteerde projecten
           view: Bekijk
+        orders:
+          highest_cost: Hoogste kosten
+          label: Projecten sorteren op
+          lowest_cost: Laagste kosten
+          most_voted: Meeste stemmen
+          random: Willekeurige volgorde
         project:
-          count:
-            one: 1 ondersteuning
-            other: "%{count} ondersteuning"
+          add: Voeg project %{resource_name} toe aan uw stem
+          remove: Verwijder project %{resource_name} uit uw stem
           view: Bekijk
+          votes:
+            one: stem
+            other: stemmen
+          you_voted: Je hebt gestemd
+        project_budget_button:
+          add: Voeg toe aan je stem
+          add_descriptive: Voeg project %{resource_name} toe aan uw stem
+          added: Toegevoegd aan je stem
+          added_descriptive: Project %{resource_name} is aan uw stem toegevoegd
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
@@ -124,15 +200,44 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
+            form:
+              errors:
+                budget_voting_rule_only_one: Slechts één stemregel moet ingeschakeld zijn
+                budget_voting_rule_required: Eén stemregel is vereist
+            landing_page_content: Budgetten landingspagina
+            more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
+            title: Titel
             total_budget: Totale budget
+            vote_minimum_budget_projects_number: Minimaal aantal projecten om te stemmen
+            vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
+            vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
+            workflow: Workflow
+            workflow_choices:
+              all: 'Stem overal: laat deelnemers toe om te stemmen in alle budgetten.'
+              one: 'Stem in één budget: laat deelnemers toe te stemmen voor één budget uit de voorgestelde budgetten.'
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
+            highlighted_heading: Gemarkeerde kop
+            landing_page_content: Budgetten landingspagina
+            list_heading: Lijst kop
+            more_information_modal: Meer informatie
             show_votes: Toon stemmen
-            votes_enabled: Stemmen ingeschakeld
+            votes_choices:
+              enabled: Stemmen ingeschakeld
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
+          email_subject: De stap %{resource_title} budget is nu geactiveerd voor %{participatory_space_title}.
+          notification_title: Budget <a href="%{resource_path}">%{resource_title}</a> is nu geactiveerd in %{participatory_space_title}.
     orders:
       checkout:
         error: Er is een fout opgetreden tijdens het verwerken van uw stem

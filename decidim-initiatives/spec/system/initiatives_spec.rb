@@ -78,6 +78,44 @@ describe "Initiatives", type: :system do
           end
         end
       end
+
+      context "when there are only closed initiatives" do
+        let!(:closed_initiative) do
+          create(:initiative, :discarded, organization: organization)
+        end
+        let(:base_initiative) {}
+
+        before do
+          visit decidim_initiatives.initiatives_path
+        end
+
+        it "displays a warning" do
+          expect(page).to have_content("Currently, there are no open initiatives, but here you can find all the closed initiatives listed.")
+        end
+
+        it "shows closed initiatives" do
+          within "#initiatives" do
+            expect(page).to have_content(translated(closed_initiative.title, locale: :en))
+          end
+        end
+      end
+    end
+
+    context "when it is an initiative with card image enabled" do
+      before do
+        initiative.type.attachments_enabled = true
+        initiative.type.save!
+
+        create(:attachment, attached_to: initiative)
+
+        visit decidim_initiatives.initiatives_path
+      end
+
+      it "shows the card image" do
+        within "#initiative_#{initiative.id}" do
+          expect(page).to have_selector(".card__image")
+        end
+      end
     end
   end
 end

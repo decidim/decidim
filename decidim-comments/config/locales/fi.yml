@@ -17,8 +17,10 @@ fi:
   decidim:
     comments:
       comments: Kommentit
+      comments_count: Kommenttien määrä
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
+      view: Näytä
       votes:
         create:
           error: Kommentin äänestys epäonnistui.
@@ -49,12 +51,13 @@ fi:
           action: Tee ilmoitus
           already_reported: Tämä sisältö on jo ilmoitettu ja ylläpitäjä tutkii sen.
           close: Sulje
-          description: Onko tämä sisältö epäasiallista?
+          description: Onko tämä sisältö sopimatonta?
           details: Lisätiedot
           reasons:
             does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
+          title: Ilmoita asiatonta sisältöä
         show_replies: Näytä %{replies_count} vastausta
         single_comment_link_title: Hae linkki yksittäiseen kommenttiin
       comment_order_selector:
@@ -74,6 +77,10 @@ fi:
         single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
         single_comment_warning_title: Näet yhden kommentin
         title: "%{count} kommenttia"
+      down_vote_button:
+        text: Olen eri mieltä tämän kommentin kanssa
+      up_vote_button:
+        text: Olen samaa mieltä tämän kommentin kanssa
     events:
       comments:
         comment_by_followed_user:

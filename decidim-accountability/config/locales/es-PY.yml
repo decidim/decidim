@@ -190,6 +190,8 @@ es-PY:
             heading_leaf_level_results: Nombre para "Proyectos"
             heading_parent_level_results: Nombre para "Resultados"
             intro: Introducción
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             subcategories_label: Nombre para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
@@ -214,6 +216,9 @@ es-PY:
       participatory_process_groups:
         highlighted_results:
           results: Resultados
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ver todos los resultados (%{count})
     resource_links:
       included_projects:
         result_project: Proyectos incluidos en este resultado

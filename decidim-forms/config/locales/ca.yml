@@ -3,6 +3,8 @@ ca:
     attributes:
       answer:
         body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -27,7 +29,7 @@ ca:
         questionnaires:
           actions:
             back: Tornar a les preguntes
-            show: Mostra les respostes
+            show: Mostrar les respostes
           answer_option:
             answer_option: Opció de resposta
             free_text: Text lliure
@@ -35,20 +37,23 @@ ca:
             statement: Declaració
           answers:
             actions:
-              back: Torna a les respostes
+              back: Tornar a les respostes
               export: Exportar
               show: Mostrar les respostes
             empty: Encara no hi ha respostes
             export:
               answer:
                 title: 'Resposta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
             index:
-              title: "%{total} total de respostes"
+              title: "%{total} respostes totals"
             show:
               title: 'Resposta #%{number}'
           display_condition:
             answer_option: Opció de resposta
             condition_question: Pregunta
+            condition_type: Condició
             condition_types:
               answered: Amb resposta
               equal: Igual a
@@ -56,14 +61,19 @@ ca:
               not_answered: No resposta
               not_equal: No és igual
             condition_value: Text inclòs
+            display_condition: Condicions de visualització
+            mandatory: Aquesta condició s'ha de complir sempre independentment de l'estat d'altres condicions
             remove: Eliminar
-            select_answer_option: Elimina l'opció de resposta
+            save_warning: Recorda de guardar l'enquesta abans de configurar les condicions de visualitzacióó
+            select_answer_option: Eliminar l'opció de resposta
             select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccionar un tipus de condició
           edit:
             save: Desa
             title: Editar el qüestionari
           form:
             add_question: Afegeix una pregunta
+            add_separator: Afegir separador
             already_answered_warning: No pots modificar les preguntes d'aquest formulari perquè ja ha estat contestat per algunes participants.
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
@@ -76,6 +86,8 @@ ca:
             statement: Declaració
           question:
             add_answer_option: Afegeix una opció de resposta
+            add_display_condition: Afegir condició de visualització
+            add_display_condition_info: Guardar l'enquesta per a configurar les condicions de visualització
             add_matrix_row: Afegir fila
             any: Cap
             collapse: Redueix
@@ -93,15 +105,17 @@ ca:
             up: Pujar
           update:
             invalid: S'ha produït un error en desar el formulari.
-            success: Els formularis s'han desat correctament.
+            success: Formulari desat correctament.
       errors:
         answer:
           body: El camp no pot estar en blanc
       files:
         extension_whitelist: 'Formats d''arxiu acceptats:'
       images:
-        dimensions_info: 'Esta imagen medirà:'
+        dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Aquesta imatge medirà:'
         processors:
+          resize_and_pad: Redimensionat i ajustat a
           resize_to_fit: Redimensionada per ajustar-la
       question_types:
         long_answer: Resposta llarga
@@ -114,7 +128,7 @@ ca:
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.
-          max_choices_alert: Hi ha masses opcions seleccionades
+          max_choices_alert: Hi ha massa opcions seleccionades
           success: Has contestat el formulari correctament.
         question:
           max_choices: 'Opcions màximes: %{n}'
@@ -134,7 +148,7 @@ ca:
             body: El formulari només està disponible per a participants privades
             title: S'ha tancat el formulari
           questionnaire_js_disabled:
-            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per a millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
+            body: Algunes de les característiques d'aquest formulari es deshabilitaran. Per millorar la teva experiència, si us plau, habilita JavaScript al teu navegador.
             title: JavaScript està desactivat
           questionnaire_not_published:
             body: Aquest formulari no s'ha publicat encara.
@@ -147,8 +161,10 @@ ca:
           submit: Enviar respostes
       user_answers_serializer:
         body: Resposta
+        completion: Finalització
         created_at: Respost el
         id: Identificador de resposta
+        ip_hash: Hash d'adreça IP
         question: Pregunta
         registered: Registrada
         session_token: Identificador d'usuària

@@ -16,13 +16,16 @@ module Decidim
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
+      attribute :photos, Array[String]
+      attribute :add_photos, Array
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
 
-      validates :address, geocoding: true, if: :geocodable?
+      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
+      validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-
-      validate :scope_belongs_to_participatory_space_scope
-
+      validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
       validate :notify_missing_attachment_if_errored
 
       delegate :categories, to: :current_component
@@ -45,11 +48,11 @@ module Decidim
         @category ||= categories.find_by(id: category_id)
       end
 
-      # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
+      # Finds the Scope from the given scope_id, uses participatory space scope if missing.
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= @scope_id ? current_participatory_space.scopes.find_by(id: @scope_id) : current_participatory_space.scope
+        @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
       end
 
       # Scope identifier
@@ -59,17 +62,16 @@ module Decidim
         @scope_id || scope&.id
       end
 
-      def geocodable?
-        return if Decidim.geocoder.blank?
-        return unless current_component.settings.geocoding_enabled?
-
-        has_address.present? && address_has_changed?
+      def geocoding_enabled?
+        Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
       end
 
-      def address_has_changed?
-        return true if id.nil?
+      def has_address?
+        geocoding_enabled? && has_address
+      end
 
-        address != Proposal.find(id).address unless id.nil?
+      def geocoded?
+        latitude.present? && longitude.present?
       end
 
       def extra_hashtags
@@ -94,10 +96,6 @@ module Decidim
       end
 
       private
-
-      def scope_belongs_to_participatory_space_scope
-        errors.add(:scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
-      end
 
       # This method will add an error to the `attachment` field only if there's
       # any error in any other field. This is needed because when the form has

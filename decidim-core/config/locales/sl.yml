@@ -1,0 +1,72 @@
+sl:
+  activemodel:
+    attributes:
+      group:
+        email: Email
+  decidim:
+    content_blocks:
+      hero_settings_form:
+        welcome_text: Pozdravno besedilo
+    devise:
+      registrations:
+        new:
+          sign_in: Prijava
+          sign_up: Registracija
+    filters:
+      linked_classes:
+        meeting: Sestanki
+    menu:
+      help: Pomoč
+      home: Domov
+    messaging:
+      conversations:
+        add_conversation_users:
+          add_users_placeholder: Išči...
+    pages:
+      home:
+        extended:
+          meetings: Sestanki
+        hero:
+          participate: Sodeluj
+          welcome: Dobrošli v organizaciji %{organization}!
+        statistics:
+          assemblies_count: Združbe
+          meetings_count: Sestanki
+    search:
+      term_input_placeholder: Išči
+    searches:
+      filters:
+        state:
+          all: Vsi
+    shared:
+      login_modal:
+        sign_up: Registracija
+    user_conversations:
+      index:
+        add_users_placeholder: Išči...
+    welcome_notification:
+      default_subject: Hvala, ker ste se pridružili nači organizaciji {{organization}}!
+  devise:
+    mailer:
+      confirmation_instructions:
+        greeting: Dobrodošel/la %{recipient}!
+    registrations:
+      new:
+        sign_up: Registracija
+      signed_up: Dobrodošli! Uspešno ste se vpisali.
+    sessions:
+      new:
+        sign_in: Prijava
+    shared:
+      links:
+        sign_in: Prijava
+        sign_up: Registracija
+  layouts:
+    decidim:
+      edit_link:
+        edit: Uredi
+      header:
+        sign_in: Prijava
+        sign_up: Registracija
+  locale:
+    name: Slovenščina

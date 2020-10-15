@@ -1,8 +1,14 @@
 de:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Bereich
+        description: Beschreibung
+        title: Titel
+        total_budget: Gesamtbudget
+        weight: Gewichtung
       project:
-        budget: Budget
+        budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
@@ -21,12 +27,33 @@ de:
         confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
+        edit_projects: Projekte verwalten
         import: Importieren Sie Vorschläge in Projekte
-        new: Neues Projekt
+        new: Neu %{name}
         preview: Vorschau
         title: Aktionen
       admin:
+        budgets:
+          create:
+            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten
+            success: Budget erfolgreich erstellt
+          destroy:
+            invalid: Es gab ein Problem beim Löschen dieses Budgets
+            success: Budget erfolgreich gelöscht
+          edit:
+            title: Budget bearbeiten
+            update: Budget aktualisieren
+          index:
+            title: Budgets
+          new:
+            create: Budget erstellen
+            title: Neues Budget
+          update:
+            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
+            success: Budget erfolgreich aktualisiert
         models:
+          budget:
+            name: Bugdet
           project:
             name: Projekt
         projects:
@@ -41,6 +68,7 @@ de:
           index:
             finished_orders: Beendete Stimmen
             pending_orders: Schwebende Stimmen
+            selected: Ausgewählt
             title: Projekte
           new:
             create: Erstellen
@@ -57,20 +85,51 @@ de:
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
       admin_log:
+        budget:
+          create: "%{user_name} erstellte das %{resource_name} Budget in dem %{space_name} Raum"
+          delete: "%{user_name} löschte das %{resource_name} Budget in dem %{space_name} Raum"
+          update: "%{user_name} aktualisierte das %{resource_name} Budget in dem %{space_name} Raum"
         project:
           create: "%{user_name} erstellt das %{resource_name} Projekt in dem %{space_name} Raum"
           delete: "%{user_name} löschte das %{resource_name} Projekt in den %{space_name} Leerzeichen"
           update: "%{user_name} aktualisiert das %{resource_name} Projekt in den %{space_name} Räumen"
+      budget:
+        view: Alle Budgetprojekte anzeigen
+      budget_information_modal:
+        back_to: Zurück zu %{component_name}
+        close_modal: Dialog schließen
+        continue: Weiter
+        more_information: Mehr Informationen
+      budgets_list:
+        cancel_order:
+          more_than_one: lösche deine Stimme am %{name} und beginne neu
+          only_one: Löschen Sie Ihre Stimme und beginnen Sie von vorne.
+        finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
+        highlighted_cta: Über %{name} abstimmen
+        if_change_opinion: Wenn sie ihr Meinung geändert haben, können sie
+        my_budgets: Meine Budgets
+        voted_on: Sie haben über %{links} abgestimmt
+      limit_announcement:
+        cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
+        limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
       models:
+        budget:
+          fields:
+            name: Name
+            projects_count: Anzahl Projekte
+            total_budget: Gesamt Budget
         project:
           fields:
             title: Titel
       order_summary_mailer:
         order_summary:
           selected_projects: 'Die ausgewählten Projekte sind:'
+          subject: Sie haben im Beteiligungsbereich %{space_name} abgestimmt
+          voted_on_space: Sie haben für das %{budget_name} Budget for the %{space_name} abgestimmt.
+          voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
-          are_you_sure: Sind Sie einverstanden? Sobald Sie Ihre Stimme bestätigt haben, können Sie sie nicht ändern.
+          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Abstimmung nachträglich ändern.
           cancel: Stornieren
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
@@ -88,6 +147,7 @@ de:
             description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Haushaltsabstimmung abgeschlossen
           description: Für welche Projekte sollten wir das Budget bereitstellen? Weisen Sie den gewünschten Projekten mindestens %{minimum_budget} zu und stimmen Sie mit Ihren Einstellungen ab, um das Budget zu definieren.
+          description_minimum_projects_rule: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
           title: Sie entscheiden über das Budget
         count:
           projects_count:
@@ -97,6 +157,11 @@ de:
           category: Kategorie
           scope: Umfang
           search: Suche
+          status: Status
+          status_values:
+            all: Alle
+            not_selected: Nicht ausgewählt
+            selected: Ausgewählt
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -110,11 +175,25 @@ de:
             one: Projekt ausgewählt
             other: ausgewählte Projekte
           view: Aussicht
+        orders:
+          highest_cost: Höchste Kosten
+          label: Projekte sortieren nach
+          lowest_cost: Niedrigste Kosten
+          most_voted: Meiste Stimmen
+          random: Zufällige Anordnung
+          selected: Ausgewählt
         project:
-          count:
-            one: 1 Unterstützung
-            other: "%{count} unterstützt"
+          add: Projekt %{resource_name} Ihrer Stimme hinzufügen
+          remove: Projekt %{resource_name} aus deiner Stimme entfernen
+          selected: Ausgewählt
           view: Aussicht
+          you_voted: Du hast abgestimmt
+        project_budget_button:
+          add: Zur Abstimmung hinzufügen
+          add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
+          added: Zu deiner Abstimmung hinzugefügt
+          added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
+        projects_for: Projekte für %{name}
         show:
           budget: Budget
           view_all_projects: Alle Projekte anzeigen
@@ -127,15 +206,41 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            form:
+              errors:
+                budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
+                budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+            landing_page_content: Budgets Landingpage
+            more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
+            title: Titel
             total_budget: Gesamtbudget; Gesamtetat
+            vote_minimum_budget_projects_number: Mindestanzahl von Projekten, um abzustimmen
+            vote_rule_minimum_budget_projects_enabled: 'Regel aktivieren: Mindestanzahl von Projekten, um abzustimmen'
+            vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_threshold_percent: Abstimmungsschwelle in Prozent
+            workflow: Workflow
+            workflow_choices:
+              all: 'Gesamthaft abstimmen: erlaubt es den Teilnehmern, in allen Budget‘s abzustimmen.'
+              one: 'Selektiv abstimmen: erlaubt es den Teilnehmern, in einem (1) der Budget’s abzustimmen.'
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            highlighted_heading: Hervorgehobene Überschrift
+            landing_page_content: Budgets Landingpage
+            list_heading: Listenüberschrift
+            more_information_modal: Weitere Informationen modal
             show_votes: Stimmen anzeigen
-            votes_enabled: Abstimmung aktiviert
+            title: Überschrift
+            votes: Abstimmungen
+            votes_choices:
+              disabled: Abstimmung deaktiviert
+              enabled: Abstimmung aktiviert
+              finished: Abstimmung beendet
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

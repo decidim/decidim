@@ -8,7 +8,7 @@
       <%= render partial: "bulk-actions" %>
     </h2>
   </div>
-  <%= admin_filter_selector %>
+  <%= admin_filter_selector(:proposals) %>
   <div class="card-section">
     <div class="table-scroll">
       <table class="table-list">
@@ -27,7 +27,7 @@
               <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
             </th>
 
-            <% if current_participatory_space.scopes_enabled? %>
+            <% if resource_with_scopes_enabled? %>
               <th>
                 <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
               </th>
@@ -51,7 +51,7 @@
 
             <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
               <th>
-                <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+                <%= sort_link(query, :comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
               </th>
             <% end %>
 

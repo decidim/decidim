@@ -3,7 +3,7 @@
     attributes:
       consultation:
         banner_image: Bannerafbeelding
-        decidim_highlighted_scope_id: Markert omfang
+        decidim_highlighted_scope_id: Markerte tema
         description: Beskrivelse
         end_voting_date: Stemming ender
         introductory_image: Innledende bilde
@@ -22,7 +22,7 @@
         instructions: Ytterligere instruksjoner for avstemning
         max_votes: Maksimalt antall stemmer
         min_votes: Minimum antall stemmer
-        origin_scope: Omfang
+        origin_scope: Tema
         origin_title: Opprinnelse
         origin_url: Opprinnlig URL
         participatory_scope: Deltaker omfang
@@ -236,6 +236,8 @@
           label: 'Sorter konsultasjoner etter:'
           random: Tilfeldig
           recent: Nyligst
+        show:
+          dates: Datoer
       content_blocks:
         highlighted_consultations:
           name: Fremhevede konsultasjoner

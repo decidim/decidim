@@ -4,14 +4,42 @@ module Decidim
   # Attachment can be any type of document or images related to a partcipatory
   # process.
   class Attachment < ApplicationRecord
+    include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
+
+    translatable_fields :title, :description
     belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
     validates :file, :content_type, presence: true
-    validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
+    validates_upload :file
     mount_uploader :file, Decidim::AttachmentUploader
 
-    default_scope { order(arel_table[:weight].asc) }
+    default_scope { order(arel_table[:weight].asc, arel_table[:id].asc) }
+
+    # Returns the organization related to this attachment in case the
+    # attached_to model belongs to an organization. Otherwise will return nil.
+    #
+    # Returns Decidim::Organization or nil.
+    def organization
+      return unless attached_to
+      return attached_to if attached_to.is_a?(Decidim::Organization)
+      return unless attached_to.respond_to?(:organization)
+
+      attached_to.organization
+    end
+
+    # The context of the attachments defines which file upload settings
+    # constraints should be used when the file is uploaded. The different
+    # contexts can limit for instance which file types the user is allowed to
+    # upload.
+    #
+    # Returns Symbol.
+    def context
+      return attached_to.attachment_context if attached_to.respond_to?(:attachment_context)
+
+      :participant
+    end
 
     # Whether this attachment is a photo or not.
     #

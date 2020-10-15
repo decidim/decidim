@@ -18,23 +18,23 @@ describe Decidim::Elections::Election do
     end
   end
 
-  describe "started?" do
-    it { is_expected.not_to be_started }
+  it { is_expected.not_to be_started }
+  it { is_expected.not_to be_ongoing }
+  it { is_expected.not_to be_finished }
 
-    context "when it is started" do
-      subject(:election) { build :election, :started }
+  context "when it is ongoing" do
+    subject(:election) { build :election, :ongoing }
 
-      it { is_expected.to be_started }
-    end
+    it { is_expected.to be_started }
+    it { is_expected.to be_ongoing }
+    it { is_expected.not_to be_finished }
   end
 
-  describe "finished?" do
-    it { is_expected.not_to be_finished }
+  context "when it is finished" do
+    subject(:election) { build :election, :finished }
 
-    context "when it is finished" do
-      subject(:election) { build :election, :finished }
-
-      it { is_expected.to be_finished }
-    end
+    it { is_expected.to be_started }
+    it { is_expected.not_to be_ongoing }
+    it { is_expected.to be_finished }
   end
 end

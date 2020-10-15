@@ -3,6 +3,8 @@ fi:
     attributes:
       answer:
         body: Vastaus
+        choices: Vastausvaihtoehdot
+        selected_choices: Valitut vastausvaihtoehdot
       question:
         max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
@@ -103,7 +105,7 @@ fi:
             up: Ylös
           update:
             invalid: Kyselylomakkeen tallentaminen epäonnistui.
-            success: Kyselylomakkeiden tallennus onnistui.
+            success: Lomake tallennettu onnistuneesti.
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä

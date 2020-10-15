@@ -2,7 +2,6 @@ ro:
   activemodel:
     attributes:
       project:
-        budget: Buget
         decidim_category_id: Categorie
         decidim_scope_id: Domeniu
         description: Descriere
@@ -23,7 +22,6 @@ ro:
         destroy: Ștergere
         edit: Editare
         import: Importă propuneri în proiecte
-        new: Proiect nou
         preview: Previzualizare
         title: Acțiuni
       admin:
@@ -70,11 +68,8 @@ ro:
         order_summary:
           selected_projects: 'Proiectele pe care le-aţi selectat sunt:'
           subject: Ați votat pentru spațiul participativ %{space_name}
-          voted_on_space: Ați votat asupra bugetelor pentru spațiul participativ al %{space_name}.
-          voted_on_space_with_scope: Ați votat bugetul pentru spațiul participativ %{space_name} pe %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Sunteți de acord? Odată ce v-ați confirmat votul, nu îl puteți schimba.
           cancel: Anulează
           confirm: Confirmare
           description: Acestea sunt proiectele pe care aţi ales să le faceţi parte din buget.
@@ -124,11 +119,14 @@ ro:
           most_voted: Cele mai votate
           random: Ordine aleatorie
         project:
-          count:
-            one: 1 suport
-            few: "%{count} acceptă"
-            other: "%{count} acceptă"
+          add: Adaugă proiectul %{resource_name} la votul tău
+          remove: Elimină proiectul %{resource_name} din votul tău
           view: Vizualizare
+        project_budget_button:
+          add: Adaugă la votul tău
+          add_descriptive: Adaugă proiectul %{resource_name} la votul tău
+          added: Adăugat la votul dvs.
+          added_descriptive: Proiectul %{resource_name} a fost adăugat la votul tău
         show:
           budget: Buget
           view_all_projects: Vezi toate proiectele
@@ -141,6 +139,7 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             form:
               errors:
                 budget_voting_rule_only_one: Doar o singură regulă de vot trebuie activată
@@ -156,7 +155,8 @@ ro:
             announcement: Anunţ
             comments_blocked: Comentarii blocate
             show_votes: Arată voturile
-            votes_enabled: Votare activată
+            votes_choices:
+              enabled: Votare activată
     orders:
       checkout:
         error: A apărut o problemă la procesarea votului tău

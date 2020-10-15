@@ -7,6 +7,7 @@ ca:
         category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        scope_id: Àmbit
         state: Estat
         title: Títol
         user_group_id: Crea un esborrany col·laboratiu com a
@@ -19,6 +20,7 @@ ca:
         category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
+        scope_id: Àmbit
         state: Estat
         suggested_hashtags: Hashtags suggerits
         title: Títol
@@ -77,24 +79,33 @@ ca:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipus
-          values:
-            'false': Propostes
-            'true': Esmenes
+        proposals:
+          category_id_eq:
+            label: Categoria
+          is_emendation_true:
+            label: Tipus
+            values:
+              'false': Propostes
+              'true': Esmenes
+          scope_id_eq:
+            label: Àmbit
+          state_eq:
+            label: Estat
+            values:
+              accepted: Acceptada
+              evaluating: En avaluació
+              published: Publicades
+              rejected: Rebutjada
+              validating: Validació tècnica
+              withdrawn: Retirades
+          state_null:
+            label: Estat
+            values:
+              'true': No resposta
+          valuator_role_ids_has:
+            label: Assignada a avaluadora
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
-        state_eq:
-          label: Estat
-          values:
-            evaluating: En avaluació
-            withdrawn: Retirada
-        state_null:
-          label: Estat
-          values:
-            'true': No resposta
-        valuator_role_ids_has:
-          label: Assignada a avaluadora
     components:
       proposals:
         actions:
@@ -133,6 +144,8 @@ ca:
             proposal_wizard_step_3_help_text: Text d'ajuda pel pas "Completar" de l'assistent de propostes
             proposal_wizard_step_4_help_text: Text d'ajuda pel pas "Publicar" de l'assistent de propostes
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per participant
           step:
@@ -639,15 +652,23 @@ ca:
         update:
           error: S'ha produït un error en desar l'esborrany col·laboratiu.
           success: L'esborrany col·laboratiu s'ha actualitzat correctament.
+          title: Editar l'esborrany col·laboratiu
         wizard_aside:
           back: Torna
+          back_from_collaborative_draft: Tornar a l'esborrany col·laboratiu
+          back_from_step_1: Tornar a l'esborrany col·laboratiu
+          back_from_step_2: Tornar a l'esborrany col·laboratiu
+          back_from_step_3: Tornar a comparar els esborranys col·laboratius
+          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant un <strong>esborrany col·laboratiu</strong>.
         wizard_steps:
+          current_step: Fase actual
           see_steps: veure els passos
           step_1: Crea el teu esborrany col·laboratiu
           step_2: Compara amb esborranys col·laboratius
           step_3: Completa el teu esborrany col·laboratiu
           step_of: Pas %{current_step_num} de %{total_steps}
+          title: Passos per a la creació d'un esborrany col·laboratiu
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
@@ -685,7 +706,6 @@ ca:
           amend: Esmena
           comment: Comentari
           comments: Comentaris
-          endorse: Adherir-se
       proposal_votes:
         create:
           error: Hi ha hagut un error en donar suport a la proposta.
@@ -702,8 +722,13 @@ ca:
             one: "%{count} proposta"
             other: "%{count} propostes"
         edit:
+          add_documents: Documents
+          add_images: Arxiu
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
+          delete_document: Eliminar document
+          delete_image: Eliminar imatge
+          gallery_legend: "(Opcional) Afegir una imatge a la targeta de proposta"
           select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita proposta
@@ -794,10 +819,12 @@ ca:
           read_more: Llegir més
           report: Denúncia
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
-          withdraw_confirmation: Segur que vols retirar aquesta proposta?
+          withdraw_confirmation_html: Segur que vols retirar aquesta proposta? <br><br><strong>Aquesta acció no es pot desfer!</strong>
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_name}</u> per una administradora)"
+        update:
+          title: Actualitzar la proposta
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retira suport
@@ -807,8 +834,8 @@ ca:
           votes_blocked: Suports deshabilitats
         votes_count:
           count:
-            one: SUPORT
-            other: SUPORTS
+            one: Suport
+            other: Suports
           most_popular_proposal: Proposta més popular
           need_more_votes: Necessita més suports
         voting_rules:
@@ -829,14 +856,20 @@ ca:
             votes: Suports
         wizard_aside:
           back: Torna
+          back_from_step_1: Tornar a propostes
+          back_from_step_2: Tornar a propostes
+          back_from_step_3: Tornar a comparar propostes
+          back_from_step_4: Tornar a editar l'esborrany
           info: Estàs creant una <strong>proposta</strong>.
         wizard_steps:
+          current_step: Pas actual
           see_steps: veure les fases
           step_1: Crea la teva proposta
           step_2: Compara
           step_3: Completa
           step_4: Publica la teva proposta
           step_of: Fase %{current_step_num} de %{total_steps}
+          title: Passos per a la creació d'una proposta
       proposals_picker:
         choose_proposals: Triar propostes
         close: Tancar

@@ -6,9 +6,13 @@ module Decidim
       # This command is executed when the user destroys an Election
       # from the admin panel.
       class DestroyElection < Rectify::Command
+        include ::Decidim::AttachmentMethods
+        include ::Decidim::GalleryMethods
+
         def initialize(election, current_user)
           @election = election
           @current_user = current_user
+          @attached_to = election
         end
 
         # Destroys the election if valid.

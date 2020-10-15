@@ -85,6 +85,28 @@ module Decidim
 
             expect(consultation.title["en"]).to eq("Foo title")
           end
+
+          context "when banner image is not updated" do
+            it "does not replace the banner image" do
+              expect(consultation).not_to receive(:banner_image=)
+
+              command.call
+              consultation.reload
+
+              expect(consultation.banner_image).to be_present
+            end
+          end
+
+          context "when introductory image is not updated" do
+            it "does not replace the introductory image" do
+              expect(consultation).not_to receive(:introductory_image=)
+
+              command.call
+              consultation.reload
+
+              expect(consultation.introductory_image).to be_present
+            end
+          end
         end
       end
     end

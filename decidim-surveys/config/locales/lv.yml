@@ -1,0 +1,61 @@
+lv:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Aptauja beidzās
+      decidim/surveys/opened_survey_event: Aptauja sākās
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        zero: Aptaujas
+        one: Aptauja
+        other: Aptaujas
+      decidim/surveys/survey_answer:
+        zero: Atbildes
+        one: Atbilde
+        other: Atbildes
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Atbilde
+        name: Aptauja
+        settings:
+          global:
+            announcement: Paziņojums
+          step:
+            allow_answers: Atļaut atbildes
+            allow_unregistered: Ļaujiet nereģistrētiem lietotājiem atbildēt uz jautājumiem aptaujā
+            allow_unregistered_help: Ja tā būs iespējota, nevajadzēs pierakstīties, lai atbildētu uz aptaujas jautājumiem. Tas var radīt neprecīzus vai neuzticamus datu, un tā būs jutīgāka pret automatizētiem uzbrukumiem. Lietojiet piesardzīgi!
+            announcement: Paziņojums
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Aptauja %{resource_title} %{participatory_space_title} ir slēgta.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Aptauja ir pabeigta telpā %{participatory_space_title}
+          notification_title: Aptauja <a href="%{resource_path}">%{resource_title}</a> sadaļā <a href="%{participatory_space_url}">%{activatory_space_title}</a> ir pabeigta.
+        survey_opened:
+          email_intro: 'Aptauja %{resource_title}, kas atrodas %{participatory_space_title}, tagad ir atvērta. Jūs varat tajā piedalīties, izmantojot šo lapu:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Jauna aptauja telpā %{participatory_space_title}
+          notification_title: Aptauja <a href="%{resource_path}">%{resource_title}</a> sadaļā <a href="%{participatory_space_url}">%{activatory_space_title}</a> tagad ir atvērta
+    metrics:
+      survey_answers:
+        description: Dalībnieka atbildēto aptaujas jautājumu skaits
+        object: atbildes uz aptaujas jautājumiem
+        title: Atbildes uz aptaujas jautājumiem
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Aptaujas dalībnieka atbildes
+        surveys:
+          update:
+            invalid: Saglabājot aptauju, radās problēma.
+            success: Aptauja ir veiksmīgi saglabāta
+      last_activity:
+        new_survey_at_html: "<span>Jauna aptauja %{link}</span>"
+      surveys:
+        answer:
+          invalid: Atbildot uz aptauju, radās problēma.
+          spam_detected: Atbildot uz aptaujas jautājumiem, radās problēma. Varbūt jūs esat rīkojies pārāk ātri, vai varat mēģināt vēlreiz?
+          success: Uz aptaujas jautājumiem ir veiksmīgi atbildēts.

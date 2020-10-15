@@ -3,15 +3,18 @@ pl:
     attributes:
       debate:
         category_id: Kategoria
+        closed_at: Zamknięto
+        conclusions: Wnioski
         decidim_category_id: Kategoria
         description: Opis
-        end_time: Kończy się na
+        end_time: Skończy się
         information_updates: Aktualizacje informacji
         instructions: Instrukcje uczestnictwa
-        start_time: Zaczyna się o
+        start_time: Zaczyna się
         title: Tytuł
         user_group_id: Utwórz debatę jako
     models:
+      decidim/debates/close_debate_event: Debata zamknięta
       decidim/debates/create_debate_event: Debata
       decidim/debates/creation_disabled_event: Debaty wyłączone
       decidim/debates/creation_enabled_event: Debaty włączone
@@ -20,89 +23,135 @@ pl:
       decidim/debates/debate:
         one: Debata
         few: Debaty
-        many: Debaty
-        other: Debaty
+        many: Debat
+        other: Debat
   decidim:
     components:
       debates:
         actions:
-          create: Stwórz
+          create: Utwórz
+          endorse: Rekomenduj
         name: Debaty
         settings:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
-            creation_enabled: Utworzenie debaty przez użytkowników
+            creation_enabled: Tworzenie debat przez użytkowników włączone
+            endorsements_blocked: Rekomendacje zablokowane
+            endorsements_enabled: Rekomendacje włączone
     debates:
       actions:
+        close: Zamknij
         confirm_destroy: Jesteś pewny?
-        destroy: Kasować
+        destroy: Usuń
         edit: Edytuj
-        new: Nowy %{name}
-        title: działania
+        new: Nowa %{name}
+        title: Działania
       admin:
+        debate_closes:
+          edit:
+            close: Zamknij
+            title: Zamknij debatę
         debates:
           create:
-            invalid: Podczas tworzenia debaty wystąpił problem.
-            success: Debatę utworzono pomyślnie.
+            invalid: Podczas tworzenia debaty wystąpił błąd.
+            success: Debata została utworzona pomyślnie.
           destroy:
-            success: Debata została pomyślnie usunięta.
+            success: Debata została usunięta.
           edit:
             title: Edytuj debatę
             update: Zaktualizuj debatę
           index:
             title: Debaty
           new:
-            create: Stwórz debatę
+            create: Utwórz debatę
             title: Nowa debata
           update:
-            invalid: Wystąpił problem podczas aktualizowania tej debaty.
-            success: Debata zaktualizowana pomyślnie.
+            invalid: Wystąpił błąd podczas aktualizowania tej debaty.
+            success: Debata została zaktualizowana pomyślnie.
         models:
           debate:
             name: Debata
       admin_log:
         debate:
-          create: "%{user_name} stworzył %{resource_name} debatę na przestrzeni %{space_name}"
-          update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni %{space_name}"
+          close: "%{user_name} zamknął/zamknęła debatę %{resource_name} w przestrzeni %{space_name}"
+          create: "%{user_name} utworzył(a) debatę %{resource_name} w przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) debatę %{resource_name} w przestrzeni %{space_name}"
       debates:
+        close:
+          invalid: Podczas zamykania debaty wystąpił błąd.
+          success: Debata została pomyślnie zamknięta.
+        close_debate_modal:
+          close: Zamknij
+          description: Jakie jest podsumowanie lub wnioski z tej debaty?
+          send: Zamknij debatę
+        closed: Zamknięta
         count:
           debates_count:
             one: "%{count} debata"
-            few: "%{count} debat"
-            many: "%{count} debaty"
+            few: "%{count} debaty"
+            many: "%{count} debat"
             other: "%{count} debat"
         create:
-          invalid: Podczas tworzenia debaty wystąpił problem.
+          invalid: Podczas tworzenia debaty wystąpił błąd.
           success: Debatę utworzono pomyślnie.
         debate:
-          participate: Uczestniczyć
+          participate: Dołącz
+        edit:
+          back: Powrót
+          save: Zapisz zmiany
+          title: Edytuj debatę
         filters:
-          all: Wszystko
+          all: Wszystkie
           category: Kategoria
           category_prompt: Wybierz kategorię
           citizens: Obywatele
           official: Urzędnik
-          origin: Pochodzenie
+          origin: Źródło
           search: Szukaj
         filters_small_view:
           close_modal: Zamknij modalne
           filter: Filtr
           filter_by: Filtruj według
-          unfold: Rozwijać się
+          unfold: Rozwiń
         form:
-          select_a_category: Proszę wybierz kategorie
+          select_a_category: Wybierz kategorię
         index:
           new_debate: Nowa debata
         new:
-          back: Plecy
-          create: Stwórz
+          back: Wróć
+          create: Utwórz
           title: Nowa debata
+        show:
+          back: Powrót do listy
+          close_debate: Zamknij debatę
+          date: Data
+          debate_closed: Zamknięta
+          debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
+          edit_conclusions: Edytuj wnioski
+          edit_debate: Edytuj debatę
+          groups_count: Grupy
+          last_comment_by: Ostatni komentarz autorstwa
+          no_comments_yet: Brak komentarzy
+          participants_count: Użytkownicy
+        update:
+          invalid: Podczas aktualizowania debaty wystąpił błąd.
+          success: Debata została pomyślnie zaktualizowana.
+        versions:
+          debates:
+            back_to_resource: Wróć do debaty
+          index:
+            title: Wersje
+        versions_list:
+          back_to_resource: Wróć do debaty
       last_activity:
-        new_debate_at_html: "<span>Nowa debata na %{link}</span>"
+        new_debate_at_html: "<span>Nowa debata pod adresem %{link}</span>"
       models:
         debate:
           fields:
@@ -116,27 +165,32 @@ pl:
           space_followers:
             email_intro: |-
               Cześć,
-              Nowa debata "%{resource_title}" została utworzona na %{space_title} przestrzeni uczestniczącej, sprawdź ją i przyczyń się do:
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{space_title} przestrzeń partycypacyjną. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Nowa debata "%{resource_title}" na %{space_title}
-            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona na <a href="%{space_path}">%{space_title}</a>.
+              Nowa debata "%{resource_title}" została utworzona w przestrzeni partycypacyjnej %{space_title}, sprawdź ją i przyłącz się:
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń partycypacyjną %{space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+            email_subject: Nowa debata "%{resource_title}" w %{space_title}
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została utworzona w <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Witaj,
-              %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową debatę "%{resource_title}". Sprawdź i pomóż:
-            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-            email_subject: Nowa debata "%{resource_title}" o %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> utworzyło debatę <a href="%{resource_path}">%{resource_title}</a>.
+              Cześć,
+              %{author_name} %{author_nickname}, którego/którą obserwujesz, utworzył(a) nową debatę "%{resource_title}". Sprawdź i dołącz:
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+            email_subject: Nowa debata "%{resource_title}" utworzona przez %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> utworzył(a) debatę <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Tworzenie debaty nie jest już aktywne w %{participatory_space_title}. Nadal możesz uczestniczyć w otwartych debatach na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Tworzenie debaty zostało wyłączone w %{participatory_space_title}
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Tworzenie debat zostało wyłączone w %{participatory_space_title}
           notification_title: Tworzenie debat jest teraz wyłączone w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
-          email_intro: 'Możesz teraz rozpocząć nowe debaty w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_intro: 'Możesz teraz tworzyć nowe debaty w %{participatory_space_title}! Zacznij aktywnie działać na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
-          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych debat</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Możesz teraz tworzyć <a href="%{resource_path}">nowe debaty</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz debatę "%{resource_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
+          email_subject: Debata "%{resource_title}" została zakończona
+          notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została zamknięta.
     gamification:
       badges:
         commented_debates:
@@ -146,9 +200,9 @@ pl:
           description_another: Ten użytkownik uczestniczył w %{score} debatach.
           description_own: Brałeś udział w %{score} debatach.
           name: Debaty
-          next_level_in: Weź udział w %{score} kolejnych debatach, aby przejść do następnego poziomu!
+          next_level_in: Weź udział w %{score} kolejnych debatach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnej debacie.
-          unearned_own: Brałeś już udział w jakichkolwiek debatach.
+          unearned_own: Nie uczestniczyłeś/łaś jeszcze w żadnych debatach.
     metrics:
       debates:
         description: Liczba utworzonych debat

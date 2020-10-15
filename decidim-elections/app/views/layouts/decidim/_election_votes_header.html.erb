@@ -1,0 +1,13 @@
+<% if booth_mode == :preview %>
+  <div class="focus__top_warning"><%= icon :warning %> <%= t("decidim.elections.votes.new.preview_alert") %></div>
+<% end %>
+<div class="focus__top">
+  <%= render partial: "layouts/decidim/logo", locals: { organization: current_organization } %>
+  <nav class="focus__user topbar__user__logged">
+    <%= current_user.name %>
+  </nav>
+  <%= link_to election_path(election), class: "focus__exit" do %>
+    <span class="focus__x-icon" aria-hidden="true">×</span>
+    <%= t(".exit") %>
+  <% end %>
+</div>

@@ -103,6 +103,7 @@ ignore_missing:
   - participate_in
   - see_other_versions
   - actions.invalid_destroy.proposals_count
+  - decidim.debates.debate_m.footer.commented_time_ago
 
 # Consider these keys used:
 ignore_unused:
@@ -157,6 +158,8 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.elections.admin_log.*
+  - decidim.elections.orders.*
+  - decidim.elections.election_m.*
   - decidim.proposals.admin_log.*
   - decidim.log.base_presenter.*
   - decidim.admin_log.*
@@ -165,6 +168,19 @@ ignore_unused:
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
   - decidim.budgets.admin.models.project.name
+  - decidim.budgets.budgets_list.cancel_order.more_than_one
+  - decidim.budgets.budgets_list.cancel_order.only_one
+  - decidim.budgets.budgets_list.finished_message
+  - decidim.budgets.budgets_list.highlighted_cta
+  - decidim.budgets.budgets_list.if_change_opinion
+  - decidim.budgets.budgets_list.my_budgets
+  - decidim.budgets.budgets_list.voted_on
+  - decidim.budgets.budget_information_modal.close_modal
+  - decidim.budgets.budget_information_modal.continue
+  - decidim.budgets.budget_information_modal.more_information
+  - decidim.budgets.budget_information_modal.back_to
+  - decidim.budgets.limit_announcement.cant_vote
+  - decidim.budgets.limit_announcement.limit_reached
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
@@ -250,8 +266,16 @@ ignore_unused:
   - decidim.initiatives.versions.shared.back_to_resource
   - decidim.meetings.actions.invalid_destroy.proposals_count.*
   - decidim.meetings.versions.back_to_resource
+  - layouts.decidim.participatory_processes.participatory_process.more_info
+  - layouts.decidim.participatory_processes.participatory_process.more_info_about
+  - layouts.decidim.participatory_processes.participatory_process.take_part
+  - layouts.decidim.participatory_processes.participatory_process.take_part_in
   - decidim.debates.debates.versions.*
   - decidim.debates.debates.versions_list.*
+  - decidim.debates.debates.show.edit_conclusions
+  - activemodel.attributes.organization.machine_translation_display_priority_*
+  - decidim.debates.debates.orders.*
+  - decidim.debates.debate_m.commented_time_ago
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

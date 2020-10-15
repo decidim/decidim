@@ -22,6 +22,7 @@ ro:
         settings:
           global:
             announcement: Anunţ
+            clean_after_publish: Ștergeți răspunsurile la publicarea sondajului
           step:
             allow_answers: Permite răspunsuri
             allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la chestionar

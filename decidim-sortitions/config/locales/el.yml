@@ -1,7 +1,152 @@
 el:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Πληροφορίες κλήρωσης
+        decidim_category_id: Κατηγορίες του συνόλου προτάσεων στις οποίες θέλετε να εφαρμόσετε την κλήρωση
+        decidim_proposals_component_id: Σύνολο προτάσεων
+        dice: Αποτέλεσμα ζαριάς. Ρίξτε ένα ζάρι 6 πλευρών ή αναζητήστε έναν άλλο τυχαίο τρόπο για να δημιουργήσετε έναν αριθμό από το 1 έως το 6 και εισαγάγετε εδώ τον αριθμό που προκύπτει ενώπιον μερικών μαρτύρων. Αυτό συμβάλλει στην ποιότητα και εξασφαλίζει την τυχαιότητα του αποτελέσματος
+        target_items: Αριθμός προτάσεων προς επιλογή (δηλώνει τον αριθμό των προτάσεων που θέλετε να επιλεγούν με κλήρωση της ομάδας προτάσεων που έχετε επιλέξει προηγουμένως)
+        title: Τίτλος
+        witnesses: Μάρτυρες
+    models:
+      decidim/sortitions/create_sortition_event: Κλήρωση
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Κλήρωση
+        other: Κληρώσεις
   decidim:
+    components:
+      sortitions:
+        name: Κληρώσεις
+        settings:
+          global:
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Η κλήρωση «%{resource_title}» προστέθηκε στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Προστέθηκε νέα κλήρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η κλήρωση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον χώρο συμμετοχής %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Κληρώσεις
+    participatory_processes:
+      statistics:
+        sortitions_count: Κληρώσεις
     sortitions:
       admin:
+        actions:
+          destroy: Ακύρωση της κλήρωσης
+          edit: Επεξεργασία
+          new: Νέα κλήρωση
+          show: Λεπτομέρειες κλήρωσης
+        models:
+          sortition:
+            fields:
+              category: Κατηγορία
+              created_at: Ημερομηνία δημιουργίας
+              decidim_proposals_component: Στοιχείο προτάσεων
+              dice: Ζάρι
+              reference: Αναφορά
+              request_timestamp: Ώρα κλήρωσης
+              seed: Κατάταξη
+              target_items: Στοιχεία προς επιλογή
+              title: Τίτλος
+            name:
+              one: Κλήρωση
+              other: Κληρώσεις
         sortitions:
+          confirm_destroy:
+            confirm_destroy: Είστε βέβαιοι ότι θέλετε να ακυρώσετε αυτήν την κλήρωση;
+            destroy: Ακύρωση κλήρωσης
+            title: Ακύρωση της κλήρωσης
+          create:
+            error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας κλήρωσης.
+            success: Η κλήρωση δημιουργήθηκε με επιτυχία
+          destroy:
+            error: Δεν είναι δυνατή η ακύρωση της κλήρωσης.
+            success: Η κλήρωση ακυρώθηκε με επιτυχία
+          edit:
+            title: Ενημερώστε τις πληροφορίες σχετικά με την κλήρωση
+            update: Ενημέρωση
+          form:
+            all_categories: Όλες οι κατηγορίες
+            select_proposal_component: Επιλέξτε το σύνολο προτάσεων
+            title: Νέα κλήρωση για προτάσεις
+          index:
+            title: Κληρώσεις
           new:
+            confirm: Πατώντας το επόμενο κουμπί, το Decidim θα καταγράψει την ημερομηνία και την ώρα (με ακρίβεια δευτερολέπτων) και μαζί με τη ζαριά, αυτές οι πληροφορίες θα χρησιμοποιηθούν για τη δημιουργία μιας τυχαίας επιλογής. Η ενέργεια θα είναι μη αναστρέψιμη, μόλις πατήσετε το κουμπί, θα δημοσιευτεί το αποτέλεσμα αυτής της κλήρωσης, μαζί με τα δεδομένα που έχουν εισαχθεί σε αυτήν τη φόρμα και δεν μπορούν να τροποποιηθούν, ελέγξτε προσεκτικά το περιεχόμενο
             create: Δημιουργία
+            title: Νέα κλήρωση
+          show:
+            selected_proposals: Επιλέχθηκαν προτάσεις για κλήρωση
+          update:
+            error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση της κλήρωσης.
+            success: Η κλήρωση ενημερώθηκε με επιτυχία
+      admin_log:
+        sortition:
+          create: "Ο χρήστης %{user_name} δημιούργησε την κλήρωση %{resource_name} στον χώρο %{space_name}"
+          delete: "Ο χρήστης %{user_name} ακύρωσε την κλήρωση %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} ενημέρωσε την κλήρωση %{resource_name} στον χώρο %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 πρόταση
+            other: "%{count} προτάσεις"
+        filters:
+          active: Ενεργές
+          all: Όλα
+          cancelled: Ακυρώθηκε
+          category: Κατηγορία
+          category_prompt: Επιλέξτε μια κατηγορία
+          search: Αναζήτηση
+          state: Κατάσταση
+        filters_small_view:
+          close_modal: Κλείσιμο βοηθητικού στοιχείου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Αποκάλυψη
+        linked_sortitions:
+          selected_proposals: Επιλεγμένες προτάσεις
+        orders:
+          label: 'Ταξινόμηση κληρώσεων κατά:'
+          random: Τυχαία
+          recent: Πρόσφατα
+        results_count:
+          count:
+            one: επιλεγμένη πρόταση
+            other: επιλεγμένες προτάσεις
+        show:
+          algorithm: Κωδικός αλγορίθμου κλήρωσης
+          any_category: από όλες τις κατηγορίες
+          back: Επιστροφή στη λίστα
+          cancelled: Ακυρωμένη κλήρωση
+          candidate_proposal_ids: Ταξινόμηση προτάσεων κληρώσεων και αναγνωριστικά
+          candidate_proposals_info: 'Η κλήρωση πραγματοποιήθηκε μεταξύ των ακόλουθων προτάσεων (%{category_label}), με τα παρακάτω αναγνωριστικά (οι επιλεγμένες προτάσεις επισημαίνονται με έντονη γραφή)'
+          category: από την κατηγορία %{category}
+          dice_result: "(1) Αποτέλεσμα ζαριάς"
+          introduction: 'Αυτή η σελίδα περιέχει τα αποτελέσματα της κλήρωσης %{reference}. Μέσω αυτής της κλήρωσης, ο αριθμός %{target_items} των αποτελεσμάτων επιλέχθηκε τυχαία και με ίση πιθανότητα κατανομής από το σύνολο των προτάσεων που εμφανίζονται παρακάτω. Μαζί με τα αποτελέσματα, οι πληροφορίες που εμφανίζονται σε αυτήν τη σελίδα παρέχουν όλες τις πληροφορίες που απαιτούνται για τη μεγιστοποίηση των εγγυήσεων και την αναπαραγωγή των αποτελεσμάτων. Το κλειδί για την ποιότητα αυτής της κλήρωσης είναι η διπλή τυχαιότητα που παρέχεται από το ρίξιμο του ζαριού (επαληθευμένο από μάρτυρες) και τον ακριβή χρόνο της κλήρωσης που παρέχει δεδομένα για έναν αλγόριθμο που δημιουργεί μια τυχαία επιλογή. Η χρονική κατάταξη για την κλήρωση είναι τόσο ακριβής (δευτερόλεπτα), που είναι αδύνατο να ελεγχθεί από ανθρώπους, παρέχοντας έτσι μια διπλή «μη ελεγχόμενη» εισαγωγή δεδομένων για να εξασφαλιστεί ένα δίκαιο αποτέλεσμα.'
+          mathematical_result: Αποτέλεσμα (1) x (2)
+          proposals_selected_by_sortition: Προτάσεις που επιλέχθηκαν βάσει κλήρωσης
+          sortition_reproducibility_details: Λεπτομέρειες δυνατότητας αναπαραγωγής κλήρωσης
+          time_seed: "(2) Χρονική κατάταξη"
+          witnesses: Μάρτυρες
+        sortition:
+          random_seed: Τυχαία κατάταξη
+          selected_proposals:
+            one: επιλεγμένη πρόταση
+            other: επιλεγμένες προτάσεις
+          view: Προβολή
+        sortition_author:
+          deleted: Διαγραμμένος συμμετέχων
+        sortition_cancel_author:
+          deleted: Διαγραμμένος συμμετέχων
+        sortitions_count:
+          count:
+            one: 1 κλήρωση
+            other: "%{count} κληρώσεις"

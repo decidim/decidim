@@ -18,7 +18,8 @@ describe Decidim::Debates::CreateDebate do
       user_group_id: nil,
       category: category,
       current_user: user,
-      current_component: current_component
+      current_component: current_component,
+      current_organization: organization
     )
   end
   let(:invalid) { false }

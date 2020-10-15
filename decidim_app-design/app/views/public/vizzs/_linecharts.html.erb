@@ -23,7 +23,7 @@
   <code>partial "linechart", metric: "metrica", title: "Lorem", subtitle: "Ipsum"</code>
 </div>
 <div class="row column mt-s">
-  <%= partial "linechart", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
+  <%= partial "linechart", metric: "linechart-" + SecureRandom.random_number(2).to_s, title: Faker::TvShows::GameOfThrones.character, subtitle: Faker::Lorem.sentence %>
 </div>
 <br>
 <div class="row column">

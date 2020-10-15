@@ -15,6 +15,13 @@ module Decidim
       has_one :component, through: :election, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
 
       default_scope { order(weight: :asc, id: :asc) }
+
+      # Public: Checks if enough answers are given for max_selections attribute
+      #
+      # Returns a boolean.
+      def valid_max_selection?
+        max_selections <= answers.count
+      end
     end
   end
 end

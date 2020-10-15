@@ -3,6 +3,8 @@ es:
     attributes:
       account:
         delete_reason: Motivo de eliminar tu cuenta
+      common:
+        created_at: Creado el
       group:
         about: Acerca de
         avatar: Avatar
@@ -63,6 +65,7 @@ es:
     errors:
       general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
+      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -72,6 +75,7 @@ es:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Enlace externo
       logo: "Logo oficial de %{organization}"
       skip_button: Saltar al contenido principal
     account:
@@ -150,6 +154,8 @@ es:
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
     admin_terms_of_use:
       default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Confiamos en que has recibido la explicación habitual del administrador local del sistema. Generalmente se reduce a estas tres cosas:</p><ol><li>Respetar la privacidad de los demás.</li><li>Piensa antes de hacer clic.</li><li>Un gran poder conlleva una gran responsabilidad.</li></ol>"
+    alert:
+      dismiss: Descartar notificación
     amendments:
       accepted:
         error: Ocurrió un error al aceptar la enmienda.
@@ -274,6 +280,7 @@ es:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
+      renew: Renovar la verificación
       sms:
         explanation: Introduce tu número de teléfono móvil para poder verificar tu identidad.
         name: Código por SMS
@@ -308,6 +315,8 @@ es:
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
+      show:
+        close_modal: Cerrar el modal
     collapsible_list:
       hidden_elements_count:
         one: y %{count} más
@@ -316,7 +325,7 @@ es:
       see_more: "(ver más)"
     components:
       component_order_selector:
-        no_content: No podemos encontrar ningún contenido con este criterio
+        no_content: No hemos podido encontrar ningún contenido con este criterio
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -343,6 +352,8 @@ es:
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Permisos de recursos habilitados
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
@@ -456,6 +467,7 @@ es:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
     endorsable:
       endorsements: Adhesiones
+      endorsements_count: Número de adhesiones
     endorsement_buttons_cell:
       already_endorsed: Adherido
       endorse: Adherirse
@@ -582,15 +594,15 @@ es:
           email_subject: '¡Has sido eliminada del grupo %{user_group_name}!'
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
-          email_intro: Se ha creado un nuevo grupo de usuarias con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
+          email_intro: Se ha creado un nuevo grupo con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Se ha creado un nuevo grupo de usuarias
-          notification_title: Se ha creado el grupo de usuarias %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
+          email_subject: Se ha creado un nuevo grupo
+          notification_title: Se ha creado el grupo %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
         user_group_updated:
-          email_intro: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
+          email_intro: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
-          email_subject: Un grupo de usuarias ha actualizado su perfil
-          notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
+          email_subject: Un grupo ha actualizado su perfil
+          notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       notification_event:
         notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
@@ -629,6 +641,9 @@ es:
       title: Huella digital
       value: Valor
     followers:
+      followers_count:
+        one: "%{count} seguidora"
+        other: "%{count} seguidoras"
       no_followers: Aún no hay seguidores.
     following:
       no_followings: No sigue a nadie ni a ninguna actividad.
@@ -649,6 +664,18 @@ es:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
         error: Hay un error en este campo.
+      file_help:
+        file:
+          explanation: 'Instrucciones para el archivo:'
+          message_1: Tiene que ser una imagen o un documento.
+          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
+        image:
+          explanation: 'Instrucciones para la imagen:'
+          message_1: Preferiblemente una imagen apaisada que no tenga ningún texto.
+          message_2: El servicio recorta la imagen.
+      file_validation:
+        allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
+        max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
       remove_this_file: Eliminar este archivo
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
@@ -802,6 +829,13 @@ es:
           not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
+    map:
+      dynamic:
+        screen_reader_explanation: El siguiente elemento es un mapa que presenta los componentes de esta página como puntos en el mapa. El elemento se puede utilizar con un lector de pantalla pero puede ser difícil de entender.
+        skip_button: Saltar el mapa
+      static:
+        latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Este grupo aún no tiene ningún miembro.
     menu:
@@ -850,16 +884,23 @@ es:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
+        conversation:
+          show: Mostrar la conversación con %{sender}
         create:
           error: No se ha iniciado la conversación. Inténtalo de nuevo más tarde
+        error_modal:
+          close: Cerrar modal
+          correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
+          intro: 'Se han producido los siguientes errores en tu mensaje:'
+          ok: De acuerdo
         index:
-          ago: anteriores
+          ago: hace
           close: Cierra modal
-          from: 'De:'
+          from: De
           groups: Mis grupos
           last_message: Último mensaje
           new_conversation: Nueva conversación
-          next: Siguente
+          next: Siguiente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
         reply:
@@ -867,6 +908,7 @@ es:
           send: Enviar
           title: Respuesta
         show:
+          back: Volver a todas las conversaciones
           chat_with: Conversación con
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
@@ -874,7 +916,7 @@ es:
           send: Enviar
           title: Inicia una conversación
         update:
-          error: Mensaje no enviado. Inténtalo de nuevo más tarde
+          error: El mensaje no fue enviado debido a un error
     metrics:
       download:
         csv: Descargar datos (csv)
@@ -901,7 +943,7 @@ es:
         name: Básica (sólo texto)
       basic_only_text_settings_form:
         body: Cuerpo
-        interpolations_hint: 'Pista: Puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre de la destinataria.'
+        interpolations_hint: 'Pista: puedes utilizar "%{name}" en cualquier parte del cuerpo o asunto y será reemplazado por el nombre de la destinataria.'
       image_text_cta:
         body_preview: 'Texto ficticio para el cuerpo: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Texto del botón de acción
@@ -1048,6 +1090,7 @@ es:
         following: Siguiendo
         groups: Grupos
         members: Miembros
+        officialized: Participante oficial
         timeline: Línea de tiempo
         view_full_profile: Ver el perfil completo
       sidebar:
@@ -1094,11 +1137,16 @@ es:
       global: Alcance global
       picker:
         cancel: Cancelar
+        change: Cambiar el ámbito seleccionado
         choose: Seleccionar
+        currently_selected: Ámbito seleccionado actualmente
         title: Selecciona %{field}
       prompt: Selecciona un ámbito
       scopes: Ámbitos
+      scopes_picker_input:
+        select_scope: 'Seleccionar un ámbito (actualmente: %{current})'
     search:
+      results: Resultados de la búsqueda
       results_found_for_term: '%{count} Resultados de la búsqueda: "%{term}"'
       term_input_placeholder: Buscar
     searches:
@@ -1120,7 +1168,16 @@ es:
           one: "%{count} resultado"
           other: "%{count} resultados"
         view_all: Ver todo (%{count})
+    security:
+      selfxss_warning:
+        description: Esta función de navegador está pensada para desarrolladores y no deberías pegar nada aquí si se te ha pedido que lo hagas. Pegar contenido en esta ventana puede comprometer tu privacidad y dar acceso a hackers a tu cuenta.
+        title: Detener!
     shared:
+      confirm_modal:
+        cancel: Cancelar
+        close_modal: Cerrar el modal
+        ok: De acuerdo
+        title: Confirmar
       embed_modal:
         close_window: Cierra la ventana
         embed: Por favor, pega este código en tu página
@@ -1128,6 +1185,9 @@ es:
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
+      filter_form_help:
+        help: El siguiente formulario filtra los resultados de búsqueda dinámicamente cuando se cambian las condiciones de búsqueda.
+        skip: Saltar a los resultados
       flag_modal:
         already_reported: Este contenido ya fue denunciado y será revisado por una administradora.
         close: Cerrar
@@ -1136,12 +1196,14 @@ es:
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte o de suicidio o cualquier forma de discurso de odio.
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
-        title: Denuncia un problema
+        title: Reportar contenido inapropiado
       floating_help:
+        close: Cerrar la ayuda
         help: Ayuda
       follow_button:
         sign_in_before_follow: Inicia sesión antes de realizar esta acción
       login_modal:
+        close_modal: Cerrar el modal
         please_sign_in: Por favor, inicia sesión
         sign_up: Regístrate
       participatory_space_filters:
@@ -1160,6 +1222,13 @@ es:
         close_window: Cierra la ventana
         share: Compartir
         share_link: Compartir enlace
+    tags:
+      filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
+      filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
+      show_original: Mostrar el texto original
+      show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
         no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
@@ -1172,13 +1241,13 @@ es:
       index:
         add_max_users: 'Añadir usuarias a la conversación: máximo 9 usuarias'
         add_users_placeholder: Buscar...
-        close: Cerar
+        close: Cerrar
         conversations_info: Las conversaciones son privadas. Nadie más puede verlas. Se puede iniciar una conversación con cualquier participante o grupo registrado en la plataforma.
-        from: 'De:'
+        from: De
         last_message: Último mensaje
         modal_title: Nueva conversación
         new_conversation: Nueva conversación
-        next: Siguente
+        next: Siguiente
         no_conversations_warning: Aún no hay ninguna conversación.
         no_results: No hay resultados
         participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
@@ -1404,7 +1473,13 @@ es:
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: Es demasiado corto (menos de 15 caracteres)
   forms:
+    correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
+    length_validator:
+      minimum:
+        one: al menos %{count} carácter
+        other: al menos %{count} caracteres
     required: Obligatorio
+    required_explanation: "* Los campos requeridos están marcados con un asterisco"
   invisible_captcha:
     sentence_for_humans: Si eres humano, ignora este campo
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelve a enviar.
@@ -1417,6 +1492,8 @@ es:
       edit_link:
         edit: Edita
       footer:
+        cc_by_license: Con licencia Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
@@ -1428,9 +1505,19 @@ es:
         close_session: Cerrar sesión
         description_html: Estás gestionando la participante <b>%{user_name}</b>.
         expire_time_html: Su sesión expirará en <b><span class="minutes">%{minutes}</span> minutos</b>.
+      language_chooser:
+        choose_language: Elegir el idioma
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
+        mark_as_read: Marcar como leído
+      social_media_links:
+        facebook: "%{organization} en Facebook"
+        github: "%{organization} en GitHub"
+        instagram: "%{organization} en Instagram"
+        twitter: "%{organization} en Twitter"
+        youtube: "%{organization} en YouTube"
       user_menu:
+        account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
         conversations: Conversaciones
         notifications: Notificaciones
@@ -1450,6 +1537,7 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
+    name_with_error: Inglés (¡error!)
   password_validator:
     domain_included_in_password: es demasiado similar a este nombre de dominio
     email_included_in_password: es demasiado similar a tu correo electrónico
@@ -1519,6 +1607,7 @@ es:
       last_title: Enlace a la última página
       next: Siguiente &rsaquo;
       next_title: Enlace a la página siguiente
+      pagination: Paginación
       previous: "&lsaquo; Anterior"
       previous_title: Enlace a la página anterior
       title: 'Número de página: '

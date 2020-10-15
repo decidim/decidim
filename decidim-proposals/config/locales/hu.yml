@@ -77,24 +77,33 @@ hu:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Típus
-          values:
-            'false': Javaslatok
-            'true': Módosítások
+        proposals:
+          category_id_eq:
+            label: Kategória
+          is_emendation_true:
+            label: Típus
+            values:
+              'false': Javaslatok
+              'true': Módosítások
+          scope_id_eq:
+            label: Hatáskör
+          state_eq:
+            label: Állapot
+            values:
+              accepted: Elfogadva
+              evaluating: Értékelés
+              published: Közzétéve
+              rejected: Elutasítva
+              validating: Műszaki érvényesítés
+              withdrawn: Visszavonva
+          state_null:
+            label: Állapot
+            values:
+              'true': Megválaszolatlan
+          valuator_role_ids_has:
+            label: Értékelőhöz rendelve
         search_placeholder:
           id_string_or_title_cont: Keresés %{collection} ID vagy cím alapján.
-        state_eq:
-          label: Állapot
-          values:
-            evaluating: Értékelés
-            withdrawn: Visszavonva
-        state_null:
-          label: Állapot
-          values:
-            'true': Nem megválaszolt
-        valuator_role_ids_has:
-          label: Értékelőhöz rendelve
     components:
       proposals:
         actions:
@@ -678,7 +687,6 @@ hu:
           amend: Módosítás
           comment: Megjegyzés
           comments: Hozzászólások
-          endorse: Támogatás
       proposal_votes:
         create:
           error: Hiba történt a javaslatra való szavazás során.
@@ -784,7 +792,6 @@ hu:
           read_more: Bővebben
           report: Jelentés
           withdraw_btn_hint: Ha meggondoltad magad, az első támogatás megszerzéséig bármikor visszavonhatod a javaslatod. A javaslat nem törlődik automatikusan, hanem a visszavont javaslatok listájára kerül.
-          withdraw_confirmation: Biztosan visszavonod ezt a javaslatot?
           withdraw_proposal: Javaslat visszavonása
         tags:
           changed_from: "(egy adminisztrátor megváltoztatta <u>%{previous_name}</u> értékről)"

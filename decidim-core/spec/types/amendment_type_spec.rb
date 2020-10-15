@@ -64,18 +64,18 @@ module Decidim
       end
 
       describe "emendation" do
-        let(:query) { "{ emendation { ...on Proposal { title } } }" }
+        let(:query) { '{ emendation { ...on Proposal { title { translation(locale: "en")} } } }' }
 
         it "returns the emendation as a string" do
-          expect(response["emendation"]["title"]).to eq(translated(emendation.title))
+          expect(response["emendation"]["title"]["translation"]).to eq(emendation.title["en"])
         end
       end
 
       describe "amendable" do
-        let(:query) { "{ amendable { ...on Proposal { title } } }" }
+        let(:query) { '{ amendable { ...on Proposal { title { translation(locale: "en")} } } }' }
 
         it "returns the amendable as a string" do
-          expect(response["amendable"]["title"]).to eq(translated(amendable.title))
+          expect(response["amendable"]["title"]["translation"]).to eq(amendable.title["en"])
         end
       end
     end

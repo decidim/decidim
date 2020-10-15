@@ -3,6 +3,8 @@ es-PY:
     attributes:
       answer:
         body: Responder
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -42,6 +44,8 @@ es-PY:
             export:
               answer:
                 title: 'Respuesta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
             index:
               title: "%{total} total de respuestas"
             show:
@@ -49,6 +53,7 @@ es-PY:
           display_condition:
             answer_option: Opción de respuesta
             condition_question: Pregunta
+            condition_type: Condición
             condition_types:
               answered: Contestada
               equal: Igual a
@@ -56,14 +61,19 @@ es-PY:
               not_answered: No contestada
               not_equal: No es igual
             condition_value: Texto incluido
+            display_condition: Condiciones de visualización
+            mandatory: Esta condición debe cumplirse siempre independientemente del estado de otras condiciones
             remove: Eliminar
+            save_warning: Recuerda guardar la encuesta antes de configurar las condiciones de visualización
             select_answer_option: Eliminar la opción de respuesta
             select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccionar un tipo de confirmación
           edit:
             save: Guardar
             title: Editar el cuestionario
           form:
             add_question: Añadir pregunta
+            add_separator: Añadir separador
             already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
@@ -76,6 +86,8 @@ es-PY:
             statement: Declaración
           question:
             add_answer_option: Añadir opción de respuesta
+            add_display_condition: Agregar condición de visualización
+            add_display_condition_info: Guardar la encuesta para configurar las condiciones de visualización
             add_matrix_row: Añadir fila
             any: Alguna
             collapse: Contraer
@@ -93,15 +105,17 @@ es-PY:
             up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
-            success: Cuestionarios guardados con éxito.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
       files:
         extension_whitelist: 'Formatos de archivo aceptados:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'
         processors:
+          resize_and_pad: Redimensionado y ajustado a
           resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga
@@ -147,8 +161,10 @@ es-PY:
           submit: Enviar
       user_answers_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido en
         id: ID de respuesta
+        ip_hash: Hash de Dirección IP
         question: Pregunta
         registered: Registrado
         session_token: Identificador de usuaria

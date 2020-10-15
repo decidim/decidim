@@ -49,5 +49,35 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "description" do
+      let(:description1) do
+        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite
+      end
+      let(:description2) do
+        Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description in Spanish #description", current_organization: organization).rewrite
+      end
+      let(:meeting) do
+        create(
+          :meeting,
+          component: meeting_component,
+          description: {
+            en: description1,
+            machine_translations: {
+              es: description2
+            }
+          }
+        )
+      end
+
+      it "parses hashtags in machine translations" do
+        expect(meeting.description["en"]).to match(/gid:/)
+        expect(meeting.description["machine_translations"]["es"]).to match(/gid:/)
+
+        presented_description = presented_meeting.description(all_locales: true)
+        expect(presented_description["en"]).to eq("Description #description")
+        expect(presented_description["machine_translations"]["es"]).to eq("Description in Spanish #description")
+      end
+    end
   end
 end

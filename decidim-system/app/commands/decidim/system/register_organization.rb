@@ -59,7 +59,8 @@ module Decidim
           default_locale: form.default_locale,
           omniauth_settings: form.encrypted_omniauth_settings,
           smtp_settings: form.encrypted_smtp_settings,
-          send_welcome_notification: true
+          send_welcome_notification: true,
+          file_upload_settings: form.file_upload_settings.final
         )
       end
 

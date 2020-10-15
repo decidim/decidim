@@ -18,7 +18,7 @@
     data-allow-html="true"
     data-template-classes="light expanded"
     data-tip-text='<%= h render(:profile_minicard) %>'>
-    <%= model.name %>
+    <%= author_name %>
   </span>
 
   <% if model.badge.present? %>
@@ -28,7 +28,7 @@
   <% end %>
 <% else %>
   <span class="author__name">
-    <%= model.name %>
+    <%= author_name %>
   </span>
 
   <% if model.badge.present? %>

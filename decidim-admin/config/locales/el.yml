@@ -2,104 +2,818 @@ el:
   activemodel:
     attributes:
       area:
+        area_type: Τύπος τομέα
         name: Όνομα
+        organization: Οργανισμός
       area_type:
         name: Όνομα
+        organization: Οργανισμός
+        plural: Πληθυντικός
+      attachment:
+        attachment_collection_id: Φάκελος
+        description: Περιγραφή
+        file: Αρχείο
+        title: Συνημμένο ή όνομα εικόνας
       attachment_collection:
+        description: Περιγραφή
         name: Όνομα
       category:
+        description: Περιγραφή
         name: Όνομα
+        parent_id: Γονικό στοιχείο
       component:
         name: Όνομα
-      oauth_application:
-        name: Όνομα
+        published_at: Δημοσιεύτηκε στις
+        weight: Βάρος
+      id: Αναγνωριστικό
+      newsletter:
+        body: Σώμα
+        subject: Θέμα
       organization:
+        address: Όνομα κεντρικού υπολογιστή SMTP
+        alert_color: Ειδοποίηση
+        badges_enabled: Ενεργοποίηση εμβλημάτων
+        comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+        cta_button_path: Διαδρομή κουμπιού «Call To Action»
+        cta_button_text: Κείμενο κουμπιού «Call To Action»
+        customize_welcome_notification: Προσαρμογή ειδοποίησης καλωσορίσματος
+        default_locale: Προεπιλεγμένες τοπικές ρυθμίσεις
+        description: Περιγραφή
+        enable_omnipresent_banner: Εμφάνιση διαφημιστικού πλαισίου omnipresent
+        facebook_handler: Πρόγραμμα χειρισμού Facebook
+        favicon: Εικονίδιο
+        from: Από διεύθυνση email
+        github_handler: Πρόγραμμα χειρισμού GitHub
+        header_snippets: Τμήματα κεφαλίδας
+        highlight_alternative_color: Επισήμαση, εναλλακτική
+        highlight_color: Επισήμανση
+        highlighted_content_banner_action_subtitle: Υπότιτλος κουμπιού ενέργειας
+        highlighted_content_banner_action_title: Τίτλος κουμπιού ενέργειας
+        highlighted_content_banner_action_url: Διεύθυνση URL κουμπιού ενέργειας
+        highlighted_content_banner_enabled: Εμφάνιση του επισημασμένου πλαισίου περιεχομένου
+        highlighted_content_banner_image: Εικόνα
+        highlighted_content_banner_short_description: Σύντομη περιγραφή
+        highlighted_content_banner_title: Τίτλος
+        instagram_handler: Πρόγραμμα χειρισμού Instagram
+        logo: Λογότυπο
         name: Όνομα
+        official_img_footer: Επίσημο υποσέλιδο λογότυπου
+        official_img_header: Επίσημη κεφαλίδα λογότυπου
+        official_url: Επίσημη διεύθυνση URL οργανισμού
+        omnipresent_banner_short_description: Σύντομη περιγραφή
+        omnipresent_banner_title: Τίτλος
+        omnipresent_banner_url: Διεύθυνση URL
         password: Κωδικός πρόσβασης
+        port: Θύρα
+        primary_color: Κύρια
+        reference_prefix: Πρόθεμα αναφοράς
+        rich_text_editor_in_public_views: Ενεργοποίηση προγράμματος επεξεργασίας εμπλουτισμένου κειμένου για τους συμμετέχοντες
+        secondary_color: Δευτερεύουσα
+        send_welcome_notification: Αποστολή ειδοποίησης καλωσορίσματος
+        show_statistics: Εμφάνιση στατιστικών
+        success_color: Επιτυχία
+        time_zone: Ζώνη ώρας
+        tos_version: Έκδοση όρων χρήσης υπηρεσίας
+        twitter_handler: Πρόγραμμα χειρισμού Twitter
+        user_groups_enabled: Ενεργοποίηση ομάδων
+        user_name: Όνομα χρήστη
+        warning_color: Προειδοποίηση
+        welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
+        welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
+        youtube_handler: Πρόγραμμα χειρισμού YouTube
       scope:
+        code: Κωδικός
         name: Όνομα
+        organization: Οργανισμός
+        parent_id: Γονικό στοιχείο
+        scope_type: Τύπος πεδίου εφαρμογής
+        scope_type_id: Τύπος πεδίου εφαρμογής
       scope_type:
         name: Όνομα
+        organization: Οργανισμός
+        plural: Πληθυντικός
+      static_page:
+        changed_notably: Υπήρξαν σημαντικές αλλαγές.
+        content: Περιεχόμενο
+        organization: Οργανισμός
+        show_in_footer: Εμφάνιση στο υποσέλιδο
+        slug: Slug διεύθυνσης URL
+        title: Τίτλος
+        weight: Βάρος
+      static_page_topic:
+        description: Περιγραφή
+        show_in_footer: Εμφάνιση στο υποσέλιδο
+        title: Τίτλος
+        weight: Βάρος
+      user_group_csv_verification:
+        file: Αρχείο
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+            official_img_header:
+              allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Περιεχόμενο
+        slug: Slug διεύθυνσης URL
+        title: Τίτλος
+      doorkeeper/application:
+        authorize_url: Διεύθυνση URL εξουσιοδότησης
+        client_id: Αναγνωριστικό προγράμματος-πελάτη
+        client_secret: Μυστικός κωδικός προγράμματος-πελάτη
+        organization_name: Όνομα οργανισμού
+        organization_url: Διεύθυνση URL οργανισμού
+        redirect_uri: URI ανακατεύθυνσης
+        site: Ιστότοπος
   decidim:
     admin:
       actions:
+        add: Προσθήκη
+        browse: Αναζήτηση
+        export: Εξαγωγή
+        manage: Διαχείριση
+        new: Νέο όνομα %{name}
+        per_page: Ανά σελίδα
+        permissions: Δικαιώματα
         reject: Απόρριψη
+        verify: Επαλήθευση
+      admin_terms_of_use:
+        accept:
+          error: Υπήρξε ένα σφάλμα κατά την αποδοχή των όρων χρήσης διαχειριστή.
+          success: Εξαιρετικά! Αποδεχτήκατε τους όρους χρήσης διαχειριστή.
+        actions:
+          accept: Συμφωνώ με αυτούς τους όρους διαχειριστή
+          are_you_sure: Είστε βέβαιοι ότι θέλετε να απορρίψετε τους όρους διαχειριστή;
+          refuse: Απόρριψη των όρων διαχειριστή
+          title: Αποδοχή των όρων και των προϋποθέσεων χρήσης
+        required_review:
+          alert: 'Απαιτείται: Διαβάστε τους όρους χρήσης διαχειριστή'
+          callout: Αφιερώστε λίγο χρόνο για να διαβάσετε τους όρους χρήσης διαχειριστή. Διαφορετικά, δεν θα μπορείτε να διαχειριστείτε την πλατφόρμα.
+          cta: Διαβάστε τους τώρα.
+        title: Όροι χρήσης διαχειριστή
+      area_types:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου περιοχής.
+          success: Ο τύπος τομέα δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο τύπος τομέα καταστράφηκε με επιτυχία
+        edit:
+          title: Επεξεργασία τύπου τομέα
+          update: Ενημέρωση
+        new:
+          create: Δημιουργία τύπου τομέα
+          title: Νέος τύπος τομέα
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου τομέα.
+          success: Ο τύπος τομέα ενημερώθηκε με επιτυχία
+      areas:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τομέα.
+          success: Ο τομέας δημιουργήθηκε με επιτυχία.
+        destroy:
+          has_spaces: Ο τομέας έχει εξαρτώμενους χώρους, δεν πρέπει να έχει εξαρτήσεις προκειμένου να διαγραφεί.
+          success: Ο τομέας καταστράφηκε με επιτυχία
+        edit:
+          title: Επεξεργασία τομέα
+          update: Ενημέρωση
+        new:
+          create: Δημιουργία τομέα
+          title: Νέος τομέας
+        no_areas: Δεν υπάρχουν τομείς
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τομέα.
+          success: Οι τομείς ενημερώθηκαν με επιτυχία
       attachment_collections:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου φακέλου.
+          success: Ο φάκελος δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο φάκελος καταστράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία φακέλου
+          update: Ενημέρωση
+        index:
+          attachment_collection_used: Δεν είναι δυνατή η κατάργηση αυτού του φακέλου επειδή χρησιμοποιείται.
+          attachment_collections_title: Φάκελοι συνημμένου
         new:
           create: Δημιουργία
+          title: Νέος φάκελος
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του φακέλου.
+          success: Ο φάκελος ενημερώθηκε με επιτυχία.
+      attachments:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου συνημμένου.
+          success: Το συνημμένο δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Το συνημμένο καταστράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία συνημμένου
+          update: Ενημέρωση
+        index:
+          attachments_title: Συνημμένα
+        new:
+          create: Δημιουργία συνημμένου
+          title: Νέο συνημμένο
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του συνημμένου.
+          success: Το συνημμένο ενημερώθηκε με επιτυχία.
+      autocomplete:
+        no_results: Δεν βρέθηκαν αποτελέσματα
+        search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση
+      categories:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της κατηγορίας.
+          success: Η κατηγορία δημιουργήθηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή αυτής της κατηγορίας. Διαγράψτε πρώτα οποιαδήποτε υποκατηγορία, βεβαιωθείτε ότι καμία άλλη οντότητα δεν ανήκει σε αυτήν την κατηγορία και δοκιμάστε ξανά.
+          success: Η κατηγορία διαγράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία κατηγορίας
+          update: Ενημέρωση
+        index:
+          categories_title: Κατηγορίες
+          category_used: Δεν είναι δυνατή η κατάργηση αυτής της κατηγορίας επειδή χρησιμοποιείται.
+        new:
+          create: Δημιουργία κατηγορίας
+          title: Νέα κατηγορία
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της κατηγορίας.
+          success: Η κατηγορία ενημερώθηκε με επιτυχία.
+      component_permissions:
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των δικαιωμάτων αυτού του στοιχείου.
+          success: Τα δικαιώματα ενημερώθηκαν με επιτυχία.
+      components:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του στοιχείου.
+          success: Το στοιχείο δημιουργήθηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά την καταστροφή αυτού του στοιχείου.
+          success: Το στοιχείο διαγράφηκε με επιτυχία.
+        edit:
+          title: Επεξεργασία στοιχείου
+          update: Ενημέρωση
+        form:
+          default_step_settings: Προεπιλεγμένες ρυθμίσεις βήματος
+          global_settings: Καθολικές ρυθμίσεις
+          step_settings: Ρυθμίσεις βήματος
+        index:
+          add: Προσθήκη στοιχείου
+          headers:
+            actions: Ενέργειες
+            name: Όνομα στοιχείου
+            type: Τύπος στοιχείου
+        new:
+          add: Προσθήκη στοιχείου
+          title: 'Προσθήκη στοιχείου: %{name}'
+        publish:
+          success: Το στοιχείο δημοσιεύτηκε με επιτυχία.
+        title: Στοιχεία
+        unpublish:
+          success: Η δημοσίευση του στοιχείου καταργήθηκε με επιτυχία.
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του στοιχείου.
+          success: Το στοιχείο ενημερώθηκε με επιτυχία.
+      dashboard:
+        show:
+          view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
+          welcome: Καλώς ορίσατε στον Πίνακα διαχειριστή Decidim.
+      exports:
+        export_as: "Όνομα %{name} ως μορφή %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: Η εξαγωγή σας είναι σε εξέλιξη. Θα λάβετε email όταν ολοκληρωθεί.
+      filters:
+        category_id_eq:
+          label: Κατηγορία
+        filter_label: Φίλτρο
+        officialized_at_null:
+          label: Κατάσταση
+          values:
+            'false': Επισημοποιήθηκε
+            'true': Δεν επισημοποιήθηκε
+        private_space_eq:
+          label: Ιδιωτικό
+          values:
+            'false': Δημόσιο
+            'true': Ιδιωτικό
+        published_at_null:
+          label: Δημοσιεύτηκε
+          values:
+            'false': Δημοσιεύτηκε
+            'true': Η δημοσίευση καταργήθηκε
+        scope_id_eq:
+          label: Πεδίο εφαρμογής
+        search_label: Αναζήτηση
+        search_placeholder:
+          name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
+          title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
+        state_eq:
+          label: Κατάσταση
+      help_sections:
+        error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση των ενοτήτων βοήθειας
+        form:
+          save: Αποθήκευση
+        success: Οι ενότητες βοήθειας ενημερώθηκαν με επιτυχία
       impersonatable_users:
         index:
+          filter:
+            all: Όλα
+            managed: Με διαχείριση
+            not_managed: Χωρίς διαχείριση
+          filter_by: Φιλτράρισμα κατά
+          impersonate: Αναπαράσταση
+          impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
+          managed: Με διαχείριση
           name: Όνομα
+          needs_authorization_warning: Πρέπει να έχετε ενεργοποιήσει τουλάχιστον μία εξουσιοδότηση για αυτόν τον οργανισμό.
+          not_managed: Χωρίς διαχείριση
+          promote: Αναβάθμιση
+          search: Αναζήτηση
+          status: Κατάσταση
+          view_logs: Προβολή αρχείων καταγραφής
       impersonations:
+        close_session:
+          error: Υπήρξε ένα πρόβλημα κατά το κλείσιμο της τρέχουσας συνεδρίας διαχείρισης συμμετέχοντα.
+          success: Η τρέχουσα συνεδρία αναπαράστασης ολοκληρώθηκε με επιτυχία.
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη διαχείριση του συμμετέχοντα.
+          success: Ο διαχειριζόμενος συμμετέχων δημιουργήθηκε με επιτυχία.
         form:
+          authorization_method: Μέθοδος εξουσιοδότησης
           name: Όνομα
+          reason: Αιτία
+        new:
+          impersonate: Αναπαράσταση
+          impersonate_existing_managed_user: Διαχείριση συμμετέχοντα «%{name}»
+          impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
+          impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
+      logs:
+        logs_list:
+          no_logs_yet: Δεν υπάρχουν ακόμη αρχεία καταγραφής
+      managed_users:
+        promotion:
+          error: Υπήρξε ένα πρόβλημα κατά την προώθηση του διαχειριζόμενου συμμετέχοντα.
+          success: Ο διαχειριζόμενος συμμετέχων αναβαθμίστηκε με επιτυχία.
+        promotions:
+          new:
+            explanation: Οι διαχειριζόμενοι συμμετέχοντες μπορούν να αναβαθμιστούν σε τυπικούς συμμετέχοντες. Αυτό σημαίνει ότι θα προσκληθούν στην εφαρμογή και δεν θα μπορείτε να τους διαχειριστείτε ξανά. Ο προσκεκλημένος συμμετέχων θα λάβει email για να αποδεχτεί την πρόσκλησή σας.
+            new_managed_user_promotion: Προώθηση νέου διαχειριζόμενου συμμετέχοντα
+            promote: Αναβάθμιση
       menu:
+        admin_log: Αρχείο καταγραφής δραστηριοτήτων διαχειριστή
+        admins: Διαχειριστές
+        appearance: Εμφάνιση
+        area_types: Τύποι τομέα
+        areas: Τομείς
+        configuration: Διαμόρφωση
+        dashboard: Πίνακας εργαλείων
+        help_sections: Ενότητες βοήθειας
+        homepage: Αρχική σελίδα
+        impersonations: Αναπαραστάσεις
+        newsletters: Ενημερωτικά δελτία
         participants: Συμμετέχοντες
+        scope_types: Τύποι πεδίου εφαρμογής
+        scopes: Πεδία εφαρμογής
+        settings: Ρυθμίσεις
+        static_pages: Σελίδες
         user_groups: Ομάδες
         users: Συμμετέχοντες
+      metrics:
+        metrics:
+          see_more_metrics: Δείτε περισσότερα μετρικά
       models:
         area:
           fields:
+            area_type: Τύπος τομέα
             name: Όνομα
         area_type:
           fields:
             name: Όνομα
+            plural: Πληθυντικός
         attachment:
+          fields:
+            collection: Φάκελος
+            content_type: Τύπος
+            file_size: Μέγεθος
+            title: Τίτλος
           name: Συνημμένο
+        attachment_collection:
+          name: Φάκελος
+        category:
+          name: Κατηγορία
         impersonation_log:
           fields:
+            admin: Διαχειριστής
+            ended_at: Ολοκληρώθηκε στις
+            expired_at: Έληξε στις
+            reason: Αιτία
+            started_at: Ξεκίνησε στις
             user: Συμμετέχων
-        oauth_application:
+        newsletter:
           fields:
-            name: Όνομα
+            created_at: Δημιουργήθηκε στις
+            progress: Πρόοδος
+            sent_at: Στάλθηκε στις
+            sent_to: Στάλθηκε σε
+            subject: Θέμα
+          name: Ενημερωτικό δελτίο
+        participatory_space_private_user:
+          name: Ιδιωτικός συμμετέχων χώρου συμμετοχής
         scope:
           fields:
             name: Όνομα
+            scope_type: Τύπος πεδίου εφαρμογής
         scope_type:
           fields:
             name: Όνομα
+            plural: Πληθυντικός
+        static_page:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            title: Τίτλος
         user:
           fields:
+            created_at: Ημερομηνία δημιουργίας
             email: Email
+            last_sign_in_at: Ημερομηνία τελευταίας εισόδου
             name: Όνομα
+            role: Ρόλος
+            roles:
+              admin: Διαχειριστής
+              user_manager: Διαχειριστής συμμετεχόντων
           name: Συμμετέχων
         user_group:
           fields:
+            actions: Ενέργειες
+            created_at: Δημιουργήθηκε στις
             document_number: Αριθμός εγγράφου
             name: Όνομα
             phone: Τηλέφωνο
+            state: Κατάσταση
+            users_count: Πλήθος συμμετεχόντων
+      moderations:
+        index:
+          title: Εποπτεύσεις
+        report:
+          reasons:
+            does_not_belong: Δεν ανήκει
+            offensive: Προσβλητικό
+            spam: Ανεπιθύμητη αλληλογραφία
       newsletter_templates:
         index:
           preview_template: Προεπισκόπηση
+          title: Πρότυπα ενημερωτικών δελτίων
+          use_template: Χρήση αυτού του προτύπου
+        show:
+          preview: 'Προεπισκόπηση προτύπου: %{template_name}'
+          use_template: Χρήση αυτού του προτύπου
       newsletters:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του ενημερωτικού δελτίου.
+          success: Το ενημερωτικό δελτίο δημιουργήθηκε με επιτυχία. Ελέγξτε το πριν από την αποστολή.
+        deliver:
+          error: Υπήρξε ένα πρόβλημα κατά την παράδοση αυτού του ενημερωτικού δελτίου.
+          success: Το ενημερωτικό δελτίο παραδόθηκε με επιτυχία.
+        destroy:
+          error_already_sent: 'Δεν είναι δυνατή η καταστροφή του ενημερωτικού δελτίου: Έχει ήδη σταλεί.'
+          success: Το ενημερωτικό δελτίο καταστράφηκε με επιτυχία.
+        edit:
+          save_and_preview: Αποθήκευση και προεπισκόπηση
+          title: Επεξεργασία ενημερωτικού δελτίου
         index:
+          all: Όλα
+          all_users: 'Όλοι οι χρήστες'
+          and: 'και'
+          confirm_delete: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το ενημερωτικό δελτίο;
+          followers: 'ακόλουθοι'
+          has_been_sent_to: 'Στάλθηκε σε:'
+          no_scopes: Δεν υπάρχουν πεδία εφαρμογής
+          not_sent: Δεν έχει σταλεί
           participants: 'συμμετέχοντες '
+          segmented_to: 'Τμηματοποιήθηκε στο θέμα %{subject}:'
+          subscribed_count: 'Έχει εγγραφεί:'
+          title: Ενημερωτικά δελτία
+        new:
+          save: Αποθήκευση
+          title: Νέο ενημερωτικό δελτίο
+        select_recipients_to_deliver:
+          all_spaces: Όλα
+          all_users_help: Στέλνει ενημερωτικό δελτίο σε όλους τους επιβεβαιωμένους χρήστες.
+          confirm_deliver: Είστε βέβαιοι ότι θέλετε να παραδώσετε αυτό το ενημερωτικό δελτίο; Αυτή η ενέργεια δε μπορεί να αναιρεθεί.
+          deliver: Παράδοση ενημερωτικού δελτίου
+          followers_help: Στέλνει ενημερωτικό δελτίο σε όλους τους επιβεβαιωμένους χρήστες που ακολουθούν οποιουσδήποτε επιλεγμένους χώρους συμμετοχής στη λίστα.
+          none: Κανένας
+          participants_help: Στέλνει ενημερωτικό δελτίο σε όλους τους επιβεβαιωμένους χρήστες που έχουν συμμετάσχει σε οποιουσδήποτε από τους επιλεγμένους χώρους συμμετοχής στη λίστα.
+          recipients_count: Αυτό το ενημερωτικό δελτίο θα σταλεί σε <strong id='recipients_count'>%{count}</strong> χρήστες.
+          scopes_help: Στέλνει ενημερωτικό δελτίο σε χρήστες που έχουν ενεργοποιήσει οποιοδήποτε από τα επιλεγμένα πεδία εφαρμογής στις ρυθμίσεις «Τα ενδιαφέροντά μου» του λογαριασμού τους.
+          select_scopes: Φιλτράρισμα με βάση χρήστες που έχουν ενεργοποιήσει οποιοδήποτε επιλεγμένο πεδίο εφαρμογής στις ρυθμίσεις «Τα ενδιαφέροντά μου» του λογαριασμού τους.
+          select_spaces: Επιλέξτε χώρους για τμηματοποίηση του ενημερωτικού δελτίου
+          select_users: Επιλέξτε τους χρήστες στους οποίους θέλετε να στείλετε το ενημερωτικό δελτίο
+          send_to_all_users: Αποστολή σε όλους τους χρήστες
+          send_to_followers: Αποστολή σε ακολούθους
+          send_to_participants: Αποστολή σε συμμετέχοντες
+          title: Επιλέξτε παραλήπτες για παράδοση
+          warning: "<strong>Προσοχή:</strong> Αυτό το ενημερωτικό δελτίο θα σταλεί μόνο σε χρήστες που έχουν ενεργοποιήσει την επιλογή <em>Θέλω να λαμβάνω ενημερωτικά δελτία</em> στις ρυθμίσεις ειδοποιήσεών τους."
+        send:
+          no_recipients: Δεν υπάρχουν παραλήπτες για αυτήν την επιλογή
         show:
           preview: Προεπισκόπηση
+          select_recipients_to_deliver: Επιλέξτε παραλήπτες για παράδοση
+          subject: Θέμα
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του ενημερωτικού δελτίου.
+          success: Το ενημερωτικό δελτίο ενημερώθηκε με επιτυχία. Ελέγξτε το πριν από την αποστολή.
       officializations:
+        create:
+          success: Ο συμμετέχων επισημοποιήθηκε με επιτυχία
+        destroy:
+          success: Η επισημοποίηση του συμμετέχοντα καταργήθηκε με επιτυχία
         index:
+          actions: Ενέργειες
+          badge: Έμβλημα
+          created_at: Δημιουργήθηκε στις
           name: Όνομα
           nickname: Ψευδώνυμο
-      organization_appearance:
+          not_officialized: Δεν επισημοποιήθηκε
+          officialize: Επισημοποίηση
+          officialized: Επισημοποιήθηκε
+          reofficialize: Εκ νέου επισημοποίηση
+          show_email: Εμφάνιση διεύθυνσης email
+          status: Κατάσταση
+          unofficialize: Κατάργηση επισημοποίησης
+        new:
+          badge: Έμβλημα επισημοποίησης
+          officialize: Επισημοποίηση
+          title: Επισημοποίηση συμμετέχοντα «%{name}»
+        show_email_modal:
+          close_modal: Κλείσιμο παραθύρου
+          description: Εάν πρέπει να επικοινωνήσετε απευθείας με έναν συμμετέχοντα, μπορείτε να κάνετε κλικ στο κουμπί «Εμφάνιση» για να δείτε τη διεύθυνση email. Αυτή η ενέργεια θα καταγραφεί.
+          email_address: Διεύθυνση email
+          full_name: Ονοματεπώνυμο
+          hidden: κρυφό
+          show: Εμφάνιση
+          title: Εμφάνιση διεύθυνσης email συμμετέχοντα
+      organization:
+        edit:
+          title: Επεξεργασία οργανισμού
+          update: Ενημέρωση
         form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: Σε ορισμένες περιοχές κειμένου, οι συμμετέχοντες θα μπορούν να εισαγάγουν μερικές ετικέτες HTML χρησιμοποιώντας το πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου.
+          social_handlers: Μέσα κοινωνικής δικτύωσης
+          twitter: Twitter
+          url: Διεύθυνση Url
+          youtube: YouTube
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του οργανισμού.
+          success: Ο οργανισμός ενημερώθηκε με επιτυχία.
+      organization_appearance:
+        edit:
+          update: Ενημέρωση
+        form:
+          colors:
+            colors_title: Χρώματα οργανισμού
+            header_snippets_help: Χρησιμοποιήστε αυτό το πεδίο για να προσθέσετε στοιχεία στην κεφαλίδα HTML. Η πιο συχνή χρήση είναι η ενσωμάτωση υπηρεσιών τρίτων οι οποίες απαιτούν επιπλέον στοιχεία JavaScript ή CSS. Επίσης, μπορείτε να το χρησιμοποιήσετε για να προσθέσετε επιπλέον ετικέτες μεταδεδομένων στο HTML. Λάβετε υπόψη ότι αυτό θα απεικονίζεται στις δημόσιες σελίδες και όχι στην ενότητα διαχειριστή.
+          cta_button_path_help: 'Μπορείτε να αντικαταστήσετε το σημείο σύνδεσης του κουμπιού «Call To Action» στην αρχική σελίδα. Χρησιμοποιήστε μερικές διαδρομές, όχι πλήρεις διευθύνσεις URL εδώ. Δέχεται γράμματα, αριθμούς, παύλες και καθέτους, και πρέπει να ξεκινά με γράμμα. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής. Παράδειγμα: διεύθυνση %{url}'
+          cta_button_text_help: Μπορείτε να αντικαταστήσετε το κείμενο του κουμπιού «Call To Action» στην αρχική σελίδα για κάθε διαθέσιμη γλώσσα στον οργανισμό σας. Εάν δεν έχει οριστεί, θα χρησιμοποιηθεί η προεπιλεγμένη τιμή. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής.
+          homepage_appearance_title: Επεξεργασία εμφάνισης αρχικής σελίδας
+          homepage_highlighted_content_banner_title: Επισημασμένο πλαίσιο περιεχομένου
           images:
+            layout_appearance_title: Επεξεργασία εμφάνισης διάταξης
             preview: Προεπισκόπηση
+          omnipresent_banner_appearance_title: Επεξεργασία διαφημιστικού πλαισίου omnipresent
+      organization_homepage:
+        edit:
+          active_content_blocks: Ενεργά μπλοκ περιεχομένου
+          inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
+      organization_homepage_content_blocks:
+        edit:
+          update: Ενημέρωση
       participatory_space_private_users:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
+          success: Η πρόσβαση του ιδιωτικού συμμετέχοντα στον χώρο συμμετοχής δημιουργήθηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
+          success: Η πρόσβαση του ιδιωτικού συμμετέχοντα στον χώρο συμμετοχής καταστράφηκε με επιτυχία.
+        index:
+          import_via_csv: Εισαγωγή μέσω csv
+          title: Ιδιωτικός συμμετέχων χώρου συμμετοχής
         new:
           create: Δημιουργία
+          title: Νέο ιδιωτικός συμμετέχων χώρου συμμετοχής.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
+          success: Η αποστολή του αρχείου CSV ήταν επιτυχής, στέλνουμε email πρόσκλησης στους συμμετέχοντες. Αυτό μπορεί να διαρκέσει μερικά λεπτά.
+        new:
+          title: Αποστολή του αρχείου σας CSV
+          upload: Αποστολή
+      resource_permissions:
+        edit:
+          submit: Υποβολή
+          title: Επεξεργασία δικαιωμάτων
+        update:
+          success: Τα δικαιώματα ενημερώθηκαν με επιτυχία.
+      scope_types:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου πεδίου εφαρμογής.
+          success: Ο τύπος πεδίου εφαρμογής δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Ο τύπος πεδίου εφαρμογής καταστράφηκε με επιτυχία
+        edit:
+          title: Επεξεργασία τύπου πεδίου εφαρμογής
+          update: Ενημέρωση
+        new:
+          create: Δημιουργία τύπου πεδίου εφαρμογής
+          title: Νέο πεδίο εφαρμογής
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του τύπου πεδίου εφαρμογής.
+          success: Ο τύπος πεδίου εφαρμογής ενημερώθηκε με επιτυχία
+      scopes:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου πεδίου εφαρμογής.
+          success: Το πεδίο εφαρμογής δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Το πεδίο εφαρμογής καταστράφηκε με επιτυχία
+        edit:
+          title: Επεξεργασία πεδίου εφαρμογής
+          update: Ενημέρωση
+        new:
+          create: Δημιουργία πεδίου εφαρμογής
+          title: Νέο πεδίο εφαρμογής
+        no_scopes: Δεν υπάρχουν πεδία εφαρμογής σε αυτό το επίπεδο.
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του πεδίου εφαρμογής.
+          success: Το πεδίο εφαρμογής ενημερώθηκε με επιτυχία
+      shared:
+        gallery:
+          add_images: Προσθήκη εικόνων
+          delete_image: Διαγραφή εικόνας
+          gallery_legend: Προσθήκη συλλογής εικόνων (προαιρετικά)
+      static_page_topics:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου θέματος.
+          success: Το θέμα δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Το θέμα καταστράφηκε με επιτυχία
+        edit:
+          title: Επεξεργασία θέματος
+          update: Ενημέρωση θέματος
+        new:
+          create: Δημιουργία θέματος
+          title: Νέο θέμα
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του θέματος.
+          success: Το θέμα ενημερώθηκε με επιτυχία
+      static_pages:
+        actions:
+          view: Προβολή δημόσιας σελίδας
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας σελίδας.
+          success: Η σελίδα δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Η σελίδα καταστράφηκε με επιτυχία
+        edit:
+          changed_notably_help: Εάν έχει επιλεγεί, οι συμμετέχοντες θα ειδοποιηθούν για να αποδεχθούν τους νέους όρους και προϋποθέσεις.
+          title: Επεξεργασία σελίδας
+          update: Ενημέρωση
+        form:
+          none: Κανένας
+          slug_help: 'Χρησιμοποιήστε μερικές διαδρομές, όχι πλήρεις διευθύνσεις URL εδώ. Δέχεται γράμματα, αριθμούς, παύλες και καθέτους, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+        index:
+          last_notable_change: Τελευταία σημαντική αλλαγή
+        new:
+          create: Δημιουργία σελίδας
+          title: Νέα σελίδα
+        topic:
+          destroy: Κατάργηση θέματος
+          edit: Επεξεργασία θέματος
+          empty: Δεν υπάρχει σελίδα σε αυτό το θέμα
+          without_topic: Σελίδες χωρίς θέμα
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σελίδας.
+          success: Η σελίδα ενημερώθηκε με επιτυχία
       titles:
+        admin_log: Αρχείο καταγραφής διαχειριστή
+        area_types: Τύποι τομέα
+        areas: Τομείς
+        authorization_workflows: Μέθοδοι επαλήθευσης
+        dashboard: Πίνακας εργαλείων
+        impersonatable_users: Διαχειρίσιμοι συμμετέχοντες
+        impersonations: Διαχείριση συμμετεχόντων
+        metrics: Μετρικά
         participants: Συμμετέχοντες
+        scope_types: Τύποι πεδίου εφαρμογής
+        scopes: Πεδία εφαρμογής
+        static_pages: Σελίδες
+        statistics: Δραστηριότητα
         user_groups: Ομάδες
         users: Συμμετέχοντες
+      user_group:
+        csv_verify:
+          invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
+          success: Η αποστολή του αρχείου CSV ήταν επιτυχής, επαληθεύουμε τις ομάδες που ταιριάζουν με τα κριτήρια. Αυτό μπορεί να διαρκέσει μερικά λεπτά.
+        reject:
+          invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη αυτής της ομάδας.
+          success: Η ομάδα απορρίφθηκε με επιτυχία
+        verify:
+          invalid: Υπήρξε ένα πρόβλημα κατά την επαλήθευση αυτής της ομάδας.
+          success: Η ομάδα επαληθεύτηκε με επιτυχία
+      user_groups:
+        index:
+          filter:
+            all: Όλα
+            pending: Σε εκκρεμότητα
+            rejected: Απορρίφθηκε
+            verified: Επαληθεύτηκε
+          filter_by: Φιλτράρισμα κατά
+          search: Αναζήτηση
+          state:
+            pending: Σε εκκρεμότητα
+            rejected: Απορρίφθηκε
+            verified: Επαληθεύτηκε
+          verify_via_csv: Επαλήθευση μέσω CSV
+      user_groups_csv_verifications:
+        new:
+          explanation: Πραγματοποιήστε αποστολή του αρχείου CSV. Πρέπει να έχει τις επίσημες διευθύνσεις email των ομάδων του οργανισμού σας στην πρώτη στήλη του αρχείου, χωρίς κεφαλίδες. Θα επικυρωθούν μόνο οι ομάδες που έχουν επιβεβαιώσει τη διεύθυνση email τους και το email εμφανίζεται στο αρχείο CSV.
+          title: Αποστολή του αρχείου σας CSV
+          upload: Αποστολή
       users:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση αυτού του διαχειριστή.
+          success: Ο συμμετέχων προσκλήθηκε με επιτυχία.
+        destroy:
+          error: Υπήρξε ένα πρόβλημα κατά την προσπάθεια διαγραφής αυτού του διαχειριστή.
+          success: Ο συμμετέχων δεν είναι πλέον διαχειριστής.
         form:
           email: Email
           name: Όνομα
+          role: Ρόλος
+        new:
+          create: Πρόσκληση
+          title: Προσκαλέστε τον συμμετέχοντα ως διαχειριστή
       users_statistics:
         users_count:
+          admins: Διαχειριστές
+          last_day: Τελευταία ημέρα
+          last_month: Τελευταίος μήνας
+          last_week: Τελευταία εβδομάδα
+          no_users_count_statistics_yet: Δεν υπάρχουν ακόμη στατιστικά στοιχεία για το πλήθος των χρηστών
           participants: Συμμετέχοντες
+      view_public_page: Προβολή δημόσιας σελίδας
+    forms:
+      errors:
+        impersonate_user:
+          reason: Πρέπει να καταχωρήσετε έναν λόγο κατά τη διαχείριση ενός μη διαχειριζόμενου συμμετέχοντα
+    moderations:
+      actions:
+        hidden: Κρυφό
+        hide: Απόκρυψη
+        not_hidden: Δεν είναι κρυφό
+        title: Ενέργειες
+        unhide: Επανεμφάνιση
+        unreport: Κατάργηση αναφοράς
+      admin:
+        reportable:
+          hide:
+            invalid: Υπήρξε ένα πρόβλημα κατά την απόκρυψη του στοιχείου.
+            success: Το στοιχείο αποκρύφτηκε με επιτυχία.
+          unhide:
+            invalid: Υπήρξε ένα πρόβλημα κατά την επανεμφάνιση του στοιχείου.
+            success: Το στοιχείο επανεμφανίστηκε με επιτυχία.
+          unreport:
+            invalid: Υπήρξε ένα πρόβλημα κατά την κατάργηση αναφοράς του στοιχείου.
+            success: Η αναφορά του στοιχείου καταργήθηκε με επιτυχία.
+      models:
+        moderation:
+          fields:
+            hidden_at: Αποκρύφτηκε στις
+            report_count: Πλήθος
+            reportable: Με δυνατότητα αναφοράς
+            reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
+            reports: Αναφορές
+            visit_url: Διεύθυνση URL επίσκεψης
+  errors:
+    messages:
+      invalid_json: Μη έγκυρο JSON
   layouts:
     decidim:
       admin:
+        newsletters:
+          title: Ενημερωτικά δελτία
+        settings:
+          title: Ρυθμίσεις
         users:
           title: Συμμετέχοντες

@@ -80,23 +80,33 @@ en:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Proposals
-            'true': Amendments
+        proposals:
+          category_id_eq:
+            label: Category
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Proposals
+              'true': Amendments
+          scope_id_eq:
+            label: Scope
+          state_eq:
+            label: State
+            values:
+              accepted: Accepted
+              evaluating: Evaluating
+              published: Published
+              rejected: Rejected
+              validating: Technical validation
+              withdrawn: Withdrawn
+          state_null:
+            label: State
+            values:
+              'true': Not answered
+          valuator_role_ids_has:
+            label: Assigned to valuator
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
-        state_eq:
-          values:
-            evaluating: Evaluating
-            withdrawn: Withdrawn
-        state_null:
-          label: Status
-          values:
-            'true': Not answered
-        valuator_role_ids_has:
-          label: Assigned to valuator
     components:
       proposals:
         actions:
@@ -135,6 +145,8 @@ en:
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:
@@ -713,8 +725,13 @@ en:
         dynamic_map_instructions:
           instructions: <h3>You can move the point on the map. </h3><p>Don't forget to click on the "Update Position" button before publishing your proposal.</p>
         edit:
+          add_documents: Documents
+          add_images: File
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          delete_document: Delete Document
+          delete_image: Delete Image
+          gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
           title: Edit proposal

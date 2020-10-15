@@ -88,6 +88,8 @@ ca:
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -377,7 +379,7 @@ ca:
           origin: Origen
           origin_values:
             all: Tots
-            citizens: Ciutadanes
+            citizens: Ciutadania
             official: Oficial
             user_groups: Grups
           scope: Àmbit
@@ -412,6 +414,7 @@ ca:
           attendees: Nombre d'assistents
           back: Torna al llistat
           contributions: Nombre d'aportacions
+          date: Data
           edit_meeting: Editar la trobada
           going: Inscrit
           join: Inscriu-te a la trobada

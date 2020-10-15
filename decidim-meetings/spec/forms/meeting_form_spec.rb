@@ -26,12 +26,15 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
-    let(:scope) { create :scope, organization: organization }
+    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:type_of_meeting) { "in_person" }
+    let(:online_meeting_url) { "http://decidim.org" }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -45,13 +48,17 @@ module Decidim::Meetings
         start_time: start_time,
         end_time: end_time,
         private_meeting: private_meeting,
-        transparent: transparent
+        transparent: transparent,
+        type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       }
     end
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
+
+    it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
 
@@ -67,7 +74,8 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing" do
+    describe "when location is missing and type of meeting is in_person" do
+      let(:type_of_meeting) { "in_person" }
       let(:location) { nil }
 
       it { is_expected.not_to be_valid }
@@ -109,12 +117,6 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when the scope does not exist" do
-      let(:scope_id) { scope.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when the category does not exist" do
       let(:category_id) { category.id + 10 }
 
@@ -133,44 +135,17 @@ module Decidim::Meetings
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
 
-    describe "scope" do
-      subject { form.scope }
+    describe "when online meeting link is missing and type of meeting is online" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { nil }
 
-      context "when the scope exists" do
-        it { is_expected.to be_kind_of(Decidim::Scope) }
-      end
+      it { is_expected.not_to be_valid }
+    end
 
-      context "when the scope does not exist" do
-        let(:scope_id) { 3456 }
+    describe "when type of meeting is missing" do
+      let(:type_of_meeting) { nil }
 
-        it { is_expected.to eq(nil) }
-      end
-
-      context "when the scope is from another organization" do
-        let(:scope_id) { create(:scope).id }
-
-        it { is_expected.to eq(nil) }
-      end
-
-      context "when the participatory space has a scope" do
-        let(:parent_scope) { create(:scope, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization, scope: parent_scope) }
-        let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
-
-        context "when the scope is descendant from participatory space scope" do
-          it { is_expected.to eq(scope) }
-        end
-
-        context "when the scope is not descendant from participatory space scope" do
-          let(:scope) { create(:scope, organization: organization) }
-
-          it { is_expected.to eq(scope) }
-
-          it "makes the form invalid" do
-            expect(form).to be_invalid
-          end
-        end
-      end
+      it { is_expected.not_to be_valid }
     end
   end
 end

@@ -27,6 +27,11 @@ describe "Last activity", type: :system do
   let!(:other_action_log) do
     create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
   end
+  let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
+  let(:another_comment) { create(:comment, body: long_body_comment) }
+  let!(:another_action_log) do
+    create(:action_log, action: "create", visibility: "public-only", resource: another_comment, organization: organization)
+  end
   let(:component) do
     create(:component, :published, organization: organization)
   end
@@ -46,8 +51,13 @@ describe "Last activity", type: :system do
 
     it "displays the activities at the home page" do
       within ".upcoming-events" do
-        expect(page).to have_css(".card--activity", count: 2)
+        expect(page).to have_css(".card--activity", count: 3)
       end
+    end
+
+    it "shows activities long comment shorten text" do
+      expect(page).to have_content(long_body_comment[0..79])
+      expect(page).to have_no_content(another_comment.translated_body)
     end
 
     context "when viewing all activities" do
@@ -58,9 +68,10 @@ describe "Last activity", type: :system do
       end
 
       it "shows all activities" do
-        expect(page).to have_css(".card--activity", count: 2)
-        expect(page).to have_content(resource.title)
-        expect(page).to have_content(comment.commentable.title)
+        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_content(translated(resource.title))
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
@@ -68,15 +79,17 @@ describe "Last activity", type: :system do
           choose "Comment"
         end
 
-        expect(page).to have_content(comment.commentable.title)
-        expect(page).to have_no_content(resource.title)
-        expect(page).to have_css(".card--activity", count: 1)
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
+        expect(page).to have_no_content(translated(resource.title))
+        expect(page).to have_css(".card--activity", count: 2)
       end
 
       context "when there are activities from private spaces" do
         before do
           component.participatory_space.update(private_space: true)
           comment.participatory_space.update(private_space: true)
+          another_comment.participatory_space.update(private_space: true)
           visit current_path
         end
 

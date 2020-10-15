@@ -1,0 +1,26 @@
+<%= render("election_votes_header", header_title: t("decidim.elections.votes.header.confirmed")) %>
+
+<div class="focus__content evote">
+  <div class="row">
+    <h1 class="heading2">
+      <%= t("decidim.elections.votes.confirmed.header") %>
+    </h1>
+    <h2 class="h4"><%= t("decidim.elections.votes.confirmed.lead") %></h2>
+    <div class="evote__content">
+      <%= t("decidim.elections.votes.confirmed.text", e_vote_poll_id: "qw12Sf35vVb556Hfvh7qw12Sf35vVb556Hfvh7").html_safe %>
+      <p>
+        <%= t("decidim.elections.votes.confirmed.verify_text").html_safe %>
+      </p>
+    </div>
+
+    <%= link_to :elections, class: "button" do %>
+      <%= t("decidim.elections.votes.confirmed.back") %>
+    <% end %>
+    <div>
+      <%= t("decidim.elections.votes.confirmed.experience") %>
+      <a href="survey">
+        <%= t("decidim.elections.votes.confirmed.feedback") %>
+      </a>
+    </div>
+  </div>
+</div>

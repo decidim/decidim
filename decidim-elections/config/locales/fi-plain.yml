@@ -10,11 +10,11 @@ fi-pl:
         description: Kuvaus
         end_time: Äänestys päättyy
         start_time: Äänestys alkaa
-        subtitle: Alaotsikko
         title: Otsikko
       question:
         description: Kuvaus
         max_selections: Valintojen enimmäismäärä
+        min_selections: Ei mikään edellä mainituista
         title: Otsikko
     errors:
       models:
@@ -22,6 +22,10 @@ fi-pl:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudelleen
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Liitettävä uudestaan
   activerecord:
     models:
       decidim/elections/answer:
@@ -69,6 +73,7 @@ fi-pl:
             title: Muokkaa vastausta
             update: Päivitä vastausta
           index:
+            invalid_max_selections: Sinun on valittava vielä %{missing_answers} valinta/valintaa täyttääksesi maksimivalintojen ehdon
             title: Vastaukset
           new:
             create: Luo vastaus
@@ -87,6 +92,7 @@ fi-pl:
             title: Muokkaa vaalia
             update: Päivitä vaali
           index:
+            no_bulletin_board: Järjestelmässä ei ole <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board -palvelinta</a> määritettynä, mitä tarvitaan käyttääksesi tätä moduulia. Tämä tehtävä tulisi toteuttaa yhteistyössä järjestelmänvalvojan kanssa.
             title: Vaalit
           new:
             create: Luo vaali
@@ -135,6 +141,45 @@ fi-pl:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
           unpublish: "%{user_name} lopetti vaalin %{resource_name} julkaisemisen"
+      election_m:
+        badge_name:
+          finished: Valmis
+          ongoing: Aktiivinen
+          upcoming: Tuleva
+        end_date: Päättyy
+        footer:
+          view: Näytä
+          vote: Äänestä
+        label:
+          date: Päivämäärät
+        questions: Kysymys %{count}
+        start_date: Alkaa
+        unspecified: Ei määritelty
+      elections:
+        count:
+          elections_count:
+            one: "%{count} vaali"
+            other: "%{count} vaalia"
+        filters:
+          active: Aktiiviset
+          all: Kaikki
+          finished: Valmiit
+          search: Hae
+          state: Tila
+          upcoming: Tulevat
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Rajaa
+          filter_by: Rajaa hakua
+          unfold: Avaa
+        show:
+          back: Kaikki vaalit
+          preview: Esikatsele
+          vote: Äänestä
+          voting_period_status:
+            finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
+            ongoing: Äänestys päättyy %{end_time}
+            upcoming: Äänestys alkaa %{start_time}
       models:
         answer:
           fields:
@@ -150,6 +195,53 @@ fi-pl:
             answers: Vastaukset
             max_selections: Valintojen enimmäismäärä
             title: Otsikko
+      orders:
+        label: Järjestä vaalit
+        older: Vanhimmat
+        recent: Uusimmat
+      votes:
+        confirm:
+          answer: Vastaa
+          answer_number: 'vastaus #%{number}'
+          confirm: Vahvista
+          edit: muokkaa
+          header: Vahvista äänesi
+          intro: Tässä on yhteeveto äänestäsi, jota olet jättämässä. <br> Tarkasta, että kaikki on oikein tai muuta vastauksiasi.
+          nota_option: Tyhjä
+          question: Kysymys %{count}
+        confirmed:
+          back: Takaisin vaaleihin
+          experience: Minkälainen käyttökokemuksesi oli?
+          feedback: Jätä meille palautetta
+          header: Ääni vahvistettu
+          lead: Olet jo äänestänyt!
+          text: 'Voit tarkastaa, että äänesi on jätetty onnistuneesti äänestyslaatikkoon seuraavalla tunnisteella: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Tarkastaaksesi tämän, voit syöttää äänen tunnisteen <a href="evote-verify">äänten vahvistussivulle</a>
+        encrypting:
+          header: Ääntäsi salataan...
+          text: Äänesi salataan, jotta henkilöllisyyttäsi ei voida selvittää äänesi perusteella.
+        header:
+          confirm: Vahvista äänesi
+          confirmed: Ääni vahvistettu
+          encrypting: Ääntäsi vahvistetaan
+        messages:
+          not_allowed: Et voi äänestää tässä vaalissa tällä hetkellä.
+        modal:
+          close: Sulje
+          proposal_header: 'Ehdotukset:'
+        new:
+          answer_choices: Voit valita enintään %{choices} vastausta
+          more_information: Lisätietoa
+          nota_option: Tyhjä / Ei mitään näistä
+          preview_alert: Tämä on äänestyskopin esikatselunäkymä.
+          question_steps: Kysymys %{current_step} / %{total_steps}
+          selections: "Valittu<br>\n%{selected} / %{max_selections}"
+        voting_step:
+          back: Takaisin
+          continue: Seuraava
+      warnings:
+        no_elections_warning: Yksikään vaali ei vastaa hakukriteerejäsi tai yhtään vaalia ei ole suunniteltu.
+        no_scheduled_elections_warning: Tällä hetkellä ei ole suuniteltuja vaaleja, mutta täältä löydät kaikki aikaisemmat vaalit.
     events:
       elections:
         election_published:
@@ -160,3 +252,7 @@ fi-pl:
     participatory_processes:
       statistics:
         elections_count: Vaalia
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Poistu

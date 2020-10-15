@@ -1,5 +1,6 @@
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { attachGeocoding } = window.Decidim;
 
   const wrapperSelector = ".meeting-services";
   const fieldSelector = ".meeting-service";
@@ -93,5 +94,31 @@
 
     $privateMeeting.on("change", toggleDisabledHiddenFields);
     toggleDisabledHiddenFields();
+
+    attachGeocoding($form.find("#meeting_address"));
+  }
+
+  const $meetingForm = $(".meetings_form");
+  if ($meetingForm.length > 0) {
+    const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
+    const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
+
+    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+      const value = $target.val();
+      $showDiv.hide();
+      if (value === type) {
+        $showDiv.show();
+      }
+    };
+
+    $meetingTypeOfMeeting.on("change", (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
+      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+    });
+
+    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
+    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
 })(window);

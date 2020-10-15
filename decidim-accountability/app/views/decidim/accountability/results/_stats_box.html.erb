@@ -29,7 +29,7 @@
 
             <div>
               <span class="text-medium">
-                <%= link_to_other_resource_versions(result, result_versions_path(result)) %>
+                <%= link_to_other_resource_versions(result_versions_path(result)) %>
               </span>
             </div>
           </div>
@@ -76,5 +76,4 @@
 
   <%= resource_reference(result) %>
   <%= render partial: "decidim/shared/share_modal" %>
-  <%= embed_modal_for result_result_widget_url(result, format: :js) %>
 </div>

@@ -86,7 +86,7 @@ es:
           unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
-          success: Ha eliminado correctamente la autorización.
+          success: Has eliminado correctamente la autorización.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -100,7 +100,9 @@ es:
           verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
+          pending_verification: Pendiente de verificación
           show_renew_info: Haz click aquí para renovar la verificación
+          unauthorized_verification: Nueva verificación
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}

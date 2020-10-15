@@ -20,7 +20,7 @@ module Decidim
       html << " "
       html << resource_version_of(resource.versions_count)
       html << " "
-      html << link_to_other_resource_versions(resource, options[:versions_path]) if options[:versions_path]
+      html << link_to_other_resource_versions(options[:versions_path]) if options[:versions_path]
 
       content_tag(:div, safe_join(html), class: "tech-info #{options[:class]}")
     end
@@ -33,11 +33,10 @@ module Decidim
       t("of_versions", scope: "decidim.versions.resource_version", number: count)
     end
 
-    def link_to_other_resource_versions(resource, versions_path)
+    def link_to_other_resource_versions(versions_path)
       link_to(
         t(
           "see_other_versions",
-          resource_name: decidim_html_escape(resource_title(resource)),
           scope: "decidim.versions.resource_version"
         ),
         versions_path

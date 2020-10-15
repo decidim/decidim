@@ -94,6 +94,14 @@ $comment-form-bg: $light-gray;
   span{
     margin-right: 0;
   }
+
+  &.muted-link{
+    color: $anchor-color;
+
+    &:hover{
+      color: $anchor-color-hover;
+    }
+  }
 }
 
 .comment__votes{
@@ -225,7 +233,7 @@ $comment-form-bg: $light-gray;
   }
 
   &__is-open &__text-is-open{
-    display: inline-block;
+    display: inline;
   }
 
   &__is-open &__text-is-closed{

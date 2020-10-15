@@ -1,0 +1,454 @@
+lv:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Joma
+        assembly_type: Asamblejas veids
+        assembly_type_other: Asamblejas veids cits
+        banner_image: Reklāmkaroga attēls
+        closing_date: Aizvēršanas datums
+        closing_date_reason: Aizvēršanas datuma iemesls
+        composition: Sastāvs
+        copy_categories: Kopēt kategorijas
+        copy_components: Kopēt komponentus
+        copy_features: Kopēt funkcijas
+        created_by: Izveidoja
+        created_by_other: Izveidojis cits
+        creation_date: Izveidošanas datums
+        decidim_area_id: Joma
+        decidim_assemblies_type_id: Asamblejas veids
+        decidim_scope_id: Darbības tvērums
+        description: Apraksts
+        developer_group: Atbalstītāju grupa
+        domain: Domēns
+        duration: Ilgums
+        hashtag: Tēmturis
+        hero_image: Sākuma attēls
+        included_at: Iekļauts plkst.
+        internal_organisation: Iekšējā organizācija
+        is_transparent: Ir caurskatāms
+        local_area: Organizācijas joma
+        meta_scope: Tvēruma metadati
+        parent_id: Saistītā asambleja
+        participatory_processes_ids: Saistītie līdzdalības procesi
+        participatory_scope: Kas tiek izlemts
+        participatory_structure: Kā tas tiek izlemts
+        private_space: Privātā telpa
+        promoted: Izcelts
+        published_at: Publicēts plkst.
+        purpose_of_action: Darbības mērķis
+        scope_id: Darbības tvērums
+        scopes_enabled: Darbības tvērumi ir iespējoti
+        short_description: Īss apraksts
+        show_statistics: Rādīt statistiku
+        slug: URL sadaļas adrese (slug)
+        special_features: Īpašas funkcijas
+        subtitle: Apakšvirsraksts
+        target: Kas piedalās
+        title: Nosaukums
+      assembly_member:
+        birthday: Dzimšanas diena
+        birthplace: Dzimšanas vieta
+        ceased_date: Beigu datums
+        designation_date: Iecelšanas datums
+        designation_mode: Iecelšanas veids
+        full_name: Vārds, uzvārds
+        gender: Dzimums
+        position: Pozīcija
+      assembly_user_role:
+        email: E-pasts
+        name: Nosaukums
+        role: Loma
+  activerecord:
+    models:
+      decidim/assembly:
+        zero: Asambleja
+        one: Asambleja
+        other: Asambleja
+      decidim/assembly_member:
+        zero: Asamblejas dalībnieki
+        one: Asamblejas dalībnieks
+        other: Asamblejas dalībnieki
+      decidim/assembly_user_role:
+        zero: Asamblejas lietotāju lomas
+        one: Asamblejas lietotāja loma
+        other: Asamblejas lietotāju lomas
+  decidim:
+    admin:
+      actions:
+        new_assembly: Jauna asambleja
+        new_assembly_type: Jauns asamblejas veids
+      assemblies:
+        create:
+          error: Jaunas asamblejas izveides laikā radās problēma.
+          success: Asambleja ir veiksmīgi izveidota.
+        edit:
+          update: Atjaunināt
+        index:
+          not_published: Nav publicēts
+          private: Privāts
+          public: Publisks
+          published: Publicēts
+        new:
+          create: Izveidot
+          title: Jauna asambleja
+        update:
+          error: Šīs asamblejas atjaunināšanas laikā radās problēma.
+          success: Asambleja ir veiksmīgi atjaunināta.
+      assemblies_copies:
+        create:
+          error: Šīs asamblejas dublēšanas laikā radās problēma.
+          success: Asamblejas dublēšana ir veiksmīgi pabeigta.
+      assemblies_settings:
+        update:
+          error: Iestatījumu atjaunināšanas laikā radās problēma.
+          success: Iestatījumi ir veiksmīgi atjaunināti.
+      assemblies_types:
+        create:
+          error: Jaunas asamblejas veida izveides laikā radās problēma.
+          success: Asamblejas veids ir veiksmīgi izveidots.
+        destroy:
+          success: Asamblejas veids ir veiksmīgi dzēsts.
+        new:
+          create: Izveidot
+          title: Jauns asamblejas veids
+        update:
+          error: Šīs asamblejas veida atjaunināšanas laikā radās problēma.
+          success: Asamblejas veids ir veiksmīgi atjaunināts.
+      assembly_copies:
+        new:
+          copy: Kopēt
+          select: Atlasiet, kurus datus vēlaties dublēt
+          title: Dublēt asambleju
+      assembly_members:
+        create:
+          error: Pievienojot dalībnieku šai asamblejai, radās problēma.
+          success: Dalībnieks šai asamblejai ir veiksmīgi izveidots.
+        destroy:
+          success: Dalībnieks šai asamblejai ir veiksmīgi izdzēsts.
+        edit:
+          title: Atjaunināt asamblejas dalībnieku.
+          update: Atjaunināt
+        index:
+          assembly_members_title: Asamblejas dalībnieki
+        new:
+          create: Izveidot
+          title: Jauns asamblejas dalībnieks.
+        update:
+          error: Šī asamblejas dalībnieka atjaunināšanas laikā radās problēma.
+          success: Šīs asamblejas dalībnieks ir veiksmīgi atjaunināts.
+      assembly_publications:
+        create:
+          error: Šīs asamblejas publicēšanas laikā radās problēma.
+          success: Asambleja ir veiksmīgi publicēta.
+        destroy:
+          error: Šīs asamblejas publicēšanas atcelšanas laikā radās problēma.
+          success: Asamblejas publicēšana ir veiksmīgi atcelta.
+      assembly_user_roles:
+        create:
+          error: Pievienojot administratoru šai asamblejai, radās problēma.
+          success: Administrators ir veiksmīgi pievienots šai asamblejai.
+        destroy:
+          success: Administrators ir veiksmīgi noņemts no šīs asamblejas.
+        edit:
+          title: Atjaunināt asamblejas administratoru.
+          update: Atjaunināt
+        index:
+          assembly_admins_title: Asamblejas administratori
+        new:
+          create: Izveidot
+          title: Jauns asamblejas administrators.
+        update:
+          error: Atjauninot administratoru šai asamblejai, radās problēma.
+          success: Šīs asamblejas administrators ir veiksmīgi atjaunināts.
+      menu:
+        assemblies: Asambleja
+        assemblies_settings: Iestatījumi
+        assemblies_submenu:
+          assembly_admins: Asamblejas administratori
+          assembly_members: Dalībnieki
+          attachment_collections: Mapes
+          attachment_files: Faili
+          attachments: Pielikumi
+          categories: Kategorijas
+          components: Komponenti
+          info: Informācija
+          moderations: Moderācijas
+          private_users: Privāti lietotāji
+        assemblies_types: Asambleju veidi
+      models:
+        assemblies_types:
+          fields:
+            created_at: Izveidots plkst.
+            title: Nosaukums
+        assembly:
+          fields:
+            created_at: Izveidots plkst.
+            private: Privāts
+            promoted: Izcelts
+            published: Publicēts
+            title: Nosaukums
+          name: Asambleja
+        assembly_member:
+          fields:
+            ceased_date: Beigu datums
+            designation_date: Iecelšanas datums
+            full_name: Nosaukums
+            position: Pozīcija
+          name: Dalībnieks
+          positions:
+            other: Cits
+            president: Prezidents
+            secretary: Sekretārs
+            vice_president: Viceprezidents
+        assembly_user_role:
+          fields:
+            email: E-pasts
+            name: Nosaukums
+            role: Loma
+          name: Asamblejas administrators
+          roles:
+            admin: Administrators
+            collaborator: Līdzizstrādātājs
+            moderator: Moderators
+            valuator: Vērtētājs
+      titles:
+        assemblies: Asambleja
+        assemblies_types: Asambleju veidi
+    admin_log:
+      assembly:
+        create: "%{user_name} izveidoja asambleju %{resource_name}"
+        publish: "%{user_name} publicēja asambleju %{resource_name}"
+        unpublish: "%{user_name} atcēla asamblejas %{resource_name} publicēšanu"
+        update: "%{user_name} atjaunināja asambleju %{resource_name}"
+      assembly_member:
+        create: "%{user_name} izveidoja %{resource_name} dalībnieku asamblejā %{space_name}"
+        delete: "%{user_name} noņēma dalībnieku %{resource_name} no asamblejas %{space_name}"
+        update: "%{user_name} atjaunināja dalībnieku %{resource_name} asamblejā %{space_name}"
+      assembly_setting:
+        update: "%{user_name} atjaunināja asamblejas iestatījumus"
+      assembly_type:
+        create: "%{user_name} izveidoja %{resource_name} asamblejas veidu"
+        delete: "%{user_name} noņēma dalībnieku %{resource_name} no %{space_name} asamblejas veida"
+        publish: "%{user_name} publicēja %{resource_name} asamblejas veidu"
+        unpublish: "%{user_name} atcēla %{resource_name} asamblejas veida publicēšanu"
+        update: "%{user_name} atjaunināja %{resource_name} asamblejas veidu"
+      assembly_user_role:
+        create: "%{user_name} uzaicināja %{resource_name} uz asambleju %{space_name}"
+        delete: "%{user_name} noņēma dalībnieku %{resource_name} no asamblejas %{space_name}"
+        update: "%{user_name} nomainīja %{resource_name} lomu asamblejā %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Ilgums
+            duration_help: Ja šīs asamblejas ilgums ir ierobežots, izvēlieties beigu datumu. Pretējā gadījumā tas parādīsies kā nenoteikts
+            filters: Filtri
+            images: Attēli
+            included_at_help: Izvēlieties datumu, kad šī asambleja tika pievienota Decidim. Tam nav noteikti jābūt tādam pašam kā izveides datumam.
+            metadata: Metadati
+            other: Cits
+            select_a_created_by: Izvēlieties izveidotāju
+            select_an_area: Izvēlieties jomu
+            select_an_assembly_type: Izvēlieties asamblejas veidu
+            select_parent_assembly: Izvēlieties saistīto asambleju
+            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+            social_handlers: Sociālie plašsaziņas līdzekļi
+            title: Vispārēja informācija
+            visbility: Redzamība
+        assemblies_settings:
+          edit:
+            update: Atjaunināt
+          form:
+            title: Asamblejas iestatījumi
+        assemblies_types:
+          form:
+            title: Nosaukums
+        assembly_copies:
+          form:
+            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo asambleju. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+        assembly_members:
+          form:
+            existing_user: Esošais dalībnieks
+            non_user: Nepiedalās
+            select_a_position: Izvēlieties pozīciju
+            select_user: Izvēlieties dalībnieku
+            user_type: Dalībnieka veids
+          index:
+            filter:
+              all: Visi
+              ceased: Beidzis darbu
+              not_ceased: Nav beidzis darbu
+            filter_by: Filtrēt pēc
+            search: Meklēt
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maksimālais parādāmo elementu daudzums
+      assembly_members:
+        index:
+          members: Dalībnieki
+      assembly_types:
+        commission: Komisija
+        consultative_advisory: Konsultatīvs/padomdevējs
+        executive: Izpildinstitūcija
+        government: Valdība
+        others: Citi
+        participatory: Līdzdalības
+        working_group: Darba grupa
+      content_blocks:
+        highlighted_assemblies:
+          name: Izceltās asamblejas
+      created_by:
+        city_council: Pilsētas dome
+        others: Citi
+        public: Publisks
+      filter:
+        all: Visi veidi
+        commission: Komisija
+        consultative_advisory: Konsultatīvs/padomdevējs
+        executive: Izpildinstitūcija
+        government: Valdība
+        help: 'Rādīt:'
+        others: Citi
+        participatory: Līdzdalības
+        working_group: Darba grupa
+      index:
+        title: Asambleja
+      last_activity:
+        new_assembly: Jauna asambleja
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktīvās asamblejas
+            assemblies_button_title: Saite uz lapu Asamblejas, kurā norādītas visas asamblejas
+            see_all_assemblies: Skatīt visas asamblejas
+        user_profile:
+          member_of:
+            member_of: Dalībnieks
+      show:
+        area: Joma
+        assembly_type: Asamblejas veids
+        children: Asambleja
+        closing_date: Aizvēršanas datums
+        composition: Sastāvs
+        created_by: Izveidoja
+        creation_date: Izveidošanas datums
+        developer_group: Atbalstītāju grupa
+        duration: Ilgums
+        included_at: Iekļauts plkst.
+        indefinite_duration: Nenoteikts
+        internal_organisation: Iekšējā organizācija
+        is_transparent:
+          'false': neskaidra
+          'true': caurskatāma
+        local_area: Organizācijas joma
+        participatory_scope: Kas tiek izlemts
+        participatory_structure: Kā tas tiek izlemts
+        private_space: Šī ir privāta asambleja
+        purpose_of_action: Darbības mērķis
+        read_less: Lasīt mazāk
+        read_more: Lasīt vairāk
+        related_participatory_processes: Saistītie līdzdalības procesi
+        scope: Darbības tvērums
+        social_networks: Sociālie tīkli
+        social_networks_title: Dalīties ar šo asambleju
+        target: Kas piedalās
+      statistics:
+        answers_count: Atbildes
+        assemblies_count: Asambleja
+        comments_count: Komentāri
+        endorsements_count: Atbalsts
+        headline: Aktivitāte
+        meetings_count: Sanāksmes
+        orders_count: Atbalsta
+        pages_count: Lapas
+        posts_count: Ziņas
+        projects_count: Projekti
+        proposals_count: Priekšlikumi
+        results_count: Rezultāti
+        surveys_count: Aptaujas
+        users_count: Dalībnieki
+        votes_count: Atbalsta
+    assembly_members:
+      assembly_member:
+        designated_on: Izraudzīts
+      index:
+        title: Dalībnieki
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Saite uz lapu Konferences, kurā norādītas visas konferences
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Asamblejas <a href="%{resource_url}">%{resource_name}</a> administrators pievienojis jūs kā vienu no dalībniekiem.
+          email_outro: Jūs esat saņēmis šo paziņojumu, jo esat uzaicināts uz asambleju. Apskatiet asamblejas <a href="%{resource_path}">lapu,</a> lai sniegtu ieguldījumu!
+          email_subject: Jūs esat uzaicināts būt par dalībnieku asamblejā %{resource_name} !
+          notification_title: Jūs esat reģistrēts kā asamblejas <a href="%{resource_path}">%{resource_name}</a> dalībnieks. Apskatiet asamblejas <a href="%{resource_path}"> lapu,</a> lai sniegtu ieguldījumu!
+      assembly:
+        role_assigned:
+          email_intro: Jūs esat norīkots par %{role} asamblejā "%{resource_title}".
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{role} asamblejā "%{resource_title}".
+          email_subject: Jūs esat norīkots par %{role} asamblejā “%{resource_title}”.
+          notification_title: Jūs esat norīkots par %{role} asamblejā <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p><strong> Asambleja </strong> ir organizācijas dalībnieku grupa, kas periodiski tiekas, lai pieņemtu lēmumus par noteiktu organizācijas jomu vai darbības tvērumu. </p> <p> Asamblejas rīko gan privātas, gan atvērtas sanāksmes. Ja tās ir atvērtas, ir iespējams tajās piedalīties (piemēram, apmeklēt, ja to atļauj kapacitāte, pievienot darba kārtībai punktus vai komentēt šīs institūcijas priekšlikumus un lēmumus). </p> <p> Piemēri: ģenerālā asambleja (sanāk vienreiz gadā, lai ar balsojumu noteiktu organizācijas galvenos darbības virzienus, kā arī tās izpildinstitūcijas), līdztiesības konsultatīvā padome (kas tiekas reizi divos mēnešos, lai sagatavotu priekšlikumus, kā uzlabot dzimumu attiecības organizācijā), novērtēšanas komisija (kas tiekas katru mēnesi, lai uzraudzītu procesu) vai garantiju institūcija (kas apkopo starpgadījumus, pārkāpumus vai priekšlikumus, lai uzlabotu lēmumu pieņemšanas procedūras) ir dažas no asamblejām.</p>\n"
+          page: "<p><strong> Asambleja </strong> ir organizācijas dalībnieku grupa, kas periodiski tiekas, lai pieņemtu lēmumus par noteiktu organizācijas jomu vai darbības tvērumu. </p> <p> Asamblejas rīko gan privātas, gan atvērtas sanāksmes. Ja tās ir atvērtas, ir iespējams tajās piedalīties (piemēram, apmeklēt, ja to atļauj kapacitāte, pievienot darba kārtībai punktus vai komentēt šīs institūcijas priekšlikumus un lēmumus). </p> <p> Piemēri: ģenerālā asambleja (sanāk vienreiz gadā, lai ar balsojumu noteiktu organizācijas galvenos darbības virzienus, kā arī tās izpildinstitūcijas), līdztiesības konsultatīvā padome (kas tiekas reizi divos mēnešos, lai sagatavotu priekšlikumus, kā uzlabot dzimumu attiecības organizācijā), novērtēšanas komisija (kas tiekas katru mēnesi, lai uzraudzītu procesu) vai garantiju institūcija (kas apkopo starpgadījumus, pārkāpumus vai priekšlikumus, lai uzlabotu lēmumu pieņemšanas procedūras) ir dažas no asamblejām.</p>\n"
+          title: Kas ir asambleja?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Asambleja netika atrasta datubāzē (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Asamblejas veids netika atrasts datubāzē (ID: %{id})'
+    menu:
+      assemblies: Asambleja
+    metrics:
+      assemblies:
+        description: Izveidoto asambleju skaits
+        object: asambleja
+        title: Asambleja
+    pages:
+      home:
+        hero:
+          participate_title: Piedalieties platformā notiekošajos procesos
+        sub_hero:
+          register_title: Reģistrējieties, lai izveidotu kontu platformā
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Saite uz lapu Procesi, kurā norādīti visi procesi
+      show:
+        related_assemblies: Saistītās asamblejas
+  errors:
+    messages:
+      cannot_be_blank: nevar būt tukšs
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Sīkāka informācija
+          take_part: Piedalīties
+        index:
+          children: 'Asamblejas:'
+          organizational_chart: Organizatoriskā shēma
+          promoted_assemblies: Izceltās asamblejas
+          reset_chart: Atiestatīt
+        order_by_assemblies:
+          assemblies:
+            zero: "%{count} asamblejas"
+            one: "%{count} asamblejas"
+            other: "%{count} asamblejas"
+        promoted_assembly:
+          more_info: Sīkāka informācija
+          take_part: Piedalīties
+      assembly_navigation:
+        assembly_member_menu_item: Dalībnieki
+        assembly_menu_item: Asambleja
+      assembly_widgets:
+        show:
+          take_part: Piedalīties

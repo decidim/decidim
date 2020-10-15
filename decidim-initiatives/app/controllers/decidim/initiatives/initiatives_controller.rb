@@ -19,7 +19,6 @@ module Decidim
       helper PaginateHelper
       helper InitiativeHelper
       include InitiativeSlug
-
       include FilterResource
       include Paginable
       include Decidim::Initiatives::Orderable
@@ -32,20 +31,22 @@ module Decidim
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
+
+        return unless search.results.blank? && params.dig("filter", "state") != %w(closed)
+
+        @closed_initiatives = search_klass.new(search_params.merge(state: %w(closed)))
+
+        if @closed_initiatives.results.present?
+          params[:filter] ||= {}
+          params[:filter][:date] = %w(closed)
+          @forced_closed_initiatives = true
+          @search = @closed_initiatives
+        end
       end
 
       # GET /initiatives/:id
       def show
         enforce_permission_to :read, :initiative, initiative: current_initiative
-      end
-
-      # GET /initiatives/:id/signature_identities
-      def signature_identities
-        @voted_groups = InitiativesVote
-                        .supports
-                        .where(initiative: current_initiative, author: current_user)
-                        .pluck(:decidim_user_group_id)
-        render layout: false
       end
 
       private

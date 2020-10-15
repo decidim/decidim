@@ -27,6 +27,8 @@
 
     & > li.is-dropdown-submenu-parent > a{
       padding-right: 1rem;
+      background-color: $button-background;
+      color: $white;
 
       &::after{
         border-top-color: $white;

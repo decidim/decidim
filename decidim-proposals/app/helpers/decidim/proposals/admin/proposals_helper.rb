@@ -7,6 +7,8 @@ module Decidim
       # in order to use them in select forms for Proposals.
       #
       module ProposalsHelper
+        include Decidim::Admin::ResourceScopeHelper
+
         # Public: A formatted collection of Meetings to be used
         # in forms.
         def meetings_as_authors_selected

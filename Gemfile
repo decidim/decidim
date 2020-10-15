@@ -9,6 +9,7 @@ gem "decidim-conferences", path: "."
 gem "decidim-consultations", path: "."
 gem "decidim-elections", path: "."
 gem "decidim-initiatives", path: "."
+gem "decidim-templates", path: "."
 
 gem "bootsnap", "~> 1.4"
 
@@ -23,7 +24,7 @@ group :development, :test do
   # Use latest simplecov from master until next version of simplecov is
   # released (greather than 0.18.5)
   # See https://github.com/decidim/decidim/issues/6230
-  gem "simplecov", git: "https://github.com/colszowka/simplecov"
+  gem "simplecov", "~> 0.19.0"
 
   gem "decidim-dev", path: "."
 end

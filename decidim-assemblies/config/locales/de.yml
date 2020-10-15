@@ -64,6 +64,12 @@ de:
         email: Email
         name: Name
         role: Rolle
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,7 +84,9 @@ de:
   decidim:
     admin:
       actions:
+        import_assembly: Importieren
         new_assembly: Neue Montage
+        new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
@@ -100,14 +108,35 @@ de:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich dupliziert.
+      assemblies_settings:
+        update:
+          error: Beim Aktualisieren der Einstellungen ist ein Fehler aufgetreten.
+          success: Einstellungen wurden erfolgreich aktualisiert.
       assemblies_types:
+        create:
+          error: Beim Erstellen eines neuen Gremiumtyps ist ein Fehler aufgetreten.
+          success: Gremiumtyp wurde erfolgreich erstellt.
+        destroy:
+          success: Gremiumtyp wurde erfolgreich gelöscht.
         new:
           create: Erstellen
+          title: Neuer Gremiumtyp
+        update:
+          error: Beim Aktualisieren dieses Gremiumtyps ist ein Fehler aufgetreten.
+          success: Gremiumtyp wurde erfolgreich aktualisiert.
       assembly_copies:
         new:
           copy: Kopieren
           select: Wählen Sie die Daten aus, die Sie duplizieren möchten
           title: Doppelte Montage
+      assembly_imports:
+        create:
+          error: Beim Importieren dieses Gremiums ist ein Fehler aufgetreten.
+          success: Gremium wurde erfolgreich importiert.
+        new:
+          import: Importieren
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Gremium importieren
       assembly_members:
         create:
           error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
@@ -151,6 +180,7 @@ de:
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
       menu:
         assemblies: Gremien
+        assemblies_settings: Einstellungen
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
           assembly_members: Mitglieder
@@ -162,6 +192,7 @@ de:
           info: Info
           moderations: Moderationen
           private_users: Private Benutzer
+        assemblies_types: Versammlungstypen
       models:
         assemblies_types:
           fields:
@@ -197,8 +228,10 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
+            valuator: Schätzer
       titles:
         assemblies: Gremien
+        assemblies_types: Versammlungstypen
     admin_log:
       assembly:
         create: "%{user_name} erstellt die %{resource_name} Assembly"
@@ -209,6 +242,14 @@ de:
         create: "%{user_name} erstellt das %{resource_name} Mitglied in der %{space_name} Assembly"
         delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Gremium %{space_name}"
         update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
+      assembly_setting:
+        update: "%{user_name} aktualisierte die Versammlungseinstellungen"
+      assembly_type:
+        create: "%{user_name} erstellte den Versammlungstyp %{resource_name}"
+        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Versammlungstyp %{space_name}"
+        publish: "%{user_name} veröffentlichte den Versammlungstyp %{resource_name}"
+        unpublish: "%{user_name} unveröffentlichte den Versammlungstyp %{resource_name}"
+        update: "%{user_name} aktualisierte den Versammlungstyp %{resource_name}"
       assembly_user_role:
         create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
@@ -232,12 +273,21 @@ de:
             social_handlers: Sozial
             title: Allgemeine Information
             visbility: Sichtweite
+        assemblies_settings:
+          edit:
+            update: Aktualisieren
+          form:
+            title: Einstellungen für Versammlungen
         assemblies_types:
           form:
             title: Titel
         assembly_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Dokument hinzufügen
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -274,6 +324,7 @@ de:
         others: Andere
         public: Öffentlichkeit
       filter:
+        all: Alle Typen
         commission: Kommission
         consultative_advisory: Beratung / Beratung
         executive: Executive
@@ -290,6 +341,7 @@ de:
         home:
           highlighted_assemblies:
             active_assemblies: Aktive Baugruppen
+            assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
             see_all_assemblies: Alle Baugruppen anzeigen
         user_profile:
           member_of:
@@ -320,6 +372,7 @@ de:
         related_participatory_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
+        social_networks_title: Diese Versammlung auf teilen
         target: Wer nimmt teil?
       statistics:
         answers_count: Antworten
@@ -331,6 +384,7 @@ de:
         meetings_count: Meetings
         orders_count: Stimmen
         pages_count: Seiten
+        posts_count: Beiträge
         projects_count: Projekte
         proposals_count: Vorschläge
         results_count: Ergebnisse
@@ -342,6 +396,24 @@ de:
         designated_on: Bezeichnet am
       index:
         title: Mitglieder
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Verknüpfung zu der Konferenzseite mit einem Überblick aller Konferenzen
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Ein Administrator der Versammlung <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+          email_subject: Sie wurden als Mitglied der Versammlung %{resource_name} eingeladen!
+          notification_title: Sie wurden als Mitglied der Versammlung <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+      assembly:
+        role_assigned:
+          email_intro: Sie wurden als %{role} für die Versammlung „%{resource_title}“ ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung „%{resource_title}“ sind.
+          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          notification_title: Sie wurden als %{role} für die Versammlung <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
     help:
       participatory_spaces:
         assemblies:
@@ -352,6 +424,8 @@ de:
       value_types:
         assembly_presenter:
           not_found: 'Die Assembly wurde nicht in der Datenbank gefunden (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Der Versammlungstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
     menu:
       assemblies: Gremien
     metrics:
@@ -359,6 +433,19 @@ de:
         description: Anzahl der erstellten Gremien
         object: Gremien
         title: Gremien
+    pages:
+      home:
+        hero:
+          participate_title: Nehmen Sie an den Prozessen der Plattform teil
+        sub_hero:
+          register_title: Registrieren Sie sich, um ein Konto auf der Plattform zu erstellen
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Verknüpfung zu der Prozessseite mit einem Überblick aller Prozesse
+      show:
+        related_assemblies: Ähnliche Versammlungen
   errors:
     messages:
       cannot_be_blank: darf nicht leer sein
@@ -369,6 +456,7 @@ de:
           more_info: Mehr Informationen
           take_part: Teilnehmen
         index:
+          children: 'Versammlungen:'
           organizational_chart: Organigramm
           promoted_assemblies: Hervorgehobene Gremien
           reset_chart: Zurücksetzen

@@ -17,6 +17,10 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
+        attribute :online_meeting_url, String
+        attribute :type_of_meeting, String
+
+        TYPE_OF_MEETING = %w(in_person online).freeze
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -25,18 +29,20 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :location, translatable_presence: true
+        validates :type_of_meeting, presence: true
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? }
 
-        validates :address, presence: true
-        validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
+        validates :address, presence: true, if: ->(form) { form.needs_address? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
+        validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-
-        validate :scope_belongs_to_participatory_space_scope
+        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :clean_type_of_meeting, presence: true
 
         delegate :categories, to: :current_component
 
@@ -50,6 +56,11 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.type_of_meeting = if model.online_meeting?
+                                   "online"
+                                 else
+                                   "in_person"
+                                 end
         end
 
         def services_to_persist
@@ -62,11 +73,11 @@ module Decidim
 
         alias component current_component
 
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
+        # Finds the Scope from the given decidim_scope_id, uses component scope if missing.
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
+          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
         end
 
         # Scope identifier
@@ -82,10 +93,41 @@ module Decidim
           @category ||= categories.find_by(id: decidim_category_id)
         end
 
-        private
+        def geocoding_enabled?
+          Decidim::Map.available?(:geocoding)
+        end
 
-        def scope_belongs_to_participatory_space_scope
-          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
+        def has_address?
+          geocoding_enabled? && address.present?
+        end
+
+        def needs_address?
+          in_person_meeting?
+        end
+
+        def geocoded?
+          latitude.present? && longitude.present?
+        end
+
+        def online_meeting?
+          type_of_meeting == "online"
+        end
+
+        def in_person_meeting?
+          type_of_meeting == "in_person"
+        end
+
+        def clean_type_of_meeting
+          type_of_meeting.presence
+        end
+
+        def type_of_meeting_select
+          TYPE_OF_MEETING.map do |type|
+            [
+              I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
         end
       end
     end

@@ -3,6 +3,8 @@ cs:
     attributes:
       account:
         delete_reason: Důvod odstranění účtu
+      common:
+        created_at: Vytvořeno v
       group:
         about: O nás
         avatar: Avatar
@@ -71,6 +73,7 @@ cs:
     errors:
       general: Chyba při zpracování obrázku
       image_too_big: Obraz je příliš velký
+      not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -80,6 +83,7 @@ cs:
       decidim_with_month_name_short: "%d %b"
   decidim:
     accessibility:
+      external_link: Externí odkaz
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
@@ -136,12 +140,12 @@ cs:
         create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
-        create: "%{user_name} vytvořilo %{resource_name} rozsah"
-        create_with_parent: "%{user_name} vytvořil %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
         delete: "%{user_name} odstranil %{resource_name} rozsah"
         delete_with_parent: "%{user_name} odstranilo %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
-        update: "%{user_name} aktualizoval rozsah %{resource_name}"
-        update_with_parent: "%{user_name} aktualizoval %{resource_name} rozsah uvnitř rozsahu %{parent_scope}"
+        update: "%{user_name} aktualizoval oblast působnosti %{resource_name}"
+        update_with_parent: "%{user_name} aktualizoval oblast působnosti %{resource_name} uvnitř oblasti působnosti %{parent_scope}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -158,6 +162,8 @@ cs:
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
+    alert:
+      dismiss: Odmítnout oznámení
     amendments:
       accepted:
         error: Při přijímání změny došlo k chybě.
@@ -173,7 +179,7 @@ cs:
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
-        no_similars_found: Nebyly nalezeny žádné podobné vylepšení. 
+        no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
         title: Podobná vylepšení
       created:
         error: Při vytváření pozměňovacího návrhu došlo k chybě.
@@ -216,7 +222,7 @@ cs:
         success: Úprava byla úspěšně podporována
       publish_draft:
         error: Při publikování pozměňovacího návrhu došlo k chybě.
-        success: Pozměňovací návrh úspěšně publikován
+        success: Pozměňovací návrh úspěšně publikován.
       rejected:
         error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
         success: Emenda byla úspěšně odmítnuta
@@ -291,6 +297,7 @@ cs:
           foo: Foo
         name: Foo autorizace
       granted_at: Udělené v %{timestamp}
+      renew: Obnovit ověření
       sms:
         explanation: Pošlete číslo mobilního telefonu, abychom mohli ověřit vaši totožnost.
         name: Kód přes SMS
@@ -325,6 +332,8 @@ cs:
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
+      show:
+        close_modal: Zavřít okno
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -362,6 +371,8 @@ cs:
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Oprávnění zdrojů povoleno
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
@@ -447,7 +458,7 @@ cs:
           buttons:
             check: Zkontrolujte a pokračujte
             close_modal: Zavřít okno
-            uncheck: Zrušit zaškrtnutí
+            uncheck: Ponechat nezaškrtnuté
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
             Zaškrtněte prosím zaškrtávací políčko níže.<br>
@@ -479,6 +490,7 @@ cs:
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce používat váš účet"
     endorsable:
       endorsements: Schválení
+      endorsements_count: Počet schvalování
     endorsement_buttons_cell:
       already_endorsed: Schváleno
       endorse: Schválit
@@ -578,17 +590,17 @@ cs:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> vás pozval, abyste se k němu připojili.
           email_outro: Toto oznámení jste obdrželi, protože jste byli pozváni do skupiny. Zaškrtněte prosím kartu Skupiny ve svém profilu.
           email_subject: Byli jste pozváni, abyste se připojili ke skupině %{user_group_name}!
-          notification_title: Byli jste pozváni, abyste se připojili ke skupině <a href="%{resource_path}">%{user_group_name}</a> . Zaškrtněte <a href="%{groups_profile_tab_path}">Skupiny strana</a> ve svém profilu, aby ji schválit!
+          notification_title: Byli jste pozváni, abyste se připojili ke skupině <a href="%{resource_path}">%{user_group_name}</a>. Zkontrolujte <a href="%{groups_profile_tab_path}">stránku skupin</a> ve svém profilu a schvalte ji!
         join_request_accepted:
           email_intro: Gratulujeme! Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> přijal vaši žádost o připojení.
           email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
           email_subject: Byli jste přijati do skupiny %{user_group_name}!
           notification_title: Byli jste přijati do skupiny <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
-          email_intro: Někdo požádal o připojení ke skupině %{user_group_name} . Můžete jej přijmout nebo odmítnout od <a href="%{resource_url}">člena skupiny strana</a>.
+          email_intro: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_url}">strany člena skupiny</a>.
           email_outro: Toto oznámení jste obdrželi, protože můžete spravovat skupinu %{user_group_name}.
           email_subject: Někdo požádal o zařazení do skupiny %{user_group_name}!
-          notification_title: Někdo požádal o připojení ke skupině %{user_group_name} . Můžete jej přijmout nebo odmítnout od <a href="%{resource_path}">člena skupiny strana</a>.
+          notification_title: Někdo požádal o připojení ke skupině %{user_group_name}. Můžete jej přijmout nebo odmítnout ze <a href="%{resource_path}">strany člena skupiny</a>.
         join_request_rejected:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odmítl vaši žádost o připojení.
           email_outro: Toto oznámení jste obdrželi, protože vaše žádost o spojení byla aktualizována.
@@ -629,7 +641,7 @@ cs:
           notification_title: <a href="%{resource_path}">profilová stránka</a> od %{name} (%{nickname}), kterou sledujete, byla aktualizována.
     export_mailer:
       data_portability_export:
-        click_button: 'Klepnutím na další tlačítko stáhnete data. <br/> Soubor bude k dispozici až do %{date}.'
+        click_button: 'Klikněte na další tlačítko pro stažení vašich dat. <br/> Soubor bude k dispozici do %{date}. <br/> Pro otevření budete potřebovat <a href=''https://www.7-zip.org/''>7-Zip</a>. Heslo: %{password}'
         download: Stažení
       export:
         ready: V příloze naleznete exportovanou exportovanou verzi.
@@ -652,6 +664,11 @@ cs:
       title: Digitální otisk
       value: Hodnota
     followers:
+      followers_count:
+        one: "%{count} sledující"
+        few: "%{count} sledující"
+        many: "%{count} sledujících"
+        other: "%{count} sledujících"
       no_followers: Zatím žádní sledující.
     following:
       no_followings: Nesleduje nikoho ani nic.
@@ -659,7 +676,7 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
-        participatory_space: Již sledujete participační prostor
+        participatory_space: Již sledujete <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
@@ -672,6 +689,18 @@ cs:
           password: Heslo je příliš krátké.
           password_confirmation: Potvrzení hesla se musí shodovat s heslem.
         error: V tomto poli je chyba.
+      file_help:
+        file:
+          explanation: 'Pokyny pro soubor:'
+          message_1: Jedná se o obrázek nebo dokument.
+          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+        image:
+          explanation: 'Pokyny pro obrázek:'
+          message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
+          message_2: Software tento obrázek ořízne.
+      file_validation:
+        allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
+        max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
       remove_this_file: Odstranit tento soubor
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
@@ -820,11 +849,18 @@ cs:
         area_type_presenter:
           not_found: 'Typ oblasti nebyl nalezen v databázi (ID: %{id})'
         scope_presenter:
-          not_found: 'Rozsah nebyl nalezen v databázi (ID: %{id})'
+          not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
       expired_session: Aktuální platnost sesouhlasení již vypršela.
+    map:
+      dynamic:
+        screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
+        skip_button: Přeskočit mapu
+      static:
+        latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
@@ -873,8 +909,15 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
+        conversation:
+          show: Zobrazit konverzaci s %{sender}
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
+        error_modal:
+          close: Zavřít okno
+          correct_errors: Opravte chyby a zkuste to znovu.
+          intro: 'Došlo k následujícím chybám ve vaší zprávě:'
+          ok: OK
         index:
           ago: před
           close: Zavřít okno
@@ -890,6 +933,7 @@ cs:
           send: Poslat
           title: Odpověď
         show:
+          back: Zpět ke všem konverzacím
           chat_with: Konverzace s
           not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
           title: Konverzace s číslem %{usernames}
@@ -897,7 +941,7 @@ cs:
           send: Poslat
           title: Spusťte konverzaci
         update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
+          error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
         csv: Stáhnout data (csv)
@@ -1071,6 +1115,7 @@ cs:
         following: Sleduje
         groups: Skupiny
         members: Členové
+        officialized: Oficiální účastník
         timeline: Časová osa
         view_full_profile: Zobrazit celý profil
       sidebar:
@@ -1117,11 +1162,16 @@ cs:
       global: Globální oblast působnosti
       picker:
         cancel: zrušení
+        change: Změnit vybraný rozsah
         choose: Vybrat
+        currently_selected: Aktuálně vybraný rozsah
         title: Vyberte %{field}
       prompt: Vyberte oblast
       scopes: Scopes
+      scopes_picker_input:
+        select_scope: 'Vyberte rozsah (v současné době: %{current})'
     search:
+      results: Výsledky hledání
       results_found_for_term: '%{count} Výsledky pro vyhledávání: "%{term}"'
       term_input_placeholder: Vyhledávání
     searches:
@@ -1145,7 +1195,16 @@ cs:
           many: "%{count} výsledků"
           other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
+    security:
+      selfxss_warning:
+        description: Tato funkce prohlížeče je určena pro vývojáře a pokud jste o to byli požádáni, neměli byste sem nic vkládat. Vkládání obsahu do tohoto okna může ohrozit vaše soukromí a umožnit hackerům přístup k vašemu účtu.
+        title: Zastavit!
     shared:
+      confirm_modal:
+        cancel: Zrušit
+        close_modal: Zavřít okno
+        ok: OK
+        title: Potvrdit
       embed_modal:
         close_window: Zavřete okno
         embed: Vložte tento kód na svou stránku
@@ -1153,6 +1212,9 @@ cs:
       extended_navigation_bar:
         more: Více
         unfold: Rozvinout
+      filter_form_help:
+        help: Formulář níže filtruje výsledky hledání dynamicky, pokud se změní podmínky vyhledávání.
+        skip: Přeskočit na výsledky
       flag_modal:
         already_reported: Tento obsah je již nahlášen a bude kontrolován administrátorem.
         close: Zavřít
@@ -1163,10 +1225,12 @@ cs:
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
       floating_help:
+        close: Zavřít nápovědu
         help: Pomoc
       follow_button:
         sign_in_before_follow: Před provedením této akce se prosím přihlaste
       login_modal:
+        close_modal: Zavřít okno
         please_sign_in: prosím přihlašte se
         sign_up: Přihlásit se
       participatory_space_filters:
@@ -1185,6 +1249,13 @@ cs:
         close_window: Zavřete okno
         share: Sdílet
         share_link: Sdílet odkaz
+    tags:
+      filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
+      filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
+    translation_bar:
+      help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
+      show_original: Zobrazit původní text
+      show_translated: Zobrazit automaticky přeložený text
     user_activity:
       index:
         no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
@@ -1222,7 +1293,7 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
-        no_scopes: Tato organizace ještě nemá prostor.
+        no_scopes: Tato organizace zatím nemá žádný rozsah!
         select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
@@ -1434,7 +1505,15 @@ cs:
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod 15 znaků)
   forms:
+    correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
+    length_validator:
+      minimum:
+        one: alespoň %{count} znak
+        few: alespoň %{count} znaků
+        many: alespoň %{count} znaků
+        other: alespoň %{count} znaků
     required: Povinný
+    required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:
     sentence_for_humans: Pokud jste člověk, ignorujte toto pole
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
@@ -1447,6 +1526,8 @@ cs:
       edit_link:
         edit: Upravit
       footer:
+        cc_by_license: Licence Creative Commons
+        decidim_logo: Logo Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
       header:
@@ -1458,9 +1539,19 @@ cs:
         close_session: Zavřít sezení
         description_html: Spravujete účastníka <b>%{user_name}</b>.
         expire_time_html: Platnost vaší relace vyprší za <b><span class="minutes">%{minutes}</span></b>.
+      language_chooser:
+        choose_language: Vyberte jazyk
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
+        mark_as_read: Označit jako přečtené
+      social_media_links:
+        facebook: "%{organization} na Facebooku"
+        github: "%{organization} na GitHubu"
+        instagram: "%{organization} na Instagramu"
+        twitter: "%{organization} na Twitteru"
+        youtube: "%{organization} na YouTube"
       user_menu:
+        account: 'Uživatelský účet: %{name}'
         admin_dashboard: Správní panel
         conversations: Konverzace
         notifications: Oznámení
@@ -1480,6 +1571,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
+    name_with_error: Angličtina (chyba!)
   password_validator:
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
@@ -1549,6 +1641,7 @@ cs:
       last_title: Odkaz na poslední stránku
       next: Další &rsaquo;
       next_title: Odkaz na další stránku
+      pagination: Stránkování
       previous: "&lsaquo; Předchozí"
       previous_title: Odkaz na předchozí stránku
       title: 'Číslo strany: '

@@ -1,0 +1,26 @@
+sl:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Naslov
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategorija
+          is_emendation_true:
+            label: Tip
+            values:
+              'false': Predlogi
+              'true': Amandmaji
+          scope_id_eq:
+            label: Obseg
+          state_eq:
+            values:
+              accepted: Sprejeto
+              published: Objavljeno
+              rejected: Zavrnjen
+          state_null:
+            values:
+              'true': Neodgovorjen

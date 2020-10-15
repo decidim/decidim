@@ -5,7 +5,7 @@
         address: Adresse
         body: Body
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         title: Tittel
@@ -17,7 +17,7 @@
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
         category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         has_address: Har adresse
         state: Delstat
         suggested_hashtags: Foreslåtte hashtags
@@ -73,22 +73,8 @@
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Type
-          values:
-            'false': Forslag
-            'true': Endringer
         search_placeholder:
           id_string_or_title_cont: Søk %{collection} etter ID eller tittel.
-        state_eq:
-          label: Delstat
-          values:
-            evaluating: Vurderer
-            withdrawn: Trukket tilbake
-        state_null:
-          label: Status
-          values:
-            'true': Ikke besvart
     components:
       proposals:
         actions:
@@ -533,7 +519,7 @@
           open: Åpen
           published: Publisert
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -620,7 +606,7 @@
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
-            scope: Omfang
+            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -632,7 +618,6 @@
           amend: Endre
           comment: Kommentar
           comments: Kommentarer
-          endorse: Påtegne
       proposal_votes:
         create:
           error: Det oppstod et problem med å støtte forslaget.
@@ -667,7 +652,7 @@
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
-          scope: Omfang
+          scope: Tema
           search: Søk
           state: Status
           type: Type
@@ -737,7 +722,6 @@
           read_more: Les mer
           report: Rapport
           withdraw_btn_hint: Du kan trekke tilbake forslaget ditt hvis du ombestemmer deg, så lenge du ikke har fått noe støtte. Forslaget er ikke slettet, den vil vises i listen av tilbaketrukne forslag.
-          withdraw_confirmation: Er du sikker på at du vil trekke dette forslaget tilbake?
           withdraw_proposal: Trekk tilbake forslag
         vote_button:
           already_voted: Støttet allerede

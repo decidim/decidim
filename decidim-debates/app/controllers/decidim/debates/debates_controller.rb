@@ -6,12 +6,14 @@ module Decidim
     class DebatesController < Decidim::Debates::ApplicationController
       helper Decidim::ApplicationHelper
       helper Decidim::Messaging::ConversationHelper
+      helper Decidim::WidgetUrlsHelper
       include FormFactory
       include FilterResource
       include Paginable
       include Flaggable
+      include Decidim::Debates::Orderable
 
-      helper_method :debates, :debate, :paginated_debates, :report_form
+      helper_method :debates, :debate, :form_presenter, :paginated_debates, :report_form, :close_debate_form
 
       def new
         enforce_permission_to :create, :debate
@@ -66,14 +68,37 @@ module Decidim
         end
       end
 
+      def close
+        enforce_permission_to :close, :debate, debate: debate
+
+        @form = form(CloseDebateForm).from_params(params)
+        @form.debate = debate
+
+        CloseDebate.call(@form) do
+          on(:ok) do |debate|
+            flash[:notice] = I18n.t("debates.close.success", scope: "decidim.debates")
+            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("debates.close.invalid", scope: "decidim.debates")
+            redirect_back fallback_location: Decidim::ResourceLocatorPresenter.new(debate).path
+          end
+        end
+      end
+
       private
+
+      def form_presenter
+        @form_presenter ||= present(@form, presenter_class: Decidim::Debates::DebatePresenter)
+      end
 
       def paginated_debates
         @paginated_debates ||= paginate(debates).includes(:category)
       end
 
       def debates
-        @debates ||= search.results
+        @debates ||= reorder(search.results)
       end
 
       def debate
@@ -82,6 +107,10 @@ module Decidim
 
       def report_form
         @report_form ||= form(Decidim::ReportForm).from_params(reason: "spam")
+      end
+
+      def close_debate_form
+        @close_debate_form ||= form(CloseDebateForm).from_model(debate)
       end
 
       def search_klass
@@ -98,9 +127,12 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          order_start_time: "asc",
-          origin: "all",
-          category_id: ""
+          origin: %w(official citizens user_group),
+          activity: "all",
+          category_id: default_filter_category_params,
+          scope_id: default_filter_scope_params,
+          status: "all",
+          state: %w(open closed)
         }
       end
     end

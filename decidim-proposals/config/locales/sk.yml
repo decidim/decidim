@@ -85,24 +85,11 @@ sk:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Typ
-          values:
-            'false': Návrhy
-            'true': Zmeny
+        proposals:
+          valuator_role_ids_has:
+            label: Priradené ku hodnotiteľov
         search_placeholder:
           id_string_or_title_cont: Hľadať %{collection} podľa titulku alebo ID.
-        state_eq:
-          label: Štát
-          values:
-            evaluating: Hodnotenie
-            withdrawn: Stiahnuté
-        state_null:
-          label: Štát
-          values:
-            'true': Nezodpovedané
-        valuator_role_ids_has:
-          label: Priradené ku hodnotiteľov
     components:
       proposals:
         actions:
@@ -802,7 +789,6 @@ sk:
           read_more: Čítať ďalej
           report: Správa
           withdraw_btn_hint: Ak zmeníte názor, môžete svoj návrh stiahnuť, ak ste nedostali žiadnu podporu. Návrh nie je zrušený, objaví sa v zozname stiahnutých návrhov.
-          withdraw_confirmation: Naozaj chcete tento návrh stiahnuť?
           withdraw_proposal: Návrh stiahnuť
         tags:
           changed_from: "(zmenené z kategórie <u>% {previous_category} </u> správcom)"

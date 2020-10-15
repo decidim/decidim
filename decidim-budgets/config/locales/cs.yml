@@ -1,10 +1,16 @@
 cs:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Oblast působnosti
+        description: Popis
+        title: Název
+        total_budget: Celkový rozpočet
+        weight: Váha
       project:
-        budget: Rozpočet
+        budget_amount: Částka rozpočtu
         decidim_category_id: Kategorie
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
         title: Titul
@@ -23,12 +29,33 @@ cs:
         confirm_destroy: Opravdu chcete tento projekt smazat?
         destroy: Smazat
         edit: Upravit
+        edit_projects: Spravovat projekty
         import: Importovat návrhy do projektů
-        new: Nový projekt
+        new: Nový %{name}
         preview: Náhled
         title: Akce
       admin:
+        budgets:
+          create:
+            invalid: Při vytváření tohoto rozpočtu došlo k chybě
+            success: Rozpočet byl úspěšně vytvořen
+          destroy:
+            invalid: Při mazání tohoto rozpočtu došlo k chybě
+            success: Rozpočet byl úspěšně odstraněn
+          edit:
+            title: Upravit rozpočet
+            update: Aktualizovat rozpočet
+          index:
+            title: Rozpočty
+          new:
+            create: Vytvořit rozpočet
+            title: Nový rozpočet
+          update:
+            invalid: Při aktualizaci tohoto rozpočtu došlo k chybě
+            success: Rozpočet byl úspěšně aktualizován
         models:
+          budget:
+            name: Rozpočet
           project:
             name: Projekt
         projects:
@@ -43,6 +70,7 @@ cs:
           index:
             finished_orders: Hotové hlasy
             pending_orders: Čeká na hlasování
+            selected: Vybrané
             title: Projekty
           new:
             create: Vytvořit
@@ -59,11 +87,39 @@ cs:
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             select_component: Vyberte součást
       admin_log:
+        budget:
+          create: "%{user_name} vytvořil %{resource_name} rozpočet ve skupině %{space_name}"
+          delete: "%{user_name} odstranil %{resource_name} rozpočet ve skupině %{space_name}"
+          update: "%{user_name} aktualizoval rozpočet %{resource_name} ve skupině %{space_name}"
         project:
           create: "%{user_name} vytvořil %{resource_name} projekt ve %{space_name} prostoru"
           delete: "%{user_name} odstranil %{resource_name} projekt v prostoru %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} projekt v prostoru %{space_name}"
+      budget:
+        view: Zobrazit všechny rozpočtové projekty
+      budget_information_modal:
+        back_to: Zpět na %{component_name}
+        close_modal: Zavřít okno
+        continue: Pokračovat
+        more_information: Více informací
+      budgets_list:
+        cancel_order:
+          more_than_one: smažte svůj hlas na %{name} a začněte znovu
+          only_one: smazat váš hlas a začít znovu.
+        finished_message: Dokončili jste hlasovací proces. Děkujeme za účast!
+        highlighted_cta: Hlasovat na %{name}
+        if_change_opinion: Pokud jste změnili názor, můžete
+        my_budgets: Mé rozpočty
+        voted_on: Hlasovali jste pro %{links}
+      limit_announcement:
+        cant_vote: O tomto rozpočtu nelze hlasovat. <a href="%{landing_path}">Zkuste jiný rozpočet</a>.
+        limit_reached: Máte aktivní hlasy v %{links}. Chcete-li hlasovat o tomto rozpočtu, musíte <a href="%{landing_path}">smazat svůj hlas a začít znovu</a>.
       models:
+        budget:
+          fields:
+            name: Název
+            projects_count: Počet projektů
+            total_budget: Celkový rozpočet
         project:
           fields:
             title: Titul
@@ -71,11 +127,11 @@ cs:
         order_summary:
           selected_projects: 'Vybrané projekty jsou:'
           subject: Hlasovali jste o účastnickém prostoru %{space_name}
-          voted_on_space: Hlasovali jste o rozpočtech pro participační prostor %{space_name}.
-          voted_on_space_with_scope: Hlasovali jste o rozpočtech pro participační prostor %{space_name} na %{scope_name} (%{scope_type}).
+          voted_on_space: Hlasovali jste o rozpočtu %{budget_name} pro skupinu %{space_name}.
+          voted_on_space_with_scope: Hlasovali jste o rozpočtu %{budget_name} pro participační prostor %{space_name} na %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
-          are_you_sure: Souhlasíte? Jakmile potvrdíte své hlasování, nemůžete to změnit.
+          are_you_sure: Pokud změníte názor, můžete svůj hlas později změnit.
           cancel: Zrušit
           confirm: Potvrdit
           description: Jedná se o projekty, které jste zvolili jako součást rozpočtu.
@@ -103,8 +159,13 @@ cs:
             other: "%{count} projektů"
         filters:
           category: Kategorie
-          scope: Rozsah
+          scope: Oblast působnosti
           search: Vyhledávání
+          status: Stav
+          status_values:
+            all: Vše
+            not_selected: Nevybráno
+            selected: Vybrané
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -126,20 +187,19 @@ cs:
           lowest_cost: Nejnižší náklady
           most_voted: Nejvíce hlasovalo
           random: Náhodné pořadí
+          selected: Vybrané
         project:
           add: Přidejte k hlasování projekt %{resource_name}
-          count:
-            one: 1 podpory
-            few: "%{count} podporuje"
-            many: "%{count} podporuje"
-            other: "%{count} podporuje"
           remove: Odebrat projekt %{resource_name} z vašeho hlasování
+          selected: Vybrané
           view: Zobrazit
+          you_voted: Hlasovali jste
         project_budget_button:
           add: Přidat do vašeho hlasování
           add_descriptive: Přidat k hlasování projekt %{resource_name}
           added: Přidáno k vašemu hlasování
           added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování
+        projects_for: Projekty pro %{name}
         show:
           budget: Rozpočet
           view_all_projects: Zobrazit všechny projekty
@@ -157,18 +217,43 @@ cs:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
+            landing_page_content: Úvodní stránka rozpočtů
+            more_information_modal: Více informací
             projects_per_page: Projekty na stránku
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
+            title: Název
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
             vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
             vote_threshold_percent: Prahová hodnota pro hlasování v procentech
+            workflow: Pracovní postup
+            workflow_choices:
+              all: 'Hlasovat všude: umožňuje účastníkům hlasovat ve všech rozpočtech.'
+              one: 'Hlasovat jednou: umožňuje účastníkům hlasovat v jakémkoliv rozpočtu, ale pouze v jednom.'
           step:
             announcement: Oznámení
             comments_blocked: Komentáře byly blokovány
+            highlighted_heading: Zvýrazněný nadpis
+            landing_page_content: Úvodní stránka rozpočtů
+            list_heading: Nadpis seznamu
+            more_information_modal: Více informací
             show_votes: Zobrazit hlasy
-            votes_enabled: Hlasování povoleno
+            title: Název
+            votes: Hlasování
+            votes_choices:
+              disabled: Hlasování zakázáno
+              enabled: Hlasování povoleno
+              finished: Hlasování dokončeno
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete jej vidět z této stránky:'
+          email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
+          email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
+          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     orders:
       checkout:
         error: Při zpracování hlasu došlo k chybě

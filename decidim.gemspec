@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.5"
+  s.required_ruby_version = ">= 2.6"
 
   s.name = "decidim"
 
@@ -45,9 +45,10 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-sortitions", Decidim.version
   s.add_dependency "decidim-surveys", Decidim.version
   s.add_dependency "decidim-system", Decidim.version
+  s.add_dependency "decidim-templates", Decidim.version
   s.add_dependency "decidim-verifications", Decidim.version
 
-  s.add_development_dependency "bundler", "~> 1.12"
+  s.add_development_dependency "bundler", "~> 2.1.2"
   s.add_development_dependency "rake", "~> 12.0"
   s.add_development_dependency "rspec", "~> 3.0"
 end

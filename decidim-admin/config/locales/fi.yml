@@ -13,6 +13,7 @@ fi:
         attachment_collection_id: Kansio
         description: Kuvaus
         file: Tiedosto
+        title: Liitetiedoston tai kuvan nimi
       attachment_collection:
         description: Kuvaus
         name: Nimi
@@ -28,12 +29,6 @@ fi:
       newsletter:
         body: Runko
         subject: Otsikko
-      oauth_application:
-        name: Nimi
-        organization_logo: Organisaation logo (neliö)
-        organization_name: Organisaation nimi
-        organization_url: Organisaation URL-osoite
-        redirect_uri: Uudelleenohjauksen URI
       organization:
         address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
@@ -50,6 +45,8 @@ fi:
         from: Lähettäjän sähköpostiosoite
         github_handler: GitHub-käsittelijä
         header_snippets: Yläosion koodipätkät
+        highlight_alternative_color: Korostusväri, vaihtoehtoinen
+        highlight_color: Korostusväri
         highlighted_content_banner_action_subtitle: Toimintapainikkeen alaotsikko
         highlighted_content_banner_action_title: Toimintapainikkeen otsikko
         highlighted_content_banner_action_url: Toimintapainikkeen URL-osoite
@@ -59,6 +56,9 @@ fi:
         highlighted_content_banner_title: Otsikko
         instagram_handler: Instagram-käsittelijä
         logo: Logo
+        machine_translation_display_priority: Koneellisen käännöksen prioriteetti
+        machine_translation_display_priority_original: Alkuperäinen teksti ensin
+        machine_translation_display_priority_translation: Käännetty teksti ensin
         name: Nimi
         official_img_footer: Virallinen logo alapalkissa
         official_img_header: Virallinen logo yläpalkissa
@@ -112,10 +112,6 @@ fi:
         file: Tiedosto
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Uudelleenohjausosoitteen (URI) on oltava SSL-protokollaa käyttävä URI
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +143,7 @@ fi:
         per_page: Per sivu
         permissions: Oikeudet
         reject: Hylkää
+        share: Jaa
         verify: Vahvista
       admin_terms_of_use:
         accept:
@@ -274,6 +271,7 @@ fi:
           headers:
             actions: Toiminnot
             name: Komponentin nimi
+            scope: Komponentin teema
             type: Komponentin tyyppi
         new:
           add: Lisää komponentti
@@ -323,6 +321,8 @@ fi:
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
           title_cont: '%{collection}: Hae otsikon perusteella'
+        state_eq:
+          label: Tila
       help_sections:
         error: Ohjeosioiden päivitys epäonnistui
         form:
@@ -339,7 +339,7 @@ fi:
           impersonate_new_managed_user: Esiinny uutena hallittuna käyttäjänä
           managed: Hallittu
           name: Nimi
-          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi tunnistautumisväylä käytössä.
+          needs_authorization_warning: Tällä organisaatiolla tulee olla vähintään yksi vahvistustapa käytössä.
           not_managed: Ei hallittu
           promote: Korota tasoa
           search: Hae
@@ -385,7 +385,6 @@ fi:
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
-        oauth_applications: OAuth-sovellukset
         participants: Osallistujat
         scope_types: Teematyypit
         scopes: Teemat
@@ -432,11 +431,6 @@ fi:
             sent_to: Vastaanottajat
             subject: Otsikko
           name: Uutiskirje
-        oauth_application:
-          fields:
-            created_at: Luontiaika
-            name: Nimi
-          name: OAuth-sovellus
         participatory_space_private_user:
           name: Osallistumistilan yksityinen käyttäjä
         scope:
@@ -447,6 +441,14 @@ fi:
           fields:
             name: Nimi
             plural: Monikko
+        share_token:
+          fields:
+            created_at: Luontiaika
+            expires_at: Vanhentumisaika
+            last_used_at: Viimeinen käyttöaika
+            times_used: Käyttökertojen määrä
+            token: Tunniste
+            user: Tekijä
         static_page:
           fields:
             created_at: Luonnin ajankohta
@@ -543,25 +545,6 @@ fi:
         update:
           error: Uutiskirjeen päivitys epäonnistui.
           success: Uutiskirjeen päivitys onnistui. Tarkasta se läpi ennen lähetystä.
-      oauth_applications:
-        create:
-          error: Sovelluksen luonti epäonnistui.
-          success: Sovelluksen luonti onnistui.
-        destroy:
-          error: Sovelluksen tuhoaminen epäonnistui.
-          success: Sovelluksen tuhoaminen onnistui.
-        edit:
-          save: Tallenna
-          title: Muokkaa sovellusta
-        index:
-          confirm_delete: Haluatko varmasti poistaa tämän sovelluksen?
-          title: OAuth-sovellukset
-        new:
-          save: Tallenna
-          title: Uusi sovellus
-        update:
-          error: Sovelluksen päivitys epäonnistui.
-          success: Sovelluksen päivitys onnistui.
       officializations:
         create:
           success: Käyttäjän virallistaminen onnistui
@@ -585,6 +568,7 @@ fi:
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
         show_email_modal:
+          close_modal: Sulje ikkuna
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
           full_name: Koko nimi
@@ -647,7 +631,7 @@ fi:
           invalid: CSV-tiedostossa on ongelma.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
-          explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi).'
+          explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
           title: Lataa CSV-tiedosto
           upload: Lataa
       resource_permissions:
@@ -656,6 +640,10 @@ fi:
           title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeuksien päivitys onnistui.
+      resources:
+        index:
+          headers:
+            scope: Teema
       scope_types:
         create:
           error: Uuden teematyypin luonti epäonnistui.
@@ -687,6 +675,18 @@ fi:
         update:
           error: Teeman päivitys epäonnistui.
           success: Teeman päivitys onnistui
+      share_tokens:
+        actions:
+          confirm_destroy: Haluatko varmasti poistaa tämän tunnisteen?
+          destroy: Poista
+          share: Jaa
+        destroy:
+          error: Tunnisteen poistaminen epäonnistui.
+          success: Tunnisteen poistaminen onnistui.
+        share_tokens:
+          empty: Aktiivisia tunnisteita ei ole tällä hetkellä
+          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          title: Jakotunnisteet
       shared:
         gallery:
           add_images: Lisää kuvia
@@ -739,7 +739,7 @@ fi:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
         areas: Alueet
-        authorization_workflows: Vahvistusmenetelmät
+        authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta

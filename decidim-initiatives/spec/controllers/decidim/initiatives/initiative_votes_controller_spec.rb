@@ -24,25 +24,7 @@ module Decidim
           end
         end
 
-        context "and Non authorized users" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
-
-          it "raise an exception" do
-            sign_in user, scope: :user
-            post :create, params: { initiative_slug: initiative.slug, format: :js }
-            expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(:found)
-          end
-
-          it "do not register the vote" do
-            expect do
-              sign_in user, scope: :user
-              post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
-          end
-        end
-
-        context "and Guest users" do
+        context "and guest users" do
           it "receives unauthorized response" do
             post :create, params: { initiative_slug: initiative.slug, format: :js }
             expect(response).to have_http_status(:unauthorized)

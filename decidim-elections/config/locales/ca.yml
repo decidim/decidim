@@ -10,15 +10,19 @@ ca:
         description: Descripció
         end_time: La votació finalitza el
         start_time: La votació comença el
-        subtitle: Subtítol
         title: Títol
       question:
         description: Descripció
         max_selections: Número màxim d'opcions
+        min_selections: Cap de les anteriors
         title: Títol
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
@@ -47,11 +51,11 @@ ca:
     elections:
       actions:
         confirm_destroy: N'estàs segura?
-        destroy: Destruir
+        destroy: Eliminar
         edit: Editar
         edit_answers: Edita les respostes
         edit_questions: Edita les preguntes
-        import: Importa propostes a respostes
+        import: Importar propostes com a respostes
         new: Nova %{name}
         preview: Previsualitzar
         publish: Publicar
@@ -63,30 +67,32 @@ ca:
             invalid: Hi ha hagut un problema en crear aquesta resposta
             success: Resposta creada amb èxit
           destroy:
-            invalid: Hi ha hagut un problema en borrar aquesta resposta
-            success: Resposta creada amb èxit
+            invalid: Hi ha hagut un problema en eliminar aquesta resposta
+            success: Resposta eliminada amb èxit
           edit:
             title: Editar les respostes
             update: Actualitzar resposta
           index:
+            invalid_max_selections: Calen %{missing_answers} respostes més per a arribar al màxim de seleccions
             title: Respostes
           new:
             create: Crear resposta
             title: Nova resposta
           update:
-            invalid: Hi ha hagut un problema en crear aquesta resposta
+            invalid: Hi ha hagut un problema en actualitzar aquesta resposta
             success: Resposta actualitzada amb èxit
         elections:
           create:
             invalid: S'ha produït un error en crear aquesta votació
             success: S'ha creat la votació correctament
           destroy:
-            invalid: S'ha produït un error en crear aquesta votació
+            invalid: S'ha produït un error en eliminar aquesta votació
             success: S'ha eliminat la votació correctament
           edit:
             title: Editar la votació
             update: Actualitzar la votació
           index:
+            no_bulletin_board: No hi ha cap <a href="https://github.com/decidim/decidim-bulletin-board">servidor de Bulletin Board</a> configurat, el qual és necessari per utilitzar aquest mòdul. Aquesta tasca ha de ser realitzada per la persona administradora del sistema.
             title: Votacions
           new:
             create: Crear una votació
@@ -112,7 +118,7 @@ ca:
           new:
             create: Importa propostes a respostes
             no_components: No hi ha cap altre component de propostes en aquest espai participatiu per importar les propostes a respostes.
-            select_component: Seleccioneu un component
+            select_component: Selecciona un component
         questions:
           create:
             invalid: S'ha produït un error en crear aquesta pregunta
@@ -135,6 +141,45 @@ ca:
         election:
           publish: "%{user_name} ha publicat la votació %{resource_name}"
           unpublish: "%{user_name} ha despublicat la votació %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Acabada
+          ongoing: Activa
+          upcoming: Properes
+        end_date: Finalitza
+        footer:
+          view: Veure
+          vote: Votar
+        label:
+          date: Dates
+        questions: Preguntes %{count}
+        start_date: Inici
+        unspecified: Sense especificar
+      elections:
+        count:
+          elections_count:
+            one: "%{count} votació"
+            other: "%{count} votacions"
+        filters:
+          active: Activa
+          all: Totes
+          finished: Finalizada
+          search: Cercar
+          state: Estat
+          upcoming: Properes
+        filters_small_view:
+          close_modal: Tancar el modal
+          filter: Filtrar
+          filter_by: Filtra per
+          unfold: Desplegar
+        show:
+          back: Totes les votacions
+          preview: Previsualitzar
+          vote: Votar
+          voting_period_status:
+            finished: La votació va començar el %{start_time} i va acabar el %{end_time}
+            ongoing: La votació finalitza el %{end_time}
+            upcoming: La votació comença el %{start_time}
       models:
         answer:
           fields:
@@ -150,13 +195,64 @@ ca:
             answers: Respostes
             max_selections: Número màxim d'elements a seleccionar
             title: Títol
+      orders:
+        label: Ordena votacions per
+        older: Més antiga
+        recent: Recent
+      votes:
+        confirm:
+          answer: Resposta
+          answer_number: resposta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirmar el teu vot
+          intro: Aquí trobarás un resum del vot que estàs a punt d'emetre. <br> Si us plau, confirma el teu vot o edita les teves respostes.
+          nota_option: En blanc
+          question: Preguntes %{count}
+        confirmed:
+          back: Tornar a les votacions
+          experience: Com valores l'experiència?
+          feedback: Dona'ns la teva opinió
+          header: Vot confirmat
+          lead: El teu vot ha estat emès!
+          text: 'Pots comprovar que el teu vot s''ha afegit correctament a l''urna amb el següent identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Per comprovar-ho, copia l'identificador i enganxa'l a la <a href="evote-verify">pàgina de verificació de vot</a>
+        encrypting:
+          header: Codificant el vot...
+          text: El teu vot s'està xifrant per assegurar-te que l'emets de forma anònima.
+        header:
+          confirm: Confirma el teu vot
+          confirmed: Vot confirmat
+          encrypting: Confirmant vot
+        messages:
+          not_allowed: No pots votar en aquesta votació en aquest moment.
+        modal:
+          close: Tancar
+          proposal_header: 'Propostes:'
+        new:
+          answer_choices: Pots seleccionar fins a %{choices} respostes
+          more_information: Més informació
+          nota_option: En blanc / Cap de les anteriors
+          preview_alert: Aquesta és una vista prèvia de la cabina de votació.
+          question_steps: Pregunta %{current_step} de %{total_steps}
+          selections: "Seleccionada <br> %{selected} de %{max_selections}"
+        voting_step:
+          back: Enrere
+          continue: Següent
+      warnings:
+        no_elections_warning: No hi ha cap votació que coincideixi amb la teva cerca o no n'hi ha cap programada.
+        no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure les anteriors.
     events:
       elections:
         election_published:
-          email_intro: 'La votació %{resource_title} ja està activa a %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_intro: 'La votació %{resource_title} ja està activa a %{participatory_space_title}. Pots veure-la des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
     participatory_processes:
       statistics:
         elections_count: Votacions
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sortir

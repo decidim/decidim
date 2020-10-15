@@ -6,13 +6,26 @@ shared_examples "a proposal form" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "More sidewalks and less roads!" }
-  let(:body) { "Everything would be better" }
+  let(:title) do
+    if options[:i18n] == false
+      "More sidewalks and less roads!"
+    else
+      { en: "More sidewalks and less roads!" }
+    end
+  end
+  let(:body) do
+    if options[:i18n] == false
+      "Everything would be better"
+    else
+      { en: "Everything would be better" }
+    end
+  end
   let(:author) { create(:user, organization: organization) }
   let(:user_group) { create(:user_group, :verified, users: [author], organization: organization) }
   let(:user_group_id) { user_group.id }
   let(:category) { create(:category, participatory_space: participatory_space) }
-  let(:scope) { create(:scope, organization: organization) }
+  let(:parent_scope) { create(:scope, organization: organization) }
+  let(:scope) { create(:subscope, parent: parent_scope) }
   let(:category_id) { category.try(:id) }
   let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
@@ -45,6 +58,12 @@ shared_examples "a proposal form" do |options|
     )
   end
 
+  describe "scope" do
+    let(:current_component) { component }
+
+    it_behaves_like "a scopable resource"
+  end
+
   context "when everything is OK" do
     it { is_expected.to be_valid }
   end
@@ -56,19 +75,35 @@ shared_examples "a proposal form" do |options|
 
     it "only adds errors to this field" do
       subject.valid?
-      expect(subject.errors.keys).to eq [:title]
+      if options[:i18n]
+        expect(subject.errors.keys).to eq [:title_en]
+      else
+        expect(subject.errors.keys).to eq [:title]
+      end
     end
   end
 
   context "when the title is too long" do
-    let(:title) { "A" * 200 }
+    let(:title) do
+      if options[:i18n] == false
+        "A" * 200
+      else
+        { en: "A" * 200 }
+      end
+    end
 
     it { is_expected.to be_invalid }
   end
 
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
-      let(:body) { "A" }
+      let(:body) do
+        if options[:i18n] == false
+          "A"
+        else
+          { en: "A" }
+        end
+      end
 
       it { is_expected.to be_invalid }
     end
@@ -98,22 +133,21 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_invalid }
   end
 
-  context "with invalid scope_id" do
-    let(:scope_id) { 987 }
-
-    it { is_expected.to be_invalid }
-  end
-
   context "when geocoding is enabled" do
     let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_space) }
 
     context "when the has address checkbox is checked" do
       let(:has_address) { true }
 
-      unless options[:admin]
-        context "when the address is not present" do
-          let(:address) { nil }
-
+      context "when the address is not present" do
+        if options[:address_optional_with_geocoding]
+          it "does not store the coordinates" do
+            expect(subject).to be_valid
+            expect(subject.address).to be(nil)
+            expect(subject.latitude).to be(nil)
+            expect(subject.longitude).to be(nil)
+          end
+        else
           it { is_expected.to be_invalid }
         end
       end
@@ -192,46 +226,6 @@ shared_examples "a proposal form" do |options|
     end
   end
 
-  describe "scope" do
-    subject { form.scope }
-
-    context "when the scope exists" do
-      it { is_expected.to be_kind_of(Decidim::Scope) }
-    end
-
-    context "when the scope does not exist" do
-      let(:scope_id) { 3456 }
-
-      it { is_expected.to eq(nil) }
-    end
-
-    context "when the scope is from another organization" do
-      let(:scope_id) { create(:scope).id }
-
-      it { is_expected.to eq(nil) }
-    end
-
-    context "when the participatory space has a scope" do
-      let(:parent_scope) { create(:scope, organization: organization) }
-      let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization, scope: parent_scope) }
-      let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
-
-      context "when the scope is descendant from participatory space scope" do
-        it { is_expected.to eq(scope) }
-      end
-
-      context "when the scope is not descendant from participatory space scope" do
-        let(:scope) { create(:scope, organization: organization) }
-
-        it { is_expected.to eq(scope) }
-
-        it "makes the form invalid" do
-          expect(form).to be_invalid
-        end
-      end
-    end
-  end
-
   it "properly maps category id from model" do
     proposal = create(:proposal, component: component, category: category)
 
@@ -261,8 +255,14 @@ shared_examples "a proposal form" do |options|
 
       it "adds an error to the `:attachment` field" do
         expect(subject).not_to be_valid
-        expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
-        expect(subject.errors.keys).to match_array([:title, :attachment])
+
+        if options[:i18n]
+          expect(subject.errors.full_messages).to match_array(["Title en can't be blank", "Attachment Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title_en, :attachment])
+        else
+          expect(subject.errors.full_messages).to match_array(["Title can't be blank", "Title is too short (under 15 characters)", "Attachment Needs to be reattached"])
+          expect(subject.errors.keys).to match_array([:title, :attachment])
+        end
       end
     end
   end
@@ -320,8 +320,8 @@ shared_examples "a proposal form with meeting as author" do |options|
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
   let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:title) { "More sidewalks and less roads!" }
-  let(:body) { "Everything would be better" }
+  let(:title) { { en: "More sidewalks and less roads!" } }
+  let(:body) { { en: "Everything would be better" } }
   let(:created_in_meeting) { true }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_space) }
   let(:author) { create(:meeting, component: meeting_component) }
@@ -356,14 +356,26 @@ shared_examples "a proposal form with meeting as author" do |options|
   end
 
   context "when the title is too long" do
-    let(:title) { "A" * 200 }
+    let(:title) do
+      if options[:i18n] == false
+        "A" * 200
+      else
+        { en: "A" * 200 }
+      end
+    end
 
     it { is_expected.to be_invalid }
   end
 
   unless options[:skip_etiquette_validation]
     context "when the body is not etiquette-compliant" do
-      let(:body) { "A" }
+      let(:body) do
+        if options[:i18n] == false
+          "A"
+        else
+          { en: "A" }
+        end
+      end
 
       it { is_expected.to be_invalid }
     end

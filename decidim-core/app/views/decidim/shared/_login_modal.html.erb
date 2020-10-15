@@ -9,7 +9,14 @@
   <% if current_organization.sign_in_enabled? %>
     <div class="row">
       <div class="columns medium-8 medium-centered">
-          <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: session_path(:user), html: { class: "register-form new_user" }) do |f| %>
+          <%
+            path = if content_for(:redirect_after_login)
+                     session_path(:user, redirect_url: content_for(:redirect_after_login))
+                   else
+                     session_path(:user)
+                   end
+          %>
+          <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: "register-form new_user" }) do |f| %>
             <div>
               <div class="field">
                 <%= f.email_field :email %>

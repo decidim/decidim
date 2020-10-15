@@ -18,6 +18,7 @@
         <thead>
           <tr>
             <th><%= t("models.result.fields.title", scope: "decidim.accountability") %></th>
+            <%= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
@@ -27,6 +28,7 @@
               <td>
                 <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
               </td>
+              <%= td_resource_scope_for(result.scope) %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
 

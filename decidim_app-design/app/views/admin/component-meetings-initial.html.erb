@@ -82,9 +82,9 @@
             <div class="cell medium-6">
               <label>Category</label>
               <select>
-                <option selected="selected" value="en"><%= Faker::GameOfThrones.house %></option>
+                <option selected="selected" value="en"><%= Faker::TvShows::GameOfThrones.house %></option>
                 <%= 3.times do %>
-                  <option value="ca"><%= Faker::GameOfThrones.house %></option>
+                  <option value="ca"><%= Faker::TvShows::GameOfThrones.house %></option>
                 <% end %>
               </select>
             </div>

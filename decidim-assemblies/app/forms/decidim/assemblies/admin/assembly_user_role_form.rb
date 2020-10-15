@@ -12,9 +12,11 @@ module Decidim
         attribute :email, String
         attribute :role, String
 
-        validates :email, :role, presence: true
-        validates :name, presence: true
+        validates :name, :email, :role, presence: true
         validates :role, inclusion: { in: Decidim::AssemblyUserRole::ROLES }
+
+        validates :name, format: { with: UserBaseEntity::REGEXP_NAME }
+        validate :admin_uniqueness
 
         def roles
           Decidim::AssemblyUserRole::ROLES.map do |role|
@@ -23,6 +25,10 @@ module Decidim
               role
             ]
           end
+        end
+
+        def admin_uniqueness
+          errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
         end
       end
     end

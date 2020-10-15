@@ -69,11 +69,11 @@ shared_examples_for "manage questionnaires" do
 
   private
 
-  def find_nested_form_field_locator(attribute, visible: true)
+  def find_nested_form_field_locator(attribute, visible: :visible)
     find_nested_form_field(attribute, visible: visible)["id"]
   end
 
-  def find_nested_form_field(attribute, visible: true)
+  def find_nested_form_field(attribute, visible: :visible)
     current_scope.find(nested_form_field_selector(attribute), visible: visible)
   end
 

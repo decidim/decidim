@@ -4,6 +4,9 @@ module Decidim
   module Elections
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        # Anonymous users can only view elections
+        toggle_allow(can_view?) if permission_action.scope == :public && permission_action.subject == :election && permission_action.action == :view
+
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -15,6 +18,8 @@ module Decidim
         case permission_action.action
         when :vote
           toggle_allow(can_vote?)
+        when :preview
+          toggle_allow(can_preview?)
         end
 
         permission_action
@@ -22,7 +27,19 @@ module Decidim
 
       private
 
+      def can_view?
+        election.published? || user&.admin?
+      end
+
       def can_vote?
+        election.published? && election.ongoing? && authorized_to_vote?
+      end
+
+      def can_preview?
+        user.admin? && !can_vote?
+      end
+
+      def authorized_to_vote?
         authorized?(:vote, resource: election)
       end
 

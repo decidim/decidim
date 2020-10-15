@@ -21,6 +21,17 @@ module Decidim
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end
+
+      # Public: Returns the path for the participatory process cta button
+      #
+      # Returns a String with path.
+      def participatory_process_cta_path(process)
+        return participatory_process_path(process) if process.active_step&.cta_path.blank?
+
+        path, params = participatory_process_path(process).split("?")
+
+        "#{path}/#{process.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
+      end
     end
   end
 end

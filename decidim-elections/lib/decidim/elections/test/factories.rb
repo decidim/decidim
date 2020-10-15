@@ -10,19 +10,27 @@ FactoryBot.define do
   end
 
   factory :election, class: "Decidim::Elections::Election" do
+    upcoming
     title { generate_localized_title }
-    subtitle { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    start_time { 1.day.from_now }
     end_time { 3.days.from_now }
     published_at { nil }
     component { create(:elections_component) }
 
+    trait :upcoming do
+      start_time { 1.day.from_now }
+    end
+
     trait :started do
-      start_time { 1.day.ago }
+      start_time { 2.days.ago }
+    end
+
+    trait :ongoing do
+      started
     end
 
     trait :finished do
+      started
       end_time { 1.day.ago }
     end
 
@@ -32,23 +40,59 @@ FactoryBot.define do
 
     trait :complete do
       after(:build) do |election, _evaluator|
-        build_list(:question, 2, :complete, election: election)
+        election.questions << build(:question, :yes_no, election: election, weight: 1)
+        election.questions << build(:question, :candidates, election: election, weight: 3)
+        election.questions << build(:question, :projects, election: election, weight: 2)
+        election.questions << build(:question, :nota, election: election, weight: 4)
       end
     end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
+    transient do
+      more_information { false }
+      answers { 3 }
+    end
+
     election
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    min_selections { 1 }
     max_selections { 1 }
     weight { Faker::Number.number(1) }
     random_answers_order { true }
 
     trait :complete do
-      after(:build) do |question, _evaluator|
-        build_list(:election_answer, 2, question: question)
+      after(:build) do |question, evaluator|
+        overrides = { question: question }
+        overrides[:description] = nil unless evaluator.more_information
+        question.answers = build_list(:election_answer, evaluator.answers, overrides)
       end
+    end
+
+    trait :yes_no do
+      complete
+      random_answers_order { false }
+    end
+
+    trait :candidates do
+      complete
+      max_selections { 6 }
+      answers { 10 }
+    end
+
+    trait :projects do
+      complete
+      max_selections { 3 }
+      answers { 6 }
+      more_information { true }
+    end
+
+    trait :nota do
+      complete
+      max_selections { 4 }
+      answers { 8 }
+      min_selections { 0 }
     end
   end
 

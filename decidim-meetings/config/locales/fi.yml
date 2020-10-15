@@ -88,6 +88,8 @@ fi:
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -412,6 +414,7 @@ fi:
           attendees: Osallistujamäärä
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
+          date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan
@@ -484,7 +487,7 @@ fi:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki tapahtumat (%{count} kpl)
         upcoming_meetings: Tulevat tapahtumat
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva tapahtuma

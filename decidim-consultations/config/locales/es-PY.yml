@@ -236,6 +236,8 @@ es-PY:
           label: 'Ordenar consultas por:'
           random: Aleatorio
           recent: Más reciente
+        show:
+          dates: Fechas
       content_blocks:
         highlighted_consultations:
           name: Consultas destacadas
@@ -346,10 +348,12 @@ es-PY:
         verification_required: Verifica tu cuenta para votar
         vote: Votar
       vote_modal:
+        close_modal: Cierra el modal
         contextual_help: Por favor, selecciona una opción.
         title: 'Consulta: soporte de preguntas'
       vote_modal_confirm:
         change: Cambio
+        close_modal: Cierra el modal
         confirm: Confirmar
         contextual_help: Por favor confirma la opción seleccionada.
         title: 'Consulta: confirma el apoyo'

@@ -22,7 +22,7 @@ module Decidim
   # Example:
   #
   #    cell(
-  #      "decidim/progress_bar_list",
+  #      "decidim/progress_bar",
   #      7,
   #      element_id: "my-id",
   #      units_name: "my.i18n.key",
@@ -49,8 +49,27 @@ module Decidim
       options[:subtitle_text]
     end
 
+    def container_class
+      container_class = "progress__bar"
+      container_class += " progress__bar--horizontal" if horizontal? && !small?
+      container_class += " progress__bar--vertical" if vertical?
+      container_class
+    end
+
+    def display_subtitle?
+      subtitle_text.present? && !small? && !horizontal?
+    end
+
     def small?
       options[:small].to_s == "true"
+    end
+
+    def vertical?
+      !small? && !horizontal?
+    end
+
+    def horizontal?
+      options[:horizontal].to_s == "true"
     end
 
     def progress

@@ -6,6 +6,9 @@ module Decidim
     class Minutes < Meetings::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :description
 
       belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
 

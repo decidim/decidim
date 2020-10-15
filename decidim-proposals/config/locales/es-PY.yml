@@ -7,6 +7,7 @@ es-PY:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
@@ -19,6 +20,7 @@ es-PY:
         category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
+        scope_id: Ámbito
         state: Estado
         suggested_hashtags: Hashtags sugeridos
         title: Título
@@ -77,24 +79,33 @@ es-PY:
   decidim:
     admin:
       filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propuestas
-            'true': Enmiendas
+        proposals:
+          category_id_eq:
+            label: Categoría
+          is_emendation_true:
+            label: Tipo
+            values:
+              'false': Propuestas
+              'true': Enmiendas
+          scope_id_eq:
+            label: Ámbito
+          state_eq:
+            label: Estado
+            values:
+              accepted: Aceptadas
+              evaluating: En evaluación
+              published: Publicadas
+              rejected: Rechazadas
+              validating: Validación técnica
+              withdrawn: Retiradas
+          state_null:
+            label: Estado
+            values:
+              'true': No contestadas
+          valuator_role_ids_has:
+            label: Asignada a evaluadora
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
-        state_eq:
-          label: Estado
-          values:
-            evaluating: En evaluación
-            withdrawn: Retirado
-        state_null:
-          label: Estado
-          values:
-            'true': No contestada
-        valuator_role_ids_has:
-          label: Asignada a evaluadora
     components:
       proposals:
         actions:
@@ -133,6 +144,8 @@ es-PY:
             proposal_wizard_step_3_help_text: Texto de ayuda al paso "Completar" de propuestas
             proposal_wizard_step_4_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada propuesta
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de voto por usuario
           step:
@@ -639,15 +652,23 @@ es-PY:
         update:
           error: Ha habido errores al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado con éxito.
+          title: Editar el borrador colaborativo
         wizard_aside:
           back: Volver
+          back_from_collaborative_draft: Volver al borrador colaborativo
+          back_from_step_1: Volver al borrador colaborativo
+          back_from_step_2: Volver al borrador colaborativo
+          back_from_step_3: Volver a comparar los borradores colaborativos
+          back_from_step_4: Volver a editar borrador
           info: Estás creando un borrador colaborativo <strong></strong>.
         wizard_steps:
+          current_step: Fase actual
           see_steps: ver las fases
           step_1: Crea tu borrador colaborativo
           step_2: Comparar con borradores colaborativos
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos para la creación de borradores de colaborativos
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
@@ -685,7 +706,6 @@ es-PY:
           amend: Enmendar
           comment: Comentario
           comments: Comentarios
-          endorse: Endosar
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -702,8 +722,13 @@ es-PY:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
         edit:
+          add_documents: Documentos
+          add_images: Archivo
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
+          delete_document: Borrar Documento
+          delete_image: Borrar imagen
+          gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
@@ -794,10 +819,12 @@ es-PY:
           read_more: Leer más
           report: Denunciar
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
-          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
+          withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(modificado desde <u>%{previous_name}</u> por una administradora)"
+        update:
+          title: Actualizar propuesta
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto
@@ -829,14 +856,20 @@ es-PY:
             votes: Votos
         wizard_aside:
           back: Volver
+          back_from_step_1: Volver a propuestas
+          back_from_step_2: Volver a propuestas
+          back_from_step_3: Volver a comparar propuestas
+          back_from_step_4: Volver a editar borrador
           info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
+          current_step: Paso actual
           see_steps: ver los pasos
           step_1: Crea tu propuesta
           step_2: Comparar
           step_3: Completar
           step_4: Publica tu propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
         close: Cerrar

@@ -3,6 +3,8 @@ es:
     attributes:
       answer:
         body: Responder
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -42,13 +44,16 @@ es:
             export:
               answer:
                 title: 'Respuesta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
             index:
-              title: "%{total} total de respuestas"
+              title: "%{total} respuestas totales"
             show:
               title: 'Respuesta #%{number}'
           display_condition:
             answer_option: Opción de respuesta
             condition_question: Pregunta
+            condition_type: Condición
             condition_types:
               answered: Contestada
               equal: Igual a
@@ -56,14 +61,19 @@ es:
               not_answered: No contestada
               not_equal: No es igual
             condition_value: Texto incluido
+            display_condition: Condición de visualización
+            mandatory: Esta condición debe cumplirse siempre independientemente del estado de otras condiciones
             remove: Eliminar
-            select_answer_option: Eliminar la opción de respuesta
+            save_warning: Recuerda guardar el formulario antes de configurar las condiciones de visualización
+            select_answer_option: Seleccionar opción de respuesta
             select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccione un tipo de condición
           edit:
             save: Guardar
             title: Editar el cuestionario
           form:
             add_question: Añadir pregunta
+            add_separator: Añadir separador
             already_answered_warning: Algunas participantes ya han respondido el formulario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
@@ -76,6 +86,8 @@ es:
             statement: Declaración
           question:
             add_answer_option: Añadir una opción de respuesta
+            add_display_condition: Agregar condición de visualización
+            add_display_condition_info: Guardar el formulario para configurar las condiciones de visualización
             add_matrix_row: Añadir fila
             any: Alguna
             collapse: Contraer
@@ -93,15 +105,17 @@ es:
             up: Subir
           update:
             invalid: Se ha producido un error al guardar el formulario.
-            success: Formularios guardados correctamente.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
       files:
         extension_whitelist: 'Formatos de archivo aceptados:'
       images:
+        dimensions: "%{width} x %{height} px"
         dimensions_info: 'Esta imagen medirá:'
         processors:
+          resize_and_pad: Redimensionada y ajustada a
           resize_to_fit: Redimensionada para ajustarla
       question_types:
         long_answer: Respuesta larga
@@ -147,8 +161,10 @@ es:
           submit: Enviar respuestas
       user_answers_serializer:
         body: Respuesta
+        completion: Finalización
         created_at: Respondido el
         id: Identificador de respuesta
+        ip_hash: Hash de Dirección IP
         question: Pregunta
         registered: Registrado
         session_token: Identificador de usuaria

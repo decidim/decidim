@@ -66,7 +66,7 @@ module Decidim
 
     # The text to show as the link to the resource.
     def resource_link_text
-      translated_attribute(resource.title)
+      decidim_html_escape(translated_attribute(resource.title))
     end
 
     def created_at
@@ -76,6 +76,8 @@ module Decidim
     def user
       return resource.normalized_author if resource.respond_to?(:normalized_author)
       return resource.author if resource.respond_to?(:author)
+      # As Proposals have Coauthorable concern instead of Authorable
+      return resource.identities.first if resource.respond_to?(:identities)
 
       model.user_lazy if resource.respond_to?(:user)
     end
@@ -118,7 +120,7 @@ module Decidim
 
     def participatory_space_link
       link_to(
-        translated_attribute(participatory_space.title),
+        decidim_html_escape(translated_attribute(participatory_space.title)),
         resource_locator(participatory_space).path
       )
     end

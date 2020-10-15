@@ -94,6 +94,8 @@ cs:
             default_registration_terms: Výchozí podmínky registrace
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -426,6 +428,7 @@ cs:
           attendees: Počet účastníků
           back: Zpět na seznam
           contributions: Počet příspěvků
+          date: Datum
           edit_meeting: Upravit schůzku
           going: Chystáte se
           join: Připojte se k setkání

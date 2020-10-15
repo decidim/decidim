@@ -36,7 +36,11 @@ describe "Proposals", type: :system do
     let!(:component) do
       create(:proposal_component,
              manifest: manifest,
-             participatory_space: participatory_process)
+             participatory_space: participatory_process,
+             settings: {
+               scopes_enabled: true,
+               scope_id: participatory_process.scope&.id
+             })
     end
 
     let!(:proposals) { create_list(:proposal, 3, component: component) }
@@ -563,6 +567,29 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when searching proposals" do
+      let!(:proposals) do
+        [
+          create(:proposal, title: "Lorem ipsum dolor sit amet", component: component),
+          create(:proposal, title: "Donec vitae convallis augue", component: component),
+          create(:proposal, title: "Pellentesque habitant morbi", component: component)
+        ]
+      end
+
+      before do
+        visit_component
+      end
+
+      it "finds the correct proposal" do
+        within "form.new_filter" do
+          find("input[name='filter[search_text]']", match: :first).set("lorem")
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_content("Lorem ipsum dolor sit amet")
+      end
+    end
+
     context "when paginating" do
       let!(:collection) { create_list :proposal, collection_size, component: component }
       let!(:resource_selector) { ".card--proposal" }
@@ -571,7 +598,7 @@ describe "Proposals", type: :system do
     end
 
     context "when component is not commentable" do
-      let!(:ressources) { create_list(:proposal, 3, component: component) }
+      let!(:resources) { create_list(:proposal, 3, component: component) }
 
       it_behaves_like "an uncommentable component"
     end

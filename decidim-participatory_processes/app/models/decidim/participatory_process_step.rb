@@ -5,8 +5,11 @@ module Decidim
   # components that will show up in the depending on what step is currently
   # active.
   class ParticipatoryProcessStep < ApplicationRecord
+    include Decidim::TranslatableResource
     include Traceable
     include Loggable
+
+    translatable_fields :title, :description, :cta_text
 
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess"
     has_one :organization, through: :participatory_process

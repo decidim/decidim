@@ -49,18 +49,6 @@ ru:
         many: Голосов
         other: Голосов
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          values:
-            'false': Предложения
-        state_eq:
-          values:
-            evaluating: Рассматривается
-            withdrawn: Отозван
-        state_null:
-          values:
-            'true': Без ответов
     components:
       proposals:
         actions:
@@ -337,7 +325,6 @@ ru:
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
           withdraw_btn_hint: Вы можете снять свое предложение, если передумаете, пока вы не получили никакой поддержки. Предложение не будет удалено, оно будет указано в списке снятых предложений.
-          withdraw_confirmation: Вы действительно хотите снять это предложение?
           withdraw_proposal: Снять предложение
         vote_button:
           already_voted: Уже проголосовали

@@ -13,6 +13,7 @@ sv:
         attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
+        title: Bilaga eller bildnamn
       attachment_collection:
         description: Beskrivning
         name: Namn
@@ -28,16 +29,11 @@ sv:
       newsletter:
         body: Innehåll
         subject: Ämne
-      oauth_application:
-        name: Namn
-        organization_logo: Organisationslogo (kvadrat)
-        organization_name: Organisationsnamn
-        organization_url: Organisationens hemsida
-        redirect_uri: Omdirigerings-URI
       organization:
         address: SMTP-värdnamn
         alert_color: Larm
         badges_enabled: Aktivera märken
+        comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
         customize_welcome_notification: Anpassa välkomstmeddelande
@@ -49,6 +45,8 @@ sv:
         from: Från e-postadress
         github_handler: GitHub-hanterare
         header_snippets: Rubriksnuttar
+        highlight_alternative_color: Markera alternativ
+        highlight_color: Markera
         highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
         highlighted_content_banner_action_title: Titel för Åtgärdsknapp
         highlighted_content_banner_action_url: URL för åtgärdsknapp
@@ -58,6 +56,9 @@ sv:
         highlighted_content_banner_title: Titel
         instagram_handler: Instagram-hanterare
         logo: Logo
+        machine_translation_display_priority: Maskinöversättnings visnings prioritet
+        machine_translation_display_priority_original: Originaltexten först
+        machine_translation_display_priority_translation: Översatt texten först
         name: Namn
         official_img_footer: Officiell logo sidfot
         official_img_header: Officiell logoyp till sidhuvud
@@ -111,10 +112,6 @@ sv:
         file: Fil
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Omdirigerings-URI måste vara en SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -146,6 +143,7 @@ sv:
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
+        share: Dela
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -291,6 +289,11 @@ sv:
           welcome: Välkommen till Decidims administratörspanel.
       exports:
         export_as: "%{name} som %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Exporten pågår just nu. Du får ett e-brev när den är klar.
       filters:
         category_id_eq:
@@ -317,6 +320,8 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           title_cont: Sök %{collection} efter titel.
+        state_eq:
+          label: Län
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -379,7 +384,6 @@ sv:
         homepage: Hemsida
         impersonations: Uppträd som
         newsletters: Nyhetsbrev
-        oauth_applications: OAuth-tillämpningar
         participants: Deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -426,11 +430,6 @@ sv:
             sent_to: Skickat till
             subject: Ämne
           name: Nyhetsbrev
-        oauth_application:
-          fields:
-            created_at: Skapades
-            name: Namn
-          name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagare i privat deltagarutrymme
         scope:
@@ -441,6 +440,14 @@ sv:
           fields:
             name: Namn
             plural: Flertal
+        share_token:
+          fields:
+            created_at: Skapad den
+            expires_at: Förfaller den
+            last_used_at: Användes senast
+            times_used: Antal användningar
+            token: Token
+            user: Skapad av
         static_page:
           fields:
             created_at: Skapad
@@ -537,25 +544,6 @@ sv:
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
-      oauth_applications:
-        create:
-          error: Det gick inte att skapa tillämpningen.
-          success: Tillämpningen har skapats.
-        destroy:
-          error: Det gick inte att ta bort tillämpningen.
-          success: Tillämpningen har tagits bort.
-        edit:
-          save: Spara
-          title: Redigera tillämpning
-        index:
-          confirm_delete: Vill du ta bort tillämpningen?
-          title: OAuth-tillämpningar
-        new:
-          save: Spara
-          title: Ny tillämpning
-        update:
-          error: Det gick inte att uppdatera tillämpningen.
-          success: Tillämpningen har uppdaterats.
       officializations:
         create:
           success: Deltagaren har gjorts officiell
@@ -579,6 +567,7 @@ sv:
           officialize: Gör officiell
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
+          close_modal: Stäng modal
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se e-postadressen. Denna åtgärd kommer att loggas.
           email_address: E-postadress
           full_name: Fullständigt namn
@@ -614,6 +603,7 @@ sv:
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
           images:
             layout_appearance_title: Redigera layoutens utseende
+            preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_homepage:
         edit:
@@ -640,7 +630,6 @@ sv:
           invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
-          explanation: Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn).
           title: Skicka CSV-fil
           upload: Skicka
       resource_permissions:
@@ -680,6 +669,23 @@ sv:
         update:
           error: Det gick inte att uppdatera omfånget.
           success: Omfattningen har uppdaterats
+      share_tokens:
+        actions:
+          confirm_destroy: Vill du ta bort den här token?
+          destroy: Radera
+          share: Dela
+        destroy:
+          error: Det gick inte att radera den token.
+          success: Token har tagits bort.
+        share_tokens:
+          empty: Det finns inga aktiva tokens
+          help: Dessa tokens används för att offentligt dela denna opublicerade resurs till alla användare. De kommer att döljas när resursen publiceras. Klicka på tokens dela-ikon för att besöka den delbara URL.
+          title: Delade tokens
+      shared:
+        gallery:
+          add_images: Lägg till bilder
+          delete_image: Ta bort bild
+          gallery_legend: Lägg till ett bildgalleri (valfritt)
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
@@ -736,6 +742,7 @@ sv:
         scope_types: Omfattningstyper
         scopes: Omfattningar
         static_pages: Sidor
+        statistics: Aktivitet
         user_groups: Grupper
         users: Deltagare
       user_group:
@@ -784,6 +791,10 @@ sv:
       users_statistics:
         users_count:
           admins: Administratörer
+          last_day: Sista dagen
+          last_month: Förra månaden
+          last_week: Förra veckan
+          no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
     forms:

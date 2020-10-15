@@ -15,7 +15,7 @@
         address: Adresse
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Tema
         decidim_user_group_id: Brukergruppe
         description: Beskrivelse
         end_time: Sluttid

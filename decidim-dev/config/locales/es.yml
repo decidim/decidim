@@ -15,7 +15,7 @@ es:
         settings:
           global:
             readonly_attribute: Atributo de sólo lectura
-            test: Test A
+            test: Una prueba
             test_choices:
               a: Opción A
               b: Opción B
@@ -23,6 +23,7 @@ es:
           step:
             endorsements_blocked: Adhesiones bloqueadas
             endorsements_enabled: Adhesiones habilitadas
+            readonly_step_attribute: Atributo de sólo lectura
     dummy:
       admin:
         exports:
