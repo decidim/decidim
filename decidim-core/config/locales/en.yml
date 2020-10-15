@@ -117,8 +117,6 @@ en:
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
-      user_moderation:
-        unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
       newsletter:
         create: "%{user_name} created the %{resource_name} newsletter"
         delete: "%{user_name} deleted the %{resource_name} newsletter"
@@ -155,6 +153,8 @@ en:
         reject: "%{user_name} rejected the %{resource_name} group verification"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
+      user_moderation:
+        unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
@@ -1293,8 +1293,8 @@ en:
         success: Your interests have been successfully updated.
     user_report_mailer:
       notify:
-        body_1: "User %{user} has been reported by %{token}"
-        body_2: "Reason: %{reason}"
+        body_1: User %{user} has been reported by %{token}
+        body_2: 'Reason: %{reason}'
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
         subject: A new user has been reported in %{organization_name}

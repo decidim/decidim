@@ -1,5 +1,4 @@
 ---
-
 en:
   activemodel:
     attributes:
@@ -567,7 +566,6 @@ en:
         destroy:
           success: Participant successfully unofficialized
         index:
-          reports: Report count
           actions: Actions
           badge: Badge
           created_at: Created At
@@ -577,6 +575,7 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: Report count
           show_email: Show email address
           status: Status
           unofficialize: Unofficialize
