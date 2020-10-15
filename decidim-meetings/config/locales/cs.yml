@@ -30,6 +30,7 @@ cs:
         start_time: Čas zahájení
         title: Název
         transparent: Transparentní
+        type_of_meeting: Typ
       minutes:
         audio_url: Audio url
         description: Popis
@@ -96,6 +97,7 @@ cs:
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -263,6 +265,7 @@ cs:
           form:
             address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
+            location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           index:
             title: Setkání
           new:
@@ -397,6 +400,11 @@ cs:
             user_groups: Skupiny
           scope: Oblast působnosti
           search: Vyhledávání
+          type: Typ
+          type_values:
+            all: Vše
+            in_person: Osobně
+            online: Online
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -406,7 +414,10 @@ cs:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           create_as: Vytvořit schůzku jako
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
+          location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
+          online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
           select_a_category: Vyberte prosím kategorii
+          select_a_meeting_type: Vyberte prosím typ schůzky
         index:
           new_meeting: Nová schůzka
         meeting_minutes:
@@ -483,6 +494,9 @@ cs:
         destroy:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
+      type_of_meeting:
+        in_person: Osobně
+        online: Online
       types:
         private_meeting: Privátní setkání
         transparent: Průhledný
