@@ -68,7 +68,6 @@ module Decidim
         end
 
         it "returns fails to save the image with validation errors" do
-          subject.test = true
           subject.images_container.background_image = original_image
           subject.save
           expect(subject.valid?).to be(false)
