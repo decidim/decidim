@@ -138,6 +138,11 @@ en:
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: Initiative signatures end date extended!
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative have been extended.
+        initiative_sent_to_technical_validation:
+            email_intro: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_url}">the admin panel</a>
+            email_outro: You have received this notification because you are an admin of the platform.
+            email_subject: Initiative "%{resource_title}" was sent to technical validation.
+            notification_title: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_path}">the admin panel</a>
         milestone_completed:
           affected_user:
             email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
@@ -455,8 +460,10 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
+          confirm: Are you sure?
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This initiative only collects in-person signatures.
+          send_to_technical_validation: Send to technical validation
         signatures_count:
           one: " signature"
           other: " signatures"
