@@ -475,6 +475,7 @@ it:
         index:
           choose_an_option: 'Scegli la tua opzione di registrazione:'
           login_as: Hai effettuato l'accesso come %{name} <%{email}>
+          no_registrations: Nessuna registrazione
           register: Registrati
           title: Tipi di registrazione
       shared:

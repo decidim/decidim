@@ -1,0 +1,549 @@
+zh-CN:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: 作者
+        description: 描述
+        offline_votes: 本人签名
+        offline_votes_for_scope: '%{scope_name} 的本人签名'
+        scope_id: 范围
+        signature_end_date: 签名收集期结束
+        signature_start_date: 签名收集期的开始
+        signature_type: 签名收藏类型
+        signature_type_values:
+          any: 混合的
+          offline: 本人亲自参加会议
+          online: 在线
+        state: 状态
+        title: 标题
+      initiative_author:
+        address: 地址
+        city: 城市
+        id_document: DNI/NIE
+        name: 姓名：
+        phone_number: 电话号码
+        post_code: 邮编
+        province: 省
+      initiatives_committee_member:
+        user: 委员会成员
+      initiatives_type:
+        area_enabled: 使作者能够选择他们倡议的区域
+        attachments_enabled: 启用附件
+        banner_image: 横幅图像
+        child_scope_threshold_enabled: 启用子范围签名
+        collect_user_extra_fields: 在签名时收集参与者个人数据
+        custom_signature_end_date_enabled: 允许作者选择签名收集期的结束
+        description: 描述
+        document_number_authorization_handler: 验证签名上的文档编号的授权
+        extra_fields_legal_information: 关于收集个人数据的法律信息
+        minimum_committee_members: 委员会成员的最低人数
+        online_signature_enabled: 启用在线签名
+        only_global_scope_enabled: 仅允许创建全局范围倡议
+        promoting_committee_enabled: 启用推广委员会
+        title: 标题
+        undo_online_signatures_enabled: 允许参与者撤销他们的在线签名
+        validate_sms_code_on_votes: 在签名过程中添加短信代码验证步骤
+      initiatives_vote:
+        date_of_birth: 出生日期
+        document_number: 文档编号
+        name_and_surname: 姓名：
+        postal_code: 邮政编码
+      organization_data:
+        address: 地址
+        id_document: ID 文档
+        name: 完整名称
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: 文件无效
+              needs_to_be_reattached: 需要重新连接
+              title: 标题不能为空
+  activerecord:
+    models:
+      decidim/initiative:
+        other: Initatives
+      decidim/initiative_comittee:
+        other: 我好
+      decidim/initiative_vote:
+        other: 签名
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: 新倡议类型
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: 区域
+          state_eq:
+            label: 状态
+            values:
+              accepted: 足够的签名
+              created: 已创建
+              discarded: 丢弃的
+              published: 已发布
+              rejected: 签名不足
+              validating: 技术验证
+          type_id_eq:
+            label: 类型
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 按标题、描述、ID或作者名称搜索 %{collection}。
+      menu:
+        initiatives: 倡议
+        initiatives_types: 倡议类型
+      models:
+        initiatives:
+          fields:
+            created_at: 创建于
+            id: ID
+            published_at: 发布于
+            state: 状态
+            supports_count: 签名
+            title: 倡议
+        initiatives_type_scope:
+          fields:
+            scope: 范围
+            supports_required: 需要签名
+          name: 倡议类型范围
+        initiatives_types:
+          fields:
+            created_at: 创建于
+            title: 倡议类型
+          name: 倡议类型
+        initiatives_votes:
+          fields:
+            date_of_birth: 出生日期
+            document_number: 文档编号
+            hash: 哈希
+            initiative_end_date: 结束日期
+            initiative_id: 倡议 ID
+            initiative_signatures_count: 签名数
+            initiative_start_date: 开始日期
+            initiative_title: 倡议标题
+            name_and_surname: 姓名：
+            postal_code: 邮政编码
+            scope: 范围
+            time_and_date: 时间和日期
+            timestamp: 时间戳
+      titles:
+        initiatives: 倡议
+        initiatives_types: 倡议类型
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: 倡议 "%{resource_title}" 已经发送到技术验证。请在管理面板 <a href="%{admin_initiative_url}">上查看</a>
+            email_outro: 您收到此通知是因为您是平台的管理员。
+            email_subject: 倡议 "%{resource_title}" 已被发送到技术验证。
+            notification_title: 倡议 "%{resource_title}" 已经发送到技术验证。请在管理面板 <a href="%{admin_initiative_path}">上查看</a>
+        initiative_extended:
+          email_intro: 倡议 %{resource_title} 的签名截止日期已经延长！
+          email_outro: 您收到此通知是因为您正在关注 %{resource_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 倡议签名结束日期延长！
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议的签名结束日期已经延长。
+        milestone_completed:
+          affected_user:
+            email_intro: 您的倡议 %{resource_title} 已经实现了 %{percentage}%的签名！
+            email_outro: 您收到此通知是因为您是倡议 %{resource_title} 的作者。
+            email_subject: 新里程碑已完成！
+            notification_title: 您的 <a href="%{resource_path}">%{resource_title}</a> 倡议已经实现了 %{percentage}%的签名。
+          follower:
+            email_intro: '%{resource_title} 的倡议已经实现了 %{percentage}%的签名！'
+            email_outro: 您收到此通知是因为您正在关注 %{resource_title}。您可以停止收到跟随上一个链接的通知。
+            email_subject: 新里程碑已完成！
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已经实现了 %{percentage}%的签名。
+        support_threshold_reached:
+          email_intro: '%{resource_title} 倡议已达到支持阈值'
+          email_outro: 您收到此通知是因为您是平台的管理员。
+          email_subject: 已达到支持阈值
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已达到支持阈值
+    gamification:
+      badges:
+        initiatives:
+          conditions:
+            - 转到Intiatives的参与空间
+            - 跟随步骤创建新的倡议
+          description: 当你发起新的倡议，与其他人合作执行这些倡议时，将颁发这个徽章。
+          description_another: 此参与者已经发布了 %{score} 项倡议。
+          description_own: 您已经发布了 %{score} 项倡议。
+          name: 已发布的活动
+          next_level_in: 获取 %{score} 个更多已发布的倡议以达到下一级！
+          unearned_another: 此参与者尚未收到任何已发布的倡议。
+          unearned_own: 您尚未发布任何倡议。
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p> <strong>倡议</strong> 是一个任何人主动(独立于其他渠道或参与空间)通过收集该组织采取具体行动(修改条例)的“数字签名”可以加以推介的建议。 启动一个项目，更改一个部门或街道的名称等。 。</p> <p>倡议的推动者可以确定其目标，争取支持，进行辩论。 散发该文件并确定可以从与会者那里收集签名的会议点或向其他与会者开放的辩论。</p> <p>实例：一项倡议可以收集签名，召集一个组织的全体人民进行协商。 或创立或召集大会，或为该组织的某一领土或地区启动增加预算的进程。 在收集签名的过程中，更多的人可以增加这个需求并在组织内继续。</p>\n"
+          page: "<p> <strong>倡议</strong> 是一个任何人主动(独立于其他渠道或参与空间)通过收集该组织采取具体行动(修改条例)的“数字签名”可以加以推介的建议。 启动一个项目，更改一个部门或街道的名称等。 。</p> <p>倡议的推动者可以确定其目标，争取支持，进行辩论。 散发该文件并确定可以从与会者那里收集签名的会议点或向其他与会者开放的辩论。</p> <p>实例：一项倡议可以收集签名，召集一个组织的全体人民进行协商。 或创立或召集大会，或为该组织的某一领土或地区启动增加预算的进程。 在收集签名的过程中，更多的人可以增加这个需求并在组织内继续。</p>\n"
+          title: 什么是倡议？
+    initiatives:
+      actions:
+        answer: 答案
+      admin:
+        answers:
+          edit:
+            answer: 答案
+            title: '%{title} 的答案'
+          info_initiative:
+            created_at: 创建于
+            description: 描述
+            initiative_votes_count: 所得票数
+            initiatives: 倡议
+            state: 状态
+        committee_requests:
+          index:
+            approve: 批准
+            confirm_revoke: 您确定吗？
+            invite_to_committee_help: 分享此链接来邀请其他参与者加入促销委员会
+            no_members_yet: 促销委员会中没有成员
+            revoke: Revoke
+            title: 委员会成员
+        content_blocks:
+          highlighted_initiatives:
+            max_results: 显示元素的最大数量
+        exports:
+          initiatives: 倡议
+        initiatives:
+          edit:
+            accept: 接受倡议
+            confirm: 您确定吗？
+            discard: 放弃倡议
+            export_pdf_signatures: 导出签名的 PDF
+            export_votes: 导出签名
+            reject: 拒绝倡议
+            send_to_technical_validation: 发送到技术验证
+            success: 该倡议已经发送给技术验证
+            update: 更新
+          form:
+            attachments: 附件
+            settings: 设置
+            title: 通告周知
+          index:
+            actions_title: 行 动
+            preview: 预览
+            print: 打印
+          initiative_attachments:
+            documents: www.un.org/webcast
+            edit: 编辑
+            new: 新的
+            photos: 照片
+          show:
+            print: 打印
+          update:
+            error: 发生错误
+            success: 该倡议已成功更新
+        initiatives_type_scopes:
+          create:
+            error: 发生错误
+            success: 给定倡议类型的新范围已创建
+          destroy:
+            success: 范围已成功删除
+          edit:
+            back: 后退
+            confirm_destroy: 您确定吗？
+            destroy: 删除
+            title: 编辑倡议类型范围
+            update: 更新
+          new:
+            back: 后退
+            create: 创建
+            title: 创建倡议类型范围
+          update:
+            error: 发生错误
+            success: 范围已成功更新
+        initiatives_types:
+          create:
+            error: 发生错误
+            success: 已成功创建新的倡议类型
+          destroy:
+            success: 已成功删除倡议类型
+          edit:
+            confirm_destroy: 您确定吗？
+            destroy: 删除
+            update: 更新
+          form:
+            authorizations: 授权设置
+            child_scope_threshold_enabled_help: '这个配置标志不支持离线投票，它允许子jauges，并且与一个授权处理程序与用户相关联。 请确保您在授权设置中选择该授权和下拉。 要使其工作范围需要分级配置： 1 家长-N 孩子。 关于此配置如何工作的更多信息，请查看 <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">链接</a>。'
+            only_global_scope_enabled_help: 如果您启用了“子范围签名”并将全局范围设置为您的上级范围，请勾选此标记。 通过启用此功能，倡议类型选择将会在创建向导中跳过。 关于此配置如何工作的更多信息，请查看 <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">链接</a>。
+            options: 备选方案
+            title: 通告周知
+          initiative_type_scopes:
+            title: 倡议类型的范围
+          new:
+            create: 创建
+            title: 新倡议类型
+          update:
+            error: 发生错误
+            success: 倡议类型已成功更新
+      admin_log:
+        initiative:
+          publish: "%{user_name} 发布了 %{resource_name} 倡议"
+          send_to_technical_validation: "%{user_name} 将 %{resource_name} 倡议发送到技术验证"
+          unpublish: "%{user_name} 丢弃了 %{resource_name} 倡议"
+          update: "%{user_name} 更新了 %{resource_name} 倡议"
+      admin_states:
+        accepted: 足够的签名
+        created: 已创建
+        discarded: 丢弃的
+        published: 已发布
+        rejected: 签名不足
+        validating: 技术验证
+      application_helper:
+        filter_area_values:
+          all: 所有的
+        filter_scope_values:
+          all: 所有的
+        filter_state_values:
+          accepted: 足够的签名
+          all: 所有的
+          answered: 已回答
+          closed: 已关闭
+          open: 打开
+          rejected: 签名不足
+        filter_type_values:
+          all: 所有的
+      committee_requests:
+        new:
+          continue: 继续
+          help_text: 您即将申请成为该倡议的促进委员会成员
+        spawn:
+          success: 您的请求已经发送给倡议作者。
+      content_blocks:
+        highlighted_initiatives:
+          name: B. 重点倡议
+      create_initiative:
+        fill_data:
+          back: 后退
+          continue: 继续
+          fill_data_help: "<ul> <li>查看您倡议的内容。 您的标题易于理解吗？您的主动行动的目标是否明确？</li> <li>您必须选择签名类型。 在本人、在线或两者兼而有</li> <li>倡议的地理范围是什么？ 城市，区？</li> </ul>"
+          initiative_type: 倡议类型
+          more_information: "(更多信息)"
+          select_area: 选择区域
+          select_scope: 选择范围
+        finish:
+          back: 后退
+          back_to_initiatives: 回到倡议
+          callout_text: 恭喜！您的公民倡议已成功创建。
+          confirm: 确认
+          edit_my_initiative: 编辑我的倡议
+          go_to_my_initiatives: 转到我的倡议
+          more_information: "(更多信息)"
+          send_my_initiative: 发送我的倡议
+        finish_help:
+          access_reminder: 请记住，您将始终能够通过参与者菜单访问您的倡议。
+          help_for_organizations: 如果您是一个协会，您必须上传所有组成促进委员会的组织的管理委员会的记录
+          help_in_person_signatures: 如果您选择亲自收集签名或与在线合并，您将必须上传所需信息。
+          help_text: 请记住，为了正确处理主动行动，您必须访问管理面板，您可以在那里找到用户菜单， 上传所需信息并发送以供处理。
+          initiatives_page_link: 您可以查询所有关于 %{link} 的信息来通报倡议。
+          page: 页面
+        previous_form:
+          back: 后退
+          continue: 继续
+          help: 倡议包含什么？请写下标题和描述。 我们提出了一个简短的标题和一个侧重于拟议解决办法的说明。
+          more_information: "(更多信息)"
+        promotal_committee:
+          back: 后退
+          individual_help_text: 这种公民倡议需要一个至少由 %{committee_size} 人组成的促进委员会(证明人)。 您必须与属于此倡议一部分的其他人分享以下链接。 当您的联系人收到此链接时，他们必须遵循指定的步骤。
+          more_information: "(更多信息)"
+        select_initiative_type:
+          back: 后退
+          choose_html: 我想要创建 <strong>%{title}</strong>
+          more_information: "(更多信息)"
+          select: 我想促进这项倡议
+          select_initiative_type_help: 公民倡议是公民可以进行干预的一种手段，使市议会能够采取行动，维护市政管辖范围内的普遍利益。 你想要发起哪个倡议？
+        share_committee_link:
+          continue: 继续
+          invite_to_committee_help: 邀请将成为促进委员会成员的人的链接
+        show_similar_initiatives:
+          back: 后退
+          compare_help: 如果以下任何一项倡议与您的倡议相似，我们鼓励您签署。您的建议将有更多的机会去完成。
+          continue: 我的倡议是不同的
+          more_information: "(更多信息)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经创建了一个新的倡议，查看它并做出贡献："
+          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{author_nickname} 的新举措'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议是由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 创建的。
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}，您正在关注这个问题，已经批准了以下倡议，也许您想要为对话做出贡献："
+          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{author_nickname} 认可的倡议'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 倡议已被 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 认可。
+      index:
+        title: 倡议
+      initiative_signatures:
+        fill_personal_data:
+          continue: 继续
+          date_select:
+            day: 日
+            month: 月
+            year: 年份
+          help: 请使用您的个人数据填写以下字段以签署倡议
+        finish:
+          back_to_initiative: 回到倡议
+        sms_code:
+          continue: 检查代码并继续
+          help: 检查手机收到的短信
+        sms_phone_number:
+          continue: 给我发送短信
+          help: 用您验证的电话号码填写表单，请求您的验证码
+      initiative_votes:
+        create:
+          error: 在签署该倡议时遇到了问题。
+          invalid: 用于签署倡议的数据无效
+          success_html: 恭喜！ <strong> %{title}</strong> 倡议已成功签名
+        personal_data:
+          invalid: 个人资料与批准数据不一致。
+        sms_code:
+          invalid: 您的验证码与我们不匹配。请再次检查我们发送给您的短信。
+        sms_phone:
+          invalid: 电话号码无效或正在等待授权。请检查您的授权。
+      initiatives:
+        author:
+          deleted: 已删除
+        author_list:
+          hidden_authors_count:
+            other: 和更多 %{count} 人
+        count:
+          title:
+            other: "%{count} 倡议"
+        filters:
+          any: 任何
+          area: 区域
+          author: 作者
+          myself: 我的倡议
+          scope: 范围
+          search: 搜索
+          state: 状态
+          type: 类型
+        filters_small_view:
+          close_modal: 关闭窗口
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        index_header:
+          new_initiative: 新举措
+          not_authorized:
+            authorizations_page: 查看授权
+            close: 关闭
+            explanation: 您需要验证才能创建一个新的倡议。
+            title: 需要授权
+        initiatives:
+          closed_initiatives_warning: 目前没有开放的倡议，但在这里你可以找到列出的所有已关闭的倡议。
+          no_initiatives_warning: 没有符合您搜索条件的倡议。
+        interactions:
+          comments_count:
+            count:
+              other: 评论
+        orders:
+          label: '对倡议进行排序：'
+          most_commented: 最多评论
+          most_voted: 最多签名
+          random: 随机播放
+          recent: 最新的
+          recently_published: 最近发布的
+        result:
+          answer_title:
+            accepted: 这项建议已被接受，原因是：
+            created: 此建议已创建
+            discarded: 这项建议已经被放弃，原因是：
+            published: 此建议发布原因：
+            rejected: 这项建议已被拒绝，原因是：
+            validating: 这项建议正在评估
+          initiative_rejected_reason: 这项倡议由于没有签字而被拒绝。
+        show:
+          any_vote_method: 这项公民倡议收集在线签名和亲身签名。
+          follow_description: 当该倡议有消息时收到通知
+          offline_method: 这项公民倡议只收集亲身签名。
+        signatures_count:
+          other: " 签名"
+        vote_cabin:
+          already_voted: 已签名
+          supports_required: "需要 %{total_supports} 签名"
+          verification_required: 验证您的帐户以签署倡议
+          vote: 签名
+          votes_blocked: 签名已禁用
+        votes_count:
+          count:
+            other: 签名
+          most_popular_initiative: 最受欢迎的倡议
+          need_more_votes: 需要更多签名
+      initiatives_mailer:
+        creation_subject: 您的倡议%{title}已创建
+        initiative_link:
+          check_initiative_details: 您可以看到倡议详情
+          here: 在这里
+        more_information: 这里有更多关于倡议创建过程的信息。
+        progress_report_body_for: 倡议 %{title} 已经达到所需签名的 %{percentage}%。
+        progress_report_for: '关于倡议的摘要： %{title}'
+        promotal_committee_help: 请记住，您必须邀请至少 %{member_count} 人加入促销委员会，转发以下链接来邀请人们加入促销者委员会
+        status_change_body_for: '倡议 %{title} 已将其状态更改为 %{state}'
+        status_change_for: 倡议 %{title} 改变了其状态
+      last_activity:
+        new_initiative: 新举措
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: 积极的倡议
+            see_all_initiatives: 查看所有倡议
+      show:
+        badge_name:
+          accepted: 足够的签名
+          created: 已创建
+          discarded: 丢弃的
+          published: 已发布
+          rejected: 签名不足
+          validating: 技术验证
+      states:
+        accepted: 已接受
+        expired: 已过期
+      unavailable_scope: 不可用的范围
+      versions:
+        shared:
+          back_to_resource: 回到倡议
+    menu:
+      initiatives: 倡议
+    resources:
+      initiatives_type:
+        actions:
+          title: 行动
+          vote: 签名
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: 附件
+          committee_members: 委员会成员
+          components: 组件
+          information: 信息
+      initiative_creation_header:
+        back: 后退
+        fill_data: 创建
+        finish: 完成
+        previous_form: 开始
+        promotal_committee: 宣传委员会
+        select_initiative_type: 选择
+        show_similar_initiatives: 比较
+        step: 步骤 %{current} / %{total}
+        title: 创建新的倡议
+      initiative_header:
+        initiative_menu_item: 倡议
+      initiative_signature_creation_header:
+        back: 后退
+        fill_personal_data: 完成您的数据
+        finish: 完成
+        finished: 倡议签名已创建
+        see_steps: 查看步骤
+        select_identity: 选择身份
+        sms_code: 短信代码验证
+        sms_phone_number: 手机号码
+        step: 步骤 %{current} / %{total}
+        title: 签名 %{initiative_title}
+      initiatives:
+        initiative:
+          check: 看看它
+          check_and_support: 查看并签名
+        no_initiatives_yet:
+          no_initiatives_yet: 还没有倡议！

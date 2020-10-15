@@ -24,6 +24,8 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
+      TYPE_OF_MEETING = %w(in_person online).freeze
+
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -49,6 +51,9 @@ module Decidim
                                   }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :online, -> { where(type_of_meeting: :online) }
+      scope :in_person, -> { where(type_of_meeting: :in_person) }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -184,6 +189,21 @@ module Decidim
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        [
+          normalized_author.name,
+          description.values.join("\n"),
+          location.values.join("\n"),
+          location_hints.values.join("\n"),
+          registration_terms.present? ? registration_terms.values.join("\n") : ""
+        ].join("\n")
+      end
+
+      def online_meeting?
+        type_of_meeting == "online"
       end
 
       private
