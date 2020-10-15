@@ -49,6 +49,22 @@ module Decidim
         enforce_permission_to :read, :initiative, initiative: current_initiative
       end
 
+      # GET /initiatives/:id/send_to_technical_validation
+      def send_to_technical_validation
+        enforce_permission_to :send_to_technical_validation, :initiative, initiative: current_initiative
+
+        SendInitiativeToTechnicalValidation.call(current_initiative, current_user) do
+          on(:ok) do
+            redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
+              notice: I18n.t(
+                "success",
+                scope: %w(decidim initiatives admin initiatives edit)
+              )
+            }
+          end
+        end
+      end
+
       private
 
       alias current_initiative current_participatory_space
