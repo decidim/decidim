@@ -33,7 +33,7 @@ module Decidim
       attr_reader :form, :meeting
 
       def close_meeting
-        parsed_closing_report = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.closing_report, current_organization: form.current_organization).rewrite
+        parsed_closing_report = Decidim::ContentProcessor.parse(form.closing_report, current_organization: form.current_organization).rewrite
 
         Decidim.traceability.perform_action!(
           :close,
