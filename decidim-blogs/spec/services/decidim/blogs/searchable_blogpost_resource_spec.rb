@@ -49,7 +49,7 @@ module Decidim
 
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
-                expect(searchable.content_a).to eq updated_title[locale].to_s
+                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale: locale).to_s)
                 expect(searchable.updated_at).to be > created_at
               end
             end
