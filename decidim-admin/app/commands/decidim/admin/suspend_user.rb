@@ -25,8 +25,6 @@ module Decidim
           notify_user!
         end
 
-        notify_user!
-
         broadcast(:ok, form.user)
       end
 
