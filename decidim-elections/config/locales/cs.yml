@@ -257,6 +257,10 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení kliknutím na následující odkaz.
           email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Volby
     participatory_processes:
       statistics:
         elections_count: Volby
