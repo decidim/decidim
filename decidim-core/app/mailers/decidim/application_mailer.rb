@@ -16,7 +16,7 @@ module Decidim
     def set_smtp
       return if @organization.nil? || @organization.smtp_settings.blank?
 
-      mail.from = @organization.smtp_settings["from"].presence || mail.from
+      mail.from = @organization.smtp_settings["from_email"].presence || mail.from
       mail.reply_to = Decidim.config.mailer_reply || mail.from
       mail.delivery_method.settings.merge!(
         address: @organization.smtp_settings["address"],
