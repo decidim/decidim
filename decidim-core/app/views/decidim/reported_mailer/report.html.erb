@@ -22,6 +22,11 @@
   </blockquote>
 <% end %>
 
+<% if @original_language.present? %>
+  <p><b><%= t(".content_original_language") %></b></p>
+  <p><%= I18n.t("locale.name", locale: @original_language) %></p>
+<% end %>
+
 <% if @content.present? %>
   <p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @content[:id] %>)</p>
   <blockquote>
