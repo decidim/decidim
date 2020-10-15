@@ -20,7 +20,6 @@ module Decidim
         }
       end
       let(:organization) { create(:organization) }
-      let(:cta_button_path) { nil }
       let(:highlighted_content_banner_enabled) { false }
       let(:empty_translatable) { { en: "", es: "", ca: "" } }
       let(:highlighted_content_banner_title) { empty_translatable }
@@ -43,7 +42,6 @@ module Decidim
             "description_es" => description[:es],
             "description_ca" => description[:ca],
             "show_statics" => false,
-            "cta_button_path" => cta_button_path,
             "header_snippets" => header_snippets,
             "highlighted_content_banner_enabled" => highlighted_content_banner_enabled,
             "highlighted_content_banner_title_en" => highlighted_content_banner_title[:en],
@@ -79,18 +77,6 @@ module Decidim
       end
 
       context "when everything is OK" do
-        it { is_expected.to be_valid }
-      end
-
-      context "when cta_button_path is a full URL" do
-        let(:cta_button_path) { "http://example.org" }
-
-        it { is_expected.not_to be_valid }
-      end
-
-      context "when cta_button_path is a valid path" do
-        let(:cta_button_path) { "processes/my-process/" }
-
         it { is_expected.to be_valid }
       end
 
@@ -141,12 +127,6 @@ module Decidim
             it { is_expected.to be_valid }
           end
         end
-      end
-
-      context "when cta_button_path is a valid path with underscore" do
-        let(:cta_button_path) { "processes/my_process/" }
-
-        it { is_expected.to be_valid }
       end
 
       context "when enable_omnipresent_banner is true" do

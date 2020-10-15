@@ -1,5 +1,18 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
   <%= settings_fields.translated :text_field, :welcome_text, label: t(".welcome_text") %>
+
+  <div class="row">
+    <div class="columns xlarge-6 slug">
+      <%= settings_fields.translated :text_field, :cta_button_path, label: t(".cta_button_path") %>
+      <p class="help-text"><%== t(".cta_button_path_help", url: decidim_form_slug_url("", translated_attribute(form.object.settings.cta_button_path))) %></p>
+    </div>
+
+    <div class="columns xlarge-6">
+      <%= settings_fields.translated :text_field, :cta_button_text, label: t(".cta_button_text") %>
+      <p class="help-text"><%= t(".cta_button_text_help") %></p>
+    </div>
+  </div>
+
 <% end %>
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
