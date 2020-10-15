@@ -798,10 +798,10 @@ en:
           subject: Your account was blocked by %{organization_name}?
       user_suspension:
         new:
-          title: "Suspend User %{name}"
-          justification: Justification
           action: Block account and send justification
           description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          justification: Justification
+          title: "Suspend User %{name}"
       users:
         create:
           error: There was a problem inviting this admin.
