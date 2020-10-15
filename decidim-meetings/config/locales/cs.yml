@@ -21,6 +21,7 @@ cs:
         end_time: Čas ukončení
         location: Umístění
         location_hints: Tipy pro umístění
+        online_meeting_url: URL online schůzky
         organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
@@ -266,6 +267,8 @@ cs:
             address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
+            online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
+            select_a_meeting_type: Vyberte prosím typ schůzky
           index:
             title: Setkání
           new:
