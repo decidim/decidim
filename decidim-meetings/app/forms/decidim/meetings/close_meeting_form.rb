@@ -4,8 +4,6 @@ module Decidim
   module Meetings
     # This class holds a Form to close a meeting from Decidim's admin panel.
     class CloseMeetingForm < Decidim::Form
-      include TranslatableAttributes
-
       attribute :closing_report, String
       attribute :proposal_ids, Array[Integer]
       attribute :proposals
@@ -18,6 +16,8 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.proposal_ids = model.linked_resources(:proposals, "proposals_from_meeting").pluck(:id)
+        presenter = MeetingPresenter.new(model)
+        self.closing_report = presenter.closing_report(all_locales: false)
       end
 
       def proposals
