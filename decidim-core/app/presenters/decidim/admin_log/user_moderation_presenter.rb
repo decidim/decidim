@@ -37,7 +37,7 @@ module Decidim
       def i18n_params
         super.merge(
           resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize),
-          unreported_user_name: unreported_user_presenter.try(:present),
+          unreported_user_name: unreported_user_presenter.try(:present)
         )
       end
 
@@ -46,14 +46,13 @@ module Decidim
       #
       # Returns an object that responds to `present`.
       def unreported_user_presenter
-        @unreported_user_presenter ||= Decidim::Log::UserPresenter.new( unreported_user, h, {
-          "name"=>unreported_user.name,
-          "nickname"=>unreported_user.nickname
-        })
+        @unreported_user_presenter ||= Decidim::Log::UserPresenter.new(unreported_user, h,
+                                                                       "name" => unreported_user.name,
+                                                                       "nickname" => unreported_user.nickname)
       end
 
       def unreported_user
-        @unreported_user ||= Decidim::User.where(id: action_log.extra.dig("extra", "user_id")).first
+        @unreported_user ||= Decidim::User.find_by(id: action_log.extra.dig("extra", "user_id"))
       end
 
       def has_diff?

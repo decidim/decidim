@@ -10,7 +10,6 @@ module Decidim
 
     delegate :organization, to: :user
 
-
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserModerationPresenter
     end
