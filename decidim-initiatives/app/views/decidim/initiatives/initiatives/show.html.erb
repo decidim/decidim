@@ -17,19 +17,6 @@ edit_link(
 
 <%= participatory_space_floating_help %>
 
-<div class="row">
-  <div class="column">
-    <% if allowed_to? :send_to_technical_validation, :initiative, initiative: current_initiative %>
-      <%= link_to t(".send_to_technical_validation"),
-                  send_to_technical_validation_initiative_path(current_initiative),
-                  class: "button muted",
-                  data: { confirm: t(".confirm") } %>
-    <% elsif current_initiative.created? %>
-      <%= link_to t(".send_to_technical_validation"), "#", class: "button muted disabled" %>
-    <% end %>
-  </div>
-</div>
-
 <% add_decidim_page_title(translated_attribute(current_initiative.title)) %>
 <% provide :meta_image_url, current_initiative.type.banner_image.url %>
 <div class="row">
@@ -47,13 +34,20 @@ edit_link(
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
     <div class="card">
       <div class="card__content">
-        <%= render partial: "progress_bar" %>
-        <% if current_initiative.votes_enabled? %>
-          <div id="initiative-<%= current_initiative.id %>-vote-cabin">
-            <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
-          </div>
+        <% if current_initiative.published? %>
+          <%= render partial: "progress_bar" %>
+          <% if current_initiative.votes_enabled? %>
+            <div id="initiative-<%= current_initiative.id %>-vote-cabin">
+              <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
+            </div>
+          <% end %>
+          <%= render partial: "interactions" %>
+        <% else %>
+          <%= render partial: "send_to_technical_validation", locals: { 
+                                                                title: t(".send_to_technical_validation"), 
+                                                                confirm: t(".confirm") 
+                                                              } %>
         <% end %>
-        <%= render partial: "interactions" %>
       </div>
     </div>
     <% if current_user %>
