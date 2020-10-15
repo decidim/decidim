@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -386,6 +387,7 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         participants: Participants
+        reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -473,6 +475,20 @@ en:
             phone: Phone
             state: State
             users_count: Participants count
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          title: Listing reported users
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       moderations:
         index:
           title: Moderations
@@ -551,6 +567,7 @@ en:
         destroy:
           success: Participant successfully unofficialized
         index:
+          reports: Report count
           actions: Actions
           badge: Badge
           created_at: Created At

@@ -72,6 +72,32 @@ module Decidim
 
     before_save :ensure_encrypted_password
 
+    #
+    # has_many :reporters, class_name: "Decidim::UserReport", foreign_key: :reported_id
+    #
+    # has_many :reported, class_name: "Decidim::UserReport", foreign_key: :reporter_id
+
+    has_one :user_moderation, class_name: "Decidim::UserModeration", foreign_key: :decidim_user_id, dependent: :destroy
+    has_many :user_reports, through: :user_moderation, source: :reports, class_name: "Decidim::UserReport"
+
+    def report_count
+      user_moderation&.report_count.to_i
+    end
+
+    # Public: Check if the user has reported the reportable.
+    #
+    # Returns Boolean.
+    def reported_by?(user)
+      user_reports.where(user: user).any?
+    end
+
+    # Public: Checks if the reportable has been reported or not.
+    #
+    # Returns Boolean.
+    def reported?
+      report_count&.positive?
+    end
+
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
     end
