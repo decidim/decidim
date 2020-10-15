@@ -393,7 +393,7 @@ fr:
           address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
           create_as: Créer une rencontre en tant que
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
-          location_hints_help: 'Indices de localisation : informations supplémentaires. Exemple: l''étage du bâtiment'
+          location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
           select_a_category: Veuillez sélectionner une catégorie
         index:
           new_meeting: Nouvelle rencontre

@@ -358,6 +358,8 @@ hu:
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          location_hints_help: 'Helymeghatározási tippek: további információk. Példa: az épület padlója'
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ

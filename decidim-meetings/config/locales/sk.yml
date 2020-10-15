@@ -359,6 +359,8 @@ sk:
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
+        form:
+          location_hints_help: 'Určenie polohy: dodatočné informácie. Príklad: poschodie budovy '
         meeting_minutes:
           meeting_minutes: Zápisnica z porady
           related_information: Súvisiace informácie

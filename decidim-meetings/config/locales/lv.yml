@@ -355,6 +355,8 @@ lv:
           filter: Filtrēt
           filter_by: Filtrēt pēc
           unfold: Atritināt
+        form:
+          location_hints_help: 'Norādījumi par atrašanās vietu: papildu informācija. Piemērs: ēkas pirmais stāvs'
         meeting_minutes:
           meeting_minutes: Sanāksmes protokols
           related_information: Saistītā informācija

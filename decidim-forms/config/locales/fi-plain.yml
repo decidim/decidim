@@ -3,6 +3,8 @@ fi-pl:
     attributes:
       answer:
         body: Vastaus
+        choices: Vastausvaihtoehdot
+        selected_choices: Valitut vastausvaihtoehdot
       question:
         max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi

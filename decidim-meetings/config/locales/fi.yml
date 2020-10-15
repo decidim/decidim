@@ -393,7 +393,7 @@ fi:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           create_as: Luo tapahtuma käyttäjänä
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
-          location_hints_help: 'Paikan vihjeteksti: lisätietoja tapahtumapaikasta. Esimerkiksi tapahtumapaikan rakennuksen kerros'
+          location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
           select_a_category: Valitse aihepiiri
         index:
           new_meeting: Uusi tapahtuma
