@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Admin
   describe UnreportUser do
     let(:reportable) { create(:user, :confirmed) }
-    let(:moderation) { create(:user_moderation, user: reportable, report_count: 1)}
+    let(:moderation) { create(:user_moderation, user: reportable, report_count: 1) }
     let!(:report) { create(:user_report, moderation: moderation, user: current_user, reason: "spam") }
     let(:current_user) { create :user, organization: reportable.organization }
     let(:command) { described_class.new(reportable, current_user) }
@@ -25,8 +25,7 @@ module Decidim::Admin
           .to receive(:perform_action!)
           .with("unreport", moderation, current_user, extra: { reportable_type: "Decidim::User",
                                                                user_id: reportable.id,
-                                                               username: reportable.name
-          })
+                                                               username: reportable.name })
           .and_call_original
 
         expect { command.call }.to change(Decidim::ActionLog, :count)

@@ -8,7 +8,6 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-
       #
       # has_many :reporters, class_name: "Decidim::UserReport", foreign_key: :reported_id
       #
