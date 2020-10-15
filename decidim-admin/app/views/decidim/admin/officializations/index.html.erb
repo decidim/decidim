@@ -33,9 +33,6 @@
               <td><%= user.report_count %></td>
 
               <td class="table-list__actions">
-                <%# if user.banned? %>
-                  <%= icon "ban", class: "action-icon action-icon--disabled", role: "img" %>
-                <%# end %>
                 <% if allowed_to? :show_email, :user, user: user %>
                   <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
                 <% end %>
