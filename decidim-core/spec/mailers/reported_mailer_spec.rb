@@ -56,8 +56,8 @@ module Decidim
         end
 
         it "doesn't include the reported content if it's not present" do
-          reportable.title = nil
-          reportable.body = nil
+          report.moderation.reportable.title = nil
+          report.moderation.reportable.body = nil
 
           expect(email_body(mail)).not_to match("<b>Reported content</b>")
         end

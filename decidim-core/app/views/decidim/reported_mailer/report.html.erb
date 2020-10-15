@@ -28,7 +28,7 @@
 <% end %>
 
 <% if @content.present? %>
-  <p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @content[:id] %>)</p>
+  <p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @content_id %>)</p>
   <blockquote>
     <h5><%= translated_attribute @content[:title] %></h5>
     <p><%= translated_attribute @content[:body] %></p>

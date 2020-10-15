@@ -17,7 +17,8 @@ module Decidim
         @author = @report.moderation.reportable.try(:creator_identity) || @report.moderation.reportable.try(:author)
         content_title = @report.moderation.reportable.try(:title)
         content_body = @report.moderation.reportable.try(:body)
-        @content = { title: content_title, body: content_body, id: @report.moderation.reportable.id }.compact
+        @content = { title: content_title, body: content_body }.compact
+        @content_id = @report.moderation.reportable.id
         @original_language = original_language_for(content_title) || original_language_for(content_body)
         subject = I18n.t("report.subject", scope: "decidim.reported_mailer")
         mail(to: user.email, subject: subject)
