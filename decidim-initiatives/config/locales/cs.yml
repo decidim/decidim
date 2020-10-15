@@ -353,6 +353,7 @@ cs:
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
+          select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
@@ -464,7 +465,9 @@ cs:
             validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
+          any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
+          offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
         signatures_count:
           one: " podpis"
           few: " podpisy"
