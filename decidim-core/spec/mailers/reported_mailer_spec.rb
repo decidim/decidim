@@ -50,8 +50,16 @@ module Decidim
         end
 
         it "includes the reported content" do
+          expect(email_body(mail)).to match("(ID: #{reportable.id})")
           expect(email_body(mail)).to match(reportable.title["en"])
           expect(email_body(mail)).to match(reportable.body["en"])
+        end
+
+        it "doesn't include the reported content if it's not present" do
+          reportable.title = nil
+          reportable.body = nil
+
+          expect(email_body(mail)).not_to match("<b>Reported content</b>")
         end
 
         it "does not include the content original language when there's no content" do
@@ -73,13 +81,6 @@ module Decidim
 
           expect(email_body(mail)).to match("<b>Content original language</b>")
           expect(email_body(mail)).to match(I18n.t("locale.name", locale: organization.default_locale))
-        end
-
-        it "doesn't include the reported content if it's not present" do
-          reportable.title = nil
-          reportable.body = nil
-
-          expect(email_body(mail)).not_to match("<b>Content</b>")
         end
 
         context "when the author is a user" do
