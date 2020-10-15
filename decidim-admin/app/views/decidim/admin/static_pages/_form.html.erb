@@ -6,7 +6,7 @@
   <%= javascript_include_tag "decidim/slug_form" %>
   <div class="row column slug">
     <%= form.text_field :slug %>
-    <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url("", form.object.slug)) %></p>
+    <p class="help-text"><%== t(".slug_help", url: decidim_form_slug_url("pages", form.object.slug)) %></p>
   </div>
 <% end %>
 

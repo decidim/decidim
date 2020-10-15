@@ -57,9 +57,9 @@ describe "User activity", type: :system do
       within ".user-activity" do
         expect(page).to have_css(".card--activity", count: 2)
 
-        expect(page).to have_content(resource.title)
-        expect(page).to have_content(comment.commentable.title)
-        expect(page).to have_no_content(resource2.title)
+        expect(page).to have_content(translated(resource.title))
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_no_content(translated(resource2.title))
       end
     end
 

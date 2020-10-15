@@ -66,6 +66,7 @@
       // this is the prefix div
       @extend .input-group-label;
 
+      padding: 0;
       border-#{$global-right}: 0;
       width: 8%;
       height: 3rem;

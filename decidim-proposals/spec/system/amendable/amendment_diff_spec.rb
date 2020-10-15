@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Amendment Diff", versioning: true, type: :system do
   let!(:component) { create(:proposal_component) }
-  let!(:proposal) { create(:proposal, title: "Original long enough title", body: "Original one liner body", component: component) }
+  let!(:proposal) { create(:proposal, title: { en: "Original long enough title" }, body: { en: "Original one liner body" }, component: component) }
   # The first version of the emendation should hold the original proposal attribute values being amended.
   let!(:emendation) { create(:proposal, title: proposal.title, body: proposal.body, component: component) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
@@ -19,9 +19,9 @@ describe "Amendment Diff", versioning: true, type: :system do
   context "when visiting an amendment to a proposal" do
     context "and the amendment is being evaluated" do
       before do
-        proposal.update(title: "Updated long enough title", body: "Updated one liner body")
+        proposal.update(title: { en: "Updated long enough title" }, body: { en: "Updated one liner body" })
         # The last version of the emendation should hold the amending attribute values.
-        emendation.update(title: "Amended long enough title", body: "Amended one liner body")
+        emendation.update(title: { en: "Amended long enough title" }, body: { en: "Amended one liner body" })
         visit emendation_path
       end
 
@@ -56,9 +56,9 @@ describe "Amendment Diff", versioning: true, type: :system do
 
     context "and the amendment is NOT being evaluated" do
       before do
-        proposal.update(title: "Updated long enough title", body: "Updated one liner body")
+        proposal.update(title: { en: "Updated long enough title" }, body: { en: "Updated one liner body" })
         # The last version of the emendation should hold the amending attribute values.
-        emendation.update(title: "Amended long enough title", body: "Amended one liner body")
+        emendation.update(title: { en: "Amended long enough title" }, body: { en: "Amended one liner body" })
         amendment.update(state: "withdrawn")
         visit emendation_path
       end
@@ -94,9 +94,9 @@ describe "Amendment Diff", versioning: true, type: :system do
 
     context "and the emendation and the amendable have seemingly the same body but different newline escape sequences" do
       before do
-        proposal.update(body: "One liner body\nAmended")
+        proposal.update(body: { en: "One liner body\nAmended" })
         # The last version of the emendation should hold the amending attribute values.
-        emendation.update(body: "One liner body\r\nAmended")
+        emendation.update(body: { en: "One liner body\r\nAmended" })
         visit emendation_path
       end
 
@@ -134,9 +134,9 @@ describe "Amendment Diff", versioning: true, type: :system do
       let(:user) { proposal.creator_author }
 
       before do
-        proposal.update(title: "Updated long enough title", body: "Updated one liner body")
+        proposal.update(title: { en: "Updated long enough title" }, body: { en: "Updated one liner body" })
         # The last version of the emendation should hold the amending attribute values.
-        emendation.update(title: "Amended long enough title", body: "Amended one liner body")
+        emendation.update(title: { en: "Amended long enough title" }, body: { en: "Amended one liner body" })
         visit emendation_path
         login_as user, scope: :user
         visit decidim.review_amend_path(amendment)
