@@ -51,17 +51,13 @@ module Decidim
 
       # Overwrite the changeset for officialization and suspend actions.
       def changeset
-        original = { badge: [previous_user_badge, user_badge]}
+        original = { badge: [previous_user_badge, user_badge] }
         fields = { badge: :i18n }
         if action.to_s == "suspend"
-          original = { justification: [previous_justification, current_justification]}
+          original = { justification: [previous_justification, current_justification] }
           fields = { justification: :string }
         end
-        Decidim::Log::DiffChangesetCalculator.new(
-            original,
-            fields,
-            i18n_labels_scope
-        ).changeset
+        Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
       end
 
       # If the action is officialization, then we want to show the diff
