@@ -132,8 +132,6 @@ module Decidim
       @images_container = @images_container.new(self)
     end
 
-    attr_accessor :test
-
     private
 
     def images_container_valid
