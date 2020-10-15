@@ -250,6 +250,10 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Elections
     participatory_processes:
       statistics:
         elections_count: Elections

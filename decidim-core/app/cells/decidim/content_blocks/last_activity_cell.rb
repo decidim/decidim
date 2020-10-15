@@ -44,6 +44,17 @@ module Decidim
 
       private
 
+      # A MD5 hash of model attributes because is needed because
+      # it ensures the cache version value will always be the same size
+      def cache_hash
+        hash = []
+        hash << "decidim/content_blocks/last_activity"
+        hash << Digest::MD5.hexdigest(valid_activities.map(&:updated_at).to_s)
+        hash << I18n.locale.to_s
+
+        hash.join("/")
+      end
+
       def activities
         @activities ||= HomeActivitySearch.new(
           organization: current_organization,
