@@ -255,10 +255,10 @@ ja:
       components:
         create:
           error: このコンポーネントの作成に問題がありました。
-          success: 構成部品が作成されました。
+          success: コンポーネントが作成されました。
         destroy:
           error: このコンポーネントの削除中に問題が発生しました。
-          success: 構成部品は正常に削除されました。
+          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
