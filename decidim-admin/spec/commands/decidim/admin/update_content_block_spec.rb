@@ -99,14 +99,6 @@ module Decidim::Admin
             content_block.organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 1.kilobyte.to_f / 1.megabyte
             end
-
-            # Enable processing for the test in order to catch validation errors
-            Decidim::HomepageImageUploader.enable_processing = true
-          end
-
-          after do
-            Decidim::HomepageImageUploader.enable_processing = false
-            content_block.images_container.background_image.remove!
           end
 
           it "is not valid" do
