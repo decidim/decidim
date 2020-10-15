@@ -12,11 +12,18 @@
     </div>
 
     <div class="row column">
+      <%= form.select :type_of_meeting,
+        @form.type_of_meeting_select,
+        { include_blank: t(".select_a_meeting_type") },
+        { multiple: false } %>
+    </div>
+
+    <div class="field" data-meeting-type="in_person">
       <%= form.geocoding_field :address %>
       <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
-    <div class="row column">
+    <div class="field" data-meeting-type="in_person">
       <%= form.translated :text_area, :location %>
       <p class="help-text"><%= t(".location_help") %></p>
     </div>
@@ -24,6 +31,11 @@
     <div class="row column">
       <%= form.translated :text_area, :location_hints %>
       <p class="help-text"><%= t(".location_hints_help") %></p>
+    </div>
+
+    <div class="field" data-meeting-type="online">
+      <%= form.text_field :online_meeting_url %>
+      <p class="help-text"><%= t(".online_meeting_url_help") %></p>
     </div>
 
     <div class="row">

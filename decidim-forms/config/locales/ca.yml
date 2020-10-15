@@ -3,6 +3,8 @@ ca:
     attributes:
       answer:
         body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus

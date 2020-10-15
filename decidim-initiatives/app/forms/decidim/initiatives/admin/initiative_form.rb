@@ -23,7 +23,7 @@ module Decidim
         attribute :state, String
         attribute :attachment, AttachmentForm
 
-        validates :title, :description, presence: true
+        validates :title, :description, translatable_presence: true
         validates :area, presence: true, if: ->(form) { form.area_id.present? }
         validates :signature_type, presence: true, if: :signature_type_updatable?
         validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
