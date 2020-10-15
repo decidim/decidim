@@ -30,6 +30,8 @@ module Decidim
 
         initiative_attachment?
 
+        send_to_technical_validation?
+
         permission_action
       end
 
@@ -187,6 +189,20 @@ module Decidim
         !initiative.offline_signature_type? && (
           Decidim::Initiatives.do_not_require_authorization ||
           UserAuthorizations.for(user).any?
+        )
+      end
+
+      def send_to_technical_validation?
+        return unless permission_action.action == :send_to_technical_validation &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(allowed_to_send_to_technical_validation?)
+      end
+
+      def allowed_to_send_to_technical_validation?
+        initiative.created? && (
+          !initiative.created_by_individual? ||
+          initiative.enough_committee_members?
         )
       end
     end
