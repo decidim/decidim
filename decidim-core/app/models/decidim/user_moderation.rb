@@ -9,5 +9,10 @@ module Decidim
     has_many :reports, foreign_key: :user_moderation_id, class_name: "Decidim::UserReport", dependent: :destroy
 
     delegate :organization, to: :user
+
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::UserModerationPresenter
+    end
   end
 end

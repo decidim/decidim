@@ -117,6 +117,8 @@ en:
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
+      user_moderation:
+        unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
       newsletter:
         create: "%{user_name} created the %{resource_name} newsletter"
         delete: "%{user_name} deleted the %{resource_name} newsletter"
@@ -1295,7 +1297,7 @@ en:
         body_2: "Reason: %{reason}"
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hello,
-        subject: You have been reported %{organization_name}?
+        subject: A new user has been reported in %{organization_name}
     version:
       show:
         back_to_resource: Go back
