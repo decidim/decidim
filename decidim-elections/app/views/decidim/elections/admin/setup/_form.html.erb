@@ -15,18 +15,16 @@
           </tr>
         </thead>
         <tbody>
-          <% #elections.each do |election| %>
-            <!--<tr data-id="<%#= election.id %>">
+          <% trustees.each do |trustee| %>
+            <tr data-id="<%= trustee.id %>">
               <td>
-                <%#= link_to translated_attribute(election.title), resource_locator(election).path %>
+                <%= trustee.user.name %>
               </td>
               <td>
-                <% #if election.start_time %>
-                  <%#= l election.start_time, format: :long %>
-                <% #end %>
+                <%= trustee.public_key %>
               </td>
-               </tr>-->
-          <% #end %>
+              </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
