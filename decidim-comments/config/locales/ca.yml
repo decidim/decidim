@@ -16,7 +16,6 @@ ca:
         other: Vots
   decidim:
     comments:
-      comments: Comentaris
       comments_count: Número de comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
@@ -76,7 +75,6 @@ ca:
         loading: Carregant els comentaris ...
         single_comment_warning: Pots revisar la resta de comentaris <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estàs veient un sol comentari
-        title: "%{count} comentaris"
       down_vote_button:
         text: No estic d'acord amb aquest comentari
       up_vote_button:
