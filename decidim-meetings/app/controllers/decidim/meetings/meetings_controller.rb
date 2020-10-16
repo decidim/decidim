@@ -39,6 +39,8 @@ module Decidim
 
       def index
         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Controller#index START"
+        puts "search_text: #{params[:filter][:search_text]}"
+        puts "unless #{search.results.blank?} && #{params.dig("filter", "date")} != %w(past)"
         return unless search.results.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings = search_klass.new(search_params.merge(date: %w(past)))
