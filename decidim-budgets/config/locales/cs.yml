@@ -193,6 +193,11 @@ cs:
           remove: Odebrat projekt %{resource_name} z vašeho hlasování
           selected: Vybrané
           view: Zobrazit
+          votes:
+            one: hlas
+            few: hlasy
+            many: hlasů
+            other: hlasů
           you_voted: Hlasovali jste
         project_budget_button:
           add: Přidat do vašeho hlasování
