@@ -62,6 +62,22 @@ module Decidim
         started? && !finished?
       end
 
+      # Public: Checks if the number of answers are minimum 2 for each question
+      #
+      # Returns a boolean.
+      def minimum_three_hours_before_start?
+        start_time.after(Time.current + (3 * 60 * 60))
+      end
+
+      # Public: Checks if the number of answers are minimum 2 for each question
+      #
+      # Returns a boolean.
+      def minimum_answers?
+        questions.each do |question|
+          return false unless question.answers.size <= 1
+        end
+      end
+
       # Public: Checks if the election questions are valid
       #
       # Returns a boolean.

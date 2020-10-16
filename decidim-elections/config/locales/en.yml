@@ -27,6 +27,8 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+            started:
+              cannot_be_started: The election cannot be started
   activerecord:
     models:
       decidim/elections/answer:
