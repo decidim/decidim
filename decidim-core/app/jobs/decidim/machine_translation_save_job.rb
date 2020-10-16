@@ -28,14 +28,14 @@ module Decidim
         resource.update_column field_name.to_sym, resource[field_name]
         # rubocop:enable Rails/SkipsModelValidations
       end
-      
-      send_translated_report_notifications(resource, target_locale) if resource_reported?(resource) && target_locale == resource.organization.default_locale
+
+      send_translated_report_notifications(resource) if resource_reported?(resource) && target_locale == resource.organization.default_locale
     end
 
     private
 
-    def send_translated_report_notifications(reportable, target_locale)
-      reportable.moderation.reports.each  do |report|
+    def send_translated_report_notifications(reportable)
+      reportable.moderation.reports.each do |report|
         Decidim::ReportedMailer.send_report_notification_to_users(reportable.moderation.participatory_space.moderators, report)
       end
     end

@@ -78,7 +78,7 @@ module Decidim
 
       it "sends emails to the moderators when the target language is the organization's default" do
         allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
-        
+
         comment.save
         MachineTranslationSaveJob.perform_now(
           comment,
@@ -88,8 +88,8 @@ module Decidim
         )
 
         expect(ReportedMailer)
-            .to have_received(:send_report_notification_to_users)
-            .with(moderation.participatory_space.moderators, report)
+          .to have_received(:send_report_notification_to_users)
+          .with(moderation.participatory_space.moderators, report)
       end
     end
   end
