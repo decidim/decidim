@@ -10,7 +10,7 @@ module Decidim::Meetings
     let(:component) { create(:meeting_component) }
     let(:attributes) do
       {
-        closing_report: closing_report,
+        closing_report: closing_report
       }
     end
     let(:closing_report) { "It went great" }
