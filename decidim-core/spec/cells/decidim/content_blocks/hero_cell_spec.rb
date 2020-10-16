@@ -46,4 +46,45 @@ describe Decidim::ContentBlocks::HeroCell, type: :cell do
       expect(subject.to_s).to include(content_block.images_container.background_image.big.url)
     end
   end
+
+  describe "#cache_hash" do
+    it "generate a unique hash" do
+      old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+      content_block.reload
+
+      expect(cell(content_block.cell, content_block).send(:cache_hash)).to eq(old_hash)
+    end
+
+    context "when model is updated" do
+      it "generates a different hash" do
+        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+        content_block.update!(weight: 2)
+        content_block.reload
+
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
+    context "when organization is updated" do
+      it "generates a different hash" do
+        old_hash = cell(content_block.cell, content_block).send(:cache_hash)
+        controller.current_organization.update!(name: "New name")
+        controller.current_organization.reload
+
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
+    context "when current locale change" do
+      let(:alt_locale) { :ca }
+
+      before do
+        allow(I18n).to receive(:locale).and_return(alt_locale)
+      end
+
+      it "generates a different hash" do
+        expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to match(/en$/)
+      end
+    end
+  end
 end

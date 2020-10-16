@@ -27,6 +27,17 @@ module Decidim
 
         query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
       end
+
+      def search_type
+        case options[:type]
+        when "online"
+          query.online
+        when "in_person"
+          query.in_person
+        else
+          query
+        end
+      end
     end
   end
 end
