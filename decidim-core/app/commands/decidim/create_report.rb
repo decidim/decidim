@@ -65,9 +65,7 @@ module Decidim
     end
 
     def send_report_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.report(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_report_notification_to_users(participatory_space_moderators, @report)
     end
 
     def hideable?
@@ -79,9 +77,7 @@ module Decidim
     end
 
     def send_hide_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.hide(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_hide_notification_to_users(participatory_space_moderators, @report)
     end
 
     def participatory_space
