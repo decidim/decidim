@@ -16,7 +16,6 @@ pt:
         other: Votos
   decidim:
     comments:
-      comments: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       votes:
@@ -67,7 +66,6 @@ pt:
         blocked_comments_for_user_warning: Você não pode comentar neste momento, mas pode ler os anteriores.
         blocked_comments_warning: Os comentários estão desativados neste momento, mas você pode ler os anteriores.
         loading: Carregando comentários ...
-        title: "%{count} comentários"
     events:
       comments:
         comment_by_followed_user:
