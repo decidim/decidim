@@ -248,9 +248,6 @@ shared_examples "proposals wizards" do |options|
     end
 
     if options[:with_address]
-      let(:proposal_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
-      let(:latitude) { 40.1234 }
-      let(:longitude) { 2.1234 }
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,
@@ -260,10 +257,10 @@ shared_examples "proposals wizards" do |options|
       end
 
       context "when in step_4: Publish" do
-        let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: proposal_address, component: component, title: proposal_title, body: proposal_body) }
+        let!(:proposal_draft) { create(:proposal, :draft, users: [user], address: address, component: component, title: proposal_title, body: proposal_body) }
 
         before do
-          stub_geocoding(proposal_address, [latitude, longitude])
+          stub_geocoding(address, [latitude, longitude])
           proposal_draft.update!(latitude: latitude)
           proposal_draft.update!(longitude: longitude)
           visit component_path.preview_proposal_path(proposal_draft)
@@ -285,7 +282,9 @@ shared_examples "proposals wizards" do |options|
           expect(page).to have_css(".dynamic-map-instructions")
           expect(page).to have_css(".google-map")
           within "#edit_proposal_#{proposal_draft.id}" do
-            expect(page).to have_field("proposal_address", type: :hidden, with: proposal_address)
+            expect(page).to have_field("proposal_title", type: :hidden, with: proposal_title)
+            expect(page).to have_field("proposal_body", type: :hidden, with: proposal_body)
+            expect(page).to have_field("proposal_address", type: :hidden, with: address)
             expect(page).to have_field("proposal_longitude", type: :hidden, with: longitude)
             expect(page).to have_field("proposal_latitude", type: :hidden, with: latitude)
             expect(page).to have_button("Update position")

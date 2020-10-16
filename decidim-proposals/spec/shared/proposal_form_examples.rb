@@ -139,16 +139,12 @@ shared_examples "a proposal form" do |options|
     context "when the has address checkbox is checked" do
       let(:has_address) { true }
 
-      context "when the address is not present" do
-        if options[:address_optional_with_geocoding]
-          it "does not store the coordinates" do
-            expect(subject).to be_valid
-            expect(subject.address).to be(nil)
-            expect(subject.latitude).to be(nil)
-            expect(subject.longitude).to be(nil)
-          end
-        else
-          it { is_expected.to be_invalid }
+      context "and the address is not present" do
+        it "does not store the coordinates" do
+          expect(subject).to be_valid
+          expect(subject.address).to be(nil)
+          expect(subject.latitude).to be(nil)
+          expect(subject.longitude).to be(nil)
         end
       end
 
@@ -181,11 +177,27 @@ shared_examples "a proposal form" do |options|
       context "when the proposal is unchanged" do
         let(:previous_proposal) { create(:proposal, address: address) }
 
+        let(:title) do
+          if options[:skip_etiquette_validation]
+            previous_proposal.title
+          else
+            translated(previous_proposal.title)
+          end
+        end
+
+        let(:body) do
+          if options[:skip_etiquette_validation]
+            previous_proposal.body
+          else
+            translated(previous_proposal.body)
+          end
+        end
+
         let(:params) do
           {
             id: previous_proposal.id,
-            title: translated(previous_proposal.title),
-            body: translated(previous_proposal.body),
+            title: title,
+            body: body,
             author: previous_proposal.authors.first,
             category_id: previous_proposal.try(:category_id),
             scope_id: previous_proposal.try(:scope_id),

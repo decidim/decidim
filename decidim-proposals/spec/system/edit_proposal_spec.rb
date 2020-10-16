@@ -53,7 +53,7 @@ describe "Edit proposals", type: :system do
         stub_geocoding(new_address, [latitude, longitude])
       end
 
-      it "can be updated with address" do
+      it "can be updated with address", :serves_geocoding_autocomplete do
         visit_component
 
         click_link translated(proposal.title)
@@ -64,7 +64,7 @@ describe "Edit proposals", type: :system do
         expect(page).to have_field("Body", with: translated(proposal.body))
         expect(page).to have_field("Address", with: proposal.address)
 
-        fill_in "Address", with: new_address
+        fill_in_geocoding :proposal_address, with: new_address
 
         click_button "Send"
         expect(page).to have_content(new_address)
