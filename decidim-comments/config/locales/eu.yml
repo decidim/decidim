@@ -16,7 +16,6 @@ eu:
         other: Botoak
   decidim:
     comments:
-      comments: Oharrak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       votes:
@@ -67,7 +66,6 @@ eu:
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
-        title: "%{count} iruzkin"
     events:
       comments:
         comment_by_followed_user:
