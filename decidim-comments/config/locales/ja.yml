@@ -14,7 +14,6 @@ ja:
         other: 投票
   decidim:
     comments:
-      comments: コメント
       comments_count: コメント数
       last_activity:
         new_comment_at_html: "<span> %{link}に新しいコメント</span>"
@@ -74,7 +73,6 @@ ja:
         loading: コメントを読み込んでいます...
         single_comment_warning: コメントの残りはこちら <a href="%{url}"></a>で確認できます。
         single_comment_warning_title: 単一のコメントが表示されています
-        title: "%{count} 件のコメント"
       down_vote_button:
         text: このコメントに同意しない
       up_vote_button:
