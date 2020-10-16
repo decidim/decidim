@@ -3,6 +3,7 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
 ### Added
+
 - **decidim-core**: Adding functionality to report users [\#6696](https://github.com/decidim/decidim/pull/6696)
 - **decidim-admin**: Adding possibility of unreporting users [\#6696](https://github.com/decidim/decidim/pull/6696)
 
