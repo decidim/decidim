@@ -33,6 +33,11 @@ The following YAML snippet with all the defined environment variables should be 
 <%= ENV["BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY"]&.indent(6) %>
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
+    number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
+    scheme:
+      name: <%= ENV["BULLETIN_BOARD_SCHEME_NAME"] %>
+      parameters:
+        quorum: <%= ENV["BULLETIN_BOARD_SCHEME_QUORUM"] %>
 ```
 
 After restarting the Decidim instance, administrator users will be able to create elections on the configured Bulletin Board.
