@@ -163,7 +163,7 @@ module Decidim
       end
 
       def comment_maximum_length
-        return unless commentable.commentable?
+        return 0 unless commentable.commentable?
         return component.settings.comments_max_length if component_settings_comments_max_length?
         return organization.comments_max_length if organization.comments_max_length.positive?
 
