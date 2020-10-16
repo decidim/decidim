@@ -39,7 +39,7 @@ module Decidim
 
       def index
         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Controller#index START"
-        puts "search_text: #{params[:filter][:search_text]}"
+        puts "search_text: #{params.dig("filter", "search_text")}"
         puts "unless #{search.results.blank?} && #{params.dig("filter", "date")} != %w(past)"
         return unless search.results.blank? && params.dig("filter", "date") != %w(past)
 

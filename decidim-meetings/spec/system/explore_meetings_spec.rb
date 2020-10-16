@@ -138,7 +138,7 @@ describe "Explore meetings", :slow, type: :system do
           find("#content form.new_filter .icon--magnifying-glass").click
         end
 
-        expect(page).to have_css("#meetings-count", text: "1 MEETING", wait: 120)
+        expect(page).to have_css("#meetings-count", text: "1 MEETING")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
