@@ -38,6 +38,7 @@ module Decidim
       end
 
       def index
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Controller#index START"
         return unless search.results.blank? && params.dig("filter", "date") != %w(past)
 
         @past_meetings = search_klass.new(search_params.merge(date: %w(past)))
@@ -48,6 +49,7 @@ module Decidim
           @forced_past_meetings = true
           @search = @past_meetings
         end
+        puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Controller#index DONE"
       end
 
       def show
