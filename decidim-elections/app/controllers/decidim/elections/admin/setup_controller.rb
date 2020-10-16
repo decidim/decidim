@@ -19,15 +19,15 @@ module Decidim
           # @form = form(SetupForm).from_params(params, election: election)
 
           # SetupElection.call(@form, trustees, current_user) do
-            # on(:ok) do
-            #   flash[:notice] = I18n.t("setup.success", scope: "decidim.elections.admin")
-            # end
+          # on(:ok) do
+          #   flash[:notice] = I18n.t("setup.success", scope: "decidim.elections.admin")
+          # end
 
-            # on(:invalid) do
-            #   flash.now[:alert] = I18n.t("setup.invalid", scope: "decidim.elections.admin")
-            ##   render action: "edit"
-            # end
-              redirect_to election_questions_path(election)
+          # on(:invalid) do
+          #   flash.now[:alert] = I18n.t("setup.invalid", scope: "decidim.elections.admin")
+          ##   render action: "edit"
+          # end
+          redirect_to election_questions_path(election)
           # end
         end
 
