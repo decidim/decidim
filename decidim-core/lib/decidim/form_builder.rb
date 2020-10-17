@@ -448,20 +448,28 @@ module Decidim
     # rubocop:enable Metrics/CyclomaticComplexity
     # rubocop:enable Metrics/PerceivedComplexity
 
-    def upload_help(attribute, _options = {})
+    def upload_help(attribute, options = {})
       humanizer = FileValidatorHumanizer.new(object, attribute)
 
       help_scope = begin
-        if humanizer.uploader.is_a?(Decidim::ImageUploader)
+        if options[:help_i18n_scope].present?
+          options[:help_i18n_scope]
+        elsif humanizer.uploader.is_a?(Decidim::ImageUploader)
           "decidim.forms.file_help.image"
         else
           "decidim.forms.file_help.file"
         end
       end
 
-      content_tag(:div, class: "help-text") do
-        help_messages = %w(message_1 message_2)
+      help_messages = begin
+        if options[:help_i18n_messages].present?
+          Array(options[:help_i18n_messages])
+        else
+          %w(message_1 message_2)
+        end
+      end
 
+      content_tag(:div, class: "help-text") do
         inner = "<p>#{I18n.t("explanation", scope: help_scope)}</p>".html_safe
         inner + content_tag(:ul) do
           messages = help_messages.each.map { |msg| I18n.t(msg, scope: help_scope) }

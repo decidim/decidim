@@ -47,13 +47,13 @@ module Decidim::Conferences
       it "updates the registration type title" do
         expect do
           subject.call
-        end.to change { registration_type.reload && registration_type.title }.from(registration_type.title).to("en" => "New title")
+        end.to change { registration_type.reload && registration_type.title }.from(registration_type.title).to("en" => "New title", "machine_translations" => kind_of(Hash))
       end
 
       it "updates the registration type description" do
         expect do
           subject.call
-        end.to change { registration_type.reload && registration_type.description }.from(registration_type.description).to("en" => "New description")
+        end.to change { registration_type.reload && registration_type.description }.from(registration_type.description).to("en" => "New description", "machine_translations" => kind_of(Hash))
       end
 
       it "broadcasts  ok" do

@@ -120,6 +120,13 @@ Decidim.register_component(:meetings) do |component|
         end
       }
 
+      _online_meeting = Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        admin_user,
+        params.merge(type_of_meeting: :online, online_meeting_url: "http://example.org"),
+        visibility: "all"
+      )
+
       meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,

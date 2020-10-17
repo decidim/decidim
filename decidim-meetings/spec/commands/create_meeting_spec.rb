@@ -18,6 +18,8 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -35,7 +37,9 @@ module Decidim::Meetings
         user_group_id: user_group_id,
         current_user: current_user,
         current_component: current_component,
-        current_organization: organization
+        current_organization: organization,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 

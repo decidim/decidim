@@ -55,7 +55,8 @@ module Decidim
       end
       if validator
         lte = validator.options[:less_than_or_equal_to]
-        return lte.call(record) if lte && lte.lambda?
+        return lte if lte.is_a?(Numeric)
+        return lte.call(record) if lte.respond_to?(:call)
       end
       return unless passthru_validator
 
@@ -66,7 +67,9 @@ module Decidim
       return unless validator
 
       lte = validator.options[:less_than_or_equal_to]
-      lte.call(passthru_record) if lte && lte.lambda?
+      return lte if lte.is_a?(Numeric)
+
+      lte.call(passthru_record) if lte.respond_to?(:call)
     end
     # rubocop: enable Metrics/CyclomaticComplexity
 

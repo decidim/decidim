@@ -1,0 +1,25 @@
+<div class="comment__votes">
+  <% if user_signed_in? %>
+    <%= button_to decidim_comments.comment_votes_path(model, weight: 1), remote: true, disabled: voted_down?, class: votes_up_classes, title: t("decidim.components.up_vote_button.text") do %>
+      <span class="show-for-sr"><%= t("decidim.components.up_vote_button.text") %></span>
+      <%= icon "chevron-top", class: "icon--small", role: "none presentation" %>
+      <span class="comment__votes--count"><%= up_votes_count %></span>
+    <% end %>
+    <%= button_to decidim_comments.comment_votes_path(model, weight: -1), remote: true, disabled: voted_up?, class: votes_down_classes, title: t("decidim.components.down_vote_button.text") do %>
+      <span class="show-for-sr"><%= t("decidim.components.down_vote_button.text") %></span>
+      <%= icon "chevron-bottom", class: "icon--small", role: "none presentation" %>
+      <span class="comment__votes--count"><%= down_votes_count %></span>
+    <% end %>
+  <% else %>
+    <button class="<%= votes_up_classes %> " title="<%= t("decidim.components.up_vote_button.text") %>" data-open="loginModal">
+      <span class="show-for-sr"><%= t("decidim.components.up_vote_button.text") %></span>
+      <%= icon "chevron-top", class: "icon--small", role: "none presentation" %>
+      <span class="comment__votes--count"><%= up_votes_count %></span>
+    </button>
+    <button class="<%= votes_down_classes %> " title="<%= t("decidim.components.down_vote_button.text") %>" data-open="loginModal">
+      <span class="show-for-sr"><%= t("decidim.components.down_vote_button.text") %></span>
+      <%= icon "chevron-bottom", class: "icon--small", role: "none presentation" %>
+      <span class="comment__votes--count"><%= down_votes_count %></span>
+    </button>
+  <% end %>
+</div>
