@@ -20,9 +20,12 @@ module Decidim
         search_initiative_types_and_scopes?
         request_membership?
 
+
         return permission_action unless user
 
         create_initiative?
+        edit_public_initiative?
+        update_public_initiative?
 
         vote_initiative?
         sign_initiative?
@@ -70,6 +73,18 @@ module Decidim
                       permission_action.action == :create
 
         toggle_allow(creation_enabled?)
+      end
+
+      def edit_public_initiative?
+        allow! if permission_action.subject == :initiative &&
+                  permission_action.action == :edit
+      end
+
+      def update_public_initiative?
+        return unless permission_action.subject == :initiative &&
+                      permission_action.action == :update
+
+        toggle_allow(initiative.created?)
       end
 
       def creation_enabled?
