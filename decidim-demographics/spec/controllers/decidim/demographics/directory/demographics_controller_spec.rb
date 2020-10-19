@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Demographics::Directory::DemographicsController, type: :controller do
-
   routes { Decidim::Demographics::DirectoryEngine.routes }
 
   let(:time_zone) { "UTC" }
@@ -20,7 +19,7 @@ describe Decidim::Demographics::Directory::DemographicsController, type: :contro
     sign_in user
   end
 
+  pending
   # new
   # create
 end
-
