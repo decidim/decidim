@@ -393,6 +393,7 @@ ca:
           create_as: Crear trobada com a
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
           select_a_category: Si us plau, selecciona una categoria
+          select_a_meeting_type: Si us plau selecciona un tipus de trobada
         index:
           new_meeting: Nova trobada
         meeting_minutes:
@@ -467,6 +468,9 @@ ca:
         destroy:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
+      type_of_meeting:
+        in_person: Presencial
+        online: Online
       types:
         private_meeting: Trobada privada
         transparent: Transparent
