@@ -144,8 +144,11 @@ en:
             success: Question successfully updated
         setup:
           show:
+            setup: Setup election
             title: Election setup
-            update: Setup election
+          update:
+            setup: Setup election
+            title: Election setup
         trustees_participatory_spaces:
           actions:
             disable: Disable
