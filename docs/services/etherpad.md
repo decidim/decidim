@@ -49,7 +49,7 @@ Now, recent versions of browsers don't like that and have started to block what'
 
 In order to make sure your installation of Etherpad is compatible with Iframe embedding, it is necessary that the cookie generated follows these parameters:
 
-```
+```http
 Set-Cookie: session=your_session; SameSite=None; Secure
 ```
 
@@ -59,7 +59,7 @@ Also, it is highly recommended that you use some sort of proxy that makes your E
 
 The suggested `docker-compose-etherpad.yml` provided by Decidim uses an image of Etherpad that incorporates the changes related to this problem. If you are using your custom instance of Etherpad, make sure that incorporate this [changes](https://github.com/ether/etherpad-lite/pull/4384) and that you set these ENV variables as follows:
 
-```
+```sh
 TRUST_PROXY=true
 COOKIE_SAME_SITE=None
 ```
