@@ -5,11 +5,11 @@
 
   <div class="card-section">
     <div class="row column">
-      <%= form.text_field :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+      <%= form.translated :text_field, :title, autofocus: true, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
     </div>
 
     <div class="row column">
-      <%= form.editor :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+      <%= form.translated :editor, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
     </div>
 
     <div class="row column">

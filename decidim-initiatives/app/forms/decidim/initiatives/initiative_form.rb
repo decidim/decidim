@@ -12,16 +12,12 @@ module Decidim
       attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
-      attribute :decidim_scope_id, Integer
       attribute :area_id, Integer
       attribute :decidim_user_group_id, Integer
       attribute :signature_type, String
       attribute :signature_end_date, Date
-      attribute :signature_start_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
-      attribute :hashtag, String
-      attribute :offline_votes, Hash[String => Integer]
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
@@ -32,7 +28,7 @@ module Decidim
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
-        form.signature_start_date.present? && form.signature_end_date.present?
+        form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
 
       def map_model(model)
@@ -44,20 +40,10 @@ module Decidim
         state == "created" || state.nil?
       end
 
-      def state_updatable?
-        false
-      end
-
       def scope_id
         return nil if initiative_type.only_global_scope_enabled?
 
         super.presence
-      end
-
-      def scoped_type_id
-        return unless type && scope_id
-
-        type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
       end
 
       def area
@@ -65,7 +51,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
+        @initiative_type ||= InitiativesType.find(type_id)
       end
 
       def available_scopes
@@ -81,10 +67,6 @@ module Decidim
       end
 
       private
-
-      def type
-        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
-      end
 
       def scope_exists
         return if scope_id.blank?

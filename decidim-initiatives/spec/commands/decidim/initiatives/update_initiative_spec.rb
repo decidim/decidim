@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Initiatives
     describe UpdateInitiative do
-      let(:form_klass) { Decidim::Initiatives::InitiativeForm }
+      let(:form_klass) { Decidim::Initiatives::Admin::InitiativeForm }
 
       context "when valid data" do
         it_behaves_like "update an initiative" do
