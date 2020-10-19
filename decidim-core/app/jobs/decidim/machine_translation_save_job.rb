@@ -41,11 +41,18 @@ module Decidim
     end
 
     def reported_resource_in_organization_language?(resource, target_locale)
-      resource_reported?(resource) && target_locale == resource.organization.default_locale
+      resource_reported?(resource) && target_locale == resource.organization.default_locale && resource_completely_translated?(resource, target_locale)
     end
 
     def resource_reported?(resource)
       resource.class.included_modules.include?(Decidim::Reportable) && resource.reported?
+    end
+
+    def resource_completely_translated?(resource, target_locale)
+      reported_translatable_fields = resource.reported_attributes & resource.class.translatable_fields_list
+      reported_translatable_fields.all? do |field|
+        resource[field]&.dig("machine_translations", target_locale).present?
+      end
     end
   end
 end
