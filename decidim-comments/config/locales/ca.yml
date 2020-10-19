@@ -18,7 +18,7 @@ ca:
     comments:
       comments:
         create:
-          error: Ha succeït un error en crear el comentari.
+          error: S'ha produït un error en crear el comentari.
       comments_count: Número de comentaris
       comments_title: Comentaris
       last_activity:
