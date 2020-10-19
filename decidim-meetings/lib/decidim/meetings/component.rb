@@ -57,6 +57,7 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
+    settings.attribute :registration_code_enabled, type: :boolean, default: false
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
   end
