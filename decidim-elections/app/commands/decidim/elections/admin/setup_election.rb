@@ -48,6 +48,7 @@ module Decidim
 
         def election_data
           {
+            iat: Time.now.to_i,
             scheme: Decidim::Elections.bulletin_board.scheme,
             trustees:
               trustees.collect do |trustee|
