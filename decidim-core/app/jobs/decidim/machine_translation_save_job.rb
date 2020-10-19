@@ -29,7 +29,7 @@ module Decidim
         # rubocop:enable Rails/SkipsModelValidations
       end
 
-      send_translated_report_notifications(resource) if resource_reported?(resource) && target_locale == resource.organization.default_locale
+      send_translated_report_notifications(resource) if reported_resource_in_organization_language?(resource, target_locale)
     end
 
     private
@@ -38,6 +38,10 @@ module Decidim
       reportable.moderation.reports.each do |report|
         Decidim::ReportedMailer.send_report_notification_to_users(reportable.moderation.participatory_space.moderators, report)
       end
+    end
+
+    def reported_resource_in_organization_language?(resource, target_locale)
+      resource_reported?(resource) && target_locale == resource.organization.default_locale
     end
 
     def resource_reported?(resource)
