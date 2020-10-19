@@ -29,10 +29,10 @@ module Decidim
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           {
-            "content_a" => I18n.transliterate(space.title[locale]),
-            "content_b" => I18n.transliterate(space.subtitle[locale]),
+            "content_a" => I18n.transliterate(translated(space.title, locale: locale)),
+            "content_b" => I18n.transliterate(translated(space.subtitle, locale: locale)),
             "content_c" => "",
-            "content_d" => I18n.transliterate(space.description[locale])
+            "content_d" => I18n.transliterate(translated(space.description, locale: locale))
           }
         }
       end

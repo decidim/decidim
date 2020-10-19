@@ -36,7 +36,7 @@ shared_examples "global search of participatory spaces" do
         it "updates the associated SearchableResource after published ParticipatorySpace update" do
           searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id)
           created_at = searchable.created_at
-          updated_title = { "en" => "Brand new title" }
+          updated_title = { "en" => "Brand new title", "machine_translations" => {} }
           participatory_space.update(title: updated_title)
 
           participatory_space.save!
