@@ -207,5 +207,21 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "#past?" do
+      context "when past meeting" do
+        let(:meeting) { build :meeting, :past }
+
+        it "returns true" do
+          expect(subject.past?).to be true
+        end
+      end
+
+      context "when future meeting" do
+        it "returns false" do
+          expect(subject.past?).to be false
+        end
+      end
+    end
   end
 end
