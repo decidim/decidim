@@ -4,31 +4,37 @@
   </div>
 
   <div class="card-section">
-    <p>The definition for the election <strong><%= translated_attribute(election.title) %></strong> consists in <strong><%= election.questions.size %> questions </strong>and all of them are valid.</p>
-    <p>The trustees that are going to participate in this election are:</p>
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.election.fields.user", scope: "decidim.elections") %></th>
-            <th><%= t("models.election.fields.public_key", scope: "decidim.elections") %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @form.trustees.each do |trustee| %>
-            <tr data-id="<%= trustee.id %>">
-              <td>
-                <%= trustee.user.name %>
-              </td>
-              <td>
-                <%= trustee.public_key %>
-              </td>
+    <%if !@form.valid?%>
+      <% form.object.errors.values.each do |message| %>
+        <small class=""><%= message[0] %></small>
+      <% end %>
+    <% else %>
+      <p>The definition for the election <strong><%= translated_attribute(election.title) %></strong> consists in <strong><%= election.questions.size %> questions </strong>and all of them are valid.</p>
+      <p>The trustees that are going to participate in this election are:</p>
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= t("models.election.fields.user", scope: "decidim.elections") %></th>
+              <th><%= t("models.election.fields.public_key", scope: "decidim.elections") %></th>
             </tr>
-            <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <p>The size of this list of trustees is correct and it will be needed at least <strong>2 trustees</strong> to perform the tally process.</p>
+          </thead>
+          <tbody>
+            <% @form.trustees.each do |trustee| %>
+              <tr data-id="<%= trustee.id %>">
+                <td>
+                  <%= trustee.user.name %>
+                </td>
+                <td>
+                  <%= trustee.public_key %>
+                </td>
+              </tr>
+              <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <p>The size of this list of trustees is correct and it will be needed at least <strong>2 trustees</strong> to perform the tally process.</p>
+    <% end %>
   </div>
 </div>
