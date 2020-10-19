@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-section">
-    <%if !@form.valid?%>
+    <% if !@form.valid? %>
       <% form.object.errors.values.each do |message| %>
         <small class=""><%= message[0] %></small>
       <% end %>

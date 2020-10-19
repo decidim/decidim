@@ -23,6 +23,7 @@ module Decidim
           transaction do
             add_trustees_to_election!
             setup_election
+            return broadcast(:invalid) if form.errors.any?
           end
 
           broadcast(:ok, election)
@@ -59,7 +60,7 @@ module Decidim
               trustees.collect do |trustee|
                 {
                   name: trustee.user.name,
-                  public_key: Random.urlsafe_base64(30)
+                  public_key: trustee.public_key
                 }
               end,
             description: {
@@ -119,16 +120,22 @@ module Decidim
           }.to_h
         end
 
-        def setup_election!
+        def setup_election_on_bulletin_board
           signed_data = Decidim::Elections.bulletin_board.encode_data(election_data)
           api_key = Decidim::Elections.bulletin_board.instance_variable_get "@api_key"
 
-          Decidim::Elections.bulletin_board.graphql_client.query do
+          response = Decidim::Elections.bulletin_board.graphql_client.query do
             mutation do
               createElection(signedData: signed_data, apiKey: api_key) do
                 election
+                error
               end
             end
+          end
+
+          if response.data.create_election.error.present?
+            error = response.data.create_election.error
+            form.errors.add(:base, error)
           end
         end
 
@@ -139,7 +146,7 @@ module Decidim
             form.current_user,
             visibility: "all"
           ) do
-            setup_election!
+            setup_election_on_bulletin_board
           end
         end
       end
