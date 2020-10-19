@@ -8,10 +8,8 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form with the new trustee information
-        # trustee - The trustee to be updated
-        def initialize(form, trustee)
+        def initialize(form)
           @form = form
-          @trustee = trustee
         end
 
         # Update the trustee if valid.
@@ -27,7 +25,9 @@ module Decidim
 
         private
 
-        attr_reader :form, :trustee
+        attr_reader :form
+
+        delegate :trustee, to: :form
 
         def update_trustee!
           trustee.update!(

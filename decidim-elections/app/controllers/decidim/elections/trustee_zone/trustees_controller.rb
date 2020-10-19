@@ -17,19 +17,19 @@ module Decidim
         def update
           enforce_permission_to :update, :trustee, trustee: trustee
 
-          @form = form(TrusteeForm).from_params(params)
+          form = form(TrusteeForm).from_params(params, trustee: trustee)
 
-          UpdateTrustee.call(@form, trustee) do
+          UpdateTrustee.call(form) do
             on(:ok) do
               flash[:notice] = I18n.t("trustee.update.success", scope: "decidim.elections.trustee_zone")
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("trustee.update.invalid", scope: "decidim.elections.trustee_zone")
+              flash[:alert] = form.errors.full_messages.to_sentence
             end
-
-            redirect_to trustee_path
           end
+
+          redirect_to trustee_path
         end
 
         private
