@@ -12,7 +12,7 @@ module Decidim
 
         let(:decidim_proposals_component_id) { ::Faker::Number.number(10) }
         let(:decidim_category_id) { ::Faker::Number.number(10) }
-        let(:dice) { ::Faker::Number.between(1, 6) }
+        let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
         let(:target_items) { ::Faker::Number.number(2) }
         let(:title) do
           {
