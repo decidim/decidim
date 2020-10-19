@@ -3,8 +3,8 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Controller that allows managing the participatory process homepage content blocks
-      class ParticipatoryProcessGroupHomepageContentBlocksController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+      # Controller that allows managing the participatory process landing page content blocks
+      class ParticipatoryProcessGroupLandingPageContentBlocksController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         layout "decidim/admin/participatory_process_group"
 
         helper_method :content_block, :participatory_process_group
@@ -18,9 +18,9 @@ module Decidim
           enforce_permission_to :read, :process_group, process_group: participatory_process_group
           @form = form(Decidim::Admin::ContentBlockForm).from_params(params)
 
-          Decidim::Admin::UpdateContentBlock.call(@form, content_block, :homepage) do
+          Decidim::Admin::UpdateContentBlock.call(@form, content_block, :participatory_process_group_homepage) do
             on(:ok) do
-              redirect_to edit_participatory_process_group_homepage_path(participatory_process_group)
+              redirect_to edit_participatory_process_group_landing_page_path(participatory_process_group)
             end
             on(:invalid) do
               render :edit

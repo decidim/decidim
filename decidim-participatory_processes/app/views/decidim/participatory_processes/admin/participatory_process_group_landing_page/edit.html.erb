@@ -3,8 +3,8 @@
     <div class="cell small-6">
       <div class="card">
         <div class="card-section">
-          <p class="mb-m"><%= t("participatory_process_group_homepage.edit.active_content_blocks", scope: "decidim.admin") %></p>
-          <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= participatory_process_group_homepage_path(participatory_process_group) %>">
+          <p class="mb-m"><%= t("participatory_process_group_landing_page.edit.active_content_blocks", scope: "decidim.admin") %></p>
+          <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= participatory_process_group_landing_page_path(participatory_process_group) %>">
             <% active_blocks.each do |content_block| %>
               <%= cell "decidim/participatory_process_groups/content_block", content_block %>
             <% end %>
@@ -15,7 +15,7 @@
     <div class="cell small-6">
       <div class="card">
         <div class="card-section">
-          <p class="mb-m"><%= t("participatory_process_group_homepage.edit.inactive_content_blocks", scope: "decidim.admin") %></p>
+          <p class="mb-m"><%= t("participatory_process_group_landing_page.edit.inactive_content_blocks", scope: "decidim.admin") %></p>
           <ul class="draggable-list js-connect js-list-availables">
             <% inactive_blocks.each do |content_block_or_manifest| %>
               <%= cell "decidim/participatory_process_groups/content_block", content_block_or_manifest %>

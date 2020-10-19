@@ -3,9 +3,9 @@
 module Decidim
   module ParticipatoryProcesses
     module Admin
-      # Controller that allows managing the participatory process group homepage
-      #
-      class ParticipatoryProcessGroupHomepageController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
+      # Controller that allows managing the participatory process group landing
+      # page
+      class ParticipatoryProcessGroupLandingPageController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         helper_method :active_blocks, :inactive_blocks, :participatory_process_group
 
         def edit

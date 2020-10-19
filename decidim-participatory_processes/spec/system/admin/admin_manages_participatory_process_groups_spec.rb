@@ -122,7 +122,7 @@ describe "Admin manages participatory process groups", type: :system do
 
       within "div.secondary-nav" do
         expect(page).to have_content("Info")
-        expect(page).to have_content("Homepage")
+        expect(page).to have_content("Landing page")
         active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
         expect(active_secondary_nav.text).to eq("Info")
       end

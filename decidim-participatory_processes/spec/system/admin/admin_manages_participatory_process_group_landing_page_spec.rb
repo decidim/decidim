@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process group homepage", type: :system do
+describe "Admin manages participatory process group landing page", type: :system do
   include_context "when admin administrating a participatory process"
   let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
 
@@ -11,21 +11,21 @@ describe "Admin manages participatory process group homepage", type: :system do
     login_as user, scope: :user
   end
 
-  context "when editing a participatory process group homepage" do
-    it "has sub nav with Homepage active" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_homepage_path(participatory_process_group)
+  context "when editing a participatory process group landing page" do
+    it "has sub nav with Landing page active" do
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
       within "div.secondary-nav" do
         expect(page).to have_content("Info")
-        expect(page).to have_content("Homepage")
+        expect(page).to have_content("Landing page")
         active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
-        expect(active_secondary_nav.text).to eq("Homepage")
+        expect(active_secondary_nav.text).to eq("Landing page")
       end
     end
   end
 
   context "when editing a non-persisted content block" do
     it "creates the content block to the db before editing it" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_homepage_path(participatory_process_group)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
 
       expect(Decidim::ContentBlock.for_scope(
         :participatory_process_group_homepage,
@@ -57,7 +57,7 @@ describe "Admin manages participatory process group homepage", type: :system do
     end
 
     it "updates the settings of the content block" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_homepage_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -65,7 +65,7 @@ describe "Admin manages participatory process group homepage", type: :system do
       )
 
       click_button "Update"
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_homepage_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
       expect(page).to have_selector("input[value='Custom welcome text!']")
 
       content_block.reload

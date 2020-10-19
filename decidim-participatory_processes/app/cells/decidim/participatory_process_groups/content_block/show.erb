@@ -3,7 +3,7 @@
     <%= t(public_name_key) %>
     <div>
       <% if has_settings? %>
-        <%= link_to decidim_participatory_processes.edit_participatory_process_group_homepage_content_block_path(participatory_process_group, manifest_name), class: "mr-s text-muted" do %>
+        <%= link_to decidim_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, manifest_name), class: "mr-s text-muted" do %>
           <%= icon "pencil", role: "img" %>
         <% end %>
       <% end %>

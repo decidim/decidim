@@ -96,8 +96,8 @@ en:
       menu:
         participatory_process_groups: Process groups
         participatory_process_groups_submenu:
-          homepage: Homepage
           info: Info
+          landing_page: Landing page
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -149,11 +149,11 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
-      participatory_process_group_homepage:
+      participatory_process_group_landing_page:
         edit:
           active_content_blocks: Active content blocks
           inactive_content_blocks: Inactive content blocks
-      participatory_process_group_homepage_content_blocks:
+      participatory_process_group_landing_page_content_blocks:
         edit:
           update: Update
       participatory_process_groups:
