@@ -63,6 +63,7 @@ module Decidim
           reported_attributes.map do |attribute_name|
             attribute_value = attributes.with_indifferent_access[attribute_name]
             next attribute_value.values.join("\n") if attribute_value.is_a? Hash
+
             attribute_value
           end
         ).join("\n")
