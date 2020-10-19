@@ -105,6 +105,9 @@ en:
             success: The election has been successfully published.
           unpublish:
             success: The election has been successfully unpublished.
+          setup:
+            success: Election setup successfully
+            invalid: There was a problem setting up this election
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated

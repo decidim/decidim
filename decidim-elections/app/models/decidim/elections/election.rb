@@ -74,7 +74,7 @@ module Decidim
       # Returns a boolean.
       def minimum_answers?
         questions.each do |question|
-          return false unless question.answers.size <= 1
+          return false unless question.answers.size > 1
         end
       end
 

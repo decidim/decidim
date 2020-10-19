@@ -6,6 +6,7 @@ module Decidim
       # This class holds a Form to setup elections from Decidim's admin panel.
       class SetupForm < Decidim::Form
         attribute :trustee_ids, Array[Integer]
+        validate :check_election_is_valid
 
         def map_model(model)
           @election = model
@@ -24,6 +25,15 @@ module Decidim
 
         def election
           @election ||= context[:election]
+        end
+
+        def start_time
+          @start_time ||= election.start_time
+        end
+
+        def check_election_is_valid
+          # errors.add(:start_time, "minimun 3 hours") unless election.minimum_three_hours_before_start?
+          errors.add(:start_time, "All the questions must have at least 2 answers") unless election.minimum_answers?
         end
       end
     end
