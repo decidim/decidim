@@ -56,7 +56,7 @@ module Decidim
         enforce_permission_to :edit, :initiative, initiative: current_initiative
 
         form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
-        @form = form(Decidim::Initiatives::InitiativeForm)
+        @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                 .from_model(
                   current_initiative,
                   initiative: current_initiative
@@ -71,7 +71,7 @@ module Decidim
         enforce_permission_to :update, :initiative, initiative: current_initiative
 
         params[:id] = params[:slug]
-        @form = form(Decidim::Initiatives::InitiativeForm)
+        @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                 .from_params(params, initiative: current_initiative)
 
         UpdateInitiative.call(current_initiative, @form, current_user) do
