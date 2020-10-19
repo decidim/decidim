@@ -46,9 +46,7 @@ module Decidim
       end
 
       def after_sign_in_path_for(user)
-        if current_organization.demographics_data_collection? && defined?(demographics_engine)
-          demographics_engine.new_path
-        elsif !pending_redirect?(user) && first_login_and_not_authorized?(user)
+        if !pending_redirect?(user) && first_login_and_not_authorized?(user)
           decidim_verifications.authorizations_path
         else
           super

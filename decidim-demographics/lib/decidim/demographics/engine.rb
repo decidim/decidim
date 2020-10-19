@@ -13,9 +13,16 @@ module Decidim
       routes do
         # Add engine routes here
         # resources :demographics
-        namespace :demographics do
-          get "/", action: :index, as: :index
+        authenticate(:user) do
+          namespace :demographics do
+            get "/", action: :index, as: :index
+          end
         end
+      end
+
+      initializer "decidim.action_controller" do
+        Decidim::Devise::RegistrationsController.send(:prepend, Decidim::Demographics::SignInRoutes)
+        Decidim::Devise::OmniauthRegistrationsController.send(:prepend, Decidim::Demographics::SignInRoutes)
       end
 
       initializer "decidim.user_menu" do
@@ -28,6 +35,7 @@ module Decidim
           end
         end
       end
+
       initializer "decidim_demographics.assets" do |app|
         app.config.assets.precompile += %w(decidim_demographics_manifest.js decidim_demographics_manifest.css)
       end

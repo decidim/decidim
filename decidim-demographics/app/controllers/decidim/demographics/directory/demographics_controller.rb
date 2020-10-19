@@ -9,10 +9,14 @@ module Decidim
         include FormFactory
 
         def new
+          enforce_permission_to :update, :user, current_user: current_user
+
           @form = demographics_form.from_model(demographics_data)
         end
 
         def create
+          enforce_permission_to :update, :user, current_user: current_user
+
           @form = demographics_form.from_params(params)
 
           Decidim::Demographics::RegisterDemographicsData.call(demographics_data, @form) do
