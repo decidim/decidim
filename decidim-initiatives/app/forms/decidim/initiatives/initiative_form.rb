@@ -8,8 +8,8 @@ module Decidim
 
       mimic :initiative
 
-      translatable_attribute :title, String
-      translatable_attribute :description, String
+      attribute :title, String
+      attribute :description, String
       attribute :type_id, Integer
       attribute :scope_id, Integer
       attribute :decidim_scope_id, Integer
@@ -32,7 +32,7 @@ module Decidim
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
-        form.signature_start_date.blank? && form.signature_end_date.present?
+        form.signature_start_date.present? && form.signature_end_date.present?
       }
 
       def map_model(model)
@@ -41,10 +41,7 @@ module Decidim
       end
 
       def signature_type_updatable?
-        @signature_type_updatable ||= begin
-                                        state ||= context.initiative.state
-                                        state == "validating" && context.current_user.admin? || state == "created"
-                                      end
+        state == "created" || state.nil?
       end
 
       def state_updatable?
@@ -58,9 +55,9 @@ module Decidim
       end
 
       def scoped_type_id
-        return unless type && decidim_scope_id
+        return unless type && scope_id
 
-        type.scopes.find_by(decidim_scopes_id: decidim_scope_id.presence).id
+        type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
       end
 
       def area
@@ -68,7 +65,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(type_id)
+        @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
       end
 
       def available_scopes
