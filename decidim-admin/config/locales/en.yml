@@ -547,12 +547,6 @@ en:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
-        suspend:
-          success: Participant successfully suspended
-          error: There was an error suspending the participant
-        unsuspend:
-          success: Participant successfully unsuspended
-          error: There was an error unsuspending the participant
         create:
           success: Participant successfully officialized
         destroy:
@@ -584,6 +578,12 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
+        suspend:
+          error: There was an error suspending the participant
+          success: Participant successfully suspended
+        unsuspend:
+          error: There was an error unsuspending the participant
+          success: Participant successfully unsuspended
       organization:
         edit:
           title: Edit organization
@@ -789,19 +789,19 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
-      user_suspension_mailer:
-        notify:
-          body_1: Your account was blocked.
-          body_2: "Reason: %{justification}"
-          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-          hello: Hello,
-          subject: Your account was blocked by %{organization_name}?
       user_suspension:
         new:
           action: Block account and send justification
           description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
           justification: Justification
-          title: "Suspend User %{name}"
+          title: Suspend User %{name}
+      user_suspension_mailer:
+        notify:
+          body_1: Your account was blocked.
+          body_2: 'Reason: %{justification}'
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello,
+          subject: Your account was blocked by %{organization_name}?
       users:
         create:
           error: There was a problem inviting this admin.
