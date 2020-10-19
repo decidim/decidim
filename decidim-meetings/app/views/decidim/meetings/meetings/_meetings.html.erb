@@ -1,5 +1,3 @@
-<% puts "NUM MEETINGS: #{meetings.size}" %>
-<% puts "MEETINGS NAMES: #{meetings.pluck(:title)}" %>
 <% if @forced_past_meetings %>
   <div class="callout warning">
     <%= t ".upcoming_meetings_warning" %>
