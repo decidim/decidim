@@ -358,14 +358,12 @@ en:
           continue: My initiative is different
           more_information: "(More information)"
       edit:
-        accept: Accept initiative
+        accept: Accept the initiative
         confirm: Are you sure?
         discard: Discard the initiative
         export_pdf_signatures: Export PDF of signatures
         export_votes: Export signatures
         reject: Reject initiative
-        send_to_technical_validation: Send to technical validation
-        success: The initiative has been sent to technical validation
         update: Update
       events:
         create_initiative_event:
