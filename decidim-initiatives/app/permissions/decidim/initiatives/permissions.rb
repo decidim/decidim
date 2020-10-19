@@ -32,6 +32,8 @@ module Decidim
         unvote_initiative?
 
         initiative_attachment?
+        
+        initiative_committee_action?
 
         permission_action
       end
@@ -203,6 +205,22 @@ module Decidim
           Decidim::Initiatives.do_not_require_authorization ||
           UserAuthorizations.for(user).any?
         )
+      end
+      
+      def initiative_committee_action?
+        return unless permission_action.subject == :initiative_committee_member
+        return unless user.admin? || initiative&.has_authorship?(user)
+
+        request = context.fetch(:request, nil)
+
+        case permission_action.action
+        when :index
+          allow!
+        when :approve
+          toggle_allow(!request&.accepted?)
+        when :revoke
+          toggle_allow(!request&.rejected?)
+        end
       end
     end
   end
