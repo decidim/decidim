@@ -22,9 +22,7 @@ module Decidim
       end
 
       def encode_data(election_data)
-        iat = Time.now.to_i
-        jwt_payload = { data: election_data, iat: iat }
-        JWT.encode jwt_payload, private_key, "RS256"
+        JWT.encode election_data, private_key, "RS256"
       end
 
       def graphql_client
