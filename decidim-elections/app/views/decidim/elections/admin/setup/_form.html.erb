@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <% trustees.each do |trustee| %>
+          <% @form.trustees.each do |trustee| %>
             <tr data-id="<%= trustee.id %>">
               <td>
                 <%= trustee.user.name %>
@@ -23,7 +23,8 @@
               <td>
                 <%= trustee.public_key %>
               </td>
-              </tr>
+            </tr>
+            <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
           <% end %>
         </tbody>
       </table>
