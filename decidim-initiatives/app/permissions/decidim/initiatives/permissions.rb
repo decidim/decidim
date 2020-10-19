@@ -208,6 +208,7 @@ module Decidim
       
       def initiative_committee_action?
         return unless permission_action.subject == :initiative_committee_member
+        return unless user.admin? || initiative&.has_authorship?(user)
 
         request = context.fetch(:request, nil)
 
