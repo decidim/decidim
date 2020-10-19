@@ -44,9 +44,6 @@ module Decidim
               updated_title = Decidim::Faker::Localized.name
               resource.update(title: updated_title)
 
-              resource.save!
-              searchable.reload
-
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
                 expect(searchable.content_a).to eq I18n.transliterate(updated_title[locale])
