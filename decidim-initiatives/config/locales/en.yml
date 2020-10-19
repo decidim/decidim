@@ -416,10 +416,6 @@ en:
           hidden_authors_count:
             one: and 1 more person
             other: and %{count} more people
-        count:
-          title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
         committee_members:
           approve: Approve
           confirm_revoke: Are you sure?
@@ -427,6 +423,10 @@ en:
           no_members_yet: There are no members in the promoter committee
           revoke: Revoke
           title: Committee members
+        count:
+          title:
+            one: "%{count} initiative"
+            other: "%{count} initiatives"
         filters:
           any: Any
           area: Area
