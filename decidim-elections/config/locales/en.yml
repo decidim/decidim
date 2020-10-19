@@ -62,6 +62,7 @@ en:
         new: New %{name}
         preview: Preview
         publish: Publish
+        setup: Setup
         title: Actions
         unpublish: Unpublish
       admin:
