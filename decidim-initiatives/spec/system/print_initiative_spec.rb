@@ -9,8 +9,7 @@ describe "User prints the initiative", type: :system do
     before do
       switch_to_host(organization.host)
       login_as user, scope: :user
-      visit decidim_initiatives.initiatives_path
-      page.find(".button--sc").click
+      visit decidim_initiatives.edit_initiative_path(initiative)
       page.find(".action-print").click
     end
 

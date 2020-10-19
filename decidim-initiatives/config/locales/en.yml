@@ -215,6 +215,7 @@ en:
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures
+            print: Print
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
             success: The initiative has been sent to technical validation
