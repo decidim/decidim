@@ -39,6 +39,33 @@ and then in `config/secrets.yml`:
     api_version: <%= ENV["ETHERPAD_API_VERSION"] %>
 ```
 
+## Issues related to cookies and Iframes
+
+Etherpad requires to set a cookie in order to work.
+
+The way Decidim integrates Etherpad is by creating and Iframe that calls the specific URL for an Etherpad instance. This means that the cookie needs to be created in the context of that Iframe, which is a different one that the Decidim application itself.
+
+Now, recent versions of browsers don't like that and have started to block what's known as "3rd party cookies" (usually used as a tracking mechanism). This is a problem because, usually, Etherpad is installed in a different domain/server and the ability to deal with this situation has been fixed in very [recent versions](https://github.com/ether/etherpad-lite/pull/4384) of Etherpad.
+
+In order to make sure your installation of Etherpad is compatible with Iframe embedding, it is necessary that the cookie generated follows these parameters:
+
+```
+Set-Cookie: session=your_session; SameSite=None; Secure
+```
+
+By default, Etherpad sets the `SameSite` attribute to "Lax", which causes problems, you need to be sure it is set to "None". Remember that your Etherpad instance MUST runt under **https** for this to work.
+
+Also, it is highly recommended that you use some sort of proxy that makes your Etherpad instance a subdomain of your Decidim instance. Although this is not strictly required, if you don't do that, some browsers might make you disable 3rd party cookies (eg: Safari) to be able to use the embedded Etherpad.
+
+The suggested `docker-compose-etherpad.yml` provided by Decidim uses an image of Etherpad that incorporates the changes related to this problem. If you are using your custom instance of Etherpad, make sure that incorporate this [changes](https://github.com/ether/etherpad-lite/pull/4384) and that you set these ENV variables as follows:
+
+```
+TRUST_PROXY=true
+COOKIE_SAME_SITE=None
+```
+
+The `TRUST_PROXY` variable is necessary if you are handling SSL through a external service (ie: Cloudflare), if unsure set it to true.
+
 ## How is Etherpad Lite integrated in Meetings?
 
 To better understand this feature, the final idea is to have the three moments of a meeting covered on Decidim itself by default:
