@@ -1,60 +1,91 @@
 <%= stylesheet_link_tag "decidim/elections/trustee_zone", media: "all" %>
 
-<div class="callout success">
-  <p><%= t(".trustee_role_description") %></p>
+<div id="not_supported_browser" class="callout alert">
+  <p><strong><%= t(".not_supported_browser_title") %></strong></p>
+  <p><%= t(".not_supported_browser_description") %></p>
 </div>
 
-<h2><%= t(".identification_keys.title") %></h2>
-<% if trustee.public_key.blank? %>
-  <div id="generate_identification_keys">
-    <p><%= t(".identification_keys.generate_keys_legend") %></p>
-    <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
-      <%= f.hidden_field :public_key %>
-      <button class="button" type="submit">
-        <%= icon "key", role: "img" %> <%= t(".identification_keys.generate_keys") %>
-      </button>
-    <% end %>
-  </div>
-<% else %>
-  <div id="download_identification_keys" data-public-key="<%= trustee.public_key %>">
-    <p><%= t(".identification_keys.download_keys_legend") %></p>
-    <button class="button" type="button">
-      <%= icon "data-transfer-download", role: "img" %> <%= t(".identification_keys.download_keys") %>
-    </button>
-  </div>
-  <div id="upload_identification_keys">
-    <p><%= t(".identification_keys.upload_keys_legend") %></p>
-    <button class="button" type="button">
-      <%= icon "data-transfer-upload", role: "img" %> <%= t(".identification_keys.upload_keys") %>
-    </button>
-  </div>
-
-  <h2><%= t(".elections.title") %></h2>
-  <% if trustee.elections.any? %>
-    <div class="table-scroll">
-      <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t(".elections.list.election") %></th>
-          <th><%= t(".elections.list.status") %></th>
-          <th><%= t(".elections.list.voting_period") %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% trustee.elections.each do |election| %>
-          <tr>
-            <td><%= present(election).title %></td>
-            <td><%= election.voting_period_status %></td>
-            <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% else %>
-    <div class="callout warning">
-      <%= t(".elections.no_elections") %>
-    </div>
+<div class="trustee_zone">
+  <%= decidim_form_for(trustee, html: { class: "form edit_trustee" }) do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.hidden_field :public_key %>
+    <%= f.submit "", id: "submit_identification_public_key", class: "hide" %>
   <% end %>
-<% end %>
+
+  <div class="callout success">
+    <p><%= t(".trustee_role_description") %></p>
+  </div>
+  <% if trustee.public_key.blank? %>
+    <h2><%= t(".identification_keys.title") %></h2>
+    <p><%= t(".identification_keys.generate_legend") %></p>
+    <ol>
+      <li><%= t(".identification_keys.generate_legend_1") %></li>
+      <li><%= t(".identification_keys.generate_legend_2") %></li>
+      <li><%= t(".identification_keys.generate_legend_3") %></li>
+      <li><%= t(".identification_keys.generate_legend_4") %></li>
+    </ol>
+    <div id="submit_identification_keys" class="small-12 large-6">
+      <div class="card">
+          <div class="card__content">
+            <h4 class="card__title"><%= t(".identification_keys.submit_title") %></h4>
+            <p><%= t(".identification_keys.submit_legend") %></p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <div>
+                <button class="card__button button small hollow" type="button">
+                  <%= icon "x", role: "img" %> <%= t(".identification_keys.cancel") %>
+                </button>
+                <label class="card__button button small" for="submit_identification_public_key">
+                  <%= icon "check", role: "img" %> <%= t(".identification_keys.submit") %>
+                </label>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id="generate_identification_keys">
+      <button class="button">
+        <%= icon "key", role: "img" %> <%= t(".identification_keys.generate") %>
+      </button>
+    </div>
+  <% else %>
+    <div <%= t(".identification_keys.upload_error").map {|key, message| "data-#{key}=\"#{message}\""} .join(" ").html_safe %>
+         id="upload_identification_keys" class="hide">
+      <h2><%= t(".identification_keys.title") %></h2>
+      <p><%= t(".identification_keys.upload_legend") %></p>
+      <button class="button" type="button">
+        <%= icon "data-transfer-upload", role: "img" %> <%= t(".identification_keys.upload") %>
+      </button>
+    </div>
+
+    <h2><%= t(".elections.title") %></h2>
+    <% if trustee.elections.any? %>
+      <div class="table-scroll">
+        <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".elections.list.election") %></th>
+            <th><%= t(".elections.list.status") %></th>
+            <th><%= t(".elections.list.voting_period") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% trustee.elections.each do |election| %>
+            <tr>
+              <td><%= present(election).title %></td>
+              <td><%= election.voting_period_status %></td>
+              <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="callout warning">
+        <%= t(".elections.no_elections") %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 <%= javascript_include_tag("decidim/elections/trustee_zone") %>

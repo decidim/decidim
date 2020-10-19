@@ -27,6 +27,10 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: can't be changed
   activerecord:
     models:
       decidim/elections/answer:
@@ -245,21 +249,44 @@ en:
               no_elections: There are no elections where you act as a Trustee.
               title: Elections
             identification_keys:
-              download_keys: Download your identification keys
-              download_keys_legend: Ensure you have a backup of your identification
-                keys. Download and store them in a safe place.
-              generate_keys: Generate identification keys
-              generate_keys_legend: You need to generate an identification pair of
+              cancel: Cancel
+              generate: Generate identification keys
+              generate_legend: You need to generate an identification pair of
                 keys to participate on elections as a Trustee.
+              generate_legend_1: After pressing the button you should download
+                the file with the generated identification keys.
+              generate_legend_2: Copy the downloaded file to a clean USB device
+              generate_legend_3: Ensure your computer doesn't have a copy of
+                the file (e.g. check the Downloads and Desktop folders).
+              generate_legend_4: Make another copy of the file on a different
+                external device and store it in a very safe place.
+              submit: Submit
+              submit_title: Submit the public identification key
+              submit_legend: After following all the steps explained above,
+                complete the process sending the public identification key to
+                the Decidim server.
               title: Trustee identification keys
-              upload_keys: Upload your identification keys
-              upload_keys_legend: You need to import your keys to your computer from
-                a backup to act as a Trustee.
+              upload: Upload your identification keys
+              upload_legend: Decidim has your public identification keys, but
+                your browser still doesn't have it. You need to import the
+                file with your identification keys to your computer from the
+                backup you created after generating them.
+              upload_error:
+                invalid_format: "The uploaded file doesn't contain any identification key."
+                invalid_key: "The identification keys in the uploaded
+                  file can't be loaded."
+                invalid_public_key: "The identification keys in the uploaded
+                  file doesn't match the public identification key stored by
+                  Decidim."
+            not_supported_browser_title: Upgrade browser to act as a Trustee
+            not_supported_browser_description: It looks like you are using a web browser
+                that can't be used to act as a Trustee. Make sure you're using the most
+                recent version of your browser, or try using any of the most popular
+                browsers to be able to complete your Trustee tasks.
             trustee_role_description: You have been assigned to act as a Trustee in
                 some of the elections celebrated in this platform.
         trustee:
           update:
-            invalid: There was a problem storing your trustee identification public key.
             success: Your identification public key was successfully stored.
       votes:
         confirm:
