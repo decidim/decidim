@@ -18,6 +18,9 @@ module Decidim
 
       routes do
         resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
+          resources :meeting_closes, only: [:edit, :update] do
+            get :proposals_picker, on: :collection
+          end
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create
