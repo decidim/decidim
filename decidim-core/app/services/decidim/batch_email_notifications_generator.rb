@@ -28,9 +28,9 @@ module Decidim
     private
 
     def events
-      @events ||= Decidim::Notification.from_last(Decidim.config.batch_email_notifications_interval)
+      @events ||= Decidim::Notification.not_expired(Decidim.config.batch_email_notifications_expired)
                                        .unsent
-                                       .priority_level("low")
+                                       .with_priority(:batch)
                                        .order(created_at: :desc)
                                        .limit(Decidim.config.batch_email_notifications_max_length)
     end
@@ -46,6 +46,7 @@ module Decidim
           event_class: event.event_class,
           event_name: event.event_name,
           user: event.user,
+          priority: event.priority,
           extra: event.extra,
           user_role: event.user_role,
           created_at: time_ago_in_words(event.created_at).capitalize

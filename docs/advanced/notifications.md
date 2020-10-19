@@ -20,6 +20,7 @@ ActiveSupport::Notifications.publish(
   resource: resource,
   affected_users: affected_users.uniq.compact,
   followers: followers.uniq.compact,
+  priority: priority,
   extra: extra
 )
 ```
@@ -36,7 +37,8 @@ data = {
     comment_id: comment.id
   },
   affected_users: [user1, user2],
-  followers: [user3, user4]
+  followers: [user3, user4],
+  priority: "now" # By default, priority is set to "batch"
 }
 
 Decidim::EventsManager.publish(data)
@@ -61,6 +63,8 @@ Event names must start with "decidim.events." (the `event` data key). This way `
 
 Sometimes, when something that must be notified to users happen, a service is defined to manage the logic involved to decide which events should be published. See for example `Decidim::Comments::NewCommentNotificationCreator`.
 
+Priority allows to define if an event has to be sent by email directly or if it has to be sent in the same email than others notifications. By default, all notifications that does not specify priority `"now"` will be sent in batch.
+
 Please refer to [Ruby on Rails Notifications documentation](https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html) if you need to hack the Decidim's events system.
 
 ## How Decidim's `EventPublisherJob` processes the events?
@@ -70,6 +74,8 @@ The `EventPublisherJob` in Decidim's core engine subscribes to all notifications
 When invoked it simply performs some validations and enqueue an `EmailNotificationGeneratorJob` and a `NotificationGeneratorJob`.
 
 The validations it performs check if the resource, the component, or the participatory space are published (when the concept applies to the artifact).
+
+When the `Decidim.config.batch_email_notifications_enabled`  is enabled (disabled by default), the `EventPublisherJob` checks if the current notification has to be sent now or if it is in batch. If the priority is `"batch"`, it does not enqueue `EmailNotificationGeneratorJob` but it still enqueue `NotificationGeneratorJob`
 
 ## The \*Event class
 
@@ -101,6 +107,8 @@ The following are the parts of the notification email:
 - *email_outro*
 
 All contents except the `email_greeting` use to require customization on each notification.
+
+When the `Decidim.config.batch_email_notifications_enabled`  is enabled, multiple notifications will appear in email. When the maximum of notifications is exceeded, a `see more` will be displayed.
 
 ### Notification contents
 

@@ -73,9 +73,7 @@ module Decidim
             event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
             resource: assembly,
             followers: [form.user],
-            extra: {
-              high_priority: true
-            }
+            priority: "now"
           }
           Decidim::EventsManager.publish(data)
         end

@@ -40,9 +40,7 @@ module Decidim
                 force_send: true,
                 resource: initiative,
                 affected_users: a_collection_containing_exactly(another_admin),
-                extra: {
-                  high_priority: true
-                }
+                priority: "now"
               )
 
             subject.call

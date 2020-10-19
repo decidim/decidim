@@ -271,9 +271,9 @@ module Decidim
     false
   end
 
-  # Interval between each notification mail batch
-  config_accessor :batch_email_notifications_interval do
-    24.hours
+  # Time when the notification is considered as expired
+  config_accessor :batch_email_notifications_expired do
+    1.week
   end
 
   # Maximum of notifications in a mail.

@@ -56,10 +56,10 @@ module Decidim
                 event_class: JoinRequestCreatedEvent,
                 resource: user_group,
                 affected_users: affected_users,
+                priority: "now",
                 extra: {
                   user_group_name: user_group.name,
-                  user_group_nickname: user_group.nickname,
-                  high_priority: true
+                  user_group_nickname: user_group.nickname
                 }
               )
             )

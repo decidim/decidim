@@ -61,9 +61,7 @@ module Decidim
         event_class: Decidim::UserGroupCreatedEvent,
         resource: @user_group,
         affected_users: Decidim::User.org_admins_except_me(form.current_user),
-        extra: {
-          high_priority: true
-        }
+        priority: "now"
       }
 
       Decidim::EventsManager.publish(data)

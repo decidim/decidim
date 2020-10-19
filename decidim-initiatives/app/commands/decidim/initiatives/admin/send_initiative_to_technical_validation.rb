@@ -49,9 +49,7 @@ module Decidim
             resource: initiative,
             affected_users: affected_users,
             force_send: true,
-            extra: {
-              high_priority: true
-            }
+            priority: "now"
           }
 
           Decidim::EventsManager.publish(data)

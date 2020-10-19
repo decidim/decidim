@@ -7,9 +7,11 @@ module Decidim
     belongs_to :resource, foreign_key: "decidim_resource_id", foreign_type: "decidim_resource_type", polymorphic: true
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
+    enum priority: [:batch, :now]
+
     scope :unsent, -> { where(sent_at: nil) }
-    scope :priority_level, ->(priority) { where("extra ->> 'priority' = ?", priority) }
-    scope :from_last, ->(time) { where("created_at > ?", time.ago) }
+    scope :not_expired, ->(time) { where("created_at > ?", time.ago) }
+    scope :with_priority, ->(priority) { where(priority: priority) }
 
     def event_class_instance
       @event_class_instance ||= event_class.constantize.new(

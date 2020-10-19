@@ -28,9 +28,9 @@ module Decidim::Assemblies
         event_class: Decidim::RoleAssignedToAssemblyEvent,
         resource: my_assembly,
         affected_users: [user_role.user],
+        priority: "now",
         extra: {
-          role: kind_of(String),
-          high_priority: true
+          role: kind_of(String)
         }
       }
     end

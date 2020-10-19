@@ -224,6 +224,18 @@ Decidim.configure do |config|
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   # config.consent_cookie_name = "decidim-cc"
+  #
+  #
+  # Decidim batch notifications in email
+  # Send multiple notifications in a unique mail
+  config.batch_email_notifications_enabled = false
+
+  # Time when the notification is considered as expired
+  # config.batch_email_notifications_expired = 1.week
+
+  # Maximum of notifications in a mail.
+  # If the number of notifications is greater than limit, displays a "see more" link in mail
+  # config.batch_email_notifications_max_length = 5
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

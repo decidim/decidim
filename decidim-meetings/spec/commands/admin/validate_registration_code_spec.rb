@@ -43,7 +43,7 @@ module Decidim::Meetings
       let(:user) { create :user, :confirmed, organization: meeting.organization }
       let!(:registration) { create(:registration, meeting: meeting, code: code, validated_at: nil, user: user) }
 
-      context "when registrations are enabled" do
+      shared_examples_for "notifies the change" do
         it "notifies the change" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
@@ -52,14 +52,30 @@ module Decidim::Meetings
               event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
               resource: meeting,
               affected_users: [user],
+              priority: "now",
               extra: {
-                registration: registration,
-                high_priority: true
+                registration: registration
               }
             )
 
           subject.call
         end
+      end
+
+      context "when registrations are enabled" do
+        it_behaves_like "notifies the change"
+      end
+
+      context "when batch notifications is enabled" do
+        before do
+          Decidim.config.batch_email_notifications_enabled = true
+        end
+
+        after do
+          Decidim.config.batch_email_notifications_enabled = false
+        end
+
+        it_behaves_like "notifies the change"
       end
     end
   end

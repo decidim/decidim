@@ -11,9 +11,9 @@ module Decidim
             event_class: Decidim::RoleAssignedToAssemblyEvent,
             resource: form.current_participatory_space,
             affected_users: [user],
+            priority: "now",
             extra: {
-              role: form.role,
-              high_priority: true
+              role: form.role
             }
           )
         end

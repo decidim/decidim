@@ -83,9 +83,7 @@ module Decidim::Assemblies
               event_class: Decidim::Assemblies::CreateAssemblyMemberEvent,
               resource: assembly,
               followers: a_collection_containing_exactly(user),
-              extra: {
-                high_priority: true
-              }
+              priority: "now"
             )
 
           subject.call

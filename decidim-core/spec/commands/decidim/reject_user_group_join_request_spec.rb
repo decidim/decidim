@@ -37,10 +37,10 @@ module Decidim
                 event_class: JoinRequestRejectedEvent,
                 resource: membership.user_group,
                 affected_users: [membership.user],
+                priority: "now",
                 extra: {
                   user_group_name: membership.user_group.name,
-                  user_group_nickname: membership.user_group.nickname,
-                  high_priority: true
+                  user_group_nickname: membership.user_group.nickname
                 }
               )
             )

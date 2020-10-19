@@ -14,30 +14,34 @@ describe Decidim::BatchEmailNotificationsGeneratorJob do
   describe "perform" do
     let(:generator) { double :generator }
 
-    context "when batch email notifications disabled" do
+    it "doesn't delegates the work to the class" do
+      expect(Decidim::BatchEmailNotificationsGenerator)
+        .not_to receive(:new)
+
+      expect(generator)
+        .not_to receive(:generate)
+
+      subject.perform_now
+    end
+
+    context "when batch email notifications is enabled" do
       before do
+        Decidim.config.batch_email_notifications_enabled = true
+      end
+
+      after do
         Decidim.config.batch_email_notifications_enabled = false
       end
 
-      it "doesn't delegates the work to the class" do
+      it "delegates the work to the class" do
         expect(Decidim::BatchEmailNotificationsGenerator)
-          .not_to receive(:new)
-
+          .to receive(:new)
+          .and_return(generator)
         expect(generator)
-          .not_to receive(:generate)
+          .to receive(:generate)
 
         subject.perform_now
       end
-    end
-
-    it "delegates the work to the class" do
-      expect(Decidim::BatchEmailNotificationsGenerator)
-        .to receive(:new)
-        .and_return(generator)
-      expect(generator)
-        .to receive(:generate)
-
-      subject.perform_now
     end
   end
 end

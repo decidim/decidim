@@ -40,9 +40,9 @@ module Decidim
             event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,
             resource: meeting,
             affected_users: [form.registration.user],
+            priority: "now",
             extra: {
-              registration: form.registration,
-              high_priority: true
+              registration: form.registration
             }
           )
         end

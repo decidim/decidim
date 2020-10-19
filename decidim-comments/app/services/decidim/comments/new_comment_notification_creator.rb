@@ -112,9 +112,9 @@ module Decidim
           event: "decidim.events.comments.#{event}",
           event_class: event_class,
           resource: comment.root_commentable,
+          priority: "now",
           extra: {
-            comment_id: comment.id,
-            high_priority: true
+            comment_id: comment.id
           }
         }.deep_merge(users)
 

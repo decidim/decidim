@@ -7,7 +7,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
   subject { described_class.new }
 
   let!(:user) { create(:user) }
-  let!(:notifications) { create_list(:notification, 2, user: user) }
+  let!(:notifications) { create_list(:notification, 2, :now_priority, user: user) }
   let(:serialized_event) do
     {
       resource: notifications.first.resource,
@@ -15,6 +15,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
       event_name: notifications.first.event_name,
       user: notifications.first.user,
       extra: notifications.first.extra,
+      priority: notifications.first.priority,
       user_role: notifications.first.user_role,
       created_at: time_ago_in_words(notifications.first.created_at).capitalize
     }
@@ -39,8 +40,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
       expect(Decidim::Notification.where(decidim_user_id: user.id).where.not(sent_at: nil).count).to eq(0)
     end
 
-    context "when the notifications are marked as low priority" do
-      let!(:notifications) { create_list(:notification, 2, :low_priority, user: user) }
+    context "when notifications are marked as batch priority" do
+      let!(:notifications) { create_list(:notification, 2, user: user) }
 
       it "enqueues the job" do
         expect(Decidim::BatchNotificationsMailer)
@@ -83,25 +84,29 @@ describe Decidim::BatchEmailNotificationsGenerator do
   end
 
   describe "#events" do
-    context "when the notifications are marked as low priority" do
-      let!(:notifications) { create_list(:notification, 2, :low_priority, user: user) }
+    context "when notifications are marked as batch priority" do
+      let!(:notifications) { create_list(:notification, 3, user: user) }
 
       it "returns notifications" do
         expect(subject.send(:events)).to match_array(notifications)
-        expect(subject.send(:events).length).to eq(2)
+        expect(subject.send(:events).length).to eq(3)
       end
 
-      context "when batch_email_notifications_max_length" do
-        it "limit the number of notifications" do
-          Decidim.config.batch_email_notifications_max_length = 1
+      context "with batch_email_notifications_expired" do
+        before do
+          notifications.last.update!(created_at: 2.weeks.ago)
+        end
 
-          expect(subject.send(:events)).to match_array(notifications.last)
-          expect(subject.send(:events).length).to eq(1)
+        it "does not fetch the expired notifications" do
+          Decidim.config.batch_email_notifications_expired = 1.week
+
+          expect(subject.send(:events)).to match_array(notifications[0..1])
+          expect(subject.send(:events).length).to eq(2)
         end
       end
 
       context "when notifications has already been sent" do
-        let!(:notifications) { create_list(:notification, 2, :low_priority, user: user) }
+        let!(:notifications) { create_list(:notification, 3, user: user) }
 
         before do
           notifications.first.update!(sent_at: 12.hours.ago)
@@ -109,20 +114,24 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
         it "doesn't includes it" do
           expect(subject.send(:events)).not_to include(notifications.first)
-          expect(subject.send(:events).length).to eq(1)
+          expect(subject.send(:events).length).to eq(2)
         end
       end
     end
   end
 
   describe "#events_for" do
-    context "when the notifications are marked as low priority" do
-      let!(:notifications) { create_list(:notification, 2, :low_priority, user: user) }
+    context "when notifications are marked as batch priority" do
+      let!(:notifications) { create_list(:notification, 2, user: user) }
       let(:another_user) { create(:user) }
-      let(:notification) { create(:notification, :low_priority, user: another_user) }
+      let(:notification) { create(:notification, user: another_user) }
 
       before do
         Decidim.config.batch_email_notifications_max_length = 2
+      end
+
+      after do
+        Decidim.config.batch_email_notifications_max_length = 5
       end
 
       it "returns notifications for user" do
@@ -134,8 +143,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
   end
 
   describe "#users" do
-    context "when the notifications are marked as low priority" do
-      let!(:notifications) { create_list(:notification, 2, :low_priority, user: user) }
+    context "when notifications are marked as batch priority" do
+      let!(:notifications) { create_list(:notification, 2, user: user) }
 
       it "returns users id" do
         expect(subject.send(:users)).to eq([user.id])

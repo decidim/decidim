@@ -94,9 +94,7 @@ module Decidim
                   event_class: Decidim::UserGroupUpdatedEvent,
                   resource: user_group,
                   affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all),
-                  extra: {
-                    high_priority: true
-                  }
+                  priority: "now"
                 )
 
               command.call

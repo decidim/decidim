@@ -57,9 +57,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event_class: Decidim::Comments::UserMentionedEvent,
           resource: dummy_resource,
           affected_users: a_collection_containing_exactly(*mentioned_users),
+          priority: "now",
           extra: {
-            comment_id: comment.id,
-            high_priority: true
+            comment_id: comment.id
           }
         )
       expect(Decidim::EventsManager)
@@ -99,9 +99,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             event_class: Decidim::Comments::UserMentionedEvent,
             resource: dummy_resource,
             affected_users: a_collection_containing_exactly(*mentioned_users_to_notify),
+            priority: "now",
             extra: {
-              comment_id: comment.id,
-              high_priority: true
+              comment_id: comment.id
             }
           )
         expect(Decidim::EventsManager)
@@ -146,10 +146,10 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             event_class: Decidim::Comments::UserGroupMentionedEvent,
             resource: dummy_resource,
             affected_users: a_collection_containing_exactly(*affected_group_users),
+            priority: "now",
             extra: {
               comment_id: comment.id,
-              group: group,
-              high_priority: true
+              group: group
             }
           )
         expect(Decidim::EventsManager)
@@ -186,9 +186,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               event_class: Decidim::Comments::UserMentionedEvent,
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(*mentioned_users),
+              priority: "now",
               extra: {
-                comment_id: comment.id,
-                high_priority: true
+                comment_id: comment.id
               }
             )
           expect(Decidim::EventsManager)
@@ -200,6 +200,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               event_class: Decidim::Comments::UserGroupMentionedEvent,
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(*affected_group_users),
+              priority: "now",
               extra: {
                 comment_id: comment.id,
                 group: group
@@ -234,10 +235,10 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               event_class: Decidim::Comments::UserGroupMentionedEvent,
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(*affected_group_users),
+              priority: "now",
               extra: {
                 comment_id: comment.id,
-                group: group,
-                high_priority: true
+                group: group
               }
             )
 
@@ -266,9 +267,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event_class: Decidim::Comments::CommentByFollowedUserEvent,
           resource: dummy_resource,
           followers: a_collection_containing_exactly(user_following_comment_author),
+          priority: "now",
           extra: {
-            comment_id: comment.id,
-            high_priority: true
+            comment_id: comment.id
           }
         )
       expect(Decidim::EventsManager)
@@ -294,9 +295,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: dummy_resource,
           followers: a_collection_containing_exactly(*commentable_recipients),
+          priority: "now",
           extra: {
-            comment_id: comment.id,
-            high_priority: true
+            comment_id: comment.id
           }
         )
 
@@ -329,9 +330,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
             event_class: Decidim::Comments::CommentCreatedEvent,
             resource: dummy_resource,
             followers: a_collection_containing_exactly(commentable_recipient, commentable_author),
+            priority: "now",
             extra: {
-              comment_id: comment.id,
-              high_priority: true
+              comment_id: comment.id
             }
           )
 
@@ -353,9 +354,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               event_class: Decidim::Comments::ReplyCreatedEvent,
               resource: dummy_resource,
               affected_users: [comment_author],
+              priority: "now",
               extra: {
-                comment_id: comment.id,
-                high_priority: true
+                comment_id: comment.id
               }
             )
 
@@ -382,9 +383,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
               event_class: Decidim::Comments::ReplyCreatedEvent,
               resource: dummy_resource,
               affected_users: a_collection_containing_exactly(top_level_comment_author),
+              priority: "now",
               extra: {
-                comment_id: comment.id,
-                high_priority: true
+                comment_id: comment.id
               }
             )
 
@@ -418,9 +419,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
           event_class: Decidim::Comments::CommentByFollowedUserGroupEvent,
           resource: dummy_resource,
           followers: a_collection_containing_exactly(user_following_user_group),
+          priority: "now",
           extra: {
-            comment_id: user_group_comment.id,
-            high_priority: true
+            comment_id: user_group_comment.id
           }
         )
       expect(Decidim::EventsManager)

@@ -565,26 +565,15 @@ FactoryBot.define do
     resource { build(:dummy_resource) }
     event_name { resource.class.name.underscore.tr("/", ".") }
     event_class { "Decidim::DummyResourceEvent" }
+    priority { :batch }
     extra do
       {
         some_extra_data: "1"
       }
     end
 
-    trait :high_priority do
-      extra do
-        {
-          priority: :high
-        }
-      end
-    end
-
-    trait :low_priority do
-      extra do
-        {
-          priority: :low
-        }
-      end
+    trait :now_priority do
+      priority { :now }
     end
   end
 

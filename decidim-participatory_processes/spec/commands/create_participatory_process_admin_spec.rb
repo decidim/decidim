@@ -28,9 +28,9 @@ module Decidim::ParticipatoryProcesses
         event_class: Decidim::ParticipatoryProcessRoleAssignedEvent,
         resource: my_process,
         affected_users: [user],
+        priority: "now",
         extra: {
-          role: kind_of(String),
-          high_priority: true
+          role: kind_of(String)
         }
       }
     end

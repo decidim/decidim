@@ -24,33 +24,33 @@ module Decidim
       end
     end
 
-    describe "priority_level scope" do
-      let!(:low_notifications) { create_list(:notification, 4, :low_priority) }
-      let!(:high_notifications) { create_list(:notification, 4, :high_priority) }
+    describe "with_priority scope" do
+      let!(:batch_notifications) { create_list(:notification, 4) }
+      let!(:now_notifications) { create_list(:notification, 4, :now_priority) }
 
-      context "with low priority notifications" do
-        let(:priority_level) { :low }
+      context "with batch priority notifications" do
+        let(:priority) { :batch }
 
-        it "returns notifications with low priority" do
-          expect(described_class.priority_level(priority_level)).to match_array(low_notifications)
-          expect(described_class.priority_level(priority_level)).not_to match_array(high_notifications)
+        it "returns notifications with batch priority" do
+          expect(described_class.with_priority(priority)).to match_array(batch_notifications)
+          expect(described_class.with_priority(priority)).not_to match_array(now_notifications)
         end
       end
 
-      context "with low priority notifications" do
-        let(:priority_level) { :high }
+      context "with now priority notifications" do
+        let(:priority) { :now }
 
-        it "returns notifications with low priority" do
-          expect(described_class.priority_level(priority_level)).not_to match_array(low_notifications)
-          expect(described_class.priority_level(priority_level)).to match_array(high_notifications)
+        it "returns notifications with now priority" do
+          expect(described_class.with_priority(priority)).not_to match_array(batch_notifications)
+          expect(described_class.with_priority(priority)).to match_array(now_notifications)
         end
       end
 
       context "with wrong priority" do
-        let(:priority_level) { nil }
+        let(:priority) { nil }
 
         it "returns nothing" do
-          expect(described_class.priority_level(priority_level).count).to eq(0)
+          expect(described_class.with_priority(priority).count).to eq(0)
         end
       end
     end

@@ -48,10 +48,10 @@ module Decidim
         event_class: InvitedToGroupEvent,
         resource: user_group,
         affected_users: [form.user],
+        priority: "now",
         extra: {
           user_group_name: user_group.name,
-          user_group_nickname: user_group.nickname,
-          high_priority: true
+          user_group_nickname: user_group.nickname
         }
       )
     end
