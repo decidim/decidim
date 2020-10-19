@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row columns">
-      <% Faker::Number.between(3, 7).times do |i| %>
+      <% Faker::Number.between(from: 3, to: 7).times do |i| %>
       <div class="row section hover-section">
         <div class="columns mediumlarge-8">
           <%= link_to page_path("participatory/participatory-texts-view"), class: "card__link--block pt-s pb-s" do %>
@@ -33,11 +33,11 @@
             </strong>
           </h6>
           <p>
-            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(8, 15)) %>
+            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(from: 8, to: 15)) %>
           </p>
           <% if Faker::Boolean.boolean %>
           <p>
-            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(3, 8)) %>
+            <%= Faker::Books::Lovecraft.paragraph(Faker::Number.between(from: 3, to: 8)) %>
           </p>
           <% end %>
           <% end %>
