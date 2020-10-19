@@ -41,9 +41,13 @@ module Decidim
 
           resource :initiative_vote, only: [:create, :destroy]
           resource :widget, only: :show, path: "embed"
-          resources :committee_requests, only: [:new], shallow: true do
+          resources :committee_requests, only: [:new] do
             collection do
               get :spawn
+            end
+            member do
+              get :approve
+              delete :revoke
             end
           end
           resources :versions, only: [:show, :index]
