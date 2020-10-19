@@ -11,7 +11,6 @@ module Decidim
         # current_user - the user performing the action
         def initialize(form)
           @election = form.election
-          @trustees = form.trustees
           @form = form
         end
 
@@ -31,7 +30,7 @@ module Decidim
 
         private
 
-        attr_reader :election, :trustees, :form
+        attr_reader :election, :form
 
         def questions
           @questions = election.questions
@@ -41,7 +40,13 @@ module Decidim
           Decidim::Elections::Answer.where(question: questions)
         end
 
+        def trustees
+          Decidim::Elections::Trustee.where(id: form.trustee_ids)
+        end
+
         def add_trustees_to_election!
+          return if election.trustees.exists?(id: form.trustee_ids)
+
           election.trustees << trustees
           election.save!
         end
