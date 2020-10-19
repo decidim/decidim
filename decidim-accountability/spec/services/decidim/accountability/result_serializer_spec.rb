@@ -66,13 +66,13 @@ module Decidim
 
         it "serializes the title" do
           I18n.available_locales.each do |locale|
-            expect(serialized[:title]).to include(locale.to_s => result.title[locale.to_s])
+            expect(translated(serialized[:title], locale: locale)).to eq(translated(result.title, locale: locale))
           end
         end
 
         it "serializes the description" do
           I18n.available_locales.each do |locale|
-            expect(serialized[:description]).to include(locale.to_s => result.description[locale.to_s])
+            expect(translated(serialized[:description], locale: locale)).to eq(translated(result.description, locale: locale))
           end
         end
 
