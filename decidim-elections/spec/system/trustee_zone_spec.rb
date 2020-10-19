@@ -3,14 +3,14 @@
 require "spec_helper"
 
 describe "Trustee zone", type: :system do
-  let(:organization) { user.organization }
-  let(:user) { create(:user, :confirmed) }
+  let(:organization) { create(:organization, :secure_context) }
+  let(:user) { create(:user, :confirmed, organization: organization) }
   let(:trustee) { create(:trustee, user: user, public_key: public_key) }
   let(:public_key) { nil }
 
   before do
     trustee
-    switch_to_host(organization.host)
+    switch_to_secure_context_host
     login_as user, scope: :user
   end
 
@@ -24,24 +24,64 @@ describe "Trustee zone", type: :system do
     expect(page).to have_content("Trustee identification keys")
   end
 
-  it "can generate their identification keys" do
+  it "can generate their identification keys", download: true do
     visit decidim.decidim_elections_trustee_zone_path
 
     expect(page).to have_content("Generate identification keys")
 
     click_button "Generate identification keys"
 
+    wait_for_download
+
+    expect(download_content).to have_content('"alg":"RS256"')
+
+    find("label", text: 'Submit').click
+
     expect(page).to have_content("Your identification public key was successfully stored.")
     expect(page).to have_content("Upload your identification keys")
+
+    attach_file(downloads.first) do
+      click_button "Upload your identification keys"
+    end
+
+    expect(page).not_to have_content("Upload your identification keys")
+    expect(page).not_to have_content("Trustee identification keys")
   end
 
-  context "when the trustee has a public key" do
-    let(:public_key) { "abcd" }
+  context "when the trustee already has a public key" do
+    let(:public_key) { File.read(Decidim::Dev.asset("public_key.jwk")) }
 
     it "can upload their identification keys" do
       visit decidim.decidim_elections_trustee_zone_path
 
+      expect(page).not_to have_content("Generate identification keys")
       expect(page).to have_content("Upload your identification keys")
+
+      attach_file(Decidim::Dev.asset("private_key.jwk")) do
+        click_button "Upload your identification keys"
+      end
+
+      expect(page).not_to have_content("Upload your identification keys")
+    end
+
+    {
+      "a different private key" => "private_key2.jwk",
+      "a public_key" => "public_key.jwk",
+      "an image" => "city.jpeg"
+    }.each do |description, filename|
+      it "can't upload #{description}" do
+        visit decidim.decidim_elections_trustee_zone_path
+
+        expect(page).to have_content("Upload your identification keys")
+
+        accept_alert do
+          attach_file(Decidim::Dev.asset(filename)) do
+            click_button "Upload your identification keys"
+          end
+        end
+
+        expect(page).to have_content("Upload your identification keys")
+      end
     end
   end
 

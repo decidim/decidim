@@ -3,19 +3,32 @@
 require "spec_helper"
 
 describe Decidim::Elections::TrusteeZone::TrusteeForm do
-  subject { described_class.from_params(attributes) }
+  subject { described_class.from_params(attributes).with_context(context) }
 
-  let(:public_key) { "1234567890abcde" }
+  let(:trustee) { create(:trustee, public_key: public_key) }
+  let(:public_key) { nil }
+  let(:new_public_key) { "1234567890abcde" }
   let(:attributes) do
     {
-      public_key: public_key
+      public_key: new_public_key
+    }
+  end
+  let(:context) do
+    {
+      trustee: trustee
     }
   end
 
   it { is_expected.to be_valid }
 
-  describe "when public_key is missing" do
-    let(:public_key) { "" }
+  context "when the new public_key is missing" do
+    let(:new_public_key) { "" }
+
+    it { is_expected.not_to be_valid }
+  end
+
+  context "when the trustee already has a public key" do
+    let(:public_key) { "1234567890abcde" }
 
     it { is_expected.not_to be_valid }
   end
