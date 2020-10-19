@@ -49,7 +49,7 @@ module Decidim
     end
 
     def update_reported_content!
-      @moderation.update!(reported_content: @reportable.reported_content)
+      @moderation.update!(reported_content: @reportable.reported_searchable_content_text)
     end
 
     def create_report!
