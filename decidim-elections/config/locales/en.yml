@@ -251,6 +251,8 @@ en:
             identification_keys:
               cancel: Cancel
               generate: Generate identification keys
+              generate_error: There was an error generating the identification
+                keys.
               generate_legend: You need to generate an identification pair of
                 keys to participate on elections as a Trustee.
               generate_legend_1: After pressing the button you should download

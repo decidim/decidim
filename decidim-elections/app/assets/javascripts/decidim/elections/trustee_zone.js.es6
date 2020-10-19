@@ -24,6 +24,8 @@ $(() => {
       window.trusteeIdentificationKeys.generate().then(() => {
         $trusteePublicKey.val(JSON.stringify(window.trusteeIdentificationKeys.publicKey));
         $submit.addClass("visible");
+      }).catch(() => {
+        alert($generate.data("error"))
       });
     });
 
