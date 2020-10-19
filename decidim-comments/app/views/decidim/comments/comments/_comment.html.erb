@@ -1,0 +1,5 @@
+<% if reply?(comment) %>
+  <%= cell("decidim/comments/comment", comment, root_depth: root_depth) %>
+<% else %>
+  <%= cell("decidim/comments/comment_thread", comment) %>
+<% end %>

@@ -67,6 +67,10 @@ FactoryBot.define do
   end
 
   factory :organization, class: "Decidim::Organization" do
+    transient do
+      create_static_pages { true }
+    end
+
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
@@ -104,9 +108,11 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
 
-    after(:create) do |organization|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-      create(:static_page, :tos, organization: organization) if tos_page.nil?
+    after(:create) do |organization, evaluator|
+      if evaluator.create_static_pages
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+        create(:static_page, :tos, organization: organization) if tos_page.nil?
+      end
     end
   end
 
@@ -402,6 +408,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
@@ -450,7 +464,7 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
     end
-    title { generate(:name) }
+    title { Decidim::Faker::Localized.localized { generate(:name) } }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }

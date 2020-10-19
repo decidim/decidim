@@ -1,0 +1,29 @@
+zh-CN:
+  activerecord:
+    models:
+      decidim/pages/page:
+        other: 页 次
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} 在 %{resource_name} 页面更新了 %{space_name}"
+    components:
+      pages:
+        name: 页
+        settings:
+          global:
+            announcement: 通 知
+          step:
+            announcement: 通 知
+    pages:
+      admin:
+        models:
+          components:
+            body: 正文内容
+        pages:
+          edit:
+            save: 更新
+            title: 编辑页面
+          update:
+            invalid: 保存页面时出现问题。
+            success: 页面保存成功
