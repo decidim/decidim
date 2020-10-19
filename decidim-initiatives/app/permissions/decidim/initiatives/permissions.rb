@@ -31,7 +31,7 @@ module Decidim
         unvote_initiative?
 
         initiative_attachment?
-        
+
         initiative_committee_action?
 
         permission_action
@@ -205,7 +205,7 @@ module Decidim
           UserAuthorizations.for(user).any?
         )
       end
-      
+
       def initiative_committee_action?
         return unless permission_action.subject == :initiative_committee_member
         return unless user.admin? || initiative&.has_authorship?(user)
