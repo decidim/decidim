@@ -6,7 +6,6 @@ module Decidim
   module Demographics
     describe RegisterDemographicsData do
       describe "call" do
-
         describe "when invalid" do
           pending
         end
