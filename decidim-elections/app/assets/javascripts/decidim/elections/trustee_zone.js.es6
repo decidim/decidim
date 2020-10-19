@@ -1,18 +1,17 @@
-/* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
-/* eslint no-unused-vars: ["error", { "args": "none" }] */
+/* eslint-disable require-jsdoc, no-alert, func-style */
 
 // = require ./identification_keys
 
+window.Decidim = window.Decidim || {};
+
 $(() => {
-
   function identificationKeys() {
-    const $trustee_zone = $(".trustee_zone");
-    const $form = $("form", $trustee_zone);
-    const $trustee_id = $("#trustee_id", $form);
-    const $trustee_public_key = $("#trustee_public_key", $form);
+    const $form = $(".trustee_zone form");
+    const $trusteeId = $("#trustee_id", $form);
+    const $trusteePublicKey = $("#trustee_public_key", $form);
 
-    window.trusteeIdentificationKeys = new Decidim.IdentificationKeys(`trustee-${$trustee_id.val()}`, $trustee_public_key.val());
-    if (!trusteeIdentificationKeys.browserSupport) {
+    window.trusteeIdentificationKeys = new window.Decidim.IdentificationKeys(`trustee-${$trusteeId.val()}`, $trusteePublicKey.val());
+    if (!window.trusteeIdentificationKeys.browserSupport) {
       $("#not_supported_browser").addClass("visible");
       return;
     }
@@ -21,32 +20,32 @@ $(() => {
     const $generate = $("#generate_identification_keys");
     const $upload = $("#upload_identification_keys");
 
-    $("button", $generate).click((event) => {
-      trusteeIdentificationKeys.generate().then((event) => {
-        $trustee_public_key.val(JSON.stringify(trusteeIdentificationKeys.publicKey));
+    $("button", $generate).click(() => {
+      window.trusteeIdentificationKeys.generate().then(() => {
+        $trusteePublicKey.val(JSON.stringify(window.trusteeIdentificationKeys.publicKey));
         $submit.addClass("visible");
       });
     });
 
-    $("button.hollow", $submit).click((event) => {
-      $trustee_public_key.val("");
+    $("button.hollow", $submit).click(() => {
+      $trusteePublicKey.val("");
       $submit.removeClass("visible");
     });
 
-    $("button", $upload).click((event) => {
-      trusteeIdentificationKeys.upload().then((event) => {
+    $("button", $upload).click(() => {
+      window.trusteeIdentificationKeys.upload().then(() => {
         $upload.addClass("hide");
-      }).catch((event) => {
-        alert($upload.data(event));
+      }).catch((errorMessage) => {
+        alert($upload.data(errorMessage));
       });
     })
 
-    trusteeIdentificationKeys.present((result) => {
+    window.trusteeIdentificationKeys.present((result) => {
       $upload.toggleClass("hide", result);
     });
   }
 
-  $(document).ready((event) => {
+  $(document).ready(() => {
     identificationKeys()
   })
 })

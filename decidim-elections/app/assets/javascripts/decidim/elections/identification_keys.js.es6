@@ -5,16 +5,16 @@
 ((exports) => {
   class IdentificationKeys {
     constructor(trusteeId, storedPublicKey) {
-      this.format = 'jwk';
+      this.format = "jwk";
       this.algorithm = {
-        name: 'RSASSA-PKCS1-v1_5',
+        name: "RSASSA-PKCS1-v1_5",
         modulusLength: 4096,
         publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
-        hash: {name: 'SHA-256'}
+        hash: {name: "SHA-256"}
       };
-      this.usages = ['sign'];
-      this.publicKeyAttrs = ['alg', 'e', 'kty', 'n'];
-      this.jwtHeader = this._encode64(JSON.stringify({alg: 'RS256', typ: 'JWT'}));
+      this.usages = ["sign"];
+      this.publicKeyAttrs = ["alg", "e", "kty", "n"];
+      this.jwtHeader = this._encode64(JSON.stringify({alg: "RS256", typ: "JWT"}));
 
       this.trusteeId = trusteeId;
       this.privateKey = null;
@@ -22,84 +22,89 @@
       this.storedPublicKey = JSON.parse(storedPublicKey || null);
       this.keyIdentifier = `${trusteeId}_identification_key`;
       this.browserSupport = this._checkBrowserSupport();
-      this.textEncoder = new TextEncoder('utf-8');
+      this.textEncoder = new TextEncoder("utf-8");
 
-      this.dbName = 'identification_keys';
+      this.dbName = "identification_keys";
       this.dbVersion = 1;
       this.presentPromise = this._read();
     }
 
     present(then) {
       this.presentPromise.then(() => {
-        if (!this._matchesStoredPublicKey(this.publicKey)) {
-          this.reset().then(then(false));
-        } else {
+        if (this._matchesStoredPublicKey(this.publicKey)) {
           then(this.browserSupport && this.privateKey !== null);
+        } else {
+          this.reset().then(then(false));
         }
       });
     }
 
     async generate() {
-      if(!this.browserSupport || this.storedPublicKey) {
+      if (!this.browserSupport || this.storedPublicKey) {
         return false;
       }
 
       return new Promise((resolve, reject) => {
-        this.crypto.subtle.generateKey(this.algorithm, true, this.usages).then((keyPair) => {
-          this.crypto.subtle.exportKey(this.format, keyPair.privateKey).then((jwk) => {
-            this.publicKey = this._publicKeyFromPrivateKey(jwk);
-            var element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(jwk)));
-            element.setAttribute('download', this.keyIdentifier + '.jwk');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-            resolve(true);
-          }).catch(this._handleErrors);
-        });
+        try {
+          return this.crypto.subtle.generateKey(this.algorithm, true, this.usages).then((keyPair) => {
+            return this.crypto.subtle.exportKey(this.format, keyPair.privateKey).then((jwk) => {
+              this.publicKey = this._publicKeyFromPrivateKey(jwk);
+              let element = document.createElement("a");
+              element.setAttribute("href", `data:text/plain;charset=utf-8,${encodeURIComponent(JSON.stringify(jwk))}`);
+              element.setAttribute("download", `${this.keyIdentifier}.jwk`);
+              element.style.display = "none";
+              document.body.appendChild(element);
+              element.click();
+              document.body.removeChild(element);
+              return resolve();
+            }).catch(this._handleErrors);
+          });
+        } catch (error) {
+          return reject();
+        }
       });
     }
 
     async upload() {
-      if(!this.browserSupport || this.privateKey !== null) {
+      if (!this.browserSupport || this.privateKey !== null) {
         return false;
       }
 
       return new Promise((resolve, reject) => {
-        var element = document.createElement('input');
-        element.setAttribute('type', 'file');
-        element.style.display = 'none';
+        let element = document.createElement("input");
+        element.setAttribute("type", "file");
+        element.setAttribute("accept", ".jwk");
+        element.style.display = "none";
+        document.body.appendChild(element);
 
-        element.addEventListener('change', (e) => {
+        element.addEventListener("change", (event) => {
+          document.body.removeChild(element);
           const reader = new FileReader();
           reader.readAsText(event.target.files[0]);
-          reader.onload = (event) => {
-            let jwk;
+          reader.onload = (readEvent) => {
+            let jwk = "";
             try {
-              jwk = JSON.parse(event.target.result);
+              jwk = JSON.parse(readEvent.target.result);
             } catch (error) {
-              return reject('invalid_format');
+              return reject("invalid_format");
             }
 
-            this.crypto.subtle.importKey(this.format, jwk, this.algorithm, false, this.usages).then((privateKey) => {
+            return this.crypto.subtle.importKey(this.format, jwk, this.algorithm, false, this.usages).then((privateKey) => {
               const uploadedPublicKey = this._publicKeyFromPrivateKey(jwk);
-              if (!this._matchesStoredPublicKey(uploadedPublicKey)) {
-                reject('invalid_public_key');
-                return;
+              if (this._matchesStoredPublicKey(uploadedPublicKey)) {
+                this.publicKey = uploadedPublicKey;
+                this.privateKey = privateKey;
+                this._save();
+                resolve(true);
+              } else {
+                reject("invalid_public_key");
               }
-              this.publicKey = uploadedPublicKey;
-              this.privateKey = privateKey;
-              this._save();
-              return resolve(true);
-            }).catch((event) => {
-              return reject('invalid_key');
+            }).catch(() => {
+              reject("invalid_key");
             });
           }
         });
-        document.body.appendChild(element);
         element.click();
-        document.body.removeChild(element);
       });
     }
 
@@ -109,14 +114,14 @@
     }
 
     sign(payload) {
-      if(!this.browserSupport || this.privateKey == null) {
+      if (!this.browserSupport || this.privateKey === null) {
         return false;
       }
 
-      const data = this.jwtHeader + '.' + this._encode64(JSON.stringify(payload));
+      const data = `${this.jwtHeader}.${this._encode64(JSON.stringify(payload))}`;
       const signature = this.crypto.subtle.sign(this.algorithm.name, this.privateKey, this.textEncoder.encode(data));
 
-      return data + '.' + this._encode64(signature);
+      return `${data}.${this._encode64(signature)}`;
     }
 
     _checkBrowserSupport() {
@@ -125,16 +130,16 @@
       return window.indexedDB && window.crypto;
     }
 
-    _handleErrors(e) {
-      throw e;
-    };
+    _handleErrors(error) {
+      throw error;
+    }
 
     _publicKeyFromPrivateKey(jwk) {
-      return Object.keys(jwk).filter(key => this.publicKeyAttrs.includes(key))
-                             .reduce((obj, key) => {
-                               obj[key] = jwk[key];
-                               return obj;
-                             }, {});
+      return Object.keys(jwk).filter((key) => this.publicKeyAttrs.includes(key)).
+        reduce((obj, key) => {
+          obj[key] = jwk[key];
+          return obj;
+        }, {});
     }
 
     _matchesStoredPublicKey(publicKey) {
@@ -144,64 +149,63 @@
     }
 
     _encode64(payload) {
-      return btoa(unescape(encodeURIComponent(payload))).replace(/=/g, '')
-                                                        .replace(/\+/g, '-')
-                                                        .replace(/\//g, '_');
+      return btoa(unescape(encodeURIComponent(payload))).replace(/[=]/g, "").
+        replace(/\+/g, "-").
+        replace(/\//g, "_");
     }
 
-    async _read(name, version) {
-      return this._useDb('readonly', (store) => {
-        store.get(this.keyIdentifier)
-             .onsuccess = (event) => {
-               if (event.target.result) {
-                 this.privateKey = event.target.result.privateKey;
-                 this.publicKey = event.target.result.publicKey;
-               }
-             };
+    async _read() {
+      return this._useDb("readonly", (store) => {
+        store.get(this.keyIdentifier).
+          onsuccess = (event) => {
+            if (event.target.result) {
+              this.privateKey = event.target.result.privateKey;
+              this.publicKey = event.target.result.publicKey;
+            }
+          };
       });
     }
 
     async _save() {
-      return this._useDb('readwrite', (store) => {
+      return this._useDb("readwrite", (store) => {
         store.add({
-          'privateKey': this.privateKey,
-          'publicKey': this.publicKey
+          "privateKey": this.privateKey,
+          "publicKey": this.publicKey
         }, this.keyIdentifier);
       });
     }
 
 
-
     async _clear() {
-      return this._useDb('readwrite', (store) => {
+      return this._useDb("readwrite", (store) => {
         store.delete(this.keyIdentifier);
       });
     }
 
     async _useDb(mode, operation) {
       return new Promise((resolve, reject) => {
-        var db = null;
+        let db = null;
         const dbReq = this.indexedDB.open(this.dbName, this.dbVersion);
 
-        dbReq.onerror = (event) => {
+        dbReq.onerror = () => {
           db = null;
           reject();
         };
 
-        dbReq.onupgradeneeded = (event) => {
+        dbReq.onupgradeneeded = () => {
           db = dbReq.result;
-          var objectStore = db.createObjectStore('IdentificationKeys');
+          db.createObjectStore("IdentificationKeys");
         };
 
-        dbReq.onsuccess = (event) => {
+        dbReq.onsuccess = () => {
           db = dbReq.result;
-          const tx = db.transaction(['IdentificationKeys'], mode);
+          const tx = db.transaction(["IdentificationKeys"], mode);
 
-          operation(tx.objectStore('IdentificationKeys'));
+          operation(tx.objectStore("IdentificationKeys"));
 
-          tx.oncomplete = (event) => {
+          tx.oncomplete = () => {
             db.close();
-            resolve(true);
+            resolve();
           }
         }
       });
