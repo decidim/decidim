@@ -55,6 +55,13 @@ module Decidim
           expect(last_moderation.reportable).to eq(reportable)
         end
 
+        it "updates the moderation to include the reported content" do
+          command.call
+          last_moderation = Moderation.last
+
+          expect(last_moderation.reported_content).to eq(reportable.reported_searchable_content_text)
+        end
+
         it "sends an email to the admin" do
           allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
           command.call

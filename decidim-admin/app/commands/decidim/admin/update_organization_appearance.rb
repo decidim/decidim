@@ -68,8 +68,7 @@ module Decidim
           remove_official_img_header: form.remove_official_img_header,
           official_img_footer: form.official_img_footer,
           remove_official_img_footer: form.remove_official_img_footer,
-          official_url: form.official_url,
-          show_statistics: form.show_statistics
+          official_url: form.official_url
         }
       end
 

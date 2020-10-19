@@ -30,12 +30,6 @@ describe "Js bundle sanity" do
     it_behaves_like "a valid bundle"
   end
 
-  describe "javascript comments bundle" do
-    let(:bundle_path) { "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js" }
-
-    it_behaves_like "a valid bundle"
-  end
-
   describe "javascript core bundle" do
     let(:bundle_path) { "decidim-core/app/assets/javascripts/decidim/core/bundle.js" }
 

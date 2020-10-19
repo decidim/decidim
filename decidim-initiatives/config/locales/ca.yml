@@ -302,6 +302,7 @@ ca:
           all: Tots
           answered: Amb resposta
           closed: Tancat
+          draft: Esborrany
           open: Obertes
           rejected: No ha aconseguit les signatures
         filter_type_values:

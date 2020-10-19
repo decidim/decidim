@@ -3,6 +3,8 @@ nl:
     attributes:
       answer:
         body: Antwoord
+        choices: Keuzes
+        selected_choices: Geselecteerde keuzes
       question:
         max_choices: Maximum aantal keuzes
         question_type: Type

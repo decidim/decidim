@@ -98,7 +98,6 @@ module Decidim
     # Renders the cell contents.
     def cell(name, model, options = {}, &block)
       options = { context: { current_user: current_user } }.deep_merge(options)
-
       super(name, model, options, &block)
     end
 

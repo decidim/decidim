@@ -379,7 +379,7 @@ ca:
           origin: Origen
           origin_values:
             all: Tots
-            citizens: Ciutadanes
+            citizens: Ciutadania
             official: Oficial
             user_groups: Grups
           scope: Àmbit

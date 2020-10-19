@@ -69,12 +69,12 @@ describe Decidim::Debates::UpdateDebate do
 
     it "sets the title with i18n" do
       subject.call
-      expect(debate.title.values.uniq).to eq ["title"]
+      expect(debate.title.except("machine_translations").values.uniq).to eq ["title"]
     end
 
     it "sets the description with i18n" do
       subject.call
-      expect(debate.description.values.uniq).to eq ["description"]
+      expect(debate.description.except("machine_translations").values.uniq).to eq ["description"]
     end
 
     it "traces the action", versioning: true do
