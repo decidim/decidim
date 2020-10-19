@@ -18,6 +18,8 @@ module Decidim
     include SafeRedirect
     include NeedsSnippets
 
+    include SuspensionChecker
+
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
