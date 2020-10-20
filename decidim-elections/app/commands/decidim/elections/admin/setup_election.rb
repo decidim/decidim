@@ -72,7 +72,7 @@ module Decidim
               trustees.collect do |trustee|
                 {
                   name: trustee.user.name,
-                  public_key: trustee.public_key
+                  public_key: Random.urlsafe_base64(30)
                 }
               end,
             description: {
