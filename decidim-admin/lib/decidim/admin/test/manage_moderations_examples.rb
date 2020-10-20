@@ -81,6 +81,15 @@ shared_examples "manage moderations" do
       end
       expect(page).to have_selector("tbody tr", count: 1)
     end
+
+    it "user can see moderation details" do
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        click_link "Expand"
+      end
+
+      reported_content_slice = moderation.reportable.reported_searchable_content_text.split("\n").first
+      expect(page).to have_content(reported_content_slice)
+    end
   end
 
   context "when listing hidden resources" do
