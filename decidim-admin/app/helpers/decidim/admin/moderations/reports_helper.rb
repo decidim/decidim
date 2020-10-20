@@ -22,6 +22,7 @@ module Decidim
             reportable_content = reportable.reported_attributes.map do |attribute_name|
               attribute_value = reportable.attributes.with_indifferent_access[attribute_name]
               next translated_attribute(attribute_value) if attribute_value.is_a? Hash
+
               attribute_value
             end
             reportable_content.filter(&:present?).join(". ").truncate(options.fetch(:limit, 100))
