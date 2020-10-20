@@ -191,6 +191,14 @@ module Decidim
         type_of_meeting == "online"
       end
 
+      def registration_disabled?
+        registration_type == "registration_disabled"
+      end
+
+      def on_this_platform?
+        registration_type == "on_this_platform"
+      end
+
       private
 
       def can_participate_in_meeting?(user)
