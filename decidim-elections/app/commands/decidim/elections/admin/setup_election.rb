@@ -21,12 +21,16 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           transaction do
-            add_trustees_to_election!
+            add_trustees_to_election
             setup_election
-            return broadcast(:invalid) if form.errors.any?
+            log_action
           end
 
-          broadcast(:ok, election)
+          if form.errors.any?
+            broadcast(:invalid)
+          else
+            broadcast(:ok, election)
+          end
         end
 
         private
@@ -45,16 +49,24 @@ module Decidim
           Decidim::Elections::Trustee.where(id: form.trustee_ids)
         end
 
-        def add_trustees_to_election!
+        def add_trustees_to_election
           return if election.trustees.exists?(id: form.trustee_ids)
 
           election.trustees << trustees
           election.save!
         end
 
+        def election_id
+          authority_name = Decidim::Elections.bulletin_board.authority
+          authority_name.parameterize
+          "authority_name.#{election.id}"
+        end
+
         def election_data
           {
             iat: Time.now.to_i,
+            election_id: election_id,
+            type: "create_election",
             scheme: Decidim::Elections.bulletin_board.scheme,
             trustees:
               trustees.collect do |trustee|
@@ -87,7 +99,7 @@ module Decidim
               contests:
                 questions.collect do |question|
                   {
-                    "@type": "QuestionType",
+                    "@type": "CandidateContest",
                     object_id: question.id.to_s,
                     sequence_order: question.weight,
                     vote_variation: question.vote_variation,
@@ -107,7 +119,7 @@ module Decidim
                       }]
                     },
                     ballot_selections:
-                      answers.collect do |answer|
+                      question.answers.collect do |answer|
                         {
                           object_id: answer.id.to_s,
                           sequence_order: answer.weight,
@@ -120,9 +132,9 @@ module Decidim
           }.to_h
         end
 
-        def setup_election_on_bulletin_board
+        def setup_election
           signed_data = Decidim::Elections.bulletin_board.encode_data(election_data)
-          api_key = Decidim::Elections.bulletin_board.instance_variable_get "@api_key"
+          api_key = Decidim::Elections.bulletin_board.api_key
 
           response = Decidim::Elections.bulletin_board.graphql_client.query do
             mutation do
@@ -136,18 +148,17 @@ module Decidim
           if response.data.create_election.error.present?
             error = response.data.create_election.error
             form.errors.add(:base, error)
+            raise ActiveRecord::Rollback
           end
         end
 
-        def setup_election
+        def log_action
           Decidim.traceability.perform_action!(
             :setup,
             election,
             form.current_user,
             visibility: "all"
-          ) do
-            setup_election_on_bulletin_board
-          end
+          )
         end
       end
     end

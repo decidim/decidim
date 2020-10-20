@@ -34,6 +34,7 @@ The following YAML snippet with all the defined environment variables should be 
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
     number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
+    authority_id: <%= ENV["BULLETIN_BOARD_AUTHORITY_NAME"] %>
     scheme:
       name: <%= ENV["BULLETIN_BOARD_SCHEME_NAME"] %>
       parameters:
