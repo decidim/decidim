@@ -79,7 +79,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(5),
-        slug: Faker::Internet.unique.slug(nil, "-"),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
         subtitle: Decidim::Faker::Localized.sentence(2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

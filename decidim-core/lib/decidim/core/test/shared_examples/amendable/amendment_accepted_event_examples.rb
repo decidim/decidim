@@ -37,7 +37,7 @@ shared_examples "amendment accepted event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("The <a href=\"#{emendation_path}\">amendment</a> created by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a> has been accepted for <a href=\"#{amendable_path}\">#{amendable_title}</a>.") # rubocop:disable Metrics/LineLength
+        .to eq("The <a href=\"#{emendation_path}\">amendment</a> created by <a href=\"#{emendation_author_path}\">#{emendation_author_nickname}</a> has been accepted for <a href=\"#{amendable_path}\">#{amendable_title}</a>.") # rubocop:disable Layout/LineLength
     end
   end
 end
