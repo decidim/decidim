@@ -4,6 +4,8 @@
 
 ### Added
 
+- **decidim-meetings**: Add functionality to enable/disable registration code [\#6698](https://github.com/decidim/decidim/pull/6698)
+
 ### Changed
 
 - **Comments no longer use react**
