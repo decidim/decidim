@@ -13,16 +13,18 @@
         <% end %>
       <% end %>
       <p></p>
-
-    <h4>Selected trustees</h4>
-    <ul class="no-bullet-indented">
-      <% @form.trustees.each do |trustee| %>
-        <li>
-          <%= icon "check", role: "img", "aria-hidden": true %>
-            <%= trustee.user.name %> has a <strong>valid public key</strong>
-          <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
-        </li>
-      <% end %>
-    </ul>
+    
+    <% if !@form.trustees.empty? %>
+      <h4>Selected trustees</h4>
+      <ul class="no-bullet-indented">
+        <% @form.trustees.each do |trustee| %>
+          <li>
+            <%= icon "check", role: "img", "aria-hidden": true %>
+              <%= trustee.user.name %> has a <strong>valid public key</strong>
+            <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </div>

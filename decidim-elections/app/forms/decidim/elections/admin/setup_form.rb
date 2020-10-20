@@ -41,6 +41,7 @@ module Decidim
 
         def check_election_is_valid
           errors.add("minimum_answers", "All the questions must have <strong>at least 2 answers</strong>") unless election.minimum_answers?
+          errors.add("trustees_quorum", "The <strong>number of trustees</strong> is not correct") unless trustees.size >= 2
         end
       end
     end
