@@ -6,6 +6,7 @@ module Decidim
     # existing initiative.
     class UpdateInitiative < Rectify::Command
       include Decidim::Initiatives::AttachmentMethods
+      include CurrentLocale
 
       # Public: Initializes the command.
       #
@@ -33,14 +34,13 @@ module Decidim
           build_attachment
           return broadcast(:invalid) if attachment_invalid?
         end
-
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
           attributes
         )
+
         create_attachment if process_attachments?
-        notify_initiative_is_extended if @notify_extended
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)
@@ -52,9 +52,8 @@ module Decidim
 
       def attributes
         attrs = {
-          title: form.title,
-          description: form.description,
-          hashtag: form.hashtag
+          title: { current_locale => form.title },
+          description: { current_locale => form.description }
         }
 
         if form.signature_type_updatable?
@@ -62,33 +61,12 @@ module Decidim
           attrs[:scoped_type_id] = form.scoped_type_id if form.scoped_type_id
         end
 
-        if current_user.admin?
-          add_admin_accessible_attrs(attrs)
-        elsif initiative.created?
+        if initiative.created?
           attrs[:signature_end_date] = form.signature_end_date if initiative.custom_signature_end_date_enabled?
           attrs[:decidim_area_id] = form.area_id if initiative.area_enabled?
         end
 
         attrs
-      end
-
-      def add_admin_accessible_attrs(attrs)
-        attrs[:signature_start_date] = form.signature_start_date
-        attrs[:signature_end_date] = form.signature_end_date
-        attrs[:offline_votes] = form.offline_votes if form.offline_votes
-        attrs[:state] = form.state if form.state
-        attrs[:decidim_area_id] = form.area_id
-
-        @notify_extended = form.signature_end_date != initiative.signature_end_date && form.signature_end_date > initiative.signature_end_date if initiative.published?
-      end
-
-      def notify_initiative_is_extended
-        Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.initiative_extended",
-          event_class: Decidim::Initiatives::ExtendInitiativeEvent,
-          resource: initiative,
-          followers: initiative.followers - [initiative.author]
-        )
       end
     end
   end

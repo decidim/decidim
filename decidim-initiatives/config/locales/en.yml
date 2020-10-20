@@ -365,6 +365,8 @@ en:
         export_votes: Export signatures
         reject: Reject initiative
         update: Update
+        title: Edit Initiative
+        back: Back
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"

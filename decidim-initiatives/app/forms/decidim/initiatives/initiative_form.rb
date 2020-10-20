@@ -18,6 +18,7 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
+      attribute :hashtag, String
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
@@ -27,9 +28,9 @@ module Decidim
       validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
-      validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
-        form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
-      }
+      # validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
+      #   form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
+      # }
 
       def map_model(model)
         self.type_id = model.type.id
@@ -38,6 +39,10 @@ module Decidim
 
       def signature_type_updatable?
         state == "created" || state.nil?
+      end
+
+      def state_updatable?
+        false
       end
 
       def scope_id
@@ -51,7 +56,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(type_id)
+        @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
       end
 
       def available_scopes
