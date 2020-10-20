@@ -35,7 +35,7 @@ edit_link(
     <% end %>
 
     <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <%= link_to t(".close_meeting"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+      <%= link_to t(".close_meeting"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
     <div class="card extra">
