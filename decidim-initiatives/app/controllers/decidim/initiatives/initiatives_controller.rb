@@ -54,9 +54,8 @@ module Decidim
       # GET /initiatives/:slug/edit
       def edit
         enforce_permission_to :edit, :initiative, initiative: current_initiative
-
         form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
-        @form = form(Decidim::Initiatives::Admin::InitiativeForm)
+        @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_model(
                   current_initiative,
                   initiative: current_initiative
@@ -71,7 +70,7 @@ module Decidim
         enforce_permission_to :update, :initiative, initiative: current_initiative
 
         params[:id] = params[:slug]
-        @form = form(Decidim::Initiatives::Admin::InitiativeForm)
+        @form = form(Decidim::Initiatives::InitiativeForm)
                 .from_params(params, initiative: current_initiative)
 
         UpdateInitiative.call(current_initiative, @form, current_user) do
@@ -82,7 +81,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("error", scope: "decidim.initiatives.update")
-            render :edit, layout: "decidim/admin/initiative"
+            render :edit, layout: "decidim/initiative"
           end
         end
       end
