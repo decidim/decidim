@@ -4,37 +4,25 @@
   </div>
 
   <div class="card-section">
-    <% if !@form.valid? %>
-      <% form.object.errors.values.each do |message| %>
-        <small class=""><%= message[0] %></small>
+    <% @form.valid? %>
+      <% @form.messages.each do |key, value| %>
+        <% if form.object.errors.include?(key) %>
+          <p><%= icon "x", role: "img", "aria-hidden": true %>&nbsp;<%= form.object.errors.messages[key][0].html_safe %></p>
+        <% else %>
+          <p><%= icon "check", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></p>
+        <% end %>
       <% end %>
-    <% else %>
-      <p>The definition for the election <strong><%= translated_attribute(election.title) %></strong> consists in <strong><%= election.questions.size %> questions </strong>and all of them are valid.</p>
-      <p>The trustees that are going to participate in this election are:</p>
-      <div class="table-scroll">
-        <table class="table-list">
-          <thead>
-            <tr>
-              <th><%= t("models.election.fields.user", scope: "decidim.elections") %></th>
-              <th><%= t("models.election.fields.public_key", scope: "decidim.elections") %></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @form.trustees.each do |trustee| %>
-              <tr data-id="<%= trustee.id %>">
-                <td>
-                  <%= trustee.user.name %>
-                </td>
-                <td>
-                  <%= trustee.public_key %>
-                </td>
-              </tr>
-              <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <p>The size of this list of trustees is correct and it will be needed at least <strong>2 trustees</strong> to perform the tally process.</p>
-    <% end %>
+      <p></p>
+
+    <h4>Selected trustees</h4>
+    <ul class="no-bullet-indented">
+      <% @form.trustees.each do |trustee| %>
+        <li>
+          <%= icon "check", role: "img", "aria-hidden": true %>
+            <%= trustee.user.name %> has a <strong>valid public key</strong>
+          <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

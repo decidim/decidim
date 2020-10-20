@@ -14,6 +14,16 @@ module Decidim
 
         def update
           @form = form(SetupForm).from_params(params, election: election, trustee_ids: params[:setup][:trustee_ids])
+          SetupElection.call(@form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("elections.setup.success", scope: "decidim.elections.admin")
+              redirect_to elections_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("elections.setup.invalid", scope: "decidim.elections.admin")
+            end
+          end
         end
 
         private

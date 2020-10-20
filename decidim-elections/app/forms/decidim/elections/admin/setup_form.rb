@@ -5,7 +5,9 @@ module Decidim
     module Admin
       # This class holds a Form to setup elections from Decidim's admin panel.
       class SetupForm < Decidim::Form
+        include TranslatableAttributes
         attribute :trustee_ids, Array[Integer]
+
         validate :check_election_is_valid
 
         def map_model(model)
@@ -23,17 +25,22 @@ module Decidim
                                                                                                                   considered: true)).to_a.sort_by(&:id)
         end
 
+        def messages
+          { published: "The election is <strong>published</strong>",
+            time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts",
+            start_time: "The <strong>start time</strong> is setted up <strong>before the end time</strong>",
+            minimum_questions: "The election has <strong>at least 1 question</strong>",
+            minimum_answers: "Each question has <strong>at least 2 answers</strong>",
+            max_selections: "All the questions have a correct value for <strong>maximum of answers</strong>",
+            trustees_quorum: "The size of this list of trustees is correct and it will be needed <strong>at least 2 trustees</strong> to perform the tally process." }
+        end
+
         def election
           @election ||= context[:election]
         end
 
-        def start_time
-          @start_time ||= election.start_time
-        end
-
         def check_election_is_valid
-          # errors.add(:start_time, "minimun 3 hours") unless election.minimum_three_hours_before_start?
-          errors.add(:start_time, "All the questions must have at least 2 answers") unless election.minimum_answers?
+          errors.add("minimum_answers", "All the questions must have <strong>at least 2 answers</strong>") unless election.minimum_answers?
         end
       end
     end
