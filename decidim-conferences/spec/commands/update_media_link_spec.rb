@@ -38,7 +38,7 @@ module Decidim::Conferences
       it "updates the media link title" do
         expect do
           subject.call
-        end.to change { media_link.reload && media_link.title }.from(media_link.title).to("en" => "New title")
+        end.to change { media_link.reload && media_link.title }.from(media_link.title).to("en" => "New title", "machine_translations" => kind_of(Hash))
       end
 
       it "broadcasts  ok" do

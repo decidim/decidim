@@ -9,6 +9,8 @@ module Decidim
     it { is_expected.to be_valid }
 
     context "without title" do
+      subject(:assemblies_type) { build(:assemblies_type, title: { en: "My title" }) }
+
       before do
         assemblies_type.title = {}
       end

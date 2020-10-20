@@ -303,6 +303,10 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    pages:
+      home:
+        statistics:
+          elections_count: Elections
     participatory_processes:
       statistics:
         elections_count: Elections

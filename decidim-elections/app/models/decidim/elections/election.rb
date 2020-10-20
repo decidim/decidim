@@ -14,7 +14,7 @@ module Decidim
       include Traceable
       include Loggable
 
-      translatable_fields :title, :description, :subtitle
+      translatable_fields :title, :description
 
       component_manifest_name "elections"
 

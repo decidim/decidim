@@ -185,10 +185,13 @@ bg:
           global:
             categories_label: Име за "категории"
             comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             display_progress_enabled: Показвай развитието
             heading_leaf_level_results: Име за "Проекти"
             heading_parent_level_results: Име за "Резултати"
             intro: Въведение
+            scope_id: Сфера
+            scopes_enabled: Сферите са разрешени
             subcategories_label: Име за "подкатегории"
           step:
             comments_blocked: Коментарите са блокирани
@@ -213,6 +216,9 @@ bg:
       participatory_process_groups:
         highlighted_results:
           results: Резултати
+    participatory_spaces:
+      highlighted_results:
+        see_all: Виж всички резултати (%{count})
     resource_links:
       included_projects:
         result_project: Проекти, включени в резултата

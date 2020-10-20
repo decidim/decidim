@@ -2,7 +2,7 @@
   <%= icon "external-link", role: "img", "aria-hidden": true %>
   <div>
     <%= link_to model.link, target: "_blank" do %>
-      <strong><%= translated_attribute(model.title) %> </strong>
+      <strong><%= decidim_html_escape  translated_attribute(model.title) %> </strong>
     <% end %>
     <div class="text-small"><%= l(model.date, format: :decidim_short_with_month_name_short) %> · <%= model.link %></div>
   </div>

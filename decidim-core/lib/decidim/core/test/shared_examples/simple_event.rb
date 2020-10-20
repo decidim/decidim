@@ -89,6 +89,13 @@ shared_examples_for "a simple event" do |skip_space_checks|
     end
   end
 
+  describe "safe_resource_text" do
+    it "is generated correctly" do
+      expect(subject.safe_resource_text).to be_kind_of(String)
+      expect(subject.safe_resource_text).to be_html_safe
+    end
+  end
+
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title).to be_kind_of(String)

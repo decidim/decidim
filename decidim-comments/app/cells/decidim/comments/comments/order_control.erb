@@ -1,0 +1,37 @@
+<div class="order-by__dropdown order-by__dropdown--right">
+  <span class="order-by__text"><%= t("decidim.components.comment_order_selector.title") %></span>
+  <ul class="dropdown menu"
+    data-dropdown-menu="data-dropdown-menu"
+    data-autoclose="false"
+    data-disable-hover="true"
+    data-click-open="true"
+    data-close-on-click="true"
+    tabindex="-1"
+    role="menubar">
+    <li class="is-dropdown-submenu-parent opens-right" tabindex="-1" role="none">
+      <a href="#" id="comments-order-menu-control"
+        aria-label="<%= t("decidim.components.comment_order_selector.title") %>"
+        aria-controls="comments-order-menu"
+        aria-haspopup="true"
+        role="menuitem"><%= t("decidim.components.comment_order_selector.order.#{order}") %></a>
+      <ul class="menu is-dropdown-submenu submenu first-sub vertical"
+        id="comments-order-chooser-menu"
+        role="menu"
+        aria-labelledby="comments-order-menu-control"
+        tabindex="-1"
+        data-submenu="">
+        <% available_orders.each do |order_value| %>
+          <li role="none" class="is-submenu-item is-dropdown-submenu-item">
+            <%= link_to(
+              t("decidim.components.comment_order_selector.order.#{order_value}"),
+              decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
+              tabindex: -1,
+              role: "menuitem",
+              remote: true
+            ) %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>

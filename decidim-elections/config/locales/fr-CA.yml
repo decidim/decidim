@@ -196,7 +196,7 @@ fr-CA:
             max_selections: Nombre maximum de sélections
             title: Titre
       orders:
-        label: Trier les élections par 
+        label: Trier les élections par
         older: Les plus anciens
         recent: Les plus récents
       votes:

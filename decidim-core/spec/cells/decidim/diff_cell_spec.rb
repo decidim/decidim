@@ -40,7 +40,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   describe "view unescaped html" do
     include_context "with rich text editor content"
 
-    let(:item) { create(:proposal, body: content) }
+    let(:item) { create(:proposal, body: { en: content }) }
 
     context "when rich text editor is enabled on the frontend" do
       before { organization.update(rich_text_editor_in_public_views: true) }
