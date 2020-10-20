@@ -35,7 +35,7 @@ describe "Trustee zone", type: :system do
 
     expect(download_content).to have_content('"alg":"RS256"')
 
-    find("label", text: 'Submit').click
+    find("label", text: "Submit").click
 
     expect(page).to have_content("Your identification public key was successfully stored.")
     expect(page).to have_content("Upload your identification keys")

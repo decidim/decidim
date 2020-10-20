@@ -21,7 +21,7 @@ module Decidim
 
           UpdateTrustee.call(form) do
             on(:ok) do
-              flash[:notice] = I18n.t("trustee.update.success", scope: "decidim.elections.trustee_zone")
+              flash[:notice] = I18n.t("trustees.update.success", scope: "decidim.elections.trustee_zone")
             end
 
             on(:invalid) do

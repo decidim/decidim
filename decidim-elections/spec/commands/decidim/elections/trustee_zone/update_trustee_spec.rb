@@ -3,13 +3,14 @@
 require "spec_helper"
 
 describe Decidim::Elections::TrusteeZone::UpdateTrustee do
-  subject { described_class.new(form, trustee) }
+  subject { described_class.new(form) }
 
   let(:trustee) { create :trustee, public_key: nil }
   let(:form) do
     double(
       invalid?: invalid,
-      public_key: public_key
+      public_key: public_key,
+      trustee: trustee
     )
   end
   let(:public_key) { "asadasfdafadssda" }
