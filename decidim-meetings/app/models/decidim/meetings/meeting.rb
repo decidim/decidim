@@ -199,6 +199,10 @@ module Decidim
         registration_type == "on_this_platform"
       end
 
+      def on_different_platform?
+        registration_type == "on_different_platform"
+      end
+
       private
 
       def can_participate_in_meeting?(user)

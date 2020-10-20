@@ -12,7 +12,14 @@
       <%= t("going", scope: "decidim.meetings.meetings.show") %>
     <% end %>
   <% else %>
-    <% if model.registration_form_enabled? %>
+    <% if model.on_different_platform? %>
+      <%= action_authorized_link_to(
+        :join,
+        i18n_join_text,
+        model.registration_url,
+        class: button_classes
+      ) %>
+    <% elsif model.registration_form_enabled? %>
       <%= action_authorized_link_to(
         :join,
         i18n_join_text,
