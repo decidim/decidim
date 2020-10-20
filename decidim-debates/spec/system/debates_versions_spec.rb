@@ -104,9 +104,11 @@ describe "Explore versions", versioning: true, type: :system do
 
   def update_debate
     form = Decidim::Debates::Admin::DebateForm.from_params(
-      title: { "en" => "New title" },
-      description: { "en" => "New description" },
-      instructions: { "en" => "New instructions" }
+      debate.attributes.with_indifferent_access.merge(
+        title: { "en" => "New title" },
+        description: { "en" => "New description" },
+        instructions: { "en" => "New instructions" }
+      )
     ).with_context(
       current_organization: organization,
       current_participatory_space: component.participatory_space,

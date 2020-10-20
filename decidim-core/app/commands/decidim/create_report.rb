@@ -25,6 +25,7 @@ module Decidim
 
       transaction do
         find_or_create_moderation!
+        update_reported_content!
         create_report!
         update_report_count!
       end
@@ -46,6 +47,10 @@ module Decidim
 
     def find_or_create_moderation!
       @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_space)
+    end
+
+    def update_reported_content!
+      @moderation.update!(reported_content: @reportable.reported_content)
     end
 
     def create_report!

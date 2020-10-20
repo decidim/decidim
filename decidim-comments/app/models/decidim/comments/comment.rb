@@ -130,6 +130,14 @@ module Decidim
         end
       end
 
+      # Public: Overrides the `reported_content` Reportable concern method.
+      def reported_content
+        [
+          normalized_author.name,
+          body.values.join("\n")
+        ].join("\n")
+      end
+
       def self.export_serializer
         Decidim::Comments::CommentSerializer
       end
@@ -163,7 +171,7 @@ module Decidim
       end
 
       def comment_maximum_length
-        return unless commentable.commentable?
+        return 0 unless commentable.commentable?
         return component.settings.comments_max_length if component_settings_comments_max_length?
         return organization.comments_max_length if organization.comments_max_length.positive?
 

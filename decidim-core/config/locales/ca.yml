@@ -1061,7 +1061,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions.
           success: Genial! Has acceptat els Termes i Condicions.
         form:
-          agreement: Estic d'acord amb aquests aquests termes
+          agreement: Estic d'acord amb aquests termes
           legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{data_portability_path}">descarregar les teves dades</a> i / o <a href="%{delete_path}">esborrar el teu compte de</a>.

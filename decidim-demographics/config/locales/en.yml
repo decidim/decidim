@@ -1,0 +1,68 @@
+---
+en:
+  decidim:
+    components:
+      demographics:
+        name: Demographics
+    demographics:
+      data:
+        update:
+          error: There was an error saving demographic data
+          success: The demographic data successfully saved
+      directory:
+        demographics:
+          form:
+            age_help: Pleae select your age group
+            age_prompt: Please select your age
+            gender_help: Please select your gender
+            gender_prompt: Your gender
+            genders:
+              man: Man
+              non_binary: Other
+              woman: Woman
+            nationalities:
+              austrian: Austrian
+              belgian: Belgian
+              bulgarian: Bulgarian
+              croat: Croat
+              cypriote: Cypriote
+              czech: Czech
+              dane: Dane
+              dutch: Dutch
+              estonian: Estonian
+              finn: Finn
+              french: French
+              german: German
+              greek: Greek
+              hungarian: Hungarian
+              irish: Irish
+              italian: Italian
+              latvian: Latvian
+              lithuanian: Lithuanian
+              luxembourger: Luxemburger
+              maltese: Maltese
+              other: Other
+              polish: Polish
+              portuguese: Portuguese
+              romanian: Romanian
+              slovak: Slovak
+              slovenian: Slovenian
+              spanish: Spanish
+              swede: Swede
+            nationalities_help: Please select up to 3 nationalities
+            nationality_prompt: ''
+            professional_categories:
+              house-worker: House worker
+              manager: Manager
+              manual-worker: Manual worker
+              retired: Retired
+              self-employed: Self-employed
+              student: Student
+              unemployed: Unemployed
+              white-collar: White collar
+          new:
+            save: Save
+  layouts:
+    decidim:
+      user_profile:
+        demographics: Demographic data

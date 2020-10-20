@@ -69,6 +69,10 @@ module Decidim
 
       def resource_text; end
 
+      def safe_resource_text
+        translated_attribute(resource_text).to_s.html_safe
+      end
+
       def resource_title
         return unless resource
 

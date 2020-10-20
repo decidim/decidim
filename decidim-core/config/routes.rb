@@ -36,6 +36,7 @@ Decidim::Core::Engine.routes.draw do
   end
 
   mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+  mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
 
   Decidim.global_engines.each do |name, engine_data|
     mount engine_data[:engine], at: engine_data[:at], as: name
@@ -107,8 +108,6 @@ Decidim::Core::Engine.routes.draw do
 
   get "/search", to: "searches#index", as: :search
 
-  get :organization_users, to: "users#index"
-
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
@@ -122,6 +121,7 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
+  resource :report_user, only: [:create]
   resources :endorsements, only: [:create, :destroy] do
     get :identities, on: :member
   end

@@ -3,7 +3,7 @@
 shared_examples "manage processes announcements" do
   let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
-  it "customize an general announcement for the process" do
+  it "can customize a general announcement for the process" do
     click_link translated(participatory_process.title)
 
     fill_in_i18n_editor(
