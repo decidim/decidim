@@ -130,14 +130,8 @@ module Decidim
         registration_type == "on_different_platform"
       end
 
-      def external_registrations_allowed?
-        current_component.settings.allow_external_registrations?
-      end
-
       def registration_type_select
         REGISTRATION_TYPE.map do |type|
-          next if !external_registrations_allowed? && type == "on_different_platform"
-
           [
             I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
             type

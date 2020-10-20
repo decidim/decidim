@@ -59,7 +59,6 @@ Decidim.register_component(:meetings) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :enable_pads_creation, type: :boolean, default: false
     settings.attribute :creation_enabled_for_participants, type: :boolean, default: false
-    settings.attribute :allow_external_registrations, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|

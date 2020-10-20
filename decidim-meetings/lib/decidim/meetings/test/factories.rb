@@ -18,14 +18,6 @@ FactoryBot.define do
         }
       end
     end
-
-    trait :with_external_registrations_enabled do
-      settings do
-        {
-          allow_external_registrations: true
-        }
-      end
-    end
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do

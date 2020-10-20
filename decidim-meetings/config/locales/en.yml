@@ -84,7 +84,6 @@ en:
         name: Meetings
         settings:
           global:
-            allow_external_registrations: Allow external registrations
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
