@@ -359,14 +359,14 @@ en:
           more_information: "(More information)"
       edit:
         accept: Accept the initiative
+        back: Back
         confirm: Are you sure?
         discard: Discard the initiative
         export_pdf_signatures: Export PDF of signatures
         export_votes: Export signatures
         reject: Reject initiative
-        update: Update
         title: Edit Initiative
-        back: Back
+        update: Update
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
