@@ -76,6 +76,7 @@
               <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
               <td><%= report.locale.present? ? locale_name(report.locale) : '' %></td>
               <td>
+                <%= reported_content_excerpt_for(moderation.reportable) %>
                 <%= icon_link_to "fullscreen-enter",
                                   moderation_report_path(moderation_id: moderation, id: report.id),
                                   t("actions.expand", scope: "decidim.moderations"),
