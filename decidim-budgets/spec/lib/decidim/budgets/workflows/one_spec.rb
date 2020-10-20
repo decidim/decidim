@@ -42,7 +42,7 @@ module Decidim::Budgets
 
       it "would allow to vote in other resources" do
         workflow.budgets.each do |resource|
-          expect(subject).to be_vote_allowed(resource, false)
+          expect(subject).to be_vote_allowed(resource, consider_progress: false)
         end
       end
 

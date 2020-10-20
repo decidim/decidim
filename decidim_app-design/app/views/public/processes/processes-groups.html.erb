@@ -165,7 +165,7 @@
                 <li class="card-data__item">
                   <a href="">
                     <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
+                    <%= Faker::Number.between(from: 0, to: 100) %>
                   </a>
                 </li>
               </ul>
@@ -198,7 +198,7 @@
 
     <!-- block: proposals -->
     <section class="section">
-      <h2 class="section-heading">Proposals&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
+      <h2 class="section-heading">Proposals&nbsp;<span class="muted"><%= Faker::Number.between(from: 0, to: 100) %> results</span></h2>
       <div class="row small-up-1 medium-up-2 mediumlarge-up-3 large-up-3 card-grid">
         <% 8.times do %>
         <div class="column">
@@ -248,20 +248,20 @@
                 <li class="card-data__item">
                   <a href="">
                     <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
+                    <%= Faker::Number.between(from: 0, to: 100) %>
                   </a>
                 </li>
                 <li class="card-data__item">
                   <a href="" title="Comentarios">
                     <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                    <%= Faker::Number.between(0, 100) %>
+                    <%= Faker::Number.between(from: 0, to: 100) %>
                   </a>
                 </li>
               </ul>
             </div>
             <div class="card__footer">
               <div class="card__support">
-                <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), total: 100 } %>
+                <%= partial "progress_bar", { progress: Faker::Number.between(from: 0, to: 100), total: 100 } %>
 
                 <button class="card__button button button--sc small">
                   Apoyar

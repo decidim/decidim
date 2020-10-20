@@ -29,13 +29,13 @@
       <div class="mr-s">
         <%= link_to page_path("user/user-followers") do %>
           Followers
-          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
+          <h2 class="heading2"><strong><%= Faker::Number.number(digits: 2) %></strong></h2>
         <% end %>
       </div>
       <div class="ml-s">
         <%= link_to page_path("user/user-following") do %>
           Following
-          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
+          <h2 class="heading2"><strong><%= Faker::Number.number(digits: 2) %></strong></h2>
         <% end %>
       </div>
     </div>

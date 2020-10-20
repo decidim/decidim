@@ -33,8 +33,8 @@
         <div class="card text-center">
           <div class="card__content">
             <div>
-              <strong class="text-large text-uppercase">version <%= Faker::Number.between(1, 5) %></strong>&nbsp;
-              <small class="text-medium">(of <%= Faker::Number.between(6, 10) %>)</small>
+              <strong class="text-large text-uppercase">version <%= Faker::Number.between(from: 1, to: 5) %></strong>&nbsp;
+              <small class="text-medium">(of <%= Faker::Number.between(from: 6, to: 10) %>)</small>
             </div>
             <div>
               <span class="text-medium"><u>see other versions</u></span>
@@ -46,19 +46,19 @@
               <li class="card-data__item">
                 <a href="">
                   <%= icon "people", class: "icon--small" %>
-                  <%= Faker::Number.between(0, 100) %>
+                  <%= Faker::Number.between(from: 0, to: 100) %>
                 </a>
               </li>
               <li class="card-data__item">
                 <a href="">
                   <%= icon "pencil", class: "icon--small" %>
-                  <%= Faker::Number.between(0, 100) %>
+                  <%= Faker::Number.between(from: 0, to: 100) %>
                 </a>
               </li>
               <li class="card-data__item">
                 <a href="" title="Comentarios">
                   <%= icon "comment-square", class: "icon--small" %>
-                  <%= Faker::Number.between(0, 100) %>
+                  <%= Faker::Number.between(from: 0, to: 100) %>
                 </a>
               </li>
             </ul>

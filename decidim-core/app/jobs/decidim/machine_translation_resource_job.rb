@@ -8,6 +8,8 @@ module Decidim
   class MachineTranslationResourceJob < ApplicationJob
     queue_as :default
 
+    # rubocop: disable Metrics/CyclomaticComplexity
+
     # Performs the job.
     #
     # resource - Any kind of `Decidim::TranslatableResource` model instance
@@ -46,6 +48,7 @@ module Decidim
         end
       end
     end
+    # rubocop: enable Metrics/CyclomaticComplexity
 
     def default_locale_changed_or_translation_removed(previous_changes, field)
       default_locale = default_locale(@resource)

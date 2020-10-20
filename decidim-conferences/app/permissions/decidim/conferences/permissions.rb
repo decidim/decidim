@@ -80,7 +80,7 @@ module Decidim
       def can_decline_invitation?
         return unless conference.presence
         return unless conference.registrations_enabled? &&
-                      conference.conference_invites.where(user: user).exists? &&
+                      conference.conference_invites.exists?(user: user) &&
                       permission_action.action == :decline_invitation &&
                       permission_action.subject == :conference
 

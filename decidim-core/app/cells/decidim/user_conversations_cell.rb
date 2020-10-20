@@ -32,7 +32,7 @@ module Decidim
     end
 
     def conversation_interlocutors(conversation)
-      return username_list(conversation.interlocutors(user), true) unless conversation.interlocutors(user).count == 1
+      return username_list(conversation.interlocutors(user), shorten: true) unless conversation.interlocutors(user).count == 1
 
       "#{conversation.interlocutors(user).first.name} <span class=\"muted\">@#{conversation.interlocutors(user).first.nickname}</span>"
     end

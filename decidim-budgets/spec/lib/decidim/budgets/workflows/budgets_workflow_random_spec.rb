@@ -75,7 +75,7 @@ describe BudgetsWorkflowRandom do
 
     it "would not allow to vote in other resources" do
       other_resources.each do |resource|
-        expect(subject).not_to be_vote_allowed(resource, false)
+        expect(subject).not_to be_vote_allowed(resource, consider_progress: false)
       end
     end
 
@@ -89,7 +89,7 @@ describe BudgetsWorkflowRandom do
       it_behaves_like "allows to vote only in the order resource"
 
       it "would allow to vote in the chosen resource" do
-        expect(subject).to be_vote_allowed(chosen_resource, false)
+        expect(subject).to be_vote_allowed(chosen_resource, consider_progress: false)
       end
     end
 

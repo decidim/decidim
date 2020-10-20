@@ -55,10 +55,10 @@ module Decidim
       # present, it returns `nil`.
       def resource_path
         @resource_path ||= begin
-                             Decidim::ResourceLocatorPresenter.new(resource).path
-                           rescue NoMethodError
-                             nil
-                           end
+          Decidim::ResourceLocatorPresenter.new(resource).path
+        rescue NoMethodError
+          nil
+        end
       end
 
       # Private: Presents resource name.

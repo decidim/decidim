@@ -37,7 +37,7 @@ module Decidim
 
         def already_invited?
           return false unless user.persisted?
-          return false unless conference.conference_invites.where(user: user).exists?
+          return false unless conference.conference_invites.exists?(user: user)
 
           form.errors.add(:email, :already_invited)
           true
