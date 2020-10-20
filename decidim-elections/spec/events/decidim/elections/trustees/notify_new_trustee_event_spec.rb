@@ -9,6 +9,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   let(:resource) { create(:participatory_process) }
   let(:participatory_space_title) { resource.title["en"] }
   let(:resource_title) { resource.title["en"] }
+  let(:trustee_zone_url) { "http://#{resource.organization.host}/trustee" }
 
   it_behaves_like "a simple event"
 
@@ -21,7 +22,7 @@ describe Decidim::Elections::Trustees::NotifyNewTrusteeEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("An admin has added you as trustee for #{participatory_space_title}. You should create your public key here: LINK")
+        .to eq("An admin has added you as trustee for #{participatory_space_title}. You should create your public key <a href='#{trustee_zone_url}'>in your trustee zone</a>")
     end
   end
 

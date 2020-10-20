@@ -324,7 +324,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
         trustees:
           new_trustee:
-            email_intro: 'An admin has added you as trustee for %{resource_name}. You should create your public key here: LINK'
+            email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
