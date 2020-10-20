@@ -60,7 +60,14 @@ module Decidim
         end
 
         def proposals
-          Decidim::Proposals::Proposal.where(component: origin_component).where(state: "accepted")
+          return all_proposals if form.scope_id.blank?
+
+          all_proposals.where(decidim_scope_id: form.scope_id)
+        end
+
+        def all_proposals
+          Decidim::Proposals::Proposal.where(component: origin_component)
+                                      .where(state: :accepted)
         end
 
         def origin_component

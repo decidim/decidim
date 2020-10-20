@@ -8,7 +8,7 @@ module Decidim
       @documents = []
       @form.add_documents.each do |file|
         @documents << Attachment.new(
-          title: file.original_filename,
+          title: { I18n.locale => file.original_filename },
           attached_to: @attached_to || documents_attached_to,
           file: file
         )

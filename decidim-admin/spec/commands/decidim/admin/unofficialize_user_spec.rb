@@ -37,7 +37,7 @@ module Decidim::Admin
       expect(action_log.extra)
         .to include(
           "extra" => {
-            "officialized_user_badge_previous" => hash_including("en", "ca", "es"),
+            "officialized_user_badge_previous" => hash_including("en", "ca", "machine_translations"),
             "officialized_user_badge" => nil,
             "officialized_user_at_previous" => a_kind_of(String),
             "officialized_user_at" => nil

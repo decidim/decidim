@@ -7,11 +7,8 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::HasComponent
-      include Decidim::TranslatableResource
 
       component_manifest_name "surveys"
-
-      translatable_fields :title, :description, :tos
 
       validates :questionnaire, presence: true
 
