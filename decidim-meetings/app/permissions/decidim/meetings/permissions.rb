@@ -56,7 +56,8 @@ module Decidim
 
       def can_update_meeting?
         component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user)
+          meeting.authored_by?(user) &&
+          !meeting.closed?
       end
 
       def can_close_meeting?

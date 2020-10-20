@@ -154,6 +154,12 @@ describe Decidim::Meetings::Permissions do
         let(:meeting) { create :meeting, author: user, component: meeting_component }
 
         it { is_expected.to eq true }
+
+        context "when meeting is closed" do
+          let(:meeting) { create :meeting, :closed, author: user, component: meeting_component }
+
+          it { is_expected.to eq false }
+        end
       end
     end
 
