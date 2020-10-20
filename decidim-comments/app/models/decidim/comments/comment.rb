@@ -158,11 +158,12 @@ module Decidim
       private
 
       def body_length
-        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+        language = (body.keys - ["machine_translations"]).first
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body[language].length <= comment_maximum_length
       end
 
       def comment_maximum_length
-        return unless commentable.commentable?
+        return 0 unless commentable.commentable?
         return component.settings.comments_max_length if component_settings_comments_max_length?
         return organization.comments_max_length if organization.comments_max_length.positive?
 

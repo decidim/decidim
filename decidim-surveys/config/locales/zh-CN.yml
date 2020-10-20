@@ -1,0 +1,60 @@
+zh-CN:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: 调查结束
+      decidim/surveys/opened_survey_event: 调查已开始
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        other: 调查
+      decidim/surveys/survey_answer:
+        other: 答案
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: 答案
+        name: 调查
+        settings:
+          global:
+            announcement: 通 知
+            clean_after_publish: 在发布调查时删除答案
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+          step:
+            allow_answers: 允许答案
+            allow_unregistered: 允许未注册用户回答调查
+            allow_unregistered_help: 如果激活，将不需要登录才能回答调查。 这可能导致数据不准确或不可靠，更容易受到自动攻击。请谨慎使用！
+            announcement: 通 知
+    events:
+      surveys:
+        survey_closed:
+          email_intro: '%{resource_title} 在 %{participatory_space_title} 中的调查已被关闭。'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 调查已在 %{participatory_space_title} 完成
+          notification_title: 调查 <a href="%{resource_path}">%{resource_title}</a> 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 已完成。
+        survey_opened:
+          email_intro: '调查 %{resource_title} %{participatory_space_title} 现已打开。您可以从这个页面参与：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{participatory_space_title} 的新调查'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 中的调查现已打开。
+    metrics:
+      survey_answers:
+        description: 参与者回答的调查次数
+        object: 调查答案
+        title: 对调查的答复
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: 调查参与者答案
+        surveys:
+          update:
+            invalid: 保存调查时出现问题。
+            success: 调查保存成功。
+      last_activity:
+        new_survey_at_html: "<span>在 %{link}上的新调查</span>"
+      surveys:
+        answer:
+          invalid: 回答调查时出现问题。
+          spam_detected: 回答表单时出现问题。可能你太快了，你可以再试一次吗？
+          success: 调查回答成功。

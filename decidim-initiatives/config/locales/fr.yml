@@ -302,6 +302,7 @@ fr:
           all: Tout
           answered: Répondu
           closed: Fermées
+          draft: Brouillon
           open: Ouvrir
           rejected: Pas assez de signatures
         filter_type_values:

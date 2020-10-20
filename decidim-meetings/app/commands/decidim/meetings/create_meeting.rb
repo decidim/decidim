@@ -34,18 +34,20 @@ module Decidim
         params = {
           scope: form.scope,
           category: form.category,
-          title: parsed_title,
-          description: parsed_description,
+          title: { I18n.locale => parsed_title },
+          description: { I18n.locale => parsed_description },
           end_time: form.end_time,
           start_time: form.start_time,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude,
-          location: form.location,
-          location_hints: form.location_hints,
+          location: { I18n.locale => form.location },
+          location_hints: { I18n.locale => form.location_hints },
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
-          registration_terms: form.current_component.settings.default_registration_terms,
+          registration_terms: { I18n.locale => form.current_component.settings.default_registration_terms },
+          online_meeting_url: form.online_meeting_url,
+          type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component
         }
 

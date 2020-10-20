@@ -8,8 +8,8 @@ module Decidim
       # Lists which attributes will be diffable and how they should be rendered.
       def attribute_types
         {
-          title: :string_or_i18n,
-          body: :string_or_i18n,
+          title: :i18n,
+          body: :i18n,
           decidim_category_id: :category,
           decidim_scope_id: :scope,
           address: :string,
@@ -27,14 +27,6 @@ module Decidim
         old_value = values[0]
         new_value = values[1]
 
-        if type == :string_or_i18n
-          type = if old_value.is_a?(String)
-                   :string
-                 else
-                   :i18n
-                 end
-        end
-
         diff.update(
           attribute => {
             type: type,
@@ -50,15 +42,7 @@ module Decidim
       # Returns and Array of two Strings.
       def parse_values(attribute, values)
         values = [amended_previous_value(attribute), values[1]] if proposal&.emendation?
-        if attribute == :body
-          values = values.map do |value|
-            if value.is_a?(Hash)
-              value.values.map { |subvalue| normalize_line_endings(subvalue) }
-            else
-              normalize_line_endings(value)
-            end
-          end
-        end
+        values = values.map { |value| normalize_line_endings(value) } if attribute == :body
         values
       end
 
@@ -74,8 +58,12 @@ module Decidim
       end
 
       # Returns a String with the newline escape sequences normalized.
-      def normalize_line_endings(string)
-        Decidim::ContentParsers::NewlineParser.new(string, context: {}).rewrite
+      def normalize_line_endings(value)
+        if value.is_a?(Hash)
+          value.values.map { |subvalue| normalize_line_endings(subvalue) }
+        else
+          Decidim::ContentParsers::NewlineParser.new(value, context: {}).rewrite
+        end
       end
 
       def proposal

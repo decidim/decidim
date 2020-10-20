@@ -21,7 +21,7 @@ module Decidim
     end
 
     describe Localized do
-      let(:available_locales) { [:en, :ca] }
+      let(:available_locales) { [:en, :ca, :es] }
 
       before do
         allow(Decidim).to receive(:available_locales).and_return available_locales
