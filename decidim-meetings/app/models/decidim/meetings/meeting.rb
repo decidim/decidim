@@ -191,15 +191,14 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
-      # Public: Overrides the `reported_content` Reportable concern method.
-      def reported_content
-        [
-          normalized_author.name,
-          description.values.join("\n"),
-          location.values.join("\n"),
-          location_hints.values.join("\n"),
-          registration_terms.present? ? registration_terms.values.join("\n") : ""
-        ].join("\n")
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:description]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
 
       def online_meeting?
