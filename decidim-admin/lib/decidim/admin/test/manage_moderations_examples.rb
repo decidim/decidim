@@ -3,7 +3,7 @@
 shared_examples "manage moderations" do
   let!(:moderations) do
     reportables.first(reportables.length - 1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_content)
+      moderation = create(:moderation, reportable: reportable, report_count: 1, reported_content: reportable.reported_searchable_content_text)
       create(:report, moderation: moderation)
       moderation
     end
@@ -11,7 +11,7 @@ shared_examples "manage moderations" do
   let!(:moderation) { moderations.first }
   let!(:hidden_moderations) do
     reportables.last(1).map do |reportable|
-      moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_content, hidden_at: Time.current)
+      moderation = create(:moderation, reportable: reportable, report_count: 3, reported_content: reportable.reported_searchable_content_text, hidden_at: Time.current)
       create_list(:report, 3, moderation: moderation, reason: :spam)
       moderation
     end
@@ -80,6 +80,15 @@ shared_examples "manage moderations" do
         find(:xpath, "//button[@type='submit']").click
       end
       expect(page).to have_selector("tbody tr", count: 1)
+    end
+
+    it "user can see moderation details" do
+      within "tr[data-id=\"#{moderation.id}\"]" do
+        click_link "Expand"
+      end
+
+      reported_content_slice = moderation.reportable.reported_searchable_content_text.split("\n").first
+      expect(page).to have_content(reported_content_slice)
     end
   end
 
