@@ -7,11 +7,12 @@ module Decidim
         @server = params[:server].presence
         @api_key = params[:api_key].presence
         @scheme = params[:scheme].presence
+        @authority = params[:authority_id].presence
         @identification_private_key = params[:identification_private_key]&.strip.presence
         @private_key = OpenSSL::PKey::RSA.new(identification_private_key_content) if identification_private_key
       end
 
-      attr_reader :scheme
+      attr_reader :scheme, :api_key, :authority
 
       def public_key
         private_key&.public_key
@@ -34,7 +35,7 @@ module Decidim
 
       private
 
-      attr_reader :identification_private_key, :server, :api_key, :private_key
+      attr_reader :identification_private_key, :server, :private_key
 
       def identification_private_key_content
         @identification_private_key_content ||= if identification_private_key.starts_with?("-----")
