@@ -156,15 +156,11 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    context "when component allows external registrations" do
-      let(:current_component) { create :meeting_component, :with_external_registrations_enabled, participatory_space: participatory_process }
+    describe "when registration url is missing and registration type of meeting is on different platform" do
+      let(:registration_type) { "on_different_platform" }
+      let(:registration_url) { nil }
 
-      describe "when registration url is missing and registration type of meeting is on different platform" do
-        let(:registration_type) { "on_different_platform" }
-        let(:registration_url) { nil }
-
-        it { is_expected.not_to be_valid }
-      end
+      it { is_expected.not_to be_valid }
     end
 
     describe "when registration type of meeting is missing" do
