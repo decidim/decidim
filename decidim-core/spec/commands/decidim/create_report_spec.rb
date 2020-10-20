@@ -59,7 +59,7 @@ module Decidim
           command.call
           last_moderation = Moderation.last
 
-          expect(last_moderation.reported_content).to eq(reportable.reported_content)
+          expect(last_moderation.reported_content).to eq(reportable.reported_searchable_content_text)
         end
 
         it "sends an email to the admin" do

@@ -1131,9 +1131,11 @@ en:
       report:
         authors: Authors
         content: Reported content
+        content_original_language: Content original language
         date: Reported on
         details: Details
         hello: Hello %{name},
+        id: ID
         manage_moderations: Manage moderations
         participatory_space: Participatory space
         reason: Reason
