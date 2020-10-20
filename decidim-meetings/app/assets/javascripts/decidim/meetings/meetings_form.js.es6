@@ -41,7 +41,9 @@
         toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
       });
 
-      $meetingRegistrationType.trigger("change");
+      toggleDependsOnSelect($meetingRegistrationType, $meetingAvailableSlots, "on_this_platform");
+      toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationTerms, "on_this_platform");
+      toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationUrl, "on_different_platform");
     }
   });
 })(window);
