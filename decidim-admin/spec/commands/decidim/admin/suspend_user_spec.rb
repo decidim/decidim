@@ -9,33 +9,31 @@ module Decidim::Admin
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, organization: organization }
     let(:user) { create :user, :managed, organization: organization }
-    let(:justification) {"justification for suspending the user"}
-    let(:user_suspension)  {create :justification, :user, :current_user}
+    let(:justification) { "justification for suspending the user" }
+    let(:user_suspension) { create :justification, :user, :current_user }
 
     context "when the form is valid" do
       let(:form) do
         double(
-            user: user,
-            current_user: current_user,
-            justification: :justification,
-            valid?: true
+          user: user,
+          current_user: current_user,
+          justification: :justification,
+          valid?: true
         )
       end
 
       it "broadcasts ok" do
-        expect { subject.call }.to broadcast(:ok)
+        expect { subject.call }.to broadcast(:ok, @suspendable)
       end
 
       it "tracks the changes" do
-        expect(Decidim.traceability)
-            .to receive(:perform_action!)
-                    .with("suspend",
-                          suspendable,
-                          current_user,
-                          extra: {
-                            reportable_type: form.user.class.name,
-                            current_justification: form.justification
-                          })
+        expect(Decidim.traceability).to receive(:perform_action!).with("suspend",
+                                                                       suspendable,
+                                                                       current_user,
+                                                                       extra: {
+                                                                         reportable_type: form.user.class.name,
+                                                                         current_justification: form.justification
+                                                                       })
         subject.call
       end
     end
@@ -43,13 +41,13 @@ module Decidim::Admin
     context "when the form is not ok" do
       let(:form) do
         double(
-            valid?: false
+          valid?: false
         )
       end
+
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
       end
     end
   end
 end
-
