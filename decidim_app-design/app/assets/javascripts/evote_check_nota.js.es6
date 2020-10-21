@@ -4,29 +4,28 @@
   $(() => {
     $("[data-disable-check]").prop("checked", false);
 
-    $("[data-disabled-by]").on("click", function(e) {
-      if ($(this).attr("aria-disabled") || $(this).hasClass("is-disabled")) {
-        e.preventDefault();
+    $("[data-disabled-by]").on("click", (event) => {
+      const $target = $(event.currentTarget);
+      if ($target.attr("aria-disabled") || $target.hasClass("is-disabled")) {
+        event.preventDefault();
       }
     });
 
-    $("[data-disable-check]").on("change", function() {
-      let checkId = $(this).attr("id");
-      let checkStatus = this.checked;
+    $("[data-disable-check]").on("change", (event) => {
+      const target = event.currentTarget;
+      let checkId = $(target).attr("id");
+      let checkStatus = target.checked;
 
-      $("[data-disabled-by='#" + checkId + "']").each(function() {
+      $(`[data-disabled-by='#${checkId}'`).each((index, obj) => {
+        const $check = $(obj);
         if (checkStatus) {
-          $(this).addClass("is-disabled");
-          $(this)
-            .find("input[type=checkbox]")
-            .prop("checked", false);
+          $check.addClass("is-disabled");
+          $check.find("input[type=checkbox]").prop("checked", false);
         } else {
-          $(this).removeClass("is-disabled");
+          $check.removeClass("is-disabled");
         }
 
-        $(this)
-          .find("input[type=checkbox]")
-          .attr("aria-disabled", checkStatus);
+        $check.find("input[type=checkbox]").attr("aria-disabled", checkStatus);
       });
     });
   });
