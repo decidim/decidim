@@ -8,14 +8,14 @@ module Decidim::Admin
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, organization: organization }
-    let(:user) { create :user, :managed, organization: organization }
+    let(:suspendable) { create :user, :managed, organization: organization }
     let(:justification) { "justification for suspending the user" }
     let(:user_suspension) { create :justification, :user, :current_user }
 
     context "when the form is valid" do
       let(:form) do
         double(
-          user: user,
+          user: suspendable,
           current_user: current_user,
           justification: :justification,
           valid?: true
@@ -23,7 +23,7 @@ module Decidim::Admin
       end
 
       it "broadcasts ok" do
-        expect { subject.call }.to broadcast(:ok, @suspendable)
+        expect { subject.call }.to broadcast(:ok, suspendable)
       end
 
       it "tracks the changes" do
