@@ -32,6 +32,11 @@ module Decidim
           end
         end
       end
+
+      def participatory_space_active_link?(component)
+        endpoints = component.manifest.admin_engine.try(:participatory_space_endpoints)
+        endpoints && is_active_link?(decidim_admin_participatory_processes.components_path(current_participatory_space), %r{/\d+/manage/(#{endpoints.join("|")})\b})
+      end
     end
   end
 end
