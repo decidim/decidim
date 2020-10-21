@@ -2,7 +2,7 @@
   <div class="card-divider">
     <h2 class="card-title">
       <%= t(".title") %>
-      <% unless questionnaire.questionnaire_for.class == Decidim::Templates::Template %>
+      <% unless defined?(Decidim::Templates::Engine) && questionnaire.questionnaire_for_type == "Decidim::Templates::Template" %>
         <% if allowed_to? :preview, :questionnaire %>
           <div class="button--title">
             <%= link_to t(".preview"), public_url, class: "button tiny button--simple", target: :_blank %>
