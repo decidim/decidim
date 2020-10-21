@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe Meeting do
     subject { meeting }
 
-    let(:address) { Faker::Lorem.sentence(3) }
+    let(:address) { Faker::Lorem.sentence(word_count: 3) }
     let(:meeting) { build :meeting, address: address }
 
     it { is_expected.to be_valid }

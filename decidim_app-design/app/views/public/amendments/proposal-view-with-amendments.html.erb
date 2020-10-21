@@ -62,7 +62,7 @@
           </p>
         </div>
         <div class="section">
-          <% amends = Faker::Number.between(8, 20) %>
+          <% amends = Faker::Number.between(from: 8, to: 20) %>
           <h2 class="section-heading">Enmiendas (<%= amends %>)</h2>
           <%= render layout: "public/components/collapsible-list", locals: { text: raw("<u>Muestra #{amends - 4} otras enmiendas</u>"), size: 4, classText: "" } do %>
             <div class="row small-up-1 medium-up-2 card-grid">
@@ -115,13 +115,13 @@
                       <li class="card-data__item">
                         <a href="">
                           <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                          <%= Faker::Number.between(0, 100) %>
+                          <%= Faker::Number.between(from: 0, to: 100) %>
                         </a>
                       </li>
                       <li class="card-data__item">
                         <a href="" title="Comentarios">
                           <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                          <%= Faker::Number.between(0, 100) %>
+                          <%= Faker::Number.between(from: 0, to: 100) %>
                         </a>
                       </li>
                     </ul>

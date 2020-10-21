@@ -97,6 +97,7 @@ module Decidim
           attrs = attributes_for(:initiative, organization: organization)
           attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
           attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
+          attrs[:type_id] = created_initiative.type.id
           attrs
         end
 
@@ -115,6 +116,21 @@ module Decidim
                 }
             expect(flash[:alert]).to be_nil
             expect(response).to have_http_status(:found)
+          end
+        end
+
+        context "when initiative is invalid" do
+          it "does not update when title is nil" do
+            invalid_attributes = valid_attributes.merge(title: nil)
+
+            put :update,
+                params: {
+                  slug: created_initiative.to_param,
+                  initiative: invalid_attributes
+                }
+
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(:ok)
           end
         end
       end

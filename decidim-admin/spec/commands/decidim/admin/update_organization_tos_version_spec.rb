@@ -14,9 +14,9 @@ module Decidim::Admin
         let(:form) do
           StaticPageForm.from_params(
             static_page: other_page.attributes.merge(
-              content_en: Faker::Lorem.paragraph(2),
-              content_es: Faker::Lorem.paragraph(2),
-              content_ca: Faker::Lorem.paragraph(2),
+              content_en: Faker::Lorem.paragraph(sentence_count: 2),
+              content_es: Faker::Lorem.paragraph(sentence_count: 2),
+              content_ca: Faker::Lorem.paragraph(sentence_count: 2),
               changed_notably: true
             )
           ).with_context(
@@ -44,9 +44,9 @@ module Decidim::Admin
         let(:form) do
           StaticPageForm.from_params(
             static_page: tos_page.attributes.merge(
-              content_en: Faker::Lorem.paragraph(2),
-              content_es: Faker::Lorem.paragraph(2),
-              content_ca: Faker::Lorem.paragraph(2),
+              content_en: Faker::Lorem.paragraph(sentence_count: 2),
+              content_es: Faker::Lorem.paragraph(sentence_count: 2),
+              content_ca: Faker::Lorem.paragraph(sentence_count: 2),
               changed_notably: true
             )
           ).with_context(

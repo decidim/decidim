@@ -38,7 +38,7 @@ module Decidim
         def link
           return if super.blank?
 
-          return "http://" + super unless super.match?(%r{\A(http|https)://}i)
+          return "http://#{super}" unless super.match?(%r{\A(http|https)://}i)
 
           super
         end

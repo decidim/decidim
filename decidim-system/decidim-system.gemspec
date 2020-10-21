@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.6"
+  s.required_ruby_version = ">= 2.7"
 
   s.name = "decidim-system"
   s.summary = "Decidim system administration"
@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.7"
   s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "devise_invitable", "~> 1.7"
-  s.add_dependency "jquery-rails", "~> 4.3"
-  s.add_dependency "sassc", "~> 2.3.0"
+  s.add_dependency "jquery-rails", "~> 4.4"
+  s.add_dependency "sassc", "~> 2.4.0"
   s.add_dependency "sassc-rails", "~> 2.1.2"
 
   s.add_development_dependency "decidim-dev", Decidim::System.version

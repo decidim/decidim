@@ -17,7 +17,7 @@ module Decidim
 
       include_examples "withdraw amendment" do
         it "changes the emendation state" do
-          expect { command.call } .to change { emendation.reload[:state] } .from(nil).to("withdrawn")
+          expect { command.call }.to change { emendation.reload[:state] }.from(nil).to("withdrawn")
         end
       end
     end
