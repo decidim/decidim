@@ -2,8 +2,7 @@
 
 # The "main" locale.
 base_locale: en
-## All available locales are inferred from the data by default. Alternatively, specify them explicitly:
-# locales: [es, fr]
+
 ## Reporting locale, default: en. Available: en, ru.
 # internal_locale: en
 
@@ -15,27 +14,18 @@ data:
 
   # Locale files or `File.find` patterns where translations are read from:
   read:
-    ## Default:
-    # - config/locales/%{locale}.yml
-    ## More files:
-    # - config/locales/**/*.%{locale}.yml
+    - decidim-*/config/locales/%{locale}.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
   write:
-    ## For example, write devise and simple form keys to their respective files:
-    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
-    ## Catch-all default:
-    # - config/locales/%{locale}.yml
-
-  # External locale data (e.g. gems).
-  # This data is not considered unused and is never written to.
-  external:
-    ## Example (replace %#= with %=):
-    # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- ['#{path.sub('-', '.')}.*', '#{path}/config/locales/%{locale}.yml']" %>
+    <% end -%>
+      - 'decidim-core/config/locales/%{locale}.yml'
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
-  # router: conservative_router
+  # router: convervative_router
 
   yaml:
     write:
@@ -53,38 +43,47 @@ data:
 # Find translate calls
 search:
   ## Paths or `File.find` patterns to search in:
-  # paths:
-  #  - app/
+  paths:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app\n" %>
+      <%= "- #{path}/lib\n" %>
+    <% end -%>
 
-  ## Root directories for relative keys resolution.
-  # relative_roots:
-  #   - app/controllers
-  #   - app/helpers
-  #   - app/mailers
-  #   - app/presenters
-  #   - app/views
+  # Root directories for relative keys resolution.
+  relative_roots:
+    <% Dir.glob("decidim-*").each do |path| -%>
+      <%= "- #{path}/app/controllers\n" %>
+      <%= "- #{path}/app/helpers\n" %>
+      <%= "- #{path}/app/mailers\n" %>
+      <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/services\n" %>
+      <%= "- #{path}/app/views\n" %>
+      <%= "- #{path}/app/cells\n" %>
+    <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)
   exclude:
-    - app/assets/images
-    - app/assets/fonts
-    - app/assets/videos
+    - decidim-dev/lib/decidim/dev/assets/iso-8859-15.md
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js
+    - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+    - "*.jpeg"
+    - "*.odt"
+    - "*.docx"
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
   # only: ["*.rb", "*.html.slim"]
 
   ## If `strict` is `false`, guess usages such as t("categories.#{category}.title"). The default is `true`.
-  # strict: true
+  strict: false
 
   ## Multiple scanners can be used. Their results are merged.
   ## The options specified above are passed down to each scanner. Per-scanner options can be specified as well.
   ## See this example of a custom scanner: https://github.com/glebm/i18n-tasks/wiki/A-custom-scanner-example
 
-## Translation Services
+## Google Translate
 # translation:
-#   # Google Translate
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   api_key: "AbC-dEf5"
 
@@ -285,23 +284,19 @@ ignore_unused:
 #   fr,es:
 #     - common.brand
 
-## Exclude these keys from the `i18n-tasks check-consistent-interpolations` report:
-# ignore_inconsistent_interpolations:
-# - 'activerecord.attributes.*'
-
 ## Ignore these keys completely:
 # ignore:
-#  - kaminari.*
+#   - kaminari.*
 
 ## Sometimes, it isn't possible for i18n-tasks to match the key correctly,
 ## e.g. in case of a relative key defined in a helper method.
 ## In these cases you can use the built-in PatternMapper to map patterns to keys, e.g.:
 #
-# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
-#       only: %w(*.html.haml *.html.slim),
-#       patterns: [['= title\b', '.page_title']] %>
+# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#        only: %w(*.html.haml *.html.slim),
+#        patterns: [['= title\b', '.page_title']] %>
 #
 # The PatternMapper can also match key literals via a special %{key} interpolation, e.g.:
 #
-# <%# I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
-#       patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>
+# <%#= I18n::Tasks.add_scanner 'I18n::Tasks::Scanners::PatternMapper',
+#        patterns: [['\bSpree\.t[( ]\s*%{key}', 'spree.%{key}']] %>
