@@ -18,19 +18,19 @@
       <dd><%= moderation.reportable.id %></dd>
 
       <% if translatable_resource?(moderation.reportable) %>
-        <dt><%= t('.content_original_language') %></dt>
+        <dt><%= t(".content_original_language") %></dt>
         <dd><%= locale_name moderation.reportable.content_original_language %> </dd>
       <% end %>
 
       <dt>
-        <%= t('.reported_content') %>
+        <%= t(".reported_content") %>
         <% if translatable_resource?(moderation.reportable) %>
           <button
             class="toggle-content"
-            data-see-original-button-label="<%= t('.see_original') %>"
-            data-see-current-button-label="<%= t('.see_current') %>"
+            data-see-original-button-label="<%= t(".see_original") %>"
+            data-see-current-button-label="<%= t(".see_current") %>"
           >
-            <%= t('.see_original') %>
+            <%= t(".see_original") %>
           </button>
         <% end %>
       </dt>
@@ -45,7 +45,7 @@
         <% end %>
       </dd>
 
-      <dt><%= t('.author') %></dt>
+      <dt><%= t(".author") %></dt>
       <dd>
         <%= reportable_author_name(moderation.reportable) %>
       </dd>
@@ -56,7 +56,7 @@
       <dt><%= t("models.moderation.fields.created_at", scope: "decidim.moderations") %></dt>
       <dd><%= l(moderation.created_at, format: :long) %></dd>
 
-      <dt><%= t('.participatory_space') %></dt>
+      <dt><%= t(".participatory_space") %></dt>
       <dd><%= translated_attribute moderation.participatory_space.title %></dd>
       </div>
     </dl>
@@ -74,7 +74,7 @@
           <% reports.each do |report| %>
             <tr data-id="<%= report.id %>">
               <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
-              <td><%= report.locale.present? ? locale_name(report.locale) : '' %></td>
+              <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
               <td>
                 <%= reported_content_excerpt_for(moderation.reportable) %>
                 <%= icon_link_to "fullscreen-enter",
