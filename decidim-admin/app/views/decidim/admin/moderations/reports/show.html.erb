@@ -13,7 +13,7 @@
       <dd><%= locale_name @report.locale %></dd>
 
       <% if translatable_resource?(moderation.reportable) %>
-        <dt><%= t('content_original_language', scope: "decidim.admin.moderations.reports.index") %></dt>
+        <dt><%= t("content_original_language", scope: "decidim.admin.moderations.reports.index") %></dt>
         <dd><%= locale_name moderation.reportable.content_original_language %> </dd>
       <% end %>
 
@@ -22,10 +22,9 @@
         <% if translatable_resource?(moderation.reportable) %>
           <button
             class="toggle-content"
-            data-see-original-button-label="<%= t('see_original', scope: "decidim.admin.moderations.reports.index") %>"
-            data-see-current-button-label="<%= t('see_current', scope: "decidim.admin.moderations.reports.index") %>"
-          >
-            <%= t('see_original', scope: "decidim.admin.moderations.reports.index") %>
+            data-see-original-button-label="<%= t("see_original", scope: "decidim.admin.moderations.reports.index") %>"
+            data-see-current-button-label="<%= t("see_current", scope: "decidim.admin.moderations.reports.index") %>">
+            <%= t("see_original", scope: "decidim.admin.moderations.reports.index") %>
           </button>
         <% end %>
       </dt>
