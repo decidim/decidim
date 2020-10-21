@@ -54,6 +54,13 @@
     border-radius: .5rem;
     background-color: $white;
     margin-bottom: 1rem;
+    &[disabled] {
+      background-color: $medium-gray;
+      cursor: not-allowed;
+      > * {
+        opacity: 0.5;
+      }
+    }
   }
 
   &__check{
