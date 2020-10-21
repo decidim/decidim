@@ -62,7 +62,7 @@ module Decidim
     end
 
     def reported_content_cell
-      @cell ||= ::Decidim::ViewModel.cell(
+      @reported_content_cell ||= ::Decidim::ViewModel.cell(
         "decidim/reported_content",
         @reportable,
         context: {

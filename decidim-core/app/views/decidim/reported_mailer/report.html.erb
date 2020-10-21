@@ -27,7 +27,7 @@
   <p><%= I18n.t("locale.name", locale: @original_language) %></p>
 <% end %>
 
-<p><b><%= t(".content") %></b></p>
+<p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @reportable.id %>)</p>
 <%= reported_content_cell %>
 
 <% if @author.present? %>
