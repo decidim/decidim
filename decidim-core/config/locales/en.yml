@@ -1136,10 +1136,10 @@ en:
         details: Details
         hello: Hello %{name},
         id: ID
-        see_report: See report
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        see_report: See report
         subject: A resource has been reported
     reports:
       create:
