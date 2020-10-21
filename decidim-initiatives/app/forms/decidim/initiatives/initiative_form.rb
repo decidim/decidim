@@ -28,9 +28,9 @@ module Decidim
       validate :scope_exists
       validate :notify_missing_attachment_if_errored
       validate :trigger_attachment_errors
-      # validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
-      #   form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
-      # }
+      validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
+        form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
+      }
 
       def map_model(model)
         self.type_id = model.type.id

@@ -71,7 +71,7 @@ module Decidim
 
         params[:id] = params[:slug]
         @form = form(Decidim::Initiatives::InitiativeForm)
-                .from_params(params, initiative: current_initiative)
+                .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
 
         UpdateInitiative.call(current_initiative, @form, current_user) do
           on(:ok) do |initiative|
