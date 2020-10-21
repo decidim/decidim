@@ -56,7 +56,10 @@
                 </td>
               <% end %>
               <td class="actions">
-
+                <%= icon_link_to "fullscreen-enter",
+                                  moderation_reports_path(moderation_id: moderation),
+                                  t("actions.expand", scope: "decidim.moderations"),
+                                  class: "action-icon--expand" %>
                 <% if !moderation.reportable.hidden? && allowed_to?(:unreport, :moderation) %>
                   <%= icon_link_to "action-undo",
                                    unreport_moderation_path(id: moderation),

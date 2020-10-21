@@ -12,6 +12,11 @@ module Decidim
         enforce_permission_to :read, :moderation
       end
 
+      def show
+        enforce_permission_to :read, :moderation
+        @moderation = collection.find(params[:id])
+      end
+
       def unreport
         enforce_permission_to :unreport, :moderation
 

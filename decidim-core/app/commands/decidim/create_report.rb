@@ -57,7 +57,8 @@ module Decidim
         moderation: @moderation,
         user: @current_user,
         reason: form.reason,
-        details: form.details
+        details: form.details,
+        locale: I18n.locale
       )
     end
 

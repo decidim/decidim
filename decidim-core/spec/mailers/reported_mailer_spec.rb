@@ -55,18 +55,12 @@ module Decidim
           expect(email_body(mail)).to match(reportable.body["en"])
         end
 
-        it "doesn't include the reported content if it's not present" do
+        it "does not include the content original language to match the organization's default when it can't be extrapolated from the content" do
           report.moderation.reportable.title = nil
           report.moderation.reportable.body = nil
 
-          expect(email_body(mail)).not_to match("<b>Reported content</b>")
-        end
-
-        it "does not include the content original language when there's no content" do
-          report.moderation.reportable.title = nil
-          report.moderation.reportable.body = nil
-
-          expect(email_body(mail)).not_to match("<b>Content original language</b>")
+          expect(email_body(mail)).to match("<b>Content original language</b>")
+          expect(email_body(mail)).to match("English")
         end
 
         it "includes the content original language when only one language is present" do
