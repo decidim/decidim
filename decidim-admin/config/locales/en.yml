@@ -515,6 +515,21 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        reports:
+          index:
+            author: Author(s)
+            callout_html: A content appears in the moderation panel when it has been signaled by a user (can be anyone with a registered account) by clicking on the %{icon} flag next to the item.
+            content_original_language: Content original language
+            participatory_space: Participatory space
+            reported_content: Reported content
+            see_current: See current
+            see_original: See original
+            title: Moderation reports
+          show:
+            report_details: Reason details
+            report_language: Report language
+            report_reason: Reason
+            title: Report details
       newsletter_templates:
         index:
           preview_template: Preview
@@ -865,6 +880,7 @@ en:
           reason: You need to provide a reason when managing a non managed participant
     moderations:
       actions:
+        expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
@@ -899,6 +915,11 @@ en:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+        report:
+          fields:
+            details: Reason details
+            locale: Language
+            reason: Reason
   errors:
     messages:
       invalid_json: Invalid JSON
