@@ -25,7 +25,7 @@ describe Decidim::Log::DiffChangesetCalculator do
   let(:title_attribute) do
     subject.find { |field| field[:attribute_name] == :title }
   end
-  let(:attribute_names) { subject.map { |field| field[:attribute_name] } }
+  let(:attribute_names) { subject.pluck(:attribute_name) }
 
   describe "#changeset" do
     it "only keeps the fields in fields mapping" do

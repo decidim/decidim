@@ -1,0 +1,9 @@
+<div class="callout secondary">
+  <h5><%= t("decidim.components.comments.single_comment_warning_title") %></h5>
+  <p>
+    <%== t(
+    "decidim.components.comments.single_comment_warning",
+    url: "#{commentable_path}##{node_id}"
+    ) %>
+  </p>
+</div>

@@ -34,6 +34,8 @@ module Decidim
 
       private
 
+      # rubocop: disable Metrics/CyclomaticComplexity
+
       # Creates a Hashed structure with number of Participants grouped by
       #
       #  - ParticipatorySpace (type & ID)
@@ -66,6 +68,7 @@ module Decidim
         end
         @query
       end
+      # rubocop: enable Metrics/CyclomaticComplexity
 
       # Search for all components published, within a fixed list of available
       def retrieve_components(participatory_space)

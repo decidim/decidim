@@ -206,9 +206,9 @@ Decidim.register_component(:proposals) do |component|
       params = {
         component: component,
         category: participatory_space.categories.sample,
-        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-        title: { en: Faker::Lorem.sentence(2) },
-        body: { en: Faker::Lorem.paragraphs(2).join("\n") },
+        scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+        title: { en: Faker::Lorem.sentence(word_count: 2) },
+        body: { en: Faker::Lorem.paragraphs(number: 2).join("\n") },
         state: state,
         answer: answer,
         answered_at: state.present? ? Time.current : nil,
@@ -272,9 +272,9 @@ Decidim.register_component(:proposals) do |component|
         params = {
           component: component,
           category: participatory_space.categories.sample,
-          scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-          title: { en: "#{proposal.title["en"]} #{Faker::Lorem.sentence(1)}" },
-          body: { en: "#{proposal.body["en"]} #{Faker::Lorem.sentence(3)}" },
+          scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+          title: { en: "#{proposal.title["en"]} #{Faker::Lorem.sentence(word_count: 1)}" },
+          body: { en: "#{proposal.body["en"]} #{Faker::Lorem.sentence(word_count: 3)}" },
           state: "evaluating",
           answer: nil,
           answered_at: Time.current,
@@ -315,7 +315,7 @@ Decidim.register_component(:proposals) do |component|
           tos_agreement: "1",
           confirmed_at: Time.current,
           personal_url: Faker::Internet.url,
-          about: Faker::Lorem.paragraph(2)
+          about: Faker::Lorem.paragraph(sentence_count: 2)
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.published_state? && proposal.rejected?
@@ -367,7 +367,7 @@ Decidim.register_component(:proposals) do |component|
         Decidim::Proposals::ProposalNote.create!(
           proposal: proposal,
           author: author_admin,
-          body: Faker::Lorem.paragraphs(2).join("\n")
+          body: Faker::Lorem.paragraphs(number: 2).join("\n")
         )
       end
 
@@ -389,9 +389,9 @@ Decidim.register_component(:proposals) do |component|
         draft = Decidim::Proposals::CollaborativeDraft.new(
           component: component,
           category: participatory_space.categories.sample,
-          scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-          title: Faker::Lorem.sentence(2),
-          body: Faker::Lorem.paragraphs(2).join("\n"),
+          scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+          title: Faker::Lorem.sentence(word_count: 2),
+          body: Faker::Lorem.paragraphs(number: 2).join("\n"),
           state: state,
           published_at: Time.current
         )
@@ -400,7 +400,8 @@ Decidim.register_component(:proposals) do |component|
         draft
       end
 
-      if n == 2
+      case n
+      when 2
         author2 = Decidim::User.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author2)
         author3 = Decidim::User.where(organization: component.organization).all.sample
@@ -411,7 +412,7 @@ Decidim.register_component(:proposals) do |component|
         Decidim::Coauthorship.create(coauthorable: draft, author: author5)
         author6 = Decidim::User.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author6)
-      elsif n == 3
+      when 3
         author2 = Decidim::User.where(organization: component.organization).all.sample
         Decidim::Coauthorship.create(coauthorable: draft, author: author2)
       end
@@ -424,9 +425,9 @@ Decidim.register_component(:proposals) do |component|
       Decidim::User.where(organization: component.organization).all.sample,
       component: component,
       category: participatory_space.categories.sample,
-      scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
-      title: Faker::Lorem.sentence(2),
-      body: Faker::Lorem.paragraphs(2).join("\n")
+      scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+      title: Faker::Lorem.sentence(word_count: 2),
+      body: Faker::Lorem.paragraphs(number: 2).join("\n")
     )
   end
 end

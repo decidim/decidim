@@ -5,7 +5,7 @@ require "decidim/dev"
 
 FactoryBot.define do
   sequence(:assembly_slug) do |n|
-    "#{Faker::Internet.slug(nil, "-")}-#{n}"
+    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :assemblies_setting, class: "Decidim::AssembliesSetting" do
@@ -162,14 +162,14 @@ FactoryBot.define do
 
     full_name { Faker::Name.name }
     gender { Faker::Lorem.word }
-    birthday { Faker::Date.birthday(18, 65) }
+    birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
     birthplace { Faker::Lorem.word }
     position { Decidim::AssemblyMember::POSITIONS.first }
-    designation_date { Faker::Date.between(1.year.ago, 1.month.ago) }
+    designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
     designation_mode { Faker::Lorem.word }
 
     trait :ceased do
-      ceased_date { Faker::Date.between(1.day.ago, 5.days.ago) }
+      ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }
     end
 
     trait :with_user do

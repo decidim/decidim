@@ -7,12 +7,12 @@ class VotesEnabledToVotesChoices < ActiveRecord::Migration[5.2]
 
   def up
     budget_components.each do |component|
-      steps = component["settings"] && component["settings"].dig("steps")
-      default_step = component["settings"] && component["settings"].dig("default_step")
+      steps = component["settings"] && component["settings"]["steps"]
+      default_step = component["settings"] && component["settings"]["default_step"]
 
       if steps.present?
         new_steps_settings = component["settings"]["steps"].each_with_object({}) do |(step, config), new_config|
-          votes_value = config.dig("votes_enabled") ? "enabled" : "disabled"
+          votes_value = config["votes_enabled"] ? "enabled" : "disabled"
 
           new_config[step] = config.merge("votes": votes_value).except("votes_enabled")
           new_config
@@ -20,7 +20,7 @@ class VotesEnabledToVotesChoices < ActiveRecord::Migration[5.2]
         component["settings"]["steps"] = new_steps_settings
         component.save!
       elsif default_step.present?
-        votes_value = component["settings"]["default_step"].dig("votes_enabled") ? "enabled" : "disabled"
+        votes_value = component["settings"]["default_step"]["votes_enabled"] ? "enabled" : "disabled"
 
         new_default_step_settings = component["settings"]["default_step"].merge("votes": votes_value).except("votes_enabled")
         component["settings"]["default_step"] = new_default_step_settings

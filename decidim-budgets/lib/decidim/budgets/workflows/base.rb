@@ -40,7 +40,7 @@ module Decidim
         #                      Using `false` allow UI to offer users to discard votes in progress to start voting in another resource.
         #
         # Returns Boolean.
-        def vote_allowed?(_resource, _consider_progress = true)
+        def vote_allowed?(_resource, _consider_progress: true)
           raise StandardError, "Not implemented"
         end
 
@@ -64,14 +64,14 @@ module Decidim
         #
         # Returns Array.
         def voted
-          @voted ||= orders.values.map { |order_info| order_info[:order].budget if order_info[:status] == :voted } .compact
+          @voted ||= orders.values.map { |order_info| order_info[:order].budget if order_info[:status] == :voted }.compact
         end
 
         # Public: Return the list of budget resources where the user has orders in progress.
         #
         # Returns Array.
         def progress
-          @progress ||= orders.values.map { |order_info| order_info[:order].budget if order_info[:status] == :progress } .compact
+          @progress ||= orders.values.map { |order_info| order_info[:order].budget if order_info[:status] == :progress }.compact
         end
 
         # Public: Return the list of budget resources where the user could discard their order to vote in other components.
