@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "i18n/tasks"
-require "byebug"
 
 RSpec.describe I18n do
   let(:i18n) { I18n::Tasks::BaseTask.new }
@@ -12,11 +11,9 @@ RSpec.describe I18n do
   it "correct Norwegian locale keys should be surrounded by quotation marks" do
     # otherwise psych evaluates `no:` to `false`
     # see https://makandracards.com/makandra/24809-yaml-keys-like-yes-or-no-evaluate-to-true-and-false
-    I18n.available_locales = [:en]
     i18n = I18n::Tasks::BaseTask.new(locales: "no")
     forest = i18n.data_forest(["no"])
     stats = i18n.forest_stats(forest)
-    byebug
     expect(stats[:locales]).to eq("no")
   end
 
