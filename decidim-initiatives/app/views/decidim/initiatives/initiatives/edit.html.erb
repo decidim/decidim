@@ -21,7 +21,7 @@
               <%= link_to t("actions.publish", scope: "decidim.admin"),
                           publish_initiative_path(current_initiative),
                           method: :post,
-                          class: "button hollow",
+                          class: "button hollow expanded",
                           data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
@@ -29,7 +29,7 @@
               <%= link_to t("actions.unpublish", scope: "decidim.admin"),
                           unpublish_initiative_path(current_initiative),
                           method: :delete,
-                          class: "button alert",
+                          class: "button alert expanded",
                           data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
@@ -37,7 +37,7 @@
                 <%= link_to t("accept", scope: "decidim.initiatives.edit"),
                             accept_initiative_path(current_initiative),
                             method: :post,
-                            class: "button hollow",
+                            class: "button hollow expanded",
                             data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
@@ -45,7 +45,7 @@
                 <%= link_to t("reject", scope: "decidim.initiatives.edit"),
                             reject_initiative_path(current_initiative),
                             method: :delete,
-                            class: "button alert",
+                            class: "button alert expanded",
                             data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
@@ -53,21 +53,21 @@
               <%= link_to t("discard", scope: "decidim.initiatives.edit"),
                           discard_initiative_path(current_initiative),
                           method: :delete,
-                          class: "button alert",
+                          class: "button alert expanded",
                           data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
             <% if allowed_to? :export_votes, :initiative, initiative: current_initiative %>
               <%= link_to t("export_votes", scope: "decidim.initiatives.edit"),
                           export_votes_initiative_path(current_initiative, format: :csv),
-                          class: "button alert",
+                          class: "button alert expanded",
                           data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
 
             <% if allowed_to? :export_pdf_signatures, :initiative, initiative: current_initiative %>
               <%= link_to t("export_pdf_signatures", scope: "decidim.initiatives.edit"),
                           export_pdf_signatures_initiative_path(current_initiative, format: :pdf),
-                          class: "button alert",
+                          class: "button alert expanded",
                           data: { confirm: t("confirm", scope: "decidim.initiatives.edit") } %>
             <% end %>
           </div>

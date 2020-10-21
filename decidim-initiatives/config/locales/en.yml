@@ -379,9 +379,9 @@ en:
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       form:
-        attachments: Attachments
-        settings: Settings
-        title: General information
+        add_attachments: Documents
+        attachment_legend: "(Optional) Add Attachments"
+        delete_attachment: Delete
       index:
         title: Initiatives
       initiative_signatures:
