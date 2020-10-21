@@ -20,7 +20,7 @@ cs:
         description: Popis
         end_time: Čas ukončení
         location: Umístění
-        location_hints: Tipy pro umístění
+        location_hints: Nápověda k poloze
         organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
@@ -261,7 +261,7 @@ cs:
           edit:
             update: Aktualizace
           form:
-            address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
+            address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
           index:
