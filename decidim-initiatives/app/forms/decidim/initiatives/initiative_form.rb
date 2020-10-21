@@ -71,7 +71,17 @@ module Decidim
         @scope ||= Scope.find(scope_id) if scope_id.present?
       end
 
+      def scoped_type_id
+        return unless type && scope_id
+
+        type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
+      end
+
       private
+
+      def type
+        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
+      end
 
       def scope_exists
         return if scope_id.blank?

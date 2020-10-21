@@ -1,5 +1,4 @@
-
-<h2 class="card-title"><%= t("title", scope: "decidim.initiatives.form") %></h2>
+<%= form_required_explanation %>
 
 <div class="card-section">
   <div class="field">
@@ -28,10 +27,51 @@
                     { disabled: !@form.state_updatable? } %>
   </div>
 
+  <% unless single_initiative_type? %>
+    <div class="field">
+      <%= form.select :type_id,
+                      initiative_type_options,
+                      {},
+                      {
+                        disabled: !@form.signature_type_updatable?,
+                        "data-scope-selector": "initiative_decidim_scope_id",
+                        "data-scope-id": form.object.scope_id.to_s,
+                        "data-scope-search-url": decidim_initiatives.initiative_type_scopes_search_url,
+                        "data-signature-types-selector": "initiative_signature_type",
+                        "data-signature-type": current_initiative.signature_type,
+                        "data-signature-types-search-url": decidim_initiatives.initiative_type_signature_types_search_url
+                      } %>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= form.select :scope_id,
                   @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
                   { disabled: !@form.state_updatable? } %>
+  </div>
+
+  <% if can_edit_custom_signature_end_date?(current_initiative) %>
+    <div class="row column">
+      <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
+    </div>
+  <% end %>
+
+  <% if current_initiative.area_enabled? %>
+    <div class="field">
+      <%= form.areas_select :area_id,
+                            areas_for_select(current_organization),
+                            {
+                              selected: current_initiative.decidim_area_id,
+                              include_blank: current_initiative.decidim_area_id.blank? || current_initiative.created?
+                            },
+                            disabled: !@form.area_updatable? %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="columns xlarge-6">
+      <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+    </div>
   </div>
 </div>
 <%= javascript_include_tag "decidim/initiatives/scoped_type" %>
