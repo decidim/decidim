@@ -27,6 +27,7 @@ module Decidim
         private
 
         attr_reader :trustee_participatory_space
+
         # Toggle the considered attribute
         def update_trustee_participatory_space!
           trustee_participatory_space.update!(
