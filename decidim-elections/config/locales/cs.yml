@@ -148,6 +148,24 @@ cs:
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
+            enable: Zvážit
+          create:
+            exists: Správce existuje pro tento participační prostor
+            invalid: Při vytváření správce došlo k chybě
+            success: Správce úspěšně vytvořen
+          delete:
+            invalid: Při odstraňování tohoto správce došlo k chybě
+            success: Správce byl úspěšně odstraněn
+          form:
+            select_user: Vybrat uživatele
+          index:
+            title: Správci
+          new:
+            create: Vytvořit správce
+            title: Nový správce
+          update:
+            invalid: Při aktualizaci správce %{trustee} došlo k chybě
+            success: Správce %{trustee} úspěšně aktualizován
       admin_log:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
@@ -208,6 +226,15 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+        trustees_participatory_space:
+          fields:
+            considered: uváženo
+            email: E-mail
+            inactive: neaktivní
+            name: Jméno
+            notification: Oznámení odesláno
+            public_key: Veřejný klíč
+            status: Stav
       orders:
         label: Seřadit volby podle
         older: Starší
@@ -262,6 +289,12 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení kliknutím na následující odkaz.
           email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: 'Administrátor vás přidal jako správce pro %{resource_name}. Měli byste vytvořit svůj veřejný klíč zde: LINK'
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
+            email_subject: Jste správcem %{resource_name}.
+            notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
       home:
         statistics:
