@@ -598,10 +598,10 @@ en:
           show: Show
           title: Show participant email address
         suspend:
-          error: There wes an error suspending the participant
+          error: There was an error suspending the participant
           success: Participant successfully suspended
         unsuspend:
-          error: There wes an error unsuspending the participant
+          error: There was an error unsuspending the participant
           success: Participant successfully unsuspended
       organization:
         edit:
@@ -810,10 +810,17 @@ en:
           upload: Upload
       user_suspension:
         new:
-          action: Block user
-          description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          action: Block account and send justification
+          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
           justification: Justification
           title: Suspend User %{name}
+      user_suspension_mailer:
+        notify:
+          body_1: Your account was blocked.
+          body_2: 'Reason: %{justification}'
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello,
+          subject: Your account was blocked by %{organization_name}?
       users:
         create:
           error: There was a problem inviting this admin.

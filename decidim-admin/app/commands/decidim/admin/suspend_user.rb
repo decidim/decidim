@@ -5,8 +5,7 @@ module Decidim
     class SuspendUser < Rectify::Command
       # Public: Initializes the command.
       #
-      # reportable - A Decidim::Reportable
-      # current_user - the user performing the action
+      # form - SuspendUserForm
       def initialize(form)
         @form = form
       end
@@ -23,9 +22,8 @@ module Decidim
         transaction do
           suspend!
           register_justification!
+          notify_user!
         end
-
-        notify_user!
 
         broadcast(:ok, form.user)
       end
@@ -42,7 +40,9 @@ module Decidim
         )
       end
 
-      def notify_user!; end
+      def notify_user!
+        Decidim::Admin::UserSuspensionJob.perform_later(user, form.user, form.justification)
+      end
 
       def suspend!
         Decidim.traceability.perform_action!(
@@ -50,12 +50,15 @@ module Decidim
           form.user,
           form.current_user,
           extra: {
-            reportable_type: form.user.class.name
+            reportable_type: form.user.class.name,
+            current_justification: form.justification
           }
         ) do
           form.user.suspended = true
           form.user.suspended_at = Time.current
           form.user.suspension = @current_suspension
+          form.user.extended_data["user_name"] = form.user.name
+          form.user.name = "Blocked user"
           form.user.save!
         end
       end

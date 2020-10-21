@@ -10,7 +10,7 @@
 <p><%= l @report.created_at, format: :short %></p>
 
 <p><b><%= t(".participatory_space") %></b></p>
-<p><%= translated_attribute @participatory_space.title %></p>
+<p><%= link_to translated_attribute(@participatory_space.title), resource_locator(@participatory_space).url %></p>
 
 <p><b><%= t(".reason") %></b></p>
 <p><%= t(@report.reason, organization_name: @participatory_space.organization.name, scope: "decidim.shared.flag_modal") %></p>
@@ -22,8 +22,13 @@
   </blockquote>
 <% end %>
 
+<% if @original_language.present? %>
+  <p><b><%= t(".content_original_language") %></b></p>
+  <p><%= I18n.t("locale.name", locale: @original_language) %></p>
+<% end %>
+
 <% if @content.present? %>
-  <p><b><%= t(".content") %></b></p>
+  <p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @content_id %>)</p>
   <blockquote>
     <h5><%= translated_attribute @content[:title] %></h5>
     <p><%= translated_attribute @content[:body] %></p>

@@ -5,7 +5,7 @@ module Decidim
     class UnsuspendUser < Rectify::Command
       # Public: Initializes the command.
       #
-      # reportable - A Decidim::Reportable
+      # suspendable - the user that is unblocked
       # current_user - the user performing the action
       def initialize(suspendable, current_user)
         @suspendable = suspendable
@@ -39,6 +39,7 @@ module Decidim
           @suspendable.suspended = false
           @suspendable.suspended_at = nil
           @suspendable.suspension_id = nil
+          @suspendable.name = @suspendable.user_name
           @suspendable.save!
         end
       end
