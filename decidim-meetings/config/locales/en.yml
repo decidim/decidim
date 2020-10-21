@@ -26,6 +26,7 @@ en:
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
+        registration_url: Registration URL
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled

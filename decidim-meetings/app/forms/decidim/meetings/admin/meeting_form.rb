@@ -151,7 +151,7 @@ module Decidim
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
               type
             ]
-          end.compact
+          end
         end
       end
     end
