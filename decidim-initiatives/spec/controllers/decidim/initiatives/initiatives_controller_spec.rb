@@ -118,6 +118,21 @@ module Decidim
             expect(response).to have_http_status(:found)
           end
         end
+
+        context "when initiative is invalid" do
+          it "does not update when title is nil" do
+            invalid_attributes = valid_attributes.merge(title: nil)
+
+            put :update,
+                params: {
+                  slug: created_initiative.to_param,
+                  initiative: invalid_attributes
+                }
+
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(:ok)
+          end
+        end
       end
     end
   end
