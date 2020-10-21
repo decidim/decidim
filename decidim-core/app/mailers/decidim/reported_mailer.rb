@@ -56,7 +56,7 @@ module Decidim
     end
 
     def original_language(reportable)
-      reportable.content_original_language if reportable.respond_to?(:content_original_language)
+      return reportable.content_original_language if reportable.respond_to?(:content_original_language)
 
       @organization.default_locale
     end
