@@ -27,13 +27,8 @@
   <p><%= I18n.t("locale.name", locale: @original_language) %></p>
 <% end %>
 
-<% if @content.present? %>
-  <p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @content_id %>)</p>
-  <blockquote>
-    <h5><%= translated_attribute @content[:title] %></h5>
-    <p><%= translated_attribute @content[:body] %></p>
-  </blockquote>
-<% end %>
+<p><b><%= t(".content") %></b> (<%= t(".id") %>: <%= @reportable.id %>)</p>
+<%= reported_content_cell %>
 
 <% if @author.present? %>
   <p><b><%= t(".authors") %></b></p>
@@ -51,7 +46,7 @@
       <table>
         <tr>
           <td>
-            <%= link_to t(".manage_moderations"), manage_moderations_url, class: "button",  target: "_blank" %>
+            <%= link_to t(".see_report"), report_url, class: "button",  target: "_blank" %>
           </td>
         </tr>
       </table>
