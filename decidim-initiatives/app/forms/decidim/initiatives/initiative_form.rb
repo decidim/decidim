@@ -18,6 +18,8 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
       attribute :hashtag, String
 
       validates :title, :description, presence: true
