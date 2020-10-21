@@ -493,21 +493,6 @@ en:
             offensive: Offensive
             spam: Spam
       moderations:
-        reports:
-          index:
-            title: "Moderation reports"
-            callout_html: A content appears in the moderation panel when it has been signaled by a user (can be anyone with a registered account) by clicking on the %{icon} flag next to the item.
-            content_original_language: "Content original language"
-            reported_content: "Reported content"
-            author: "Author(s)"
-            participatory_space: "Participatory space"
-            see_original: "See original"
-            see_current: "See current"
-          show:
-            title: Report details
-            report_reason: "Reason"
-            report_details: "Reason details"
-            report_language: "Report language"
         index:
           title: Moderations
         report:
@@ -887,7 +872,6 @@ en:
         title: Actions
         unhide: Unhide
         unreport: Unreport
-        expand: Expand
       admin:
         reportable:
           hide:
@@ -900,11 +884,6 @@ en:
             invalid: There was a problem unreporting the resource.
             success: Resource successfully unreported.
       models:
-        report:
-          fields:
-            reason: "Reason"
-            details: "Reason details"
-            locale: "Language"
         moderation:
           fields:
             created_at: Creation date
