@@ -17,7 +17,7 @@
     <div class="column medium-10 medium-push-2">
       <ul class="tabs buttons__row" id="conference-row-<%= seed %>-tabs"
         data-tabs>
-        <% speechs = Faker::Number.between(2, 4) %>
+        <% speechs = Faker::Number.between(from: 2, to: 4) %>
         <% speechs.times do |i| %>
         <li class="tabs-title<%= " is-active" if i == 0 %>">
           <!-- Wrap button in an anchor to make foundation tabs work -->

@@ -74,7 +74,7 @@ module Decidim
             it "updates the associated SearchableResource after published Proposal update" do
               searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
               created_at = searchable.created_at
-              updated_title = { "en" => "Brand new title" }
+              updated_title = { "en" => "Brand new title", "machine_translations" => {} }
               proposal.update(title: updated_title)
 
               proposal.save!
@@ -162,10 +162,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(proposal.title[locale]),
+        "content_a" => I18n.transliterate(translated(proposal.title, locale: locale)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(proposal.body[locale]),
+        "content_d" => I18n.transliterate(translated(proposal.body, locale: locale)),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

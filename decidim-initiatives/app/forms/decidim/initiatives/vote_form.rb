@@ -139,7 +139,7 @@ module Decidim
 
       # Private: Checks if there's any existing vote that matches the user's data.
       def already_voted?
-        errors.add(:document_number, :taken) if initiative.votes.where(hash_id: hash_id, scope: scope).exists?
+        errors.add(:document_number, :taken) if initiative.votes.exists?(hash_id: hash_id, scope: scope)
       end
 
       def author

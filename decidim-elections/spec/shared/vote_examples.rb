@@ -178,8 +178,8 @@ shared_examples "uses the voting booth" do
   end
 
   def change_answer(question, selected, non_selected)
-    new_answer = question.answers.select { |answer| non_selected.member?(answer) } .first
-    old_answer = question.answers.select { |answer| selected.member?(answer) } .first
+    new_answer = question.answers.select { |answer| non_selected.member?(answer) }.first
+    old_answer = question.answers.select { |answer| selected.member?(answer) }.first
 
     selected.delete(old_answer)
     uncheck(translated(old_answer.title), allow_label_click: true)

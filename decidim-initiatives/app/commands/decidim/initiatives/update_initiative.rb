@@ -5,7 +5,8 @@ module Decidim
     # A command with all the business logic that updates an
     # existing initiative.
     class UpdateInitiative < Rectify::Command
-      include Decidim::Initiatives::AttachmentMethods
+      include ::Decidim::MultipleAttachmentsMethods
+      include CurrentLocale
 
       # Public: Initializes the command.
       #
@@ -30,17 +31,16 @@ module Decidim
         if process_attachments?
           @initiative.attachments.destroy_all
 
-          build_attachment
-          return broadcast(:invalid) if attachment_invalid?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
         end
-
         @initiative = Decidim.traceability.update!(
           initiative,
           current_user,
           attributes
         )
-        create_attachment if process_attachments?
-        notify_initiative_is_extended if @notify_extended
+
+        create_attachments if process_attachments?
         broadcast(:ok, initiative)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid, initiative)
@@ -48,13 +48,12 @@ module Decidim
 
       private
 
-      attr_reader :form, :initiative, :current_user, :attachment
+      attr_reader :form, :initiative, :current_user
 
       def attributes
         attrs = {
-          title: form.title,
-          description: form.description,
-          hashtag: form.hashtag
+          title: { current_locale => form.title },
+          description: { current_locale => form.description }
         }
 
         if form.signature_type_updatable?
@@ -62,36 +61,12 @@ module Decidim
           attrs[:scoped_type_id] = form.scoped_type_id if form.scoped_type_id
         end
 
-        if current_user.admin?
-          add_admin_accessible_attrs(attrs)
-        elsif initiative.created?
+        if initiative.created?
           attrs[:signature_end_date] = form.signature_end_date if initiative.custom_signature_end_date_enabled?
           attrs[:decidim_area_id] = form.area_id if initiative.area_enabled?
         end
 
         attrs
-      end
-
-      def add_admin_accessible_attrs(attrs)
-        attrs[:signature_start_date] = form.signature_start_date
-        attrs[:signature_end_date] = form.signature_end_date
-        attrs[:offline_votes] = form.offline_votes if form.offline_votes
-        attrs[:state] = form.state if form.state
-        attrs[:decidim_area_id] = form.area_id
-
-        if initiative.published?
-          @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
-                                     form.signature_end_date > initiative.signature_end_date
-        end
-      end
-
-      def notify_initiative_is_extended
-        Decidim::EventsManager.publish(
-          event: "decidim.events.initiatives.initiative_extended",
-          event_class: Decidim::Initiatives::ExtendInitiativeEvent,
-          resource: initiative,
-          followers: initiative.followers - [initiative.author]
-        )
       end
     end
   end

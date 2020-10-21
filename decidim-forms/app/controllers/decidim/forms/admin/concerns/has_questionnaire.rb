@@ -97,7 +97,7 @@ module Decidim
             # Returns the url to get the answer options json (for the display conditions form)
             # for the question with id = params[:id]
             def answer_options_url(params)
-              url_for([questionnaire.questionnaire_for, action: :answer_options, format: :json, **params])
+              url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
             end
 
             private

@@ -43,7 +43,7 @@ module Decidim
       end
 
       def redirect_path
-        if params.dig(:return_to) == "budget"
+        if params[:return_to] == "budget"
           budget_path(budget)
         else
           budgets_path

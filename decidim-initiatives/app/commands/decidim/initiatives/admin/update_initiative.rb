@@ -80,9 +80,9 @@ module Decidim
           attrs[:state] = form.state if form.state
           attrs[:decidim_area_id] = form.area_id
 
-          if initiative.published?
-            @notify_extended = true if form.signature_end_date != initiative.signature_end_date &&
-                                       form.signature_end_date > initiative.signature_end_date
+          if initiative.published? && form.signature_end_date != initiative.signature_end_date &&
+             form.signature_end_date > initiative.signature_end_date
+            @notify_extended = true
           end
         end
 

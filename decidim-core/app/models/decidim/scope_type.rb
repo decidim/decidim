@@ -12,7 +12,7 @@ module Decidim
                class_name: "Decidim::Organization",
                inverse_of: :scope_types
 
-    has_many :scopes, foreign_key: "scope_type_id", class_name: "Decidim::Scope", inverse_of: :scope_type, dependent: :nullify
+    has_many :scopes, class_name: "Decidim::Scope", inverse_of: :scope_type, dependent: :nullify
 
     validates :name, presence: true
   end

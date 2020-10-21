@@ -12,7 +12,7 @@ namespace :decidim do
   #
   desc "Deletes User records by ID using a CSV file"
   task right_to_be_forgotten: :environment do
-    log = ActiveSupport::Logger.new(Rails.root.join("log", "right_to_be_forgotten.log"))
+    log = ActiveSupport::Logger.new(Rails.root.join("log/right_to_be_forgotten.log"))
     begin
       path = ENV["FILE_PATH"].presence || "tmp/forgotten_users.csv" # Good file
       file_path = Rails.root.join(path)

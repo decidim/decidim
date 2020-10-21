@@ -20,6 +20,8 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
     let(:services) do
       [
         {
@@ -54,7 +56,9 @@ module Decidim::Meetings
         services_to_persist: services_to_persist,
         current_user: current_user,
         current_component: current_component,
-        current_organization: organization
+        current_organization: organization,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 

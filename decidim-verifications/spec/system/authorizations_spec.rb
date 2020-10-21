@@ -221,7 +221,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
           within ".authorizations-list" do
             expect(page).to have_no_link("Example authorization")
-            expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long))
+            expect(page).to have_content(I18n.l(authorization.granted_at, format: :long))
           end
         end
       end

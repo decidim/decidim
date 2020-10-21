@@ -42,15 +42,15 @@ module Decidim
       #
       def authorize
         if !authorization
-          [:missing, action: :authorize]
+          [:missing, { action: :authorize }]
         elsif authorization_expired?
-          [:expired, action: :authorize]
+          [:expired, { action: :authorize }]
         elsif !authorization.granted?
-          [:pending, action: :resume]
+          [:pending, { action: :resume }]
         elsif unmatched_fields.any?
-          [:unauthorized, fields: unmatched_fields]
+          [:unauthorized, { fields: unmatched_fields }]
         elsif missing_fields.any?
-          [:incomplete, fields: missing_fields, action: :reauthorize, cancel: true]
+          [:incomplete, { fields: missing_fields, action: :reauthorize, cancel: true }]
         else
           [:ok, {}]
         end

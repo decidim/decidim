@@ -32,7 +32,7 @@
             <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>
           </li>
           <li class="card-data__item">
-            <strong>Processes:&nbsp;</strong><%= Faker::Number.between(0, 100) %>
+            <strong>Processes:&nbsp;</strong><%= Faker::Number.between(from: 0, to: 100) %>
           </li>
         </ul>
       </div>

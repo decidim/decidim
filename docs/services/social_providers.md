@@ -14,6 +14,8 @@ twitter:
   api_secret:
 ```
 
+See [the advanced documentation](../advanced/oauth.md) for technical details.
+
 ## Facebook
 
 1. Navigate to [Facebook Developers Page](https://developers.facebook.com/)
@@ -51,6 +53,24 @@ twitter:
 1. Select `Web applications`. Fill in the `Authorized Javascript origins` with your url. Then fill in the `Authorized redirect URIs` with your url and append the path `/users/auth/google_oauth2/callback`.
 1. Copy the CLIENT_ID AND CLIENT_SECRET
 1. Paste credentials in `config/secrets.yml` or in the organization configuration. Ensure the `enabled` attribute is `true`.
+
+## Decidim
+
+You can use your own Decidim application to log in to other applications that support OAuth 2. To do it you need to create an OAuth application from the admin panel for each client that wants to use Decidim.
+
+To create a new OAuth application in the OAuth provider Decidim installation you need:
+
+- Name: The name of the client application that will be shown to the user when authorizing it from your Decidim application.
+- Redirect URI: The URI where the Decidim application should redirect the user after authorizing it. It is usually where you handle the OAUth callback in your client application. If you're using `omniauth-decidim` the value should be `YOUR_APPLICATION_HOST/users/auth/decidim/callback`.
+- Organization name: The name of the organization that owns the client application.
+- Organization URL: The URL of the organization that owns the client application.
+- Organization logo: An image of the logo of the organization that owns the client application.
+
+All the organization data will be used during the authorization process so the users know to who they're giving their data.
+
+Once you've created your application you'll get the settings to setup your clients.
+
+Instructions in how to configure the client applications can be found in the module's [usage section](https://github.com/decidim/omniauth-decidim#usage).
 
 ## Custom providers
 
