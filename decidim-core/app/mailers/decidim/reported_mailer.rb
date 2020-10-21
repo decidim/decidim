@@ -33,6 +33,18 @@ module Decidim
       end
     end
 
+    def send_report_notification_to_users(users, report)
+      users.each do |user|
+        report(user, report).deliver_later
+      end
+    end
+
+    def send_hide_notification_to_users(users, report)
+      users.each do |user|
+        hide(user, report).deliver_later
+      end
+    end
+
     # See comment for reported_content_cell
     def current_organization
       @organization
