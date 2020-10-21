@@ -320,6 +320,12 @@ es:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       content_blocks:
+        metadata:
+          developer_group: Promovido por
+          name: Metadatos
+          participatory_scope: Qué se decide
+          participatory_structure: Cómo se decide
+          target: Quién participa
         title:
           meta_scope: Ámbito
           name: Título, descripción y hashtag
