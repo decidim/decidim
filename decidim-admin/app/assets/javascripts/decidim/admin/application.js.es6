@@ -19,6 +19,7 @@
 // = require ./draggable-list
 // = require ./sortable
 // = require ./gallery
+// = require ./moderations
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
