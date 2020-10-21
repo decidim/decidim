@@ -25,6 +25,7 @@ shared_examples "proposals wizards" do |options|
   end
   let(:component_path) { Decidim::EngineRouter.main_proxy(component) }
 
+  # rubocop:disable RSpec/EmptyExampleGroup
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
@@ -311,4 +312,5 @@ shared_examples "proposals wizards" do |options|
       end
     end
   end
+  # rubocop:enable RSpec/EmptyExampleGroup
 end
