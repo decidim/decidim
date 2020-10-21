@@ -41,6 +41,8 @@ module Decidim
     end
 
     def reported_resource_in_organization_language?(resource, target_locale)
+      return unless resource.try(:organization)
+
       resource_reported?(resource) && target_locale == resource.organization.default_locale && resource_completely_translated?(resource, target_locale)
     end
 
