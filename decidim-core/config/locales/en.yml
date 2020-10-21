@@ -1136,7 +1136,7 @@ en:
         details: Details
         hello: Hello %{name},
         id: ID
-        manage_moderations: Manage moderations
+        see_report: See report
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
