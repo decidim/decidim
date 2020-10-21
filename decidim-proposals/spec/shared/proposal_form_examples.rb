@@ -139,6 +139,7 @@ shared_examples "a proposal form" do |options|
     context "when the has address checkbox is checked" do
       let(:has_address) { true }
 
+      # rubocop:disable RSpec/EmptyExampleGroup
       context "when the address is not present" do
         if options[:address_optional_with_geocoding]
           it "does not store the coordinates" do
@@ -151,6 +152,7 @@ shared_examples "a proposal form" do |options|
           it { is_expected.to be_invalid }
         end
       end
+      # rubocop:enable RSpec/EmptyExampleGroup
 
       context "when the address is present" do
         let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }

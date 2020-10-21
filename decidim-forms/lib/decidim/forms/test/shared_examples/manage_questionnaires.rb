@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions.rb"
-require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions.rb"
-require "decidim/forms/test/shared_examples/manage_questionnaires/add_display_conditions.rb"
-require "decidim/forms/test/shared_examples/manage_questionnaires/update_display_conditions.rb"
+require "decidim/forms/test/shared_examples/manage_questionnaires/add_questions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/update_questions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/add_display_conditions"
+require "decidim/forms/test/shared_examples/manage_questionnaires/update_display_conditions"
 
 shared_examples_for "manage questionnaires" do
   let(:body) do

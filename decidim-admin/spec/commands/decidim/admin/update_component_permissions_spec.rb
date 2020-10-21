@@ -66,11 +66,11 @@ module Decidim::Admin
     let(:valid) { true }
 
     it "broadcasts :ok" do
-      expect { subject } .to broadcast(:ok)
+      expect { subject }.to broadcast(:ok)
     end
 
     it "updates the component permissions" do
-      expect { subject } .to change(component, :permissions).to(expected_permissions)
+      expect { subject }.to change(component, :permissions).to(expected_permissions)
     end
 
     it "fires the hooks" do
@@ -103,15 +103,15 @@ module Decidim::Admin
       end
 
       it "broadcasts :ok" do
-        expect { subject } .to broadcast(:ok)
+        expect { subject }.to broadcast(:ok)
       end
 
       it "doesn't update the component permissions" do
-        expect { subject } .not_to change(component, :permissions)
+        expect { subject }.not_to change(component, :permissions)
       end
 
       it "updates the resource permissions, but only with the actions that change from components" do
-        expect { subject } .to change(resource, :permissions) .to(changing_permissions)
+        expect { subject }.to change(resource, :permissions).to(changing_permissions)
       end
     end
 
@@ -119,7 +119,7 @@ module Decidim::Admin
       let(:valid) { false }
 
       it "does not update the permissions" do
-        expect { subject } .to broadcast(:invalid)
+        expect { subject }.to broadcast(:invalid)
 
         component.reload
         expect(component.permissions).not_to eq(expected_permissions)

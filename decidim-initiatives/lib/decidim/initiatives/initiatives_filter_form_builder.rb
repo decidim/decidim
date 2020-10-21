@@ -16,6 +16,24 @@ module Decidim
       def initiative_types_select(name, collection, options = {})
         selected = object.send(name)
 
+        types = types_for_options_for_select(selected, collection)
+
+        prompt = options.delete(:prompt)
+        remote_path = options.delete(:remote_path) || false
+        multiple = options.delete(:multiple) || false
+        html_options = {
+          multiple: multiple,
+          class: "select2",
+          "data-remote-path" => remote_path,
+          "data-placeholder" => prompt
+        }
+
+        select(name, @template.options_for_select(types, selected: selected), options, html_options)
+      end
+
+      private
+
+      def types_for_options_for_select(selected, collection)
         if selected.present?
           if selected == "all"
             types = collection.all.map do |type|
@@ -31,18 +49,7 @@ module Decidim
         else
           types = []
         end
-
-        prompt = options.delete(:prompt)
-        remote_path = options.delete(:remote_path) || false
-        multiple = options.delete(:multiple) || false
-        html_options = {
-          multiple: multiple,
-          class: "select2",
-          "data-remote-path" => remote_path,
-          "data-placeholder" => prompt
-        }
-
-        select(name, @template.options_for_select(types, selected: selected), options, html_options)
+        types
       end
     end
   end

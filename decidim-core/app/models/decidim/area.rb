@@ -16,7 +16,6 @@ module Decidim
                inverse_of: :areas
 
     belongs_to :area_type,
-               foreign_key: "area_type_id",
                class_name: "Decidim::AreaType",
                inverse_of: :areas,
                optional: true

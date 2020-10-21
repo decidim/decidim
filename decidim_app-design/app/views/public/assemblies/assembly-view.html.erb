@@ -116,7 +116,7 @@
         </div>
         <div class="section">
           <div class="flex--sbe">
-            <h2 class="section-heading">Membres <span class="text-muted">(<%= Faker::Number.between(10, 200) %>)</span></h2>
+            <h2 class="section-heading">Membres <span class="text-muted">(<%= Faker::Number.between(from: 10, to: 200) %>)</span></h2>
             <a class="mb-s" href=""><u>See full list of members</u></a>
           </div>
           <div class="row small-up-1 medium-up-2 card-grid">
@@ -131,7 +131,7 @@
                       <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
                       <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
                       <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
-                      <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
+                      <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(digits: 2) %> / <%= Faker::Address.city %></div>
                     </div>
                   </div>
                 </article>

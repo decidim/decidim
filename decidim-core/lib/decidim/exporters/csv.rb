@@ -53,12 +53,13 @@ module Decidim
       end
 
       def flatten(object, key = nil)
-        if object.is_a? Hash
+        case object
+        when Hash
           object.inject({}) do |result, (subkey, value)|
             new_key = key ? "#{key}/#{subkey}" : subkey.to_s
             result.merge(flatten(value, new_key))
           end
-        elsif object.is_a?(Array)
+        when Array
           { key.to_s => object.compact.map(&:to_s).join(", ") }
         else
           { key.to_s => object }

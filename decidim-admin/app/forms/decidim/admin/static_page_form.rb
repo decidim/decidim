@@ -18,7 +18,7 @@ module Decidim
 
       validates :slug, presence: true
       validates :title, :content, translatable_presence: true
-      validates :slug, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-\_/]+\z} }, allow_blank: true
+      validates :slug, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
 
       validate :slug, :slug_uniqueness
 
