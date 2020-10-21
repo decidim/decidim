@@ -14,8 +14,11 @@ module Decidim
       end
     end
 
+    let(:file_validation_options) { {} }
+
     let(:validatable) do
       mount_class = uploader
+      validation_options = file_validation_options
       Class.new do
         extend CarrierWave::Mount
         include ActiveModel::Model
@@ -26,7 +29,8 @@ module Decidim
         end
 
         attr_accessor :file
-        validates_upload :file
+
+        validates_upload :file, validation_options
         mount_uploader :file, mount_class
 
         def organization
@@ -55,6 +59,14 @@ module Decidim
     describe "#max_file_size" do
       it "returns the correct max file size" do
         expect(subject.max_file_size).to eq(10.megabytes)
+      end
+
+      context "when the file validator conditions are set as static numbers" do
+        let(:file_validation_options) { { max_size: 1.megabyte } }
+
+        it "returns the correct max file size" do
+          expect(subject.max_file_size).to eq(1.megabyte)
+        end
       end
     end
 

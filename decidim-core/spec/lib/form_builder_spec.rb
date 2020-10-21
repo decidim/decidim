@@ -579,7 +579,7 @@ module Decidim
           end
 
           it "renders an image with the current file url" do
-            expect(parsed.css('img[src="' + url + '"]')).not_to be_empty
+            expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
           end
         end
       end
@@ -595,11 +595,11 @@ module Decidim
           end
 
           it "doesn't render an image tag" do
-            expect(parsed.css('img[src="' + url + '"]')).to be_empty
+            expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 
           it "renders a link to the current file url" do
-            expect(parsed.css('a[href="' + url + '"]')).not_to be_empty
+            expect(parsed.css("a[href=\"#{url}\"]")).not_to be_empty
           end
         end
       end
@@ -630,6 +630,52 @@ module Decidim
           expect(html).to include("<span>Resized to fit</span>")
           expect(html).to include("<b>100 x 100 px</b>")
           expect(parsed.css("p.help-text")).not_to be_empty
+        end
+      end
+
+      context "when :help_i18n_scope is passed as option" do
+        let(:attributes) { { help_i18n_scope: "custom.scope" } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders calls I18n.t() with the correct scope" do
+          # Upload messages
+          expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
+          # Upload help messages
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope")
+          expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
+          expect(I18n).to receive(:t).with("message_2", scope: "custom.scope")
+          output
+        end
+      end
+
+      context "when :help_i18n_messages is passed as option" do
+        let(:attributes) { { help_i18n_messages: %w(message_1 message_2 message_3) } }
+        let(:output) { builder.upload :image, attributes }
+
+        it "renders calls I18n.t() with the correct messages" do
+          # Upload messages
+          expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
+          # Upload help messages
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+          expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
+          expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
+          expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
+          output
+        end
+
+        context "with only one message" do
+          let(:attributes) { { help_i18n_messages: "message_1" } }
+          let(:output) { builder.upload :image, attributes }
+
+          it "renders calls I18n.t() with the correct messages" do
+            # Upload messages
+            expect(I18n).to receive(:t).with("default_image", scope: "decidim.forms")
+            # Upload help messages
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.file_help.file")
+            expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
+            expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
+            output
+          end
         end
       end
     end

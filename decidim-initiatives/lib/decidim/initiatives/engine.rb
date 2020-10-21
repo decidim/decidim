@@ -32,7 +32,7 @@ module Decidim
           initiative ? "/initiatives/#{initiative.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { initiative_id: /[0-9]+/ }
 
-        resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
+        resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
           resources :initiative_signatures
 
           member do
@@ -101,12 +101,13 @@ module Decidim
           badge.valid_for = [:user, :user_group]
 
           badge.reset = lambda { |model|
-            if model.is_a?(User)
+            case model
+            when User
               Decidim::Initiative.where(
                 author: model,
                 user_group: nil
               ).published.count
-            elsif model.is_a?(UserGroup)
+            when UserGroup
               Decidim::Initiative.where(
                 user_group: model
               ).published.count

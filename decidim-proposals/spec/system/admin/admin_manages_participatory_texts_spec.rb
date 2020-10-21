@@ -144,7 +144,7 @@ describe "Admin manages participatory texts", type: :system do
 
   describe "updating participatory texts in draft mode" do
     let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
-    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+    let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
       visit_participatory_texts
@@ -159,7 +159,7 @@ describe "Admin manages participatory texts", type: :system do
 
   describe "updating participatory texts in draft mode" do
     let!(:proposal) { create :proposal, :draft, component: current_component, participatory_text_level: "article" }
-    let!(:new_body) { Faker::Lorem.unique.sentences(3).join("\n") }
+    let!(:new_body) { Faker::Lorem.unique.sentences(number: 3).join("\n") }
 
     it "persists changes and all proposals remain as drafts" do
       visit_participatory_texts

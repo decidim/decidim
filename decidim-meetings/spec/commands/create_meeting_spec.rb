@@ -23,10 +23,10 @@ module Decidim::Meetings
     let(:form) do
       double(
         invalid?: invalid,
-        title: Faker::Lorem.sentence(1),
-        description: Faker::Lorem.sentence(3),
-        location: Faker::Lorem.sentence(2),
-        location_hints: Faker::Lorem.sentence(3),
+        title: Faker::Lorem.sentence(word_count: 1),
+        description: Faker::Lorem.sentence(word_count: 3),
+        location: Faker::Lorem.sentence(word_count: 2),
+        location_hints: Faker::Lorem.sentence(word_count: 3),
         start_time: start_time,
         end_time: start_time + 2.hours,
         address: address,

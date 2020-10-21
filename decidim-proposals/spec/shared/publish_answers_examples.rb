@@ -19,15 +19,18 @@ shared_examples "publish answers" do
         expect(page).to have_content("Answers for 2 proposals will be published.")
       end
 
-      perform_enqueued_jobs do
-        page.find("button#js-submit-publish-answers").click
-
-        visit current_path
-
-        # run publish answers job
-
-        visit current_path
+      page.find("button#js-submit-publish-answers").click
+      20.times do # wait for the ajax call to finish
+        sleep(1)
+        expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
+        break
+      rescue e
+        # ignore and loop again if ajax content is still not there
+        nil
       end
+      expect(page).to have_content(I18n.t("proposals.publish_answers.success", scope: "decidim"))
+
+      visit current_path
 
       expect(page).to have_content("Accepted", count: 3)
       expect(page).to have_content("Not answered (Accepted)", count: 1)

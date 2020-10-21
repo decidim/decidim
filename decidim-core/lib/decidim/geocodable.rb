@@ -29,11 +29,13 @@ module Decidim
 
       private
 
+      # rubocop:disable Style/OptionalBooleanParameter
       def do_lookup(_reverse = false)
         RecordGeocoder.with_record(self) do
           super
         end
       end
+      # rubocop:enable Style/OptionalBooleanParameter
     end
 
     module RecordGeocoder

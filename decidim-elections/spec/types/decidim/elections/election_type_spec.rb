@@ -76,6 +76,15 @@ module Decidim
           expect(ids).not_to include(*election2.questions.map(&:id).map(&:to_s))
         end
       end
+
+      describe "trustees" do
+        let(:query) { "{ trustees { id } }" }
+
+        it "returns the election trustees" do
+          ids = response["trustees"].map { |trustee| trustee["id"] }
+          expect(ids).to include(*model.trustees.map(&:id).map(&:to_s))
+        end
+      end
     end
   end
 end

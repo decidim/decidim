@@ -21,12 +21,14 @@ module Decidim
       include InitiativeSlug
       include FilterResource
       include Paginable
+      include Decidim::FormFactory
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
+      helper_method :initiative_type
 
       # GET /initiatives
       def index
@@ -61,6 +63,41 @@ module Decidim
                 scope: %w(decidim initiatives admin initiatives edit)
               )
             }
+          end
+        end
+      end
+
+      # GET /initiatives/:slug/edit
+      def edit
+        enforce_permission_to :edit, :initiative, initiative: current_initiative
+        form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
+        @form = form(Decidim::Initiatives::InitiativeForm)
+                .from_model(
+                  current_initiative,
+                  initiative: current_initiative
+                )
+        @form.attachment = form_attachment_model
+
+        render layout: "decidim/initiative"
+      end
+
+      # PUT /initiatives/:id
+      def update
+        enforce_permission_to :update, :initiative, initiative: current_initiative
+
+        params[:id] = params[:slug]
+        @form = form(Decidim::Initiatives::InitiativeForm)
+                .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
+
+        UpdateInitiative.call(current_initiative, @form, current_user) do
+          on(:ok) do |initiative|
+            flash[:notice] = I18n.t("success", scope: "decidim.initiatives.update")
+            redirect_to edit_initiative_path(initiative)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("error", scope: "decidim.initiatives.update")
+            render :edit, layout: "decidim/initiative"
           end
         end
       end

@@ -227,6 +227,36 @@ describe Decidim::Initiatives::Permissions do
     end
   end
 
+  context "when managing an initiative" do
+    let(:action_subject) { :initiative }
+
+    context "when updating" do
+      let(:action_name) { :edit }
+      let(:action) do
+        { scope: :public, action: :edit, subject: :initiative }
+      end
+
+      context "when initiative is created" do
+        let(:initiative) { create :initiative, :created, organization: organization }
+
+        it { is_expected.to eq true }
+      end
+    end
+
+    context "when updating" do
+      let(:action_name) { :update }
+      let(:action) do
+        { scope: :public, action: :edit, subject: :initiative }
+      end
+
+      context "when initiative is created" do
+        let(:initiative) { create :initiative, :created, organization: organization }
+
+        it { is_expected.to eq true }
+      end
+    end
+  end
+
   context "when requesting membership to an initiative" do
     let(:action) do
       { scope: :public, action: :request_membership, subject: :initiative }
