@@ -83,5 +83,27 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
       end
     end
+
+    context "when the metadata content block is enabled" do
+      before do
+        create(
+          :content_block,
+          organization: organization,
+          scope_name: :participatory_process_group_homepage,
+          scoped_resource_id: participatory_process_group.id,
+          manifest_name: :metadata
+        )
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      end
+
+      it "shows metadata attributes" do
+        within "#participatory_process_group-metadata" do
+          expect(page).to have_i18n_content(participatory_process_group.developer_group)
+          expect(page).to have_i18n_content(participatory_process_group.target)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
+          expect(page).to have_i18n_content(participatory_process_group.participatory_structure)
+        end
+      end
+    end
   end
 end
