@@ -19,8 +19,6 @@ module Decidim
 
       context "when update succeed" do
         it "broadcasts ok" do
-          form.title = "Testing"
-          form.description = "Test description"
           command = described_class.new(initiative, form, initiative.author)
 
           expect(initiative).to receive(:valid?)
