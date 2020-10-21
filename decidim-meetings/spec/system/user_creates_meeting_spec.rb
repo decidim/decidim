@@ -196,18 +196,18 @@ describe "User creates meeting", type: :system do
 
           within ".new_meeting" do
             select "Registration disabled", from: :meeting_registration_type
-            expect(page).to have_no_field("Registration url")
+            expect(page).to have_no_field("Registration URL")
             expect(page).to have_no_field("Available slots")
             expect(page).to have_no_field("Registration terms")
 
             select "On a different platform", from: :meeting_registration_type
-            expect(page).to have_field("Registration url")
+            expect(page).to have_field("Registration URL")
             expect(page).to have_no_field("Available slots")
             expect(page).to have_no_field("Registration terms")
 
             select "On this platform", from: :meeting_registration_type
             expect(page).to have_field("Available slots")
-            expect(page).to have_no_field("Registration url")
+            expect(page).to have_no_field("Registration URL")
             expect(page).to have_field("Registration terms")
           end
         end
