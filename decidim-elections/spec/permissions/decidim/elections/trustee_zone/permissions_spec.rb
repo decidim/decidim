@@ -78,5 +78,4 @@ describe Decidim::Elections::TrusteeZone::Permissions do
     it_behaves_like "not allowed when the user is not a trustee"
     it_behaves_like "not allowed when the given trustee is not the same than the user trustee"
   end
-  # TODO: test different trustee!
 end
