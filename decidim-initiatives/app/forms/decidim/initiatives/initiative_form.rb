@@ -20,6 +20,7 @@ module Decidim
       attribute :attachment, AttachmentForm
       attribute :documents, Array[String]
       attribute :add_documents, Array
+      attribute :photos, Array[String]
       attribute :hashtag, String
 
       validates :title, :description, presence: true

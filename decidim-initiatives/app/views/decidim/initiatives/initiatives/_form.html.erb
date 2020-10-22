@@ -74,6 +74,22 @@
 <fieldset>
   <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
+  <% if @form.photos.any? %>
+    <% @form.photos.each do |photo| %>
+      <div class="callout gallery__item" data-closable>
+        <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+        <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+        <button class="close-button"
+                aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                type="button"
+                data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+  <% end %>
+
   <% if @form.documents.any? %>
     <% @form.documents.each do |document| %>
       <div class="callout" data-closable>
@@ -94,4 +110,5 @@
     <%= form.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
   </div>
 </fieldset>
+
 <%= javascript_include_tag "decidim/initiatives/scoped_type" %>
