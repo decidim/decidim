@@ -66,6 +66,31 @@ describe Decidim::Meetings::Permissions do
     end
   end
 
+  context "when registering on a meeting" do
+    let(:action) do
+      { scope: :public, action: :register, subject: :meeting }
+    end
+
+    before do
+      allow(meeting)
+        .to receive(:can_register_invitation?)
+        .with(user)
+        .and_return(can_be_registered)
+    end
+
+    context "when meeting can't be joined" do
+      let(:can_be_registered) { false }
+
+      it { is_expected.to eq false }
+    end
+
+    context "when meeting can be joined" do
+      let(:can_be_registered) { true }
+
+      it { is_expected.to eq true }
+    end
+  end
+
   context "when leaving a meeting" do
     let(:action) do
       { scope: :public, action: :leave, subject: :meeting }
