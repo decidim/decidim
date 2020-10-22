@@ -11,13 +11,30 @@ module Decidim
         {
           identification_private_key: identification_private_key,
           server: server,
-          api_key: api_key
+          api_key: api_key,
+          scheme: scheme,
+          authority_id: authority
         }
       end
 
       let(:identification_private_key) { identification_private_key_content }
       let(:server) { "https://bb.example.org" }
       let(:api_key) { Random.urlsafe_base64(30) }
+      let(:scheme) do
+        {
+          name: "test",
+          parameters: {
+            quorum: 2
+          }
+        }
+      end
+      let(:authority) { "Decidim Test Authority" }
+      let(:election_data) do
+        {
+          schema: scheme,
+          election_id: authority
+        }
+      end
 
       let(:identification_private_key_content) do
         <<~KEY
@@ -120,6 +137,14 @@ module Decidim
         let(:api_key) { "" }
 
         it { is_expected.not_to be_configured }
+      end
+
+      context "when election data is called" do
+        it "encodes election data" do
+          expect(subject.encode_data(election_data)).to eq(
+            "eyJhbGciOiJSUzI1NiJ9.eyJzY2hlbWEiOnsibmFtZSI6InRlc3QiLCJwYXJhbWV0ZXJzIjp7InF1b3J1bSI6Mn19LCJlbGVjdGlvbl9pZCI6IkRlY2lkaW0gVGVzdCBBdXRob3JpdHkifQ.A30zSRnBsJiaBPVf8qsmJpM5kS42wkFjs8dmfyaCKxhuZpW4_42vdPf3d6vKTFRiYUN5e0n-LHk0r60e6WZLEuRAwxo24Kkbxs83p7OIyiTLGEixNVaV9YuAJIC6tVmapSGYm3RH1YCtWd9z8QETgEilNPVzj-Uk6_UdE8VFoOsCuPHz3ayH9wOIEZa_L-sVZGiVKTZ9ViUBzUWCI2iSk5s4BP3PHdomdocnBjL-Lwc5zJYTeGJ_2EdKYQjvkFvtPRjPCZDCxyE6J11Ur4KRLKb5kertlzC5TYdKdoi0181p78ECXXqxJRLJTT6YGVPoT2vhpgb2qmhHsM2xj2sBMlFppKopwOEYyLB-0O-YyULEuqZXmY6HKCmczVpf0PQxohpDmyJO7FG54jFEHg9O7YxlIBW_3VZ4jwjsnidT2-VQbsEHTtxiNUn_4qwoqMFdzW0zDrlMfplW2N04SEWovl2-w0Yh2gGV2SCqniYerPMzYpbHEi4aZXFGCdcu8dy-NdHut6TKM3qT2ZduX8ZKbMhZnkXn7atjIzs85O-G3CTa5wICjvE_kCoN07XF0cD11d5BIU-_5AckOE_ksOFz5j-YJ7uL1C7MAEvQItBnOUxTHrpzZjCA-x5xrGrr7o_aCz8ogNFbR0pIfECdluHK7QGzkCJkHQ1frgVATgPWS1s"
+          )
+        end
       end
     end
   end
