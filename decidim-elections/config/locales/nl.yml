@@ -154,6 +154,9 @@ nl:
           new:
             create: Maak Trustee
             title: Nieuwe trustee
+          update:
+            invalid: Er is een fout opgetreden bij het bijwerken van trustee %{trustee}
+            success: Trustee %{trustee} succesvol bijgewerkt
       admin_log:
         election:
           publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
@@ -186,6 +189,15 @@ nl:
             answers: Antwoorden
             max_selections: Max. selectie
             title: Aanspreektitel
+        trustees_participatory_space:
+          fields:
+            considered: overwogen
+            email: E-mail
+            inactive: inactief
+            name: Naam
+            notification: Notificatie verzonden op
+            public_key: Publieke sleutel
+            status: Status
       votes:
         confirm:
           answer: Beantwoorden
@@ -230,6 +242,12 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: De %{resource_title} verkiezing is nu actief voor %{participatory_space_title}.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> verkiezing is nu actief voor %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: 'Een beheerder heeft u toegevoegd als trustee voor %{resource_name}. Maak hier een openbare sleutel: LINK'
+            email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_name}.
+            email_subject: Je bent een trustee van %{resource_name}.
+            notification_title: Je bent een trustee van <a href="%{participatory_space_url}">%{resource_name}</a>.
     participatory_processes:
       statistics:
         elections_count: Verkiezingen
