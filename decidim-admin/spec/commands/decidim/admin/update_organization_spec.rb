@@ -88,7 +88,6 @@ module Decidim::Admin
         end
 
         context "and demographic data collection is not enabled" do
-
           it "updates the organization in the organization" do
             expect { command.call }.to broadcast(:ok)
             organization.reload
