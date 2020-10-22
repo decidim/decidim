@@ -19,8 +19,13 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :online_meeting_url, String
       attribute :type_of_meeting, String
+      attribute :registration_type, String
+      attribute :registration_url, String
+      attribute :available_slots, Integer, default: 0
+      attribute :registration_terms, String
 
       TYPE_OF_MEETING = %w(in_person online).freeze
+      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       validates :title, presence: true
       validates :description, presence: true
@@ -29,6 +34,10 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.needs_address? }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? }
+      validates :registration_type, presence: true
+      validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
+      validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
+      validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
       validates :start_time, presence: true, date: { before: :end_time }
       validates :end_time, presence: true, date: { after: :start_time }
 
@@ -108,6 +117,23 @@ module Decidim
         TYPE_OF_MEETING.map do |type|
           [
             I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+            type
+          ]
+        end
+      end
+
+      def on_this_platform?
+        registration_type == "on_this_platform"
+      end
+
+      def on_different_platform?
+        registration_type == "on_different_platform"
+      end
+
+      def registration_type_select
+        REGISTRATION_TYPE.map do |type|
+          [
+            I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
             type
           ]
         end
