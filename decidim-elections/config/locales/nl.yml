@@ -108,6 +108,8 @@ nl:
             name: Verkiezing
           question:
             name: Vraag
+          trustee:
+            name: Trustee
         proposals_imports:
           create:
             invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in antwoorden
@@ -134,6 +136,24 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
             success: Vraag met succes bijgewerkt
+        trustees_participatory_spaces:
+          actions:
+            disable: Uitschakelen
+            enable: Overweeg
+          create:
+            exists: Trustee bestaat voor deze participatieve ruimte
+            invalid: Er is een fout opgetreden bij het maken van een nieuwe trustee
+            success: Trustee succesvol aangemaakt
+          delete:
+            invalid: Er is een fout opgetreden bij het verwijderen van deze trustee
+            success: Trustee succesvol verwijderd
+          form:
+            select_user: Selecteer gebruiker
+          index:
+            title: Trustees
+          new:
+            create: Maak Trustee
+            title: Nieuwe trustee
       admin_log:
         election:
           publish: "%{user_name} publiceerde de %{resource_name} verkiezing"
