@@ -60,7 +60,7 @@ module Decidim
       end
 
       def can_register_invitation_meeting?
-        meeting.can_register_invitation_meeting_for?(user) &&
+        meeting.can_register_invitation?(user) &&
           authorized?(:register, resource: meeting)
       end
     end

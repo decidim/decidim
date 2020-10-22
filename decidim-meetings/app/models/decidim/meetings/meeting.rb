@@ -84,8 +84,9 @@ module Decidim
         !closed? && registrations_enabled? && can_participate?(user)
       end
 
-      def can_register_invitation_meeting_for?(user)
-        !closed? && registrations_enabled? && can_register_invitation?(user)
+      def can_register_invitation?(user)
+        !closed? && registrations_enabled? &&
+          can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
       end
 
       def closed?
@@ -143,10 +144,6 @@ module Decidim
 
       def can_participate?(user)
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
-      end
-
-      def can_register_invitation?(user)
-        can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
       end
 
       def current_user_can_visit_meeting?(current_user)

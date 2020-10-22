@@ -77,7 +77,7 @@ describe Decidim::Meetings::Permissions do
 
     before do
       allow(meeting)
-        .to receive(:can_register_invitation_meeting_for?)
+        .to receive(:can_register_invitation?)
         .with(user)
         .and_return(can_be_registered)
     end

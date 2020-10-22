@@ -99,8 +99,8 @@ module Decidim::Meetings
       end
     end
 
-    describe "#can_register_invitation_meeting_for?" do
-      subject { meeting.can_register_invitation_meeting_for?(user) }
+    describe "#can_register_invitation?" do
+      subject { meeting.can_register_invitation?(user) }
 
       let(:user) { build :user, organization: meeting.component.organization }
 
