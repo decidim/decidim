@@ -298,6 +298,11 @@ en:
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
         trustees:
+          new_election:
+            email_intro: You got added as a trustee for the %{resource_title} election.
+            email_outro: You have received this notification because you've been added as trustee for the %{resource_title} election.
+            email_subject: You are a trustee for the %{resource_title} election..
+            notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a> election.
           new_trustee:
             email_intro: 'An admin has added you as trustee for %{resource_name}. You should create your public key here: LINK'
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.

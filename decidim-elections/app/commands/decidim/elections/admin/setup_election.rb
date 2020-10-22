@@ -9,9 +9,10 @@ module Decidim
         #
         # election - The election to setup.
         # current_user - the user performing the action
-        def initialize(form)
+        def initialize(form, bulletin_board: Decidim::Elections.bulletin_board)
           @election = form.election
           @form = form
+          @bulletin_board = bulletin_board
         end
 
         # Public: Setup the Election.
@@ -24,6 +25,7 @@ module Decidim
             add_trustees_to_election
             setup_election
             log_action
+            notify_trustee_about_election
           end
 
           if form.errors.any?
@@ -35,7 +37,7 @@ module Decidim
 
         private
 
-        attr_reader :election, :form
+        attr_reader :election, :form, :bulletin_board
 
         def questions
           @questions = election.questions
@@ -57,7 +59,7 @@ module Decidim
         end
 
         def election_id
-          authority_name = Decidim::Elections.bulletin_board.authority
+          authority_name = bulletin_board.authority
           authority_name.parameterize
           "authority_name.#{election.id}"
         end
@@ -67,7 +69,7 @@ module Decidim
             iat: Time.now.to_i,
             election_id: election_id,
             type: "create_election",
-            scheme: Decidim::Elections.bulletin_board.scheme,
+            scheme: bulletin_board.scheme,
             trustees:
               trustees.collect do |trustee|
                 {
@@ -133,10 +135,10 @@ module Decidim
         end
 
         def setup_election
-          signed_data = Decidim::Elections.bulletin_board.encode_data(election_data)
-          api_key = Decidim::Elections.bulletin_board.api_key
+          signed_data = bulletin_board.encode_data(election_data)
+          api_key = bulletin_board.api_key
 
-          response = Decidim::Elections.bulletin_board.graphql_client.query do
+          response = bulletin_board.graphql_client.query do
             mutation do
               createElection(signedData: signed_data, apiKey: api_key) do
                 election
@@ -159,6 +161,18 @@ module Decidim
             form.current_user,
             visibility: "all"
           )
+        end
+
+        def notify_trustee_about_election
+          trustee = trustees.collect { |trustee| trustee.user }
+          data = {
+            event: "decidim.events.elections.trustees.new_election",
+            event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
+            resource: election,
+            affected_users: trustee
+          }
+
+          Decidim::EventsManager.publish(data)
         end
       end
     end
