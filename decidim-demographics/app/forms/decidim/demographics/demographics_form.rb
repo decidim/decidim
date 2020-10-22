@@ -5,6 +5,7 @@ module Decidim
     # This class holds a Form to create/update meetings for Participants and UserGroups.
     class DemographicsForm < Decidim::Form
       mimic :demographic
+
       attribute :gender, String
       attribute :age, String
       attribute :nationalities, String
