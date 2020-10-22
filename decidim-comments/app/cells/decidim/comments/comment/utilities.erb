@@ -1,0 +1,13 @@
+<button type="button" class="link-alt" data-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.title") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+  <%= icon "flag", aria_hidden: true, class: "icon--small", role: "none presentation", "aria-hidden": true %>
+  <span class="show-for-sr"><%= t("decidim.components.comment.report.title") %></span>
+</button>
+
+<%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", title: t("decidim.components.comment.single_comment_link_title") do %>
+  <span class="show-for-sr"><%= t("decidim.components.comment.single_comment_link_title") %></span>
+  <%= icon "link-intact", class: "icon--small", role: "none presentation" %>
+<% end %>
+
+<% if current_user.present? %>
+  <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+<% end %>

@@ -2,10 +2,10 @@
 
 <p><%= @event_instance.email_intro %></p>
 
-<% if @event_instance.try(:resource_text).present? %>
+<% if @event_instance.try(:safe_resource_text).present? %>
   <blockquote>
     <p>
-      <%= @event_instance.resource_text.html_safe %>
+      <%= @event_instance.safe_resource_text %>
     </p>
   </blockquote>
 <% end %>

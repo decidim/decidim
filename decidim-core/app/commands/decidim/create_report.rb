@@ -25,6 +25,7 @@ module Decidim
 
       transaction do
         find_or_create_moderation!
+        update_reported_content!
         create_report!
         update_report_count!
       end
@@ -47,12 +48,17 @@ module Decidim
       @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_space)
     end
 
+    def update_reported_content!
+      @moderation.update!(reported_content: @reportable.reported_searchable_content_text)
+    end
+
     def create_report!
       @report = Report.create!(
         moderation: @moderation,
         user: @current_user,
         reason: form.reason,
-        details: form.details
+        details: form.details,
+        locale: I18n.locale
       )
     end
 
@@ -65,9 +71,7 @@ module Decidim
     end
 
     def send_report_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.report(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_report_notification_to_users(participatory_space_moderators, @report)
     end
 
     def hideable?
@@ -79,9 +83,7 @@ module Decidim
     end
 
     def send_hide_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.hide(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_hide_notification_to_users(participatory_space_moderators, @report)
     end
 
     def participatory_space

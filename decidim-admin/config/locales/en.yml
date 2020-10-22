@@ -300,6 +300,9 @@ en:
         category_id_eq:
           label: Category
         filter_label: Filter
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: State
           values:
@@ -320,6 +323,7 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
         state_eq:
           label: State
@@ -386,6 +390,7 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         participants: Participants
+        reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -473,6 +478,20 @@ en:
             phone: Phone
             state: State
             users_count: Participants count
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          title: Listing reported users
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       moderations:
         index:
           title: Moderations
@@ -481,6 +500,21 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        reports:
+          index:
+            author: Author(s)
+            callout_html: A content appears in the moderation panel when it has been signaled by a user (can be anyone with a registered account) by clicking on the %{icon} flag next to the item.
+            content_original_language: Content original language
+            participatory_space: Participatory space
+            reported_content: Reported content
+            see_current: See current
+            see_original: See original
+            title: Moderation reports
+          show:
+            report_details: Reason details
+            report_language: Report language
+            report_reason: Reason
+            title: Report details
       newsletter_templates:
         index:
           preview_template: Preview
@@ -560,9 +594,12 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: Report count
           show_email: Show email address
           status: Status
+          suspend: Suspend User
           unofficialize: Unofficialize
+          unsuspend: Unsuspend User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -575,6 +612,12 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
+        suspend:
+          error: There was an error suspending the participant
+          success: Participant successfully suspended
+        unsuspend:
+          error: There was an error unsuspending the participant
+          success: Participant successfully unsuspended
       organization:
         edit:
           title: Edit organization
@@ -780,6 +823,19 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
+      user_suspension:
+        new:
+          action: Block account and send justification
+          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          justification: Justification
+          title: Suspend User %{name}
+      user_suspension_mailer:
+        notify:
+          body_1: Your account was blocked.
+          body_2: 'Reason: %{justification}'
+          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hello,
+          subject: Your account was blocked by %{organization_name}?
       users:
         create:
           error: There was a problem inviting this admin.
@@ -809,6 +865,7 @@ en:
           reason: You need to provide a reason when managing a non managed participant
     moderations:
       actions:
+        expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
@@ -829,12 +886,19 @@ en:
       models:
         moderation:
           fields:
+            created_at: Creation date
             hidden_at: Hidden at
             report_count: Count
-            reportable: Reportable
+            reportable_id: Id
+            reportable_type: Type
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+        report:
+          fields:
+            details: Reason details
+            locale: Language
+            reason: Reason
   errors:
     messages:
       invalid_json: Invalid JSON

@@ -91,6 +91,7 @@ en:
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
+            registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
@@ -368,6 +369,11 @@ en:
             subject: Your meeting's registration has been confirmed
       meeting:
         not_allowed: You are not allowed to view this meeting
+      meeting_closes:
+        edit:
+          back: Back
+          close: Close meeting
+          title: Close meeting
       meetings:
         count:
           meetings_count:
@@ -435,6 +441,7 @@ en:
         show:
           attendees: Attendees count
           back: Back to list
+          close_meeting: Close meeting
           contributions: Contributions count
           date: Date
           edit_meeting: Edit meeting
