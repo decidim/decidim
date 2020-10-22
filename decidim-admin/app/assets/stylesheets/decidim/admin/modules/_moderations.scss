@@ -7,13 +7,14 @@
 
   .reported-content{
     .original{
-      display: none
+      display: none;
     }
   }
 
   .callout{
     &-text{
       margin-left: .5rem;
+
       .icon{
         width: .6rem;
         margin: 0 .2rem;
@@ -30,6 +31,7 @@
   .reportable-authors{
     list-style: none;
     margin: 0;
+
     .icon{
       margin-left: .5rem;
     }
