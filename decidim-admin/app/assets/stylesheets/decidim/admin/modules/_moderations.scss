@@ -5,10 +5,15 @@
     font-size: .9rem;
   }
 
+  .reported-content{
+    .original{
+      display: none
+    }
+  }
+
   .callout{
     &-text{
       margin-left: .5rem;
-
       .icon{
         width: .6rem;
         margin: 0 .2rem;
@@ -20,5 +25,13 @@
     padding: $global-padding;
     background-color: $light-gray;
     margin-bottom: .5rem;
+  }
+
+  .reportable-authors{
+    list-style: none;
+    margin: 0;
+    .icon{
+      margin-left: .5rem;
+    }
   }
 }

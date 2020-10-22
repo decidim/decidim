@@ -5,10 +5,24 @@ module Decidim
     module Moderations
       # This module includes helpers to show moderation reports in admin
       module ReportsHelper
+        include Decidim::Messaging::ConversationHelper
+
         # Public: Returns the reportable's author names separated by commas.
         def reportable_author_name(reportable)
-          reportable_authors = reportable.try(:authors) || [reportable.try(:author)]
-          reportable_authors.select(&:present?).map(&:name).join(", ")
+          reportable_authors = reportable.try(:authors) || [reportable.try(:normalized_author)]
+          content_tag :ul, class: "reportable-authors" do
+            reportable_authors.select(&:present?).map do |author|
+              if author.is_a? User
+                content_tag :li do
+                  link_to current_or_new_conversation_path_with(author), target: "_blank" do
+                    "#{author.name} #{icon "envelope-closed"}".html_safe
+                  end
+                end
+              else
+                content_tag(:li, author.name)
+              end
+            end.join("").html_safe
+          end
         end
 
         # Public: Renders a small preview of the content reported.
