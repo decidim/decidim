@@ -15,7 +15,7 @@ module Decidim
 
       # Public: Timestamp generated from data
       def timestamp
-        @timestamp ||= Base64.encode64(OpenSSL::Digest::SHA1.digest("#{@document}-#{Time.current}")).chop
+        @timestamp ||= Base64.encode64(OpenSSL::Digest.digest("SHA1", "#{@document}-#{Time.current}")).chop
       end
     end
   end

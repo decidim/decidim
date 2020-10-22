@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.6"
+  s.required_ruby_version = ">= 2.7"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -34,10 +34,10 @@ Gem::Specification.new do |s|
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-cells", "~> 0.3.4"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
+  s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
   s.add_dependency "rspec-rails", "~> 3.7"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
-  s.add_dependency "rubocop", "~> 0.71.0"
+  s.add_dependency "rubocop", "~> 0.92.0"
   s.add_dependency "rubocop-rails", "~> 2.0"
   s.add_dependency "rubocop-rspec", "~> 1.21"
   s.add_dependency "selenium-webdriver", "~> 3.142"

@@ -15,12 +15,12 @@
     </button>
     <div>
       <%= link_to page_path("profile/user-profile-public") + "#followers", class: "card__link" do %>
-        <strong><%= Faker::Number.between(1, 100) %></strong> Followers
+        <strong><%= Faker::Number.between(from: 1, to: 100) %></strong> Followers
       <% end %>
     </div>
     <div>
       <%= link_to page_path("profile/user-profile-public") + "#following", class: "card__link" do %>
-        <strong><%= Faker::Number.between(1, 100) %></strong> Following
+        <strong><%= Faker::Number.between(from: 1, to: 100) %></strong> Following
       <% end %>
     </div>
   </div>

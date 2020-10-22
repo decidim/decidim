@@ -47,6 +47,7 @@ module Decidim
       messages
     end
 
+    # rubocop: disable Metrics/CyclomaticComplexity
     def max_file_size
       # First try if the record itself has a file size validator defined.
       validator = record.singleton_class.validators_on(attribute).find do |v|
@@ -54,7 +55,8 @@ module Decidim
       end
       if validator
         lte = validator.options[:less_than_or_equal_to]
-        return lte.call(record) if lte && lte.lambda?
+        return lte if lte.is_a?(Numeric)
+        return lte.call(record) if lte.respond_to?(:call)
       end
       return unless passthru_validator
 
@@ -65,8 +67,11 @@ module Decidim
       return unless validator
 
       lte = validator.options[:less_than_or_equal_to]
-      lte.call(passthru_record) if lte && lte.lambda?
+      return lte if lte.is_a?(Numeric)
+
+      lte.call(passthru_record) if lte.respond_to?(:call)
     end
+    # rubocop: enable Metrics/CyclomaticComplexity
 
     def extension_whitelist
       return unless uploader.respond_to?(:extension_whitelist, true)

@@ -3,7 +3,15 @@
 require "spec_helper"
 
 describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
+  subject { cell.valid_activities }
+
   let(:organization) { create(:organization) }
+  let(:component) do
+    create(:component, :published, organization: organization)
+  end
+  let(:cell) do
+    described_class.new(nil, activities_count: 3)
+  end
 
   controller Decidim::PagesController
 
@@ -15,24 +23,16 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
     end
   end
 
-  describe "valid_activities" do
-    subject { cell.valid_activities }
+  before do
+    allow(cell).to receive(:controller).and_return(controller)
+  end
 
-    let(:cell) do
-      described_class.new(nil, activities_count: 3)
-    end
+  describe "valid_activities" do
     let!(:action_log) do
       create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)
     end
-    let(:component) do
-      create(:component, :published, organization: organization)
-    end
     let(:resource) do
       create(:dummy_resource, component: component, published_at: Time.current)
-    end
-
-    before do
-      allow(cell).to receive(:controller).and_return(controller)
     end
 
     it { is_expected.to include(action_log) }
@@ -71,6 +71,43 @@ describe Decidim::ContentBlocks::LastActivityCell, type: :cell do
 
       it "limits the results" do
         expect(subject.length).to eq(3)
+      end
+    end
+  end
+
+  describe "#cache_hash" do
+    let!(:action_log) do
+      create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)
+    end
+    let(:resource) do
+      create(:dummy_resource, component: component, published_at: Time.current)
+    end
+
+    it "generate a unique hash" do
+      old_hash = cell.send(:cache_hash)
+
+      expect(cell.send(:cache_hash)).to eq(old_hash)
+    end
+
+    context "when new valid activity" do
+      it "generates a different hash" do
+        old_hash = cell.send(:cache_hash)
+        activities = [action_log, create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization)]
+        allow(cell).to receive(:valid_activities).and_return(activities)
+
+        expect(cell.send(:cache_hash)).not_to eq(old_hash)
+      end
+    end
+
+    context "when switching locale" do
+      let(:alt_locale) { :ca }
+
+      before do
+        allow(I18n).to receive(:locale).and_return(alt_locale)
+      end
+
+      it "generates a different hash" do
+        expect(cell.send(:cache_hash)).not_to match(/en$/)
       end
     end
   end

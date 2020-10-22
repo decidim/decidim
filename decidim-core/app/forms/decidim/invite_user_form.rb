@@ -16,7 +16,7 @@ module Decidim
     validates :email, :name, :organization, :invitation_instructions, presence: true
     validates :role, inclusion: { in: Decidim::User::Roles.all }
 
-    validates :name, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+    validates :name, format: { with: /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|])/ }
     validate :admin_uniqueness
 
     def email
@@ -43,7 +43,7 @@ module Decidim
     private
 
     def admin_uniqueness
-      errors.add(:email, :taken) if organization.admins.where(email: email).exists?
+      errors.add(:email, :taken) if organization.admins.exists?(email: email)
     end
   end
 end

@@ -2,6 +2,9 @@
 
 require "spec_helper"
 
+class ::TestPermissions
+end
+
 module Decidim
   describe ParticipatorySpaceManifest do
     subject { described_class.new }
@@ -24,8 +27,6 @@ module Decidim
     describe "permissions_class" do
       context "when permissions_class_name is set" do
         it "finds the permissions class from its name" do
-          class ::TestPermissions
-          end
           subject.permissions_class_name = "TestPermissions"
 
           expect(subject.permissions_class).to eq(TestPermissions)

@@ -23,7 +23,7 @@ module Decidim
         attribute :state, String
         attribute :attachment, AttachmentForm
 
-        validates :title, :description, presence: true
+        validates :title, :description, translatable_presence: true
         validates :area, presence: true, if: ->(form) { form.area_id.present? }
         validates :signature_type, presence: true, if: :signature_type_updatable?
         validates :signature_start_date, presence: true, if: ->(form) { form.context.initiative.published? }
@@ -38,6 +38,8 @@ module Decidim
         validate :notify_missing_attachment_if_errored
         validate :area_is_not_removed
 
+        # rubocop:disable Metrics/CyclomaticComplexity
+        # rubocop:disable Metrics/PerceivedComplexity
         def map_model(model)
           self.type_id = model.type.id
           self.decidim_scope_id = model.scope&.id
@@ -59,12 +61,14 @@ module Decidim
             end
           end
         end
+        # rubocop:enable Metrics/CyclomaticComplexity
+        # rubocop:enable Metrics/PerceivedComplexity
 
         def signature_type_updatable?
           @signature_type_updatable ||= begin
-                                          state ||= context.initiative.state
-                                          state == "validating" && context.current_user.admin? || state == "created"
-                                        end
+            state ||= context.initiative.state
+            state == "validating" && context.current_user.admin? || state == "created"
+          end
         end
 
         def state_updatable?

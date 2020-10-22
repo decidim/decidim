@@ -7,7 +7,7 @@ class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
 
   class Initiative < ApplicationRecord
     self.table_name = :decidim_initiatives
-    belongs_to :scoped_type, foreign_key: "scoped_type_id", class_name: "InitiativesTypeScope"
+    belongs_to :scoped_type, class_name: "InitiativesTypeScope"
   end
 
   def change

@@ -1,0 +1,30 @@
+<div class="add-comment">
+  <h4 class="section-heading"><%= t("decidim.components.add_comment_form.title") %></h4>
+
+  <% if user_signed_in? %>
+    <% if alignment_enabled? %>
+      <div class="opinion-toggle button-group">
+        <button class="button tiny button--muted opinion-toggle--ok">
+          <%= icon "thumb-up", role: "none presentation" %>
+        </button>
+        <button class="button tiny button--muted opinion-toggle--meh is-active">
+          <%= t("decidim.components.add_comment_form.opinion.neutral") %>
+        </button>
+        <button class="button tiny button--muted opinion-toggle--ko">
+          <%= icon "thumb-down", role: "none presentation" %>
+        </button>
+      </div>
+    <% end %>
+    <%== cell("decidim/comments/comment_form", model, root_depth: root_depth) %>
+  <% else %>
+    <p>
+      <span>
+        <%== t(
+          "decidim.components.add_comment_form.account_message",
+          sign_in_url: decidim.new_user_session_path,
+          sign_up_url: decidim.new_user_registration_path
+        ) %>
+      </span>
+    </p>
+  <% end %>
+</div>

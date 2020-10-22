@@ -20,7 +20,6 @@ module Decidim
       attribute :official_img_footer
       attribute :remove_official_img_footer
       attribute :official_url
-      attribute :show_statistics, Boolean
       attribute :header_snippets, String
       attribute :cta_button_path, String
       attribute :highlighted_content_banner_enabled, Boolean, default: false
@@ -47,7 +46,7 @@ module Decidim
       translatable_attribute :omnipresent_banner_title, String
       translatable_attribute :omnipresent_banner_short_description, String
 
-      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-\_/]+\z} }, allow_blank: true
+      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-_/]+\z} }, allow_blank: true
       validates :official_img_header,
                 :official_img_footer,
                 :logo,

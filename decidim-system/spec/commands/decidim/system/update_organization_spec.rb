@@ -96,9 +96,10 @@ module Decidim
 
         def params_for_uploads(hash)
           hash.map do |key, value|
-            if value.is_a?(Hash)
+            case value
+            when Hash
               value = params_for_uploads(value)
-            elsif value.is_a?(Array)
+            when Array
               value = value.join(",")
             end
 

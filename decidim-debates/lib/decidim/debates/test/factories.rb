@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def generate_localized_debate_title
-  Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> " + generate(:title) }
+  Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
 end
 
 FactoryBot.define do

@@ -51,9 +51,9 @@ module Decidim
 
       def map_model(model)
         self.secondary_hosts = model.secondary_hosts.join("\n")
-        self.omniauth_settings = Hash[(model.omniauth_settings || []).map do |k, v|
-          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v]
-        end]
+        self.omniauth_settings = (model.omniauth_settings || {}).transform_values do |v|
+          Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v
+        end
         self.file_upload_settings = FileUploadSettingsForm.from_model(model.file_upload_settings)
       end
 
@@ -86,9 +86,9 @@ module Decidim
       end
 
       def encrypted_omniauth_settings
-        Hash[omniauth_settings.map do |k, v|
-          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v]
-        end]
+        omniauth_settings.transform_values do |v|
+          Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v
+        end
       end
 
       private

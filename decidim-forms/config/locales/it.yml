@@ -3,6 +3,8 @@ it:
     attributes:
       answer:
         body: Risposta
+        choices: Scelte
+        selected_choices: Scelte selezionate
       question:
         max_choices: Numero massimo di scelte
         question_type: Tipo
@@ -103,6 +105,7 @@ it:
             up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
+            success: Modulo salvato correttamente.
       errors:
         answer:
           body: Il corpo non può essere vuoto
