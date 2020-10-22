@@ -10,9 +10,9 @@ module Decidim
       # Public: returns a collection of stats (Hash) for the Process Home.
       def collection
         highlighted_stats = process_participants_stats
-        highlighted_stats = highlighted_stats.concat(process_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
-        highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
-        highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
+        highlighted_stats.concat(process_followers_stats(priority: StatsRegistry::HIGH_PRIORITY))
+        highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
+        highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
         highlighted_stats = highlighted_stats.reject(&:empty?)
         highlighted_stats = highlighted_stats.reject { |_stat_manifest, _stat_title, stat_number| stat_number.zero? }
         grouped_highlighted_stats = highlighted_stats.group_by(&:first)

@@ -112,6 +112,8 @@ en:
             name: Election
           question:
             name: Question
+          trustee:
+            name: Trustee
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into answers
@@ -138,6 +140,27 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+        trustees_participatory_spaces:
+          actions:
+            disable: Disable
+            enable: Consider
+          create:
+            exists: Trustee exists for this participatory space
+            invalid: There was a problem creating a trustee
+            success: Trustee successfully created
+          delete:
+            invalid: There was a problem removing this trustee
+            success: Trustee successfully removed
+          form:
+            select_user: Select user
+          index:
+            title: Trustees
+          new:
+            create: Create Trustee
+            title: New Trustee
+          update:
+            invalid: There was a problem updating %{trustee} trustee
+            success: Trustee %{trustee} successfully updated
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"
@@ -196,6 +219,15 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+        trustees_participatory_space:
+          fields:
+            considered: considered
+            email: Email
+            inactive: inactive
+            name: Name
+            notification: Notification sent at
+            public_key: Public Key
+            status: Status
       orders:
         label: Order elections by
         older: Older
@@ -250,6 +282,12 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: 'An admin has added you as trustee for %{resource_name}. You should create your public key here: LINK'
+            email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
+            email_subject: You are a trustee for %{resource_name}.
+            notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
       home:
         statistics:

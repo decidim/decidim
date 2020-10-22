@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Randomable
 
-      belongs_to :last_comment_by, polymorphic: true, foreign_key: "last_comment_by_id", foreign_type: "last_comment_by_type", optional: true
+      belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
 
       validates :title, presence: true

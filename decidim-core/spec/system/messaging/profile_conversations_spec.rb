@@ -119,7 +119,7 @@ describe "ProfileConversations", type: :system do
       within "#conversations" do
         expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
         expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
-        expect(page).to have_selector(".card.card--widget", text: /Last message\:(.+) ago/)
+        expect(page).to have_selector(".card.card--widget", text: /Last message:(.+) ago/)
       end
     end
 
