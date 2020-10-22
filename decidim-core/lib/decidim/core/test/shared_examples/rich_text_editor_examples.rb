@@ -9,7 +9,7 @@ shared_examples "having a rich text editor" do |css, toolbar|
 end
 
 shared_context "with rich text editor content" do
-  let(:content) { "<p>" + safe_tags + "</p>" + script }
+  let(:content) { "<p>#{safe_tags}</p>#{script}" }
   let(:safe_tags) { em + u + strong }
   let(:em) { "<em>em</em>" }
   let(:u) { "<u>u</u>" }

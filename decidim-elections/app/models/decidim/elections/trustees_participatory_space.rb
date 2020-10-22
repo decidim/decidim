@@ -7,7 +7,7 @@ module Decidim
     # for the trustee.
     class TrusteesParticipatorySpace < ApplicationRecord
       belongs_to :trustee, foreign_key: "decidim_elections_trustee_id", class_name: "Decidim::Elections::Trustee", inverse_of: :trustees_participatory_spaces
-      belongs_to :participatory_space, foreign_key: "participatory_space_id", foreign_type: "participatory_space_type", polymorphic: true
+      belongs_to :participatory_space, foreign_type: "participatory_space_type", polymorphic: true
     end
   end
 end

@@ -6,7 +6,7 @@ module Decidim
   module Elections
     describe VotesHelper do
       describe "ordered_answers" do
-        subject(:uniq_results) { repetitions.times.map { helper.ordered_answers(question) } .uniq }
+        subject(:uniq_results) { repetitions.times.map { helper.ordered_answers(question) }.uniq }
 
         let(:question) { create :question, :complete, answers: 3, random_answers_order: random_answers_order }
         let(:repetitions) { 100 }
@@ -27,7 +27,7 @@ module Decidim
           end
 
           it "orders answers by weight and creation order" do
-            ordered_ids = question.answers.map { |question| [question.weight, question.id] } .sort.map(&:last)
+            ordered_ids = question.answers.map { |question| [question.weight, question.id] }.sort.map(&:last)
 
             expect(uniq_results.first.map(&:id)).to eq(ordered_ids)
           end

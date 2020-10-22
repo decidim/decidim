@@ -56,7 +56,7 @@
                   <td><%= Faker::Food.dish %></td>
                   <td><%= Faker::Creature::Cat.name %></td>
                   <td class="warning">not answered</td>
-                  <td><%= Faker::Number.between(1, 10) %></td>
+                  <td><%= Faker::Number.between(from: 1, to: 10) %></td>
                   <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
                 </tr>
               <% end %>

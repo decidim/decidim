@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "rake decidim:right_to_be_forgotten", type: :task do
-  let(:file_path) { Rails.root.join("tmp", "forgotten_users.csv") }
+  let(:file_path) { Rails.root.join("tmp/forgotten_users.csv") }
 
   let(:user) { create(:user, :confirmed) }
   let(:user2) { create(:user, :confirmed) }
@@ -11,7 +11,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
   let(:users) { [user, user2] }
 
   before do
-    File.delete(Rails.root.join("log", "right_to_be_forgotten.log")) if File.exist?(Rails.root.join("log", "right_to_be_forgotten.log"))
+    File.delete(Rails.root.join("log/right_to_be_forgotten.log")) if File.exist?(Rails.root.join("log/right_to_be_forgotten.log"))
   end
 
   after do
@@ -56,7 +56,7 @@ describe "rake decidim:right_to_be_forgotten", type: :task do
       user_ids = users.collect(&:id)
       create_forgotten_users_file(user_ids)
       task.execute
-      expect(File.exist?(Rails.root.join("log", "right_to_be_forgotten.log"))).to be true
+      expect(File.exist?(Rails.root.join("log/right_to_be_forgotten.log"))).to be true
     end
   end
 

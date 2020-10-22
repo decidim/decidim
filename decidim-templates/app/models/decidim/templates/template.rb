@@ -15,7 +15,7 @@ module Decidim
                  foreign_key: "decidim_organization_id",
                  class_name: "Decidim::Organization"
 
-      belongs_to :templatable, foreign_key: "templatable_id", foreign_type: "templatable_type", polymorphic: true, optional: true
+      belongs_to :templatable, foreign_type: "templatable_type", polymorphic: true, optional: true
 
       before_destroy :destroy_templatable
 

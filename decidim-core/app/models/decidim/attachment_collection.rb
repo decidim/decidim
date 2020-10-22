@@ -8,7 +8,7 @@ module Decidim
 
     translatable_fields :name, :description
     belongs_to :collection_for, polymorphic: true
-    has_many :attachments, foreign_key: "attachment_collection_id", class_name: "Decidim::Attachment", dependent: :nullify
+    has_many :attachments, class_name: "Decidim::Attachment", dependent: :nullify
 
     default_scope { order(arel_table[:weight].asc) }
 

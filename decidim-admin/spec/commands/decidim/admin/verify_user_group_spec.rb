@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe VerifyUserGroup do
-    subject { described_class.new(user_group, current_user, via_csv) }
+    subject { described_class.new(user_group, current_user, via_csv: via_csv) }
 
     let(:via_csv) { false }
     let(:current_user) { create :user, organization: organization }

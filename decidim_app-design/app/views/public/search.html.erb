@@ -12,7 +12,7 @@
         <%= partial "filters_general" %>
       </div>
       <div class="columns mediumlarge-8 large-9">
-        <h2 class="section-heading">Iniciatives&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
+        <h2 class="section-heading">Iniciatives&nbsp;<span class="muted"><%= Faker::Number.between(from: 0, to: 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
           <% 4.times do %>
           <div class="column">
@@ -64,20 +64,20 @@
                   <li class="card-data__item">
                     <a href="">
                       <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                      <%= Faker::Number.between(0, 100) %>
+                      <%= Faker::Number.between(from: 0, to: 100) %>
                     </a>
                   </li>
                   <li class="card-data__item">
                     <a href="" title="Comentarios">
                       <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                      <%= Faker::Number.between(0, 100) %>
+                      <%= Faker::Number.between(from: 0, to: 100) %>
                     </a>
                   </li>
                 </ul>
               </div>
               <div class="card__footer">
                 <div class="card__support">
-                  <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Firmas" } %>
+                  <%= partial "progress_bar", { progress: Faker::Number.between(from: 0, to: 100), text: "Firmas" } %>
 
                   <button class="card__button button secondary button--sc small light">
                     Firmar
@@ -89,11 +89,11 @@
           <% end %>
         </div>
         <div class="row collapse">
-          <%= link_to "View all initiatives (" + Faker::Number.between(0, 100).to_s + ")", page_path("initiatives/initiatives"), class: "button secondary light pull-right" %>
+          <%= link_to "View all initiatives (" + Faker::Number.between(from: 0, to: 100).to_s + ")", page_path("initiatives/initiatives"), class: "button secondary light pull-right" %>
         </div>
 
         <hr class="reset mb-m mt-sm">
-        <h2 class="section-heading">Proposals&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
+        <h2 class="section-heading">Proposals&nbsp;<span class="muted"><%= Faker::Number.between(from: 0, to: 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
           <% 2.times do %>
           <div class="column">
@@ -143,20 +143,20 @@
                   <li class="card-data__item">
                     <a href="">
                       <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                      <%= Faker::Number.between(0, 100) %>
+                      <%= Faker::Number.between(from: 0, to: 100) %>
                     </a>
                   </li>
                   <li class="card-data__item">
                     <a href="" title="Comentarios">
                       <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                      <%= Faker::Number.between(0, 100) %>
+                      <%= Faker::Number.between(from: 0, to: 100) %>
                     </a>
                   </li>
                 </ul>
               </div>
               <div class="card__footer">
                 <div class="card__support">
-                  <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), total: 100 } %>
+                  <%= partial "progress_bar", { progress: Faker::Number.between(from: 0, to: 100), total: 100 } %>
 
                   <button class="card__button button button--sc small">
                     Apoyar
@@ -169,7 +169,7 @@
         </div>
 
         <hr class="reset mb-m mt-sm">
-        <h2 class="section-heading">Users&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
+        <h2 class="section-heading">Users&nbsp;<span class="muted"><%= Faker::Number.between(from: 0, to: 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
           <% 2.times do %>
           <div class="column">
@@ -182,7 +182,7 @@
                   <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
                   <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
                   <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
-                  <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
+                  <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(digits: 2) %> / <%= Faker::Address.city %></div>
                 </div>
               </div>
             </article>

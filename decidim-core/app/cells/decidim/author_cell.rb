@@ -55,7 +55,7 @@ module Decidim
     def withdraw_path
       return decidim.withdraw_amend_path(from_context.amendment) if from_context.emendation?
 
-      from_context_path + "/withdraw"
+      "#{from_context_path}/withdraw"
     end
 
     def creation_date?

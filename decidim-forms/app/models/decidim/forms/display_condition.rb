@@ -21,6 +21,7 @@ module Decidim
       # Answer option provided to check for "equal" or "not_equal" (optional)
       belongs_to :answer_option, class_name: "AnswerOption", foreign_key: "decidim_answer_option_id", optional: true
 
+      # rubocop: disable Metrics/CyclomaticComplexity
       def fulfilled?(answer)
         case condition_type
         when "answered"
@@ -30,11 +31,12 @@ module Decidim
         when "equal"
           answer.present? ? answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id) : false
         when "not_equal"
-          answer.present? ? !answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id) : true
+          answer.present? ? answer.choices.pluck(:decidim_answer_option_id).exclude?(answer_option.id) : true
         when "match"
           answer.present? ? condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) } : false
         end
       end
+      # rubocop: enable Metrics/CyclomaticComplexity
 
       def to_html_data
         {
