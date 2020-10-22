@@ -24,6 +24,13 @@ module Decidim
             when :publish
               allow_if_valid_and_not_started
             end
+          when :trustee_participatory_space
+            case permission_action.action
+            when :create, :update
+              allow!
+            when :delete
+              allow_if_not_related_to_any_election
+            end
           end
 
           permission_action
@@ -39,12 +46,20 @@ module Decidim
           @question ||= context.fetch(:question, nil)
         end
 
+        def trustee_participatory_space
+          @trustee_participatory_space ||= context.fetch(:trustee_participatory_space, nil)
+        end
+
         def allow_if_not_started
           toggle_allow(election && !election.started?)
         end
 
         def allow_if_valid_and_not_started
           toggle_allow(election && !election.started? && election.valid_questions?)
+        end
+
+        def allow_if_not_related_to_any_election
+          toggle_allow(trustee_participatory_space.trustee.elections.empty?)
         end
       end
     end
