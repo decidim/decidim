@@ -23,6 +23,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:registration_terms) { Faker::Lorem.sentence(3) }
     let(:form) do
       double(
         invalid?: invalid,
@@ -44,7 +45,7 @@ module Decidim::Meetings
         registration_type: registration_type,
         available_slots: available_slots,
         registration_url: registration_url,
-        registration_terms: Faker::Lorem.sentence(3),
+        registration_terms: registration_terms,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url
       )
@@ -77,7 +78,7 @@ module Decidim::Meetings
 
       it "sets the registration_terms" do
         subject.call
-        expect(meeting.registration_terms).to eq meeting.component.settings.default_registration_terms.stringify_keys
+        expect(translated(meeting.registration_terms)).to eq registration_terms
       end
 
       it "sets the component" do
