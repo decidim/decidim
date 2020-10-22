@@ -19,13 +19,6 @@
                   { disabled: !@form.state_updatable? } %>
 </div>
 
-<div class="field">
-  <%= form.select :state,
-                  Decidim::Initiative.states.keys.map { |state| [I18n.t(state, scope: "decidim.initiatives.admin_states"), state] },
-                  {},
-                  { disabled: !@form.state_updatable? } %>
-</div>
-
 <% unless single_initiative_type? %>
   <div class="field">
     <%= form.select :type_id,
@@ -70,45 +63,45 @@
 <div class="field">
   <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
 </div>
+<% if current_initiative.type.attachments_enabled? %>
+  <fieldset>
+    <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
 
-<fieldset>
-  <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>
-
-  <% if @form.photos.any? %>
-    <% @form.photos.each do |photo| %>
-      <div class="callout gallery__item" data-closable>
-        <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
-        <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
-        <button class="close-button"
-                aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                type="button"
-                data-close>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <% if @form.photos.any? %>
+      <% @form.photos.each do |photo| %>
+        <div class="callout gallery__item" data-closable>
+          <%= image_tag photo.thumbnail_url, class: "thumbnail", alt: photo.file.file.filename %>
+          <%= form.hidden_field :photos, multiple: true, value: photo.id, id: "photo-#{photo.id}" %>
+          <button class="close-button"
+                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                  type="button"
+                  data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if @form.documents.any? %>
-    <% @form.documents.each do |document| %>
-      <div class="callout" data-closable>
-        <%= link_to translated_attribute(document.title), document.url %>
-        <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-        <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
-        <button class="close-button"
-                aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
-                type="button" data-close>
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+    <% if @form.documents.any? %>
+      <% @form.documents.each do |document| %>
+        <div class="callout" data-closable>
+          <%= link_to translated_attribute(document.title), document.url %>
+          <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
+          <%= form.hidden_field :documents, multiple: true, value: document.id, id: "document-#{document.id}" %>
+          <button class="close-button"
+                  aria-label="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                  title="<%= t("delete_attachment", scope: "decidim.initiatives.form") %>"
+                  type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div class="row column">
-    <%= form.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
-  </div>
-</fieldset>
-
+    <div class="row column">
+      <%= form.file_field :add_documents, multiple: true, label: t("add_attachments", scope: "decidim.initiatives.form") %>
+    </div>
+  </fieldset>
+<% end %>
 <%= javascript_include_tag "decidim/initiatives/scoped_type" %>
