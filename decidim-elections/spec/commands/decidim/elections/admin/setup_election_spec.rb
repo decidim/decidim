@@ -35,23 +35,20 @@ describe Decidim::Elections::Admin::SetupElection do
     end
   end
 
-  context "when valid form" do
-    let(:trustee) { trustees.collect(&:user) }
+  context "when valid form", :vcr do
+    let(:trustee_users) { trustees.collect(&:user) }
 
-    it "setups the election" do
-      VCR.use_cassette("setup_election", allow_playback_repeats: true) do
-        expect { subject.call }.to change { election.trustees.count }.by(5)
+    it "setup the election" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.elections.trustees.new_election",
+          event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
+          resource: election,
+          affected_users: trustee_users
+        )
 
-        expect(Decidim::EventsManager)
-          .to receive(:publish)
-          .with(
-            event: "decidim.events.elections.trustees.new_election",
-            event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
-            resource: election,
-            affected_users: election.trustees.collect(&:user)
-          )
-        subject.call
-      end
+      expect { subject.call }.to change { election.trustees.count }.by(5)
     end
   end
 end
