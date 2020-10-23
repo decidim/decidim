@@ -28,7 +28,7 @@ module Decidim
                   elsif query.nil?
                     new_query_params
                   else
-                    query + "&" + new_query_params
+                    "#{query}&#{new_query_params}"
                   end
 
       parsed_url.query = new_query

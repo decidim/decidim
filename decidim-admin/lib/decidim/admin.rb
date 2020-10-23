@@ -28,5 +28,10 @@ module Decidim
       config.default_per_page = Decidim::Admin.per_page_range.first
       config.max_per_page = Decidim::Admin.per_page_range.last
     end
+
+    # Public: Stores an instance of ViewHooks
+    def self.view_hooks
+      @view_hooks ||= ViewHooks.new
+    end
   end
 end

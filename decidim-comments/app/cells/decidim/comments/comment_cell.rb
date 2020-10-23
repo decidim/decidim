@@ -77,9 +77,10 @@ module Decidim
 
       def alignment_badge_classes
         classes = %w(label alignment)
-        if alignment == 1
+        case alignment
+        when 1
           classes << "success"
-        elsif alignment == -1
+        when -1
           classes << "alert"
         end
         classes.join(" ")

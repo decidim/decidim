@@ -6,7 +6,7 @@ module Decidim
       #
       # Generates a visualization of users for listing conversations threads
       #
-      def username_list(users, shorten = false)
+      def username_list(users, shorten: false)
         return users.pluck(:name).join(", ") unless shorten
         return users.pluck(:name).join(", ") unless users.count > 3
 

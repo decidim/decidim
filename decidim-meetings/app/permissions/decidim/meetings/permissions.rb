@@ -47,7 +47,7 @@ module Decidim
 
       def can_decline_invitation?
         meeting.registrations_enabled? &&
-          meeting.invites.where(user: user).exists?
+          meeting.invites.exists?(user: user)
       end
 
       def can_create_meetings?
