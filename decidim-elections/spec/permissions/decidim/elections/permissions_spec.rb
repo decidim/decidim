@@ -24,6 +24,14 @@ describe Decidim::Elections::Permissions do
     it_behaves_like "delegates permissions to", Decidim::Elections::Admin::Permissions
   end
 
+  context "when scope is trustee zone" do
+    let(:action) do
+      { scope: :trustee_zone, action: :foo, subject: :election }
+    end
+
+    it_behaves_like "delegates permissions to", Decidim::Elections::TrusteeZone::Permissions
+  end
+
   context "when scope is not public" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :election }

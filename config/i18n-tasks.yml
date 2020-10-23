@@ -276,6 +276,7 @@ ignore_unused:
   - activemodel.attributes.organization.machine_translation_display_priority_*
   - decidim.debates.debates.orders.*
   - decidim.debates.debate_m.commented_time_ago
+  - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
