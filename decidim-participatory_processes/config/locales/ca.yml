@@ -332,6 +332,8 @@ ca:
           participatory_scope: El que es decideix
           participatory_structure: Com es decideix
           target: Qui hi participa
+        stats:
+          name: Estadístiques
         title:
           meta_scope: Àmbit
           name: Títol, descripció i hashtag
