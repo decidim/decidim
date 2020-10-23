@@ -59,9 +59,7 @@ module Decidim
         end
 
         def election_id
-          authority_name = bulletin_board.authority
-          authority_name.parameterize
-          "authority_name.#{election.id}"
+          "#{bulletin_board.authority_slug}.#{election.id}"
         end
 
         def election_data

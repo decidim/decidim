@@ -12,7 +12,7 @@ The first step needed to setup the connection is to generate an a pair of keys t
 bundle exec rake decidim_elections:generate_identification_keys
 ```
 
-This task will output the generated private and public keys. You should copy the public key and send it to the Bulletin Board administrator through a secure channel. When copying the key, include the starting and ending lines with the prefix `-----`.
+This task will output the generated private and public keys. You should copy the public key and send it to the Bulletin Board administrator through a secure channel. When copying the key, include the starting and ending lines with the prefix `-----`. Together with the key, send your **Authority name** to the Bulletin Board administrator and store its value on the environment variable `BULLETIN_BOARD_AUTHORITY_NAME`.
 
 After that, use one of these methods to make the private key available from your Decidim installation:
 
@@ -34,7 +34,7 @@ The following YAML snippet with all the defined environment variables should be 
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
     number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
-    authority_id: <%= ENV["BULLETIN_BOARD_AUTHORITY_NAME"] %>
+    authority_name: <%= ENV["BULLETIN_BOARD_AUTHORITY_NAME"] %>
     scheme:
       name: <%= ENV["BULLETIN_BOARD_SCHEME_NAME"] %>
       parameters:

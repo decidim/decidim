@@ -13,7 +13,7 @@ module Decidim
           server: server,
           api_key: api_key,
           scheme: scheme,
-          authority_id: authority
+          authority_name: authority_name
         }
       end
 
@@ -28,11 +28,11 @@ module Decidim
           }
         }
       end
-      let(:authority) { "Decidim Test Authority" }
+      let(:authority_name) { "Decidim Test Authority" }
       let(:election_data) do
         {
           schema: scheme,
-          election_id: authority
+          election_id: authority_name
         }
       end
 
