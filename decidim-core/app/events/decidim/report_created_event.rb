@@ -16,6 +16,10 @@ module Decidim
       I18n.t("decidim.admin.moderations.report.reasons.#{extra["report_reason"]}").downcase
     end
 
+    def resource_title
+      nil
+    end
+
     def resource_type
       @resource.model_name.human.downcase
     end
