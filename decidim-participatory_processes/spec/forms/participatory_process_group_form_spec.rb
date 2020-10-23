@@ -26,17 +26,16 @@ module Decidim
         end
         let(:meta_attributes) do
           %w(
-          developer_group
-          local_area
-          meta_scope
-          target
-          participatory_scope
-          participatory_structure
-          ).inject({}) do |attrs, attr|
+            developer_group
+            local_area
+            meta_scope
+            target
+            participatory_scope
+            participatory_structure
+          ).each_with_object({}) do |attr, attrs|
             [:en, :es, :ca].each do |locale|
               attrs.update("#{attr}_#{locale}" => "#{attr.titleize} #{locale}")
             end
-            attrs
           end
         end
         let(:hashtag) { "hashtag" }

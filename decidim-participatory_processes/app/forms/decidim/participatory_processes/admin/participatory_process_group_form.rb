@@ -39,7 +39,7 @@ module Decidim
         def group_url
           return if super.blank?
 
-          return "http://" + super.strip unless super.match?(%r{\A(http|https)://}i)
+          return "http://#{super.strip}" unless super.match?(%r{\A(http|https)://}i)
 
           super.strip
         end
