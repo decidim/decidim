@@ -38,6 +38,7 @@ module Decidim
           member do
             get :authorization_sign_modal, to: "authorization_sign_modals#show"
             get :print, to: "initiatives#print", as: "print"
+            get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
           end
 
           resource :initiative_vote, only: [:create, :destroy]
