@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="column medium-6">
+    <% elements.first(4).each do |element| %>
+      <%= card_for element, size: :highlighted_list_item %>
+    <% end %>
+  </div>
+  <div class="columns medium-6">
+    <% if geolocation_enabled? %>
+      <%= cell "decidim/meetings/meetings_map", elements %>
+    <% else %>
+      <% elements.offset(4).first(4).each do |element| %>
+        <%= card_for element, size: :highlighted_list_item %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
