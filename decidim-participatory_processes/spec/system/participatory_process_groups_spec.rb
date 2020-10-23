@@ -16,6 +16,13 @@ describe "Participatory Process Groups", type: :system do
     )
   end
   let(:group_processes) { participatory_process_group.participatory_processes }
+  let(:cta_settings) do
+    {
+      button_url: "https://example.org/action",
+      button_text_en: "cta text",
+      description_en: "cta description"
+    }
+  end
 
   before do
     switch_to_host(organization.host)
@@ -102,6 +109,40 @@ describe "Participatory Process Groups", type: :system do
           expect(page).to have_i18n_content(participatory_process_group.target)
           expect(page).to have_i18n_content(participatory_process_group.participatory_scope)
           expect(page).to have_i18n_content(participatory_process_group.participatory_structure)
+        end
+      end
+    end
+
+    context "when the cta content block is enabled" do
+      before do
+        create(
+          :content_block,
+          organization: organization,
+          scope_name: :participatory_process_group_homepage,
+          scoped_resource_id: participatory_process_group.id,
+          manifest_name: :cta,
+          settings: cta_settings
+        )
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      end
+
+      it "shows the description" do
+        within("div.hero__container") do
+          expect(page).to have_content(cta_settings[:description_en])
+        end
+      end
+
+      it "Shows the action button" do
+        within("div.hero__container") do
+          expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+        end
+      end
+
+      context "when url is not configured" do
+        let(:cta_settings) { nil }
+
+        it "doesn't show the block" do
+          expect(page).to have_no_selector("div.hero__container")
         end
       end
     end
