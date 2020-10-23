@@ -12,9 +12,9 @@ module Decidim
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
         let(:target_items) { ::Faker::Number.number(digits: 2) }
-        let(:witnesses) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-        let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
-        let(:title) { Decidim::Faker::Localized.sentence(3) }
+        let(:witnesses) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
+        let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
+        let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:category) { create(:category, participatory_space: participatory_process) }
         let(:category_id) { nil }
         let(:params) do
