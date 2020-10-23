@@ -64,6 +64,11 @@ module Decidim::Meetings
         expect(meeting.category).to eq category
       end
 
+      it "sets the registration_terms" do
+        subject.call
+        expect(meeting.registration_terms).to eq meeting.component.settings.default_registration_terms.stringify_keys
+      end
+
       it "sets the component" do
         subject.call
         expect(meeting.component).to eq current_component
