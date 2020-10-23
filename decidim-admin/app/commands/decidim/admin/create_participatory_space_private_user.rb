@@ -10,7 +10,7 @@ module Decidim
       # form - A form object with the params.
       # private_user_to - The private_user_to that will hold the
       #   user role
-      def initialize(form, current_user, private_user_to, via_csv = false)
+      def initialize(form, current_user, private_user_to, via_csv: false)
         @form = form
         @current_user = current_user
         @private_user_to = private_user_to

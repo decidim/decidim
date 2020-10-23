@@ -97,6 +97,16 @@ module Decidim
         component.settings.resources_permissions_enabled
       end
 
+      # Public: Overrides the `commentable?` Commentable concern method.
+      def commentable?
+        component.settings.comments_enabled?
+      end
+
+      # Public: Whether the object can have new comments or not.
+      def user_allowed_to_comment?(user)
+        component.can_participate_in_space?(user)
+      end
+
       def self.user_collection(user)
         where(decidim_author_id: user.id, decidim_author_type: "Decidim::User")
       end

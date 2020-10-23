@@ -96,7 +96,7 @@ FactoryBot.define do
   factory :project, class: "Decidim::Budgets::Project" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    budget_amount { Faker::Number.number(8) }
+    budget_amount { Faker::Number.number(digits: 8) }
     budget { create(:budget) }
 
     trait :selected do

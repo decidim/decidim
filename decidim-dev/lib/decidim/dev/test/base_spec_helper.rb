@@ -12,12 +12,12 @@ require "decidim/core"
 require "decidim/core/test"
 require "decidim/admin/test"
 
-require_relative "rspec_support/component.rb"
-require_relative "rspec_support/authorization.rb"
+require_relative "rspec_support/component"
+require_relative "rspec_support/authorization"
 
 require "#{Decidim::Dev.dummy_app_path}/config/environment"
 
-Dir["#{engine_spec_dir}/shared/**/*.rb"].each { |f| require f }
+Dir["#{engine_spec_dir}/shared/**/*.rb"].sort.each { |f| require f }
 
 require "paper_trail/frameworks/rspec"
 
@@ -33,6 +33,6 @@ if ENV["CI"]
     config.display_try_failure_messages = true
 
     # Retry failed test, set to 1 for normal behavior
-    config.default_retry_count = ENV.fetch("FAILED_TEST_RETRY_COUNT") { 3 }
+    config.default_retry_count = ENV.fetch("FAILED_TEST_RETRY_COUNT", 3)
   end
 end

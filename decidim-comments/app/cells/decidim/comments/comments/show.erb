@@ -1,0 +1,32 @@
+<%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
+  <div class="columns large-9 comments-container" id="comments">
+    <div class="comments">
+      <div class="row collapse order-by">
+        <h2 class="order-by__text section-heading">
+          <% if single_comment? %>
+            <%= t("decidim.components.comments.comment_details_title") %>
+          <% else %>
+            <span class="comments-count">
+              <%= t("decidim.components.comments.title", count: comments_count) %>
+            </span>
+          <% end %>
+        </h2>
+        <%= render :order_control %>
+      </div>
+      <%= single_comment_warning %>
+      <%= blocked_comments_warning %>
+      <div class="comment-threads">
+        <% comments.each do |comment| %>
+          <%= cell("decidim/comments/comment_thread", comment, order: order) %>
+        <% end %>
+      </div>
+      <%= add_comment %>
+      <%= user_comments_blocked_warning %>
+    </div>
+    <div class="callout primary loading-comments hide">
+      <p><%= t("decidim.components.comments.loading") %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= javascript_include_tag("decidim/comments/comments") %>

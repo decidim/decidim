@@ -40,13 +40,13 @@
               <li class="card-data__item">
                 <a class="muted text-lowercase" href="">
                   <%= icon "people", class: "icon--small" %>
-                  <%= Faker::Number.between(0, 100) %> collaborators
+                  <%= Faker::Number.between(from: 0, to: 100) %> collaborators
                 </a>
               </li>
               <li class="card-data__item">
                 <a href="" title="Comentarios">
                   <%= icon "comment-square", class: "icon--small" %>
-                  <%= Faker::Number.between(0, 100) %>
+                  <%= Faker::Number.between(from: 0, to: 100) %>
                 </a>
               </li>
             </ul>

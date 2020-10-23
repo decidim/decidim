@@ -13,7 +13,7 @@ module Decidim
 
       def endorsements_count
         with_tooltip t("decidim.endorsable.endorsements") do
-          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
+          "#{icon("bullhorn", class: "icon--small")} #{model.endorsements_count}"
         end
       end
     end

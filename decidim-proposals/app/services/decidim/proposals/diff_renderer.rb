@@ -42,15 +42,7 @@ module Decidim
       # Returns and Array of two Strings.
       def parse_values(attribute, values)
         values = [amended_previous_value(attribute), values[1]] if proposal&.emendation?
-        if attribute == :body
-          values = values.map do |value|
-            if value.is_a?(Hash)
-              value.values.map { |subvalue| normalize_line_endings(subvalue) }
-            else
-              normalize_line_endings(value)
-            end
-          end
-        end
+        values = values.map { |value| normalize_line_endings(value) } if attribute == :body
         values
       end
 
@@ -66,8 +58,12 @@ module Decidim
       end
 
       # Returns a String with the newline escape sequences normalized.
-      def normalize_line_endings(string)
-        Decidim::ContentParsers::NewlineParser.new(string, context: {}).rewrite
+      def normalize_line_endings(value)
+        if value.is_a?(Hash)
+          value.values.map { |subvalue| normalize_line_endings(subvalue) }
+        else
+          Decidim::ContentParsers::NewlineParser.new(value, context: {}).rewrite
+        end
       end
 
       def proposal

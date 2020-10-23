@@ -23,7 +23,7 @@ module Decidim
       def area_belongs_to_organization
         return unless area && organization
 
-        errors.add(:area, :invalid) unless areas.where(id: area.id).exists?
+        errors.add(:area, :invalid) unless areas.exists?(id: area.id)
       end
     end
   end

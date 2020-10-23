@@ -128,7 +128,7 @@ module Decidim
 
       content = Array.wrap(content).collect do |item|
         text = if item.is_a?(Hash)
-                 item.dig(locale).presence || item.dig("machine_translations", locale) || ""
+                 item[locale].presence || item.dig("machine_translations", locale) || ""
                else
                  item
                end
