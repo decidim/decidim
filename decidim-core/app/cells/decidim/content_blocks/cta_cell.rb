@@ -5,6 +5,12 @@ module Decidim
     class CtaCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
 
+      def show
+        return if button_url.blank?
+
+        render
+      end
+
       def translated_button_text
         @translated_button_text ||= translated_attribute(model.settings.button_text)
       end
