@@ -118,6 +118,10 @@ FactoryBot.define do
         trustee.elections << build(:election)
       end
     end
+
+    trait :with_public_key do
+      public_key { Random.urlsafe_base64(30) }
+    end
   end
 
   factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do

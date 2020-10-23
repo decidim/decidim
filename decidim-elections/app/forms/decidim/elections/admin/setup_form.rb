@@ -36,7 +36,7 @@ module Decidim
             minimum_questions: I18n.t("admin.setup.requirements.minimum_questions", scope: "decidim.elections"),
             minimum_answers: I18n.t("admin.setup.requirements.minimum_answers", scope: "decidim.elections"),
             max_selections: I18n.t("admin.setup.requirements.max_selections", scope: "decidim.elections"),
-            trustees_quorum: I18n.t("admin.setup.requirements.trustees_quorum", scope: "decidim.elections") }
+            trustees_quorum: I18n.t("admin.setup.requirements.trustees_quorum", scope: "decidim.elections", quorum: Decidim::Elections.bulletin_board.quorum) }
         end
 
         def election

@@ -10,7 +10,7 @@ describe Decidim::Elections::Admin::SetupElection do
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:election) { create :election, :complete }
-  let(:trustees) { create_list :trustee, 5, :considered }
+  let(:trustees) { create_list :trustee, 5, :considered, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
   let(:errors) { double.as_null_object }
   let(:form) do
@@ -36,7 +36,7 @@ describe Decidim::Elections::Admin::SetupElection do
   end
 
   context "when valid form" do
-    let(:trustee) { trustees.collect { |trustee| trustee.user} }
+    let(:trustee) { trustees.collect(&:user) }
 
     it "setups the election" do
       VCR.use_cassette("setup_election", allow_playback_repeats: true) do
@@ -48,7 +48,7 @@ describe Decidim::Elections::Admin::SetupElection do
             event: "decidim.events.elections.trustees.new_election",
             event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
             resource: election,
-            affected_users: election.trustees.collect { |trustee| trustee.user}
+            affected_users: election.trustees.collect(&:user)
           )
         subject.call
       end

@@ -74,7 +74,7 @@ module Decidim
               trustees.collect do |trustee|
                 {
                   name: trustee.user.name,
-                  public_key: Random.urlsafe_base64(30)
+                  public_key: trustee.public_key
                 }
               end,
             description: {
@@ -164,7 +164,7 @@ module Decidim
         end
 
         def notify_trustee_about_election
-          trustee = trustees.collect { |trustee| trustee.user }
+          trustee = trustees.collect(&:user)
           data = {
             event: "decidim.events.elections.trustees.new_election",
             event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
