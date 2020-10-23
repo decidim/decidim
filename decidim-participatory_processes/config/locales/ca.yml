@@ -330,7 +330,7 @@ ca:
           meta_scope: Àmbit
           name: Títol, descripció i hashtag
           participatory_processes:
-            one: "1 procés"
+            one: 1 procés
             other: "%{count} processos"
       show:
         title: Grups de processos participatius

@@ -331,7 +331,7 @@ en:
           meta_scope: Scope
           name: Title, description and hashtag
           participatory_processes:
-            one: "1 process"
+            one: 1 process
             other: "%{count} processes"
       show:
         title: Participatory process groups
