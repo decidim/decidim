@@ -320,6 +320,12 @@ es:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primer bloque HTML
+        html_2:
+          name: Segundo bloque HTML
+        html_3:
+          name: Tercer bloque HTML
         metadata:
           developer_group: Promovido por
           name: Metadatos

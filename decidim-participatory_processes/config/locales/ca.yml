@@ -320,6 +320,12 @@ ca:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: Primer bloc HTML
+        html_2:
+          name: Segon bloc HTML
+        html_3:
+          name: Tercer bloc HTML
         metadata:
           developer_group: Promogut per
           name: Metadades
