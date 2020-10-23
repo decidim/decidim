@@ -1,0 +1,21 @@
+<article class="card">
+  <div class="card__content">
+    <div class="card__header">
+      <%= link_to meeting_path, class: "card__link" do %>
+        <h5 class="card__title">
+          <%= title %>
+        </h5>
+      <% end %>
+    </div>
+    <div class="row">
+      <time datetime="<%= l(model.start_time, format: :long_dashed) %>" class="column medium-4 text-muted">
+        <%= icon "datetime", class: "mr-xs", role: "img", "aria-hidden": true %>
+        <%= l start_date, format: :decidim_with_month_name %>
+      </time>
+      <div class="column medium-8 text-muted">
+        <%= participatory_space_class_name %>
+        <%= link_to participatory_space_title, participatory_space_path %>
+      </div>
+    </div>
+  </div>
+</article>
