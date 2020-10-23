@@ -86,6 +86,10 @@ module Decidim
         end
       end
 
+      def print
+        enforce_permission_to :read, :initiative, initiative: current_initiative
+      end
+
       private
 
       alias current_initiative current_participatory_space
