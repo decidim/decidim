@@ -1,9 +1,5 @@
-<div class="row">
-  <div class="columns accountability">
-    <div class="card card--action card--list">
-      <% elements.each do |element| %>
-        <%= render partial: "decidim/participatory_processes/participatory_process_groups/result.html", locals: { result: element } %>
-      <% end %>
-    </div>
-  </div>
+<div class="row small-up-1 medium-up-2 mediumlarge-up-3 large-up-3 card-grid">
+  <% elements.each do |element| %>
+    <%= card_for element, context: { show_space: true } %>
+  <% end %>
 </div>
