@@ -19,8 +19,13 @@
       <ul class="no-bullet-indented">
         <% @form.trustees.each do |trustee| %>
           <li>
-            <%= icon "check", role: "img", "aria-hidden": true %>
-              <%= trustee.user.name %> has a <strong>valid public key</strong>
+            <% if form.object.errors.include?("trustee_id_#{trustee.id.to_s}".to_sym) %>
+              <%= icon "x", role: "img", "aria-hidden": true %>
+              <%= form.object.errors.messages["trustee_id_#{trustee.id.to_s}".to_sym][0].html_safe %>
+            <% else %>
+              <%= icon "check", role: "img", "aria-hidden": true %>
+              <%= trustee.user.name %> <%= t("admin.setup.requirements.trustee_public_key", scope: "decidim.elections").html_safe %>
+            <% end %>
             <%= form.hidden_field :trustee_ids, multiple: true, value: trustee.id %>
           </li>
         <% end %>
