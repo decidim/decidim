@@ -121,6 +121,9 @@ es:
         value_types:
           parent_presenter:
             not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Resultados
       import_mailer:
         import:
           errors: Errores

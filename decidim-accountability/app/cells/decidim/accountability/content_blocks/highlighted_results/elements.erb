@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="columns accountability">
+    <div class="card card--action card--list">
+      <% elements.each do |element| %>
+        <%= render partial: "decidim/participatory_processes/participatory_process_groups/result.html", locals: { result: element } %>
+      <% end %>
+    </div>
+  </div>
+</div>

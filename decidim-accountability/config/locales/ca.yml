@@ -121,6 +121,9 @@ ca:
         value_types:
           parent_presenter:
             not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Resultats
       import_mailer:
         import:
           errors: Errors
