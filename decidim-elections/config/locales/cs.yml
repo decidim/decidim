@@ -291,7 +291,6 @@ cs:
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
         trustees:
           new_trustee:
-            email_intro: 'Administrátor vás přidal jako správce pro %{resource_name}. Měli byste vytvořit svůj veřejný klíč zde: LINK'
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
             email_subject: Jste správcem %{resource_name}.
             notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
