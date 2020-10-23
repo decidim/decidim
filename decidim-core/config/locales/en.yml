@@ -369,6 +369,13 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, text and Call To Action button
+      cta_settings_form:
+        background_image: Background image
+        button_text: Call To Action text
+        button_url: Call To Action URL
+        description: Description
       footer_sub_hero:
         name: Footer sub hero banner
       hero:

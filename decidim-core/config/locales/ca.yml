@@ -365,6 +365,13 @@ ca:
             dummy_step_translatable_text: Text de fase traduïble de proves
     contact: Contacte
     content_blocks:
+      cta:
+        name: Imatge, text i botó d'acció
+      cta_settings_form:
+        background_image: Imatge de fons
+        button_text: Text del botó d'acció
+        button_url: URL del botó d'acció
+        description: Descripció
       footer_sub_hero:
         name: Peu de pàgina sub-hero
       hero:
