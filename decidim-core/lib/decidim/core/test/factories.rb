@@ -108,6 +108,10 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
 
+    trait :secure_context do
+      host { "localhost" }
+    end
+
     after(:create) do |organization, evaluator|
       if evaluator.create_static_pages
         tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)

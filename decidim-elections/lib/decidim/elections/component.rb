@@ -126,3 +126,9 @@ Decidim.register_component(:elections) do |component|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :decidim_elections_trustee_zone,
+  Decidim::Elections::TrusteeZoneEngine,
+  at: "/trustee"
+)

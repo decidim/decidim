@@ -18,9 +18,9 @@ module Decidim
             helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
                           :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url
 
-            if defined? Decidim::Templates
+            if defined? Decidim::Templates::Admin
               include Decidim::Templates::Admin::Concerns::Templatable
-              helper Decidim::Templates::Admin::TemplatesHelper if defined? Decidim::Templates
+              helper Decidim::Templates::Admin::TemplatesHelper
 
               def templatable_type
                 "Decidim::Forms::Questionnaire"
