@@ -4,7 +4,7 @@ module Decidim
   module Forms
     # The data store for a Questionnaire in the Decidim::Forms component.
     class Questionnaire < Forms::ApplicationRecord
-      include Decidim::Templates::Templatable if defined? Decidim::Templates
+      include Decidim::Templates::Templatable if defined? Decidim::Templates::Templatable
       include Decidim::Publicable
       include Decidim::TranslatableResource
 

@@ -6,6 +6,8 @@ module Decidim
       # This controller allows to add a user as trustee, update the status and remove a
       # trustee from a participatory space.
       class TrusteesParticipatorySpacesController < Admin::ApplicationController
+        helper Decidim::ApplicationHelper
+
         helper_method :trustees, :trustee
 
         def new
@@ -79,7 +81,7 @@ module Decidim
         end
 
         def trustee
-          trustees.find_by(id: params[:id])
+          @trustee ||= trustees.find_by(id: params[:id])
         end
       end
     end

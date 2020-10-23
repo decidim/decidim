@@ -16,6 +16,10 @@ module Decidim
     def switch_to_default_host
       Capybara.app_host = nil
     end
+
+    def switch_to_secure_context_host
+      Capybara.app_host = "http://localhost"
+    end
   end
 end
 
