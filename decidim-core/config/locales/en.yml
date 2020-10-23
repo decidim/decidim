@@ -385,6 +385,11 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sort elements by:'
+          random: Random
+          recent: Most recent
       how_to_participate:
         name: How to participate
       html:

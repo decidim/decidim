@@ -665,6 +665,9 @@ es:
           step_3: Completa tu borrador colaborativo
           step_of: Paso %{current_step_num} de %{total_steps}
           title: Pasos para la creación del borrador colaborativo
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propuestas
       create:
         error: Se ha producido un error al guardar la propuesta.
         success: Propuesta creada correctamente. Guardada como borrador.

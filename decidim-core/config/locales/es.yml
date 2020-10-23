@@ -381,6 +381,11 @@ es:
         welcome_text: Texto de bienvenida
       highlighted_content_banner:
         name: Banner de contenido destacado
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordena los elementos por:'
+          random: Aleatorio
+          recent: Más recientes
       how_to_participate:
         name: Cómo participar
       html:

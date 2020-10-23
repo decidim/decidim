@@ -381,6 +381,11 @@ ca:
         welcome_text: Text de benvinguda
       highlighted_content_banner:
         name: Banner de contingut destacat
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Ordena elements per:'
+          random: Aleatori
+          recent: Més recents
       how_to_participate:
         name: Com participar
       html:
