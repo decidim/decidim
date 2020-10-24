@@ -319,6 +319,7 @@ fi:
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
+          callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
           confirm: Vahvista
           edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
