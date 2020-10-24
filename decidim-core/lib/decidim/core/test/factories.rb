@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/faker/localized"
+require "decidim/faker/internet"
 require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
@@ -37,7 +38,7 @@ FactoryBot.define do
   end
 
   sequence(:slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}".gsub("'", "_")
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}".gsub("'", "_")
   end
 
   sequence(:scope_name) do |n|
