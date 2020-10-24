@@ -21,6 +21,7 @@ fi:
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        online_meeting_url: Verkkotapaamisen osoite (URL)
         organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
@@ -30,6 +31,7 @@ fi:
         start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
+        type_of_meeting: Tyyppi
       minutes:
         audio_url: Äänen URL-osoite
         description: Kuvaus
@@ -90,6 +92,7 @@ fi:
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -253,6 +256,9 @@ fi:
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+            location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+            online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
+            select_a_meeting_type: Valitse tapaamisen tyyppi
           index:
             title: Tapahtumat
           new:
@@ -383,6 +389,11 @@ fi:
             user_groups: Ryhmät
           scope: Teema
           search: Hae
+          type: Tyyppi
+          type_values:
+            all: Kaikki
+            in_person: Fyysinen
+            online: Verkossa
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa
@@ -392,7 +403,10 @@ fi:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           create_as: Luo tapahtuma käyttäjänä
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+          online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           select_a_category: Valitse aihepiiri
+          select_a_meeting_type: Valitse tapaamisen tyyppi
         index:
           new_meeting: Uusi tapahtuma
         meeting_minutes:
