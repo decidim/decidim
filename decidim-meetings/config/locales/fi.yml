@@ -481,6 +481,9 @@ fi:
         destroy:
           invalid: Tapahtumasta poistuminen epäonnistui.
           success: Olet poistunut tapahtumasta onnistuneesti.
+      type_of_meeting:
+        in_person: Fyysinen
+        online: Verkossa
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
