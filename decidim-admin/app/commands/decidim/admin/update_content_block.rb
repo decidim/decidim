@@ -24,22 +24,35 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        # First set the images to see if there are any errors with them. This
-        # makes the image file validations according to their uploader settings
-        # and the organization settings. The content block validation will fail
-        # in case there are processing errors on the image files.
-        update_content_block_images
-        return broadcast(:invalid) unless content_block.valid?
-
-        # Make sure the images are actually saved when there are no errors.
-        # Otherwise this can cause the newsletter content block images not to
-        # save properly.
-        content_block.save!
+        images_valid = true
 
         transaction do
           update_content_block_settings
           content_block.save!
+
+          # Saving the images will cause the image file validations to run
+          # according to their uploader settings and the organization settings.
+          # The content block validation will fail in case there are processing
+          # errors on the image files.
+          #
+          # NOTE:
+          # The images can be only stored correctly if the content block is
+          # already persisted. This is not the case e.g. when creating a new
+          # newsletter which uses the content blocks through newsletter
+          # templates. This is why this needs to happen after the initial
+          # `content_block.save!` call.
+          update_content_block_images
+          unless content_block.valid?
+            images_valid = false
+            raise ActiveRecord::Rollback
+          end
+
+          # The save method needs to be called another time in order to store
+          # the image information.
+          content_block.save!
         end
+
+        return broadcast(:invalid) unless images_valid
 
         broadcast(:ok, content_block)
       end
