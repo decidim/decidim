@@ -10,7 +10,7 @@
           <div><small><strong><%= Faker::Company.profession.capitalize %></strong></small></div>
           <div><small><%= Faker::Movies::StarWars.vehicle %></small></div>
           <div class="text-small">Designated on <strong><%= Faker::Date.backward(365).strftime("%D") %></strong></div>
-          <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(2) %> / <%= Faker::Address.city %></div>
+          <div class="text-small mt-s"><%= Faker::Demographic.sex %> / <%= Faker::Number.number(digits: 2) %> / <%= Faker::Address.city %></div>
         </div>
       </div>
     </article>

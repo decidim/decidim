@@ -17,6 +17,8 @@ module Decidim
     end
 
     context "without name" do
+      subject(:scope_type) { build(:scope_type, name: { en: "Name" }) }
+
       before do
         scope_type.name = {}
       end

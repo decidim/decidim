@@ -41,10 +41,12 @@ module Decidim
       end
 
       def children_count_status
+        # rubocop: disable Style/StringConcatenation
         content_tag(
           :strong,
           t("layouts.decidim.assemblies.index.children")
         ) + " " + children_assemblies_visible_for_user
+        # rubocop: enable Style/StringConcatenation
       end
 
       def children_assemblies_visible_for_user

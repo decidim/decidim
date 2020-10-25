@@ -23,8 +23,6 @@ describe "Homepage", type: :system do
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :sub_hero
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :highlighted_content_banner
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :how_to_participate
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
-      create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
       create :content_block, organization: organization, scope_name: :homepage, manifest_name: :footer_sub_hero
 
       switch_to_host(organization.host)
@@ -190,18 +188,19 @@ describe "Homepage", type: :system do
           )
         end
 
-        context "when organization show_statistics attribute is false" do
-          let(:organization) { create(:organization, show_statistics: false) }
+        context "when organization doesn't have the stats content block" do
+          let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
             expect(page).to have_no_content("Current state of #{organization.name}")
           end
         end
 
-        context "when organization show_statistics attribute is true" do
-          let(:organization) { create(:organization, show_statistics: true) }
+        context "when organization has the stats content block" do
+          let(:organization) { create(:organization) }
 
           before do
+            create :content_block, organization: organization, scope_name: :homepage, manifest_name: :stats
             visit current_path
           end
 
@@ -226,16 +225,16 @@ describe "Homepage", type: :system do
       end
 
       describe "includes metrics" do
-        context "when organization show_statistics attribute is false" do
-          let(:organization) { create(:organization, show_statistics: false) }
+        context "when organization doesn't have the metrics content block" do
+          let(:organization) { create(:organization) }
 
           it "does not show the statistics block" do
             expect(page).to have_no_content("Participation in figures")
           end
         end
 
-        context "when organization show_statistics attribute is true" do
-          let(:organization) { create(:organization, show_statistics: true) }
+        context "when organization does have the metrics content block" do
+          let(:organization) { create(:organization) }
           let(:metrics) do
             Decidim.metrics_registry.all.each do |metric_registry|
               create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today, organization: organization, cumulative: 5, quantity: 2)
@@ -245,6 +244,7 @@ describe "Homepage", type: :system do
           context "and have metric records" do
             before do
               metrics
+              create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
               visit current_path
             end
 
@@ -263,6 +263,7 @@ describe "Homepage", type: :system do
 
           context "and does not have metric records" do
             before do
+              create :content_block, organization: organization, scope_name: :homepage, manifest_name: :metrics
               visit current_path
             end
 

@@ -31,7 +31,7 @@
           <br>
           <span class="muted"><%= Faker::TvShows::FamilyGuy.quote %></span>
           <br>
-          <span class="text-small">Último mensaje: <strong>hace <%= Faker::Number.between(1, 59) %> minutos</strong></span>
+          <span class="text-small">Último mensaje: <strong>hace <%= Faker::Number.between(from: 1, to: 59) %> minutos</strong></span>
         </div>
         <div class="right center mr-s">
           <a href="#conversation" class="user-header__avatar" data-tabs-target="conversation">

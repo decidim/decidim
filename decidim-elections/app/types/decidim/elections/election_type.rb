@@ -22,6 +22,7 @@ module Decidim
       field :publishedAt, Decidim::Core::DateTimeType, "When this election was published", property: :published_at
 
       field :questions, !types[Decidim::Elections::ElectionQuestionType], "The questions for this election"
+      field :trustees, !types[Decidim::Elections::TrusteeType], "The trustees for this election"
     end
   end
 end

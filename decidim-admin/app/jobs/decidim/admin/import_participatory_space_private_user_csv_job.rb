@@ -20,7 +20,7 @@ module Decidim
                                                                current_particiaptory_space: privatable_to
                                                              )
 
-        Decidim::Admin::CreateParticipatorySpacePrivateUser.call(private_user_form, current_user, privatable_to, true)
+        Decidim::Admin::CreateParticipatorySpacePrivateUser.call(private_user_form, current_user, privatable_to, via_csv: true)
       end
     end
   end

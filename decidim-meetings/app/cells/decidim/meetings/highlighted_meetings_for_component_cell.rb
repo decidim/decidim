@@ -18,7 +18,7 @@ module Decidim
       private
 
       def meetings
-        @meetings ||= Decidim::Meetings::Meeting.where(component: model)
+        @meetings ||= Decidim::Meetings::Meeting.where(component: model).visible_meeting_for(current_user)
       end
 
       def past_meetings

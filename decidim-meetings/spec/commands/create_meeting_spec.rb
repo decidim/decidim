@@ -18,13 +18,15 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
     let(:form) do
       double(
         invalid?: invalid,
-        title: Faker::Lorem.sentence(1),
-        description: Faker::Lorem.sentence(3),
-        location: Faker::Lorem.sentence(2),
-        location_hints: Faker::Lorem.sentence(3),
+        title: Faker::Lorem.sentence(word_count: 1),
+        description: Faker::Lorem.sentence(word_count: 3),
+        location: Faker::Lorem.sentence(word_count: 2),
+        location_hints: Faker::Lorem.sentence(word_count: 3),
         start_time: start_time,
         end_time: start_time + 2.hours,
         address: address,
@@ -35,7 +37,9 @@ module Decidim::Meetings
         user_group_id: user_group_id,
         current_user: current_user,
         current_component: current_component,
-        current_organization: organization
+        current_organization: organization,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 
@@ -62,6 +66,11 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the registration_terms" do
+        subject.call
+        expect(meeting.registration_terms).to eq meeting.component.settings.default_registration_terms.stringify_keys
       end
 
       it "sets the component" do
