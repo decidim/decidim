@@ -19,9 +19,9 @@ module Decidim
           cumulative_users |= retrieve_proposals.pluck("decidim_coauthorships.decidim_author_id") # To avoid ambiguosity must be called this way
 
           quantity_users = []
-          quantity_users |= retrieve_votes(true).pluck(:decidim_author_id)
-          quantity_users |= retrieve_endorsements(true).pluck(:decidim_author_id)
-          quantity_users |= retrieve_proposals(true).pluck("decidim_coauthorships.decidim_author_id") # To avoid ambiguosity must be called this way
+          quantity_users |= retrieve_votes(from_start: true).pluck(:decidim_author_id)
+          quantity_users |= retrieve_endorsements(from_start: true).pluck(:decidim_author_id)
+          quantity_users |= retrieve_proposals(from_start: true).pluck("decidim_coauthorships.decidim_author_id") # To avoid ambiguosity must be called this way
 
           {
             cumulative_users: cumulative_users.uniq,
@@ -31,7 +31,7 @@ module Decidim
 
         private
 
-        def retrieve_proposals(from_start = false)
+        def retrieve_proposals(from_start: false)
           @proposals ||= Decidim::Proposals::Proposal.where(component: @resource).joins(:coauthorships)
                                                      .includes(:votes, :endorsements)
                                                      .where(decidim_coauthorships: {
@@ -49,7 +49,7 @@ module Decidim
           @proposals
         end
 
-        def retrieve_votes(from_start = false)
+        def retrieve_votes(from_start: false)
           @votes ||= Decidim::Proposals::ProposalVote.joins(:proposal).where(proposal: retrieve_proposals).joins(:author)
                                                      .where("decidim_proposals_proposal_votes.created_at <= ?", end_time)
 
@@ -58,7 +58,7 @@ module Decidim
           @votes
         end
 
-        def retrieve_endorsements(from_start = false)
+        def retrieve_endorsements(from_start: false)
           @endorsements ||= Decidim::Endorsement.joins("INNER JOIN decidim_proposals_proposals proposals ON resource_id = proposals.id")
                                                 .where(resource: retrieve_proposals)
                                                 .where("decidim_endorsements.created_at <= ?", end_time)

@@ -46,9 +46,9 @@ module Decidim
       # Builds many Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.words(*args)
+      def self.words(...)
         localized do
-          ::Faker::Lorem.words(*args)
+          ::Faker::Lorem.words(...)
         end
       end
 
@@ -64,63 +64,63 @@ module Decidim
       # Builds many Lorem Ipsum characters. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.characters(*args)
+      def self.characters(...)
         localized do
-          ::Faker::Lorem.characters(*args)
+          ::Faker::Lorem.characters(...)
         end
       end
 
       # Builds a sentence with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.sentence(*args)
+      def self.sentence(...)
         localized do
-          ::Faker::Lorem.sentence(*args)
+          ::Faker::Lorem.sentence(...)
         end
       end
 
       # Builds many sentences with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.sentences(*args)
+      def self.sentences(...)
         localized do
-          ::Faker::Lorem.sentences(*args)
+          ::Faker::Lorem.sentences(...)
         end
       end
 
       # Builds a paragraph with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.paragraph(*args)
+      def self.paragraph(...)
         localized do
-          ::Faker::Lorem.paragraph(*args)
+          ::Faker::Lorem.paragraph(...)
         end
       end
 
       # Builds many paragraphs with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.paragraphs(*args)
+      def self.paragraphs(...)
         localized do
-          ::Faker::Lorem.paragraphs(*args)
+          ::Faker::Lorem.paragraphs(...)
         end
       end
 
       # Builds a question with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.question(*args)
+      def self.question(...)
         localized do
-          ::Faker::Lorem.question(*args)
+          ::Faker::Lorem.question(...)
         end
       end
 
       # Builds many questions with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.questions(*args)
+      def self.questions(...)
         localized do
-          ::Faker::Lorem.questions(*args)
+          ::Faker::Lorem.questions(...)
         end
       end
 
@@ -150,8 +150,16 @@ module Decidim
       # Returns a Hash with a value for each locale.
       def self.wrapped(before, after)
         result = yield
-        result.inject({}) do |wrapped, (locale, text)|
-          wrapped.update(locale => [before, text, after].join)
+        result.inject({}) do |wrapped, (locale, value)|
+          if value.is_a?(Hash)
+            final_value = value.inject({}) do |new_wrapped, (new_locale, new_value)|
+              new_wrapped.update(new_locale => [before, new_value, after].join)
+            end
+
+            wrapped.update(locale => final_value)
+          else
+            wrapped.update(locale => [before, value, after].join)
+          end
         end
       end
 
@@ -160,13 +168,21 @@ module Decidim
       #
       # Returns a Hash with a value for each locale.
       def self.localized
-        Decidim.available_locales.inject({}) do |result, locale|
+        *locales, last_locale = Decidim.available_locales
+
+        value = locales.inject({}) do |result, locale|
           text = ::Faker::Base.with_locale(locale) do
             yield
           end
 
           result.update(locale => text)
         end.with_indifferent_access
+
+        value.update(
+          "machine_translations" => {
+            last_locale => ::Faker::Base.with_locale(last_locale) { yield }
+          }.with_indifferent_access
+        )
       end
 
       # Prefixes the +msg+ for each available locale and returns as a Hash
@@ -174,9 +190,16 @@ module Decidim
       #
       # Return a Hash with a value for each locale.
       def self.prefixed(msg, locales = Decidim.available_locales)
-        locales.inject({}) do |result, locale|
+        *all_locales, last_locale = locales
+        value = all_locales.inject({}) do |result, locale|
           result.update(locale => "#{locale.to_s.upcase}: #{msg}")
         end.with_indifferent_access
+
+        value.update(
+          "machine_translations" => {
+            last_locale => "#{last_locale.to_s.upcase}: #{msg}"
+          }.with_indifferent_access
+        )
       end
     end
   end

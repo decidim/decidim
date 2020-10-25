@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "wicked_pdf"
 
 # frozen_string_literal: true

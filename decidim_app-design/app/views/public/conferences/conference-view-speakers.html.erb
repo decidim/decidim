@@ -12,8 +12,8 @@
       <div class="columns mediumlarge-8">
         <h1 class="section-heading">Ponentes</h1>
         <div class="row small-up-2 medium-up-4 mb-l">
-          <% Faker::Number.between(10, 25).times do %>
-          <% img_path = Faker::Fillmurray.image(false, Faker::Number.between(10, 500), Faker::Number.between(10, 500)) %>
+          <% Faker::Number.between(from: 10, to: 25).times do %>
+          <% img_path = Faker::Fillmurray.image(false, Faker::Number.between(from: 10, to: 500), Faker::Number.between(from: 10, to: 500)) %>
           <% name = Faker::Name.name %>
           <% job = Faker::Company.profession %>
           <% net = Faker::Internet.domain_name %>

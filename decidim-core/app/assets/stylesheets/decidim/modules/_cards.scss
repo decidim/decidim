@@ -89,6 +89,10 @@ a .card__title{
 .card__header{
   margin-bottom: $card-padding / 2;
 
+  .card__title{
+    margin-bottom: .5rem;
+  }
+
   &.collapse{
     margin-bottom: 0;
   }

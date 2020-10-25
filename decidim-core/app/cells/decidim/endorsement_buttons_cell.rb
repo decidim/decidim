@@ -66,7 +66,7 @@ module Decidim
     # Renders the endorsements button but disabled.
     # To be used to let the user know that endorsements are enabled but are blocked or cant participate.
     def render_disabled_endorsements_button
-      content_tag :span, class: "#{card_button_html_class} #{endorsement_button_classes(false)} disabled", disabled: true, title: endorse_translated do
+      content_tag :span, class: "#{card_button_html_class} #{endorsement_button_classes(from_resourcess_list: false)} disabled", disabled: true, title: endorse_translated do
         endorse_translated + render_screen_reader_context_title
       end
     end
@@ -82,7 +82,7 @@ module Decidim
     # from_resourcess_list - A boolean to indicate if the template is rendered from the list page of the resource.
     #
     # Returns a string with the value of the css classes.
-    def endorsement_button_classes(from_resourcess_list = false)
+    def endorsement_button_classes(from_resourcess_list: false)
       return "small" if from_resourcess_list
 
       "button small compact light button--sc expanded secondary"
@@ -180,7 +180,7 @@ module Decidim
     def render_verification_modal
       button_to(endorsement_path(resource),
                 data: { open: "authorizationModal", "open-url": modal_path(:endorse, resource) },
-                class: "#{card_button_html_class} #{endorsement_button_classes(false)}") do
+                class: "#{card_button_html_class} #{endorsement_button_classes(from_resourcess_list: false)}") do
         endorse_translated + render_screen_reader_context_title
       end
     end

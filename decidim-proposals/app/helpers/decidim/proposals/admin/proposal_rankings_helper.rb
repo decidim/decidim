@@ -20,7 +20,7 @@ module Decidim
         #   ranking_for(proposal, endorsements_count: :desc)
         def ranking_for(proposal, order = {})
           siblings = Decidim::Proposals::Proposal.where(component: proposal.component)
-          ranked = siblings.order([order, id: :asc])
+          ranked = siblings.order([order, { id: :asc }])
           ranked_ids = ranked.pluck(:id)
 
           { ranking: ranked_ids.index(proposal.id) + 1, total: ranked_ids.count }

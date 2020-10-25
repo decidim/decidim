@@ -47,8 +47,8 @@ module Decidim
 
         describe "create" do
           let(:decidim_category_id) { nil }
-          let(:dice) { ::Faker::Number.between(1, 6) }
-          let(:target_items) { ::Faker::Number.between(1, 10) }
+          let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
+          let(:target_items) { ::Faker::Number.between(from: 1, to: 10) }
           let(:params) do
             {
               participatory_process_slug: component.participatory_space.slug,

@@ -15,7 +15,7 @@ describe "UserTosAcceptance", type: :system do
 
   describe "When the Organization TOS version is updated" do
     before do
-      organization.update!(tos_version: Faker::Date.forward(15))
+      organization.update!(tos_version: Faker::Date.forward(days: 15))
       login_as user, scope: :user
       visit decidim.root_path
     end
