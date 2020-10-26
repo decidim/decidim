@@ -413,13 +413,13 @@ ja:
           newsletter: 関連情報に関するニュースレターを受け取る
           newsletter_title: 連絡の許可
           nickname_help: '%{organization} での別名'
-          password_help: "%{minimun_characters} 文字以上。一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
+          password_help: "%{minimun_characters} 文字以上必要です。単純すぎてはいけません（例：123456）。ニックネームやメールアドレスと異なる必要があります。"
           sign_in: ログイン
           sign_up: 新規登録
           sign_up_as:
             legend: として登録
           subtitle: 参加するにはユーザ登録をしてください。
-          terms: 利用規約や
+          terms: 利用規約
           tos_agreement: サインアップすることで、 %{link} に同意したことになります。
           tos_title: 利用規約
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
@@ -628,7 +628,7 @@ ja:
         proposal: 提案
         result: 結果
     fingerprint:
-      check: 指紋を確認
+      check: フィンガープリントを確認
       explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: このフィンガープリントはSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
@@ -1391,7 +1391,7 @@ ja:
         change_your_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
-        password_help: "%{minimun_characters} 文字以上。一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
+        password_help: "%{minimun_characters} 文字以上必要です。単純すぎてはいけません（例：123456）。ニックネームやメールアドレスと異なる必要があります。"
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
@@ -1428,8 +1428,8 @@ ja:
     shared:
       links:
         back: 戻る
-        didn_t_receive_confirmation_instructions: 確認の指示を受信しませんでしたか？
-        didn_t_receive_unlock_instructions: ロック解除の指示を受信しませんでしたか？
+        didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
+        didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
         sign_in: ログイン
         sign_in_with_provider: '%{provider} でサインイン'
