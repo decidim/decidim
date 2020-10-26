@@ -257,9 +257,7 @@ module Decidim
         event_class: WelcomeNotificationEvent,
         resource: self,
         affected_users: [self],
-        extra: {
-          high_priority: true
-        }
+        priority: "now"
       )
     end
 

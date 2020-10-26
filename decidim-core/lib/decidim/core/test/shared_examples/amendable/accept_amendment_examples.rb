@@ -52,9 +52,7 @@ shared_examples "accept amendment" do
           resource: emendation,
           followers: kind_of(Array),
           affected_users: kind_of(Array),
-          extra: {
-            high_priority: true
-          }
+          priority: "now"
         )
 
       command.call

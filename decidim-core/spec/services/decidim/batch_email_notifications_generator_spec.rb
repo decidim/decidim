@@ -21,7 +21,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
     }
   end
 
-  describe "generate" do
+  describe "#generate" do
     let(:mailer) { double(deliver_later: true) }
 
     it "doesn't enqueues the job" do
@@ -146,8 +146,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
     context "when notifications are marked as batch priority" do
       let!(:notifications) { create_list(:notification, 2, user: user) }
 
-      it "returns users id" do
-        expect(subject.send(:users)).to eq([user.id])
+      it "returns users" do
+        expect(subject.send(:users)).to eq([user])
       end
     end
   end

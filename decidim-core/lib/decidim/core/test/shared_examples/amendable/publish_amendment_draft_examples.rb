@@ -35,9 +35,7 @@ shared_examples "publish amendment draft" do
           resource: amendable,
           affected_users: [amendable.creator_author],
           followers: [],
-          extra: {
-            high_priority: true
-          }
+          priority: "now"
         )
 
       command.call

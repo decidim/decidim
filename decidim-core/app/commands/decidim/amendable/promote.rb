@@ -68,9 +68,7 @@ module Decidim
           resource: @emendation,
           affected_users: affected_users.uniq,
           followers: followers.uniq,
-          extra: {
-            high_priority: true
-          }
+          priority: "now"
         )
       end
 
