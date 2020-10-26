@@ -10,11 +10,11 @@ describe Decidim::Demographics::Directory::DemographicsController, type: :contro
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
-  let(:demographic_form ) do
+  let(:demographic_form) do
     double(
       gender: "male",
       age: "< 15",
-      nationalities: [1,4],
+      nationalities: [1, 4],
       postal_code: "111222",
       background: "self-employed"
     )
