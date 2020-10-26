@@ -21,14 +21,9 @@
     run(target) {
       this.toggleTextInput(target);
 
-      const group = new RegExp("component_settings_vote_rule_group_[\\d+]");
-
       if ($(target).prop("checked")) {
         this.ruleCheckboxes.filter(
           (_i, checkbox) => {
-            if (group.test(target.id) && group.test(checkbox.id)) {
-              return group.exec(checkbox.id)[0] !== group.exec(target.id)[0] && checkbox !== target;
-            }
             return checkbox !== target;
           }).prop("checked", false).each(
           (_i, checkbox) => {
@@ -38,7 +33,15 @@
     }
 
     toggleTextInput(target) {
-      let input = $(target).closest("div").next();
+      const container = $(target).closest("div");
+      if (container.length < 1) {
+        return;
+      }
+      const containerClassPrefix = container.attr("class").
+        replace(/^vote_rule_/, "vote_").
+        replace(/_enabled_container$/, "");
+      const input = $(`[class^="${containerClassPrefix}"][class$="_container"]`);
+
       if ($(target).prop("checked")) {
         input.slideDown();
       } else {

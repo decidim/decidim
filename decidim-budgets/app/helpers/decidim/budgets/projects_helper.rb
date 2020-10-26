@@ -16,16 +16,15 @@ module Decidim
         current_order&.budget_percent.to_f.floor
       end
 
-      # Return a percentage of the current order projects from the total projects
-      def current_order_projects_percent
-        current_order&.projects_percent.to_f.floor
-      end
-
       # Return the minimum percentage of the current order budget from the total budget
       def current_order_budget_percent_minimum
         return 0 if current_order.minimum_projects_rule?
 
-        component_settings.vote_threshold_percent
+        if current_order.projects_rule?
+          (current_order.minimum_projects.to_f / current_order.maximum_projects)
+        else
+          component_settings.vote_threshold_percent
+        end
       end
 
       def budget_confirm_disabled_attr
@@ -45,48 +44,41 @@ module Decidim
       def current_rule_explanation
         return unless current_order
 
-        if current_order.maximum_projects_rule? && current_order.minimum_projects_rule?
-          t(".maximum_and_minimum_projects_rule.instruction", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
-        elsif current_order.maximum_projects_rule?
-          t(".maximum_projects_rule.instruction", maximum_number: current_order.maximum_projects)
+        if current_order.projects_rule?
+          if current_order.minimum_projects.positive? && current_order.minimum_projects < current_order.maximum_projects
+            t(
+              ".projects_rule.instruction",
+              minimum_number: current_order.minimum_projects,
+              maximum_number: current_order.maximum_projects
+            )
+          else
+            t(".projects_rule_maximum_only.instruction", maximum_number: current_order.maximum_projects)
+          end
         elsif current_order.minimum_projects_rule?
           t(".minimum_projects_rule.instruction", minimum_number: current_order.minimum_projects)
         else
-          t(".vote_threshold_percent.instruction", minimum_budget: budget_to_currency(current_order.minimum_budget))
+          t(".vote_threshold_percent_rule.instruction", minimum_budget: budget_to_currency(current_order.minimum_budget))
         end
       end
 
       def current_rule_description
         return unless current_order
 
-        if current_order.maximum_projects_rule? && current_order.minimum_projects_rule?
-          t(".maximum_and_minimum_projects_rule.description", maximum_number: current_order.maximum_projects, minimum_number: current_order.minimum_projects)
-        elsif current_order.maximum_projects_rule?
-          t(".maximum_projects_rule.description", maximum_number: current_order.maximum_projects)
+        if current_order.projects_rule?
+          if current_order.minimum_projects.positive? && current_order.minimum_projects < current_order.maximum_projects
+            t(
+              ".projects_rule.description",
+              minimum_number: current_order.minimum_projects,
+              maximum_number: current_order.maximum_projects
+            )
+          else
+            t(".projects_rule_maximum_only.description", maximum_number: current_order.maximum_projects)
+          end
         elsif current_order.minimum_projects_rule?
           t(".minimum_projects_rule.description", minimum_number: current_order.minimum_projects)
         else
-          t(".vote_threshold_percent.description", minimum_budget: budget_to_currency(current_order.minimum_budget))
+          t(".vote_threshold_percent_rule.description", minimum_budget: budget_to_currency(current_order.minimum_budget))
         end
-      end
-
-      def maximum_budget_projects_enabled?
-        component_settings.vote_rule_group_1_maximum_budget_projects_enabled?
-      end
-
-      def minimum_budget_projects_enabled?
-        component_settings.vote_rule_group_1_minimum_budget_projects_enabled?
-      end
-
-      def vote_threshold_percent
-        return component_settings.vote_threshold_percent unless maximum_budget_projects_enabled?
-        return 0 unless minimum_budget_projects_enabled?
-
-        ((component_settings.vote_minimum_budget_projects_number.to_f / component_settings.vote_maximum_budget_projects_number.to_f) * 100).floor
-      end
-
-      def vote_maximum_budget_projects_number
-        current_component.settings.vote_maximum_budget_projects_number
       end
     end
   end

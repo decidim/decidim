@@ -6,8 +6,7 @@ $(() => {
   const $budgetSummaryTotal = $(".budget-summary__total");
   const $budgetExceedModal = $("#budget-excess");
   const $budgetSummary = $(".budget-summary__progressbox");
-  const totalBudget = parseInt($budgetSummaryTotal.attr("data-total-budget"), 10);
-  const totalProjects = parseInt($budgetSummaryTotal.attr("data-total-projects"), 10);
+  const totalAllocation = parseInt($budgetSummaryTotal.attr("data-total-allocation"), 10);
 
   const cancelEvent = (event) => {
     event.stopPropagation();
@@ -15,23 +14,16 @@ $(() => {
   };
 
   $projects.on("click", ".budget-list__action", (event) => {
-    const currentBudget = parseInt($budgetSummary.attr("data-current-budget"), 10);
-    const currentProjects = parseInt($budgetSummary.attr("data-current-projects"), 10);
+    const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
     const $currentTarget = $(event.currentTarget);
-    const projectBudget = parseInt($currentTarget.attr("data-budget"), 10);
+    const projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
 
-    const projectNumberExceeded = () => {
-      return (isNaN(totalBudget) && ((currentProjects + 1) > totalProjects))
-    };
-
-    const budgetExceeded = () => {
-      return (isNaN(totalProjects) && ((currentBudget + projectBudget) > totalBudget));
-    };
+    console.log($currentTarget);
+    console.log(projectAllocation);
 
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
-
-    } else if (($currentTarget.attr("data-add") === "true") && (projectNumberExceeded() || budgetExceeded())) {
+    } else if (($currentTarget.attr("data-add") === "true") && ((currentAllocation + projectAllocation) > totalAllocation)) {
       $budgetExceedModal.foundation("toggle");
       cancelEvent(event);
     }
@@ -47,11 +39,11 @@ $(() => {
     });
 
     window.onbeforeunload = () => {
-      const currentBudget = parseInt($budgetSummary.attr("data-current-budget"), 10);
+      const currentAllocation = parseInt($budgetSummary.attr("data-current-allocation"), 10);
       const exitUrl = window.exitUrl;
       window.exitUrl = null;
 
-      if (currentBudget === 0 || (exitUrl && exitUrl.startsWith(safeUrl))) {
+      if (currentAllocation === 0 || (exitUrl && exitUrl.startsWith(safeUrl))) {
         return null;
       }
 

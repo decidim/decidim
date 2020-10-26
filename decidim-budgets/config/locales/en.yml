@@ -137,13 +137,13 @@ en:
           title: Confirm vote
         budget_excess:
           budget_excess:
-            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+            description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
             title: Maximum budget exceeded
           close: Close
-          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+          description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
           ok: OK
           projects_excess:
-            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected to add, or make your vote with your preferences.
+            description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
@@ -152,23 +152,23 @@ en:
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
             title: Budget vote completed
-          maximum_and_minimum_projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote with your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote with your preferences to define the budget.</li>"
-          maximum_projects_rule:
-            description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects that you want and vote according to your preferences to set the budget.
-            instruction: "<li>Select up to %{maximum_number} projects that you want and vote according to your preferences to set the budget.</li>"
           minimum_projects_rule:
-            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote with your preferences to define the budget.
-            instruction: "<li>Select at least %{minimum_number} projects you want and vote with your preferences to define the budget.</li>"
+            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.</li>"
+          projects_rule:
+            description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
+          projects_rule_maximum_only:
+            description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
           rules:
             title: Budget rules
           title: You decide the budget
           total_budget: Total budget
           total_projects: Total projects
-          vote_threshold_percent:
-            description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.
-            instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote with your preferences to define the budget.</li>"
+          vote_threshold_percent_rule:
+            description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
+            instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.</li>"
         count:
           projects_count:
             one: 1 project
@@ -242,11 +242,12 @@ en:
             scopes_enabled: Scopes enabled
             title: Title
             total_budget: Total budget
-            vote_maximum_budget_projects_number: Maximum number of projects to vote
             vote_minimum_budget_projects_number: Minimum number of projects to vote
-            vote_rule_group_1_maximum_budget_projects_enabled: 'Enable rule: Maximum number of projects to be voted on'
-            vote_rule_group_1_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
+            vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
+            vote_rule_selected_projects_enabled: 'Enable rule: Selected projects with minimum and maximum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
+            vote_selected_projects_maximum: Minimum amount of projects to be selected
+            vote_selected_projects_minimum: Maximum amount of projects to be selected
             vote_threshold_percent: Vote threshold percent
             workflow: Workflow
             workflow_choices:
