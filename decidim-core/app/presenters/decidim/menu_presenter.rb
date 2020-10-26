@@ -22,10 +22,10 @@ module Decidim
 
     def evaluated_menu
       @evaluated_menu ||= begin
-                            menu = Menu.new(@name)
-                            menu.build_for(@view)
-                            menu
-                          end
+        menu = Menu.new(@name)
+        menu.build_for(@view)
+        menu
+      end
     end
 
     def render

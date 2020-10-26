@@ -7,7 +7,9 @@ module Decidim
       # Returns a link to the next/previous question if found.
       # Else, returns a disabled link to the current question.
       def display_next_previous_button(direction, optional_classes = "")
+        # rubocop: disable Style/StringConcatenation as we don't want the string to be frozen
         css = "card__button button hollow " + optional_classes
+        # rubocop: enable Style/StringConcatenation
 
         # Do not show anything if is a lonely question
         return unless previous_published_question || next_published_question

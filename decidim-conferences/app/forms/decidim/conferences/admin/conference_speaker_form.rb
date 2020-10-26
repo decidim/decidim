@@ -43,7 +43,7 @@ module Decidim
         def personal_url
           return if super.blank?
 
-          return "http://" + super unless super.match?(%r{\A(http|https)://}i)
+          return "http://#{super}" unless super.match?(%r{\A(http|https)://}i)
 
           super
         end

@@ -5,7 +5,7 @@ require "decidim/dev"
 
 FactoryBot.define do
   sequence(:conference_slug) do |n|
-    "#{Faker::Internet.slug(nil, "-")}-#{n}"
+    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :conference, class: "Decidim::Conference" do
@@ -19,7 +19,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
-    location { Faker::Lorem.sentence(3) }
+    location { Faker::Lorem.sentence(word_count: 3) }
     show_statistics { true }
     start_date { 1.month.ago }
     end_date { 1.month.ago + 3.days }
@@ -133,8 +133,8 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     published_at { Time.current }
-    price { Faker::Number.between(1, 300) }
-    weight { Faker::Number.between(1, 10) }
+    price { Faker::Number.between(from: 1, to: 300) }
+    weight { Faker::Number.between(from: 1, to: 10) }
 
     trait :unpublished do
       published_at { nil }
@@ -181,7 +181,7 @@ FactoryBot.define do
     conference
 
     name { Faker::Name.name }
-    weight { Faker::Number.between(1, 10) }
+    weight { Faker::Number.between(from: 1, to: 10) }
     link { Faker::Internet.url }
     partner_type { "main_promotor" }
     logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
@@ -198,7 +198,7 @@ FactoryBot.define do
   factory :media_link, class: "Decidim::Conferences::MediaLink" do
     conference
     title { generate_localized_title }
-    weight { Faker::Number.between(1, 10) }
+    weight { Faker::Number.between(from: 1, to: 10) }
     link { Faker::Internet.url }
     date { 1.month.ago }
   end
