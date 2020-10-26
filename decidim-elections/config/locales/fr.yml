@@ -205,7 +205,7 @@ fr:
         recent: Les plus récents
       trustee_zone:
         menu:
-          trustee_zone: Zone d'administration
+          trustee_zone: Zone d'assessorat
         trustees:
           show:
             elections:
@@ -213,7 +213,7 @@ fr:
                 election: Élection
                 status: Statut
                 voting_period: Période de vote
-              no_elections: Il n'y a pas d'élections lorsque vous agissez en temps qu'administrateur.
+              no_elections: Il n'y a pas d'élections lorsque vous agissez en temps qu'assesseur.
               title: Élections
             identification_keys:
               cancel: Annuler
