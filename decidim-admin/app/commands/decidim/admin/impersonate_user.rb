@@ -27,6 +27,7 @@ module Decidim
           create_authorization
 
           create_impersonation_log
+          create_action_log
         end
 
         enqueue_expire_job
@@ -59,6 +60,14 @@ module Decidim
         Decidim::Admin::ExpireImpersonationJob
           .set(wait: Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes)
           .perform_later(user, form.current_user)
+      end
+
+      def create_action_log
+        Decidim.traceability.perform_action!(
+          form.reason,
+          user,
+          form.current_user
+        )
       end
     end
   end
