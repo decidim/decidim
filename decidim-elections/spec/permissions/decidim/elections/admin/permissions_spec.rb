@@ -80,6 +80,15 @@ describe Decidim::Elections::Admin::Permissions do
     it { is_expected.to eq true }
   end
 
+  describe "election setup" do
+    let(:action) do
+      { scope: :admin, action: :setup, subject: :election }
+    end
+    let(:election) { nil }
+
+    it { is_expected.to eq true }
+  end
+
   describe "election update" do
     let(:action) do
       { scope: :admin, action: :update, subject: :election }

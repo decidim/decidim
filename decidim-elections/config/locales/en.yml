@@ -243,10 +243,8 @@ en:
         election:
           fields:
             end_time: End at
-            public_key: Identification Public Key
             start_time: Starts at
             title: Title
-            user: User
         question:
           fields:
             answers: Answers
