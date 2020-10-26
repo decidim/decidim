@@ -58,7 +58,6 @@ describe Decidim::Demographics::Directory::DemographicsController, type: :contro
       it "shows the alert flash" do 
         expect(flash.now[:alert]).to be_present
       end 
-
     end
   end
 end
