@@ -7,29 +7,58 @@ describe Decidim::Demographics::Directory::DemographicsController, type: :contro
 
   let(:time_zone) { "UTC" }
   let(:organization) { create(:organization, time_zone: time_zone) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
 
-  let(:demographic_form ) do
-    double(
+  let(:params) do
+    {
+    demographic: {
       gender: "male",
       age: "< 15",
-      nationalities: [1,4],
+      nationalities: [:romanian],
       postal_code: "111222",
       background: "self-employed"
-    )
+    }
+  }
   end
 
   before do
     request.env["decidim.current_organization"] = organization
-    request.env["decidim.current_participatory_process"] = participatory_process
     sign_in user
   end
 
-  it "tests new action" do
-    get :new
-    expect(demographic_form).to receive(:from_model)
+  context "new action" do 
+ 
+    it "tests new action" do
+      get :new
+      expect(response).to render_template("decidim/demographics/directory/demographics/new")
+    end
   end
-  # new
-  # create
+
+
+  context "create action" do 
+
+    before :each do 
+      post :create, params: params
+    end
+
+    context "create is ok" do 
+
+      it { expect(response).to redirect_to new_path }
+      it { expect(flash[:notice]).to be_present }
+    end
+
+    context "create is not ok" do 
+      before do
+        allow(Decidim::Demographics::RegisterDemographicsData).to receive(:call).and_return(:invalid)
+      end
+      it "test creating failed" do 
+        expect(response).to render_template("decidim/demographics/directory/demographics/new")
+      end
+      
+      it "shows the alert flash" do 
+        expect(flash.now[:alert]).to be_present
+      end 
+
+    end
+  end
 end
