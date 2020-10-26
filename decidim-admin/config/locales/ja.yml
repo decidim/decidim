@@ -151,7 +151,7 @@ ja:
         actions:
           accept: この管理者規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
-          refuse: 管理者用語を拒否する
+          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
