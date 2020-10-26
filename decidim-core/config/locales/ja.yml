@@ -410,7 +410,7 @@ ja:
       registrations:
         new:
           already_have_an_account?: 既にアカウントをお持ちですか？
-          newsletter: 関連情報を含む時折ニュースレターを受け取る
+          newsletter: 関連情報に関するニュースレターを受け取る
           newsletter_title: 連絡の許可
           nickname_help: '%{organization} での別名'
           password_help: "%{minimun_characters} 文字以上。一般的すぎてはいけません（例：123456）。ニックネームとメールアドレスと異なる必要があります。"
