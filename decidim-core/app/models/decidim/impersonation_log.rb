@@ -21,6 +21,10 @@ module Decidim
       expired_at.present?
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ImpersonationLogPresenter
+    end
+
     private
 
     def same_organization

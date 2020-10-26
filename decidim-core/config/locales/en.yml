@@ -114,6 +114,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+      impersonation_log:
+        manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"

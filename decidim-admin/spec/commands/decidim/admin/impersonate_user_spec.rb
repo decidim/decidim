@@ -79,7 +79,7 @@ module Decidim::Admin
           subject.call
         end.to change { Decidim::ActionLog.count }.by(1)
 
-        expect(Decidim::ActionLog.last.action).to eq("Need it")
+        expect(Decidim::ActionLog.last.action).to eq("manage")
       end
     end
 
