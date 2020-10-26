@@ -222,7 +222,7 @@ describe "Orders", type: :system do
 
         it "displays total budget" do
           within ".budget-summary__total" do
-            expect(page).to have_content("TOTAL PROJECTS 6")
+            expect(page).to have_content("TOTAL VOTES 6")
           end
         end
       end
@@ -257,7 +257,7 @@ describe "Orders", type: :system do
 
         it "displays total budget" do
           within ".budget-summary__total" do
-            expect(page).to have_content("TOTAL PROJECTS 6")
+            expect(page).to have_content("TOTAL VOTES 6")
           end
         end
       end

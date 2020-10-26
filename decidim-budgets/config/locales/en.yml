@@ -165,7 +165,7 @@ en:
             title: Budget rules
           title: You decide the budget
           total_budget: Total budget
-          total_projects: Total projects
+          total_projects: Total votes
           vote_threshold_percent_rule:
             description: What projects do you think we should allocate budget for? Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.</li>"
