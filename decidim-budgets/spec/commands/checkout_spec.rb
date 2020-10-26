@@ -66,7 +66,7 @@ module Decidim::Budgets
 
     context "when the voting rule is set to minimum projects number" do
       context "and the order doesn't reach the minimum number of projects" do
-        let(:voting_rule) { :with_minimum_budget_projects }
+        let(:voting_rule) { :with_budget_projects_range }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
@@ -75,7 +75,16 @@ module Decidim::Budgets
     end
 
     context "when the voting rule is set to maximum projects number" do
-      let(:voting_rule) { :with_maximum_budget_projects }
+      let(:component) do
+        create(
+          :budgets_component,
+          voting_rule,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          organization: user.organization
+        )
+      end
+      let(:voting_rule) { :with_budget_projects_range }
+      let(:vote_minimum_budget_projects_number) { 0 }
 
       context "and the order exceed the maximum number of projects" do
         let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
@@ -95,7 +104,7 @@ module Decidim::Budgets
     end
 
     context "when the voting rule is set to minimum and maximum projects number" do
-      let(:voting_rule) { :with_minimum_and_maximum_budget_projects }
+      let(:voting_rule) { :with_budget_projects_range }
 
       context "and the order exceed the maximum number of projects" do
         let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }

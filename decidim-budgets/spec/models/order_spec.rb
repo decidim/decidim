@@ -50,7 +50,7 @@ shared_examples "an order" do |*options|
     end
   end
 
-  describe "#total_project" do
+  describe "#total_projects" do
     it "returns the count of projects" do
       subject.projects << build(:project, budget: subject.budget)
 
@@ -98,7 +98,6 @@ module Decidim::Budgets
     describe "with component with a minimum projects rule" do
       let!(:order) { create :order, budget: budget }
       let(:voting_rule) { :with_minimum_budget_projects }
-      let(:vote_minimum_budget_projects_number) { 5 }
 
       it_behaves_like "an order", :with_maximum_budget
 
@@ -124,8 +123,17 @@ module Decidim::Budgets
     end
 
     describe "with component with a maximum projects rule" do
+      let(:component) do
+        create(
+          :budgets_component,
+          voting_rule,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
+        )
+      end
       let!(:order) { create :order, budget: budget }
-      let(:voting_rule) { :with_maximum_budget_projects }
+      let(:voting_rule) { :with_budget_projects_range }
+      let(:vote_minimum_budget_projects_number) { 0 }
       let(:vote_maximum_budget_projects_number) { 6 }
 
       it_behaves_like "an order"
@@ -162,8 +170,16 @@ module Decidim::Budgets
     end
 
     describe "with component with a minimum and maximum projects rule" do
+      let(:component) do
+        create(
+          :budgets_component,
+          voting_rule,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          vote_maximum_budget_projects_number: vote_maximum_budget_projects_number
+        )
+      end
       let!(:order) { create :order, budget: budget }
-      let(:voting_rule) { :with_minimum_and_maximum_budget_projects }
+      let(:voting_rule) { :with_budget_projects_range }
       let(:vote_minimum_budget_projects_number) { 3 }
       let(:vote_maximum_budget_projects_number) { 6 }
 

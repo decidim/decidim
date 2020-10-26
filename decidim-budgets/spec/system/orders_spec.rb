@@ -47,13 +47,13 @@ describe "Orders", type: :system do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("You decide the budget\nWhat projects do you think we should allocate budget for? Assign at least €70,000,000 to the projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("You decide the budget\nWhat projects do you think we should allocate budget for? Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
 
         it "displays rules" do
           within ".voting-rules" do
-            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
@@ -68,13 +68,13 @@ describe "Orders", type: :system do
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
         it "displays rules" do
           within ".voting-rules" do
-            expect(page).to have_content("Select at least 3 projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
@@ -82,20 +82,21 @@ describe "Orders", type: :system do
       context "when voting by maximum projects number" do
         let!(:component) do
           create(:budgets_component,
-                 :with_maximum_budget_projects,
+                 :with_budget_projects_range,
+                 vote_minimum_budget_projects_number: 0,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select up to 6 projects that you want and vote according to your preferences to set the budget.")
+            expect(page).to have_content("What projects do you think we should allocate budget for? Select up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
         it "displays rules" do
           within ".voting-rules" do
-            expect(page).to have_content("Select up to 6 projects that you want and vote according to your preferences to set the budget.")
+            expect(page).to have_content("Select up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
@@ -103,20 +104,20 @@ describe "Orders", type: :system do
       context "when voting by minimum and maximum projects number" do
         let!(:component) do
           create(:budgets_component,
-                 :with_minimum_and_maximum_budget_projects,
+                 :with_budget_projects_range,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 and up to 6 projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
         it "displays rules" do
           within ".voting-rules" do
-            expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote with your preferences to define the budget.")
+            expect(page).to have_content("Select at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
       end
@@ -193,7 +194,8 @@ describe "Orders", type: :system do
       context "when voting by maximum projects number" do
         let!(:component) do
           create(:budgets_component,
-                 :with_maximum_budget_projects,
+                 :with_budget_projects_range,
+                 vote_minimum_budget_projects_number: 0,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
@@ -205,7 +207,7 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
-          expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "ASSIGNED: 1 / 6"
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
@@ -228,7 +230,7 @@ describe "Orders", type: :system do
       context "when voting by minimum and maximum projects number" do
         let!(:component) do
           create(:budgets_component,
-                 :with_minimum_and_maximum_budget_projects,
+                 :with_budget_projects_range,
                  manifest: manifest,
                  participatory_space: participatory_process)
         end
@@ -240,7 +242,7 @@ describe "Orders", type: :system do
 
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
-          expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "ASSIGNED: 1 / 6"
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
