@@ -418,7 +418,7 @@ ja:
           sign_up: 新規登録
           sign_up_as:
             legend: として登録
-          subtitle: 議論とサポートの提案に参加するにはサインアップしてください。
+          subtitle: 参加するにはユーザ登録をしてください。
           terms: 利用規約や
           tos_agreement: サインアップすることで、 %{link} に同意したことになります。
           tos_title: 利用規約
