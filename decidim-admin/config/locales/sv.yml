@@ -759,13 +759,13 @@ sv:
           filter:
             all: Alla
             pending: Väntande
-            rejected: Avvisade
+            rejected: Avvisad
             verified: Verifierat
           filter_by: Filtrera efter
           search: Sök
           state:
             pending: Väntande
-            rejected: Avvisade
+            rejected: Avvisad
             verified: Verifierat
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
