@@ -318,6 +318,8 @@ fi-pl:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>Kuulemiset</strong> ovat osallistumistila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Esimerkkejä: kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
+          page: "<p><strong>Kuulemiset</strong> ovat osallistumistila, jonka avulla voit esittää selkeän kysymyksen kaikille organisaation ihmisille, tehdä päätöksen kuulemiseen osallistumisesta sekä herättää ja järjestää keskustelua vastauksen saamiseksi. Kuulemisen ajankohtana voit äänestää ja julkaista äänestystulokset.</p> <p>Esimerkkejä: kuulemisia voidaan järjestää lähes mistä tahansa organisaatioon vaikuttavasta asiasta, kuten nimen tai logon muuttamisesta, päättämisestä laajempaan organisaatioon liittymisestä, strategisen suunnitelman tai työryhmän päätöksen hyväksymisestä tai hylkäämisestä, tai tarvittavien mandaattien määrän päättämisestä.</p>\n"
           title: Mitä ovat kuulemiset?
     menu:
       consultations: Kuulemiset
