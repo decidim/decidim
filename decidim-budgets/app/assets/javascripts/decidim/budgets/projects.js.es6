@@ -18,9 +18,6 @@ $(() => {
     const $currentTarget = $(event.currentTarget);
     const projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
 
-    console.log($currentTarget);
-    console.log(projectAllocation);
-
     if ($currentTarget.attr("disabled")) {
       cancelEvent(event);
     } else if (($currentTarget.attr("data-add") === "true") && ((currentAllocation + projectAllocation) > totalAllocation)) {
