@@ -16,7 +16,7 @@ module Decidim
       validates :postal_code, format: { with: /\A[0-9]*\z/ }
 
       def self.from_params(params, additional_params = {})
-        params["demographic"]["nationalities"] = params["demographic"]["nationalities"].reject(&:empty?).compact
+        params["demographic"]["nationalities"] = params["demographic"]["nationalities"]&.reject(&:empty?)&.compact
         super
       end
 
