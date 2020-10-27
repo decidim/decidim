@@ -78,7 +78,6 @@ cs:
             collapse: Sbalit všechny úlohy
             expand: Rozbalit všechny otázky
             preview: Náhled
-            title: Upravit formulář
             unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek
