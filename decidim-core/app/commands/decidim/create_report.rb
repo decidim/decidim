@@ -83,7 +83,7 @@ module Decidim
         extra: {
           report_reason: @report.reason
         },
-        affected_users: @report.moderation.reportable.try(:authors) || [@report.moderation.reportable.try(:author)]
+        affected_users: @report.moderation.reportable.try(:authors) || [@report.moderation.reportable.try(:normalized_author)]
       }
       Decidim::EventsManager.publish(data)
     end
