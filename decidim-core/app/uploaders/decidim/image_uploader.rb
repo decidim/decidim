@@ -66,13 +66,6 @@ module Decidim
       3840
     end
 
-    def manipulate!
-      super
-    rescue CarrierWave::ProcessingError => e
-      Rails.logger.error(e)
-      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
-    end
-
     private
 
     def validation_error!(text)
