@@ -59,6 +59,7 @@ fr:
         edit: Modifier
         edit_answers: Modifier les réponses
         edit_questions: Modifier les questions
+        feedback: Commentaires des votants
         import: Importer des propositions dans les réponses
         new: Nouveau %{name}
         preview: Aperçu
@@ -108,6 +109,8 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
+        exports:
+          feedback_form_answers: Commentaires des réponses au formulaire
         models:
           answer:
             name: Réponse
@@ -184,6 +187,11 @@ fr:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
             ongoing: Le vote se termine le %{end_time}
             upcoming: Le vote commence le %{start_time}
+      feedback:
+        answer:
+          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
+          spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
+          success: Votre commentaire a bien été envoyé.
       models:
         answer:
           fields:
