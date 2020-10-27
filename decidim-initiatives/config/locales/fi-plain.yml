@@ -312,6 +312,7 @@ fi-pl:
         fill_data:
           back: Takaisin
           continue: Jatka
+          fill_data_help: "<ul> <li>Tarkasta aloitteesi sisältö. Onko aloitteen otsikko helppo ymmärtää? Onko aloitteen tavoitteet tarpeeksi selkeästi kuvattu?</li> <li>Sinun on valittava allekirjoitustapa. Palvelun ulkopuolella, verkossa tai molemmat.</li> <li>Mikä on aloitteen maantieteellinen laajuus?</li> </ul>"
           initiative_type: Aloitteen tyyppi
           more_information: "(Lisää tietoa)"
           select_area: Valitse alue
@@ -319,6 +320,7 @@ fi-pl:
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
+          callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
           confirm: Vahvista
           edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
@@ -338,12 +340,14 @@ fi-pl:
           more_information: "(Lisää tietoa)"
         promotal_committee:
           back: Takaisin
+          individual_help_text: Tämäntyyppinen aloite edellyttää, että kannatuskomitea koostuu vähintään %{committee_size} henkilöstä (todistajat). Sinun on jaettava seuraava linkki muiden tähän aloitteeseen osallistuvien ihmisten kanssa. Kun yhteyshenkilösi saavat tämän linkin, heidän on noudatettava esitettyjä ohjeita.
           more_information: "(Lisää tietoa)"
         select_initiative_type:
           back: Takaisin
           choose_html: Haluan luoda uuden <strong>%{title}</strong> aloitteen
           more_information: "(Lisää tietoa)"
           select: Haluan tukea tätä aloitetta
+          select_initiative_type_help: Aloitteita käytetään vaikuttamiseen organisaation tarkoitusperien edistämiseksi. Millaisen aloitteen haluat aloittaa?
         share_committee_link:
           continue: Jatka
           invite_to_committee_help: Kutsulinkki lähetettäväksi tukikomitean jäsenille
@@ -449,7 +453,9 @@ fi-pl:
             validating: Tätä ehdotusta arvioidaan
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei saanut tarpeeksi kannatusta.
         show:
+          any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
+          offline_method: Tämä aloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
