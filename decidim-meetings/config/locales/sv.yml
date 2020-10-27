@@ -222,7 +222,7 @@ sv:
             filter:
               accepted: Accepterad
               all: Allt
-              rejected: Avvisade
+              rejected: Avvisad
               sent: Skickat
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
