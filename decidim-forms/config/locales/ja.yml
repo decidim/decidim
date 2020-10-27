@@ -76,7 +76,6 @@ ja:
             collapse: すべての質問を閉じる
             expand: すべての質問を展開
             preview: プレビュー
-            title: フォームの編集
             unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
           matrix_row:
             matrix_row: 行
