@@ -12,6 +12,8 @@ module Decidim
     #    view_helpers # => this comes from the views
     #    ImpersonationLogPresenter.new(action_log, view_helpers).present
     class ImpersonationLogPresenter < Decidim::Log::BasePresenter
+      alias h view_helpers
+
       private
 
       def action_string
@@ -27,6 +29,10 @@ module Decidim
         super.merge(
           reason: action_log.extra["reason"]
         )
+      end
+
+      def resource_presenter
+        @resource_presenter ||= Decidim::Log::UserPresenter.new(action_log.resource.user, h, action_log.extra["resource"])
       end
     end
   end

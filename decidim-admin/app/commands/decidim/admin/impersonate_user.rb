@@ -69,7 +69,8 @@ module Decidim
           form.current_user,
           resource: {
             name: user.name,
-            id: user.id
+            id: user.id,
+            nickname: user.nickname
           },
           visibility: "admin-only",
           reason: form.reason
