@@ -74,7 +74,7 @@ nl:
           form:
             add_question: Vraag toevoegen
             add_separator: Scheidingsteken toevoegen
-            already_answered_warning: De vragenlijst is al door enkele gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
+            already_answered_warning: Het formulier is al door sommige gebruikers beantwoord, dus u kunt de vragen niet wijzigen.
             collapse: Alle vragen samenvouwen
             expand: Vouw alle vragen uit
             preview: Voorvertoning
