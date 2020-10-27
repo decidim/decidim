@@ -48,7 +48,6 @@ fi:
           form:
             save: Tallenna
             template_title: Mallipohjan tiedot
-            title: Mallipohja
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit
