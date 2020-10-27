@@ -65,6 +65,7 @@ cs:
         edit: Upravit
         edit_answers: Upravit odpovědi
         edit_questions: Upravit otázky
+        feedback: Zpětná vazba voličů
         import: Importovat návrhy na odpovědi
         new: Nový %{name}
         preview: Náhled
@@ -114,6 +115,8 @@ cs:
           update:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
+        exports:
+          feedback_form_answers: Odpovědi na formulář zpětné vazby
         models:
           answer:
             name: Odpověď
@@ -215,6 +218,11 @@ cs:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
             ongoing: Hlasování končí %{end_time}
             upcoming: Hlasování začíná %{start_time}
+      feedback:
+        answer:
+          invalid: Při odesílání vaší zpětné vazby došlo k chybě.
+          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
+          success: Zpětná vazba byla úspěšně odeslána.
       models:
         answer:
           fields:
