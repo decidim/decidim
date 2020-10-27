@@ -80,7 +80,7 @@ Decidim.register_component(:proposals) do |component|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
     resource.card = "decidim/proposals/proposal"
-    resource.reported_content = "decidim/proposals/reported_content"
+    resource.reported_content_cell = "decidim/proposals/reported_content"
     resource.actions = %w(endorse vote amend)
     resource.searchable = true
   end
@@ -88,7 +88,7 @@ Decidim.register_component(:proposals) do |component|
   component.register_resource(:collaborative_draft) do |resource|
     resource.model_class_name = "Decidim::Proposals::CollaborativeDraft"
     resource.card = "decidim/proposals/collaborative_draft"
-    resource.reported_content = "decidim/proposals/collaborative_drafts/reported_content"
+    resource.reported_content_cell = "decidim/proposals/collaborative_drafts/reported_content"
   end
 
   component.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
