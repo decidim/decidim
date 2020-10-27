@@ -27,7 +27,7 @@ module Decidim
           end
 
           def edit_questionnaire_title
-            t(:title, scope: "decidim.forms.admin.questionnaires.form", questionnaire_for: translated_attribute(template.name))
+            t(:title, scope: "decidim.templates.admin.questionnaire_templates.form", questionnaire_for: translated_attribute(template.name))
           end
 
           private
