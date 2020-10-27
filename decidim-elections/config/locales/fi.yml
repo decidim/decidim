@@ -59,6 +59,7 @@ fi:
         edit: Muokkaa
         edit_answers: Muokkaa vastauksia
         edit_questions: Muokkaa kysymyksiä
+        feedback: Äänestäjän palaute
         import: Tuo ehdotuksia vastauksiin
         new: Uusi %{name}
         preview: Esikatsele
@@ -108,6 +109,8 @@ fi:
           update:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
+        exports:
+          feedback_form_answers: Palautelomakkeen vastaukset
         models:
           answer:
             name: Vastaus
@@ -207,6 +210,11 @@ fi:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
             ongoing: Äänestys päättyy %{end_time}
             upcoming: Äänestys alkaa %{start_time}
+      feedback:
+        answer:
+          invalid: Palautteen lähettäminen epäonnistui.
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
+          success: Palautteen lähettäminen onnistui.
       models:
         answer:
           fields:
