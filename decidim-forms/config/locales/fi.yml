@@ -78,6 +78,7 @@ fi:
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
             preview: Esikatsele
+            title: Muokkaa lomaketta kyselylle %{questionnaire_for}
             unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi
