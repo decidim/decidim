@@ -24,8 +24,8 @@ nl:
       admin:
         models:
           components:
-            description: Omschrijving
-            tos: Servicevoorwaarden
+            description: Beschrijving
+            tos: Gebruiksvoorwaarden
         questionnaires:
           actions:
             back: Terug naar vragen
