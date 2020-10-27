@@ -9,8 +9,7 @@ module Decidim
       def create
         enforce_permission_to :export, :component_data, component: component
         name = params[:id]
-
-        ExportJob.perform_later(current_user, component, name, params[:format] || default_format)
+        ExportJob.perform_later(current_user, component, name, params[:format] || default_format, params[:resource_id].presence)
 
         flash[:notice] = t("decidim.admin.exports.notice")
 

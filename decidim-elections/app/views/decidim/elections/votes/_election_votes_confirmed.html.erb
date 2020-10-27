@@ -18,9 +18,7 @@
     <% end %>
     <div>
       <%= t("decidim.elections.votes.confirmed.experience") %>
-      <a href="survey">
-        <%= t("decidim.elections.votes.confirmed.feedback") %>
-      </a>
+      <%= link_to t("decidim.elections.votes.confirmed.feedback"), election_feedback_path(election) %>
     </div>
   </div>
 </div>

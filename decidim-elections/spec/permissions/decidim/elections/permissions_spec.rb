@@ -150,5 +150,21 @@ describe Decidim::Elections::Permissions do
 
       it { is_expected.to be_truthy }
     end
+
+    context "when subject is a questionnaire" do
+      let(:action) do
+        { scope: :public, action: :answer, subject: :questionnaire }
+      end
+
+      context "and user is logged in" do
+        it { is_expected.to be_truthy }
+      end
+
+      context "and user is not logged in" do
+        let(:user) { nil }
+
+        it { is_expected.to be_falsey }
+      end
+    end
   end
 end

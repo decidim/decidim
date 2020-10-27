@@ -13,6 +13,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
+      include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
 
