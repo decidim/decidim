@@ -18,7 +18,7 @@ ja:
       user:
         about: About
         email: あなたのメールアドレス
-        name: あなたの名前
+        name: 表示名
         nickname: ニックネーム：
         password: パスワード
         password_confirmation: パスワードの確認
