@@ -48,7 +48,6 @@ ja:
           form:
             save: 保存
             template_title: テンプレート情報
-            title: アンケート
           index:
             confirm_delete: このテンプレートを削除してもよろしいですか？
             title: アンケートテンプレート
