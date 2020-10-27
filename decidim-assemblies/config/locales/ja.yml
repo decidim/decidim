@@ -435,7 +435,7 @@ ja:
         hero:
           participate_title: プラットフォームの参加型プロセスに参加する
         sub_hero:
-          register_title: アカウントを作成するにはサインアップしてください
+          register_title: アカウントを作成するにはユーザ登録してください
     participatory_processes:
       pages:
         home:
