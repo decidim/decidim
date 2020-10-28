@@ -16,7 +16,6 @@ pt:
         other: Votos
   decidim:
     comments:
-      comments: Comentários
       comments_count: Contagem de comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
@@ -75,7 +74,6 @@ pt:
         loading: A carregar comentários ...
         single_comment_warning: Pode consultar os restantes comentários <a href="%{url}">aqui</a>.
         single_comment_warning_title: Está a ver um único comentário
-        title: "%{count} comentários"
       down_vote_button:
         text: Eu discordo deste comentário
       up_vote_button:

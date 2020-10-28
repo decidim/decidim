@@ -253,7 +253,6 @@ de:
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-            location_hints_help: 'Hinweise zu Ort: zusätzliche Informationen. Beispielsweise die Etage des Gebäudes'
           index:
             title: Meetings
           new:
@@ -393,7 +392,6 @@ de:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
           create_as: Besprechung erstellen als
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-          location_hints_help: 'Hinweise zu Ort: zusätzliche Informationen. Beispielsweise die Etage des Gebäudes'
           select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_meeting: Neue Besprechung
