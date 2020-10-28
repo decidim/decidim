@@ -198,10 +198,16 @@ ja:
           email_subject: ディベートは %{participatory_space_title} で利用可能になりました
           notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> 内で <a href="%{resource_path}">新しいディベート</a> を開始できます。
         debate_closed:
-          email_intro: '「%{resource_title}」のディベートは終了しました。そのページから結論を読むことができます。'
-          email_outro: '%{resource_title} をフォローしているため、この通知を受け取りました。前のリンクから通知の受信を停止することができます。'
-          email_subject: '「%{resource_title}」のディベートは終了しました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは終了しました。
+          affected_user:
+            email_intro: '「%{resource_title}」のディベートは終了しました。そのページから結論を読むことができます。'
+            email_outro: '%{resource_title} をフォローしているため、この通知を受け取りました。前のリンクから通知の受信を停止することができます。'
+            email_subject: '「%{resource_title}」のディベートは終了しました'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは終了しました。
+          follower:
+            email_intro: '「%{resource_title}」のディベートは終了しました。そのページから結論を読むことができます。'
+            email_outro: '%{resource_title} をフォローしているため、この通知を受け取りました。前のリンクから通知の受信を停止することができます。'
+            email_subject: '「%{resource_title}」のディベートは終了しました'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> のディベートは終了しました。
     gamification:
       badges:
         commented_debates:
