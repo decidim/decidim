@@ -142,7 +142,6 @@ el:
                 budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος
                 budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας
             projects_per_page: Έργα ανά σελίδα
-            resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε σύσκεψη
             total_budget: Συνολικός προϋπολογισμός
             vote_minimum_budget_projects_number: Ελάχιστος αριθμός έργων προς ψηφοφορία
             vote_rule_minimum_budget_projects_enabled: 'Ενεργοποίηση κανόνα: Ελάχιστος αριθμός έργων προς ψηφοφορία'
