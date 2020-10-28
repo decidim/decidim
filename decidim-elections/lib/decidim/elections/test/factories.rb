@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/forms/test/factories"
 
 FactoryBot.define do
   factory :elections_component, parent: :component do
@@ -15,6 +16,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     end_time { 3.days.from_now }
     published_at { nil }
+    questionnaire
     component { create(:elections_component) }
 
     trait :upcoming do
@@ -59,7 +61,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     min_selections { 1 }
     max_selections { 1 }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
     random_answers_order { true }
 
     trait :complete do
@@ -100,6 +102,29 @@ FactoryBot.define do
     question
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
+  end
+
+  factory :trustee, class: "Decidim::Elections::Trustee" do
+    public_key { nil }
+    user
+
+    trait :considered do
+      after(:build) do |trustee, _evaluator|
+        trustee.trustees_participatory_spaces << build(:trustees_participatory_space)
+      end
+    end
+
+    trait :with_elections do
+      after(:build) do |trustee, _evaluator|
+        trustee.elections << build(:election)
+      end
+    end
+  end
+
+  factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do
+    participatory_space { create(:participatory_process) }
+    considered { true }
+    trustee
   end
 end

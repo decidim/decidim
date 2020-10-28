@@ -26,9 +26,10 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   shared_examples "access for role" do |access|
-    if access == true
+    case access
+    when true
       it { is_expected.to eq true }
-    elsif access == :not_set
+    when :not_set
       it_behaves_like "permission is not set"
     else
       it { is_expected.to eq false }

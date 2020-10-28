@@ -75,7 +75,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the versions list" do
       click_link "Show all versions"
-      expect(page).to have_current_path collaborative_draft_path + "/versions"
+      expect(page).to have_current_path "#{collaborative_draft_path}/versions"
     end
 
     it "shows the version author and creation date" do

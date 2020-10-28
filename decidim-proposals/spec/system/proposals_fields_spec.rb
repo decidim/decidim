@@ -350,5 +350,5 @@ describe "Proposals", type: :system do
 end
 
 def complete_proposal_path(component, proposal)
-  Decidim::EngineRouter.main_proxy(component).proposal_path(proposal) + "/complete"
+  "#{Decidim::EngineRouter.main_proxy(component).proposal_path(proposal)}/complete"
 end

@@ -5,13 +5,13 @@ require "decidim/zip_stream/zip_stream_writer"
 
 module Decidim
   module ZipStream
+    DummyUploader = Struct.new(:fog_provider, :file)
+    class ZipStreamWriterWrapper
+      include ::Decidim::ZipStream::Writer
+    end
+
     describe Writer do
       subject { ZipStreamWriterWrapper.new }
-
-      DummyUploader = Struct.new(:fog_provider, :file)
-      class ZipStreamWriterWrapper
-        include ::Decidim::ZipStream::Writer
-      end
 
       context "when fog_provider is unknown" do
         describe "#add_attachments_to_zip_stream" do

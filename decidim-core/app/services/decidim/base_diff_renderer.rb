@@ -41,7 +41,7 @@ module Decidim
     end
 
     def parse_i18n_changeset(attribute, values, type, diff)
-      values.last.each_key do |locale, _value|
+      values.last.keys.each do |locale, _value|
         first_value = values.first.try(:[], locale)
         last_value = values.last.try(:[], locale)
         next if first_value == last_value

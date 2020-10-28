@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <% chats = Faker::Number.between(2, 5) %>
+  <% chats = Faker::Number.between(from: 2, to: 5) %>
   <% chats.times do |i| %>
   <div class="conversation-chat<%= " conversation-chat--offset" if i.odd? %>">
     <%= link_to page_path("user-profile") do %>
@@ -29,17 +29,17 @@
       <% end %>
     <% end %>
     <div>
-      <% Faker::Number.between(1, 3).times do |u| %>
+      <% Faker::Number.between(from: 1, to: 3).times do |u| %>
       <article class="card">
         <div class="p-s">
           <% if i.even? && u===0 %>
             <strong><%= Faker::Name.name %></strong><br>
           <% end %>
-          <%= Faker::Lorem.sentence(Faker::Number.between(5, 20)) %>
+          <%= Faker::Lorem.sentence(Faker::Number.between(from: 5, to: 20)) %>
         </div>
       </article>
       <% end %>
-      <span class="text-small<%= " pull-right" if i.odd? %>"><%= Faker::Date.between(10.days.ago, Date.today).strftime("%-m %b") %></span>
+      <span class="text-small<%= " pull-right" if i.odd? %>"><%= Faker::Date.between(from: 10.days.ago, to: Date.today).strftime("%-m %b") %></span>
     </div>
   </div>
   <% end %>

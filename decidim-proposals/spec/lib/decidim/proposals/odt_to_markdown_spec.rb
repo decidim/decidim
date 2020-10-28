@@ -15,7 +15,7 @@ module Decidim
           # doc2text does not support ordered lists use - instead
           expected.gsub!(/^\d\. /, "- ")
           # doc2text can not embed images, instead leaves the title, expect this
-          expected.gsub!(/^\![^\n]+\n/, "Decidim Logo\n")
+          expected.gsub!(/^![^\n]+\n/, "Decidim Logo\n")
 
           actual = transformer.to_md
           actual.strip!

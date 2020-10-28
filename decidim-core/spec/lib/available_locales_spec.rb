@@ -6,7 +6,7 @@ require "spec_helper"
 # otherwise languages are changed by the test configuration
 module LocaleTest
   # rubocop:disable Security/Eval
-  eval(File.read(__dir__ + "/../../lib/decidim/core.rb"))
+  eval(File.read("#{__dir__}/../../lib/decidim/core.rb"))
   # rubocop:enable Security/Eval
 end
 
