@@ -4,13 +4,15 @@ module Decidim
   module Elections
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        # Anonymous users can only view elections
-        toggle_allow(can_view?) if permission_action.scope == :public && permission_action.subject == :election && permission_action.action == :view
+        check_view_election_permissions
 
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Elections::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
+
+        # Delegate the trustee_zone permission checks to the trustee zone permissions class
+        return Decidim::Elections::TrusteeZone::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :trustee_zone
 
         return permission_action if permission_action.scope != :public
         return permission_action if permission_action.subject != :election
@@ -26,6 +28,14 @@ module Decidim
       end
 
       private
+
+      def check_view_election_permissions
+        return unless permission_action.scope == :public &&
+                      permission_action.action == :view &&
+                      permission_action.subject == :election
+
+        toggle_allow(can_view?)
+      end
 
       def can_view?
         election.published? || user&.admin?

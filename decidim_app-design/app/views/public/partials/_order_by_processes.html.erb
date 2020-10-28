@@ -1,6 +1,6 @@
-<% actives ||= Faker::Number.between(0, 2) %>
-<% futures ||= Faker::Number.between(0, 2) %>
-<% pasts ||= Faker::Number.between(0, 2) %>
+<% actives ||= Faker::Number.between(from: 0, to: 2) %>
+<% futures ||= Faker::Number.between(from: 0, to: 2) %>
+<% pasts ||= Faker::Number.between(from: 0, to: 2) %>
 <div class="row collapse order-by">
   <h2 class="order-by__text section-heading">
     <%= actives > 0 ? actives.to_s + " activos" : futures > 0 ? futures.to_s + " futuros" : (actives + pasts + futures).to_s + " en total" %>

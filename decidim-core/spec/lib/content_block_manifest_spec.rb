@@ -87,7 +87,7 @@ module Decidim
         expect(subject).to be_valid
         expect(subject.cell).to eq cell
         expect(subject.name).to eq name
-        image_names = subject.images.map { |image| image[:name] }
+        image_names = subject.images.pluck(:name)
         expect(image_names).to match_array [:image_1, :image_2]
       end
     end
@@ -98,7 +98,7 @@ module Decidim
       it "is valid" do
         setup = proc do |content_block|
           content_block.cell = cell
-          content_block.settings_form_cell = cell + "_form"
+          content_block.settings_form_cell = "#{cell}_form"
 
           content_block.settings do |settings|
             settings.attribute :name, type: :text, translated: true, editor: true

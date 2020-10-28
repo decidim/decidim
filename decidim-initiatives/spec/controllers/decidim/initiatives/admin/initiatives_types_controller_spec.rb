@@ -153,8 +153,8 @@ module Decidim
               expect(flash[:alert]).to be_nil
 
               initiative_type.reload
-              expect(initiative_type.title).to eq(valid_attributes[:title])
-              expect(initiative_type.description).to eq(valid_attributes[:description])
+              expect(initiative_type.title.except("machine_translations")).to eq(valid_attributes[:title].except("machine_translations"))
+              expect(initiative_type.description.except("machine_translations")).to eq(valid_attributes[:description].except("machine_translations"))
             end
 
             it "fails update" do

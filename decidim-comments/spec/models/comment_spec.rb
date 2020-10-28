@@ -197,7 +197,7 @@ module Decidim
 
         describe "#body_length" do
           context "when no default comments length specified" do
-            let!(:body) { { en: ::Faker::Lorem.sentence(1000) } }
+            let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 1000) } }
 
             it "is invalid" do
               comment.body = body
@@ -207,7 +207,7 @@ module Decidim
           end
 
           context "when organization has a default comments length params" do
-            let!(:body) { { en: ::Faker::Lorem.sentence(1600) } }
+            let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 1600) } }
             let(:organization) { create(:organization, comments_max_length: 1500) }
             let(:component) { create(:component, organization: organization, manifest_name: "dummy") }
             let!(:commentable) { create(:dummy_resource, component: component) }
@@ -219,7 +219,7 @@ module Decidim
             end
 
             context "when component has a default comments length params" do
-              let!(:body) { { en: ::Faker::Lorem.sentence(2500) } }
+              let!(:body) { { en: ::Faker::Lorem.sentence(word_count: 2500) } }
 
               it "is invalid" do
                 component.update!(settings: { comments_max_length: 2000 })

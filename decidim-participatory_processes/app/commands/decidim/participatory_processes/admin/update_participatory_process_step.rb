@@ -7,6 +7,7 @@ module Decidim
       # process in the system.
       class UpdateParticipatoryProcessStep < Rectify::Command
         attr_reader :step
+
         # Public: Initializes the command.
         #
         # step - the ParticipatoryProcessStep to update

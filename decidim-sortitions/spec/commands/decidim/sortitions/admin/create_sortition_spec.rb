@@ -10,8 +10,8 @@ module Decidim
         let(:author) { create(:user, :admin, organization: organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-        let(:dice) { ::Faker::Number.between(1, 6) }
-        let(:target_items) { ::Faker::Number.number(2) }
+        let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
+        let(:target_items) { ::Faker::Number.number(digits: 2) }
         let(:witnesses) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
         let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
         let(:title) { Decidim::Faker::Localized.sentence(3) }

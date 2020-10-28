@@ -18,9 +18,9 @@ module Decidim
             helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
                           :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url
 
-            if defined? Decidim::Templates
+            if defined? Decidim::Templates::Admin
               include Decidim::Templates::Admin::Concerns::Templatable
-              helper Decidim::Templates::Admin::TemplatesHelper if defined? Decidim::Templates
+              helper Decidim::Templates::Admin::TemplatesHelper
 
               def templatable_type
                 "Decidim::Forms::Questionnaire"
@@ -97,7 +97,7 @@ module Decidim
             # Returns the url to get the answer options json (for the display conditions form)
             # for the question with id = params[:id]
             def answer_options_url(params)
-              url_for([questionnaire.questionnaire_for, action: :answer_options, format: :json, **params])
+              url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
             end
 
             private

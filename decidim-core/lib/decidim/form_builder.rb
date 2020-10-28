@@ -349,7 +349,7 @@ module Decidim
 
     # Public: Override so checkboxes are rendered before the label.
     def check_box(attribute, options = {}, checked_value = "1", unchecked_value = "0")
-      custom_label(attribute, options[:label], options[:label_options], true) do
+      custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
         @template.check_box(@object_name, attribute, objectify_options(options), checked_value, unchecked_value)
@@ -361,7 +361,7 @@ module Decidim
     def date_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "" }
-      data[:startdate] = I18n.localize(value, format: :decidim_short) if value.present? && value.is_a?(Date)
+      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
@@ -379,7 +379,7 @@ module Decidim
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "", timepicker: "" }
-      data[:startdate] = I18n.localize(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
+      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
@@ -428,14 +428,12 @@ module Decidim
         template += @template.link_to file.file.filename, file.url, target: "_blank", rel: "noopener"
       end
 
-      if file_is_present?(file)
-        if options[:optional]
-          template += content_tag :div, class: "field" do
-            safe_join([
-                        @template.check_box(@object_name, "remove_#{attribute}"),
-                        label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
-                      ])
-          end
+      if file_is_present?(file) && options[:optional]
+        template += content_tag :div, class: "field" do
+          safe_join([
+                      @template.check_box(@object_name, "remove_#{attribute}"),
+                      label("remove_#{attribute}", I18n.t("remove_this_file", scope: "decidim.forms"))
+                    ])
         end
       end
 
@@ -563,6 +561,9 @@ module Decidim
       html + error_and_help_text(attribute, options.merge(help_text: help_text))
     end
 
+    # rubocop: disable Metrics/CyclomaticComplexity
+    # rubocop: disable Metrics/PerceivedComplexity
+
     # Private: Builds a Hash of options to be injected at the HTML output as
     # HTML5 validations.
     #
@@ -581,6 +582,8 @@ module Decidim
       validation_options[:maxlength] ||= max_length if max_length.to_i.positive?
       validation_options
     end
+    # rubocop: enable Metrics/CyclomaticComplexity
+    # rubocop: enable Metrics/PerceivedComplexity
 
     # Private: Tries to find if an attribute is required in the form object.
     #
@@ -651,7 +654,7 @@ module Decidim
     # Returns a String.
     # rubocop:disable Metrics/CyclomaticComplexity
     # rubocop:disable Metrics/PerceivedComplexity
-    def custom_label(attribute, text, options, field_before_label = false, show_required = true)
+    def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
       text = default_label_text(object, attribute) if text.nil? || text == true
@@ -684,7 +687,7 @@ module Decidim
 
       options = { count: 1, default: defaults }
 
-      text = I18n.t(defaults.shift, options)
+      text = I18n.t(defaults.shift, **options)
       content_tag(:span, text, class: "form-error")
     end
 
