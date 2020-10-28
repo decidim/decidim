@@ -43,6 +43,9 @@ edit_link(
           <% end %>
           <%= render partial: "interactions" %>
         <% else %>
+          <%= link_to t(".edit"),
+              edit_initiative_path(current_initiative),
+              class: "button expanded" %>
           <%= render partial: "send_to_technical_validation", locals: {
                                                                 title: t(".send_to_technical_validation"),
                                                                 confirm: t(".confirm")

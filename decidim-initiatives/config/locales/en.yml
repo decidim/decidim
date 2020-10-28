@@ -483,6 +483,7 @@ en:
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
           confirm: Are you sure?
+          edit: Edit
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This initiative only collects in-person signatures.
           send_to_technical_validation: Send to technical validation
