@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/factories"
+require "decidim/forms/test/factories"
 
 FactoryBot.define do
   factory :elections_component, parent: :component do
@@ -15,6 +16,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     end_time { 3.days.from_now }
     published_at { nil }
+    questionnaire
     component { create(:elections_component) }
 
     trait :upcoming do
