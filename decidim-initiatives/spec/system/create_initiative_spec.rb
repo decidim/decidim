@@ -363,8 +363,7 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
-          fill_in :initiative_attachment_title, with: "Document name"
-          attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+          attach_file :initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf")
           find_button("Continue").click
         end
 
