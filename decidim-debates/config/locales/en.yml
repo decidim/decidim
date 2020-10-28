@@ -201,10 +201,16 @@ en:
           email_subject: Debates now available in %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'The "%{resource_title}" debate was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" debate. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" debate was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was closed.
+          affected_user:
+            email_intro: 'The "%{resource_title}" debate was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" debate. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" debate was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was closed.
+          follower:
+            email_intro: 'The "%{resource_title}" debate was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" debate. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" debate was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was closed.
     gamification:
       badges:
         commented_debates:
