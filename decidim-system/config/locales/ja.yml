@@ -168,6 +168,6 @@ ja:
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。
-          our_getting_started_guide: ガイドを始めるのは
+          our_getting_started_guide: 入門ガイド
       titles:
         dashboard: ダッシュボード

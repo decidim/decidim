@@ -46,9 +46,9 @@ module Decidim
       # Builds many Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.words(*args)
+      def self.words(...)
         localized do
-          ::Faker::Lorem.words(*args)
+          ::Faker::Lorem.words(...)
         end
       end
 
@@ -64,63 +64,63 @@ module Decidim
       # Builds many Lorem Ipsum characters. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.characters(*args)
+      def self.characters(...)
         localized do
-          ::Faker::Lorem.characters(*args)
+          ::Faker::Lorem.characters(...)
         end
       end
 
       # Builds a sentence with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.sentence(*args)
+      def self.sentence(...)
         localized do
-          ::Faker::Lorem.sentence(*args)
+          ::Faker::Lorem.sentence(...)
         end
       end
 
       # Builds many sentences with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.sentences(*args)
+      def self.sentences(...)
         localized do
-          ::Faker::Lorem.sentences(*args)
+          ::Faker::Lorem.sentences(...)
         end
       end
 
       # Builds a paragraph with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.paragraph(*args)
+      def self.paragraph(...)
         localized do
-          ::Faker::Lorem.paragraph(*args)
+          ::Faker::Lorem.paragraph(...)
         end
       end
 
       # Builds many paragraphs with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.paragraphs(*args)
+      def self.paragraphs(...)
         localized do
-          ::Faker::Lorem.paragraphs(*args)
+          ::Faker::Lorem.paragraphs(...)
         end
       end
 
       # Builds a question with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.question(*args)
+      def self.question(...)
         localized do
-          ::Faker::Lorem.question(*args)
+          ::Faker::Lorem.question(...)
         end
       end
 
       # Builds many questions with Lorem Ipsum words. See Faker::Lorem for options.
       #
       # Returns a Hash with a value for each locale.
-      def self.questions(*args)
+      def self.questions(...)
         localized do
-          ::Faker::Lorem.questions(*args)
+          ::Faker::Lorem.questions(...)
         end
       end
 

@@ -15,7 +15,7 @@ module Decidim::Conferences
         title: { en: "title" },
         attributes: {
           title: { en: "title" },
-          weight: Faker::Number.between(1, 10),
+          weight: Faker::Number.between(from: 1, to: 10),
           link: Faker::Internet.url,
           date: 5.days.from_now
         }

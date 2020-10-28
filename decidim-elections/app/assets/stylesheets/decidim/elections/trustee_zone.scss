@@ -1,0 +1,12 @@
+#not_supported_browser,
+#submit_identification_keys{
+  display: none;
+
+  &.visible{
+    display: inherit;
+
+    & + div{
+      display: none;
+    }
+  }
+}

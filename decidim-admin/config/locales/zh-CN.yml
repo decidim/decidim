@@ -73,7 +73,6 @@ zh-CN:
         rich_text_editor_in_public_views: 为参与者启用富文本编辑器
         secondary_color: 次要文件
         send_welcome_notification: 发送欢迎通知
-        show_statistics: 显示统计
         success_color: 成功
         time_zone: 时区
         tos_version: 服务条款版本

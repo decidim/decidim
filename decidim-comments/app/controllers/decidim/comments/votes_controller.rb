@@ -17,10 +17,14 @@ module Decidim
 
         Decidim::Comments::VoteComment.call(comment, current_user, weight: params[:weight].to_i) do
           on(:ok) do
-            render :create
+            respond_to do |format|
+              format.js { render :create }
+            end
           end
           on(:invalid) do
-            render :error
+            respond_to do |format|
+              format.js { render :error }
+            end
           end
         end
       end

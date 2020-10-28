@@ -191,7 +191,7 @@ describe "Conversations", type: :system do
       end
 
       context "and message is too long" do
-        let(:message_body) { Faker::Lorem.paragraph_by_chars(max_length + 1) }
+        let(:message_body) { Faker::Lorem.paragraph_by_chars(number: max_length + 1) }
         let(:max_length) { Decidim.config.maximum_conversation_message_length }
 
         it "shows the error message modal", :slow do

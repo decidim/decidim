@@ -240,7 +240,6 @@ lv:
           form:
             address_help: 'Adresi Geocoder izmanto atrašanās vietas noteikšanai'
             location_help: 'Atrašanās vieta: ziņojums, kas paredzēts lietotājiem, norādot tikšanās vietu'
-            location_hints_help: 'Norādījumi par atrašanās vietu: papildu informācija. Piemērs: ēkas pirmais stāvs'
           index:
             title: Sanāksmes
           new:

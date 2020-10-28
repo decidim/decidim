@@ -79,7 +79,7 @@ en:
             collapse: Collapse all questions
             expand: Expand all questions
             preview: Preview
-            title: Edit form
+            title: Edit form for %{questionnaire_for}
             unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row

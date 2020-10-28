@@ -24,7 +24,7 @@ module Decidim
       def category_belongs_to_organization
         return unless category
 
-        errors.add(:category, :invalid) unless component.categories.where(id: category.id).exists?
+        errors.add(:category, :invalid) unless component.categories.exists?(id: category.id)
       end
     end
   end

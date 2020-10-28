@@ -139,7 +139,6 @@ sk:
                 budget_voting_rule_only_one: Povolený smie byť iba jeden spôsob hlasovania
                 budget_voting_rule_required: Požaduje sa jeden spôsob hlasovania
             projects_per_page: Projektov na stránke
-            resources_permissions_enabled: Povolenia pre akcie môžu byť nastavené pre každé stretnutie zvlášť
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimálny počet projektov, za ktoré je možné hlasovať
             vote_rule_minimum_budget_projects_enabled: 'Povoliť pravidlo: Minimálny počet projektov, za ktoré je možné hlasovať'

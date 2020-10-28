@@ -1,5 +1,5 @@
-<% total ||= 25 * Faker::Number.between(1, 10) %>
-<% progress ||= Faker::Number.between(0, total) %>
+<% total ||= 25 * Faker::Number.between(from: 1, to: 10) %>
+<% progress ||= Faker::Number.between(from: 0, to: total) %>
 <% percent = number_to_percentage((progress.to_f/total) * 100, precision: 0) %>
 <% vertical ||= false %>
 <% text ||= "Apoyos" %>

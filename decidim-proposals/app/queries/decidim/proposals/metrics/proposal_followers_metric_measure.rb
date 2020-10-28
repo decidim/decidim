@@ -17,8 +17,8 @@ module Decidim
           cumulative_users |= retrieve_drafts_followers.pluck(:decidim_user_id)
 
           quantity_users = []
-          quantity_users |= retrieve_proposals_followers(true).pluck(:decidim_user_id)
-          quantity_users |= retrieve_drafts_followers(true).pluck(:decidim_user_id)
+          quantity_users |= retrieve_proposals_followers(from_start: true).pluck(:decidim_user_id)
+          quantity_users |= retrieve_drafts_followers(from_start: true).pluck(:decidim_user_id)
 
           {
             cumulative_users: cumulative_users.uniq,
@@ -28,7 +28,7 @@ module Decidim
 
         private
 
-        def retrieve_proposals_followers(from_start = false)
+        def retrieve_proposals_followers(from_start: false)
           @proposals_followers ||= Decidim::Follow.where(followable: retrieve_proposals).joins(:user)
                                                   .where("decidim_follows.created_at <= ?", end_time)
 
@@ -37,7 +37,7 @@ module Decidim
           @proposals_followers
         end
 
-        def retrieve_drafts_followers(from_start = false)
+        def retrieve_drafts_followers(from_start: false)
           @drafts_followers ||= Decidim::Follow.where(followable: retrieve_collaborative_drafts).joins(:user)
                                                .where("decidim_follows.created_at <= ?", end_time)
           return @drafts_followers.where("decidim_follows.created_at >= ?", start_time) if from_start

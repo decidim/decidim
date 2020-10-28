@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe Filterable do
-      class FilterableTester < DecidimController
-        include Decidim::Admin::Filterable
-      end
+    class FilterableTester < DecidimController
+      include Decidim::Admin::Filterable
+    end
 
+    describe Filterable do
       context "when not overriding the #base_query" do
         let(:tester) { FilterableTester.new }
 

@@ -318,8 +318,6 @@ ca:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Les <strong>consultes</strong> són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes poden versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
-          page: "<p>Les <strong>consultes</strong> són un espai que permet realitzar una pregunta clara a totes les persones que formen una organització, fer una crida a participar en la consulta, suscitar i ordenar el debat a favor o encontra d'una resposta. Arribada la data de la consulta permet votar i publicar els resultats de les votacions.</p> <p>Exemples: Les consultes poden versar sobre gairebé qualsevol aspecte que afecti a una organització: alguns exemples són canviar el nom o logotip de l'organització oferint diverses alternatives, decidir Sí o No a formar part d'una organització més gran, validar o rebutjar un nou pla estratègic o el resultat d'un grup de treball, o definir si els càrrecs han de romandre un màxim de 1, 2 o 3 mandats.</p>\n"
           title: Què són les consultes?
     menu:
       consultations: Consultes

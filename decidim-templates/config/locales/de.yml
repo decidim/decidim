@@ -48,7 +48,6 @@ de:
           form:
             save: Speichern
             template_title: Vorlageninformation
-            title: Fragebogen
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             title: Fragebogenvorlagen

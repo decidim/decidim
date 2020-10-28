@@ -14,7 +14,6 @@ id:
         other: Voting
   decidim:
     comments:
-      comments: Komentar
       last_activity:
         new_comment_at_html: "<span>Komentar baru di %{link}</span>"
       votes:
@@ -65,7 +64,6 @@ id:
         blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
         blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.
         loading: Memuat komentar ...
-        title: "%{count} komentar"
     events:
       comments:
         comment_by_followed_user:

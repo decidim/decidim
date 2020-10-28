@@ -78,9 +78,10 @@
   @include breakpoint(medium){
     position: relative;
 
-    &:nth-of-type(4n + 3) .speaker-bio,
-    &:nth-of-type(4n + 4) .speaker-bio{
-      transform: translateY(-10%) translateX(-50%);
+    &:nth-of-type(4) .speaker-bio,
+    &:nth-of-type(4n + 5) .speaker-bio,
+    &:nth-of-type(5n) .speaker-bio,{
+      transform: translateY(-10%) translateX(-60%);
     }
   }
 }
