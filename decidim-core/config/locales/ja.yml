@@ -11,7 +11,7 @@ ja:
         document_number: ドキュメント番号
         email: Eメールアドレス
         name: 名前
-        nickname: ニックネーム：
+        nickname: アカウントID
         phone: 電話番号
       report:
         details: 追加コメント
@@ -19,7 +19,7 @@ ja:
         about: About
         email: あなたのメールアドレス
         name: 表示名
-        nickname: アカウントID：
+        nickname: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
@@ -41,7 +41,7 @@ ja:
       decidim/user:
         current_password: 現在のパスワード
         email: Eメールアドレス
-        name: アカウントID：
+        name: アカウントID
         password: パスワード
         password_confirmation: パスワードの確認
         remember_me: ログイン状態を維持する
@@ -1391,7 +1391,7 @@ ja:
         change_your_password: パスワードを変更する
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
-        password_help: "%{minimun_characters} 文字以上必要です。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
+        password_help: "%{minimun_characters} 半角英数字10文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
