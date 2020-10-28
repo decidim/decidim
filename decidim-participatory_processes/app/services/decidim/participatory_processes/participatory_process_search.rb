@@ -5,7 +5,8 @@ module Decidim
     # Service that encapsulates all logic related to filtering participatory processes.
     class ParticipatoryProcessSearch < ParticipatorySpaceSearch
       def initialize(options = {})
-        super(ParticipatoryProcess.all, options)
+        base_relation = options.has_key?(:base_relation) ? options.delete(:base_relation) : ParticipatoryProcess.all
+        super(base_relation, options)
       end
 
       def search_date
