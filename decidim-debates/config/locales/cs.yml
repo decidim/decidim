@@ -204,10 +204,16 @@ cs:
           email_subject: Debaty jsou nyní k dispozici v %{participatory_space_title}
           notification_title: Nyní můžete začít <a href="%{resource_path}">novou debatu</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'
-          email_outro: Obdrželi jste toto oznámení, protože sledujete debatu "%{resource_title}". Můžete ji zrušit z předchozího odkazu.
-          email_subject: Debata "%{resource_title}" byla ukončena
-          notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla ukončena.
+          affected_user:
+            email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'
+            email_outro: Obdrželi jste toto oznámení, protože sledujete debatu "%{resource_title}". Můžete ji zrušit z předchozího odkazu.
+            email_subject: Debata "%{resource_title}" byla ukončena
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla ukončena.
+          follower:
+            email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'
+            email_outro: Obdrželi jste toto oznámení, protože sledujete debatu "%{resource_title}". Můžete ji zrušit z předchozího odkazu.
+            email_subject: Debata "%{resource_title}" byla ukončena
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> byla ukončena.
     gamification:
       badges:
         commented_debates:
