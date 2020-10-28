@@ -464,7 +464,7 @@ ja:
           supports_required: "%{total_supports} 署名が必要です"
           verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
-          votes_blocked: ログインが無効になりました
+          votes_blocked: ログインが無効になっています
         votes_count:
           count:
             other: 署名
