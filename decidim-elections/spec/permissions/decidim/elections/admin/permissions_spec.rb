@@ -32,6 +32,7 @@ describe Decidim::Elections::Admin::Permissions do
 
   shared_examples "not allowed when election has invalid questions" do
     context "when election has invalid questions" do
+      let(:election) { create :election, component: elections_component }
       let(:question) { create :question, :candidates, max_selections: 11, election: election }
 
       it { is_expected.to eq false }
@@ -100,6 +101,7 @@ describe Decidim::Elections::Admin::Permissions do
   end
 
   describe "election publish" do
+    let(:election) { create :election, :complete, component: elections_component }
     let(:action) do
       { scope: :admin, action: :publish, subject: :election }
     end

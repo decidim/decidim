@@ -73,6 +73,8 @@ module Decidim
       #
       # Returns a boolean.
       def minimum_answers?
+        return if questions.empty?
+
         questions.each do |question|
           return false unless question.answers.size > 1
         end
@@ -82,6 +84,8 @@ module Decidim
       #
       # Returns a boolean.
       def valid_questions?
+        return if questions.empty?
+
         questions.each do |question|
           return false unless question.valid_max_selection?
         end
