@@ -7,6 +7,7 @@ module Decidim
 
       name "Demographics"
       description "A demographics component."
+
       # In order to be GDPR compliant the id fields are commented
       # field :id, !types.ID, "ID of this demographic record"
       # field :decidim_user_id, !types.ID, "ID of this user"
