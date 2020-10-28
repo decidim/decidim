@@ -59,7 +59,6 @@ pt:
         primary_color: Primário
         reference_prefix: Prefixo de referência
         secondary_color: Secundário
-        show_statistics: Exibir estatisticas
         success_color: Sucesso
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter

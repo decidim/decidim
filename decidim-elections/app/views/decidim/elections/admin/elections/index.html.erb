@@ -45,6 +45,12 @@
                   <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
 
+                <% if allowed_to? :update, :questionnaire, questionnaire: election.questionnaire %>
+                  <%= icon_link_to "people", edit_feedback_form_path(election), t("actions.feedback", scope: "decidim.elections"), class: "action-icon--survey" %>
+                <% else %>
+                  <%= icon "people", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+
                 <% if election.published? %>
                   <% if allowed_to?(:unpublish, :election, election: election) %>
                     <%= icon_link_to "x", url_for(action: :unpublish, id: election, controller: "elections"), t("actions.unpublish", scope: "decidim.elections"), class: "action-icon--unpublish", method: :put %>

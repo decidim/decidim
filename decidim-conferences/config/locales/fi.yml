@@ -539,6 +539,12 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat konferenssia "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Konferenssi "%{resource_title}" on tulossa!
           notification_title: Konferenssi <a href="%{resource_path}">%{resource_title}</a> on tulossa kahden päivän päästä.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          title: Mitä konferenssit ovat?
     log:
       value_types:
         conference_presenter:

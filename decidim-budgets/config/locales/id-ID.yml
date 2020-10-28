@@ -116,7 +116,6 @@ id:
             announcement: Pengumuman
             comments_enabled: Komentar diaktifkan
             projects_per_page: Proyek per halaman
-            resources_permissions_enabled: Izin tindakan dapat ditetapkan untuk setiap pertemuan
             total_budget: Total anggaran
             vote_threshold_percent: Batas ambang persentase suara
           step:

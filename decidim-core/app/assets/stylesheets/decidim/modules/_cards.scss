@@ -961,6 +961,7 @@ a .card__title{
       font-size: $global-font-size;
       text-transform: none;
       justify-content: left;
+      flex-direction: row;
 
       strong{
         text-transform: uppercase;

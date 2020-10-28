@@ -73,7 +73,6 @@ ja:
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
         send_welcome_notification: ウェルカム通知を送信
-        show_statistics: 統計情報を表示
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
@@ -152,7 +151,7 @@ ja:
         actions:
           accept: この管理者規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
-          refuse: 管理者用語を拒否する
+          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
@@ -164,7 +163,7 @@ ja:
           error: 新しいエリアタイプの作成中に問題が発生しました。
           success: エリアタイプが正常に作成されました。
         destroy:
-          success: エリアタイプを破壊しました
+          success: エリアタイプを削除しました
         edit:
           title: エリアタイプの編集
           update: 更新
@@ -180,7 +179,7 @@ ja:
           success: エリアの作成に成功しました。
         destroy:
           has_spaces: 領域には依存スペースがあり、削除するために依存関係を持っていてはなりません。
-          success: エリアの破壊に成功しました
+          success: エリアの削除に成功しました
         edit:
           title: エリアを編集
           update: 更新
@@ -255,10 +254,10 @@ ja:
       components:
         create:
           error: このコンポーネントの作成に問題がありました。
-          success: 構成部品が作成されました。
+          success: コンポーネントが作成されました。
         destroy:
-          error: このコンポーネントの破壊中に問題が発生しました。
-          success: 構成部品は正常に削除されました。
+          error: このコンポーネントの削除中に問題が発生しました。
+          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
@@ -319,7 +318,7 @@ ja:
           label: スコープ
         search_label: 検索
         search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection} をメール、名前、ニックネームで検索します。'
+          name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
           title_cont: '%{collection} をタイトルで検索します。'
         state_eq:
           label: 都道府県：
@@ -555,7 +554,7 @@ ja:
           badge: バッジ
           created_at: 作成日時
           name: 名前
-          nickname: ニックネーム：
+          nickname: アカウントID
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
@@ -631,6 +630,7 @@ ja:
           invalid: CSVファイルの読み込みに問題が発生しました。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
+          explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
       resource_permissions:
@@ -648,7 +648,7 @@ ja:
           error: 新しいスコープタイプの作成中に問題が発生しました。
           success: スコープタイプが正常に作成されました。
         destroy:
-          success: スコープの種類が破壊されました
+          success: スコープの種類が削除されました
         edit:
           title: スコープの種類を編集
           update: 更新
@@ -663,7 +663,7 @@ ja:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
         destroy:
-          success: スコープが破壊されました
+          success: スコープが削除されました
         edit:
           title: スコープを編集
           update: 更新
@@ -680,7 +680,7 @@ ja:
           destroy: 削除
           share: 共有
         destroy:
-          error: トークンを破壊する際に問題が発生しました。
+          error: トークンを削除する際に問題が発生しました。
           success: トークンが正常に破棄されました。
         share_tokens:
           empty: アクティブなトークンはありません
@@ -696,7 +696,7 @@ ja:
           error: 新しいトピックを作成中に問題が発生しました。
           success: トピックを正常に作成しました。
         destroy:
-          success: トピックを破壊しました
+          success: トピックを削除しました
         edit:
           title: トピックを編集
           update: トピックを更新
@@ -713,7 +713,7 @@ ja:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
         destroy:
-          success: ページを破壊しました
+          success: ページを削除しました
         edit:
           changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集

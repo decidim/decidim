@@ -73,7 +73,6 @@ ca:
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
-        show_statistics: Mostrar estadístiques
         success_color: Èxit
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
