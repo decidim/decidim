@@ -142,7 +142,6 @@ pt:
                 budget_voting_rule_only_one: Apenas deve estar ativa uma regra de votação
                 budget_voting_rule_required: É necessária uma regra de votação
             projects_per_page: Projetos por página
-            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
             total_budget: Orçamento total
             vote_minimum_budget_projects_number: Número mínimo de projetos a votar
             vote_rule_minimum_budget_projects_enabled: 'Ativar regra: Número mínimo de projetos a voto'
