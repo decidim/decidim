@@ -41,7 +41,9 @@ module Decidim
       end
 
       def notify_user!
-        Decidim::Admin::UserSuspensionJob.perform_later(user, form.user, form.justification)
+        Decidim::Admin::UserSuspensionJob.perform_later(@current_suspension.suspending_user,
+                                                        @current_suspension.user,
+                                                        @current_suspension.justification)
       end
 
       def suspend!
