@@ -16,7 +16,6 @@ es-PY:
         other: Votos
   decidim:
     comments:
-      comments: Comentarios
       comments_count: Número de comentarios
       last_activity:
         new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
@@ -76,7 +75,6 @@ es-PY:
         loading: Cargando los comentarios ...
         single_comment_warning: Puedes revisar el resto de los comentarios <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estás viendo un solo comentario
-        title: "%{count} comentarios"
       down_vote_button:
         text: No estoy de acuerdo con este comentario
       up_vote_button:

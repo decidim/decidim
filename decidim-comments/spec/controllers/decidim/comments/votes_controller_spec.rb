@@ -47,6 +47,14 @@ module Decidim
               expect(comment.up_votes.count).to eq(1)
               expect(subject).to render_template(:create)
             end
+
+            context "when requested without an XHR request" do
+              it "throws an unknown format exception" do
+                expect do
+                  post :create, params: { comment_id: comment.id, weight: 1 }
+                end.to raise_error(ActionController::UnknownFormat)
+              end
+            end
           end
 
           context "when vote weight is negative" do

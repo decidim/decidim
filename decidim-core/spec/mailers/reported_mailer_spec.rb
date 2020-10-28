@@ -7,7 +7,7 @@ module Decidim
     let(:organization) { create(:organization, name: "Test Organization") }
     let(:user) { create(:user, :admin, organization: organization) }
     let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(3)) }
+    let(:reportable) { create(:proposal, title: Decidim::Faker::Localized.sentence, body: Decidim::Faker::Localized.paragraph(sentence_count: 3)) }
     let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
     let(:author) { reportable.creator_identity }
     let!(:report) { create(:report, moderation: moderation, details: "bacon eggs spam") }

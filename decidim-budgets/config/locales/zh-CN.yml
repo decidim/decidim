@@ -212,7 +212,6 @@ zh-CN:
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
-            resources_permissions_enabled: 每次会议都可以设置动作权限
             scope_id: 范围
             scopes_enabled: 范围已启用
             title: 标题

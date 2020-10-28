@@ -26,6 +26,10 @@ fi-pl:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudestaan
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: tietoa ei voi muuttaa
   activerecord:
     models:
       decidim/elections/answer:
@@ -55,6 +59,7 @@ fi-pl:
         edit: Muokkaa
         edit_answers: Muokkaa vastauksia
         edit_questions: Muokkaa kysymyksiä
+        feedback: Äänestäjän palaute
         import: Tuo ehdotuksia vastauksiin
         new: Uusi %{name}
         preview: Esikatsele
@@ -104,6 +109,8 @@ fi-pl:
           update:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
+        exports:
+          feedback_form_answers: Palautelomakkeen vastaukset
         models:
           answer:
             name: Vastaus
@@ -111,6 +118,8 @@ fi-pl:
             name: Vaali
           question:
             name: Kysymys
+          trustee:
+            name: Luottamushenkilö
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti vastauksiksi epäonnistui
@@ -137,6 +146,27 @@ fi-pl:
           update:
             invalid: Kysymyksen päivitys epäonnistui
             success: Kysymyksen päivitys onnistui
+        trustees_participatory_spaces:
+          actions:
+            disable: Poista käytöstä
+            enable: Harkitse
+          create:
+            exists: Tällä osallistumistilalla on luottamushenkilö
+            invalid: Luottamushenkilön luonti epäonnistui
+            success: Luottamushenkilön luonti onnistui
+          delete:
+            invalid: Luottamushenkilön poisto epäonnistui
+            success: Luottamushenkilön poisto onnistui
+          form:
+            select_user: Valitse käyttäjä
+          index:
+            title: Luottamushenkilöt
+          new:
+            create: Luo luottamushenkilö
+            title: Uusi luottamushenkilö
+          update:
+            invalid: Luottamushenkilön %{trustee} päivityksessä tapahtui virhe
+            success: Luottamushenkilön %{trustee} päivittäminen onnistui
       admin_log:
         election:
           publish: "%{user_name} julkaisi vaalin %{resource_name}"
@@ -180,6 +210,11 @@ fi-pl:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}
             ongoing: Äänestys päättyy %{end_time}
             upcoming: Äänestys alkaa %{start_time}
+      feedback:
+        answer:
+          invalid: Palautteen lähettäminen epäonnistui.
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yrittäisitkö uudestaan?
+          success: Palautteen lähettäminen onnistui.
       models:
         answer:
           fields:
@@ -195,10 +230,55 @@ fi-pl:
             answers: Vastaukset
             max_selections: Valintojen enimmäismäärä
             title: Otsikko
+        trustees_participatory_space:
+          fields:
+            considered: harkittu
+            email: Sähköposti
+            inactive: ei käytössä
+            name: Nimi
+            notification: Ilmoituksen lähetysaika
+            public_key: Julkinen avain
+            status: Tila
       orders:
         label: Järjestä vaalit
         older: Vanhimmat
         recent: Uusimmat
+      trustee_zone:
+        menu:
+          trustee_zone: Luottamushenkilön alue
+        trustees:
+          show:
+            elections:
+              list:
+                election: Vaali
+                status: Tila
+                voting_period: Äänestysaika
+              no_elections: Sellaisia vaaleja ei ole, joissa sinä toimit luottamushenkilönä.
+              title: Vaalit
+            identification_keys:
+              cancel: Peruuta
+              generate: Luo tunnistusavaimet
+              generate_error: Tunnistusavainten luonti epäonnistui.
+              generate_legend: Sinun tulee luoda tunnistusavainten parit toimiaksesi äänestyksen luottamushenkilönä.
+              generate_legend_1: Painikkeen painamisen jälkeen sinun tulee ladata tunnistusavainten tiedosto omalle tietokoneellesi.
+              generate_legend_2: Kopioi ladattu tiedosto puhtaalle ja tyhjälle USB-tallennuslaitteelle
+              generate_legend_3: Tarkasta, että tietokoneellesi ei jää kopiota kyseisestä tiedostosta (tarkasta myös Lataukset-kansio sekä työpöytäsi).
+              generate_legend_4: Luo toinen kopio tiedostosta toiselle ulkoiselle laitteelle ja talleta se erittäin turvalliseen paikkaan.
+              submit: Lähetä
+              submit_legend: Kun olet toteuttanut kaikki edellä esitetyt vaiheet, viimeistele julkisten tunnistusvainten lähetys Decidim-palvelimelle.
+              submit_title: Lähetä julkinen tunnistusavain
+              title: Luottamushenkilöiden tunnistusavaimet
+              upload: Lataa tunnistusavaimet
+              upload_error:
+                invalid_format: Ladattu tiedosto ei sisällä yhtään tunnistusavainta.
+                invalid_key: Ladatussa tiedostossa olevia tunnistusavaimia ei voida ladata.
+                invalid_public_key: Ladatun tiedoston tunnistusavaimet eivät vastaa Decidimiin tallennettua julkista tunnistusavainta.
+              upload_legend: Julkiset tunnistusavaimet ovat Decidimissä, mutta eivät selaimessasi. Sinun tulee tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
+            not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
+            not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
+            trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
+          update:
+            success: Julkisen tunnistusavaimesi tallentaminen onnistui.
       votes:
         confirm:
           answer: Vastaa
@@ -249,6 +329,16 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Vaali %{resource_title} on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
           notification_title: Vaali <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: Hallinnointikäyttäjä on myöntänyt sinulle luottamushenkilön tehtävän kohteessa %{resource_name}. Sinun tulee luoda julkinen tunnistusavain <a href='%{trustee_zone_url}'>omalla luottamushenkilöiden alueellasi</a>
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
+            email_subject: Olet luottamushenkilö kohteessa %{resource_name}.
+            notification_title: Olet luottamushenkilö kohteessa <a href="%{participatory_space_url}">%{resource_name}</a>.
+    pages:
+      home:
+        statistics:
+          elections_count: Vaalit
     participatory_processes:
       statistics:
         elections_count: Vaalia

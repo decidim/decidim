@@ -20,8 +20,11 @@ cs:
         other: Hlasy
   decidim:
     comments:
-      comments: Komentáře
+      comments:
+        create:
+          error: Při vytváření komentáře došlo k chybě.
       comments_count: Počet komentářů
+      comments_title: Komentáře
       last_activity:
         new_comment_at_html: "<span>Nový komentář v %{link}</span>"
       view: Zobrazit
@@ -80,7 +83,11 @@ cs:
         loading: Načítání komentářů ...
         single_comment_warning: Můžete zkontrolovat zbytek komentářů <a href="%{url}">zde</a>.
         single_comment_warning_title: Vidíte jeden komentář
-        title: "%{count} komentářů"
+        title:
+          one: "%{count} komentář"
+          few: "%{count} komentáře"
+          many: "%{count} komentářů"
+          other: "%{count} komentářů"
       down_vote_button:
         text: Nesouhlasím s tímto komentářem
       up_vote_button:
