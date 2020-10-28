@@ -249,6 +249,10 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Vaali %{resource_title} on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
           notification_title: Vaali <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivisena osallistumistilassa %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Vaalit
     participatory_processes:
       statistics:
         elections_count: Vaalia

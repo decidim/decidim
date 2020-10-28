@@ -152,7 +152,7 @@ ja:
         actions:
           accept: この管理者規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
-          refuse: 管理者用語を拒否する
+          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
@@ -255,10 +255,10 @@ ja:
       components:
         create:
           error: このコンポーネントの作成に問題がありました。
-          success: 構成部品が作成されました。
+          success: コンポーネントが作成されました。
         destroy:
           error: このコンポーネントの削除中に問題が発生しました。
-          success: 構成部品は正常に削除されました。
+          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
@@ -319,7 +319,7 @@ ja:
           label: スコープ
         search_label: 検索
         search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection} をメール、名前、ニックネームで検索します。'
+          name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
           title_cont: '%{collection} をタイトルで検索します。'
         state_eq:
           label: 都道府県：
@@ -555,7 +555,7 @@ ja:
           badge: バッジ
           created_at: 作成日時
           name: 名前
-          nickname: ニックネーム：
+          nickname: アカウントID
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み

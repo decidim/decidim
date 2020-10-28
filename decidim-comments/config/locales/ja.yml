@@ -24,7 +24,7 @@ ja:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">アカウント</a> または <a href="%{sign_up_url}">サインアップ</a> でコメントを追加します。
+        account_message: <a href="%{sign_in_url}">アカウント</a> または <a href="%{sign_up_url}">ログイン</a> でコメントを追加します。
         form:
           body:
             label: コメント
@@ -52,9 +52,9 @@ ja:
           description: このコンテンツは不適切ですか？
           details: 追加コメント
           reasons:
-            does_not_belong: 違法行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
-            offensive: 人種差別、性差別、スラー、個人攻撃、死の脅威、自殺要求やあらゆる形態の憎悪スピーチが含まれています。
-            spam: クリックベイト、広告、詐欺やスクリプトボットが含まれています。
+            does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+            offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
+            spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
         show_replies: '%{replies_count} 件の返信を表示'
         single_comment_link_title: シングルコメントへのリンクを取得
