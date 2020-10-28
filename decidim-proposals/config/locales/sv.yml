@@ -13,7 +13,7 @@ sv:
         user_group_id: Skapa gemensamt utkast som
       proposal:
         address: Adress
-        answer: Svara
+        answer: Svar
         answered_at: Besvarad
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
@@ -26,7 +26,7 @@ sv:
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
-        answer: Svara
+        answer: Svar
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
