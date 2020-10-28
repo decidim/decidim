@@ -1366,7 +1366,7 @@ ja:
       organization_admin_invitation_instructions:
         subject: '%{organization} の管理に招待されました'
       password_change:
-        greeting: こんにちは、 %{recipient} さん
+        greeting: こんにちは、 %{recipient} さん!
         message: パスワードが変更されたことをお知らせするために連絡しています。
         subject: パスワードの変更
       reset_password_instructions:
