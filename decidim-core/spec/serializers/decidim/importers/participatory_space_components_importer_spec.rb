@@ -59,10 +59,17 @@ module Decidim::Importers
         end
 
         def expect_imported_to_be_equal(component)
-          actual_attrs = imported_from(component).attributes.except("id", "updated_at", "created_at")
-          expected_attrs = component.attributes.except("id", "updated_at", "created_at")
+          actual_attrs = imported_from(component).attributes.except("id", "updated_at", "created_at", "name")
+          imported_name = imported_from(component).attributes["name"]
+          actual_attrs.merge!("name" => imported_name.except("machine_translations", "es"))
+
+          expected_attrs = component.attributes.except("id", "updated_at", "created_at", "name")
+          expected_name = component.attributes["name"]
+          expected_attrs.merge!("name" => expected_name.except("machine_translations", "es"))
+
           actual_published_at = actual_attrs.delete("published_at")
           expected_published_at = expected_attrs.delete("published_at")
+
           expect(actual_published_at).to be_within(1.second).of(expected_published_at) unless actual_published_at.nil? && expected_published_at.nil?
           expect(actual_attrs).to eq(expected_attrs)
         end

@@ -25,7 +25,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    address { Faker::Lorem.sentence(3) }
+    address { Faker::Lorem.sentence(word_count: 3) }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
@@ -34,10 +34,16 @@ FactoryBot.define do
     transparent { true }
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
+    type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
 
     author do
       component.try(:organization)
+    end
+
+    trait :online do
+      type_of_meeting { :online }
+      online_meeting_url { "https://decidim.org" }
     end
 
     trait :official do
@@ -86,11 +92,11 @@ FactoryBot.define do
 
     trait :past do
       start_time { end_time.ago(2.hours) }
-      end_time { Faker::Time.between(10.days.ago, 1.day.ago) }
+      end_time { Faker::Time.between(from: 10.days.ago, to: 1.day.ago) }
     end
 
     trait :upcoming do
-      start_time { Faker::Time.between(1.day.from_now, 10.days.from_now) }
+      start_time { Faker::Time.between(from: 1.day.from_now, to: 10.days.from_now) }
     end
   end
 

@@ -475,6 +475,7 @@ fi:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
+          no_registrations: Ei ilmoittautumisia
           register: Ilmoittaudu
           title: Ilmoittautumistyypit
       shared:

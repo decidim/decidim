@@ -103,7 +103,7 @@ fi-pl:
             up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
-            success: Kyselylomakkeet tallennettiin onnistuneesti.
+            success: Lomake tallennettu onnistuneesti.
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä

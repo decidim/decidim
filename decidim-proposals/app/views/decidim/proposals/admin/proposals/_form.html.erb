@@ -51,9 +51,9 @@
       </div>
     <% end %>
 
-    <% if component_settings.geocoding_enabled? %>
+    <% if @form.geocoding_enabled? %>
       <div class="row column">
-        <%= form.text_field :address %>
+        <%= form.geocoding_field :address %>
       </div>
     <% end %>
 

@@ -182,15 +182,17 @@ ja:
         settings:
           global:
             categories_label: '「カテゴリ」の名前'
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             display_progress_enabled: 進行状況を表示
             heading_leaf_level_results: プロジェクトの名前
             heading_parent_level_results: 検索結果の名前
             intro: はじめに
+            scope_id: スコープ
+            scopes_enabled: スコープが有効
             subcategories_label: サブカテゴリの名前
           step:
-            comments_blocked: コメントがブロックされました
+            comments_blocked: コメントをブロック
     events:
       accountability:
         proposal_linked:

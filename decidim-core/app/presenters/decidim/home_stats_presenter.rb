@@ -8,8 +8,8 @@ module Decidim
     # Public: Render a collection of primary stats.
     def highlighted
       highlighted_stats = Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map { |name, data| [name, data] }
-      highlighted_stats = highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
-      highlighted_stats = highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
+      highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
+      highlighted_stats.concat(component_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
       highlighted_stats = highlighted_stats.reject { |_name, data| data.zero? }
 
@@ -29,7 +29,7 @@ module Decidim
     # Public: Render a collection of stats that are not primary.
     def not_highlighted
       not_highlighted_stats = global_stats(priority: StatsRegistry::MEDIUM_PRIORITY)
-      not_highlighted_stats = not_highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
+      not_highlighted_stats.concat(component_stats(priority: StatsRegistry::MEDIUM_PRIORITY))
       not_highlighted_stats = not_highlighted_stats.reject(&:empty?)
       not_highlighted_stats = not_highlighted_stats.reject { |_name, data| data.zero? }
 

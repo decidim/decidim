@@ -111,7 +111,7 @@ describe "Initiative", type: :system do
       context "and select initiative type" do
         it "Offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?")
+            expect(page).to have_content("Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?")
           end
         end
 
@@ -245,7 +245,7 @@ describe "Initiative", type: :system do
             within ".callout.secondary" do
               expect(page).to have_content("Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?")
               expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
-              expect(page).to have_content("Which is the geographic scope of the initiative? City, district?")
+              expect(page).to have_content("Which is the geographic scope of the initiative?")
             end
           end
 
@@ -318,7 +318,7 @@ describe "Initiative", type: :system do
 
         it "Offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("This kind of citizen initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
+            expect(page).to have_content("This kind of initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
           end
         end
 
@@ -379,7 +379,7 @@ describe "Initiative", type: :system do
 
           it "Offers contextual help" do
             within ".callout.secondary" do
-              expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+              expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
             end
           end
 

@@ -55,7 +55,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       conference = Decidim::Conference.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slogan: Decidim::Faker::Localized.sentence(2),
-        slug: Faker::Internet.unique.slug(nil, "-"),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.sentence(3)
@@ -161,7 +161,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         4.times do
           Decidim::Conferences::Partner.create!(
             name: Faker::Name.name,
-            weight: Faker::Number.between(1, 10),
+            weight: Faker::Number.between(from: 1, to: 10),
             link: Faker::Internet.url,
             partner_type: type,
             conference: conference,
@@ -175,7 +175,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           title: Decidim::Faker::Localized.sentence(2),
           link: Faker::Internet.url,
           date: Date.current,
-          weight: Faker::Number.between(1, 10),
+          weight: Faker::Number.between(from: 1, to: 10),
           conference: conference
         )
       end
@@ -184,8 +184,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         Decidim::Conferences::RegistrationType.create!(
           title: Decidim::Faker::Localized.sentence(2),
           description: Decidim::Faker::Localized.sentence(5),
-          weight: Faker::Number.between(1, 10),
-          price: Faker::Number.between(1, 300),
+          weight: Faker::Number.between(from: 1, to: 10),
+          price: Faker::Number.between(from: 1, to: 300),
           published_at: 2.weeks.ago,
           conference: conference
         )

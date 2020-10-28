@@ -16,9 +16,6 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
-      include Decidim::TranslatableResource
-
-      translatable_fields :title, :body, :state, :address
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",
@@ -31,7 +28,7 @@ module Decidim
                class_name: "Decidim::User",
                foreign_key: :decidim_user_id
 
-      geocoded_by :address, http_headers: ->(collaborative_draft) { { "Referer" => collaborative_draft.component.organization.host } }
+      geocoded_by :address
 
       scope :open, -> { where(state: "open") }
       scope :withdrawn, -> { where(state: "withdrawn") }

@@ -65,6 +65,7 @@ fi:
     errors:
       general: Kuvan käsittely epäonnistui
       image_too_big: Kuva on liian suuri
+      not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
   date:
     formats:
       decidim_short: "%d.%m.%Y"
@@ -890,6 +891,11 @@ fi:
           show: Näytä keskustelu henkilöiden %{sender} kanssa
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
+        error_modal:
+          close: Sulje ikkuna
+          correct_errors: Korjaa virheet ja yritä uudestaan.
+          intro: 'Viestisi sisältää seuraavia virheitä:'
+          ok: OK
         index:
           ago: sitten
           close: Sulje ikkuna
@@ -913,7 +919,7 @@ fi:
           send: Lähetä
           title: Aloita keskustelu
         update:
-          error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+          error: Viestiä ei lähetetty virheen takia
     metrics:
       download:
         csv: Lataa tiedot (csv)

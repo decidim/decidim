@@ -13,7 +13,7 @@ end
 
 FactoryBot.define do
   sequence(:title) do |n|
-    "#{Faker::Lorem.sentence(3)} #{n}".delete("'")
+    "#{Faker::Lorem.sentence(word_count: 3)} #{n}".delete("'")
   end
 
   sequence(:name) do |n|
@@ -21,11 +21,11 @@ FactoryBot.define do
   end
 
   sequence(:nickname) do |n|
-    "#{Faker::Lorem.characters(rand(1..10))}_#{n}".gsub("'", "_")
+    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
   sequence(:hashtag_name) do |n|
-    "#{Faker::Lorem.characters(rand(1..10))}_#{n}".gsub("'", "_")
+    "#{Faker::Lorem.characters(number: rand(1..10))}_#{n}".gsub("'", "_")
   end
 
   sequence(:email) do |n|
@@ -37,19 +37,19 @@ FactoryBot.define do
   end
 
   sequence(:slug) do |n|
-    "#{Faker::Internet.slug(nil, "-")}-#{n}".gsub("'", "_")
+    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}".gsub("'", "_")
   end
 
   sequence(:scope_name) do |n|
-    "#{Faker::Lorem.sentence(1, true, 3)} #{n}".gsub("s", "z").gsub("S", "Z")
+    "#{Faker::Lorem.sentence(word_count: 1, supplemental: true, random_words_to_add: 3)} #{n}".gsub("s", "z").gsub("S", "Z")
   end
 
   sequence(:scope_code) do |n|
-    "#{Faker::Lorem.characters(4).upcase}-#{n}"
+    "#{Faker::Lorem.characters(number: 4).upcase}-#{n}"
   end
 
   sequence(:area_name) do |n|
-    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+    "#{Faker::Lorem.sentence(word_count: 1, supplemental: true, random_words_to_add: 3)} #{n}"
   end
 
   factory :category, class: "Decidim::Category" do
@@ -67,6 +67,10 @@ FactoryBot.define do
   end
 
   factory :organization, class: "Decidim::Organization" do
+    transient do
+      create_static_pages { true }
+    end
+
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
@@ -104,9 +108,15 @@ FactoryBot.define do
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
 
-    after(:create) do |organization|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-      create(:static_page, :tos, organization: organization) if tos_page.nil?
+    trait :secure_context do
+      host { "localhost" }
+    end
+
+    after(:create) do |organization, evaluator|
+      if evaluator.create_static_pages
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
+        create(:static_page, :tos, organization: organization) if tos_page.nil?
+      end
     end
   end
 
@@ -121,7 +131,7 @@ FactoryBot.define do
     tos_agreement { "1" }
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     personal_url { Faker::Internet.url }
-    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
+    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     confirmation_sent_at { Time.current }
     accepted_tos_version { organization.tos_version }
     email_on_notification { true }
@@ -175,7 +185,7 @@ FactoryBot.define do
 
   factory :user_group, class: "Decidim::UserGroup" do
     transient do
-      document_number { Faker::Number.number(8) + "X" }
+      document_number { "#{Faker::Number.number(digits: 8)}X" }
       phone { Faker::PhoneNumber.phone_number }
       rejected_at { nil }
       verified_at { nil }
@@ -184,7 +194,7 @@ FactoryBot.define do
     sequence(:name) { |n| "#{Faker::Company.name} #{n}" }
     email { generate(:user_group_email) }
     nickname { generate(:nickname) }
-    about { "<script>alert(\"ABOUT\");</script>" + Faker::Lorem.paragraph(2) }
+    about { "<script>alert(\"ABOUT\");</script>#{Faker::Lorem.paragraph(sentence_count: 2)}" }
     organization
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") } # Keep after organization
 
@@ -261,7 +271,7 @@ FactoryBot.define do
     organization { build(:organization) }
 
     trait :default do
-      slug { (Decidim::StaticPage::DEFAULT_PAGES - ["terms-and-conditions"]).sample }
+      slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
 
     trait :tos do
@@ -290,7 +300,7 @@ FactoryBot.define do
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
     name { generate_localized_title }
     description { generate_localized_title }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
 
     association :collection_for, factory: :participatory_process
   end
@@ -298,7 +308,7 @@ FactoryBot.define do
   factory :attachment, class: "Decidim::Attachment" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    weight { Faker::Number.number(1) }
+    weight { Faker::Number.number(digits: 1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after attached_to
@@ -402,6 +412,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_comments_disabled do
+      settings do
+        {
+          comments_enabled: false
+        }
+      end
+    end
   end
 
   factory :scope_type, class: "Decidim::ScopeType" do
@@ -450,7 +468,7 @@ FactoryBot.define do
       # user_groups correspondence to users is by sorting order
       user_groups { [] }
     end
-    title { generate(:name) }
+    title { Decidim::Faker::Localized.localized { generate(:name) } }
     component { create(:component, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: component.organization) }
     scope { create(:scope, organization: component.organization) }

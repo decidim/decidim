@@ -26,7 +26,8 @@ describe "Admin manages organization", type: :system do
       fill_in "Reference prefix", with: "ABC"
 
       fill_in_i18n_editor :organization_admin_terms_of_use_body, "#organization-admin_terms_of_use_body-tabs",
-                          en: "<p>Respect the privacy of others.</p>"
+                          en: "<p>Respect the privacy of others.</p>",
+                          es: "<p>Spanish - Respect the privacy of others.</p>"
 
       click_button "Update"
       expect(page).to have_content("updated successfully")

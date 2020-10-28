@@ -59,6 +59,7 @@ module Decidim
             let!(:similar_amendment) { create(:amendment, amendable: amendable, emendation: similar_emendation) }
 
             it "renders the view: compare_draft" do
+              allow(Decidim::SimilarEmendations).to receive(:for).and_return([similar_emendation])
               get :compare_draft, params: params
               expect(subject).to render_template(:compare_draft)
             end

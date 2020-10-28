@@ -270,7 +270,7 @@ ca:
     events:
       participatory_process:
         role_assigned:
-          email_intro: T'han assignat el rol de %{role} a la procés participatiu "%{resource_title}".
+          email_intro: T'han assignat el rol de %{role} al procés participatiu "%{resource_title}".
           email_outro: Reps aquesta notificació perquè se t'ha assignat el rol de %{role} a l procés participatiu "%{resource_title}".
           email_subject: Se t'ha assignat el rol de %{role} a "%{resource_title}".
           notification_title: Se t'ha assignat el rol de %{role} al procés participatiu <a href="%{resource_url}">%{resource_title}</a>.

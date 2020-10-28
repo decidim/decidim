@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "support/tasks"
-require "tasks/decidim_tasks_sniffs_stdout_context"
 
 describe "rake decidim:delete_data_portability_files", type: :task do
   let!(:original_expiry_time) { Decidim.data_portability_expiry_time }
@@ -13,7 +11,7 @@ describe "rake decidim:delete_data_portability_files", type: :task do
 
   before do
     Decidim.data_portability_expiry_time = 0.seconds
-    Decidim.base_uploads_path = Rails.root.join("tmp", "storage", "data_portability")
+    Decidim.base_uploads_path = Rails.root.join("tmp/storage/data_portability")
   end
 
   after do

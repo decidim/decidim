@@ -6,8 +6,10 @@ module Decidim
       include Decidim::MapHelper
       include Decidim::Meetings::MapHelper
 
+      delegate :snippets, to: :controller
+
       def show
-        return if Decidim.geocoder.blank?
+        return unless Decidim::Map.available?(:geocoding, :dynamic)
 
         render
       end

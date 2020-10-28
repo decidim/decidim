@@ -23,7 +23,7 @@ module Decidim
       unless user_signed_in?
         flash[:warning] = t("actions.login_before_access", scope: "decidim.core")
         store_location_for(:user, request.path)
-        return redirect_to decidim.new_user_session_path
+        redirect_to decidim.new_user_session_path
       end
     end
 
@@ -31,7 +31,7 @@ module Decidim
     # authorized
     def allow_unauthorized_path?
       # Changing the locale
-      return true if %r{^\/locale}.match?(request.path) || %r{^\/cookies}.match?(request.path)
+      return true if %r{^/locale}.match?(request.path) || %r{^/cookies}.match?(request.path)
 
       false
     end

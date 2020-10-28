@@ -103,7 +103,6 @@ pl:
             up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
-            success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta

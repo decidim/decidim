@@ -8,6 +8,8 @@ describe "Admin filters proposals", type: :system do
 
   STATES = Decidim::Proposals::Proposal::POSSIBLE_STATES.map(&:to_sym)
 
+  let(:model_name) { Decidim::Proposals::Proposal.model_name }
+
   def create_proposal_with_trait(trait)
     create(:proposal, trait, component: component, skip_injection: true)
   end
@@ -19,8 +21,6 @@ describe "Admin filters proposals", type: :system do
   def proposal_without_state(state)
     Decidim::Proposals::Proposal.where(component: component).where.not(state: state).sample
   end
-
-  let(:model_name) { Decidim::Proposals::Proposal.model_name }
 
   context "when filtering by state" do
     let!(:proposals) do

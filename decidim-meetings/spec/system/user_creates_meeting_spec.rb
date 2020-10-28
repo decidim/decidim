@@ -25,7 +25,7 @@ describe "User creates meeting", type: :system do
     switch_to_host(organization.host)
   end
 
-  context "when creating a new meeting" do
+  context "when creating a new meeting", :serves_geocoding_autocomplete do
     let(:user) { create :user, :confirmed, organization: organization }
     let!(:category) { create :category, participatory_space: participatory_space }
 
@@ -40,15 +40,16 @@ describe "User creates meeting", type: :system do
                  :with_creation_enabled,
                  participatory_space: participatory_process)
         end
-        let(:meeting_title) { Faker::Lorem.sentence(1) }
-        let(:meeting_description) { Faker::Lorem.sentence(2) }
-        let(:meeting_location) { Faker::Lorem.sentence(3) }
-        let(:meeting_location_hints) { Faker::Lorem.sentence(3) }
+        let(:meeting_title) { Faker::Lorem.sentence(word_count: 1) }
+        let(:meeting_description) { Faker::Lorem.sentence(word_count: 2) }
+        let(:meeting_location) { Faker::Lorem.sentence(word_count: 3) }
+        let(:meeting_location_hints) { Faker::Lorem.sentence(word_count: 3) }
         let(:meeting_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let!(:meeting_start_time) { Time.current + 2.days }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
+        let(:online_meeting_url) { "http://decidim.org" }
         let(:meeting_scope) { create :scope, organization: organization }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
@@ -77,9 +78,10 @@ describe "User creates meeting", type: :system do
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
             fill_in :meeting_description, with: meeting_description
+            select "In person", from: :meeting_type_of_meeting
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
-            fill_in :meeting_address, with: meeting_address
+            fill_in_geocoding :meeting_address, with: meeting_address
             fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
             fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
             select translated(category.name), from: :meeting_decidim_category_id
@@ -99,6 +101,32 @@ describe "User creates meeting", type: :system do
           expect(page).to have_selector(".author-data", text: user.name)
         end
 
+        context "when using the front-end geocoder" do
+          it_behaves_like(
+            "a record with front-end geocoding address field",
+            Decidim::Meetings::Meeting,
+            within_selector: ".new_meeting",
+            address_field: :meeting_address
+          ) do
+            before do
+              # Prepare the view for submission (other than the address field)
+              visit_component
+
+              click_link "New meeting"
+
+              within ".new_meeting" do
+                fill_in :meeting_title, with: meeting_title
+                fill_in :meeting_description, with: meeting_description
+                select "In person", from: :meeting_type_of_meeting
+                fill_in :meeting_location, with: meeting_location
+                fill_in :meeting_location_hints, with: meeting_location_hints
+                fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
+                fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              end
+            end
+          end
+        end
+
         context "when creating as a user group" do
           let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
 
@@ -112,9 +140,10 @@ describe "User creates meeting", type: :system do
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
               fill_in :meeting_description, with: meeting_description
+              select "In person", from: :meeting_type_of_meeting
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
-              fill_in :meeting_address, with: meeting_address
+              fill_in_geocoding :meeting_address, with: meeting_address
               fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
               fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
               select translated(category.name), from: :meeting_decidim_category_id
@@ -154,6 +183,24 @@ describe "User creates meeting", type: :system do
             click_link "New meeting"
             expect(page).to have_selector("#authorizationModal")
             expect(page).to have_content("Authorization required")
+          end
+        end
+
+        it "lets the user choose the meeting type" do
+          visit_component
+
+          click_link "New meeting"
+
+          within ".new_meeting" do
+            select "In person", from: :meeting_type_of_meeting
+            expect(page).to have_field("Address")
+            expect(page).to have_field(:meeting_location)
+            expect(page).to have_no_field("Online meeting URL")
+
+            select "Online", from: :meeting_type_of_meeting
+            expect(page).to have_no_field("Address")
+            expect(page).to have_no_field(:meeting_location)
+            expect(page).to have_field("Online meeting URL")
           end
         end
       end

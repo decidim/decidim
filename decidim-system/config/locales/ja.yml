@@ -1,4 +1,29 @@
 ja:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuthアプリケーション名
+        organization_logo: 組織のロゴ (正方形)
+        organization_name: 組織
+        organization_url: 組織のURL
+        redirect_uri: リダイレクトURI
+      organization_file_uploads:
+        allowed_content_types:
+          admin: 管理者が使えるMIMEタイプ
+          default: 規定のMIMEタイプ
+        allowed_file_extensions:
+          admin: 管理者が使えるファイル拡張子
+          default: 既定のファイル拡張子
+          image: 画像ファイルの拡張子
+        maximum_file_size:
+          avatar: アバターの画像サイズ
+          default: 既定のファイルサイズ
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: リダイレクト URI は SSL が有効な URI でなければなりません
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ ja:
       menu:
         admins: 管理者
         dashboard: ダッシュボード
+        oauth_applications: OAuthアプリケーション
         organizations: 組織
       models:
         admin:
@@ -41,21 +67,67 @@ ja:
           name: 管理者
           validations:
             email_uniqueness: 同じメールアドレスを持つ別の管理者が既に存在します
+        oauth_application:
+          fields:
+            created_at: 作成日時
+            name: OAuthアプリケーション名
+            organization_name: 組織
+          name: OAuthアプリケーション
         organization:
           actions:
             save_and_invite: 組織を作成して管理者を招待する
           fields:
             created_at: 作成日時
+            file_upload_settings: ファイルアップロードの設定
             name: 名前
             omniauth_settings: Omniauth 設定
             smtp_settings: SMTP設定
           name: 組織
+      oauth_applications:
+        create:
+          error: このアプリケーションの作成中に問題が発生しました。
+          success: アプリケーションの作成に成功しました。
+        destroy:
+          error: このアプリケーションを削除する際に問題が発生しました。
+          success: アプリケーションが正常に削除されました。
+        edit:
+          save: 保存
+          title: アプリケーションを編集
+        form:
+          select_organization: 組織を選択
+        index:
+          confirm_delete: このアプリケーションを削除してもよろしいですか？
+          title: OAuthアプリケーション
+        new:
+          save: 保存
+          title: 新しいアプリケーション
+        update:
+          error: このアプリケーションの更新に問題がありました。
+          success: アプリケーションが更新されました。
       organizations:
         create:
           error: 新しい組織を作成する際に問題が発生しました。
           success: 組織が正常に作成されました。
         edit:
           secondary_hosts_hint: 新しい行にそれぞれ入力してください
+        file_upload_settings:
+          content_types:
+            admin_hint: これらの MIME タイプは、管理者セクションのアップロードで許可されています。 管理者ユーザーは、ドキュメント形式をアップロードする際のリスクを認識している必要があります。 ファイルのアップロードに注意を払う必要があります
+            default_hint: これらの MIME タイプは、デフォルトですべてのユーザに対して許可されます。
+            intro_html: 'MIME タイプのアスタリスク文字を使ってワイルドカードを追加します。例: <code>image/*</code>.'
+            title: 許可されたMIMEタイプ
+          file_extensions:
+            admin_hint: これらの拡張子は管理者セクションのアップロードで許可されています。 管理者ユーザーは、ドキュメント形式をアップロードする際のリスクを認識している必要があります。 ファイルのアップロードに注意を払う必要があります
+            default_hint: これらの拡張子は、デフォルトですべてのユーザーに許可されています。
+            image_hint: これらのファイル拡張子は、あらゆる種類の画像アップロードに対して許可されています。
+            title: 許可されたファイル拡張子
+          file_sizes:
+            avatar_hint: メガバイト (MB) 。このファイルサイズ制限は、アバター画像のアップロードに使用されます。
+            default_hint: メガバイト (MB) 。このファイルサイズ制限は、特に指定されていない限り、すべてのファイルアップロードに使用されるデフォルトの制限です。
+            title: 最大ファイルサイズ
+          intro: |
+            これらの設定を変更する場合は、余分に注意してください。許可する数が少ないほど好ましいです。
+            特定のファイル拡張子や MIME タイプを許可することは、システムユーザーをセキュリティリスクにさらす可能性があり、ウェブサイトのアクセシビリティにも影響を与える可能性があります。
         index:
           title: 組織
         new:
@@ -82,9 +154,9 @@ ja:
             api_secret: API secret
         smtp_settings:
           instructions:
-            from_label: 'メール送信者は "your-organization-name <your-organization@your-provider.org>"になります。''from_email''をラベルとして使用する場合は空白のままにしてください。'
+            from_label: 'メール送信者は "あなたの組織名 <your-organization@example.org>"になります。''from_email''をラベルとして使用する場合は空白のままにしてください。'
           placeholder:
-            from_email: your-organization@your-provider.org
+            from_email: your-organization@example.org
             from_label: 組織名
         update:
           error: この組織の更新に問題がありました。

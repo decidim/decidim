@@ -193,7 +193,7 @@ module Decidim
     end
 
     def being_impersonated?
-      ImpersonationLog.active.where(user: self).exists?
+      ImpersonationLog.active.exists?(user: self)
     end
 
     def interested_scopes_ids

@@ -442,7 +442,7 @@ fr-CA:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
-            uncheck: Non merci, je m'informerai autrement
+            uncheck: Garder décoché
           notice: |-
             La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Inscription à la newsletter
@@ -886,6 +886,11 @@ fr-CA:
           show: Afficher la conversation avec %{sender}
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
+        error_modal:
+          close: Fermer la fenêtre de dialogue
+          correct_errors: Veuillez corriger les erreurs et réessayer.
+          intro: 'Il y a eu les erreurs suivantes avec votre message :'
+          ok: Ok
         index:
           ago: il y a
           close: Fermer la fenêtre
@@ -909,7 +914,7 @@ fr-CA:
           send: Envoyer
           title: Commencer une conversation
         update:
-          error: Message non envoyé. Réessayez plus tard
+          error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
       download:
         csv: Données de téléchargement (csv)
@@ -1054,7 +1059,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
           success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: Je suis d'accord avec les conditions d'utilisation
+          agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.

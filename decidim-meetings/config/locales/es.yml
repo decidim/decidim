@@ -16,7 +16,7 @@ es:
         available_slots: Espacios disponibles para este encuentro
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
-        decidim_user_group_id: Grupo de usuarias
+        decidim_user_group_id: Grupo
         description: Descripción
         end_time: Hora de finalización
         location: Ubicación
@@ -88,11 +88,13 @@ es:
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
-            creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
+            creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos
     events:
       meetings:
         meeting_closed:
@@ -362,7 +364,7 @@ es:
             other: "%{count} encuentros"
         create:
           invalid: Se ha producido un error al crear este encuentro.
-          success: Has creado el encuentro con éxito.
+          success: Has creado el encuentro correctamente.
         edit:
           back: Atrás
           title: Editar el encuentro
@@ -371,13 +373,13 @@ es:
           category: Categoría
           date: Fecha
           date_values:
-            all: Todas
-            past: Pasadas
-            upcoming: Próximas
+            all: Todos
+            past: Pasados
+            upcoming: Próximos
           origin: Origen
           origin_values:
             all: Todos
-            citizens: Ciudadanos
+            citizens: Ciudadanía
             official: Oficial
             user_groups: Grupos
           scope: Ámbito
@@ -388,7 +390,7 @@ es:
           filter_by: Filtrar por
           unfold: Desplegar
         form:
-          address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
+          address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
           create_as: Crear encuentro como
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
           location_hints_help: 'Ayudas de localización: información adicional. Ejemplo: la planta del edificio'
@@ -429,7 +431,7 @@ es:
           view: Ver
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
-          success: Has actualizado el encuentro con éxito.
+          success: Has actualizado el encuentro correctamente.
       meetings_map:
         view_meeting: Ver encuentro
       models:
@@ -485,7 +487,7 @@ es:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
-        see_all: Ver todo (%{count})
+        see_all: Ver todos los encuentros (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
         upcoming_meeting: Próxima reunion

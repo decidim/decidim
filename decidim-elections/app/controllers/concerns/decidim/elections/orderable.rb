@@ -25,9 +25,9 @@ module Decidim
         def reorder(elections)
           case order
           when "recent"
-            elections.order(start_time: :asc)
-          else
             elections.order(start_time: :desc)
+          else
+            elections.order(start_time: :asc)
           end
         end
       end

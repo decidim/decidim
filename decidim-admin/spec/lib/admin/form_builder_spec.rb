@@ -34,7 +34,7 @@ module Decidim
       let(:category) { nil }
       let(:selected) { category }
       let(:options) { {} }
-      let(:prompt_options) { { url: "/some/url", text: "Pick a category" } }
+      let(:prompt_options) { { url: "/some/url", text: "Pick a category", change_url: "/some/other/url" } }
       let(:output) { builder.autocomplete_select(:category_id, selected, options, prompt_options) }
       let(:autocomplete_data) { JSON.parse(subject.xpath("//div[@data-autocomplete]/@data-autocomplete").first.value) }
 
@@ -53,6 +53,7 @@ module Decidim
       context "without selected value" do
         it "renders autocomplete data attribute correctly" do
           expect(autocomplete_data).to eq(
+            "changeURL" => "/some/other/url",
             "name" => "resource[category_id]",
             "noResultsText" => t("autocomplete.no_results", scope: "decidim.admin"),
             "options" => [],

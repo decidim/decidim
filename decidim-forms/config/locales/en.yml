@@ -4,6 +4,8 @@ en:
     attributes:
       answer:
         body: Answer
+        choices: Choices
+        selected_choices: Selected choices
       question:
         max_choices: Maximum number of choices
         question_type: Type
@@ -104,7 +106,7 @@ en:
             up: Up
           update:
             invalid: There was a problem saving the form.
-            success: Forms successfully saved.
+            success: Form successfully saved.
       errors:
         answer:
           body: Body can't be blank
