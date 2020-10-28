@@ -37,7 +37,7 @@ module Decidim
         enforce_permission_to :create, :newsletter
         @form = form(NewsletterForm).from_params(params)
         @form.images = images_block_context unless has_images_block_context?
-        
+
         CreateNewsletter.call(@form, content_block, current_user) do
           on(:ok) do |newsletter|
             flash.now[:notice] = I18n.t("newsletters.create.success", scope: "decidim.admin")
