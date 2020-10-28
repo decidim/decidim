@@ -464,7 +464,7 @@ ja:
       endorsements: 支持
       endorsements_count: 支持数
     endorsement_buttons_cell:
-      already_endorsed: 承認済み
+      already_endorsed: 支持済み
       endorse: 支持する
     endorsements:
       identities:
