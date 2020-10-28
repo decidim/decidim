@@ -24,38 +24,3 @@ To render this button, `decidim-core` offers the `decidim/reported_content` cell
 ```ruby
 cell("decidim/endorsement_buttons", resource)
 ```
-
-This cell, renders the endorsements counter and the endorsement button by default. But it has the possibility to be invoked to render elements sepparately.
-
-```ruby
-# By default the `show` method is invoked as usual
-# Renders `render_endorsements_count` and `render_endorsements_button` in a block.
-cell("decidim/endorsement_buttons", resource)
-# It is recommended to use the `endorsement_buttons_cell` helper method
-endorsement_buttons_cell(resource)
-
-# Renders the "Endorse" button
-# It takes into account:
-# - if endorsements are enabled
-# - if users are logged in
-# - if users can endorse with many identities (of their user_groups)
-# - if users require verification
-endorsement_buttons_cell(resource).render_endorsements_button
-
-# Renders the counter of endorsements that appears in card.
-endorsement_buttons_cell(resource).render_endorsements_count
-
-# Renders a button to perform the endorse action, but only with the personal identity of the user. It does not take into account if the user belongs to any user group.
-endorsement_buttons_cell(resource).render_user_identity_endorse_button
-```
-
-### The list of endorsers
-
-The `Decidim::EndorsersListCell` renders the list of endorsers of a resource. It is usually rendered in the show of the resource, just upside the comments.
-
-```ruby
-# to render the list of endorsers, the cell requires the endorsable resource, and the current user
-cell "decidim/endorsers_list", resource
-# or using the helper
-endorsers_list_cell(resource)
-```
