@@ -21,8 +21,8 @@ module Decidim
       end
 
       initializer "decidim.action_controller" do
-        Decidim::Devise::RegistrationsController.send(:prepend, Decidim::Demographics::SignInRoutes)
-        Decidim::Devise::OmniauthRegistrationsController.send(:prepend, Decidim::Demographics::SignInRoutes)
+        Decidim::Devise::RegistrationsController.prepend Decidim::Demographics::SignInRoutes
+        Decidim::Devise::OmniauthRegistrationsController.prepend Decidim::Demographics::SignInRoutes
       end
 
       initializer "decidim.user_menu" do
