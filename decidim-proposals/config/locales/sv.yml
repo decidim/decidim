@@ -397,7 +397,7 @@ sv:
             accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
-            rejected: Avvisade
+            rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
@@ -525,7 +525,7 @@ sv:
         accepted: Accepterat
         evaluating: Utvärderas
         not_answered: Ej besvarade
-        rejected: Avvisade
+        rejected: Avvisat
         withdrawn: Tillbakadragna
       application_helper:
         filter_category_values:
@@ -543,7 +543,7 @@ sv:
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: Avvisade
+          rejected: Avvisat
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
