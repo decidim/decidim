@@ -115,7 +115,7 @@ module Decidim
                 organization = Organization.last
 
                 expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
-                expect(organization.smtp_settings["from_email"]).to eq(organization.smtp_settings["from"])
+                expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
               end
             end
           end
