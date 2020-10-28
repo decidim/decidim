@@ -3,10 +3,10 @@
 require "spec_helper"
 
 module Decidim
+  COMMON_ID = 666
+
   describe Searchable do
     let(:component) { create(:component, manifest_name: "dummy") }
-
-    COMMON_ID = 666
 
     context "when having searchables of different kinds indexed" do
       let(:organization_1) { create(:organization) }

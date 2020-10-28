@@ -41,7 +41,7 @@ shared_examples_for "add questions" do
       within ".questionnaire-question" do
         fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<b>Superkalifragilistic description</b>"
+        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<strong>Superkalifragilistic description</strong>"
       end
 
       click_button "Save"

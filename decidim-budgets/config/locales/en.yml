@@ -218,7 +218,7 @@ en:
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
             projects_per_page: Projects per page
-            resources_permissions_enabled: Actions permissions can be set for each meeting
+            resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
             scopes_enabled: Scopes enabled
             title: Title

@@ -101,7 +101,7 @@ Decidim.register_component(:meetings) do |component|
     2.times do
       params = {
         component: component,
-        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+        scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
         category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -169,7 +169,7 @@ Decidim.register_component(:meetings) do |component|
           tos_agreement: "1",
           confirmed_at: Time.current,
           personal_url: Faker::Internet.url,
-          about: Faker::Lorem.paragraph(2)
+          about: Faker::Lorem.paragraph(sentence_count: 2)
         )
 
         Decidim::Meetings::Registration.create!(
@@ -220,7 +220,7 @@ Decidim.register_component(:meetings) do |component|
 
       params = {
         component: component,
-        scope: Faker::Boolean.boolean(0.5) ? global : scopes.sample,
+        scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
         category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

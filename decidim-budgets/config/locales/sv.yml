@@ -205,7 +205,6 @@ sv:
             landing_page_content: Budgetarnas landningssida
             more_information_modal: Fönster "Mer information"
             projects_per_page: Projekt per sida
-            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
             vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'

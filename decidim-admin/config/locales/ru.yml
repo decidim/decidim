@@ -65,7 +65,6 @@ ru:
         reference_prefix: Справочный префикс
         secondary_color: Дополнительный
         send_welcome_notification: Отправить приветственное уведомление
-        show_statistics: Показывать статистику
         success_color: Успешно
         tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter

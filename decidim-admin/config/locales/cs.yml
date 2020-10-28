@@ -73,7 +73,6 @@ cs:
         rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
         secondary_color: Sekundární
         send_welcome_notification: Odeslat uvítací oznámení
-        show_statistics: Zobrazit statistiky
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby

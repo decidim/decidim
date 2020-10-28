@@ -73,7 +73,6 @@ bg:
         rich_text_editor_in_public_views: Разреши редактора на rich text за участниците
         secondary_color: Вторичен
         send_welcome_notification: Изпращай приветствия
-        show_statistics: Покажи статистиката
         success_color: Успешно
         time_zone: Часова зона
         tos_version: Версия на условия за ползване

@@ -18,7 +18,7 @@ module Decidim
         if file.present?
           CSV.foreach(file.path) do |email, user_name|
             errors.add(:user_name, :invalid) unless user_name.match?(UserBaseEntity::REGEXP_NAME)
-            errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.where(email: email).exists?
+            errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.exists?(email: email)
           end
         end
       end

@@ -547,6 +547,12 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Konference "%{resource_title}" přichází!
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> přichází za 2 dny.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          title: Co jsou konference?
     log:
       value_types:
         conference_presenter:

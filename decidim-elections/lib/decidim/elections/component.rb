@@ -43,6 +43,16 @@ Decidim.register_component(:elections) do |component|
     resource.model_class_name = "Decidim::Elections::Answer"
   end
 
+  component.exports :feedback_form_answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Forms::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Forms::UserAnswersSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -77,10 +87,41 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
-          published_at: Faker::Boolean.boolean(0.5) ? 1.week.ago : nil
+          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil
         },
         visibility: "all"
       )
+
+      questionnaire = Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: election
+      )
+
+      %w(short_answer long_answer).each do |text_question_type|
+        Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: text_question_type
+        )
+      end
+
+      %w(single_option multiple_option).each do |multiple_choice_question_type|
+        question = Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: multiple_choice_question_type
+        )
+
+        3.times do
+          question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        end
+      end
 
       2.times do
         question = Decidim.traceability.create!(
@@ -92,15 +133,15 @@ Decidim.register_component(:elections) do |component|
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(3)
             end,
-            max_selections: Faker::Number.between(1, 5),
-            weight: Faker::Number.number(1),
-            random_answers_order: Faker::Boolean.boolean(0.5),
-            min_selections: Faker::Number.between(0, 1)
+            max_selections: Faker::Number.between(from: 1, to: 5),
+            weight: Faker::Number.number(digits: 1),
+            random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
+            min_selections: Faker::Number.between(from: 0, to: 1)
           },
           visibility: "all"
         )
 
-        Faker::Number.between(2, 5).times do
+        Faker::Number.between(from: 2, to: 5).times do
           answer = Decidim.traceability.create!(
             Decidim::Elections::Answer,
             admin_user,
@@ -110,7 +151,7 @@ Decidim.register_component(:elections) do |component|
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
                 Decidim::Faker::Localized.paragraph(3)
               end,
-              weight: Faker::Number.number(1)
+              weight: Faker::Number.number(digits: 1)
             },
             visibility: "all"
           )
@@ -126,3 +167,9 @@ Decidim.register_component(:elections) do |component|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :decidim_elections_trustee_zone,
+  Decidim::Elections::TrusteeZoneEngine,
+  at: "/trustee"
+)

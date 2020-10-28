@@ -279,8 +279,6 @@ ro:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>Consultările</strong> sunt un spaţiu care vă permite să adresaţi o întrebare clară tuturor persoanelor care formează o organizaţie, să facă un apel la participarea la consultare, să declanşeze şi să ordone dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, puteţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie: unele exemple schimbă numele sau logo-ul organizaţiei care oferă mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru; fie de a defini dacă pozițiile ar trebui să rămână maximum 1, 2 sau 3 mandate.</p>\n"
-          page: "<p><strong>Consultările</strong> sunt un spaţiu care vă permite să adresaţi o întrebare clară tuturor persoanelor care formează o organizaţie, să facă un apel la participarea la consultare, să declanşeze şi să ordone dezbaterea pentru sau împotriva unui răspuns. Când va sosi data consultării, puteţi vota şi publica rezultatele voturilor.</p> <p>Exemple: Consultările pot fi despre aproape orice aspect care afectează o organizaţie: unele exemple schimbă numele sau logo-ul organizaţiei care oferă mai multe alternative, decizia de a nu deveni parte a unei organizații mai mari, de a valida sau respinge un nou plan strategic sau rezultatul unui grup de lucru; fie de a defini dacă pozițiile rămân maximum 1, 2 sau 3 mandate în cadrul organizației.</p>\n"
           title: Ce sunt consultările?
     menu:
       consultations: Consultări

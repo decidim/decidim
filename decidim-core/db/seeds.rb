@@ -26,13 +26,13 @@ if !Rails.env.production? || ENV["SEED"]
     smtp_settings: {
       from: Faker::Internet.email,
       user_name: Faker::Twitter.unique.screen_name,
-      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(8)),
+      encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(min_length: 8)),
       address: ENV["DECIDIM_HOST"] || "localhost",
       port: ENV["DECIDIM_SMTP_PORT"] || "25"
     },
     host: ENV["DECIDIM_HOST"] || "localhost",
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.sentence(15)
+      Decidim::Faker::Localized.sentence(word_count: 15)
     end,
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
@@ -70,7 +70,7 @@ if !Rails.env.production? || ENV["SEED"]
       5.times do
         Decidim::Scope.create!(
           name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
-          code: parent.code + "-" + Faker::Address.unique.state_abbr,
+          code: "#{parent.code}-#{Faker::Address.unique.state_abbr}",
           scope_type: municipality,
           organization: organization,
           parent: parent
@@ -120,7 +120,7 @@ if !Rails.env.production? || ENV["SEED"]
     admin: true,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version,
     admin_terms_accepted_at: Time.current
   )
@@ -137,7 +137,7 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version
   )
 
@@ -153,7 +153,7 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization,
     tos_agreement: true,
     personal_url: Faker::Internet.url,
-    about: Faker::Lorem.paragraph(2),
+    about: Faker::Lorem.paragraph(sentence_count: 2),
     accepted_tos_version: organization.tos_version
   )
 
@@ -173,7 +173,7 @@ if !Rails.env.production? || ENV["SEED"]
         email: Faker::Internet.email,
         confirmed_at: Time.current,
         extended_data: {
-          document_number: Faker::Number.number(10),
+          document_number: Faker::Number.number(digits: 10).to_s,
           phone: Faker::PhoneNumber.phone_number,
           verified_at: verified_at
         },
@@ -203,7 +203,7 @@ if !Rails.env.production? || ENV["SEED"]
   hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope_name: :homepage)
   hero_content_block.images_container.background_image = File.new(File.join(seeds_root, "homepage_image.jpg"))
   settings = {}
-  welcome_text = Decidim::Faker::Localized.sentence(5)
+  welcome_text = Decidim::Faker::Localized.sentence(word_count: 5)
   settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
   hero_content_block.settings = settings
   hero_content_block.save!

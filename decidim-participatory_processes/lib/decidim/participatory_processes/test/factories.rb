@@ -7,7 +7,7 @@ require "decidim/core/test/factories"
 
 FactoryBot.define do
   sequence(:participatory_process_slug) do |n|
-    "#{Faker::Internet.slug(nil, "-")}-#{n}"
+    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :participatory_process, class: "Decidim::ParticipatoryProcess" do

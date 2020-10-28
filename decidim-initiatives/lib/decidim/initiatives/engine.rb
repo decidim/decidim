@@ -100,12 +100,13 @@ module Decidim
           badge.valid_for = [:user, :user_group]
 
           badge.reset = lambda { |model|
-            if model.is_a?(User)
+            case model
+            when User
               Decidim::Initiative.where(
                 author: model,
                 user_group: nil
               ).published.count
-            elsif model.is_a?(UserGroup)
+            when UserGroup
               Decidim::Initiative.where(
                 user_group: model
               ).published.count

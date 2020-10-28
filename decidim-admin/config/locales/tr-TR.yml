@@ -63,7 +63,6 @@ tr:
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
-        show_statistics: İstatistikleri göster
         success_color: başarı
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi

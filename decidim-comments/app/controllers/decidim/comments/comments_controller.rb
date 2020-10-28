@@ -5,6 +5,8 @@ module Decidim
     # Controller that manages the comments for a commentable object.
     #
     class CommentsController < Decidim::Comments::ApplicationController
+      include Decidim::ResourceHelper
+
       before_action :authenticate_user!, only: [:create]
       before_action :set_commentable
       before_action :ensure_commentable!
@@ -21,7 +23,18 @@ module Decidim
         )
         @comments_count = commentable.comments.count
 
-        render :reload if reload?
+        respond_to do |format|
+          format.js do
+            if reload?
+              render :reload
+            else
+              render :index
+            end
+          end
+
+          # This makes sure bots are not causing unnecessary log entries.
+          format.html { redirect_to resource_locator(commentable).path }
+        end
       end
 
       def create
@@ -36,12 +49,16 @@ module Decidim
         Decidim::Comments::CreateComment.call(form, current_user) do
           on(:ok) do |comment|
             handle_success(comment)
-            render :create
+            respond_to do |format|
+              format.js { render :create }
+            end
           end
 
           on(:invalid) do
             @error = t("create.error", scope: "decidim.comments.comments")
-            render :error
+            respond_to do |format|
+              format.js { render :error }
+            end
           end
         end
       end
