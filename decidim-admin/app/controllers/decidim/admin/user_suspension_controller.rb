@@ -28,7 +28,7 @@ module Decidim
           end
         end
 
-        redirect_to officializations_path(q: user.name), notice: notice
+        redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
       end
 
       def destroy
@@ -44,7 +44,7 @@ module Decidim
           end
         end
 
-        redirect_to officializations_path(q: user.name), notice: notice
+        redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
       end
 
       private
