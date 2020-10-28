@@ -243,7 +243,6 @@ sk:
           form:
             address_help: 'Adresa: použitý Geocoder pre nájdenie polohy'
             location_help: 'Poloha: správa určená užívateľom, ktorí odovzdávajú miesto, aby sa stretli'
-            location_hints_help: 'Určenie polohy: dodatočné informácie. Príklad: poschodie budovy '
           index:
             title: Stretnutie
           new:

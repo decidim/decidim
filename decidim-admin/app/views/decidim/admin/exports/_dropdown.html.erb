@@ -5,7 +5,7 @@
       <% manifest.formats.each do |format| %>
         <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>">
           <%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{manifest.name}"), export_format: t("decidim.admin.exports.formats.#{format}")),
-            exports_path(component, id: manifest.name, format: format),
+            exports_path(component, id: manifest.name, format: format, resource_id: resource_id),
             method: :post %>
         </li>
       <% end %>

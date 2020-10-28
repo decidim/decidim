@@ -48,7 +48,7 @@ fi:
           form:
             save: Tallenna
             template_title: Mallipohjan tiedot
-            title: Mallipohja
+            title: Kyselylomakemalli %{questionnaire_for}
           index:
             confirm_delete: Haluatko varmasti poistaa tämän mallipohjan?
             title: Kyselymallit

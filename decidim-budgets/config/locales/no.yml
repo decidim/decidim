@@ -152,7 +152,6 @@
                 budget_voting_rule_only_one: Bare én regel for stemmegivning må være aktivert
                 budget_voting_rule_required: En avstemningsregel kreves
             projects_per_page: Prosjekter per side
-            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'

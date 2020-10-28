@@ -119,7 +119,6 @@ tr:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
             projects_per_page: Sayfa başına projeler
-            resources_permissions_enabled: Her toplantı için eylem izinleri ayarlanabilir
             total_budget: Toplam bütçe
             vote_threshold_percent: Oy eşiği yüzde
           step:

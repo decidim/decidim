@@ -76,7 +76,6 @@ pt:
             collapse: Colapsar todas as questões
             expand: Expandir todas as questões
             preview: Pré-visualizar
-            title: Editar formulário
             unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
