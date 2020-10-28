@@ -1,0 +1,14 @@
+<div class="filters__section scope_id_scopes_picker_filter">
+  <fieldset>
+    <legend class="mini-title"><%= legend_title %></legend>
+    <div id="<%= picker_options_id %>" class="data-picker <%= picker_options_class %>" data-picker-name="<%= picker_options_name %>">
+      <% if values_on_top? %>
+        <%= render :scope_picker_values %>
+        <%= render :scope_picker_prompt %>
+      <% else %>
+        <%= render :scope_picker_prompt %>
+        <%= render :scope_picker_values %>
+      <% end %>
+    </div>
+  </fieldset>
+</div>
