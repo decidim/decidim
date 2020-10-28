@@ -217,6 +217,7 @@ fi:
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Suunnitelmat sivua kohden
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle suunnitelmalle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
             title: Otsikko
