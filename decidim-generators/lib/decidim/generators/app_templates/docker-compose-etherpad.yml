@@ -25,7 +25,12 @@ services:
       - ETHERPAD_DB_CHARSET=utf8mb4
       # if file APIKEY.txt is missing, the variable value is used to provision it
       - ETHERPAD_API_KEY=CHANGE_ME_API_KEY
-    image: 'tvelocity/etherpad-lite'
+      # You can skip this if you are not using any proxy to handle SSL certificates.
+      - "TRUST_PROXY=true"
+      # Ensure this etherpad allows cookies while embeded in an Iframe
+      - "COOKIE_SAME_SITE=None"
+    # Official image is etherpad/etherpad but the latest version does not allow yet setting cookies to SameSite=None
+    image: 'platoniq/etherpad:1.8.7'
     deploy:
       replicas: 1
       update_config:
