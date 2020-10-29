@@ -41,7 +41,7 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
-        deleted_user: 参加者を削除しました
+        deleted_user: 退会者
         hide_replies: 返信を非表示
         reply: 返信
         report:
