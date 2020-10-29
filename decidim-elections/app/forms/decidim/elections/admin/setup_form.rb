@@ -21,7 +21,7 @@ module Decidim
 
         def trustees
           @trustees ||= Decidim::Elections::Trustee.includes([:user]).joins(:trustees_participatory_spaces).merge(Decidim::Elections::TrusteesParticipatorySpace
-                                                                                                           .where(id: trustee_ids,
+                                                                                                           .where(decidim_elections_trustee_id: trustee_ids,
                                                                                                                   participatory_space: election.component.participatory_space,
                                                                                                                   considered: true)).to_a.sort_by(&:id)
         end
