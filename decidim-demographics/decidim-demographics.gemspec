@@ -6,8 +6,8 @@ require "decidim/demographics/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Demographics.version
-  s.authors = [""]
-  s.email = [""]
+  s.authors = ["Alexabdru Emil Lupu", "Cristian Georgescu"]
+  s.email = ["contact@alecslupu.ro", "cristian.georgescu@tremend.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-demographics"
   s.required_ruby_version = ">= 2.7"
