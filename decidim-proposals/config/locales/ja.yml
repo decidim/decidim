@@ -529,9 +529,9 @@ ja:
           all: すべて
         filter_origin_values:
           all: すべて
-          citizens: Citizens
+          citizens: 一般参加者
           meetings: ミーティング
-          official: オフィシャル
+          official: 事務局
           user_groups: グループ
         filter_scope_values:
           all: すべて
@@ -725,7 +725,7 @@ ja:
           send: プレビュー
           title: 提案ドラフトを編集
         filters:
-          activity: 私のアクティビティ
+          activity: 参加したもの
           all: すべて
           amendment_type: タイプ
           category: カテゴリ
