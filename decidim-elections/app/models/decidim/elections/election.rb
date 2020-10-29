@@ -78,6 +78,15 @@ module Decidim
         questions.all? { |question| question.answers.size > 1 }
       end
 
+      # Public: Checks if the election results are published and election finished
+      #
+      # Returns a boolean.
+      def results_published?
+        results = questions.collect(&:total_votes)
+        results = results.inject(0, :+)
+        results.positive? && finished?
+      end
+
       # Public: Checks if the election questions are valid
       #
       # Returns a boolean.

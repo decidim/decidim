@@ -167,4 +167,19 @@ describe "Explore elections", :slow, type: :system do
       end
     end
   end
+
+  context "with results" do
+    let(:election) { create(:election, :published, :finished, component: component) }
+    let(:question) { create :question, :with_votes, election: election }
+
+    before do
+      election.update!(questions: [question])
+      visit resource_locator(election).path
+    end
+
+    it "shows result information" do
+      expect(page).to have_i18n_content(question.title)
+      expect(page).to have_content("ELECTION RESULTS")
+    end
+  end
 end

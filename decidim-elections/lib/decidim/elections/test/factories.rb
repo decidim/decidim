@@ -111,6 +111,14 @@ FactoryBot.define do
       answers { 8 }
       min_selections { 0 }
     end
+
+    trait :with_votes do
+      after(:build) do |question, evaluator|
+        overrides = { question: question }
+        overrides[:description] = nil unless evaluator.more_information
+        question.answers = build_list(:election_answer, evaluator.answers, :with_votes, overrides)
+      end
+    end
   end
 
   factory :election_answer, class: "Decidim::Elections::Answer" do
@@ -118,6 +126,11 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
+    selected { false }
+
+    trait :with_votes do
+      votes { Faker::Number.number(digits: 1) }
+    end
   end
 
   factory :trustee, class: "Decidim::Elections::Trustee" do
