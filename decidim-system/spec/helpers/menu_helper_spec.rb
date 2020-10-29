@@ -3,7 +3,6 @@
 require "spec_helper"
 
 describe Decidim::System::MenuHelper do
-
   describe "main_menu" do
     let(:default_main_menu) { helper.main_menu.render }
 
