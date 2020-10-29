@@ -57,7 +57,7 @@ module Decidim
 
       %w(age background gender nationality postal_code).each do |field|
         define_method(field) do
-          Decidim::AttributeEncryptor.decrypt(data[__method__]) || ""
+          Decidim::AttributeEncryptor.decrypt(data[__method__.to_s]) || ""
         end
       end
     end
