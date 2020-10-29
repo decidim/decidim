@@ -122,6 +122,31 @@ describe "Admin manages elections", type: :system do
     end
   end
 
+  describe "set up an election" do
+    context "when the election is published" do
+      let!(:election) { create :election, :upcoming, :published, :ready_for_setup, component: current_component }
+
+      it "sets up an election" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--setup-election").click
+        end
+
+        within ".setup_election" do
+          expect(page).to have_css(".card-title", text: "Election setup")
+          expect(page).to have_content(translated("The election is published"))
+          expect(page).to have_content("The setup is being done at least 3 hours before the election starts")
+          expect(page).to have_content("The election has at least 1 question")
+          expect(page).to have_content("Each question has at least 2 answers")
+          expect(page).to have_content("All the questions have a correct value for maximum of answers")
+          expect(page).to have_content("The size of this list of trustees is correct and it will be needed at least 2 trustees to perform the tally process")
+          expect(page).to have_content("valid public key")
+          page.find(".button").click
+        end
+        expect(page).to have_admin_callout("successfully")
+      end
+    end
+  end
+
   describe "unpublishing an election" do
     it "unpublishes an election" do
       within find("tr", text: translated(election.title)) do
