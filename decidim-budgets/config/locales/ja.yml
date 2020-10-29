@@ -213,6 +213,7 @@ ja:
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数
+            resources_permissions_enabled: プロジェクトごとにアクションの権限を設定できます
             scope_id: スコープ
             scopes_enabled: スコープは有効です
             title: タイトル
