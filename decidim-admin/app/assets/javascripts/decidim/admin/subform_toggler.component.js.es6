@@ -23,10 +23,10 @@
       let $subforms = $form.find(`.${subformWrapperClass}`);
       let $selectedSubform = $subforms.filter(`#${subformWrapperClass}-${value}`)
 
-      $subforms.find("input,textarea").prop("disabled", true);
+      $subforms.find("input,textarea,select").prop("disabled", true);
       $subforms.hide();
 
-      $selectedSubform.find("input,textarea").prop("disabled", false);
+      $selectedSubform.find("input,textarea,select").prop("disabled", false);
       $selectedSubform.show();
     }
 
