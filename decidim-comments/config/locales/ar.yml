@@ -24,7 +24,6 @@ ar:
         other: الأصوات
   decidim:
     comments:
-      comments: تعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       votes:
@@ -81,7 +80,6 @@ ar:
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
         single_comment_warning_title: إنك ترى تعليقا واحدا
-        title: "%{count} تعليقات"
     events:
       comments:
         comment_by_followed_user:

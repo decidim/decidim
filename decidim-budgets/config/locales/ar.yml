@@ -131,7 +131,6 @@ ar:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
             projects_per_page: مشاريع لكل صفحة
-            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
             total_budget: الميزانية الإجمالية
             vote_threshold_percent: التصويت عتبة المئة
           step:

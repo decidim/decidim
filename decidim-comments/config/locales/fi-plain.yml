@@ -16,8 +16,11 @@ fi-pl:
         other: Äänet
   decidim:
     comments:
-      comments: Kommentit
+      comments:
+        create:
+          error: Kommentin luotaessa tapahtui virhe.
       comments_count: Kommenttien määrä
+      comments_title: Kommentit
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       view: Näytä
@@ -76,7 +79,9 @@ fi-pl:
         loading: Ladataan kommentteja ...
         single_comment_warning: Voit katsoa loput kommentit <a href="%{url}">täältä</a>.
         single_comment_warning_title: Näet yhden kommentin
-        title: "%{count} kommenttia"
+        title:
+          one: "%{count} kommentti"
+          other: "%{count} kommenttia"
       down_vote_button:
         text: Olen eri mieltä tämän kommentin kanssa
       up_vote_button:

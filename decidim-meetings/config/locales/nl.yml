@@ -245,7 +245,6 @@ nl:
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
-            location_hints_help: 'Locatie hint: extra info. Voorbeeld: de vloer van het gebouw'
           index:
             title: Events
           new:
@@ -385,7 +384,6 @@ nl:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           create_as: Maak vergadering als
           location_help: 'Locatie: bericht gericht naar de gebruikers die de plek om elkaar te ontmoeten impliceren'
-          location_hints_help: 'Locatie hints: aanvullende informatie. Voorbeeld: de grond van het gebouw'
           select_a_category: Selecteer een categorie
         index:
           new_meeting: Nieuwe vergadering

@@ -48,7 +48,7 @@ fr-CA:
           form:
             save: Sauvegarder
             template_title: Informations sur le modèle
-            title: Questionnaire
+            title: Modèle de questionnaire %{questionnaire_for}
           index:
             confirm_delete: Êtes-vous sûr de vouloir supprimer ce modèle?
             title: Modèles de questionnaire

@@ -245,7 +245,6 @@ hu:
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
-            location_hints_help: 'Helymeghatározási tippek: további információk. Példa: az épület padlója'
           index:
             title: Találkozók
           new:

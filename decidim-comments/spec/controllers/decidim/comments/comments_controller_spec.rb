@@ -22,6 +22,15 @@ module Decidim
           expect(subject).to render_template(:index)
         end
 
+        context "when requested without an XHR request" do
+          it "redirects to the commentable" do
+            get :index, params: { commentable_gid: commentable.to_signed_global_id.to_s }
+            expect(subject).to redirect_to(
+              Decidim::ResourceLocatorPresenter.new(commentable).path
+            )
+          end
+        end
+
         context "when the reload parameter is given" do
           it "renders the reload template" do
             get :index, xhr: true, params: { commentable_gid: commentable.to_signed_global_id.to_s, reload: 1 }
@@ -71,6 +80,14 @@ module Decidim
             expect(comment.body.values.first).to eq("This is a new comment")
             expect(comment.alignment).to eq(comment_alignment)
             expect(subject).to render_template(:create)
+          end
+
+          context "when requested without an XHR request" do
+            it "throws an unknown format exception" do
+              expect do
+                post :create, params: { comment: comment_params }
+              end.to raise_error(ActionController::UnknownFormat)
+            end
           end
 
           context "when comments are disabled for the component" do
@@ -130,6 +147,14 @@ module Decidim
             it "renders the error template" do
               post :create, xhr: true, params: { comment: comment_params }
               expect(subject).to render_template(:error)
+            end
+
+            context "when requested without an XHR request" do
+              it "throws an unknown format exception" do
+                expect do
+                  post :create, params: { comment: comment_params }
+                end.to raise_error(ActionController::UnknownFormat)
+              end
             end
           end
 
