@@ -57,6 +57,20 @@ module Decidim
           end
         end
 
+        def select
+          MarkAnswerAsSelected.call(answer, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("answers.select.success", scope: "decidim.elections.admin")
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("answers.select.invalid", scope: "decidim.elections.admin")
+            end
+          end
+
+          redirect_to election_question_answers_path(election, question)
+        end
+
         def destroy
           enforce_permission_to :update, :answer, election: election, question: question
 
