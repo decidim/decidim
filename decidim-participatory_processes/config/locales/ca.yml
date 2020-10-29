@@ -332,6 +332,8 @@ ca:
           participatory_scope: El que es decideix
           participatory_structure: Com es decideix
           target: Qui hi participa
+        participatory_processes:
+          name: Processos participatius
         stats:
           name: Estadístiques
         title:

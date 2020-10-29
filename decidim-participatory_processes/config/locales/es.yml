@@ -332,6 +332,8 @@ es:
           participatory_scope: Qué se decide
           participatory_structure: Cómo se decide
           target: Quién participa
+        participatory_processes:
+          name: Procesos participativos
         stats:
           name: Estadísticas
         title:
