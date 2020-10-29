@@ -30,6 +30,10 @@
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
               </td>
               <td class="table-list__actions">
+                <% if question.total_votes.positive? %>
+                  <%= icon_link_to "circle-check", select_election_question_answer_path(election, question, answer), selected_label_action_for(answer), class: (answer.selected ? "action-icon--success" : "action-icon") %>
+                <% end %>
+
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% else %>
