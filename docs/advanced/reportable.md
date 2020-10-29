@@ -19,8 +19,9 @@ A `Reportable` is expected to implement:
 
 The reccomended way to render the content of a `Reportable` is with a `decidim/reported_content` cell.
 
-To render this button, `decidim-core` offers the `decidim/reported_content` cell. It is strongly recommended to use this cell to make new resources endorsable.
-
 ```ruby
-cell("decidim/endorsement_buttons", resource)
+cell("decidim/reported_content", reportable)
 ```
+
+By default, this will render the generic `Decidim::ReportedContentCell`.
+You can also customize the template for your `Reportable` by extending `Decidim::ReportedContentCell` (see `Decidim::Proposal::ReportedContentCell`)
