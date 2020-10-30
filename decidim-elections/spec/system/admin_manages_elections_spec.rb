@@ -138,8 +138,11 @@ describe "Admin manages elections", type: :system do
           expect(page).to have_content("The election has at least 1 question")
           expect(page).to have_content("Each question has at least 2 answers")
           expect(page).to have_content("All the questions have a correct value for maximum of answers")
-          expect(page).to have_content("The size of this list of trustees is correct and it will be needed at least 2 trustees to perform the tally process")
-          expect(page).to have_content("valid public key")
+          expect(page).to have_content("The size of this list of trustees is correct and it will be needed at least #{Decidim::Elections.bulletin_board.quorum} trustees to perform the tally process")
+          Decidim::Elections.bulletin_board.quorum.times do
+            expect(page).to have_content("valid public key")
+          end
+
           page.find(".button").click
         end
         expect(page).to have_admin_callout("successfully")
