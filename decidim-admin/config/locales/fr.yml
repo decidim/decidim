@@ -322,6 +322,7 @@ fr:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Rechercher %{collection} par titre.
         state_eq:
           label: État
@@ -483,6 +484,21 @@ fr:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+        reports:
+          index:
+            author: Auteur(s)
+            callout_html: Un contenu apparaît dans le panneau de modération quand il a été signalé par un utilisateur (personne ayant un compte enregistré) en cliquant sur le drapeau %{icon} à côté de l'élément.
+            content_original_language: Langue d'origine du contenu
+            participatory_space: Espace participatif
+            reported_content: Contenu signalé
+            see_current: Voir en cours
+            see_original: Voir l'original
+            title: Signalements
+          show:
+            report_details: Motif du signalement
+            report_language: Langue d'origine du signalement
+            report_reason: Motif
+            title: Détails du signalement
       newsletter_templates:
         index:
           preview_template: Aperçu
@@ -811,6 +827,7 @@ fr:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
+        expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
@@ -831,11 +848,19 @@ fr:
       models:
         moderation:
           fields:
+            created_at: Date de création
             hidden_at: Masqué le
             report_count: Compteur
+            reportable_id: ID
+            reportable_type: Type
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+        report:
+          fields:
+            details: Détails du signalement
+            locale: Langue
+            reason: Motif
   errors:
     messages:
       invalid_json: JSON non valide
