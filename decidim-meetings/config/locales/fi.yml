@@ -362,6 +362,11 @@ fi:
             subject: Tapahtumailmoittautumisesi on vahvistettu
       meeting:
         not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
+      meeting_closes:
+        edit:
+          back: Takaisin
+          close: Sulje tapahtuma
+          title: Sulje tapahtuma
       meetings:
         count:
           meetings_count:
@@ -425,6 +430,7 @@ fi:
         show:
           attendees: Osallistujamäärä
           back: Takaisin listaan
+          close_meeting: Sulje tapahtuma
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
