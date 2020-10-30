@@ -59,6 +59,12 @@ describe "Participatory Process Groups", type: :system do
     end
   end
 
+  context "when the group exists" do
+    it_behaves_like "editable content for admins" do
+      let(:target_path) { decidim_participatory_processes.participatory_process_group_path(participatory_process_group) }
+    end
+  end
+
   describe "show" do
     context "when the title_content block is enabled" do
       before do
