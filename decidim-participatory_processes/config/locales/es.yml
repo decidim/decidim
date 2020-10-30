@@ -360,6 +360,7 @@ es:
           form:
             metadata: Metadatos
             title: Información general
+            visibility: Visibilidad
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
