@@ -299,6 +299,9 @@ fr-CA:
         category_id_eq:
           label: Catégorie
         filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: État
           values:
