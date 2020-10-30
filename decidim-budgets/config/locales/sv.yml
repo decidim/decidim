@@ -123,10 +123,10 @@ sv:
           description: De projekt där du har valt att delta i budgeten.
           title: Bekräfta röst
         budget_excess:
+          budget_excess:
+            title: Maximal budget överskriden
           close: Stäng
-          description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har lagt till, eller lämna in en röst med dina önskemål.
           ok: OK
-          title: Maximal budget överskriden
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
           assigned: 'Tilldelad:'
@@ -134,8 +134,6 @@ sv:
           checked_out:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
-          description: Vilka projekt tycker du att vi borde avsätta budget till? Tilldela minst %{minimum_budget} till de projekt som du vill ha och definiera budgeten genom att rösta med dina val.
-          description_minimum_projects_rule: Vilka projekt tycker du att vi borde avsätta budget till? Välj minst %{minimum_number} projekt som du vill ha och definiera budgeten genom att rösta med dina val.
           title: Du bestämmer budgeten
         count:
           projects_count:
@@ -178,7 +176,6 @@ sv:
           votes:
             one: röst
             other: röster
-          you_voted: Du röstade
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst
@@ -242,4 +239,3 @@ sv:
         project_proposal: 'Förslag som ingår i detta projekt:'
   index:
     confirmed_orders_count: Antal röster
-  total_budget: Total budget
