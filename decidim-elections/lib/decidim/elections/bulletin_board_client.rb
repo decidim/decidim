@@ -8,7 +8,8 @@ module Decidim
         @api_key = params[:api_key].presence
         @scheme = params[:scheme].presence
         @authority_name = params[:authority_name].presence
-        @number_of_trustees = params[:number_of_trustees].presence
+        @number_of_trustees = 0
+        @number_of_trustees = params[:number_of_trustees] if params[:number_of_trustees].present?
         @identification_private_key = params[:identification_private_key]&.strip.presence
         @private_key = OpenSSL::PKey::RSA.new(identification_private_key_content) if identification_private_key
       end
@@ -16,6 +17,8 @@ module Decidim
       attr_reader :scheme, :api_key, :number_of_trustees, :authority_name
 
       def quorum
+        return 0 if @scheme.dig(:parameters, :quorum).blank?
+
         @scheme.dig(:parameters, :quorum)
       end
 

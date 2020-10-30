@@ -133,7 +133,7 @@ describe "Admin manages elections", type: :system do
 
         within ".setup_election" do
           expect(page).to have_css(".card-title", text: "Election setup")
-          expect(page).to have_content(translated("The election is published"))
+          expect(page).to have_content("The election is published")
           expect(page).to have_content("The setup is being done at least 3 hours before the election starts")
           expect(page).to have_content("The election has at least 1 question")
           expect(page).to have_content("Each question has at least 2 answers")
