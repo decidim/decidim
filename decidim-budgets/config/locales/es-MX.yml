@@ -135,10 +135,10 @@ es-MX:
           description: Estos son los proyectos que has elegido para formar parte del presupuesto.
           title: Confirmar voto
         budget_excess:
+          budget_excess:
+            title: Presupuesto excedido
           close: Cerrar
-          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puede eliminar un proyecto que ya hayas seleccionado o dar apoyo con tus preferencias.
           ok: De acuerdo
-          title: Presupuesto excedido
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
           assigned: 'Asignado:'
@@ -146,8 +146,6 @@ es-MX:
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
-          description: '¿Qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
-          description_minimum_projects_rule: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'
           title: Tú decides el presupuesto
         count:
           projects_count:
@@ -190,7 +188,6 @@ es-MX:
           votes:
             one: voto
             other: votos
-          you_voted: Has votado
         project_budget_button:
           add: Añadir a tu voto
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
@@ -262,4 +259,3 @@ es-MX:
         project_proposal: 'Propuestas incluidas en este proyecto:'
   index:
     confirmed_orders_count: Número de votos
-  total_budget: Presupuesto total
