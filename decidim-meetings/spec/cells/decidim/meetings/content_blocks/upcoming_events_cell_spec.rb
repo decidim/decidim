@@ -60,33 +60,14 @@ module Decidim
             end
 
             context "with upcoming private events but invited user" do
-              let(:context) do
-                {
-                  current_organization: organization
-                }
-              end
               let!(:meeting) do
                 create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
               let!(:second_meeting) do
                 create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
               end
-              let(:invite_form_params) do
-                {
-                  name: current_user.name,
-                  email: current_user.email,
-                  user_id: current_user.id,
-                  existing_user: true
-                }
-              end
-              let(:invite_user_form) do
-                Decidim::Meetings::Admin::MeetingRegistrationInviteForm.from_params(invite_form_params).with_context(context)
-              end
-              let!(:invite_user_to_meeting) do
-                Decidim::Meetings::Admin::InviteUserToJoinMeeting.call(invite_user_form, meeting, invited_by)
-              end
-              let!(:accept_meeting_invitation) do
-                meeting.invites.first.accept!
+              let!(:meeting_registration) do
+                create(:registration, meeting: meeting, user: current_user)
               end
 
               it "renders only user's invited upcoming private meeting correctly" do
