@@ -8,17 +8,6 @@ Decidim.register_component(:demographics) do |component|
   component.icon = "decidim/demographics/icon.svg"
   component.data_portable_entities = ["Decidim::Demographics::Demographic"]
 
-
-  component.exports :demographics do |exports|
-    exports.collection do |component_instance|
-      Decidim::Demographics::Demographic
-    end
-
-    exports.include_in_open_data = true
-
-    exports.serializer Decidim::Demographics::DataPortabilityDemographicSerializer
-  end
-
   # component.query_type = "Decidim::Demographics::DemographicsType"
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
