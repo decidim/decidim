@@ -89,7 +89,7 @@ module Decidim
                 meeting.invites.first.accept!
               end
 
-              it "renders only upcoming not private meeting correctly" do
+              it "renders only user's invited upcoming private meeting correctly" do
                 expect(subject.length).to eq(1)
               end
             end
