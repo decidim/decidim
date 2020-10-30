@@ -185,7 +185,7 @@ fi:
         project:
           add: Lisää hanke %{resource_name} ääneesi
           remove: Poista hanke %{resource_name} äänestäsi
-          selected: Valitut
+          selected: Valittu
           view: Näytä
           votes:
             one: ääni
@@ -263,4 +263,4 @@ fi:
         project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
-  total_budget: Koko budjetti
+  total_budget: Kokonaisbudjetti
