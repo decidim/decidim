@@ -135,10 +135,10 @@ fi:
           description: Olet valinnut nämä suunnitelmat osaksi budjettia.
           title: Vahvista ääni
         budget_excess:
+          budget_excess:
+            title: Maksimibudjetti ylitetty
           close: Sulje
-          description: Tämä suunnitelma ylittää maksimibudjetin, minkä takia sitä ei voida lisätä. Jos haluat, voit tehdä "tilaa" budjettiin poistamalla suunnitelman, jonka olet jo valinnut.
           ok: OK
-          title: Maksimibudjetti ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
           assigned: 'Varattu:'
@@ -146,8 +146,6 @@ fi:
           checked_out:
             description: Olet jo äänestänyt tätä budjettia. Jos muutit mieltäsi, %{cancel_link}.
             title: Budjetin äänestys suoritettu
-          description: Mitä suunnitelmia varten sinun mielestäsi budjettia tulisi varata? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
-          description_minimum_projects_rule: Mille hankkeille budjetin rahaa tulisi jakaa? Valitse vähintään %{minimum_number} toivomaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           title: Voit päättää budjetin
         count:
           projects_count:
@@ -190,7 +188,6 @@ fi:
           votes:
             one: ääni
             other: ääntä
-          you_voted: Sinä äänestit
         project_budget_button:
           add: Lisää ääneesi
           add_descriptive: Lisää hanke %{resource_name} ääneesi
@@ -263,4 +260,3 @@ fi:
         project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
-  total_budget: Koko budjetti
