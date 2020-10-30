@@ -13,7 +13,7 @@ module Decidim
       # field :decidim_user_id, !types.ID, "ID of this user"
       field :age, !types.String, property: :age
       field :gender, !types.String, property: :gender
-      field :nationality, !types.String, property: :nationality
+      field :nationalities, types[types.String], property: :nationalities
       field :background, !types.String, property: :background
       field :postal_code, !types.String, property: :postal_code
     end
