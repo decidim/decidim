@@ -119,7 +119,7 @@ edit_link(
 
                     <div class="progress__bar">
                       <div class="evote__preview-bar">
-                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_calucations(answer.votes) %>%" aria-valuemin="0" aria-valuetext=<%= t(".results.aria_value_text", calculated: answer.question.votes_calucations(answer.votes)) %>>
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_calucations(answer.votes) %>%" aria-valuemin="0" aria-valuetext="<%= answer.question.votes_calucations(answer.votes) %>% percent" aria-valuemax="100">
                           <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.question.votes_calucations(answer.votes) %>%"></div>
                           <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.question.votes_calucations(answer.votes) %>%);"></div>
                         </div>
