@@ -677,7 +677,6 @@ gl:
           fields:
             hidden_at: Oculto en
             report_count: Conde
-            reportable: Reportable
             reported_content_url: URL de contido reportado
             reports: Informes
             visit_url: Visita o URL
