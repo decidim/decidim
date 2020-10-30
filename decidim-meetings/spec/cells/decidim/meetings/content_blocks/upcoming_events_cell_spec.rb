@@ -11,7 +11,7 @@ module Decidim
         let(:html) { cell("decidim/meetings/content_blocks/upcoming_events").call }
         let(:organization) { create(:organization) }
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:invited_by) { create(:user, :admin, :confirmed, organization: organization ) }
+        let(:invited_by) { create(:user, :admin, :confirmed, organization: organization) }
 
         before do
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
@@ -60,6 +60,11 @@ module Decidim
             end
 
             context "with upcoming private events but invited user" do
+              let(:context) do
+                {
+                  current_organization: organization
+                }
+              end
               let!(:meeting) do
                 create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
               end
@@ -75,10 +80,13 @@ module Decidim
                 }
               end
               let(:invite_user_form) do
-                Decidim::Meetings::Admin::MeetingRegistrationInviteForm.from_params(invite_form_params)
+                Decidim::Meetings::Admin::MeetingRegistrationInviteForm.from_params(invite_form_params).with_context(context)
               end
               let!(:invite_user_to_meeting) do
-                Decidim::Meetings::Admin::InviteUserToJoinMeeting.call(invite_user_form, second_meeting, invited_by)
+                Decidim::Meetings::Admin::InviteUserToJoinMeeting.call(invite_user_form, meeting, invited_by)
+              end
+              let!(:accept_meeting_invitation) do
+                meeting.invites.first.accept!
               end
 
               it "renders only upcoming not private meeting correctly" do
