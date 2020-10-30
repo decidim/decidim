@@ -362,6 +362,11 @@ fr-CA:
             subject: Votre inscription a bien été enregistrée
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
+      meeting_closes:
+        edit:
+          back: Retour
+          close: Clôturer la réunion
+          title: Clôturer la réunion
       meetings:
         count:
           meetings_count:
@@ -425,6 +430,7 @@ fr-CA:
         show:
           attendees: Nombre de participants
           back: Retour à la liste
+          close_meeting: Clôturer la réunion
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la réunion
