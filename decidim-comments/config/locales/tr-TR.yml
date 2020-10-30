@@ -16,7 +16,6 @@ tr:
         other: oy
   decidim:
     comments:
-      comments: Yorumlar
       last_activity:
         new_comment_at_html: "<span> %{link}</span>yeni yorum"
       votes:
@@ -67,7 +66,6 @@ tr:
         blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
         blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
         loading: Yorumlar yükleniyor ...
-        title: "%{count} yorum"
     events:
       comments:
         comment_by_followed_user:

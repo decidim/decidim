@@ -15,12 +15,14 @@ module Decidim
 
           included do
             helper Decidim::Forms::Admin::ApplicationHelper
-            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
-                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url
+            include Decidim::TranslatableAttributes
 
-            if defined? Decidim::Templates
+            helper_method :questionnaire_for, :questionnaire, :blank_question, :blank_answer_option, :blank_matrix_row,
+                          :blank_display_condition, :question_types, :display_condition_types, :update_url, :public_url, :answer_options_url, :edit_questionnaire_title
+
+            if defined? Decidim::Templates::Admin
               include Decidim::Templates::Admin::Concerns::Templatable
-              helper Decidim::Templates::Admin::TemplatesHelper if defined? Decidim::Templates
+              helper Decidim::Templates::Admin::TemplatesHelper
 
               def templatable_type
                 "Decidim::Forms::Questionnaire"
@@ -98,6 +100,12 @@ module Decidim
             # for the question with id = params[:id]
             def answer_options_url(params)
               url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
+            end
+
+            # Implement this method in your controller to set the title
+            # of the edit form.
+            def edit_questionnaire_title
+              t(:title, scope: "decidim.forms.admin.questionnaires.form", questionnaire_for: translated_attribute(questionnaire_for.try(:title)))
             end
 
             private

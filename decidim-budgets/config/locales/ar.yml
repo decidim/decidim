@@ -74,10 +74,10 @@ ar:
           description: هذه هي المشاريع التي اخترتها لتكون جزءًا من الميزانية.
           title: تأكيد التصويت
         budget_excess:
+          budget_excess:
+            title: تم تجاوز الحد الأقصى للميزانية
           close: قريب
-          description: هذا المشروع يتجاوز الحد الأقصى للميزانية ولا يمكن إضافته. إذا كنت تريد ، يمكنك حذف مشروع قمت باختياره بالفعل لإضافته أو إجراء تصويتك وفقًا لتفضيلاتك.
           ok: حسنا
-          title: تم تجاوز الحد الأقصى للميزانية
         budget_summary:
           are_you_sure: هل أنت متأكد أنك تريد إلغاء تصويتك؟
           assigned: 'تعيين:'
@@ -85,7 +85,6 @@ ar:
           checked_out:
             description: لقد قمت بالتصويت بالفعل على الميزانية. إذا غيرت رأيك ، يمكنك %{cancel_link}.
             title: اكتمال التصويت في الميزانية
-          description: ما هي المشاريع التي تعتقد أنه يجب علينا تخصيص ميزانية لها؟ قم بتعيين %{minimum_budget} على الأقل للمشروعات التي تريدها وقم بالتصويت مع تفضيلاتك لتحديد الميزانية.
           title: عليك أن تقرر الميزانية
         count:
           projects_count:
@@ -131,7 +130,6 @@ ar:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
             projects_per_page: مشاريع لكل صفحة
-            resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
             total_budget: الميزانية الإجمالية
             vote_threshold_percent: التصويت عتبة المئة
           step:
@@ -152,4 +150,3 @@ ar:
         project_proposal: 'المقترحات المدرجة في هذا المشروع:'
   index:
     confirmed_orders_count: عدد الأصوات
-  total_budget: الميزانية الإجمالية

@@ -43,6 +43,16 @@ Decidim.register_component(:elections) do |component|
     resource.model_class_name = "Decidim::Elections::Answer"
   end
 
+  component.exports :feedback_form_answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Forms::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Forms::UserAnswersSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -81,6 +91,37 @@ Decidim.register_component(:elections) do |component|
         },
         visibility: "all"
       )
+
+      questionnaire = Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        questionnaire_for: election
+      )
+
+      %w(short_answer long_answer).each do |text_question_type|
+        Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: text_question_type
+        )
+      end
+
+      %w(single_option multiple_option).each do |multiple_choice_question_type|
+        question = Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: multiple_choice_question_type
+        )
+
+        3.times do
+          question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        end
+      end
 
       2.times do
         question = Decidim.traceability.create!(
@@ -126,3 +167,9 @@ Decidim.register_component(:elections) do |component|
     end
   end
 end
+
+Decidim.register_global_engine(
+  :decidim_elections_trustee_zone,
+  Decidim::Elections::TrusteeZoneEngine,
+  at: "/trustee"
+)

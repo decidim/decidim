@@ -34,7 +34,7 @@ module Decidim
     end
 
     def resource_reported_content
-      resource_manifest&.reported_content.presence
+      resource_manifest&.reported_content_cell.presence
     end
 
     def resource_manifest

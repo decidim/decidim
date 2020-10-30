@@ -133,10 +133,10 @@ zh-CN:
           description: 这些是你选择作为预算一部分的项目。
           title: 确认投票
         budget_excess:
+          budget_excess:
+            title: 超出最大预算
           close: 关闭
-          description: 此项目超出了最大预算，无法添加。 如果你想要，你可以删除一个你已经选择添加的项目，或者选择你的首选项投票。
           ok: 好的
-          title: 超出最大预算
         budget_summary:
           are_you_sure: 您确定要取消您的投票吗？
           assigned: '已指派：'
@@ -144,8 +144,6 @@ zh-CN:
           checked_out:
             description: 您已经投票给了预算。如果您改变了主意，您可以 %{cancel_link}。
             title: 预算投票完成
-          description: 你认为我们应该为哪些项目分配预算？ 给您想要的项目分配至少 %{minimum_budget} ，并且以您的首选项投票来定义预算。
-          description_minimum_projects_rule: 你认为我们应该为哪些项目分配预算？ 选择至少 %{minimum_number} 个项目，您想要并以您的首选项投票来定义预算。
           title: 您决定预算
         count:
           projects_count:
@@ -185,7 +183,6 @@ zh-CN:
           view: 查看
           votes:
             other: 投票
-          you_voted: 您投票了
         project_budget_button:
           add: 添加到您的投票
           add_descriptive: 将项目 %{resource_name} 添加到您的投票
@@ -212,7 +209,6 @@ zh-CN:
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
-            resources_permissions_enabled: 每次会议都可以设置动作权限
             scope_id: 范围
             scopes_enabled: 范围已启用
             title: 标题
@@ -257,4 +253,3 @@ zh-CN:
         project_proposal: '本项目中的建议：'
   index:
     confirmed_orders_count: 所得票数
-  total_budget: 预算总额

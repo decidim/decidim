@@ -16,7 +16,6 @@ sv:
         other: Röster
   decidim:
     comments:
-      comments: Kommentarer
       comments_count: Antal kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
@@ -76,7 +75,6 @@ sv:
         loading: Laddar kommentarer...
         single_comment_warning: Läs återstående <a href="%{url}">kommentarer</a>.
         single_comment_warning_title: Du visar en enda kommentar
-        title: "%{count} kommentarer"
       down_vote_button:
         text: Jag håller inte med om denna kommentar
       up_vote_button:

@@ -73,7 +73,6 @@ de:
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
         secondary_color: Sekundär
         send_welcome_notification: Willkommens-Benachrichtigung senden
-        show_statistics: Zeige Statistiken
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
@@ -830,7 +829,6 @@ de:
           fields:
             hidden_at: Versteckt bei
             report_count: Anzahl
-            reportable: Meldepflichtig
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL

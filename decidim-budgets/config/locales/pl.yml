@@ -137,10 +137,10 @@ pl:
           description: Są to projekty, które wybrałeś jako część budżetu.
           title: Potwierdź głosowanie
         budget_excess:
+          budget_excess:
+            title: Przekroczono maksymalny budżet
           close: Zamknij
-          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć projekt, który już zaznaczyłeś do wyboru, albo zagłosować zgodnie z Twoimi preferencjami.
           ok: ok
-          title: Przekroczono maksymalny budżet
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
           assigned: 'Przypisano:'
@@ -148,8 +148,6 @@ pl:
           checked_out:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono głosowanie dot. budżetu
-          description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Przeznacz co najmniej %{minimum_budget} na te projekty, które chcesz, i głosuj zgodnie ze swoimi preferencjami, aby określić budżet.
-          description_minimum_projects_rule: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} spośród dostępnych projektów i zagłosuj zgodnie ze swoimi preferencjami, aby określić budżet.
           title: Ty decydujesz o budżecie
         count:
           projects_count:
@@ -198,7 +196,6 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-          you_voted: Zagłosowałeś
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
@@ -225,7 +222,6 @@ pl:
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie
-            resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             scope_id: Zakres
             scopes_enabled: Zakresy włączone
             title: Tytuł
@@ -271,4 +267,3 @@ pl:
         project_proposal: 'Propozycje zawarte w tym projekcie:'
   index:
     confirmed_orders_count: Liczba głosów
-  total_budget: Cały budżet

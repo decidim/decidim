@@ -70,10 +70,10 @@ pt:
           description: Estes são os projetos que você escolheu para fazer parte do orçamento.
           title: Confirmar votação
         budget_excess:
+          budget_excess:
+            title: O orçamento máximo excedeu
           close: Fechar
-          description: Este projeto excede o orçamento máximo e não pode ser adicionado. Se você quiser, você pode excluir um projeto que você já selecionou para adicionar ou fazer seu voto com suas preferências.
           ok: OK
-          title: O orçamento máximo excedeu
         budget_summary:
           are_you_sure: Deseja mesmo cancelar o seu voto?
           assigned: 'Atribuído:'
@@ -81,7 +81,6 @@ pt:
           checked_out:
             description: Você já votou no orçamento. Se você mudou de idéia, você pode %{cancel_link}.
             title: Votação do orçamento concluída
-          description: Em que projetos pensa que devemos atribuir orçamento? Atribua pelo menos %{minimum_budget} aos projetos que deseja e vote com suas preferências para definir o orçamento.
           title: Você decide o orçamento
         count:
           projects_count:
@@ -119,7 +118,6 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             projects_per_page: Projetos por página
-            resources_permissions_enabled: Permissões de ações podem ser definidas para cada reunião
             total_budget: Orçamento total
             vote_threshold_percent: Porcentagem do limiar de voto
           step:
@@ -140,4 +138,3 @@ pt:
         project_proposal: 'Propostas incluídas neste projeto:'
   index:
     confirmed_orders_count: Contagem de votos
-  total_budget: Orçamento total

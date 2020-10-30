@@ -36,6 +36,7 @@ module Decidim
       def create
         enforce_permission_to :create, :newsletter
         @form = form(NewsletterForm).from_params(params)
+        @form.images = images_block_context unless has_images_block_context?
 
         CreateNewsletter.call(@form, content_block, current_user) do
           on(:ok) do |newsletter|
@@ -59,6 +60,7 @@ module Decidim
       def update
         enforce_permission_to :update, :newsletter, newsletter: newsletter
         @form = form(NewsletterForm).from_params(params)
+        @form.images = images_block_context unless has_images_block_context?
 
         UpdateNewsletter.call(newsletter, @form, current_user) do
           on(:ok) do |newsletter|
@@ -155,6 +157,14 @@ module Decidim
         return nil unless @newsletter
 
         @content_block_for_newsletter ||= @newsletter.template
+      end
+
+      def images_block_context
+        form(NewsletterForm).from_model(content_block).images
+      end
+
+      def has_images_block_context?
+        @form.images && @form.valid?
       end
     end
   end

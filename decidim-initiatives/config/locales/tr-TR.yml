@@ -15,14 +15,6 @@ tr:
           online: İnternet üzerinden
         state: Belirtmek, bildirmek
         title: Başlık
-      initiative_author:
-        address: Adres
-        city: Kent
-        id_document: DNI / NIE
-        name: Ad ve soyadı
-        phone_number: Telefon numarası
-        post_code: Posta kodu
-        province: il
       initiatives_committee_member:
         user: Komite Üyesi
       initiatives_type:
@@ -249,14 +241,12 @@ tr:
         fill_data:
           back: Geri
           continue: Devam et
-          fill_data_help: "<ul> <li>Girişinizin içeriğini gözden geçirin. Başlığınız anlaşılması kolay mı? Girişimin amacı net mi?</li> <li>İmzanın türünü seçmelisiniz. , Çevrimiçi ya da her ikisinin bir kombinasyonu kişiye ise</li> <li>girişiminin coğrafi kapsamı nedir? Şehir bölge mi?</li> </ul>"
           initiative_type: Girişimi tipi
           more_information: "(Daha fazla bilgi)"
           select_scope: Bir kapsam seçin
         finish:
           back: Geri
           back_to_initiatives: Girişimlere geri dönüş
-          callout_text: Tebrikler! Vatandaş girişimi başarıyla oluşturuldu.
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
         finish_help:
@@ -273,14 +263,12 @@ tr:
           more_information: "(Daha fazla bilgi)"
         promotal_committee:
           back: Geri
-          individual_help_text: Bu tür bir vatandaş girişimi, en az %{committee_size} kişiden (avukatlar) oluşan bir Tanıtım Komisyonu gerektirir. Aşağıdaki bağlantıyı bu girişimin bir parçası olan diğer kişilerle paylaşmanız gerekir. Kişileriniz bu bağlantıyı aldıklarında, belirtilen adımları izlemeleri gerekecektir.
           more_information: "(Daha fazla bilgi)"
         select_initiative_type:
           back: Geri
           choose_html: <strong>%{title}</strong>oluşturmak istiyorum
           more_information: "(Daha fazla bilgi)"
           select: Bu girişimi teşvik etmek istiyorum
-          select_initiative_type_help: Vatandaş girişimleri, vatandaşlığın müdahalede bulunabileceği bir araç olup, Belediye Meclisi'nin, belediyenin yetki alanı dahilindeki genel menfaatlerin savunulması için eylemde bulunabilmesi için. Hangi girişimi başlatmak istiyorsunuz?
         share_committee_link:
           continue: Devam et
           invite_to_committee_help: Promoter komitesinin bir parçası olacak kişileri davet etmek için bağlantı
@@ -375,9 +363,7 @@ tr:
             validating: Bu teklif değerlendiriliyor
           initiative_rejected_reason: Bu girişim destek eksikliğinden dolayı reddedildi.
         show:
-          any_vote_method: Bu vatandaş girişimi, yüz yüze olduğu kadar çevrimiçi destek toplar.
           follow_description: Bu inisiyatifte haber olduğunda bir bildirim alın
-          offline_method: Bu vatandaş girişimi sadece yüz yüze destekleri toplar.
         signatures_count:
           one: " imza"
           other: " imzalar"

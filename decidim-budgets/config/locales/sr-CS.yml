@@ -6,8 +6,6 @@ sr:
           selected_projects: 'Projekti koje ste izabrali su:'
           subject: Glasali ste na prostoru za diskusiju %{space_name}
       projects:
-        budget_summary:
-          description_minimum_projects_rule: Za koje projekte mislite da bi trebalo da odvojimo sredstva u budžetu? Odaberite bar %{minimum_number} projekata koje želite, glasajte za predloge koji vam se sviđaju i tako pomognite u definisanju budžeta.
         orders:
           highest_cost: Najveća cena
           label: Poređaj projekte po

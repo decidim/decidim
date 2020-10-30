@@ -63,7 +63,6 @@ tr:
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
-        show_statistics: İstatistikleri göster
         success_color: başarı
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
@@ -711,7 +710,6 @@ tr:
           fields:
             hidden_at: Gizli
             report_count: saymak
-            reportable: bildirilmesi zorunlu
             reported_content_url: Raporlanan içerik URL'si
             reports: Raporlar
             visit_url: URL'yi ziyaret et

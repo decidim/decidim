@@ -215,7 +215,7 @@ ja:
               mark_as_sent: 送信済みにする
               not_yet_sent: 送信されていません
               title: 現在検証中
-              username: ニックネーム：
+              username: アカウントID
               verification_code: 認証コード
           postages:
             create:

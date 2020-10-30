@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.templates.admin.questionnaire_templates.form.title')
+
 module Decidim
   module Forms
     module Admin
@@ -32,6 +34,16 @@ module Decidim
           tag.span(class: options[:class], data: data) do
             truncate translated_attribute(title), length: options[:max_length], omission: options[:omission]
           end
+        end
+
+        def template?(questionnaire_for)
+          return unless defined? Decidim::Templates::Template
+
+          questionnaire_for.is_a? Decidim::Templates::Template
+        end
+
+        def templates_defined?
+          defined? Decidim::Templates::Admin::Concerns::Templatable
         end
       end
     end
