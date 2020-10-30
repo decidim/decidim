@@ -223,7 +223,7 @@ fi:
             title: Otsikko
             total_budget: Kokonaisbudjetti
             vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
-            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien vähimmäismäärä'
+            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien suunnitelmien vähimmäismäärä'
             vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
             vote_threshold_percent: Äänestyksen kynnysprosentti
             workflow: Työnkulku
