@@ -11,7 +11,6 @@ module Decidim
         let(:html) { cell("decidim/meetings/content_blocks/upcoming_events").call }
         let(:organization) { create(:organization) }
         let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-        let(:invited_by) { create(:user, :admin, :confirmed, organization: organization) }
 
         before do
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
