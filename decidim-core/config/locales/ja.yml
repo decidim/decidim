@@ -640,7 +640,7 @@ ja:
         other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
-      no_followings: まだ誰にも何にも従っていません。
+      no_followings: フォローしている人やコンテンツはありません
     follows:
       create:
         button: フォロー
