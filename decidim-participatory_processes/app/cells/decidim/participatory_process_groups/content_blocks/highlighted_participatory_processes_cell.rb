@@ -22,22 +22,35 @@ module Decidim
           "processes-grid"
         end
 
+        def filtered_relation
+          @filtered_relation ||= search.results
+        end
+
+        def default_date_filter
+          return "active" if filtered_relation.any?(&:active?)
+          return "upcoming" if filtered_relation.any?(&:upcoming?)
+          return "past" if filtered_relation.any?(&:past?)
+
+          "all"
+        end
+
         private
+
+        def search_klass
+          Decidim::ParticipatoryProcesses::ParticipatoryProcessSearch
+        end
 
         def default_filter_params
           {
             scope_id: nil,
-            area_id: nil,
-            date: default_date_filter
+            area_id: nil
           }
         end
 
-        def default_date_filter
-          return "active" if base_relation.any?(&:active?)
-          return "upcoming" if base_relation.any?(&:upcoming?)
-          return "past" if base_relation.any?(&:past?)
-
-          "all"
+        def default_search_params
+          {
+            base_relation: base_relation
+          }
         end
 
         def base_relation
