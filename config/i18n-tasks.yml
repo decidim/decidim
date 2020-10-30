@@ -239,6 +239,8 @@ ignore_unused:
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.participatory_processes.admin.new_import.accepted_types.*
+  - decidim.assemblies.admin.new_import.accepted_types.*
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
