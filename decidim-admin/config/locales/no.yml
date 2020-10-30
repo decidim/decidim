@@ -814,7 +814,6 @@
           fields:
             hidden_at: Skjult på
             report_count: Antall
-            reportable: Rapporterbar
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL

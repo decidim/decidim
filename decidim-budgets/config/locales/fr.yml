@@ -135,10 +135,10 @@ fr:
           description: Voici les projets que vous avez choisis pour le budget.
           title: Confirmez votre vote
         budget_excess:
+          budget_excess:
+            title: Budget maximum dépassé
           close: Fermer
-          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
           ok: D'accord
-          title: Budget maximum dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
           assigned: 'Affecté à :'
@@ -146,8 +146,6 @@ fr:
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
-          description: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
-          description_minimum_projects_rule: A quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_number} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
           title: Vous décidez du budget
         count:
           projects_count:
@@ -190,7 +188,6 @@ fr:
           votes:
             one: vote
             other: votes
-          you_voted: Vous avez voté
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
@@ -263,4 +260,3 @@ fr:
         project_proposal: 'Propositions incluses dans ce projet:'
   index:
     confirmed_orders_count: Nombre de votes
-  total_budget: Budget total

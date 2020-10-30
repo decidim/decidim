@@ -975,8 +975,8 @@ ja:
       no_notifications: まだ通知はありません。
     notifications_settings:
       show:
-        allow_public_contact: 私は彼らに従わない場合でも、誰でも私にダイレクトメッセージを送信することを許可します。
-        direct_messages: 誰からでもダイレクトメッセージを受信する
+        allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
+        direct_messages: ダイレクトメッセージを受信する
         email_on_notification: 通知を毎回メールで受け取る
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
