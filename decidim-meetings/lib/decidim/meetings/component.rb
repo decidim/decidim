@@ -19,6 +19,7 @@ Decidim.register_component(:meetings) do |component|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
     resource.card = "decidim/meetings/meeting"
+    resource.reported_content_cell = "decidim/meetings/reported_content"
     resource.actions = %w(join)
     resource.searchable = true
   end
