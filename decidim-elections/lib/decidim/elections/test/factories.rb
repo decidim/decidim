@@ -127,6 +127,7 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
     selected { false }
+    votes { 0 }
 
     trait :with_votes do
       votes { Faker::Number.number(digits: 1) }
