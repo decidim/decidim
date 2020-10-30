@@ -134,10 +134,10 @@ nl:
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
           title: Bevestig de stem
         budget_excess:
+          budget_excess:
+            title: Maximum budget overschreden
           close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
           ok: OK
-          title: Maximum budget overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
           assigned: 'Toegewezen:'
@@ -145,8 +145,6 @@ nl:
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
-          description_minimum_projects_rule: Voor welke projecten moeten we volgens u de begroting uittrekken? Selecteer ten minste %{minimum_number} projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -182,7 +180,6 @@ nl:
           votes:
             one: stem
             other: stemmen
-          you_voted: Je hebt gestemd
         project_budget_button:
           add: Voeg toe aan je stem
           add_descriptive: Voeg project %{resource_name} toe aan uw stem
@@ -249,4 +246,3 @@ nl:
         project_proposal: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen
-  total_budget: Totale begroting
