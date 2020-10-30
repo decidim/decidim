@@ -78,7 +78,6 @@ zh-CN:
             collapse: 收起所有问题
             expand: 展开所有问题
             preview: 预览
-            title: 编辑表单
             unpublished_warning: 表单未发布。您可以修改它的问题，但这样做将删除当前答案。
           matrix_row:
             matrix_row: 行

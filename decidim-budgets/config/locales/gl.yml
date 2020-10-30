@@ -70,10 +70,10 @@ gl:
           description: Estes son os proxectos que escolleu para formar parte do orzamento.
           title: Confirmar voto
         budget_excess:
+          budget_excess:
+            title: O orzamento máximo excedeu
           close: Pechar
-          description: Este proxecto supera o orzamento máximo e non se pode engadir. Se o desexa, pode eliminar un proxecto que xa seleccionou para engadir ou facer o seu voto coas súas preferencias.
           ok: Ok
-          title: O orzamento máximo excedeu
         budget_summary:
           are_you_sure: '¿Estás seguro de que queres cancelar o teu voto?'
           assigned: 'Asignado:'
@@ -81,7 +81,6 @@ gl:
           checked_out:
             description: Xa votou polo orzamento. Se mudou de idea, pode %{cancel_link}.
             title: A votación do orzamento completada
-          description: Que proxectos crees que deberiamos asignar orzamento para? Asigne polo menos %{minimum_budget} aos proxectos que desexe e vote coas súas preferencias para definir o orzamento.
           title: Vostede decide o orzamento
         count:
           projects_count:
@@ -119,7 +118,6 @@ gl:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
             projects_per_page: Proxectos por páxina
-            resources_permissions_enabled: Os permisos de acción pódense establecer para cada reunión
             total_budget: Orzamento total
             vote_threshold_percent: Porcentaxe de límite de voto
           step:
@@ -140,4 +138,3 @@ gl:
         project_proposal: 'Propostas incluídas neste proxecto:'
   index:
     confirmed_orders_count: Reconto de votos
-  total_budget: Orzamento total

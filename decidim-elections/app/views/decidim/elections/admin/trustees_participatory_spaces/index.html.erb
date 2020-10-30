@@ -29,7 +29,7 @@
                 <%= trustee.user.email %>
               </td>
               <td>
-                <%= trustee.public_key %>
+                <%= present(trustee).public_key_thumbprint %>
               </td>
               <td>
                 <%= trustee.created_at.ctime %>

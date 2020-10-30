@@ -1,0 +1,288 @@
+<%
+@title = "Evote -- Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main>
+  <%= partial "process_header" %>
+  <div class="wrapper">
+    <div class="row">
+      <div class="columns">
+        <a href="evote-poll-list">
+          <%= icon "caret-left", class: "icon--small" %>&nbsp;Available elections
+        </a>
+        <h1 class="heading3">Consulta sobre la organización del Comité de Fiestas del Barrio del Fort Pienc</h1>
+        <p>
+          <strong>Voting finished</strong> on 15th July 2020
+        </p>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="columns medium-4 mediumlarge-5">
+        <img src="<%= image_path "superilles.jpg" %>" alt="">
+      </div>
+      <div class="columns medium-8 mediumlarge-7">
+        <div class="section">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p class="text-sm">
+            Did you vote? <a href="evote-public-verify">Check&nbsp;your vote&nbsp;here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row section">
+      <div class="columns large-8">
+        <h2 class="section-heading">Election results</h2>
+        <p>
+          These are the results of the voting, for each question:
+        </p>
+        <ul class="accordion js-sortable mb-m evote__preview"
+            data-accordion
+            data-multi-expand="true"
+            data-allow-all-closed="true">
+
+              <li class="accordion-item is-active evote__preview-question" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc">¿Estás de acuerdo con que se imponga una cuota de 40€ al año por miembro?</a>
+                <div class="accordion-content" data-tab-content>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">
+                      Yes
+                      <span class="label label--small label--highlight">
+                        Selected
+                      </span>
+                    </h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="50%" aria-valuemin="0" aria-valuetext="50% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 50%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 50%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          50%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        345 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">No</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">Blank</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="accordion-item  evote__preview-question" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc">¿Con cuáles de estas afirmaciones sobre la organización del Comité de Fiestas estás de acuerdo?</a>
+                <div class="accordion-content" data-tab-content>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">
+                      El Comité debería abordar otros problemas del barrio más allá de las fiestas
+                      <span class="label label--small label--highlight">
+                        Selected
+                      </span>
+                    </h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="50%" aria-valuemin="0" aria-valuetext="50% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 50%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 50%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          50%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        345 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">Las asambleas deberían hacerse cada mes en vez de cada tres, como hasta ahora</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">El foro debería abrirse a la participación de todas y todos</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">Blank/None of the above</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </li>
+              <li class="accordion-item evote__preview-question" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc"> ¿Qué programa organizativo crees que debería aplicar el Comité de Fiestas durante el próximo año? </a>
+
+                <div class="accordion-content" data-tab-content>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">
+                      El plan de Expansión Trasversal
+                      <span class="label label--small label--highlight">
+                        Selected
+                      </span>
+                    </h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="50%" aria-valuemin="0" aria-valuetext="50% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 50%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 50%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          50%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        345 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">El plan de Participación Vecinal Inclusiva</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">El plan de Intervención Social Aplicada</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="evote__preview-result">
+                    <h3 class="evote__preview-option">Blank/None of the above</h3>
+                    <div class="progress__bar">
+                      <div class="evote__preview-bar">
+                        <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="25%" aria-valuemin="0" aria-valuetext="25% percent" aria-valuemax="100">
+                          <div class="progress-meter progress__bar__bar--complete" style="width: 25%"></div>
+                          <div class="progress__bar__bar--incomplete" style="width:calc(100% - 25%);"></div>
+                        </div>
+                        <div class="evote__preview-perc">
+                          25%
+                        </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        172 votes
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </li>
+          </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

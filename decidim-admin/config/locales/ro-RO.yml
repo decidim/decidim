@@ -70,7 +70,6 @@ ro:
         rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
         secondary_color: Secundar
         send_welcome_notification: Trimite notificare de bun venit
-        show_statistics: Arată statistici
         success_color: Succes
         time_zone: Fus orar
         tos_version: Termenii versiunii serviciului
@@ -796,7 +795,6 @@ ro:
           fields:
             hidden_at: Ascuns la
             report_count: Număr
-            reportable: Raportabil
             reported_content_url: URL-ul conținutului raportat
             reports: Rapoarte
             visit_url: Vizitaţi URL-ul

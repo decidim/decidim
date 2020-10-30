@@ -16,8 +16,11 @@ fr:
         other: Votes
   decidim:
     comments:
-      comments: Commentaires
+      comments:
+        create:
+          error: Une erreur s'est produite lors de la création du commentaire.
       comments_count: Nombre de commentaires
+      comments_title: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       view: Voir
@@ -76,7 +79,9 @@ fr:
         loading: Chargement des commentaires ...
         single_comment_warning: Vous pouvez accéder au reste des commentaires <a href="%{url}">ici</a>.
         single_comment_warning_title: Vous ne voyez qu'un seul commentaire
-        title: "%{count} commentaires"
+        title:
+          one: "%{count} commentaire"
+          other: "%{count} commentaires"
       down_vote_button:
         text: Je ne suis pas d'accord avec ce commentaire
       up_vote_button:

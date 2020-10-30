@@ -12,7 +12,8 @@ describe Decidim::Elections::Admin::Permissions do
       election: election,
       question: question,
       answer: answer,
-      trustee_participatory_space: trustee_participatory_space
+      trustee_participatory_space: trustee_participatory_space,
+      questionnaire: questionnaire
     }
   end
   let(:elections_component) { create :elections_component }
@@ -20,6 +21,7 @@ describe Decidim::Elections::Admin::Permissions do
   let(:question) { nil }
   let(:answer) { nil }
   let(:trustee_participatory_space) { create :trustees_participatory_space }
+  let(:questionnaire) { election&.questionnaire }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
   shared_examples "not allowed when election has started" do
@@ -226,6 +228,22 @@ describe Decidim::Elections::Admin::Permissions do
       end
 
       it { is_expected.to eq true }
+    end
+
+    context "when subject is a questionnaire" do
+      let(:action) do
+        { scope: :admin, action: :update, subject: :questionnaire }
+      end
+
+      context "when feedback form is present" do
+        it { is_expected.to eq true }
+      end
+
+      context "when feedback form is missing" do
+        let(:questionnaire) { nil }
+
+        it { is_expected.to eq false }
+      end
     end
   end
 end

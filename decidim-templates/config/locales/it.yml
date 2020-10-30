@@ -48,7 +48,6 @@ it:
           form:
             save: Salva
             template_title: Informazioni del modello
-            title: Questionario
           index:
             confirm_delete: Sei sicuro di voler eliminare questo modello?
             title: Modelli di questionari

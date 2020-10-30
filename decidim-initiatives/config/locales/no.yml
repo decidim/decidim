@@ -15,14 +15,6 @@
           online: Online
         state: Status
         title: Tittel
-      initiative_author:
-        address: Adresse
-        city: By
-        id_document: DNI/NIE
-        name: Navn og Etternavn
-        phone_number: Telefonnummer
-        post_code: Postnummer
-        province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
@@ -293,14 +285,12 @@
         fill_data:
           back: Tilbake
           continue: Fortsett
-          fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signaturtypen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
           select_scope: Velg et temaet
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
-          callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
           go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
         finish_help:
@@ -317,14 +307,12 @@
           more_information: "(Mer informasjon)"
         promotal_committee:
           back: Tilbake
-          individual_help_text: Denne typen innbyggerinitiativ krever en Promotør Kommisjon bestående av minst %{committee_size} personer (attester). Du må dele følgende lenke med de andre menneskene som er en del av dette initiativet. Når kontaktene dine mottar denne lenken, må de følge de angitte trinnene.
           more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
           more_information: "(Mer informasjon)"
           select: Jeg ønsker å promotere dette initiativet
-          select_initiative_type_help: Innbyggerinitiativer er et middel som statsborgerskapet kan gripe inn slik at byrådet kan iverksette tiltak til forsvar for allmenn interesse som er innenfor felt av kommunal jurisdiksjon. Hvilket initiativ vil du sette i gang?
         share_committee_link:
           continue: Fortsett
           invite_to_committee_help: Lenke for å invitere folk som vil være en del av promotør komiteen
@@ -424,9 +412,7 @@
             validating: Dette forslaget blir evaluert
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
-          any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
           follow_description: Motta et varsel når det er nyheter i dette initiativet
-          offline_method: Dette innbyggerinitiativet samler bare inn personlige underskrifter.
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
