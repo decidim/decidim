@@ -23,8 +23,8 @@ ja:
         max_votes: 最大投票数
         min_votes: 投票の最小数
         origin_scope: スコープ
-        origin_title: 原点：
-        origin_url: 原点URL
+        origin_title: 起案者：
+        origin_url: 元のURL
         participatory_scope: 参加スコープ
         promoter_group: プロモーターグループ
         question_context: コンテキスト

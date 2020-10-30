@@ -42,7 +42,7 @@ ja:
         alignment:
           against: 反対
           in_favor: 賛成
-        deleted_user: 参加者を削除しました
+        deleted_user: 退会者
         hide_replies: 返信を非表示
         reply: 返信
         report:
@@ -76,7 +76,7 @@ ja:
         single_comment_warning_title: 単一のコメントが表示されています
         title: "%{count} 件のコメント"
       down_vote_button:
-        text: このコメントに同意しない
+        text: このコメントに同意しません
       up_vote_button:
         text: このコメントに同意します
     events:

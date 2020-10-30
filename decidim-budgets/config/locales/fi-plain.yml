@@ -263,4 +263,4 @@ fi-pl:
         project_proposal: 'Tähän suunnitelmaan liittyvät ehdotukset:'
   index:
     confirmed_orders_count: Äänten määrä
-  total_budget: Koko budjetti
+  total_budget: Kokonaisbudjetti
