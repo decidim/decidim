@@ -14,7 +14,7 @@ module Decidim
         @private_key = OpenSSL::PKey::RSA.new(identification_private_key_content) if identification_private_key
       end
 
-      attr_reader :scheme, :api_key, :number_of_trustees, :authority_name
+      attr_reader :server, :scheme, :api_key, :number_of_trustees, :authority_name
 
       def quorum
         return 0 if @scheme.dig(:parameters, :quorum).blank?
@@ -47,7 +47,7 @@ module Decidim
 
       private
 
-      attr_reader :identification_private_key, :server, :private_key
+      attr_reader :identification_private_key, :private_key
 
       def identification_private_key_content
         @identification_private_key_content ||= if identification_private_key.starts_with?("-----")
