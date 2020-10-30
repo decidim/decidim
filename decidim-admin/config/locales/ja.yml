@@ -830,7 +830,6 @@ ja:
           fields:
             hidden_at: '非表示:'
             report_count: カウント
-            reportable: 報告可能
             reported_content_url: 報告されたコンテンツ URL
             reports: レポート
             visit_url: URL を参照
