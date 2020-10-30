@@ -143,7 +143,7 @@ fi:
           ok: OK
           projects_excess:
             description: Tämä suunnitelma ylittää maksimisuunnitelmien määrän, minkä takia sitä ei voida lisätä. Halutessasi voit poistaa valinnan jostain toisesta suunnitelmasta tai jättää äänesi nykyisten valintojen mukaisesti.
-            title: Maksimiprojektien määrä ylitetty
+            title: Maksimisuunnitelmien määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
           assigned: 'Varattu:'
