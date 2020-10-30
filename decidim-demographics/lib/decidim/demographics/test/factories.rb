@@ -17,7 +17,7 @@ FactoryBot.define do
         age: Decidim::Demographics::Demographic::AGE_GROUPS.sample,
         background: Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample,
         gender: Decidim::Demographics::Demographic::AVAILABLE_GENDERS.sample,
-        nationality: Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample(Random.rand(1...3)),
+        nationalities: Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample(Random.rand(1...3)),
         postal_code: Faker::Address.zip_code
       }
     end
@@ -31,7 +31,7 @@ FactoryBot.define do
         age: Decidim::AttributeEncryptor.encrypt(Decidim::Demographics::Demographic::AGE_GROUPS.sample),
         background: Decidim::AttributeEncryptor.encrypt(Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample),
         gender: Decidim::AttributeEncryptor.encrypt(Decidim::Demographics::Demographic::AVAILABLE_GENDERS.sample),
-        nationality: Decidim::AttributeEncryptor.encrypt(Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample(Random.rand(1...3))),
+        nationalities: Decidim::AttributeEncryptor.encrypt(Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES.sample(Random.rand(1...3))),
         postal_code: Decidim::AttributeEncryptor.encrypt(Faker::Address.zip_code)
       }
     end

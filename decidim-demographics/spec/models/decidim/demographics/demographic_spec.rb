@@ -15,7 +15,7 @@ module Decidim
         expect(demo).to respond_to :organization
       end
 
-      %w(age background gender nationality postal_code).each do |field|
+      %w(age background gender nationalities postal_code).each do |field|
         it "has a #{field} method" do
           expect(demo).to respond_to field.to_sym
         end

@@ -37,7 +37,7 @@ module Decidim
           Decidim::Demographics::Demographic.where(
             user: current_user,
             organization: current_user.organization
-          ).first_or_create(data: {})
+          ).first_or_initialize(data: {})
         end
 
         def demographics_form
