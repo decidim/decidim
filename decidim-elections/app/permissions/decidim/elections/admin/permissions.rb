@@ -10,7 +10,7 @@ module Decidim
           case permission_action.subject
           when :question, :answer
             case permission_action.action
-            when :create, :update, :delete, :import_proposals
+            when :create, :update, :delete, :import_proposals, :select
               allow_if_not_blocked
             end
           when :election
@@ -66,6 +66,14 @@ module Decidim
 
         def allow_if_valid_and_not_blocked
           toggle_allow(election && !election.blocked? && election.valid_questions?)
+        end
+
+        def allow_if_finished
+          toggle_allow(election && election.finished?)
+        end
+
+        def allow_if_valid_and_not_started
+          toggle_allow(election && !election.started? && election.valid_questions?)
         end
 
         def allow_if_not_related_to_any_election

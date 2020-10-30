@@ -58,6 +58,8 @@ module Decidim
         end
 
         def select
+          enforce_permission_to :select, :answer, election: election, question: question
+
           MarkAnswerAsSelected.call(answer, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("answers.select.success", scope: "decidim.elections.admin")
