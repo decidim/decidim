@@ -490,7 +490,7 @@ fi:
             callout_html: Sisältö tulee näkyviin moderointinäkymään, kun joku käyttäjä (kuka tahansa käyttäjä, jolla on tili alustalla) on ilmoittanut sisällön painamalla sisällön yhteydessä näkyvää %{icon} lippukuvaketta.
             content_original_language: Sisällön alkuperäinen kieli
             participatory_space: Osallistumistila
-            reported_content: Raportoitu sisältö
+            reported_content: Ilmoitettu sisältö
             see_current: Näytä nykyinen
             see_original: Näytä alkuperäinen
             title: Moderointi-ilmoitukset
