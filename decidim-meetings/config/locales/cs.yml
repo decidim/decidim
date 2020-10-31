@@ -374,6 +374,11 @@ cs:
             subject: Registrace schůzky byla potvrzena
       meeting:
         not_allowed: Tuto schůzku není povoleno prohlížet
+      meeting_closes:
+        edit:
+          back: Zpět
+          close: Ukončit schůzku
+          title: Ukončit schůzku
       meetings:
         count:
           meetings_count:
@@ -439,6 +444,7 @@ cs:
         show:
           attendees: Počet účastníků
           back: Zpět na seznam
+          close_meeting: Ukončit schůzku
           contributions: Počet příspěvků
           date: Datum
           edit_meeting: Upravit schůzku
