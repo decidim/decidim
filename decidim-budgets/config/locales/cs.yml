@@ -138,6 +138,7 @@ cs:
           title: Potvrďte hlasování
         budget_excess:
           budget_excess:
+            description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již vybrali pro přidání nebo hlasování podle vašich preferencí.
             title: Maximální rozpočet byl překročen
           close: Zavřít
           ok: OK
