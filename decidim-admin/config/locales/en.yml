@@ -605,7 +605,7 @@ en:
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: There was a problem updating this organization.
@@ -640,7 +640,7 @@ en:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
         index:
-          import_via_csv: Import via csv
+          import_via_csv: Import via CSV
           title: Participatory space private participant
         new:
           create: Create
