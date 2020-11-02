@@ -105,6 +105,8 @@
   </fieldset>
 <% end %>
 
-<%= render partial: "committee_members" %>
+<% if current_initiative.type.promoting_committee_enabled? %>
+  <%= render partial: "committee_members" %>
+<% end %>
 
 <%= javascript_include_tag "decidim/initiatives/scoped_type" %>
