@@ -9,6 +9,20 @@ module Decidim
     let!(:assembly) { create(:assembly) }
     let(:organization_host) { assembly.organization.host }
 
+    describe "when no images were uploaded" do
+      before do
+        assembly.update!(hero_image: nil, banner_image: nil)
+      end
+
+      it "return nil for hero_image_url" do
+        expect(subject.hero_image_url).to be_nil
+      end
+
+      it "return nil for banner_image_url" do
+        expect(subject.banner_image_url).to be_nil
+      end
+    end
+
     describe "when images are stored in the local filesystem" do
       it "resolves hero_image_url" do
         expect(subject.hero_image_url).to eq("http://#{organization_host}#{assembly.hero_image_url}")
