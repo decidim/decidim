@@ -348,6 +348,11 @@ nl:
             subject: Registratie van uw vergadering is bevestigd
       meeting:
         not_allowed: U mag deze vergadering niet bekijken
+      meeting_closes:
+        edit:
+          back: Terug
+          close: Vergadering sluiten
+          title: Vergadering sluiten
       meetings:
         count:
           meetings_count:
@@ -403,6 +408,7 @@ nl:
         show:
           attendees: Aantal deelnemers
           back: Terug naar het overzicht
+          close_meeting: Vergadering sluiten
           contributions: Aantal bijdragen
           date: 'Datum:'
           edit_meeting: Bewerk vergadering
