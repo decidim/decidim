@@ -65,7 +65,10 @@ module Decidim
 
       def search_author
         if author == "myself" && options[:current_user]
-          query.where(decidim_author_id: options[:current_user].id)
+          query
+            .joins(:committee_members)
+            .where("decidim_initiatives_committee_members.state = 2")
+            .where("decidim_initiatives_committee_members.decidim_users_id = ?", options[:current_user].id)
         else
           query
         end
