@@ -136,8 +136,10 @@ es:
           title: Confirmar voto
         budget_excess:
           budget_excess:
+            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
           close: Cerrar
+          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
           ok: De acuerdo
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
