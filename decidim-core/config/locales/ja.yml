@@ -1053,7 +1053,7 @@ ja:
       terms_and_conditions:
         accept:
           error: 利用規約を受け入れる際に問題が発生しました。
-          success: 素晴らしい! あなたは利用規約に同意しました。
+          success: 利用規約に同意しました。
         form:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
