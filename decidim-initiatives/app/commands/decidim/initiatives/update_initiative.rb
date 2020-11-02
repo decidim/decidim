@@ -28,8 +28,8 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if process_attachments? || form.documents.any?
-          @initiative.attachments.where.not(id: form.documents).destroy_all
+        if process_attachments?
+          @initiative.attachments.where(id: form.documents).destroy_all
 
           build_attachments
           return broadcast(:invalid) if attachments_invalid?
