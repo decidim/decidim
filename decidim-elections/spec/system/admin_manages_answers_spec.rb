@@ -182,6 +182,10 @@ describe "Admin manages answers", type: :system do
       within find("tr", text: translated(answer.title)) do
         expect(page).to have_selector(".action-icon--success")
       end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("Answer successfully selected")
+      end
     end
   end
 end

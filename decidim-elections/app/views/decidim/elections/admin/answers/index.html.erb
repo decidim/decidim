@@ -31,7 +31,11 @@
               </td>
               <td class="table-list__actions">
                 <% if question.total_votes.positive? %>
-                  <%= icon_link_to "circle-check", select_election_question_answer_path(election, question, answer), selected_label_action_for(answer), class: (answer.selected ? "action-icon--success" : "action-icon") %>
+                  <% if answer.selected %>
+                    <%= icon_link_to "circle-check", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon--success" %>
+                  <% else %>
+                    <%= icon_link_to "circle-check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon" %>
+                  <% end %>
                 <% end %>
 
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>

@@ -88,8 +88,11 @@ en:
           select:
             disable: Unselect answer
             enable: Mark answer as selected
-            invalid: There was a un-/selecting this answer
-            success: Answer sucessfully un-/selected
+            invalid: There was a problem selecting this answer
+            success: Answer successfully selected
+          unselect:
+            invalid: There was a problem unselecting this answer
+            success: Answer successfully unselected
           update:
             invalid: There was a problem updating this answer
             success: Answer successfully updated

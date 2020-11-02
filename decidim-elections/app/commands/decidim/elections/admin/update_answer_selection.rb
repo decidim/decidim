@@ -5,10 +5,10 @@ module Decidim
     module Admin
       # This command is executed when an admin marks an answer
       # as selected.
-      class MarkAnswerAsSelected < Rectify::Command
-        def initialize(answer, current_user)
+      class UpdateAnswerSelection < Rectify::Command
+        def initialize(answer, selected)
           @answer = answer
-          @current_user = current_user
+          @selected = selected
         end
 
         # Selects the answer if valid.
@@ -17,22 +17,22 @@ module Decidim
         def call
           return broadcast(:invalid) if invalid?
 
-          select_answer!
+          update_answer_selection!
 
           broadcast(:ok, answer)
         end
 
         private
 
-        attr_reader :answer
+        attr_reader :answer, :selected
 
         def invalid?
           !answer.question.total_votes.positive?
         end
 
-        def select_answer!
+        def update_answer_selection!
           answer.update!(
-            selected: !answer.selected
+            selected: !selected
           )
         end
       end

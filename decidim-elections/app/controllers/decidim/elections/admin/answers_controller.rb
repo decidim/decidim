@@ -58,15 +58,31 @@ module Decidim
         end
 
         def select
+          change_selected(false)
+        end
+
+        def unselect
+          change_selected(true)
+        end
+
+        def change_selected(selected)
           enforce_permission_to :select, :answer, election: election, question: question
 
-          MarkAnswerAsSelected.call(answer, current_user) do
+          UpdateAnswerSelection.call(answer, selected) do
             on(:ok) do
-              flash[:notice] = I18n.t("answers.select.success", scope: "decidim.elections.admin")
+              flash[:notice] = if selected
+                                 I18n.t("answers.unselect.success", scope: "decidim.elections.admin")
+                               else
+                                 I18n.t("answers.select.success", scope: "decidim.elections.admin")
+                               end
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("answers.select.invalid", scope: "decidim.elections.admin")
+              flash.now[:alert] = if selected
+                                    I18n.t("answers.unselect.invalid", scope: "decidim.elections.admin")
+                                  else
+                                    I18n.t("answers.select.invalid", scope: "decidim.elections.admin")
+                                  end
             end
           end
 

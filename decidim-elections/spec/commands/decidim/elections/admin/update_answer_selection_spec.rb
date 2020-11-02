@@ -2,15 +2,16 @@
 
 require "spec_helper"
 
-describe Decidim::Elections::Admin::MarkAnswerAsSelected do
-  subject(:command) { described_class.new(answer, user) }
+describe Decidim::Elections::Admin::UpdateAnswerSelection do
+  subject(:command) { described_class.new(answer, selected) }
 
   let(:election) { create(:election, :published, :finished) }
   let(:question) { create :question, :with_votes, election: election }
   let(:answer) { question.answers.first }
   let(:component) { election.component }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:selected) { false }
+  # let(:user) { create :user, :admin, :confirmed, organization: organization }
 
   it "updates the selected answer attribute" do
     subject.call

@@ -32,6 +32,7 @@ module Decidim
               end
               member do
                 get :select
+                get :unselect
               end
             end
           end
