@@ -92,7 +92,7 @@ module Decidim
         UpdateInitiative.call(current_initiative, @form, current_user) do
           on(:ok) do |initiative|
             flash[:notice] = I18n.t("success", scope: "decidim.initiatives.update")
-            redirect_to edit_initiative_path(initiative)
+            redirect_to initiative_path(initiative)
           end
 
           on(:invalid) do
