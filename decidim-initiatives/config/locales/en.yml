@@ -483,7 +483,7 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
-          confirm: Are you sure?
+          confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit: Edit
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This initiative only collects in-person signatures.
