@@ -8,7 +8,8 @@ module Decidim::Meetings
 
     let!(:meeting) { create(:meeting) }
 
-    let(:cell_html) { cell("decidim/meetings/meeting", meeting).call }
+    let(:the_cell) { cell("decidim/meetings/meeting", meeting) }
+    let(:cell_html) { the_cell.call }
 
     context "when rendering" do
       it "renders the card" do

@@ -8,7 +8,8 @@ module Decidim::Meetings
 
     let!(:meeting) { create(:meeting) }
     let(:model) { meeting }
-    let(:cell_html) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }).call }
+    let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }) }
+    let(:cell_html) { the_cell.call }
 
     it_behaves_like "has space in m-cell"
 
@@ -30,6 +31,7 @@ module Decidim::Meetings
       end
 
       it "escapes them correclty" do
+        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
         # as the `cell` test helper wraps conent in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")
