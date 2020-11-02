@@ -18,6 +18,7 @@
           <p class="mb-m"><%= t(".inactive_content_blocks") %></p>
           <ul class="draggable-list js-connect js-list-availables">
             <% inactive_blocks.each do |content_block_or_manifest| %>
+              <% next unless not content_block_or_manifest.respond_to?(:manifest) or content_block_or_manifest.manifest %>
               <%= cell "decidim/admin/content_block", content_block_or_manifest %>
             <% end %>
           </ul>
