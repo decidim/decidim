@@ -203,7 +203,6 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         show:
-          back: Kaikki vaalit
           preview: Esikatsele
           vote: Äänestä
           voting_period_status:
