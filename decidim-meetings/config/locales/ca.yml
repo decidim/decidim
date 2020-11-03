@@ -31,9 +31,7 @@ ca:
         title: Títol
         transparent: Transparent
       minutes:
-        audio_url: URL de l'àudio
         description: Descripció
-        video_url: URL del vídeo
         visible: És visible
     errors:
       models:
