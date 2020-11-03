@@ -604,7 +604,6 @@ fr-CA:
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -639,7 +638,6 @@ fr-CA:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
-          import_via_csv: Importer via csv
           title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
