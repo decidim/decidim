@@ -724,8 +724,6 @@ gl:
           send: Enviar
           title: Comezar unha conversa
     metrics:
-      download:
-        csv: Descargar datos (csv)
       followers:
         description: Número de usuarios que seguen este espazo de participación
         object: seguidores
