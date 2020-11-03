@@ -604,6 +604,7 @@ cs:
           rich_text_editor_in_public_views_help: V některých textových oblastech budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Při aktualizaci této organizace došlo k chybě.
@@ -638,6 +639,7 @@ cs:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
           success: Úspěšně zničen soukromý uživatelský prostor účastníka.
         index:
+          import_via_csv: Importovat přes CSV
           title: Účastní prostor soukromý uživatel
         new:
           create: Vytvořit
