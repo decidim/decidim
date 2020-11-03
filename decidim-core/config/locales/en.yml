@@ -1089,7 +1089,8 @@ en:
       not_allowed: You are not allowed to view this content
     profile:
       deleted: Participant deleted
-      inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
+      inaccessible:
+        inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
       view: View
     profiles:
       default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
