@@ -368,11 +368,11 @@ ja:
             all: すべて
             past: 過去
             upcoming: 近日公開
-          origin: 原点：
+          origin: 起案者：
           origin_values:
             all: すべて
-            citizens: Citizens
-            official: オフィシャル
+            citizens: 一般参加者
+            official: 事務局
             user_groups: グループ
           scope: スコープ
           search: 検索

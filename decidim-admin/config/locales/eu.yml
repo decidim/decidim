@@ -677,7 +677,6 @@ eu:
           fields:
             hidden_at: Ezkutatze-data
             report_count: Zenbaketa
-            reportable: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
             visit_url: Bisitatu URLa

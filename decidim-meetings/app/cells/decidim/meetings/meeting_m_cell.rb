@@ -24,7 +24,7 @@ module Decidim
       end
 
       def title
-        decidim_html_escape(present(model).title)
+        present(model).title
       end
 
       delegate :online_meeting?, to: :model

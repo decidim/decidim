@@ -14,7 +14,7 @@ module Decidim
         %w(Aaaa Aabb Bbbb).map do |title|
           create(:initiatives_type,
                  title: Decidim::Faker::Localized.literal(title),
-                 description: Decidim::Faker::Localized.sentence(25),
+                 description: Decidim::Faker::Localized.sentence(word_count: 25),
                  organization: organization)
         end
       end

@@ -93,6 +93,10 @@ module Decidim
         closed_at.present?
       end
 
+      def past?
+        end_time < Time.current
+      end
+
       def has_available_slots?
         return true if available_slots.zero?
 
@@ -190,6 +194,16 @@ module Decidim
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:description]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
 
       def online_meeting?

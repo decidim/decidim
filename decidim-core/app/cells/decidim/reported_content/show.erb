@@ -1,0 +1,5 @@
+<blockquote>
+  <% model.reported_attributes.each do |attribute_name| %>
+    <p><%= render_value(model.attributes.with_indifferent_access[attribute_name]) %></p>
+  <% end %>
+</blockquote>

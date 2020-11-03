@@ -829,7 +829,6 @@ de:
           fields:
             hidden_at: Versteckt bei
             report_count: Anzahl
-            reportable: Meldepflichtig
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL

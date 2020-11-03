@@ -14,8 +14,8 @@ describe Decidim::Elections::Admin::ElectionForm do
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :elections_component, participatory_space: participatory_process }
-  let(:title) { Decidim::Faker::Localized.sentence(3) }
-  let(:description) { Decidim::Faker::Localized.sentence(3) }
+  let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
+  let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:start_time) { 1.day.from_now }
   let(:end_time) { 3.days.from_now }
   let(:attachment_params) { nil }

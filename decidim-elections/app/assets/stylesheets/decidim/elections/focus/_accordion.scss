@@ -1,0 +1,36 @@
+.accordion{
+  background: transparent;
+
+  .accordion-title{
+    font-size: $global-font-size;
+    color: inherit;
+    border: 0;
+    border-radius: 0;
+
+    span{
+      cursor: move;
+    }
+
+    &:focus{
+      background: transparent;
+    }
+  }
+
+  .accordion-item{
+    // Override Foundation
+    &:first-child > :first-child,
+    &:last-child:not(.is-active) > .accordion-title{
+      border: 0;
+      border-radius: 0;
+    }
+  }
+
+  .accordion-content{
+    border: 0;
+
+    .tabs-title > a[aria-selected="true"],
+    .tabs-content{
+      background: transparent;
+    }
+  }
+}

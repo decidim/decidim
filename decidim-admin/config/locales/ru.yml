@@ -658,7 +658,6 @@ ru:
           fields:
             hidden_at: 'Скрыто:'
             report_count: Количество
-            reportable: Вид жалобы
             reported_content_url: Веб-адрес обжалованного содержимого
             reports: Жалобы
             visit_url: Посетите веб-адрес
