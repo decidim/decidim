@@ -830,7 +830,6 @@ es-MX:
           fields:
             hidden_at: Fecha de ocultación
             report_count: Recuento
-            reportable: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
             visit_url: Visita la URL

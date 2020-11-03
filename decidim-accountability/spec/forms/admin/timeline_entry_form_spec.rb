@@ -19,7 +19,7 @@ module Decidim::Accountability
 
     let(:entry_date) { "12/3/2017" }
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
 
     let(:attributes) do

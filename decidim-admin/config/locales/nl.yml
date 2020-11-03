@@ -805,7 +805,6 @@ nl:
           fields:
             hidden_at: Verborgen op
             report_count: Aantal
-            reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
             visit_url: Bezoek URL

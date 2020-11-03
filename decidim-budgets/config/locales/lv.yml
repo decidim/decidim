@@ -75,10 +75,10 @@ lv:
           description: Šie ir projekti, kurus izvēlējāties iekļaut budžetā.
           title: Apstipriniet balsojumu
         budget_excess:
+          budget_excess:
+            title: Pārsniegts maksimālais budžets
           close: Aizvērt
-          description: Šis projekts pārsniedz maksimālo budžetu, un to nevar pievienot. Ja vēlaties, varat izdzēst projektu, kuru jau esat pievienojis, vai arī balsot, kā gribat.
           ok: Labi
-          title: Pārsniegts maksimālais budžets
         budget_summary:
           are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
           assigned: 'Piešķirts:'
@@ -86,8 +86,6 @@ lv:
           checked_out:
             description: Jūs jau esat nobalsojis par budžetu. Ja esat mainījis savas domas, varat %{cancel_link}.
             title: Balsojums par budžetu pabeigts
-          description: Kādiem projektiem, jūsuprāt, mums būtu jāpiešķir budžets? Piešķiriet vismaz %{minimum_budget} projektiem, kuriem vēlaties, un, lai noteiktu budžetu, balsojiet pēc saviem ieskatiem.
-          description_minimum_projects_rule: Kādiem projektiem, jūsuprāt, mums būtu jāpiešķir budžets? Izvēlieties vismaz %{minimum_number} projektus, kurus vēlaties, un balsojiet pēc saviem ieskatiem, lai noteiktu budžetu.
           title: Jūs lemjat par budžetu
         count:
           projects_count:
@@ -160,4 +158,3 @@ lv:
         project_proposal: 'Šajā projektā iekļautie priekšlikumi:'
   index:
     confirmed_orders_count: Balsu skaits
-  total_budget: Kopējais budžets
