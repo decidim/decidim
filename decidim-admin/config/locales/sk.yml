@@ -560,7 +560,6 @@ sk:
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
@@ -594,7 +593,6 @@ sk:
           error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
           success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
         index:
-          import_via_csv: Import z CSV
           title: Súkromný účastník participatívneho priestoru
         new:
           create: Vytvoriť
