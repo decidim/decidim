@@ -109,7 +109,6 @@ ru:
         update: "%{user_name} обновил настройки организации"
       participatory_space_private_user:
         create: "%{user_name} пригласил %{resource_name} стать частным участником"
-        create_via_csv: "%{user_name} пригласил %{resource_name} через csv стать частным участником"
         delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
