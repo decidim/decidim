@@ -922,7 +922,7 @@ fi:
           error: Viestiä ei lähetetty virheen takia
     metrics:
       download:
-        csv: Lataa tiedot (csv)
+        csv: Lataa tiedot (CSV)
       followers:
         description: Tätä osallistumistilaa seuraavien käyttäjien määrä
         object: seuraajat
