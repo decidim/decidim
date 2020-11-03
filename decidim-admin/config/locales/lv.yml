@@ -553,7 +553,6 @@ lv:
         form:
           rich_text_editor_in_public_views_help: Atsevišķos teksta laukos, izmantojot bagātinātā teksta redaktoru, dalībnieki varēs ievietot dažus HTML tagus.
           social_handlers: Sociālie plašsaziņas līdzekļi
-          url: URL
         update:
           error: Šīs organizācijas atjaunināšanas laikā radās problēma.
           success: Organizācija ir veiksmīgi atjaunināta.
@@ -587,7 +586,6 @@ lv:
           error: Dzēšot privāto dalībnieku no šīs līdzdalības telpas, radās problēma.
           success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi dzēsta.
         index:
-          import_via_csv: Importēt no CSV
           title: Līdzdalības telpas privāts dalībnieks
         new:
           create: Izveidot
