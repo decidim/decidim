@@ -69,13 +69,6 @@ module Decidim
           meeting.past?
       end
 
-      def can_close_meeting?
-        component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user) &&
-          !meeting.closed? &&
-          meeting.past?
-      end
-
       def can_register_invitation_meeting?
         meeting.can_register_invitation?(user) &&
           authorized?(:register, resource: meeting)

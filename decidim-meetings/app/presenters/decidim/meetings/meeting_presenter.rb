@@ -32,15 +32,6 @@ module Decidim
         end
       end
 
-      def closing_report(links: false, all_locales: false)
-        return unless meeting
-
-        handle_locales(meeting.closing_report, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
-          renderer.render(links: links).html_safe
-        end
-      end
-
       def location(all_locales: false)
         return unless meeting
 
