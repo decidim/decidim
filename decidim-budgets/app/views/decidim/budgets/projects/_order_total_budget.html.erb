@@ -1,3 +1,7 @@
 <strong id="order-total-budget" class="mini-title__strong">
-  <%= budget_to_currency current_order&.total_budget.to_f %>
+  <% if current_order.projects_rule? %>
+    <%= current_order.projects.count %> / <%= current_order.maximum_projects %>
+  <% else %>
+    <%= budget_to_currency current_order&.total_budget.to_f %>
+  <% end %>
 </strong>

@@ -28,7 +28,7 @@ module Decidim
         {
           name_and_surname: ::Faker::Name.name,
           document_number: ::Faker::IDNumber.spanish_citizen_number,
-          date_of_birth: ::Faker::Date.birthday(18, 40),
+          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40),
           postal_code: ::Faker::Address.zip_code
         }
       end

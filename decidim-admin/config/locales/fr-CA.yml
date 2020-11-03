@@ -830,7 +830,6 @@ fr-CA:
           fields:
             hidden_at: Masqué le
             report_count: Compteur
-            reportable: Contenu
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL

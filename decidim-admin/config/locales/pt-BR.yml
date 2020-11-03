@@ -677,7 +677,6 @@ pt:
           fields:
             hidden_at: Escondido em
             report_count: Contagem
-            reportable: Reportable
             reported_content_url: URL de conteúdo relatado
             reports: Denúncias
             visit_url: URL de visita
