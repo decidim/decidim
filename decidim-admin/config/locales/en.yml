@@ -300,6 +300,9 @@ en:
         category_id_eq:
           label: Category
         filter_label: Filter
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: State
           values:
@@ -320,6 +323,7 @@ en:
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
+          reported_id_string_or_reported_content_cont: Search %{collection} by reportable id or content.
           title_cont: Search %{collection} by title.
         state_eq:
           label: State
@@ -481,6 +485,21 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        reports:
+          index:
+            author: Author(s)
+            callout_html: A content appears in the moderation panel when it has been signaled by a user (can be anyone with a registered account) by clicking on the %{icon} flag next to the item.
+            content_original_language: Content original language
+            participatory_space: Participatory space
+            reported_content: Reported content
+            see_current: See current
+            see_original: See original
+            title: Moderation reports
+          show:
+            report_details: Reason details
+            report_language: Report language
+            report_reason: Reason
+            title: Report details
       newsletter_templates:
         index:
           preview_template: Preview
@@ -594,7 +613,7 @@ en:
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: There was a problem updating this organization.
@@ -629,7 +648,7 @@ en:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
         index:
-          import_via_csv: Import via csv
+          import_via_csv: Import via CSV
           title: Participatory space private participant
         new:
           create: Create
@@ -830,6 +849,7 @@ en:
           reason: You need to provide a reason when managing a non managed participant
     moderations:
       actions:
+        expand: Expand
         hidden: Hidden
         hide: Hide
         not_hidden: Not hidden
@@ -850,12 +870,19 @@ en:
       models:
         moderation:
           fields:
+            created_at: Creation date
             hidden_at: Hidden at
             report_count: Count
-            reportable: Reportable
+            reportable_id: Id
+            reportable_type: Type
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+        report:
+          fields:
+            details: Reason details
+            locale: Language
+            reason: Reason
   errors:
     messages:
       invalid_json: Invalid JSON

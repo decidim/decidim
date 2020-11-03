@@ -9,8 +9,8 @@ module Decidim::Admin
       let(:organization) { create(:organization) }
       let(:newsletter) { create(:newsletter, organization: organization) }
 
-      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(3) }
-      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(3) }
+      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
+      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
 
       let(:form) do
         Decidim::Admin::NewsletterForm.from_params(

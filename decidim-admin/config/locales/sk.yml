@@ -787,7 +787,6 @@ sk:
           fields:
             hidden_at: Skryté
             report_count: Počet
-            reportable: Nahlásiteľné
             reported_content_url: Nahlásiť URL obsahu
             reports: Nahlásenia
             visit_url: Navštíviť URL

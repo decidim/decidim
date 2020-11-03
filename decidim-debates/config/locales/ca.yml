@@ -200,10 +200,16 @@ ca:
           email_subject: Els debats ja estan disponibles a %{participatory_space_title}
           notification_title: Ja pots començar <a href="%{resource_path}">nous debats</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
-          email_subject: El debat "%{resource_title}" s'ha tancat
-          notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          affected_user:
+            email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+            email_subject: El debat "%{resource_title}" s'ha tancat
+            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+          follower:
+            email_intro: 'El debat "%{resource_title}" s''ha tancat. Podeu llegir-ne les conclusions a la seva pàgina:'
+            email_outro: Has rebut aquesta notificació perquè estàs seguint el debat "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+            email_subject: El debat "%{resource_title}" s'ha tancat
+            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
     gamification:
       badges:
         commented_debates:

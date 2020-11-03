@@ -135,10 +135,10 @@ ca:
           description: Aquests són els projectes que has seleccionat per formar part del pressupost.
           title: Confirmar vot
         budget_excess:
+          budget_excess:
+            title: Pressupost excedit
           close: Tancar
-          description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o donar suport amb les seves preferències.
           ok: D'acord
-          title: Pressupost excedit
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
@@ -146,8 +146,6 @@ ca:
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
             title: Vot pels pressupostos completat
-          description: En quins projectes creus que hem de destinar el pressupost? Assigna com a mínim %{minimum_budget} als projectes que desitges i vota per definir el pressupost.
-          description_minimum_projects_rule: A quins projectes creus que hem de destinar el pressupost? Selecciona com a mínim %{minimum_number} projectes i vota segons les teves preferències per a definir el pressupost.
           title: Tu decideixes el pressupost
         count:
           projects_count:
@@ -190,7 +188,6 @@ ca:
           votes:
             one: vot
             other: vots
-          you_voted: Has votat
         project_budget_button:
           add: Afegir al teu vot
           add_descriptive: Afegir el projecte %{resource_name} al teu vot
@@ -262,4 +259,3 @@ ca:
         project_proposal: 'Propostes incloses en aquest projecte:'
   index:
     confirmed_orders_count: Recompte de vots
-  total_budget: Pressupost total

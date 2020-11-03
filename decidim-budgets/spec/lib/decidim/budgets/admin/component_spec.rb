@@ -26,7 +26,9 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:percent_enabled) { false }
     let(:percent) { 70 }
     let(:minimum_enabled) { false }
+    let(:projects_enabled) { false }
     let(:minimum_number) { 3 }
+    let(:maximum_number) { 6 }
 
     let(:settings) do
       {
@@ -34,7 +36,10 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         vote_rule_threshold_percent_enabled: percent_enabled,
         vote_threshold_percent: percent,
         vote_rule_minimum_budget_projects_enabled: minimum_enabled,
-        vote_minimum_budget_projects_number: minimum_number
+        vote_minimum_budget_projects_number: minimum_number,
+        vote_rule_selected_projects_enabled: projects_enabled,
+        vote_selected_projects_minimum: minimum_number,
+        vote_selected_projects_maximum: maximum_number
       }
     end
 
@@ -55,6 +60,48 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
 
       context "when the minimum projects number is NOT valid" do
         let(:minimum_number) { 0 }
+
+        it "does NOT update the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:invalid)
+        end
+      end
+    end
+
+    describe "with projects rule enabled" do
+      let(:projects_enabled) { true }
+
+      context "when the projects rule is valid" do
+        it "updates the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:ok)
+        end
+      end
+
+      context "when the projects rule is NOT valid" do
+        let(:maximum_number) { 0 }
+
+        it "does NOT update the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:invalid)
+        end
+      end
+
+      context "when the maximum projects number is more than the minimum" do
+        let(:maximum_number) { 4 }
+
+        it "updates the component" do
+          expect do
+            Decidim::Admin::UpdateComponent.call(form, component)
+          end.to broadcast(:ok)
+        end
+      end
+
+      context "when the maximum projects number is less than the minimum" do
+        let(:maximum_number) { 2 }
 
         it "does NOT update the component" do
           expect do
@@ -89,6 +136,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     describe "with more than one voting rule enabled" do
       let(:percent_enabled) { true }
       let(:minimum_enabled) { true }
+      let(:projects_enabled) { true }
 
       it "does NOT update the component" do
         expect do
@@ -100,6 +148,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     describe "with no voting rule enabled" do
       let(:percent_enabled) { false }
       let(:minimum_enabled) { false }
+      let(:projects_enabled) { false }
 
       it "does NOT update the component" do
         expect do
@@ -138,6 +187,36 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
           expect(page).to have_no_content("Vote threshold percent")
           expect(page).to have_no_css("input#component_settings_vote_threshold_percent")
         end
+
+        it "is hidden the project rule inputs" do
+          expect(page).to have_no_content("Minimum amount of projects to be selected")
+          expect(page).to have_no_content("Maximum amount of projects to be selected")
+          expect(page).to have_no_css("input#component_settings_vote_selected_projects_minimum")
+          expect(page).to have_no_css("input#component_settings_vote_selected_projects_maximum")
+        end
+      end
+
+      context "when projects rule is checked" do
+        before do
+          check "Enable rule: Selected projects with minimum and maximum number of projects to be voted on"
+        end
+
+        it "is shown the number input" do
+          expect(page).to have_content("Minimum amount of projects to be selected")
+          expect(page).to have_content("Maximum amount of projects to be selected")
+          expect(page).to have_css("input#component_settings_vote_selected_projects_minimum")
+          expect(page).to have_css("input#component_settings_vote_selected_projects_maximum")
+        end
+
+        it "is hidden the percent input" do
+          expect(page).to have_no_content("Vote threshold percent")
+          expect(page).to have_no_css("input#component_settings_vote_threshold_percent")
+        end
+
+        it "is hidden the number input" do
+          expect(page).to have_no_content("Minimum number of projects to vote")
+          expect(page).to have_no_css("input#component_settings_vote_minimum_budget_projects_number")
+        end
       end
 
       context "when threshold percent rule is checked" do
@@ -153,6 +232,13 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         it "is hidden the number input" do
           expect(page).to have_no_content("Minimum number of projects to vote")
           expect(page).to have_no_css("input#component_settings_vote_minimum_budget_projects_number")
+        end
+
+        it "is hidden the project rule inputs" do
+          expect(page).to have_no_content("Minimum amount of projects to be selected")
+          expect(page).to have_no_content("Maximum amount of projects to be selected")
+          expect(page).to have_no_css("input#component_settings_vote_selected_projects_minimum")
+          expect(page).to have_no_css("input#component_settings_vote_selected_projects_maximum")
         end
       end
     end
