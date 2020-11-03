@@ -24,6 +24,7 @@ describe "Explore elections", :slow, type: :system do
 
         expect(page).to have_content("Voting began on")
         expect(page).not_to have_content("All elections")
+        expect(page).to have_content("These are the questions you will find in the voting process")
       end
     end
 
@@ -136,6 +137,7 @@ describe "Explore elections", :slow, type: :system do
   describe "show" do
     let(:elections_count) { 1 }
     let(:election) { elections.first }
+    let(:question) { election.questions.first }
     let(:image) { create(:attachment, :with_image, attached_to: election) }
 
     before do
@@ -147,6 +149,16 @@ describe "Explore elections", :slow, type: :system do
       expect(page).to have_i18n_content(election.title)
       expect(page).to have_i18n_content(election.description)
       expect(page).to have_content(election.end_time.day)
+    end
+
+    it "shows accordion with questions and answers" do
+      expect(page).to have_css(".accordion-item", count: election.questions.count)
+      expect(page).not_to have_css(".accordion-content")
+
+      within ".accordion-item:first-child" do
+        click_link translated(question.title)
+        expect(page).to have_css("li", count: question.answers.count)
+      end
     end
 
     context "with attached photos" do

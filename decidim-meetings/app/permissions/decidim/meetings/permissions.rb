@@ -23,6 +23,8 @@ module Decidim
           toggle_allow(can_create_meetings?)
         when :update
           toggle_allow(can_update_meeting?)
+        when :close
+          toggle_allow(can_close_meeting?)
         when :register
           toggle_allow(can_register_invitation_meeting?)
         end
@@ -56,7 +58,15 @@ module Decidim
 
       def can_update_meeting?
         component_settings&.creation_enabled_for_participants? &&
-          meeting.authored_by?(user)
+          meeting.authored_by?(user) &&
+          !meeting.closed?
+      end
+
+      def can_close_meeting?
+        component_settings&.creation_enabled_for_participants? &&
+          meeting.authored_by?(user) &&
+          !meeting.closed? &&
+          meeting.past?
       end
 
       def can_register_invitation_meeting?

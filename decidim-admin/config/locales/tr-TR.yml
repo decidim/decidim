@@ -710,7 +710,6 @@ tr:
           fields:
             hidden_at: Gizli
             report_count: saymak
-            reportable: bildirilmesi zorunlu
             reported_content_url: Raporlanan içerik URL'si
             reports: Raporlar
             visit_url: URL'yi ziyaret et

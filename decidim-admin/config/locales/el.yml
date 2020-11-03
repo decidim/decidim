@@ -800,7 +800,6 @@ el:
           fields:
             hidden_at: Αποκρύφτηκε στις
             report_count: Πλήθος
-            reportable: Με δυνατότητα αναφοράς
             reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
             reports: Αναφορές
             visit_url: Διεύθυνση URL επίσκεψης

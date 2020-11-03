@@ -803,7 +803,6 @@ hu:
           fields:
             hidden_at: 'Rejtett itt:'
             report_count: Számol
-            reportable: Kimutatható
             reported_content_url: Jelentett URL tartalom
             reports: Jelentések
             visit_url: URL meglátogatása
