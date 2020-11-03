@@ -204,8 +204,12 @@ en:
           filter_by: Filter by
           unfold: Unfold
         show:
-          back: All elections
+          back: Available elections
           preview: Preview
+          questions_preview:
+            available_answers: Available answers
+            description: These are the questions you will find in the voting process
+            title: Election questions
           vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
