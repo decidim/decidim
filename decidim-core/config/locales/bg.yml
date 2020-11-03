@@ -125,7 +125,6 @@ bg:
         update: "%{user_name} обнови настройките на организацията"
       participatory_space_private_user:
         create: "%{user_name} покани %{resource_name} да бъде частен участник"
-        create_via_csv: "%{user_name} покани %{resource_name} чрез csv да бъде частен участник"
         delete: "%{user_name} премахна участника %{resource_name} като частен"
       scope:
         create: "%{user_name} създаде сферата %{resource_name}"
@@ -866,8 +865,6 @@ bg:
           send: Изпрати
           title: Започнете разговор
     metrics:
-      download:
-        csv: Сваляне на данни (csv)
       followers:
         description: Брой участници, които следват това пространство
         object: последователи
