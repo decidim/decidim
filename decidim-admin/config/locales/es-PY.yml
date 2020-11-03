@@ -604,7 +604,6 @@ es-PY:
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
@@ -639,7 +638,6 @@ es-PY:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
-          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
