@@ -31,9 +31,7 @@ zh-CN:
         title: 标题
         transparent: 透明的
       minutes:
-        audio_url: 音频网址
         description: 描述
-        video_url: 视频网址
         visible: 可见
     errors:
       models:
