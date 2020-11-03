@@ -133,7 +133,6 @@ sk:
         update: "%{user_name} aktualizoval nastavenia organizácie"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
-        create_via_csv: "%{user_name} pozval %{resource_name} cez CSV aby sa stal súkromným účastníkom"
         delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
@@ -844,8 +843,6 @@ sk:
           send: Poslat
           title: Spusťte konverzaci
     metrics:
-      download:
-        csv: Stiahnuť údaje (CSV)
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
         object: sledujúci
