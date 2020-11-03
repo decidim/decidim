@@ -722,8 +722,6 @@ id:
           send: Kirim
           title: Mulai percakapan
     metrics:
-      download:
-        csv: Unduh data (csv)
       followers:
         description: Jumlah pengguna yang mengikuti ruang partisipasi ini
         object: pengikut
