@@ -585,7 +585,6 @@ zh-CN:
           rich_text_editor_in_public_views_help: 在某些文本领域，参与者将能够通过使用丰富的文本编辑器插入一些HTML标签。
           social_handlers: 社交活动
           twitter: 推特
-          url: 网址
           youtube: YouTube
         update:
           error: 更新这个组织时出现问题。
@@ -620,7 +619,6 @@ zh-CN:
           error: 删除这个参与空间的私人参与者时出错。
           success: 参与性空间私人参与者访问成功被摧毁。
         index:
-          import_via_csv: 通过 csv 导入
           title: 参与性空间私人参与者
         new:
           create: 创建
