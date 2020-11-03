@@ -299,6 +299,9 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Tipus
         officialized_at_null:
           label: Estat
           values:
@@ -480,6 +483,9 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut no desitjat
+        reports:
+          index:
+            author: Autor(s)
       newsletter_templates:
         index:
           preview_template: Previsualitzar
