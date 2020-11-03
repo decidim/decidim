@@ -6,7 +6,7 @@ module Decidim
     include Loggable
 
     belongs_to :user, foreign_key: :decidim_user_id, class_name: "Decidim::UserBaseEntity"
-    has_many :reports, foreign_key: :user_moderation_id, class_name: "Decidim::UserReport", dependent: :destroy
+    has_many :reports, class_name: "Decidim::UserReport", dependent: :destroy
 
     delegate :organization, to: :user
 

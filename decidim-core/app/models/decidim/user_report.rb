@@ -7,7 +7,7 @@ module Decidim
     REASONS = %w(spam offensive does_not_belong).freeze
 
     belongs_to :moderation, foreign_key: :user_moderation_id, class_name: "Decidim::UserModeration"
-    belongs_to :user, foreign_key: :user_id, class_name: "Decidim::User"
+    belongs_to :user, class_name: "Decidim::User"
 
     validates :reason, presence: true
     validates :reason, inclusion: { in: REASONS }
