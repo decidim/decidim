@@ -12,7 +12,8 @@ shared_examples "create an initiative" do
         initiative_type: initiative_type
       )
   end
-  let(:attachment_params) { nil }
+  let(:uploaded_files) { [] }
+  let(:current_files) { [] }
 
   describe "call" do
     let(:form_params) do
@@ -23,7 +24,8 @@ shared_examples "create an initiative" do
         signature_type: "online",
         scope_id: scoped_type.scope.id,
         decidim_user_group_id: nil,
-        attachment: attachment_params
+        add_documents: uploaded_files,
+        documents: current_files
       }
     end
 
@@ -57,11 +59,10 @@ shared_examples "create an initiative" do
       end
 
       context "when attachment is present", processing_uploads_for: Decidim::AttachmentUploader do
-        let(:attachment_params) do
-          {
-            title: "My attachment",
-            file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
-          }
+        let(:uploaded_files) do
+          [
+            Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+          ]
         end
 
         it "creates an attachment for the proposal" do
@@ -72,15 +73,22 @@ shared_examples "create an initiative" do
         end
 
         context "when attachment is left blank" do
-          let(:attachment_params) do
-            {
-              title: ""
-            }
-          end
-
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
+        end
+      end
+
+      context "when has multiple attachments", processing_uploads_for: Decidim::AttachmentUploader do
+        let(:uploaded_files) do
+          [
+            Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
+            Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")
+          ]
+        end
+
+        it "creates multiple attachments for the initiative" do
+          expect { command.call }.to change(Decidim::Attachment, :count).by(2)
         end
       end
 
