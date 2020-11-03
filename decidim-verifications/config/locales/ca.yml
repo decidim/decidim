@@ -131,7 +131,6 @@ ca:
             title: Dades censals actuals
           instructions:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
-            title: Necessites activar el cens csv d'aquesta organització
           new:
             file: "fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
