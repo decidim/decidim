@@ -129,7 +129,6 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
-        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Benutzer eingeladen"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -913,8 +912,6 @@ de:
           send: Senden
           title: Ein Gespräch beginnen
     metrics:
-      download:
-        csv: Daten herunterladen (csv)
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
