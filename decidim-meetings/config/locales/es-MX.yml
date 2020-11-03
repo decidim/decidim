@@ -33,9 +33,7 @@ es-MX:
         transparent: Transparente
         type_of_meeting: Tipo
       minutes:
-        audio_url: URL del audio
         description: Descripción
-        video_url: URL del vídeo
         visible: Es visible
     errors:
       models:
