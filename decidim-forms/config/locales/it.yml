@@ -78,7 +78,6 @@ it:
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
             preview: Anteprima
-            title: Modificare il modulo
             unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga

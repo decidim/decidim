@@ -12,10 +12,10 @@
                        check_boxes_tree_options(
                          collection.leaf.value,
                          collection.leaf.label,
-                         {
+                         **({
                            "data-checkboxes-tree": data_checkboxes_tree_id,
                            is_root_check_box: is_root_check_box
-                         }.merge(options)),
+                         }.merge(options))),
                          collection.leaf.value.to_s, nil %>
 
     <% unless is_root_check_box %>
@@ -46,7 +46,7 @@
                                 check_boxes_tree_options(
                                   item.value,
                                   item.label,
-                                  options
+                                  **options
                                 ),
                                 item.value, nil %>
           <% end %>

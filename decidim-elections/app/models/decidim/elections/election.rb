@@ -13,12 +13,15 @@ module Decidim
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
+      include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
 
       component_manifest_name "elections"
 
       has_many :questions, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Question", inverse_of: :election, dependent: :destroy
+      has_many :elections_trustees, foreign_key: "decidim_elections_election_id", dependent: :destroy
+      has_many :trustees, through: :elections_trustees
 
       scope :active, lambda {
         where("start_time <= ?", Time.current)

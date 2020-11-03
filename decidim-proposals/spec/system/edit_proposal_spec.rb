@@ -97,7 +97,7 @@ describe "Edit proposals", type: :system do
 
       click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
-      visit current_path + "/edit"
+      visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
     end
@@ -115,7 +115,7 @@ describe "Edit proposals", type: :system do
 
       click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
-      visit current_path + "/edit"
+      visit "#{current_path}/edit"
 
       expect(page).to have_content("not authorized")
     end

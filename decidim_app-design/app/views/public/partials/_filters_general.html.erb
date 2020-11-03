@@ -11,7 +11,7 @@
     <div class="filters__section--general<%= " no-results" if noresults %>">
       <%= link_to page_path(i.downcase + "/" + i.downcase), class: "flex--sbc" do %>
         <strong class="section-title"><%= i %></strong>
-        <span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(0, 100) %></span>
+        <span class="muted">&nbsp;<%= noresults ? 0 : Faker::Number.between(from: 0, to: 100) %></span>
       <% end %>
     </div>
     <% end %>

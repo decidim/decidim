@@ -77,9 +77,9 @@ Decidim.register_component(:blogs) do |component|
 
       params = {
         component: component,
-        title: Decidim::Faker::Localized.sentence(5),
+        title: Decidim::Faker::Localized.sentence(word_count: 5),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(20)
+          Decidim::Faker::Localized.paragraph(sentence_count: 20)
         end,
         author: author
       }

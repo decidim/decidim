@@ -116,7 +116,7 @@ module Decidim
           organization,
           manifest.name,
           Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(15)
+            Decidim::Faker::Localized.sentence(word_count: 15)
           end
         )
       end

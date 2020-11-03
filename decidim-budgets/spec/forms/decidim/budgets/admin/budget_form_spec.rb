@@ -16,8 +16,8 @@ describe Decidim::Budgets::Admin::BudgetForm do
   let(:current_component) { create :budgets_component, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: organization }
   let(:scope_id) { scope.id }
-  let(:title) { Decidim::Faker::Localized.sentence(3) }
-  let(:description) { Decidim::Faker::Localized.sentence(3) }
+  let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
+  let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:weight) { 1 }
   let(:total_budget) { 100_000_000 }
 

@@ -73,7 +73,6 @@ pl:
         rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
         secondary_color: Drugorzędny
         send_welcome_notification: Wyślij komunikat powitalny
-        show_statistics: Pokaż statystyki
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z usługi
@@ -830,7 +829,6 @@ pl:
           fields:
             hidden_at: Ukryto
             report_count: Liczba
-            reportable: Zgłoszone
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
             visit_url: Odwiedź adres URL

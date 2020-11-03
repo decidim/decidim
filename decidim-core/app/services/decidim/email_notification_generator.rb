@@ -28,6 +28,8 @@ module Decidim
     end
     # rubocop:enable Metrics/ParameterLists
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+
     # Schedules a job for each recipient to send the email. Returns `nil`
     # if the resource is not resource or if it is not present.
     #
@@ -49,6 +51,7 @@ module Decidim
         send_email_to(recipient, user_role: :affected_user)
       end
     end
+    # rubocop: enable Metrics/CyclomaticComplexity
 
     private
 

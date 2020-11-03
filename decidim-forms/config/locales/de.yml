@@ -76,7 +76,6 @@ de:
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             preview: Vorschau
-            title: Formular bearbeiten
             unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile

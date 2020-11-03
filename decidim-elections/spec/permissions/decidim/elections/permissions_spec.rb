@@ -24,6 +24,14 @@ describe Decidim::Elections::Permissions do
     it_behaves_like "delegates permissions to", Decidim::Elections::Admin::Permissions
   end
 
+  context "when scope is trustee zone" do
+    let(:action) do
+      { scope: :trustee_zone, action: :foo, subject: :election }
+    end
+
+    it_behaves_like "delegates permissions to", Decidim::Elections::TrusteeZone::Permissions
+  end
+
   context "when scope is not public" do
     let(:action) do
       { scope: :foo, action: :bar, subject: :election }
@@ -141,6 +149,22 @@ describe Decidim::Elections::Permissions do
       let(:election) { create :election, :published, :finished, component: elections_component }
 
       it { is_expected.to be_truthy }
+    end
+
+    context "when subject is a questionnaire" do
+      let(:action) do
+        { scope: :public, action: :answer, subject: :questionnaire }
+      end
+
+      context "and user is logged in" do
+        it { is_expected.to be_truthy }
+      end
+
+      context "and user is not logged in" do
+        let(:user) { nil }
+
+        it { is_expected.to be_falsey }
+      end
     end
   end
 end

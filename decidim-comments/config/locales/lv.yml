@@ -18,7 +18,6 @@ lv:
         other: Balsis
   decidim:
     comments:
-      comments: Komentāri
       last_activity:
         new_comment_at_html: "<span>Jauns komentārs %{link}</span>"
       votes:
@@ -75,7 +74,6 @@ lv:
         loading: Notiek komentāru ielāde ...
         single_comment_warning: Pārējos komentārus varat aplūkot <a href="%{url}">šeit</a>.
         single_comment_warning_title: Jūs redzat vienu komentāru
-        title: "%{count} komentāri"
     events:
       comments:
         comment_by_followed_user:

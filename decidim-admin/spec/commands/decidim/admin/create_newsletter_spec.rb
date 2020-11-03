@@ -10,8 +10,8 @@ module Decidim::Admin
       let(:content_block) do
         build(:content_block, :newsletter_template, organization: organization, manifest_name: :basic_only_text)
       end
-      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(3) }
-      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(3) }
+      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
+      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
 
       let(:form) do
         Decidim::Admin::NewsletterForm.from_params(
@@ -74,10 +74,10 @@ module Decidim::Admin
 
           expect(newsletter.author).to eq(user)
           expect(newsletter.organization).to eq(organization)
-          expect(newsletter.subject).to eq(form.subject.stringify_keys)
+          expect(newsletter.subject.deep_stringify_keys).to eq(form.subject.deep_stringify_keys)
           expect(newsletter.sent?).to eq(false)
           expect(newsletter.template).to be_present
-          expect(newsletter.template.settings.body.stringify_keys).to eq(newsletter_body.stringify_keys)
+          expect(newsletter.template.settings.body.stringify_keys).to eq(newsletter_body.stringify_keys.except("machine_translations"))
         end
       end
     end
