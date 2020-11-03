@@ -13,6 +13,7 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
+        selected: Vybráno pro implementaci
         title: Titul
   activerecord:
     models:
