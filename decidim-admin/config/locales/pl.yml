@@ -585,7 +585,6 @@ pl:
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
@@ -620,7 +619,6 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
-          import_via_csv: Import z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
