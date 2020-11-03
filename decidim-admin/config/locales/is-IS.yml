@@ -404,7 +404,6 @@ is-IS:
           instagram: Instagram
           social_handlers: Félagsleg
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.
