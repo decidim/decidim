@@ -3,6 +3,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "decidim/gem_manager"
+require "decidim/git_log_parser"
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -95,35 +96,7 @@ task :parse_git_log, [:log_path] do |t, args|
   puts "Parsing: #{log_path}"
 
   full_log= File.open(log_path).read.strip
-  entries= full_log.split(/^commit \w+[^\n]*$/)
-  entries.shift # remove first empty entry from split
-  puts "Found #{entries.size} entries"
-
-  categorized= {}
-  uncategorized= []
-  entries.each do |entry|
-    puts "ENTRY:-------------------"
-    content, notes= entry.split(/^Notes:$/)
-    content= content.strip
-    notes= notes&.strip
-    if notes.present?
-      puts "CONTENT: #{content}"
-      puts "NOTES: #{notes}"
-      type, modules= notes.split(':')
-      categorized[type]||= []
-      categorized[type] << "- #{modules}: #{content}"
-    else
-      next if content.start_with?("New Crowdin updates")
-      uncategorized << content
-    end
-  end
-  puts "CHANGELOG ENTRIES:"
-  categorized.keys.each do |type|
-    puts "#{type}:"
-    categorized[type].each do |entry|
-      puts entry
-    end
-  end
-  puts "UNCATEGORIZED ENTRIES:"
-  puts uncategorized.join("\n")
+  parser= Decidim::GitLogParser.new(full_log)
+  parser.parse
+  parser.print_results
 end
