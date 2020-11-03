@@ -13,6 +13,7 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
+        selected: Valittu toteutukseen
         title: Otsikko
   activerecord:
     models:
