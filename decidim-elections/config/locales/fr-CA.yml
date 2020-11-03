@@ -180,7 +180,6 @@ fr-CA:
           filter_by: Filtrer par
           unfold: Voir plus
         show:
-          back: Toutes les élections
           preview: Aperçu
           vote: Voter
           voting_period_status:
