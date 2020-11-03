@@ -28,7 +28,7 @@ module Decidim
       end
 
       def title
-        decidim_html_escape(present(model).title)
+        present(model).title
       end
 
       def resource_icon
