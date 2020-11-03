@@ -123,7 +123,6 @@ zh-CN:
         update: "%{user_name} 更新了组织设置"
       participatory_space_private_user:
         create: "%{user_name} 邀請了 %{resource_name} 作为私人参与者"
-        create_via_csv: "%{user_name} 通过 csv 邀请 %{resource_name} 成为私人参与者"
         delete: "%{user_name} 移除了参与者 %{resource_name} 作为私人参与者"
       scope:
         create: "%{user_name} 创建了 %{resource_name} 范围"
@@ -892,8 +891,6 @@ zh-CN:
         update:
           error: 消息因错误而未发送
     metrics:
-      download:
-        csv: 下载数据 (csv)
       followers:
         description: 跟随此参与空间的参与者数量
         object: 关注者
