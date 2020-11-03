@@ -211,7 +211,6 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         show:
-          back: Všechny volby
           preview: Náhled
           vote: Hlasování
           voting_period_status:
