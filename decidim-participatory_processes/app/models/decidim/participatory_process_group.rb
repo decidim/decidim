@@ -6,6 +6,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::Randomable
 
     translatable_fields :title, :description, :developer_group, :local_area, :meta_scope, :participatory_scope,
                         :participatory_structure, :target

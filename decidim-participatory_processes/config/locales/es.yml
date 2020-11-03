@@ -320,6 +320,15 @@ es:
         related_assemblies: Asambleas relacionadas
     participatory_process_groups:
       content_blocks:
+        highlighted_process_groups:
+          name: Grupos de procesos destacados
+        highlighted_process_groups_settings_form:
+          max_results:
+            label: Cantidad máxima de elementos para mostrar
+          orders:
+            label: 'Ordena los elementos por:'
+            random: Aleatorio
+            recent: Más recientes
         html_1:
           name: Primer bloque HTML
         html_2:

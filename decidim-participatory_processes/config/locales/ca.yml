@@ -320,6 +320,15 @@ ca:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
       content_blocks:
+        highlighted_participatory_process_groups:
+          name: Grups de processos destacats
+        highlighted_participatory_process_groups_settings_form:
+          max_results:
+            label: Quantitat màxima d'elements que es mostraran
+          orders:
+            label: 'Ordena elements per:'
+            random: Aleatori
+            recent: Més recents
         html_1:
           name: Primer bloc HTML
         html_2:

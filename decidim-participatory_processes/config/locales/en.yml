@@ -321,6 +321,15 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        highlighted_process_groups:
+          name: Highlighted process groups
+        highlighted_process_groups_settings_form:
+          max_results:
+            label: Maximum amount of elements to show
+          orders:
+            label: 'Sort elements by:'
+            random: Random
+            recent: Most recent
         html_1:
           name: First HTML block
         html_2:

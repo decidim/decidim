@@ -1,0 +1,13 @@
+<section class="wrapper-home home-section">
+  <div class="row" id="<%= block_id %>">
+    <h3 class="section-heading"><%= t("decidim.participatory_process_groups.content_blocks.highlighted_process_groups.name") %></h3>
+    <div class="row collapse">
+      <div class="row small-up-1 smallmedium-up-2 mediumlarge-up-3
+        large-up-4 card-grid">
+        <% elements.each do |element| %>
+          <%= card_for element %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
