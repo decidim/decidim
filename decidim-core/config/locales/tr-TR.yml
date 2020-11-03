@@ -739,8 +739,6 @@ tr:
           send: göndermek
           title: Bir görüşme başlat
     metrics:
-      download:
-        csv: Veri indir (csv)
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
         object: takipçileri
