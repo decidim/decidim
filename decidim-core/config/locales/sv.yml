@@ -128,7 +128,6 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
-        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -909,8 +908,6 @@ sv:
           send: Skicka
           title: Starta en konversation
     metrics:
-      download:
-        csv: Hämta data (csv)
       followers:
         description: Antal deltagare som följer detta deltagarområde
         object: följare
