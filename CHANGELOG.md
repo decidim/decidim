@@ -4,6 +4,8 @@
 
 ## Upgrade Notes
 
+### Changed
+
 - **Bump Ruby to v2.7**
 
 We've bumped the minimum Ruby version to 2.7.1, thanks to 2 PRs:
