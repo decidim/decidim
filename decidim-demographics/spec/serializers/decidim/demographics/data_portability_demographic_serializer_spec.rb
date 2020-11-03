@@ -14,7 +14,7 @@ module Decidim
 
           expect(serialized).to be_a(Hash)
           expect(serialized).to include(:age)
-          expect(serialized).to include(:nationality)
+          expect(serialized).to include(:nationalities)
           expect(serialized).to include(:gender)
           expect(serialized).to include(:postal_code)
           expect(serialized).to include(:background)

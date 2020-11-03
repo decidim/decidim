@@ -7,7 +7,7 @@ module Decidim
   module Demographics
     describe DemographicsType, type: :graphql do
       include_context "with a graphql type"
-      let(:model) { create(:demographic) }
+      let(:model) { create(:encrypted_demographic) }
 
       it_behaves_like "a component query type"
 
@@ -27,11 +27,19 @@ module Decidim
         end
       end
 
-      describe "nationality" do
-        let(:query) { "{ nationality }" }
+      describe "nationalities" do
+        let(:query) { "{ nationalities }" }
 
-        it "returns the nationality field" do
-          expect(response["nationality"]).to eq(model.nationality)
+        it "returns the nationalities field" do
+          expect(response["nationalities"]).to eq(model.nationalities)
+        end
+
+        context "when empty json field" do
+          let(:model) { create(:encrypted_demographic, data: {}) }
+
+          it "returns empty array" do
+            expect(response["nationalities"]).to be_a(Array)
+          end
         end
       end
 
