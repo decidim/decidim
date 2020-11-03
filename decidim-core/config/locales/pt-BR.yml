@@ -724,8 +724,6 @@ pt:
           send: Enviar
           title: Comece uma conversa
     metrics:
-      download:
-        csv: Download de dados (csv)
       followers:
         description: Número de usuários que seguem este espaço de participação
         object: seguidores
