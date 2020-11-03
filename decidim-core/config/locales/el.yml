@@ -128,7 +128,6 @@ el:
         update: "Ο χρήστης %{user_name} ενημέρωσε τις ρυθμίσεις του οργανισμού"
       participatory_space_private_user:
         create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} να γίνει ιδιωτικός συμμετέχων"
-        create_via_csv: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{resource_name} μέσω csv να γίνει ιδιωτικός συμμετέχων"
         delete: "Ο χρήστης %{user_name} κατάργησε τον συμμετέχοντα %{resource_name} ως ιδιωτικό συμμετέχων"
       scope:
         create: "Ο χρήστης %{user_name} δημιούργησε το πεδίο εφαρμογής %{resource_name}"
@@ -907,8 +906,6 @@ el:
           send: Αποστολή
           title: Έναρξη συνομιλίας
     metrics:
-      download:
-        csv: Λήψη δεδομένων (csv)
       followers:
         description: Αριθμός συμμετεχόντων που ακολουθούν αυτόν τον χώρο συμμετοχής
         object: ακόλουθοι
