@@ -129,7 +129,6 @@ fr:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
-        create_via_csv: "%{user_name} a invité %{resource_name} via csv à être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
@@ -916,8 +915,6 @@ fr:
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
-      download:
-        csv: Données de téléchargement (csv)
       followers:
         description: Nombre d'utilisateurs qui suivent cet espace de participation
         object: suiveurs
