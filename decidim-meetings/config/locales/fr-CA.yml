@@ -33,9 +33,7 @@ fr-CA:
         transparent: Visible par les non-membres
         type_of_meeting: Type
       minutes:
-        audio_url: Lien vers l'audio
         description: Description
-        video_url: Lien vers la vidéo
         visible: Est visible
     errors:
       models:
