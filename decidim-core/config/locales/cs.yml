@@ -137,7 +137,6 @@ cs:
         update: "%{user_name} aktualizovala nastavení organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
-        create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
@@ -943,8 +942,6 @@ cs:
         update:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
-      download:
-        csv: Stáhnout data (csv)
       followers:
         description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
