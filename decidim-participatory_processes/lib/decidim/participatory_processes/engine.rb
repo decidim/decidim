@@ -82,6 +82,17 @@ module Decidim
           end
         end
 
+        Decidim.content_blocks.register(:homepage, :highlighted_process_groups) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/highlighted_process_groups"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.highlighted_process_groups.name"
+          content_block.settings_form_cell = "decidim/participatory_process_groups/content_blocks/highlighted_process_groups_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+            settings.attribute :max_results, type: :integer, default: 4
+          end
+        end
+
         Decidim.content_blocks.register(:participatory_process_group_homepage, :title) do |content_block|
           content_block.cell = "decidim/participatory_process_groups/content_blocks/title"
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.title.name"
