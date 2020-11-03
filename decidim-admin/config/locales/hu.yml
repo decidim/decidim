@@ -575,7 +575,6 @@ hu:
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Hiba történt a szervezet frissítése során.
@@ -610,7 +609,6 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
-          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
