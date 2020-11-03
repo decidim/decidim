@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
-  let(:resource) { create :proposal, title: ::Faker::Lorem.characters(25) }
+  let(:resource) { create :proposal, title: ::Faker::Lorem.characters(number: 25) }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.admin.proposal_note_created" }
   let(:component) { resource.component }

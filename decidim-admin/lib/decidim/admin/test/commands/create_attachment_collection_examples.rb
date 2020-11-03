@@ -10,12 +10,12 @@ module Decidim
         let(:form_params) do
           {
             "attachment_collection" => {
-              "name_en" => Decidim::Faker::Localized.sentence(3),
-              "name_es" => Decidim::Faker::Localized.sentence(3),
-              "name_ca" => Decidim::Faker::Localized.sentence(3),
-              "description_en" => Decidim::Faker::Localized.paragraph(3),
-              "description_es" => Decidim::Faker::Localized.paragraph(3),
-              "description_ca" => Decidim::Faker::Localized.paragraph(3)
+              "name_en" => Decidim::Faker::Localized.sentence(word_count: 3),
+              "name_es" => Decidim::Faker::Localized.sentence(word_count: 3),
+              "name_ca" => Decidim::Faker::Localized.sentence(word_count: 3),
+              "description_en" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
+              "description_es" => Decidim::Faker::Localized.paragraph(sentence_count: 3),
+              "description_ca" => Decidim::Faker::Localized.paragraph(sentence_count: 3)
             }
           }
         end
