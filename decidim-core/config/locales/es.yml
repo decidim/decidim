@@ -129,7 +129,6 @@ es:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
-        create_via_csv: "%{user_name} ha invitado a %{resource_name} como participante privada"
         delete: "%{user_name} ha eliminado %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -918,8 +917,6 @@ es:
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
-      download:
-        csv: Descargar datos (csv)
       followers:
         description: Número de participantes que siguen este espacio de participación
         object: seguidoras
