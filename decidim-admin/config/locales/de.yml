@@ -585,7 +585,6 @@ de:
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
@@ -620,7 +619,6 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
-          import_via_csv: Import via CSV
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
