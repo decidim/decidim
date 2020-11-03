@@ -585,7 +585,6 @@ ja:
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -620,7 +619,6 @@ ja:
           error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
-          import_via_csv: csv経由でインポート
           title: 参加スペースプライベート参加者
         new:
           create: 作成
