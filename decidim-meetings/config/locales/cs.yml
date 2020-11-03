@@ -33,7 +33,9 @@ cs:
         transparent: Transparentní
         type_of_meeting: Typ
       minutes:
+        audio_url: Audio URL
         description: Popis
+        video_url: Video URL
         visible: Viditelný
     errors:
       models:
