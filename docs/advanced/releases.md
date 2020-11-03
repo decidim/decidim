@@ -61,9 +61,14 @@ That last command is the one used to generate log content for the GitLogParser. 
 It also groups the commits if they have a git note with the format: `{groupname}: {affected_modules}`, for example `Fixed: **decidim-core**, **decidim-proposals**`. This last example will add the commit to the "Fixed" group and prefix the commit message with "- **decidim-core**, **decidim-proposals**".
 The number at the end of each commit message is also replaced for a markdown link to the commit.
 
-There's a rake task to run the parser:
+There's how to run the parser rake task:
 
 ```bash
+# remember to have the latest commits and notes locally
+git pull && git fetch origin refs/notes/*:refs/notes/*
+# generate the git log in the expected format
+git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --pretty=format:"commit %h%n%n%s%n%nNotes:%n%n%N"  > full_log
+# parse the git log in the expected format and produce grouped changelog entries
 bin/rake parse_git_log[full_log]
 ```
 
