@@ -23,7 +23,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
-    let(:registration_terms) { Faker::Lorem.sentence(3) }
+    let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:form) do
       double(
         invalid?: invalid,

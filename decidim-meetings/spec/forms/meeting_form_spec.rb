@@ -38,7 +38,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
-    let(:registration_terms) { Faker::Lorem.sentence(3) }
+    let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
