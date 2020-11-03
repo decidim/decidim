@@ -31,9 +31,7 @@ ro:
         title: Titlu
         transparent: Transparență
       minutes:
-        audio_url: Url audio
         description: Descriere
-        video_url: Url video
         visible: Este vizibil
     errors:
       models:
