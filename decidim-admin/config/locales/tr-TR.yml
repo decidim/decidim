@@ -502,7 +502,6 @@ tr:
           instagram: Instagram
           social_handlers: Sosyal
           twitter: heyecan
-          url: URL
           youtube: Youtube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
