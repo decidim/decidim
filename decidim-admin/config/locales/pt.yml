@@ -572,7 +572,6 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.
@@ -607,7 +606,6 @@ pt:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
-          import_via_csv: Importar através de csv
           title: Espaço participativo de participante privado
         new:
           create: Criar
