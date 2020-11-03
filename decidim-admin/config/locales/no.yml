@@ -582,7 +582,6 @@
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -617,7 +616,6 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
-          import_via_csv: Improter via csv
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
