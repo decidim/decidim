@@ -724,8 +724,6 @@ eu:
           send: Bidali
           title: Hasi elkarrizketa bat
     metrics:
-      download:
-        csv: Deskargatu datuak (csv)
       followers:
         description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
