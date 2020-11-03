@@ -31,9 +31,7 @@ sv:
         title: Titel
         transparent: Transparent
       minutes:
-        audio_url: Ljud-URL
         description: Beskrivning
-        video_url: Video-URL
         visible: Är synlig
     errors:
       models:
