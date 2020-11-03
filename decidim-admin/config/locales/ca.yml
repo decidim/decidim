@@ -585,7 +585,6 @@ ca:
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
@@ -620,7 +619,6 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
-          import_via_csv: Importar via csv
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
