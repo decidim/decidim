@@ -17,7 +17,7 @@ describe "Admin manages organization", type: :system do
         allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
       end
 
-      it "should not show the HTML header snippet form field" do
+      it "shows the HTML header snippet form field" do
         visit decidim_admin.edit_organization_appearance_path
 
         expect(page).to have_field(:organization_header_snippets)
@@ -29,7 +29,7 @@ describe "Admin manages organization", type: :system do
         allow(Decidim).to receive(:enable_html_header_snippets).and_return(false)
       end
 
-      it "should not show the HTML header snippet form field" do
+      it "does not show the HTML header snippet form field" do
         visit decidim_admin.edit_organization_appearance_path
 
         expect(page).to have_no_field(:organization_header_snippets)
