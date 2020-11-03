@@ -141,7 +141,6 @@ it:
             one: "%{count} elezione"
             other: "%{count} elezioni"
         show:
-          back: Tutte le elezioni
           preview: Anteprima
           vote: Vota
           voting_period_status:
