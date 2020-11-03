@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    # This class holds a Form to close a meeting from Decidim's admin panel.
+    # This class holds a Form to close a meeting from Decidim's public views.
     class CloseMeetingForm < Decidim::Form
       attribute :closing_report, String
       attribute :proposal_ids, Array[Integer]

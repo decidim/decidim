@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    # This controller allows an admin to update the closing_report and the linked proposals of a closed meeting
+    # This controller allows a participant to update the closing_report and the linked proposals of a closed meeting
     class MeetingClosesController < Decidim::Meetings::ApplicationController
       include Decidim::Proposals::Admin::Picker
       include FormFactory

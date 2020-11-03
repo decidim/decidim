@@ -800,7 +800,6 @@ it:
           fields:
             hidden_at: Nascosto a
             report_count: Conteggio
-            reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
             visit_url: Visita URL

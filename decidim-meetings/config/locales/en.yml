@@ -35,9 +35,9 @@ en:
         transparent: Transparent
         type_of_meeting: Type
       minutes:
-        audio_url: Audio url
+        audio_url: Audio URL
         description: Description
-        video_url: Video url
+        video_url: Video URL
         visible: Is visible
     errors:
       models:

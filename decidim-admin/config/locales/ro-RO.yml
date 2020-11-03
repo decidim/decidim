@@ -795,7 +795,6 @@ ro:
           fields:
             hidden_at: Ascuns la
             report_count: Număr
-            reportable: Raportabil
             reported_content_url: URL-ul conținutului raportat
             reports: Rapoarte
             visit_url: Vizitaţi URL-ul

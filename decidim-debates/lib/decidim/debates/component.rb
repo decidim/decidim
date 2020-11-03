@@ -50,7 +50,7 @@ Decidim.register_component(:debates) do |component|
   component.register_resource(:debate) do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
     resource.card = "decidim/debates/debate"
-    resource.reported_content = "decidim/debates/reported_content"
+    resource.reported_content_cell = "decidim/debates/reported_content"
     resource.searchable = true
     resource.actions = %w(create endorse)
   end
@@ -88,12 +88,12 @@ Decidim.register_component(:debates) do |component|
       params = {
         component: component,
         category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         start_time: 3.weeks.from_now,
         end_time: 3.weeks.from_now + 4.hours,
@@ -112,7 +112,7 @@ Decidim.register_component(:debates) do |component|
 
     closed_debate = Decidim::Debates::Debate.last
     closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(3)
+      Decidim::Faker::Localized.paragraph(sentence_count: 3)
     end
     closed_debate.closed_at = Time.current
     closed_debate.save!
@@ -120,12 +120,12 @@ Decidim.register_component(:debates) do |component|
     params = {
       component: component,
       category: participatory_space.categories.sample,
-      title: Decidim::Faker::Localized.sentence(2),
+      title: Decidim::Faker::Localized.sentence(word_count: 2),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       author: user
     }

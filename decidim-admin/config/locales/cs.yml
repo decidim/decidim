@@ -830,7 +830,6 @@ cs:
           fields:
             hidden_at: Skryté u
             report_count: Spočítat
-            reportable: Reportable
             reported_content_url: Oznámená adresa URL obsahu
             reports: Zprávy
             visit_url: Navštivte adresu URL

@@ -780,7 +780,6 @@ lv:
           fields:
             hidden_at: Paslēpts plkst.
             report_count: Skaits
-            reportable: Jāziņo
             reported_content_url: Paziņotā satura URL
             reports: Ziņojumi
             visit_url: Apmeklēt URL

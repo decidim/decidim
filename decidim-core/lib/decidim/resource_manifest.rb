@@ -37,7 +37,7 @@ module Decidim
     attribute :card, String
 
     # The reported content to render an instance of the resource.
-    attribute :reported_content, String
+    attribute :reported_content_cell, String
 
     # Set this to `true` if you want this resource to be searchable. It requires
     # the model to include the `Decidim::Searchable` concern.

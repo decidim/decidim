@@ -830,7 +830,6 @@ fi-pl:
           fields:
             hidden_at: Piilotuksen ajankohta
             report_count: Määrä
-            reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
             visit_url: Vieraile URL-osoitteessa

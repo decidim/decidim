@@ -1,5 +1,5 @@
 <div id="order-progress">
-  <div class="budget-summary__progressbox" data-current-budget="<%= current_order ? current_order.total_budget : 0 %>">
+  <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
     <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-meter progress-meter--minimum" style="width: <%= current_order_budget_percent_minimum %>%"></div>
       <!--Change width and text dynamically.-->

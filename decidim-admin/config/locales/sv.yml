@@ -824,7 +824,6 @@ sv:
           fields:
             hidden_at: Dold
             report_count: Antal
-            reportable: Rapporterbart
             reported_content_url: Rapporterad innehållsadress
             reports: Rapporter
             visit_url: Besök URL
