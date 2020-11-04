@@ -115,4 +115,20 @@ describe "Question", type: :system do
       end
     end
   end
+
+  context "when question has no hero image" do
+    let(:question_without_hero) { create :question, consultation: consultation, hero_image: nil }
+
+    before do
+      switch_to_host(organization.host)
+      visit decidim_consultations.question_path(question_without_hero)
+    end
+
+    it "Shows the basic question data" do
+      expect(page).to have_i18n_content(question_without_hero.promoter_group)
+      expect(page).to have_i18n_content(question_without_hero.scope.name)
+      expect(page).to have_i18n_content(question_without_hero.participatory_scope)
+      expect(page).to have_i18n_content(question_without_hero.question_context)
+    end
+  end
 end
