@@ -12,7 +12,7 @@ module Decidim
         let(:sortition_component) { create(:sortition_component, participatory_space: participatory_process) }
         let(:sortition) { create(:sortition, component: sortition_component) }
         let(:cancel_reason) do
-          Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) }
+          Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) }
         end
 
         let(:params) do

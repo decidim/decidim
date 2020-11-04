@@ -43,6 +43,16 @@ Decidim.register_component(:elections) do |component|
     resource.model_class_name = "Decidim::Elections::Answer"
   end
 
+  component.exports :feedback_form_answers do |exports|
+    exports.collection do |_component, _user, resource_id|
+      Decidim::Forms::QuestionnaireUserAnswers.for(resource_id)
+    end
+
+    exports.formats %w(CSV JSON Excel FormPDF)
+
+    exports.serializer Decidim::Forms::UserAnswersSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -71,9 +81,9 @@ Decidim.register_component(:elections) do |component|
         admin_user,
         {
           component: component,
-          title: Decidim::Faker::Localized.sentence(2),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           start_time: 3.weeks.from_now,
           end_time: 3.weeks.from_now + 4.hours,
@@ -82,15 +92,46 @@ Decidim.register_component(:elections) do |component|
         visibility: "all"
       )
 
+      questionnaire = Decidim::Forms::Questionnaire.create!(
+        title: Decidim::Faker::Localized.paragraph,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        end,
+        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(sentence_count: 2)
+        end,
+        questionnaire_for: election
+      )
+
+      %w(short_answer long_answer).each do |text_question_type|
+        Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: text_question_type
+        )
+      end
+
+      %w(single_option multiple_option).each do |multiple_choice_question_type|
+        question = Decidim::Forms::Question.create!(
+          questionnaire: questionnaire,
+          body: Decidim::Faker::Localized.paragraph,
+          question_type: multiple_choice_question_type
+        )
+
+        3.times do
+          question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+        end
+      end
+
       2.times do
         question = Decidim.traceability.create!(
           Decidim::Elections::Question,
           admin_user,
           {
             election: election,
-            title: Decidim::Faker::Localized.sentence(2),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(3)
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             max_selections: Faker::Number.between(from: 1, to: 5),
             weight: Faker::Number.number(digits: 1),
@@ -106,9 +147,9 @@ Decidim.register_component(:elections) do |component|
             admin_user,
             {
               question: question,
-              title: Decidim::Faker::Localized.sentence(2),
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                Decidim::Faker::Localized.paragraph(3)
+                Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1)
             },
@@ -116,8 +157,8 @@ Decidim.register_component(:elections) do |component|
           )
 
           Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )

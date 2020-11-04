@@ -93,6 +93,14 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      def reported_attributes
+        [:title]
+      end
+
+      def reported_searchable_content_extras
+        [normalized_author.name]
+      end
+
       def allow_resource_permissions?
         component.settings.resources_permissions_enabled
       end

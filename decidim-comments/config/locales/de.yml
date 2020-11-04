@@ -16,7 +16,6 @@ de:
         other: Stimmen
   decidim:
     comments:
-      comments: Bemerkungen
       comments_count: Kommentaranzahl
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
@@ -75,7 +74,6 @@ de:
         loading: Kommentare werden geladen ...
         single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
-        title: "%{count} Kommentare"
       down_vote_button:
         text: Ich bin mit diesem Kommentar nicht einverstanden
       up_vote_button:

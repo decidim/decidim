@@ -539,6 +539,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la jornada "%{resource_title}". Podeu deixar-la de seguir-a des de l'enllaç anterior.
           email_subject: La jornada "%{resource_title}" s'apropa!
           notification_title: La jornada <a href="%{resource_path}">%{resource_title}</a> començarà en 2 dies.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Un congrés pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>\n"
+          page: "<p>Una <strong>conferència</strong> és un conjunt de trobades organitzades en un programa, amb un grup de persones convidades com a ponents, i altres camps d'informació típics dels grans congressos o esdeveniments socials (inscripció, llista d'organitzacions que secunden o patrocinen l'esdeveniment, etc.).</p> <p>Exemples: Un congrés pot ser un esdeveniment rellevant per a una organització i els seus membres, o pot tenir lloc com a part d'un procés participatiu o després d'una consulta.</p>\n"
+          title: Què són les conferències?
     log:
       value_types:
         conference_presenter:

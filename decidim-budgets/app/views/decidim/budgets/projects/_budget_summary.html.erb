@@ -1,3 +1,17 @@
+<div class="row column voting-rules">
+  <div class="callout warning">
+    <div class="row">
+      <div class="columns medium-8 large-9">
+        <h3 class="heading3">
+          <%= t(".rules.title") %>
+        </h3>
+        <ul>
+          <%= raw current_rule_explanation %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
   <div class="card__content">
     <% if include_heading %>
@@ -20,22 +34,28 @@
           <% end %>
         </h3>
         <p>
-          <% if current_order.minimum_projects_rule? %>
-            <%= t(".description_minimum_projects_rule", minimum_number: current_order.minimum_projects) %>
-          <% else %>
-            <%= t(".description", minimum_budget: budget_to_currency(current_order.minimum_budget)) %>
-          <% end %>
+          <%= raw current_rule_description %>
         </p>
       <% end %>
     <% end %>
 
-    <div class="budget-summary__total" data-total-budget="<%= budget.total_budget %>">
-      <span class="mini-title"><%= t("total_budget") %>
-        <strong class="mini-title__strong mini-title__strong--highlight">
-          <%= budget_to_currency(budget.total_budget) %>
-        </strong>
-      </span>
-    </div>
+    <% if current_order.projects_rule? %>
+      <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>">
+        <span class="mini-title"><%= t(".total_projects") %>
+          <strong class="mini-title__strong mini-title__strong--highlight">
+            <%= current_order.maximum_projects %>
+          </strong>
+        </span>
+      </div>
+    <% else %>
+      <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget %>">
+        <span class="mini-title"><%= t(".total_budget") %>
+          <strong class="mini-title__strong mini-title__strong--highlight">
+            <%= budget_to_currency(budget.total_budget) %>
+          </strong>
+        </span>
+      </div>
+    <% end %>
 
     <%= render partial: "order_progress" %>
 

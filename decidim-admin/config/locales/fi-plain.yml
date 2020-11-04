@@ -73,7 +73,6 @@ fi-pl:
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
         send_welcome_notification: Lähetä tervetuloilmoitus
-        show_statistics: Näytä tilastot
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
@@ -831,7 +830,6 @@ fi-pl:
           fields:
             hidden_at: Piilotuksen ajankohta
             report_count: Määrä
-            reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
             visit_url: Vieraile URL-osoitteessa

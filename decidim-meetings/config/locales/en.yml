@@ -35,9 +35,9 @@ en:
         transparent: Transparent
         type_of_meeting: Type
       minutes:
-        audio_url: Audio url
+        audio_url: Audio URL
         description: Description
-        video_url: Video url
+        video_url: Video URL
         visible: Is visible
     errors:
       models:
@@ -368,6 +368,11 @@ en:
             subject: Your meeting's registration has been confirmed
       meeting:
         not_allowed: You are not allowed to view this meeting
+      meeting_closes:
+        edit:
+          back: Back
+          close: Close meeting
+          title: Close meeting
       meetings:
         count:
           meetings_count:
@@ -435,6 +440,7 @@ en:
         show:
           attendees: Attendees count
           back: Back to list
+          close_meeting: Close meeting
           contributions: Contributions count
           date: Date
           edit_meeting: Edit meeting

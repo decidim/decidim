@@ -144,7 +144,7 @@ module Decidim
             id: collaborative_draft.id,
             collaborative_draft: {
               title: Decidim::Faker::Localized.sentence,
-              body: Decidim::Faker::Localized.sentence(2)
+              body: Decidim::Faker::Localized.sentence(word_count: 2)
             }
           }
         end

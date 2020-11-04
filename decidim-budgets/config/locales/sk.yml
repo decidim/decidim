@@ -75,10 +75,10 @@ sk:
           description: Na týchto projektoch ste si zvolili účasť na rozpočte.
           title: Potvrdiť hlas
         budget_excess:
+          budget_excess:
+            title: Maximálny rozpočet prekročený
           close: Zavrieť
-          description: Tento projekt prekročil maximálny rozpočet a nemôže byť pridaný. Ak chcete, môžete vymazať niektorý projekt, ktorý ste už zvolili, alebo hlasovať svojimi preferenciami.
           ok: OK
-          title: Maximálny rozpočet prekročený
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoj hlas?
           assigned: 'Priradený:'
@@ -86,8 +86,6 @@ sk:
           checked_out:
             description: Už ste hlasovali za rozpočet. Ak ste zmenili názor, môžete %{cancel_link}.
             title: Hlasovanie o rozpočte dokončené
-          description: Na ktoré projekty by sme podľa Vás mali vyčleniť rozpočet? Vyberte si aspoň %{minimum_budget} na projekty, ktoré chcete, a hlasujte podľa svojich preferencií pre definovanie rozpočtu.
-          description_minimum_projects_rule: Na ktoré projekty by sme podľa Vás mali vyčleniť rozpočet? Vyberte si aspoň %{minimum_number} projektov, ktoré chcete, a hlasujte podľa svojich preferencií za rozpočet.
           title: Vy rozhodujete o rozpočte
         count:
           projects_count:
@@ -139,7 +137,6 @@ sk:
                 budget_voting_rule_only_one: Povolený smie byť iba jeden spôsob hlasovania
                 budget_voting_rule_required: Požaduje sa jeden spôsob hlasovania
             projects_per_page: Projektov na stránke
-            resources_permissions_enabled: Povolenia pre akcie môžu byť nastavené pre každé stretnutie zvlášť
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimálny počet projektov, za ktoré je možné hlasovať
             vote_rule_minimum_budget_projects_enabled: 'Povoliť pravidlo: Minimálny počet projektov, za ktoré je možné hlasovať'
@@ -163,4 +160,3 @@ sk:
         project_proposal: 'Návrhy, zahrnuté v rámci tohto projektu:'
   index:
     confirmed_orders_count: Počet hlasov
-  total_budget: Celkový rozpočet

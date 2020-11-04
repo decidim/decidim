@@ -8,6 +8,8 @@ module Decidim
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
 
+        # WARNING: consider adding/removing the relative translation key at
+        # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
         ACCEPTED_MIME_TYPES = Decidim::Proposals::DocToMarkdown::ACCEPTED_MIME_TYPES
 
         translatable_attribute :title, String

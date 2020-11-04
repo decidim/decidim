@@ -16,8 +16,11 @@ ca:
         other: Vots
   decidim:
     comments:
-      comments: Comentaris
+      comments:
+        create:
+          error: S'ha produït un error en crear el comentari.
       comments_count: Número de comentaris
+      comments_title: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       view: Mostrar
@@ -76,7 +79,9 @@ ca:
         loading: Carregant els comentaris ...
         single_comment_warning: Pots revisar la resta de comentaris <a href="%{url}">aquí</a>.
         single_comment_warning_title: Estàs veient un sol comentari
-        title: "%{count} comentaris"
+        title:
+          one: "%{count} comentari"
+          other: "%{count} comentaris"
       down_vote_button:
         text: No estic d'acord amb aquest comentari
       up_vote_button:
