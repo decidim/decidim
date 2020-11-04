@@ -1,7 +1,5 @@
 is-IS:
   decidim:
-    comments:
-      comments: Athugasemdir
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Skráðu þig inn með reikningnum þínum</a> eða <a href="%{sign_up_url}">skráðu þig</a> til að bæta við ummælum þínum.
@@ -45,7 +43,6 @@ is-IS:
       comments:
         blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
         loading: Hleð inn athugasemdir ...
-        title: "%{count} athugasemdir"
     events:
       comments:
         comment_by_followed_user:

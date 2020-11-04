@@ -73,7 +73,6 @@ fr:
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
         send_welcome_notification: Envoyer un mail de bienvenue
-        show_statistics: Montrer les statistiques
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
@@ -831,7 +830,6 @@ fr:
           fields:
             hidden_at: Masqué le
             report_count: Compteur
-            reportable: Contenu
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL

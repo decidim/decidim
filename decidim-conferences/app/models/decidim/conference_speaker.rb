@@ -14,7 +14,7 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
     has_many :conference_speaker_conference_meetings, dependent: :destroy
-    has_many :conference_meetings, through: :conference_speaker_conference_meetings, foreign_key: "conference_speaker_id", class_name: "Decidim::ConferenceMeeting"
+    has_many :conference_meetings, through: :conference_speaker_conference_meetings, class_name: "Decidim::ConferenceMeeting"
 
     default_scope { order(full_name: :asc, created_at: :asc) }
 

@@ -66,7 +66,6 @@ ar:
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
         secondary_color: ثانوي
         send_welcome_notification: إرسال إشعار بالترحيب
-        show_statistics: عرض الإحصائيات
         success_color: نجاح
         time_zone: المنطقة الزمنية
         tos_version: شروط وأحكام الخدمة
@@ -740,7 +739,6 @@ ar:
           fields:
             hidden_at: مخبأة في
             report_count: عد
-            reportable: الإبلاغ عنها
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
             reports: تقارير
             visit_url: زيارة العنوان الشبكي

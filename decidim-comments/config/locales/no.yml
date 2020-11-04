@@ -16,7 +16,6 @@
         other: Stemmer
   decidim:
     comments:
-      comments: Kommentarer
       comments_count: Antall kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
@@ -75,7 +74,6 @@
         loading: Laster inn kommenterer ...
         single_comment_warning: Du kan sjekke resten av kommentarene <a href="%{url}">her</a>.
         single_comment_warning_title: Du ser en enkelt kommentar
-        title: "%{count} kommentarer"
       down_vote_button:
         text: Jeg er uenig med denne kommentaren
       up_vote_button:

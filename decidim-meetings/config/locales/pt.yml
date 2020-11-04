@@ -251,7 +251,6 @@ pt:
           form:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
-            location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
           index:
             title: Reuniões
           new:
@@ -391,7 +390,6 @@ pt:
           address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
           create_as: Criar reunião como
           location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
-          location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o chão do edifício'
           select_a_category: Por favor selecione uma categoria
         index:
           new_meeting: Nova reunião

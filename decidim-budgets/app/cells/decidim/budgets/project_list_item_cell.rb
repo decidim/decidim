@@ -28,6 +28,10 @@ module Decidim
         current_order && current_order.projects.include?(model)
       end
 
+      def resource_allocation
+        current_order.allocation_for(model)
+      end
+
       def data_class
         [].tap do |list|
           list << "budget-list__data--added" if can_have_order? && resource_added?

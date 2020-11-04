@@ -13,9 +13,9 @@ module Decidim::Meetings
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:meeting) { create :meeting, component: current_component }
 
-    let(:title) { Decidim::Faker::Localized.sentence(3) }
+    let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
     let(:duration) { rand(5..100) }
-    let(:description) { Decidim::Faker::Localized.sentence(5) }
+    let(:description) { Decidim::Faker::Localized.sentence(word_count: 5) }
     let(:position) { 0 }
     let(:parent_id) { nil }
     let(:deleted) { false }
@@ -23,14 +23,14 @@ module Decidim::Meetings
     let(:agenda_item_children) do
       [
         {
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           duration: 12,
           position: 0
         },
         {
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           duration: 24,
           position: 1
         }

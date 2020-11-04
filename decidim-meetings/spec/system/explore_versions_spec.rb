@@ -17,7 +17,7 @@ describe "Explore versions", versioning: true, type: :system do
   let!(:meeting) do
     create(
       :meeting,
-      title: "My title",
+      title: { I18n.locale => "My title" },
       component: component,
       # PaperTrail can create an extra version if there's a questionnaire
       questionnaire: nil
@@ -28,7 +28,7 @@ describe "Explore versions", versioning: true, type: :system do
     Decidim.traceability.update!(
       meeting,
       "test suite",
-      title: "My updated title"
+      title: { en: "My updated title" }
     )
     visit meeting_path
   end
@@ -80,7 +80,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the versions list" do
       click_link "Show all versions"
-      expect(page).to have_current_path meeting_path + "/versions"
+      expect(page).to have_current_path "#{meeting_path}/versions"
     end
 
     it "shows the version author and creation date" do

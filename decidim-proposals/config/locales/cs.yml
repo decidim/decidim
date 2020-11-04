@@ -132,7 +132,7 @@ cs:
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
             can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
-            collaborative_drafts_enabled: Schopnosti spolupráce jsou povoleny
+            collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             geocoding_enabled: Geokódování povoleno
@@ -738,8 +738,13 @@ cs:
             many: "%{count} návrhů"
             other: "%{count} návrhů"
         edit:
+          add_documents: Dokumenty
+          add_images: Soubor
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
+          delete_document: Smazat dokument
+          delete_image: Smazat obrázek
+          gallery_legend: "(Volitelné) Přidejte obrázek na kartu návrhu"
           select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh

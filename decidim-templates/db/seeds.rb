@@ -18,7 +18,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   questionnaire_template = Decidim::Templates::Template.create!(
     organization: organization,
-    name: Decidim::Faker::Localized.sentence(2),
+    name: Decidim::Faker::Localized.sentence(word_count: 2),
     description: Decidim::Faker::Localized.paragraph
   )
 
@@ -26,10 +26,10 @@ if !Rails.env.production? || ENV["SEED"]
     questionnaire_for: questionnaire_template,
     title: Decidim::Faker::Localized.paragraph,
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(3)
+      Decidim::Faker::Localized.paragraph(sentence_count: 3)
     end,
     tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(2)
+      Decidim::Faker::Localized.paragraph(sentence_count: 2)
     end
   )
 

@@ -1086,6 +1086,7 @@ cs:
           error: Při přijímání smluvních podmínek došlo k chybě.
           success: Skvělý! Souhlasíte s podmínkami.
         form:
+          agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Pokud odmítnete, nebudete moci používat platformu, můžete <a href="%{data_portability_path}">stahovat data</a> a / nebo <a href="%{delete_path}">smazat svůj účet</a>.

@@ -24,6 +24,8 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
+      TYPE_OF_MEETING = %w(in_person online).freeze
+
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
@@ -49,6 +51,9 @@ module Decidim
                                   }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
+
+      scope :online, -> { where(type_of_meeting: :online) }
+      scope :in_person, -> { where(type_of_meeting: :in_person) }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -79,8 +84,17 @@ module Decidim
         !closed? && registrations_enabled? && can_participate?(user)
       end
 
+      def can_register_invitation?(user)
+        !closed? && registrations_enabled? &&
+          can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
+      end
+
       def closed?
         closed_at.present?
+      end
+
+      def past?
+        end_time < Time.current
       end
 
       def has_available_slots?
@@ -182,6 +196,20 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:description]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
+      end
+
+      def online_meeting?
+        type_of_meeting == "online"
+      end
+
       private
 
       def can_participate_in_meeting?(user)
@@ -189,6 +217,13 @@ module Decidim
         return false unless user
 
         registrations.exists?(decidim_user_id: user.id)
+      end
+
+      def user_has_invitation_for_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        invites.exists?(decidim_user_id: user.id)
       end
     end
   end

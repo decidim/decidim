@@ -16,14 +16,6 @@ ca:
           online: Digital
         state: Estat
         title: Títol
-      initiative_author:
-        address: Adreça
-        city: Ciutat
-        id_document: DNI / NIE
-        name: Nom i cognom
-        phone_number: Número de telèfon
-        post_code: Codi postal
-        province: Província
       initiatives_committee_member:
         user: Membre del comitè
       initiatives_type:
@@ -302,6 +294,7 @@ ca:
           all: Tots
           answered: Amb resposta
           closed: Tancat
+          draft: Esborrany
           open: Obertes
           rejected: No ha aconseguit les signatures
         filter_type_values:
@@ -319,7 +312,6 @@ ca:
         fill_data:
           back: Torna
           continue: Continua
-          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa? Ciutat, districte?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
@@ -327,7 +319,6 @@ ca:
         finish:
           back: Torna
           back_to_initiatives: Torna a iniciatives
-          callout_text: Enhorabona! La teva iniciativa ciutadana s'ha creat correctament.
           confirm: Confirmar
           edit_my_initiative: Editar les meves iniciatives
           go_to_my_initiatives: Ves a les meves iniciatives
@@ -347,14 +338,12 @@ ca:
           more_information: "(Més informació)"
         promotal_committee:
           back: Torna
-          individual_help_text: Aquest tipus d'iniciativa ciutadana requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els teus contactes rebin aquest enllaç, hauran de seguir els passos indicats.
           more_information: "(Més informació)"
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
-          select_initiative_type_help: Les iniciatives ciutadanes són un mitjà mitjançant el qual la ciutadania pot intervenir perquè l'Ajuntament pugui emprendre accions en defensa de l'interès general, sempre que aquestes es trobin dins dels àmbits de competència municipal. Quina iniciativa vols llançar?
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
@@ -460,9 +449,7 @@ ca:
             validating: Aquesta proposta està essent avaluada
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
-          any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
-          offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
         signatures_count:
           one: " signatura"
           other: " signatures"

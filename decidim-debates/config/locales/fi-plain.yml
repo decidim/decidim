@@ -200,10 +200,16 @@ fi-pl:
           email_subject: Keskusteluja nyt käyettävissä kohdassa %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset täältä:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat keskustelua "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Keskustelu "%{resource_title}" suljettiin
-          notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+          affected_user:
+            email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat keskustelua "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Keskustelu "%{resource_title}" suljettiin
+            notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+          follower:
+            email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset täältä:'
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat keskustelua "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
+            email_subject: Keskustelu "%{resource_title}" suljettiin
+            notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> suljettiin.
     gamification:
       badges:
         commented_debates:

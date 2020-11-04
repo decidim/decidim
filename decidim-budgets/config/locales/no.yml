@@ -84,10 +84,10 @@
           description: Dette er prosjektene du har valgt å være en del av budsjettet.
           title: Bekreft stemme
         budget_excess:
+          budget_excess:
+            title: Maksimalt budsjett overskredet
           close: Lukk
-          description: Dette prosjektet overskrider det maksimale budsjettet og kan ikke bli lagt til. Hvis du ønsker, kan du slette et prosjekt du har allerede har valgt å legge til, eller avgi stemme på dine preferanser.
           ok: OK
-          title: Maksimalt budsjett overskredet
         budget_summary:
           are_you_sure: Er du sikker på at du vil avbryte din stemme?
           assigned: 'Tildelt:'
@@ -95,8 +95,6 @@
           checked_out:
             description: Du har allerede stemt for budsjettet. Hvis du har ombestemt deg, kan du %{cancel_link}.
             title: Budtjett avstemning fullført
-          description: Hvilke prosjekter tror du vi bør bevilge budsjett for? Tildel minst %{minimum_budget} til prosjektene du ønsker, og stem på dine preferanser for å definere budsjettet.
-          description_minimum_projects_rule: Hvilke prosjekter tror du vi bør tildele budsjett for? Velg minst %{minimum_number} prosjekter du ønsker, og stem på dine preferanser for å definere budsjettet.
           title: Du bestemmer budsjettet
         count:
           projects_count:
@@ -152,7 +150,6 @@
                 budget_voting_rule_only_one: Bare én regel for stemmegivning må være aktivert
                 budget_voting_rule_required: En avstemningsregel kreves
             projects_per_page: Prosjekter per side
-            resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             total_budget: Totalt budsjett
             vote_minimum_budget_projects_number: Minimum antall prosjekter å stemme på
             vote_rule_minimum_budget_projects_enabled: 'Aktiver regel: Minimum antall prosjekter det skal stemmes på'
@@ -176,4 +173,3 @@
         project_proposal: 'Forslag inkludert i dette prosjektet:'
   index:
     confirmed_orders_count: Stemmer teller
-  total_budget: Totalt budsjett

@@ -16,7 +16,6 @@ nl:
         other: Stemmen
   decidim:
     comments:
-      comments: Opmerkingen
       comments_count: Aantal reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
@@ -30,7 +29,7 @@ nl:
         form:
           body:
             label: Reactie
-            placeholder: Wat vind u hierover?
+            placeholder: Wat wil je hierover zeggen?
           form_error: De tekst is verplicht en het kan niet langer zijn dan %{length} tekens.
           submit: Verzenden
           user_group_id:
@@ -39,7 +38,7 @@ nl:
           neutral: Neutraal
         remaining_characters: "%{count} tekens over"
         remaining_characters_1: "%{count} teken over"
-        title: Voeg uw reactie toe
+        title: Voeg je reactie toe
       comment:
         alignment:
           against: Tegen
@@ -76,7 +75,6 @@ nl:
         loading: Reacties laden...
         single_comment_warning: U kunt de rest van de opmerkingen <a href="%{url}">hier</a> controleren.
         single_comment_warning_title: Je ziet een enkele reactie
-        title: "%{count} reacties"
       down_vote_button:
         text: Ik ben het niet eens met deze opmerking.
       up_vote_button:

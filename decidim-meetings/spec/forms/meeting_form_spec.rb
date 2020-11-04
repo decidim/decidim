@@ -16,11 +16,11 @@ module Decidim::Meetings
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-    let(:title) { Faker::Lorem.sentence(1) }
-    let(:description) { Faker::Lorem.sentence(3) }
-    let(:short_description) { Faker::Lorem.sentence(1) }
-    let(:location) { Faker::Lorem.sentence(3) }
-    let(:location_hints) { Faker::Lorem.sentence(3) }
+    let(:title) { Faker::Lorem.sentence(word_count: 1) }
+    let(:description) { Faker::Lorem.sentence(word_count: 3) }
+    let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
+    let(:location) { Faker::Lorem.sentence(word_count: 3) }
+    let(:location_hints) { Faker::Lorem.sentence(word_count: 3) }
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -33,6 +33,8 @@ module Decidim::Meetings
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:type_of_meeting) { "in_person" }
+    let(:online_meeting_url) { "http://decidim.org" }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -46,7 +48,9 @@ module Decidim::Meetings
         start_time: start_time,
         end_time: end_time,
         private_meeting: private_meeting,
-        transparent: transparent
+        transparent: transparent,
+        type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       }
     end
 
@@ -70,7 +74,8 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing" do
+    describe "when location is missing and type of meeting is in_person" do
+      let(:type_of_meeting) { "in_person" }
       let(:location) { nil }
 
       it { is_expected.not_to be_valid }
@@ -128,6 +133,19 @@ module Decidim::Meetings
       meeting = create(:meeting, component: current_component, category: category)
 
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
+    end
+
+    describe "when online meeting link is missing and type of meeting is online" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when type of meeting is missing" do
+      let(:type_of_meeting) { nil }
+
+      it { is_expected.not_to be_valid }
     end
   end
 end

@@ -540,6 +540,12 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" conference. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" conference is coming!
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> conference is coming in 2 days.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>A <strong>conference</strong> is a collection of meetings arranged in a programme, with a number of people invited as speakers, and other information fields typical of large congresses or social events (registration, list of organisations that support or sponsor the event, etc.).</p> <p>Examples: A conference can be a relevant event for an organization and its members, or take place as part of a participatory process or follow a consultation.</p>\n"
+          page: "<p>A <strong>conference</strong> is a collection of meetings arranged in a programme, with a number of people invited as speakers, and other information fields typical of large congresses or social events (registration, list of organisations that support or sponsor the event, etc.).</p> <p>Examples: A conference can be a relevant event for an organization and its members, or take place as part of a participatory process or follow a consultation.</p>\n"
+          title: What are conferences?
     log:
       value_types:
         conference_presenter:

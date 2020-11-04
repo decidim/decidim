@@ -58,7 +58,7 @@ Decidim.register_component(:pages) do |component|
     Decidim::Pages::Page.create!(
       component: component,
       body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end
     )
   end

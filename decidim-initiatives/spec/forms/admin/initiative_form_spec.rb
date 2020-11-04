@@ -34,8 +34,8 @@ module Decidim
           {
             type_id: type_id,
             decidim_scope_id: decidim_scope_id,
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             state: "created",
             signature_type: "online",
             attachment: attachment_params
@@ -97,8 +97,8 @@ module Decidim
             context "when no type or decidim_scope_id are provided" do
               let(:attributes) do
                 {
-                  title: Decidim::Faker::Localized.sentence(2),
-                  description: Decidim::Faker::Localized.sentence(5),
+                  title: Decidim::Faker::Localized.sentence(word_count: 2),
+                  description: Decidim::Faker::Localized.sentence(word_count: 5),
                   state: "created",
                   signature_type: "online"
                 }

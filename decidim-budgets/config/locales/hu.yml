@@ -73,10 +73,10 @@ hu:
           description: Ezek azok a projektek, amelyek a költségvetés részét képezik.
           title: Szavazás megerősítése
         budget_excess:
+          budget_excess:
+            title: Maximális költségkeret túllépve
           close: Bezárás
-          description: Ez a projekt meghaladja a költségvetés maximumát és nem adható hozzá. Ha szeretnéd, törölheted az egyszer már kiválasztott projektet, vagy kedved szerint szavazhatsz róluk.
           ok: OK
-          title: Maximális költségkeret túllépve
         budget_summary:
           are_you_sure: Biztosan szeretnéd visszavonni a szavazatod?
           assigned: 'Hozzárendelve:'
@@ -84,7 +84,6 @@ hu:
           checked_out:
             description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
-          description: Milyen projektek finanszírozására használjuk a költségvetést? Rendelj hozzá legalább %{minimum_budget} a projektekhez és szavazz preferenciád szerint a költségvetésükről.
           title: Dönts a költségvetéstről
         count:
           projects_count:
@@ -132,7 +131,6 @@ hu:
                 budget_voting_rule_only_one: Csak egy szavazási szabály állítható be
                 budget_voting_rule_required: Egy szavazási szabályra szükség van
             projects_per_page: Projektek oldalanként
-            resources_permissions_enabled: A műveletek engedélyei a találkozókra szabhatóak
             total_budget: Teljes költségvetés
             vote_minimum_budget_projects_number: A szavazásban részt vevő projektek minimum száma
             vote_rule_minimum_budget_projects_enabled: 'Szabály beállítása: A szavazható projektek minimum száma'
@@ -156,4 +154,3 @@ hu:
         project_proposal: 'A projekthez kapcsolódó javaslatok:'
   index:
     confirmed_orders_count: Szavazatok száma
-  total_budget: Teljes költségvetés

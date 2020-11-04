@@ -16,9 +16,6 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
       include Decidim::Randomable
-      include Decidim::TranslatableResource
-
-      translatable_fields :title, :body, :state, :address
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",
@@ -60,6 +57,16 @@ module Decidim
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [authors.map(&:name).join("\n")]
       end
     end
   end

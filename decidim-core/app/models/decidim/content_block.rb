@@ -15,6 +15,8 @@ module Decidim
     before_save :save_images
     after_save :reload_images
 
+    validate :images_container_valid
+
     # Public: finds the published content blocks for the given scope and
     # organization. Returns them ordered by ascending weight (lowest first).
     def self.for_scope(scope, organization:)
@@ -79,7 +81,7 @@ module Decidim
         attr_reader :content_block
 
         # Needed to calculate uploads URLs
-        delegate :id, to: :content_block
+        delegate :id, :organization, to: :content_block
 
         # Needed to customize the upload URL
         def self.name
@@ -131,6 +133,14 @@ module Decidim
     end
 
     private
+
+    def images_container_valid
+      # Note that we cannot call .valid? because it's not an ActiveRecord
+      # object. It's ActiveModel and in that case, CarrierWave will not work
+      # "normally" with the validators. It adds the errors directly after the
+      # uploader was tried to set.
+      errors.add(:images_container, :invalid) if images_container.errors.any?
+    end
 
     # Internal: Since we're using the `images_container` hack to hold the
     # uploaders, we need to manually trigger it to save the attached images.

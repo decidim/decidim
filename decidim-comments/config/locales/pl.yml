@@ -20,7 +20,6 @@ pl:
         other: Głosy
   decidim:
     comments:
-      comments: Komentarze
       comments_count: Liczba komentarzy
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
@@ -79,7 +78,6 @@ pl:
         loading: Ładowanie komentarzy ...
         single_comment_warning: Resztę komentarzy możesz sprawdzić <a href="%{url}">tutaj</a>.
         single_comment_warning_title: Wyświetlasz teraz pojedynczy komentarz
-        title: "%{count} komentarzy"
       down_vote_button:
         text: Nie zgadzam się z tym komentarzem
       up_vote_button:

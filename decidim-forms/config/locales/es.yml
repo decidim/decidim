@@ -3,6 +3,8 @@ es:
     attributes:
       answer:
         body: Responder
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -76,7 +78,6 @@ es:
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
             preview: Previsualizar
-            title: Editar el formulario
             unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila

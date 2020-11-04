@@ -22,6 +22,7 @@ module Decidim
             redirect_to edit_organization_homepage_path
           end
           on(:invalid) do
+            edit # Sets the model to the view so that it can render the form
             render :edit
           end
         end

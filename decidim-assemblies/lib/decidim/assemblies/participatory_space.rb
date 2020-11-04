@@ -55,15 +55,15 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
     2.times do |n|
       params = {
-        title: Decidim::Faker::Localized.sentence(5),
-        slug: Faker::Internet.unique.slug(nil, "-"),
-        subtitle: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 5),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+        subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.sentence(3)
+          Decidim::Faker::Localized.sentence(word_count: 3)
         end,
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
@@ -71,17 +71,17 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
-        developer_group: Decidim::Faker::Localized.sentence(1),
-        local_area: Decidim::Faker::Localized.sentence(2),
-        target: Decidim::Faker::Localized.sentence(3),
-        participatory_scope: Decidim::Faker::Localized.sentence(1),
-        participatory_structure: Decidim::Faker::Localized.sentence(2),
+        developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
+        local_area: Decidim::Faker::Localized.sentence(word_count: 2),
+        target: Decidim::Faker::Localized.sentence(word_count: 3),
+        participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
+        participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2),
         scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         purpose_of_action: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         assembly_type: Decidim::AssembliesType.create!(organization: organization, title: Decidim::Faker::Localized.word),
         creation_date: 1.day.from_now,
@@ -90,13 +90,13 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         duration: 2.days.from_now,
         included_at: 5.days.from_now,
         closing_date: 5.days.from_now,
-        closing_date_reason: Decidim::Faker::Localized.sentence(3),
+        closing_date_reason: Decidim::Faker::Localized.sentence(word_count: 3),
         internal_organisation: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         is_transparent: true,
         special_features: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         twitter_handler: Faker::Lorem.word,
         facebook_handler: Faker::Lorem.word,
@@ -138,15 +138,15 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       end
 
       child = Decidim::Assembly.create!(
-        title: Decidim::Faker::Localized.sentence(5),
-        slug: Faker::Internet.unique.slug(nil, "-"),
-        subtitle: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 5),
+        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+        subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.sentence(3)
+          Decidim::Faker::Localized.sentence(word_count: 3)
         end,
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
@@ -154,11 +154,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         promoted: true,
         published_at: 2.weeks.ago,
         meta_scope: Decidim::Faker::Localized.word,
-        developer_group: Decidim::Faker::Localized.sentence(1),
-        local_area: Decidim::Faker::Localized.sentence(2),
-        target: Decidim::Faker::Localized.sentence(3),
-        participatory_scope: Decidim::Faker::Localized.sentence(1),
-        participatory_structure: Decidim::Faker::Localized.sentence(2),
+        developer_group: Decidim::Faker::Localized.sentence(word_count: 1),
+        local_area: Decidim::Faker::Localized.sentence(word_count: 2),
+        target: Decidim::Faker::Localized.sentence(word_count: 3),
+        participatory_scope: Decidim::Faker::Localized.sentence(word_count: 1),
+        participatory_structure: Decidim::Faker::Localized.sentence(word_count: 2),
         scope: n.positive? ? Decidim::Scope.reorder(Arel.sql("RANDOM()")).first : nil,
         parent: assembly
       )
@@ -167,37 +167,37 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         current_assembly.add_to_index_as_search_resource
         attachment_collection = Decidim::AttachmentCollection.create!(
           name: Decidim::Faker::Localized.word,
-          description: Decidim::Faker::Localized.sentence(5),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           collection_for: current_assembly
         )
 
         Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           attachment_collection: attachment_collection,
           attached_to: current_assembly,
           file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
           file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
         )
 
         Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: current_assembly,
           file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
         )
 
         2.times do
           Decidim::Category.create!(
-            name: Decidim::Faker::Localized.sentence(5),
+            name: Decidim::Faker::Localized.sentence(word_count: 5),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(3)
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             participatory_space: current_assembly
           )
@@ -207,9 +207,9 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           Decidim::AssemblyMember.create!(
             full_name: Faker::Name.name,
             gender: Faker::Lorem.word,
-            birthday: Faker::Date.birthday(18, 65),
+            birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
             birthplace: Faker::Demographic.demonym,
-            designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+            designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
             designation_mode: Faker::Lorem.word,
             position: position,
             position_other: position == "other" ? Faker::Job.position : nil,
@@ -220,9 +220,9 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim::AssemblyMember.create!(
           user: current_assembly.organization.users.first,
           gender: Faker::Lorem.word,
-          birthday: Faker::Date.birthday(18, 65),
+          birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
           birthplace: Faker::Demographic.demonym,
-          designation_date: Faker::Date.between(1.year.ago, 1.month.ago),
+          designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
           designation_mode: Faker::Lorem.word,
           position: "other",
           position_other: Faker::Job.position,

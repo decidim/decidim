@@ -22,6 +22,10 @@ module Decidim
           Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token: session_token)
         end
 
+        def edit_questionnaire_title
+          t(:title, scope: "decidim.forms.admin.questionnaires.form", questionnaire_for: translated_attribute(current_component.name))
+        end
+
         private
 
         def i18n_flashes_scope

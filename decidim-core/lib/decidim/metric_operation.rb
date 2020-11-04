@@ -36,12 +36,11 @@ module Decidim
     # With 'metric_operation' and 'metric_name':
     #   - Returns a single manifest related to that two params
     def for(metric_operation, metric_name = nil)
-      list = if metric_name
-               all.find { |manifest| manifest.metric_operation == metric_operation.to_s && manifest.metric_name == metric_name.to_s }
-             else
-               all.find_all { |manifest| manifest.metric_operation == metric_operation.to_s }
-             end
-      list
+      if metric_name
+        all.find { |manifest| manifest.metric_operation == metric_operation.to_s && manifest.metric_name == metric_name.to_s }
+      else
+        all.find_all { |manifest| manifest.metric_operation == metric_operation.to_s }
+      end
     end
 
     def all

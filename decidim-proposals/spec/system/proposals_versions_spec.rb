@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Explore versions", versioning: true, type: :system do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization: organization) }
-  let!(:proposal) { create(:proposal, body: "One liner body", component: component, skip_injection: true) }
-  let!(:emendation) { create(:proposal, body: "Amended One liner body", component: component) }
+  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component: component, skip_injection: true) }
+  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component: component, skip_injection: true) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
   let(:form) do
@@ -96,7 +96,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the versions list" do
       click_link "Show all versions"
-      expect(page).to have_current_path proposal_path + "/versions"
+      expect(page).to have_current_path "#{proposal_path}/versions"
     end
 
     it "shows the creation date" do

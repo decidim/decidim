@@ -31,7 +31,7 @@ module Decidim::Conferences
           full_name: "Full name",
           position: { en: "position" },
           affiliation: { en: "affiliation" },
-          short_bio: Decidim::Faker::Localized.sentence(5),
+          short_bio: Decidim::Faker::Localized.sentence(word_count: 5),
           twitter_handle: "full_name",
           personal_url: Faker::Internet.url,
           meeting_ids: meeting_ids

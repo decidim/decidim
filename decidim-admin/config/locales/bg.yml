@@ -5,6 +5,124 @@ bg:
         area_type: Тип район
         name: Име
         organization: Организация
+      area_type:
+        name: Име
+        organization: Организация
+        plural: Множествено число
+      attachment:
+        attachment_collection_id: Папка
+        description: Описание
+        file: Файл
+        title: Име на прикрепен файл или изображение
+      attachment_collection:
+        description: Описание
+        name: Име
+      category:
+        description: Описание
+        name: Име
+        parent_id: Родител
+      component:
+        name: Име
+        published_at: Публикувано на
+        weight: Тегло
+      id: ID
+      newsletter:
+        body: Тяло
+        subject: Тема
+      organization:
+        address: Име на SMTP хост
+        alert_color: Аларма
+        badges_enabled: Включи значките
+        comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
+        cta_button_path: Път на бутона "призив към действие"
+        cta_button_text: Текст на бутона "призив към действие"
+        customize_welcome_notification: Персонализирайте приветствието
+        default_locale: Език по подразбиране
+        description: Описание
+        enable_omnipresent_banner: Показвай всепоказван банер
+        facebook_handler: Манипулатор на Facebook
+        favicon: Икона
+        from: От адрес ел.поща
+        github_handler: Манипулатор на GitHub
+        header_snippets: Части на HTML заглавката
+        highlight_alternative_color: Подчертаване, алтернативен
+        highlight_color: Подчертване
+        highlighted_content_banner_action_subtitle: Поднадпис на бутон за действие
+        highlighted_content_banner_action_title: Надпис на бутон за действие
+        highlighted_content_banner_action_url: Адрес на бутон за действие
+        highlighted_content_banner_enabled: Показвай банер на подчертано съдържание
+        highlighted_content_banner_image: Изображение
+        highlighted_content_banner_short_description: Кратко описание
+        highlighted_content_banner_title: Заглавие
+        instagram_handler: Манипулатор на Instagram
+        logo: Лого
+        machine_translation_display_priority: Приоритет за показване на машинен превод
+        machine_translation_display_priority_original: Първо оригиналният текст
+        machine_translation_display_priority_translation: Първо преведеният текст
+        name: Име
+        official_img_footer: Долен колонтитул на официалното лого
+        official_img_header: Заглавка на официалното лого
+        official_url: Официален URL адрес на организацията
+        omnipresent_banner_short_description: Кратко описание
+        omnipresent_banner_title: Заглавие
+        omnipresent_banner_url: URL адрес
+        password: Парола
+        port: Порт
+        primary_color: Основен
+        reference_prefix: Префикс на препратка
+        rich_text_editor_in_public_views: Разреши редактора на rich text за участниците
+        secondary_color: Вторичен
+        send_welcome_notification: Изпращай приветствия
+        success_color: Успешно
+        time_zone: Часова зона
+        tos_version: Версия на условия за ползване
+        twitter_handler: Манипулатор на Twitter
+        user_groups_enabled: Разреши групи
+        user_name: Потребителско име
+        warning_color: Предупреждение
+        welcome_notification_body: Тяло на приветствието
+        welcome_notification_subject: Тема на приветствието
+        youtube_handler: Манипулатор на YouTube
+      scope:
+        code: Код
+        name: Име
+        organization: Организация
+        parent_id: Родител
+        scope_type: Тип сфера
+        scope_type_id: Тип сфера
+      scope_type:
+        name: Име
+        organization: Организация
+        plural: Множествено число
+      static_page:
+        changed_notably: Настъпиха значителни промени.
+        content: Съдържание
+        organization: Организация
+        show_in_footer: Покажи в долния колонтитул
+        slug: Съкратен URL
+        title: Заглавие
+        weight: Тегло
+      static_page_topic:
+        description: Описание
+        show_in_footer: Покажи в долния колонтитул
+        title: Заглавие
+        weight: Тегло
+      user_group_csv_verification:
+        file: Файл
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: Невалиден файл на изображението
+            official_img_header:
+              allowed_file_content_types: Невалиден файл на изображението
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: Съдържание
+        slug: Съкратен URL
+        title: Заглавие
   decidim:
     admin:
       organization_appearance:

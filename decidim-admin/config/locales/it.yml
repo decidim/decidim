@@ -70,7 +70,6 @@ it:
         rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
         send_welcome_notification: Invia notifica di benvenuto
-        show_statistics: Mostra statistiche
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
@@ -801,7 +800,6 @@ it:
           fields:
             hidden_at: Nascosto a
             report_count: Conteggio
-            reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
             visit_url: Visita URL

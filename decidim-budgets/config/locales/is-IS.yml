@@ -50,10 +50,10 @@ is-IS:
           description: Þetta eru þau verkefni sem þú hefur valið að vera hluti af fjárhagsáætluninni.
           title: Staðfestu atkvæði
         budget_excess:
+          budget_excess:
+            title: Hámarks fjárhagsáætlun yfir
           close: Loka
-          description: Þetta verkefni fer yfir hámarks fjárhagsáætlun og er ekki hægt að bæta við. Ef þú vilt getur þú eytt verkefni sem þú hefur þegar valið til að bæta við eða gera atkvæði með óskir þínar.
           ok: Allt í lagi
-          title: Hámarks fjárhagsáætlun yfir
         budget_summary:
           are_you_sure: Ertu viss um að þú viljir hætta við atkvæði þitt?
           assigned: 'Úthlutað:'
@@ -61,7 +61,6 @@ is-IS:
           checked_out:
             description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
             title: Fjárhagsleg atkvæði lokið
-          description: Hvaða verkefni heldurðu að við eigum að úthluta fjárhagsáætlun fyrir? Gefðu amk %{minimum_budget} til verkefna sem þú vilt og kjósa með óskir þínar til að skilgreina fjárhagsáætlunina.
           title: Þú ákveður fjárhagsáætlunina
         count:
           projects_count:
@@ -105,4 +104,3 @@ is-IS:
             show_votes: Sýna atkvæði
   index:
     confirmed_orders_count: Atkvæðagreiðsla telja
-  total_budget: Samtals fjárhagsáætlun
