@@ -11,7 +11,7 @@ module Decidim
     helper_method :activities, :resource_types, :user
 
     def index
-      raise ActionController::RoutingError.new('Suspended User') if user&.suspended? && !current_user&.admin?
+      raise ActionController::RoutingError, "Suspended User" if user&.suspended? && !current_user&.admin?
     end
 
     private

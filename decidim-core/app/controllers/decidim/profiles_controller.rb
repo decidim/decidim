@@ -64,7 +64,7 @@ module Decidim
     private
 
     def ensure_user_not_banned
-      raise ActionController::RoutingError, 'Suspended User' if profile_holder&.suspended? && !current_user&.admin?
+      raise ActionController::RoutingError, "Suspended User" if profile_holder&.suspended? && !current_user&.admin?
     end
 
     def ensure_profile_holder_is_a_group
