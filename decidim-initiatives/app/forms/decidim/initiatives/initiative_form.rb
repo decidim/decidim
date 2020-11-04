@@ -48,6 +48,10 @@ module Decidim
         false
       end
 
+      def area_updatable?
+        @area_updatable ||= current_user.admin? || context.initiative.created?
+      end
+
       def scope_id
         return nil if initiative_type.only_global_scope_enabled?
 
