@@ -12,14 +12,11 @@ The first step needed to setup the connection is to generate an a pair of keys t
 bundle exec rake decidim_elections:generate_identification_keys
 ```
 
-This task will output the generated private and public keys. You should copy the public key and send it to the Bulletin Board administrator through a secure channel. When copying the key, include the starting and ending lines with the prefix `-----`. Together with the key, send your **Authority name** to the Bulletin Board administrator and store its value on the environment variable `BULLETIN_BOARD_AUTHORITY_NAME`.
+This task will output the generated private and public keys. You should copy the public key and send it to the Bulletin Board administrator through a secure channel. Together with the key, send your **Authority name** to the Bulletin Board administrator and store its value on the environment variable `BULLETIN_BOARD_AUTHORITY_NAME`.
 
-After that, use one of these methods to make the private key available from your Decidim installation:
+After that, copy the private key and store that value on the environment variable `BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY`.
 
-a. Copy the private key, paste in a new file and store its path on the environment variable `BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY`.
-b. Copy the private key and store that value on the environment variable `BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY`.
-
-Regardless of the used method, when copying the private key remember to include the lines prefixed by `-----` and ensure that the private key is not lost between deployments and servers reboots and that only can be accessed by the application.
+Ensure that the private key is not lost between deployments and servers reboots and that it only can be accessed by the application.
 
 ## Configuration of the Bulletin Board application
 
@@ -29,8 +26,7 @@ The following YAML snippet with all the defined environment variables should be 
 
 ```yaml
   bulletin_board:
-    identification_private_key: |
-<%= ENV["BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY"]&.indent(6) %>
+    identification_private_key: <%= ENV["BULLETIN_BOARD_IDENTIFICATION_PRIVATE_KEY"] %>
     server: <%= ENV["BULLETIN_BOARD_SERVER"] %>
     api_key: <%= ENV["BULLETIN_BOARD_API_KEY"] %>
     number_of_trustees: <%= ENV["BULLETIN_BOARD_NUMBER_OF_TRUSTEES"] %>
