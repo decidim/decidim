@@ -25,9 +25,9 @@ module Decidim
 
       it "wraps everything in a div with class 'filters'" do
         expect(helper)
-          .to receive(:content_tag)
-          .with(:div, { class: "filters" }, any_args)
-          .and_call_original
+            .to receive(:content_tag)
+                    .with(:div, { class: "filters" }, any_args)
+                    .and_call_original
 
         helper.filter_form_for(filter) do
         end
@@ -35,8 +35,8 @@ module Decidim
 
       it "calls form_for helper with specific arguments" do
         expect(helper)
-          .to receive(:form_for)
-          .with(filter, { namespace: match(/^filters_[a-z0-9-]+$/), builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
+            .to receive(:form_for)
+                    .with(filter, { namespace: match(/^filters_[a-z0-9-]+$/), builder: FilterFormBuilder, url: helper.url_for, as: :filter, method: :get, remote: true, html: { id: nil } }, any_args)
 
         helper.filter_form_for(filter) do
         end
@@ -57,22 +57,39 @@ module Decidim
         end.join("")
 
         expect(dom).to have_tag(
-          "input",
-          count: 2,
-          with: {
-            type: "text",
-            name: "filter[test_attribute]"
-          }
-        )
+                           "input",
+                           count: 2,
+                           with: {
+                               type: "text",
+                               name: "filter[test_attribute]"
+                           }
+                       )
         namespaces.each do |ns|
           expect(dom).to have_tag(
-            "input",
-            count: 1,
-            with: {
-              type: "text",
-              id: "#{ns}_filter_test_attribute"
-            }
-          )
+                             "input",
+                             count: 1,
+                             with: {
+                                 type: "text",
+                                 id: "#{ns}_filter_test_attribute"
+                             }
+                         )
+        end
+      end
+    end
+
+    describe "#filter_cache_hash" do
+      it "generate a unique hash" do
+        old_hash = helper.filter_cache_hash(filter)
+
+        expect(helper.filter_cache_hash(filter)).to eq(old_hash)
+      end
+
+      context "when filter is different" do
+        it "generate a different hash" do
+          old_hash = helper.filter_cache_hash(filter)
+          filter.test_attribute = "dummy-filter"
+
+          expect(helper.filter_cache_hash(filter)).not_to eq(old_hash)
         end
       end
     end
