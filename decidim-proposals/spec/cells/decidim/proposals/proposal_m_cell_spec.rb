@@ -84,5 +84,24 @@ module Decidim::Proposals
         end
       end
     end
+
+    context "#cache_hash" do
+      let(:my_cell) { cell("decidim/proposals/proposal_m", proposal) }
+
+      it "generate a unique hash" do
+        old_hash = my_cell.send(:cache_hash)
+
+        expect(my_cell.send(:cache_hash)).to eq(old_hash)
+      end
+
+      context "when model is updated" do
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          proposal.update!(title: { en: "New title" })
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+    end
   end
 end

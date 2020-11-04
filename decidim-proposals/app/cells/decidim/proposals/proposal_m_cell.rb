@@ -122,6 +122,14 @@ module Decidim
       def resource_image_path
         @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").url : nil
       end
+
+      def cache_hash
+        hash = []
+        hash << "decidim/proposals/proposal_m"
+        hash << model.cache_version
+
+        hash.join("/")
+      end
     end
   end
 end
