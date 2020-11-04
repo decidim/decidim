@@ -431,6 +431,7 @@ es:
           loading: Cargando resultados...
       show:
         area: Área
+        belongs_to_group: Este proceso pertenece a
         dates: Fechas
         developer_group: Grupo promotor
         end_date: Fecha de finalización

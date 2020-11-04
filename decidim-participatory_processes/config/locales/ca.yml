@@ -431,6 +431,7 @@ ca:
           loading: Carregant resultats...
       show:
         area: Àrea
+        belongs_to_group: Aquest procés pertany a
         dates: Dates
         developer_group: Grup promotor
         end_date: Data de finalització
