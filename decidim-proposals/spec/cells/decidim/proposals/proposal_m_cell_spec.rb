@@ -85,7 +85,7 @@ module Decidim::Proposals
       end
     end
 
-    context "#cache_hash" do
+    describe "#cache_hash" do
       let(:my_cell) { cell("decidim/proposals/proposal_m", proposal) }
 
       it "generate a unique hash" do
@@ -100,6 +100,96 @@ module Decidim::Proposals
           proposal.update!(title: { en: "New title" })
 
           expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when new endorsement" do
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          create(:endorsement, resource: proposal, author: build(:user, organization: proposal.participatory_space.organization))
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when new vote" do
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          create(:proposal_vote, proposal: proposal)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when component settings changes" do
+        it "generate a different hash" do
+          component_settings = component.settings
+          old_hash = my_cell.send(:cache_hash)
+          component.settings = { foo: "bar" }
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+
+          component.settings = component_settings
+        end
+      end
+
+      context "when model has preview" do
+        let(:my_cell) { cell("decidim/proposals/proposal_m", model, preview: true) }
+
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          create(:attachment, :with_image, attached_to: proposal)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when no current user" do
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          allow(controller).to receive(:current_user).and_return(nil)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when followers changes" do
+        let(:another_user) { create :user, organization: proposal.participatory_space.organization }
+
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          create(:follow, followable: proposal, user: another_user)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when user follows proposal" do
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          create(:follow, followable: proposal, user: user)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
+      context "when authors changes" do
+        context "when new co-author" do
+          it "generate a different hash" do
+            old_hash = my_cell.send(:cache_hash)
+            model.add_coauthor(user)
+
+            expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+          end
+
+          context "when author updates profile" do
+            it "generate a different hash" do
+              old_hash = my_cell.send(:cache_hash)
+              model.authors.first.update(personal_url: "new personal url")
+
+              expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+            end
+          end
         end
       end
     end
