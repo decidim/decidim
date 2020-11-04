@@ -134,12 +134,16 @@ module Decidim
 
         def setup_election
           signed_data = bulletin_board.encode_data(election_data)
-          api_key = bulletin_board.api_key
 
           response = bulletin_board.graphql_client.query do
             mutation do
-              createElection(signedData: signed_data, apiKey: api_key) do
-                election
+              createElection(signedData: signed_data) do
+                election do
+                  id
+                  status
+                  title
+                  authority
+                end
                 error
               end
             end

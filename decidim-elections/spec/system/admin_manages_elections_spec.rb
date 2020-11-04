@@ -123,7 +123,7 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "set up an election" do
-    context "when the election is published" do
+    context "when the election is published", :vcr do
       let!(:election) { create :election, :upcoming, :published, :ready_for_setup, component: current_component }
 
       it "sets up an election" do
