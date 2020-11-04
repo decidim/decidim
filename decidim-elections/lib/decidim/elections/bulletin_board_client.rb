@@ -10,8 +10,8 @@ module Decidim
         @authority_name = params[:authority_name].presence
         @number_of_trustees = 0
         @number_of_trustees = params[:number_of_trustees] if params[:number_of_trustees].present?
-        @identification_private_key = params[:identification_private_key]&.strip.presence
-        @private_key = OpenSSL::PKey::RSA.new(identification_private_key_content) if identification_private_key
+        @identification_private_key = params[:identification_private_key].presence
+        @private_key = identification_private_key_content if identification_private_key
       end
 
       attr_reader :server, :scheme, :api_key, :number_of_trustees, :authority_name
@@ -27,7 +27,7 @@ module Decidim
       end
 
       def public_key
-        private_key&.public_key
+        private_key&.export
       end
 
       def configured?
@@ -35,13 +35,13 @@ module Decidim
       end
 
       def encode_data(election_data)
-        JWT.encode election_data, private_key, "RS256"
+        JWT.encode(election_data, private_key.keypair, "RS256")
       end
 
       def graphql_client
         @graphql_client ||= Graphlient::Client.new(server,
                                                    headers: {
-                                                     "api_key" => api_key
+                                                     "Authorization" => api_key
                                                    })
       end
 
@@ -50,11 +50,7 @@ module Decidim
       attr_reader :identification_private_key, :private_key
 
       def identification_private_key_content
-        @identification_private_key_content ||= if identification_private_key.starts_with?("-----")
-                                                  identification_private_key
-                                                else
-                                                  File.read(Rails.application.root.join(identification_private_key))
-                                                end
+        @identification_private_key_content ||= Decidim::Elections::JwkUtils.import_private_key(identification_private_key)
       end
     end
   end
