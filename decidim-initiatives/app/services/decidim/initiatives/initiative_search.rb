@@ -64,7 +64,8 @@ module Decidim
 
       def search_author
         if author == "myself" && options[:current_user]
-          query.where(decidim_author_id: options[:current_user], decidim_author_type: Decidim::UserBaseEntity.name).unscope(where: :published_at)
+          query.where(decidim_author_id: options[:current_user], decidim_author_type: Decidim::UserBaseEntity.name)
+               .unscope(where: :published_at)
         else
           query
         end
