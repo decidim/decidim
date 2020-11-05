@@ -98,6 +98,10 @@ FactoryBot.define do
     participatory_scope { generate_localized_title }
     participatory_structure { generate_localized_title }
 
+    trait :promoted do
+      promoted { true }
+    end
+
     trait :with_participatory_processes do
       after(:create) do |participatory_process_group|
         create_list(:participatory_process, 2, :published, organization: participatory_process_group.organization, participatory_process_group: participatory_process_group)
