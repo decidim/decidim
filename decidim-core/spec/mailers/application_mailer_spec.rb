@@ -4,20 +4,7 @@ require "spec_helper"
 require "zip"
 
 module Decidim
-  # Define a fake mailer class to test its ancestor : ApplicationMailer
-  class FakeMailer < ApplicationMailer
-    def fake_mail(user, organization)
-      @user = user
-      @organization = organization
-
-      mail(to: "#{user.name} <#{user.email}>") do |format|
-        format.text { "This is the test" }
-        format.html { "<p>This is a mail </p>" }
-      end
-    end
-  end
-
-  describe FakeMailer, type: :mailer do
+  describe Decidim::DummyResources::DummyResourceMailer, type: :mailer do
     describe "smtp_settings" do
       let(:user) { create(:user, organization: organization) }
       let(:organization) { create(:organization, smtp_settings: smtp_settings) }
