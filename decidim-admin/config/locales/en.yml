@@ -348,6 +348,15 @@ en:
           search: Search
           status: Status
           view_logs: View logs
+      conflicts:
+        attempts: Attempts
+        'false': 'No'
+        managed_user_name: Managed User
+        solved: Solved
+        title: Verifications's conflicts
+        transfer: Transfer
+        'true': 'Yes'
+        user_name: User
       impersonations:
         close_session:
           error: There was a problem closing the current participant management session.
