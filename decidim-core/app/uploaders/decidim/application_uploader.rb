@@ -17,6 +17,16 @@ module Decidim
       default_path
     end
 
+    # When the uploaded content can't be processed, we want to make sure
+    # not to expose internal tools errors to the users.
+    # We'll show a generic error instead.
+    def manipulate!
+      super
+    rescue CarrierWave::ProcessingError => e
+      Rails.logger.error(e)
+      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
+    end
+
     protected
 
     # Validates that the associated model is always within an organization in

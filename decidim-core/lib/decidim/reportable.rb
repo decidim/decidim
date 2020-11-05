@@ -42,6 +42,32 @@ module Decidim
       def reported_content_url
         raise NotImplementedError
       end
+
+      # Public: The collection of attribute names that are considered
+      #         to be reportable.
+      def reported_attributes
+        raise NotImplementedError
+      end
+
+      # Public: An `Array` of `String` that will be concatenated to
+      #         the reported searchable content. This content is used
+      #         in the admin dashboard to filter moderations.
+      def reported_searchable_content_extras
+        []
+      end
+
+      # Public: The reported searchable content in a text format so
+      #         moderations can be filtered by content.
+      def reported_searchable_content_text
+        reported_searchable_content_extras.concat(
+          reported_attributes.map do |attribute_name|
+            attribute_value = attributes.with_indifferent_access[attribute_name]
+            next attribute_value.values.join("\n") if attribute_value.is_a? Hash
+
+            attribute_value
+          end
+        ).join("\n")
+      end
     end
   end
 end

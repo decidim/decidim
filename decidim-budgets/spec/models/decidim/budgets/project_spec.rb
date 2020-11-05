@@ -34,6 +34,35 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
+    describe ".ordered_ids" do
+      let(:budget) { create(:budget, total_budget: 1_000_000) }
+      let(:projects) { create_list(:project, 50, budget: budget, budget_amount: 100_000) }
+
+      before do
+        # Reset the project IDs to start from 1 in order to get possibly
+        # "conflicting" ID sequences for the `.ordered_ids` call. In the past,
+        # e.g. IDs such as "2", and "23" (containing "2") would've caused the
+        # wrong order in case "23" comes first in the ordered IDs list.
+        ActiveRecord::Base.connection.reset_pk_sequence!(described_class.table_name)
+
+        # Create the projects after the sequence has been reset
+        projects
+      end
+
+      it "returns the correctly ordered projects" do
+        first = described_class.where(budget: budget).order(:id).pluck(:id)[0..3]
+        ids = described_class.where(budget: budget).pluck(:id).shuffle
+
+        # Put the first items at the end of the IDs array in order to get
+        # possibly "conflicting" matches for them at earlier array positions.
+        # As we have 50 projects, we should have IDs starting with 1, 2, 3 and 4
+        # which is why we put the first 4 items at the end.
+        test_ids = (ids - first) + first
+
+        expect(described_class.ordered_ids(test_ids).pluck(:id)).to eq(test_ids)
+      end
+    end
+
     describe "#orders_count" do
       let(:project) { create :project, budget_amount: 75_000_000 }
       let(:order) { create :order, budget: project.budget }

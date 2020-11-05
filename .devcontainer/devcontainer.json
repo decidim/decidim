@@ -1,0 +1,21 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/ruby-rails
+{
+	"name": "Ruby on Rails",
+	"workspaceFolder": "/workspace",
+	"service": "rails",
+	"dockerComposeFile": [
+		"docker-compose.yml"
+	],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+	"extensions": [
+		"rebornix.Ruby",
+		"wingrunr21.vscode-ruby",
+		"misogi.ruby-rubocop"
+	],
+	"forwardPorts": [
+		3000
+	],
+}

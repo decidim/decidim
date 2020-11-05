@@ -70,7 +70,6 @@ nl:
         rich_text_editor_in_public_views: Gebruik de tekst editor voor deelnemers
         secondary_color: Tweede
         send_welcome_notification: Stuur welkomstmelding
-        show_statistics: Toon statistieken
         success_color: Succes
         time_zone: Tijdszone
         tos_version: Servicevoorwaarden versie
@@ -806,7 +805,6 @@ nl:
           fields:
             hidden_at: Verborgen op
             report_count: Aantal
-            reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
             visit_url: Bezoek URL

@@ -15,14 +15,6 @@ nl:
           online: Online
         state: Status
         title: Titel
-      initiative_author:
-        address: Adres
-        city: stad
-        id_document: DNI / NIE
-        name: Naam en familienaam
-        phone_number: Telefoonnummer
-        post_code: Postcode
-        province: Provincie
       initiatives_committee_member:
         user: Commissielid
       initiatives_type:
@@ -297,7 +289,7 @@ nl:
         fill_data:
           back: Terug
           continue: Doorgaan met
-          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief? Stad, streek?</li> </ul>"
+          fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is de titel begrijpelijk? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief?</li> </ul>"
           initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_area: Selecteer een gebied
@@ -305,7 +297,6 @@ nl:
         finish:
           back: Terug
           back_to_initiatives: Terug naar initiatieven
-          callout_text: Proficiat! Je burgerinitiatief is aangemaakt.
           confirm: Bevestigen
           edit_my_initiative: Bewerk mijn initiatieven
           go_to_my_initiatives: Ga naar mijn initiatieven
@@ -325,14 +316,12 @@ nl:
           more_information: "(Meer informatie)"
         promotal_committee:
           back: Terug
-          individual_help_text: Dit soort burgerinitiatief vereist een promotieraad bestaande uit ten minste %{committee_size} personen (attestors). Deel de volgende link met de anderen die deel uitmaken van dit initiatief. Wanneer uw contacten deze link ontvangen, moeten zij de aangegeven stappen volgen.
           more_information: "(Meer informatie)"
         select_initiative_type:
           back: Terug
           choose_html: Ik wil een <strong>%{title}</strong> aanmaken
           more_information: "(Meer informatie)"
           select: Ik wil dit initiatief promoten
-          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee burgers kunnen ingrijpen, zodat de gemeenteraad acties kan ondernemen ter verdediging van het algemeen belang die zich binnen de rechtsgebieden van de gemeente bevinden. Welk initiatief wil jij lanceren?
         share_committee_link:
           continue: Doorgaan met
           invite_to_committee_help: Link om mensen uit te nodigen die deel zullen uitmaken van de promotieraad
@@ -437,9 +426,7 @@ nl:
             validating: Dit voorstel wordt beoordeeld
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
-          any_vote_method: Dit burgerinitiatief verzamelt zowel online als face-to-face stemmen.
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
-          offline_method: Dit burgerinitiatief verzamelt alleen face-to-face stemmen.
         signatures_count:
           one: " handtekening"
           other: " handtekeningen"

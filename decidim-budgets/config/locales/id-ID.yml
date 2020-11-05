@@ -69,10 +69,10 @@ id:
           description: Ini adalah proyek yang Anda pilih untuk menjadi bagian dari anggaran.
           title: Konfirmasikan suara
         budget_excess:
+          budget_excess:
+            title: Anggaran maksimum terlampaui
           close: Dekat
-          description: Proyek ini melebihi anggaran maksimum dan tidak dapat ditambahkan. Jika mau, Anda dapat menghapus proyek yang sudah Anda pilih untuk ditambahkan, atau pilih dengan preferensi Anda.
           ok: baik
-          title: Anggaran maksimum terlampaui
         budget_summary:
           are_you_sure: Anda yakin ingin membatalkan suara?
           assigned: 'Ditugaskan:'
@@ -80,7 +80,6 @@ id:
           checked_out:
             description: Anda telah memberikan suara untuk anggaran. Jika Anda berubah pikiran, Anda dapat %{cancel_link}.
             title: Suara anggaran selesai
-          description: Menurut Anda proyek apa yang harus kita alokasikan anggarannya? Tetapkan setidaknya %{minimum_budget} untuk proyek yang Anda inginkan dan pilih dengan preferensi Anda untuk menentukan anggaran.
           title: Anda yang memutuskan anggaran
         count:
           projects_count:
@@ -116,7 +115,6 @@ id:
             announcement: Pengumuman
             comments_enabled: Komentar diaktifkan
             projects_per_page: Proyek per halaman
-            resources_permissions_enabled: Izin tindakan dapat ditetapkan untuk setiap pertemuan
             total_budget: Total anggaran
             vote_threshold_percent: Batas ambang persentase suara
           step:
@@ -137,4 +135,3 @@ id:
         project_proposal: 'Proposal yang termasuk dalam proyek ini:'
   index:
     confirmed_orders_count: Votes dihitung
-  total_budget: Total anggaran

@@ -78,7 +78,6 @@ nl:
             collapse: Alle vragen samenvouwen
             expand: Vouw alle vragen uit
             preview: Voorvertoning
-            title: Formulier bewerken
             unpublished_warning: Het formulier is niet gepubliceerd. Je kunt de vragen wijzigen, maar als je dit doet worden de huidige antwoorden verwijderd.
           matrix_row:
             matrix_row: Rij

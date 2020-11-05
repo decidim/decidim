@@ -73,7 +73,6 @@
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
         send_welcome_notification: Send velkomst varsel
-        show_statistics: Vis statistikk
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenester versjon
@@ -815,7 +814,6 @@
           fields:
             hidden_at: Skjult på
             report_count: Antall
-            reportable: Rapporterbar
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL

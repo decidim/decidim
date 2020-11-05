@@ -326,8 +326,6 @@ lv:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong> Konsultācijas</strong> ir telpa, kas ļauj uzdot skaidru jautājumu visiem cilvēkiem, kuri veido organizāciju, aicināt piedalīties konsultācijā, sākt debates par atbildi. Kad pienāk konsultācijas datums, jūs varat balsot un publicēt balsojumu rezultātus.</p> <p> Piemēri: konsultācijas var būt par gandrīz jebkuru aspektu, kas ietekmē organizāciju, piemēram, par organizācijas nosaukuma vai logotipa maiņu, piedāvājot vairākas alternatīvas, par pozitīvu vai negatīvu lēmumu attiecībā uz to, vai kļūt par lielākas organizācijas daļu, kad jāapstiprina vai jānoraida jauns stratēģiskais plāns vai darba grupas rezultāti vai kad jādefinē, vai pozīcijām jāpaliek ne vairāk kā 1, 2 vai 3 mandātiem.</p>"
-          page: "<p><strong> Konsultācijas</strong> ir telpa, kas ļauj uzdot skaidru jautājumu visiem cilvēkiem, kuri veido organizāciju, aicināt piedalīties konsultācijā, uzsākt debates par vai pret atbildi. Kad pienāk konsultācijas datums, jūs varat balsot un publicēt balsojumu rezultātus.</p> <p> Piemēri: konsultācijas var būt par gandrīz jebkuru aspektu, kas ietekmē organizāciju: piemēram, par organizācijas nosaukuma vai logotipa maiņu, piedāvājot vairākas alternatīvas, par pozitīvu vai negatīvu lēmumu attiecībā uz to, vai kļūt par lielākas organizācijas daļu, kad jāapstiprina vai jānoraida jauns stratēģiskais plāns vai darba grupas rezultāti vai kad jādefinē, vai pozīcijām jāpaliek ne vairāk kā 1, 2 vai 3 mandātiem.</p>\n"
           title: Kas ir konsultācijas?
     menu:
       consultations: Konsultācijas

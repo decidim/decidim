@@ -523,15 +523,15 @@ ja:
         evaluating: 評価
         not_answered: 応答がありません
         rejected: 拒否
-        withdrawn: 引き落し
+        withdrawn: 撤回
       application_helper:
         filter_category_values:
           all: すべて
         filter_origin_values:
           all: すべて
-          citizens: Citizens
+          citizens: 一般参加者
           meetings: ミーティング
-          official: オフィシャル
+          official: 事務局
           user_groups: グループ
         filter_scope_values:
           all: すべて
@@ -593,7 +593,7 @@ ja:
           scope: スコープ
           search: 検索
           state: ステータス
-          withdrawn: 引き落し
+          withdrawn: 撤回
         filters_small_view:
           close_modal: モーダルを閉じる
           filter: フィルター
@@ -641,7 +641,7 @@ ja:
         states:
           open: 開く
           published: 公開済み
-          withdrawn: 引き落し
+          withdrawn: 撤回
         update:
           error: 共同作業のドラフトを保存する際に問題が発生しました。
           success: 共同作業の下書きが正常に更新されました。
@@ -682,7 +682,7 @@ ja:
             comments: コメント
             id: ID
             notes: メモ
-            official_proposal: 官職の提案
+            official_proposal: 事務局の提案
             published_answer: 公開された回答
             published_at: 公開日時
             scope: スコープ
@@ -725,12 +725,12 @@ ja:
           send: プレビュー
           title: 提案ドラフトを編集
         filters:
-          activity: 私のアクティビティ
+          activity: 参加したもの
           all: すべて
           amendment_type: タイプ
           category: カテゴリ
           my_proposals: 私の提案
-          origin: 原点：
+          origin: 起案者：
           related_to: 関連
           scope: スコープ
           search: 検索

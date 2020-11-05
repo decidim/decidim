@@ -73,6 +73,15 @@ module Decidim
           errors.add(field, :invalid)
         end
       end
+
+      # Public: Returns the original language in which the resource was created or
+      #         the organization's default locale.
+      def content_original_language
+        field = self.class.translatable_fields_list.first
+        return field.except("machine_translations").keys.first if field.is_a?(Hash) && field.except("machine_translations").keys.count == 1
+
+        organization.default_locale
+      end
     end
   end
 end

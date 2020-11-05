@@ -103,6 +103,8 @@ ignore_missing:
   - participate_in
   - see_other_versions
   - actions.invalid_destroy.proposals_count
+  - decidim.budgets.projects_helper.current_rule_explanation.*
+  - decidim.budgets.projects_helper.current_rule_description.*
   - decidim.debates.debate_m.footer.commented_time_ago
 
 # Consider these keys used:
@@ -239,6 +241,8 @@ ignore_unused:
   - decidim.assemblies.filter.*
   - decidim.initiatives.initiatives.votes_count.count.*
   - decidim.proposals.admin.participatory_texts.new_import.accepted_mime_types.*
+  - decidim.participatory_processes.admin.new_import.accepted_types.*
+  - decidim.assemblies.admin.new_import.accepted_types.*
   - decidim.amendments.visibility_options.*
   - decidim.wizard_step_form.*
   - decidim.proposals.proposals.filters.*
@@ -274,9 +278,16 @@ ignore_unused:
   - decidim.debates.debates.versions_list.*
   - decidim.debates.debates.show.edit_conclusions
   - activemodel.attributes.organization.machine_translation_display_priority_*
+  - decidim.budgets.projects.budget_summary.minimum_projects_rule.*
+  - decidim.budgets.projects.budget_summary.projects_rule.*
+  - decidim.budgets.projects.budget_summary.projects_rule_maximum_only.*
+  - decidim.budgets.projects.budget_summary.vote_threshold_percent_rule.*
+  - decidim.budgets.projects.budget_excess.description
   - decidim.debates.debates.orders.*
   - decidim.debates.debate_m.commented_time_ago
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
+  - decidim.elections.feedback.answer.*
+
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

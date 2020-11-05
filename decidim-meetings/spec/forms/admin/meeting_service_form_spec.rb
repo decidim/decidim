@@ -13,8 +13,8 @@ module Decidim::Meetings
 
     let(:organization) { create :organization }
 
-    let(:title) { Decidim::Faker::Localized.sentence(3) }
-    let(:description) { Decidim::Faker::Localized.sentence(3) }
+    let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
+    let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
     let(:deleted) { false }
 
     let(:attributes) do

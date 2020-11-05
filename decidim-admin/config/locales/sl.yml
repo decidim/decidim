@@ -64,7 +64,6 @@ sl:
         rich_text_editor_in_public_views: Omogoči napredni tekstovni urejevalnik za obiskovalce
         secondary_color: Sekundarni
         send_welcome_notification: Pošli sporočilo dobrodošlice
-        show_statistics: Pokaži statistiko
         success_color: Uspeh
         time_zone: Časovni pas
         tos_version: Pogoji storitve - verzija
