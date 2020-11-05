@@ -3,6 +3,8 @@ es-PY:
     attributes:
       answer:
         body: Responder
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -25,11 +27,47 @@ es-PY:
             description: Descripción
             tos: Términos y condiciones de uso
         questionnaires:
+          actions:
+            back: Volver a las preguntas
+            show: Mostrar las respuestas
           answer_option:
             answer_option: Opción de respuesta
             free_text: Texto libre
             remove: Retirar
             statement: Declaración
+          answers:
+            actions:
+              back: Volver a las respuestas
+              export: Exportar
+              show: Mostrar las respuestas
+            empty: Aún no hay respuestas
+            export:
+              answer:
+                title: 'Respuesta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} total de respuestas"
+            show:
+              title: 'Respuesta #%{number}'
+          display_condition:
+            answer_option: Opción de respuesta
+            condition_question: Pregunta
+            condition_type: Condición
+            condition_types:
+              answered: Contestada
+              equal: Igual a
+              match: Incluye texto
+              not_answered: No contestada
+              not_equal: No es igual
+            condition_value: Texto incluido
+            display_condition: Condiciones de visualización
+            mandatory: Esta condición debe cumplirse siempre independientemente del estado de otras condiciones
+            remove: Eliminar
+            save_warning: Recuerda guardar la encuesta antes de configurar las condiciones de visualización
+            select_answer_option: Eliminar la opción de respuesta
+            select_condition_question: Seleccionar una pregunta
+            select_condition_type: Seleccionar un tipo de confirmación
           edit:
             save: Guardar
             title: Editar el cuestionario
@@ -39,12 +77,17 @@ es-PY:
             already_answered_warning: Algunos usuarios ya han respondido al cuestionario, por lo que no puedes modificar las preguntas.
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
+            preview: Previsualizar
+            title: Editar el formulario
+            unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila
             remove: Retirar
             statement: Declaración
           question:
             add_answer_option: Añadir opción de respuesta
+            add_display_condition: Agregar condición de visualización
+            add_display_condition_info: Guardar la encuesta para configurar las condiciones de visualización
             add_matrix_row: Añadir fila
             any: Alguna
             collapse: Contraer
@@ -62,7 +105,7 @@ es-PY:
             up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
-            success: Cuestionarios guardados con éxito.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco
@@ -104,6 +147,11 @@ es-PY:
           questionnaire_for_private_users:
             body: El cuestionario está disponible solo para usuarios privados
             title: Cuestionario cerrado
+          questionnaire_js_disabled:
+            body: Algunas de las características de este formulario se desactivarán. Para mejorar tu experiencia, habilita JavaScript en tu navegador.
+            title: Javascript está desactivado
+          questionnaire_not_published:
+            body: Este formulario no se ha publicado todavía.
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
       step_navigation:
         show:
@@ -112,9 +160,13 @@ es-PY:
           continue: Continuar
           submit: Enviar
       user_answers_serializer:
+        body: Respuesta
+        completion: Finalización
         created_at: Respondido en
         id: ID de respuesta
         ip_hash: Hash de Dirección IP
+        question: Pregunta
         registered: Registrado
+        session_token: Identificador de usuaria
         unregistered: No registrado
         user_status: Estado del usuario

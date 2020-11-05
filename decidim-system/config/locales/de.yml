@@ -1,4 +1,17 @@
 de:
+  activemodel:
+    attributes:
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME-Typen
+          default: Standard MIME-Typen
+        allowed_file_extensions:
+          admin: Admin-Dateierweiterungen
+          default: Standard-Dateierweiterungen
+          image: Bild-Dateierweiterungen
+        maximum_file_size:
+          avatar: Avatar Dateigröße
+          default: Standard-Dateigröße
   decidim:
     system:
       actions:
@@ -46,6 +59,7 @@ de:
             save_and_invite: Organisieren & einladen admin erstellen
           fields:
             created_at: Hergestellt in
+            file_upload_settings: Datei-Upload Einstellungen
             name: Name
             omniauth_settings: Omniauth-Einstellungen
             smtp_settings: SMTP-Einstellungen
@@ -56,6 +70,18 @@ de:
           success: Organisation erfolgreich erstellt
         edit:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
+        file_upload_settings:
+          content_types:
+            admin_hint: Diese MIME-Typen sind für das Hochladen in der Admin-Sektion erlaubt. Administrator-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so können Sie erwarten, dass Administratoren mit den Datei-Uploads vertrauter sind.
+            default_hint: Diese MIME-Typen sind standardmäßig für alle Benutzer erlaubt.
+            intro_html: Sie fügen Platzhalter mit dem Sternzeichen für die MIME-Typen hinzu, z.B. <code>image/*</code>.
+            title: Erlaubte MIME-Typen
+          file_extensions:
+            default_hint: Diese Dateierweiterungen sind standardmäßig für alle Benutzer erlaubt.
+            image_hint: Diese Dateierweiterungen sind für alle Arten von Bild-Uploads erlaubt.
+            title: Zulässige Dateierweiterungen
+          file_sizes:
+            avatar_hint: Megabytes (MB). Maximale Dateigröße für das Hochladen des Avatars.
         index:
           title: Organisationen
         new:
@@ -82,9 +108,9 @@ de:
             api_secret: API-Geheimnis
         smtp_settings:
           instructions:
-            from_label: 'Der Sender der E-Mail ist: „name-ihrer-organisation <ihrer-organisation@ihr-anbieter.org>". Lassen Sie das Feld leer, damit „von_email“ als Bezeichnung verwendet wird'
+            from_label: 'E-Mail-Absender lautet: "Dein-Organisationsname <your-organization@example.org>". Leer lassen um ''from_email'' als Absender zu verwenden'
           placeholder:
-            from_email: ihre-organisation@ihr-anbieter.org
+            from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.

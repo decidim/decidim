@@ -2,9 +2,9 @@ ja:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: 関連する会議体
+        assemblies_ids: 関連する集会
         banner_image: バナー画像
-        consultations_ids: 関連する議案
+        consultations_ids: 関連する相談
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
         copy_features: 機能をコピー
@@ -12,7 +12,7 @@ ja:
         description: 説明
         hashtag: ハッシュタグ
         hero_image: ホーム画像
-        participatory_processes_ids: 関連する参加型プロセス
+        participatory_processes_ids: 関連する参加プロセス
         promoted: 強調表示
         published_at: 公開日時
         scope_id: スコープ
@@ -37,71 +37,71 @@ ja:
   activerecord:
     models:
       decidim/conference:
-        other: カンファレンス
+        other: 会議
       decidim/conference_speaker:
         other: カンファレンススピーカー
       decidim/conference_user_role:
-        other: カンファレンスのユーザーロール
+        other: Conference user roles
   decidim:
     admin:
       actions:
         confirm: 確認する
-        new_conference: 新しいカンファレンス
+        new_conference: 新しい会議
         send_diplomas: 出席証明書を送信
       conference_copies:
         new:
           copy: コピー
           select: 複製したいデータを選択してください
-          title: カンファレンスを複製
+          title: 会議を複製
       conference_publications:
         create:
-          error: このカンファレンスを公開する際に問題が発生しました。
-          success: カンファレンスを公開しました。
+          error: この会議を公開する際に問題が発生しました。
+          success: 会議を公開しました。
         destroy:
-          error: このカンファレンスを非公開にする際に問題がありました。
-          success: カンファレンスを非公開にしました。
+          error: この会議を非公開にする際に問題がありました。
+          success: 会議を非公開にしました。
       conference_registration:
         confirm:
-          error: このカンファレンスの登録確認に問題がありました。
-          success: カンファレンスの登録が完了しました。
+          error: この会議の登録確認に問題がありました。
+          success: 会議の登録が完了しました。
       conference_speakers:
         create:
-          error: このカンファレンスにスピーカーを追加する際に問題が発生しました。
-          success: カンファレンススピーカーを作成しました。
+          error: この会議にスピーカーを追加する際に問題が発生しました。
+          success: 会議スピーカーを作成しました。
         destroy:
-          success: カンファレンススピーカーを削除しました。
+          success: 会議スピーカーを削除しました。
         edit:
-          title: カンファレンススピーカーを更新します。
+          title: 会議スピーカーを更新します。
           update: 更新
         index:
           conference_speakers_title: カンファレンススピーカー
         new:
           create: 作成
-          title: 新しいカンファレンススピーカー。
+          title: 新しい会議スピーカー。
         update:
-          error: このカンファレンススピーカーの更新中に問題が発生しました。
-          success: カンファレンススピーカーが正常に更新されました。
+          error: この会議スピーカーの更新中に問題が発生しました。
+          success: 会議スピーカーが正常に更新されました。
       conference_user_roles:
         create:
-          error: このカンファレンスに管理者を追加する際に問題が発生しました。
-          success: カンファレンス管理者が追加されました。
+          error: この会議に管理者を追加する際に問題が発生しました。
+          success: 会議管理者が追加されました。
         destroy:
-          success: カンファレンス管理者を削除しました。
+          success: 会議管理者を削除しました。
         edit:
-          title: カンファレンス管理者を更新
+          title: 会議管理者を更新
           update: 更新
         index:
-          conference_admins_title: カンファレンス管理者
+          conference_admins_title: 会議管理者
         new:
           create: 作成
-          title: 新しいカンファレンス管理者
+          title: 新しい会議管理者です。
         update:
-          error: カンファレンス管理者の更新中に問題が発生しました。
-          success: カンファレンス管理者が正常に更新されました。
+          error: 会議管理者の更新中に問題が発生しました。
+          success: 会議管理者が正常に更新されました。
       conferences:
         create:
-          error: このカンファレンスの作成中に問題が発生しました。
-          success: カンファレンスを作成しました。
+          error: この会議の作成中に問題が発生しました。
+          success: 会議を作成しました。
         edit:
           update: 更新
         exports:
@@ -113,14 +113,14 @@ ja:
           published: 公開済み
         new:
           create: 作成
-          title: カンファレンス
+          title: 会議
         update:
-          error: このカンファレンスの更新に問題がありました。
-          success: カンファレンスを更新しました。
+          error: この会議の更新に問題がありました。
+          success: 会議を更新しました。
       conferences_copies:
         create:
-          error: このカンファレンスの複製に問題が発生しました。
-          success: カンファレンスを複製しました。
+          error: この会議の複製に問題が発生しました。
+          success: 会議を複製しました。
       media_links:
         create:
           error: 新しいメディアリンクの作成中に問題が発生しました。
@@ -139,14 +139,14 @@ ja:
           error: このメディア リンクの更新中に問題が発生しました。
           success: メディアリンクを更新しました。
       menu:
-        conferences: カンファレンス
+        conferences: 会議
         conferences_submenu:
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
           categories: カテゴリ
           components: コンポーネント
-          conference_admins: カンファレンス管理者
+          conference_admins: 会議管理者
           conference_invites: 招待
           conference_speakers: スピーカー
           diploma: 出席証明書
@@ -168,14 +168,14 @@ ja:
           fields:
             affiliation: Affiliation
             full_name: フルネーム
-            position: ポジション
-          name: カンファレンススピーカー
+            position: 位置
+          name: 会議スピーカー
         conference_user_role:
           fields:
             email: Eメールアドレス
             name: 名前
             role: ロール
-          name: カンファレンス管理
+          name: 会議管理
           roles:
             admin: 管理者
             collaborator: 共同編集者
@@ -199,7 +199,7 @@ ja:
             main_promotor: 主プロモーター（プロモーター）
         registration_type:
           fields:
-            conference_meetings: カンファレンスの会議
+            conference_meetings: 会議
             price: 価格
             registrations_count: 登録数
             title: タイトル
@@ -207,10 +207,10 @@ ja:
           name: 登録タイプ
       partners:
         create:
-          error: このカンファレンスにパートナーを追加する際に問題が発生しました。
-          success: カンファレンスパートナーを追加しました。
+          error: この会議にパートナーを追加する際に問題が発生しました。
+          success: 会議パートナーを追加しました。
         destroy:
-          success: カンファレンスパートナーを削除しました。
+          success: 会議パートナーを削除しました。
         edit:
           title: パートナーを更新します。
           update: 更新
@@ -218,8 +218,8 @@ ja:
           create: 作成
           title: 新しいパートナー
         update:
-          error: このカンファレンスのパートナーの更新中に問題が発生しました。
-          success: カンファレンスパートナーが正常に更新されました。
+          error: この会議のパートナーの更新中に問題が発生しました。
+          success: 会議パートナーが正常に更新されました。
       registration_type_publications:
         create:
           error: この登録タイプの公開中に問題が発生しました。
@@ -229,10 +229,10 @@ ja:
           success: 登録タイプを非公開にしました。
       registration_types:
         create:
-          error: このカンファレンスに登録タイプを追加する際に問題がありました。
-          success: カンファレンスの登録タイプを追加しました。
+          error: この会議に登録タイプを追加する際に問題がありました。
+          success: 会議の登録タイプを追加しました。
         destroy:
-          success: カンファレンスの登録タイプを削除しました。
+          success: 会議の登録タイプを削除しました。
         edit:
           title: 登録タイプの更新。
           update: 更新
@@ -240,32 +240,32 @@ ja:
           create: 作成
           title: 新規登録タイプ
         update:
-          error: このカンファレンスの登録タイプの更新に問題がありました。
-          success: カンファレンスの登録タイプを更新しました。
+          error: この会議の登録タイプの更新に問題がありました。
+          success: 会議の登録タイプを更新しました。
       titles:
-        conferences: カンファレンス
+        conferences: 会議
     admin_log:
       conference:
         create: "%{user_name} が %{resource_name} カンファレンスを作成しました"
         publish: "%{user_name} が %{resource_name} カンファレンスを公開しました"
         send_conference_diplomas: "%{user_name} が %{resource_name} カンファレンスに出席証明書を送信しました"
         unpublish: "%{user_name} が %{resource_name} カンファレンスを非公開にしました"
-        update: "%{user_name} が %{resource_name} のカンファレンスを更新しました"
+        update: "%{user_name} が %{resource_name} の会議を更新しました"
         update_diploma: "%{user_name} が %{resource_name} カンファレンスの出席設定証明書を更新しました"
       conference_speaker:
-        create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} スピーカーを作成しました"
+        create: "%{user_name} が %{resource_name} 会議で %{space_name} スピーカーを作成しました"
         delete: "%{user_name} が %{resource_name} のスピーカーを %{space_name} のカンファレンスから削除しました"
         update: "%{user_name} が %{resource_name} カンファレンスで %{space_name} スピーカーを更新しました"
       conference_user_role:
         create: "%{user_name} が %{resource_name} を %{space_name} カンファレンスに招待しました"
-        delete: "%{user_name} が %{resource_name} の管理者を %{space_name} カンファレンスから削除しました"
+        delete: "%{user_name} が %{resource_name} の管理者を %{space_name} 会議から削除しました"
         update: "%{user_name} が %{resource_name} のカンファレンスで %{space_name} の役割を変更しました"
       conferences:
         conference_registration:
-          confirm: "%{user_name} が %{resource_name} カンファレンスへの登録を確認しました"
+          confirm: "%{user_name} が %{resource_name} 会議で会議の登録を確認しました"
         partner:
           create: "%{user_name} は %{resource_name} カンファレンスに %{space_name} を作成しました"
-          delete: "%{user_name} が %{resource_name} の管理者を %{space_name} カンファレンスから削除しました"
+          delete: "%{user_name} が %{resource_name} の管理者を %{space_name} 会議から削除しました"
           update: "%{user_name} は %{resource_name} カンファレンスで %{space_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
@@ -286,15 +286,15 @@ ja:
       admin:
         conference_copies:
           form:
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この会議をポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
         conference_invites:
           create:
-            error: 参加者をカンファレンスに招待する際に問題が発生しました。
-            success: 参加者はカンファレンスに招待されました。
+            error: 参加者を招待する際に問題が発生しました。
+            success: 参加者は会議に招待されました。
           form:
             attendee_type: 参加者の種類
             existing_user: 既存の参加者
-            invite_explanation: 参加者は、カンファレンスや組織にも招待されます。
+            invite_explanation: 参加者は、会議や団体にも招待されます。
             non_user: 非既存の参加者
             select_user: 参加者を選択
           index:
@@ -308,7 +308,7 @@ ja:
             invites: 招待
             search: 検索
           new:
-            explanation: 参加者はカンファレンスに招待されます。 参加者の電子メールが組織に登録されていない場合、同様に組織に招待されます。
+            explanation: 参加者は会議に招待されます. 彼女の電子メールが登録されていない場合は、彼女は同様に組織に招待されます.
             invite: 招待
             new_invite: Invite participant
         conference_registrations:
@@ -327,7 +327,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             registrations_count:
               other: '%{count} 件の登録がありました。'
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この会議をポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -342,19 +342,19 @@ ja:
             title: パートナー
         registration_types:
           form:
-            select_conference_meetings: カンファレンス会議の選択
+            select_conference_meetings: 会議の選択
           index:
             title: 登録タイプ
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: 添付ファイルに、カンファレンス <a href="%{url}">%{title}</a> の出席証明書があります。
+            diploma_html: 添付ファイルに、会議 <a href="%{url}">%{title}</a> の出席証明書があります。
           diploma_user:
             attendance_verified_by: 出席者が確認しました
             certificate_of_attendance: 出席証明書
             certificate_of_attendance_description: これは、<strong>%{user}</strong>が、<strong>%{start} から %{end}</strong>に<strong>%{location}</strong>で開催された<strong>%{title}</strong>に出席し、参加したことを証明するものです。
         send_diploma:
-          error: カンファレンス出席証明書の送信に問題がありました。
-          success: カンファレンス出席証明書が正常に送信されました
+          error: 会議出席証明書の送信に問題がありました。
+          success: 会議出席証明書が正常に送信されました
       conference:
         registration_confirm:
           cancel: キャンセル
@@ -375,23 +375,23 @@ ja:
           program: プログラム
       conference_registration_mailer:
         confirmation:
-          confirmed_html: カンファレンス <a href="%{url}">%{title}</a> の登録が確認されました。
-          details_1: 'あなたは %{registration_type} タイプのカンファレンスに登録されています。 %{price} の費用がかかり、次のイベントに参加できます：'
-          details_2: カンファレンスの詳細は添付ファイルにあります。
+          confirmed_html: 会議 <a href="%{url}">%{title}</a> の登録が確認されました。
+          details_1: 'あなたは %{registration_type} タイプの会議に登録されています。 %{price} の費用がかかり、次のイベントに参加できます：'
+          details_2: 会議の詳細は添付ファイルにあります。
         pending_validation:
           confirmation_pending: まもなく確認が届きます。
           details: '%{registration_type} 種類に %{price} の費用で登録しました。以下のイベントに参加できます：'
-          pending_html: カンファレンス <a href="%{url}">%{title}</a> の登録は確認待ちです。
+          pending_html: 会議 <a href="%{url}">%{title}</a> の登録は確認待ちです。
       conference_registrations:
         create:
-          invalid: このカンファレンスに参加するのに問題がありました。
-          success: カンファレンスに参加しました。
+          invalid: この会議に参加するのに問題がありました。
+          success: 会議に参加しました。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
         destroy:
-          invalid: このカンファレンスから退会するのに問題がありました。
-          success: カンファレンスから退会しました。
+          invalid: この会議から出るのに問題がありました。
+          success: 会議を終了しました。
       conference_speaker:
         go_to_twitter: Twitter に移動
         more_info: 詳細情報
@@ -412,25 +412,25 @@ ja:
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
-          make_conference_registration: 'カンファレンスに参加登録を行います'
+          make_conference_registration: '会議であなたの登録を行います:'
           register: 登録
       content_blocks:
         highlighted_conferences:
-          name: ハイライトされたカンファレンス
+          name: ハイライトされた会議
       index:
-        title: カンファレンス
+        title: 会議
       mailer:
         conference_registration_mailer:
           confirmation:
-            subject: カンファレンスの登録が確認されました
+            subject: 会議の登録が確認されました
           pending_validation:
-            subject: カンファレンスの登録は保留中です
+            subject: 会議の登録は保留中です
         invite_join_conference_mailer:
           invite:
             subject: カンファレンスへの招待
         send_conference_diploma_mailer:
           diploma:
-            subject: カンファレンス出席証明書が送信されました
+            subject: 会議出席証明書が送信されました
       models:
         conference_invite:
           fields:
@@ -455,8 +455,8 @@ ja:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: アクティブなカンファレンス
-            see_all_conferences: すべてのカンファレンスを見る
+            active_conferences: アクティブな会議
+            see_all_conferences: すべての会議を見る
       photo:
         image:
           attributes:
@@ -477,21 +477,21 @@ ja:
         conference_user_login:
           already_account: 既にアカウントをお持ちですか？
           new_user: 新規ユーザーですか？
-          sign_in: ログインしてカンファレンスに登録する
-          sign_up: カンファレンスに登録するために Decidim にアカウントを作成する
+          sign_in: ログインして会議に登録する
+          sign_up: 会議に登録するためにデシウムにアカウントを作成する
       show:
         details: 詳細
         introduction: はじめに
         objectives: 目的
-        related_assemblies: 関連する会議体
-        related_consultations: 関連する議案
-        related_participatory_processes: 関連する参加型プロセス
+        related_assemblies: 関連するアセンブリ
+        related_consultations: 関連する相談
+        related_participatory_processes: 関連する参加プロセス
       statistics:
         answers_count: 回答
         comments_count: コメント
-        conference_count: カンファレンス
-        debates_count: ディベート
-        endorsements_count: 支持
+        conference_count: 会議
+        debates_count: ディベート数
+        endorsements_count: <unk>
         headline: アクティビティ
         meetings_count: ミーティング
         orders_count: サポート
@@ -506,29 +506,29 @@ ja:
     events:
       conferences:
         conference_registration_confirmed:
-          notification_title: カンファレンス <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
+          notification_title: 会議 <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
         conference_registration_validation_pending:
-          notification_title: カンファレンス <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
+          notification_title: 会議 <a href="%{resource_url}">%{resource_title}</a> の登録が確認されました。
         conference_registrations_over_percentage:
-          email_intro: '"%{resource_title}" カンファレンス参加率は %{percentage} %を超えています。'
-          email_outro: あなたはカンファレンスの参加スペースの管理者であるため、この通知を受け取りました。
-          email_subject: '「%{resource_title}」カンファレンス参加率は %{percentage} %を超えています'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> カンファレンス参加率は %{percentage} %を超えています。
+          email_intro: '"%{resource_title}" 会議占有スロットは %{percentage} %を超えています。'
+          email_outro: あなたは会議の参加スペースの管理者であるため、この通知を受け取りました。
+          email_subject: '「%{resource_title}」会議占有スロットは %{percentage} %を超えています'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会議占有スロットは %{percentage} %を超えています。
         conference_updated:
-          email_intro: '"%{resource_title}" カンファレンスを更新しました。新しいバージョンはそのページから読むことができます：'
+          email_intro: '"%{resource_title}" 会議を更新しました。新しいバージョンはそのページから読むことができます：'
           email_outro: '「%{resource_title}」カンファレンスをフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
           email_subject: '"%{resource_title}" カンファレンスが更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> カンファレンスを更新しました。
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 会議を更新しました。
         registrations_enabled:
           email_intro: '"%{resource_title}" カンファレンスは登録を有効にしました。あなた自身をそのページに登録することができます:'
           email_outro: '「%{resource_title}」カンファレンスをフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-          email_subject: '"%{resource_title}" カンファレンスは登録を有効にしました。'
+          email_subject: '"%{resource_title}" 会議は登録を有効にしました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> カンファレンスは登録を有効にしました。
         role_assigned:
-          email_intro: カンファレンス " %{role} " の%{resource_title} として割り当てられました。
+          email_intro: 会議 " %{role} " の%{resource_title} として割り当てられました。
           email_outro: あなたは「 %{role} 」カンファレンスの%{resource_title}であるため、この通知を受け取りました。
           email_subject: あなたは " %{role} " の%{resource_title} として割り当てられました。
-          notification_title: あなたはカンファレンス<a href="%{resource_url}"ｆ>%{resource_title}</a> に、%{role} として割り当てられました。
+          notification_title: あなたは会議<a href="%{resource_url}"ｆ>%{resource_title}</a> に、%{role} として割り当てられました。
         upcoming_conference:
           email_intro: '"%{resource_title}" カンファレンスは2日後に開催されます。そのページから説明を読むことができます:'
           email_outro: '「%{resource_title}」カンファレンスをフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
@@ -537,13 +537,13 @@ ja:
     log:
       value_types:
         conference_presenter:
-          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id})'
+          not_found: 'データベース上に会議が見つかりませんでした (ID: %{id})'
     media:
       index:
-        description: このカンファレンスに関するリンク
+        description: この会議に関するリンク
         title: メディアとリンク
     menu:
-      conferences: カンファレンス
+      conferences: 会議
   devise:
     mailer:
       join_conference:
@@ -560,10 +560,10 @@ ja:
           more_info: 詳細情報
           take_part: 参加する
         index:
-          promoted_conferences: ハイライトされたカンファレンス
+          promoted_conferences: ハイライトされた会議
         order_by_conferences:
           conferences:
-            other: "%{count} 個のカンファレンス"
+            other: "%{count} 個の会議"
         promoted_conference:
           more_info: 詳細情報
           take_part: 参加する

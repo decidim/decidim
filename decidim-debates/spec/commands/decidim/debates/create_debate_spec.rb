@@ -18,7 +18,8 @@ describe Decidim::Debates::CreateDebate do
       user_group_id: nil,
       category: category,
       current_user: user,
-      current_component: current_component
+      current_component: current_component,
+      current_organization: organization
     )
   end
   let(:invalid) { false }
@@ -56,13 +57,11 @@ describe Decidim::Debates::CreateDebate do
     it "sets the title with i18n" do
       subject.call
       expect(debate.title.values.uniq).to eq ["title"]
-      expect(debate.title.keys).to match_array organization.available_locales
     end
 
     it "sets the description with i18n" do
       subject.call
       expect(debate.description.values.uniq).to eq ["description"]
-      expect(debate.description.keys).to match_array organization.available_locales
     end
 
     it "traces the action", versioning: true do
@@ -80,6 +79,11 @@ describe Decidim::Debates::CreateDebate do
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "create"
+    end
+
+    it "makes the author follow the debate" do
+      subject.call
+      expect(Decidim::Follow.where(user: user, followable: debate).count).to eq(1)
     end
   end
 

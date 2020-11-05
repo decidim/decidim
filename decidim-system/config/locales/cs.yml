@@ -1,4 +1,29 @@
 cs:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Jméno žádosti OAuth
+        organization_logo: Logo organizace (čtvercové)
+        organization_name: Organizace
+        organization_url: URL organizace
+        redirect_uri: Přesměrovací URI
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Admin MIME typy
+          default: Výchozí MIME typy
+        allowed_file_extensions:
+          admin: Admin přípony souborů
+          default: Výchozí přípony souboru
+          image: Přípony obrázkových souborů
+        maximum_file_size:
+          avatar: Velikost souboru avataru
+          default: Výchozí velikost souboru
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI přesměrování musí být SSL URI
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ cs:
       menu:
         admins: Správci
         dashboard: Ovládací panel
+        oauth_applications: Žádosti OAuth
         organizations: Organizace
       models:
         admin:
@@ -41,21 +67,67 @@ cs:
           name: Správce
           validations:
             email_uniqueness: jiný admin se stejnou e-mailovou adresou již existuje
+        oauth_application:
+          fields:
+            created_at: Vytvořeno v
+            name: Jméno žádosti OAuth
+            organization_name: Organizace
+          name: Žádost OAuth
         organization:
           actions:
             save_and_invite: Vytvořit organizaci a pozvat administrátora
           fields:
             created_at: Vytvořeno v
+            file_upload_settings: Nastavení nahrávání souborů
             name: název
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
           name: Organizace
+      oauth_applications:
+        create:
+          error: Při vytváření této žádosti došlo k chybě.
+          success: Žádost byla úspěšně vytvořena.
+        destroy:
+          error: Při zničení této žádosti došlo k chybě.
+          success: Žádost byla úspěšně zlikvidována.
+        edit:
+          save: Uložit
+          title: Upravit žádost
+        form:
+          select_organization: Vybrat organizaci
+        index:
+          confirm_delete: Jste si jisti, že chcete odstranit tuto žádost?
+          title: Žádosti OAuth
+        new:
+          save: Uložit
+          title: Nová žádost
+        update:
+          error: Při aktualizaci této žádosti došlo k chybě.
+          success: Žádost byla úspěšně aktualizována.
       organizations:
         create:
           error: Při vytváření nové organizace došlo k chybě.
           success: Organizace byla úspěšně vytvořena.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
+        file_upload_settings:
+          content_types:
+            admin_hint: Tyto typy MIME jsou povoleny pro nahrávání sekcí administrace. Administrátoři by si měli být vědomi rizik spojených s nahráváním některých formátů dokumentů, takže můžete očekávat, že budou opatrnější při nahrávání souborů.
+            default_hint: Tyto MIME typy jsou ve výchozím nastavení povoleny pro všechny uživatele.
+            intro_html: Přidáváte zástupné znaky s hvězdičkou pro MIME typy, např. <code>image/*</code>.
+            title: Povolené MIME typy
+          file_extensions:
+            admin_hint: Tyto přípony souborů jsou povoleny pro nahrávání do sekce administrátora. Administrátoři by si měli být vědomi rizik spojených s nahráváním některých formátů dokumentů, takže můžete očekávat, že budou opatrnější při nahrávání souborů.
+            default_hint: Tyto přípony souborů jsou ve výchozím nastavení povoleny pro všechny uživatele.
+            image_hint: Tyto přípony souborů jsou povoleny pro nahrávání jakéhokoliv druhu obrázku.
+            title: Povolené přípony souborů
+          file_sizes:
+            avatar_hint: Megabajty (MB). Tento limit velikosti souboru se používá pro nahrávání obrázků avataru.
+            default_hint: Megabajty (MB). Tento limit velikosti souboru je výchozí, který se používá pro všechna nahrávání souborů, pokud není uvedeno jinak.
+            title: Maximální velikost souboru
+          intro: |
+            Buďte prosím opatrní při zvažování změny těchto nastavení. Čím méně dovolíte, tím lépe.
+            Povolení specifických přípon souborů nebo typů MIME může vystavit uživatele systému bezpečnostním rizikům a může také ovlivnit přístupnost webových stránek.
         index:
           title: Organizace
         new:
@@ -82,9 +154,9 @@ cs:
             api_secret: API heslo
         smtp_settings:
           instructions:
-            from_label: 'Odesílatel e-mailu bude: "jméno-vaší-organizace <your-organization@your-provider.org>". Nechte prázdné pro použití štítku ''from_email'''
+            from_label: 'Odesílatel e-mailu bude: "jméno-vaší-organizace <your-organization@example.org>". Nechte prázdné pro použití štítku ''from_email'''
           placeholder:
-            from_email: vaše-organizace@váš-poskytovatel-domény.org
+            from_email: vaše-organizace@example.org
             from_label: jméno vaší organizace
         update:
           error: Při aktualizaci této organizace došlo k chybě.

@@ -18,6 +18,10 @@ module Decidim
 
     delegate :current_user, to: :controller, prefix: false
 
+    def author_name
+      options[:author_name_text] || model.name
+    end
+
     def show
       render
     end
@@ -56,7 +60,6 @@ module Decidim
 
     def creation_date?
       return unless from_context
-      return unless proposals_controller? || collaborative_drafts_controller? || posts_controller?
       return unless show_action? && (from_context.respond_to?(:published_at) || from_context.respond_to?(:created_at))
 
       true
@@ -83,7 +86,7 @@ module Decidim
     def actionable?
       return false if options[:has_actions] == false
 
-      (user_author? && posts_controller?) || withdrawable? || flagable?
+      withdrawable? || flaggable?
     end
 
     def user_author?

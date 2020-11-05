@@ -10,7 +10,6 @@ pt:
         description: Descrição
         end_time: Votação termina às
         start_time: Votação inicia-se às
-        subtitle: Subtítulo
         title: Título
       question:
         description: Descrição
@@ -36,6 +35,8 @@ pt:
   decidim:
     components:
       elections:
+        actions:
+          vote: Votar
         name: Eleições
         settings:
           global:
@@ -47,9 +48,14 @@ pt:
         confirm_destroy: Tem a certeza?
         destroy: Destruir
         edit: Editar
+        edit_answers: Editar respostas
+        edit_questions: Editar perguntas
+        import: Importar propostas para perguntas
         new: Novo %{name}
         preview: Pré-visualizar
+        publish: Publicar
         title: Ações
+        unpublish: Remover publicação
       admin:
         answers:
           create:
@@ -84,6 +90,10 @@ pt:
           new:
             create: Criar eleição
             title: Nova eleição
+          publish:
+            success: A eleição foi publicada corretamente.
+          unpublish:
+            success: Remoção da publicação da eleição feita corretamente.
           update:
             invalid: Ocorreu um problema ao atualizar esta eleição
             success: Eleição atualizada corretamente
@@ -94,6 +104,14 @@ pt:
             name: Eleição
           question:
             name: Pergunta
+        proposals_imports:
+          create:
+            invalid: Ocorreu um problema ao importar as propostas em respostas
+            success: "%{number} propostas importadas corretamente em respostas"
+          new:
+            create: Importar propostas para perguntas
+            no_components: Não há outros componentes de propostas neste espaço participativo para importar as propostas em respostas.
+            select_component: Selecione um componente
         questions:
           create:
             invalid: Ocorreu um problema ao criar esta pergunta
@@ -112,6 +130,23 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta pergunta
             success: Pergunta atualizada corretamente
+      admin_log:
+        election:
+          publish: "%{user_name} publicou a eleição %{resource_name}"
+          unpublish: "%{user_name} removeu a publicação da eleição %{resource_name}"
+      elections:
+        count:
+          elections_count:
+            one: "%{count} eleição"
+            other: "%{count} eleições"
+        show:
+          back: Todas as eleições
+          preview: Pré-visualizar
+          vote: Voto
+          voting_period_status:
+            finished: A votação começou em %{start_time} e terminou em %{end_time}
+            ongoing: A votação termina em %{end_time}
+            upcoming: A votação começa em %{start_time}
       models:
         answer:
           fields:
@@ -127,6 +162,54 @@ pt:
             answers: Respostas
             max_selections: Máx. de seleções
             title: Título
+      votes:
+        confirm:
+          answer: Responder
+          answer_number: resposta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirmar o seu voto
+          intro: Aqui está um resumo do voto que está prestes a transmitir. <br> Por favor, confirme o seu voto ou edite as suas respostas.
+          question: Questão %{count}
+        confirmed:
+          back: Retroceder às eleições
+          experience: Como foi a sua experiência?
+          feedback: Dê-nos algum feedback
+          header: Voto confirmado
+          lead: O seu voto já foi transmitido!
+          text: 'Pode verificar que o seu voto foi adicionado corretamente à caixa de voto com o seguinte identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Para verificá-lo, copie o identificador e cole-o na <a href="evote-verify">página de verificação de voto</a>
+        encrypting:
+          header: A codificar voto...
+          text: O seu voto está a ser encriptado para garantir que pode transmiti-lo anonimamente.
+        header:
+          confirm: Confirmar o seu voto
+          confirmed: Voto confirmado
+          encrypting: A confirmar voto
+        messages:
+          not_allowed: Não está autorizado a votar nesta eleição neste momento.
+        modal:
+          close: Fechar
+          proposal_header: 'Propostas:'
+        new:
+          more_information: Mais informações
+          preview_alert: Isto é uma pré-visualização da cabina de voto.
+          question_steps: Questão %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> seleções"
+        voting_step:
+          back: Retroceder
+          continue: Seguinte
+    events:
+      elections:
+        election_published:
+          email_intro: 'A eleição %{resource_title} está agora ativa em %{participatory_space_title}. Pode vê-la a partir da página:'
+          email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
+          email_subject: A eleição %{resource_title} está agora ativa em %{participatory_space_title}.
+          notification_title: A eleição <a href="%{resource_path}">%{resource_title}</a> está agora ativa em %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Eleições
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sair

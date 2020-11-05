@@ -89,12 +89,13 @@ tr:
           filter: filtre
           filter_by: Tarafından filtre
           unfold: açılmak
+        form:
+          select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
           back: Geri
           create: yaratmak
-          select_a_category: Lütfen bir kategori seçin
           title: Yeni tartışma
       last_activity:
         new_debate_at_html: "<span> %{link}</span>yeni tartışma"

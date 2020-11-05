@@ -4,6 +4,8 @@ import * as React from "react";
 import { graphql } from "react-apollo";
 import * as uuid from "uuid";
 
+const PropTypes = require("prop-types");
+
 import Icon from "../application/icon.component";
 
 const { I18n, Translate } = require("react-i18nify");
@@ -27,9 +29,10 @@ interface AddCommentFormProps {
   autoFocus?: boolean;
   arguable?: boolean;
   userAllowedToComment?: boolean;
-  addComment?: (data: { body: string, alignment: number, userGroupId?: string }) => void;
+  addComment?: (data: { body: string, alignment: number, userGroupId?: string }, context: any) => void;
   onCommentAdded?: () => void;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 interface AddCommentFormState {
@@ -38,8 +41,6 @@ interface AddCommentFormState {
   alignment: number;
   remainingCharacterCount: number;
 }
-
-export const MAX_LENGTH = 1000;
 
 /**
  * Renders a form to create new comments.
@@ -54,6 +55,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     autoFocus: false
   };
 
+  public static contextTypes: any = {
+    locale: PropTypes.string,
+    toggleTranslations: PropTypes.bool
+  };
+
   public bodyTextArea: HTMLTextAreaElement;
   public userGroupIdSelect: HTMLSelectElement;
 
@@ -64,7 +70,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       disabled: true,
       error: false,
       alignment: 0,
-      remainingCharacterCount: MAX_LENGTH
+      remainingCharacterCount: props.commentsMaxLength
     };
   }
 
@@ -176,7 +182,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The heading or an empty element
    */
   private _renderTextArea() {
-    const { commentable: { id, type }, autoFocus } = this.props;
+    const { commentable: { id, type }, autoFocus, commentsMaxLength } = this.props;
     const { error } = this.state;
     const className = classnames({ "is-invalid-input": error });
 
@@ -185,11 +191,11 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
       id: `add-comment-${type}-${id}`,
       className,
       rows: "4",
-      maxLength: MAX_LENGTH,
+      maxLength: commentsMaxLength,
       required: "required",
-      pattern: `^(.){0,${MAX_LENGTH}}$`,
+      pattern: `^(.){0,${commentsMaxLength}}$`,
       placeholder: I18n.t("components.add_comment_form.form.body.placeholder"),
-      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value)
+      onChange: (evt: React.ChangeEvent<HTMLTextAreaElement>) => this._checkCommentBody(evt.target.value, commentsMaxLength as number)
     };
 
     if (autoFocus) {
@@ -207,12 +213,13 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @returns {Void|DOMElement} - The error or an empty element
    */
   private _renderTextAreaError() {
+    const { commentsMaxLength } = this.props;
     const { error } = this.state;
 
     if (error) {
       return (
         <span className="form-error is-visible">
-          {I18n.t("components.add_comment_form.form.form_error", { length: MAX_LENGTH })}
+          {I18n.t("components.add_comment_form.form.form_error", { length: commentsMaxLength })}
         </span>
       );
     }
@@ -317,10 +324,10 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
    * @param {string} body - The comment's body
    * @returns {Void} - Returns nothing
    */
-  private _checkCommentBody(body: string) {
+  private _checkCommentBody(body: string, commentsMaxLength: number) {
     this.setState({
-      disabled: body === "", error: body === "" || body.length > MAX_LENGTH,
-      remainingCharacterCount: MAX_LENGTH - body.length
+      disabled: body === "", error: body === "" || body.length > commentsMaxLength,
+      remainingCharacterCount: commentsMaxLength - body.length
     });
   }
 
@@ -343,7 +350,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
     }
 
     if (addComment) {
-      addComment(addCommentParams);
+      addComment(addCommentParams, this.context);
     }
 
     this.bodyTextArea.value = "";
@@ -360,10 +367,12 @@ const getCommentsQuery = require("../queries/comments.query.graphql");
 
 const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormProps>(addCommentMutation, {
   props: ({ ownProps, mutate }) => ({
-    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }) => {
+    addComment: ({ body, alignment, userGroupId }: { body: string, alignment: number, userGroupId: string }, { locale, toggleTranslations }: any) => {
       if (mutate) {
         mutate({
           variables: {
+            locale,
+            toggleTranslations,
             commentableId: ownProps.commentable.id,
             commentableType: ownProps.commentable.type,
             body,
@@ -381,10 +390,14 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 createdAt: new Date().toISOString(),
                 body,
                 formattedBody: body,
+                formattedCreatedAt: new Date().toISOString(),
                 alignment,
                 author: {
                   __typename: "User",
                   name: ownProps.session && ownProps.session.user.name,
+                  nickname: ownProps.session && ownProps.session.user.name,
+                  profilePath: null,
+                  badge: null,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
                   deleted: false
                 },
@@ -402,14 +415,17 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
           },
           update: (store, { data }: { data: addCommentMutation }) => {
             const variables = {
+              locale,
+              toggleTranslations,
               commentableId: ownProps.rootCommentable.id,
               commentableType: ownProps.rootCommentable.type,
-              orderBy: ownProps.orderBy
+              orderBy: ownProps.orderBy,
+              singleCommentId: null
             };
             const prev = store.readQuery<GetCommentsQuery>({
               query: getCommentsQuery,
               variables
-             });
+            });
             const { id, type } = ownProps.commentable;
             const newComment = data.commentable && data.commentable.addComment;
             let comments = [];

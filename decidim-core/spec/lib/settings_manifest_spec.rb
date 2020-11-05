@@ -125,6 +125,12 @@ module Decidim
           expect(attribute.type_class).to eq(String)
           expect(attribute.default_value).to eq(nil)
         end
+
+        it "supports scopes" do
+          attribute = SettingsManifest::Attribute.new(type: :scope)
+          expect(attribute.type_class).to eq(Integer)
+          expect(attribute.default_value).to eq(nil)
+        end
       end
 
       it "only allows valid types" do

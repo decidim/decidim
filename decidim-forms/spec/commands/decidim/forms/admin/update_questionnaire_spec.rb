@@ -299,6 +299,68 @@ module Decidim
             end
           end
         end
+
+        describe "when the questionnaire has existing questions" do
+          let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire: questionnaire, position: x) } }
+
+          context "and display conditions are to be created" do
+            let(:form_params) do
+              {
+                "title" => {
+                  "en" => "Title",
+                  "ca" => "Títol",
+                  "es" => "Título"
+                },
+                "description" => {
+                  "en" => "<p>Content</p>",
+                  "ca" => "<p>Contingut</p>",
+                  "es" => "<p>Contenido</p>"
+                },
+                "tos" => {
+                  "en" => "<p>TOS</p>",
+                  "ca" => "<p>TOS</p>",
+                  "es" => "<p>TOS</p>"
+                },
+                "questions" => {
+                  "1" => {
+                    "id" => questions[0].id,
+                    "body" => questions[0].body,
+                    "position" => 0,
+                    "question_type" => "short_answer"
+                  },
+                  "2" => {
+                    "id" => questions[1].id,
+                    "body" => questions[1].body,
+                    "position" => 1,
+                    "question_type" => "short_answer"
+                  },
+                  "3" => {
+                    "id" => questions[2].id,
+                    "body" => questions[2].body,
+                    "position" => 2,
+                    "question_type" => "short_answer",
+                    "deleted" => "false",
+                    "display_conditions" => {
+                      "1" => {
+                        "decidim_condition_question_id" => questions[0].id,
+                        "decidim_question_id" => questions[2].id,
+                        "condition_type" => "answered"
+                      }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "saves the questionnaire" do
+              expect { command.call }.to broadcast(:ok)
+              questionnaire.reload
+
+              expect(questionnaire.questions[2].display_conditions).not_to be_empty
+              expect(questionnaire.questions[2].display_conditions.first.condition_type).to eq("answered")
+            end
+          end
+        end
       end
     end
   end

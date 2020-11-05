@@ -19,7 +19,9 @@
     </div>
   </div>
 
-  <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% cache current_organization do %>
+    <%= render "decidim/devise/shared/omniauth_buttons" %>
+  <% end %>
 
   <div class="row">
     <div class="columns large-6 medium-10 medium-centered">

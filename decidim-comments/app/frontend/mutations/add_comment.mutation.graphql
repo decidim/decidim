@@ -1,7 +1,7 @@
 #import "../fragments/comment_thread.fragment.graphql"
 
-mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID)  {
-  commentable(id: $commentableId, type: $commentableType) {
+mutation addComment($commentableId: String!, $commentableType: String!, $body: String!, $alignment: Int, $userGroupId: ID, $locale: String!, $toggleTranslations: Boolean!)  {
+  commentable(id: $commentableId, type: $commentableType, locale: $locale, toggleTranslations: $toggleTranslations) {
     addComment(body: $body, alignment: $alignment, userGroupId: $userGroupId) {
       ...CommentThread
     }

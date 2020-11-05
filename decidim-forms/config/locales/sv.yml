@@ -25,11 +25,47 @@ sv:
             description: Beskrivning
             tos: Användarvillkor
         questionnaires:
+          actions:
+            back: Tillbaka till frågor
+            show: Visa svar
           answer_option:
             answer_option: Svarsalternativ
             free_text: Fritext
             remove: Ta bort
             statement: Påstående
+          answers:
+            actions:
+              back: Tillbaka till svar
+              export: Exportera
+              show: Visa svar
+            empty: Inga svar ännu
+            export:
+              answer:
+                title: 'Svar #%{number}'
+            export_response:
+              title: Undersökning_användare_svar_%{token}
+            index:
+              title: "%{total} svar totalt"
+            show:
+              title: 'Svar #%{number}'
+          display_condition:
+            answer_option: Svarsalternativ
+            condition_question: Fråga
+            condition_type: Skick
+            condition_types:
+              answered: Besvarad
+              equal: Lika
+              match: Inkluderar text
+              not_answered: Ej besvarad
+              not_equal: Inte lika
+            condition_value: Inkluderad text
+            display_condition: Visa villkor
+            mandatory: Detta villkor måste uppfyllas alltid oavsett status för andra villkor
+            remove: Radera
+            save_warning: Kom ihåg att spara formuläret innan du konfigurerar visningsvillkor
+            select_answer_option: Välj svarsalternativ
+            select_condition_question: Välj en fråga
+            select_condition_type: Välj en villkorstyp
           edit:
             save: Spara
             title: Redigera frågeformulär
@@ -39,12 +75,17 @@ sv:
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
             collapse: Komprimera alla frågor
             expand: Expandera alla frågor
+            preview: Förhandsgranska
+            title: Redigera formulär
+            unpublished_warning: Formuläret är inte publicerat. Du kan ändra dess frågor, men det kommer att ta bort aktuella svar.
           matrix_row:
             matrix_row: Rad
             remove: Ta bort
             statement: Påstående
           question:
             add_answer_option: Lägg till svarsalternativ
+            add_display_condition: Lägg till visningsvillkor
+            add_display_condition_info: Spara formuläret för att konfigurera visningsvillkor
             add_matrix_row: Lägg till rad
             any: Någon
             collapse: Komprimera
@@ -62,7 +103,6 @@ sv:
             up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
-            success: Formuläret har sparats.
       errors:
         answer:
           body: Kroppen kan inte vara to
@@ -104,6 +144,11 @@ sv:
           questionnaire_for_private_users:
             body: Formuläret är endast tillgängligt för privata användare
             title: Formuläret är stängt
+          questionnaire_js_disabled:
+            body: Vissa av formulärens funktioner kommer att inaktiveras. För att förbättra din upplevelse, vänligen aktivera JavaScript i din webbläsare.
+            title: JavaScript är inaktiverat
+          questionnaire_not_published:
+            body: Detta formulär är ännu inte publicerat.
           tos_agreement: Genom att delta godkänner du användarvillkoren
       step_navigation:
         show:
@@ -112,9 +157,13 @@ sv:
           continue: Fortsätt
           submit: Skicka in
       user_answers_serializer:
+        body: Svar
+        completion: Slutförande
         created_at: Besvarad
         id: Svars-ID
-        ip_hash: Ip-hash
+        ip_hash: IP Hash
+        question: Fråga
         registered: Registrerad
+        session_token: Identifierare för användare
         unregistered: Ej registrerad
         user_status: Användarstatus

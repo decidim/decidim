@@ -35,8 +35,3 @@ describe Decidim::Assemblies::Metrics::AssembliesMetricManage do
     end
   end
 end
-
-def generate_metric_registry(date = nil)
-  metric = described_class.for(date, organization)
-  metric.save
-end

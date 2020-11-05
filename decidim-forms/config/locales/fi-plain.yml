@@ -3,6 +3,8 @@ fi-pl:
     attributes:
       answer:
         body: Vastaus
+        choices: Vastausvaihtoehdot
+        selected_choices: Valitut vastausvaihtoehdot
       question:
         max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
@@ -25,11 +27,47 @@ fi-pl:
             description: Kuvaus
             tos: Käyttöehdot
         questionnaires:
+          actions:
+            back: Takaisin kysymyksiin
+            show: Näytä vastaukset
           answer_option:
             answer_option: Vastausvaihtoehto
             free_text: Vapaa teksti
             remove: Poista
             statement: Selite
+          answers:
+            actions:
+              back: Takaisin vastauksiin
+              export: Vie
+              show: Näytä vastaukset
+            empty: Ei vielä yhtään vastausta
+            export:
+              answer:
+                title: 'Vastaus #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} vastausta yhteensä"
+            show:
+              title: 'Vastaus #%{number}'
+          display_condition:
+            answer_option: Vastausvaihtoehto
+            condition_question: Kysymys
+            condition_type: Ehto
+            condition_types:
+              answered: Vastattu
+              equal: Yhtä suuri kuin
+              match: Sisältää tekstin
+              not_answered: Vastaamaton
+              not_equal: Erisuuri
+            condition_value: Sisällytetty teksti
+            display_condition: Näytä ehto
+            mandatory: Tämän ehdon on täytyttävä aina riippumatta muiden ehtojen tilasta
+            remove: Poista
+            save_warning: Muista tallentaa lomake ennen kuin muutat sen näyttämisen ehtoja
+            select_answer_option: Valitse vastausvaihtoehto
+            select_condition_question: Valitse kysymys
+            select_condition_type: Valitse ehdon tyyppi
           edit:
             save: Tallenna
             title: Muokkaa kyselyä
@@ -39,12 +77,17 @@ fi-pl:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet kyselyyn, joten et voi muokata kysymyksiä.
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
+            preview: Esikatsele
+            title: Muokkaa lomaketta
+            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi
             remove: Poista
             statement: Selite
           question:
             add_answer_option: Lisää vastausvaihtoehto
+            add_display_condition: Lisää ehto
+            add_display_condition_info: Tallenna lomake muokataksesi sen näyttämisen ehtoja
             add_matrix_row: Lisää rivi
             any: Minkä tahansa
             collapse: Sulje
@@ -62,7 +105,7 @@ fi-pl:
             up: Ylös
           update:
             invalid: Kyselylomakkeiden tallentamisessa on tapahtunut virheitä.
-            success: Kyselylomakkeet tallennettiin onnistuneesti.
+            success: Lomake tallennettu onnistuneesti.
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
@@ -104,6 +147,11 @@ fi-pl:
           questionnaire_for_private_users:
             body: Kyselylomake on saatavilla vain yksityisille käyttäjille
             title: Kysely on suljettu
+          questionnaire_js_disabled:
+            body: Jotkin tämän lomakkeen ominaisuudet eivät ole käytössä. Parantaaksesi käyttökokemustasi, ota JavaScript käyttöön selaimestasi.
+            title: JavaScript ei ole käytössä
+          questionnaire_not_published:
+            body: Tätä lomaketta ei ole vielä julkaistu.
           tos_agreement: Osallistumalla hyväksyt käyttöehdot
       step_navigation:
         show:
@@ -112,9 +160,13 @@ fi-pl:
           continue: Jatka
           submit: Lähetä
       user_answers_serializer:
+        body: Vastaa
+        completion: Viimeistele
         created_at: Vastattu
         id: Vastaa tunnus
         ip_hash: IP-tarkistesumma
+        question: Kysymys
         registered: Rekisteröitynyt
+        session_token: Käyttäjän tunniste
         unregistered: Ei rekisteröitynyt
         user_status: Käyttäjän tila

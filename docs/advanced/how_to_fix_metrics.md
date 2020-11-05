@@ -27,13 +27,13 @@ We cannot offer a definitive solution for duplicate metrics, other than to delet
 For a given metric type (`rake decidim:metrics:list`) that has duplicates:
 
 - Option 1: Remove individually each metric record per day.
-- Option 2: Delete all metric records and recalculate them. [CHANGELOG](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics) of decidim version 0.18 has an example for "participants".
+- Option 2: Delete all metric records and recalculate them. [CHANGELOG](https://github.com/decidim/decidim/blob/release/0.18-stable/CHANGELOG.md#participants-metrics) of decidim version 0.18 has an example for "participants".
 
 For orphan records, you can do the following:
 
 - Back up the database.
 - Delete orphan records fromt the console (code is below).
-- Delete "comments" metrics and recalculate them following the [aforementioned example](https://github.com/decidim/decidim/blob/0.18-stable/CHANGELOG.md#participants-metrics).
+- Delete "comments" metrics and recalculate them following the [aforementioned example](https://github.com/decidim/decidim/blob/release/0.18-stable/CHANGELOG.md#participants-metrics).
 
 ### Some queries that may help
 

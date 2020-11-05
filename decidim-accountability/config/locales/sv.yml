@@ -185,6 +185,7 @@ sv:
           global:
             categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer på
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
             heading_parent_level_results: Namn för "Resultat"

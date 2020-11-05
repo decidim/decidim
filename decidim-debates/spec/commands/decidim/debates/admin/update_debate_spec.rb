@@ -19,7 +19,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      category: category
+      category: category,
+      current_organization: organization
     )
   end
   let(:invalid) { false }

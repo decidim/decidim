@@ -1,0 +1,56 @@
+bg:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Създаден на
+        decidim_scope_id: Сфера
+        field: Моето поле
+        start_date: Начална дата
+        title: Заглавие
+        translatable_text: Преводим текст
+        updated_at: Обновен на
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            readonly_attribute: Само за четене атрибут
+            test: А тест
+            test_choices:
+              a: А избор
+              b: Б избор
+              c: В избор
+          step:
+            endorsements_blocked: Одобряване забранено
+            endorsements_enabled: Одобряване разрешено
+            readonly_step_attribute: Само за четене стъпков атрибут
+    dummy:
+      admin:
+        exports:
+          dummies: Примери
+    gamification:
+      badges:
+        test:
+          conditions:
+            - Използвайте тестова среда за decidim.
+          description: Участниците получават тази значка като създават тестове.
+          description_another: Участниците създадоха %{score} теста.
+          description_own: Вие създадохте %{score} теста.
+          name: Тестове
+          next_level_in: Създайте още %{score} теста за да достигнете следващо ниво!
+          unearned_another: Този участник все още не е създал тест.
+          unearned_own: Вие все още не сте създали тест.
+    pages:
+      home:
+        statistics:
+          bar: Нещо1
+          dummies_count_high: Пример за максимум
+          dummies_count_medium: Пример за средно
+          foo: Нещо2
+    participatory_processes:
+      statistics:
+        dummies_count_high: Пример за максимум
+        dummies_count_medium: Пример за средно
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Пример за свързан

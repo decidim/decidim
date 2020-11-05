@@ -8,6 +8,7 @@ module Decidim
   autoload :Deprecations, "decidim/deprecations"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
+  autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
@@ -24,7 +25,9 @@ module Decidim
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
+  autoload :ScopableParticipatorySpace, "decidim/scopable_participatory_space"
   autoload :ScopableComponent, "decidim/scopable_component"
+  autoload :ScopableResource, "decidim/scopable_resource"
   autoload :ContentParsers, "decidim/content_parsers"
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
@@ -74,7 +77,6 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
-  autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -83,6 +85,13 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Map, "decidim/map"
+  autoload :Geocodable, "decidim/geocodable"
+  autoload :Snippets, "decidim/snippets"
+  autoload :OrganizationSettings, "decidim/organization_settings"
+  autoload :HasUploadValidations, "decidim/has_upload_validations"
+  autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
+  autoload :ShareableWithToken, "decidim/shareable_with_token"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -140,7 +149,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ar ca de el es es-MX es-PY eu fi-pl fi fr gl hu id it nl no pl pt pt-BR ro ru sk sv tr uk)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -167,6 +176,10 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: an object to configure the mapping
+  # functionality. See Decidim::Map for more information.
+  config_accessor :maps
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
@@ -214,16 +227,6 @@ module Decidim
     80
   end
 
-  # Exposes a configuration option: The maximum file size of an attachment.
-  config_accessor :maximum_attachment_size do
-    10.megabytes
-  end
-
-  # Exposes a configuration option: The maximum file size for user avatar images.
-  config_accessor :maximum_avatar_size do
-    5.megabytes
-  end
-
   # The number of reports which a resource can receive before hiding it
   config_accessor :max_reports_before_hiding do
     3
@@ -257,6 +260,11 @@ module Decidim
   # Time window were users can access the website even if their email is not confirmed.
   config_accessor :unconfirmed_access_for do
     2.days
+  end
+
+  # Allow machine translations
+  config_accessor :enable_machine_translations do
+    false
   end
 
   # How long can a user remained logged in before the session expires
@@ -303,6 +311,12 @@ module Decidim
     # "MyPDFSignatureService"
   end
 
+  # The name of the class to translate user content.
+  #
+  config_accessor :machine_translation_service do
+    # "MyTranslationService"
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
@@ -329,6 +343,18 @@ module Decidim
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
     %w(all participants)
+  end
+
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
+  end
+
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  config_accessor :consent_cookie_name do
+    "decidim-cc"
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -514,5 +540,34 @@ module Decidim
   # Public: Stores an instance of MetricOperation
   def self.metrics_operation
     @metrics_operation ||= MetricOperation.new
+  end
+
+  # Public: Returns the correct settings object for the given organization or
+  # the default settings object when the organization cannot be determined. The
+  # model to be passed to this method can be any model that responds to the
+  # `organization` method or the organization itself. If the given model is not
+  # an organization or does not respond to the organization method, returns the
+  # default organization settings.
+  #
+  # model - The target model for which to fetch the settings object, either an
+  #         organization or a model responding to the `organization` method.
+  #
+  def self.organization_settings(model)
+    organization = begin
+      if model.is_a?(Decidim::Organization)
+        model
+      elsif model.respond_to?(:organization)
+        model.organization
+      end
+    end
+    return Decidim::OrganizationSettings.defaults unless organization
+
+    Decidim::OrganizationSettings.for(organization)
+  end
+
+  def self.machine_translation_service_klass
+    return unless Decidim.enable_machine_translations
+
+    Decidim.machine_translation_service.to_s.safe_constantize
   end
 end

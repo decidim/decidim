@@ -126,6 +126,7 @@ fi-pl:
             can_accumulate_supports_beyond_threshold: Voi kerätä kannatuksia yli kynnysarvon
             collaborative_drafts_enabled: Yhteistyöluonnokset ovat käytössä
             comments_enabled: Kommentit käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             geocoding_enabled: Geokoodaus käytössä
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
@@ -143,6 +144,8 @@ fi-pl:
             proposal_wizard_step_3_help_text: Ehdotuksen luonnin "Valmis" -vaiheen ohjeteksti
             proposal_wizard_step_4_help_text: Ehdotuksen luonnin "Julkaise" -vaiheen ohjeteksti
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle ehdotukselle
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
             threshold_per_proposal: Ehdotusten äänten määrän kynnysarvo
             vote_limit: Käytettävissä olevien äänien määrä käyttäjää kohden
           step:
@@ -719,8 +722,13 @@ fi-pl:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
         edit:
+          add_documents: Asiakirjat
+          add_images: Tiedosto
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
+          delete_document: Poista tiedosto
+          delete_image: Poista kuva
+          gallery_legend: "(Valinnainen) Lisää kuva ehdotuskorttiin"
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta

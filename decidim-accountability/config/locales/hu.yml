@@ -184,6 +184,7 @@ hu:
           global:
             categories_label: '"Kategóriák" neve'
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             display_progress_enabled: Állapot megjelenítése
             heading_leaf_level_results: '"Projektek" neve'
             heading_parent_level_results: '"Eredmények" neve'

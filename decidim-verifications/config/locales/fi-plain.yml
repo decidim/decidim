@@ -143,8 +143,10 @@ fi-pl:
             success: Tilisi on vahvistettu onnistuneesti.
       dummy_authorization:
         extra_explanation:
-          one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
-          other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+          postal_codes:
+            one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
+            other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
+          scope: Osallistuminen on rajoitettu niille käyttäjille, joilla on teema %{scope_name}.
       id_documents:
         admin:
           config:

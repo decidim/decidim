@@ -57,7 +57,7 @@ describe "Last activity", type: :system do
 
     it "shows activities long comment shorten text" do
       expect(page).to have_content(long_body_comment[0..79])
-      expect(page).to have_no_content(another_comment.body)
+      expect(page).to have_no_content(another_comment.translated_body)
     end
 
     context "when viewing all activities" do
@@ -69,9 +69,9 @@ describe "Last activity", type: :system do
 
       it "shows all activities" do
         expect(page).to have_css(".card--activity", count: 3)
-        expect(page).to have_content(resource.title)
-        expect(page).to have_content(comment.commentable.title)
-        expect(page).to have_content(another_comment.commentable.title)
+        expect(page).to have_content(translated(resource.title))
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
@@ -79,9 +79,9 @@ describe "Last activity", type: :system do
           choose "Comment"
         end
 
-        expect(page).to have_content(comment.commentable.title)
-        expect(page).to have_content(another_comment.commentable.title)
-        expect(page).to have_no_content(resource.title)
+        expect(page).to have_content(translated(comment.commentable.title))
+        expect(page).to have_content(translated(another_comment.commentable.title))
+        expect(page).to have_no_content(translated(resource.title))
         expect(page).to have_css(".card--activity", count: 2)
       end
 

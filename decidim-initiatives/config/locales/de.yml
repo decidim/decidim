@@ -201,6 +201,8 @@ de:
             success: Die Initiative wurde an die technische Validierung gesendet
             update: Aktualisieren
           form:
+            attachments: Beilagen
+            settings: Einstellungen
             title: Allgemeine Information
           index:
             actions_title: Aktion
@@ -406,6 +408,11 @@ de:
           unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
+          not_authorized:
+            authorizations_page: Autorisierungen anzeigen
+            close: Schließen
+            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+            title: Autorisierung erforderlich
         interactions:
           comments_count:
             count:
@@ -431,13 +438,9 @@ de:
           any_vote_method: Diese Bürgerinitiative sammelt Online-Unterstützung sowie von Angesicht zu Angesicht.
           follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
           offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterstützung.
-        signature_identities:
-          select_identity: Wählen Sie die Benutzerkennung aus
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
-        supports:
-          title: Auflistung der Signaturen
         vote_cabin:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"

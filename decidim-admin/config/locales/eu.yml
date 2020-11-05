@@ -28,12 +28,6 @@ eu:
       newsletter:
         body: Testua
         subject: Gaia
-      oauth_application:
-        name: izena
-        organization_logo: Erakundearen logotipoa (plaza)
-        organization_name: Erakundearen izena
-        organization_url: Erakundearen URLa
-        redirect_uri: Birbideratu URIa
       organization:
         alert_color: Alerta
         badges_enabled: Gaitu txapak
@@ -100,10 +94,6 @@ eu:
         file: file
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: Birbideratze URI SSL URI izan behar du
         organization:
           attributes:
             official_img_footer:
@@ -335,7 +325,6 @@ eu:
         homepage: Hasiera
         impersonations: impersonations
         newsletters: Buletinak
-        oauth_applications: OAuth aplikazioak
         participants: Parte-hartzaileak
         scope_types: Esparru motak
         scopes: Esparruak
@@ -378,11 +367,6 @@ eu:
             sent_at: ' Bidalketa-data: '
             subject: Gaia
           name: Buletina
-        oauth_application:
-          fields:
-            created_at: Sortutako at
-            name: izena
-          name: OAuth aplikazioa
         participatory_space_private_user:
           name: Partaidetza espazioa erabiltzaile pribatua
         scope:
@@ -456,25 +440,6 @@ eu:
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
-      oauth_applications:
-        create:
-          error: Errore bat gertatu da aplikazio hau sortzean.
-          success: Aplikazioa zuzen sortu da.
-        destroy:
-          error: Errore bat gertatu da aplikazio hau suntsitzen.
-          success: Aplikazioa arrakastaz suntsitu da.
-        edit:
-          save: Save
-          title: Editatu aplikazioa
-        index:
-          confirm_delete: Ziur aplikazio hau ezabatu nahi duzula?
-          title: OAuth aplikazioak
-        new:
-          save: Save
-          title: Aplikazio berria
-        update:
-          error: Errore bat gertatu da aplikazio hau eguneratzean.
-          success: Aplikazioa behar bezala eguneratu da.
       officializations:
         create:
           success: Erabiltzailea arrakastatsua izan da

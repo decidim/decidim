@@ -16,10 +16,12 @@ pt:
         available_slots: Slots disponíveis para esta reunião
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
+        decidim_user_group_id: Grupo de utilizadores
         description: Descrição
         end_time: Hora de fim
         location: Localização
         location_hints: Dicas de localização
+        organizer_gid: Criar como
         organizer_id: Organizador
         private_meeting: Reunião privada
         registration_form_enabled: Formulário de registo ativado
@@ -81,12 +83,16 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
+            creation_enabled_for_participants: Os participantes podem criar reuniões
             default_registration_terms: Termos de registo predefinidos
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada reunião
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
+            creation_enabled_for_participants: Criação de reunião por participantes ativada
+            creation_enabled_for_user_groups: Criação de reunião por grupo de utilizadores ativada
     events:
       meetings:
         meeting_closed:
@@ -227,9 +233,6 @@ pt:
           edit:
             close: Fechar
             title: Encerrar reunião
-        meeting_copies:
-          form:
-            select_organizer: Selecione o organizador
         meetings:
           close:
             invalid: Ocorreu um problema ao encerrar esta reunião
@@ -249,7 +252,6 @@ pt:
             address_help: 'Endereço: utilizado por Geocoder para encontrar a localização'
             location_help: 'Localização: mensagem direcionada para os utilizadores indicando o local de encontro'
             location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
-            select_organizer: Selecione o organizador
           index:
             title: Reuniões
           new:
@@ -354,24 +356,55 @@ pt:
       meeting:
         not_allowed: Não tem permissão para ver esta reunião
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
+        create:
+          invalid: Ocorreu um problema ao criar esta reunião.
+          success: Criou a reunião corretamente.
+        edit:
+          back: Retroceder
+          title: Editar a Sua Reunião
+          update: Atualizar
         filters:
           category: Categoria
-          category_prompt: Selecione uma categoria
           date: Data
-          past: Passado
+          date_values:
+            all: Todos
+            past: Passado
+            upcoming: Próximas
+          origin: Origem
+          origin_values:
+            all: Todos
+            citizens: Cidadãos
+            official: Oficial
+            user_groups: Grupos
+          scope: Âmbito
           search: Pesquisar
-          upcoming: Próximas
         filters_small_view:
           close_modal: Fechar modal
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          address_help: 'Endereço: utilizado pelo Geocoder para encontrar a localização'
+          create_as: Criar reunião como
+          location_help: 'Localização: mensagem direcionada aos utilizadores sugerindo o local onde se encontrarem'
+          location_hints_help: 'Dicas de localização: informação adicional. Exemplo: o piso do edifício'
+          select_a_category: Por favor selecione uma categoria
+        index:
+          new_meeting: Nova reunião
         meeting_minutes:
           meeting_minutes: Ata da Reunião
           related_information: Informação Relacionada
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
+        new:
+          back: Retroceder
+          create: Criar
+          title: Criar a Sua Reunião
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -380,6 +413,7 @@ pt:
           back: Retroceder à lista
           contributions: Contagem de contribuições
           date: Data
+          edit_meeting: Editar reunião
           going: Indo
           join: Adira à reunião
           meeting_report: Relatório da reunião
@@ -393,6 +427,9 @@ pt:
             one: "%{count} intervalo de tempo restante"
             other: "%{count} intervalos de tempo restantes"
           view: Ver
+        update:
+          invalid: Ocorreu um problema ao atualizar a reunião.
+          success: Atualizou a reunião corretamente.
       meetings_map:
         view_meeting: Ver reunião
       models:
@@ -411,6 +448,7 @@ pt:
             closed: Encerradas
             end_time: Data final
             map: Mapa
+            official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
       read_more: "(ler mais)"
@@ -432,6 +470,8 @@ pt:
       types:
         private_meeting: Reunião privada
         transparent: Transparente
+      versions:
+        back_to_resource: Retroceder para a reunião
     metrics:
       meetings:
         description: Número de reuniões criadas

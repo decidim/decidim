@@ -29,14 +29,28 @@ module Decidim
             have_link("Newsletters", href: "/admin/newsletters") &
             have_link("Settings", href: "/admin/organization/edit") &
             have_link("Admin activity log", href: "/admin/logs") &
-            have_link("OAuth applications", href: "/admin/oauth_applications")
+            have_link("Templates", href: "/admin/templates/questionnaire_templates")
         end
 
-        it "selects the correct default active option" do
+        it "selects the correct default active option in Dashboard" do
           allow(view).to \
             receive(:params).and_return(controller: "decidim/admin/dashboard", action: "show")
 
           expect(default_main_menu).to have_selector(".is-active", text: "Dashboard")
+        end
+
+        it "selects the correct default active option in Appearance" do
+          allow(view).to \
+            receive(:params).and_return(controller: "decidim/admin/organization_appearance", action: "show")
+
+          expect(default_main_menu).to have_selector(".is-active", text: "Settings")
+        end
+
+        it "selects the correct default active option in Participants" do
+          allow(view).to \
+            receive(:params).and_return(controller: "decidim/admin/users", action: "show")
+
+          expect(default_main_menu).to have_selector(".is-active", text: "Participants")
         end
       end
     end

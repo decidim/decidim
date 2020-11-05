@@ -16,10 +16,12 @@ ca:
         available_slots: Espais disponibles per a aquesta trobada
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
+        decidim_user_group_id: Grup d'usuàries
         description: Descripció
         end_time: Hora de finalització
         location: Ubicació
         location_hints: Detalls d'ubicació
+        organizer_gid: Crear com a
         organizer_id: Organitzador
         private_meeting: Trobada privada
         registration_form_enabled: Formulari d'inscripcions habilitat
@@ -81,12 +83,18 @@ ca:
           global:
             announcement: Avís
             comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
+            scope_id: Àmbit
+            scopes_enabled: Àmbits habilitats
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
+            creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
+            creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     events:
       meetings:
         meeting_closed:
@@ -227,9 +235,6 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
-        meeting_copies:
-          form:
-            select_organizer: Selecciona l'organitzador
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
@@ -249,7 +254,6 @@ ca:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
-            select_organizer: Selecciona l'organitzadora
           index:
             title: Trobades
           new:
@@ -354,24 +358,55 @@ ca:
       meeting:
         not_allowed: No tens permís per veure aquesta trobada
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} trobada"
+            other: "%{count} trobades"
+        create:
+          invalid: S'ha produït un error al crear aquesta trobada.
+          success: Has creat la trobada amb èxit.
+        edit:
+          back: Enrere
+          title: Editar la trobada
+          update: Actualitzar
         filters:
           category: Categoria
-          category_prompt: Selecciona una categoria
           date: Data
-          past: Passades
+          date_values:
+            all: Totes
+            past: Passades
+            upcoming: Properes
+          origin: Origen
+          origin_values:
+            all: Tots
+            citizens: Ciutadania
+            official: Oficial
+            user_groups: Grups
+          scope: Àmbit
           search: Cerca
-          upcoming: Properes
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar
+        form:
+          address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+          create_as: Crear trobada com a
+          location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
+          location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
+          select_a_category: Si us plau, selecciona una categoria
+        index:
+          new_meeting: Nova trobada
         meeting_minutes:
           meeting_minutes: Acta de la trobada
           related_information: Informació relacionada
         meetings:
           no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors.
+        new:
+          back: Enrere
+          create: Crear
+          title: Crea la teva trobada
         registration_confirm:
           cancel: Cancel·lar
           confirm: Confirmar
@@ -380,6 +415,7 @@ ca:
           back: Torna al llistat
           contributions: Nombre d'aportacions
           date: Data
+          edit_meeting: Editar la trobada
           going: Inscrit
           join: Inscriu-te a la trobada
           meeting_report: Informe de la trobada
@@ -393,6 +429,9 @@ ca:
             one: "%{count} plaça restant"
             other: "%{count} places restants"
           view: Veure
+        update:
+          invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
+          success: Has actualitzat la trobada amb èxit.
       meetings_map:
         view_meeting: Veure trobada
       models:
@@ -411,6 +450,7 @@ ca:
             closed: Tancada
             end_time: Data de finalització
             map: Mapa
+            official_meeting: Trobada oficial
             start_time: Data d'inici
             title: Títol
       read_more: "(llegeix més)"
@@ -432,6 +472,8 @@ ca:
       types:
         private_meeting: Trobada privada
         transparent: Transparent
+      versions:
+        back_to_resource: Tornar a la trobada
     metrics:
       meetings:
         description: Nombre de trobades creades

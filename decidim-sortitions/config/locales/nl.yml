@@ -23,6 +23,7 @@ nl:
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
     events:
       sortitions:
         sortition_created:

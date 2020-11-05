@@ -408,8 +408,6 @@ ar:
           any_vote_method: تجمع مبادرة المواطن هذه التوقيعات عبر الإنترنت والشخصية.
           follow_description: تلقي إشعار عند وجود أخبار في هذه المبادرة
           offline_method: تجمع مبادرة المواطن هذه التوقيعات الشخصية فقط.
-        signature_identities:
-          select_identity: حدد معرف المشارك
         signatures_count:
           zero: " التوقيعات"
           one: " التوقيع"
@@ -417,8 +415,6 @@ ar:
           few: " التوقيعات"
           many: " التوقيعات"
           other: " التوقيعات"
-        supports:
-          title: قائمة التوقيعات
         vote_cabin:
           already_voted: وقعت بالفعل
           supports_required: "%{total_supports} التوقيعات المطلوبة"

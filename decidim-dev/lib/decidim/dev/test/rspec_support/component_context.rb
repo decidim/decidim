@@ -19,8 +19,7 @@ shared_context "with a component" do
            participatory_space: participatory_space)
   end
 
-  let!(:category) { create :category, participatory_space: participatory_process }
-
+  let!(:category) { create :category, participatory_space: participatory_space }
   let!(:scope) { create :scope, organization: organization }
 
   before do

@@ -5,9 +5,11 @@ class MoveProposalEndorsementsToCoreEndorsements < ActiveRecord::Migration[5.2]
   class ProposalEndorsement < ApplicationRecord
     self.table_name = :decidim_proposals_proposal_endorsements
   end
+
   class Endorsement < ApplicationRecord
     self.table_name = :decidim_endorsements
   end
+
   # Move ProposalEndorsements to Endorsements
   def up
     non_duplicated_group_endorsements = ProposalEndorsement.select(

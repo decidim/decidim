@@ -31,8 +31,8 @@ describe "Admin edits proposals", type: :system do
       find("a.action-icon--edit-proposal").click
       expect(page).to have_content "Update proposal"
 
-      fill_in "Title", with: new_title
-      fill_in_editor :proposal_body, with: new_body
+      fill_in_i18n :proposal_title, "#proposal-title-tabs", en: new_title
+      fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: new_body
       click_button "Update"
 
       preview_window = window_opened_by { find("a.action-icon--preview").click }
@@ -51,7 +51,7 @@ describe "Admin edits proposals", type: :system do
       it "doesn't let the user edit it" do
         visit_component_admin
 
-        expect(page).to have_content(proposal.title)
+        expect(page).to have_content(translated(proposal.title))
         expect(page).to have_no_css("a.action-icon--edit-proposal")
         visit current_path + "proposals/#{proposal.id}/edit"
 
@@ -66,7 +66,7 @@ describe "Admin edits proposals", type: :system do
     it "renders an error" do
       visit_component_admin
 
-      expect(page).to have_content(proposal.title)
+      expect(page).to have_content(translated(proposal.title))
       expect(page).to have_no_css("a.action-icon--edit-proposal")
       visit current_path + "proposals/#{proposal.id}/edit"
 

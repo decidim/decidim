@@ -229,9 +229,6 @@ sk:
           edit:
             close: Zavrieť
             title: Zatvorte schôdzku
-        meeting_copies:
-          form:
-            select_organizer: Vyberte organizátor
         meetings:
           close:
             invalid: Pri stretnutí došlo k problému
@@ -247,7 +244,6 @@ sk:
             address_help: 'Adresa: použitý Geocoder pre nájdenie polohy'
             location_help: 'Poloha: správa určená užívateľom, ktorí odovzdávajú miesto, aby sa stretli'
             location_hints_help: 'Určenie polohy: dodatočné informácie. Príklad: poschodie budovy '
-            select_organizer: Vyberte organizátor
           index:
             title: Stretnutie
           new:
@@ -356,16 +352,15 @@ sk:
       meetings:
         filters:
           category: Kategória
-          category_prompt: Vyberte kategóriu
           date: dátum
-          past: Uplynulé
           search: Vyhľadávanie
-          upcoming: Nadchádzajúce
         filters_small_view:
           close_modal: Zatvoriť modálne
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
+        form:
+          location_hints_help: 'Určenie polohy: dodatočné informácie. Príklad: poschodie budovy '
         meeting_minutes:
           meeting_minutes: Zápisnica z porady
           related_information: Súvisiace informácie

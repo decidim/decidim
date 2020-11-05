@@ -3,3 +3,10 @@ sl:
     attributes:
       answer:
         body: Odgovor
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          answers:
+            actions:
+              export: Izvozi

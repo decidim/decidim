@@ -40,7 +40,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
   describe "view unescaped html" do
     include_context "with rich text editor content"
 
-    let(:item) { create(:proposal, body: content) }
+    let(:item) { create(:proposal, body: { en: content }) }
 
     context "when rich text editor is enabled on the frontend" do
       before { organization.update(rich_text_editor_in_public_views: true) }
@@ -73,6 +73,39 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
 
     context "with diff_view_unified_escaped" do
       let(:html) { subject.find(".diff-for-body .diff_view_unified_escaped") }
+
+      it "sanitizes potentially safe HTML tags" do
+        expect(html).not_to have_selector("em")
+        expect(html).to have_content("em")
+        expect(html).not_to have_selector("u")
+        expect(html).to have_content("u")
+        expect(html).not_to have_selector("strong")
+        expect(html).to have_content("strong")
+      end
+
+      it "sanitizes potentially malicious HTML tags" do
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
+      end
+    end
+
+    context "with diff_view_split_unescaped" do
+      let(:html) { subject.find(".diff-for-body .diff_view_split_unescaped") }
+
+      it "renders potentially safe HTML tags unescaped" do
+        expect(html).to have_selector("em", text: "em")
+        expect(html).to have_selector("u", text: "u")
+        expect(html).to have_selector("strong", text: "strong")
+      end
+
+      it "sanitizes potentially malicious HTML tags" do
+        expect(html).not_to have_selector("script", visible: :all)
+        expect(html).to have_content("alert('SCRIPT')")
+      end
+    end
+
+    context "with diff_view_split_escaped" do
+      let(:html) { subject.find(".diff-for-body .diff_view_split_escaped") }
 
       it "sanitizes potentially safe HTML tags" do
         expect(html).not_to have_selector("em")

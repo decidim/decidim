@@ -13,7 +13,7 @@ describe "Question", type: :system do
            manifest: manifest,
            participatory_space: question)
   end
-  let(:proposal) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, component: component) }
 
   context "when there is a proposal component" do
     before do

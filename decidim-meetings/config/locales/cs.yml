@@ -16,10 +16,12 @@ cs:
         available_slots: Dostupné sloty pro toto schůzku
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
+        decidim_user_group_id: Uživatelská skupina
         description: Popis
         end_time: Čas ukončení
         location: Umístění
-        location_hints: Tipy pro umístění
+        location_hints: Nápověda k poloze
+        organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
         registration_form_enabled: Registrační formulář je povolen
@@ -87,12 +89,18 @@ cs:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
             enable_pads_creation: Povolit vytvoření sdíleného textu
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            scope_id: Oblast působnosti
+            scopes_enabled: Oblasti působnosti povoleny
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
+            creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
+            creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
     events:
       meetings:
         meeting_closed:
@@ -235,9 +243,6 @@ cs:
           edit:
             close: Zavřít
             title: Zavřete schůzku
-        meeting_copies:
-          form:
-            select_organizer: Vyberte organizátor
         meetings:
           close:
             invalid: Při setkání došlo k problému
@@ -256,10 +261,9 @@ cs:
           edit:
             update: Aktualizace
           form:
-            address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
+            address_help: 'Adresa: použita Geocoderem k nalezení polohy'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
-            select_organizer: Vyberte organizátor
           index:
             title: Setkání
           new:
@@ -366,24 +370,57 @@ cs:
       meeting:
         not_allowed: Tuto schůzku není povoleno prohlížet
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} schůzka"
+            few: "%{count} schůzek"
+            many: "%{count} schůzek"
+            other: "%{count} schůzek"
+        create:
+          invalid: Při vytváření této schůzky došlo k chybě.
+          success: Úspěšně jste vytvořili schůzku.
+        edit:
+          back: Zpět
+          title: Upravit schůzku
+          update: Aktualizovat
         filters:
           category: Kategorie
-          category_prompt: Vyberte kategorii
           date: datum
-          past: Minulost
+          date_values:
+            all: Vše
+            past: Minulé
+            upcoming: Nadcházející
+          origin: Původ
+          origin_values:
+            all: Vše
+            citizens: Občané
+            official: Úředník
+            user_groups: Skupiny
+          scope: Oblast působnosti
           search: Vyhledávání
-          upcoming: Nadcházející
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozvinout
+        form:
+          address_help: 'Adresa: použita Geocoderem k nalezení polohy'
+          create_as: Vytvořit schůzku jako
+          location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
+          location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
+          select_a_category: Vyberte prosím kategorii
+        index:
+          new_meeting: Nová schůzka
         meeting_minutes:
           meeting_minutes: Zápis z porady
           related_information: Související informace
         meetings:
           no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
+        new:
+          back: Zpět
+          create: Vytvořit
+          title: Vytvořte si schůzku
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -392,6 +429,7 @@ cs:
           back: Zpět na seznam
           contributions: Počet příspěvků
           date: Datum
+          edit_meeting: Upravit schůzku
           going: Chystáte se
           join: Připojte se k setkání
           meeting_report: Zpráva o schůzce
@@ -407,6 +445,9 @@ cs:
             many: "%{count} zbývajících bloků"
             other: "%{count} zbývajících bloků"
           view: Zobrazení
+        update:
+          invalid: Při aktualizaci schůzky došlo k chybě.
+          success: Úspěšně jste aktualizovali schůzku.
       meetings_map:
         view_meeting: Zobrazit schůzku
       models:
@@ -425,6 +466,7 @@ cs:
             closed: Zavřeno
             end_time: Datum ukončení
             map: Mapa
+            official_meeting: Oficiální schůzka
             start_time: Počáteční datum
             title: Titul
       read_more: "(Přečtěte si více)"
@@ -446,6 +488,8 @@ cs:
       types:
         private_meeting: Privátní setkání
         transparent: Průhledný
+      versions:
+        back_to_resource: Přejít zpět na schůzku
     metrics:
       meetings:
         description: Počet vytvořených schůzek

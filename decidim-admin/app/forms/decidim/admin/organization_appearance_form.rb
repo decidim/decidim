@@ -7,6 +7,7 @@ module Decidim
     #
     class OrganizationAppearanceForm < Form
       include TranslatableAttributes
+      include Decidim::HasUploadValidations
 
       mimic :organization
 
@@ -50,14 +51,12 @@ module Decidim
       validates :official_img_header,
                 :official_img_footer,
                 :logo,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
+                passthru: { to: Decidim::Organization }
 
       validates :highlighted_content_banner_action_url, presence: true, if: :highlighted_content_banner_enabled?
       validates :highlighted_content_banner_image,
                 presence: true,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] },
+                passthru: { to: Decidim::Organization },
                 if: :highlighted_content_banner_image_is_changed?
 
       validates :highlighted_content_banner_title,
@@ -75,6 +74,8 @@ module Decidim
       validates :omnipresent_banner_url, presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
+
+      alias organization current_organization
 
       private
 

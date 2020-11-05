@@ -338,7 +338,6 @@ id:
           buttons:
             check: Periksa dan lanjutkan
             close_modal: Tutup modal
-            uncheck: Terus hapus centang
           notice: |-
             <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
             Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
@@ -722,8 +721,6 @@ id:
         start:
           send: Kirim
           title: Mulai percakapan
-        update:
-          error: Pesan tidak terkirim. Coba lagi nanti
     metrics:
       download:
         csv: Unduh data (csv)
@@ -847,7 +844,6 @@ id:
           error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
           success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
         form:
-          agreement: Saya setuju dengan ketentuan ini
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_body: Jika Anda menolak, Anda tidak akan dapat menggunakan platform, Anda dapat <a href="%{data_portability_path}">mengunduh data Anda</a> dan / atau <a href="%{delete_path}">menghapus akun Anda</a>.
@@ -979,6 +975,9 @@ id:
     user_activity:
       index:
         no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
+    user_conversations:
+      update:
+        error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:
       show:
         my_interests: Minat saya

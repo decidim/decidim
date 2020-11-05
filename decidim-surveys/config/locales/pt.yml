@@ -20,6 +20,7 @@ pt:
         settings:
           global:
             announcement: Anúncio
+            clean_after_publish: Eliminar respostas ao publicar o inquérito
           step:
             allow_answers: Permitir respostas
             allow_unregistered: Permitir que utilizadores não registados respondam ao inquérito

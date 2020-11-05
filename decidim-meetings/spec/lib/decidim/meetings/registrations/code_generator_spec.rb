@@ -19,7 +19,6 @@ module Decidim
 
           before do
             create :registration, meeting: meeting, code: existing_code
-
             expect(subject)
               .to receive(:choose)
               .with(length)

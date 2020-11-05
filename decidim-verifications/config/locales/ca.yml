@@ -110,7 +110,7 @@ ca:
           cancel: Cancel·lar
           close: Tanca
           continue: Continua
-          info_renew: Si vols actualitzar les dades, continueu amb la renovació
+          info_renew: Si vols actualitzar les dades, continua amb la renovació
           title: Renova la verificació
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
@@ -143,8 +143,10 @@ ca:
             success: El teu compte s'ha verificat correctament.
       dummy_authorization:
         extra_explanation:
-          one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
-          other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
+          postal_codes:
+            one: La participació està restringida a les persones adscrites al codi postal %{postal_codes}.
+            other: 'La participació està restringida a les persones adscrites a algun dels següents codis postals: %{postal_codes}.'
+          scope: La participació està restringida a les persones verificades en l'àmbit de %{scope_name}.
       id_documents:
         admin:
           config:

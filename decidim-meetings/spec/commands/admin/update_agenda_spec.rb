@@ -18,7 +18,7 @@ module Decidim::Meetings
       {
         id: agenda.id,
         title: { en: "new title" },
-        visible: true,
+        visible: :visible,
         agenda_items: [
           {
             id: agenda_item.id,

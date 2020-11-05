@@ -13,6 +13,8 @@ module TranslationHelpers
   # It is intended to be used to avoid the implementation details, so that the
   # translated attributes implementation can change more easily.
   def translated(field, locale: I18n.locale)
+    return field if field.is_a?(String)
+
     field.try(:[], locale.to_s)
   end
 

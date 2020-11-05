@@ -64,6 +64,12 @@ el:
         email: Email
         name: Όνομα
         role: Ρόλος
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ el:
   decidim:
     admin:
       actions:
+        import_assembly: Εισαγωγή
         new_assembly: Νέα συνέλευση
         new_assembly_type: Νέος τύπος συνέλευσης
       assemblies:
@@ -122,6 +129,14 @@ el:
           copy: Αντιγραφή
           select: Επιλέξτε ποια δεδομένα θέλετε να αντιγράψετε
           title: Αντιγραφή συνέλευσης
+      assembly_imports:
+        create:
+          error: Προέκυψε ένα πρόβλημα κατά την εισαγωγή αυτής της συνέλευσης.
+          success: Η συνέλευση εισήχθη επιτυχώς.
+        new:
+          import: Εισαγωγή
+          select: Επιλέξετε ποιά δεδομένα θα θέλατε να εισάγετε
+          title: Εισαγωγή συνέλευσης
       assembly_members:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός μέλους για αυτήν τη συνέλευση.
@@ -269,6 +284,10 @@ el:
         assembly_copies:
           form:
             slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη συνέλευση. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
+        assembly_imports:
+          form:
+            document_legend: Προσθήκη εγγράφου
+            slug_help: 'Τα επιθέματα URL χρησιμοποιούνται για να δημιουργήσουν τα URL που δρομολογούν προς αυτή την συνέλευση. Εϊναι αποδεκτά μόνο γράμματα, αριθμοί και παύλες και πρέπει να ξεκινούν με γράμμα. Παράδειγμα: %{url}'
         assembly_members:
           form:
             existing_user: Υπάρχων συμμετέχων

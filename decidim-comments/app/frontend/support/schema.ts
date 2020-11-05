@@ -11,9 +11,9 @@ export interface addCommentMutationVariables {
 
 export interface addCommentMutation {
   // A commentable
-  commentable: {
+  commentable:  {
     // Add a new comment to a commentable
-    addComment: {
+    addComment:  {
       // Check if the commentable has comments
       hasComments: boolean,
       // The Comment's unique ID
@@ -31,67 +31,20 @@ export interface addCommentMutation {
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
       // The resource author
-      author: ({
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      } | {
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      }
-      ),
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -118,42 +71,53 @@ export interface addCommentMutation {
           // The author's badge icon
           badge: string,
         }
-        ),
-        // Check if the commentable has comments
-        hasComments: boolean,
-        // Whether the object can have new comments or not
-        acceptsNewComments: boolean,
-        // Check if the current user can comment
-        userAllowedToComment: boolean,
-        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-        alignment: number | null,
-        // Check if the current user has reported the comment
-        alreadyReported: boolean,
-        // The number of comment's upVotes
-        upVotes: number,
-        // Check if the current user has upvoted the comment
-        upVoted: boolean,
-        // Check if the current user has downvoted the comment
-        downVoted: boolean,
-        // The number of comment's downVotes
-        downVotes: number,
-        comments: Array<{
-          // The Comment's unique ID
-          id: string,
-          // The Comment's signed global id
-          sgid: string,
-          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-          type: string,
-          // The comment message
-          body: string,
-          // The comment message ready to display (it is expected to include HTML)
-          formattedBody: string,
-          // The creation date of the comment
-          createdAt: string,
-          // The creation date of the comment in relative format
-          formattedCreatedAt: string,
-          // The resource author
-          author: ({
+      ),
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -180,42 +144,55 @@ export interface addCommentMutation {
             // The author's badge icon
             badge: string,
           }
-          ),
-          // Check if the commentable has comments
-          hasComments: boolean,
-          // Whether the object can have new comments or not
-          acceptsNewComments: boolean,
-          // Check if the current user can comment
-          userAllowedToComment: boolean,
-          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-          alignment: number | null,
-          // Check if the current user has reported the comment
-          alreadyReported: boolean,
-          // The number of comment's upVotes
-          upVotes: number,
-          // Check if the current user has upvoted the comment
-          upVoted: boolean,
-          // Check if the current user has downvoted the comment
-          downVoted: boolean,
-          // The number of comment's downVotes
-          downVotes: number,
-          comments: Array<{
-            // The Comment's unique ID
-            id: string,
-            // The Comment's signed global id
-            sgid: string,
-            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-            type: string,
-            // The comment message
-            body: string,
-            // The comment message ready to display (it is expected to include HTML)
-            formattedBody: string,
-            // The creation date of the comment
-            createdAt: string,
-            // The creation date of the comment in relative format
-            formattedCreatedAt: string,
-            // The resource author
-            author: ({
+        ),
+        // Check if the commentable has comments
+        hasComments: boolean,
+        // Whether the object can have new comments or not
+        acceptsNewComments: boolean,
+        // Check if the current user can comment
+        userAllowedToComment: boolean,
+        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+        alignment: number | null,
+        // Check if the current user has reported the comment
+        alreadyReported: boolean,
+        // The number of comment's upVotes
+        upVotes: number,
+        // Check if the current user has upvoted the comment
+        upVoted: boolean,
+        // Check if the current user has downvoted the comment
+        downVoted: boolean,
+        // The number of comment's downVotes
+        downVotes: number,
+        comments:  Array< {
+          // The Comment's unique ID
+          id: string,
+          // The Comment's signed global id
+          sgid: string,
+          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+          type: string,
+          // The comment message
+          body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
+          // The creation date of the comment
+          createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
+          // The resource author
+          author: ( {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
+            } | {
               // The author's name
               name: string,
               // The author's nickname
@@ -242,6 +219,81 @@ export interface addCommentMutation {
               // The author's badge icon
               badge: string,
             }
+          ),
+          // Check if the commentable has comments
+          hasComments: boolean,
+          // Whether the object can have new comments or not
+          acceptsNewComments: boolean,
+          // Check if the current user can comment
+          userAllowedToComment: boolean,
+          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+          alignment: number | null,
+          // Check if the current user has reported the comment
+          alreadyReported: boolean,
+          // The number of comment's upVotes
+          upVotes: number,
+          // Check if the current user has upvoted the comment
+          upVoted: boolean,
+          // Check if the current user has downvoted the comment
+          downVoted: boolean,
+          // The number of comment's downVotes
+          downVotes: number,
+          comments:  Array< {
+            // The Comment's unique ID
+            id: string,
+            // The Comment's signed global id
+            sgid: string,
+            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+            type: string,
+            // The comment message
+            body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
+            // The creation date of the comment
+            createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
+            // The resource author
+            author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              }
             ),
             // Check if the commentable has comments
             hasComments: boolean,
@@ -261,9 +313,9 @@ export interface addCommentMutation {
             downVoted: boolean,
             // The number of comment's downVotes
             downVotes: number,
-          }>,
-        }>,
-      }>,
+          } >,
+        } >,
+      } >,
     } | null,
   } | null,
 };
@@ -274,8 +326,8 @@ export interface DownVoteMutationVariables {
 
 export interface DownVoteMutation {
   // A comment
-  comment: {
-    downVote: {
+  comment:  {
+    downVote:  {
       // The Comment's unique ID
       id: string,
       // The Comment's signed global id
@@ -291,69 +343,20 @@ export interface DownVoteMutation {
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
       // The resource author
-      author: ({
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      } | {
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      }
-      ),
-      // Check if the commentable has comments
-      hasComments: boolean,
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -380,42 +383,55 @@ export interface DownVoteMutation {
           // The author's badge icon
           badge: string,
         }
-        ),
-        // Check if the commentable has comments
-        hasComments: boolean,
-        // Whether the object can have new comments or not
-        acceptsNewComments: boolean,
-        // Check if the current user can comment
-        userAllowedToComment: boolean,
-        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-        alignment: number | null,
-        // Check if the current user has reported the comment
-        alreadyReported: boolean,
-        // The number of comment's upVotes
-        upVotes: number,
-        // Check if the current user has upvoted the comment
-        upVoted: boolean,
-        // Check if the current user has downvoted the comment
-        downVoted: boolean,
-        // The number of comment's downVotes
-        downVotes: number,
-        comments: Array<{
-          // The Comment's unique ID
-          id: string,
-          // The Comment's signed global id
-          sgid: string,
-          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-          type: string,
-          // The comment message
-          body: string,
-          // The comment message ready to display (it is expected to include HTML)
-          formattedBody: string,
-          // The creation date of the comment
-          createdAt: string,
-          // The creation date of the comment in relative format
-          formattedCreatedAt: string,
-          // The resource author
-          author: ({
+      ),
+      // Check if the commentable has comments
+      hasComments: boolean,
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -442,42 +458,55 @@ export interface DownVoteMutation {
             // The author's badge icon
             badge: string,
           }
-          ),
-          // Check if the commentable has comments
-          hasComments: boolean,
-          // Whether the object can have new comments or not
-          acceptsNewComments: boolean,
-          // Check if the current user can comment
-          userAllowedToComment: boolean,
-          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-          alignment: number | null,
-          // Check if the current user has reported the comment
-          alreadyReported: boolean,
-          // The number of comment's upVotes
-          upVotes: number,
-          // Check if the current user has upvoted the comment
-          upVoted: boolean,
-          // Check if the current user has downvoted the comment
-          downVoted: boolean,
-          // The number of comment's downVotes
-          downVotes: number,
-          comments: Array<{
-            // The Comment's unique ID
-            id: string,
-            // The Comment's signed global id
-            sgid: string,
-            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-            type: string,
-            // The comment message
-            body: string,
-            // The comment message ready to display (it is expected to include HTML)
-            formattedBody: string,
-            // The creation date of the comment
-            createdAt: string,
-            // The creation date of the comment in relative format
-            formattedCreatedAt: string,
-            // The resource author
-            author: ({
+        ),
+        // Check if the commentable has comments
+        hasComments: boolean,
+        // Whether the object can have new comments or not
+        acceptsNewComments: boolean,
+        // Check if the current user can comment
+        userAllowedToComment: boolean,
+        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+        alignment: number | null,
+        // Check if the current user has reported the comment
+        alreadyReported: boolean,
+        // The number of comment's upVotes
+        upVotes: number,
+        // Check if the current user has upvoted the comment
+        upVoted: boolean,
+        // Check if the current user has downvoted the comment
+        downVoted: boolean,
+        // The number of comment's downVotes
+        downVotes: number,
+        comments:  Array< {
+          // The Comment's unique ID
+          id: string,
+          // The Comment's signed global id
+          sgid: string,
+          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+          type: string,
+          // The comment message
+          body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
+          // The creation date of the comment
+          createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
+          // The resource author
+          author: ( {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
+            } | {
               // The author's name
               name: string,
               // The author's nickname
@@ -504,6 +533,81 @@ export interface DownVoteMutation {
               // The author's badge icon
               badge: string,
             }
+          ),
+          // Check if the commentable has comments
+          hasComments: boolean,
+          // Whether the object can have new comments or not
+          acceptsNewComments: boolean,
+          // Check if the current user can comment
+          userAllowedToComment: boolean,
+          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+          alignment: number | null,
+          // Check if the current user has reported the comment
+          alreadyReported: boolean,
+          // The number of comment's upVotes
+          upVotes: number,
+          // Check if the current user has upvoted the comment
+          upVoted: boolean,
+          // Check if the current user has downvoted the comment
+          downVoted: boolean,
+          // The number of comment's downVotes
+          downVotes: number,
+          comments:  Array< {
+            // The Comment's unique ID
+            id: string,
+            // The Comment's signed global id
+            sgid: string,
+            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+            type: string,
+            // The comment message
+            body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
+            // The creation date of the comment
+            createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
+            // The resource author
+            author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              }
             ),
             // Check if the commentable has comments
             hasComments: boolean,
@@ -523,9 +627,9 @@ export interface DownVoteMutation {
             downVoted: boolean,
             // The number of comment's downVotes
             downVotes: number,
-          }>,
-        }>,
-      }>,
+          } >,
+        } >,
+      } >,
     },
   } | null,
 };
@@ -536,8 +640,8 @@ export interface UpVoteMutationVariables {
 
 export interface UpVoteMutation {
   // A comment
-  comment: {
-    upVote: {
+  comment:  {
+    upVote:  {
       // The Comment's unique ID
       id: string,
       // The Comment's signed global id
@@ -553,69 +657,20 @@ export interface UpVoteMutation {
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
       // The resource author
-      author: ({
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      } | {
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      }
-      ),
-      // Check if the commentable has comments
-      hasComments: boolean,
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -642,42 +697,55 @@ export interface UpVoteMutation {
           // The author's badge icon
           badge: string,
         }
-        ),
-        // Check if the commentable has comments
-        hasComments: boolean,
-        // Whether the object can have new comments or not
-        acceptsNewComments: boolean,
-        // Check if the current user can comment
-        userAllowedToComment: boolean,
-        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-        alignment: number | null,
-        // Check if the current user has reported the comment
-        alreadyReported: boolean,
-        // The number of comment's upVotes
-        upVotes: number,
-        // Check if the current user has upvoted the comment
-        upVoted: boolean,
-        // Check if the current user has downvoted the comment
-        downVoted: boolean,
-        // The number of comment's downVotes
-        downVotes: number,
-        comments: Array<{
-          // The Comment's unique ID
-          id: string,
-          // The Comment's signed global id
-          sgid: string,
-          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-          type: string,
-          // The comment message
-          body: string,
-          // The comment message ready to display (it is expected to include HTML)
-          formattedBody: string,
-          // The creation date of the comment
-          createdAt: string,
-          // The creation date of the comment in relative format
-          formattedCreatedAt: string,
-          // The resource author
-          author: ({
+      ),
+      // Check if the commentable has comments
+      hasComments: boolean,
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -704,42 +772,55 @@ export interface UpVoteMutation {
             // The author's badge icon
             badge: string,
           }
-          ),
-          // Check if the commentable has comments
-          hasComments: boolean,
-          // Whether the object can have new comments or not
-          acceptsNewComments: boolean,
-          // Check if the current user can comment
-          userAllowedToComment: boolean,
-          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-          alignment: number | null,
-          // Check if the current user has reported the comment
-          alreadyReported: boolean,
-          // The number of comment's upVotes
-          upVotes: number,
-          // Check if the current user has upvoted the comment
-          upVoted: boolean,
-          // Check if the current user has downvoted the comment
-          downVoted: boolean,
-          // The number of comment's downVotes
-          downVotes: number,
-          comments: Array<{
-            // The Comment's unique ID
-            id: string,
-            // The Comment's signed global id
-            sgid: string,
-            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-            type: string,
-            // The comment message
-            body: string,
-            // The comment message ready to display (it is expected to include HTML)
-            formattedBody: string,
-            // The creation date of the comment
-            createdAt: string,
-            // The creation date of the comment in relative format
-            formattedCreatedAt: string,
-            // The resource author
-            author: ({
+        ),
+        // Check if the commentable has comments
+        hasComments: boolean,
+        // Whether the object can have new comments or not
+        acceptsNewComments: boolean,
+        // Check if the current user can comment
+        userAllowedToComment: boolean,
+        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+        alignment: number | null,
+        // Check if the current user has reported the comment
+        alreadyReported: boolean,
+        // The number of comment's upVotes
+        upVotes: number,
+        // Check if the current user has upvoted the comment
+        upVoted: boolean,
+        // Check if the current user has downvoted the comment
+        downVoted: boolean,
+        // The number of comment's downVotes
+        downVotes: number,
+        comments:  Array< {
+          // The Comment's unique ID
+          id: string,
+          // The Comment's signed global id
+          sgid: string,
+          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+          type: string,
+          // The comment message
+          body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
+          // The creation date of the comment
+          createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
+          // The resource author
+          author: ( {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
+            } | {
               // The author's name
               name: string,
               // The author's nickname
@@ -766,6 +847,81 @@ export interface UpVoteMutation {
               // The author's badge icon
               badge: string,
             }
+          ),
+          // Check if the commentable has comments
+          hasComments: boolean,
+          // Whether the object can have new comments or not
+          acceptsNewComments: boolean,
+          // Check if the current user can comment
+          userAllowedToComment: boolean,
+          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+          alignment: number | null,
+          // Check if the current user has reported the comment
+          alreadyReported: boolean,
+          // The number of comment's upVotes
+          upVotes: number,
+          // Check if the current user has upvoted the comment
+          upVoted: boolean,
+          // Check if the current user has downvoted the comment
+          downVoted: boolean,
+          // The number of comment's downVotes
+          downVotes: number,
+          comments:  Array< {
+            // The Comment's unique ID
+            id: string,
+            // The Comment's signed global id
+            sgid: string,
+            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+            type: string,
+            // The comment message
+            body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
+            // The creation date of the comment
+            createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
+            // The resource author
+            author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              }
             ),
             // Check if the commentable has comments
             hasComments: boolean,
@@ -785,9 +941,9 @@ export interface UpVoteMutation {
             downVoted: boolean,
             // The number of comment's downVotes
             downVotes: number,
-          }>,
-        }>,
-      }>,
+          } >,
+        } >,
+      } >,
     },
   } | null,
 };
@@ -801,9 +957,9 @@ export interface GetCommentsQueryVariables {
 
 export interface GetCommentsQuery {
   // Return's information about the logged in user
-  session: {
+  session:  {
     // The current user
-    user: {
+    user:  {
       // The user's name
       name: string,
       // The user's nickname
@@ -814,14 +970,14 @@ export interface GetCommentsQuery {
       organizationName: string,
     } | null,
     // The current user verified user groups
-    verifiedUserGroups: Array<{
+    verifiedUserGroups:  Array< {
       // The user group's id
       id: string,
       // The user group's name
       name: string,
-    }>,
+    } >,
   } | null,
-  commentable: {
+  commentable:  {
     // Whether the object can have new comments or not
     acceptsNewComments: boolean,
     // Check if the current user can comment
@@ -832,7 +988,7 @@ export interface GetCommentsQuery {
     commentsHaveVotes: boolean,
     // The number of comments in all levels this resource holds
     totalCommentsCount: number,
-    comments: Array<{
+    comments:  Array< {
       // The Comment's unique ID
       id: string,
       // Check if the commentable has comments
@@ -850,67 +1006,20 @@ export interface GetCommentsQuery {
       // The creation date of the comment in relative format
       formattedCreatedAt: string,
       // The resource author
-      author: ({
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      } | {
-        // The author's name
-        name: string,
-        // The author's nickname
-        nickname: string,
-        // The author's avatar url
-        avatarUrl: string,
-        // The author's profile path
-        profilePath: string,
-        // Whether the author's account has been deleted or not
-        deleted: boolean,
-        // The author's badge icon
-        badge: string,
-      }
-      ),
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -937,42 +1046,53 @@ export interface GetCommentsQuery {
           // The author's badge icon
           badge: string,
         }
-        ),
-        // Check if the commentable has comments
-        hasComments: boolean,
-        // Whether the object can have new comments or not
-        acceptsNewComments: boolean,
-        // Check if the current user can comment
-        userAllowedToComment: boolean,
-        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-        alignment: number | null,
-        // Check if the current user has reported the comment
-        alreadyReported: boolean,
-        // The number of comment's upVotes
-        upVotes: number,
-        // Check if the current user has upvoted the comment
-        upVoted: boolean,
-        // Check if the current user has downvoted the comment
-        downVoted: boolean,
-        // The number of comment's downVotes
-        downVotes: number,
-        comments: Array<{
-          // The Comment's unique ID
-          id: string,
-          // The Comment's signed global id
-          sgid: string,
-          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-          type: string,
-          // The comment message
-          body: string,
-          // The comment message ready to display (it is expected to include HTML)
-          formattedBody: string,
-          // The creation date of the comment
-          createdAt: string,
-          // The creation date of the comment in relative format
-          formattedCreatedAt: string,
-          // The resource author
-          author: ({
+      ),
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
             // The author's name
             name: string,
             // The author's nickname
@@ -999,42 +1119,55 @@ export interface GetCommentsQuery {
             // The author's badge icon
             badge: string,
           }
-          ),
-          // Check if the commentable has comments
-          hasComments: boolean,
-          // Whether the object can have new comments or not
-          acceptsNewComments: boolean,
-          // Check if the current user can comment
-          userAllowedToComment: boolean,
-          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-          alignment: number | null,
-          // Check if the current user has reported the comment
-          alreadyReported: boolean,
-          // The number of comment's upVotes
-          upVotes: number,
-          // Check if the current user has upvoted the comment
-          upVoted: boolean,
-          // Check if the current user has downvoted the comment
-          downVoted: boolean,
-          // The number of comment's downVotes
-          downVotes: number,
-          comments: Array<{
-            // The Comment's unique ID
-            id: string,
-            // The Comment's signed global id
-            sgid: string,
-            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-            type: string,
-            // The comment message
-            body: string,
-            // The comment message ready to display (it is expected to include HTML)
-            formattedBody: string,
-            // The creation date of the comment
-            createdAt: string,
-            // The creation date of the comment in relative format
-            formattedCreatedAt: string,
-            // The resource author
-            author: ({
+        ),
+        // Check if the commentable has comments
+        hasComments: boolean,
+        // Whether the object can have new comments or not
+        acceptsNewComments: boolean,
+        // Check if the current user can comment
+        userAllowedToComment: boolean,
+        // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+        alignment: number | null,
+        // Check if the current user has reported the comment
+        alreadyReported: boolean,
+        // The number of comment's upVotes
+        upVotes: number,
+        // Check if the current user has upvoted the comment
+        upVoted: boolean,
+        // Check if the current user has downvoted the comment
+        downVoted: boolean,
+        // The number of comment's downVotes
+        downVotes: number,
+        comments:  Array< {
+          // The Comment's unique ID
+          id: string,
+          // The Comment's signed global id
+          sgid: string,
+          // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+          type: string,
+          // The comment message
+          body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
+          // The creation date of the comment
+          createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
+          // The resource author
+          author: ( {
+              // The author's name
+              name: string,
+              // The author's nickname
+              nickname: string,
+              // The author's avatar url
+              avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
+              // Whether the author's account has been deleted or not
+              deleted: boolean,
+              // The author's badge icon
+              badge: string,
+            } | {
               // The author's name
               name: string,
               // The author's nickname
@@ -1061,6 +1194,81 @@ export interface GetCommentsQuery {
               // The author's badge icon
               badge: string,
             }
+          ),
+          // Check if the commentable has comments
+          hasComments: boolean,
+          // Whether the object can have new comments or not
+          acceptsNewComments: boolean,
+          // Check if the current user can comment
+          userAllowedToComment: boolean,
+          // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+          alignment: number | null,
+          // Check if the current user has reported the comment
+          alreadyReported: boolean,
+          // The number of comment's upVotes
+          upVotes: number,
+          // Check if the current user has upvoted the comment
+          upVoted: boolean,
+          // Check if the current user has downvoted the comment
+          downVoted: boolean,
+          // The number of comment's downVotes
+          downVotes: number,
+          comments:  Array< {
+            // The Comment's unique ID
+            id: string,
+            // The Comment's signed global id
+            sgid: string,
+            // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+            type: string,
+            // The comment message
+            body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
+            // The creation date of the comment
+            createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
+            // The resource author
+            author: ( {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              } | {
+                // The author's name
+                name: string,
+                // The author's nickname
+                nickname: string,
+                // The author's avatar url
+                avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
+                // Whether the author's account has been deleted or not
+                deleted: boolean,
+                // The author's badge icon
+                badge: string,
+              }
             ),
             // Check if the commentable has comments
             hasComments: boolean,
@@ -1080,10 +1288,10 @@ export interface GetCommentsQuery {
             downVoted: boolean,
             // The number of comment's downVotes
             downVotes: number,
-          }>,
-        }>,
-      }>,
-    }>,
+          } >,
+        } >,
+      } >,
+    } >,
     // The commentable's ID
     id: string,
     // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
@@ -1100,12 +1308,12 @@ export interface AddCommentFormCommentableFragment {
 
 export interface AddCommentFormSessionFragment {
   // The current user verified user groups
-  verifiedUserGroups: Array<{
+  verifiedUserGroups:  Array< {
     // The user group's id
     id: string,
     // The user group's name
     name: string,
-  }>,
+  } >,
 };
 
 export interface CommentFragment {
@@ -1124,69 +1332,20 @@ export interface CommentFragment {
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
   // The resource author
-  author: ({
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  } | {
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  }
-  ),
-  // Check if the commentable has comments
-  hasComments: boolean,
-  // Whether the object can have new comments or not
-  acceptsNewComments: boolean,
-  // Check if the current user can comment
-  userAllowedToComment: boolean,
-  // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-  alignment: number | null,
-  // Check if the current user has reported the comment
-  alreadyReported: boolean,
-  // The number of comment's upVotes
-  upVotes: number,
-  // Check if the current user has upvoted the comment
-  upVoted: boolean,
-  // Check if the current user has downvoted the comment
-  downVoted: boolean,
-  // The number of comment's downVotes
-  downVotes: number,
-  comments: Array<{
-    // The Comment's unique ID
-    id: string,
-    // The Comment's signed global id
-    sgid: string,
-    // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-    type: string,
-    // The comment message
-    body: string,
-    // The comment message ready to display (it is expected to include HTML)
-    formattedBody: string,
-    // The creation date of the comment
-    createdAt: string,
-    // The creation date of the comment in relative format
-    formattedCreatedAt: string,
-    // The resource author
-    author: ({
+  author: ( {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
+    } | {
       // The author's name
       name: string,
       // The author's nickname
@@ -1213,42 +1372,55 @@ export interface CommentFragment {
       // The author's badge icon
       badge: string,
     }
-    ),
-    // Check if the commentable has comments
-    hasComments: boolean,
-    // Whether the object can have new comments or not
-    acceptsNewComments: boolean,
-    // Check if the current user can comment
-    userAllowedToComment: boolean,
-    // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-    alignment: number | null,
-    // Check if the current user has reported the comment
-    alreadyReported: boolean,
-    // The number of comment's upVotes
-    upVotes: number,
-    // Check if the current user has upvoted the comment
-    upVoted: boolean,
-    // Check if the current user has downvoted the comment
-    downVoted: boolean,
-    // The number of comment's downVotes
-    downVotes: number,
-    comments: Array<{
-      // The Comment's unique ID
-      id: string,
-      // The Comment's signed global id
-      sgid: string,
-      // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-      type: string,
-      // The comment message
-      body: string,
-      // The comment message ready to display (it is expected to include HTML)
-      formattedBody: string,
-      // The creation date of the comment
-      createdAt: string,
-      // The creation date of the comment in relative format
-      formattedCreatedAt: string,
-      // The resource author
-      author: ({
+  ),
+  // Check if the commentable has comments
+  hasComments: boolean,
+  // Whether the object can have new comments or not
+  acceptsNewComments: boolean,
+  // Check if the current user can comment
+  userAllowedToComment: boolean,
+  // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+  alignment: number | null,
+  // Check if the current user has reported the comment
+  alreadyReported: boolean,
+  // The number of comment's upVotes
+  upVotes: number,
+  // Check if the current user has upvoted the comment
+  upVoted: boolean,
+  // Check if the current user has downvoted the comment
+  downVoted: boolean,
+  // The number of comment's downVotes
+  downVotes: number,
+  comments:  Array< {
+    // The Comment's unique ID
+    id: string,
+    // The Comment's signed global id
+    sgid: string,
+    // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+    type: string,
+    // The comment message
+    body: string,
+    // The comment message ready to display (it is expected to include HTML)
+    formattedBody: string,
+    // The creation date of the comment
+    createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
+    // The resource author
+    author: ( {
+        // The author's name
+        name: string,
+        // The author's nickname
+        nickname: string,
+        // The author's avatar url
+        avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
+        // Whether the author's account has been deleted or not
+        deleted: boolean,
+        // The author's badge icon
+        badge: string,
+      } | {
         // The author's name
         name: string,
         // The author's nickname
@@ -1275,42 +1447,55 @@ export interface CommentFragment {
         // The author's badge icon
         badge: string,
       }
-      ),
-      // Check if the commentable has comments
-      hasComments: boolean,
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+    ),
+    // Check if the commentable has comments
+    hasComments: boolean,
+    // Whether the object can have new comments or not
+    acceptsNewComments: boolean,
+    // Check if the current user can comment
+    userAllowedToComment: boolean,
+    // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+    alignment: number | null,
+    // Check if the current user has reported the comment
+    alreadyReported: boolean,
+    // The number of comment's upVotes
+    upVotes: number,
+    // Check if the current user has upvoted the comment
+    upVoted: boolean,
+    // Check if the current user has downvoted the comment
+    downVoted: boolean,
+    // The number of comment's downVotes
+    downVotes: number,
+    comments:  Array< {
+      // The Comment's unique ID
+      id: string,
+      // The Comment's signed global id
+      sgid: string,
+      // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+      type: string,
+      // The comment message
+      body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
+      // The creation date of the comment
+      createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
+      // The resource author
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -1337,6 +1522,81 @@ export interface CommentFragment {
           // The author's badge icon
           badge: string,
         }
+      ),
+      // Check if the commentable has comments
+      hasComments: boolean,
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          }
         ),
         // Check if the commentable has comments
         hasComments: boolean,
@@ -1356,9 +1616,9 @@ export interface CommentFragment {
         downVoted: boolean,
         // The number of comment's downVotes
         downVotes: number,
-      }>,
-    }>,
-  }>,
+      } >,
+    } >,
+  } >,
 };
 
 export interface CommentDataFragment {
@@ -1377,33 +1637,46 @@ export interface CommentDataFragment {
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
   // The resource author
-  author: ({
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  } | {
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  }
+  author: ( {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
+    } | {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
+    } | {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
+    }
   ),
   // Check if the commentable has comments
   hasComments: boolean,
@@ -1443,67 +1716,20 @@ export interface CommentThreadFragment {
   // The creation date of the comment in relative format
   formattedCreatedAt: string,
   // The resource author
-  author: ({
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  } | {
-    // The author's name
-    name: string,
-    // The author's nickname
-    nickname: string,
-    // The author's avatar url
-    avatarUrl: string,
-    // The author's profile path
-    profilePath: string,
-    // Whether the author's account has been deleted or not
-    deleted: boolean,
-    // The author's badge icon
-    badge: string,
-  }
-  ),
-  // Whether the object can have new comments or not
-  acceptsNewComments: boolean,
-  // Check if the current user can comment
-  userAllowedToComment: boolean,
-  // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-  alignment: number | null,
-  // Check if the current user has reported the comment
-  alreadyReported: boolean,
-  // The number of comment's upVotes
-  upVotes: number,
-  // Check if the current user has upvoted the comment
-  upVoted: boolean,
-  // Check if the current user has downvoted the comment
-  downVoted: boolean,
-  // The number of comment's downVotes
-  downVotes: number,
-  comments: Array<{
-    // The Comment's unique ID
-    id: string,
-    // The Comment's signed global id
-    sgid: string,
-    // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-    type: string,
-    // The comment message
-    body: string,
-    // The comment message ready to display (it is expected to include HTML)
-    formattedBody: string,
-    // The creation date of the comment
-    createdAt: string,
-    // The creation date of the comment in relative format
-    formattedCreatedAt: string,
-    // The resource author
-    author: ({
+  author: ( {
+      // The author's name
+      name: string,
+      // The author's nickname
+      nickname: string,
+      // The author's avatar url
+      avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
+      // Whether the author's account has been deleted or not
+      deleted: boolean,
+      // The author's badge icon
+      badge: string,
+    } | {
       // The author's name
       name: string,
       // The author's nickname
@@ -1530,42 +1756,53 @@ export interface CommentThreadFragment {
       // The author's badge icon
       badge: string,
     }
-    ),
-    // Check if the commentable has comments
-    hasComments: boolean,
-    // Whether the object can have new comments or not
-    acceptsNewComments: boolean,
-    // Check if the current user can comment
-    userAllowedToComment: boolean,
-    // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-    alignment: number | null,
-    // Check if the current user has reported the comment
-    alreadyReported: boolean,
-    // The number of comment's upVotes
-    upVotes: number,
-    // Check if the current user has upvoted the comment
-    upVoted: boolean,
-    // Check if the current user has downvoted the comment
-    downVoted: boolean,
-    // The number of comment's downVotes
-    downVotes: number,
-    comments: Array<{
-      // The Comment's unique ID
-      id: string,
-      // The Comment's signed global id
-      sgid: string,
-      // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-      type: string,
-      // The comment message
-      body: string,
-      // The comment message ready to display (it is expected to include HTML)
-      formattedBody: string,
-      // The creation date of the comment
-      createdAt: string,
-      // The creation date of the comment in relative format
-      formattedCreatedAt: string,
-      // The resource author
-      author: ({
+  ),
+  // Whether the object can have new comments or not
+  acceptsNewComments: boolean,
+  // Check if the current user can comment
+  userAllowedToComment: boolean,
+  // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+  alignment: number | null,
+  // Check if the current user has reported the comment
+  alreadyReported: boolean,
+  // The number of comment's upVotes
+  upVotes: number,
+  // Check if the current user has upvoted the comment
+  upVoted: boolean,
+  // Check if the current user has downvoted the comment
+  downVoted: boolean,
+  // The number of comment's downVotes
+  downVotes: number,
+  comments:  Array< {
+    // The Comment's unique ID
+    id: string,
+    // The Comment's signed global id
+    sgid: string,
+    // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+    type: string,
+    // The comment message
+    body: string,
+    // The comment message ready to display (it is expected to include HTML)
+    formattedBody: string,
+    // The creation date of the comment
+    createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
+    // The resource author
+    author: ( {
+        // The author's name
+        name: string,
+        // The author's nickname
+        nickname: string,
+        // The author's avatar url
+        avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
+        // Whether the author's account has been deleted or not
+        deleted: boolean,
+        // The author's badge icon
+        badge: string,
+      } | {
         // The author's name
         name: string,
         // The author's nickname
@@ -1592,42 +1829,55 @@ export interface CommentThreadFragment {
         // The author's badge icon
         badge: string,
       }
-      ),
-      // Check if the commentable has comments
-      hasComments: boolean,
-      // Whether the object can have new comments or not
-      acceptsNewComments: boolean,
-      // Check if the current user can comment
-      userAllowedToComment: boolean,
-      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
-      alignment: number | null,
-      // Check if the current user has reported the comment
-      alreadyReported: boolean,
-      // The number of comment's upVotes
-      upVotes: number,
-      // Check if the current user has upvoted the comment
-      upVoted: boolean,
-      // Check if the current user has downvoted the comment
-      downVoted: boolean,
-      // The number of comment's downVotes
-      downVotes: number,
-      comments: Array<{
-        // The Comment's unique ID
-        id: string,
-        // The Comment's signed global id
-        sgid: string,
-        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
-        type: string,
-        // The comment message
-        body: string,
-        // The comment message ready to display (it is expected to include HTML)
-        formattedBody: string,
-        // The creation date of the comment
-        createdAt: string,
-        // The creation date of the comment in relative format
-        formattedCreatedAt: string,
-        // The resource author
-        author: ({
+    ),
+    // Check if the commentable has comments
+    hasComments: boolean,
+    // Whether the object can have new comments or not
+    acceptsNewComments: boolean,
+    // Check if the current user can comment
+    userAllowedToComment: boolean,
+    // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+    alignment: number | null,
+    // Check if the current user has reported the comment
+    alreadyReported: boolean,
+    // The number of comment's upVotes
+    upVotes: number,
+    // Check if the current user has upvoted the comment
+    upVoted: boolean,
+    // Check if the current user has downvoted the comment
+    downVoted: boolean,
+    // The number of comment's downVotes
+    downVotes: number,
+    comments:  Array< {
+      // The Comment's unique ID
+      id: string,
+      // The Comment's signed global id
+      sgid: string,
+      // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+      type: string,
+      // The comment message
+      body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
+      // The creation date of the comment
+      createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
+      // The resource author
+      author: ( {
+          // The author's name
+          name: string,
+          // The author's nickname
+          nickname: string,
+          // The author's avatar url
+          avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
+          // Whether the author's account has been deleted or not
+          deleted: boolean,
+          // The author's badge icon
+          badge: string,
+        } | {
           // The author's name
           name: string,
           // The author's nickname
@@ -1654,6 +1904,81 @@ export interface CommentThreadFragment {
           // The author's badge icon
           badge: string,
         }
+      ),
+      // Check if the commentable has comments
+      hasComments: boolean,
+      // Whether the object can have new comments or not
+      acceptsNewComments: boolean,
+      // Check if the current user can comment
+      userAllowedToComment: boolean,
+      // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
+      alignment: number | null,
+      // Check if the current user has reported the comment
+      alreadyReported: boolean,
+      // The number of comment's upVotes
+      upVotes: number,
+      // Check if the current user has upvoted the comment
+      upVoted: boolean,
+      // Check if the current user has downvoted the comment
+      downVoted: boolean,
+      // The number of comment's downVotes
+      downVotes: number,
+      comments:  Array< {
+        // The Comment's unique ID
+        id: string,
+        // The Comment's signed global id
+        sgid: string,
+        // The commentable's class name. i.e. `Decidim::ParticipatoryProcess`
+        type: string,
+        // The comment message
+        body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
+        // The creation date of the comment
+        createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
+        // The resource author
+        author: ( {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          } | {
+            // The author's name
+            name: string,
+            // The author's nickname
+            nickname: string,
+            // The author's avatar url
+            avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
+            // Whether the author's account has been deleted or not
+            deleted: boolean,
+            // The author's badge icon
+            badge: string,
+          }
         ),
         // Check if the commentable has comments
         hasComments: boolean,
@@ -1673,9 +1998,9 @@ export interface CommentThreadFragment {
         downVoted: boolean,
         // The number of comment's downVotes
         downVotes: number,
-      }>,
-    }>,
-  }>,
+      } >,
+    } >,
+  } >,
 };
 
 export interface DownVoteButtonFragment {

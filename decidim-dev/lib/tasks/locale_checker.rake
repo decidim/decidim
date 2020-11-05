@@ -5,7 +5,7 @@ namespace :decidim do
   task check_locales: :environment do
     FileUtils.remove_dir("tmp/decidim_repo", true)
 
-    branch = ENV["TARGET_BRANCH"] || "master"
+    branch = ENV["TARGET_BRANCH"] || "develop"
     status = system("git clone --depth=1 --single-branch --branch #{branch} https://github.com/decidim/decidim tmp/decidim_repo")
     return unless status
 

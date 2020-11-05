@@ -88,6 +88,15 @@ module Decidim
           command.call
         end.to change(ParticipatorySpacePrivateUser, :count).by(-1)
       end
+
+      context "when user is admin" do
+        let(:user) { create(:user, :confirmed, :admin) }
+
+        it "removes admin role" do
+          command.call
+          expect(user.reload.admin).to be_falsey
+        end
+      end
     end
   end
 end

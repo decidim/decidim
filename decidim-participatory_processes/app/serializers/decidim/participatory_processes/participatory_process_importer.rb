@@ -122,11 +122,11 @@ module Decidim
             attachment = Attachment.new(
               title: file["title"],
               description: file["description"],
-              file: file_tmp,
-              file_size: file_tmp.size,
               content_type: file_tmp.content_type,
               attached_to: @imported_process,
-              weight: file["weight"]
+              weight: file["weight"],
+              file: file_tmp, # Define attached_to before this
+              file_size: file_tmp.size
             )
             attachment.create_attachment_collection(file["attachment_collection"])
             attachment.save!
@@ -169,7 +169,9 @@ module Decidim
 
         accepted = ["image", "application/pdf"]
         url = URI.parse(url)
-        Net::HTTP.start(url.host, url.port) do |http|
+        http_connection = Net::HTTP.new(url.host, url.port)
+        http_connection.use_ssl = true if url.scheme == "https"
+        http_connection.start do |http|
           return http.head(url.request_uri)["Content-Type"].start_with?(*accepted)
         end
       rescue StandardError

@@ -8,12 +8,13 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :budget_component, organization: organization }
+    let(:current_component) { create :budgets_component, organization: organization }
+    let(:budget) { create :budget, component: current_component }
 
     let!(:resource) do
       create(
         :project,
-        component: current_component,
+        budget: budget,
         scope: scope1,
         title: Decidim::Faker::Localized.name,
         description: description_1
@@ -34,21 +35,19 @@ module Decidim
         context "when on update" do
           context "when it is updated" do
             before do
-              resource.increment(:budget)
+              resource.increment(:budget_amount)
             end
 
             it "updates the associated SearchableResource after update" do
               searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id)
               created_at = searchable.created_at
               updated_title = Decidim::Faker::Localized.name
-              resource.update(title: updated_title)
-
-              resource.save!
-              searchable.reload
+              expect(resource.update(title: updated_title)).to be_truthy
 
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
-                expect(searchable.content_a).to eq I18n.transliterate(updated_title[locale])
+                searchable.reload
+                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale: locale))
                 expect(searchable.updated_at).to be > created_at
               end
             end
@@ -70,7 +69,7 @@ module Decidim
         let!(:resource_2) do
           create(
             :project,
-            component: current_component,
+            budget: budget,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
             description: Decidim::Faker::Localized.prefixed("Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!", test_locales)

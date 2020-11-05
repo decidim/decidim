@@ -25,11 +25,47 @@ pt:
             description: Descrição
             tos: Termos de serviço
         questionnaires:
+          actions:
+            back: Retroceder às perguntas
+            show: Mostrar respostas
           answer_option:
             answer_option: Opção de resposta
             free_text: Texto livre
             remove: Remover
             statement: Declaração
+          answers:
+            actions:
+              back: Retroceder às respostas
+              export: Exportar
+              show: Mostrar respostas
+            empty: Ainda não há respostas
+            export:
+              answer:
+                title: 'Resposta #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} respostas totais"
+            show:
+              title: 'Resposta #%{number}'
+          display_condition:
+            answer_option: Opção de resposta
+            condition_question: Pergunta
+            condition_type: Condição
+            condition_types:
+              answered: Respondido
+              equal: Igual
+              match: Inclui texto
+              not_answered: Não respondido
+              not_equal: Diferente
+            condition_value: Incluiu texto
+            display_condition: Exibir condição
+            mandatory: Esta condição precisa de ser sempre satisfeita independentemente do estado das outras condições
+            remove: Remover
+            save_warning: Lembre-se de guardar o formulário antes de configurar as condições de exibição
+            select_answer_option: Selecionar opção de resposta
+            select_condition_question: Selecionar uma pergunta
+            select_condition_type: Selecionar um tipo de condição
           edit:
             save: Guardar
             title: Editar questionário
@@ -39,12 +75,17 @@ pt:
             already_answered_warning: O questionário já foi respondido por alguns utilizadores por isso não pode modificar as suas questões.
             collapse: Colapsar todas as questões
             expand: Expandir todas as questões
+            preview: Pré-visualizar
+            title: Editar formulário
+            unpublished_warning: O formulário não está publicado. Pode modificar as suas questões, mas essa ação eliminará as respostas atuais.
           matrix_row:
             matrix_row: Linha
             remove: Remover
             statement: Declaração
           question:
             add_answer_option: Adicionar opção de resposta
+            add_display_condition: Adicionar condição de exibição
+            add_display_condition_info: Guarde o formulário para configurar as condições de exibição
             add_matrix_row: Adicionar linha
             any: Qualquer
             collapse: Colapsar
@@ -62,7 +103,6 @@ pt:
             up: Acima
           update:
             invalid: Ocorreu um problema ao guardar o questionário.
-            success: Questionários guardados corretamente.
       errors:
         answer:
           body: O corpo não pode ficar em branco
@@ -104,6 +144,11 @@ pt:
           questionnaire_for_private_users:
             body: O questionário está disponível apenas para utilizadores privados
             title: Questionário encerrado
+          questionnaire_js_disabled:
+            body: Algumas características deste questionário serão desativadas. Para melhorar a sua experiência, por favor ative o JavaScript no seu navegador.
+            title: JavaScript está desativado
+          questionnaire_not_published:
+            body: Este questionário ainda não está publicado.
           tos_agreement: Ao participar aceita os seus Termos de Serviço
       step_navigation:
         show:
@@ -112,9 +157,13 @@ pt:
           continue: Continuar
           submit: Submeter
       user_answers_serializer:
+        body: Responder
+        completion: Conclusão
         created_at: Respondido em
         id: ID da resposta
-        ip_hash: Ip Hash
+        ip_hash: IP Hash
+        question: Questão
         registered: Registado
+        session_token: Identificador do utilizador
         unregistered: Não registado
         user_status: Estado de utilizador

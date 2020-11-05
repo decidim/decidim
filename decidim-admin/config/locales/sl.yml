@@ -28,16 +28,11 @@ sl:
       newsletter:
         body: Telo
         subject: Zadeva
-      oauth_application:
-        name: Ime
-        organization_logo: Logo organizacije (kvadratni)
-        organization_name: Ime organizacije
-        organization_url: Domača stran organizacije
-        redirect_uri: Preusmeritev URI
       organization:
         address: SMTP Gostitelj
         alert_color: Opozorilo
         badges_enabled: Omogoči značke
+        comments_max_length: Maksimalna dolžina komentarjev (0 je privzeta)
         customize_welcome_notification: Priredi obvestilo dobrodošlice
         default_locale: Privzeto območje
         description: Opis
@@ -107,10 +102,6 @@ sl:
         file: Datoteka
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URL preusmeritev mora bit SSL
         organization:
           attributes:
             official_img_footer:

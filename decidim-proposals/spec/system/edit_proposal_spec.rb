@@ -9,6 +9,7 @@ describe "Edit proposals", type: :system do
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:proposal) { create :proposal, users: [user], component: component }
+  let!(:proposal_title) { translated(proposal.title) }
 
   before do
     switch_to_host user.organization.host
@@ -25,7 +26,7 @@ describe "Edit proposals", type: :system do
     it "can be updated" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       click_link "Edit proposal"
 
       expect(page).to have_content "EDIT PROPOSAL"
@@ -46,7 +47,7 @@ describe "Edit proposals", type: :system do
       it "returns an error message" do
         visit_component
 
-        click_link proposal.title
+        click_link proposal_title
         click_link "Edit proposal"
 
         expect(page).to have_content "EDIT PROPOSAL"
@@ -69,7 +70,7 @@ describe "Edit proposals", type: :system do
       it "keeps the submitted values" do
         visit_component
 
-        click_link proposal.title
+        click_link proposal_title
         click_link "Edit proposal"
 
         expect(page).to have_content "EDIT PROPOSAL"
@@ -94,7 +95,7 @@ describe "Edit proposals", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit current_path + "/edit"
 
@@ -112,7 +113,7 @@ describe "Edit proposals", type: :system do
     it "renders an error" do
       visit_component
 
-      click_link proposal.title
+      click_link proposal_title
       expect(page).to have_no_content("Edit proposal")
       visit current_path + "/edit"
 

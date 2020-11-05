@@ -141,10 +141,11 @@ sk:
             success: Účet bol úspešne overený.
       dummy_authorization:
         extra_explanation:
-          one: Účasť je obmedzená na užívateľov s poštovým smerovacím číslom%{postal_codes}.
-          few: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
-          many: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
-          other: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+          postal_codes:
+            one: Účasť je obmedzená na užívateľov s poštovým smerovacím číslom%{postal_codes}.
+            few: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+            many: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
+            other: 'Účasť je obmedzená na používateľov s niektorým z nasledujúcich poštových smerovacích čísel:%{postal_codes}.'
       id_documents:
         admin:
           config:

@@ -11,7 +11,8 @@ module Decidim
         {
           id: resource.id,
           created_at: resource.created_at,
-          body: resource.body,
+          body: resource.body.values.first,
+          locale: resource.body.keys.first,
           author: {
             id: resource.author.id,
             name: resource.author.name
@@ -31,7 +32,11 @@ module Decidim
       private
 
       def root_commentable_url
-        @root_commentable_url ||= Decidim::ResourceLocatorPresenter.new(resource.root_commentable).url
+        @root_commentable_url ||= if resource.root_commentable&.respond_to?(:polymorphic_resource_url)
+                                    resource.root_commentable.polymorphic_resource_url
+                                  else
+                                    ResourceLocatorPresenter.new(resource.root_commentable).url
+                                  end
       end
     end
   end

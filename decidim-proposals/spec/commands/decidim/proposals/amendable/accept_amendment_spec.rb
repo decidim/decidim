@@ -13,8 +13,8 @@ module Decidim
 
       let(:emendation_params) do
         {
-          title: emendation.title,
-          body: emendation.body
+          title: translated(emendation.title),
+          body: translated(emendation.body)
         }
       end
 

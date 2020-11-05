@@ -167,8 +167,10 @@ You can also make sure new translations are complete for all languages in your
 application with:
 
 ```console
-bin/rails decidim:check_locales
+TARGET_BRANCH=release/0.22-stable bin/rails decidim:check_locales
 ```
+
+Here the `TARGET_BRANCH` must be the same as the `decidim` dependency in your `Gemfile`.
 
 Be aware that this task might not be able to detect everything, so make sure you
 also manually check your application before upgrading.

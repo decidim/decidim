@@ -59,6 +59,20 @@ module Decidim
         [present(model).author] +
           model.committee_members.approved.non_deleted.excluding_author.map { |member| present(member.user) }
       end
+
+      def has_image?
+        image.present?
+      end
+
+      def image
+        @image ||= model.attachments.find do |attachment|
+          attachment.file.content_type.start_with?("image")
+        end
+      end
+
+      def resource_image_path
+        image.url if has_image?
+      end
     end
   end
 end

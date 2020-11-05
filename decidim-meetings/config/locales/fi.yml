@@ -16,10 +16,12 @@ fi:
         available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
+        decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
         private_meeting: Yksityinen tapahtuma
         registration_form_enabled: Ilmoittautumislomake on käytössä
@@ -81,12 +83,18 @@ fi:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
+            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
+            scope_id: Teema
+            scopes_enabled: Teemat käytössä
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
+            creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
+            creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
     events:
       meetings:
         meeting_closed:
@@ -227,9 +235,6 @@ fi:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_organizer: Valitse järjestäjä
         meetings:
           close:
             invalid: Tapahtuman sulkeminen epäonnistui
@@ -249,7 +254,6 @@ fi:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
             location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
             location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
-            select_organizer: Valitse järjestäjä
           index:
             title: Tapahtumat
           new:
@@ -354,24 +358,55 @@ fi:
       meeting:
         not_allowed: Sinulla ei ole lupaa tarkastella tätä tapahtumaa
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} tapahtuma"
+            other: "%{count} tapahtumaa"
+        create:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
+        edit:
+          back: Takaisin
+          title: Muokkaa tapahtumaa
+          update: Päivitä
         filters:
           category: Aihepiiri
-          category_prompt: Valitse aihepiiri
           date: Päivämäärä
-          past: Menneet
+          date_values:
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
+          origin: Alkuperä
+          origin_values:
+            all: Kaikki
+            citizens: Kansalaiset
+            official: Viralliset
+            user_groups: Ryhmät
+          scope: Teema
           search: Hae
-          upcoming: Tulevat
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        form:
+          address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
+          create_as: Luo tapahtuma käyttäjänä
+          location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
+          location_hints_help: 'Sijainnin vihjeteksti: lisätietoja sijainnista. Esimerkiksi rakennuksen kerros sijaintipaikalla'
+          select_a_category: Valitse aihepiiri
+        index:
+          new_meeting: Uusi tapahtuma
         meeting_minutes:
           meeting_minutes: Tapahtumapöytäkirja
           related_information: Liittyviä tietoja
         meetings:
           no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
+        new:
+          back: Takaisin
+          create: Luo
+          title: Luo tapahtuma
         registration_confirm:
           cancel: Peruuta
           confirm: Vahvista
@@ -380,6 +415,7 @@ fi:
           back: Takaisin listaan
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
+          edit_meeting: Muokkaa tapahtumaa
           going: Ilmoittautunut
           join: Ilmoittaudu tapahtumaan
           meeting_report: Tapahtumaraportti
@@ -393,6 +429,9 @@ fi:
             one: "%{count} paikka jäljellä"
             other: "%{count} paikkaa jäljellä"
           view: Näytä
+        update:
+          invalid: Tapahtuman luonti epäonnistui.
+          success: Tapahtuman luonti onnistui.
       meetings_map:
         view_meeting: Näytä tapahtuma
       models:
@@ -411,6 +450,7 @@ fi:
             closed: Suljettu
             end_time: Päättymispäivä
             map: Kartta
+            official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
             title: Otsikko
       read_more: "(lue lisää)"
@@ -432,6 +472,8 @@ fi:
       types:
         private_meeting: Yksityinen tapahtuma
         transparent: Läpinäkyvä
+      versions:
+        back_to_resource: Takaisin tapahtumaan
     metrics:
       meetings:
         description: Tapahtumien määrä

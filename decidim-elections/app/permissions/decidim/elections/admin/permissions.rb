@@ -12,15 +12,17 @@ module Decidim
             case permission_action.action
             when :create, :update, :delete
               allow_if_not_started
+            when :import_proposals
+              allow_if_not_started
             end
           when :election
             case permission_action.action
             when :create, :read
               allow!
-            when :update
-              toggle_allow(election)
-            when :delete
+            when :delete, :update, :unpublish
               allow_if_not_started
+            when :publish
+              allow_if_valid_and_not_started
             end
           end
 
@@ -33,8 +35,16 @@ module Decidim
           @election ||= context.fetch(:election, nil)
         end
 
+        def question
+          @question ||= context.fetch(:question, nil)
+        end
+
         def allow_if_not_started
           toggle_allow(election && !election.started?)
+        end
+
+        def allow_if_valid_and_not_started
+          toggle_allow(election && !election.started? && election.valid_questions?)
         end
       end
     end

@@ -64,6 +64,12 @@ pt:
         email: E-mail
         name: Nome
         role: Função
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo de documento inválido. Os formatos aceites são: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ pt:
   decidim:
     admin:
       actions:
+        import_assembly: Importar
         new_assembly: Nova reunião
         new_assembly_type: Novo tipo de reunião
       assemblies:
@@ -122,6 +129,14 @@ pt:
           copy: Cópia
           select: Selecione os dados que pretende duplicar
           title: Duplicar assembléia
+      assembly_imports:
+        create:
+          error: Ocorreu um problema ao atualizar esta reunião.
+          success: Reunião atualizada corretamente.
+        new:
+          import: Importar
+          select: Selecione os dados que pretende importar
+          title: Importar reunião
       assembly_members:
         create:
           error: Ocorreu um problema ao adicionar um membro a esta reunião.
@@ -269,6 +284,10 @@ pt:
         assembly_copies:
           form:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Adicionar um documento
+            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta reunião. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Participante existente

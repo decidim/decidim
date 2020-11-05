@@ -25,11 +25,47 @@ ja:
             description: 説明
             tos: 利用規約
         questionnaires:
+          actions:
+            back: 質問に戻る
+            show: 回答を表示
           answer_option:
             answer_option: 回答オプション
             free_text: フリーテキスト
             remove: 削除
             statement: ステートメント
+          answers:
+            actions:
+              back: 返信に戻る
+              export: エクスポート
+              show: 回答を表示
+            empty: まだ回答がありません
+            export:
+              answer:
+                title: '応答 #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "合計%{total} 件の回答"
+            show:
+              title: '回答 #%{number}'
+          display_condition:
+            answer_option: 回答オプション
+            condition_question: 質問
+            condition_type: 条件
+            condition_types:
+              answered: 回答済み
+              equal: 等しい
+              match: テキストを含む
+              not_answered: 応答がありません
+              not_equal: 等しくない
+            condition_value: 含まれるテキスト
+            display_condition: 条件を表示
+            mandatory: 他の条件にかかわらず、この条件は常に満たされる必要があります
+            remove: 削除
+            save_warning: 表示条件を設定する前にフォームを保存してください
+            select_answer_option: 回答オプションを選択
+            select_condition_question: 質問を選択
+            select_condition_type: 条件の種類を選択
           edit:
             save: 保存
             title: アンケートを編集
@@ -39,12 +75,17 @@ ja:
             already_answered_warning: このフォームはすでに一部のユーザーによって回答されているため、質問を修正することはできません。
             collapse: すべての質問を閉じる
             expand: すべての質問を展開
+            preview: プレビュー
+            title: フォームの編集
+            unpublished_warning: フォームは公開されていません。質問を修正することはできますが、そうすると現在の回答が削除されます。
           matrix_row:
             matrix_row: 行
             remove: 削除
             statement: ステートメント
           question:
             add_answer_option: 回答オプションを追加
+            add_display_condition: 表示条件を追加
+            add_display_condition_info: 表示条件を設定するためにフォームを保存します
             add_matrix_row: 行を追加
             any: 任意の
             collapse: 折りたたむ
@@ -104,6 +145,11 @@ ja:
           questionnaire_for_private_users:
             body: このフォームはプライベートユーザーのみ利用できます
             title: フォームを閉じました
+          questionnaire_js_disabled:
+            body: このフォームのいくつかの機能は無効になります。あなたのエクスペリエンスを向上させるために、ブラウザでJavaScriptを有効にしてください。
+            title: JavaScriptは無効です
+          questionnaire_not_published:
+            body: このフォームはまだ公開されていません。
           tos_agreement: 参加することにより、利用規約に同意します。
       step_navigation:
         show:
@@ -112,9 +158,13 @@ ja:
           continue: 続ける
           submit: 送信
       user_answers_serializer:
+        body: 回答
+        completion: 完了
         created_at: 回答日時
         id: 回答ID
-        ip_hash: IPハッシュ
+        ip_hash: IP ハッシュ
+        question: 質問
         registered: 登録済み
+        session_token: ユーザー識別子
         unregistered: 未登録
         user_status: ユーザーの状態

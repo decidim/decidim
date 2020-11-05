@@ -8,9 +8,14 @@ module Decidim
       subject do
         described_class.from_params(
           attributes
+        ).with_context(
+          current_organization: organization,
+          current_component: component
         )
       end
 
+      let(:organization) { create(:organization) }
+      let!(:component) { create(:component, organization: organization) }
       let(:body) { "This is a new comment" }
       let(:alignment) { 1 }
       let(:user_group) { create(:user_group, :verified) }
@@ -55,6 +60,32 @@ module Decidim
         let(:alignment) { 2 }
 
         it { is_expected.not_to be_valid }
+      end
+
+      describe "#max_length" do
+        context "when organization has a max length > 0" do
+          let(:body) { "c" * 1001 }
+          let(:organization) { create(:organization, comments_max_length: 1001) }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when component has a max length > 0" do
+          let(:body) { "c" * 1001 }
+
+          before do
+            component.update!(settings: { comments_max_length: 1001 })
+          end
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when component is missing" do
+          let!(:component) { nil }
+          let(:body) { "c" * 1000 }
+
+          it { is_expected.to be_valid }
+        end
       end
     end
   end

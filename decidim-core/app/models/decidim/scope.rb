@@ -7,6 +7,9 @@ module Decidim
   class Scope < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::TranslatableResource
+
+    translatable_fields :name
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -53,7 +56,7 @@ module Decidim
     end
 
     def descendants
-      organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
+      @descendants ||= organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
     def ancestor_of?(scope)

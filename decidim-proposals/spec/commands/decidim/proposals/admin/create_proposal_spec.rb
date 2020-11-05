@@ -35,8 +35,8 @@ module Decidim
         describe "call" do
           let(:form_params) do
             {
-              title: "A reasonable proposal title",
-              body: "A reasonable proposal body",
+              title: { en: "A reasonable proposal title" },
+              body: { en: "A reasonable proposal body" },
               address: address,
               has_address: has_address,
               attachment: attachment_params,

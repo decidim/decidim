@@ -17,7 +17,9 @@ FactoryBot.define do
         categories_label: Decidim::Faker::Localized.word,
         subcategories_label: Decidim::Faker::Localized.word,
         heading_parent_level_results: Decidim::Faker::Localized.word,
-        heading_leaf_level_results: Decidim::Faker::Localized.word
+        heading_leaf_level_results: Decidim::Faker::Localized.word,
+        scopes_enabled: true,
+        scope_id: participatory_space.scope&.id
       }
     end
   end

@@ -1,0 +1,6 @@
+bg:
+  activemodel:
+    attributes:
+      project:
+        decidim_category_id: Категория
+        decidim_scope_id: Сфера

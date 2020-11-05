@@ -13,7 +13,6 @@ module Decidim
 
       routes do
         resources :results, only: [:index, :show] do
-          resource :result_widget, only: :show, path: "embed"
           resources :versions, only: [:show, :index]
         end
         root to: "results#home"

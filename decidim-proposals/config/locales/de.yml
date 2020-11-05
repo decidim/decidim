@@ -104,6 +104,7 @@ de:
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
             collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             geocoding_enabled: Geocoding aktiviert
             minimum_votes_per_user: Mindeststimmen pro Nutzer
             new_proposal_body_template: Textvorlage für neuen Vorschlag
@@ -121,6 +122,8 @@ de:
             proposal_wizard_step_3_help_text: Hilfetext "Fertigstellen"-Schritt im Vorschlagsassistenten
             proposal_wizard_step_4_help_text: Hilfetext "Veröffentlichen"-Schritt im Vorschlagsassistenten
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Unterstützungslimit pro Benutzer
           step:

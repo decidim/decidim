@@ -22,6 +22,12 @@ module Decidim
         )
       end
 
+      let(:current_participatory_space) { create(:participatory_process) }
+
+      before do
+        allow(view).to receive(:current_participatory_space).and_return(current_participatory_space)
+      end
+
       def render_input
         helper.settings_attribute_input(form, attribute, name, i18n_scope, options)
       end
@@ -113,6 +119,15 @@ module Decidim
             )
             render_input
           end
+        end
+      end
+
+      describe "scopes" do
+        let(:type) { :scope }
+
+        it "is supported" do
+          expect(form).to receive(:scopes_picker).with(:test, checkboxes_on_top: true)
+          render_input
         end
       end
     end

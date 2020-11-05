@@ -17,7 +17,7 @@ module Decidim
       isolate_namespace Decidim::Meetings
 
       routes do
-        resources :meetings, only: [:index, :show] do
+        resources :meetings, only: [:index, :show, :new, :create, :edit, :update] do
           resource :registration, only: [:create, :destroy] do
             collection do
               get :create
@@ -26,7 +26,8 @@ module Decidim
               post :answer
             end
           end
-          resource :meeting_widget, only: :show, path: "embed"
+          resources :versions, only: [:show, :index]
+          resource :widget, only: :show, path: "embed"
         end
         root to: "meetings#index"
         resource :calendar, only: [:show], format: :text

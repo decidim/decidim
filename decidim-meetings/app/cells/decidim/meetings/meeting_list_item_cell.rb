@@ -14,11 +14,11 @@ module Decidim
       private
 
       def resource_path
-        resource_locator(model).path
+        resource_locator(model).path(filter_link_params)
       end
 
       def title
-        decidim_html_escape(present(model).title)
+        present(model).title
       end
 
       def resource_date_time

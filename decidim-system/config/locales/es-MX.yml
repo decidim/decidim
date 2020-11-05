@@ -1,4 +1,29 @@
 es-MX:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nombre de la aplicación OAuth
+        organization_logo: Logo de la organización (cuadrado)
+        organization_name: Organización
+        organization_url: URL de organización
+        redirect_uri: Redirigir URI
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Tipos MIME del panel de administración
+          default: Tipos MIME por defecto
+        allowed_file_extensions:
+          admin: Extensiones de archivo del panel de administración
+          default: Extensiones de archivo por defecto
+          image: Extensiones de archivo de imagen
+        maximum_file_size:
+          avatar: Tamaño del archivo de avatar
+          default: Tamaño de archivo por defecto
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: La URI de redirección debe ser una URI SSL
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ es-MX:
       menu:
         admins: Administradores
         dashboard: Panel de control
+        oauth_applications: Aplicaciones OAuth
         organizations: Organizaciones
       models:
         admin:
@@ -41,21 +67,67 @@ es-MX:
           name: Administrador
           validations:
             email_uniqueness: ya existe otro administrador con este correo electrónico
+        oauth_application:
+          fields:
+            created_at: Creado el
+            name: Nombre de la aplicación OAuth
+            organization_name: Organización
+          name: Aplicación OAuth
         organization:
           actions:
             save_and_invite: Crear organización e invitar a administrador
           fields:
             created_at: Fecha de creación
+            file_upload_settings: Ajustes de subida de archivos
             name: Nombre
             omniauth_settings: Ajustes de Omniauth
             smtp_settings: Configuración de SMTP
           name: Organización
+      oauth_applications:
+        create:
+          error: Se ha producido un error al crear esta aplicación.
+          success: Aplicación creada correctamente.
+        destroy:
+          error: Se ha producido un error al eliminar esta aplicación.
+          success: Aplicación eliminada correctamente.
+        edit:
+          save: Guardar
+          title: Editar aplicación
+        form:
+          select_organization: Seleccionar una organización
+        index:
+          confirm_delete: '¿Seguro que quieres eliminar esta aplicación?'
+          title: Aplicaciones OAuth
+        new:
+          save: Guardar
+          title: Nueva aplicación
+        update:
+          error: Se ha producido un error al actualizar esta aplicación.
+          success: Aplicación actualizada correctamente.
       organizations:
         create:
           error: Se ha producido un error al crear una nueva organización.
           success: Organización creada correctamente.
         edit:
           secondary_hosts_hint: Introduce cada uno de ellos en una nueva línea
+        file_upload_settings:
+          content_types:
+            admin_hint: Estos tipos MIME están permitidos para subirse desde el panel de administración. Las personas administradoras deben ser conscientes de los riesgos al subir algunos formatos de documentos, por lo que cabe esperar que sean más cautelosas con las subidas de archivos.
+            default_hint: Estos tipos MIME están permitidos por defecto para todas las usuarias.
+            intro_html: Añade comodines con el carácter asterisco para los tipos MIME, por ejemplo, <code>image/*</code>.
+            title: Tipos MIME permitidos
+          file_extensions:
+            admin_hint: Estas extensiones de archivo están permitidas para subidas desde el panel de administración. Las personas administradoras deben ser conscientes de los riesgos al subir algunos formatos de documentos, por lo que cabe esperar que sean más cautelosas con las subidas de archivos.
+            default_hint: Estas extensiones de archivo están permitidas por defecto para todas los usuarias.
+            image_hint: Estas extensiones de archivo están permitidas para cualquier tipo de subida de imágenes.
+            title: Extensiones de archivo permitidas
+          file_sizes:
+            avatar_hint: Megabytes (MB). Este límite de tamaño de archivo se utiliza para subir imágenes de avatar.
+            default_hint: Megabytes (MB). Este límite de tamaño de archivo es el predeterminado que se utiliza para todas las subidas de archivos a menos que se especifique lo contrario.
+            title: Tamaño máximo de archivos
+          intro: |
+            Por favor, sé muy cautelosa al considerar cambiar estos ajustes. Cuanto menos opciones permitas, mejor.
+            Permitir extensiones de archivos específicas o tipos MIME puede exponer a las usuarias del sistema a riesgos de seguridad y también puede afectar a la accesibilidad del sitio web.
         index:
           title: Organizaciones
         new:
@@ -82,9 +154,9 @@ es-MX:
             api_secret: Secreto API
         smtp_settings:
           instructions:
-            from_label: 'La dirección de correo de envío será: "el-nombre-de-tu-organización<your-organization@your-provider.org>. Déjalo en blanco para usar el "des de" como etiqueta'
+            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el ''from_email'' como etiqueta'
           placeholder:
-            from_email: tu-organizacion@tu-proveedor.org
+            from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion
         update:
           error: Se ha producido un error al actualizar esta organización.

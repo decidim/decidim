@@ -88,7 +88,7 @@ Decidim::Admin::Engine.routes.draw do
       put :accept
     end
 
-    resources :oauth_applications
+    resources :share_tokens, only: :destroy
 
     root to: "dashboard#show"
   end

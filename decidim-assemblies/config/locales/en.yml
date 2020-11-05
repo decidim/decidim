@@ -65,6 +65,12 @@ en:
         email: Email
         name: Name
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Invalid document type. Accepted formats are: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -79,6 +85,7 @@ en:
   decidim:
     admin:
       actions:
+        import_assembly: Import
         new_assembly: New assembly
         new_assembly_type: New assembly type
       assemblies:
@@ -123,6 +130,14 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_imports:
+        create:
+          error: There was a problem importing this assembly.
+          success: Assembly successfully imported.
+        new:
+          import: Import
+          select: Select which data you would like to import
+          title: Import assembly
       assembly_members:
         create:
           error: There was a problem adding a member for this assembly.
@@ -270,6 +285,10 @@ en:
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Add a document
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_members:
           form:
             existing_user: Existing participant
@@ -287,6 +306,9 @@ en:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum amount of elements to show
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Members

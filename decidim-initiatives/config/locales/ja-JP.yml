@@ -60,7 +60,7 @@ ja:
   activerecord:
     models:
       decidim/initiative:
-        other: イニシアチブ
+        other: <unk>
       decidim/initiative_comittee:
         other: Comittes
       decidim/initiative_vote:
@@ -68,27 +68,13 @@ ja:
   decidim:
     admin:
       actions:
-        new_initiative_type: 新しいイニシアチブ種別
+        new_initiative_type: 新しいイニシアチブタイプ
       filters:
-        initiatives:
-          decidim_area_id_eq:
-            label: エリア
-          state_eq:
-            label: 州(県)
-            values:
-              accepted: 十分な署名
-              created: 作成日
-              discarded: 削除済み
-              published: 公開済
-              rejected: 十分な署名がありません
-              validating: 技術的検証
-          type_id_eq:
-            label: タイプ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       menu:
-        initiatives: イニシアチブ
-        initiatives_types: イニシアチブ種別
+        initiatives: 取り組み
+        initiatives_types: イニシアティブの種類
       models:
         initiatives:
           fields:
@@ -97,17 +83,17 @@ ja:
             published_at: 公開日時
             state: ステータス
             supports_count: 署名
-            title: イニシアチブ
+            title: 取り組み
         initiatives_type_scope:
           fields:
             scope: スコープ
             supports_required: 署名が必要です
-          name: イニシアチブ種別のスコープ
+          name: イニシアティブの種類のスコープ
         initiatives_types:
           fields:
             created_at: 作成日時
-            title: イニシアチブ種別
-          name: イニシアチブ種別
+            title: イニシアティブの種類
+          name: イニシアティブの種類
         initiatives_votes:
           fields:
             date_of_birth: 誕生日
@@ -117,22 +103,22 @@ ja:
             initiative_id: イニシアチブID
             initiative_signatures_count: 署名の数
             initiative_start_date: 開始日
-            initiative_title: イニシアチブのタイトル
+            initiative_title: イニシアティブのタイトル
             name_and_surname: 氏名と姓名
             postal_code: 郵便番号
             time_and_date: 日時
             timestamp: タイムスタンプ
       titles:
-        initiatives: イニシアチブ
-        initiatives_types: イニシアチブ種別
+        initiatives: 取り組み
+        initiatives_types: イニシアティブの種類
     events:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。
+            email_intro: '%{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_url}">管理者パネル</a> で確認してください。'
             email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
-            email_subject: イニシアチブ %{resource_title}" は技術的な検証に送信されました。
-            notification_title: イニシアチブ %{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。
+            email_subject: '%{resource_title}" は技術的な検証に送信されました。'
+            notification_title: '%{resource_title}" が技術的な検証に送信されました。 <a href="%{admin_initiative_path}">管理者パネル</a> で確認してください。'
         initiative_extended:
           email_intro: イニシアチブ %{resource_title} の署名の終了日が延長されました！
           email_outro: '%{resource_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -163,15 +149,15 @@ ja:
           description: このバッジは、新しいイニシアチブを開始し、他の人と提携して実行するときに付与されます。
           description_another: この参加者は %{score} のイニシアチブを公開しました。
           description_own: '%{score} のイニシアチブが公開されました。'
-          name: 公開されたイニシアチブ
+          name: 公開された取り組み
           next_level_in: 次のレベルに到達するために公開された %{score} 件のイニシアチブを入手しましょう！
           unearned_another: この参加者はまだイニシアチブを発行していません。
           unearned_own: まだイニシアチブが公開されていません。
     help:
       participatory_spaces:
         initiatives:
-          contextual: "<p> <strong>イニシアチブ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、討論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
-          page: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、討論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
+          contextual: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
+          page: "<p> <strong>イニシアチヴ</strong>とは、組織が特定のアクション (規制の変更、プロジェクトの開始、部署や道路の名前の変更など) を実行するための (デジタルの) 署名を集めることによって、誰もが (他のチャネルや参加スペースとは無関係に) 主体的に推進できる提案のことです。 </p> <p>イニシアチブの推進者は、その目的を定義し、支持を集め、議論し、普及させ、出席者から署名を集めることができる集会場所を定義したり、他の参加者に開かれた議論を行ったりすることができます。</p><p>例: イニシアチブは、組織のすべての人々の間で協議を行うために署名を集めることができ、また、組織の領域や地域の予算増額のプロセスを開始するために、集会を作成または招集することができます。署名を集める過程で、より多くの人々がこの要求を追加し、組織内でそれを推進することができます。</p>\n"
           title: イニシアチブとは？
     initiatives:
       actions:
@@ -185,7 +171,7 @@ ja:
             created_at: 作成日時
             description: 説明
             initiative_votes_count: 投票数
-            initiatives: イニシアチブ
+            initiatives: 取り組み
             state: 都道府県：
         committee_requests:
           index:
@@ -199,7 +185,7 @@ ja:
           highlighted_initiatives:
             max_results: 表示する要素の最大量
         exports:
-          initiatives: イニシアチブ
+          initiatives: 取り組み
         initiatives:
           edit:
             accept: イニシアチブを承認する
@@ -207,7 +193,7 @@ ja:
             discard: イニシアチブを破棄する
             export_pdf_signatures: 署名の PDF をエクスポート
             export_votes: 署名をエクスポート
-            reject: イニシアチブを拒否する
+            reject: イニシアチブを拒否
             send_to_technical_validation: 技術検証に送る
             success: このイニシアチブは技術検証に送信されました
             update: 更新
@@ -230,28 +216,28 @@ ja:
         initiatives_type_scopes:
           create:
             error: エラーが発生しました
-            success: 指定されたイニシアチブ種別の新しいスコープが作成されました
+            success: 指定されたイニシアチブタイプの新しいスコープが作成されました
           destroy:
             success: スコープを削除しました
           edit:
             back: 戻る
             confirm_destroy: よろしいですか？
             destroy: 削除
-            title: イニシアチブ種別のスコープを編集
+            title: イニシアチブタイプのスコープを編集
             update: 更新
           new:
             back: 戻る
             create: 作成
-            title: イニシアチブ種別のスコープを作成
+            title: イニシアチブタイプのスコープを作成
           update:
             error: エラーが発生しました
             success: スコープが正常に更新されました
         initiatives_types:
           create:
             error: エラーが発生しました
-            success: 新しいイニシアチブ種別が正常に作成されました
+            success: 新しいイニシアチブタイプが正常に作成されました
           destroy:
-            success: イニシアチブの種別が削除されました
+            success: イニシアチブの種類が削除されました
           edit:
             confirm_destroy: よろしいですか？
             destroy: 削除
@@ -259,13 +245,13 @@ ja:
           form:
             title: 一般情報
           initiative_type_scopes:
-            title: イニシアチブの種別のスコープ
+            title: イニシアチブの種類のスコープ
           new:
             create: 作成
-            title: 新しいイニシアチブ種別
+            title: 新しいイニシアチブタイプ
           update:
             error: エラーが発生しました
-            success: イニシアチブ種別が正常に更新されました
+            success: イニシアチブタイプが正常に更新されました
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
@@ -316,7 +302,7 @@ ja:
           back_to_initiatives: イニシアチブに戻る
           callout_text: おめでとうございます！あなたのイニシアチブが正常に作成されました。
           confirm: 確認する
-          edit_my_initiative: 自分のイニシアチブを編集
+          edit_my_initiative: 自分の取り組みを編集
           go_to_my_initiatives: 私のイニシアチブに移動
           more_information: "(詳細)"
           send_my_initiative: 自分のイニシアチブを送信
@@ -362,7 +348,7 @@ ja:
           email_subject: '%{author_nickname} によって支持されたイニシアチブ。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> イニシアチブは、 <a href="%{author_path}">%{author_name} %{author_nickname}</a> によって承認されました。
       index:
-        title: イニシアチブ
+        title: 取り組み
       initiative_signatures:
         fill_personal_data:
           continue: 続ける
@@ -398,12 +384,12 @@ ja:
             other: '%{count} 人以上'
         count:
           title:
-            other: "%{count} のイニシアチブ"
+            other: "%{count} の取り組み"
         filters:
           any: 任意の
           area: エリア
           author: 作成者
-          myself: 私のイニシアチブ
+          myself: 私の取り組み
           scope: スコープ
           search: 検索
           state: ステータス
@@ -415,6 +401,14 @@ ja:
           unfold: 展開する
         index_header:
           new_initiative: 新たなイニシアチブを作成
+          not_authorized:
+            authorizations_page: 権限を表示
+            close: 閉じる
+            explanation: 新しいイニシアチブを作成するには、認証が必要です。
+            title: 認証が必要です
+        initiatives:
+          closed_initiatives_warning: 現在、オープンなイニシアチブはありませんが、ここに記載されているすべてのクローズドイニシアチブを見つけることができます。
+          no_initiatives_warning: 検索基準に一致するイニシアチブは見つかりませんでした
         interactions:
           comments_count:
             count:
@@ -472,7 +466,7 @@ ja:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: 積極的なイニシアチブ
+            active_initiatives: 積極的な取り組み
             see_all_initiatives: すべてのイニシアチブを見る
       show:
         badge_name:
@@ -490,7 +484,7 @@ ja:
         shared:
           back_to_resource: イニシアチブに戻る
     menu:
-      initiatives: イニシアチブ
+      initiatives: 取り組み
     resources:
       initiatives_type:
         actions:
@@ -515,7 +509,7 @@ ja:
         step: '%{current} / %{total}'
         title: 新しいイニシアチブを作成
       initiative_header:
-        initiative_menu_item: イニシアチブ
+        initiative_menu_item: イニシアチブformat@@0
       initiative_signature_creation_header:
         back: 戻る
         fill_personal_data: データを完成させましょう

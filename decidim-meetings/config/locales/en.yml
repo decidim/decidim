@@ -17,10 +17,12 @@ en:
         available_slots: Available slots for this meeting
         decidim_category_id: Category
         decidim_scope_id: Scope
+        decidim_user_group_id: User group
         description: Description
         end_time: End Time
         location: Location
         location_hints: Location hints
+        organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
         registration_form_enabled: Registration form enabled
@@ -82,12 +84,18 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
+            creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Actions permissions can be set for each meeting
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
+            creation_enabled_for_participants: Meeting creation by participants enabled
+            creation_enabled_for_user_groups: Meeting creation by user groups enabled
     events:
       meetings:
         meeting_closed:
@@ -228,9 +236,6 @@ en:
           edit:
             close: Close
             title: Close meeting
-        meeting_copies:
-          form:
-            select_organizer: Select the organizer
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -250,7 +255,6 @@ en:
             address_help: 'Address: used by Geocoder to find the location'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building'
-            select_organizer: Select the organizer
           index:
             title: Meetings
           new:
@@ -355,24 +359,55 @@ en:
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} meeting"
+            other: "%{count} meetings"
+        create:
+          invalid: There was a problem creating this meeting.
+          success: You have created the meeting successfully.
+        edit:
+          back: Back
+          title: Edit Your Meeting
+          update: Update
         filters:
           category: Category
-          category_prompt: Select a category
           date: Date
-          past: Past
+          date_values:
+            all: All
+            past: Past
+            upcoming: Upcoming
+          origin: Origin
+          origin_values:
+            all: All
+            citizens: Citizens
+            official: Official
+            user_groups: Groups
+          scope: Scope
           search: Search
-          upcoming: Upcoming
         filters_small_view:
           close_modal: Close modal
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        form:
+          address_help: 'Address: used by Geocoder to find the location'
+          create_as: Create meeting as
+          location_help: 'Location: message directed to the users implying the spot to meet at'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+          select_a_category: Please select a category
+        index:
+          new_meeting: New meeting
         meeting_minutes:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
+        new:
+          back: Back
+          create: Create
+          title: Create Your Meeting
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -381,6 +416,7 @@ en:
           back: Back to list
           contributions: Contributions count
           date: Date
+          edit_meeting: Edit meeting
           going: Going
           join: Join meeting
           meeting_report: Meeting report
@@ -394,6 +430,9 @@ en:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
+        update:
+          invalid: There was a problem updating the meeting.
+          success: You have updated the meeting successfully.
       meetings_map:
         view_meeting: View meeting
       models:
@@ -412,6 +451,7 @@ en:
             closed: Closed
             end_time: End date
             map: Map
+            official_meeting: Official meeting
             start_time: Start date
             title: Title
       read_more: "(read more)"
@@ -433,6 +473,8 @@ en:
       types:
         private_meeting: Private meeting
         transparent: Transparent
+      versions:
+        back_to_resource: Go back to meeting
     metrics:
       meetings:
         description: Number of meetings created

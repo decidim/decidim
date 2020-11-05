@@ -104,6 +104,7 @@ pt:
             can_accumulate_supports_beyond_threshold: Pode acumular votos além do limite
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             geocoding_enabled: Geocoding ativado
             minimum_votes_per_user: Votos mínimos por utilizador
             new_proposal_body_template: Novo modelo de corpo de proposta

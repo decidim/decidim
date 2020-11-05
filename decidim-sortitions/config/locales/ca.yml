@@ -23,6 +23,7 @@ ca:
         settings:
           global:
             comments_enabled: Comentaris habilitats
+            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
     events:
       sortitions:
         sortition_created:

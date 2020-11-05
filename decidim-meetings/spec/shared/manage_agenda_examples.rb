@@ -79,7 +79,7 @@ shared_examples "manage agenda" do
 
   private
 
-  def find_nested_form_field_locator(attribute, visible: true)
+  def find_nested_form_field_locator(attribute, visible: :visible)
     current_scope.find(nested_form_field_selector(attribute), visible: visible)["id"]
   end
 

@@ -14,7 +14,7 @@ describe "Social share button", type: :system do
 
   shared_examples_for "showing the social share buttons" do
     it "shows the 'socialShare' modal" do
-      within "#socialShare", visible: true do
+      within "#socialShare", visible: :visible do
         expect(page).to have_css("h3", text: "Share:")
         expect(page).to have_css(".social-share-button")
       end

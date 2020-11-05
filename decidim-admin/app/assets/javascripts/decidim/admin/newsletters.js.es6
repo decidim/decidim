@@ -70,8 +70,12 @@ $(() => {
     $form.on("change", function() {
       let $data = $form.serializeJSON().newsletter;
       let $url = $form.data("recipients-count-newsletter-path");
+      const $modal = $("#recipients_count_spinner");
+      $modal.removeClass("hide");
       $.get($url, {data: $data}, function(recipientsCount) {
         $("#recipients_count").text(recipientsCount);
+      }).always(function() {
+        $modal.addClass("hide");
       });
     })
   }

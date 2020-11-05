@@ -262,7 +262,7 @@ describe "Filter Proposals", :slow, type: :system do
             expect(page).to have_content("1 PROPOSAL")
 
             within ".card--proposal" do
-              expect(page).to have_content(proposal.title)
+              expect(page).to have_content(translated(proposal.title))
               expect(page).not_to have_content("ACCEPTED")
             end
           end
@@ -391,7 +391,7 @@ describe "Filter Proposals", :slow, type: :system do
             find("input[value='voted']").click
           end
 
-          expect(page).to have_css(".card--proposal", text: voted_proposal.title)
+          expect(page).to have_css(".card--proposal", text: translated(voted_proposal.title))
         end
       end
 
@@ -503,8 +503,8 @@ describe "Filter Proposals", :slow, type: :system do
                 expect(page).to have_css(".card.card--proposal", count: 1)
                 expect(page).to have_content("1 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 2)
-                expect(page).to have_content(new_emendation.title)
-                expect(page).to have_no_content(emendation.title)
+                expect(page).to have_content(translated(new_emendation.title))
+                expect(page).to have_no_content(translated(emendation.title))
               end
             end
 
@@ -576,8 +576,8 @@ describe "Filter Proposals", :slow, type: :system do
                 expect(page).to have_css(".card.card--proposal", count: 2)
                 expect(page).to have_content("2 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 3)
-                expect(page).to have_content(new_emendation.title)
-                expect(page).to have_content(emendation.title)
+                expect(page).to have_content(translated(new_emendation.title))
+                expect(page).to have_content(translated(emendation.title))
               end
             end
 

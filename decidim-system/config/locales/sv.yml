@@ -1,4 +1,18 @@
 sv:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth app namn
+        organization_logo: Organisationslogo (kvadrat)
+        organization_name: Organisation
+        organization_url: Organisationens hemsida
+        redirect_uri: Omdirigerings-URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings-URI måste vara en SSL URI
   decidim:
     system:
       actions:
@@ -32,6 +46,7 @@ sv:
       menu:
         admins: Administratörer
         dashboard: Kontrollpanel
+        oauth_applications: OAuth appar
         organizations: Organisationer
       models:
         admin:
@@ -41,6 +56,12 @@ sv:
           name: Administratör
           validations:
             email_uniqueness: det finns redan en administratör med samma e-postadress
+        oauth_application:
+          fields:
+            created_at: Skapad den
+            name: OAuth app namn
+            organization_name: Organisation
+          name: OAuth app
         organization:
           actions:
             save_and_invite: Skapa organisation och bjud in administratör
@@ -50,6 +71,27 @@ sv:
             omniauth_settings: Omniauth-inställningar
             smtp_settings: SMTP-inställningar
           name: Organisation
+      oauth_applications:
+        create:
+          error: Det gick inte att skapa appen.
+          success: Appen har skapats.
+        destroy:
+          error: Det gick inte att ta bort appen.
+          success: Appen har tagits bort.
+        edit:
+          save: Spara
+          title: Redigera appen
+        form:
+          select_organization: Välj en organisation
+        index:
+          confirm_delete: Vill du ta bort appen?
+          title: OAuth appar
+        new:
+          save: Spara
+          title: Ny app
+        update:
+          error: Det gick inte att uppdatera appen.
+          success: Appen har uppdaterats.
       organizations:
         create:
           error: Det gick inte att skapa en ny organisation.
@@ -81,10 +123,7 @@ sv:
             api_key: API-nyckel
             api_secret: API-hemlighet
         smtp_settings:
-          instructions:
-            from_label: 'E-postavsändare kommer att vara: "din-organisation-namn <your-organization@your-provider.org>". Lämna tomt för att använda ''from_email'' som etikett'
           placeholder:
-            from_email: ditt-organisation@ditt-leverantör.org
             from_label: din-organisation-namn
         update:
           error: Det gick inte att uppdatera organisationen.

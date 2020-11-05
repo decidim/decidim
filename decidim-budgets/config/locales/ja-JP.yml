@@ -140,6 +140,7 @@ ja:
           global:
             announcement: お知らせ
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             form:
               errors:
                 budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります

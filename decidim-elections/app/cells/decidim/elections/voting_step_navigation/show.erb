@@ -1,0 +1,29 @@
+<div class="focus__footer">
+  <div class="row">
+    <% if first_step? %>
+      <a></a>
+    <% else %>
+      <%= link_to(
+        icon("chevron-left", class: "icon", role: "img") + " " + t("decidim.elections.votes.voting_step.back"),
+        "#",
+        class: "focus__back",
+        data: {
+          toggle: [previous_step_dom_id, current_step_dom_id].join(" ")
+        }
+      ) %>
+    <% end %>
+
+    <span class="button focus__next disabled-continue disabled">
+      <%= button_continue_text %>
+    </span>
+
+    <%= link_to(
+      button_continue_text,
+      "#",
+      class: "button focus__next enabled-continue",
+      data: {
+        toggle: [next_step_dom_id, current_step_dom_id].join(" ")
+      }
+    ) %>
+  </div>
+</div>

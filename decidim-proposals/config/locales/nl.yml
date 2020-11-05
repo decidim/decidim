@@ -104,6 +104,7 @@ nl:
             can_accumulate_supports_beyond_threshold: Kan stemmen verzamelen die de limiet overschrijden
             collaborative_drafts_enabled: Samenwerkingsconcepten ingeschakeld
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             geocoding_enabled: Geolocatie ingeschakeld
             minimum_votes_per_user: Minimale stemmen per gebruiker
             new_proposal_body_template: Nieuw voorstel lichaamssjabloon
@@ -121,6 +122,8 @@ nl:
             proposal_wizard_step_3_help_text: Voorstel wizard "Complete" stap helptekst
             proposal_wizard_step_4_help_text: Helptekst "Publiceren" bij het maken van een nieuw voorstel
             resources_permissions_enabled: Actiemachtigingen kunnen voor elk voorstel worden ingesteld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
             threshold_per_proposal: Limiet per voorstel
             vote_limit: Beperk het aantal stemmen per gebruiker
           step:
@@ -697,8 +700,13 @@ nl:
             one: "%{count} voorstel"
             other: "%{count} voorstellen"
         edit:
+          add_documents: Documenten
+          add_images: Bestand
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
+          delete_document: Document verwijderen
+          delete_image: Afbeelding verwijderen
+          gallery_legend: "(Optioneel) Voeg een afbeelding toe aan het voorstel"
           select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
@@ -858,7 +866,7 @@ nl:
         success: Concept succesvol bijgewerkt.
       versions:
         collaborative_drafts:
-          back_to_resource: Ga terug naar de gezamenlijk ontwerp
+          back_to_resource: Ga terug naar het gezamenlijke concept
         index:
           title: versies
         proposals:

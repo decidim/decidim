@@ -64,6 +64,12 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ nl:
   decidim:
     admin:
       actions:
+        import_assembly: Importeren
         new_assembly: Nieuwe groep
         new_assembly_type: Nieuw groepstype
       assemblies:
@@ -122,6 +129,14 @@ nl:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
           title: Dupliceer bijeenkomst
+      assembly_imports:
+        create:
+          error: Er is een probleem opgetreden bij het importeren van deze groep.
+          success: Groep succesvol geïmporteerd.
+        new:
+          import: Importeren
+          select: Selecteer welke gegevens u wilt importeren
+          title: Importeer assemblage
       assembly_members:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een lid voor deze groep.
@@ -269,6 +284,10 @@ nl:
         assembly_copies:
           form:
             slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Een document toevoegen
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande deelnemer

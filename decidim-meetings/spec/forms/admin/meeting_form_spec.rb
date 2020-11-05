@@ -32,22 +32,21 @@ module Decidim::Meetings
       Decidim::Faker::Localized.sentence(3)
     end
     let(:services) do
-      [
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) },
-        { title: Decidim::Faker::Localized.sentence(2), description: Decidim::Faker::Localized.sentence(5) }
-      ]
+      build_list(:service, 2)
+    end
+    let(:services_attributes) do
+      services.map(&:attributes)
     end
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
-    let(:scope) { create :scope, organization: organization }
+    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    let(:organizer) { create :user, organization: organization }
-    let(:organizer_id) { organizer.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:attributes) do
@@ -64,14 +63,15 @@ module Decidim::Meetings
         end_time: end_time,
         private_meeting: private_meeting,
         transparent: transparent,
-        organizer_id: organizer_id,
-        services: services
+        services: services_attributes
       }
     end
 
     before do
       stub_geocoding(address, [latitude, longitude])
     end
+
+    it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
 
@@ -129,12 +129,6 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when the scope does not exist" do
-      let(:scope_id) { scope.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when the category does not exist" do
       let(:category_id) { category.id + 10 }
 
@@ -148,7 +142,7 @@ module Decidim::Meetings
     end
 
     it "properly maps services from model" do
-      meeting = create(:meeting, services: services)
+      meeting = create(:meeting, :with_services, services: services)
 
       services = described_class.from_model(meeting).services
       expect(services).to all be_an(Admin::MeetingServiceForm)
@@ -164,7 +158,7 @@ module Decidim::Meetings
     describe "services_to_persist" do
       subject { form.services_to_persist }
 
-      let(:services) do
+      let(:services_attributes) do
         [
           { title: { en: "First service" }, description: { en: "First description" } },
           { title: { en: "Second service" }, description: { en: "Second description" }, deleted: true },
@@ -182,46 +176,6 @@ module Decidim::Meetings
       subject { form.number_of_services }
 
       it { is_expected.to eq(services.size) }
-    end
-
-    describe "scope" do
-      subject { form.scope }
-
-      context "when the scope exists" do
-        it { is_expected.to be_kind_of(Decidim::Scope) }
-      end
-
-      context "when the scope does not exist" do
-        let(:scope_id) { 3456 }
-
-        it { is_expected.to eq(nil) }
-      end
-
-      context "when the scope is from another organization" do
-        let(:scope_id) { create(:scope).id }
-
-        it { is_expected.to eq(nil) }
-      end
-
-      context "when the participatory space has a scope" do
-        let(:parent_scope) { create(:scope, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization, scope: parent_scope) }
-        let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
-
-        context "when the scope is descendant from participatory space scope" do
-          it { is_expected.to eq(scope) }
-        end
-
-        context "when the scope is not descendant from participatory space scope" do
-          let(:scope) { create(:scope, organization: organization) }
-
-          it { is_expected.to eq(scope) }
-
-          it "makes the form invalid" do
-            expect(form).to be_invalid
-          end
-        end
-      end
     end
   end
 end

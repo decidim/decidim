@@ -42,7 +42,8 @@ if !Rails.env.production? || ENV["SEED"]
     tos_version: Time.current,
     badges_enabled: true,
     user_groups_enabled: true,
-    send_welcome_notification: true
+    send_welcome_notification: true,
+    file_upload_settings: Decidim::OrganizationSettings.default(:upload)
   )
 
   if organization.top_scopes.none?
@@ -188,13 +189,13 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   Decidim::OAuthApplication.create!(
+    organization: organization,
     name: "Test OAuth application",
     organization_name: "Example organization",
     organization_url: "http://www.example.org",
-    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")),
+    organization_logo: File.new(File.join(seeds_root, "homepage_image.jpg")), # Keep after organization
     redirect_uri: "https://www.example.org/oauth/decidim",
-    scopes: "public",
-    organization: organization
+    scopes: "public"
   )
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)

@@ -344,7 +344,6 @@ eu:
           buttons:
             check: Egiaztatu eta jarraitu
             close_modal: Itxi modal
-            uncheck: Mantendu uncheck
           notice: |-
             <p>Hola, ziur zaude buletin bat jaso nahi duzula?<br>
             Berriro begiratu berriro buletina kontrol-laukia markatuta.<br>
@@ -724,8 +723,6 @@ eu:
         start:
           send: Bidali
           title: Hasi elkarrizketa bat
-        update:
-          error: Mezua ez da bidali. Saiatu berriro geroago
     metrics:
       download:
         csv: Deskargatu datuak (csv)
@@ -849,7 +846,6 @@ eu:
           error: Errore bat gertatu da terminoak eta baldintzak onartzen dituzunean.
           success: Great! Baldintzak eta baldintzak onartu dituzu.
         form:
-          agreement: Baldintzak ados nago
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
           modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
@@ -982,6 +978,9 @@ eu:
     user_activity:
       index:
         no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
+    user_conversations:
+      update:
+        error: Mezua ez da bidali. Saiatu berriro geroago
     user_interests:
       show:
         my_interests: Nire interesak

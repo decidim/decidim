@@ -39,9 +39,13 @@ describe "Collaborative drafts", type: :system do
         let!(:component) do
           create(:proposal_component,
                  :with_creation_enabled,
-                 :with_collaborative_drafts_enabled,
                  manifest: manifest,
-                 participatory_space: participatory_process)
+                 participatory_space: participatory_process,
+                 settings: {
+                   collaborative_drafts_enabled: true,
+                   scopes_enabled: true,
+                   scope_id: participatory_process.scope&.id
+                 })
         end
 
         context "when process is not related to any scope" do
@@ -86,13 +90,21 @@ describe "Collaborative drafts", type: :system do
           expect(page).to have_author(user.name)
         end
 
-        context "when geocoding is enabled", :serves_map do
+        context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
-                   :with_geocoding_and_collaborative_drafts_enabled,
                    manifest: manifest,
                    participatory_space: participatory_process)
+          end
+
+          before do
+            component.update!(settings: {
+                                geocoding_enabled: true,
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
+                              })
           end
 
           it "creates a new collaborative draft", :slow do
@@ -102,7 +114,7 @@ describe "Collaborative drafts", type: :system do
               check :collaborative_draft_has_address
               fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
               fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
-              fill_in :collaborative_draft_address, with: address
+              fill_in_geocoding :collaborative_draft_address, with: address
               select translated(category.name), from: :collaborative_draft_category_id
               scope_pick scope_picker, scope
 
@@ -116,6 +128,27 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
             expect(page).to have_author(user.name)
+          end
+
+          it_behaves_like(
+            "a record with front-end geocoding address field",
+            Decidim::Proposals::CollaborativeDraft,
+            within_selector: ".new_collaborative_draft",
+            address_field: :collaborative_draft_address
+          ) do
+            let(:geocoded_address_value) { address }
+            let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+            before do
+              # Prepare the view for submission (other than the address field)
+              visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
+
+              within ".new_collaborative_draft" do
+                check :collaborative_draft_has_address
+                fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+                fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+              end
+            end
           end
         end
 
@@ -132,6 +165,14 @@ describe "Collaborative drafts", type: :system do
 
           let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
+
+          before do
+            component.update!(settings: {
+                                collaborative_drafts_enabled: true,
+                                scopes_enabled: true,
+                                scope_id: participatory_process.scope&.id
+                              })
+          end
 
           it "offers and save extra hashtags", :slow do
             visit complete_collaborative_draft_path(component, collaborative_draft_title, collaborative_draft_body)
@@ -178,13 +219,18 @@ describe "Collaborative drafts", type: :system do
             expect(page).to have_author(user_group.name)
           end
 
-          context "when geocoding is enabled", :serves_map do
+          context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
-                     :with_geocoding_and_collaborative_drafts_enabled,
                      manifest: manifest,
-                     participatory_space: participatory_process)
+                     participatory_space: participatory_process,
+                     settings: {
+                       geocoding_enabled: true,
+                       collaborative_drafts_enabled: true,
+                       scopes_enabled: true,
+                       scope_id: participatory_process.scope&.id
+                     })
             end
 
             it "creates a new collaborative draft as a user group", :slow do

@@ -39,6 +39,7 @@ ja:
         address: SMTP hostname
         alert_color: アラート
         badges_enabled: バッジを有効にする
+        comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
         cta_button_path: Call To Action ボタンのパス
         cta_button_text: Call To Action ボタンのテキスト
         customize_welcome_notification: ウェルカム通知をカスタマイズ
@@ -294,6 +295,11 @@ ja:
           welcome: Decidim Admin Panelへようこそ。
       exports:
         export_as: "%{name} として %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: エクセル
+          FormPDF: PDF
+          JSON: JSON
         notice: エクスポートが進行中です。完了するとメールが届きます。
       filters:
         category_id_eq:
@@ -524,8 +530,8 @@ ja:
           none: なし
           participants_help: 選択した参加スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
-          scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
-          select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
+          scopes_help: アカウントのformat@@0設定で、選択した範囲のいずれかが有効になっているユーザーにニュースレターを送信します。
+          select_scopes: アカウントのformat@@0設定で選択した範囲を有効にしたユーザーのフィルターです。
           select_spaces: ニュースレターをセグメント化するスペースを選択
           select_users: ニュースレターを送信したいユーザーを選択してください
           send_to_all_users: すべてのユーザーに送信

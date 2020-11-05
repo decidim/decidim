@@ -31,6 +31,56 @@ describe "Admin manages organization", type: :system do
       click_button "Update"
       expect(page).to have_content("updated successfully")
     end
+
+    context "when using the rich text editor" do
+      before do
+        visit decidim_admin.edit_organization_path
+      end
+
+      context "when the admin terms of use content is empty" do
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { "" }
+          )
+        end
+
+        it "renders the editor" do
+          expect(page).to have_selector(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor.ql-blank",
+            text: ""
+          )
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p><br></p>")
+        end
+      end
+
+      context "when the admin terms of use content has a list" do
+        let(:terms_content) do
+          # This is actually how the content is saved from quill.js to the Decidim
+          # database.
+          <<~HTML
+            <p>Paragraph</p><ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li></ul><p>Another paragraph</p>
+          HTML
+        end
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+
+        it "renders the correct content inside the editor" do
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+        end
+      end
+    end
   end
 
   describe "welcome message" do

@@ -4,7 +4,7 @@ module Decidim
   module Budgets
     module Admin
       # A command with all the business logic when an admin imports proposals from
-      # one component to budget component.
+      # one component to projects of a budget.
       class ImportProposalsToBudgets < Rectify::Command
         # Public: Initializes the command.
         #
@@ -32,20 +32,31 @@ module Decidim
         def create_projects_from_accepted_proposals
           transaction do
             proposals.map do |original_proposal|
-              next if proposal_already_copied?(original_proposal, target_component)
+              next if proposal_already_copied?(original_proposal)
 
-              project = Decidim::Budgets::Project.new
-              project.title = project_localized(original_proposal.title)
-              project.description = project_localized(original_proposal.body)
-              project.budget = form.default_budget
-              project.category = original_proposal.category
-              project.scope = original_proposal.scope
-              project.component = target_component
-              project.save!
+              new_project = create_project_from_proposal!(original_proposal)
 
-              project.link_resources([original_proposal], "included_proposals")
+              new_project.link_resources([original_proposal], "included_proposals")
             end.compact
           end
+        end
+
+        def create_project_from_proposal!(original_proposal)
+          params = {
+            budget: form.budget,
+            title: original_proposal.title,
+            description: original_proposal.body,
+            budget_amount: form.default_budget,
+            category: original_proposal.category,
+            scope: original_proposal.scope
+          }
+
+          @project = Decidim.traceability.create!(
+            Project,
+            form.current_user,
+            params,
+            visibility: "all"
+          )
         end
 
         def proposals
@@ -53,23 +64,13 @@ module Decidim
         end
 
         def origin_component
-          @form.origin_component
+          form.origin_component
         end
 
-        def target_component
-          @form.current_component
-        end
-
-        def proposal_already_copied?(original_proposal, target_component)
-          original_proposal.linked_resources(:projects, "included_proposals").any? do |proposal|
-            proposal.component == target_component
+        def proposal_already_copied?(original_proposal)
+          original_proposal.linked_resources(:projects, "included_proposals").any? do |project|
+            project.budget == form.budget
           end
-        end
-
-        def project_localized(text)
-          Decidim.available_locales.inject({}) do |result, locale|
-            result.update(locale => text)
-          end.with_indifferent_access
         end
       end
     end

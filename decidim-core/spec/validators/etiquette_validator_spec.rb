@@ -49,9 +49,23 @@ describe EtiquetteValidator do
   end
 
   context "when the text has very long words" do
-    let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
+    context "and contains ascii chars" do
+      let(:body) { "This word is veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long." }
 
-    it { is_expected.to be_invalid }
+      it { is_expected.to be_valid }
+    end
+
+    context "and contains extended chars" do
+      let(:body) { "This word is veeeeeeeeeeeeeeéeeeeeeeeeeeeeeeeeeeeery long." }
+
+      it { is_expected.to be_valid }
+    end
+
+    context "and long words are links" do
+      let(:body) { "This word is http://veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery.com https://veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery.com long." }
+
+      it { is_expected.to be_valid }
+    end
   end
 
   context "when the text is written starting in downcase" do

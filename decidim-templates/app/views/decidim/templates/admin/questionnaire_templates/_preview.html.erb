@@ -1,0 +1,73 @@
+<% columns = @preview_form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
+
+<div class="row columns">
+  <h3 class="section-heading"><%= translated_attribute questionnaire.title %></h3>
+  <div class="row">
+    <div class="columns large-<%= columns %> medium-centered lead">
+      <%= decidim_sanitize translated_attribute questionnaire.description %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-<%= columns %> medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <div class="answer-questionnaire">
+          <%= decidim_form_for(@preview_form, url: "", method: :post, html: { class: "form answer-questionnaire" }, data: { "safe-path" => "" }) do |form| %>
+            <%= invisible_captcha %>
+            <% answer_idx = 0 %>
+            <% cleaned_answer_idx = 0 %>
+            <% @preview_form.responses_by_step.each_with_index do |step_answers, step_index| %>
+              <div id="step-<%= step_index %>" class="<%= step_index.zero? ? "questionnaire-step" : "questionnaire-step hide" %>" data-toggler=".hide">
+                <% if @preview_form.total_steps > 1 %>
+                  <h4 class="section-heading">
+                    <%= t(".current_step", step: step_index + 1) %> <span class="answer-questionnaire__steps"><%= t(".of_total_steps", total_steps: @preview_form.total_steps) %></span>
+                  </h4>
+                <% end %>
+
+                <% step_answers.each do |answer| %>
+                  <div class="row column answer" data-max-choices="<%= answer.question.max_choices %>">
+                    <%= fields_for "questionnaire[responses][#{answer_idx}]", answer do |answer_form| %>
+                      <%= render(
+                        "decidim/forms/questionnaires/answer",
+                        answer_form: answer_form,
+                        answer: answer,
+                        answer_idx: answer_idx,
+                        cleaned_answer_idx: cleaned_answer_idx,
+                        disabled: false
+                      ) %>
+                    <% end %>
+                  </div>
+                  <% if !answer.question.separator? %>
+                    <% cleaned_answer_idx += 1 %>
+                  <% end %>
+                  <% answer_idx += 1 %>
+                <% end %>
+
+                <% if step_index + 1 == @preview_form.total_steps %>
+                  <div class="row column tos-agreement">
+                    <%= form.check_box :tos_agreement, label: t(".tos_agreement"), id: "questionnaire_tos_agreement", disabled: false %>
+                    <div class="help-text">
+                      <%= decidim_sanitize translated_attribute questionnaire.tos %>
+                    </div>
+                  </div>
+                <% end %>
+
+                <%= cell(
+                  "decidim/forms/step_navigation",
+                  step_index,
+                  total_steps: @preview_form.total_steps,
+                  button_disabled: true,
+                  form: form
+                ) %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= stylesheet_link_tag "decidim/templates/templates", media: "all" %>

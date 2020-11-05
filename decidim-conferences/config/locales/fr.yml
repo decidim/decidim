@@ -475,6 +475,7 @@ fr:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
+          no_registrations: Pas d'inscriptions
           register: S'inscrire
           title: Types d'inscription
       shared:
@@ -529,10 +530,10 @@ fr:
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
         role_assigned:
-          email_intro: Vous avez été assigné le rôle de %{role} de la conférence "%{resource_title}".
+          email_intro: Vous avez été assigné au rôle de %{role} de la conférence "%{resource_title}".
           email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la conférence "%{resource_title}".
-          email_subject: Vous avez été assigné le rôle de %{role} pour la conférence "%{resource_title}".
-          notification_title: Vous avez été assigné le rôle de %{role} pour la conférence <a href="%{resource_url}">%{resource_title}</a>.
+          email_subject: Vous avez été assigné au rôle de %{role} pour la conférence "%{resource_title}".
+          notification_title: Vous avez été assigné au rôle de %{role} pour la conférence <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La conférence "%{resource_title}" se déroule dans 2 jours. Vous pouvez lire la description de sa page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.

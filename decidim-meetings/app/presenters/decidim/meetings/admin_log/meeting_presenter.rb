@@ -33,8 +33,7 @@ module Decidim
             start_date: :date,
             title: "Decidim::Meetings::AdminLog::ValueTypes::MeetingTitleDescriptionPresenter",
             private_meeting: :boolean,
-            transparent: :boolean,
-            organizer_id: "Decidim::Meetings::AdminLog::ValueTypes::OrganizerPresenter"
+            transparent: :boolean
           }
         end
 

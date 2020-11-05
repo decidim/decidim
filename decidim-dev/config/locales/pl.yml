@@ -21,8 +21,8 @@ pl:
               b: Opcja B
               c: Opcja C
           step:
-            endorsements_blocked: Możliwość poparcia zablokowana
-            endorsements_enabled: Popieranie włączone
+            endorsements_blocked: Możliwość rekomendacji zablokowana
+            endorsements_enabled: Rekomendacje włączone
             readonly_step_attribute: Atrybut kroku tylko do odczytu
     dummy:
       admin:

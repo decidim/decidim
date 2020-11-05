@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/traceable_interface_examples"
 
 module Decidim
@@ -9,7 +10,9 @@ module Decidim
     describe ElectionType, type: :graphql do
       include_context "with a graphql type"
 
-      let(:model) { create(:election, :complete) }
+      let(:model) { create(:election, :published, :complete) }
+
+      it_behaves_like "attachable interface"
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -28,14 +31,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["title"]["translation"]).to eq(model.title["en"])
-        end
-      end
-
-      describe "subtitle" do
-        let(:query) { '{ subtitle { translation(locale: "en")}}' }
-
-        it "returns all the required fields" do
-          expect(response["subtitle"]["translation"]).to eq(model.subtitle["en"])
         end
       end
 
@@ -60,6 +55,14 @@ module Decidim
 
         it "returns the election's end time" do
           expect(Time.zone.parse(response["endTime"])).to be_within(1.second).of(model.end_time)
+        end
+      end
+
+      describe "publishedAt" do
+        let(:query) { "{ publishedAt }" }
+
+        it "returns the election's published time" do
+          expect(Time.zone.parse(response["publishedAt"])).to be_within(1.second).of(model.published_at)
         end
       end
 

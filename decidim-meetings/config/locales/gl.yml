@@ -223,9 +223,6 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
-        meeting_copies:
-          form:
-            select_organizer: Selecciona o organizador
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -237,8 +234,6 @@ gl:
             success: Reunión eliminada correctamente
           edit:
             update: Actualización
-          form:
-            select_organizer: Selecciona o organizador
           index:
             title: Reunións
           new:
@@ -343,11 +338,8 @@ gl:
       meetings:
         filters:
           category: Categoría
-          category_prompt: Selecciona unha categoría
           date: Data
-          past: Pasado
           search: Busca
-          upcoming: Próximos
         filters_small_view:
           close_modal: Pechar modal
           filter: Filtro

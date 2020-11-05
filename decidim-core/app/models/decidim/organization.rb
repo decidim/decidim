@@ -8,8 +8,17 @@ module Decidim
     include TranslationsHelper
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::HasUploadValidations
+    include Decidim::TranslatableResource
+    include Decidim::ActsAsAuthor
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
+    AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
+
+    translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
+                        :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
+                        :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
+                        :admin_terms_of_use_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :static_page_topics, foreign_key: "organization_id", class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
@@ -23,6 +32,8 @@ module Decidim
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
 
+    has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
+
     # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
     #  existing: Users can't be registered in the system. Only existing users can sign in.
@@ -34,14 +45,32 @@ module Decidim
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
 
+    validates_upload :official_img_header
     mount_uploader :official_img_header, Decidim::OfficialImageHeaderUploader
+
+    validates_upload :official_img_footer
     mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
+
+    validates_upload :logo
     mount_uploader :logo, Decidim::OrganizationLogoUploader
+
+    validates_upload :favicon
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
+
+    validates_upload :highlighted_content_banner_image
     mount_uploader :highlighted_content_banner_image, ImageUploader
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter
+    end
+
+    def settings
+      Decidim::OrganizationSettings.for(self)
+    end
+
+    # This is needed for the upload validations
+    def maximum_upload_size
+      settings.upload_maximum_file_size
     end
 
     def available_authorization_handlers
@@ -110,6 +139,20 @@ module Decidim
       default_except_disabled.merge(tenant_enabled_providers)
     end
 
+    def machine_translation_prioritizes_original?
+      machine_translation_display_priority == "original"
+    end
+
+    def machine_translation_prioritizes_translation?
+      machine_translation_display_priority == "translation"
+    end
+
+    # Returns the presenter for this author, to be used in the views.
+    # Required by ActsAsAuthor.
+    def presenter
+      Decidim::Debates::OfficialAuthorPresenter.new
+    end
+
     private
 
     def tenant_disabled_providers_keys
@@ -133,18 +176,19 @@ module Decidim
     end
 
     def omniauth_provider_settings(provider)
-      provider_settings = {}
+      @omniauth_provider_settings ||= Hash.new do |hash, provider_key|
+        hash[provider_key] = begin
+          omniauth_settings.each_with_object({}) do |(key, value), provider_settings|
+            next unless key.to_s.include?(provider_key.to_s)
 
-      omniauth_settings.each do |key, value|
-        next unless key.to_s.include?(provider.to_s)
+            value = Decidim::AttributeEncryptor.decrypt(value) if Decidim::OmniauthProvider.value_defined?(value)
+            setting_key = Decidim::OmniauthProvider.extract_setting_key(key, provider_key)
 
-        value = Decidim::AttributeEncryptor.decrypt(value) if Decidim::OmniauthProvider.value_defined?(value)
-        setting_key = Decidim::OmniauthProvider.extract_setting_key(key, provider)
-
-        provider_settings[setting_key] = value
+            provider_settings[setting_key] = value
+          end
+        end
       end
-
-      provider_settings
+      @omniauth_provider_settings[provider]
     end
   end
 end

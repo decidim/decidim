@@ -185,6 +185,7 @@ pt:
           global:
             categories_label: Nome para "Categorias"
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             display_progress_enabled: Mostrar progresso
             heading_leaf_level_results: Nome para "Projetos"
             heading_parent_level_results: Nome para "Resultados"

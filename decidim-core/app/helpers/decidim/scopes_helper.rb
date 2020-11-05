@@ -13,9 +13,9 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      resource.participatory_space.scopes_enabled? &&
+      resource.component.scopes_enabled? &&
         resource.scope.present? &&
-        resource.participatory_space.scope != resource.scope
+        resource.component.scope != resource.scope
     end
 
     # Retrieves the translated name and type for an scope.
@@ -35,7 +35,7 @@ module Decidim
     # form - FormBuilder object
     # name - attribute name
     # options       - An optional Hash with options:
-    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt
+    # - checkboxes_on_top - Show checked picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
     def scopes_picker_field(form, name, root: false, options: { checkboxes_on_top: true })
@@ -64,7 +64,7 @@ module Decidim
     # Renders a scopes picker field in a filter form.
     # form - FilterFormBuilder object
     # name - attribute name
-    # checkboxes_on_top - Show picker values on top (default) or below the picker prompt
+    # checkboxes_on_top - Show picker values on top (default) or below the picker prompt (only for multiple pickers)
     #
     # Returns nothing.
     def scopes_picker_filter(form, name, checkboxes_on_top = true)

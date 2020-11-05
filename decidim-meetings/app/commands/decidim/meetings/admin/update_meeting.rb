@@ -25,6 +25,7 @@ module Decidim
             update_meeting!
             send_notification if should_notify_followers?
             schedule_upcoming_meeting_notification if start_time_changed?
+            update_services!
           end
 
           broadcast(:ok, meeting)
@@ -45,7 +46,6 @@ module Decidim
             category: form.category,
             title: parsed_title,
             description: parsed_description,
-            services: form.services_to_persist.map { |service| { "title" => service.title, "description" => service.description } },
             end_time: form.end_time,
             start_time: form.start_time,
             address: form.address,
@@ -54,9 +54,15 @@ module Decidim
             location: form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
-            transparent: form.transparent,
-            organizer: form.organizer
+            transparent: form.transparent
           )
+        end
+
+        def update_services!
+          meeting.services = form.services_to_persist.map do |service|
+            Decidim::Meetings::Service.new("title" => service.title, "description" => service.description)
+          end
+          meeting.save!
         end
 
         def send_notification

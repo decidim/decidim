@@ -58,11 +58,19 @@ module Decidim
         end
       end
 
+      describe "title" do
+        let(:query) { '{ title { translation(locale: "en")}}' }
+
+        it "returns the proposal's title" do
+          expect(response["title"]["translation"]).to eq(model.title["en"])
+        end
+      end
+
       describe "body" do
-        let(:query) { "{ body }" }
+        let(:query) { '{ body { translation(locale: "en")}}' }
 
         it "returns the proposal's body" do
-          expect(response["body"]).to eq(model.body)
+          expect(response["body"]["translation"]).to eq(model.body["en"])
         end
       end
 

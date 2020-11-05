@@ -6,6 +6,7 @@ module Decidim
   module Proposals
     describe PublishProposalEvent do
       let(:resource) { create :proposal, title: "A nice proposal" }
+      let(:resource_title) { translated(resource.title) }
       let(:event_name) { "decidim.events.proposals.proposal_published" }
 
       include_context "when a simple event"
@@ -19,14 +20,14 @@ module Decidim
 
       describe "email_subject" do
         it "is generated correctly" do
-          expect(subject.email_subject).to eq("New proposal \"#{resource.title}\" by @#{author.nickname}")
+          expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" by @#{author.nickname}")
         end
       end
 
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal called \"#{resource.title}\". Check it out and contribute:")
+            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal called \"#{resource_title}\". Check it out and contribute:")
         end
       end
 
@@ -40,7 +41,7 @@ module Decidim
       describe "notification_title" do
         it "is generated correctly" do
           expect(subject.notification_title)
-            .to include("The <a href=\"#{resource_path}\">#{resource.title}</a> proposal was published by ")
+            .to include("The <a href=\"#{resource_path}\">#{resource_title}</a> proposal was published by ")
 
           expect(subject.notification_title)
             .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
@@ -56,7 +57,7 @@ module Decidim
 
         describe "email_subject" do
           it "is generated correctly" do
-            expect(subject.email_subject).to eq("New proposal \"#{resource.title}\" added to #{participatory_space_title}")
+            expect(subject.email_subject).to eq("New proposal \"#{resource_title}\" added to #{participatory_space_title}")
           end
         end
 

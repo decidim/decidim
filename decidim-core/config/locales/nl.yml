@@ -264,8 +264,11 @@ nl:
       dummy_authorization_handler:
         explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
+          allowed_postal_codes: Toegestane postcodes (gescheiden door komma's)
+          allowed_scope_id: Toegestane scope
           document_number: Document Nummer
           postal_code: Postcode
+          scope_id: Bereik
         name: Voorbeeld autorisatie
       dummy_authorization_workflow:
         name: Dummy autorisatie workflow
@@ -345,11 +348,14 @@ nl:
           global:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
+            comments_max_length: Commentaar maximale lengte
             dummy_global_attribute_1: Voorbeeld-kenmerk 1
             dummy_global_attribute_2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
+            scope_id: Scope
+            scopes_enabled: Scopes ingeschakeld
           step:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
@@ -435,7 +441,7 @@ nl:
           buttons:
             check: Controleer en ga door
             close_modal: Sluit venster
-            uncheck: Blijf uitgeschakeld
+            uncheck: Uitgeschakeld houden
           notice: |-
             <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
             Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
@@ -884,6 +890,11 @@ nl:
           show: Toon gesprek met %{sender}
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
+        error_modal:
+          close: Sluit venster
+          correct_errors: Corrigeer de fouten en probeer opnieuw.
+          intro: 'Er waren de volgende fouten met je bericht:'
+          ok: OK
         index:
           ago: geleden
           close: Sluit venster
@@ -907,7 +918,7 @@ nl:
           send: Verzenden
           title: Een gesprek beginnen
         update:
-          error: Bericht niet verzonden. Probeer het later nogmaals
+          error: Bericht is niet verzonden vanwege een fout
     metrics:
       download:
         csv: Gegevens downloaden (csv)
@@ -972,7 +983,7 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
@@ -1107,8 +1118,14 @@ nl:
         report_html: <p>De volgende <a href="%{url}">content</a> is automatisch verborgen.</p>
         subject: Een bron is automatisch verborgen
       report:
+        authors: Auteurs
+        content: Gerapporteerde inhoud
+        date: Gerapporteerd op
+        details: Beschrijving
         hello: Hallo %{name},
         manage_moderations: Beheer moderaties
+        participatory_space: Participatieve ruimte
+        reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
         subject: Een bron is gemeld
     reports:
@@ -1153,6 +1170,10 @@ nl:
           one: "%{count} resultaat"
           other: "%{count} resultaten"
         view_all: Bekijk alles (%{count})
+    security:
+      selfxss_warning:
+        description: Deze browserfunctie is bedoeld voor ontwikkelaars. Je plakt hier dus beter niets, ook als je daarom gevraagd wordt. Inhoud plakken in dit venster kan jouw privacy in gevaar brengen en hackers toegang geven tot jouw account.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: annuleren
@@ -1514,6 +1535,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
+    name_with_error: Engels (fout!)
   password_validator:
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail

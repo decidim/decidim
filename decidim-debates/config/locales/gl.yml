@@ -89,12 +89,13 @@ gl:
           filter: Filtro
           filter_by: Filtrar por
           unfold: Despregar
+        form:
+          select_a_category: Selecciona unha categoría
         index:
           new_debate: Novo debate
         new:
           back: De volta
           create: Crear
-          select_a_category: Selecciona unha categoría
           title: Novo debate
       last_activity:
         new_debate_at_html: "<span>Novo debate en %{link}</span>"

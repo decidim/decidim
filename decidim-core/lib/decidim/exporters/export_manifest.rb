@@ -71,6 +71,35 @@ module Decidim
       def serializer(serializer = nil)
         @serializer ||= serializer || Decidim::Exporters::Serializer
       end
+
+      DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
+
+      # Public: Sets the available formats if an argument is provided and
+      # loads the required exporters, returns the array with the default available
+      # formats otherwise.
+      #
+      # The formats array is used to define which exporters are available
+      # in the component. Each member of the array is a string with the name
+      # of the exporter class that will instantiated when needed.
+      #
+      # formats - The array containing the available formats.
+      #
+      # Returns the stored formats if previously stored, or
+      # the default formats array.
+      def formats(formats = nil)
+        load_exporters(formats)
+        @formats ||= formats || DEFAULT_FORMATS
+      end
+
+      private
+
+      # Private: Loads the given exporters when formats argument is provided.
+      #
+      # formats - The array containing the formats for which to load exporters.
+      #
+      def load_exporters(formats)
+        formats&.each { |f| require "decidim/exporters/#{f.underscore}" }
+      end
     end
   end
 end

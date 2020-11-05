@@ -4,6 +4,9 @@ module Decidim
   # Scope types allows to use different types of scopes in participatory process
   # (municipalities, provinces, states, countries, etc.)
   class ScopeType < ApplicationRecord
+    include Decidim::TranslatableResource
+
+    translatable_fields :name, :plural
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization",

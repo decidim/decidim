@@ -62,6 +62,7 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados

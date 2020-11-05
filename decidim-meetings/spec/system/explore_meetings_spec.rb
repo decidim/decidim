@@ -2,13 +2,19 @@
 
 require "spec_helper"
 
-describe "Explore meetings", type: :system do
+describe "Explore meetings", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, component: component)
+    create_list(:meeting, meetings_count, :not_official, component: component)
+  end
+
+  before do
+    component_scope = create :scope, parent: participatory_process.scope
+    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component.update!(settings: component_settings)
   end
 
   describe "index" do
@@ -18,6 +24,22 @@ describe "Explore meetings", type: :system do
 
       meetings.each do |meeting|
         expect(page).to have_content(translated(meeting.title))
+      end
+    end
+
+    context "with hidden meetings" do
+      let(:meeting) { meetings.last }
+
+      before do
+        create :moderation, :hidden, reportable: meeting
+      end
+
+      it "does not list the hidden meetings" do
+        visit_component
+
+        expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
+
+        expect(page).to have_no_content(translated(meeting.title))
       end
     end
 
@@ -40,17 +62,83 @@ describe "Explore meetings", type: :system do
     end
 
     context "when filtering" do
-      it "allows searching by text" do
+      context "when filtering by origin" do
+        let!(:component) do
+          create(:meeting_component,
+                 :with_creation_enabled,
+                 participatory_space: participatory_process)
+        end
+
+        let!(:official_meeting) { create(:meeting, :official, component: component, author: organization) }
+        let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
+
+        context "with 'official' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Official"
+            end
+
+            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_content("1 MEETING")
+            expect(page).to have_css(".card--meeting", count: 1)
+
+            within ".card--meeting" do
+              expect(page).to have_content("Official meeting")
+            end
+          end
+        end
+
+        context "with 'groups' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Groups"
+            end
+
+            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_content("1 MEETING")
+            expect(page).to have_css(".card--meeting", count: 1)
+            within ".card--meeting" do
+              expect(page).to have_content(user_group_meeting.normalized_author.name)
+            end
+          end
+        end
+
+        context "with 'citizens' origin" do
+          it "lists the filtered meetings" do
+            visit_component
+
+            within ".origin_check_boxes_tree_filter" do
+              uncheck "All"
+              check "Citizens"
+            end
+
+            expect(page).to have_no_content("6 MEETINGS")
+            expect(page).to have_css(".card--meeting", count: meetings_count)
+            expect(page).to have_content("#{meetings_count} MEETINGS")
+          end
+        end
+      end
+
+      it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(meetings.first.title)
+          # It seems that there's another field with the same name in another form on page.
+          # Because of that we try to select the correct field to set the value and submit the right form
+          find(:css, "#content form.new_filter [name='filter[search_text]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
-          find(".icon--magnifying-glass").click
+          find("#content form.new_filter .icon--magnifying-glass").click
         end
 
+        expect(page).to have_css("#meetings-count", text: "1 MEETING")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
@@ -59,15 +147,17 @@ describe "Explore meetings", type: :system do
         past_meeting = create(:meeting, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".filters" do
-          choose "Past"
+        within ".date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".filters" do
-          choose "Upcoming"
+        within ".date_check_boxes_tree_filter" do
+          uncheck "All"
+          check "Upcoming"
         end
 
         expect(page).to have_css(".card--meeting", count: 5)
@@ -81,8 +171,10 @@ describe "Explore meetings", type: :system do
 
         visit_component
 
-        within ".filters" do
-          scope_pick select_data_picker(:filter_scope_id, multiple: true, global_value: "global"), scope
+        within ".scope_id_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check translated(scope.name)
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -183,7 +275,8 @@ describe "Explore meetings", type: :system do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.category.name)
         end
-        expect(page).to have_select("filter[category_id]", selected: translated(meeting.category.name))
+
+        expect(page).to have_checked_field(translated(meeting.category.name))
       end
     end
 
@@ -208,7 +301,7 @@ describe "Explore meetings", type: :system do
         end
 
         within ".filters" do
-          expect(select_data_picker(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
+          expect(page).to have_checked_field(translated(meeting.scope.name))
         end
       end
     end
@@ -227,7 +320,7 @@ describe "Explore meetings", type: :system do
         visit_component
         click_link translated(meeting.title)
         proposals.each do |proposal|
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end

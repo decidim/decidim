@@ -10,15 +10,15 @@ module Decidim
         def new
           enforce_permission_to :create, :meeting
 
-          @form = form(MeetingForm).instance
+          @form = meeting_form.instance
         end
 
         def create
           enforce_permission_to :create, :meeting
 
-          @form = form(MeetingForm).from_params(params, current_component: current_component)
+          @form = meeting_form.from_params(params, current_component: current_component)
 
-          CreateMeeting.call(@form) do
+          Decidim::Meetings::Admin::CreateMeeting.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.create.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
@@ -34,15 +34,15 @@ module Decidim
         def edit
           enforce_permission_to :update, :meeting, meeting: meeting
 
-          @form = form(MeetingForm).from_model(meeting)
+          @form = meeting_form.from_model(meeting)
         end
 
         def update
           enforce_permission_to :update, :meeting, meeting: meeting
 
-          @form = form(MeetingForm).from_params(params, current_component: current_component)
+          @form = meeting_form.from_params(params, current_component: current_component)
 
-          UpdateMeeting.call(@form, meeting) do
+          Decidim::Meetings::Admin::UpdateMeeting.call(@form, meeting) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings.admin")
               redirect_to meetings_path
@@ -58,7 +58,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :meeting, meeting: meeting
 
-          DestroyMeeting.call(meeting, current_user) do
+          Decidim::Meetings::Admin::DestroyMeeting.call(meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
 
@@ -78,6 +78,10 @@ module Decidim
         end
 
         private
+
+        def meeting_form
+          form(Decidim::Meetings::Admin::MeetingForm)
+        end
 
         def blank_service
           @blank_service ||= Admin::MeetingServiceForm.new

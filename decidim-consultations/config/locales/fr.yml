@@ -348,12 +348,12 @@ fr:
         verification_required: Vérifier votre compte pour voter
         vote: Voter
       vote_modal:
-        close_modal: Fermer la fenêtre modale
+        close_modal: Fermer la fenêtre de dialogue
         contextual_help: Veuillez sélectionner une option.
         title: 'Votation : soutien aux questions'
       vote_modal_confirm:
         change: Modifier
-        close_modal: Fermer la fenêtre modale
+        close_modal: Fermer la fenêtre de dialogue
         confirm: Confirmer
         contextual_help: Veuillez confirmer l'option sélectionnée.
         title: 'Consultation : confirmer le soutien'

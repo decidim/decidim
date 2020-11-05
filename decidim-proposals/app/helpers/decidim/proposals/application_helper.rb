@@ -139,16 +139,8 @@ module Decidim
         render partial: "decidim/proposals/proposals/participatory_texts/proposal_vote_button.html", locals: { proposal: model, from_proposals_list: from_proposals_list }
       end
 
-      def endorsers_for(proposal)
-        proposal.endorsements.for_listing.map { |identity| present(identity.normalized_author) }
-      end
-
       def form_has_address?
         @form.address.present? || @form.has_address
-      end
-
-      def authors_for(collaborative_draft)
-        collaborative_draft.identities.map { |identity| present(identity) }
       end
 
       def show_voting_rules?
@@ -177,6 +169,19 @@ module Decidim
         ]
         base += [["voted", t(".voted")]] if current_settings.votes_enabled?
         base
+      end
+
+      def filter_origin_values
+        origin_values = []
+        origin_values << TreePoint.new("official", t("decidim.proposals.application_helper.filter_origin_values.official")) if component_settings.official_proposals_enabled
+        origin_values << TreePoint.new("citizens", t("decidim.proposals.application_helper.filter_origin_values.citizens"))
+        origin_values << TreePoint.new("user_group", t("decidim.proposals.application_helper.filter_origin_values.user_groups")) if current_organization.user_groups_enabled?
+        origin_values << TreePoint.new("meeting", t("decidim.proposals.application_helper.filter_origin_values.meetings"))
+
+        TreeNode.new(
+          TreePoint.new("", t("decidim.proposals.application_helper.filter_origin_values.all")),
+          origin_values
+        )
       end
     end
   end

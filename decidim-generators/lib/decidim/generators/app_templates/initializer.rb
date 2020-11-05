@@ -5,7 +5,7 @@ Decidim.configure do |config|
   config.application_name = "My Application Name"
 
   # The email that will be used as sender in all emails from Decidim
-  config.mailer_sender = "change-me@domain.org"
+  config.mailer_sender = "change-me@example.org"
 
   # Sets the list of available locales for the whole application.
   #
@@ -14,15 +14,15 @@ Decidim.configure do |config|
   # of languages will be equal or a subset of the list in this file.
   config.available_locales = [:en, :ca, :es]
 
-  # Restrict access to the system part with an authorized ip list.
-  # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
-  # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  # config.system_accesslist_ips = ["127.0.0.1"]
-
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
   config.default_locale = :en
+
+  # Restrict access to the system part with an authorized ip list.
+  # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
+  # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
+  # config.system_accesslist_ips = ["127.0.0.1"]
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -32,10 +32,71 @@ Decidim.configure do |config|
   # Whether SSL should be enabled or not.
   # config.force_ssl = true
 
-  # Geocoder configuration
+  # Map and Geocoder configuration
+  #
+  # == HERE Maps ==
+  # config.maps = {
+  #   provider: :here,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+  # }
+  #
+  # == OpenStreetMap (OSM) services ==
+  # To use the OSM map service providers, you will need a service provider for
+  # the following map servers or host all of them yourself:
+  # - A tile server for the dynamic maps
+  #   (https://wiki.openstreetmap.org/wiki/Tile_servers)
+  # - A Nominatim geocoding server for the geocoding functionality
+  #   (https://wiki.openstreetmap.org/wiki/Nominatim)
+  # - A static map server for static map images
+  #   (https://github.com/jperelli/osm-static-maps)
+  #
+  # When used, please read carefully the terms of service for your service
+  # provider.
+  #
+  # config.maps = {
+  #   provider: :osm,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   dynamic: {
+  #     tile_layer: {
+  #       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}",
+  #       api_key: true,
+  #       foo: "bar=baz",
+  #       attribution: %(
+  #         <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
+  #       ).strip
+  #       # Translatable attribution:
+  #       # attribution: -> { I18n.t("tile_layer_attribution") }
+  #     }
+  #   },
+  #   static: { url: "https://staticmap.example.org/" },
+  #   geocoding: { host: "nominatim.example.org", use_https: true }
+  # }
+  #
+  # == Combination (OpenStreetMap default + HERE Maps dynamic map tiles) ==
+  # config.maps = {
+  #   provider: :osm,
+  #   api_key: Rails.application.secrets.maps[:api_key],
+  #   dynamic: {
+  #     provider: :here,
+  #     api_key: Rails.application.secrets.maps[:here_api_key]
+  #   },
+  #   static: { url: "https://staticmap.example.org/" },
+  #   geocoding: { host: "nominatim.example.org", use_https: true }
+  # }
+
+  # Geocoder configurations if you want to customize the default geocoding
+  # settings. The maps configuration will manage which geocoding service to use,
+  # so that does not need any additional configuration here. Use this only for
+  # the global geocoder preferences.
   # config.geocoder = {
-  #   static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-  #   here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+  #   # geocoding service request timeout, in seconds (default 3):
+  #   timeout: 5,
+  #   # set default units to kilometers:
+  #   units: :km,
+  #   # caching (see https://github.com/alexreisner/geocoder#caching for details):
+  #   cache: Redis.new,
+  #   cache_prefix: "..."
   # }
 
   # Custom resource reference generator method. Check the docs for more info.
@@ -50,12 +111,6 @@ Decidim.configure do |config|
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
   # config.image_uploader_quality = 80
-
-  # The maximum file size of an attachment
-  # config.maximum_attachment_size = 10.megabytes
-
-  # The maximum file size for a user avatar
-  # config.maximum_avatar_size = 10.megabytes
 
   # The number of reports which a resource can receive before hiding it
   # config.max_reports_before_hiding = 3
@@ -89,13 +144,6 @@ Decidim.configure do |config|
 
   # Time window were users can access the website even if their email is not confirmed.
   # config.unconfirmed_access_for = 2.days
-
-  # Etherpad configuration. Check the docs for more info.
-  # config.etherpad = {
-  #   server: <your url>,
-  #   api_key: <your key>,
-  #   api_version: <your version>
-  # }
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -200,6 +248,36 @@ Decidim.configure do |config|
   # radio buttons collection input field form for a Decidim::Component
   # step setting :amendments_visibility.
   # config.amendments_visibility_options = %w(all participants)
+
+  # Machine Translation Configuration
+  #
+  # Enable machine translations
+  config.enable_machine_translations = false
+  #
+  # If you want to enable machine translation you can create your own service
+  # to interact with third party service to translate the user content.
+  #
+  # An example class would be something like:
+  #
+  # class MyTranslationService
+  #   attr_reader :text, :original_locale, :target_locale
+  #
+  #   def initialize(text, original_locale, target_locale)
+  #     @text = text
+  #     @original_locale = original_locale
+  #     @target_locale = target_locale
+  #   end
+  #
+  #   def translate
+  #     # Actual code to translate the text
+  #   end
+  # end
+  #
+  # config.machine_translation_service = "MyTranslationService"
+
+  # Defines the name of the cookie used to check if the user allows Decidim to
+  # set cookies.
+  # config.consent_cookie_name = "decidim-cc"
 end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales

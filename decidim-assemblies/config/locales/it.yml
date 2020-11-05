@@ -64,6 +64,12 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ it:
   decidim:
     admin:
       actions:
+        import_assembly: Importa
         new_assembly: Nuova assemblea
         new_assembly_type: Nuovo tipo di assemblea
       assemblies:
@@ -122,6 +129,14 @@ it:
           copy: Copia
           select: Scegli quale dato vuoi duplicare
           title: Duplica l'assemblea
+      assembly_imports:
+        create:
+          error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
+          success: Dati importati con successo.
+        new:
+          import: Importa
+          select: Seleziona quali dati vuoi importare
+          title: Importa assemblea
       assembly_members:
         create:
           error: Si è verificato un errore durante l'aggiunta di un membro per questa assemblea.
@@ -268,6 +283,10 @@ it:
             title: Titolo
         assembly_copies:
           form:
+            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Aggiungere un documento
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:

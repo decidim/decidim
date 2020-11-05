@@ -30,6 +30,7 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -66,6 +67,8 @@ it:
         debate:
           create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
           update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
+      debate_m:
+        commented_time_ago: Commentato %{time} fa
       debates:
         count:
           debates_count:
@@ -76,29 +79,58 @@ it:
           success: Dibattito creato con successo.
         debate:
           participate: Partecipa
+        edit:
+          back: Indietro
+          save: Salva le modifiche
+          title: Modifica dibattito
         filters:
+          activity: La mia attività
           all: Tutti
           category: Categoria
           category_prompt: Seleziona una categoria
           citizens: Cittadini
+          my_debates: I miei dibattiti
           official: Ufficiale
           origin: Origine
+          scope: Ambito
           search: Ricerca
+          state: Stato
+          state_values:
+            closed: Chiuso
+          user_groups: Gruppi
         filters_small_view:
           close_modal: Chiudi modalità
           filter: Filtro
           filter_by: Filtra per
           unfold: Espandi
+        form:
+          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
           back: Indietro
           create: Crea
-          select_a_category: Si prega di selezionare una categoria
           title: Nuovo dibattito
+        orders:
+          commented: I più commentati
+          label: Ordina i dibattiti per
+          random: Ordine casuale
+          recent: Più recenti
+          updated: Aggiornato di recente
         show:
           back: Torna alla lista
           date: Data
+          edit_debate: Modifica dibattito
+        update:
+          invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
+          success: Dibattito aggiornato con successo.
+        versions:
+          debates:
+            back_to_resource: Torna al dibattito
+          index:
+            title: Versioni
+        versions_list:
+          back_to_resource: Torna al dibattito
       last_activity:
         new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:

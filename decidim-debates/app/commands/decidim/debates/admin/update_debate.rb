@@ -30,12 +30,15 @@ module Decidim
         attr_reader :debate, :form
 
         def update_debate
+          parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+          parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
+
           Decidim.traceability.update!(
             debate,
             form.current_user,
             category: form.category,
-            title: form.title,
-            description: form.description,
+            title: parsed_title,
+            description: parsed_description,
             information_updates: form.information_updates,
             instructions: form.instructions,
             end_time: form.end_time,

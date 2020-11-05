@@ -26,7 +26,7 @@ pl:
       initiatives_committee_member:
         user: Członek Komisji
       initiatives_type:
-        area_enabled: Pozwól autorom wybierać obszaru dla ich inicjatywy
+        area_enabled: Pozwól autorom na wybór kategorii dla ich inicjatyw
         attachments_enabled: Pozwól na załączniki
         banner_image: Baner
         collect_user_extra_fields: Zbierz dane osobowe użytkowników przy zbiórce podpisów
@@ -62,8 +62,8 @@ pl:
       decidim/initiative:
         one: Inicjatywa
         few: Inicjatywy
-        many: Inicjatywy
-        other: Inicjatywy
+        many: Inicjatyw
+        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety
@@ -81,7 +81,7 @@ pl:
       filters:
         initiatives:
           decidim_area_id_eq:
-            label: Obszar
+            label: Kategoria
           state_eq:
             label: Stan
             values:
@@ -221,6 +221,8 @@ pl:
             success: Inicjatywa została wysłana do weryfikacji technicznej
             update: Aktualizuj
           form:
+            attachments: Załączniki
+            settings: Ustawienia
             title: Informacje ogólne
           index:
             actions_title: Działanie
@@ -297,8 +299,8 @@ pl:
           accepted: Wystarczająca liczba podpisów
           all: Wszystkie
           answered: Z odpowiedziami
-          closed: Zamknięte
-          open: Otwarty
+          closed: Zakończone
+          open: Trwające
           rejected: Niewystarczająca liczba podpisów
         filter_type_values:
           all: Wszystkie
@@ -318,7 +320,7 @@ pl:
           fill_data_help: "<ul> <li>Popraw treść swojej inicjatywy. Czy twój tytuł jest łatwy do zrozumienia? Czy cel Twojej inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Osobiście, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy? Miasto, dzielnica?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
-          select_area: Wybierz obszar
+          select_area: Wybierz kategorię
           select_scope: Wybierz zakres
         finish:
           back: Wróć
@@ -349,8 +351,8 @@ pl:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
-          select: Chcę promować tę inicjatywę
-          select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach się na obszarach ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
+          select: Chcę utworzyć inicjatywę tego typu
+          select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach obszaru ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
@@ -361,15 +363,15 @@ pl:
           more_information: "(Więcej informacji)"
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, utworzył(a) nową inicjatywę, sprawdź ją i przyłącz się:"
+          email_intro: "Użytkownik %{author_name} %{author_nickname}, którego obserwujesz, utworzył nową inicjatywę, sprawdź ją i przyłącz się:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
           email_subject: Nowa inicjatywa autorstwa %{author_nickname}
           notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, zatwierdził(a) następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Inicjatywa potwierdzona przez %{author_nickname}
-          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zatwierdzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "Użytkownika %{author_name} %{author_nickname}, którego obserwujesz, zarekomendował następującą inicjatywę, być może chcesz dołączyć i wziąć udział w rozmowie:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
+          email_subject: Inicjatywa rekomendowana przez %{author_nickname}
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> została zarekomendowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
         title: Inicjatywy
       initiative_signatures:
@@ -411,12 +413,12 @@ pl:
         count:
           title:
             one: "%{count} inicjatywa"
-            few: "%{count} inicjatyw"
+            few: "%{count} inicjatywy"
             many: "%{count} inicjatyw"
             other: "%{count} inicjatyw"
         filters:
-          any: Każdy
-          area: Obszar
+          any: Wszyscy
+          area: Kategoria
           author: Autor
           myself: Moje inicjatywy
           scope: Zakres
@@ -430,6 +432,14 @@ pl:
           unfold: Rozwiń
         index_header:
           new_initiative: Nowa inicjatywa
+          not_authorized:
+            authorizations_page: Zobacz autoryzacje
+            close: Zamknij
+            explanation: Musisz zostać zweryfikowany/-a, aby stworzyć nową inicjatywę.
+            title: Wymagana autoryzacja
+        initiatives:
+          closed_initiatives_warning: Obecnie nie ma aktualnych inicjatyw, ale tutaj możesz zobaczyć wszystkie poprzednie inicjatywy.
+          no_initiatives_warning: Brak inicjatyw spełniających kryteria wyszukiwania.
         interactions:
           comments_count:
             count:
@@ -457,15 +467,11 @@ pl:
           any_vote_method: Ta inicjatywa obywatelska zbiera podpisy online i na piśmie.
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
           offline_method: Ta inicjatywa obywatelska zbiera jedynie podpisy na piśmie.
-        signature_identities:
-          select_identity: Wybierz identyfikator użytkownika
         signatures_count:
           one: " podpis"
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        supports:
-          title: Lista podpisów
         vote_cabin:
           already_voted: Już podpisano
           supports_required: "Wymagane %{total_supports} podpisów"
@@ -496,7 +502,7 @@ pl:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: Aktywne inicjatywy
+            active_initiatives: Aktualne inicjatywy
             see_all_initiatives: Zobacz wszystkie inicjatywy
       show:
         badge_name:

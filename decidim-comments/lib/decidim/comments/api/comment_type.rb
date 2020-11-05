@@ -25,7 +25,11 @@ module Decidim
         }
       end
 
-      field :body, !types.String, "The comment message"
+      field :body, !types.String, "The comment message" do
+        resolve lambda { |obj, _args, _ctx|
+          obj.translated_body
+        }
+      end
 
       field :formattedBody, !types.String, "The comment message ready to display (it is expected to include HTML)", property: :formatted_body
 

@@ -9,12 +9,19 @@ module Decidim
       include Traceable
       include Loggable
 
-      delegate :component, to: :election
-
       belongs_to :election, foreign_key: "decidim_elections_election_id", class_name: "Decidim::Elections::Election", inverse_of: :questions
       has_many :answers, foreign_key: "decidim_elections_question_id", class_name: "Decidim::Elections::Answer", inverse_of: :question, dependent: :destroy
 
+      has_one :component, through: :election, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
+
       default_scope { order(weight: :asc, id: :asc) }
+
+      # Public: Checks if enough answers are given for max_selections attribute
+      #
+      # Returns a boolean.
+      def valid_max_selection?
+        max_selections <= answers.count
+      end
     end
   end
 end

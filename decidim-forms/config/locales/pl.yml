@@ -25,11 +25,47 @@ pl:
             description: Opis
             tos: Warunki korzystania
         questionnaires:
+          actions:
+            back: Powrót do pytań
+            show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
             free_text: Dowolny tekst
             remove: Usuń
             statement: Komunikat
+          answers:
+            actions:
+              back: Powrót do odpowiedzi
+              export: Eksportuj
+              show: Pokaż odpowiedzi
+            empty: Brak odpowiedzi
+            export:
+              answer:
+                title: 'Odpowiedź #%{number}'
+            export_response:
+              title: ankieta_odpowiedzi_uzytkownika_%{token}
+            index:
+              title: "%{total} odpowiedzi ogółem"
+            show:
+              title: 'Odpowiedź #%{number}'
+          display_condition:
+            answer_option: Opcja odpowiedzi
+            condition_question: Pytanie
+            condition_type: Warunek
+            condition_types:
+              answered: Odpowiedziano
+              equal: Równy
+              match: Zawiera tekst
+              not_answered: Nie odpowiedziano
+              not_equal: Nie jest równe
+            condition_value: Zawiera tekst
+            display_condition: Warunek wyświetlania
+            mandatory: Ten warunek musi być zawsze spełniony niezależnie od statusu innych warunków
+            remove: Usuń
+            save_warning: Pamiętaj, aby zapisać formularz przed skonfigurowaniem warunków wyświetlania
+            select_answer_option: Wybierz opcję odpowiedzi
+            select_condition_question: Wybierz pytanie
+            select_condition_type: Wybierz typ warunku
           edit:
             save: Zapisz
             title: Edytuj formularz
@@ -39,14 +75,19 @@ pl:
             already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
+            preview: Podgląd
+            title: Edytuj formularz
+            unpublished_warning: Formularz nie został jeszcze opublikowany. Możesz zmienić jego pytania, ale to spowoduje usunięcie bieżących odpowiedzi.
           matrix_row:
             matrix_row: Wiersz
             remove: Usuń
             statement: Komunikat
           question:
             add_answer_option: Dodaj opcję odpowiedzi
+            add_display_condition: Dodaj warunek wyświetlania
+            add_display_condition_info: Zapisz formularz, aby skonfigurować warunki wyświetlania
             add_matrix_row: Dodaj wiersz
-            any: Każdy
+            any: Dowolny
             collapse: Zwiń
             description: Opis
             down: Na dół
@@ -62,7 +103,6 @@ pl:
             up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
-            success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta
@@ -104,6 +144,11 @@ pl:
           questionnaire_for_private_users:
             body: Formularz jest dostępny tylko dla użytkowników prywatnych
             title: Formularz został zamknięty
+          questionnaire_js_disabled:
+            body: Niektóre funkcje tego formularza zostaną wyłączone. Aby strona dostarczała lepszych doświadczeń, włącz obsługę JavaScript w przeglądarce.
+            title: JavaScript jest wyłączony
+          questionnaire_not_published:
+            body: Ten formularz nie został jeszcze opublikowany.
           tos_agreement: Biorąc udział akceptujesz Warunki korzystania z serwisu
       step_navigation:
         show:
@@ -112,9 +157,13 @@ pl:
           continue: Dalej
           submit: Zatwierdź
       user_answers_serializer:
+        body: Odpowiedź
+        completion: Ukończenie
         created_at: Odpowiedziałem
         id: ID odpowiedzi
-        ip_hash: Hash Ip
+        ip_hash: Hash IP
+        question: Pytanie
         registered: Zarejestrowano
+        session_token: Identyfikator użytkownika
         unregistered: Nie zarejestrowano
         user_status: Status użytkownika

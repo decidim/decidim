@@ -12,11 +12,25 @@ module Decidim
       belongs_to :author, polymorphic: true, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type"
       belongs_to :user_group, foreign_key: "decidim_user_group_id", class_name: "Decidim::UserGroup", optional: true
 
+      scope :official_origin, lambda {
+        where(decidim_author_type: "Decidim::Organization")
+      }
+
+      scope :user_group_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where.not(decidim_user_group_id: nil)
+      }
+
+      scope :citizens_origin, lambda {
+        where(decidim_author_type: "Decidim::UserBaseEntity")
+          .where(decidim_user_group_id: nil)
+      }
+
       validates :author, presence: true
       validate :verified_user_group, :user_group_membership
       validate :author_belongs_to_organization
 
-      # Checks whether the user is author of the given proposal, either directly
+      # Checks whether the user is author of the given resource, either directly
       # authoring it or via a user group.
       #
       # user - the user to check for authorship
@@ -30,6 +44,13 @@ module Decidim
       # Returns an Author, a UserGroup or nil.
       def normalized_author
         user_group || author
+      end
+
+      # Public: Checks whether the resource is official or not.
+      #
+      # Returns a boolean.
+      def official?
+        decidim_author_type == Decidim::Organization.name
       end
 
       private

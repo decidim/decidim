@@ -23,7 +23,7 @@
           <% questions.each do |question| %>
             <tr data-id="<%= question.id %>">
               <td>
-                <%= link_to translated_attribute(question.title), election_question_answers_path(election, question) %>
+                <%= translated_attribute(question.title) %>
               </td>
               <td>
                 <%= question.answers.count %>
@@ -36,6 +36,8 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
+                <%= icon_link_to "list", election_question_answers_path(election, question), t("actions.edit_answers", scope: "decidim.elections"), class: "action-icon--edit-answers" %>
+
                 <% if allowed_to? :update, :question, election: election, question: question %>
                   <%= icon_link_to "pencil", edit_election_question_path(election, question), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
                 <% end %>

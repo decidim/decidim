@@ -16,10 +16,12 @@ fr:
         available_slots: Places disponibles pour cette rencontre
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
+        decidim_user_group_id: Groupe d'utilisateurs
         description: Description
         end_time: Date de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
+        organizer_gid: Créer en tant que
         organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_form_enabled: Formulaire d'inscription activé
@@ -81,12 +83,18 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            creation_enabled_for_participants: Les participants peuvent créer des rencontres
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
+            creation_enabled_for_participants: La création de rencontre par les participants est activée
+            creation_enabled_for_user_groups: La création de rencontres par des groupes d'utilisateurs est activée
     events:
       meetings:
         meeting_closed:
@@ -153,6 +161,10 @@ fr:
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
+        invalid_destroy:
+          proposals_count:
+            one: 'La rencontre ne peut être supprimée car %{count} proposition y est rattachée:'
+            other: 'La rencontre ne peut être supprimée car %{count} propositions y sont rattachées:'
         minutes: Compte rendu
         new: Nouvelle réunion
         preview: Aperçu
@@ -223,9 +235,6 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
-        meeting_copies:
-          form:
-            select_organizer: Sélectionnez l'organisateur
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
@@ -234,6 +243,10 @@ fr:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
           destroy:
+            invalid:
+              proposals_count:
+                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
+                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
             update: Mettre à jour
@@ -241,7 +254,6 @@ fr:
             address_help: 'L''adresse entrée est utilisée par le géocodage pour trouver l''emplacement et afficher la réunion sur la carte. Format accepté : [n°] [rue] [code postal] [ville]'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
-            select_organizer: Sélectionnez l'organisateur
           index:
             title: Rencontres
           new:
@@ -346,24 +358,55 @@ fr:
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} rencontre"
+            other: "%{count} rencontres"
+        create:
+          invalid: Une erreur s'est produite lors de la création de cette rencontre.
+          success: La rencontre a été créée avec succès.
+        edit:
+          back: Retour
+          title: Modifier votre rencontre
+          update: Mettre à jour
         filters:
           category: Catégorie
-          category_prompt: Sélectionner une catégorie
           date: Date
-          past: Passées
+          date_values:
+            all: Toutes
+            past: Passées
+            upcoming: À venir
+          origin: Origine
+          origin_values:
+            all: Toutes
+            citizens: Citoyens
+            official: Officiel
+            user_groups: Groupes
+          scope: Secteur
           search: Rechercher
-          upcoming: À venir
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
+        form:
+          address_help: 'Adresse : utilisée par le géocodeur pour trouver l''emplacement'
+          create_as: Créer une rencontre en tant que
+          location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre'
+          location_hints_help: 'Données de localisation : infos additionnelles (ex : 2ème étage, ...)'
+          select_a_category: Veuillez sélectionner une catégorie
+        index:
+          new_meeting: Nouvelle rencontre
         meeting_minutes:
           meeting_minutes: Comptes rendus des rencontres
           related_information: Informations liées
         meetings:
           no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
+        new:
+          back: Précédent
+          create: Créer
+          title: Créez votre rencontre
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -372,6 +415,7 @@ fr:
           back: Retour à la liste
           contributions: Décompte des contributions
           date: Date
+          edit_meeting: Modifier la rencontre
           going: J'y vais
           join: Participer à la rencontre
           meeting_report: Compte rendu de la rencontre
@@ -385,6 +429,9 @@ fr:
             one: "Il reste %{count} place"
             other: "Il reste %{count} places"
           view: Voir
+        update:
+          invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
+          success: La rencontre a été mise à jour avec succès.
       meetings_map:
         view_meeting: Voir la réunion
       models:
@@ -403,6 +450,7 @@ fr:
             closed: Fermée
             end_time: Date de fin
             map: Carte
+            official_meeting: Rencontre officielle
             start_time: Date de début
             title: Titre
       read_more: "(Voir la suite)"
@@ -424,6 +472,8 @@ fr:
       types:
         private_meeting: Rencontre privée
         transparent: Visible par les non-membres
+      versions:
+        back_to_resource: Revenir à la rencontre
     metrics:
       meetings:
         description: Nombre de rencontres créées

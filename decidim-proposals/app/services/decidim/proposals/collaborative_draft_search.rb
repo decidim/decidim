@@ -5,6 +5,8 @@ module Decidim
     # A service to encapsualte all the logic when searching and filtering
     # collaborative drafts in a participatory process.
     class CollaborativeDraftSearch < ResourceSearch
+      text_search_fields :title, :body
+
       # Public: Initializes the service.
       # component     - A Decidim::Component to get the drafts from.
       # page        - The page number to paginate the results.
@@ -14,6 +16,9 @@ module Decidim
       end
 
       # Handle the search_text filter
+      #
+      # We can't use the search from `ResourceFilter` since these fields aren't
+      # translated.
       def search_search_text
         query
           .where("title ILIKE ?", "%#{search_text}%")
@@ -24,22 +29,7 @@ module Decidim
       def search_state
         return query if state.member?("all")
 
-        open_drafts = state.member?("open") ? query.open : nil
-        withdrawn = state.member?("withdrawn") ? query.withdrawn : nil
-        published = state.member?("published") ? query.published : nil
-
-        query
-          .where(id: open_drafts)
-          .or(query.where(id: withdrawn))
-          .or(query.where(id: published))
-      end
-
-      def search_category_id
-        super
-      end
-
-      def search_scope_id
-        super
+        apply_scopes(%w(open withdrawn published), state)
       end
 
       # Filters drafts by the name of the classes they are linked to. By default,

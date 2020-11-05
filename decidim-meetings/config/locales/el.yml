@@ -223,9 +223,6 @@ el:
           edit:
             close: Κλείσιμο
             title: Κλείσιμο σύσκεψης
-        meeting_copies:
-          form:
-            select_organizer: Select the organizer
         meetings:
           close:
             invalid: Υπήρξε ένα πρόβλημα κατά το κλείσιμο αυτής της σύσκεψης
@@ -241,7 +238,6 @@ el:
             address_help: 'Διεύθυνση: χρησιμοποιείται από το Geocoder για τον εντοπισμό της τοποθεσίας'
             location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους χρήστες, που υποδηλώνει το σημείο συνάντησης στο'
             location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: το δάπεδο του κτιρίου'
-            select_organizer: Select the organizer
           index:
             title: Συσκέψεις
           new:
@@ -348,16 +344,15 @@ el:
       meetings:
         filters:
           category: Κατηγορία
-          category_prompt: Select a category
           date: Ημερομηνία
-          past: Παρελθόν
           search: Αναζήτηση
-          upcoming: Προσεχείς
         filters_small_view:
           close_modal: Κλείσιμο βοηθητικού στοιχείου
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
+        form:
+          location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: το δάπεδο του κτιρίου'
         meeting_minutes:
           meeting_minutes: Πρακτικά σύσκεψης
           related_information: Σχετικές πληροφορίες

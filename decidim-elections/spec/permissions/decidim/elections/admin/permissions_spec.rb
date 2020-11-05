@@ -28,11 +28,11 @@ describe Decidim::Elections::Admin::Permissions do
     end
   end
 
-  shared_examples "allowed when election has started" do
-    context "when election has started" do
-      let(:election) { create :election, :started, component: elections_component }
+  shared_examples "not allowed when election has invalid questions" do
+    context "when election has invalid questions" do
+      let(:question) { create :question, :candidates, max_selections: 11, election: election }
 
-      it { is_expected.to eq true }
+      it { is_expected.to eq false }
     end
   end
 
@@ -76,12 +76,33 @@ describe Decidim::Elections::Admin::Permissions do
 
     it { is_expected.to eq true }
 
-    it_behaves_like "allowed when election has started"
+    it_behaves_like "not allowed when election has started"
+  end
+
+  describe "election publish" do
+    let(:action) do
+      { scope: :admin, action: :publish, subject: :election }
+    end
+
+    it { is_expected.to eq true }
+
+    it_behaves_like "not allowed when election has started"
+    it_behaves_like "not allowed when election has invalid questions"
   end
 
   describe "election delete" do
     let(:action) do
       { scope: :admin, action: :delete, subject: :election }
+    end
+
+    it { is_expected.to eq true }
+
+    it_behaves_like "not allowed when election has started"
+  end
+
+  describe "election unpublish" do
+    let(:action) do
+      { scope: :admin, action: :unpublish, subject: :election }
     end
 
     it { is_expected.to eq true }
@@ -152,6 +173,16 @@ describe Decidim::Elections::Admin::Permissions do
     describe "answer delete" do
       let(:action) do
         { scope: :admin, action: :delete, subject: :answer }
+      end
+
+      it { is_expected.to eq true }
+
+      it_behaves_like "not allowed when election has started"
+    end
+
+    describe "import proposals" do
+      let(:action) do
+        { scope: :admin, action: :import_proposals, subject: :answer }
       end
 
       it { is_expected.to eq true }

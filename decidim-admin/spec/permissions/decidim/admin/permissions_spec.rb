@@ -142,6 +142,14 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "share tokens" do
+    let(:action_subject) { :share_token }
+
+    context "when any action" do
+      it { is_expected.to eq true }
+    end
+  end
+
   describe "organization" do
     let(:action_subject) { :organization }
     let(:context) { { organization: organization } }
@@ -309,7 +317,6 @@ describe Decidim::Admin::Permissions do
   it_behaves_like "can perform any action for", :area
   it_behaves_like "can perform any action for", :area_type
   it_behaves_like "can perform any action for", :newsletter
-  it_behaves_like "can perform any action for", :oauth_application
   it_behaves_like "can perform any action for", :user_group
   it_behaves_like "can perform any action for", :officialization
   it_behaves_like "can perform any action for", :authorization

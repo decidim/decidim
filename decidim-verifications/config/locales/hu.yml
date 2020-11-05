@@ -136,8 +136,9 @@ hu:
             success: Fiókját sikeresen ellenőrizték.
       dummy_authorization:
         extra_explanation:
-          one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
-          other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
+          postal_codes:
+            one: A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.
+            other: 'A részvétel %{postal_codes} irányítószámú felhasználókra korlátozódik.'
       id_documents:
         admin:
           config:

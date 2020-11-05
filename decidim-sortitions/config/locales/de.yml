@@ -23,6 +23,7 @@ de:
         settings:
           global:
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
     events:
       sortitions:
         sortition_created:

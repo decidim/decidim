@@ -62,7 +62,6 @@ el:
             up: Επάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
-            success: Οι φόρμες αποθηκεύτηκαν με επιτυχία.
       errors:
         answer:
           body: Το σώμα δεν μπορεί να είναι κενό
@@ -114,7 +113,6 @@ el:
       user_answers_serializer:
         created_at: Απαντήθηκε στις
         id: Αναγνωριστικό απάντησης
-        ip_hash: Ip Hash
         registered: Έχει εγγραφεί
         unregistered: Δεν έχει εγγραφεί
         user_status: Κατάσταση χρήστη

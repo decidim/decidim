@@ -54,6 +54,58 @@ module Decidim
       end
     end
 
+    context "with a polymorphic resource" do
+      let(:nested_resource) do
+        create(:nested_dummy_resource, id: 1, dummy_resource: resource)
+      end
+
+      describe "#url" do
+        subject { described_class.new([resource, nested_resource]).url }
+
+        it { is_expected.to eq("http://1.lvh.me/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+
+        context "when specific port configured" do
+          before do
+            allow(ActionMailer::Base)
+              .to receive(:default_url_options)
+              .and_return(port: 3000)
+          end
+
+          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+        end
+      end
+
+      describe "#path" do
+        subject { described_class.new([resource, nested_resource]).path }
+
+        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources/1") }
+      end
+
+      describe "#index" do
+        subject { described_class.new([resource, nested_resource]).index }
+
+        it { is_expected.to eq("/processes/my-process/f/1/dummy_resources/1/nested_dummy_resources") }
+      end
+
+      describe "#admin_index" do
+        subject { described_class.new([resource, nested_resource]).admin_index }
+
+        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources") }
+      end
+
+      describe "#show" do
+        subject { described_class.new([resource, nested_resource]).show }
+
+        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+      end
+
+      describe "#edit" do
+        subject { described_class.new([resource, nested_resource]).edit }
+
+        it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
+      end
+    end
+
     context "with a participatory_space" do
       describe "#url" do
         subject { described_class.new(participatory_process).url }

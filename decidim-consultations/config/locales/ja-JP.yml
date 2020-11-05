@@ -25,7 +25,7 @@ ja:
         origin_scope: スコープ
         origin_title: 原点：
         origin_url: 原点URL
-        participatory_scope: 参加スコープ
+        participatory_scope: 参加範囲
         promoter_group: プロモーターグループ
         question_context: コンテキスト
         reference: 参照
@@ -54,7 +54,7 @@ ja:
               invalid_num_votes: 投票数が無効です
     models:
       decidim/consultation:
-        other: 議案
+        other: コンサルテーション数
       decidim/consultations/question:
         other: 質問
       decidim/consultations/response:
@@ -65,7 +65,7 @@ ja:
     admin:
       actions:
         back_to_responses: 返信に戻る
-        new_consultation: 新規の議案
+        new_consultation: 新規のご相談
         new_question: 新しい質問
         new_response: 新しい応答
         new_response_group: 新しいグループ
@@ -74,42 +74,42 @@ ja:
         unpublish_results: 結果を非公開にする
       consultation_publications:
         create:
-          error: この議案を公表する際に問題が発生しました。
-          success: 議案が正常に公開されました。
+          error: この相談を公表する際に問題が発生しました。
+          success: 相談が正常に公開されました。
         destroy:
-          error: この議案を非公開にする際に問題が発生しました。
-          success: 議案を非公開にしました。
+          error: この相談を非公開にする際に問題が発生しました。
+          success: 相談を非公開にしました。
       consultation_results_publications:
         create:
-          error: この議案の結果を公表する際に問題が発生しました。
-          success: 議案の結果の公開に成功しました。
+          error: この協議の結果を公表する際に問題が発生しました。
+          success: 相談結果の公開に成功しました。
         destroy:
-          error: この議案の結果を非公開にする際に問題が発生しました。
-          success: 議案の結果を非公開にしました。
+          error: この相談の結果を非公開にする際に問題が発生しました。
+          success: 相談結果を非公開にしました。
       consultations:
         create:
-          error: 新しい議案を作成する際に問題がありました。
-          success: 議案を作成しました。
+          error: 新しい相談を作成する際に問題がありました。
+          success: コンサルティングを作成しました。
         edit:
           update: 更新
         form:
-          slug_help: 'URLスラグは、この議案を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+          slug_help: 'URLスラグは、この協議を指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
           title: 一般情報
         index:
           not_published: 未公開
           published: 公開済み
         new:
           create: 作成
-          title: 新規の議案
+          title: 新規のご相談
         results:
-          not_visible: 議案が終了すると結果が表示されます
+          not_visible: コンサルテーションが終了すると結果が表示されます
           participants: "%{count} 人の参加者"
           total_votes: '合計： %{count} 票'
         update:
-          error: 議案の更新中に問題が発生しました。
-          success: 議案が更新されました。
+          error: 相談の更新中に問題が発生しました。
+          success: 相談が更新されました。
       menu:
-        consultations: 議案
+        consultations: コンサルテーション数
         consultations_submenu:
           info: 情報
           questions: 質問
@@ -117,7 +117,7 @@ ja:
         questions_submenu:
           components: コンポーネント
           configuration: 設定
-          consultation: 議案
+          consultation: 相談する
           info: 情報
           responses: 回答
       models:
@@ -127,7 +127,7 @@ ja:
             published: 公開済み
             title: タイトル
           name:
-            other: 議案
+            other: コンサルテーション数
         question:
           fields:
             created_at: 作成日時
@@ -209,7 +209,7 @@ ja:
           error: この応答を更新中に問題が発生しました。
           success: 応答が正常に更新されました。
       titles:
-        consultations: 議案
+        consultations: コンサルテーション数
         questions: 質問
         response_groups: 応答グループ
         responses: 回答
@@ -226,17 +226,17 @@ ja:
         view_results: 結果を表示
       consultations:
         orders:
-          label: '議案の並び替え:'
+          label: '並び替え相談:'
           random: Random
           recent: 直近のもの
         show:
           dates: 日付
       content_blocks:
         highlighted_consultations:
-          name: ハイライトされた議案
+          name: ハイライトされた相談
       count:
         title:
-          other: "%{count} 件の議案"
+          other: "%{count} 件のコンサルティング"
       filters:
         active: アクティブ
         all: すべて
@@ -252,15 +252,15 @@ ja:
       highlighted_questions:
         title: '%{scope_name} からの質問'
       index:
-        title: 議案
+        title: コンサルテーション数
       last_activity:
-        new_consultation: 新規の議案
+        new_consultation: 新規のご相談
         new_question_at_html: "<span> %{link}に新しい質問</span>"
       pages:
         home:
           highlighted_consultations:
-            active_consultations: アクティブな議案
-            see_all_consultations: すべての議案を見る
+            active_consultations: アクティブな相談format@@0
+            see_all_consultations: すべての相談を見る
             voting_ends_in:
               other: 投票は <strong>%{count} 日</strong>で終了します
             voting_ends_today: 投票は今日終了 <strong></strong>
@@ -288,11 +288,11 @@ ja:
       question_votes:
         create:
           error: 質問に投票中に問題が発生しました
-          success: 議案が終了するまで変更できます。最後の投票のみが承認されます。
+          success: 協議が終了するまで変更できます。最後の投票のみが承認されます。
           title_error: 投票エラー！
           title_success: 投票が正常に登録されました
       regular_questions:
-        title: この議案のための質問
+        title: この相談のための質問
       show:
         badge_name:
           finished: 完了
@@ -308,15 +308,15 @@ ja:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p><strong>議案</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。議案の日が来たら、投票をして、その結果を公開することができます。</p><p>例: 議案は組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
-          page: "<p><strong>議案</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。議案の日が来たら、投票をして、その結果を公開することができます。</p><p>例: 議案は組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
-          title: 議案とは何ですか?
+          contextual: "<p><strong>コンサルテーション</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。コンサルテーションの日が来たら、投票をして、その結果を公開することができます。</p><p>例: コンサルテーションは組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
+          page: "<p><strong>コンサルテーション</strong>は、組織を形成するすべての人に明確な質問を投げかけ、コンサルテーションへの参加を呼びかけ、回答の賛否の議論に火をつけ、注文をつけることができるスペースです。コンサルテーションの日が来たら、投票をして、その結果を公開することができます。</p><p>例: コンサルテーションは組織に影響するどのようなことにも利用できます。例えば、いくつかの代替案から組織の名前やロゴを選び変更したり、より大きな組織の一部になるかどうか、イエスかノーかを決定したり、新しい戦略計画やワーキンググループの結果を検証したり拒否したり、ポジションが最大で 1、2、3 の委任のままであるべきかどうかを定義したりできます。</p>\n"
+          title: コンサルティングとは何ですか?
     menu:
-      consultations: 議案
+      consultations: コンサルテーション数
     pages:
       home:
         statistics:
-          consultations_count: 議案
+          consultations_count: コンサルテーション数
     questions:
       next_button: 次の質問
       previous_button: 前の質問
@@ -340,13 +340,13 @@ ja:
       vote_modal:
         close_modal: モーダルを閉じる
         contextual_help: オプションを選択してください。
-        title: '議案：質問投票'
+        title: '相談：質問投票'
       vote_modal_confirm:
         change: 変更
         close_modal: モーダルを閉じる
         confirm: 確認する
         contextual_help: 選択したオプションを確認してください。
-        title: '議案：投票の確認'
+        title: '相談：投票の確認'
     resources:
       consultations:
         actions:
@@ -363,5 +363,5 @@ ja:
         question_menu_item: 質問
         unfold: 展開する
       question_header:
-        back_to_consultation: すべての議案を見る
+        back_to_consultation: すべての相談を見る
         back_to_question: 質問に戻る

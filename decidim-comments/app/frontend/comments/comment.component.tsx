@@ -29,6 +29,7 @@ interface CommentProps {
   votable?: boolean;
   rootCommentable: AddCommentFormCommentableFragment;
   orderBy: string;
+  commentsMaxLength: number;
 }
 
 interface CommentState {
@@ -451,7 +452,15 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|DomElement} - A wrapper element with comment's comments inside
    */
   private _renderReplies() {
-    const { comment: { id, hasComments, comments }, session, votable, articleClassName, rootCommentable, orderBy } = this.props;
+    const {
+      comment: { id, hasComments, comments },
+      session,
+      votable,
+      articleClassName,
+      rootCommentable,
+      orderBy,
+      commentsMaxLength
+    } = this.props;
     const { showReplies } = this.state;
     let replyArticleClassName = "comment comment--nested";
 
@@ -462,19 +471,18 @@ class Comment extends React.Component<CommentProps, CommentState> {
     if (hasComments) {
       return (
         <div id={`comment-${id}-replies`} className={showReplies ? "" : "hide"}>
-          {
-            comments.map((reply: CommentFragment) => (
-              <Comment
-                key={`comment_${id}_reply_${reply.id}`}
-                comment={reply}
-                session={session}
-                votable={votable}
-                articleClassName={replyArticleClassName}
-                rootCommentable={rootCommentable}
-                orderBy={orderBy}
-              />
-            ))
-          }
+          {comments.map((reply: CommentFragment) => (
+            <Comment
+              key={`comment_${id}_reply_${reply.id}`}
+              comment={reply}
+              session={session}
+              votable={votable}
+              articleClassName={replyArticleClassName}
+              rootCommentable={rootCommentable}
+              orderBy={orderBy}
+              commentsMaxLength={commentsMaxLength}
+            />
+          ))}
         </div>
       );
     }
@@ -488,7 +496,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
    * @returns {Void|ReactElement} - Render the AddCommentForm component or not
    */
   private _renderReplyForm() {
-    const { session, comment, rootCommentable, orderBy } = this.props;
+    const { session, comment, rootCommentable, orderBy, commentsMaxLength } = this.props;
     const { showReplyForm } = this.state;
     const {
       comment: { userAllowedToComment }
@@ -505,6 +513,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
           autoFocus={true}
           rootCommentable={rootCommentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
     }

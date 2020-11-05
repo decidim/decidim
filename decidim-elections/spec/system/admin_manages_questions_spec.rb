@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages questions", type: :system do
-  let(:election) { create :election, component: current_component }
+  let(:election) { create :election, :upcoming, component: current_component }
   let(:question) { create :question, election: election }
   let(:manifest_name) { "elections" }
 
@@ -14,7 +14,10 @@ describe "Admin manages questions", type: :system do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
-    find("tr[data-id] a", text: translated(election.title)).click
+
+    within find("tr", text: translated(election.title)) do
+      page.find(".action-icon--edit-questions").click
+    end
   end
 
   describe "admin form" do

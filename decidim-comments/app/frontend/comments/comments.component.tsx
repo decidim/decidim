@@ -1,6 +1,8 @@
 import * as React from "react";
 import { graphql } from "react-apollo";
 
+const PropTypes = require("prop-types");
+
 import Application from "../application/application.component";
 
 import AddCommentForm from "./add_comment_form.component";
@@ -15,10 +17,13 @@ import {
 const { I18n, Translate } = require("react-i18nify");
 
 interface CommentsProps extends GetCommentsQuery {
+  locale: string;
+  toggleTranslations: boolean;
   loading?: boolean;
   orderBy: string;
   singleCommentId?: string;
   reorderComments: (orderBy: string) => void;
+  commentsMaxLength: number;
 }
 
 /**
@@ -37,8 +42,20 @@ export class Comments extends React.Component<CommentsProps> {
     }
   };
 
+  public static childContextTypes: any = {
+    locale: PropTypes.string,
+    toggleTranslations: PropTypes.bool
+  };
+
+  public getChildContext() {
+    return {
+      locale: this.props.locale,
+      toggleTranslations: this.props.toggleTranslations
+    };
+  }
+
   public render() {
-    const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading } = this.props;
+    const { commentable: { totalCommentsCount = 0 }, singleCommentId, loading, commentsMaxLength } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
     if (singleCommentId && singleCommentId !== "") {
@@ -164,7 +181,7 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {ReactComponent[]} - A collection of CommentThread components
    */
   private _renderCommentThreads() {
-    const { session, commentable, orderBy } = this.props;
+    const { session, commentable, orderBy, commentsMaxLength } = this.props;
     const { comments, commentsHaveVotes } = commentable;
 
     return comments.map((comment) => (
@@ -175,6 +192,7 @@ export class Comments extends React.Component<CommentsProps> {
         votable={commentsHaveVotes}
         rootCommentable={commentable}
         orderBy={orderBy}
+        commentsMaxLength={commentsMaxLength}
       />
     ));
   }
@@ -185,7 +203,7 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|ReactComponent} - A AddCommentForm component or nothing
    */
   private _renderAddCommentForm() {
-    const { session, commentable, orderBy, singleCommentId } = this.props;
+    const { session, commentable, orderBy, singleCommentId, commentsMaxLength } = this.props;
     const { acceptsNewComments, commentsHaveAlignment, userAllowedToComment } = commentable;
 
     if (singleCommentId && singleCommentId !== "") {
@@ -200,6 +218,7 @@ export class Comments extends React.Component<CommentsProps> {
           arguable={commentsHaveAlignment}
           rootCommentable={commentable}
           orderBy={orderBy}
+          commentsMaxLength={commentsMaxLength}
         />
       );
     }
@@ -244,6 +263,8 @@ const CommentsWithData: any = graphql<GetCommentsQuery, CommentsProps>(commentsQ
 export interface CommentsApplicationProps extends GetCommentsQueryVariables {
   singleCommentId: string;
   locale: string;
+  toggleTranslations: boolean;
+  commentsMaxLength: number;
 }
 
 /**
@@ -251,11 +272,14 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, commentableId, commentableType, singleCommentId }) => (
+const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, toggleTranslations, commentableId, commentableType, singleCommentId, commentsMaxLength }) => (
   <Application locale={locale}>
     <CommentsWithData
+      commentsMaxLength={commentsMaxLength}
       commentableId={commentableId}
       commentableType={commentableType}
+      locale={locale}
+      toggleTranslations={toggleTranslations}
       orderBy="older"
       singleCommentId={singleCommentId}
     />

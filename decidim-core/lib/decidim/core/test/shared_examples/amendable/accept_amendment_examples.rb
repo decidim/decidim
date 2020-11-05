@@ -26,18 +26,18 @@ shared_examples "accept amendment" do
           amendable.creator_author,
           { state: "accepted" },
           visibility: "public-only"
-        ).and_call_original
+        ).and_return(amendment)
 
       expect(Decidim.traceability)
-        .to receive(:update!)
+        .to receive(:perform_action!)
         .with(
+          :update,
           amendable,
           emendation.creator_author,
-          { body: emendation.body, title: emendation.title },
           visibility: "public-only"
         ).and_call_original
 
-      expect { command.call }.to change(Decidim::ActionLog, :count).by(2)
+      command.call
     end
 
     it "notifies the change" do
