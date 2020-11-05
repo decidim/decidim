@@ -9,3 +9,11 @@
     vertical-align: middle;
   }
 }
+
+span.loading-spinner{
+  height: 15px;
+
+  &::before{
+    @include spinner(15px, $medium-gray, var(--primary), 800ms);
+  }
+}

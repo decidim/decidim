@@ -49,7 +49,6 @@ sk:
             up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
-            success: Formulár úspešne uložený.
       errors:
         answer:
           body: Telo nemôže byť prázdne
@@ -86,7 +85,6 @@ sk:
       user_answers_serializer:
         created_at: Odpovedané na 
         id: ID odpovede
-        ip_hash: IP Hash
         registered: Registrovaný
         unregistered: Neregistrovaný
         user_status: Status Užívateľa

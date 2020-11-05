@@ -13,7 +13,7 @@ sv:
         user_group_id: Skapa gemensamt utkast som
       proposal:
         address: Adress
-        answer: Svara
+        answer: Svar
         answered_at: Besvarad
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
@@ -26,7 +26,7 @@ sv:
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
-        answer: Svara
+        answer: Svar
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
@@ -52,7 +52,7 @@ sv:
             title:
               identical: OCH innehållet kan inte vara identiskt
     models:
-      decidim/proposals/accepted_proposal_event: Förslag antagit
+      decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
       decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
@@ -80,6 +80,28 @@ sv:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategori
+          is_emendation_true:
+            label: Typ
+            values:
+              'false': Förslag
+              'true': Ändringsförslag
+          scope_id_eq:
+            label: Omfång
+          state_eq:
+            label: Status
+            values:
+              accepted: Accepterat
+              evaluating: Utvärderas
+              published: Publicerad
+              rejected: Avvisad
+              validating: Teknisk validering
+              withdrawn: Tillbakadragen
+          state_null:
+            label: Status
+            values:
+              'true': Ej besvarad
           valuator_role_ids_has:
             label: Tilldelad till värderare
         search_placeholder:
@@ -104,6 +126,7 @@ sv:
             can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
+            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
@@ -198,15 +221,15 @@ sv:
           notification_title: Du kan nu börja att <a href="%{resource_path}">instämma i förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Ditt förslag "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
+            email_intro: 'Ditt förslag "%{resource_title}" har accepterats. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har antagits
-            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har antagits.
+            email_subject: Ditt förslag har accepterats
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har accepterats.
           follower:
-            email_intro: 'Förslaget "%{resource_title}" har antagits. Läs svaret på den här sidan:'
+            email_intro: 'Förslaget "%{resource_title}" har accepterats. Läs svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du följer "%{resource_title}". Du kan sluta att följa det via föregående länk.
-            email_subject: Ett förslag som du följer har antagits
-            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har antagits.
+            email_subject: Ett förslag som du följer har accepterats
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har accepterats.
         proposal_evaluating:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
@@ -264,14 +287,14 @@ sv:
         accepted_proposals:
           conditions:
             - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
-            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli antagna.
-          description: Detta märke beviljas när du aktivt deltar med nya förslag som blir antagna.
-          description_another: Den här användaren har fått %{score} förslag antagna.
-          description_own: '%{score} av dina förslag har antagits.'
-          name: Antagna förslag
-          next_level_in: Få %{score} fler förslag antagna för att nå nästa nivå!
-          unearned_another: Den här användaren har inte fått några förslag antagna än.
-          unearned_own: Du har inga antagna förslag än.
+            - Försök att lägga fram förslag som kan genomföras. De har lättare att bli accepterade.
+          description: Detta märke beviljas när du aktivt deltar med nya förslag som blir accepterade.
+          description_another: Den här användaren har fått %{score} förslag accepterade.
+          description_own: '%{score} av dina förslag har accepterats.'
+          name: Accepterade förslag
+          next_level_in: Få %{score} fler förslag accepterade för att nå nästa nivå!
+          unearned_another: Den här användaren har inte fått några förslag accepterade än.
+          unearned_own: Du har inga accepterade förslag än.
         proposal_votes:
           conditions:
             - Bläddra runt och ägna lite tid åt att läsa andras förslag
@@ -296,9 +319,9 @@ sv:
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
-        description: Antal antagna förslag
+        description: Antal accepterade förslag
         object: förslag
-        title: Antagna förslag
+        title: Accepterade förslag
       endorsements:
         description: Antal instämmanden med förslag
         object: instämmanden
@@ -371,10 +394,10 @@ sv:
             success: Deltagartexten har uppdaterats.
         proposal_answers:
           form:
-            accepted: Antagna
+            accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
-            rejected: Avvisade
+            rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
           create:
@@ -499,10 +522,10 @@ sv:
           create: "%{user_name} tilldelade förslaget %{resource_name} till en värderare"
           delete: "%{user_name} tog bort en värderare från förslaget %{proposal_title}"
       answers:
-        accepted: Antagna
+        accepted: Accepterat
         evaluating: Utvärderas
         not_answered: Ej besvarade
-        rejected: Avvisade
+        rejected: Avvisat
         withdrawn: Tillbakadragna
       application_helper:
         filter_category_values:
@@ -516,11 +539,11 @@ sv:
         filter_scope_values:
           all: Alla
         filter_state_values:
-          accepted: Antagna
+          accepted: Accepterat
           all: Alla
           evaluating: Utvärderas
           not_answered: Ej besvarade
-          rejected: Avvisade
+          rejected: Avvisat
         filter_type_values:
           all: Alla
           amendments: Ändringsförslag
@@ -782,7 +805,7 @@ sv:
           link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
           link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
           link_to_proposal_from_emendation_text: Visa förslaget
-          proposal_accepted_reason: 'Detta förslag har antagits eftersom:'
+          proposal_accepted_reason: 'Detta förslag har accepterats eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
           read_less: Läs mindre

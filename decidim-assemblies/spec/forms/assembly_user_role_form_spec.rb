@@ -6,7 +6,17 @@ module Decidim
   module Assemblies
     module Admin
       describe AssemblyUserRoleForm do
-        subject { described_class.from_params(attributes) }
+        subject do
+          described_class.from_params(
+            attributes
+          ).with_context(
+            current_user: current_user,
+            current_organization: current_organization
+          )
+        end
+
+        let(:current_organization) { create(:organization) }
+        let(:current_user) { create(:user, organization: current_organization) }
 
         let(:email) { "my_email@example.org" }
         let(:name) { "John Wayne" }
@@ -27,6 +37,18 @@ module Decidim
 
         context "when email is missing" do
           let(:email) {}
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when user name contains invalid chars" do
+          let(:name) { "John (Wayne)" }
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when email is already being used" do
+          let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", email: email, organization: current_organization, admin: true) }
 
           it { is_expected.to be_invalid }
         end

@@ -9,6 +9,9 @@ module Decidim
       include Decidim::HasComponent
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::TranslatableResource
+
+      translatable_fields :body
 
       component_manifest_name "pages"
 

@@ -104,6 +104,7 @@ it:
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             collaborative_drafts_enabled: Bozze collaborative abilitate
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             geocoding_enabled: Geocoding abilitato
             minimum_votes_per_user: Voti minimi per utente
             new_proposal_body_template: Nuovo modello di testo della proposta
@@ -697,8 +698,13 @@ it:
             one: "%{count} proposta"
             other: "%{count} proposte"
         edit:
+          add_documents: Documenti
+          add_images: File
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
+          delete_document: Elimina Documento
+          delete_image: Elimina Immagine
+          gallery_legend: "(Facoltativo) Aggiungi un'immagine alla scheda proposta"
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta

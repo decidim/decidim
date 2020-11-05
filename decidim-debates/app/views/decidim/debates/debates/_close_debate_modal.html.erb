@@ -1,0 +1,13 @@
+<div class="reveal close-debate-modal" id="closeDebateModal" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title"><%= t("decidim.debates.debates.show.close_debate") %></h3>
+    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p><%= t(".description") %></p>
+  <%= decidim_form_for form, url: close_debate_path(debate), method: :post do |f| %>
+    <%= f.text_area :conclusions, rows: 10 %>
+    <%= f.submit t(".send") %>
+  <% end %>
+</div>

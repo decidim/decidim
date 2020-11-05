@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com", "rbngzlv@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.5"
+  s.required_ruby_version = ">= 2.6"
 
   s.name = "decidim-forms"
   s.summary = "Decidim forms"
@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Forms.version
+  s.add_dependency "wicked_pdf", "~> 1.4"
+  s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-admin", Decidim::Forms.version
   s.add_development_dependency "decidim-dev", Decidim::Forms.version

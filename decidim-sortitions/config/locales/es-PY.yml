@@ -23,6 +23,7 @@ es-PY:
         settings:
           global:
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
     events:
       sortitions:
         sortition_created:

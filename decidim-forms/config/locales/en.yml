@@ -4,6 +4,8 @@ en:
     attributes:
       answer:
         body: Answer
+        choices: Choices
+        selected_choices: Selected choices
       question:
         max_choices: Maximum number of choices
         question_type: Type
@@ -26,11 +28,47 @@ en:
             description: Description
             tos: Terms of service
         questionnaires:
+          actions:
+            back: Back to questions
+            show: Show responses
           answer_option:
             answer_option: Answer option
             free_text: Free text
             remove: Remove
             statement: Statement
+          answers:
+            actions:
+              back: Back to responses
+              export: Export
+              show: Show answers
+            empty: No answers yet
+            export:
+              answer:
+                title: 'Response #%{number}'
+            export_response:
+              title: survey_user_answers_%{token}
+            index:
+              title: "%{total} total responses"
+            show:
+              title: 'Answer #%{number}'
+          display_condition:
+            answer_option: Answer option
+            condition_question: Question
+            condition_type: Condition
+            condition_types:
+              answered: Answered
+              equal: Equal
+              match: Includes text
+              not_answered: Not answered
+              not_equal: Not equal
+            condition_value: Included text
+            display_condition: Display condition
+            mandatory: This condition needs to be satisfied always regardless the status of other conditions
+            remove: Remove
+            save_warning: Remember to save the form before configuring display conditions
+            select_answer_option: Select answer option
+            select_condition_question: Select a question
+            select_condition_type: Select a condition type
           edit:
             save: Save
             title: Edit questionnaire
@@ -40,12 +78,17 @@ en:
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
+            preview: Preview
+            title: Edit form
+            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row
             remove: Remove
             statement: Statement
           question:
             add_answer_option: Add answer option
+            add_display_condition: Add display condition
+            add_display_condition_info: Save the form to configure display conditions
             add_matrix_row: Add row
             any: Any
             collapse: Collapse
@@ -63,7 +106,7 @@ en:
             up: Up
           update:
             invalid: There was a problem saving the form.
-            success: Forms successfully saved.
+            success: Form successfully saved.
       errors:
         answer:
           body: Body can't be blank
@@ -105,6 +148,11 @@ en:
           questionnaire_for_private_users:
             body: The form is available only for private users
             title: Form closed
+          questionnaire_js_disabled:
+            body: Some of this form's features will be disabled. To improve your experience, please enable JavaScript in your browser.
+            title: JavaScript is disabled
+          questionnaire_not_published:
+            body: This form is not published yet.
           tos_agreement: By participating you accept its Terms of Service
       step_navigation:
         show:
@@ -113,9 +161,13 @@ en:
           continue: Continue
           submit: Submit
       user_answers_serializer:
+        body: Answer
+        completion: Completion
         created_at: Answered on
         id: Answer ID
-        ip_hash: Ip Hash
+        ip_hash: IP Hash
+        question: Question
         registered: Registered
+        session_token: User identifier
         unregistered: Unregistered
         user_status: User status

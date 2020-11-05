@@ -178,11 +178,12 @@ ja:
           title: プロジェクトの進化
     components:
       accountability:
-        name: アカウンタビリティ
+        name: Accountability
         settings:
           global:
             categories_label: '「カテゴリ」の名前'
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             display_progress_enabled: 進行状況を表示
             heading_leaf_level_results: プロジェクトの名前
             heading_parent_level_results: 検索結果の名前

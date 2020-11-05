@@ -10,7 +10,6 @@ pl:
         description: Opis
         end_time: Głosowanie kończy się
         start_time: Głosowanie rozpoczyna się
-        subtitle: Podtytuł
         title: Tytuł
       question:
         description: Opis
@@ -22,6 +21,10 @@ pl:
           attributes:
             attachment:
               needs_to_be_reattached: Załącz ponownie
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Musi zostać ponownie załączony
   activerecord:
     models:
       decidim/elections/answer:
@@ -42,6 +45,8 @@ pl:
   decidim:
     components:
       elections:
+        actions:
+          vote: Głosuj
         name: Wybory
         settings:
           global:
@@ -53,9 +58,14 @@ pl:
         confirm_destroy: Na pewno?
         destroy: Usuń
         edit: Edytuj
+        edit_answers: Edytuj odpowiedzi
+        edit_questions: Edytuj pytania
+        import: Importuj propozycje do odpowiedzi
         new: Nowy %{name}
         preview: Podgląd
+        publish: Opublikuj
         title: Działania
+        unpublish: Cofnij publikację
       admin:
         answers:
           create:
@@ -68,6 +78,7 @@ pl:
             title: Edytuj odpowiedź
             update: Aktualizuj odpowiedź
           index:
+            invalid_max_selections: Potrzebujesz jeszcze %{missing_answers} odpowiedzi, aby osiągnąć maksymalną liczbę wyborów
             title: Odpowiedzi
           new:
             create: Utwórz odpowiedź
@@ -90,6 +101,10 @@ pl:
           new:
             create: Utwórz wybór
             title: Nowy wybór
+          publish:
+            success: Wybór został opublikowany.
+          unpublish:
+            success: Cofnięto publikacje wyboru.
           update:
             invalid: Wystąpił błąd podczas aktualizowania wyboru
             success: Wybór zostały zaktualizowany
@@ -100,6 +115,14 @@ pl:
             name: Wybór
           question:
             name: Pytanie
+        proposals_imports:
+          create:
+            invalid: Wystąpił problem podczas importowania propozycji do odpowiedzi
+            success: "Liczba propozycji pomyślnie zaimportowanych do odpowiedzi: %{number}"
+          new:
+            create: Importuj propozycje do odpowiedzi
+            no_components: W tej przestrzeni partycypacyjnej nie ma żadnych innych komponentów propozycji żeby zaimportować propozycje do odpowiedzi.
+            select_component: Wybierz komponent
         questions:
           create:
             invalid: Wystąpił błąd podczas tworzenia pytania
@@ -118,6 +141,51 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego pytania
             success: Pytanie zostało zaktualizowane
+      admin_log:
+        election:
+          publish: "%{user_name} opublikował(a) wybór %{resource_name}"
+          unpublish: "%{user_name} cofnął/cofnęła publikację wyboru %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Zakończone
+          ongoing: Aktualne
+          upcoming: Nadchodzące
+        end_date: Data zakończenia
+        footer:
+          view: Zobacz
+          vote: Głosuj
+        label:
+          date: Data
+        questions: Pytania %{count}
+        start_date: Data rozpoczęcia
+        unspecified: Nie określono
+      elections:
+        count:
+          elections_count:
+            one: "%{count} wybór"
+            few: "%{count} wybory"
+            many: "%{count} wybory"
+            other: "%{count} wybory"
+        filters:
+          active: Aktualne
+          all: Wszystkie
+          finished: Zakończone
+          search: Szukaj
+          state: Status
+          upcoming: Nadchodzące
+        filters_small_view:
+          close_modal: Zamknij modal
+          filter: Filtr
+          filter_by: Filtruj według
+          unfold: Rozwiń
+        show:
+          back: Wszystkie wybory
+          preview: Podgląd
+          vote: Głosuj
+          voting_period_status:
+            finished: Głosowanie rozpoczęło się %{start_time} i zakończyło %{end_time}
+            ongoing: Głosowanie kończy się %{end_time}
+            upcoming: Głosowanie rozpoczyna się %{start_time}
       models:
         answer:
           fields:
@@ -133,6 +201,61 @@ pl:
             answers: Odpowiedzi
             max_selections: Maks. liczba opcji do zaznaczenia
             title: Tytuł
+      orders:
+        label: Sortuj według
+        older: Najstarsze
+        recent: Najnowsze
+      votes:
+        confirm:
+          answer: Odpowiedz
+          answer_number: odpowiedź %{number}
+          confirm: Potwierdź
+          edit: edytuj
+          header: Potwierdź swój głos
+          intro: Oto podsumowanie głosu, który zamierzasz oddać. <br> Proszę potwierdzić swój głos lub edytuj swoje odpowiedzi.
+          question: Pytanie %{count}
+        confirmed:
+          back: Powrót do wyborów
+          experience: Jak oceniasz to przeprowadzony proces?
+          feedback: Podziel się z nami swoją opinią
+          header: Oddanie głosu potwierdzone
+          lead: Twój głos został już wysłany!
+          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do skrzynki wyborczej z następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Aby to sprawdzić, skopiuj identyfikator i wklej go na <a href="evote-verify">stronie weryfikacji głosu</a>
+        encrypting:
+          header: Kodowanie głosu...
+          text: Twój głos jest szyfrowany, aby mieć pewność, że przekazałeś go anonimowo.
+        header:
+          confirm: Potwierdź swój głos
+          confirmed: Głosowanie potwierdzone
+          encrypting: Potwierdzanie głosu
+        messages:
+          not_allowed: W tej chwili nie wolno Ci głosować na ten wybór.
+        modal:
+          close: Zamknij
+          proposal_header: 'Propozycje:'
+        new:
+          more_information: Więcej informacji
+          preview_alert: To jest podgląd kabiny do głosowania.
+          question_steps: Pytanie %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> opcji wyboru"
+        voting_step:
+          back: Powrót
+          continue: Następny
+      warnings:
+        no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
+        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie przeszłe.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Wybór %{resource_title} jest teraz aktywny w %{participatory_space_title}.
+          notification_title: Wybór <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny w %{participatory_space_title}.
     participatory_processes:
       statistics:
         elections_count: Wybory
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Wyjście

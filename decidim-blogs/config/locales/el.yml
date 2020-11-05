@@ -62,6 +62,7 @@ el:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια αποκλείστηκαν

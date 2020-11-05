@@ -89,12 +89,13 @@ eu:
           filter: Filter
           filter_by: Iragazi arabera
           unfold: Zabaldu
+        form:
+          select_a_category: Hautatu kategoria bat
         index:
           new_debate: Berri eztabaida
         new:
           back: Back
           create: Sortu
-          select_a_category: Hautatu kategoria bat
           title: Berri eztabaida
       last_activity:
         new_debate_at_html: "<span> %{link}</span>eztabaida berria"

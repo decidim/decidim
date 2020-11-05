@@ -30,6 +30,7 @@ describe "Private Space Answer a survey", type: :system do
   let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
   let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
   let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+  let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire: questionnaire, position: 1) }
 
   let!(:participatory_space) { participatory_space_private }
 
@@ -59,6 +60,7 @@ describe "Private Space Answer a survey", type: :system do
 
           within ".questionnaire-question_readonly" do
             expect(page).to have_i18n_content(question.body)
+            expect(page).not_to have_i18n_content(question_conditioned.body)
           end
 
           expect(page).to have_content("Sign in with your account or sign up to answer the form.")

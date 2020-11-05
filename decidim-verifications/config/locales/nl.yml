@@ -143,8 +143,10 @@ nl:
             success: Uw account is succesvol geverifieerd.
       dummy_authorization:
         extra_explanation:
-          one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
-          other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
+          postal_codes:
+            one: Deelname is beperkt tot gebruikers met postcode %{postal_codes}.
+            other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
+          scope: Deelname is beperkt tot deelnemers met bereik %{scope_name}.
       id_documents:
         admin:
           config:

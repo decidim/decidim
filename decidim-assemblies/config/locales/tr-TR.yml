@@ -64,6 +64,12 @@ tr:
         email: E-posta
         name: isim
         role: rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: '%{valid_mime_types}Tanımlanmayan döküman tipi. Kabul edilen formatlar:'
   activerecord:
     models:
       decidim/assembly:
@@ -78,6 +84,7 @@ tr:
   decidim:
     admin:
       actions:
+        import_assembly: İçe aktarmak.
         new_assembly: Yeni montaj
       assemblies:
         create:
@@ -108,6 +115,14 @@ tr:
           copy: kopya
           select: Çoğaltmak istediğiniz verileri seçin
           title: Duplicate assembly
+      assembly_imports:
+        create:
+          error: Bu meclis derlenirken, içeri aktarılırken bir hata oluştu.
+          success: Meclis başarıyla içeriye alındı.
+        new:
+          import: İçeri aktar
+          select: Gösterilmesini istediğiniz ayrıntıları seçin
+          title: Meclis belirtmek, içe aktarmak veya oluşturmak.
       assembly_members:
         create:
           error: Bu derleme için üye eklenirken bir hata oluştu.
@@ -238,6 +253,10 @@ tr:
         assembly_copies:
           form:
             slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Bir belge ekle
+            slug_help: '%{url}Uzantı slugsları meclisi gösteren uzantıları oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve tire(-) kabul eder ve mutlaka bir harfler başlamalıdır.'
         assembly_members:
           form:
             existing_user: Mevcut kullanıcı

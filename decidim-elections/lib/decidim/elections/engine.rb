@@ -10,9 +10,16 @@ module Decidim
       isolate_namespace Decidim::Elections
 
       routes do
-        resources :elections, only: [:index, :show]
+        resources :elections, only: [:index, :show] do
+          resource :vote
+        end
 
         root to: "elections#index"
+      end
+
+      initializer "decidim_elections.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Elections::Engine.root}/app/views") # for partials
       end
 
       initializer "decidim_elections.assets" do |app|

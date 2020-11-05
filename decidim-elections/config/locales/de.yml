@@ -10,7 +10,6 @@ de:
         description: Beschreibung
         end_time: Die Abstimmung endet um
         start_time: Die Abstimmung beginnt um
-        subtitle: Untertitel
         title: Titel
       question:
         description: Beschreibung
@@ -36,6 +35,8 @@ de:
   decidim:
     components:
       elections:
+        actions:
+          vote: Abstimmung
         name: Wahlen
         settings:
           global:
@@ -47,9 +48,14 @@ de:
         confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
+        edit_answers: Antworten bearbeiten
+        edit_questions: Fragen bearbeiten
+        import: Importieren Sie Vorschläge in Projekte
         new: Neue(r/s) %{name}
         preview: Vorschau
+        publish: Veröffentlichen
         title: Aktionen
+        unpublish: Veröffentlichung rückgängig machen
       admin:
         answers:
           create:
@@ -62,6 +68,7 @@ de:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
           index:
+            invalid_max_selections: Du benötigst %{missing_answers} weitere Antwort/en, um die Auswahl zu erfüllen
             title: Antworten
           new:
             create: Antwort erstellen
@@ -84,6 +91,10 @@ de:
           new:
             create: Wahl erstellen
             title: Neue Wahl
+          publish:
+            success: Die Wahl wurde erfolgreich veröffentlicht.
+          unpublish:
+            success: Die Veröffentlichung der Wahl wurde erfolgreich zurückgezogen.
           update:
             invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten
             success: Wahl wurde erfolgreich aktualisiert
@@ -94,6 +105,14 @@ de:
             name: Wahl
           question:
             name: Frage
+        proposals_imports:
+          create:
+            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
+            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
+          new:
+            create: Importieren Sie Vorschläge in Projekte
+            no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            select_component: Bitte wählen Sie ein Objekt
         questions:
           create:
             invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
@@ -112,6 +131,27 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
             success: Frage wurde erfolgreich aktualisiert
+      admin_log:
+        election:
+          publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          unpublish: "%{user_name} hat die %{resource_name} Wahl zurückgezogen"
+      election_m:
+        badge_name:
+          finished: Abgeschlossen
+          ongoing: Aktiv
+      elections:
+        count:
+          elections_count:
+            one: "%{count} Wahlen"
+            other: "%{count} Wahlen"
+        show:
+          back: Alle Wahlen
+          preview: Vorschau
+          vote: Stimmen
+          voting_period_status:
+            finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
+            ongoing: Die Abstimmung endet am %{end_time}
+            upcoming: Die Abstimmung beginnt am %{start_time}
       models:
         answer:
           fields:
@@ -127,6 +167,58 @@ de:
             answers: Antworten
             max_selections: Maximale Auswahl
             title: Titel
+      votes:
+        confirm:
+          answer: Antwort
+          answer_number: Antwort %{number}
+          confirm: Bestätigen
+          edit: bearbeiten
+          header: Bestätige deine Stimme
+          intro: Hier ist eine Zusammenfassung der Wahl, die Sie abgeben möchten. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
+          question: Frage %{count}
+        confirmed:
+          back: Zurück zu den Wahlen
+          experience: Wie war Ihre Erfahrung mit uns?
+          feedback: Gib uns dein Feedback
+          header: Abstimmung bestätigt
+          lead: Deine Stimme wurde bereits abgegeben!
+          text: 'Sie können überprüfen, ob Ihre Stimme erfolgreich zur Wahlurne mit folgendem Identifikator hinzugefügt wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Um dies zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="evote-verify">Bestätigungsseite</a> ein
+        encrypting:
+          header: Abstimmung wird verschlüsselt...
+          text: Deine Stimme wird verschlüsselt, um sicherzustellen, dass du sie anonym abgeben kannst.
+        header:
+          confirm: Bestätige deine Stimme
+          confirmed: Abstimmung bestätigt
+          encrypting: Wahl bestätigen
+        messages:
+          not_allowed: Sie dürfen zur Zeit nicht an dieser Wahl teilnehmen.
+        modal:
+          close: Schließen
+          proposal_header: 'Vorschläge:'
+        new:
+          more_information: Weitere Informationen
+          preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
+          question_steps: Frage %{current_step} von %{total_steps}
+          selections: "%{selected} von %{max_selections}<br> ausgewählt"
+        voting_step:
+          back: Zurück
+          continue: Weiter
+    events:
+      elections:
+        election_published:
+          email_intro: 'Die Wahl %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es von dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
+          email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
+          notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Wahlen
     participatory_processes:
       statistics:
         elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Beenden

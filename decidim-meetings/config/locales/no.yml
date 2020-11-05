@@ -16,10 +16,12 @@
         available_slots: Tilgjengelige plasser for dette møtet
         decidim_category_id: Kategori
         decidim_scope_id: Tema
+        decidim_user_group_id: Brukergruppe
         description: Beskrivelse
         end_time: Sluttid
         location: Plassering
         location_hints: Plasseringstips
+        organizer_gid: Opprett som
         organizer_id: Planlegger
         private_meeting: Privat møte
         registration_form_enabled: Registreringsskjemaet aktivert
@@ -81,12 +83,15 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            creation_enabled_for_participants: Deltakere kan opprette møter
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
+            creation_enabled_for_participants: Deltakere kan nå opprette møter
+            creation_enabled_for_user_groups: Brukergrupper kan nå opprette møter
     events:
       meetings:
         meeting_closed:
@@ -223,9 +228,6 @@
           edit:
             close: Lukk
             title: Lukk møte
-        meeting_copies:
-          form:
-            select_organizer: Velg arrangøren
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
@@ -241,7 +243,6 @@
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
             location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
-            select_organizer: Velg arrangøren
           index:
             title: Møter
           new:
@@ -345,18 +346,32 @@
       meeting:
         not_allowed: Du er ikke tillatt å se dette møtet
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} møte"
+            other: "%{count} møter"
+        create:
+          invalid: Det oppstod et problem med å opprette dette møtet.
+          success: Du har nå opprettet møtet.
+        edit:
+          back: Tilbake
+          title: Rediger møtet ditt
+          update: Oppdater
         filters:
           category: Kategori
-          category_prompt: Velg en kategori
           date: Dato
-          past: Fortid
+          date_values:
+            all: Alle
+            past: Tidligere
+            upcoming: Kommende
           search: Søk
-          upcoming: Kommende
         filters_small_view:
           close_modal: Lukk modal
           filter: Filter
           filter_by: Filtrer etter
           unfold: Åpne
+        form:
+          location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
         meeting_minutes:
           meeting_minutes: Møte referater
           related_information: Relatert Informasjon

@@ -17,6 +17,7 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   before do
+    component.update(settings: { scopes_enabled: true })
     visit path
   end
 
@@ -152,6 +153,10 @@ describe "Explore results", versioning: true, type: :system do
         result
       end
 
+      before do
+        visit current_path
+      end
+
       it "shows tags for scope" do
         expect(page).to have_selector("ul.tags.tags--result")
         within "ul.tags.tags--result" do
@@ -171,7 +176,7 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows the comments" do
         comments.each do |comment|
-          expect(page).to have_content(comment.body)
+          expect(page).to have_content(comment.body.values.first)
         end
       end
     end
@@ -190,32 +195,33 @@ describe "Explore results", versioning: true, type: :system do
 
       it "shows related proposals" do
         proposals.each do |proposal|
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
           expect(page).to have_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end
 
       it "the result is mentioned in the proposal page" do
-        click_link proposal.title
+        click_link translated(proposal.title)
         expect(page).to have_i18n_content(result.title)
       end
     end
 
     context "with linked projects" do
-      let(:project_component) do
+      let(:budgets_component) do
         create(:component, manifest_name: :budgets, participatory_space: result.component.participatory_space)
       end
-      let(:budgets) { create_list(:project, 3, component: project_component) }
-      let(:project) { budgets.first }
+      let(:budget) { create(:budget, component: budgets_component) }
+      let(:projects) { create_list(:project, 3, budget: budget) }
+      let(:project) { projects.first }
 
       before do
-        result.link_resources(budgets, "included_projects")
+        result.link_resources(projects, "included_projects")
         visit current_path
       end
 
       it "shows related projects" do
-        budgets.each do |project|
+        projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end
@@ -257,13 +263,14 @@ describe "Explore results", versioning: true, type: :system do
         visit_component
       end
 
-      context "when the process has a linked scope" do
+      context "when the process has a linked scope and the component has scopes disabled" do
         before do
           participatory_process.update(scope: scope)
+          component.update(settings: { scopes_enabled: false })
           visit current_path
         end
 
-        it "enables filtering by scope" do
+        it "disables filtering by scope" do
           within ".scope-filters" do
             expect(page).not_to have_content(/Scopes/i)
           end

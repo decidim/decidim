@@ -5,7 +5,7 @@ module Decidim
   module CookiesHelper
     # Public: Returns true if the cookie policy has been accepted
     def cookies_accepted?
-      cookies["decidim-cc"].present?
+      cookies[Decidim.config.consent_cookie_name].present?
     end
   end
 end

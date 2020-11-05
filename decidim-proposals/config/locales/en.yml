@@ -127,6 +127,7 @@ en:
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
             geocoding_enabled: Geocoding enabled
             minimum_votes_per_user: Minimum supports per user
             new_proposal_body_template: New proposal body template
@@ -144,6 +145,8 @@ en:
             proposal_wizard_step_3_help_text: Proposal wizard "Complete" step help text
             proposal_wizard_step_4_help_text: Proposal wizard "Publish" step help text
             resources_permissions_enabled: Actions permissions can be set for each proposal
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
             threshold_per_proposal: Threshold per proposal
             vote_limit: Support limit per participant
           step:
@@ -720,8 +723,13 @@ en:
             one: "%{count} proposal"
             other: "%{count} proposals"
         edit:
+          add_documents: Documents
+          add_images: File
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          delete_document: Delete Document
+          delete_image: Delete Image
+          gallery_legend: "(Optional) Add an image to the proposal card"
           select_a_category: Please select a category
           send: Send
           title: Edit proposal

@@ -1,0 +1,122 @@
+is:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Flokkunarupplýsingar
+        decidim_category_id: Flokkar af settum tillögum sem þú vilt sækja um teikninguna
+        decidim_proposals_component_id: Tillögur settar
+        target_items: Fjöldi tillagna til að velja (gefur til kynna fjölda tillagna sem þú vilt velja með því að teikna mikið af þeim hópi tillagna sem þú hefur áður valið)
+        title: Titill
+        witnesses: Vottar
+  decidim:
+    components:
+      sortitions:
+        name: Flokkanir
+        settings:
+          global:
+            comments_enabled: Athugasemdir virkt
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Flokkunin "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{participatory_space_title}". Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: Ný flokkun bætt við %{participatory_space_title}
+          notification_title: Flokkunin <a href="%{resource_path}">%{resource_title}</a> hefur verið bætt við %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        sortitions_count: Flokkanir
+    sortitions:
+      admin:
+        actions:
+          destroy: Hætta við flokkunina
+          edit: Breyta
+          show: Uppsetningarupplýsingar
+        models:
+          sortition:
+            fields:
+              category: Flokkur
+              created_at: Sköpunardegi
+              decidim_proposals_component: Tillögur hluti
+              dice: Dice
+              reference: Tilvísun
+              request_timestamp: Teikna tíma
+              seed: Fræ
+              target_items: Atriði til að velja
+              title: Titill
+            name:
+              one: Flokkun
+              other: Flokkanir
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Ertu viss um að þú viljir hætta við þessa flokkun?
+            destroy: Hætta við flokkun
+            title: Afpöntun á flokkuninni
+          create:
+            success: Flokkun búin til
+          destroy:
+            error: Ekki er hægt að hætta við flokkunina.
+            success: Flokkun tókst að hætta við
+          edit:
+            title: Uppfærðu upplýsingar um flokkunina
+            update: Uppfæra
+          form:
+            all_categories: Allir flokkar
+            select_proposal_component: Veldu tillögur settar
+            title: Ný flokkun fyrir tillögur
+          index:
+            title: Flokkanir
+          new:
+            confirm: Með því að ýta á næstu hnappinn mun Decidim skrá dagsetningu og tíma (með nákvæmni sekúndna) og ásamt dice rúlla, verða þessar upplýsingar notaðar til að búa til handahófi val. Aðgerðin verður óafturkræf, þegar hnappurinn er smelltur verður niðurstaðan af þessari teikningu birt, ásamt þeim gögnum sem slegnar eru inn á þessu eyðublaði og ekki hægt að breyta, vinsamlegast athugaðu efnið vandlega
+            create: Búa til
+            title: Ný flokkun
+          show:
+            selected_proposals: Tillögur valdar fyrir teikningu
+      admin_log:
+        sortition:
+          create: "%{user_name} búið til %{resource_name} flokkun í %{space_name}"
+          delete: "%{user_name} hætt %{resource_name} flokkun í %{space_name}"
+          update: "%{user_name} uppfært %{resource_name} flokkun í %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 tillaga
+            other: "%{count} tillögur"
+        filters:
+          active: Virkur
+          all: Allt
+          cancelled: Hætt við
+          category: Flokkur
+          category_prompt: Veldu flokk
+          search: Leita
+        filters_small_view:
+          close_modal: Loka mát
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        linked_sortitions:
+          selected_proposals: Valdar tillögur
+        orders:
+          label: 'Order flokkun eftir:'
+          random: Handahófi
+          recent: Nýleg
+        results_count:
+          count:
+            one: valið tillaga
+            other: valin tillögur
+        show:
+          any_category: frá öllum flokkum
+          cancelled: Hætt við flokkun
+          candidate_proposal_ids: Flokkun tillögur röð og auðkenni
+          candidate_proposals_info: 'Flokkunin var gerð meðal eftirfarandi tillagna (%{category_label}), með eftirfarandi auðkenni (með feitletruðu völdum tillögum)  '
+          category: frá %{category} flokki
+          dice_result: "(1) Dice niðurstaða"
+          introduction: 'Þessi síða inniheldur niðurstöður flokkunarinnar %{reference}. Með þessari flokkun hafa %{target_items} fjöldi niðurstaðna verið valin af handahófi og með jöfn líkindadreifingu frá settum tillögum sem birtast á skjánum. Í sambandi við niðurstöðurnar eru upplýsingar sem birtar eru á þessari síðu allar nauðsynlegar upplýsingar til að hámarka ábyrgðir og endurskapa niðurstöðurnar. Lykillinn að gæðum þessa flokks er tvöfalt handahófi sem er gefin út af túlkun (staðfest af vitni) og nákvæman tíma flokkunarinnar sem gefur inntak fyrir reiknirit sem býr til handahófi val. Tímasæðið fyrir flokkunina er svo nákvæm (sekúndur) að það er ómögulegt að stjórna af mönnum og gefur þannig tvöfalt "óráðanlegt" inntak til að tryggja sanngjarna afleiðingu.  '
+          mathematical_result: Niðurstaða (1) x (2)
+          proposals_selected_by_sortition: Tillögur valdar af flokkun
+          sortition_reproducibility_details: Flokkunarleiðbeiningar upplýsingar
+          time_seed: "(2) Tími fræ"
+          witnesses: Vottar
+        sortitions_count:
+          count:
+            one: 1 flokkun
+            other: "%{count} flokkanir"

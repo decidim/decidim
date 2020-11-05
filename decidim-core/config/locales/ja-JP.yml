@@ -49,7 +49,7 @@ ja:
       decidim/amendment:
         other: 修正
       decidim/endorsement:
-        other: 支持
+        other: <unk>
       decidim/user:
         other: 参加者
       decidim/user_group:
@@ -167,7 +167,7 @@ ja:
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
-        title: 似たような訂正
+        title: 似たような<unk>
       created:
         error: 修正案の作成中にエラーが発生しました。
         success: 修正案が正常に作成されました。
@@ -257,8 +257,11 @@ ja:
       dummy_authorization_handler:
         explanation: '「X」で終わるドキュメント番号を導入して認証を取得する'
         fields:
+          allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
+          allowed_scope_id: 許可されたスコープ
           document_number: ドキュメント番号
           postal_code: 郵便番号
+          scope_id: スコープ
         name: 許可の例：
       dummy_authorization_workflow:
         name: ダミー認証ワークフロー
@@ -319,10 +322,10 @@ ja:
         no_content: この基準のコンテンツが見つかりませんでした
         order:
           all_types: すべてのタイプ
-          collaborative_draft: 共同草案
+          collaborative_draft: 共同ドラフトformat@@0
           comment: コメント
           debate: ディベート
-          initiative: イニシアチブ
+          initiative: イニシアチブformat@@0
           meeting: 会議
           post: 投稿
           proposal: 提案
@@ -337,6 +340,7 @@ ja:
           global:
             amendments_enabled: 修正は有効になっています
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長
             dummy_global_attribute_1: ダミーステータス１
             dummy_global_attribute_2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
@@ -454,7 +458,7 @@ ja:
           update_profile: プロフィールを更新
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> があなたのアカウントを使用しようとしています"
     endorsable:
-      endorsements: 支持
+      endorsements: <unk>
       endorsements_count: 支持数
     endorsement_buttons_cell:
       already_endorsed: 承認済み
@@ -784,7 +788,7 @@ ja:
     help:
       main_topic:
         default_page:
-          content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや会議体、イニシアチブ、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
+          content: "<p>%{organization} では、トップメニューにあるスペース（プロセスや集会、イニシアチブ、コンサルテーション）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: (個人または他の人と一緒に) 提案をする 、討論会に参加する、実施するプロジェクトの優先順位を決める、対面会議に出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
@@ -990,9 +994,9 @@ ja:
     pages:
       home:
         extended:
-          debates: ディベート
-          debates_explanation: 討論し、話し合い、意見を共有し、関連するトピックを豊かにしましょう。
-          how_to_participate: 参加型プロセスに参加するにはどうすればいいですか?
+          debates: ディベート数
+          debates_explanation: 議論し、意見を共有し、関連するトピックを豊かにしましょう。
+          how_to_participate: プロセスに参加するにはどうすればいいですか?
           meetings: ミーティング
           meetings_explanation: 公開ミーティングに参加できる場所と時間を確認します。
           more_info: '%{resource_name} に関する詳細情報'
@@ -1009,16 +1013,16 @@ ja:
           headline: メトリック
         statistics:
           answers_count: 完了した調査
-          assemblies_count: 会議体
+          assemblies_count: アセンブリ
           comments_count: コメント
-          conferences_count: カンファレンス
-          debates_count: ディベート
-          endorsements_count: 支持
+          conferences_count: 会議
+          debates_count: ディベート数
+          endorsements_count: <unk>
           headline: '%{organization} の現在の状態'
           meetings_count: ミーティング
           orders_count: 投票
           pages_count: ページ
-          processes_count: 参加型プロセス
+          processes_count: プロセス
           projects_count: プロジェクト
           proposals_accepted: 承認された提案
           proposals_count: 提案
@@ -1098,8 +1102,14 @@ ja:
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が自動的に非表示になりました。</p>
         subject: リソースは自動的に非表示になりました
       report:
+        authors: 著者
+        content: 報告されたコンテンツ
+        date: 報告日時
+        details: 詳細
         hello: こんにちは、 %{name} さん。
         manage_moderations: モデレーションの管理
+        participatory_space: 参加者のスペース
+        reason: 理由：
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が報告されました。</p>
         subject: リソースが報告されました
     reports:
@@ -1234,7 +1244,7 @@ ja:
       show:
         my_interests: 興味のあるもの
         no_scopes: この組織にはまだ範囲がありません！
-        select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
+        select_your_interests: format@@0タブで、関連するイベントを受信するトピックを選択します。
         update_my_interests: 興味を更新する
       update:
         error: 更新中に問題が発生しました。
@@ -1255,7 +1265,6 @@ ja:
     versions:
       resource_version:
         of_versions: "( %{number} の)"
-        see_other_versions: 他のバージョンを見る
         version: バージョン %{number}
     versions_list:
       show:

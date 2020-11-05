@@ -30,7 +30,7 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :join, :meeting, meeting: meeting
+        enforce_permission_to :register, :meeting, meeting: meeting
 
         @form = JoinMeetingForm.from_params(params)
 

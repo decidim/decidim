@@ -227,9 +227,6 @@ hu:
           edit:
             close: Bezárás
             title: Ttalálkozó lezárása
-        meeting_copies:
-          form:
-            select_organizer: Válassz szervezőt
         meetings:
           close:
             invalid: Probléma merült fel a találkozó lezárásakor
@@ -249,7 +246,6 @@ hu:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
             location_hints_help: 'Helymeghatározási tippek: további információk. Példa: az épület padlója'
-            select_organizer: Válassz szervezőt
           index:
             title: Találkozók
           new:
@@ -355,16 +351,15 @@ hu:
       meetings:
         filters:
           category: Kategória
-          category_prompt: Válassz kategóriát
           date: Dátum
-          past: Múlt
           search: Keresés
-          upcoming: közelgő
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
+        form:
+          location_hints_help: 'Helymeghatározási tippek: további információk. Példa: az épület padlója'
         meeting_minutes:
           meeting_minutes: Találkozó jegyzőkönyve
           related_information: Kapcsolódó információ

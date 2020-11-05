@@ -4,6 +4,8 @@ module Decidim
   module Blogs
     # Exposes the blog resource so users can view them
     class PostsController < Decidim::Blogs::ApplicationController
+      include Flaggable
+
       helper_method :posts, :post, :paginate_posts, :posts_most_commented
 
       def index; end

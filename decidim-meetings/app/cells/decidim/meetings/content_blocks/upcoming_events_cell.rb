@@ -16,13 +16,14 @@ module Decidim
           @upcoming_events ||= Decidim::Meetings::Meeting
                                .includes(component: :participatory_space)
                                .where(component: meeting_components)
+                               .visible_meeting_for(current_user)
                                .where("end_time >= ?", Time.current)
                                .order(start_time: :asc)
                                .limit(limit)
         end
 
         def geolocation_enabled?
-          Decidim.geocoder.present?
+          Decidim::Map.available?(:geocoding)
         end
 
         def meetings_directory_path

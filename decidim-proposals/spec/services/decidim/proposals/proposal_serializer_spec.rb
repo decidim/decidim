@@ -69,7 +69,7 @@ module Decidim
         end
 
         it "serializes the amount of comments" do
-          expect(serialized).to include(comments: proposal.comments.count)
+          expect(serialized).to include(comments: proposal.comments_count)
         end
 
         it "serializes the date of creation" do

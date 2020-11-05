@@ -1,6 +1,12 @@
 <%
 js_configs = {
-  icons_path: image_path("decidim/icons.svg")
+  icons_path: image_path("decidim/icons.svg"),
+  messages: {
+    "selfxssWarning": {
+      title: t("decidim.security.selfxss_warning.title"),
+      description: t("decidim.security.selfxss_warning.description")
+    }
+  }
 }
 character_messages = {
   "charactersAtLeast": {

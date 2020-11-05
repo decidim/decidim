@@ -1,0 +1,55 @@
+is:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Ertu viss um að þú viljir eyða þessu?
+        edit: Breyta
+        new: Nýtt
+        save: Vista
+        title: Aðgerðir
+      admins:
+        edit:
+          title: Breyta admin
+          update: Uppfæra
+        index:
+          title: Admins
+        new:
+          create: Búa til
+          title: Nýr admin
+      default_pages:
+        placeholders:
+          content: Vinsamlegast bættu við mikilvægu efni á %{page} truflanir síðunni á stjórnborðinu.
+          title: Sjálfgefin titill fyrir %{page}
+      menu:
+        admins: Admins
+        dashboard: Mælaborð
+        organizations: Stofnanir
+      models:
+        admin:
+          fields:
+            created_at: Búið til á
+            email: Email
+          name: Admin
+          validations:
+            email_uniqueness: annar admin með sama netfangi er þegar til
+        organization:
+          actions:
+            save_and_invite: Búðu til stofnun og bjóðið admin
+          fields:
+            created_at: Búið til á
+            name: Nafn
+          name: Skipulag
+      organizations:
+        edit:
+          secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
+        index:
+          title: Stofnanir
+        new:
+          secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
+          title: Ný samtök
+      shared:
+        notices:
+          no_organization_warning_html: Þú verður að stofna stofnun til að byrja. Gakktu úr skugga um að þú lest %{guide} áður en þú heldur áfram.
+          our_getting_started_guide: byrjunarleiðbeiningar okkar
+      titles:
+        dashboard: Mælaborð

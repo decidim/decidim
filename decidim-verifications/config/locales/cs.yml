@@ -143,10 +143,12 @@ cs:
             success: Účet byl úspěšně ověřen.
       dummy_authorization:
         extra_explanation:
-          one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
-          few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
-          other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          postal_codes:
+            one: Účast je omezena na uživatele s poštovním směrovacím číslem %{postal_codes}.
+            few: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+            many: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+            other: 'Účast je omezena na uživatele s některým z následujících poštovních směrovacích čísel: %{postal_codes}.'
+          scope: Účast je omezena na účastníky s rozsahem %{scope_name}.
       id_documents:
         admin:
           config:

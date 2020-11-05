@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Explore versions", versioning: true, type: :system do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization: organization) }
-  let!(:proposal) { create(:proposal, body: "One liner body", component: component) }
-  let!(:emendation) { create(:proposal, body: "Amended One liner body", component: component) }
+  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component: component, skip_injection: true) }
+  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component: component, skip_injection: true) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
 
   let(:form) do
@@ -112,11 +112,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("TITLE")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(proposal.title)
+          expect(page).to have_content(translated(proposal.title))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(emendation.title)
+          expect(page).to have_content(translated(emendation.title))
         end
       end
 
@@ -124,11 +124,11 @@ describe "Explore versions", versioning: true, type: :system do
         expect(page).to have_content("BODY")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(proposal.body)
+          expect(page).to have_content(translated(proposal.body))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(emendation.body)
+          expect(page).to have_content(translated(emendation.body))
         end
       end
     end

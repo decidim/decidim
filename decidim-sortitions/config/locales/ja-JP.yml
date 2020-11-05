@@ -22,6 +22,7 @@ ja:
         settings:
           global:
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
     events:
       sortitions:
         sortition_created:

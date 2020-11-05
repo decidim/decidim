@@ -143,8 +143,9 @@ el:
             success: Ο λογαριασμός σας επαληθεύτηκε με επιτυχία.
       dummy_authorization:
         extra_explanation:
-          one: Participation is restricted to participants with the postal code %{postal_codes}.
-          other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
+          postal_codes:
+            one: Participation is restricted to participants with the postal code %{postal_codes}.
+            other: 'Participation is restricted to participants with any of the following postal codes: %{postal_codes}.'
       id_documents:
         admin:
           config:

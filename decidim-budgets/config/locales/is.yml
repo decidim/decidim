@@ -1,0 +1,114 @@
+is:
+  activemodel:
+    attributes:
+      project:
+        budget: Fjárhagsáætlun
+        decidim_category_id: Flokkur
+        decidim_scope_id: Umfang
+        description: Lýsing
+        proposal_ids: Tengdar tillögur
+        title: Titill
+  decidim:
+    budgets:
+      actions:
+        attachments: Viðhengi
+        confirm_destroy: Ertu viss um að þú viljir eyða þessu verkefni?
+        destroy: Eyða
+        edit: Breyta
+        preview: Preview
+        title: Aðgerðir
+      admin:
+        models:
+          project:
+            name: Verkefni
+        projects:
+          create:
+            success: Verkefni búin til með góðum árangri
+          edit:
+            title: Breyta verkefnum
+            update: Uppfæra
+          index:
+            finished_orders: Lokið atkvæði
+            pending_orders: Víkjandi atkvæði
+            title: Verkefni
+          new:
+            create: Búa til
+          update:
+            success: Verkefnið hefur verið uppfært
+      admin_log:
+        project:
+          create: "%{user_name} búið til %{resource_name} verkefnið í %{space_name} rúminu"
+          delete: "%{user_name} eyddi %{resource_name} verkefninu í %{space_name} rúminu"
+          update: "%{user_name} uppfært %{resource_name} verkefnið í %{space_name} rúminu"
+      models:
+        project:
+          fields:
+            title: Titill
+      projects:
+        budget_confirm:
+          are_you_sure: Ertu sammála? Þegar þú hefur staðfest atkvæði þitt getur þú ekki breytt því.
+          cancel: Hætta við
+          confirm: Staðfesta
+          description: Þetta eru þau verkefni sem þú hefur valið að vera hluti af fjárhagsáætluninni.
+          title: Staðfestu atkvæði
+        budget_excess:
+          close: Loka
+          description: Þetta verkefni fer yfir hámarks fjárhagsáætlun og er ekki hægt að bæta við. Ef þú vilt getur þú eytt verkefni sem þú hefur þegar valið til að bæta við eða gera atkvæði með óskir þínar.
+          ok: Allt í lagi
+          title: Hámarks fjárhagsáætlun yfir
+        budget_summary:
+          are_you_sure: Ertu viss um að þú viljir hætta við atkvæði þitt?
+          assigned: 'Úthlutað:'
+          cancel_order: Eyðu atkvæðagreiðslunni og farðu yfir
+          checked_out:
+            description: Þú hefur þegar kosið fyrir fjárhagsáætlunina. Ef þú hefur skipt um skoðun geturðu %{cancel_link}.
+            title: Fjárhagsleg atkvæði lokið
+          description: Hvaða verkefni heldurðu að við eigum að úthluta fjárhagsáætlun fyrir? Gefðu amk %{minimum_budget} til verkefna sem þú vilt og kjósa með óskir þínar til að skilgreina fjárhagsáætlunina.
+          title: Þú ákveður fjárhagsáætlunina
+        count:
+          projects_count:
+            one: 1 verkefni
+            other: "%{count} verkefni"
+        filters:
+          category: Flokkur
+          scope: Umfang
+          search: Leita
+        filters_small_view:
+          close_modal: Loka mát
+          filter: Sía
+          filter_by: Sía eftir
+          unfold: Fella út
+        order_progress:
+          vote: Kjósa
+        order_selected_projects:
+          remove: Fjarlægja
+          selected_projects:
+            one: verkefni valin
+            other: verkefni valin
+          view: Útsýni
+        project:
+          count:
+            one: 1 stuðningur
+            other: "%{count} styður"
+        show:
+          budget: Fjárhagsáætlun
+          view_all_projects: Skoða öll verkefni
+    components:
+      budgets:
+        actions:
+          vote: Kjósa
+        name: Fjárveitingar
+        settings:
+          global:
+            announcement: Tilkynning
+            comments_enabled: Athugasemdir virkt
+            projects_per_page: Verkefni á síðu
+            total_budget: Samtals fjárhagsáætlun
+            vote_threshold_percent: Kjósa þrjú prósent
+          step:
+            announcement: Tilkynning
+            comments_blocked: Athugasemdir læst
+            show_votes: Sýna atkvæði
+  index:
+    confirmed_orders_count: Atkvæðagreiðsla telja
+  total_budget: Samtals fjárhagsáætlun

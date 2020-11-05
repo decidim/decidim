@@ -9,6 +9,10 @@ shared_examples "comments" do
     switch_to_host(organization.host)
   end
 
+  after do
+    expect_no_js_errors
+  end
+
   it "shows the list of comments for the resource" do
     visit resource_path
 
@@ -18,7 +22,7 @@ shared_examples "comments" do
     within "#comments" do
       comments.each do |comment|
         expect(page).to have_content comment.author.name
-        expect(page).to have_content comment.body
+        expect(page).to have_content comment.body.values.first
       end
     end
   end
@@ -59,6 +63,35 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_selector(".add-comment form")
+    end
+
+    context "when no default comments length specified" do
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("1000 characters left")
+        end
+      end
+    end
+
+    context "when organization has a default comments length params" do
+      let!(:organization) { create(:organization, comments_max_length: 2000) }
+
+      it "displays the numbers of characters left" do
+        within ".add-comment form" do
+          expect(page).to have_content("2000 characters left")
+        end
+      end
+
+      context "when component has a default comments length params" do
+        it "displays the numbers of characters left" do
+          component.update!(settings: { comments_max_length: 3000 })
+          visit current_path
+
+          within ".add-comment form" do
+            expect(page).to have_content("3000 characters left")
+          end
+        end
+      end
     end
 
     context "when user adds a new comment" do
@@ -284,6 +317,24 @@ shared_examples "comments" do
           expect(page).to have_comment_from(user, "This text mentions a @nonexistent user", wait: 20)
           expect(page).not_to have_link "@nonexistent"
         end
+      end
+    end
+
+    describe "hashtags", :slow do
+      let(:content) { "A comment with a hashtag #decidim" }
+
+      before do
+        visit resource_path
+
+        within ".add-comment form" do
+          fill_in "add-comment-#{commentable.commentable_type}-#{commentable.id}", with: content
+          click_button "Send"
+        end
+      end
+
+      it "replaces the hashtag with a link to the hashtag search" do
+        expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
+        expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
       end
     end
   end

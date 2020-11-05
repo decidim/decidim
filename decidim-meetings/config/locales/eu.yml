@@ -223,9 +223,6 @@ eu:
           edit:
             close: Itxi
             title: Itxi topaketa
-        meeting_copies:
-          form:
-            select_organizer: Aukeratu antolatzailea
         meetings:
           close:
             invalid: Arazo bat izan da topaketa hau ixtean.
@@ -237,8 +234,6 @@ eu:
             success: Topaketa zuzen ezabatu da.
           edit:
             update: Eguneratu
-          form:
-            select_organizer: Aukeratu antolatzailea
           index:
             title: Topaketa-zerrenda
           new:
@@ -343,11 +338,8 @@ eu:
       meetings:
         filters:
           category: Kategoria
-          category_prompt: Aukeratu kategoria bat
           date: Data
-          past: Iragana
           search: Bilatu
-          upcoming: Datozen
         filters_small_view:
           close_modal: Itxi leihoa
           filter: Iragazi

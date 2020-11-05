@@ -13,6 +13,7 @@ module Decidim
       helper Decidim::DecidimFormHelper
       helper Decidim::CtaButtonHelper
       helper Decidim::AuthorizationFormHelper
+      helper Decidim::TranslationsHelper
 
       layout "layouts/decidim/user_profile", only: [:index]
 

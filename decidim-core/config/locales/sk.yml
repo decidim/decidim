@@ -440,7 +440,6 @@ sk:
           buttons:
             check: Skontrolujte a pokračujte
             close_modal: Zatvoriť okno
-            uncheck: Nechať nezaškrtnuté
           notice: |-
             | - <P> Hej, ste si istí, že nechcete dostávať newsletter? <br> Označte zaškrtávacie políčko nižšie. <br> Pre nás je veľmi dôležité, aby ste obdržali príležitostné e-maily aby ste dostali dôležitá oznámenia, môžete to vždy zmeniť v nastavenia oznámenia. </ p> <P> Ak nezaškrtnete zaškrtávacie políčko, môže vám chýbať relevantné informácie o nových možnostiach účasti v rámci platformy. <br> Ak sa chcete aj naďalej vyhýbať prijímanie informačných spravodajcov, dokonale rozumieme vášmu rozhodnutiu. </ p> <P> Ďakujeme, že ste si to prečítali! </ P>
           title: Upozornenie na bulletin
@@ -844,8 +843,6 @@ sk:
         start:
           send: Poslat
           title: Spusťte konverzaci
-        update:
-          error: Zpráva nebyla odeslána. Zkuste to později znovu
     metrics:
       download:
         csv: Stiahnuť údaje (CSV)
@@ -990,7 +987,6 @@ sk:
           error: Pri prijímaní zmluvných podmienok došlo k chybe.
           success: Skvelý! Súhlasíte s podmienkami.
         form:
-          agreement: Súhlasím s týmito podmienkami
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
@@ -1130,6 +1126,9 @@ sk:
       index:
         no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
+    user_conversations:
+      update:
+        error: Zpráva nebyla odeslána. Zkuste to později znovu
     user_interests:
       show:
         my_interests: Moje záujmy

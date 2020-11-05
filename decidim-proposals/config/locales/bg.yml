@@ -1,0 +1,237 @@
+bg:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Адрес
+        body: Тяло
+        category_id: Категория
+        decidim_scope_id: Сфера
+        has_address: Има адрес
+        state: Състояние
+        title: Заглавие
+        user_group_id: Създай съвместна чернова като
+      proposal:
+        address: Адрес
+        answer: Отговор
+        answered_at: Отговорено като
+        automatic_hashtags: Хаштаговете се добавят автоматично
+        body: Основен текст
+        category_id: Категория
+        decidim_scope_id: Сфера
+        has_address: Има адрес
+        state: Състояние
+        suggested_hashtags: Предложени хаштагове
+        title: Заглавие
+        user_group_id: Създай предложение като
+      proposal_answer:
+        answer: Отговор
+      proposals_copy:
+        copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия и това действие не е обратимо.
+        origin_component_id: Компонент, от който да се копират предложенията
+      proposals_import:
+        import_proposals: Копиране на предложения
+        keep_authors: Запази автора на оригинала
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Име на проверяващ
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Невалиден тип документ. Допустимите формати са: %{valid_mime_types}'
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Необходимо е да се прикачи отново
+            body:
+              cant_be_equal_to_template: не може да е еднакво с шаблона
+              identical: И заглавието не може да е еднакво
+            title:
+              identical: И основния текст не може да е еднакъв
+    models:
+      decidim/proposals/accepted_proposal_event: Предложението е прието
+      decidim/proposals/admin/update_proposal_category_event: Категорията на предложението е променена
+      decidim/proposals/admin/update_proposal_scope_event: Сферата на предложението е променена
+      decidim/proposals/creation_enabled_event: Създаването на предложения е разрешено
+      decidim/proposals/endorsing_enabled_event: Одобряването на предложения е разрешено
+      decidim/proposals/evaluating_proposal_event: Предложението се разглежда
+      decidim/proposals/proposal_mentioned_event: Предложението е споменато
+      decidim/proposals/publish_proposal_event: Предложението е публикувано
+      decidim/proposals/rejected_proposal_event: Предложението е отхвърлено
+      decidim/proposals/voting_enabled_event: Гласуването за предложения е разрешено
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Съвместна чернова
+        other: Съвместни чернови
+      decidim/proposals/proposal:
+        one: Предложение
+        other: Предложения
+      decidim/proposals/proposal_note:
+        one: Бележка
+        other: Бележки
+      decidim/proposals/proposal_vote:
+        one: Поддръжка
+        other: Поддръжки
+  decidim:
+    admin:
+      filters:
+        proposals:
+          valuator_role_ids_has:
+            label: Прикрепено към проверяващ
+        search_placeholder:
+          id_string_or_title_cont: Търси в %{collection} по ID или заглавие.
+    components:
+      proposals:
+        actions:
+          amend: Промяна
+          create: Създай
+          endorse: Одобри
+          vote: Поддръжка
+          withdraw: Оттегляне
+        name: Предложения
+        settings:
+          global:
+            allow_card_image: Позволи изображение на карта
+            amendments_enabled: Поправките са разрешени
+            amendments_enabled_help: Ако е активно, конфигурирайте свойствата на измененията за всяка стъпка.
+            amendments_wizard_help_text: Помощен текст на съветника за изменения
+            announcement: Обявление
+            attachments_allowed: Позволи прикачвания
+            can_accumulate_supports_beyond_threshold: Може да събира поддръжка над прага
+            collaborative_drafts_enabled: Съвместните чернови са разрешени
+            comments_enabled: Коментарите са разрешени
+            geocoding_enabled: Координатите са разрешени
+            minimum_votes_per_user: Минимална поддръжка за потребител
+            new_proposal_body_template: Шаблон за основен текст на предложение
+            new_proposal_body_template_help: Можете да зададете текст по подразбиране за нови предложения
+            new_proposal_help_text: Нов помощен текст на предложение
+            official_proposals_enabled: Официалните предложения са разрешени
+            participatory_texts_enabled: Текстовете от участници са разрешени
+            participatory_texts_enabled_readonly: Тази настройка не е активна, ако има съществуващи предложения. Моля, създайте нов компонент „Предложения“, ако желаете да активирате тази функция или изчистете всички внесени предложения в менюто „Текст на участници“, ако искате да я деактивирате.
+            proposal_answering_enabled: Отговора на предложение е разрешен
+            proposal_edit_before_minutes: Предложенията могат да бъдат редактирани от авторите преди да минат толкова минути
+            proposal_length: Максимална дължина на основния текст на предложението
+            proposal_limit: Максимален брой предложения на участник
+            proposal_wizard_step_1_help_text: Текст на помощника за стъпка "Създай"
+            proposal_wizard_step_2_help_text: Текст на помощника за стъпка "Сравни"
+            proposal_wizard_step_3_help_text: Текст на помощника за стъпка "Завърши"
+            proposal_wizard_step_4_help_text: Текст на помощника за стъпка "Публикувай"
+            resources_permissions_enabled: Позволените действия могат да се задават за всяко предложение
+            threshold_per_proposal: Праг за предложенията
+            vote_limit: Максимален брой поддръжки на участник
+          step:
+            amendment_creation_enabled: Създаване на поправки разрешено
+            amendment_creation_enabled_help: Участникът може да изменя предложенията.
+            amendment_promotion_enabled: Популяризиране на поправки разрешено
+            amendment_promotion_enabled_help: Авторите на изменения могат да популяризират в предложението отхвърлено изменение.
+            amendment_reaction_enabled: Реагиране на поправки разрешено
+            amendment_reaction_enabled_help: Авторите на предложението ще могат да приемат или отхвърлят измененията на участник.
+            amendments_visibility: Видимост на поправки
+            amendments_visibility_choices:
+              all: Поправките са видими за всички
+              participants: Поправките са видими за авторите им
+            amendments_visibility_help: Ако е избрана опцията „Измененията са видими само за техните автори“, участникът трябва да влезе, за да види направените изменения.
+            announcement: Обявление
+            answers_with_costs: Активиране на "тежест" за отговорите на предложение
+            automatic_hashtags: Добавени са хаштагове на всички предложения
+            comments_blocked: Коментарите са блокирани
+            creation_enabled: Създаването на предложения е разрешено
+            endorsements_blocked: Одобряване забранено
+            endorsements_enabled: Одобряване разрешено
+            proposal_answering_enabled: Отговора на предложение е разрешен
+            publish_answers_immediately: Публикувай отговорите на предложения незабавно
+            suggested_hashtags: Предлагай хаштаг на участниците когато създават предложения
+            votes_blocked: Поддържането блокирано
+            votes_enabled: Поддържането разрешено
+            votes_hidden: Поддръжките са скрити (ако поддръжките са активирани, тази опция ще скрие броя на поддръжките)
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Някой е направил бележка в предложението %{resource_title}. Вижте я в <a href="%{admin_proposal_info_url}">администраторския панел</a>
+            email_outro: Получихте известие, защото можете да оценяте предложението.
+            email_subject: Някой е направил бележка в предложението %{resource_title}.
+            notification_title: Някой е направил бележка в предложението <a href="%{resource_path}">%{resource_title}</a>. Вижте я в <a href="%{admin_proposal_info_path}">администраторския панел</a>
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} получи достъп като сътрудник в %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>получи достъп като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} е отхвърлен като сътрудник в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} е отхвърлен като сътрудник в съвместната чернова %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>е отхвърлен като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} заяви достъп като сътрудник. Можете да <strong>приемете или отхвърлите</strong> от сраницата на колективната чернова <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} заяви достъп като сътрудник в %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> заяви достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>. Моля, <strong>приемете или отхвърлете заявката</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Получихте достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Получихте известие, защото заявихте да бъдете сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Приет сте като сътрудник в %{resource_title}.
+          notification_title: <strong>Получихте достъп като сътрудник</strong> в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Отказан Ви е достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Получихте известие, защото заявихте да бъдете сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Отхвърлен сте като сътрудник в %{resource_title}.
+          notification_title: <strong>Отказан Ви е достъп като сътрудник</strong> в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оттегли колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} оттегли колективната чернова %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>оттегли</strong> колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
+        creation_enabled:
+          email_intro: 'Вече може да създавате предложения в %{participatory_space_title}! Участвайте в тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Предложенията вече са достъпни в %{participatory_space_title}
+          notification_title: Вече може да направите <a href="%{resource_path}">ново предложение</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Можете да одобрите предложение в %{participatory_space_title}! Участвайте чрез тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предната връзка.
+          email_subject: Одобряването на предложения започна в %{participatory_space_title}
+          notification_title: Вече можете да <a href="%{resource_path}">одобрявате предложения</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Вашето предложение "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото сте автор на %{resource_title}".
+            email_subject: Вашето предложение е одобрено
+            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> е одобрено.
+          follower:
+            email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
+            email_subject: Предложение, което следвате е одобрено
+            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Вашето предложение "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото сте автор на %{resource_title}".
+            email_subject: Вашето предложението се разглежда
+            notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> се разглежда.
+          follower:
+            email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
+            email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
+            email_subject: Предложение, което следвате се разглежда
+            notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
+        proposal_mentioned:
+          email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
+          email_outro: Получавате това известие, защото сте автор на %{resource_title}".
+          email_subject: Вашето предложение %{mentioned_proposal_title} е споменато
+          notification_title: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_path}">на това пространство</a>.
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}, което следвате, има публикувано ново предложение "%{resource_title}". Разгледайте го и допринасяйте:'
+          email_outro: Получавате това известие, защото следвате %{author_nickname}. Може да прекратите известията чрез предната връзка.
+          email_subject: Ново предложение "%{resource_title}" от %{author_nickname}
+          notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше публикувано от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
+          email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+    proposals:
+      versions:
+        collaborative_drafts:
+          back_to_resource: Обратно към съвместната чернова
+        proposals:
+          back_to_resource: Обратно към предложението

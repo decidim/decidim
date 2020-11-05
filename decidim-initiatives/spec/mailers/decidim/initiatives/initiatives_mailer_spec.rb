@@ -29,7 +29,7 @@ module Decidim
         end
 
         it "renders the body" do
-          expect(mail.body.encoded).to match(initiative.title["en"])
+          expect(mail.body).to match("The initiative #{initiative.title["en"]} has changed its status to: #{I18n.t(initiative.state, scope: "decidim.initiatives.admin_states")}")
         end
       end
 

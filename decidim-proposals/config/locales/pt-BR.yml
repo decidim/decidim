@@ -69,21 +69,6 @@ pt:
         one: Voto
         other: Votos
   decidim:
-    admin:
-      filters:
-        is_emendation_true:
-          label: Tipo
-          values:
-            'false': Propostas
-            'true': Emendas
-        state_eq:
-          values:
-            evaluating: Avaliando
-            withdrawn: Retirado
-        state_null:
-          label: Estado
-          values:
-            'true': Não respondido
     components:
       proposals:
         actions:

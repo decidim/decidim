@@ -10,6 +10,14 @@ FactoryBot.define do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
     manifest_name { :meetings }
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+
+    trait :with_creation_enabled do
+      settings do
+        {
+          creation_enabled_for_participants: true
+        }
+      end
+    end
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do
@@ -24,18 +32,41 @@ FactoryBot.define do
     end_time { start_time.advance(hours: 2) }
     private_meeting { false }
     transparent { true }
-    services do
-      [
-        { title: generate_localized_title, description: generate_localized_title },
-        { title: generate_localized_title, description: generate_localized_title }
-      ]
-    end
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
     component { build(:component, manifest_name: "meetings") }
 
-    organizer do
-      create(:user, organization: component.organization) if component
+    author do
+      component.try(:organization)
+    end
+
+    trait :official do
+      author { component.organization if component }
+    end
+
+    trait :not_official do
+      author { create(:user, organization: component.organization) if component }
+    end
+
+    trait :with_services do
+      transient do
+        services do
+          nil
+        end
+      end
+
+      after(:build) do |meeting, evaluator|
+        meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
+      end
+    end
+
+    trait :user_group_author do
+      author do
+        create(:user, organization: component.organization) if component
+      end
+      user_group do
+        create(:user_group, :verified, organization: component.organization, users: [author]) if component
+      end
     end
 
     trait :closed do
@@ -120,5 +151,11 @@ FactoryBot.define do
     trait :rejected do
       rejected_at { Time.current }
     end
+  end
+
+  factory :service, class: "Decidim::Meetings::Service" do
+    meeting
+    title { generate_localized_title }
+    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   end
 end

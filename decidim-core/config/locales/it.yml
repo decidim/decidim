@@ -65,6 +65,7 @@ it:
     errors:
       general: Errore nell'elaborazione dell'immagine
       image_too_big: L'immagine è troppo grande
+      not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -119,7 +120,7 @@ it:
         create: "%{user_name} creato la %{resource_name} newsletter"
         delete: "%{user_name} ha cancellato la %{resource_name} newsletter"
         deliver: "%{user_name} ha inviato la %{resource_name} newsletter"
-        update: "%{user_name} aggiornato il %{resource_name} notiziario"
+        update: "%{user_name} aggiornato la newsletter %{resource_name}"
       oauth_application:
         create: "%{user_name} ha creato l'applicazione OAuth %{resource_name}"
         delete: "%{user_name} ha eliminato l'applicazione OAuth %{resource_name}"
@@ -264,8 +265,11 @@ it:
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
+          allowed_postal_codes: Codici postali consentiti (separati da virgole)
+          allowed_scope_id: Ambito consentito
           document_number: Numero del documento
           postal_code: Codice postale
+          scope_id: Ambito
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
@@ -345,11 +349,14 @@ it:
           global:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti
             dummy_global_attribute_1: Attributo fittizio 1
             dummy_global_attribute_2: Attributo fittizio 2
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
+            scope_id: Ambito
+            scopes_enabled: Ambiti abilitati
           step:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
@@ -435,7 +442,7 @@ it:
           buttons:
             check: Controlla e continua
             close_modal: Chiudi modalità
-            uncheck: Mantieni deseleziona
+            uncheck: Mantieni deselezionato
           notice: |-
             <p>Ehi, sei sicuro di non voler ricevere una newsletter?<br>
             Si prega di riconsiderare spuntando la casella di controllo "newsletter", in fondo.<br>
@@ -884,6 +891,11 @@ it:
           show: Mostra conversazione con %{sender}
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
+        error_modal:
+          close: Chiudi modalità
+          correct_errors: Correggi gli errori e riprova.
+          intro: 'Ci sono stati i seguenti errori con il tuo messaggio:'
+          ok: Ok
         index:
           ago: fa
           close: Chiudi modale
@@ -893,7 +905,7 @@ it:
           new_conversation: Nuova conversazione
           next: Successivo
           no_conversations: Non hai ancora conversazioni
-          title: conversazioni
+          title: Conversazioni
         reply:
           placeholder: La tua risposta...
           send: Inviare
@@ -907,7 +919,7 @@ it:
           send: Invia
           title: Inizia una conversazione
         update:
-          error: Messaggio non inviato. Riprova più tardi
+          error: Messaggio non inviato a causa di un errore
     metrics:
       download:
         csv: Scarica dati (csv)
@@ -1052,7 +1064,7 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
           success: Grande! Hai accettato i termini e le condizioni.
         form:
-          agreement: Sono d'accordo con questi termini
+          agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
@@ -1107,8 +1119,14 @@ it:
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato nascosto automaticamente.</p>
         subject: Un contenuto è stato cancellato automaticamente
       report:
+        authors: Autori
+        content: Contenuto segnalato
+        date: Segnalato il
+        details: Dettagli
         hello: Ciao %{name},
         manage_moderations: Gestire moderazioni
+        participatory_space: Spazio partecipativo
+        reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>
         subject: Un contenuto è stato denunciato
     reports:
@@ -1153,6 +1171,10 @@ it:
           one: "%{count} risultato"
           other: "%{count} risultati"
         view_all: Visualizza tutto (%{count})
+    security:
+      selfxss_warning:
+        description: Questa funzione del browser è destinata agli sviluppatori e non si dovrebbe incollare nulla qui se ti è stato chiesto di farlo. Incollare contenuti in questa finestra può compromettere la tua privacy e dare agli hacker l'accesso al tuo account.
+        title: Ferma!
     shared:
       confirm_modal:
         cancel: Annulla
@@ -1182,7 +1204,7 @@ it:
         close: Chiudi l'aiuto
         help: Aiuto
       follow_button:
-        sign_in_before_follow: Accede prima di eseguire questa azione
+        sign_in_before_follow: Accedi prima di eseguire questa azione
       login_modal:
         close_modal: Chiudi modalità
         please_sign_in: Per cortesia, effettua l'accesso
@@ -1206,6 +1228,10 @@ it:
     tags:
       filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
       filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
+    translation_bar:
+      help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
+      show_original: Mostra testo originale
+      show_translated: Mostra testo tradotto automaticamente
     user_activity:
       index:
         no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
@@ -1265,6 +1291,7 @@ it:
     versions:
       resource_version:
         of_versions: "(di %{number})"
+        see_other_versions: vedi altre versioni
         version: Versione %{number}
     versions_list:
       show:
@@ -1300,7 +1327,7 @@ it:
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
       timeout: La tua sessione è scaduta. Per favore accedi di nuovo per continuare.
-      unauthenticated: È necessario accedere o registrarsi prima di continuare.
+      unauthenticated: Devi accedere o registrarti per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
@@ -1496,7 +1523,7 @@ it:
       user_menu:
         account: 'Account utente: %{name}'
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
-        conversations: conversazioni
+        conversations: Conversazioni
         notifications: Notifiche
         profile: Il mio account
         public_profile: Il mio profilo
@@ -1514,6 +1541,7 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
+    name_with_error: Inglese (errore!)
   password_validator:
     domain_included_in_password: è troppo simile a questo nome di dominio
     email_included_in_password: è troppo simile alla tua email

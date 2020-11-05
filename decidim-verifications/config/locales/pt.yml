@@ -143,8 +143,10 @@ pt:
             success: A sua conta foi verificada corretamente.
       dummy_authorization:
         extra_explanation:
-          one: A participação é restrita aos participantes com o código postal %{postal_codes}.
-          other: 'A participação é restrita aos participantes com qualquer um dos seguintes códigos postais: %{postal_codes}.'
+          postal_codes:
+            one: A participação é restrita aos participantes com o código postal %{postal_codes}.
+            other: 'A participação é restrita aos participantes com qualquer um dos seguintes códigos postais: %{postal_codes}.'
+          scope: A participação é restrita aos participantes com o âmbito %{scope_name}.
       id_documents:
         admin:
           config:

@@ -3,14 +3,9 @@
 module Decidim
   module Meetings
     module Admin
-      # This class holds a Form to create/update meetings from Decidim's admin panel.
+      # This class holds a Form to create/update translatable meetings from Decidim's admin panel.
       class MeetingForm < Decidim::Form
         include TranslatableAttributes
-
-        translatable_attribute :title, String
-        translatable_attribute :description, String
-        translatable_attribute :location, String
-        translatable_attribute :location_hints, String
 
         attribute :address, String
         attribute :latitude, Float
@@ -22,34 +17,38 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
-        attribute :organizer_id, Integer
+
+        translatable_attribute :title, String
+        translatable_attribute :description, String
+        translatable_attribute :location, String
+        translatable_attribute :location_hints, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :location, translatable_presence: true
+
         validates :address, presence: true
-        validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
-
-        validate :scope_belongs_to_participatory_space_scope
+        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 
         delegate :categories, to: :current_component
 
         def map_model(model)
           self.services = model.services.map do |service|
-            MeetingServiceForm.new(service)
+            MeetingServiceForm.from_model(service)
           end
 
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           presenter = MeetingPresenter.new(model)
-          self.title = presenter.title(all_locales: true)
-          self.description = presenter.description(all_locales: true)
+
+          self.title = presenter.title(all_locales: title.is_a?(Hash))
+          self.description = presenter.description(all_locales: description.is_a?(Hash))
         end
 
         def services_to_persist
@@ -60,17 +59,13 @@ module Decidim
           services.size
         end
 
-        def organizer
-          @organizer ||= current_organization.users.find_by(id: organizer_id)
-        end
-
         alias component current_component
 
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
+        # Finds the Scope from the given decidim_scope_id, uses component scope if missing.
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
+          @scope ||= @decidim_scope_id ? current_component.scopes.find_by(id: @decidim_scope_id) : current_component.scope
         end
 
         # Scope identifier
@@ -86,10 +81,16 @@ module Decidim
           @category ||= categories.find_by(id: decidim_category_id)
         end
 
-        private
+        def geocoding_enabled?
+          Decidim::Map.available?(:geocoding)
+        end
 
-        def scope_belongs_to_participatory_space_scope
-          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
+        def has_address?
+          geocoding_enabled? && address.present?
+        end
+
+        def geocoded?
+          latitude.present? && longitude.present?
         end
       end
     end

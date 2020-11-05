@@ -61,6 +61,10 @@ module Decidim
                           default: false,
                           desc: "Generate demo authorization handlers"
 
+      class_option :profiling, type: :boolean,
+                               default: false,
+                               desc: "Add the necessary gems to profile the app"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -111,7 +115,7 @@ module Decidim
         if current_gem == "decidim"
           gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-          %w(conferences consultations elections initiatives).each do |component|
+          %w(conferences consultations elections initiatives templates).each do |component|
             if options[:demo]
               gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
             else
@@ -170,6 +174,15 @@ module Decidim
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
+      def budgets_workflows
+        return unless options[:demo]
+
+        copy_file "budgets_workflow_random.rb", "lib/budgets_workflow_random.rb"
+        copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
+
+        copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
+      end
+
       def timestamp_service
         return unless options[:demo]
 
@@ -186,13 +199,22 @@ module Decidim
                   "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
       end
 
+      def machine_translation_service
+        return unless options[:demo]
+
+        gsub_file "config/initializers/decidim.rb",
+                  /# config.machine_translation_service = \"MyTranslationService\"/,
+                  "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
             "--recreate_db=#{options[:recreate_db]}",
             "--seed_db=#{options[:seed_db]}",
             "--skip_gemfile=#{options[:skip_gemfile]}",
-            "--app_name=#{app_name}"
+            "--app_name=#{app_name}",
+            "--profiling=#{options[:profiling]}"
           ]
         )
       end

@@ -7,12 +7,7 @@ module Decidim
       #
       module ApplicationHelper
         include Decidim::MapHelper
-
-        def meeting_organizer_picker_text(form)
-          return "" if form.object.organizer.blank?
-
-          "#{form.object.organizer.name} (@#{form.object.organizer.nickname})"
-        end
+        include Decidim::Admin::ResourceScopeHelper
 
         def tabs_id_for_service(service)
           "meeting_service_#{service.to_param}"

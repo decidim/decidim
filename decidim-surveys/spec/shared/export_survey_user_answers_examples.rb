@@ -38,4 +38,19 @@ shared_examples "export survey user answers" do
     expect(last_email.attachments.length).to be_positive
     expect(last_email.attachments.first.filename).to match(/^survey_user_answers.*\.zip$/)
   end
+
+  it "exports a PDF" do
+    visit_component_admin
+
+    find(".exports.dropdown").click
+    perform_enqueued_jobs { click_link "PDF" }
+
+    within ".callout.success" do
+      expect(page).to have_content("in progress")
+    end
+
+    expect(last_email.subject).to include("survey_user_answers", "pdf")
+    expect(last_email.attachments.length).to be_positive
+    expect(last_email.attachments.first.filename).to match(/^survey_user_answers.*\.zip$/)
+  end
 end

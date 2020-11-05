@@ -7,6 +7,10 @@ module Decidim
       class ElectionsController < Admin::ApplicationController
         helper_method :elections, :election
 
+        def index
+          flash.now[:alert] ||= I18n.t("elections.index.no_bulletin_board", scope: "decidim.elections.admin").html_safe unless Decidim::Elections.bulletin_board.configured?
+        end
+
         def new
           enforce_permission_to :create, :election
           @form = form(ElectionForm).instance
@@ -65,6 +69,28 @@ module Decidim
           end
 
           redirect_to elections_path
+        end
+
+        def publish
+          enforce_permission_to :publish, :election, election: election
+
+          PublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("admin.elections.publish.success", scope: "decidim.elections")
+              redirect_to elections_path
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to :unpublish, :election, election: election
+
+          UnpublishElection.call(election, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("admin.elections.unpublish.success", scope: "decidim.elections")
+              redirect_to elections_path
+            end
+          end
         end
 
         private

@@ -8,8 +8,8 @@ module Decidim
       # Lists which attributes will be diffable and how they should be rendered.
       def attribute_types
         {
-          title: :string,
-          body: :string,
+          title: :i18n,
+          body: :i18n,
           decidim_category_id: :category,
           decidim_scope_id: :scope,
           address: :string,
@@ -24,13 +24,15 @@ module Decidim
         return parse_scope_changeset(attribute, values, type, diff) if type == :scope
 
         values = parse_values(attribute, values)
+        old_value = values[0]
+        new_value = values[1]
 
         diff.update(
           attribute => {
             type: type,
             label: I18n.t(attribute, scope: i18n_scope),
-            old_value: values[0],
-            new_value: values[1]
+            old_value: old_value,
+            new_value: new_value
           }
         )
       end
@@ -40,7 +42,15 @@ module Decidim
       # Returns and Array of two Strings.
       def parse_values(attribute, values)
         values = [amended_previous_value(attribute), values[1]] if proposal&.emendation?
-        values = values.map { |value| normalize_line_endings(value) } if attribute == :body
+        if attribute == :body
+          values = values.map do |value|
+            if value.is_a?(Hash)
+              value.values.map { |subvalue| normalize_line_endings(subvalue) }
+            else
+              normalize_line_endings(value)
+            end
+          end
+        end
         values
       end
 

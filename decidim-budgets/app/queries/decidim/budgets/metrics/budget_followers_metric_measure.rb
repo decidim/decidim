@@ -11,9 +11,10 @@ module Decidim
         end
 
         def calculate
-          budgets = Decidim::Budgets::Project.where(component: @resource)
+          budgets = Decidim::Budgets::Budget.where(component: @resource)
+          projects = Decidim::Budgets::Project.where(budget: budgets)
 
-          budgets_followers = Decidim::Follow.where(followable: budgets).joins(:user)
+          budgets_followers = Decidim::Follow.where(followable: projects).joins(:user)
                                              .where("decidim_follows.created_at <= ?", end_time)
           cumulative_users = budgets_followers.pluck(:decidim_user_id)
 

@@ -143,9 +143,11 @@ ro:
             success: Contul dvs. a fost verificat cu succes.
       dummy_authorization:
         extra_explanation:
-          one: Participarea este limitată la participanții cu codul poștal %{postal_codes}.
-          few: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
-          other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+          postal_codes:
+            one: Participarea este limitată la participanții cu codul poștal %{postal_codes}.
+            few: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+            other: 'Participarea este limitată la participanții cu oricare dintre următoarele coduri poștale: %{postal_codes}.'
+          scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}.
       id_documents:
         admin:
           config:

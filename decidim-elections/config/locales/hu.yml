@@ -1,1 +1,19 @@
 hu:
+  decidim:
+    elections:
+      actions:
+        publish: Közzétesz
+        unpublish: Közzététel visszavonása
+      admin:
+        elections:
+          publish:
+            success: A választás sikeresen publikálásra került.
+          unpublish:
+            success: A választás publikálását sikeresen visszavonta.
+    events:
+      elections:
+        election_published:
+          email_intro: 'A %{resource_title} című választás már aktív a %{participatory_space_title}-ben. Megtekinthető erről az oldalról:'
+          email_outro: Azért kapta ezt az értesítést, mert a %{participatory_space_title}-t követi. Az értesítések küldését leállíthatja az előző linkkel.
+          email_subject: 'A %{resource_title} választás aktív itt: %{participatory_space_title}.'
+          notification_title: 'A <a href="%{resource_path}">%{resource_title} </a>választás aktív itt: %{participatory_space_title}.'

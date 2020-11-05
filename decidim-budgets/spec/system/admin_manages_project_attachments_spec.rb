@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Admin manages project attachments", type: :system do
   let(:manifest_name) { "budgets" }
-  let!(:project) { create :project, scope: scope, component: current_component }
+  let(:budget) { create :budget, component: current_component }
+  let!(:project) { create :project, budget: budget }
 
   include_context "when managing a component as an admin"
 

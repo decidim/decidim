@@ -65,6 +65,7 @@ es-PY:
     errors:
       general: Error procesando imagen
       image_too_big: La imagen es demasiado grande
+      not_inside_organization: El archivo no está relacionado con ninguna organización
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -264,8 +265,11 @@ es-PY:
       dummy_authorization_handler:
         explanation: Verifícate introduciendo un número de documento que termine con "X"
         fields:
+          allowed_postal_codes: Códigos postales permitidos (separados por comas)
+          allowed_scope_id: Ámbito permitido
           document_number: Número de documento
           postal_code: Código postal
+          scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
@@ -345,11 +349,14 @@ es-PY:
           global:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios
             dummy_global_attribute_1: Atributo ficticio 1
             dummy_global_attribute_2: Atributo ficticio 2
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Permisos sobre recursos habilitados
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
@@ -884,6 +891,11 @@ es-PY:
           show: Mostrar la conversación con %{sender}
         create:
           error: Conversación no iniciada. Inténtalo más tarde
+        error_modal:
+          close: Cerrar modal
+          correct_errors: Por favor, corrige los errores e inténtalo de nuevo.
+          intro: 'Se han producido los siguientes errores en tu mensaje:'
+          ok: De acuerdo
         index:
           ago: anteriores
           close: Cerrar modal
@@ -907,7 +919,7 @@ es-PY:
           send: Enviar
           title: Iniciar una conversación
         update:
-          error: Mensaje no enviado. Inténtalo más tarde
+          error: El mensaje no fue enviado debido a un error
     metrics:
       download:
         csv: Descargar datos (csv)
@@ -1107,8 +1119,14 @@ es-PY:
         report_html: <p>El siguiente <a href="%{url}">contenido</a> se ha ocultado automáticamente.</p>
         subject: Un contenido se ha ocultado de forma automática
       report:
+        authors: Autoras
+        content: Contenido reportado
+        date: Reportado el
+        details: Detalles
         hello: Hola %{name},
         manage_moderations: Gestionar moderaciones
+        participatory_space: Espacio de participación
+        reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>
         subject: Un contenido ha sido denunciado
     reports:
@@ -1153,6 +1171,10 @@ es-PY:
           one: "%{count} resultado"
           other: "%{count} resultados"
         view_all: Ver todo (%{count})
+    security:
+      selfxss_warning:
+        description: Esta función de navegador está pensada para desarrolladores y no deberías pegar nada aquí si se te ha pedido que lo hagas. Pegar contenido en esta ventana puede comprometer tu privacidad y dar acceso a hackers a tu cuenta.
+        title: Detener!
     shared:
       confirm_modal:
         cancel: Cancelar
@@ -1206,6 +1228,10 @@ es-PY:
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+    translation_bar:
+      help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
+      show_original: Mostrar el texto original
+      show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
         no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
@@ -1515,6 +1541,7 @@ es-PY:
         see_more: Ver más
   locale:
     name: Castellano
+    name_with_error: Inglés (¡error!)
   password_validator:
     domain_included_in_password: Es muy similar a este nombre de dominio
     email_included_in_password: Es muy similar a tu correo electrónico

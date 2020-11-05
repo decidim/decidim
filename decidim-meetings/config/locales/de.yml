@@ -16,10 +16,12 @@ de:
         available_slots: Verfügbare Slots für dieses Meeting
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
+        decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
         location: Ort
         location_hints: Standorthinweise
+        organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Privates Treffen
         registration_form_enabled: Anmeldeformular aktiviert
@@ -81,12 +83,18 @@ de:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
+            creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
     events:
       meetings:
         meeting_closed:
@@ -227,9 +235,6 @@ de:
           edit:
             close: Schließen
             title: Enges Treffen
-        meeting_copies:
-          form:
-            select_organizer: Wählen Sie den Organisator aus
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
@@ -249,7 +254,6 @@ de:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zu Ort: zusätzliche Informationen. Beispielsweise die Etage des Gebäudes'
-            select_organizer: Wählen Sie den Organisator aus
           index:
             title: Meetings
           new:
@@ -354,24 +358,55 @@ de:
       meeting:
         not_allowed: Sie dürfen dieses Meeting nicht sehen
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} Besprechung"
+            other: "%{count} Besprechungen"
+        create:
+          invalid: Beim Erstellen dieser Besprechung ist ein Problem aufgetreten.
+          success: Sie haben die Besprechung erfolgreich erstellt.
+        edit:
+          back: Zurück
+          title: Ihre Besprechung bearbeiten
+          update: Aktualisieren
         filters:
           category: Kategorie
-          category_prompt: Wählen Sie eine Kategorie
           date: Datum
-          past: Vergangenheit
+          date_values:
+            all: Alle
+            past: Vergangene
+            upcoming: Bevorstehende
+          origin: Ursprung
+          origin_values:
+            all: Alle
+            citizens: Bürger
+            official: Offiziell
+            user_groups: Gruppen
+          scope: Umfang
           search: Suche
-          upcoming: Bevorstehende
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Entfalten
+        form:
+          address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+          create_as: Besprechung erstellen als
+          location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+          location_hints_help: 'Hinweise zu Ort: zusätzliche Informationen. Beispielsweise die Etage des Gebäudes'
+          select_a_category: Bitte wählen sie eine Kategorie
+        index:
+          new_meeting: Neue Besprechung
         meeting_minutes:
           meeting_minutes: Sitzungsprotokolle
           related_information: Zugehörige Informationen
         meetings:
           no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
+        new:
+          back: Zurück
+          create: Erstellen
+          title: Ihre Besprechung erstellen
         registration_confirm:
           cancel: Stornieren
           confirm: Bestätigen
@@ -380,6 +415,7 @@ de:
           back: Zurück zur Liste
           contributions: Beiträge zählen
           date: Datum
+          edit_meeting: Besprechung bearbeiten
           going: Gehen
           join: Tritt dem Treffen bei
           meeting_report: Gesprächsprotokoll
@@ -393,6 +429,9 @@ de:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
           view: Aussicht
+        update:
+          invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
+          success: Sie haben die Besprechung erfolgreich aktualisiert.
       meetings_map:
         view_meeting: Besprechung anzeigen
       models:
@@ -411,6 +450,7 @@ de:
             closed: Geschlossen
             end_time: Endtermin
             map: Karte
+            official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
       read_more: "(Weiterlesen)"
@@ -432,6 +472,8 @@ de:
       types:
         private_meeting: Privates Treffen
         transparent: Transparent
+      versions:
+        back_to_resource: Zurück zur Besprechung
     metrics:
       meetings:
         description: Anzahl der erstellten Meetings

@@ -19,6 +19,10 @@ module Decidim
           edit_meeting_registrations_path(meeting_id: meeting.id)
         end
 
+        def public_url
+          Decidim::EngineRouter.main_proxy(current_component).join_meeting_registration_path(meeting)
+        end
+
         private
 
         def meeting

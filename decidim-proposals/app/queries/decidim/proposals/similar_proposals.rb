@@ -30,8 +30,8 @@ module Decidim
           .published
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
-            @proposal.title,
-            @proposal.body,
+            translated_attribute(@proposal.title),
+            translated_attribute(@proposal.body),
             Decidim::Proposals.similarity_threshold
           )
           .limit(Decidim::Proposals.similarity_limit)
@@ -40,11 +40,11 @@ module Decidim
       private
 
       def title_similarity
-        "similarity(title, ?)"
+        "similarity(title::text, ?)"
       end
 
       def body_similarity
-        "similarity(body, ?)"
+        "similarity(body::text, ?)"
       end
     end
   end

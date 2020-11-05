@@ -100,9 +100,6 @@ is-IS:
           edit:
             close: Loka
             title: Loka fundi
-        meeting_copies:
-          form:
-            select_organizer: Veldu skipuleggjanda
         meetings:
           close:
             success: Fundur með góðum árangri lokað
@@ -112,8 +109,6 @@ is-IS:
             success: Fundur með góðum árangri eytt
           edit:
             update: Uppfæra
-          form:
-            select_organizer: Veldu skipuleggjanda
           index:
             title: Fundir
           new:
@@ -178,7 +173,6 @@ is-IS:
       meetings:
         filters:
           category: Flokkur
-          category_prompt: Veldu flokk
           date: Dagsetning
           search: Leita
         filters_small_view:

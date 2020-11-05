@@ -29,6 +29,7 @@ module Decidim
         root to: proc { [200, {}, ["DUMMY ENGINE"]] }
 
         resources :dummy_resources do
+          resources :nested_dummy_resources
           get :foo, on: :member
         end
       end
@@ -38,6 +39,10 @@ module Decidim
       engine_name "dummy_admin"
 
       routes do
+        resources :dummy_resources do
+          resources :nested_dummy_resources
+        end
+
         root to: proc { [200, {}, ["DUMMY ADMIN ENGINE"]] }
       end
     end
@@ -53,7 +58,7 @@ module Decidim
       include Reportable
       include Authorable
       include HasCategory
-      include ScopableComponent
+      include ScopableResource
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -63,10 +68,12 @@ module Decidim
       include Paddable
       include Amendable
       include Decidim::NewsletterParticipant
-      include Hashtaggable
       include ::Decidim::Endorsable
       include Decidim::HasAttachments
+      include Decidim::ShareableWithToken
+      include Decidim::TranslatableResource
 
+      translatable_fields :title
       searchable_fields(
         scope_id: { scope: :id },
         participatory_space: { component: :participatory_space },
@@ -104,6 +111,11 @@ module Decidim
                                               .where.not(author: nil)
                                               .pluck(:decidim_author_id).flatten.compact.uniq
       end
+    end
+
+    class NestedDummyResource < ApplicationRecord
+      include Decidim::Resourceable
+      belongs_to :dummy_resource
     end
 
     class CoauthorableDummyResource < ApplicationRecord
@@ -163,7 +175,10 @@ Decidim.register_component(:dummy) do |component|
   component.newsletter_participant_entities = ["Decidim::DummyResources::DummyResource"]
 
   component.settings(:global) do |settings|
+    settings.attribute :scopes_enabled, type: :boolean, default: false
+    settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_max_length, type: :integer, required: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :dummy_global_attribute_1, type: :boolean
     settings.attribute :dummy_global_attribute_2, type: :boolean, readonly: ->(_context) { false }
@@ -193,6 +208,11 @@ Decidim.register_component(:dummy) do |component|
     resource.template = "decidim/dummy_resource/linked_dummys"
     resource.actions = %w(foo)
     resource.searchable = true
+  end
+
+  component.register_resource(:nested_dummy_resource) do |resource|
+    resource.name = :nested_dummy
+    resource.model_class_name = "Decidim::DummyResources::NestedDummyResource"
   end
 
   component.register_resource(:coauthorable_dummy_resource) do |resource|
@@ -226,7 +246,7 @@ RSpec.configure do |config|
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_dummy_resources do |t|
           t.jsonb :translatable_text
-          t.string :title
+          t.jsonb :title
           t.string :body
           t.text :address
           t.float :latitude
@@ -234,6 +254,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.integer :decidim_author_id, index: false
@@ -246,7 +267,15 @@ RSpec.configure do |config|
           t.timestamps
         end
       end
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_nested_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dummy_resources_nested_dummy_resources do |t|
+          t.jsonb :translatable_text
+          t.string :title
 
+          t.references :dummy_resource, index: false
+          t.timestamps
+        end
+      end
       unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources_coauthorable_dummy_resources")
         ActiveRecord::Migration.create_table :decidim_dummy_resources_coauthorable_dummy_resources do |t|
           t.jsonb :translatable_text
@@ -258,6 +287,7 @@ RSpec.configure do |config|
           t.datetime :published_at
           t.integer :coauthorships_count, null: false, default: 0
           t.integer :endorsements_count, null: false, default: 0
+          t.integer :comments_count, null: false, default: 0
 
           t.references :decidim_component, index: false
           t.references :decidim_category, index: false

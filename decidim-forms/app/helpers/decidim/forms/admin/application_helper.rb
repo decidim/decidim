@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# i18n-tasks-use t('decidim.templates.admin.questionnaire_templates.form.title')
+
 module Decidim
   module Forms
     module Admin
@@ -12,6 +14,10 @@ module Decidim
 
         def tabs_id_for_question_answer_option(question, answer_option)
           "questionnaire_question_#{question.to_param}_answer_option_#{answer_option.to_param}"
+        end
+
+        def tabs_id_for_question_display_condition(question, display_condition)
+          "questionnaire_question_#{question.to_param}_display_condition_#{display_condition.to_param}"
         end
 
         def tabs_id_for_question_matrix_row(question, matrix_row)
@@ -28,6 +34,21 @@ module Decidim
           content_tag :span, class: options[:class], data: data do
             truncate translated_attribute(title), length: options[:max_length], omission: options[:omission]
           end
+        end
+
+        def template?(questionnaire_for)
+          return unless defined? Decidim::Templates::Template
+
+          questionnaire_for.is_a? Decidim::Templates::Template
+        end
+
+        def templates_defined?
+          defined? Decidim::Templates::Admin::Concerns::Templatable
+        end
+
+        def title_for_questionnaire
+          scope = templates_defined? ? "decidim.templates.admin.questionnaire_templates" : "decidim.forms.admin.questionnaires"
+          t("form.title", scope: scope)
         end
       end
     end

@@ -1,0 +1,98 @@
+lv:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Vai tiešām vēlaties šo dzēst?
+        destroy: Dzēst
+        edit: Labot
+        new: Jauns
+        save: Saglabāt
+        title: Darbības
+      admins:
+        create:
+          error: Jauna administratora izveides laikā radās problēma.
+          success: Administrators ir veiksmīgi izveidots
+        destroy:
+          success: Administrators ir veiksmīgi izdzēsts
+        edit:
+          title: Rediģēt administratoru
+          update: Atjaunināt
+        index:
+          title: Administratori
+        new:
+          create: Izveidot
+          title: Jauns administrators
+        update:
+          error: Administratora atjaunināšanas laikā radās problēma.
+          success: Administrators ir veiksmīgi atjaunināts
+      default_pages:
+        placeholders:
+          content: Lūdzu, pievienojiet nozīmīgu saturu statiskajai lapai %{page} administratora informācijas panelī.
+          title: '%{page} noklusējuma nosaukums'
+      menu:
+        admins: Administratori
+        dashboard: Informācijas panelis
+        organizations: Organizācijas
+      models:
+        admin:
+          fields:
+            created_at: Izveidots plkst.
+            email: E-pasts
+          name: Administrators
+          validations:
+            email_uniqueness: cits administrators ar tādu pašu e-pasta adresi jau pastāv
+        organization:
+          actions:
+            save_and_invite: Izveidot organizāciju un uzaicināt administratoru
+          fields:
+            created_at: Izveidots plkst.
+            name: Nosaukums
+            omniauth_settings: Omniauth iestatījumi
+            smtp_settings: SMTP iestatījumi
+          name: Organizācija
+      organizations:
+        create:
+          error: Jaunas organizācijas izveides laikā radās problēma.
+          success: Organizācija ir veiksmīgi izveidota.
+        edit:
+          secondary_hosts_hint: Katru no tām ievadiet jaunā rindā
+        index:
+          title: Organizācijas
+        new:
+          reference_prefix_hint: Atsauces prefiksu izmanto, lai varētu identificēt resursus visā organizācijā
+          secondary_hosts_hint: Katru no tām ievadiet jaunā rindā
+          title: Jauna organizācija
+        omniauth_settings:
+          decidim:
+            client_id: Klienta ID
+            client_secret: Klienta noslēpums
+            site_url: Vietnes URL
+          enabled: Iespējots
+          enabled_by_default: Šis pakalpojumu sniedzējs ir iespējots pēc noklusējuma. To var rediģēt, bet nevar atspējot.
+          facebook:
+            app_id: Lietotnes ID
+            app_secret: Lietotnes noslēpums
+          google_oauth2:
+            client_id: Klienta ID
+            client_secret: Klienta noslēpums
+          icon: Ikona
+          icon_path: Ikonas ceļš
+          twitter:
+            api_key: API atslēga
+            api_secret: API noslēpums
+        smtp_settings:
+          placeholder:
+            from_label: jūsu-organizācijas-nosaukums
+        update:
+          error: Šīs organizācijas atjaunināšanas laikā radās problēma.
+          success: Organizācija ir veiksmīgi atjaunināta.
+        users_registration_mode:
+          disabled: Piekļuvi var veikt tikai ar ārējiem kontiem
+          enabled: Ļauj dalībniekiem reģistrēties un pierakstīties
+          existing: Neļauj dalībniekiem reģistrēties, bet ļauj esošajiem dalībniekiem pierakstīties
+      shared:
+        notices:
+          no_organization_warning_html: Lai sāktu, jums ir jāizveido organizācija. Pirms turpināt, noteikti izlasiet %{guide}.
+          our_getting_started_guide: mūsu darba sākšanas ceļvedis
+      titles:
+        dashboard: Informācijas panelis

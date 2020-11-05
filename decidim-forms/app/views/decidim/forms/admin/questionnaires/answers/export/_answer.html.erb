@@ -1,0 +1,31 @@
+<div class="answer">
+  <h2 class="title"><%= t(".title", number: participant_counter + 1) %></h2>
+
+  <table class="participant-info">
+    <thead>
+      <tr>
+        <th class='token'><%= t("session_token", scope: "decidim.forms.user_answers_serializer") %></th>
+        <th><%= t("user_status",   scope: "decidim.forms.user_answers_serializer") %></th>
+        <th><%= t("ip_hash",       scope: "decidim.forms.user_answers_serializer") %></th>
+        <th><%= t("completion",    scope: "decidim.forms.user_answers_serializer") %></th>
+        <th><%= t("created_at",    scope: "decidim.forms.user_answers_serializer") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= participant.session_token %></td>
+        <td><%= participant.status %></td>
+        <td><%= participant.ip_hash %></td>
+        <td><%= display_percentage(participant.completion) %></td>
+        <td><%= l participant.answered_at, format: :short %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="answers">
+    <% participant.answers.each do |answer| %>
+      <h3 class="question"><%= answer.question %></h3>
+      <p><%= answer.body %></p>
+    <% end %>
+  </div>
+</div>

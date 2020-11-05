@@ -19,6 +19,12 @@ module Decidim
           toggle_allow(can_leave_meeting?)
         when :decline_invitation
           toggle_allow(can_decline_invitation?)
+        when :create
+          toggle_allow(can_create_meetings?)
+        when :update
+          toggle_allow(can_update_meeting?)
+        when :register
+          toggle_allow(can_register_invitation_meeting?)
         end
 
         permission_action
@@ -42,6 +48,20 @@ module Decidim
       def can_decline_invitation?
         meeting.registrations_enabled? &&
           meeting.invites.where(user: user).exists?
+      end
+
+      def can_create_meetings?
+        component_settings&.creation_enabled_for_participants?
+      end
+
+      def can_update_meeting?
+        component_settings&.creation_enabled_for_participants? &&
+          meeting.authored_by?(user)
+      end
+
+      def can_register_invitation_meeting?
+        meeting.can_register_invitation?(user) &&
+          authorized?(:register, resource: meeting)
       end
     end
   end

@@ -41,6 +41,8 @@ module Decidim
       end
 
       def scope_id
+        return nil if initiative_type.only_global_scope_enabled?
+
         super.presence
       end
 
@@ -48,12 +50,28 @@ module Decidim
         @area ||= current_organization.areas.find_by(id: area_id)
       end
 
+      def initiative_type
+        @initiative_type ||= InitiativesType.find(type_id)
+      end
+
+      def available_scopes
+        @available_scopes ||= if initiative_type.only_global_scope_enabled?
+                                initiative_type.scopes.where(scope: nil)
+                              else
+                                initiative_type.scopes
+                              end
+      end
+
+      def scope
+        @scope ||= Scope.find(scope_id) if scope_id.present?
+      end
+
       private
 
       def scope_exists
         return if scope_id.blank?
 
-        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(decidim_initiatives_types_id: type_id, decidim_scopes_id: scope_id).exists?
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(type: initiative_type, scope: scope).exists?
       end
 
       # This method will add an error to the `attachment` field only if there's
@@ -72,7 +90,10 @@ module Decidim
 
         attachment.errors.each { |error| errors.add(:attachment, error) }
 
-        attachment = Attachment.new(file: attachment.try(:file))
+        attachment = Attachment.new(
+          attached_to: attachment.try(:attached_to),
+          file: attachment.try(:file)
+        )
 
         errors.add(:attachment, :file) if !attachment.save && attachment.errors.has_key?(:file)
       end

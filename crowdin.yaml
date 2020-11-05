@@ -4,21 +4,33 @@ files:
     languages_mapping:
       locale:
         ar: ar
+        bg: bg
         ca: ca
         cs: cs
+        da: da
         de: de
         el: el
+        eo: eo
         es-ES: es
         es-MX: es-MX
         es-PY: es-PY
+        et: et
         eu: eu
         fi: fi
         fi-plain: fi-plain
         fr: fr
+        fr-CA: fr-CA
+        ga: ga
         gl: gl
+        hr: hr
         hu: hu
         id-ID: id
+        is-IS: is
         it: it
+        ja: ja
+        lt: lt
+        lv: lv
+        mt: mt
         nl: nl
         no: no
         pl: pl
@@ -27,6 +39,8 @@ files:
         ro-RO: ro
         rumany: ru
         sk: sk
+        sl: sl
+        sr: sr
         sv-SE: sv
         tr-TR: tr
         ukmany: uk

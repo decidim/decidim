@@ -20,7 +20,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   before do
     body = "Comment mentioning some user group, @#{group.nickname}"
     parsed_body = Decidim::ContentProcessor.parse(body, current_organization: comment.organization)
-    comment.body = parsed_body.rewrite
+    comment.body = { en: parsed_body.rewrite }
     comment.save
   end
 
@@ -28,7 +28,7 @@ describe Decidim::Comments::UserGroupMentionedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("You have been mentioned in #{resource.title} as a member of #{group.name}")
+      expect(subject.email_subject).to eq("You have been mentioned in #{translated resource.title} as a member of #{group.name}")
     end
   end
 
@@ -41,14 +41,14 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You have received this notification because you are a member of the group #{group.name} that has been mentioned in #{resource.title}.")
+        .to eq("You have received this notification because you are a member of the group #{group.name} that has been mentioned in #{translated resource.title}.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{resource.title}</a>")
+        .to include("You have been mentioned in <a href=\"#{resource_path}#comment_#{comment.id}\">#{translated resource.title}</a>")
 
       expect(subject.notification_title)
         .to include(" as a member of <a href=\"/profiles/#{group.nickname}\">#{group.name} @#{group.nickname}</a>")

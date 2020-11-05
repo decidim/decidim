@@ -87,12 +87,13 @@ id:
           filter: Filter
           filter_by: Saring menurut
           unfold: Membuka
+        form:
+          select_a_category: Silakan pilih kategori
         index:
           new_debate: Debat baru
         new:
           back: Kembali
           create: Membuat
-          select_a_category: Silakan pilih kategori
           title: Debat baru
       last_activity:
         new_debate_at_html: "<span>Debat baru di %{link}</span>"

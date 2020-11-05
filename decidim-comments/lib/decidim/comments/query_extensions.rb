@@ -16,8 +16,12 @@ module Decidim
 
           argument :id, !types.String, "The commentable's ID"
           argument :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
+          argument :locale, !types.String, "The locale for which to get the comments text"
+          argument :toggleTranslations, !types.Boolean, "Whether the user asked to toggle the machine translations or not."
 
           resolve lambda { |_obj, args, _ctx|
+            I18n.locale = args[:locale].presence
+            RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
             args[:type].constantize.find(args[:id])
           }
         end

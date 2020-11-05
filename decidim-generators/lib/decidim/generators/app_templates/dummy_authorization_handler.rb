@@ -23,9 +23,11 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # Define the attributes you need for this authorization handler. Attributes
   # are defined using Virtus.
   #
+  attribute :name_and_surname, String
   attribute :document_number, String
   attribute :postal_code, String
   attribute :birthday, Decidim::Attributes::LocalizedDate
+  attribute :scope_id, Integer
 
   # You can (and should) also define validations on each attribute:
   #
@@ -34,6 +36,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # You can also define custom validations:
   #
   validate :valid_document_number
+  validate :valid_scope_id
 
   # The only method that needs to be implemented for an authorization handler.
   # Here you can add your business logic to check if the authorization should
@@ -53,6 +56,12 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     document_number
   end
 
+  # The user scope
+  #
+  def scope
+    user.organization.scopes.find_by(id: scope_id) if scope_id
+  end
+
   # If you need to store any of the defined attributes in the authorization you
   # can do it here.
   #
@@ -60,7 +69,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
   # it's created, and available though authorization.metadata
   #
   def metadata
-    super.merge(document_number: document_number, postal_code: postal_code)
+    super.merge(document_number: document_number, postal_code: postal_code, scope_id: scope_id)
   end
 
   private
@@ -69,19 +78,25 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     errors.add(:document_number, :invalid) unless document_number.to_s.end_with?("X")
   end
 
+  def valid_scope_id
+    errors.add(:scope_id, :invalid) if scope_id && !scope
+  end
+
   # If you need custom authorization logic, you can implement your own action
   # authorizer. In this case, it allows to set a list of valid postal codes for
   # an authorization.
   class DummyActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
-    attr_reader :allowed_postal_codes
+    attr_reader :allowed_postal_codes, :allowed_scope_id
 
     # Overrides the parent class method, but it still uses it to keep the base behavior
     def authorize
       # Remove the additional setting from the options hash to avoid to be considered missing.
-      @allowed_postal_codes ||= options.delete("allowed_postal_codes")
+      @allowed_postal_codes ||= options.delete("allowed_postal_codes")&.split(/[\W,;]+/)
+      @allowed_scope_id ||= options.delete("allowed_scope_id")&.to_i
 
       status_code, data = *super
 
+      extra_explanations = []
       if allowed_postal_codes.present?
         # Does not authorize users with different postal codes
         if status_code == :ok && !allowed_postal_codes.member?(authorization.metadata["postal_code"])
@@ -90,18 +105,47 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
         end
 
         # Adds an extra message for inform the user the additional restriction for this authorization
-        data[:extra_explanation] = { key: "extra_explanation",
-                                     params: { scope: "decidim.verifications.dummy_authorization",
-                                               count: allowed_postal_codes.count,
-                                               postal_codes: allowed_postal_codes.join(", ") } }
+        extra_explanations << { key: "extra_explanation.postal_codes",
+                                params: { scope: "decidim.verifications.dummy_authorization",
+                                          count: allowed_postal_codes.count,
+                                          postal_codes: allowed_postal_codes.join(", ") } }
       end
+
+      if allowed_scope.present?
+        # Does not authorize users with different scope
+        if status_code == :ok && allowed_scope_id != user_scope_id
+          status_code = :unauthorized
+          data[:fields] = { "scope_id" => user_scope.name[I18n.locale.to_s] }
+        end
+
+        # Adds an extra message to inform the user about additional restrictions for this authorization
+        extra_explanations << { key: "extra_explanation.scope",
+                                params: { scope: "decidim.verifications.dummy_authorization",
+                                          scope_name: allowed_scope.name[I18n.locale.to_s] } }
+      end
+
+      data[:extra_explanation] = extra_explanations if extra_explanations.any?
 
       [status_code, data]
     end
 
-    # Adds the list of allowed postal codes to the redirect URL, to allow forms to inform about it
+    # Adds the list of allowed postal codes and scope to the redirect URL, to allow forms to inform about it
     def redirect_params
-      { "postal_codes" => allowed_postal_codes&.join("-") }
+      { "postal_codes" => allowed_postal_codes&.join(","), "scope" => allowed_scope_id }
+    end
+
+    private
+
+    def allowed_scope
+      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id) if allowed_scope_id
+    end
+
+    def user_scope
+      @user_scope ||= Decidim::Scope.find(user_scope_id) if user_scope_id
+    end
+
+    def user_scope_id
+      @user_scope_id ||= authorization.metadata["scope_id"]&.to_i
     end
   end
 end

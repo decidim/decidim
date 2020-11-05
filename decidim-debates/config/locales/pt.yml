@@ -30,6 +30,7 @@ pt:
           global:
             announcement: Anúncio
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
@@ -76,6 +77,10 @@ pt:
           success: Debate criado corretamente.
         debate:
           participate: Participar
+        edit:
+          back: Retroceder
+          save: Guardar alterações
+          title: Editar debate
         filters:
           all: Todos
           category: Categoria
@@ -89,16 +94,28 @@ pt:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
+        form:
+          select_a_category: Por favor, selecione uma categoria
         index:
           new_debate: Novo debate
         new:
           back: Retroceder
           create: Criar
-          select_a_category: Por favor, selecione uma categoria
           title: Novo debate
         show:
           back: Retroceder à lista
           date: Data
+          edit_debate: Editar debate
+        update:
+          invalid: Ocorreu um problema ao atualizar o debate.
+          success: Debate atualizado corretamente.
+        versions:
+          debates:
+            back_to_resource: Retroceder para debate
+          index:
+            title: Versões
+        versions_list:
+          back_to_resource: Retroceder para debate
       last_activity:
         new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:

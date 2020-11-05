@@ -8,7 +8,7 @@ module Decidim
     let(:resource) { create(:dummy_resource, component: component) }
 
     describe "linked_resources_for" do
-      let(:linked_resource) { create(:dummy_resource, component: component, title: "Dummy title") }
+      let(:linked_resource) { create(:dummy_resource, component: component, title: { en: "Dummy title" }) }
 
       before do
         resource.link_resources(linked_resource, "test_link")

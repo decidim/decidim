@@ -8,7 +8,7 @@ describe "Endorse Proposal", type: :system do
   let(:manifest_name) { "proposals" }
   let!(:resources) { create_list(:proposal, 3, component: component, skip_injection: true) }
   let!(:resource) { resources.first }
-  let!(:resource_name) { resource.title }
+  let!(:resource_name) { translated(resource.title) }
   let!(:component) do
     create(:proposal_component,
            *component_traits,

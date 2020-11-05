@@ -1,0 +1,24 @@
+<% if elections.none? %>
+  <div class="callout warning">
+    <%= t("decidim.elections.warnings.no_elections_warning") %>
+  </div>
+<% elsif scheduled_elections.none? %>
+  <div class="callout warning">
+    <%= t("decidim.elections.warnings.no_scheduled_elections_warning") %>
+  </div>
+<% end %>
+
+<div class="collection-sort-controls row small-up-1 medium-up-3 card-grid">
+  <div class="column">
+    <%= order_selector available_orders, i18n_scope: "decidim.elections.orders" %>
+  </div>
+  <div class="column">
+    <%= render partial: "decidim/shared/results_per_page" %>
+  </div>
+</div>
+
+<div class="row small-up-1 medium-up-2 card-grid">
+  <%= render paginated_elections %>
+</div>
+
+<%= decidim_paginate paginated_elections %>

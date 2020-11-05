@@ -263,8 +263,11 @@ pt:
       dummy_authorization_handler:
         explanation: Seja verificado através da introdução de um número de documento terminado em "X"
         fields:
+          allowed_postal_codes: Códigos postais permitidos (separados por vírgula)
+          allowed_scope_id: Âmbito permitido
           document_number: Número do documento
           postal_code: Código postal
+          scope_id: Âmbito
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
@@ -344,6 +347,7 @@ pt:
           global:
             amendments_enabled: Modificações ativadas
             comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máximo dos comentários
             dummy_global_attribute_1: Atributo Fictício 1
             dummy_global_attribute_2: Atributo Fictício 2
             dummy_global_translatable_text: Texto Traduzível Fictício
@@ -434,7 +438,6 @@ pt:
           buttons:
             check: Verificar e continuar
             close_modal: Fechar modal
-            uncheck: Manter desmarcado
           notice: |-
             <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
             Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
@@ -905,8 +908,6 @@ pt:
         start:
           send: Enviar
           title: Iniciar uma conversa
-        update:
-          error: Mensagem não enviada. Tente novamente mais tarde
     metrics:
       download:
         csv: Transferência de dados (csv)
@@ -1051,7 +1052,6 @@ pt:
           error: Ocorreu um problema ao aceitar os termos e condições.
           success: Ótimo! Aceitou os termos e condições.
         form:
-          agreement: Eu concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
           modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.
@@ -1106,8 +1106,14 @@ pt:
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
         subject: Um recurso foi ocultado automaticamente
       report:
+        authors: Autores
+        content: Conteúdo reportado
+        date: Reportado em
+        details: Detalhes
         hello: Olá %{name},
         manage_moderations: Gerir moderações
+        participatory_space: Espaço participativo
+        reason: Razão
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
         subject: Um recurso foi reportado
     reports:

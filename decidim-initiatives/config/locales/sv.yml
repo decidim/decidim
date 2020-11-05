@@ -73,6 +73,20 @@ sv:
       actions:
         new_initiative_type: Ny initiativtyp
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Område
+          state_eq:
+            label: Status
+            values:
+              accepted: Tillräckligt många underskrifter
+              created: Skapad
+              discarded: Förkastad
+              published: Publicerad
+              rejected: Inte tillräckligt många underskrifter
+              validating: Teknisk validering
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
@@ -201,6 +215,8 @@ sv:
             success: Initiativet har skickats till teknisk validering
             update: Uppdatera
           form:
+            attachments: Bilagor
+            settings: Inställningar
             title: Allmän information
           index:
             actions_title: Åtgärd
@@ -406,6 +422,14 @@ sv:
           unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
+          not_authorized:
+            authorizations_page: Visa behörigheter
+            close: Stäng
+            explanation: Du måste verifieras för att skapa ett nytt initiativ.
+            title: Auktorisering krävs
+        initiatives:
+          closed_initiatives_warning: För närvarande finns det inga öppna initiativ, men här hittar du alla stängda initiativ listade.
+          no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
         interactions:
           comments_count:
             count:
@@ -420,7 +444,7 @@ sv:
           recently_published: Senast publicerade
         result:
           answer_title:
-            accepted: Detta förslag har antagits eftersom
+            accepted: Detta förslag har accepterats eftersom
             created: Detta förslag har skapats
             discarded: Detta förslag har förkastats eftersom
             published: Detta förslag publiceras eftersom
@@ -431,13 +455,9 @@ sv:
           any_vote_method: Detta medborgarinitiativ samlar in både digitala och fysiska underskrifter.
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
           offline_method: Detta medborgarinitiativ samlar bara in fysiska underskrifter.
-        signature_identities:
-          select_identity: Välj deltagaridentifierare
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
-        supports:
-          title: Lista över undertecknare
         vote_cabin:
           already_voted: Redan undertecknad
           supports_required: "%{total_supports} underskrifter krävs"

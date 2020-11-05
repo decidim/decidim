@@ -5,11 +5,14 @@ module Decidim
     # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
+      include Decidim::ScopesHelper
+
       TYPES = {
         boolean: :check_box,
         integer: :number_field,
         string: :text_field,
         text: :text_area,
+        scope: :scope_field,
         enum: :collection_radio_buttons
       }.freeze
 
@@ -45,6 +48,8 @@ module Decidim
             form.send(:translated, form_method, name, options)
           elsif form_method == :collection_radio_buttons
             render_enum_form_field(form, attribute, name, i18n_scope, options)
+          elsif form_method == :scope_field
+            scopes_picker_field(form, name)
           else
             form.send(form_method, name, options)
           end

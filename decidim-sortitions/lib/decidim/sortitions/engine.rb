@@ -13,7 +13,7 @@ module Decidim
 
       routes do
         resources :sortitions, only: [:index, :show] do
-          resource :sortition_widget, only: :show, path: "embed"
+          resource :widget, only: :show, path: "embed"
         end
         root to: "sortitions#index"
       end

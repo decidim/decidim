@@ -1,4 +1,29 @@
 fr-CA:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nom de l'application OAuth
+        organization_logo: Logo de l'organisation (carré)
+        organization_name: Organisation
+        organization_url: URL de l'organisation
+        redirect_uri: URI de redirection
+      organization_file_uploads:
+        allowed_content_types:
+          admin: Formats autorisés - Admin (MIME)
+          default: Formats autorisés par défaut (MIME)
+        allowed_file_extensions:
+          admin: Extensions autorisées pour l'admin
+          default: Extensions de fichiers par défaut
+          image: Formats d'image autorisés
+        maximum_file_size:
+          avatar: Taille de l'image Avatar
+          default: Taille du fichier par défaut
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirection doit être une URI SSL
   decidim:
     system:
       actions:
@@ -32,6 +57,7 @@ fr-CA:
       menu:
         admins: Administrateurs
         dashboard: Tableau de bord
+        oauth_applications: Applications OAuth
         organizations: Organisations
       models:
         admin:
@@ -41,21 +67,67 @@ fr-CA:
           name: Administrateur
           validations:
             email_uniqueness: un autre administrateur avec la même adresse email existe déjà
+        oauth_application:
+          fields:
+            created_at: Créée le
+            name: Nom de l'application OAuth
+            organization_name: Organisation
+          name: Application OAuth
         organization:
           actions:
             save_and_invite: Créer une organisation et inviter un administrateur
           fields:
             created_at: Créé le
+            file_upload_settings: Paramètres de téléchargement de fichier
             name: Nom
             omniauth_settings: Paramètres Omniauth
             smtp_settings: Paramètres SMTP
           name: Organisation
+      oauth_applications:
+        create:
+          error: Un problème est survenu lors de la création de cette application.
+          success: Application créée avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression de cette application.
+          success: Application supprimée avec succès.
+        edit:
+          save: Enregistrer
+          title: Modifier l'application
+        form:
+          select_organization: Sélectionnez une organisation
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application ?
+          title: Applications OAuth
+        new:
+          save: Enregistrer
+          title: Nouvelle application
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette application.
+          success: Application mise à jour avec succès.
       organizations:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle organisation.
           success: Organisation créée avec succès.
         edit:
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
+        file_upload_settings:
+          content_types:
+            admin_hint: Ces types MIME sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
+            default_hint: Ces formats de fichiers sont autorisés par défaut pour tous les utilisateurs.
+            intro_html: Vous ajoutez des jokers avec le caractère astérisque pour les types MIME, par exemple <code>image/*</code>.
+            title: Types MIME acceptés
+          file_extensions:
+            admin_hint: Ces formats de fichiers sont autorisés pour les téléchargements dans la section admin. Les administrateurs doivent être conscients des risques liés au téléchargement de certains formats de document, il faut donc vous attendre à qu'ils soient plus prudents avec les téléchargements de fichiers.
+            default_hint: Ces formats de fichiers sont autorisés par défaut pour tous les utilisateurs.
+            image_hint: Ces extensions de fichier sont autorisées pour tout type de téléchargement d'image.
+            title: Extensions autorisées
+          file_sizes:
+            avatar_hint: Mégaoctets (Mo). Cette taille de fichier est utilisée pour les téléchargements d'images avatar.
+            default_hint: Megabytes (MB). Cette limite de taille de fichier est la valeur par défaut utilisée pour tous les téléchargements de fichiers, sauf indication contraire.
+            title: Taille maximum des fichiers
+          intro: |
+            Veuillez être extrèmement prudent lorsque vous envisagez de modifier ces paramètres. Moins vous autorisez, mieux c'est.
+            L'autorisation d'extensions de fichiers spécifiques ou de types MIME peut exposer les utilisateurs du système à des risques de sécurité et peut également affecter l'accessibilité du site.
         index:
           title: Organisations
         new:
@@ -82,9 +154,9 @@ fr-CA:
             api_secret: Secret de l'API
         smtp_settings:
           instructions:
-            from_label: 'L''expéditeur de l''e-mail sera : "votre-nom d''organisation <your-organization@your-provider.org>". Laissez vide pour utiliser le "from_email" comme étiquette'
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
           placeholder:
-            from_email: votre-organisation@votre-fournisseur.org
+            from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette organisation.

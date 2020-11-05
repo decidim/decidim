@@ -28,12 +28,6 @@ ru:
       newsletter:
         body: Основной текст
         subject: Тема
-      oauth_application:
-        name: Название
-        organization_logo: Логотип организации (квадрат)
-        organization_name: Название организации
-        organization_url: Веб-адрес организации
-        redirect_uri: URI перенаправления
       organization:
         address: Имя хоста SMTP
         alert_color: Оповещение
@@ -109,10 +103,6 @@ ru:
         file: Файл
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: URI перенаправления должен быть SSL URI
         organization:
           attributes:
             official_img_footer:
@@ -342,7 +332,6 @@ ru:
         homepage: Домашняя страница
         impersonations: Выступления в роли участника
         newsletters: Рассылки новостей
-        oauth_applications: Приложения OAuth
         participants: Участники
         scope_types: Виды охвата
         scopes: Охваты
@@ -386,11 +375,6 @@ ru:
             sent_to: Отправлено
             subject: Тема
           name: Рассылка новостей
-        oauth_application:
-          fields:
-            created_at: 'Создано:'
-            name: Имя
-          name: Приложение OAuth
         participatory_space_private_user:
           name: Частный участник пространства соучастия
         scope:
@@ -476,25 +460,6 @@ ru:
         update:
           error: При попытке обновить эту рассылку новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
-      oauth_applications:
-        create:
-          error: При попытке создать это приложения произошла ошибка.
-          success: Приложение успешно создано.
-        destroy:
-          error: При попытке удалить это приложение произошла ошибка.
-          success: Приложение успешно удалено.
-        edit:
-          save: Сохранить
-          title: Редактировать приложение
-        index:
-          confirm_delete: Вы действительно хотите удалить это приложение?
-          title: Приложения OAuth
-        new:
-          save: Сохранить
-          title: Добавить приложение
-        update:
-          error: При попытке обновить это приложение произошла ошибка.
-          success: Приложение успешно обновлено.
       officializations:
         create:
           success: Участнику успешно предоставлен служебный статус

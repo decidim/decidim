@@ -86,7 +86,7 @@ es:
           unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
-          success: Ha eliminado correctamente la autorización.
+          success: Has eliminado correctamente la autorización.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -143,8 +143,10 @@ es:
             success: Tu cuenta se ha verificado correctamente.
       dummy_authorization:
         extra_explanation:
-          one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
-          other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
+          postal_codes:
+            one: La participación está restringida a las personas adscritas al código postal %{postal_codes}.
+            other: 'La participación está restringida a personas adscritas a cualquiera de los siguientes códigos postales: %{postal_codes}.'
+          scope: La participación está restringida a las personas verificadas en el ámbito de %{scope_name}.
       id_documents:
         admin:
           config:

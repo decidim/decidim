@@ -207,9 +207,6 @@ uk:
           edit:
             close: Закрити
             title: Закрити зустріч
-        meeting_copies:
-          form:
-            select_organizer: Оберіть організатора
         meetings:
           close:
             invalid: При спробі закрити цю зустріч сталася помилка
@@ -221,8 +218,6 @@ uk:
             success: Зустріч успішно видалено
           edit:
             update: Оновити
-          form:
-            select_organizer: Оберіть організатора
           index:
             title: Зустрічі
           new:
@@ -301,7 +296,6 @@ uk:
       meetings:
         filters:
           category: Категорія
-          category_prompt: Оберіть категорію
           date: Дата
           search: Шукати
         filters_small_view:

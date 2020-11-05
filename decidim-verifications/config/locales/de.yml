@@ -143,8 +143,10 @@ de:
             success: Ihr Konto wurde erfolgreich verifiziert.
       dummy_authorization:
         extra_explanation:
-          one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
-          other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+          postal_codes:
+            one: Die Teilnahme ist auf Benutzer mit der Postleitzahl %{postal_codes}.
+            other: 'Die Teilnahme ist auf Benutzer mit einer der folgenden Postleitzahlen beschränkt: %{postal_codes}.'
+          scope: Die Teilnahme ist auf Benutzer mit dem Umgang %{scope_name} begrenzt.
       id_documents:
         admin:
           config:

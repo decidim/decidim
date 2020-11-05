@@ -11,15 +11,19 @@ en:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
-        subtitle: Subtitle
         title: Title
       question:
         description: Description
         max_selections: Maximum number of selections
+        min_selections: None of the above option
         title: Title
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
@@ -37,6 +41,8 @@ en:
   decidim:
     components:
       elections:
+        actions:
+          vote: Vote
         name: Elections
         settings:
           global:
@@ -48,9 +54,14 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
+        edit_answers: Edit answers
+        edit_questions: Edit questions
+        import: Import proposals to answers
         new: New %{name}
         preview: Preview
+        publish: Publish
         title: Actions
+        unpublish: Unpublish
       admin:
         answers:
           create:
@@ -63,6 +74,7 @@ en:
             title: Edit answer
             update: Update answer
           index:
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
             title: Answers
           new:
             create: Create answer
@@ -81,10 +93,15 @@ en:
             title: Edit election
             update: Update election
           index:
+            no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
             title: Elections
           new:
             create: Create election
             title: New election
+          publish:
+            success: The election has been successfully published.
+          unpublish:
+            success: The election has been successfully unpublished.
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
@@ -95,6 +112,14 @@ en:
             name: Election
           question:
             name: Question
+        proposals_imports:
+          create:
+            invalid: There was a problem importing the proposals into answers
+            success: "%{number} proposals successfully imported into answers"
+          new:
+            create: Import proposals to answers
+            no_components: There are no other proposal components in this participatory space to import the proposals into answers.
+            select_component: Please select a component
         questions:
           create:
             invalid: There was a problem creating this question
@@ -113,6 +138,49 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+      admin_log:
+        election:
+          publish: "%{user_name} published the %{resource_name} election"
+          unpublish: "%{user_name} unpublished the %{resource_name} election"
+      election_m:
+        badge_name:
+          finished: Finished
+          ongoing: Active
+          upcoming: Upcoming
+        end_date: Ends
+        footer:
+          view: View
+          vote: Vote
+        label:
+          date: Dates
+        questions: Questions %{count}
+        start_date: Starts
+        unspecified: Not specified
+      elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        show:
+          back: All elections
+          preview: Preview
+          vote: Vote
+          voting_period_status:
+            finished: Voting began on %{start_time} and ended on %{end_time}
+            ongoing: Voting ends on %{end_time}
+            upcoming: Voting begins on %{start_time}
       models:
         answer:
           fields:
@@ -128,6 +196,68 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+      orders:
+        label: Order elections by
+        older: Older
+        recent: Recent
+      votes:
+        confirm:
+          answer: Answer
+          answer_number: answer %{number}
+          confirm: Confirm
+          edit: edit
+          header: Confirm your vote
+          intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
+          nota_option: Blank
+          question: Question %{count}
+        confirmed:
+          back: Back to elections
+          experience: How was your experience?
+          feedback: Give us some feedback
+          header: Vote confirmed
+          lead: Your vote has already been cast!
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: To check it, copy the identifier and paste it on the <a href="evote-verify">vote verification page</a>
+        encrypting:
+          header: Encoding vote...
+          text: Your vote is being encrypted to ensure you can cast it anonymously.
+        header:
+          confirm: Confirm your vote
+          confirmed: Vote confirmed
+          encrypting: Confirming vote
+        messages:
+          not_allowed: You are not allowed to vote on this election at this moment.
+        modal:
+          close: Close
+          proposal_header: 'Proposals:'
+        new:
+          answer_choices: You can select up to %{choices} answers
+          more_information: More information
+          nota_option: Blank/ None of the above
+          preview_alert: This is a preview of the voting booth.
+          question_steps: Question %{current_step} of %{total_steps}
+          selections: "%{selected} of %{max_selections}<br> selections"
+        voting_step:
+          back: Back
+          continue: Next
+      warnings:
+        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
+    events:
+      elections:
+        election_published:
+          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Elections
     participatory_processes:
       statistics:
         elections_count: Elections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Exit

@@ -89,12 +89,13 @@ el:
           filter: Φίλτρο
           filter_by: Φιλτράρισμα κατά
           unfold: Αποκάλυψη
+        form:
+          select_a_category: Please select a category
         index:
           new_debate: Νέα συζήτηση
         new:
           back: Πίσω
           create: Δημιουργία
-          select_a_category: Please select a category
           title: Νέα συζήτηση
         show:
           back: Επιστροφή στη λίστα

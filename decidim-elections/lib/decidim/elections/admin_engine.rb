@@ -11,9 +11,16 @@ module Decidim
 
       routes do
         resources :elections do
+          member do
+            put :publish
+            put :unpublish
+          end
           resources :questions do
             resources :answers do
               get :proposals_picker, on: :collection
+              collection do
+                resource :proposals_import, only: [:new, :create]
+              end
             end
           end
         end

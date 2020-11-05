@@ -8,6 +8,8 @@ module Decidim
       class ImportParticipatoryTextForm < Decidim::Form
         include TranslatableAttributes
 
+        # WARNING: consider adding/removing the relative translation key at
+        # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
         ACCEPTED_MIME_TYPES = Decidim::Proposals::DocToMarkdown::ACCEPTED_MIME_TYPES
 
         translatable_attribute :title, String
@@ -33,7 +35,7 @@ module Decidim
 
         # Return ACCEPTED_MIME_TYPES plus `text/plain` for better markdown support
         def valid_mime_types
-          ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE]
+          ACCEPTED_MIME_TYPES.values + [Decidim::Proposals::DocToMarkdown::TEXT_PLAIN_MIME_TYPE] + ["application/octet-stream"]
         end
 
         def document_type

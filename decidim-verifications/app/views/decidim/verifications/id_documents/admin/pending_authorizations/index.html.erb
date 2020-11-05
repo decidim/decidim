@@ -15,8 +15,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @pending_online_authorizations.each do |authorization| %>
+        <% @pending_online_authorizations.each do |authorization| %>
+          <tr>
             <td>
               <%= link_to t(".verification_number", n: authorization.id),
                           new_pending_authorization_confirmation_path(authorization.id) %>
@@ -26,8 +26,8 @@
                 <%= image_tag authorization.verification_attachment.url(:thumbnail), class: "thumbnail-list" %>
               <% end %>
             </td>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

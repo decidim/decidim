@@ -65,7 +65,7 @@ ja:
   activerecord:
     models:
       decidim/proposals/collaborative_draft:
-        other: 共同草案
+        other: 共同作業の下書きformat@@0
       decidim/proposals/proposal:
         other: 提案
       decidim/proposals/proposal_note:
@@ -76,28 +76,6 @@ ja:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: カテゴリ
-          is_emendation_true:
-            label: タイプ
-            values:
-              'false': 提案
-              'true': 修正
-          scope_id_eq:
-            label: 対象範囲
-          state_eq:
-            label: 州(県)
-            values:
-              accepted: 受理
-              evaluating: 評価
-              published: 公開済
-              rejected: 却下済み
-              validating: 技術的検証
-              withdrawn: 撤回
-          state_null:
-            label: 州(県)
-            values:
-              'true': 回答なし
           valuator_role_ids_has:
             label: 評価者にアサインされました
         search_placeholder:
@@ -122,6 +100,7 @@ ja:
             can_accumulate_supports_beyond_threshold: 閾値を超えてサポートを蓄積できます。
             collaborative_drafts_enabled: 共同作業の下書きを有効にする
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             geocoding_enabled: ジオコーディングを有効にする
             minimum_votes_per_user: ユーザーあたりの最小サポート数
             new_proposal_body_template: 新しい提案本文テンプレート
@@ -152,7 +131,7 @@ ja:
             amendments_visibility_choices:
               all: 修正内容はすべてに表示されます
               participants: 修正内容は著者にのみ表示されます
-            amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
+            amendments_visibility_help: format@@0オプションが選択されている場合、修正内容を確認するには参加者がログインしている必要があります。
             announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
             automatic_hashtags: すべての提案にハッシュタグを追加しました
@@ -320,7 +299,7 @@ ja:
       endorsements:
         description: 提案への承認数
         object: 承認
-        title: 支持
+        title: <unk>
       proposals:
         description: 提案数
         object: 提案
@@ -450,7 +429,7 @@ ja:
             authors: 著者
             body: 本文
             comments_count: コメント数
-            comments_negative_count: 反対
+            comments_negative_count: <unk>
             comments_neutral_count: ニュートラル
             comments_positive_count: お気に入り
             created_at: 作成日

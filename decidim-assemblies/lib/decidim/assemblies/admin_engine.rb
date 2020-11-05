@@ -31,6 +31,12 @@ module Decidim
 
           resources :attachment_collections, controller: "assembly_attachment_collections"
           resources :attachments, controller: "assembly_attachments"
+
+          resource :export, controller: "assembly_exports", only: :create
+
+          collection do
+            resources :imports, controller: "assembly_imports", only: [:new, :create]
+          end
         end
 
         scope "/assemblies/:assembly_slug" do
@@ -41,6 +47,7 @@ module Decidim
             member do
               put :publish
               put :unpublish
+              get :share
             end
             resources :exports, only: :create
           end

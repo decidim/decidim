@@ -1,0 +1,56 @@
+is:
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ertu viss um að þú viljir eyða þessu færslu?
+        destroy: Eyða
+        edit: Breyta
+        title: Aðgerðir
+      admin:
+        models:
+          components:
+            body: Líkami
+          post:
+            name: Post
+        posts:
+          create:
+            success: Post var búin til
+          destroy:
+            success: Post var eytt
+          edit:
+            save: Uppfæra
+          index:
+            title: Innlegg
+          new:
+            create: Búa til
+            title: Búa til færslu
+      models:
+        post:
+          fields:
+            author: Höfundur
+            body: Líkami
+            created_at: Búið til á
+            title: titill
+      posts:
+        sidebar_blog:
+          comments: athugasemdir
+          most_commented_posts: Flestar ummæli innleggar
+      read_more: Lestu meira
+    components:
+      blogs:
+        name: Blogg
+        settings:
+          global:
+            announcement: Tilkynning
+          step:
+            announcement: Tilkynning
+    events:
+      blogs:
+        post_created:
+          email_intro: Staða "%{resource_title}" hefur verið birt í "%{participatory_space_title}" sem þú fylgist með.
+          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{participatory_space_title}". Þú getur sleppt því frá fyrri tengilinn.
+          email_subject: Ný staða birt í %{participatory_space_title}
+          notification_title: Staða <a href="%{resource_path}">%{resource_title}</a> hefur verið birt í %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        posts_count: Innlegg

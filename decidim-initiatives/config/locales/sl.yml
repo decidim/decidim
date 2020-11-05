@@ -16,3 +16,9 @@ sl:
               published: Objavljeno
           type_id_eq:
             label: Tip
+    initiatives:
+      initiatives:
+        index_header:
+          not_authorized:
+            close: Zapri
+            title: Potrebna je overitev

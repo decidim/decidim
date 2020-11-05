@@ -61,6 +61,7 @@ ja:
           global:
             announcement: お知らせ
             comments_enabled: コメントは有効です
+            comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
           step:
             announcement: お知らせ
             comments_blocked: コメントがブロックされました

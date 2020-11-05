@@ -11,7 +11,7 @@ pl:
         document_number: Numer dokumentu
         email: E-mail
         name: Nazwa
-        nickname: Alias
+        nickname: Pseudonim
         phone: Telefon
       report:
         details: Dodatkowe uwagi
@@ -19,7 +19,7 @@ pl:
         about: O użytkowniku
         email: Twój email
         name: Twoje imię
-        nickname: Alias
+        nickname: Pseudonim
         password: Hasło
         password_confirmation: Potwierdź swoje hasło
         personal_url: Prywatny adres URL
@@ -41,7 +41,7 @@ pl:
       decidim/user:
         current_password: Obecne hasło
         email: Adres e-mail
-        name: Alias
+        name: Pseudonim
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
@@ -52,10 +52,10 @@ pl:
         many: Poprawki
         other: Poprawki
       decidim/endorsement:
-        one: Poparcie
-        few: Poparcia
-        many: Poparcia
-        other: Poparcia
+        one: Rekomendacja
+        few: Rekomendacje
+        many: Rekomendacje
+        other: Rekomendacje
       decidim/user:
         one: Użytkownik
         few: Użytkownicy
@@ -112,9 +112,9 @@ pl:
         cancel: Anuluj
     admin_log:
       area:
-        create: "%{user_name} utworzył(a) obszar %{resource_name}"
-        delete: "%{user_name} usunął/usunęła obszar %{resource_name}"
-        update: "%{user_name} zaktualizował(a) obszar %{resource_name}"
+        create: "%{user_name} utworzył(a) kategorię %{resource_name}"
+        delete: "%{user_name} usunął/usunęła kategorię %{resource_name}"
+        update: "%{user_name} zaktualizował(a) kategorię %{resource_name}"
       component:
         create: "%{user_name} dodał(a) komponent %{resource_name} do przestrzeni %{space_name}"
         delete: "%{user_name} usunął/usunęła komponent %{resource_name} z przestrzeni %{space_name}"
@@ -169,12 +169,12 @@ pl:
         success: Poprawka została zaakceptowana.
       amendable:
         amended_by: Poprawione przez
-        button: Popraw %{model_name}
+        button: '%{model_name} - popraw'
         error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
-        help_text: Ulepsz %{model_name} modyfikując %{amendable_fields}
-        promote_button: Promuj %{model_name}
+        help_text: '%{model_name} - ulepsz modyfikując pola %{amendable_fields}'
+        promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
-        promote_help_text: Możesz promować tę wersję i opublikować ją jako niezależne %{model_name}
+        promote_help_text: 'Możesz promować tę wersję i opublikować ją jako niezależny element: %{model_name}'
         section_heading: Poprawki (%{count})
       compare_draft:
         continue: Dalej
@@ -200,7 +200,7 @@ pl:
           accepted: |-
             Ta poprawka do %{amendable_type} %{proposal_link} została zaakceptowana <strong>%{date}</strong>.
           evaluating: |-
-            Niniejsza poprawka do oceny %{amendable_type} %{proposal_link} jest oceniana.
+            Poprawka do %{proposal_link} (%{amendable_type}) jest oceniana.
           promoted: Zmieniono na %{amendable_type}.
           rejected: "Ta poprawka do %{amendable_type} %{proposal_link}\nzostała odrzucona <strong>%{date}</strong>."
           withdrawn: |-
@@ -226,7 +226,7 @@ pl:
       review:
         back: Powrót
         heading: Przejrzyj poprawkę
-        help_text: Przeglądasz poprawkę do %{model_name}
+        help_text: '%{model_name} - przeglądasz poprawkę'
         send: Akceptuj poprawkę
       update_draft:
         error: Wystąpił błąd podczas aktualizowania szkicu poprawki.
@@ -251,7 +251,7 @@ pl:
       document:
         download: Pobierz plik
       documents:
-        related_documents: Powiązane dokumenty
+        related_documents: Materiały
       photos:
         related_photos: Powiązane zdjęcia
     author:
@@ -262,10 +262,10 @@ pl:
         many: komentarze
         other: komentarze
       endorsements:
-        one: poparcie
-        few: poparcia
-        many: poparcia
-        other: poparcia
+        one: rekomendacja
+        few: rekomendacje
+        many: rekomendacje
+        other: rekomendacje
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer paszportu zaczynający się od litery "A"
@@ -276,8 +276,11 @@ pl:
       dummy_authorization_handler:
         explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
         fields:
+          allowed_postal_codes: Dozwolone kody pocztowe (oddzielone przecinkami)
+          allowed_scope_id: Dozwolony zakres
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
+          scope_id: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
@@ -359,20 +362,23 @@ pl:
           global:
             amendments_enabled: Poprawki dozwolone
             comments_enabled: Komentarze włączone
+            comments_max_length: Maksymalna długość komentarzy
             dummy_global_attribute_1: Przykładowy atrybut 1
             dummy_global_attribute_2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
             enable_pads_creation: Włącz tworzenie klocków
             resources_permissions_enabled: Włączono uprawnienia do zasobów
+            scope_id: Zakres
+            scopes_enabled: Zakresy włączone
           step:
             amendment_creation_enabled: Tworzenie poprawek włączone
             amendment_promotion_enabled: Promowanie poprawek włączone
             amendment_reaction_enabled: Odpowiadanie na poprawki włączone
             amendments_visibility: Widoczność poprawek
             comments_blocked: Komentarze zablokowane
-            dummy_step_attribute_1: Przykładowy atrybut kroku 1
-            dummy_step_attribute_2: Przykładowy atrybut kroku 2
-            dummy_step_translatable_text: Przykładowy tekst kroku do tłumaczenia
+            dummy_step_attribute_1: Przykładowy atrybut etapu 1
+            dummy_step_attribute_2: Przykładowy atrybut etapu 2
+            dummy_step_translatable_text: Przykładowy tekst etapu do tłumaczenia
     contact: Kontakt
     content_blocks:
       footer_sub_hero:
@@ -418,17 +424,17 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Uzupełnij profil
-          nickname_help: Twój alias (@alias) w %{organization}
+          nickname_help: Twój pseudonim w %{organization}
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
-          username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
+          username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          nickname_help: Twój alias (@alias) w %{organization}
-          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
+          nickname_help: Twój pseudonim w %{organization}
+          password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
@@ -437,7 +443,7 @@ pl:
           terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
           tos_title: Warunki korzystania z Serwisu
-          username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
+          username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
           are_you_new?: Nowy na platformie?
@@ -449,7 +455,6 @@ pl:
           buttons:
             check: Sprawdź i kontynuuj
             close_modal: Zamknij modalne
-            uncheck: Pozostaw niezaznaczone
           notice: |-
             <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
             Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
@@ -470,17 +475,17 @@ pl:
           publish_content: Opublikuj zawartość dla siebie
           see_email: Zobacz swój e-mail
           see_name: Zobacz swoje imię
-          see_username: Zobacz swój alias
+          see_username: Zobacz swój pseudonim
           this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
           this_application_will_not_be_able_to: 'Ta aplikacja nie będzie mogła:'
           update_profile: Zaktualizuj swój profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     endorsable:
-      endorsements: Wsparcia
-      endorsements_count: Licznik poparć
+      endorsements: Rekomendacje
+      endorsements_count: Liczba rekomendacji
     endorsement_buttons_cell:
-      already_endorsed: Poparto
-      endorse: Poprzyj
+      already_endorsed: Rekomendowano
+      endorse: Rekomenduj
     endorsements:
       identities:
         done: Gotowe
@@ -532,12 +537,12 @@ pl:
           affected_user:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka odrzucona dla %{amendable_title} z %{emendation_author_nickname}
+            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
             notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Poprawka odrzucona w %{amendable_title} od %{emendation_author_nickname}
+            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
             notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
@@ -616,10 +621,10 @@ pl:
       notification_event:
         notification_title: Zdarzenie miało miejsce w <a href="%{resource_path}">%{resource_title}</a>.
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie poparł(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, którego śledzisz, właśnie zarekomendował(a) „%{resource_title}” i uważamy, że może Cię to zainteresować. Sprawdź i zadecyduj:'
         email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-        email_subject: "%{endorser_nickname} poparł(a) nową propozycję"
-        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została poparta przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+        email_subject: "%{endorser_nickname} zarekomendował(a) nową propozycję"
+        notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> %{resource_type} została zarekomendowana przez <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
       users:
         profile_updated:
           email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
@@ -644,9 +649,9 @@ pl:
         result: Wyniki
     fingerprint:
       check: Sprawdź odcisk palca
-      explanation: Fragment poniższego tekstu stanowi skróconą, zakrojoną reprezentację tej treści. Warto upewnić się, że treść nie została naruszona, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
+      explanation: Fragment tekstu poniżej stanowi skróconą i zaszyfrowaną wersję tej treści. Warto upewnić się, że treść nie została zmodyfikowana, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
       online_calculator_name: Kalkulator MD5 online
-      replicate_help: Ten odcisk palca jest obliczany przy użyciu algorytmu mieszania SHA256. Aby wykonać replikę samodzielnie, możesz użyć %{online_calculator_link} i skopiować i wkleić dane źródłowe.
+      replicate_help: 'Ten fingerprint jest wyliczony przy użyciu algorytmu szyfrującego SHA256. Aby wykonać replikę samodzielnie, możesz skopiować i wkleić dane źródłowe do tego narzędzia: %{online_calculator_link}.'
       source: Źródło
       title: Odcisk palca
       value: Wartość
@@ -663,7 +668,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Już obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -695,7 +700,7 @@ pl:
         followers:
           conditions:
             - Bycie aktywnym i obserwowanie innych użytkowników z pewnością sprawi, że inne osoby będą obserwować Ciebie.
-          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczna i polityczna, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
+          description: Ta odznaka jest przyznawana, gdy będziesz miał określoną liczbę obserwujących. %{organization_name} jest siecią społeczną i polityczną, rozwijaj swoje kontakty by komunikować się z innymi osobami na platformie.
           description_another: Ten użytkownik ma %{score} obserwujących.
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
@@ -705,7 +710,7 @@ pl:
         index:
           badge_title: "Odznaka %{name}"
           how: Jak ją zdobyć
-          page_description: Odznaki są wyrazem uznania dla działań uczestników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
+          page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
         invitations:
           conditions:
@@ -719,7 +724,7 @@ pl:
           next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
           unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
           unearned_own: Jeszcze nikogo nie zaproszono.
-      description: Odznaki są uznaniem dla działań uczestników i postępu na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
+      description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
@@ -797,7 +802,7 @@ pl:
       new:
         create_user_group: Utwórz grupę
         new_user_group: Nowa grupa
-        subtitle: Utwórz grupę i zaproś innych użytkowników do przyłączenia się, aby uczestniczyć w zbiorowym poziomie.
+        subtitle: Utwórz grupę, zaproś innych użytkowników i działajcie wspólnie.
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
@@ -832,9 +837,9 @@ pl:
         update_with_space: "%{user_name} zaktualizował(a) %{resource_name} w %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Obszar nie został znaleziony w bazie danych (ID: %{id})'
+          not_found: 'Kategoria nie została znaleziona w bazie danych (ID: %{id})'
         area_type_presenter:
-          not_found: 'Typ obszaru nie został znaleziony w bazie danych (ID: %{id})'
+          not_found: 'Typ kategorii nie został znaleziony w bazie danych (ID: %{id})'
         scope_presenter:
           not_found: 'Zakres nie został znaleziony w bazie danych (ID: %{id})'
         scope_type_presenter:
@@ -922,8 +927,6 @@ pl:
         start:
           send: Wyślij
           title: Zacznij konwersację
-        update:
-          error: Wiadomość nie została wysłana. Spróbuj ponownie później
     metrics:
       download:
         csv: Pobierz dane (csv)
@@ -979,7 +982,7 @@ pl:
       notify:
         body_1: Przetwarzanie danych osobowych i ich ochrona stają się coraz ważniejsze dla nas wszystkich. Wraz z nowym ogólnym rozporządzeniem o ochronie danych (GDPR) z 25 maja 2018 r. Osoby fizyczne mają lepszą kontrolę nad swoimi danymi osobowymi. Z tego powodu potrzebujemy twojego "OK", aby kontynuować wysyłanie odpowiednich informacji o działaniach %{organization_name}.
         body_2: 'Jak możesz wyrazić zgodę? Po prostu kliknij poniższy przycisk:'
-        body_3: Za tą zgodą będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli, wręcz przeciwnie, nie otrzymamy potwierdzenia z Twojej strony, przestaniemy wysyłać Ci nasze wiadomości. Jeśli potwierdzisz, że chcesz być na bieżąco informowany, zawsze będziesz mieć możliwość anulowania w dowolnym momencie.
+        body_3: Wyrażając zgodę będziesz mógł nadal otrzymywać informacje o usługach platformy. Jeśli jej jednak nie wyrazisz, przestaniemy wysyłać Ci wiadomości. Jeśli teraz potwierdzisz, że chcesz być na bieżąco informowany, wciąż w dowolnym będziesz mógł anulować zgodę.
         button: Tak, chcę nadal otrzymywać istotne informacje
         greetings: Pozdrawiamy,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Cześć,
@@ -991,10 +994,10 @@ pl:
         allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem gdy otrzymuję powiadomienie.
-        everything_followed: Wszystko, co obserwuję
+        everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
         newsletters: Newslettery
-        own_activity: Moja własne działania, np. Kiedy ktoś komentuje moją propozycję lub wspomina o mnie
+        own_activity: Dotyczące moich własnych działań, np. kiedy ktoś komentuje moją propozycję lub wspomina o mnie
         receive_notifications_about: Chcę otrzymywać powiadomienia
         send_notifications_by_email: Wysyłaj powiadomienia pocztą e-mail
         update_notifications_settings: Zapisz zmiany
@@ -1017,7 +1020,7 @@ pl:
         extended:
           debates: Debaty
           debates_explanation: Debatuj i dyskutuj, podziel się swoimi poglądami i wzbogać tematykę debat.
-          how_to_participate: Jak weź udział w procesie?
+          how_to_participate: Jak wziąć udział w procesach?
           meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w publicznych spotkaniach.
           more_info: Więcej informacji na temat %{resource_name}
@@ -1038,7 +1041,7 @@ pl:
           comments_count: Komentarze
           conferences_count: Konferencje
           debates_count: Debaty
-          endorsements_count: Wsparcia
+          endorsements_count: Rekomendacje
           headline: Aktualny stan %{organization}
           meetings_count: Spotkania
           orders_count: Głosowania
@@ -1056,7 +1059,7 @@ pl:
       index:
         read_more: Pokaż więcej
         standalone_pages: Strony
-        subheading: Przejdź przez strony pomocy %{name}
+        subheading: '%{name} - zapoznaj się ze stronami pomocy'
         title: Pomoc
         topics: Tematy
       participatory_space:
@@ -1068,7 +1071,6 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
-          agreement: Zgadzam się na te warunki
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
@@ -1085,7 +1087,7 @@ pl:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
       deleted: Usunięty użytkownik
-      view: Widok
+      view: Zobacz
     profiles:
       default_officialization_text_for_user_groups: Ta grupa użytkowników jest publicznie zweryfikowana, jej nazwa została zweryfikowana, aby odpowiadała jej prawdziwej nazwie
       default_officialization_text_for_users: Ten uczestnik jest publicznie zweryfikowany, jego/jego nazwisko lub rola zostały zweryfikowane, aby odpowiadały jego/jej prawdziwemu imieniu i roli
@@ -1094,7 +1096,7 @@ pl:
         badges: Odznaki
         conversations: Konwersacje
         followers: Obserwujący
-        following: Obserwuje
+        following: Obserwowane
         groups: Grupy
         members: Członkowie
         officialized: Oficjalny użytkownik
@@ -1123,8 +1125,14 @@ pl:
         report_html: <p>Poniższa<a href="%{url}">zawartość</a> została ukryta automatycznie.</p>
         subject: Zasób został ukryty automatycznie
       report:
+        authors: Autorzy
+        content: Zgłoszona zawartość
+        date: Zgłoszone dnia
+        details: Szczegóły
         hello: Witaj %{name},
         manage_moderations: Zarządzaj moderacjami
+        participatory_space: Przestrzeń partycypacyjna
+        reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
         subject: Zasób został zgłoszony
     reports:
@@ -1133,7 +1141,7 @@ pl:
         success: Raport został utworzony z powodzeniem i zostanie zweryfikowany przez administratora.
     resource_endorsements:
       create:
-        error: Wystąpił błąd podczas udzielania poparcia.
+        error: Wystąpił błąd podczas udzielania rekomendacji.
     scopes:
       global: Zakres globalny
       picker:
@@ -1155,7 +1163,7 @@ pl:
         back: Powrót do wyników
         jump_to: 'Skocz do:'
         state:
-          active: Aktywny
+          active: Aktualny
           all: Wszystko
           future: Przyszły
           past: Przeszły
@@ -1171,6 +1179,10 @@ pl:
           many: "%{count} wyników"
           other: "%{count} wyników"
         view_all: Zobacz wszystko (%{count})
+    security:
+      selfxss_warning:
+        description: Ta funkcja przeglądarki jest przeznaczona dla deweloperów i nie powinieneś tu nic wklejać, jeśli zostałeś o to poproszony. Wklejanie treści w tym oknie może zagrozić Twojej prywatności i zapewnić hakerom dostęp do Twojego konta.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Anuluj
@@ -1180,7 +1192,7 @@ pl:
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
-        embed_link: Załącz
+        embed_link: Osadź
       extended_navigation_bar:
         more: Więcej
         unfold: Rozwiń
@@ -1191,8 +1203,8 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Zawiera nielegalną działalność, zagrożenia samobójstwem, informacje osobiste lub coś innego, co według Ciebie nie należy do %{organization_name}.
-        offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
+        does_not_belong: Dotyczy nielegalnej działalności, gróźb samobójczych, zawiera informacje osobiste lub coś innego, co według Ciebie nie dotyczy do %{organization_name}.
+        offensive: Zawiera rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         report: Raport
         spam: Zawiera clickbaity, reklamy, oszustwa lub wrogie skrypty.
         title: Zgłoś nieodpowiednią zawartość
@@ -1207,8 +1219,8 @@ pl:
         sign_up: Zarejestruj się
       participatory_space_filters:
         filters:
-          areas: Obszary
-          select_an_area: Wybierz obszar
+          areas: Kategorie
+          select_an_area: Wybierz kategorię
       reference:
         reference: 'Odniesienie: %{reference}'
       represent_user_group:
@@ -1224,6 +1236,10 @@ pl:
     tags:
       filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
       filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
+    translation_bar:
+      help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
+      show_original: Pokaż oryginalny tekst
+      show_translated: Pokaż automatyczne tłumaczenie
     user_activity:
       index:
         no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
@@ -1313,11 +1329,11 @@ pl:
     failure:
       already_authenticated: Jesteś już zalogowany.
       inactive: Twoje konto nie zostało jeszcze aktywowane.
-      invalid: Nieprawidłowe %{authentication_keys} lub hasło.
+      invalid: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       invited: Masz oczekujące zaproszenia, zaakceptuj je, aby zakończyć tworzenie konta.
       last_attempt: Masz jeszcze jedną próbę, zanim Twoje konto zostanie zablokowane.
       locked: Twoje konto jest zablokowane.
-      not_found_in_database: Nieprawidłowe %{authentication_keys} lub hasło.
+      not_found_in_database: 'Nieprawidłowe dane: %{authentication_keys} lub hasło.'
       timeout: Twoja sesja wygasła. Zaloguj się ponownie, aby kontynuować.
       unauthenticated: Zanim przejdziesz dalej, musisz się zalogować lub zarejestrować.
     invitations:
@@ -1352,7 +1368,7 @@ pl:
         hello: Witaj %{email},
         ignore: |-
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
-          Twoje konto nie zostanie utworzone, dopóki nie klikniesz w powyższy link i nie ustawisz aliasu i hasła.
+          Twoje konto nie zostanie utworzone, dopóki nie klikniesz w powyższy link i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
@@ -1393,7 +1409,7 @@ pl:
         change_your_password: Zmień swoje hasło
         confirm_new_password: Potwierdź nowe hasło
         new_password: Nowe hasło
-        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego aliasu i adresu e-mail."
+        password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
@@ -1539,6 +1555,7 @@ pl:
         see_more: Zobacz więcej
   locale:
     name: Polski
+    name_with_error: Polski (błąd!)
   password_validator:
     domain_included_in_password: jest zbyt podobne do tej nazwy domeny
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail

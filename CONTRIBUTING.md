@@ -12,11 +12,15 @@ If you haven't already, come find us in [Gitter](https://gitter.im/decidim/decid
 
 * If you're unable to find an open issue addressing the problem, [open a new one on Metadecidim](https://meta.decidim.org/processes/bug-report/f/210/proposals/new). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
-## Did you write a patch that fixes a bug?
+## Did you write a patch that fixes a bug or contributes features?
 
 * Open a new GitHub pull request with the patch.
 
 * Ensure the PR description clearly describes the problem and solution. Include the relevant issue number if applicable.
+
+* Check our [development_guide](https://github.com/decidim/decidim/blob/develop/docs/development_guide.md)
+
+* When the PR includes a breaking change or includes something that requires manual intervention when deploying, it's necessary to add it on the changelog upgrade notes. See [the discussion](https://github.com/decidim/decidim/issues/5908) regarding changelog simplification for further context.
 
 ## Do you intend to add a new feature or change an existing one?
 

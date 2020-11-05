@@ -43,7 +43,7 @@ end
 
 It is a good practice to give the opportunity to the admin to switch Endorsements on and off.
 
-There are two switches that are normally defined in the manifest of the element in the following way:
+There are two switches that are normally defined in the manifest of the element in the following way (usually this would be at component.rb in a Decidim engine):
 
 ```ruby
     settings.attribute :endorsements_enabled, type: :boolean, default: true

@@ -11,15 +11,19 @@ module Decidim
     include Resourceable
     include Decidim::Followable
     include Decidim::Loggable
+    include Decidim::HasUploadValidations
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
     has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
 
-    validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
+    # Regex for name & nickname format validations
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/.freeze
+
+    validates_avatar
     mount_uploader :avatar, Decidim::AvatarUploader
 
-    validates :name, :nickname, format: { with: /\A(?!.*[<>?%&\^*#@\(\)\[\]\=\+\:\;\"\{\}\\\|])/ }
+    validates :name, :nickname, format: { with: REGEXP_NAME }
 
     # Public: Returns a collection with all the entities this user is following.
     #

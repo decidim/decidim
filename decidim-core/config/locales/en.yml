@@ -66,6 +66,7 @@ en:
     errors:
       general: Error processing image
       image_too_big: The image is too big
+      not_inside_organization: The file is not attached to any organization
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -265,8 +266,11 @@ en:
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X"
         fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
           document_number: Document number
           postal_code: Postal code
+          scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
         name: Dummy authorization workflow
@@ -346,11 +350,14 @@ en:
           global:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
+            comments_max_length: Comments max length
             dummy_global_attribute_1: Dummy Attribute 1
             dummy_global_attribute_2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
             resources_permissions_enabled: Resources permissions enabled
+            scope_id: Scope
+            scopes_enabled: Scopes enabled
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -436,7 +443,7 @@ en:
           buttons:
             check: Check and continue
             close_modal: Close modal
-            uncheck: Keep uncheck
+            uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
@@ -889,6 +896,11 @@ en:
           show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
+        error_modal:
+          close: Close modal
+          correct_errors: Please correct the errors and try again.
+          intro: 'There were the following errors with your message:'
+          ok: OK
         index:
           ago: ago
           close: Close modal
@@ -912,7 +924,7 @@ en:
           send: Send
           title: Start a conversation
         update:
-          error: Message not sent. Try again later
+          error: Message was not sent due to an error
     metrics:
       download:
         csv: Download data (csv)
@@ -1057,7 +1069,7 @@ en:
           error: There was a problem accepting the terms and conditions.
           success: Great! You have accepted the terms and conditions.
         form:
-          agreement: I agree this terms
+          agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
           modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{data_portability_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
@@ -1112,8 +1124,14 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        authors: Authors
+        content: Reported content
+        date: Reported on
+        details: Details
         hello: Hello %{name},
         manage_moderations: Manage moderations
+        participatory_space: Participatory space
+        reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
         subject: A resource has been reported
     reports:
@@ -1158,6 +1176,10 @@ en:
           one: "%{count} result"
           other: "%{count} results"
         view_all: View all (%{count})
+    security:
+      selfxss_warning:
+        description: This browser feature is meant for developers and you should not paste anything here if you were asked to do so. Pasting content in this window can compromise your privacy and give hackers access to your account.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Cancel
@@ -1211,6 +1233,10 @@ en:
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
+    translation_bar:
+      help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
+      show_original: Show original text
+      show_translated: Show automatically-translated text
     user_activity:
       index:
         no_activities_warning: This participant hasn't had any activity yet.
@@ -1520,6 +1546,7 @@ en:
         see_more: See more
   locale:
     name: English
+    name_with_error: English (error!)
   password_validator:
     domain_included_in_password: is too similar to this domain name
     email_included_in_password: is too similar to your email

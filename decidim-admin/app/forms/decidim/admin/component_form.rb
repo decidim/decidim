@@ -23,12 +23,18 @@ module Decidim
       attribute :default_step_settings, Object
       attribute :step_settings, Hash[String => Object]
 
+      attribute :share_tokens, Array[ShareToken]
+
       def settings?
         settings.manifest.attributes.any?
       end
 
       def default_step_settings?
         default_step_settings.manifest.attributes.any?
+      end
+
+      def map_model(model)
+        self.share_tokens = model.share_tokens
       end
 
       private

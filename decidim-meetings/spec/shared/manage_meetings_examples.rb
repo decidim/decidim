@@ -7,7 +7,6 @@ shared_examples "manage meetings" do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
 
-  let(:organizer) { create(:user, :confirmed, organization: organization) }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
 
   before do
@@ -87,7 +86,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  it "updates a meeting" do
+  it "updates a meeting", :serves_geocoding_autocomplete do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
@@ -100,7 +99,7 @@ shared_examples "manage meetings" do
         es: "Mi nuevo título",
         ca: "El meu nou títol"
       )
-      fill_in :meeting_address, with: address
+      fill_in_geocoding :meeting_address, with: address
 
       find("*[type=submit]").click
     end
@@ -112,13 +111,13 @@ shared_examples "manage meetings" do
     end
   end
 
-  it "adds a few services to the meeting" do
+  it "adds a few services to the meeting", :serves_geocoding_autocomplete do
     within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
       click_link "Edit"
     end
 
     within ".edit_meeting" do
-      fill_in :meeting_address, with: address
+      fill_in_geocoding :meeting_address, with: address
       fill_in_services
 
       expect(page).to have_selector(".meeting-service", count: 2)
@@ -149,7 +148,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  it "creates a new meeting", :slow do
+  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -181,7 +180,7 @@ shared_examples "manage meetings" do
       ca: "Descripció més llarga"
     )
 
-    fill_in :meeting_address, with: address
+    fill_in_geocoding :meeting_address, with: address
     fill_in_services
 
     page.execute_script("$('#meeting_start_time').focus()")
@@ -197,8 +196,6 @@ shared_examples "manage meetings" do
     scope_pick select_data_picker(:meeting_decidim_scope_id), scope
     select translated(category.name), from: :meeting_decidim_category_id
 
-    autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
-
     within ".new_meeting" do
       find("*[type=submit]").click
     end
@@ -210,8 +207,64 @@ shared_examples "manage meetings" do
     end
   end
 
+  context "when using the front-end geocoder", :serves_geocoding_autocomplete do
+    it_behaves_like(
+      "a record with front-end geocoding address field",
+      Decidim::Meetings::Meeting,
+      within_selector: ".new_meeting",
+      address_field: :meeting_address
+    ) do
+      let(:geocoded_address_value) { address }
+      let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+      before do
+        # Prepare the view for submission (other than the address field)
+        find(".card-title a.button").click
+
+        fill_in_i18n(
+          :meeting_title,
+          "#meeting-title-tabs",
+          en: "My meeting",
+          es: "Mi meeting",
+          ca: "El meu meeting"
+        )
+        fill_in_i18n(
+          :meeting_location,
+          "#meeting-location-tabs",
+          en: "Location",
+          es: "Location",
+          ca: "Location"
+        )
+        fill_in_i18n(
+          :meeting_location_hints,
+          "#meeting-location_hints-tabs",
+          en: "Location hints",
+          es: "Location hints",
+          ca: "Location hints"
+        )
+        fill_in_i18n_editor(
+          :meeting_description,
+          "#meeting-description-tabs",
+          en: "A longer description",
+          es: "Descripción más larga",
+          ca: "Descripció més llarga"
+        )
+
+        page.execute_script("$('#meeting_start_time').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+        page.find(".datepicker-dropdown .hour", text: "10:00").click
+        page.find(".datepicker-dropdown .minute", text: "10:50").click
+
+        page.execute_script("$('#meeting_end_time').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+        page.find(".datepicker-dropdown .hour", text: "12:00").click
+        page.find(".datepicker-dropdown .minute", text: "12:50").click
+      end
+    end
+  end
+
   describe "duplicating a meeting" do
-    it "creates a new meeting", :slow do
+    it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
         click_link "Duplicate"
       end
@@ -245,7 +298,7 @@ shared_examples "manage meetings" do
         ca: "Descripció més llarga"
       )
 
-      fill_in :meeting_address, with: address
+      fill_in_geocoding :meeting_address, with: address
 
       page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
@@ -256,8 +309,6 @@ shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
-
-      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
 
       within ".copy_meetings" do
         find("*[type=submit]").click
@@ -291,9 +342,14 @@ shared_examples "manage meetings" do
     end
   end
 
-  context "when geocoding is disabled" do
+  context "when geocoding is disabled", :configures_map do
     before do
-      allow(Decidim).to receive(:geocoder).and_return(nil)
+      Decidim.maps = {
+        provider: :test,
+        geocoding: false,
+        autocomplete: false
+      }
+      Decidim::Map.reset_utility_configuration!
     end
 
     it "updates a meeting" do
@@ -310,7 +366,6 @@ shared_examples "manage meetings" do
           ca: "El meu nou títol"
         )
         fill_in :meeting_address, with: address
-
         find("*[type=submit]").click
       end
 
@@ -367,8 +422,6 @@ shared_examples "manage meetings" do
       scope_pick select_data_picker(:meeting_decidim_scope_id), scope
       select translated(category.name), from: :meeting_decidim_category_id
 
-      autocomplete_select "#{organizer.name} (@#{organizer.nickname})", from: :organizer_id
-
       within ".new_meeting" do
         find("*[type=submit]").click
       end
@@ -385,7 +438,7 @@ shared_examples "manage meetings" do
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component, skip_injection: true) }
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do

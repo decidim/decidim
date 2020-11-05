@@ -7,7 +7,7 @@ fr:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         state: État
         title: Titre
         user_group_id: Créez un brouillon collaboratif comme
@@ -20,7 +20,7 @@ fr:
         category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
-        scope_id: Périmètre d'application
+        scope_id: Secteur
         state: État
         suggested_hashtags: Hashtags suggérés
         title: Titre
@@ -80,6 +80,28 @@ fr:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Catégorie
+          is_emendation_true:
+            label: Type
+            values:
+              'false': Propositions
+              'true': Amendements
+          scope_id_eq:
+            label: Secteur
+          state_eq:
+            label: État
+            values:
+              accepted: Acceptée
+              evaluating: En cours d'évaluation
+              published: Publiée
+              rejected: Rejetée
+              validating: Validation technique
+              withdrawn: Retirée
+          state_null:
+            label: État
+            values:
+              'true': Non répondu
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -104,6 +126,7 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
+            comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
             geocoding_enabled: Géocodage activé
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
@@ -121,6 +144,8 @@ fr:
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Compléter" de la création de proposition
             proposal_wizard_step_4_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
+            scope_id: Secteur
+            scopes_enabled: Secteurs activés
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
@@ -351,14 +376,14 @@ fr:
             info_1: Les sections suivantes ont été analysées à partir du document importé et ont été converties en propositions. Maintenant, vous pouvez revoir et ajuster tout ce dont vous avez besoin avant de publier.
             publish_document: Publier le document
             save_draft: Enregistrer le brouillon
-            title: APERÇU DU TEXTE PARTICIPATIF
+            title: Aperçu du texte participatif
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: Odt
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
             document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
-            title: AJOUTER UN DOCUMENT
+            title: Ajouter un document
             upload_document: Télécharger le document
           publish:
             invalid: Impossible de publier des propositions
@@ -627,7 +652,7 @@ fr:
         update:
           error: Il y a eu des erreurs lors de l'enregistrement du brouillon collaboratif.
           success: Brouillon collaboratif mis à jour avec succès.
-          title: Modifier la question collaborative
+          title: Modifier le brouillon collaboratif
         wizard_aside:
           back: Arrière
           back_from_collaborative_draft: Retour aux brouillons collaboratifs
@@ -697,8 +722,13 @@ fr:
             one: "%{count} proposition"
             other: "%{count} propositions"
         edit:
+          add_documents: Documents
+          add_images: Fichier
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          delete_document: Supprimer le document
+          delete_image: Supprimer l'image
+          gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -819,7 +849,7 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
-          title: 'La participation est soumise aux règles suivantes :'
+          title: 'Les soutiens sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant

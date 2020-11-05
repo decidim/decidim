@@ -8,24 +8,24 @@ module Decidim
       name "Budgets"
       description "A budget component of a participatory space."
 
-      connection :projects, ProjectType.connection_type do
+      connection :budgets, BudgetType.connection_type do
         resolve ->(component, _args, _ctx) {
-                  ProjectTypeHelper.base_scope(component).includes(:component)
+                  BudgetsTypeHelper.base_scope(component).includes(:component)
                 }
       end
 
-      field(:project, ProjectType) do
+      field(:budget, BudgetType) do
         argument :id, !types.ID
 
         resolve ->(component, args, _ctx) {
-          ProjectTypeHelper.base_scope(component).find_by(id: args[:id])
+          BudgetsTypeHelper.base_scope(component).find_by(id: args[:id])
         }
       end
     end
 
-    module ProjectTypeHelper
+    module BudgetsTypeHelper
       def self.base_scope(component)
-        Project.where(component: component)
+        Budget.where(component: component)
       end
     end
   end

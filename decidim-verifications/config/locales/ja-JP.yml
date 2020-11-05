@@ -27,7 +27,7 @@ ja:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
+          before_date_info: プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
           button: すべて取り消し
           button_before: 日付の前に取り消し
           destroy:
@@ -143,7 +143,9 @@ ja:
             success: アカウントが正常に認証されました。
       dummy_authorization:
         extra_explanation:
-          other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
+          postal_codes:
+            other: '参加者は次の郵便番号のいずれかを持つ参加者に制限されています: %{postal_codes}.'
+          scope: 参加者はスコープ %{scope_name} の参加者に限定されています。
       id_documents:
         admin:
           config:

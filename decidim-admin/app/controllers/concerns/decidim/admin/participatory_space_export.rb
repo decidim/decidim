@@ -11,16 +11,22 @@ module Decidim
         def create
           enforce_permission_to :create, :export_space, participatory_space: exportable_space
 
-          ExportParticipatorySpaceJob.perform_later(current_user, exportable_space, "participatory_processes", default_format)
+          ExportParticipatorySpaceJob.perform_later(current_user, exportable_space, manifest_name, default_format)
 
           flash[:notice] = t("decidim.admin.exports.notice")
 
           redirect_back(fallback_location: after_export_path)
         end
 
-        # Public: The only method to be implemented at the controller. You need to
+        # Public: To be implemented at the controller. You need to
         # return the space that will be exported.
         def exportable_space
+          raise NotImplementedError
+        end
+
+        # Public: To be implemented at the controller. You need to
+        # return the plural of the name of the space that will be exported.
+        def manifest_name
           raise NotImplementedError
         end
 

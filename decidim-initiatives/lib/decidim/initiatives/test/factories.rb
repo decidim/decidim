@@ -7,8 +7,8 @@ FactoryBot.define do
   factory :initiatives_type, class: "Decidim::InitiativesType" do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
-    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     organization
+    banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     signature_type { :online }
     attachments_enabled { true }
     undo_online_signatures_enabled { true }
@@ -16,6 +16,8 @@ FactoryBot.define do
     area_enabled { false }
     promoting_committee_enabled { true }
     minimum_committee_members { 3 }
+    child_scope_threshold_enabled { false }
+    only_global_scope_enabled { false }
 
     trait :attachments_enabled do
       attachments_enabled { true }
@@ -69,10 +71,19 @@ FactoryBot.define do
     trait :with_user_extra_fields_collection do
       collect_user_extra_fields { true }
       extra_fields_legal_information { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+      document_number_authorization_handler { "dummy_authorization_handler" }
     end
 
     trait :with_sms_code_validation do
       validate_sms_code_on_votes { true }
+    end
+
+    trait :child_scope_threshold_enabled do
+      child_scope_threshold_enabled { true }
+    end
+
+    trait :only_global_scope_enabled do
+      only_global_scope_enabled { true }
     end
   end
 
@@ -157,7 +168,8 @@ FactoryBot.define do
       signature_type { "online" }
 
       after(:build) do |initiative|
-        initiative.initiative_votes_count = initiative.scoped_type.supports_required + 1
+        initiative.online_votes[initiative.scope.id.to_s] = initiative.supports_required + 1
+        initiative.online_votes["total"] = initiative.supports_required + 1
       end
     end
 
@@ -167,7 +179,8 @@ FactoryBot.define do
       signature_type { "online" }
 
       after(:build) do |initiative|
-        initiative.initiative_votes_count = initiative.scoped_type.supports_required - 1
+        initiative.online_votes[initiative.scope.id.to_s] = 0
+        initiative.online_votes["total"] = 0
       end
     end
 
@@ -182,6 +195,11 @@ FactoryBot.define do
   factory :initiative_user_vote, class: "Decidim::InitiativesVote" do
     initiative { create(:initiative) }
     author { create(:user, :confirmed, organization: initiative.organization) }
+    hash_id { SecureRandom.uuid }
+    scope { initiative.scope }
+    after(:create) do |vote|
+      vote.initiative.update_online_votes_counters
+    end
   end
 
   factory :organization_user_vote, class: "Decidim::InitiativesVote" do

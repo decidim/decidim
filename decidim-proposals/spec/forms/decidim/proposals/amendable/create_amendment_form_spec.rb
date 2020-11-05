@@ -33,9 +33,40 @@ module Decidim
       it_behaves_like "an amendment form"
 
       context "when the emendation doesn't change the amendable" do
-        let(:emendation_params) { { title: amendable.title, body: amendable.body } }
+        let(:emendation_params) { { title: translated(amendable.title), body: translated(amendable.body) } }
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when amendable title is not etiquette-compliant" do
+        let(:amendable) { create(:proposal, title: "A") }
+        let(:emendation_params) { { title: amendable.title, body: "A new body which is long enough" } }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when amendable body is not etiquette-compliant" do
+        let(:amendable) { create(:proposal, body: "A") }
+        let(:emendation_params) { { title: "A title which is long enough", body: amendable.body } }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when emendation adds more errors than original" do
+        let(:amendable) { create(:proposal, title: "AAAAAAAAAAAAAAAAAAAAAAAAAA") }
+        let(:emendation_params) { { title: "AA", body: amendable.body } }
+
+        it "is invalid" do
+          expect(form).to be_invalid
+          expect(form.errors[:title]).to eq(["is too short (under 15 characters)"])
+        end
+      end
+
+      context "when emendation adds less errors than original" do
+        let(:amendable) { create(:proposal, title: "1 A!!#?", body: "#$^^ABC") }
+        let(:emendation_params) { { title: "A title which is long enough", body: "A new body which is long enough" } }
+
+        it { is_expected.to be_valid }
       end
     end
   end

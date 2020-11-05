@@ -3,7 +3,7 @@
     <h2 class="card-title"><%= title %></h2>
   </div>
   <div class="card-section">
-    <div class="row column  hashtags__container">
+    <div class="row column hashtags__container">
       <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
     </div>
 
@@ -12,7 +12,7 @@
     </div>
 
     <div class="row column">
-      <%= form.text_field :address %>
+      <%= form.geocoding_field :address %>
       <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
@@ -36,22 +36,15 @@
       </div>
     </div>
     <div class="row">
-      <% if current_participatory_space.has_subscopes? %>
+      <% if current_component.has_subscopes? %>
         <div class="columns xlarge-6">
-          <%= scopes_picker_field form, :decidim_scope_id %>
+          <%= scopes_picker_field form, :decidim_scope_id, root: current_component.scope %>
         </div>
       <% end %>
 
       <div class="columns xlarge-6">
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
       </div>
-    </div>
-
-    <div class="row column">
-      <% prompt_options = { url: decidim_admin.users_organization_url, text: t(".select_organizer") } %>
-      <%= form.autocomplete_select(:organizer_id, form.object.organizer.presence, { multiple: false }, prompt_options) do |user|
-        { value: user.id, label: "#{user.name} (@#{user.nickname})" }
-      end %>
     </div>
 
     <div class="row column" id="private_meeting">

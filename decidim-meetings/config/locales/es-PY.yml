@@ -16,10 +16,12 @@ es-PY:
         available_slots: Espacios disponibles para este encuentro
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
+        decidim_user_group_id: Grupo de usuarias
         description: Descripción
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        organizer_gid: Crear como
         organizer_id: Organizador
         private_meeting: Encuentro privado
         registration_form_enabled: Formulario de inscripción habilitado
@@ -81,12 +83,18 @@ es-PY:
           global:
             announcement: Anuncio
             comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             enable_pads_creation: Habilitar la creación de pads
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
+            scope_id: Ámbito
+            scopes_enabled: Ámbitos habilitados
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
+            creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
+            creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     events:
       meetings:
         meeting_closed:
@@ -227,9 +235,6 @@ es-PY:
           edit:
             close: Cerrar
             title: Cerrar encuentro
-        meeting_copies:
-          form:
-            select_organizer: Selecciona el organizador
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
@@ -249,7 +254,6 @@ es-PY:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
-            select_organizer: Selecciona el organizador
           index:
             title: Encuentros
           new:
@@ -354,24 +358,55 @@ es-PY:
       meeting:
         not_allowed: No puedes ver esta reunión
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} encuentro"
+            other: "%{count} encuentros"
+        create:
+          invalid: Se ha producido un error al crear este encuentro.
+          success: Has creado el encuentro con éxito.
+        edit:
+          back: Atrás
+          title: Editar el encuentro
+          update: Actualizar
         filters:
           category: Categoría
-          category_prompt: Selecciona una categoría
           date: Fecha
-          past: Pasado
+          date_values:
+            all: Todas
+            past: Pasadas
+            upcoming: Próximas
+          origin: Origen
+          origin_values:
+            all: Todos
+            citizens: Ciudadanos
+            official: Oficial
+            user_groups: Grupos
+          scope: Ámbito
           search: Buscar
-          upcoming: Próximo
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        form:
+          address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
+          create_as: Crear encuentro como
+          location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
+          location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: la planta del edificio'
+          select_a_category: Por favor, selecciona una categoría
+        index:
+          new_meeting: Nuevo encuentro
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
+        new:
+          back: Atrás
+          create: Crear
+          title: Crea tu encuentro
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -380,6 +415,7 @@ es-PY:
           back: Volver al listado
           contributions: Número de contribuciones
           date: Fecha
+          edit_meeting: Editar el encuentro
           going: Yendo
           join: Inscribirse al encuentro
           meeting_report: Informe del encuentro
@@ -393,6 +429,9 @@ es-PY:
             one: "Queda %{count} ranuras"
             other: "%{count} ranuras restantes"
           view: Ver
+        update:
+          invalid: Se ha producido un error al actualizar este encuentro.
+          success: Has actualizado el encuentro con éxito.
       meetings_map:
         view_meeting: Ver encuentro
       models:
@@ -411,6 +450,7 @@ es-PY:
             closed: Cerrado
             end_time: Fecha de finalización
             map: Mapa
+            official_meeting: Encuentro oficial
             start_time: Fecha de inicio
             title: Título
       read_more: "(leer más)"
@@ -432,6 +472,8 @@ es-PY:
       types:
         private_meeting: Encuentro privado
         transparent: Transparente
+      versions:
+        back_to_resource: Volver al encuentro
     metrics:
       meetings:
         description: Número de reuniones creadas

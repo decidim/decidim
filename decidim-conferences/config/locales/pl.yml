@@ -71,8 +71,8 @@ pl:
           success: Konferencja nie jest już publicznie widoczna.
       conference_registration:
         confirm:
-          error: Wystąpił błąd podczas potwierdzania rejestracji konferencji.
-          success: Rejestracja konferencji została pomyślnie potwierdzona.
+          error: Wystąpił błąd podczas potwierdzania rejestracji na konferencji.
+          success: Rejestracja na konferencję została potwierdzona.
       conference_speakers:
         create:
           error: Wystąpił błąd podczas dodawania prelegenta do tej konferencji.
@@ -184,7 +184,7 @@ pl:
             email: E-mail
             name: Nazwa
             role: Rola
-          name: Użytkownik konferencji
+          name: Administrator konferencji
           roles:
             admin: Administrator
             collaborator: Współpracownik
@@ -238,10 +238,10 @@ pl:
           success: Typ rejestracji nie jest już publicznie widoczny.
       registration_types:
         create:
-          error: Wystąpił błąd podczas dodawania typu rejestracji do tej konferencji.
-          success: Typ rejestracji został pomyślnie dodany do tej konferencji.
+          error: Wystąpił błąd podczas dodawania typu rejestracji.
+          success: Typ rejestracji został dodany.
         destroy:
-          success: Typ rejestracji został pomyślnie usunięty z tej konferencji.
+          success: Typ rejestracji został usunięty.
         edit:
           title: Zaktualizuj typ rejestracji.
           update: Aktualizuj
@@ -249,8 +249,8 @@ pl:
           create: Utwórz
           title: Nowy typ rejestracji
         update:
-          error: Wystąpił błąd podczas próby aktualizacji typu rejestracji dla tej konferencji.
-          success: Typ rejestracji został pomyślnie zaktualizowany.
+          error: Wystąpił błąd podczas próby aktualizacji typu rejestracji.
+          success: Typ rejestracji został zaktualizowany.
       titles:
         conferences: Konferencje
     admin_log:
@@ -336,9 +336,9 @@ pl:
             available_slots_help: Pozostaw 0, jeśli masz dostęp do nieograniczonej liczby miejsc.
             registrations_count:
               one: Była 1 rejestracja.
-              few: Zarejestrowano %{count} rejestracji.
-              many: Zarejestrowano %{count} rejestracji.
-              other: Zarejestrowano %{count} rejestracji.
+              few: Było %{count} rejestracji.
+              many: Było %{count} rejestracji.
+              other: Było %{count} rejestracji.
             slug_help: 'URL slugi służą do generowania adresów URL, które przekierują do tej konferencji. Można użyć: liter, cyfr i myślników; musi zaczynać się od litery. Przykład: %{url}'
         diplomas:
           edit:
@@ -403,7 +403,7 @@ pl:
           success: Odrzuciłeś zaproszenie.
         destroy:
           invalid: Podczas opuszczania tej konferencji wystąpił błąd.
-          success: Pomyślnie opuściłeś konferencję.
+          success: Opuszczono konferencję.
       conference_speaker:
         go_to_twitter: Idź do Twittera
         more_info: więcej informacji
@@ -467,12 +467,12 @@ pl:
       pages:
         home:
           highlighted_conferences:
-            active_conferences: Aktywne konferencje
+            active_conferences: Aktualne konferencje
             see_all_conferences: Zobacz wszystkie konferencje
       photo:
         image:
           attributes:
-            alt: Obraz dla mediów
+            alt: Obraz
         show:
           close_modal: Zamknij modalne
           photo: Zdjęcie
@@ -503,10 +503,10 @@ pl:
         comments_count: Komentarze
         conference_count: Konferencje
         debates_count: Debaty
-        endorsements_count: Poparcie
+        endorsements_count: Rekomendacje
         headline: Działanie
         meetings_count: Spotkania
-        orders_count: Wsparcie
+        orders_count: Wsparcia
         pages_count: Strony
         posts_count: Wpisy
         projects_count: Projekty
@@ -532,10 +532,10 @@ pl:
           email_subject: Konferencja "%{resource_title}" została zaktualizowana
           notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana.
         registrations_enabled:
-          email_intro: 'Konferencja "%{resource_title}" umożliwiła rejestrację. Możesz zarejestrować się na stronie:'
+          email_intro: 'Konferencja "%{resource_title}" otworzyła rejestrację. Możesz zarejestrować się na stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz konferencję "%{resource_title}". Możesz przestać ją obserwować klikając w poprzedni link.
-          email_subject: Konferencja "%{resource_title}" umożliwiła rejestrację.
-          notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> umożliwiła rejestrację.
+          email_subject: Konferencja "%{resource_title}" otworzyła rejestracje.
+          notification_title: Konferencja <a href="%{resource_path}">%{resource_title}</a> otworzyła rejestrację.
         role_assigned:
           email_intro: Przypisano Ci rolę %{role} w konferencji „%{resource_title}”.
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś %{role} konferencji „%{resource_title}”.

@@ -19,14 +19,14 @@ describe "Participatory texts", type: :system do
   end
 
   def should_have_proposal(selector, proposal)
-    expect(page).to have_tag(selector, text: proposal.title)
+    expect(page).to have_tag(selector, text: translated(proposal.title))
     prop_block = page.find(selector)
     prop_block.hover
-    clean_proposal_body = strip_tags(proposal.body)
+    clean_proposal_body = strip_tags(translated(proposal.body))
 
     expect(prop_block).to have_button("Follow")
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
-    expect(prop_block).to have_link(proposal.comments.count.to_s) if component.settings.comments_enabled
+    expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
     expect(prop_block).not_to have_content(clean_proposal_body) if proposal.participatory_text_level != "article"
   end
@@ -61,13 +61,14 @@ describe "Participatory texts", type: :system do
     end
   end
 
-  shared_examples "showing the Amend buttton and amendments counter when hovered" do
+  shared_examples "showing the Amend button and amendments counter when hovered" do
     let(:amend_button_disabled?) { page.find("a", text: "AMEND")[:disabled].present? }
 
-    it "shows the Amend buttton and amendments counter inside the proposal div" do
+    it "shows the Amend button and amendments counter inside the proposal div" do
       visit_component
-      find("#proposals div.hover-section", text: proposals.first.title).hover
-      within all("#proposals div.hover-section").first, visible: true do
+      proposal_title = translated(proposals.first.title)
+      find("#proposals div.hover-section", text: proposal_title).hover
+      within all("#proposals div.hover-section").first, visible: :visible do
         within ".amend-buttons" do
           expect(page).to have_link("Amend")
           expect(amend_button_disabled?).to eq(disabled_value)
@@ -77,11 +78,12 @@ describe "Participatory texts", type: :system do
     end
   end
 
-  shared_examples "hiding the Amend buttton and amendments counter when hovered" do
-    it "hides the Amend buttton and amendments counter inside the proposal div" do
+  shared_examples "hiding the Amend button and amendments counter when hovered" do
+    it "hides the Amend button and amendments counter inside the proposal div" do
       visit_component
-      find("#proposals div.hover-section", text: proposals.first.title).hover
-      within all("#proposals div.hover-section").first, visible: true do
+      proposal_title = translated(proposals.first.title)
+      find("#proposals div.hover-section", text: proposal_title).hover
+      within all("#proposals div.hover-section").first, visible: :visible do
         expect(page).not_to have_css(".amend-buttons")
       end
     end
@@ -120,14 +122,14 @@ describe "Participatory texts", type: :system do
       it "renders the participatory text title" do
         visit_component
 
-        expect(page).to have_content(participatory_text.title)
+        expect(page).to have_content(translated(participatory_text.title))
       end
 
       context "without existing amendments" do
         context "when amendment CREATION is enabled" do
           before { update_step_settings(amendment_creation_enabled: true) }
 
-          it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+          it_behaves_like "showing the Amend button and amendments counter when hovered" do
             let(:amendments_count) { 0 }
             let(:disabled_value) { false }
           end
@@ -136,7 +138,7 @@ describe "Participatory texts", type: :system do
         context "when amendment CREATION is disabled" do
           before { update_step_settings(amendment_creation_enabled: false) }
 
-          it_behaves_like "hiding the Amend buttton and amendments counter when hovered"
+          it_behaves_like "hiding the Amend button and amendments counter when hovered"
         end
       end
 
@@ -156,14 +158,14 @@ describe "Participatory texts", type: :system do
             context "when the user is logged in" do
               before { login_as user, scope: :user }
 
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 2 }
                 let(:disabled_value) { false }
               end
             end
 
             context "when the user is NOT logged in" do
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 2 }
                 let(:disabled_value) { false }
               end
@@ -176,14 +178,14 @@ describe "Participatory texts", type: :system do
             context "when the user is logged in" do
               before { login_as user, scope: :user }
 
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 1 }
                 let(:disabled_value) { false }
               end
             end
 
             context "when the user is NOT logged in" do
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 0 }
                 let(:disabled_value) { false }
               end
@@ -202,14 +204,14 @@ describe "Participatory texts", type: :system do
 
               before { login_as user, scope: :user }
 
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 2 }
                 let(:disabled_value) { true }
               end
             end
 
             context "when the user is NOT logged in" do
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 2 }
                 let(:disabled_value) { true }
               end
@@ -224,14 +226,14 @@ describe "Participatory texts", type: :system do
 
               before { login_as user, scope: :user }
 
-              it_behaves_like "showing the Amend buttton and amendments counter when hovered" do
+              it_behaves_like "showing the Amend button and amendments counter when hovered" do
                 let(:amendments_count) { 1 }
                 let(:disabled_value) { true }
               end
             end
 
             context "when the user is NOT logged in" do
-              it_behaves_like "hiding the Amend buttton and amendments counter when hovered"
+              it_behaves_like "hiding the Amend button and amendments counter when hovered"
             end
           end
         end

@@ -223,9 +223,6 @@ tr:
           edit:
             close: Kapat
             title: Toplantıyı kapat
-        meeting_copies:
-          form:
-            select_organizer: Organizatör seç
         meetings:
           close:
             invalid: Bu toplantıyı kapatırken bir sorun oluştu
@@ -237,8 +234,6 @@ tr:
             success: Toplantı başarıyla silindi
           edit:
             update: Güncelleştirme
-          form:
-            select_organizer: Organizatör seç
           index:
             title: Toplantılar
           new:
@@ -344,11 +339,8 @@ tr:
       meetings:
         filters:
           category: Kategori
-          category_prompt: bir kategori seç
           date: tarih
-          past: geçmiş
           search: Arama
-          upcoming: Yaklaşan
         filters_small_view:
           close_modal: Yakın kalıcı
           filter: filtre

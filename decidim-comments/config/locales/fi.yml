@@ -20,6 +20,7 @@ fi:
       comments_count: Kommenttien määrä
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
+      view: Näytä
       votes:
         create:
           error: Kommentin äänestys epäonnistui.
@@ -109,7 +110,7 @@ fi:
           notification_title: Käyttäjä <a href="%{author_path}">%{author_name}%{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a> ryhmän <a href="%{group_path}">%{group_name} %{group_nickname}</a> jäsenenä
         user_mentioned:
           email_intro: Sinut on mainittu
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohdssa %{resource_title}.
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu kohteessa %{resource_title}.
           email_subject: Sinut on mainittu kohdassa %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohdassa <a href="%{resource_path}">%{resource_title}</a>
     metrics:

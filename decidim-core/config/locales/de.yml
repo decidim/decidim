@@ -65,6 +65,7 @@ de:
     errors:
       general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -264,8 +265,11 @@ de:
       dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Dokumentennummer eingeben, die mit "X" endet
         fields:
+          allowed_postal_codes: Erlaubte Postleitzahlen (durch Komma getrennt)
+          allowed_scope_id: Erlaubter Umfang
           document_number: Dokumentnummer
           postal_code: Postleitzahl
+          scope_id: Umfang
         name: Beispiel Berechtigung
       dummy_authorization_workflow:
         name: Arbeitsablauf Dummy Berechtigung
@@ -345,11 +349,14 @@ de:
           global:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximallänge der Kommentare
             dummy_global_attribute_1: Dummy-Attribut 1
             dummy_global_attribute_2: Dummy-Attribut 2
             dummy_global_translatable_text: Übersetzbarer Blindtext
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
+            scope_id: Bereich
+            scopes_enabled: Bereiche aktiviert
           step:
             amendment_creation_enabled: Änderungserstellung aktiviert
             amendment_promotion_enabled: Hervorheben von Änderungen aktiviert
@@ -435,7 +442,6 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
-            uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -906,8 +912,6 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
-        update:
-          error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
       download:
         csv: Daten herunterladen (csv)
@@ -1052,7 +1056,6 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
-          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
@@ -1107,8 +1110,14 @@ de:
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde automatisch ausgeblendet.</p>
         subject: Eine Ressource wurde automatisch ausgeblendet
       report:
+        authors: Autoren
+        content: Gemeldeter Inhalt
+        date: Gemeldet am
+        details: Einzelheiten
         hello: Hallo %{name},
         manage_moderations: Moderationen verwalten
+        participatory_space: Beteiligungsbereich
+        reason: Grund
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
         subject: Eine Ressource wurde gemeldet
     reports:
@@ -1153,6 +1162,10 @@ de:
           one: "%{count} Ergebnis"
           other: "%{count} Ergebnisse"
         view_all: Alle anzeigen (%{count})
+    security:
+      selfxss_warning:
+        description: Diese Browser-Funktion ist nur für Entwickler gedacht und Sie sollten hier keine Daten einfügen, wenn Sie darum gebeten wurden. Das Einfügen von Inhalten in dieses Fenster kann Ihre Privatsphäre beeinträchtigen und Hackern Zugriff auf Ihr Konto ermöglichen.
+        title: Stop!
     shared:
       confirm_modal:
         cancel: Abbrechen
@@ -1206,6 +1219,10 @@ de:
     tags:
       filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
       filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'
+    translation_bar:
+      help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
+      show_original: Originaltext anzeigen
+      show_translated: Automatisch übersetzter Text anzeigen
     user_activity:
       index:
         no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
@@ -1265,6 +1282,7 @@ de:
     versions:
       resource_version:
         of_versions: "(von %{number})"
+        see_other_versions: Andere Versionen anzeigen
         version: Versionsnummer %{number}
     versions_list:
       show:
@@ -1514,6 +1532,7 @@ de:
         see_more: Mehr sehen
   locale:
     name: Deutsch
+    name_with_error: Englisch (Fehler!)
   password_validator:
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich

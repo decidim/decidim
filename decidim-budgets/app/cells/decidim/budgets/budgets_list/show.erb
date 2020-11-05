@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="columns medium-7 mediumlarge-8">
+    <% if !voting_finished? && (highlighted? || voted?) %>
+      <div class="section">
+        <h3 class="section-heading">
+          <%= t(:my_budgets, scope: i18n_scope) %>
+        </h3>
+
+        <%= render :highlighted %>
+        <%= render :voted %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="columns mediumlarge-6">
+        <%= render :card_list %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,16 +29,11 @@ nl:
       newsletter:
         body: Body
         subject: Onderwerp
-      oauth_application:
-        name: Naam
-        organization_logo: Logo organisatie (vierkant)
-        organization_name: Naam van de organisatie
-        organization_url: URL van de organisatie
-        redirect_uri: URI doorsturen
       organization:
         address: SMTP Hostnaam
         alert_color: Alarm
         badges_enabled: Schakel badges in
+        comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
         cta_button_path: actieknop pad
         cta_button_text: actieknop tekst
         customize_welcome_notification: Pas welkomstmelding aan
@@ -114,10 +109,6 @@ nl:
         file: Bestand
     errors:
       models:
-        oauth_application:
-          attributes:
-            redirect_uri:
-              must_be_ssl: De omleidings-URI moet een SSL-URI zijn
         organization:
           attributes:
             official_img_footer:
@@ -276,6 +267,7 @@ nl:
           headers:
             actions: Acties
             name: Naam onderdeel
+            scope: Onderdeel scope
             type: Onderdeel type
         new:
           add: Voeg onderdeel toe
@@ -294,6 +286,11 @@ nl:
           welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
+        formats:
+          CSV: csv
+          Excel: Excel
+          FormPDF: PDF-bestand
+          JSON: JSON
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       filters:
         category_id_eq:
@@ -384,7 +381,6 @@ nl:
         homepage: Startpagina
         impersonations: Zich voordoen als
         newsletters: Nieuwsbrieven
-        oauth_applications: OAuth-toepassingen
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
@@ -431,11 +427,6 @@ nl:
             sent_to: Verzonden aan
             subject: Onderwerp
           name: Nieuwsbrief
-        oauth_application:
-          fields:
-            created_at: Aangemaakt op
-            name: Naam
-          name: OAuth-toepassing
         participatory_space_private_user:
           name: Participerende ruimte privé deelnemer
         scope:
@@ -542,25 +533,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
-      oauth_applications:
-        create:
-          error: Er is een fout opgetreden bij het maken van deze toepassing.
-          success: Applicatie succesvol aangemaakt.
-        destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van deze toepassing.
-          success: Toepassing succesvol vernietigd.
-        edit:
-          save: Opslaan
-          title: Bewerk applicatie
-        index:
-          confirm_delete: Weet je zeker dat je deze applicatie wilt verwijderen?
-          title: OAuth-toepassingen
-        new:
-          save: Opslaan
-          title: Nieuwe toepassing
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze toepassing.
-          success: Toepassing succesvol bijgewerkt.
       officializations:
         create:
           success: Deelnemer met succes officieel gemaakt
@@ -647,7 +619,6 @@ nl:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
           success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
-          explanation: Upload uw CSV-bestand zonder headers. Het moet uit twee kolommen bestaan, met het e-mailadres in de eerste kolom en de naam in de laatste kolom van de gebruikers die u wilt toevoegen aan het proces (e-mail, naam).
           title: Upload het CSV-bestand
           upload: Upload
       resource_permissions:
@@ -656,6 +627,10 @@ nl:
           title: Bewerk toelatingen
         update:
           success: Machtigingen succesvol bijgewerkt.
+      resources:
+        index:
+          headers:
+            scope: Scope
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.

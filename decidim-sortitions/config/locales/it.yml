@@ -23,6 +23,7 @@ it:
         settings:
           global:
             comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
     events:
       sortitions:
         sortition_created:

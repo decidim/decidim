@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
+        helper Decidim::ApplicationHelper
+
         helper_method :debates
 
         def index
@@ -38,13 +40,13 @@ module Decidim
         def edit
           enforce_permission_to :update, :debate, debate: debate
 
-          @form = form(DebateForm).from_model(debate)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 
         def update
           enforce_permission_to :update, :debate, debate: debate
 
-          @form = form(DebateForm).from_params(params, current_component: current_component)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do

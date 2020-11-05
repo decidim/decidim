@@ -39,8 +39,8 @@ ja:
         title: コメントを追加
       comment:
         alignment:
-          against: 反対
-          in_favor: 賛成
+          against: <unk>
+          in_favor: <unk>
         deleted_user: 参加者を削除しました
         hide_replies: 返信を非表示
         reply: 返信

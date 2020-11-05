@@ -10,30 +10,33 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
       include Decidim::HasReference
-      include Decidim::ScopableComponent
+      include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
+      include Decidim::Reportable
+      include Decidim::Authorable
+      include Decidim::TranslatableResource
 
-      belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
+      translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
+
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :minutes, class_name: "Decidim::Meetings::Minutes", foreign_key: "decidim_meeting_id", dependent: :destroy
       has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
       validates :title, presence: true
-      validate :organizer_belongs_to_organization
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
+      geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
@@ -74,6 +77,11 @@ module Decidim
 
       def can_be_joined_by?(user)
         !closed? && registrations_enabled? && can_participate?(user)
+      end
+
+      def can_register_invitation?(user)
+        !closed? && registrations_enabled? &&
+          can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
       end
 
       def closed?
@@ -133,16 +141,6 @@ module Decidim
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
-      def organizer_belongs_to_organization
-        return if !organizer || !organization
-
-        errors.add(:organizer, :invalid) unless organizer.organization == organization
-      end
-
-      def official?
-        organizer.nil?
-      end
-
       def current_user_can_visit_meeting?(current_user)
         (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
           !private_meeting? || (private_meeting? && transparent?)
@@ -184,6 +182,11 @@ module Decidim
           )
       end
 
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
+      end
+
       private
 
       def can_participate_in_meeting?(user)
@@ -191,6 +194,13 @@ module Decidim
         return false unless user
 
         registrations.exists?(decidim_user_id: user.id)
+      end
+
+      def user_has_invitation_for_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        invites.exists?(decidim_user_id: user.id)
       end
     end
   end

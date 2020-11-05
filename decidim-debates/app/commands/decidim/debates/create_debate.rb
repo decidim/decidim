@@ -20,6 +20,8 @@ module Decidim
           send_notification_to_author_followers
           send_notification_to_space_followers
         end
+
+        follow_debate
         broadcast(:ok, debate)
       end
 
@@ -27,23 +29,19 @@ module Decidim
 
       attr_reader :debate, :form
 
-      def organization
-        @organization = form.current_component.organization
-      end
-
-      def i18n_field(field)
-        organization.available_locales.inject({}) do |i18n, locale|
-          i18n.update(locale => field)
-        end
-      end
-
       def create_debate
+        parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
+        parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
         params = {
           author: form.current_user,
           decidim_user_group_id: form.user_group_id,
           category: form.category,
-          title: i18n_field(form.title),
-          description: i18n_field(form.description),
+          title: {
+            I18n.locale => parsed_title
+          },
+          description: {
+            I18n.locale => parsed_description
+          },
           component: form.current_component
         }
 
@@ -77,6 +75,13 @@ module Decidim
             type: "participatory_space"
           }
         )
+      end
+
+      def follow_debate
+        follow_form = Decidim::FollowForm
+                      .from_params(followable_gid: debate.to_signed_global_id.to_s)
+                      .with_context(current_user: debate.author)
+        Decidim::CreateFollow.call(follow_form, debate.author)
       end
     end
   end
