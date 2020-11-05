@@ -113,15 +113,14 @@
       return this._clear();
     }
 
-    sign(payload) {
+    async sign(payload) {
       if (!this.browserSupport || this.privateKey === null) {
         return false;
       }
 
       const data = `${this.jwtHeader}.${this._encode64(JSON.stringify(payload))}`;
-      const signature = this.crypto.subtle.sign(this.algorithm.name, this.privateKey, this.textEncoder.encode(data));
-
-      return `${data}.${this._encode64(signature)}`;
+      const signature = await this.crypto.subtle.sign(this.algorithm, this.privateKey, this.textEncoder.encode(data));
+      return `${data}.${btoa(String.fromCharCode.apply(null, new Uint8Array(signature))).replace(/[=]/g, "").replace(/\+/g, "-").replace(/\//g, "_")}`;
     }
 
     _checkBrowserSupport() {

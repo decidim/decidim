@@ -1,0 +1,12 @@
+<div 
+  class="key-ceremony"
+  data-election-id="<%= election.id %>"
+  data-trustee-id="<%= trustee.id %>"
+  data-trustee-public-key="<%= trustee.public_key %>"
+  data-trustee-unique-id="<%= trustee.user.name.parameterize %>">
+  <button class="button start">Start</button>
+</div>
+<script language="JavaScript" type="text/javascript"
+        src="https://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js">
+</script>
+<%= javascript_include_tag "decidim/elections/trustee_zone/keys", integrity: true %>
