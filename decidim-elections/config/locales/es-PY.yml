@@ -249,6 +249,10 @@ es-PY:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La votación %{resource_title} en %{participatory_space_title} ya está activa.
           notification_title: La votación <a href="%{resource_path}">%{resource_title}</a> ya está activa en %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Elecciones
     participatory_processes:
       statistics:
         elections_count: Votaciones
