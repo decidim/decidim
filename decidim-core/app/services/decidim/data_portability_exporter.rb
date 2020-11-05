@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "seven_zip_ruby"
-require_relative "zip_stream/zip_stream_writer"
 
 module Decidim
   # Public: Generates a 7z(seven zip) file with data files ready to be persisted
