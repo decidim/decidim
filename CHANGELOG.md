@@ -249,6 +249,11 @@ Note that if you had these previously configured in the initializer, these previ
 - **decidim-core**: Fix linter on recipient counter text for newsletter helper [\#6289](https://github.com/decidim/decidim/pull/6289)
 - **decidim-core**: Point simplecov to master to fix a coverage on monorepos [\#6240](https://github.com/decidim/decidim/pull/6240)
 - **decidim-core**: Fix install profiling gems in development_app rake task [\#6338](https://github.com/decidim/decidim/pull/6338)
+- **decidim-participatory_processes**: Fix highlighted participatory processes title [\#6799](https://github.com/decidim/decidim/pull/6799)
+- **decidim-budgets**: Add translation for "selected" projects (#6770) [\#6796](https://github.com/decidim/decidim/pull/6796)
+- **decidim-assemblies**, **decidim-participatory_processes**, **decidim-proposals**: Fix missing translation keys for mime types (#6766) [\#6795](https://github.com/decidim/decidim/pull/6795)
+- **decidim-core**: Require the necessary "zip" gem in the open data exporter (#6464) [\#6791](https://github.com/decidim/decidim/pull/6791)
+- **decidim-core**: Bubble jQuery events (#6610) [\#6792](https://github.com/decidim/decidim/pull/6792)
 
 ### Removed
 
