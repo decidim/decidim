@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      class ImportResultsCSVJob < ApplicationJob
+      class ImportResultsCsvJob < ApplicationJob
         queue_as :default
 
         def perform(current_user, current_component, csv_file)
