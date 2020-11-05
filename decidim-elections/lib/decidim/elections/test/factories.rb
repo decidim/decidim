@@ -48,6 +48,13 @@ FactoryBot.define do
         election.questions << build(:question, :nota, election: election, weight: 4)
       end
     end
+
+    trait :ready_for_setup do
+      complete
+      after(:create) do |election, _evaluator|
+        create_list(:trustees_participatory_space, 2, :trustee_ready, participatory_space: election.component.participatory_space)
+      end
+    end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
@@ -120,11 +127,20 @@ FactoryBot.define do
         trustee.elections << build(:election)
       end
     end
+
+    trait :with_public_key do
+      considered
+      public_key { Random.urlsafe_base64(30) }
+    end
   end
 
   factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do
     participatory_space { create(:participatory_process) }
     considered { true }
     trustee
+
+    trait :trustee_ready do
+      association :trustee, :with_public_key
+    end
   end
 end
