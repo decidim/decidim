@@ -983,7 +983,7 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
