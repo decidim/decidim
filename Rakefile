@@ -90,7 +90,7 @@ task :bundle do
 end
 
 desc "Parses git-log output and produces CHANGELOG friendly entries"
-task :parse_git_log, [:log_path] do |_t, _args|
+task :parse_git_log, [:log_path] do |_t, args|
   log_path = args[:log_path]
   puts "Usage: bin/rake parse_git_log[path_to_log_file]" unless log_path.present? && File.exist?(log_path)
   puts "Parsing: #{log_path}"
