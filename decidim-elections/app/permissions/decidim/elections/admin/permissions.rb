@@ -17,7 +17,7 @@ module Decidim
             end
           when :election
             case permission_action.action
-            when :create, :read
+            when :create, :read, :setup
               allow!
             when :delete, :update, :unpublish
               allow_if_not_started

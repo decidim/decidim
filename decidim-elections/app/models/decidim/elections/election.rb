@@ -63,10 +63,30 @@ module Decidim
         started? && !finished?
       end
 
+      # Public: Checks if the election start_time is minimum 3 hours later than the present time
+      #
+      # Returns a boolean.
+      def minimum_three_hours_before_start?
+        start_time > (Time.zone.at(3.hours.from_now))
+      end
+
+      # Public: Checks if the number of answers are minimum 2 for each question
+      #
+      # Returns a boolean.
+      def minimum_answers?
+        return if questions.empty?
+
+        questions.each do |question|
+          return false unless question.answers.size > 1
+        end
+      end
+
       # Public: Checks if the election questions are valid
       #
       # Returns a boolean.
       def valid_questions?
+        return if questions.empty?
+
         questions.each do |question|
           return false unless question.valid_max_selection?
         end
