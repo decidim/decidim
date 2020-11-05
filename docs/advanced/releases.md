@@ -107,15 +107,15 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
 1. Create the PR for the new version.
     1. `git checkout master && git checkout -b release/x.y.z`
     1. The following strategy has been discarded because it produces a lot of problems (still needs manual intervention for many files, backported commits via cherry-pick are applied twice, etc..)
-      1. `git merge release/x.y-stable`
-      1. `git checkout --theirs *`
-      1. `git checkout --theirs .github/* \.*`
-      1. Review changes in `CHANGELOG.md`, manually update and create a "changelog" commit if required.
+        1. `git merge release/x.y-stable`
+        1. `git checkout --theirs *`
+        1. `git checkout --theirs .github/* \.*`
+        1. Review changes in `CHANGELOG.md`, manually update and create a "changelog" commit if required.
     1. The simpler is to have two clones of the project, let's name current clone A, in `release/x.y.z`. The clone B is in `release/x.y-stable`. Now do the following from a file explorer
-      1. Remove all files except `.git` from clone A.
-      1. Copy all files except `.git` from clone B.
-      1. Paste all files except `.git` to clone A.
-      1. Commit the differences to be merged to `master`: `git add -A && git commit -m "Merge release/x.y-stable"`
+        1. Remove all files except `.git` from clone A.
+        1. Copy all files except `.git` from clone B.
+        1. Paste all files except `.git` to clone A.
+        1. Commit the differences to be merged to `master`: `git add -A && git commit -m "Merge release/x.y-stable"`
     1. `git push origin release/x.y.z`
     1. Create the PR. The base for this PR should be `master`, but GitHub may crash if there are a lot of changes. As a workaround create the branch against `develop` and, when created, change the base to `master`.
     1. Still don't merge it.
