@@ -354,6 +354,50 @@ describe "Homepage", type: :system do
           end
         end
       end
+
+      context "when highligted process groups block is enabled" do
+        let(:max_groups_results) { "4" }
+
+        before do
+          create(
+            :content_block,
+            organization: organization,
+            scope_name: :homepage,
+            manifest_name: :highlighted_process_groups,
+            settings: { order: "recent", max_results: max_groups_results }
+          )
+        end
+
+        context "when there are no process groups" do
+          it "doesn't show the block" do
+            expect(page).to have_no_content("HIGHLIGHTED PROCESS GROUPS")
+          end
+        end
+
+        context "when there are process groups" do
+          let!(:normal_groups) { create_list(:participatory_process_group, 5, :with_participatory_processes, organization: organization) }
+          let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes, organization: organization) }
+          let!(:other_organization_promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes, organization: create(:organization)) }
+          let(:promoted_group_titles) { page.all("#homepage-highlighted-process-groups .card__title").map(&:text) }
+
+          before do
+            visit decidim.root_path
+          end
+
+          it "shows the block containing groups limited to 4 by default" do
+            expect(page).to have_content("HIGHLIGHTED PROCESS GROUPS")
+            expect(promoted_group_titles.count).to eq(max_groups_results.to_i)
+          end
+
+          it "shows the promoted groups in first place" do
+            expect(promoted_group_titles.first).to eq(translated(promoted_group.title, locale: :en))
+          end
+
+          it "doesn't include promoted groups from other organizations" do
+            expect(promoted_group_titles).not_to include(translated(other_organization_promoted_group.title, locale: :en))
+          end
+        end
+      end
     end
   end
 end
