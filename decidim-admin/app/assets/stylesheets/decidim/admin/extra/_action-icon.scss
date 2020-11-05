@@ -10,10 +10,12 @@
       vertical-align: bottom;
     }
   }
-  .action-space {
+
+  .action-space{
     display: inline-block;
-    &:not(:last-child) {
-    margin-right: 1rem;
+
+    &:not(:last-child){
+      margin-right: 1rem;
     }
   }
 }
