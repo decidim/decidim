@@ -58,11 +58,11 @@ module Decidim
         end
 
         def select
-          change_selected(false)
+          change_selected(true)
         end
 
         def unselect
-          change_selected(true)
+          change_selected(false)
         end
 
         def change_selected(selected)
@@ -71,17 +71,17 @@ module Decidim
           UpdateAnswerSelection.call(answer, selected) do
             on(:ok) do
               flash[:notice] = if selected
-                                 I18n.t("answers.unselect.success", scope: "decidim.elections.admin")
-                               else
                                  I18n.t("answers.select.success", scope: "decidim.elections.admin")
+                               else
+                                 I18n.t("answers.unselect.success", scope: "decidim.elections.admin")
                                end
             end
 
             on(:invalid) do
               flash.now[:alert] = if selected
-                                    I18n.t("answers.unselect.invalid", scope: "decidim.elections.admin")
-                                  else
                                     I18n.t("answers.select.invalid", scope: "decidim.elections.admin")
+                                  else
+                                    I18n.t("answers.unselect.invalid", scope: "decidim.elections.admin")
                                   end
             end
           end

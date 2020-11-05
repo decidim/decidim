@@ -11,11 +11,10 @@ describe Decidim::Elections::Admin::UpdateAnswerSelection do
   let(:component) { election.component }
   let(:organization) { component.organization }
   let(:selected) { false }
-  # let(:user) { create :user, :admin, :confirmed, organization: organization }
 
   it "updates the selected answer attribute" do
     subject.call
-    expect(answer.selected).to eq(true)
+    expect(answer.selected).to eq(false)
   end
 
   context "when answer has no votes" do

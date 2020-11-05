@@ -99,9 +99,9 @@ Decidim.register_component(:elections) do |component|
           admin_user,
           {
             election: upcoming_election,
-            title: Decidim::Faker::Localized.sentence(2),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(3)
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             max_selections: Faker::Number.between(from: 1, to: 5),
             weight: Faker::Number.number(digits: 1),
@@ -117,9 +117,9 @@ Decidim.register_component(:elections) do |component|
             admin_user,
             {
               question: upcoming_question,
-              title: Decidim::Faker::Localized.sentence(2),
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-                Decidim::Faker::Localized.paragraph(3)
+                Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
               selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
@@ -129,8 +129,8 @@ Decidim.register_component(:elections) do |component|
           )
 
           Decidim::Attachment.create!(
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             attached_to: answer,
             file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
           )
@@ -139,10 +139,10 @@ Decidim.register_component(:elections) do |component|
         questionnaire = Decidim::Forms::Questionnaire.create!(
           title: Decidim::Faker::Localized.paragraph,
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(2)
+            Decidim::Faker::Localized.paragraph(sentence_count: 2)
           end,
           questionnaire_for: upcoming_election
         )
@@ -176,9 +176,9 @@ Decidim.register_component(:elections) do |component|
         admin_user,
         {
           component: component,
-          title: Decidim::Faker::Localized.sentence(2),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
@@ -193,7 +193,7 @@ Decidim.register_component(:elections) do |component|
           admin_user,
           {
             election: finished_election,
-            title: Decidim::Faker::Localized.sentence(2),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
@@ -211,7 +211,7 @@ Decidim.register_component(:elections) do |component|
             admin_user,
             {
               question: finished_question,
-              title: Decidim::Faker::Localized.sentence(2),
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
               description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
@@ -233,10 +233,10 @@ Decidim.register_component(:elections) do |component|
         questionnaire = Decidim::Forms::Questionnaire.create!(
           title: Decidim::Faker::Localized.paragraph,
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(2)
+            Decidim::Faker::Localized.paragraph(sentence_count: 2)
           end,
           questionnaire_for: finished_election
         )
@@ -269,9 +269,9 @@ Decidim.register_component(:elections) do |component|
       admin_user,
       {
         component: component,
-        title: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         start_time: 2.weeks.ago,
         end_time: 2.weeks.from_now + 4.hours,
@@ -286,9 +286,9 @@ Decidim.register_component(:elections) do |component|
         admin_user,
         {
           election: ongoing_election,
-          title: Decidim::Faker::Localized.sentence(2),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           max_selections: 2,
           weight: Faker::Number.number(digits: 1),
@@ -304,9 +304,9 @@ Decidim.register_component(:elections) do |component|
           admin_user,
           {
             question: ongoing_question,
-            title: Decidim::Faker::Localized.sentence(2),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-              Decidim::Faker::Localized.paragraph(3)
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end,
             weight: Faker::Number.number(digits: 1),
             selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
@@ -316,8 +316,8 @@ Decidim.register_component(:elections) do |component|
         )
 
         Decidim::Attachment.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           attached_to: answer,
           file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
         )
@@ -327,10 +327,10 @@ Decidim.register_component(:elections) do |component|
     questionnaire = Decidim::Forms::Questionnaire.create!(
       title: Decidim::Faker::Localized.paragraph,
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(2)
+        Decidim::Faker::Localized.paragraph(sentence_count: 2)
       end,
       questionnaire_for: ongoing_election
     )

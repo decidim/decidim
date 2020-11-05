@@ -17,12 +17,12 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:single_elections) { create_list(:election, 1, :complete, :published, :finished, component: component) }
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
 
       it "redirects to the only election" do
         visit_component
 
-        expect(page).to have_content("Voting began on")
+        expect(page).to have_content("Voting ends on")
         expect(page).not_to have_content("All elections")
         expect(page).to have_content("These are the questions you will find in the voting process")
       end
