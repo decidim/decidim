@@ -39,7 +39,7 @@ module Decidim
                        .results
                        .published
                        .not_hidden
-                       .includes(:amendable, :category, :component, :resource_permission, :scope)
+                       .includes(:component, :coauthorships)
 
           @voted_proposals = if current_user
                                ProposalVote.where(
