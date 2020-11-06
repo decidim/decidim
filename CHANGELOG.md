@@ -8,6 +8,8 @@
 
 **Fixed**
 
+- **decidim-core**, **decidim-surveys**: Fix dependency between surveys and templates [\#6814](https://github.com/decidim/decidim/pull/6814)
+
 **Removed**
 
 ## [0.23.0](https://github.com/decidim/decidim/tree/v0.23.0)
