@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Added**
+
+**Changed**
+
+**Fixed**
+
+**Removed**
+
+## [0.23.0](https://github.com/decidim/decidim/tree/v0.23.0)
+
 ## Upgrade Notes
 
 - **Bump Ruby to v2.6**
