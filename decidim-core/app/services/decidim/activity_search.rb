@@ -150,7 +150,7 @@ module Decidim
                 ON #{manifest.name}_private_users.privatable_to_type = '#{manifest.model_class_name}'
                 AND #{table}.id = #{manifest.name}_private_users.privatable_to_id
             SQL
-          )
+          ).to_s
         ).where(
           Arel.sql(
             <<~SQL.squish
@@ -158,7 +158,7 @@ module Decidim
               #{table}.private_space = 'f' OR
               #{manifest.name}_private_users.decidim_user_id = #{current_user_id}
             SQL
-          )
+          ).to_s
         )
       end
 

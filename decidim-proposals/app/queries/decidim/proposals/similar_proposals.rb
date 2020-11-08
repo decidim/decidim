@@ -31,7 +31,7 @@ module Decidim
           .published
           .not_hidden
           .where(
-            "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
+            Arel.sql("GREATEST(#{title_similarity}, #{body_similarity}) >= ?").to_s,
             *similarity_params,
             Decidim::Proposals.similarity_threshold
           )

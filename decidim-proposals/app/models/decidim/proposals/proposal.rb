@@ -70,12 +70,13 @@ module Decidim
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
+
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} ASC NULLS FIRST").to_s)
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order("#{sort_by_valuation_assignments_count_nulls_last_query}DESC NULLS LAST")
+        order(Arel.sql("#{sort_by_valuation_assignments_count_nulls_last_query} DESC NULLS LAST").to_s)
       }
 
       def self.with_valuation_assigned_to(user, space)

@@ -108,7 +108,7 @@ module Decidim
           ApplyQuestionnaireTemplate.call(questionnaire, template) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.apply.success", scope: "decidim.admin")
-              redirect_to params[:url]
+              redirect_to URI.parse(params[:url]).path
             end
             on(:invalid) do
               flash[:error] = I18n.t("templates.apply.error", scope: "decidim.admin")
@@ -132,7 +132,7 @@ module Decidim
           # rubocop:disable Rails/SkipsModelValidations
           questionnaire.touch
           # rubocop:enable Rails/SkipsModelValidations
-          redirect_to params[:url]
+          redirect_to URI.parse(params[:url]).path
         end
 
         private

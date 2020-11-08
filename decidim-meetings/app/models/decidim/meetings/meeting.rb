@@ -98,7 +98,7 @@ module Decidim
               "
             end
 
-            where(query, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
+            where(Arel.sql(query).to_s, false, true, user.id, user.id, *user_role_queries.compact.map { user.id }).published.distinct
           else
             published.visible
           end
