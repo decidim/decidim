@@ -1,0 +1,90 @@
+name: "[CI] Lint"
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+
+env:
+  CI: "true"
+  SIMPLECOV: "false"
+  RUBY_VERSION: 2.7.1
+
+jobs:
+  lint:
+    name: Code Security
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+        if: "github.ref != 'refs/heads/master' || github.ref != 'refs/heads/develop'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - run: gem install brakeman
+        name: Install brakeman library
+      - run: brakeman --force-scan
+        name: Analizyng Core
+      - run: brakeman --force-scan decidim-accountability
+        name: Analizyng Accountability module
+      - run: brakeman --force-scan decidim-admin
+        name: Analizyng Admin module
+      - run: brakeman --force-scan decidim-api
+        name: Analizyng API module
+      - run: brakeman --force-scan decidim-assemblies
+        name: Analizyng Assemblies module
+      - run: brakeman --force-scan decidim-blogs
+        name: Analizyng Blogs module
+      - run: brakeman --force-scan decidim-budgets
+        name: Analizyng Budgets module
+      - run: brakeman --force-scan decidim-comments
+        name: Analizyng Comments module
+      - run: brakeman --force-scan decidim-conferences
+        name: Analizyng Conferences module
+      - run: brakeman --force-scan decidim-consultations
+        name: Analizyng Consultations module
+      - run: brakeman --force-scan decidim-core
+        name: Analizyng Core module
+      - run: brakeman --force-scan decidim-debates
+        name: Analizyng Debates module
+      - run: brakeman --force-scan decidim-dev
+        name: Analizyng Dev module
+      - run: brakeman --force-scan decidim-elections
+        name: Analizyng Elections module
+      - run: brakeman --force-scan decidim-forms
+        name: Analizyng Forms module
+      - run: brakeman --force-scan decidim-generators
+        name: Analizyng Generators module
+      - run: brakeman --force-scan decidim-initiatives
+        name: Analizyng Initiatives module
+      - run: brakeman --force-scan decidim-meetings
+        name: Analizyng meetings module
+      - run: brakeman --force-scan decidim-pages
+        name: Analizyng Pages module
+      - run: brakeman --force-scan decidim-participatory_processes
+        name: Analizyng Participatory Processes module
+      - run: brakeman --force-scan decidim-proposals
+        name: Analizyng Proposals module
+      - run: brakeman --force-scan decidim-sortitions
+        name: Analizyng Sortitions module
+      - run: brakeman --force-scan decidim-surveys
+        name: Analizyng Surveys module
+      - run: brakeman --force-scan decidim-system
+        name: Analizyng System module
+      - run: brakeman --force-scan decidim-templates
+        name: Analizyng Templates module
+      - run: brakeman --force-scan decidim-verifications
+        name: Analizyng Verifications module
+      - run: brakeman --force-scan decidim_app-design
+        name: Analizyng Decidim App module
