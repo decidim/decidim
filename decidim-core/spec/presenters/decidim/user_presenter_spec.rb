@@ -51,7 +51,7 @@ module Decidim
 
       it do
         expect(subject).to \
-          have_link(user.nickname, href: "/profiles/#{user.nickname}") &
+          have_link(user.nickname, href: "http://#{user.organization.host}/profiles/#{user.nickname}") &
           have_selector(".user-mention")
       end
     end
