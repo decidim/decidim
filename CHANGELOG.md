@@ -22,6 +22,8 @@ As per [\#6498](https://github.com/decidim/decidim/pull/6498), the comments comp
 - **decidim-core**: Add support for Visual Code Remote Containers and GitHub Codespaces [\6638](https://github.com/decidim/decidim/pull/6638)
 - **decidim-meetings**: Add functionality to enable/disable registration code [\#6698](https://github.com/decidim/decidim/pull/6698)
 
+### Fixed
+
 ### Removed
 
 - **decidim-core**: Remove legacy 'show statistics' checkbox in Appearance. [\#6575](https://github.com/decidim/decidim/pull/6575)
