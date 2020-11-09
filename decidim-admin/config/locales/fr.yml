@@ -101,12 +101,12 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -138,7 +138,7 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouvelle %{name}
+        new: + %{name}
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
