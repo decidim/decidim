@@ -3,7 +3,16 @@
   <div class="card__content">
     <h1 class="profile--sidebar--title">
       <strong><%= profile_user.name %></strong>
-      <span class="text-small"><%= profile_user.nickname %></span>
+      <br>
+      <span class="text-small">
+        <%= profile_user.nickname %> <br>
+      </span>
+      <% if user_flaggable? %>
+        <span class="user-report_link">
+          <%== cell("decidim/author", profile_user, from:profile_user).flag_user %>
+        </span>
+        &nbsp;
+      <% end %>
       <% if can_contact_user? %>
         <span class="user-contact_link">
           <%= link_to_current_or_new_conversation_with(profile_holder) %>

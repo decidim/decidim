@@ -156,6 +156,8 @@ en:
         reject: "%{user_name} rejected the %{resource_name} group verification"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
+      user_moderation:
+        unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
@@ -1209,6 +1211,15 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
+      flag_user_modal:
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
+        description: What is inappropriate about the user?
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        report: Report
+        spam: Contains clickbait, advertising, scams or script bots.
+        title: Report inappropriate User
       floating_help:
         close: Close help
         help: Help
@@ -1284,6 +1295,13 @@ en:
       update:
         error: There was a problem updating your interests.
         success: Your interests have been successfully updated.
+    user_report_mailer:
+      notify:
+        body_1: User %{user} has been reported by %{token}
+        body_2: 'Reason: %{reason}'
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello %{admin},
+        subject: A new user has been reported in %{organization_name}
     version:
       show:
         back_to_resource: Go back

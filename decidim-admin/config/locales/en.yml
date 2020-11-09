@@ -390,6 +390,7 @@ en:
         impersonations: Impersonations
         newsletters: Newsletters
         participants: Participants
+        reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -477,6 +478,20 @@ en:
             phone: Phone
             state: State
             users_count: Participants count
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          title: Listing reported users
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       moderations:
         index:
           title: Moderations
@@ -579,6 +594,7 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: Reports
           show_email: Show email address
           status: Status
           suspend: Suspend User
