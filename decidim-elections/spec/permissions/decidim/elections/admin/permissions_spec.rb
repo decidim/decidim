@@ -87,7 +87,6 @@ describe Decidim::Elections::Admin::Permissions do
     let(:action) do
       { scope: :admin, action: :setup, subject: :election }
     end
-    let(:election) { nil }
 
     it { is_expected.to eq true }
   end

@@ -105,6 +105,13 @@ module Decidim
         end
       end
 
+      # Public: Checks if the election has a blocked_at value
+      #
+      # Returns a boolean.
+      def blocked?
+        blocked_at.present?
+      end
+
       # Public: Overrides the Resourceable concern method to allow setting permissions at resource level
       def allow_resource_permissions?
         true

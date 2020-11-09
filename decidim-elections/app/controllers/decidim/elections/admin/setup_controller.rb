@@ -9,10 +9,13 @@ module Decidim
 
         def show
           enforce_permission_to :setup, :election, election: election
+
           @form = form(SetupForm).from_model(election, number_of_trustees: Decidim::Elections.bulletin_board.number_of_trustees)
         end
 
         def update
+          enforce_permission_to :setup, :election, election: election
+
           @form = form(SetupForm).from_params(params, election: election, trustee_ids: params[:setup][:trustee_ids])
           SetupElection.call(@form) do
             on(:ok) do
