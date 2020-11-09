@@ -472,6 +472,27 @@ en:
           random: Random
           recent: Most recent
           recently_published: Most recently published
+        print:
+          address: Address
+          author_title: Author of the initiative
+          city: City
+          email: Email
+          full_name: Full Name
+          general_title: Application for admission of an initiative
+          id_number: ID Number
+          initiative:
+            attachments: Attached documentation (please write the name of each document below)
+            description: 'Description:'
+            title: 'Title:'
+            type: Type of initiative
+          legal_text: The personal data collected will be incorporated and treated confidentially by the organization, according to current legislation.
+          phone_number: Phone Number
+          place_date: Place, Date
+          postal_code: Postal Code/ZIP
+          print: Print
+          province: Province/State
+          section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
+          signature: Signature
         result:
           answer_title:
             accepted: This proposal has been accepted because
