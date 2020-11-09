@@ -1,6 +1,12 @@
 sv:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Omfång
+        description: Beskrivning
+        title: Titel
+        total_budget: Total budget
+        weight: Vikt
       project:
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
