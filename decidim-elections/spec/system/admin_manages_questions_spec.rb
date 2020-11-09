@@ -16,7 +16,7 @@ describe "Admin manages questions", type: :system do
     visit_component_admin
 
     within find("tr", text: translated(election.title)) do
-      page.find(".action-icon--edit-questions").click
+      page.find(".action-icon--manage-questions").click
     end
   end
 

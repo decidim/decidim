@@ -36,7 +36,7 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "list", election_question_answers_path(election, question), t("actions.edit_answers", scope: "decidim.elections"), class: "action-icon--edit-answers" %>
+                <%= icon_link_to "list", election_question_answers_path(election, question), t("actions.manage_answers", scope: "decidim.elections"), class: "action-icon--manage-answers" %>
 
                 <% if allowed_to? :update, :question, election: election, question: question %>
                   <%= icon_link_to "pencil", edit_election_question_path(election, question), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>

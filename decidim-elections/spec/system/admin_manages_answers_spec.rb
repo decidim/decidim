@@ -19,11 +19,11 @@ describe "Admin manages answers", type: :system do
     visit_component_admin
 
     within find("tr", text: translated(election.title)) do
-      page.find(".action-icon--edit-questions").click
+      page.find(".action-icon--manage-questions").click
     end
 
     within find("tr", text: translated(question.title)) do
-      page.find(".action-icon--edit-answers").click
+      page.find(".action-icon--manage-answers").click
     end
   end
 

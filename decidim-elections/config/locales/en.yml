@@ -58,10 +58,10 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
-        edit_answers: Edit answers
-        edit_questions: Edit questions
         feedback: Voter feedback
         import: Import proposals to answers
+        manage_answers: Manage answers
+        manage_questions: Manage questions
         new: New %{name}
         preview: Preview
         publish: Publish
