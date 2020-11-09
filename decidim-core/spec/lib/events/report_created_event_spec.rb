@@ -22,5 +22,23 @@ module Decidim
         expect(subject.notification_title).to include(comment.reported_content_url)
       end
     end
+
+    describe "email_subject" do
+      it "is generated correctly" do
+        expect(subject.email_subject).to eq("Your comment has been reported")
+      end
+    end
+
+    describe "email_outro" do
+      it "is generated correctly" do
+        expect(subject.email_outro).to eq("You have received this notification because you are an author of the reported content.")
+      end
+    end
+
+    describe "email_intro" do
+      it "is generated correctly" do
+        expect(subject.email_intro).to eq("<a href=\"#{comment.reported_content_url}\">Your comment</a> has been reported as \"spam\". An administrator will review it shortly.")
+      end
+    end
   end
 end
