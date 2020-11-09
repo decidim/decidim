@@ -2,12 +2,13 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic to impersonate a managed user.
+    # A command with all the business logic to transfer a managed user.
     class TransferUser < Rectify::Command
       # Public: Initializes the command.
       #
-      # form         - The form with the authorization info
-      # user         - The user to impersonate
+      # form
+      # user         - The current user
+      # managed_user - The managed User
       def initialize(form)
         @form = form
       end
@@ -22,7 +23,6 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
-          clean_email_and_delete_current_user
           update_managed_user_email
           mark_conflict_as_solved
         end
@@ -43,7 +43,8 @@ module Decidim
       end
 
       def update_managed_user_email
-        managed_user.update(email: form.email) if form.email == form.user.email
+        clean_email_and_delete_current_user if form.email == form.user.email
+        managed_user.update(email: form.email)
       end
 
       def clean_email_and_delete_current_user
