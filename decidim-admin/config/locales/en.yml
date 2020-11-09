@@ -481,8 +481,10 @@ en:
       moderated_users:
         index:
           actions:
-            title: Actions
+            suspend: Suspend User
             unreport: Unreport
+            unsuspend: Unsuspend User
+            title: Actions
           name: Name
           nickname: Nickname
           reason: Reason
