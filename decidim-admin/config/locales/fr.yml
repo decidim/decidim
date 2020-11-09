@@ -321,7 +321,7 @@ fr:
           label: Secteur
         search_label: Rechercher
         search_placeholder:
-          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
           reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Rechercher %{collection} par titre.
         state_eq:
@@ -329,7 +329,7 @@ fr:
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
-          save: sauvegarder
+          save: Sauvegarder
         success: Les sections d'aide ont été mises à jour avec succès
       impersonatable_users:
         index:
@@ -604,6 +604,7 @@ fr:
           rich_text_editor_in_public_views_help: Dans certains champs textuels, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -638,6 +639,7 @@ fr:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
+          import_via_csv: Importer via csv
           title: Utilisateur privé de l'espace participatif
         new:
           create: Créer
@@ -757,7 +759,7 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs gérables
+        impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
         participants: Utilisateurs
