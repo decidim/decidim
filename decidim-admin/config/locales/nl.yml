@@ -30,7 +30,6 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
-        address: SMTP Hostnaam
         alert_color: Alarm
         badges_enabled: Schakel badges in
         comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
@@ -63,8 +62,6 @@ nl:
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Wachtwoord
-        port: Poort
         primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
         rich_text_editor_in_public_views: Gebruik de tekst editor voor deelnemers
@@ -75,7 +72,6 @@ nl:
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
-        user_name: Gebruikersnaam
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
         welcome_notification_subject: Welkomstmelding onderwerp
