@@ -30,7 +30,6 @@ es-PY:
         body: Cuerpo
         subject: Asunto
       organization:
-        address: Nombre de host SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -66,8 +65,6 @@ es-PY:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Contraseña
-        port: Puerto
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         rich_text_editor_in_public_views: Habilitar editor de texto enriquecido para las participantes
@@ -78,7 +75,6 @@ es-PY:
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
-        user_name: Nombre de usuario
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
