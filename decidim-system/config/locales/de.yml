@@ -1,6 +1,13 @@
 de:
   activemodel:
     attributes:
+      organization:
+        address: SMTP Hostname
+        from_email: E-Mail-Adresse
+        from_label: Beschreibung
+        password: Passwort
+        port: Datenbank Port
+        user_name: Benutzername
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME-Typen
@@ -107,6 +114,10 @@ de:
             api_key: API-Schlüssel
             api_secret: API-Geheimnis
         smtp_settings:
+          fieldsets:
+            sender: Absender
+          instructions:
+            from_label: 'E-Mail-Absender lautet: "Dein-Organisationsname <your-organization@example.org>". Leer lassen um ''from_email'' als Absender zu verwenden'
           placeholder:
             from_email: deine-organisation@example.org
             from_label: name-ihrer-organisation
