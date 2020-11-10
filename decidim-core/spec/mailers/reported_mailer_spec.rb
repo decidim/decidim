@@ -55,7 +55,7 @@ module Decidim
           expect(email_body(mail)).to match(reportable.body["en"])
         end
 
-        it "does not include the content original language to match the organization's default when it can't be extrapolated from the content" do
+        it "renders the organization default language when the content language cannot be deduced by the reported content itself" do
           report.moderation.reportable.title = nil
           report.moderation.reportable.body = nil
 
