@@ -18,6 +18,8 @@
 
 **Fixed**
 
+- **decidim-forms**: Backport "fix display conditions validations with choices" to 0.23 [\#6840](https://github.com/decidim/decidim/pull/6840)
+- **decidim-budgets**: Backport "Fix broken notifications page due to multi-budget changes" to 0.23 [\#6840](https://github.com/decidim/decidim/pull/6840)
 - **decidim-core**, **decidim-surveys**: Fix dependency between surveys and templates [\#6814](https://github.com/decidim/decidim/pull/6814)
 
 **Removed**
