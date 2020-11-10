@@ -35,12 +35,19 @@ module Decidim
           :display_condition,
           :match,
           question: question,
-          condition_question: condition_question
+          condition_question: condition_question,
+          condition_value: { en: "to Be", es: "o NO", ca: "sEr" }
         )
       end
 
-      let(:answer) { create(:answer, question: condition_question, questionnaire: questionnaire) }
-      let(:answer_option) { create(:answer_option, question: condition_question) }
+      let(:choice_body) do
+        {
+          en: "to be or not to be",
+          ca: "Ser o no ser",
+          es: "Ser o no ser"
+        }
+      end
+      let(:answer_option) { create(:answer_option, question: condition_question, body: choice_body) }
 
       describe "associations" do
         it "has a question association" do
@@ -61,58 +68,282 @@ module Decidim
         end
       end
 
-      describe "#fulfilled?" do
+      shared_examples "common conditions" do
         context "when condition_type is :answered" do
           let(:condition_type) { :answered }
 
-          it "is fulfilled only if given answer is present" do
-            expect(subject.fulfilled?(answer)).to be true
-            expect(subject.fulfilled?(nil)).to be false
+          context "and body is empty" do
+            let(:answer_form) { nil }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and body is empty" do
+            let(:answer_body) { nil }
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and body has text" do
+            let(:answer_body) { "any text" }
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
           end
         end
 
         context "when condition_type is :not_answered" do
           let(:condition_type) { :not_answered }
 
-          it "is fulfilled only if given answer is not present" do
-            expect(subject.fulfilled?(nil)).to be true
-            expect(subject.fulfilled?(answer)).to be false
+          context "and body is empty" do
+            let(:answer_form) { nil }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
           end
-        end
 
-        context "when condition_type is :equal" do
-          let(:condition_type) { :equal }
-          let(:display_condition) { display_condition_equal }
-          let(:answer_choice) { create(:answer_choice, answer: answer) }
-          let(:answer_option) { answer_choice.answer_option }
+          context "and body is empty" do
+            let(:answer_body) { nil }
 
-          it "is fulfilled if the answer choices include answer_option" do
-            expect(subject.fulfilled?(answer)).to be true
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and body has text" do
+            let(:answer_body) { "any text" }
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
           end
         end
 
         context "when condition_type is :match" do
           let(:condition_type) { :match }
-          let(:display_condition) do
-            build(:display_condition,
-                  :match,
-                  question: question,
-                  condition_question: condition_question,
-                  answer_option: answer_option,
-                  condition_value: { en: "Yes", es: "Sí", ca: "Sí" })
+          let(:display_condition) { display_condition_match }
+
+          context "and body is empty" do
+            let(:answer_body) { nil }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
           end
 
-          let(:match_text) { display_condition.condition_value["en"].downcase }
-          let(:answer_matched) { create(:answer, body: "Fulfill #{match_text}. Yay!") }
-          let(:answer_unmatched) { create(:answer, body: "Hi! I won't fulfill the condition.") }
+          context "and body contains the text in :en" do
+            let(:answer_body) { "To be or not to be" }
 
-          it "is fulfilled if the answer body matches the given value" do
-            expect(subject.fulfilled?(answer_matched)).to be true
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
           end
 
-          it "is not fulfilled if the answer body doesn't match the given value" do
-            expect(subject.fulfilled?(answer_unmatched)).to be false
+          context "and body do not contain the text in :en" do
+            let(:answer_body) { "this is the question" }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
           end
+
+          context "and body contains the text in :ca" do
+            let(:answer_body) { "Ser o no ser" }
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and body do not contain the text in :ca" do
+            let(:answer_body) { "Aquesta és la questió" }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and body contains the text in :es" do
+            let(:answer_body) { "Ser o no ser" }
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and body do not contain the text in :es" do
+            let(:answer_body) { "Esa es la questión" }
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+        end
+      end
+
+      shared_examples "conditions with choices" do
+        context "when condition_type is :equal" do
+          let(:condition_type) { :equal }
+          let(:display_condition) { display_condition_equal }
+
+          context "and choices include the answer option" do
+            let(:choice_attributes) do
+              { answer_option_id: answer_option.id }
+            end
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and choices do not include the answer option" do
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+        end
+
+        context "when condition_type is :match" do
+          let(:condition_type) { :match }
+          let(:display_condition) { display_condition_match }
+
+          context "and choices do not include the answer option" do
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and choices have unrelated text" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                body: "another text"
+              }
+            end
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and choices are empty" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                body: ""
+              }
+            end
+
+            it "is not fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be false
+            end
+          end
+
+          context "and choices include the answer option in :en" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                body: choice_body[:en]
+              }
+            end
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and choices include the answer option in :ca" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                body: choice_body[:ca]
+              }
+            end
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and choices include the answer option in :es" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                body: choice_body[:es]
+              }
+            end
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+
+          context "and choices are include in the custom_body" do
+            let(:choice_attributes) do
+              {
+                answer_option_id: answer_option.id,
+                custom_body: choice_body[:es]
+              }
+            end
+
+            it "is fulfilled" do
+              expect(subject.fulfilled?(answer_form)).to be true
+            end
+          end
+        end
+      end
+
+      describe "#fulfilled?" do
+        let(:answer_body) { nil }
+        let(:choice_attributes) do
+          {
+            answer_option_id: 314_159_265_359
+          }
+        end
+        let(:attributes) do
+          {
+            body: answer_body,
+            choices: [
+              AnswerChoiceForm.from_params(choice_attributes)
+            ]
+          }
+        end
+        let(:answer_form) { AnswerForm.from_params(attributes) }
+
+        context "when condition question is a text" do
+          it_behaves_like "common conditions"
+        end
+
+        context "when condition question has options" do
+          let(:condition_question) do
+            create(:questionnaire_question,
+                   :with_answer_options,
+                   question_type: :single_option,
+                   questionnaire: questionnaire,
+                   position: 2)
+          end
+
+          it_behaves_like "common conditions"
+          it_behaves_like "conditions with choices"
+        end
+
+        context "when condition question is a matrix" do
+          let(:condition_question) do
+            create(:questionnaire_question,
+                   :with_answer_options,
+                   question_type: :matrix_single,
+                   questionnaire: questionnaire,
+                   position: 2)
+          end
+
+          it_behaves_like "common conditions"
+          it_behaves_like "conditions with choices"
         end
       end
 
