@@ -6,9 +6,15 @@ module Decidim
   module Forms
     describe AnswerForm do
       subject do
-        described_class.from_model(answer)
+        described_class.from_model(answer).with_context(context)
       end
 
+      let(:context) do
+        {
+          responses: responses
+        }
+      end
+      let(:responses) { [] }
       let(:mandatory) { false }
       let(:question_type) { "short_answer" }
       let(:max_choices) { nil }
@@ -64,20 +70,35 @@ module Decidim
 
         context "and question has display conditions" do
           let(:question_type) { "short_answer" }
-          let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: "short_answer") }
+          let!(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
           let!(:display_condition) { create(:display_condition, question: question, condition_question: condition_question, condition_type: :answered) }
+          let(:the_answer) { "" }
+          let(:attributes) do
+            {
+              question_id: condition_question.id,
+              body: the_answer
+            }
+          end
 
           before do
             subject.body = nil
           end
 
-          it "is valid if display_conditions are not fulfilled" do
-            expect(subject).to be_valid
+          context "and display_conditions are not fulfilled" do
+            it "is valid" do
+              expect(subject).to be_valid
+            end
           end
 
-          it "is not valid if display_conditions are fulfilled" do
-            create(:answer, question: condition_question, questionnaire: questionnaire, body: "The answer")
-            expect(subject).not_to be_valid
+          context "and display_conditions are fulfilled" do
+            let(:responses) do
+              [AnswerForm.from_params(attributes)]
+            end
+            let(:the_answer) { "The answer" }
+
+            it "is not valid" do
+              expect(subject).not_to be_valid
+            end
           end
         end
       end

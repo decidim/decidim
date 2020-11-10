@@ -23,6 +23,11 @@ module Decidim
         end
       end
 
+      # Add other responses to the context so AnswerForm can validate conditional questions
+      def before_validation
+        context.responses = attributes[:responses]
+      end
+
       # Public: Splits reponses by step, keeping the separator.
       #
       # Returns an array of steps. Each step is a list of the questions in that
