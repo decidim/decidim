@@ -145,6 +145,12 @@ module Decidim
         it { is_expected.not_to be_visible }
       end
 
+      context "when ParticipatorySpace is unpublished" do
+        before { subject.component.participatory_space.update(published_at: nil) }
+
+        it { is_expected.not_to be_visible }
+      end
+
       context "when component is NOT published" do
         before { subject.component.update(published_at: nil) }
 

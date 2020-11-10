@@ -85,6 +85,7 @@ module Decidim
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
         searchables_in_org = searchable_resources.by_organization(org.id)
+
         if self.class.search_resource_fields_mapper.index_on_update?(self)
           if searchables_in_org.empty?
             add_to_index_as_search_resource
@@ -97,9 +98,45 @@ module Decidim
         elsif searchables_in_org.any?
           searchables_in_org.destroy_all
         end
+
+        update_index_for_descendants if has_descendants?
       end
 
       private
+
+      def update_index_for_descendants
+        components_hash = components.map do |component|
+          {
+            manifest: Decidim.find_component_manifest(component.manifest_name),
+            id: component.id
+          }
+        end
+
+        resources = components_hash.flat_map do |component_hash|
+          Decidim.resource_registry.manifests.map do |resource|
+            next unless resource.component_manifest == component_hash[:manifest]
+
+            {
+              class: resource.model_class_name,
+              id: component_hash[:id]
+            }
+          end.compact
+        end
+
+        descendants = resources.flat_map do |resource|
+          klass = resource[:class].constantize
+
+          next unless klass.column_names.include? "decidim_component_id"
+
+          klass.where(decidim_component_id: resource[:id])
+        end.compact
+
+        descendants.each(&:try_update_index_for_search_resource)
+      end
+
+      def has_descendants?
+        try(:components)
+      end
 
       def contents_to_searchable_resource_attributes(fields, locale)
         contents = fields[:i18n][locale]
