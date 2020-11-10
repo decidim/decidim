@@ -30,7 +30,6 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
-        address: SMTP hostname
         alert_color: Upozornění
         badges_enabled: Povolit odznaky
         comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
@@ -66,8 +65,6 @@ cs:
         omnipresent_banner_short_description: Stručný popis
         omnipresent_banner_title: Název
         omnipresent_banner_url: URL
-        password: Heslo
-        port: Port
         primary_color: Hlavní
         reference_prefix: Referenční předpona
         rich_text_editor_in_public_views: Povolit plnohodnotný textový editor pro účastníky
@@ -78,7 +75,6 @@ cs:
         tos_version: Verze podmínek služby
         twitter_handler: Twitter handler
         user_groups_enabled: Povolit skupiny
-        user_name: Uživatelské jméno
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
