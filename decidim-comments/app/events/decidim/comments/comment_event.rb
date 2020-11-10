@@ -9,16 +9,23 @@ module Decidim
       include Decidim::Events::AuthorEvent
 
       included do
-        def resource_path
-          resource_locator.path(url_params)
-        end
-
-        def resource_url
-          resource_locator.url(url_params)
-        end
-
         def resource_text
           comment.formatted_body
+        end
+
+        def author
+          comment.normalized_author
+        end
+
+        def author_presenter
+          return unless author
+
+          @author_presenter ||= case author
+                                when Decidim::User
+                                  Decidim::UserPresenter.new(author)
+                                when Decidim::UserGroup
+                                  Decidim::UserGroupPresenter.new(author)
+                                end
         end
 
         def author
@@ -42,7 +49,7 @@ module Decidim
           @comment ||= Decidim::Comments::Comment.find(extra[:comment_id])
         end
 
-        def url_params
+        def resource_url_params
           { anchor: "comment_#{comment.id}" }
         end
       end
