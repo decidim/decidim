@@ -163,7 +163,7 @@ ja:
         promote_button: '%{model_name} にプロモート'
         promote_confirm_text: この承認を宣伝してもよろしいですか？
         promote_help_text: この制約を宣伝し、独立した %{model_name} として公開することができます
-        section_heading: 修正 (%{count})
+        section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
