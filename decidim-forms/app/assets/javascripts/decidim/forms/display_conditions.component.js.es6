@@ -29,7 +29,6 @@
       let multipleInput = [];
 
       $conditionWrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
-        const $label = $(el).find("label");
         const $input = $(el).find("input[name$=\\[body\\]]");
         const checked = $input.is(":checked");
 
@@ -41,6 +40,7 @@
           multipleInput.push({ id, value, text });
         }
       });
+
       return multipleInput;
     }
 
