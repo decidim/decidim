@@ -153,8 +153,6 @@ fr:
             api_key: Clé API
             api_secret: Secret de l'API
         smtp_settings:
-          instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
