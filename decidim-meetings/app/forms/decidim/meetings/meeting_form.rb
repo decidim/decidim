@@ -53,6 +53,7 @@ module Decidim
         self.description = presenter.description(all_locales: false)
         self.location = presenter.location(all_locales: false)
         self.location_hints = presenter.location_hints(all_locales: false)
+        self.registration_terms = presenter.registration_terms(all_locales: false)
         self.type_of_meeting = if model.online_meeting?
                                  "online"
                                else
