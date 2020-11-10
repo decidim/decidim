@@ -23,9 +23,6 @@ module Decidim
         attribute :registration_url, String
         attribute :available_slots, Integer, default: 0
 
-        TYPE_OF_MEETING = %w(in_person online).freeze
-        REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
-
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
@@ -129,7 +126,7 @@ module Decidim
         end
 
         def type_of_meeting_select
-          TYPE_OF_MEETING.map do |type|
+          Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
             [
               I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
               type
@@ -146,7 +143,7 @@ module Decidim
         end
 
         def registration_type_select
-          REGISTRATION_TYPE.map do |type|
+          Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
             [
               I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
               type
