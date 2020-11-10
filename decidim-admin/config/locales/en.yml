@@ -482,9 +482,9 @@ en:
         index:
           actions:
             suspend: Suspend User
+            title: Actions
             unreport: Unreport
             unsuspend: Unsuspend User
-            title: Actions
           name: Name
           nickname: Nickname
           reason: Reason
