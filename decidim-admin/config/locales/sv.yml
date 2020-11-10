@@ -271,6 +271,7 @@ sv:
           headers:
             actions: Åtgärder
             name: Komponentnamn
+            scope: Komponentsomfång
             type: Komponenttyp
         new:
           add: Lägg till komponent
@@ -630,6 +631,7 @@ sv:
           invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
+          explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn). Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           title: Skicka CSV-fil
           upload: Skicka
       resource_permissions:
@@ -638,6 +640,10 @@ sv:
           title: Redigera behörigheter
         update:
           success: Behörigheterna har uppdaterats.
+      resources:
+        index:
+          headers:
+            scope: Omfång
       scope_types:
         create:
           error: Det gick inte att skapa en ny omfångstyp.
