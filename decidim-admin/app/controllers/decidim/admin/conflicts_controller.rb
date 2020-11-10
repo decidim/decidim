@@ -23,8 +23,7 @@ module Decidim
         conflict = Decidim::Verifications::Conflict.find(params[:id])
 
         @form = form(TransferUserForm).from_params(
-          user: conflict.current_user,
-          managed_user: conflict.managed_user,
+          current_user: current_user,
           conflict: conflict,
           reason: params[:transfer_user][:reason],
           email: params[:transfer_user][:email]

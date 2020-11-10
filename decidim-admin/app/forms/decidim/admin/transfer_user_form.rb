@@ -9,12 +9,11 @@ module Decidim
     class TransferUserForm < Form
       attribute :email, String
       attribute :reason, String
-      attribute :user, Decidim::User
-      attribute :managed_user, Decidim::User
+      attribute :current_user, Decidim::User
       attribute :conflict, Decidim::Verifications::Conflict
 
-      validates :user, presence: true
-      validates :managed_user, presence: true
+      validates :current_user, presence: true
+      validates :conflict, presence: true
     end
   end
 end

@@ -14,24 +14,33 @@ module Decidim
       end
 
       let(:organization) { create :organization }
-      let(:managed_user) { create(:user, managed: true, organization: organization) }
-      let(:user) { create(:user, managed: true, organization: organization) }
+      let(:current_user) { create :user, :admin, organization: organization }
+      let(:new_user) { create :user, organization: organization }
+      let(:managed_user) { create :user, managed: true, organization: organization }
+
+      let(:conflict) do
+        Decidim::Verifications::Conflict.create(current_user: new_user, managed_user: managed_user)
+      end
 
       let(:attributes) do
         {
-          user: user,
-          managed_user: managed_user
+          current_user: current_user,
+          conflict: conflict
         }
       end
 
-      context "when no user is passed" do
-        let(:user) {}
+      context "when form is valid" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when no current_user is passed" do
+        let(:current_user) {}
 
         it { is_expected.to be_invalid }
       end
 
-      context "when no managed user is passed" do
-        let(:managed_user) {}
+      context "when no conflict is passed" do
+        let(:conflict) {}
 
         it { is_expected.to be_invalid }
       end

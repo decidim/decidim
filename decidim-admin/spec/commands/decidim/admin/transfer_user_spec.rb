@@ -9,18 +9,18 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, organization: organization, email: email }
+    let(:current_user) { create :user, :admin, organization: organization }
+    let(:new_user) { create :user, :admin, organization: organization, email: email }
     let(:managed_user) { create :user, managed: true, organization: organization }
     let(:conflict) do
-      Decidim::Verifications::Conflict.create(current_user: current_user, managed_user: managed_user)
+      Decidim::Verifications::Conflict.create(current_user: new_user, managed_user: managed_user)
     end
     let(:reason) { "Test reason" }
     let(:email) { "transfer@test.com" }
 
     let(:form_params) do
       {
-        user: current_user,
-        managed_user: managed_user,
+        current_user: current_user,
         reason: reason,
         email: email,
         conflict: conflict
@@ -59,6 +59,14 @@ module Decidim::Admin
       it "update email" do
         subject.call
         expect(managed_user.reload.unconfirmed_email).to eq(email)
+      end
+
+      it "log transfer action" do
+        expect { subject.call }.to change(Decidim::ActionLog, :count).by(1)
+        log = Decidim::ActionLog.last
+
+        expect(log.resource).to eq(managed_user)
+        expect(log.user).to eq(current_user)
       end
     end
   end

@@ -15,13 +15,13 @@
         <tbody>
           <tr>
             <td><%= t("name", scope: "decidim.admin.conflicts.transfer") %></td>
-            <td><%= @form.user.name %></td>
-            <td><%= @form.managed_user.name %></td>
+            <td><%= @form.conflict.current_user.name %></td>
+            <td><%= @form.conflict.managed_user.name %></td>
           </tr>
           <tr>
             <td><%= t("email", scope: "decidim.admin.conflicts.transfer") %></td>
-            <td><%= @form.user.email %></td>
-            <td><%= @form.managed_user.email.present? ? @form.managed_user.email : "-" %></td>
+            <td><%= @form.conflict.current_user.email %></td>
+            <td><%= @form.conflict.managed_user.email.present? ? @form.conflict.managed_user.email : "-" %></td>
           </tr>
         </tbody>
       </table>
