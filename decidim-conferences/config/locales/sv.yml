@@ -475,6 +475,7 @@ sv:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
           login_as: Du är inloggad som %{name} <%{email}>
+          no_registrations: Inga anmälningar
           register: Registrera
           title: Registreringstyper
       shared:
