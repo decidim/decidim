@@ -1108,7 +1108,6 @@ sv:
         date: Rapporterades
         details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
         participatory_space: Plats för deltagare
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
