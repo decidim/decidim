@@ -1120,7 +1120,6 @@ nl:
         date: Gerapporteerd op
         details: Beschrijving
         hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
         participatory_space: Participatieve ruimte
         reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
