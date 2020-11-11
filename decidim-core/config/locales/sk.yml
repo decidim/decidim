@@ -1037,7 +1037,6 @@ sk:
         subject: Zdroj bol automaticky skrytý
       report:
         hello: Zdravím %{name},
-        manage_moderations: Správa moderovanie
         report_html: <p> Bol nahlásený nasledujúce <a href="%{url}"> obsah </a>. </ p>
         subject: Bol ohlásený zdroj
     reports:
