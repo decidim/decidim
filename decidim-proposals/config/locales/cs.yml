@@ -27,6 +27,9 @@ cs:
         user_group_id: Vytvořit návrh jako
       proposal_answer:
         answer: Odpovědět
+        cost: Náklady
+        cost_report: Přehled nákladů
+        execution_period: Období provádění
       proposals_copy:
         copy_proposals: Chápu, že to bude importovat všechny návrhy z vybrané komponenty na aktuální a že tato akce nemůže být zrušena.
         origin_component_id: Komponenta pro kopírování návrhů z
