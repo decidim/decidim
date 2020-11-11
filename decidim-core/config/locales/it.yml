@@ -1121,7 +1121,6 @@ it:
         date: Segnalato il
         details: Dettagli
         hello: Ciao %{name},
-        manage_moderations: Gestire moderazioni
         participatory_space: Spazio partecipativo
         reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>
