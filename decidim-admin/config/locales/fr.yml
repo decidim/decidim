@@ -102,12 +102,12 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       static_page_topic:
         description: La description
         show_in_footer: Montrer dans le pied de page
         title: Titre
-        weight: Poids
+        weight: Rang d'affichage
       user_group_csv_verification:
         file: Fichier
     errors:
@@ -139,7 +139,7 @@ fr:
         browse: Parcourir
         export: Exporter
         manage: Gérer
-        new: Nouvelle %{name}
+        new: + %{name}
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
@@ -319,14 +319,14 @@ fr:
           label: Secteur
         search_label: Rechercher
         search_placeholder:
-          name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
           title_cont: Rechercher %{collection} par titre.
         state_eq:
           label: État
       help_sections:
         error: Une erreur s'est produite lors de la mise à jour des sections d'aide.
         form:
-          save: sauvegarder
+          save: Sauvegarder
         success: Les sections d'aide ont été mises à jour avec succès
       impersonatable_users:
         index:
@@ -741,7 +741,7 @@ fr:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
-        impersonatable_users: Utilisateurs gérables
+        impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
         participants: Utilisateurs
