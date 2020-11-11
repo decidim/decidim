@@ -1152,7 +1152,6 @@ cs:
         date: Nahlášeno dne
         details: Detaily
         hello: Zdravím %{name},
-        manage_moderations: Správa moderování
         participatory_space: Účastnický prostor
         reason: Důvod
         report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
