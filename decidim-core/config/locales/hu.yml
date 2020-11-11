@@ -1024,7 +1024,6 @@ hu:
         subject: Egy erőforrás automatikusan elrejtve
       report:
         hello: Hello %{name}!
-        manage_moderations: Moderálódások kezelése
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
         subject: Egy erőforrást jelentettek
     reports:
