@@ -944,7 +944,6 @@ ar:
         subject: تم إخفاء المورد تلقائيًا
       report:
         hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
         subject: تم الإبلاغ عن مورد
     reports:
