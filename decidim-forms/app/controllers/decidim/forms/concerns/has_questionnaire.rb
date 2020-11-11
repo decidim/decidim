@@ -137,9 +137,9 @@ module Decidim
             @session_token ||= tokenize(id || session_id)
           end
 
-          def tokenize(id)
-            tokenizer = Decidim::Tokenizer.new(key: questionnaire.salt || questionnaire.id)
-            tokenizer.int_digest(id)
+          def tokenize(id, length: 10)
+            tokenizer = Decidim::Tokenizer.new(salt: questionnaire.salt || questionnaire.id, length: length)
+            tokenizer.int_digest(id).to_s
           end
         end
       end
