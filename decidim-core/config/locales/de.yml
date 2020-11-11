@@ -1112,7 +1112,6 @@ de:
         date: Gemeldet am
         details: Einzelheiten
         hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
         participatory_space: Beteiligungsbereich
         reason: Grund
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
