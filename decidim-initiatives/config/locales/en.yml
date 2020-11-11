@@ -335,10 +335,7 @@ en:
           send_my_initiative: Send my initiative
         finish_help:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
-          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
-          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
           help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
-          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
           page: page
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
