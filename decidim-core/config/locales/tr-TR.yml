@@ -912,7 +912,6 @@ tr:
         subject: Bir kaynak otomatik olarak gizlendi
       report:
         hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
         report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> bildirilmiştir.</p>
         subject: Bir kaynak rapor edildi
     reports:
