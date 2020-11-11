@@ -897,7 +897,6 @@ gl:
         subject: Ocultouse un recurso automaticamente
       report:
         hello: Ola %{name},
-        manage_moderations: Xestionar moderacións
         report_html: <p> Informáronse os seguintes <a href="%{url}">content</a>.</p>
         subject: Informouse un recurso
     reports:
