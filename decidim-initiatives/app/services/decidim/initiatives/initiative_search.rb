@@ -45,13 +45,14 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        accepted = state.member?("accepted") ? query.accepted : nil
-        rejected = state.member?("rejected") ? query.rejected : nil
-        answered = state.member?("answered") ? query.answered : nil
-        open = state.member?("open") ? query.open : nil
-        closed = state.member?("closed") ? query.closed : nil
+        ids = []
+        ids += state.member?("accepted") ? query.accepted.ids : []
+        ids += state.member?("rejected") ? query.rejected.ids : []
+        ids += state.member?("answered") ? query.answered.ids : []
+        ids += state.member?("open") ? query.open.ids : []
+        ids += state.member?("closed") ? query.closed.ids : []
 
-        query.where(id: [accepted, rejected, answered, open, closed])
+        query.where(id: ids)
       end
 
       def search_type_id
