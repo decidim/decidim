@@ -154,7 +154,7 @@ module Decidim
             form.errors.add(:base, error)
             raise ActiveRecord::Rollback
           else
-            election_status(response.data.create_election.election.status)
+            store_bulletin_board_status(response.data.create_election.election.status)
           end
         end
 
@@ -179,7 +179,7 @@ module Decidim
           Decidim::EventsManager.publish(data)
         end
 
-        def election_status(bb_status)
+        def store_bulletin_board_status(bb_status)
           @election.update!(
             blocked_at: Time.current,
             bb_status: bb_status
