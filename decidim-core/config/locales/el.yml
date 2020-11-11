@@ -1102,7 +1102,6 @@ el:
         subject: Ένας πόρος αποκρύφτηκε αυτόματα
       report:
         hello: Γεια σας %{name},
-        manage_moderations: Διαχείριση εποπτεύσεων
         report_html: <p>Το παρακάτω <a href="%{url}">περιεχόμενο</a> αναφέρθηκε.</p>
         subject: Έχει αναφερθεί ένας πόρος
     reports:
