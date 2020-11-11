@@ -294,7 +294,6 @@ es:
           all: Todos
           answered: Contestada
           closed: Cerrado
-          draft: Borrador
           open: Abiertas
           rejected: No ha conseguido las firmas
         filter_type_values:
