@@ -130,7 +130,7 @@ en:
         update: "%{user_name} updated the organization settings"
       participatory_space_private_user:
         create: "%{user_name} invited %{resource_name} to be a private participant"
-        create_via_csv: "%{user_name} invited %{resource_name} via csv to be a private participant"
+        create_via_csv: "%{user_name} invited %{resource_name} via CSV to be a private participant"
         delete: "%{user_name} removed the participant %{resource_name} as a private participant"
       scope:
         create: "%{user_name} created the %{resource_name} scope"
@@ -613,6 +613,12 @@ en:
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Your %{resource_type}</a> has been reported as "%{report_reason}". An administrator will review it shortly.
+          email_outro: You have received this notification because you are an author of the reported content.
+          email_subject: Your %{resource_type} has been reported
+          notification_title: <a href="%{resource_path}">Your %{resource_type}</a> has been reported as "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
@@ -927,7 +933,7 @@ en:
           error: Message was not sent due to an error
     metrics:
       download:
-        csv: Download data (csv)
+        csv: Download data (CSV)
       followers:
         description: Number of participants that follow this participation space
         object: followers
@@ -1126,13 +1132,15 @@ en:
       report:
         authors: Authors
         content: Reported content
+        content_original_language: Content original language
         date: Reported on
         details: Details
         hello: Hello %{name},
-        manage_moderations: Manage moderations
+        id: ID
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        see_report: See report
         subject: A resource has been reported
     reports:
       create:

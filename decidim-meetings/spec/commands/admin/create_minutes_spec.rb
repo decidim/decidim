@@ -11,7 +11,7 @@ module Decidim::Meetings
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:meeting) { create :meeting, component: current_component }
-    let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    let(:description) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) } }
     let(:video_url) { Faker::Internet.url }
     let(:audio_url) { Faker::Internet.url }
     let(:visible) { true }

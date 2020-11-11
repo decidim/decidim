@@ -193,13 +193,13 @@ Decidim.register_component(:proposals) do |component|
 
     5.times do |n|
       state, answer, state_published_at = if n > 3
-                                            ["accepted", Decidim::Faker::Localized.sentence(10), Time.current]
+                                            ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), Time.current]
                                           elsif n > 2
                                             ["rejected", nil, Time.current]
                                           elsif n > 1
                                             ["evaluating", nil, Time.current]
                                           elsif n.positive?
-                                            ["accepted", Decidim::Faker::Localized.sentence(10), nil]
+                                            ["accepted", Decidim::Faker::Localized.sentence(word_count: 10), nil]
                                           else
                                             [nil, nil, nil]
                                           end

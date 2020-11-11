@@ -29,14 +29,13 @@
       let multipleInput = [];
 
       $conditionWrapperField.find(".radio-button-collection, .check-box-collection").find(".collection-input").each((idx, el) => {
-        const $label = $(el).find("label");
-        const checked = !$label.find("input[type='hidden']").is("[disabled]");
+        const $input = $(el).find("input[name$=\\[body\\]]");
+        const checked = $input.is(":checked");
 
         if (checked) {
-          const $textField = $(el).find("input[name$=\\[custom_body\\]]");
-          const text = $textField.val();
-          const value = $label.find("input:not([type='hidden'])").val();
-          const id = $label.find("input[type='hidden']").val();
+          const text = $(el).find("input[name$=\\[custom_body\\]]").val();
+          const value = $input.val();
+          const id = $(el).find("input[name$=\\[answer_option_id\\]]").val();
 
           multipleInput.push({ id, value, text });
         }

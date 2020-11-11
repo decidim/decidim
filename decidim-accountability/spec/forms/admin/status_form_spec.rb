@@ -19,7 +19,7 @@ module Decidim::Accountability
       Decidim::Faker::Localized.word
     end
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:key) { "status_key" }
     let(:progress) { 60 }

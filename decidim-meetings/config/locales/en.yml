@@ -28,15 +28,16 @@ en:
         private_meeting: Private meeting
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
+        registration_url: Registration URL
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
         transparent: Transparent
         type_of_meeting: Type
       minutes:
-        audio_url: Audio url
+        audio_url: Audio URL
         description: Description
-        video_url: Video url
+        video_url: Video URL
         visible: Is visible
     errors:
       models:
@@ -256,10 +257,14 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
+            available_slots_help: Leave it to 0 if you have unlimited slots available
+            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type
+            select_a_registration_type: Please select a registration type
           index:
             title: Meetings
           new:
@@ -407,12 +412,16 @@ en:
           unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
+          available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
+          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+          registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
           select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
+          select_a_registration_type: Please select a registration type
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -478,6 +487,10 @@ en:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
           registration_code: Your registration code is %{code}.
+      registration_type:
+        on_different_platform: On a different platform
+        on_this_platform: On this platform
+        registration_disabled: Registration disabled
       registrations:
         create:
           invalid: There was a problem joining this meeting.
