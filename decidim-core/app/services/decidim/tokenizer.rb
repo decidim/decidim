@@ -11,8 +11,8 @@ module Decidim
     # salt      - The salt fr the encryption (it should be at leas 30 chars long)
     # length    - How long the key generated should be (in bytes)
     #
-    def initialize(salt:, length: 10)
-      @salt = salt
+    def initialize(salt: nil, length: 32)
+      @salt = salt.presence || Tokenizer.random_salt
       @length = length
     end
 

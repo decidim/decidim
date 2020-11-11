@@ -138,7 +138,8 @@ module Decidim
           end
 
           def tokenize(id)
-            Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+            tokenizer = Decidim::Tokenizer.new(key: questionnaire.salt || questionnaire.id)
+            tokenizer.int_digest(id)
           end
         end
       end

@@ -10,6 +10,10 @@ describe Decidim::Tokenizer do
   let(:string) { "Poems everybody!" }
 
   describe "digest" do
+    it "returns the salt initilzed" do
+      expect(subject.salt).to eq(secret)
+    end
+
     it "generates an integer key" do
       expect(subject.int_digest(string)).to be_a(Integer)
       expect(subject.int_digest(string).size).to eq(10)
@@ -30,6 +34,15 @@ describe Decidim::Tokenizer do
 
       it "generates a digest of the propser size" do
         expect(subject.int_digest(string).size).to eq(15)
+      end
+    end
+
+    context "when no salt is specified" do
+      subject { described_class.new }
+
+      it "generates a random string as salt" do
+        expect(subject.salt).to be_a(String)
+        expect(subject.salt.size).to eq(64)
       end
     end
   end
