@@ -1105,12 +1105,15 @@ sv:
       report:
         authors: Författare
         content: Rapporterat innehåll
+        content_original_language: Innehållets originalspråk
         date: Rapporterades
         details: Detaljer
         hello: Hej %{name},
+        id: ID
         participatory_space: Plats för deltagare
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
+        see_report: Se rapport
         subject: En resurs har rapporterats
     reports:
       create:
