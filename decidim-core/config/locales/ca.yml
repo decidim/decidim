@@ -1115,12 +1115,15 @@ ca:
       report:
         authors: Autores
         content: Contingut reportat
+        content_original_language: Idioma original del contingut
         date: Reportat el
         details: Detalls
         hello: Hola %{name},
+        id: Identificador
         participatory_space: Espai de participació
         reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> ha estat reportat.</p>
+        see_report: Mostra informe
         subject: Un contingut ha estat denunciat
     reports:
       create:
