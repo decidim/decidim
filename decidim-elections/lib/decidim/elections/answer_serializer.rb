@@ -38,10 +38,6 @@ module Decidim
       def question
         answer.question
       end
-
-      def organization
-        answer.question.election.component.organization
-      end
     end
   end
 end
