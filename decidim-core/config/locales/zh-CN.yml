@@ -1092,7 +1092,6 @@ zh-CN:
         date: 报告于
         details: 详细信息
         hello: 您好 %{name}，
-        manage_moderations: 管理版面
         participatory_space: 参与空间
         reason: 原因
         report_html: <p>以下 <a href="%{url}">内容</a> 已被报告。</p>
