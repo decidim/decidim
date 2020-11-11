@@ -64,6 +64,10 @@ module Decidim
       def nationalities
         Decidim::AttributeEncryptor.decrypt(data["nationalities"]) || []
       end
+
+      def self.not_set_for_user?(user)
+        find_by(decidim_user_id: user).nil?
+      end
     end
   end
 end
