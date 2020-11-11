@@ -1112,7 +1112,6 @@ ja:
         date: 報告日時
         details: 詳細
         hello: こんにちは、 %{name} さん。
-        manage_moderations: モデレーションの管理
         participatory_space: 参加者のスペース
         reason: 理由：
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が報告されました。</p>
