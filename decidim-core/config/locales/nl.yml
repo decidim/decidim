@@ -128,7 +128,6 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -920,8 +919,6 @@ nl:
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
-      download:
-        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
@@ -983,7 +980,7 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
@@ -1123,7 +1120,6 @@ nl:
         date: Gerapporteerd op
         details: Beschrijving
         hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
         participatory_space: Participatieve ruimte
         reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>

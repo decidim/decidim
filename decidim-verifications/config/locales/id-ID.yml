@@ -103,7 +103,6 @@ id:
             title: Data sensus saat ini
           instructions:
             body: Untuk melakukan ini, Anda harus memasukkan administrasi sistem dan menambahkan otorisasi csv_census ke organisasi
-            title: Anda perlu mengaktifkan sensus csv untuk organisasi ini
           new:
             file: "File .csv dengan data email"
             submit: Unggah data

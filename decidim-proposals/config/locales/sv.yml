@@ -378,9 +378,7 @@ sv:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
-            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer läsas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
           publish:

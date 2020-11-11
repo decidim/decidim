@@ -169,7 +169,6 @@ zh-CN:
           filter_by: 筛选方式
           unfold: 展开...
         show:
-          back: 所有选举
           preview: 预览
           vote: 投票
           voting_period_status:

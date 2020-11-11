@@ -172,7 +172,6 @@ ja:
           filter_by: 絞り込み条件
           unfold: 展開
         show:
-          back: すべての選挙
           preview: プレビュー
           vote: 投票
           voting_period_status:

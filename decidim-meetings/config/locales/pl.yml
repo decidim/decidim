@@ -31,9 +31,7 @@ pl:
         title: Tytuł
         transparent: Transparentny
       minutes:
-        audio_url: Adres URL do audio
         description: Opis
-        video_url: Adres URL do wideo
         visible: Jest widoczne
     errors:
       models:

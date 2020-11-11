@@ -137,7 +137,7 @@ cs:
         update: "%{user_name} aktualizovala nastavení organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
-        create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
+        create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
@@ -628,6 +628,12 @@ cs:
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Váš %{resource_type}</a> byl nahlášen jako "%{report_reason}". Administrátor jej brzy zkontroluje.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem nahlášeného obsahu.
+          email_subject: Váš %{resource_type} byl nahlášen
+          notification_title: <a href="%{resource_path}">Váš %{resource_type}</a> byl nahlášen jako "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
@@ -944,7 +950,7 @@ cs:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
-        csv: Stáhnout data (csv)
+        csv: Stáhnout data (CSV)
       followers:
         description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
@@ -1146,7 +1152,6 @@ cs:
         date: Nahlášeno dne
         details: Detaily
         hello: Zdravím %{name},
-        manage_moderations: Správa moderování
         participatory_space: Účastnický prostor
         reason: Důvod
         report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>

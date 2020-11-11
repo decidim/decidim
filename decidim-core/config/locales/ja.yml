@@ -125,7 +125,6 @@ ja:
         update: "%{user_name} が組織設定を更新しました"
       participatory_space_private_user:
         create: "%{user_name} が %{resource_name} を非公開参加者に招待しました"
-        create_via_csv: "%{user_name} が %{resource_name} を csv 経由で非公開の参加者に招待しました"
         delete: "%{user_name} が参加者 %{resource_name} を非公開参加者として削除しました"
       scope:
         create: "%{user_name} が %{resource_name} スコープを作成しました"
@@ -164,7 +163,7 @@ ja:
         promote_button: '%{model_name} にプロモート'
         promote_confirm_text: この承認を宣伝してもよろしいですか？
         promote_help_text: この制約を宣伝し、独立した %{model_name} として公開することができます
-        section_heading: 修正 (%{count})
+        section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
         no_similars_found: 似たような表現は見つかりません。
@@ -640,7 +639,7 @@ ja:
         other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
-      no_followings: まだ誰にも何にも従っていません。
+      no_followings: フォローしている人やコンテンツはありません
     follows:
       create:
         button: フォロー
@@ -912,8 +911,6 @@ ja:
         update:
           error: エラーのためメッセージは送信されませんでした
     metrics:
-      download:
-        csv: ダウンロードデータ (csv)
       followers:
         description: この参加スペースに従う参加者数
         object: フォロワー
@@ -1053,7 +1050,7 @@ ja:
       terms_and_conditions:
         accept:
           error: 利用規約を受け入れる際に問題が発生しました。
-          success: 素晴らしい! あなたは利用規約に同意しました。
+          success: 利用規約に同意しました。
         form:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
@@ -1115,7 +1112,6 @@ ja:
         date: 報告日時
         details: 詳細
         hello: こんにちは、 %{name} さん。
-        manage_moderations: モデレーションの管理
         participatory_space: 参加者のスペース
         reason: 理由：
         report_html: <p>次の <a href="%{url}">コンテンツ</a> が報告されました。</p>

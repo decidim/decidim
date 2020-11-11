@@ -125,7 +125,6 @@ hu:
         update: "%{user_name} frissítette a szervezet beállításait"
       participatory_space_private_user:
         create: "%{user_name} meghívott %{resource_name} privát felhasználónak"
-        create_via_csv: "%{user_name} meghívta %{resource_name} Csv-n keresztül, hogy privát résztvevő legyen"
         delete: "%{user_name} eltávolította a felhasználót %{resource_name} privát felhasználóként"
       scope:
         create: "%{user_name} létrehozta a(z) %{resource_name} hatáskört"
@@ -839,8 +838,6 @@ hu:
           send: Küldés
           title: Beszélgetés indítása
     metrics:
-      download:
-        csv: Adatok letöltése (csv)
       followers:
         description: A résztvevők száma, akik ezt a részvételi teret követik
         object: követők
@@ -1027,7 +1024,6 @@ hu:
         subject: Egy erőforrás automatikusan elrejtve
       report:
         hello: Hello %{name}!
-        manage_moderations: Moderálódások kezelése
         report_html: <p>A következő <a href="%{url}">tartalmat</a>korábban jelentették.</p>
         subject: Egy erőforrást jelentettek
     reports:

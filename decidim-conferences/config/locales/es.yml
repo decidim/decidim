@@ -539,6 +539,12 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo la jornada "%{resource_title}". Puedes dejar de seguirla desde el enlace anterior.
           email_subject: '¡Se acerca la jornada "%{resource_title}"!'
           notification_title: La jornada <a href="%{resource_path}">%{resource_title}</a> se realizará dentro de 2 días.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
+          page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
+          title: '¿Qué son las conferencias?'
     log:
       value_types:
         conference_presenter:

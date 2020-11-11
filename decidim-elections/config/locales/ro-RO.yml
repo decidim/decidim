@@ -144,7 +144,6 @@ ro:
             few: "%{count} alegeri"
             other: "%{count} alegeri"
         show:
-          back: Toate alegerile
           preview: Previzualizare
           vote: Votează
           voting_period_status:
