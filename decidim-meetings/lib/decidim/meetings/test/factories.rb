@@ -36,6 +36,7 @@ FactoryBot.define do
     registration_form_enabled { true }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
+    salt { SecureRandom.hex(32) }
 
     author do
       component.try(:organization)

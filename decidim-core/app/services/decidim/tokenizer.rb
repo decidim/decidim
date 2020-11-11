@@ -28,11 +28,11 @@ module Decidim
     end
 
     def int_digest(string)
-      digest(string).bytes.inject { |a, b| (a << 8) + b }
+      digest(string.to_s).bytes.inject { |a, b| (a << 8) + b }
     end
 
     def hex_digest(string)
-      digest(string).bytes.map { |c| c.ord.to_s(16) }.join
+      digest(string.to_s).bytes.map { |c| c.ord.to_s(16) }.join
     end
   end
 end

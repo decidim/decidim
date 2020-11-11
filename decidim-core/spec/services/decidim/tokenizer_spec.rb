@@ -19,6 +19,11 @@ describe Decidim::Tokenizer do
       expect(subject.int_digest(string).size).to eq(10)
     end
 
+    it "encodes integers and strings equally" do
+      expect(subject.int_digest(10)).to eq(subject.int_digest("10"))
+      expect(subject.hex_digest(0.10)).to eq(subject.hex_digest("0.1"))
+    end
+
     it "generates an hexadecimal key" do
       expect(subject.hex_digest(string)).to be_a(String)
       expect(subject.hex_digest(string).size <= 20).to eq(true)
