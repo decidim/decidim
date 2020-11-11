@@ -1058,7 +1058,6 @@ lv:
         subject: Vienums ir automātiski paslēpts
       report:
         hello: Sveiki, %{name}!
-        manage_moderations: Pārvaldiet moderāciju
         report_html: <p> Par šo <a href="%{url}"> saturu </a> ir ziņots.</p>
         subject: Par vienumu ir ziņots
     reports:
