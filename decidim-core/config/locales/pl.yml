@@ -1127,7 +1127,6 @@ pl:
         date: Zgłoszone dnia
         details: Szczegóły
         hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>
