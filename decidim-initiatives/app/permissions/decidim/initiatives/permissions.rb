@@ -4,11 +4,6 @@ module Decidim
   module Initiatives
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        if read_admin_dashboard_action?
-          user_can_read_admin_dashboard?
-          return permission_action
-        end
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Initiatives::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
@@ -123,21 +118,6 @@ module Decidim
             UserAuthorizations.for(user).any? ||
             Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
           )
-      end
-
-      def has_initiatives?
-        (InitiativesCreated.by(user) | InitiativesPromoted.by(user)).any?
-      end
-
-      def read_admin_dashboard_action?
-        permission_action.action == :read &&
-          permission_action.subject == :admin_dashboard
-      end
-
-      def user_can_read_admin_dashboard?
-        return unless user
-
-        allow! if has_initiatives?
       end
 
       def vote_initiative?

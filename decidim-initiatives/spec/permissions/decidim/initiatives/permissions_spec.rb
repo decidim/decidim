@@ -89,32 +89,6 @@ describe Decidim::Initiatives::Permissions do
     end
   end
 
-  context "when reading the admin dashboard" do
-    let(:action) do
-      { scope: :admin, action: :read, subject: :admin_dashboard }
-    end
-
-    context "when user created an initiative" do
-      let(:initiative) { create :initiative, author: user, organization: organization }
-
-      before { initiative }
-
-      it { is_expected.to eq true }
-    end
-
-    context "when user promoted an initiative" do
-      before do
-        create :initiatives_committee_member, initiative: initiative, user: user
-      end
-
-      it { is_expected.to eq true }
-    end
-
-    context "when any other condition" do
-      it_behaves_like "permission is not set"
-    end
-  end
-
   context "when the action is for the admin part" do
     let(:action) do
       { scope: :admin, action: :foo, subject: :initiative }
