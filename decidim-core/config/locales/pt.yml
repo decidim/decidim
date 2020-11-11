@@ -1108,7 +1108,6 @@ pt:
         date: Reportado em
         details: Detalhes
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
         participatory_space: Espaço participativo
         reason: Razão
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
