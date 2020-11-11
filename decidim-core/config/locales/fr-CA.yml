@@ -603,6 +603,12 @@ fr-CA:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Votre %{resource_type}</a> a été signalé comme "%{report_reason}". Un administrateur le vérifiera sous peu.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur du contenu signalé.
+          email_subject: Votre %{resource_type} a été signalé
+          notification_title: <a href="%{resource_path}">Votre %{resource_type}</a> a été signalé comme "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient d’approuver l''évènement "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Consultez le et contribuez:'
         email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
