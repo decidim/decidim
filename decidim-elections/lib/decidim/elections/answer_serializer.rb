@@ -18,12 +18,13 @@ module Decidim
       def serialize
         {
           id: answer.id,
-          answer_title: answer.title,
-          answer_votes: answer.votes,
           election_id: election.id,
           election_title: election.title,
           question_id: question.id,
-          question_title: question.title
+          question_title: question.title,
+          answer_id: answer.id,
+          answer_title: answer.title,
+          answer_votes: answer.votes
         }
       end
 
