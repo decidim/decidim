@@ -15,11 +15,7 @@
         <%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
           <%= render partial: "form", object: f %>
           <div class="actions">
-            <% if allowed_to? :can_print, :initiative, initiative: current_initiative, request: request %>
-              <%= link_to t("print", scope: "decidim.initiatives.admin.initiatives.edit"), print_initiative_path, class: "button light secondary expanded action-print" %>
-            <% else %>
-              <%= link_to t("print", scope: "decidim.initiatives.admin.initiatives.edit"), "#", class: "button light secondary expanded action-print disabled" %>
-            <% end %>
+            <%= link_to t("print", scope: "decidim.initiatives.admin.initiatives.edit"), print_initiative_path, class: "button light secondary expanded action-print" %>
 
             <%= f.submit t("update", scope: "decidim.initiatives.edit"), class: "button expanded" if allowed_to? :update, :initiative, initiative: current_initiative %>
 

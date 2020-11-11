@@ -505,6 +505,7 @@ en:
           edit: Edit
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This initiative only collects in-person signatures.
+          print: Print Initiative
           send_to_technical_validation: Send to technical validation
         signatures_count:
           one: " signature"

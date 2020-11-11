@@ -34,7 +34,6 @@ module Decidim
 
         initiative_committee_action?
         send_to_technical_validation?
-        can_print?
 
         permission_action
       end
@@ -236,13 +235,6 @@ module Decidim
           !initiative.created_by_individual? ||
           initiative.enough_committee_members?
         )
-      end
-
-      def can_print?
-        return unless permission_action.action == :can_print &&
-                      permission_action.subject == :initiative
-
-        toggle_allow(initiative.published? || initiative.accepted? || initiative.rejected? || initiative.validating?)
       end
     end
   end
