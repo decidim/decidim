@@ -1124,7 +1124,6 @@ fi:
         date: Ilmoituksen aika
         details: Tarkemmat tiedot
         hello: Hei %{name},
-        manage_moderations: Hallitse moderointeja
         participatory_space: Osallistumistila
         reason: Syy
         report_html: <p>Tämä <a href="%{url}">sisältö</a> on ilmoitettu.</p>
