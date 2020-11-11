@@ -1119,7 +1119,6 @@ fr-CA:
         date: Signalé le
         details: Détails
         hello: Bonjour %{name},
-        manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
         reason: Raison
         report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
