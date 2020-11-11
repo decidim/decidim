@@ -1060,7 +1060,6 @@ bg:
         subject: Ресурсът е скрит автоматично
       report:
         hello: Здравейте %{name},
-        manage_moderations: Управлявай модераторите
         report_html: <p>Следното <a href="%{url}">съдържание</a> беше докладвано.</p>
         subject: Ресурсът беше докладван
     reports:
