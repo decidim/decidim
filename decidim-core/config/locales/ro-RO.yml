@@ -1122,7 +1122,6 @@ ro:
         date: Raportat la
         details: Detalii
         hello: Bună ziua %{name},
-        manage_moderations: Administreaza moderatii
         participatory_space: Spaţiu participativ
         reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>
