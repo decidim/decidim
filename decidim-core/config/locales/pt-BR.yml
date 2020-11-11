@@ -899,7 +899,7 @@ pt:
         subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
+        manage_moderations: Gerenciar moderações
         report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
         subject: Um recurso foi relatado
     reports:
