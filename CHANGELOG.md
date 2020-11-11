@@ -18,6 +18,8 @@
 
 **Fixed**
 
+- **decidim-core**: Fix searchable issues with resources with unexisting organization (#6839) [\#6843](https://github.com/decidim/decidim/pull/6843)
+- **decidim-proposals**: Fix issues with move proposal fields to i18n (#6838) [\#6842](https://github.com/decidim/decidim/pull/6842)
 - **decidim-forms**: Backport "fix display conditions validations with choices" to 0.23 [\#6840](https://github.com/decidim/decidim/pull/6840)
 - **decidim-budgets**: Backport "Fix broken notifications page due to multi-budget changes" to 0.23 [\#6840](https://github.com/decidim/decidim/pull/6840)
 - **decidim-core**, **decidim-surveys**: Fix dependency between surveys and templates [\#6814](https://github.com/decidim/decidim/pull/6814)
