@@ -16,7 +16,7 @@ module Decidim
         end
 
         def first_table_td(answer)
-          return answer.first_short_answer.body if @first_short_answer
+          return answer.first_short_answer&.body if @first_short_answer
 
           answer.session_token
         end
