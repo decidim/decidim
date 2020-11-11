@@ -36,16 +36,9 @@
                 <%= icon_link_to "action-undo",  ignore_moderated_user_path(id: moderation),  t(".actions.unreport"),  class: "action-icon--unreport",  method: :put %>
               <% end %>
               <% if allowed_to?(:ban, :moderate_users) %>
-                <%#= icon_link_to "action-undo",  ignore_moderated_user_path(id: moderation),  t(".actions.unreport"),  class: "action-icon--unreport",  method: :put %>
                 <%= icon "ban", class: "action-icon action-icon--disabled", role: "img" %>
               <% end %>
 
-              <%# if !moderation.reportable.hidden? && allowed_to?(:hide, :moderation) %>
-              <%#= icon_link_to "eye", hide_moderation_path(id: moderation), t("actions.hide", scope: "decidim.reported_users"), class: "action-icon--hide", method: :put %>
-              <%# end %>
-              <%# if moderation.reportable.hidden? && allowed_to?(:unhide, :moderation) %>
-              <%#= icon_link_to "eye", unhide_moderation_path(id: moderation),t("actions.unhide", scope: "decidim.reported_users"),method: :put %>
-              <%# end %>
             </td>
           </tr>
         <% end %>

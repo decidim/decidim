@@ -25,14 +25,6 @@ module Decidim
           end
         end
       end
-      #
-      # def unreport
-      #   enforce_permission_to :unreport, :moderation
-      #
-      #   Admin::UnreportResource.call(reportable, current_user) do
-      #
-      #   end
-      # end
 
       private
 
