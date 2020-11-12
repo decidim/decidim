@@ -6,11 +6,3 @@
   filter: filter,
   resource_types: resource_types
 } %>
-
-<%=
-  render partial: "decidim/shared/flag_user_modal", locals: {
-      reportable: user,
-      form: report_form,
-      url: decidim.report_user_path(sgid: user.to_sgid.to_s)
-  }
-%>

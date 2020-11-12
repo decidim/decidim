@@ -4,7 +4,15 @@ module Decidim
   class FlagModalCell < Decidim::ViewModel
     include ActionView::Helpers::FormOptionsHelper
 
+    def flag_user
+      render
+    end
+
     private
+
+    def user_report_form
+      Decidim::ReportForm.from_params(reason: "spam")
+    end
 
     def modal_id
       options[:modal_id] || "flagModal"
