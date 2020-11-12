@@ -4,5 +4,45 @@ da:
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfang
+        decidim_scope_id: Anvendelsesområde
         description: Beskrivelse
+        end_date: Slutdato
+        progress: Fremskridt
+        project_ids: Inkluderede projekter
+        proposals: Inkluderede projekter
+        start_date: Start dato
+        title: Titel
+        updated_at: Opdateret
+      status:
+        description: Beskrivelse
+        key: Nøgle
+        name: Navn
+        progress: Fremskridt
+      timeline_entry:
+        description: Beskrivelse
+        entry_date: Dato
+    models:
+      decidim/accountability/proposal_linked_event: Projekter, der indgår i dette resultat
+      decidim/accountability/result_progress_updated_event: Resultatstatus opdateret
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultater
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Er du sikker på, at du vil slette dette %{name}?
+        destroy: Slet
+        edit: Rediger
+        import_csv: Importér CSV
+        new: Nyt %{name}
+        preview: Eksempelvisning
+        timeline_entries: Projektudvikling
+        title: Handlinger
+      admin:
+        exports:
+          results: Resultater
+        import_results:
+          new:
+            import: Import
