@@ -13,17 +13,15 @@ module Decidim
 
         def map_model(model)
           @election = model
-          @trustees = Decidim::Elections::Trustee.includes([:user]).joins(:trustees_participatory_spaces).merge(Decidim::Elections::TrusteesParticipatorySpace
-                                                                                                         .where(participatory_space: election.component.participatory_space,
-                                                                                                                considered: true)).to_a.sample(number_of_trustees).sort_by(&:id)
+          @trustees = Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space).to_a.sample(number_of_trustees).sort_by(&:id)
+
           self.trustee_ids = @trustees.pluck(:id)
         end
 
         def trustees
-          @trustees ||= Decidim::Elections::Trustee.includes([:user]).joins(:trustees_participatory_spaces).merge(Decidim::Elections::TrusteesParticipatorySpace
-                                                                                                           .where(decidim_elections_trustee_id: trustee_ids,
-                                                                                                                  participatory_space: election.component.participatory_space,
-                                                                                                                  considered: true)).to_a.sort_by(&:id)
+          @trustees = Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space)
+          @trustees = Decidim::Elections::Trustees::ByParticipatorySpaceTrusteeIds.new(trustee_ids).to_a.sort_by(&:id)
+          @trustees
         end
 
         def number_of_trustees
