@@ -5,11 +5,15 @@ require "spec_helper"
 describe "User prints the initiative", type: :system do
   context "when initiative print" do
     include_context "when admins initiative"
+    let!(:initiative) do
+      create(:initiative, organization: organization, scoped_type: initiative_scope, author: author, state: :accepted)
+    end
 
     before do
       switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit decidim_initiatives.edit_initiative_path(initiative)
+      login_as author, scope: :user
+      visit decidim_initiatives.initiative_path(initiative)
+
       page.find(".action-print").click
     end
 

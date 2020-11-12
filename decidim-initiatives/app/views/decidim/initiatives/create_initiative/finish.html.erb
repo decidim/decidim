@@ -23,7 +23,7 @@
         <div class="actions">
           <% unless promotal_committee_required? %>
             <%= link_to t(".send_my_initiative"),
-                        decidim_admin_initiatives.send_to_technical_validation_initiative_path(current_initiative),
+                        decidim_initiatives.send_to_technical_validation_initiative_path(current_initiative),
                         class: "button success light expanded",
                         data: { confirm: t(".confirm") } %>
           <% end %>

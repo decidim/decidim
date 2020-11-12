@@ -213,7 +213,6 @@ en:
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures
-            print: Print
             reject: Reject initiative
             send_to_technical_validation: Send to technical validation
             success: The initiative has been sent to technical validation
@@ -335,8 +334,6 @@ en:
           send_my_initiative: Send my initiative
         finish_help:
           access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
-          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
-          page: page
           publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
           back: Back

@@ -383,7 +383,7 @@ describe "Initiative", type: :system do
           end
 
           it "displays an edit link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Edit my initiative")
             end
           end
@@ -395,7 +395,7 @@ describe "Initiative", type: :system do
 
           it "displays a send to technical validation link" do
             expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
               expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
@@ -412,7 +412,7 @@ describe "Initiative", type: :system do
           expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
 
           it "displays a send to technical validation link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
               expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
