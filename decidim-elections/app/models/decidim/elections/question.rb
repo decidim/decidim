@@ -32,10 +32,10 @@ module Decidim
       end
 
       def total_votes
-        answers.sum(:votes)
+        answers.sum(:votes_count)
       end
 
-      def votes_calucations(answer_votes)
+      def votes_percentage(answer_votes)
         return 0 unless answer_votes.positive?
 
         result = answer_votes.to_f / total_votes * 100.0

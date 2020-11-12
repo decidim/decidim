@@ -4,7 +4,7 @@
       <p>
         <%= t(".description") %>:
       </p>
-      <ul class="accordion js-sortable mb-m evote__preview"
+      <ul class="accordion mb-m evote__preview"
         data-accordion
         data-multi-expand="true"
         data-allow-all-closed="true">
@@ -25,16 +25,16 @@
 
                   <div class="progress__bar">
                     <div class="evote__preview-bar">
-                      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_calucations(answer.votes) %>%" aria-valuemin="0" aria-valuetext="<%= answer.question.votes_calucations(answer.votes) %>% percent" aria-valuemax="100">
-                        <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.question.votes_calucations(answer.votes) %>%"></div>
-                        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.question.votes_calucations(answer.votes) %>%);"></div>
+                      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_percentage(answer.votes_count) %>%" aria-valuemin="0" aria-valuetext="<%= answer.question.votes_percentage(answer.votes_count) %>% percent" aria-valuemax="100">
+                        <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.question.votes_percentage(answer.votes_count) %>%"></div>
+                        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.question.votes_percentage(answer.votes_count) %>%);"></div>
                       </div>
                       <div class="evote__preview-perc">
-                        <%= answer.question.votes_calucations(answer.votes) %>%
+                        <%= answer.question.votes_percentage(answer.votes_count) %>%
                       </div>
                       </div>
                       <div class="evote__preview-label">
-                        <%= t(".votes", count: answer.votes) %>
+                        <%= t(".votes", count: answer.votes_count) %>
                       </div>
                     </div>
                   </div>

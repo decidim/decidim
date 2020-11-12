@@ -123,7 +123,7 @@ Decidim.register_component(:elections) do |component|
               end,
               weight: Faker::Number.number(digits: 1),
               selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-              votes: 0
+              votes_count: 0
             },
             visibility: "all"
           )
@@ -217,7 +217,7 @@ Decidim.register_component(:elections) do |component|
               end,
               weight: Faker::Number.number(digits: 1),
               selected: Faker::Boolean.boolean(true_ratio: 0.5),
-              votes: Faker::Number.between(from: 0, to: 150)
+              votes_count: Faker::Number.between(from: 0, to: 150)
             },
             visibility: "all"
           )
@@ -310,7 +310,7 @@ Decidim.register_component(:elections) do |component|
             end,
             weight: Faker::Number.number(digits: 1),
             selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
-            votes: 0
+            votes_count: 0
           },
           visibility: "all"
         )
