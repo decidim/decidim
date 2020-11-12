@@ -99,39 +99,13 @@ module Decidim
           searchables_in_org.destroy_all
         end
 
-        update_index_for_descendants if has_descendants?
+        update_index_for_resources if has_descendants?
       end
 
       private
 
-      def update_index_for_descendants
-        components_hash = components.map do |component|
-          {
-            manifest: Decidim.find_component_manifest(component.manifest_name),
-            id: component.id
-          }
-        end
-
-        resources = components_hash.flat_map do |component_hash|
-          Decidim.resource_registry.manifests.map do |resource|
-            next unless resource.component_manifest == component_hash[:manifest]
-
-            {
-              class: resource.model_class_name,
-              id: component_hash[:id]
-            }
-          end.compact
-        end
-
-        descendants = resources.flat_map do |resource|
-          klass = resource[:class].constantize
-
-          next unless klass.column_names.include? "decidim_component_id"
-
-          klass.where(decidim_component_id: resource[:id])
-        end.compact
-
-        descendants.each(&:try_update_index_for_search_resource)
+      def update_index_for_resources
+        Decidim::UpdateResourcesIndexJob.perform_later(self)
       end
 
       def has_descendants?

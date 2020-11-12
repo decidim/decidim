@@ -67,20 +67,23 @@ module Decidim
 
     describe "#try_update_index_for_search_resource" do
       let!(:participatory_process) { create(:participatory_process) }
-      let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-      let!(:resource) { create(:proposal, :official, component: proposal_component) }
 
-      context "when searchable is a participatory space" do
-        context "when updated" do
-          it "calls method on descendants" do
-            expect(resource.searchable_resources.pluck(:resource_id, :resource_type)).to include([resource.id, resource.class.name])
-            expect(participatory_process).to receive(:update_index_for_descendants).and_call_original
-            expect(resource).not_to receive(:update_index_for_descendants).and_call_original
+      context "when searchable doesn't have component" do
+        it "doesn't enqueues the job" do
+          participatory_process.update!(published_at: nil)
 
-            participatory_process.update!(published_at: nil)
+          expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
+        end
+      end
 
-            expect(resource.searchable_resources.pluck(:resource_id, :resource_type)).not_to include([resource.id, resource.class.name])
-          end
+      context "when searchable have a component" do
+        let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
+        let!(:resource) { create(:proposal, :official, component: proposal_component) }
+
+        it "enqueues the job" do
+          expect(Decidim::UpdateResourcesIndexJob).to receive(:perform_later).with(participatory_process)
+
+          participatory_process.update!(published_at: nil)
         end
       end
     end
