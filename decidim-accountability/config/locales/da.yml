@@ -1,1 +1,8 @@
 da:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
