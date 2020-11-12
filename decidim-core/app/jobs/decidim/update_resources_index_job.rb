@@ -9,7 +9,7 @@ module Decidim
 
       child_resources = Decidim::ParticipatorySpaceResources.for(participatory_space)
 
-      child_resources.each(&:try_update_index_for_search_resource)
+      child_resources.each { |resource| resource.try(:try_update_index_for_search_resource) }
     end
   end
 end
