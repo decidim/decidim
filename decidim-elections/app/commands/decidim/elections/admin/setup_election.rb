@@ -40,7 +40,7 @@ module Decidim
         attr_reader :election, :form, :bulletin_board
 
         def questions
-          @questions = election.questions
+          @questions ||= election.questions
         end
 
         def answers
@@ -48,7 +48,7 @@ module Decidim
         end
 
         def trustees
-          Decidim::Elections::Trustee.where(id: form.trustee_ids)
+          @trustees ||= Decidim::Elections::Trustee.where(id: form.trustee_ids)
         end
 
         def add_trustees_to_election
@@ -78,7 +78,7 @@ module Decidim
             description: {
               name: {
                 text: [{
-                  value: election.title["en"],
+                  value: election.title[I18n.default_locale],
                   language: I18n.locale.to_s
                 }]
               },
@@ -90,7 +90,7 @@ module Decidim
                       object_id: answer.id.to_s,
                       ballot_name: {
                         text: [{
-                          value: answer.title["en"],
+                          value: answer.title[I18n.default_locale],
                           language: I18n.locale.to_s
                         }]
                       }
@@ -103,18 +103,18 @@ module Decidim
                     object_id: question.id.to_s,
                     sequence_order: question.weight,
                     vote_variation: question.vote_variation,
-                    name: question.title["en"],
+                    name: question.title[I18n.default_locale],
                     number_elected: question.answers.count,
                     votes_allowed: 1,
                     ballot_title: {
                       text: [{
-                        value: question.title["en"],
+                        value: question.title[I18n.default_locale],
                         language: I18n.locale.to_s
                       }]
                     },
                     ballot_subtitle: {
                       text: [{
-                        value: question.description["en"],
+                        value: question.description[I18n.default_locale],
                         language: I18n.locale.to_s
                       }]
                     },

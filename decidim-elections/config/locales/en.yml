@@ -108,7 +108,7 @@ en:
             success: The election has been successfully published.
           setup:
             invalid: There was a problem setting up this election
-            success: Election setup successfully
+            success: Election successfully sent to the Bulletin Board
           unpublish:
             success: The election has been successfully unpublished.
           update:
@@ -154,8 +154,8 @@ en:
         setup:
           errors:
             max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
-            minimum_answers: At least 1 question <strong>does not have more than 1 answer</strong>
-            minimum_questions: The election <strong>does not have any questions</strong>
+            minimum_answers: Questions must have <strong>at least one answer</strong>.
+            minimum_questions: The election <strong>must have at least one question</strong>.
             published: The election is <strong>not published</strong>
             time_before: The start time is in <strong>less than 3 hours</strong> before the election starts
             trustee_public_key: does not have a <strong>valid public key</strong>
