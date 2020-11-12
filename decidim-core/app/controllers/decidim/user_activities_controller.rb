@@ -6,9 +6,14 @@ module Decidim
     include Paginable
     include UserGroups
     include FilterResource
+    include Flaggable
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
+
+    def index
+      raise ActionController::RoutingError, "Suspended User" if user&.suspended? && !current_user&.admin?
+    end
 
     private
 

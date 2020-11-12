@@ -16,6 +16,17 @@ module Decidim
           reason: "spam"
         }
       end
+      let(:author_notification) do
+        {
+          event: "decidim.events.reports.report_created",
+          event_class: Decidim::ReportCreatedEvent,
+          resource: reportable,
+          extra: {
+            report_reason: form[:reason]
+          },
+          affected_users: reportable.try(:authors) || [reportable.try(:author)]
+        }
+      end
 
       let(:command) { described_class.new(form, reportable, user) }
 
@@ -71,12 +82,17 @@ module Decidim
         end
 
         it "sends an email to the admin" do
-          allow(ReportedMailer).to receive(:report).and_call_original
+          allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
           command.call
           last_report = Report.last
           expect(ReportedMailer)
-            .to have_received(:report)
-            .with(admin, last_report)
+            .to have_received(:send_report_notification_to_users)
+            .with(component.participatory_space.moderators, last_report)
+        end
+
+        it "sends a notification to the reportable's author" do
+          expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+          command.call
         end
 
         context "and the reportable has been already reported two times" do
@@ -100,12 +116,17 @@ module Decidim
           end
 
           it "sends an email to the admin" do
-            allow(ReportedMailer).to receive(:hide).and_call_original
+            allow(ReportedMailer).to receive(:send_hide_notification_to_users).and_call_original
             command.call
             last_report = Report.last
             expect(ReportedMailer)
-              .to have_received(:hide)
-              .with(admin, last_report)
+              .to have_received(:send_hide_notification_to_users)
+              .with(component.participatory_space.moderators, last_report)
+          end
+
+          it "sends a notification to the reportable's author" do
+            expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+            command.call
           end
         end
       end

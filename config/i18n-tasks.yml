@@ -52,13 +52,13 @@ search:
   # Root directories for relative keys resolution.
   relative_roots:
     <% Dir.glob("decidim-*").each do |path| -%>
-      <%= "- #{path}/app/controllers\n" %>
-      <%= "- #{path}/app/helpers\n" %>
-      <%= "- #{path}/app/mailers\n" %>
-      <%= "- #{path}/app/presenters\n" %>
-      <%= "- #{path}/app/services\n" %>
-      <%= "- #{path}/app/views\n" %>
-      <%= "- #{path}/app/cells\n" %>
+    <%= "- #{path}/app/controllers\n" %>
+    <%= "- #{path}/app/helpers\n" %>
+    <%= "- #{path}/app/mailers\n" %>
+    <%= "- #{path}/app/presenters\n" %>
+    <%= "- #{path}/app/services\n" %>
+    <%= "- #{path}/app/views\n" %>
+    <%= "- #{path}/app/cells\n" %>
     <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:

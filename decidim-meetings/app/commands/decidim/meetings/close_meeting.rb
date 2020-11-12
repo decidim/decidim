@@ -2,8 +2,8 @@
 
 module Decidim
   module Meetings
-    # This command is executed when the user closes a Meeting from the public
-    # views.
+    # This command is executed when the user closes a Meeting from the admin
+    # panel.
     class CloseMeeting < Rectify::Command
       # Initializes a CloseMeeting Command.
       #

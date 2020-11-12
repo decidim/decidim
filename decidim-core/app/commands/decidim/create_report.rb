@@ -31,6 +31,7 @@ module Decidim
       end
 
       send_report_notification_to_moderators
+      send_report_notification_to_author
 
       if hideable?
         hide!
@@ -71,9 +72,20 @@ module Decidim
     end
 
     def send_report_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.report(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_report_notification_to_users(participatory_space_moderators, @report)
+    end
+
+    def send_report_notification_to_author
+      data = {
+        event: "decidim.events.reports.report_created",
+        event_class: Decidim::ReportCreatedEvent,
+        resource: @report.moderation.reportable,
+        extra: {
+          report_reason: @report.reason
+        },
+        affected_users: @report.moderation.reportable.try(:authors) || [@report.moderation.reportable.try(:normalized_author)]
+      }
+      Decidim::EventsManager.publish(data)
     end
 
     def hideable?
@@ -85,9 +97,7 @@ module Decidim
     end
 
     def send_hide_notification_to_moderators
-      participatory_space_moderators.each do |moderator|
-        ReportedMailer.hide(moderator, @report).deliver_later
-      end
+      ReportedMailer.send_hide_notification_to_users(participatory_space_moderators, @report)
     end
 
     def participatory_space
