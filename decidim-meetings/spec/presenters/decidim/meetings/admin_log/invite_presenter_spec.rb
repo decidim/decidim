@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Meetings::AdminLog
-  describe InvitePresenter, type: :helper do
+  describe AdminLog::InvitePresenter, type: :helper do
     subject { described_class.new(action_log, helper).present }
 
     let(:participatory_space) { create :participatory_process }

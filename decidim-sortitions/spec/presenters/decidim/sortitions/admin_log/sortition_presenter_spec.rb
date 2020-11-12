@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Sortitions
     module AdminLog
-      describe SortitionPresenter, type: :helper do
+      describe AdminLog::SortitionPresenter, type: :helper do
         include_examples "present admin log entry" do
           let(:participatory_space) { create(:participatory_process, organization: organization) }
           let(:component) { create(:sortition_component, participatory_space: participatory_space) }

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module AdminLog
-    describe ModerationPresenter, type: :helper do
+    describe AdminLog::ModerationPresenter, type: :helper do
       include_examples "present admin log entry" do
         let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
         let(:reportable) { create(:dummy_resource, component: component) }
