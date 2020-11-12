@@ -18,10 +18,12 @@ edit_link(
   <div class="columns">
 
     <% unless single? %>
-      <%= link_to :elections, class: "small hollow" do %>
-        <%= icon "caret-left", class: "icon--small" %>
-        <%= t(".back") %>
-      <% end %>
+      <div class="m-bottom">
+        <%= link_to :elections, class: "small hollow" do %>
+          <%= icon "caret-left", class: "icon--small" %>
+          <%= t(".back") %>
+        <% end %>
+      </div>
     <% end %>
 
     <h1 class="heading2">
