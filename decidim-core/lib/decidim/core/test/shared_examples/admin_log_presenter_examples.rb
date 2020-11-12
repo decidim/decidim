@@ -25,7 +25,7 @@ shared_examples "present admin log entry" do
   describe "#present" do
     subject { presenter.present }
 
-    context "when the logged action is answer and the action log does not have an associated version" do
+    context "when the logged action is one that shows diff and the action log does not have an associated version" do
       it "returns an empty diff" do
         expect(subject).not_to include("class=\"logs__log__diff\"")
       end
