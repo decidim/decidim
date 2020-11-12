@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
+      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _suffix: true
 
       component_manifest_name "elections"
 
@@ -103,6 +104,13 @@ module Decidim
         else
           :upcoming
         end
+      end
+
+      # Public: Checks if the election has a blocked_at value
+      #
+      # Returns a boolean.
+      def blocked?
+        blocked_at.present?
       end
 
       # Public: Overrides the Resourceable concern method to allow setting permissions at resource level

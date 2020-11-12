@@ -72,6 +72,8 @@ describe Decidim::Elections::Admin::SetupElection do
         )
 
       expect { subject.call }.to change { election.trustees.count }.by(5)
+      expect(election.blocked_at).to be_within(1.second).of election.updated_at
+      expect(election.blocked?).to be true
     end
   end
 end
