@@ -19,7 +19,9 @@ describe Decidim::UpdateResourcesIndexJob do
     it "calls method on resources" do
       expect(resource.searchable_resources).not_to be_empty
 
+      # rubocop:disable Rails/SkipsModelValidations:
       participatory_process.update_column(:published_at, nil)
+      # rubocop:enable Rails/SkipsModelValidations:
 
       Decidim::UpdateResourcesIndexJob.perform_now(participatory_process)
 
