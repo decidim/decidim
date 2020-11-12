@@ -130,7 +130,7 @@ module Decidim
       end
     end
 
-    describe "#visible" do
+    describe "#visible?" do
       subject { resource }
 
       context "when all hierarchy is visible" do
@@ -156,9 +156,20 @@ module Decidim
 
         it { is_expected.not_to be_visible }
       end
+    end
 
-      context "when resource is NOT visible" do
+    describe "#resource_visible?" do
+      subject { resource }
+
+      context "when resource is not published" do
         before { subject.update(published_at: nil) }
+
+        it { is_expected.not_to be_visible }
+      end
+
+      context "when resource is moderated" do
+        let!(:resource) { create(:dummy_resource, :published) }
+        let!(:moderation) { create(:moderation, :hidden, reportable: subject) }
 
         it { is_expected.not_to be_visible }
       end
