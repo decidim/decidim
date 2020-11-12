@@ -20,20 +20,20 @@ module Decidim::Meetings
     let(:meeting) { create :meeting, component: current_component }
 
     let(:title) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:visible) { true }
     let(:agenda_items) do
       [
         {
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           duration: 1.hour,
           position: 0
         },
         {
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           duration: 1.hour,
           position: 1
         }
@@ -67,7 +67,7 @@ module Decidim::Meetings
         [
           {
             title: nil,
-            description: Decidim::Faker::Localized.sentence(5),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             duration: 1.hour,
             position: 0
           }
@@ -81,8 +81,8 @@ module Decidim::Meetings
       let(:agenda_items) do
         [
           {
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             duration: meeting.meeting_duration + 1.hour,
             position: 0
           }
@@ -96,14 +96,14 @@ module Decidim::Meetings
       let(:agenda_items) do
         [
           {
-            title: Decidim::Faker::Localized.sentence(2),
-            description: Decidim::Faker::Localized.sentence(5),
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
             duration: 45.minutes,
             position: 0,
             agenda_item_children: [
               {
-                title: Decidim::Faker::Localized.sentence(2),
-                description: Decidim::Faker::Localized.sentence(5),
+                title: Decidim::Faker::Localized.sentence(word_count: 2),
+                description: Decidim::Faker::Localized.sentence(word_count: 5),
                 duration: 50.minutes,
                 position: 0
               }

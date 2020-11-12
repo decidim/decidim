@@ -7,12 +7,13 @@ module Decidim
     let(:user) { create(:user, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserPresenter.new(user) }
+    let(:profile_url) { "http://#{user.organization.host}/profiles/#{user.nickname}" }
 
     context "when content has a valid Decidim::User Global ID" do
       let(:content) { "This text contains a valid Decidim::User Global ID: #{user.to_global_id}" }
 
       it "renders the mention" do
-        expect(renderer.render).to eq(%(This text contains a valid Decidim::User Global ID: <a class="user-mention" href="/profiles/#{user.nickname}">@#{user.nickname}</a>))
+        expect(renderer.render).to eq(%(This text contains a valid Decidim::User Global ID: <a class="user-mention" href="#{profile_url}">@#{user.nickname}</a>))
       end
     end
 
@@ -21,7 +22,7 @@ module Decidim
 
       it "renders the two mentions" do
         rendered = renderer.render
-        mention = %(<a class="user-mention" href="/profiles/#{user.nickname}">@#{user.nickname}</a>)
+        mention = %(<a class="user-mention" href="#{profile_url}">@#{user.nickname}</a>)
         expect(rendered.scan(mention).length).to eq(2)
       end
     end

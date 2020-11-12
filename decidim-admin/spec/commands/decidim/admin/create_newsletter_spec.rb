@@ -10,8 +10,8 @@ module Decidim::Admin
       let(:content_block) do
         build(:content_block, :newsletter_template, organization: organization, manifest_name: :basic_only_text)
       end
-      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(3) }
-      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(3) }
+      let(:newsletter_subject) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
+      let(:newsletter_body) { Decidim::Faker::Localized.paragraph(sentence_count: 3) }
 
       let(:form) do
         Decidim::Admin::NewsletterForm.from_params(

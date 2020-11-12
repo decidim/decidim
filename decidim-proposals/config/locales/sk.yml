@@ -352,9 +352,7 @@ sk:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: ODT
             bottom_hint: "(Budete mať možnosť zobraziť a triediť sekcie dokumentov)"
-            document_legend: 'Pridajte dokument nižší ako 2 MB, každá sekcia až do hĺbky 3 úrovní bude analyzovaná do návrhov. Podporované formáty sú:%{valid_mime_types} '
             title: PRIDAŤ DOKUMENT
             upload_document: Nahrať dokument
           publish:

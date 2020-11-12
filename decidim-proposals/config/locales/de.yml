@@ -358,9 +358,7 @@ de:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
-            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2 MB ist. Jeder Abschnitt wird so lange in 3 bis 3 Ebenen tief in die Vorschläge geparst. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:

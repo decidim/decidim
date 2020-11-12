@@ -9,7 +9,7 @@ module Decidim::Admin
       let(:newsletter) do
         create(:newsletter,
                organization: organization,
-               body: Decidim::Faker::Localized.sentence(3))
+               body: Decidim::Faker::Localized.sentence(word_count: 3))
       end
       let(:current_user) { create :user, :admin, :confirmed, organization: organization }
       let(:scopes) do

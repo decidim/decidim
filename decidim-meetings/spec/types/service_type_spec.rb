@@ -14,7 +14,7 @@ module Decidim
         )
       end
       let(:title) { Decidim::Faker::Localized.name }
-      let(:description) { Decidim::Faker::Localized.sentence(3) }
+      let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
 
       describe "title" do
         let(:query) { '{ title { translation(locale: "en") } }' }

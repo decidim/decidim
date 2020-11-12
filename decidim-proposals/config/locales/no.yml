@@ -331,9 +331,7 @@
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Du vil kunne forhåndsvise og sortere dokument seksjoner)"
-            document_legend: 'Legg til et dokument som er mindre enn 2MB, hver seksjon opptil 3 nivåer dypt blir analysert i Forslag. Støttede formater er: %{valid_mime_types}'
             title: LEGG TIL DOKUMENT
             upload_document: Last opp dokument
           publish:

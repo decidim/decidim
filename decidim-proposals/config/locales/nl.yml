@@ -358,9 +358,7 @@ nl:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: odt
             bottom_hint: "(U kunt documentsecties vooraf bekijken en sorteren)"
-            document_legend: 'Voeg een document toe dat kleiner is dan 2 MB, elke sectie tot 3 niveaus diep worden geparseerd in Voorstellen. Gestuurde indelingen zijn: %{valid_mime_types}'
             title: VOEG DOCUMENT TOE
             upload_document: Document uploaden
           publish:

@@ -16,7 +16,6 @@ gl:
         other: Votos
   decidim:
     comments:
-      comments: Comentarios
       last_activity:
         new_comment_at_html: "<span>Novo comentario en %{link}</span>"
       votes:
@@ -67,7 +66,6 @@ gl:
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         loading: Cargando comentarios ...
-        title: "%{count} comentarios"
     events:
       comments:
         comment_by_followed_user:

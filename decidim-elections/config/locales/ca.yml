@@ -173,7 +173,6 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         show:
-          back: Totes les votacions
           preview: Previsualitzar
           vote: Votar
           voting_period_status:
@@ -249,6 +248,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: La votació %{resource_title} ja està activa a %{participatory_space_title}.
           notification_title: La votació <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està activa.
+    pages:
+      home:
+        statistics:
+          elections_count: Votacions
     participatory_processes:
       statistics:
         elections_count: Votacions

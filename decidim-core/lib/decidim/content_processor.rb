@@ -116,7 +116,7 @@ module Decidim
       return content if content.blank?
 
       Decidim.content_processors.reduce(content) do |result, type|
-        renderer_klass(type).constantize.new(result).render(options)
+        renderer_klass(type).constantize.new(result).render(**options)
       end
     end
 

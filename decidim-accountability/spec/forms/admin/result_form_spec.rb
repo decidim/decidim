@@ -17,10 +17,10 @@ module Decidim::Accountability
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:title) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:parent_scope) { create(:scope, organization: organization) }
     let(:scope) { create(:subscope, parent: parent_scope) }

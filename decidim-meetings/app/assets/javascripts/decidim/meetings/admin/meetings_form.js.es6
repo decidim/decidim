@@ -96,6 +96,25 @@
     toggleDisabledHiddenFields();
 
     attachGeocoding($form.find("#meeting_address"));
+
+    const $meetingRegistrationType = $form.find("#meeting_registration_type");
+    const $meetingRegistrationTerms = $form.find("#meeting_registration_terms");
+    const $meetingRegistrationUrl = $form.find("#meeting_registration_url");
+    const $meetingAvailableSlots = $form.find("#meeting_available_slots");
+
+    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+      const value = $target.val();
+      $showDiv.toggle(value === type);
+    };
+
+    $meetingRegistrationType.on("change", (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $meetingAvailableSlots, "on_this_platform");
+      toggleDependsOnSelect($target, $meetingRegistrationTerms, "on_this_platform");
+      toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
+    });
+
+    $meetingRegistrationType.trigger("change");
   }
 
   const $meetingForm = $(".meetings_form");

@@ -380,9 +380,9 @@ fr-CA:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
+              odt: ODT
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
-            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
+            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux de titre sera convertie en propositions. Les formats supportés sont : %{valid_mime_types}'
             title: AJOUTER UN DOCUMENT
             upload_document: Télécharger le document
           publish:

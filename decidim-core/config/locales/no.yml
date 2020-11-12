@@ -128,7 +128,6 @@
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
       participatory_space_private_user:
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
@@ -916,8 +915,6 @@
         update:
           error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
-      download:
-        csv: Last ned data (csv)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
         object: følgere
@@ -1091,7 +1088,6 @@
         subject: En ressurs var automatisk skjult
       report:
         hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
         subject: En ressurs er blitt rapportert
     reports:

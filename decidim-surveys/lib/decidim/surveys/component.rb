@@ -103,10 +103,10 @@ Decidim.register_component(:surveys) do |component|
     questionnaire = Decidim::Forms::Questionnaire.new(
       title: Decidim::Faker::Localized.paragraph,
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(2)
+        Decidim::Faker::Localized.paragraph(sentence_count: 2)
       end
     )
 
