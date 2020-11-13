@@ -78,7 +78,7 @@ module Decidim
             description: {
               name: {
                 text: [{
-                  value: election.title[I18n.default_locale],
+                  value: election.title[I18n.locale.to_s],
                   language: I18n.locale.to_s
                 }]
               },
@@ -90,7 +90,7 @@ module Decidim
                       object_id: answer.id.to_s,
                       ballot_name: {
                         text: [{
-                          value: answer.title[I18n.default_locale],
+                          value: answer.title[I18n.locale.to_s],
                           language: I18n.locale.to_s
                         }]
                       }
@@ -103,18 +103,18 @@ module Decidim
                     object_id: question.id.to_s,
                     sequence_order: question.weight,
                     vote_variation: question.vote_variation,
-                    name: question.title[I18n.default_locale],
+                    name: question.title[I18n.locale.to_s],
                     number_elected: question.answers.count,
                     votes_allowed: 1,
                     ballot_title: {
                       text: [{
-                        value: question.title[I18n.default_locale],
+                        value: question.title[I18n.locale.to_s],
                         language: I18n.locale.to_s
                       }]
                     },
                     ballot_subtitle: {
                       text: [{
-                        value: question.description[I18n.default_locale],
+                        value: question.description[I18n.locale.to_s],
                         language: I18n.locale.to_s
                       }]
                     },
