@@ -1242,6 +1242,7 @@ cs:
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
+        title: Nahlásit nevhodného uživatele
       floating_help:
         close: Zavřít nápovědu
         help: Pomoc
@@ -1317,6 +1318,13 @@ cs:
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
+    user_report_mailer:
+      notify:
+        body_1: Uživatel %{user} byl nahlášen od %{token}
+        body_2: 'Důvod: %{reason}'
+        greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den %{admin},
+        subject: Nový uživatel byl nahlášen v %{organization_name}
     version:
       show:
         back_to_resource: Jít zpět
