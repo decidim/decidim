@@ -103,7 +103,6 @@ tr:
             title: Mevcut nüfus sayımı verileri
           instructions:
             body: Bunu yapmak için sistem yönetimine girmeli ve csv_census yetkilerini kuruluşa eklemelisiniz.
-            title: Bu kuruluş için csv sayımını etkinleştirmeniz gerekir
           new:
             file: "e-posta verileri içeren .csv dosyası"
             submit: Dosya yükleme

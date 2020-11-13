@@ -167,7 +167,6 @@ nl:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
         show:
-          back: Alle verkiezingen
           preview: Voorvertoning
           vote: Stemming
           voting_period_status:

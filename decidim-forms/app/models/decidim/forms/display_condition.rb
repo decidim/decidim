@@ -21,22 +21,21 @@ module Decidim
       # Answer option provided to check for "equal" or "not_equal" (optional)
       belongs_to :answer_option, class_name: "AnswerOption", foreign_key: "decidim_answer_option_id", optional: true
 
-      # rubocop: disable Metrics/CyclomaticComplexity
-      def fulfilled?(answer)
+      def fulfilled?(answer_form)
+        return answer_form.present? if condition_type == "answered"
+        return answer_form.blank? if condition_type == "not_answered"
+        # rest of options require presence
+        return if answer_form.blank?
+
         case condition_type
-        when "answered"
-          answer.present?
-        when "not_answered"
-          answer.blank?
         when "equal"
-          answer.present? ? answer.choices.pluck(:decidim_answer_option_id).include?(answer_option.id) : false
+          answer_form.choices.pluck(:answer_option_id).include?(answer_option.id)
         when "not_equal"
-          answer.present? ? answer.choices.pluck(:decidim_answer_option_id).exclude?(answer_option.id) : true
+          answer_form.choices.pluck(:answer_option_id).exclude?(answer_option.id)
         when "match"
-          answer.present? ? condition_value.values.any? { |value| answer.body.match?(Regexp.new(value, Regexp::IGNORECASE)) } : false
+          condition_value.values.reject(&:blank?).any? { |value| answer_form_matches?(answer_form, value) }
         end
       end
-      # rubocop: enable Metrics/CyclomaticComplexity
 
       def to_html_data
         {
@@ -47,6 +46,19 @@ module Decidim
           mandatory: mandatory,
           value: condition_value&.dig(I18n.locale.to_s)
         }.compact
+      end
+
+      private
+
+      def answer_form_matches?(answer_form, value)
+        search = Regexp.new(value, Regexp::IGNORECASE)
+        if answer_form.body
+          answer_form.body.match?(search)
+        else
+          answer_form.choices.any? do |choice_value|
+            choice_value.body&.match?(search) || choice_value.custom_body&.match?(search)
+          end
+        end
       end
     end
   end

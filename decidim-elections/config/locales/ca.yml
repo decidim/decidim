@@ -173,7 +173,6 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         show:
-          back: Totes les votacions
           preview: Previsualitzar
           vote: Votar
           voting_period_status:

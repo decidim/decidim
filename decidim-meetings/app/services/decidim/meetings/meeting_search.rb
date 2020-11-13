@@ -30,9 +30,9 @@ module Decidim
 
       def search_type
         case options[:type]
-        when "online"
+        when ["online"]
           query.online
-        when "in_person"
+        when ["in_person"]
           query.in_person
         else
           query

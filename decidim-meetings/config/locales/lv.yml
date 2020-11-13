@@ -29,9 +29,7 @@ lv:
         title: Nosaukums
         transparent: Caurskatāms
       minutes:
-        audio_url: Audio URL
         description: Apraksts
-        video_url: Video URL
         visible: Ir redzams
     errors:
       models:

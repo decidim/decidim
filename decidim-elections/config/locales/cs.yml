@@ -211,8 +211,12 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         show:
-          back: Všechny volby
+          back: Dostupné volby
           preview: Náhled
+          questions_preview:
+            available_answers: Dostupné odpovědi
+            description: Toto jsou otázky, které najdete v procesu hlasování
+            title: Volební otázky
           vote: Hlasování
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}

@@ -170,7 +170,6 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         show:
-          back: Alla val
           preview: Förhandsgranska
           vote: Rösta
           voting_period_status:

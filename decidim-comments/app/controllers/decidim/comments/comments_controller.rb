@@ -33,7 +33,7 @@ module Decidim
           end
 
           # This makes sure bots are not causing unnecessary log entries.
-          format.html { redirect_to resource_locator(commentable).path }
+          format.html { redirect_to commentable_path }
         end
       end
 
@@ -110,6 +110,12 @@ module Decidim
 
       def root_depth
         params.fetch(:root_depth, 0).to_i
+      end
+
+      def commentable_path
+        return commentable.polymorphic_resource_path({}) if commentable&.respond_to?(:polymorphic_resource_path)
+
+        resource_locator(commentable).path
       end
     end
   end

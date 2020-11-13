@@ -99,11 +99,11 @@ FactoryBot.define do
     machine_translation_display_priority { "original" }
     smtp_settings do
       {
-        "from" => "test@example.org",
-        "user_name" => "test",
-        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
-        "port" => "25",
-        "address" => "smtp.example.org"
+        from: "test@example.org",
+        user_name: "test",
+        encrypted_password: Decidim::AttributeEncryptor.encrypt("demo"),
+        port: "25",
+        address: "smtp.example.org"
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
@@ -697,6 +697,16 @@ FactoryBot.define do
     trait :rejected do
       state { "rejected" }
     end
+  end
+
+  factory :user_report, class: "Decidim::UserReport" do
+    reason { "spam" }
+    moderation { build(:user_moderation) }
+    user { build(:user, organization: moderation.organization) }
+  end
+
+  factory :user_moderation, class: "Decidim::UserModeration" do
+    user { build(:user) }
   end
 
   factory :endorsement, class: "Decidim::Endorsement" do

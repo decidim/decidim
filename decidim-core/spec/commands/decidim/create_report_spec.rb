@@ -16,6 +16,17 @@ module Decidim
           reason: "spam"
         }
       end
+      let(:author_notification) do
+        {
+          event: "decidim.events.reports.report_created",
+          event_class: Decidim::ReportCreatedEvent,
+          resource: reportable,
+          extra: {
+            report_reason: form[:reason]
+          },
+          affected_users: reportable.try(:authors) || [reportable.try(:author)]
+        }
+      end
 
       let(:command) { described_class.new(form, reportable, user) }
 
@@ -79,6 +90,11 @@ module Decidim
             .with(admin, last_report)
         end
 
+        it "sends a notification to the reportable's author" do
+          expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+          command.call
+        end
+
         context "and the reportable has been already reported two times" do
           before do
             expect(form).to receive(:invalid?).at_least(:once).and_return(false)
@@ -106,6 +122,11 @@ module Decidim
             expect(ReportedMailer)
               .to have_received(:hide)
               .with(admin, last_report)
+          end
+
+          it "sends a notification to the reportable's author" do
+            expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+            command.call
           end
         end
       end

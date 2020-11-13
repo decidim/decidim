@@ -31,9 +31,7 @@
         title: Tittel
         transparent: Privat
       minutes:
-        audio_url: Audio url
         description: Beskrivelse
-        video_url: Video url
         visible: Er synlig
     errors:
       models:

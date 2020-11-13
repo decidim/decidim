@@ -29,9 +29,7 @@ hu:
         title: Cím
         transparent: Átlátszó
       minutes:
-        audio_url: Audio url
         description: Leírás
-        video_url: Videó URL
         visible: Látható
     errors:
       models:

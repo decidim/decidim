@@ -470,7 +470,6 @@ gl:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Produciuse un erro ao actualizar esta organización.

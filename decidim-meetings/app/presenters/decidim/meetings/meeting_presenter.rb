@@ -48,6 +48,14 @@ module Decidim
         end
       end
 
+      def registration_terms(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.registration_terms, all_locales) do |content|
+          content
+        end
+      end
+
       def closing_report(links: false, all_locales: false)
         return unless meeting
 
