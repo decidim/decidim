@@ -65,7 +65,6 @@ ru:
         reference_prefix: Справочный префикс
         secondary_color: Дополнительный
         send_welcome_notification: Отправить приветственное уведомление
-        show_statistics: Показывать статистику
         success_color: Успешно
         tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter
@@ -659,7 +658,6 @@ ru:
           fields:
             hidden_at: 'Скрыто:'
             report_count: Количество
-            reportable: Вид жалобы
             reported_content_url: Веб-адрес обжалованного содержимого
             reports: Жалобы
             visit_url: Посетите веб-адрес

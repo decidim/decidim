@@ -135,10 +135,10 @@ it:
           description: Questi sono i progetti per i quali hai scelto di partecipare al budget.
           title: Conferma il voto
         budget_excess:
+          budget_excess:
+            title: Budget superato
           close: Chiudi
-          description: Questo progetto supera il budget e non può essere aggiunto. Se vuoi puoi cancellare un progetto che hai già scelto di aggiungere, oppure votare in base alle tue preferenze.
           ok: Ok
-          title: Budget superato
         budget_summary:
           are_you_sure: Sei certo di voler cancellare il tuo voto?
           assigned: 'Assegnato:'
@@ -146,8 +146,6 @@ it:
           checked_out:
             description: Hai già votato per il budget. Se hai cambiato idea puoi %{cancel_link}.
             title: Voto di budget completato.
-          description: Per quali progetti pensi che dovremmo allocare del budget? Indica un budget minimo di %{minimum_budget} ai progetti che vuoi votare e vota con le tue preferenze per definire il budget.
-          description_minimum_projects_rule: Per quali progetti ritieni che dovremmo stanziare dei fondi? Seleziona almeno %{minimum_number} progetti che vuoi e vota le tue preferenze per definire il bilancio.
           title: Tu decidi il budget
         count:
           projects_count:
@@ -210,7 +208,6 @@ it:
                 budget_voting_rule_only_one: Deve essere abilitata solo una regola di voto
                 budget_voting_rule_required: È richiesta una regola di voto
             projects_per_page: Progetti per pagina
-            resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             total_budget: Budget totale
             vote_minimum_budget_projects_number: Numero minimo di progetti da votare
             vote_rule_minimum_budget_projects_enabled: 'Abilita regola: Numero minimo di progetti da votare'
@@ -234,4 +231,3 @@ it:
         project_proposal: 'Proposte incluse in questo progetto:'
   index:
     confirmed_orders_count: Computo dei voti
-  total_budget: Budget totale

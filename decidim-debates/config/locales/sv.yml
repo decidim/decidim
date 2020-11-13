@@ -181,10 +181,16 @@ sv:
           email_subject: Debatter är nu tillgängliga i %{participatory_space_title}
           notification_title: Nu kan du starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-          email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
-          email_subject: Debatten "%{resource_title}" stängdes
-          notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          affected_user:
+            email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
+            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
+            email_subject: Debatten "%{resource_title}" stängdes
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
+          follower:
+            email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
+            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
+            email_subject: Debatten "%{resource_title}" stängdes
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
     gamification:
       badges:
         commented_debates:

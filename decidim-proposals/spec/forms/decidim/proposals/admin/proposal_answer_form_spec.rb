@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { proposals_component.participatory_space.organization }
         let(:state) { "accepted" }
-        let(:answer) { Decidim::Faker::Localized.sentence(3) }
+        let(:answer) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:proposals_component) { create :proposal_component }
         let(:cost) { nil }
         let(:cost_report) { nil }

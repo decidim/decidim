@@ -137,10 +137,10 @@ cs:
           description: Jedná se o projekty, které jste zvolili jako součást rozpočtu.
           title: Potvrďte hlasování
         budget_excess:
+          budget_excess:
+            title: Maximální rozpočet byl překročen
           close: Zavřít
-          description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již přidali, nebo hlasovat podle svých preferencí.
           ok: OK
-          title: Maximální rozpočet byl překročen
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
           assigned: 'Přiřazeno:'
@@ -148,8 +148,6 @@ cs:
           checked_out:
             description: Už jste hlasovali pro rozpočet. Pokud jste změnili názor, můžete %{cancel_link}.
             title: Hlasování o rozpočtu bylo dokončeno
-          description: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Přiřaďte k projektům, které chcete přiřadit alespoň %{minimum_budget} a hlasujte s vašimi preferencemi pro definování rozpočtu.
-          description_minimum_projects_rule: Na jaké projekty bychom podle vás měli vyčlenit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete a hlasujte s vašimi preferencemi pro definování rozpočtu.
           title: Rozhodujete o rozpočtu
         count:
           projects_count:
@@ -193,7 +191,11 @@ cs:
           remove: Odebrat projekt %{resource_name} z vašeho hlasování
           selected: Vybrané
           view: Zobrazit
-          you_voted: Hlasovali jste
+          votes:
+            one: hlas
+            few: hlasy
+            many: hlasů
+            other: hlasů
         project_budget_button:
           add: Přidat do vašeho hlasování
           add_descriptive: Přidat k hlasování projekt %{resource_name}
@@ -220,7 +222,7 @@ cs:
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
             projects_per_page: Projekty na stránku
-            resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
+            resources_permissions_enabled: Oprávnění k akcím lze nastavit pro každý projekt
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             title: Název
@@ -266,4 +268,3 @@ cs:
         project_proposal: 'Návrhy zahrnuté do tohoto projektu:'
   index:
     confirmed_orders_count: Počet hlasů
-  total_budget: Celkový rozpočet

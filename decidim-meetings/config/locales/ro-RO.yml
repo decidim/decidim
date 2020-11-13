@@ -246,7 +246,6 @@ ro:
           form:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
-            location_hints_help: 'Indice privind locația: informații suplimentare. Exemplu: podeaua clădirii'
           index:
             title: Întâlniri
           new:
@@ -388,7 +387,6 @@ ro:
           address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
           create_as: Creaza o sedinta ca
           location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
-          location_hints_help: 'Indice privind locația: informații suplimentare. Exemplu: podeaua clădirii'
           select_a_category: Vă rugăm să selectaţi o categorie
         index:
           new_meeting: Ședință nouă

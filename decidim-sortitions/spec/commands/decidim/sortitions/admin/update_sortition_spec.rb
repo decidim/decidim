@@ -6,8 +6,8 @@ module Decidim
   module Sortitions
     module Admin
       describe UpdateSortition do
-        let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) }.except("machine_translations") }
-        let(:title) { Decidim::Faker::Localized.sentence(3).except(:machine_translations) }
+        let(:additional_info) { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) }.except("machine_translations") }
+        let(:title) { Decidim::Faker::Localized.sentence(word_count: 3).except(:machine_translations) }
         let(:sortition) { create(:sortition) }
         let(:user) { create :user, :admin, :confirmed }
         let(:params) do

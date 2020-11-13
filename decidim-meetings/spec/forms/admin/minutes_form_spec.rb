@@ -20,7 +20,7 @@ module Decidim::Meetings
       }
     end
 
-    let(:description) { Decidim::Faker::Localized.sentence(3) }
+    let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
 
     let(:video_url) do
       Faker::Internet.url

@@ -105,10 +105,18 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      it "lists all the highlighted processes" do
-        within "#highlighted-processes" do
-          expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_selector(".card--full", count: 1)
+      context "with highlighted processes" do
+        before do
+          promoted_process.title["en"] = "D'Artagnan #{promoted_process.title["en"]}"
+          promoted_process.save!
+          visit decidim_participatory_processes.participatory_processes_path
+        end
+
+        it "lists all the highlighted processes" do
+          within "#highlighted-processes" do
+            expect(page).to have_content(translated(promoted_process.title, locale: :en))
+            expect(page).to have_selector(".card--full", count: 1)
+          end
         end
       end
 

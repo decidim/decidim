@@ -48,7 +48,6 @@ zh-CN:
           form:
             save: 保存
             template_title: 模板信息
-            title: Questionnaire
           index:
             confirm_delete: 您确定要删除此模板吗？
             title: 问卷模板

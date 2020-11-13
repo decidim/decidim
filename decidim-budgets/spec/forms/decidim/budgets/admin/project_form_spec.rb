@@ -18,10 +18,10 @@ module Decidim::Budgets
     let(:current_component) { create :budgets_component, participatory_space: participatory_process }
     let(:budget) { create :budget, component: current_component }
     let(:title) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:budget_amount) { Faker::Number.number(digits: 8) }
     let(:parent_scope) { create(:scope, organization: organization) }

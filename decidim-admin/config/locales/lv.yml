@@ -64,7 +64,6 @@ lv:
         rich_text_editor_in_public_views: Iespējot bagātinātā teksta redaktoru dalībniekiem
         secondary_color: Sekundārais
         send_welcome_notification: Nosūtīt sveiciena paziņojumu
-        show_statistics: Rādīt statistiku
         success_color: Panākumi
         time_zone: Laika josla
         tos_version: Pakalpojumu sniegšanas noteikumu versija
@@ -781,7 +780,6 @@ lv:
           fields:
             hidden_at: Paslēpts plkst.
             report_count: Skaits
-            reportable: Jāziņo
             reported_content_url: Paziņotā satura URL
             reports: Ziņojumi
             visit_url: Apmeklēt URL
