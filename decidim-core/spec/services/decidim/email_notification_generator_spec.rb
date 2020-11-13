@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::EmailNotificationGenerator do
-  subject { described_class.new(event, event_class, resource, followers, affected_users, extra) }
+  subject { described_class.new(event, event_class, resource, followers, affected_users, priority, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource) }
@@ -14,6 +14,7 @@ describe Decidim::EmailNotificationGenerator do
   let(:affected_users) { [recipient] }
   let(:follower) { create :user }
   let(:followers) { [follower] }
+  let(:priority) { double }
   let(:extra) { double }
 
   describe "generate" do
@@ -47,12 +48,12 @@ describe Decidim::EmailNotificationGenerator do
         it "schedules a job for each recipient" do
           expect(Decidim::NotificationMailer)
             .to receive(:event_received)
-            .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
+            .with(event, event_class_name, resource, recipient, :affected_user.to_s, priority, extra)
             .and_return(mailer)
 
           expect(Decidim::NotificationMailer)
             .to receive(:event_received)
-            .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+            .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
             .and_return(mailer)
 
           expect(mailer).to receive(:deliver_later)
@@ -73,12 +74,12 @@ describe Decidim::EmailNotificationGenerator do
           it "enqueues the job" do
             expect(Decidim::NotificationMailer)
               .to receive(:event_received)
-              .with(event, event_class_name, resource, recipient, :affected_user.to_s, extra)
+              .with(event, event_class_name, resource, recipient, :affected_user.to_s, priority, extra)
               .and_return(mailer)
 
             expect(Decidim::NotificationMailer)
               .to receive(:event_received)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
               .and_return(mailer)
 
             expect(mailer).to receive(:deliver_later)

@@ -19,6 +19,7 @@ module Decidim
         event_name: event_name,
         user: user,
         user_role: user_role,
+        priority: priority,
         extra: extra
       )
     end

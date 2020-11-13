@@ -4,10 +4,10 @@ module Decidim
   class NotificationGeneratorForRecipientJob < ApplicationJob
     queue_as :events
 
-    def perform(event, event_class_name, resource, recipient, user_role, extra) # rubocop:disable Metrics/ParameterLists
+    def perform(event, event_class_name, resource, recipient, user_role, priority, extra) # rubocop:disable Metrics/ParameterLists
       event_class = event_class_name.constantize
       NotificationGeneratorForRecipient
-        .new(event, event_class, resource, recipient, user_role, extra)
+        .new(event, event_class, resource, recipient, user_role, priority, extra)
         .generate
     end
   end

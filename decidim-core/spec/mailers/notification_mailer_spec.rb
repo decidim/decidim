@@ -10,12 +10,13 @@ module Decidim
     let(:event_class_name) { "Decidim::ProfileUpdatedEvent" }
     let(:extra) { { foo: "bar" } }
     let(:event) { "decidim.events.users.profile_updated" }
+    let(:priority) { "batch" }
     let(:event_instance) do
-      event_class_name.constantize.new(resource: resource, event_name: event, user: user, user_role: :follower, extra: extra)
+      event_class_name.constantize.new(resource: resource, event_name: event, user: user, user_role: :follower, priority: priority, extra: extra)
     end
 
     describe "event_received" do
-      let(:mail) { described_class.event_received(event, event_class_name, resource, user, :follower, extra) }
+      let(:mail) { described_class.event_received(event, event_class_name, resource, user, :follower, priority, extra) }
 
       it "gets the subject from the event" do
         expect(mail.subject).to include("updated their profile")

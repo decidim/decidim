@@ -20,6 +20,7 @@ module Decidim
     #   the event, even though it doesn't affect them directly
     # force_send - boolean indicating if EventPublisherJob should skip the
     #   `notifiable?` check it performs before notifying. Defaults to __false__.
+    # priority - a String. If batch notifications enabled, define if the notification has to be sent directly. By default Batch
     # extra - a Hash with extra information to be included in the notification.
     #
     # Returns nothing.

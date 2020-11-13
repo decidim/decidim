@@ -21,17 +21,18 @@ describe Decidim::NotificationGeneratorJob do
     let(:affected_users) { [affected_user] }
     let(:follower) { double :user, id: 2 }
     let(:followers) { [follower] }
+    let(:priority) { double }
     let(:extra) { double }
 
     it "delegates the work to the class" do
       expect(Decidim::NotificationGenerator)
         .to receive(:new)
-        .with(event, event_class, resource, followers, affected_users, extra)
+        .with(event, event_class, resource, followers, affected_users, priority, extra)
         .and_return(generator)
       expect(generator)
         .to receive(:generate)
 
-      subject.perform_now(event, event_class_name, resource, followers, affected_users, extra)
+      subject.perform_now(event, event_class_name, resource, followers, affected_users, priority, extra)
     end
 
     context "when event_class_name is nil" do
@@ -39,7 +40,7 @@ describe Decidim::NotificationGeneratorJob do
 
       it "does not raise error" do
         expect do
-          subject.perform_now(event, event_class_name, resource, followers, affected_users, extra)
+          subject.perform_now(event, event_class_name, resource, followers, affected_users, priority, extra)
         end.not_to raise_error
       end
     end

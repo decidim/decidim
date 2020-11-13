@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::NotificationGenerator do
-  subject { described_class.new(event, event_class, resource, followers, affected_users, extra) }
+  subject { described_class.new(event, event_class, resource, followers, affected_users, priority, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
   let(:resource) { create(:dummy_resource) }
@@ -14,6 +14,7 @@ describe Decidim::NotificationGenerator do
   let(:affected_users) { [affected_user] }
   let(:follower) { create :user }
   let(:followers) { [follower] }
+  let(:priority) { double }
   let(:extra) { double }
 
   describe "generate" do
@@ -31,7 +32,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .to receive(:perform_later)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
             subject.generate
           end
         end
@@ -42,7 +43,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .to receive(:perform_later)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
             subject.generate
           end
         end
@@ -53,7 +54,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
             subject.generate
           end
         end
@@ -64,7 +65,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
-              .with(event, event_class_name, resource, follower, :follower.to_s, extra)
+              .with(event, event_class_name, resource, follower, :follower.to_s, priority, extra)
             subject.generate
           end
         end
@@ -79,7 +80,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .to receive(:perform_later)
-              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
+              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, priority, extra)
             subject.generate
           end
         end
@@ -90,7 +91,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
-              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
+              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, priority, extra)
             subject.generate
           end
         end
@@ -101,7 +102,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
-              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
+              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, priority, extra)
             subject.generate
           end
         end
@@ -112,7 +113,7 @@ describe Decidim::NotificationGenerator do
           it "sends the notification" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .to receive(:perform_later)
-              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, extra)
+              .with(event, event_class_name, resource, affected_user, :affected_user.to_s, priority, extra)
             subject.generate
           end
         end

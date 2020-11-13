@@ -53,6 +53,7 @@ module Decidim
         data[:resource],
         data[:followers],
         data[:affected_users],
+        data[:priority],
         data[:extra]
       )
     end
@@ -64,11 +65,10 @@ module Decidim
     def high_priority?(data)
       return false if data[:priority].blank?
 
-      data[:priority] = data[:priority].to_sym if data[:priority].is_a? String
-
+      data[:priority] = data[:priority].to_s if data[:priority].is_a? Symbol
       return false unless Decidim::Notification.priorities.include? data[:priority]
 
-      data[:priority] == :now
+      data[:priority] == "now"
     end
   end
 end

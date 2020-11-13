@@ -9,6 +9,7 @@ module Decidim
         resource: resource,
         event_name: "some.event",
         user: user,
+        priority: "now",
         extra: {}
       )
     end

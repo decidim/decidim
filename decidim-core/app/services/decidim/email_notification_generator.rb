@@ -16,14 +16,16 @@ module Decidim
     #   they're following it
     # affected_users - a collection of Users that receive the notification because
     #   they're affected by it
+    # priority - a String. If batch notifications enabled, define if the notification has to be sent directly. By default Batch
     # extra - a Hash with extra information to be included in the notification.
     # rubocop:disable Metrics/ParameterLists
-    def initialize(event, event_class, resource, followers, affected_users, extra)
+    def initialize(event, event_class, resource, followers, affected_users, priority, extra)
       @event = event
       @event_class = event_class
       @resource = resource
       @followers = followers
       @affected_users = affected_users
+      @priority = priority
       @extra = extra
     end
     # rubocop:enable Metrics/ParameterLists
@@ -52,7 +54,7 @@ module Decidim
 
     private
 
-    attr_reader :event, :event_class, :resource, :followers, :affected_users, :extra
+    attr_reader :event, :event_class, :resource, :followers, :affected_users, :priority, :extra
 
     # Private: sends the notification email to the user if they have the
     # `email_on_notification` flag active.
@@ -74,6 +76,7 @@ module Decidim
           resource,
           recipient,
           user_role.to_s,
+          priority,
           extra
         )
         .deliver_later
