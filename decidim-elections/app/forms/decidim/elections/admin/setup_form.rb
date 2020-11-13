@@ -20,6 +20,9 @@ module Decidim
 
         def trustees
           @trustees = Decidim::Elections::Trustees::ByParticipatorySpace.new(election.component.participatory_space)
+
+          self.trustee_ids = @trustees.pluck(:id)
+
           @trustees = Decidim::Elections::Trustees::ByParticipatorySpaceTrusteeIds.new(trustee_ids).to_a.sort_by(&:id)
           @trustees
         end
