@@ -385,6 +385,7 @@ cs:
         impersonations: Vydávání se za uživatele
         newsletters: Zpravodaje
         participants: Účastníci
+        reported_users: Nahlášení uživatelé
         scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
         settings: Nastavení
@@ -472,6 +473,20 @@ cs:
             phone: Telefon
             state: Stát
             users_count: Počet účastníků
+      moderated_users:
+        index:
+          actions:
+            title: Akce
+            unreport: Zrušit nahlášení
+          name: Jméno
+          nickname: Přezdívka
+          reason: Důvod
+          title: Seznam nahlášených uživatelů
+        report:
+          reasons:
+            does_not_belong: Nepatří
+            offensive: Urážlivý
+            spam: Nevyžádané
       moderations:
         index:
           title: Moderování
@@ -574,6 +589,7 @@ cs:
           officialize: Úředně
           officialized: Úředně
           reofficialize: Reofficialize
+          reports: Hlášení
           show_email: Zobrazit e-mailovou adresu
           status: Postavení
           unofficialize: Odebrat oficializaci
