@@ -566,6 +566,7 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
+          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -636,6 +637,10 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
+      resources:
+        index:
+          headers:
+            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
