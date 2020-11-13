@@ -305,6 +305,9 @@
         content_blocks:
           highlighted_assemblies:
             max_results: Maksimal mengde elementer som skal vises
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Medlemmer
