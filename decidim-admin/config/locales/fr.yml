@@ -385,6 +385,7 @@ fr:
         impersonations: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
+        reported_users: Utilisateurs signalés
         scope_types: Types de secteur
         scopes: Périmètres d’application
         settings: Paramètres
@@ -472,6 +473,20 @@ fr:
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Annuler le signalement
+          name: Nom
+          nickname: Pseudonyme
+          reason: Raison
+          title: Liste des utilisateurs signalés
+        report:
+          reasons:
+            does_not_belong: N'appartient pas
+            offensive: Offensant
+            spam: Spam
       moderations:
         index:
           title: Modérations
@@ -574,6 +589,7 @@ fr:
           officialize: Valider
           officialized: Validé
           reofficialize: De nouveau validé
+          reports: Signalements
           show_email: Montrer les adresses e-mail
           status: Statut
           unofficialize: Invalider
