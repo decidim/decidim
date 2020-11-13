@@ -27,6 +27,8 @@ sv:
         user_group_id: Skapa förslag som
       proposal_answer:
         answer: Svar
+        cost: Kostnad
+        cost_report: Kostnadsrapport
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från

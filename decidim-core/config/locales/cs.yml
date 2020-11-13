@@ -1149,12 +1149,15 @@ cs:
       report:
         authors: Autoři
         content: Nahlášený obsah
+        content_original_language: Původní jazyk obsahu
         date: Nahlášeno dne
         details: Detaily
         hello: Zdravím %{name},
+        id: ID
         participatory_space: Účastnický prostor
         reason: Důvod
         report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
+        see_report: Zobrazit zprávu
         subject: Byl ohlášen zdroj
     reports:
       create:

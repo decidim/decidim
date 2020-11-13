@@ -27,6 +27,9 @@ fr:
         user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
+        cost: Coût
+        cost_report: Rapport de coût
+        execution_period: Période d'exécution
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
