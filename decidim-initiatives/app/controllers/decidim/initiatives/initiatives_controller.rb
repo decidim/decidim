@@ -40,8 +40,8 @@ module Decidim
         if @closed_initiatives.results.present?
           params[:filter] ||= {}
           params[:filter][:date] = %w(closed)
-          state_params = params.dig("filter", "state")
-          @forced_closed_initiatives = state_params.present? && state_params.include?("closed")
+          @forced_closed_initiatives = true
+
           @search = @closed_initiatives
         end
       end
