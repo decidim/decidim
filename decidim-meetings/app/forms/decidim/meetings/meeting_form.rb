@@ -20,12 +20,10 @@ module Decidim
       attribute :online_meeting_url, String
       attribute :type_of_meeting, String
       attribute :registration_type, String
+      attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
-
-      TYPE_OF_MEETING = %w(in_person online).freeze
-      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       validates :title, presence: true
       validates :description, presence: true
@@ -56,6 +54,7 @@ module Decidim
         self.description = presenter.description(all_locales: false)
         self.location = presenter.location(all_locales: false)
         self.location_hints = presenter.location_hints(all_locales: false)
+        self.registration_terms = presenter.registration_terms(all_locales: false)
         self.type_of_meeting = if model.online_meeting?
                                  "online"
                                else
@@ -114,7 +113,7 @@ module Decidim
       end
 
       def type_of_meeting_select
-        TYPE_OF_MEETING.map do |type|
+        Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
           [
             I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
             type
@@ -131,7 +130,7 @@ module Decidim
       end
 
       def registration_type_select
-        REGISTRATION_TYPE.map do |type|
+        Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
           [
             I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
             type
