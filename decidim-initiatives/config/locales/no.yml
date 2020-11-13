@@ -123,6 +123,7 @@
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
+            scope: Tema
             time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
@@ -272,14 +273,26 @@
           unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
+        accepted: Nok signaturer
         created: Opprettet
         discarded: Forkastet
         published: Publisert
+        rejected: Ikke nok signaturer
         validating: Teknisk validering
       application_helper:
+        filter_area_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
         filter_state_values:
+          accepted: Nok signaturer
+          all: Alle
+          answered: Besvart
           closed: Lukket
           open: Åpen
+          rejected: Ikke nok signaturer
+        filter_type_values:
+          all: Alle
       committee_requests:
         new:
           continue: Fortsett
@@ -301,6 +314,7 @@
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
           callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
+          confirm: Bekreft
           go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
         finish_help:
@@ -388,6 +402,7 @@
           any: Alle
           author: Forfatter
           myself: Initiativene mine
+          scope: Tema
           search: Søk
           state: Status
           type: Type
@@ -460,6 +475,10 @@
           highlighted_initiatives:
             active_initiatives: Aktive initiativer
             see_all_initiatives: Se alle initiativer
+      show:
+        badge_name:
+          accepted: Nok signaturer
+          rejected: Ikke nok signaturer
       states:
         accepted: Aksepterte
         expired: Utløpt
