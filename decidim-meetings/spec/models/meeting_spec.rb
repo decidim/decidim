@@ -180,6 +180,7 @@ module Decidim::Meetings
 
       context "when Meeting is moderated" do
         let!(:moderation) { create(:moderation, :hidden, reportable: meeting) }
+
         before { subject.reload }
 
         it { is_expected.not_to be_resource_visible }
