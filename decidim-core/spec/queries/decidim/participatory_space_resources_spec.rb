@@ -16,6 +16,6 @@ describe Decidim::ParticipatorySpaceResources do
   let!(:meeting) { create(:meeting, component: meeting_component) }
 
   it "returns the resources for the participatory space" do
-    expect(subject.query).to match [proposal, second_proposal]
+    expect(subject.query).to match_array([proposal, second_proposal])
   end
 end
