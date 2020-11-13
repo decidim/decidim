@@ -70,7 +70,10 @@ module Decidim
     end
 
     describe "when the resource is reported" do
-      let(:moderation) { create(:moderation, report_count: 2) }
+      let(:organization) { create(:organization) }
+      let(:participatory_space) { create(:participatory_process, organization: organization) }
+      let!(:moderators) { create_list(:user, 3, :admin, organization: organization) }
+      let(:moderation) { create(:moderation, report_count: 2, participatory_space: participatory_space) }
       let!(:report) { create(:report, moderation: moderation) }
       let(:title) { { "ca" => "Títol" } }
       let(:proposal) { build(:proposal, title: title, body: { "ca" => "Proposta" }, moderation: moderation) }
@@ -83,7 +86,7 @@ module Decidim
           let(:title) { { "ca" => "Títol", "machine_translations" => { "en" => "Title" } } }
 
           it "sends emails to the moderators" do
-            allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
+            allow(ReportedMailer).to receive(:report).and_call_original
 
             proposal.save
             MachineTranslationSaveJob.perform_now(
@@ -94,14 +97,14 @@ module Decidim
             )
 
             expect(ReportedMailer)
-              .to have_received(:send_report_notification_to_users)
-              .with(moderation.participatory_space.moderators, report)
+              .to have_received(:report)
+              .exactly(moderation.participatory_space.moderators.count).times
           end
         end
 
         describe "and the resource is NOT completely translated" do
           it "doesn't send emails" do
-            allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
+            allow(ReportedMailer).to receive(:report).and_call_original
 
             proposal.save
             MachineTranslationSaveJob.perform_now(
@@ -112,7 +115,7 @@ module Decidim
             )
 
             expect(ReportedMailer)
-              .not_to have_received(:send_report_notification_to_users)
+              .not_to have_received(:report)
           end
         end
       end
@@ -121,7 +124,7 @@ module Decidim
         let(:target_locale) { "fi" }
 
         it "doesn't send emails" do
-          allow(ReportedMailer).to receive(:send_report_notification_to_users).and_call_original
+          allow(ReportedMailer).to receive(:report).and_call_original
 
           proposal.save
           MachineTranslationSaveJob.perform_now(
@@ -132,7 +135,7 @@ module Decidim
           )
 
           expect(ReportedMailer)
-            .not_to have_received(:send_report_notification_to_users)
+            .not_to have_received(:report)
         end
       end
     end
