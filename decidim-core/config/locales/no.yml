@@ -351,6 +351,7 @@
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
+            scope_id: Tema
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -889,6 +890,7 @@
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         error_modal:
+          close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
           intro: 'Det var følgende feil med din melding:'
           ok: Ok
@@ -1128,7 +1130,14 @@
           one: "%{count} resultat"
           other: "%{count} resultater"
         view_all: Vis alle (%{count})
+    security:
+      selfxss_warning:
+        description: Denne funksjonaliteten i nettleseren er ment for utviklere. Du må ikke lime inn noe her, selv om du blir bedt om det. Dersom du limer inn noe her, kan personvernet brytes, og gi hackere tilgang til kontoen din.
+        title: Stopp!
     shared:
+      confirm_modal:
+        cancel: Avbryt
+        close_modal: Lukk modal
       embed_modal:
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
@@ -1521,6 +1530,7 @@
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%d.%m.%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
