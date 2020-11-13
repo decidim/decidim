@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Tema
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett
@@ -129,6 +130,7 @@
           add: Legg til prosjektet %{resource_name} til din stemme
           remove: Fjern prosjektet %{resource_name} fra stemmen din
           view: Vis
+          you_voted: Du stemte
         project_budget_button:
           add: Legg til i stemmen din
           add_descriptive: Legg til prosjektet %{resource_name} til din stemme
