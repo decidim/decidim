@@ -401,9 +401,10 @@ en:
         go_to_twitter: Go to Twitter
         more_info: more info
         personal_website: Personal website
-        speaking_at: Speaking at
         show:
           more_info: more info
+          speaking_at: Speaking at
+        speaking_at: Speaking at
       conference_speaker_cell:
         personal_url:
           personal_website: Personal website
