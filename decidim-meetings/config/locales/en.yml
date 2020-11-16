@@ -90,7 +90,6 @@ en:
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
-            registration_code_enabled: Registration code enabled
             enable_pads_creation: Enable pads creation
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
