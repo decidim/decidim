@@ -68,6 +68,6 @@ edit_link(
   <%= render partial: "preview", election: election %>
 <% end %>
 <!-- Election results -->
-<% if election.bb_status == "results_published" %>
+<% if election.results_published? %>
   <%= render partial: "results", election: election %>
 <% end %>

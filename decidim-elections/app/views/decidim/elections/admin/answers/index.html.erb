@@ -30,11 +30,11 @@
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
               </td>
               <td class="table-list__actions">
-                <% if question.total_votes.positive? %>
+                <% if election.results? %>
                   <% if answer.selected %>
-                    <%= icon_link_to "circle-check", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon--success" %>
+                    <%= icon_link_to "circle-check", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon--success", method: :put %>
                   <% else %>
-                    <%= icon_link_to "circle-check", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon" %>
+                    <%= icon_link_to "circle-x", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
                   <% end %>
                 <% end %>
 

@@ -31,8 +31,8 @@ module Decidim
                 resource :proposals_import, only: [:new, :create]
               end
               member do
-                get :select
-                get :unselect
+                put :select
+                put :unselect
               end
             end
           end
