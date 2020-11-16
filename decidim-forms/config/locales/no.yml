@@ -53,6 +53,7 @@
           form:
             add_question: Legg til spørsmål
             already_answered_warning: Skjemaet er allerede besvart av noen brukere derfor kan du ikke endre spørsmålene.
+            title: Rediger skjema
           matrix_row:
             remove: Fjern
             statement: Uttalelse
