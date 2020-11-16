@@ -92,7 +92,7 @@ module Decidim
 
           it "the id of the answer" do
             key = I18n.t(:id, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq an_answer.id
+            expect(serialized[key]).to eq an_answer.session_token
           end
 
           it "the creation of the answer" do
