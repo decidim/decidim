@@ -6,7 +6,7 @@ module Decidim
   module Forms
     describe AnswerQuestionnaire do
       def tokenize(id)
-        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+        "fake-hash-for-#{id}"
       end
 
       let(:current_organization) { create(:organization) }

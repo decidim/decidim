@@ -89,6 +89,8 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
 
+      after_initialize :set_default_salt
+
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
         registrations.where.not(decidim_user_group_id: nil)
@@ -229,6 +231,11 @@ module Decidim
         return false unless user
 
         invites.exists?(decidim_user_id: user.id)
+      end
+
+      # salt is used to generate secure hash in pads
+      def set_default_salt
+        self.salt ||= Tokenizer.random_salt
       end
     end
   end

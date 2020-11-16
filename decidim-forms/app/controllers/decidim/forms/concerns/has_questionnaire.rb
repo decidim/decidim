@@ -131,8 +131,9 @@ module Decidim
             @session_token ||= tokenize(id || session_id)
           end
 
-          def tokenize(id)
-            Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
+          def tokenize(id, length: 10)
+            tokenizer = Decidim::Tokenizer.new(salt: questionnaire.salt || questionnaire.id, length: length)
+            tokenizer.int_digest(id).to_s
           end
         end
       end
