@@ -72,7 +72,9 @@ module Decidim
     end
 
     def send_report_notification_to_moderators
-      ReportedMailer.send_report_notification_to_users(participatory_space_moderators, @report)
+      participatory_space_moderators.each do |moderator|
+        ReportedMailer.report(moderator, @report).deliver_later
+      end
     end
 
     def send_report_notification_to_author
@@ -97,7 +99,9 @@ module Decidim
     end
 
     def send_hide_notification_to_moderators
-      ReportedMailer.send_hide_notification_to_users(participatory_space_moderators, @report)
+      participatory_space_moderators.each do |moderator|
+        ReportedMailer.hide(moderator, @report).deliver_later
+      end
     end
 
     def participatory_space
