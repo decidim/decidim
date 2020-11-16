@@ -29,15 +29,15 @@ module Decidim
     private
 
     def events
-      @events ||= Decidim::Notification.not_expired(Decidim.config.batch_email_notifications_expired)
-                                       .unsent
-                                       .with_priority(:batch)
+      @events ||= Decidim::Notification.includes(:user)
+                                       .not_expired(Decidim.config.batch_email_notifications_expired)
+                                       .unsent.with_priority(:batch)
                                        .order(created_at: :desc)
                                        .limit(Decidim.config.batch_email_notifications_max_length)
     end
 
     def events_for(user)
-      @events.where(user: user)
+      @events.select { |event| event.user == user }
     end
 
     def serialized_events(events)
@@ -56,9 +56,7 @@ module Decidim
     end
 
     def mark_as_sent(events)
-      # rubocop:disable Rails/SkipsModelValidations
-      events.in_batches.update_all(sent_at: Time.zone.now)
-      # rubocop:enable Rails/SkipsModelValidations
+      events.each { |event| event.update!(sent_at: Time.zone.now) }
     end
 
     def users
