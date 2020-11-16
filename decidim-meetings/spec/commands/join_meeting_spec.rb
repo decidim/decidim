@@ -87,6 +87,10 @@ module Decidim::Meetings
       end
 
       context "when registration code is disabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: false })
+        end
+
         it "sends an email confirming the registration" do
           perform_enqueued_jobs { subject.call }
 
