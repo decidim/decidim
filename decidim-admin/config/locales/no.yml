@@ -561,6 +561,7 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
+          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -578,6 +579,7 @@
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
           twitter: Twitter
+          url: URL
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -629,6 +631,10 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
+      resources:
+        index:
+          headers:
+            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
@@ -808,6 +814,7 @@
           fields:
             hidden_at: Skjult på
             report_count: Antall
+            reportable_id: Id
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL

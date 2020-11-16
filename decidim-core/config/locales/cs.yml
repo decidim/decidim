@@ -160,6 +160,8 @@ cs:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
+      user_moderation:
+        unreport: "%{user_name} vyjmut z nahlášení v %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
@@ -1232,6 +1234,15 @@ cs:
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
+      flag_user_modal:
+        already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
+        close: Zavřít
+        description: Co je s uživatelem nevhodné?
+        does_not_belong: Obsahuje nelegální aktivitu, sebevražedné hrozby, osobní informace nebo něco jiného podle vás nepatří k %{organization_name}.
+        offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
+        report: Nahlásit
+        spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
+        title: Nahlásit nevhodného uživatele
       floating_help:
         close: Zavřít nápovědu
         help: Pomoc
@@ -1307,6 +1318,13 @@ cs:
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
+    user_report_mailer:
+      notify:
+        body_1: Uživatel %{user} byl nahlášen od %{token}
+        body_2: 'Důvod: %{reason}'
+        greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den %{admin},
+        subject: Nový uživatel byl nahlášen v %{organization_name}
     version:
       show:
         back_to_resource: Jít zpět
