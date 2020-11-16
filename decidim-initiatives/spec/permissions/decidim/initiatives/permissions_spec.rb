@@ -149,6 +149,54 @@ describe Decidim::Initiatives::Permissions do
     end
   end
 
+  context "when listing committee members of the initiative as author" do
+    let(:initiative) { create :initiative, organization: organization, author: user }
+    let(:action) do
+      { scope: :public, action: :index, subject: :initiative_committee_member }
+    end
+    let(:context) do
+      { initiative: initiative }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  context "when approving committee member of the initiative as author" do
+    let(:initiative) { create :initiative, organization: organization, author: user }
+    let(:action) do
+      { scope: :public, action: :approve, subject: :initiative_committee_member }
+    end
+    let(:context) do
+      { initiative: initiative }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  context "when revoking committee member of the initiative as author" do
+    let(:initiative) { create :initiative, organization: organization, author: user }
+    let(:action) do
+      { scope: :public, action: :revoke, subject: :initiative_committee_member }
+    end
+    let(:context) do
+      { initiative: initiative }
+    end
+
+    it { is_expected.to eq true }
+  end
+
+  context "when sending initiative to technical validation as author" do
+    let(:initiative) { create :initiative, state: :created, organization: organization }
+    let(:action) do
+      { scope: :public, action: :send_to_technical_validation, subject: :initiative }
+    end
+    let(:context) do
+      { initiative: initiative }
+    end
+
+    it { is_expected.to eq true }
+  end
+
   context "when creating an initiative" do
     let(:action) do
       { scope: :public, action: :create, subject: :initiative }
