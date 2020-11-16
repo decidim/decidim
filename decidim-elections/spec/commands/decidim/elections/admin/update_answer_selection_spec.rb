@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::Elections::Admin::UpdateAnswerSelection do
   subject(:command) { described_class.new(answer, selected) }
 
-  let(:election) { create(:election, :published, :finished) }
-  let(:question) { create :question, :with_votes, election: election }
+  let(:election) { create(:election, :published, :results_published) }
+  let(:question) { election.questions.first }
   let(:answer) { question.answers.first }
   let(:selected) { false }
 
