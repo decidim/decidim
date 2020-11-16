@@ -43,6 +43,7 @@ edit_link(
     <% end %>
     <div class="card extra">
     <div class="card__content--multiple">
+
       <% if debate.start_time.present? && debate.end_time.present? %>
         <div class="extra__date">
           </br>
@@ -50,7 +51,17 @@ edit_link(
 
             <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
 
+            <div class="extra__time text-small"> <%= l debate.start_time, format: "%H:%M" %></span><p>a</p> </div>
+            
+            <div class="extra__time text-small"> <%= l debate.end_time, format: "%H:%M" %></span></div> 
+            
+            </br>
+          <% elsif debate.start_time.strftime("%d") != debate.end_time.strftime("%d") && debate.start_time.strftime("%H") != debate.end_time.strftime("%H")%>
+
+            <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
+
             <div class="extra__time text-small"> <%= l debate.start_time, format: "%H:%M" %></span></div> 
+            
             <%= icon "arrow-thin-right"%>
         </div>  
         
@@ -60,6 +71,7 @@ edit_link(
             </br>
         </div>
       <% end %>
+
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
           <div class="row collapse buttons__row">
