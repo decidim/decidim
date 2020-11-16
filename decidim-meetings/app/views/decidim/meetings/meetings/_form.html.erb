@@ -67,10 +67,6 @@
   <%= text_editor_for(form, :registration_terms) %>
 </div>
 
-<div class="row column" id="meeting_registrations_enabled">
-  <%= form.check_box :registrations_enabled %>
-</div>
-
 <div class="field" id="meeting_registration_url">
   <%= form.text_field :registration_url %>
   <p class="help-text"><%= t(".registration_url_help") %></p>
