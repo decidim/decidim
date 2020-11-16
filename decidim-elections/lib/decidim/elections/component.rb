@@ -169,7 +169,7 @@ Decidim.register_component(:elections) do |component|
       end
     end
 
-    # finished elections that may be published, may have results and questionnaire
+    # finished elections that may be published, with questionnaire
     2.times do
       finished_election = Decidim.traceability.create!(
         Decidim::Elections::Election,
@@ -216,8 +216,8 @@ Decidim.register_component(:elections) do |component|
                 Decidim::Faker::Localized.paragraph(sentence_count: 3)
               end,
               weight: Faker::Number.number(digits: 1),
-              selected: Faker::Boolean.boolean(true_ratio: 0.5),
-              votes_count: Faker::Number.between(from: 0, to: 150)
+              selected: Faker::Boolean.boolean(true_ratio: 0.2), # false
+              votes_count: 0
             },
             visibility: "all"
           )
@@ -239,6 +239,102 @@ Decidim.register_component(:elections) do |component|
             Decidim::Faker::Localized.paragraph(sentence_count: 2)
           end,
           questionnaire_for: finished_election
+        )
+
+        %w(short_answer long_answer).each do |text_question_type|
+          Decidim::Forms::Question.create!(
+            questionnaire: questionnaire,
+            body: Decidim::Faker::Localized.paragraph,
+            question_type: text_question_type
+          )
+        end
+
+        %w(single_option multiple_option).each do |multiple_choice_question_type|
+          question = Decidim::Forms::Question.create!(
+            questionnaire: questionnaire,
+            body: Decidim::Faker::Localized.paragraph,
+            question_type: multiple_choice_question_type
+          )
+
+          3.times do
+            question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
+          end
+        end
+      end
+    end
+
+    # finished, published elections with results and with questionnaire
+    2.times do
+      election_with_results = Decidim.traceability.create!(
+        Decidim::Elections::Election,
+        admin_user,
+        {
+          component: component,
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          start_time: 4.weeks.ago,
+          end_time: 3.weeks.ago,
+          published_at: 3.weeks.ago,
+          bb_status: "results_published"
+
+        },
+        visibility: "all"
+      )
+
+      rand(1...4).times do
+        result_question = Decidim.traceability.create!(
+          Decidim::Elections::Question,
+          admin_user,
+          {
+            election: election_with_results,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.paragraph(sentence_count: 3)
+            end,
+            max_selections: 2,
+            weight: Faker::Number.number(digits: 1),
+            random_answers_order: Faker::Boolean.boolean(true_ratio: 0.5),
+            min_selections: Faker::Number.between(from: 0, to: 1)
+          },
+          visibility: "all"
+        )
+
+        rand(2...5).times do
+          answer = Decidim.traceability.create!(
+            Decidim::Elections::Answer,
+            admin_user,
+            {
+              question: result_question,
+              title: Decidim::Faker::Localized.sentence(word_count: 2),
+              description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+                Decidim::Faker::Localized.paragraph(sentence_count: 3)
+              end,
+              weight: Faker::Number.number(digits: 1),
+              selected: Faker::Boolean.boolean(true_ratio: 0.5),
+              votes_count: Faker::Number.number(digits: 3)
+            },
+            visibility: "all"
+          )
+
+          Decidim::Attachment.create!(
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5),
+            attached_to: answer,
+            file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+          )
+        end
+
+        questionnaire = Decidim::Forms::Questionnaire.create!(
+          title: Decidim::Faker::Localized.paragraph,
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 2)
+          end,
+          questionnaire_for: election_with_results
         )
 
         %w(short_answer long_answer).each do |text_question_type|

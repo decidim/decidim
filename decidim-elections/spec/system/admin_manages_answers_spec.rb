@@ -164,9 +164,9 @@ describe "Admin manages answers", type: :system do
   end
 
   context "when answer has votes" do
-    let(:election) { create :election, :finished, component: current_component }
-    let(:question) { create :question, election: election }
-    let(:answer) { create :election_answer, :with_votes, question: question }
+    let!(:election) { create :election, :results, component: current_component }
+    let!(:question) { election.questions.first }
+    let!(:answer) { question.answers.first }
 
     it "can change selected status" do
       within find("tr", text: translated(answer.title)) do

@@ -169,7 +169,7 @@ describe "Explore elections", :slow, type: :system do
   end
 
   context "with results" do
-    let(:election) { create(:election, :published, :finished, component: component) }
+    let(:election) { create(:election, :published, :results_published, component: component) }
     let(:question) { create :question, :with_votes, election: election }
 
     before do

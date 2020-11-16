@@ -63,6 +63,24 @@ FactoryBot.define do
         create_list(:trustees_participatory_space, 2, :trustee_ready, participatory_space: election.component.participatory_space)
       end
     end
+
+    trait :results do
+      started
+      end_time { 1.day.ago }
+      blocked_at { Time.current }
+      bb_status { "results" }
+      after(:build) do |election, _evaluator|
+        election.questions << build_list(:question, 3, :with_votes, election: election)
+      end
+    end
+
+    trait :results_published do
+      finished
+      bb_status { "results_published" }
+      after(:build) do |election, _evaluator|
+        election.questions << build_list(:question, 3, :with_votes, election: election)
+      end
+    end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
