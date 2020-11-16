@@ -281,7 +281,7 @@ en:
       dummy_authorization_workflow:
         name: Dummy authorization workflow
       errors:
-        duplicate_authorization: A participant is already authorized with the same data.
+        duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
       expires_at: Expires at %{timestamp}
       foo_authorization:

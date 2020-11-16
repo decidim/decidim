@@ -38,7 +38,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   describe "notification_title" do
     it "is generated correctly" do
-      expect(subject.notification_title).to eq("<a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> participant has tried to verify with managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a> data")
+      expect(subject.notification_title).to eq("The participant <a href=\"/profiles/#{resource.current_user.nickname}\">#{resource.current_user.name}</a> has tried to verify herself with the data of the managed participant <a href=\"/profiles/#{resource.managed_user.nickname}\">#{resource.managed_user.name}</a>")
     end
   end
 end
