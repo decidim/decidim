@@ -50,7 +50,7 @@
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
-      decidim/meetings/update_meeting_event: Møtet oppdatert
+      decidim/meetings/update_meeting_event: Møtet er oppdatert
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -379,6 +379,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          date: Dato
           going: Skal
           join: Bli med på møte
           meeting_report: Møtet rapportert
@@ -392,6 +393,9 @@
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
           view: Vis
+        update:
+          invalid: Det oppstod et problem med å oppdatere dette møtet.
+          success: Du har nå oppdatert møtet.
       meetings_map:
         view_meeting: Vis møte
       models:
