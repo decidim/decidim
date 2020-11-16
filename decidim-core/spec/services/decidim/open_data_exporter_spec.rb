@@ -26,8 +26,8 @@ describe Decidim::OpenDataExporter do
           create(:elections_component, organization: organization, published_at: Time.current)
         end
         let!(:election) { create(:election, :results_published, component: component) }
-        let!(:question) { create(:question, election: election) }
-        let!(:answer) { create(:election_answer, :with_votes, question: question) }
+        let!(:question) { election.questions.first }
+        let!(:answer) { question.answers.first }
 
         before do
           subject.export
