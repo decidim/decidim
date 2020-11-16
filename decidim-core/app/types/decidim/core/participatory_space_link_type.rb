@@ -2,22 +2,30 @@
 
 module Decidim
   module Core
-    ParticipatorySpaceLinkType = GraphQL::ObjectType.define do
-      name "ParticipatorySpaceLink"
+    class ParticipatorySpaceLinkType < GraphQL::Schema::Object
+      graphql_name  "ParticipatorySpaceLink"
       description "A link representation between participatory spaces"
 
-      field :id, !types.ID, "The id of this participatory space link"
-      field :fromType, !types.String, "The origin participatory space type for this participatory space link", property: :from_type
-      field :toType, !types.String, "The destination participatory space type for this participatory space link", property: :to_type
-      field :name, !types.String, "The name (purpose) of this participatory space link"
-      field :participatorySpace, !ParticipatorySpaceInterface do
-        description "The linked participatory space (polymorphic)"
-        resolve ->(link, _args, _ctx) {
-          manifest_name = link.name.partition("included_").last
-          object_class = "Decidim::#{manifest_name.classify}"
-          return link.to if link.to_type == object_class
-          return link.from if link.from_type == object_class
-        }
+      field :id, ID, null: false, description:"The id of this participatory space link"
+      field :fromType, String, null: false, description:"The origin participatory space type for this participatory space link"
+      field :toType, String, null: false, description:"The destination participatory space type for this participatory space link"
+      field :name, String, null: false, description:"The name (purpose) of this participatory space link"
+      field :participatorySpace, ParticipatorySpaceInterface, null: false, description:"The linked participatory space (polymorphic)"
+
+      def participatorySpace
+
+        manifest_name = object.name.partition("included_").last
+        object_class = "Decidim::#{manifest_name.classify}"
+        return object.to if object.to_type == object_class
+        return object.from if object.from_type == object_class
+      end
+
+      def fromType
+        object.from_type
+      end
+
+      def toType
+        object.to_type
       end
     end
   end

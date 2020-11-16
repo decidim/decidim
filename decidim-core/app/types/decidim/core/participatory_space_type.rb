@@ -2,10 +2,10 @@
 
 module Decidim
   module Core
-    ParticipatorySpaceType = GraphQL::ObjectType.define do
+    class ParticipatorySpaceType  < GraphQL::Schema::Object
+      graphql_name "ParticipatorySpace"
       interfaces [-> { ParticipatorySpaceInterface }]
 
-      name "ParticipatorySpace"
       description "A participatory space"
     end
   end

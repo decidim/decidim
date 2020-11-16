@@ -87,10 +87,7 @@ module Decidim
       end
 
       initializer "decidim.graphql_api" do
-        Decidim::Api::QueryType.define do
-          Decidim::QueryExtensions.define(self)
-        end
-
+        Decidim::Api::QueryType.send(:prepend, Decidim::QueryExtensions)
         Decidim::Api.add_orphan_type Decidim::Core::UserType
         Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end

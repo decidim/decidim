@@ -2,14 +2,21 @@
 
 module Decidim
   module Surveys
-    SurveyType = GraphQL::ObjectType.define do
-      name "Survey"
+    class SurveyType < GraphQL::Schema::Object
+      graphql_name "Survey"
       description "A survey"
 
-      field :id, !types.ID, "The internal ID for this survey"
-      field :createdAt, Decidim::Core::DateTimeType, "The time this survey was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this survey was updated", property: :updated_at
-      field :questionnaire, Decidim::Forms::QuestionnaireType, "The questionnaire for this survey"
+      field :id, ID, null: false , description: "The internal ID for this survey"
+      field :createdAt, Decidim::Core::DateTimeType, null: true , description:"The time this survey was created"
+      field :updatedAt, Decidim::Core::DateTimeType, null: true , description:"The time this survey was updated"
+      field :questionnaire, Decidim::Forms::QuestionnaireType,null: true , description: "The questionnaire for this survey"
+
+      def createdAt
+        object.created_at
+      end
+      def updatedAt
+        object.updated_at
+      end
     end
   end
 end

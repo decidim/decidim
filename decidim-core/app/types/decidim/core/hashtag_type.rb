@@ -3,11 +3,11 @@
 module Decidim
   module Core
     # This type represents a User.
-    HashtagType = GraphQL::ObjectType.define do
-      name "HashtagType"
+    class HashtagType< GraphQL::Schema::Object
+      graphql_name "HashtagType"
       description "hashtags list"
 
-      field :name, !types.String, "The hashtag's name"
+      field :name, String, null: false, description: "The hashtag's name"
     end
   end
 end

@@ -3,50 +3,58 @@
 module Decidim
   module Core
     # This type represents a User.
-    UserType = GraphQL::ObjectType.define do
-      name "User"
+    class UserType < GraphQL::Schema::Object
+      graphql_name "User"
       description "A user"
 
       interfaces [
         -> { Decidim::Core::AuthorInterface }
       ]
 
-      field :id, !types.ID, "The user's id"
+      field :id, ID, null: false, description: "The user's id"
+      field :name, String, null: false, description: "The user's name"
+      field :nickname, String, null: false, description:  "The user's nickname"
+      field :avatarUrl, String, null: false, description: "The user's avatar url"
+      field :profilePath, String, null: false, description: "The user's profile url"
+      field :directMessagesEnabled, String, null: false, description: "If the user making the request is logged in,
+       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests."
+      field :organizationName, String,null: false, description:  "The user's organization name"
+      field :deleted, Boolean, null: false, description: "Whether the user's account has been deleted or not"
+      field :badge, String, null: false, description: "A badge for the user group"
+      field :groups, [UserGroupType], null: false, description: "Groups where this user belongs"
 
-      field :name, !types.String, "The user's name"
-
-      field :nickname, !types.String, "The user's nickname" do
-        resolve ->(user, _args, _ctx) { user.presenter.nickname }
+      def nickname
+        object.presenter.nickname
       end
 
-      field :avatarUrl, !types.String, "The user's avatar url" do
-        resolve ->(user, _args, _ctx) { user.presenter.avatar_url(:thumb) }
+      def avatarUrl
+        object.presenter.avatar_url(:thumb)
       end
 
-      field :profilePath, !types.String, "The user's profile url" do
-        resolve ->(user, _args, _ctx) { user.presenter.profile_path }
+      def profilePath
+        object.presenter.profile_path
       end
 
-      field :directMessagesEnabled, !types.String, "If the user making the request is logged in,
-       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests." do
-        resolve ->(user, _args, ctx) { user.presenter.direct_messages_enabled?(ctx.to_h) }
+      def directMessagesEnabled
+        object.presenter.direct_messages_enabled?(context.to_h)
       end
 
-      field :organizationName, !types.String, "The user's organization name" do
-        resolve ->(user, _args, _ctx) { user.organization.name }
+      def organizationName
+        object.organization.name
       end
 
-      field :deleted, !types.Boolean, "Whether the user's account has been deleted or not" do
-        resolve ->(user, _args, _ctx) { user.presenter.deleted? }
+      def deleted
+        object.presenter.deleted?
       end
 
-      field :badge, !types.String, "A badge for the user group" do
-        resolve ->(user, _args, _ctx) { user.presenter.badge }
+      def badge
+        object.presenter.badge
       end
 
-      field :groups, !types[UserGroupType], "Groups where this user belongs" do
-        resolve ->(user, _args, _ctx) { user.accepted_user_groups }
+      def groups
+        object.accepted_user_groups
       end
+
     end
   end
 end

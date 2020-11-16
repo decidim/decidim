@@ -3,7 +3,7 @@
 module Decidim
   module Api
     # Main GraphQL schema for decidim's API.
-    Schema = GraphQL::Schema.define do
+    class Schema < GraphQL::Schema
       query QueryType
       mutation MutationType
 

@@ -2,13 +2,21 @@
 
 module Decidim
   module Core
-    AttachmentType = GraphQL::ObjectType.define do
-      name "Attachment"
+    class AttachmentType  < GraphQL::Schema::Object
+      graphql_name  "Attachment"
       description "A file attachment"
 
-      field :url, !types.String, "The url of this attachment"
-      field :type, !types.String, "The type of this attachment", property: :file_type
-      field :thumbnail, types.String, "A thumbnail of this attachment, if it's an image.", property: :thumbnail_url
+      field :url, String, null: false, description: "The url of this attachment"
+      field :type, String, null: false, description: "The type of this attachment"
+      field :thumbnail, String, null: true, description: "A thumbnail of this attachment, if it's an image."
+
+      def type
+        object.file_type
+      end
+
+      def thumbnail
+        object.thumbnail_url
+      end
     end
   end
 end

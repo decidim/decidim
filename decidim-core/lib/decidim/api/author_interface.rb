@@ -3,27 +3,35 @@
 module Decidim
   module Core
     # This interface represents an author who owns a resource.
-    AuthorInterface = GraphQL::InterfaceType.define do
-      name "Author"
-      description "An author"
+    module AuthorInterface
+      include GraphQL::Schema::Interface
+      # graphql_name "Author"
+      # description "An author"
 
-      field :id, !types.ID, "The author ID"
-      field :name, !types.String, "The author's name"
-      field :nickname, !types.String, "The author's nickname"
+      field :id, GraphQL::Types::ID, null: false, description: "The author ID"
+      field :name, GraphQL::Types::String, null: false, description: "The author's name"
+      field :nickname, GraphQL::Types::String, null: false, description: "The author's nickname"
 
-      field :avatarUrl, !types.String, "The author's avatar url"
-      field :profilePath, !types.String, "The author's profile path"
-      field :badge, !types.String, "The author's badge icon"
-      field :organizationName, !types.String, "The authors's organization name" do
-        resolve ->(obj, _args, _ctx) { obj.organization.name }
+      field :avatarUrl, GraphQL::Types::String, null: false, description:  "The author's avatar url"
+      field :profilePath, GraphQL::Types::String, null: false, description: "The author's profile path"
+      field :badge, GraphQL::Types::String, null: false, description:  "The author's badge icon"
+      field :organizationName, GraphQL::Types::String, null: false, description: "The authors's organization name"
+      field :deleted, GraphQL::Types::Boolean, null: false, description: "Whether the author's account has been deleted or not"
+
+      def organizationName
+        object.organization.name
       end
 
-      field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
+      definition_methods do
+        def resolve_type(object, context)
+          if object.is_a?(Decidim::User)
+            Decidim::Core::UserType
+          elsif object.is_a?(Decidim::UserGroup)
+            Decidim::Core::UserGroupType
+          end
+        end
+      end
 
-      resolve_type ->(obj, _ctx) {
-                     return Decidim::Core::UserType if obj.is_a? Decidim::User
-                     return Decidim::Core::UserGroupType if obj.is_a? Decidim::UserGroup
-                   }
     end
   end
 end

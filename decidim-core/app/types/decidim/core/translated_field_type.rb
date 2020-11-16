@@ -3,42 +3,33 @@
 module Decidim
   module Core
     # This type represents a translated field in multiple languages.
-    TranslatedFieldType = GraphQL::ObjectType.define do
-      name "TranslatedField"
+    class TranslatedFieldType < GraphQL::Schema::Object
+      graphql_name"TranslatedField"
       description "A translated field"
 
-      field :locales do
-        type types[types.String]
-        description "Lists all the locales in which this translation is available"
-        resolve ->(obj, _args, _ctx) { obj.keys }
+      field :locales, [String], null: true, description: "Lists all the locales in which this translation is available"
+      field :translations, [LocalizedStringType], null: false, description: "All the localized strings for this translation." do
+        argument :locales, [String], required: false,  description: "A list of locales to scope the translations to."
       end
 
-      field :translations do
-        type !types[LocalizedStringType]
-        description "All the localized strings for this translation."
-
-        argument :locales do
-          type types[!types.String]
-          description "A list of locales to scope the translations to."
-        end
-
-        resolve lambda { |obj, args, _ctx|
-          translations = obj.stringify_keys
-          translations = translations.slice(*args["locales"]) if args["locales"]
-
-          translations.map { |locale, text| OpenStruct.new(locale: locale, text: text) }
-        }
+      field :translation, String,  null: true, description: "Returns a single translation given a locale." do
+        argument :locale, String, required: true, description: "A locale to search for"
       end
 
-      field :translation do
-        type types.String
-        description "Returns a single translation given a locale."
-        argument :locale, !types.String, "A locale to search for"
+      def translation(locale: )
+        translations = object.stringify_keys
+        translations[locale]
+      end
 
-        resolve lambda { |obj, args, _ctx|
-          translations = obj.stringify_keys
-          translations[args["locale"]]
-        }
+      def translations(locales: )
+        translations = object.stringify_keys
+        translations = translations.slice(*locales) if locales
+
+        translations.map { |locale, text| OpenStruct.new(locale: locale, text: text) }
+      end
+
+      def locales
+        object.keys
       end
     end
   end

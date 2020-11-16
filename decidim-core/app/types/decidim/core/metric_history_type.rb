@@ -2,15 +2,18 @@
 
 module Decidim
   module Core
-    MetricHistoryType = GraphQL::ObjectType.define do
-      name "MetricHistory"
+    class MetricHistoryType< GraphQL::Schema::Object
+      graphql_name  "MetricHistory"
 
-      field :key, !types.String, "The key value" do
-        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_date(0) }
+      field :key, String, null: false, description: "The key value"
+      field :value, Int, null: false, description: "The value for each key"
+
+      def key
+        MetricObjectPresenter.new(object).attr_date(0)
       end
 
-      field :value, !types.Int, "The value for each key" do
-        resolve ->(obj, _args, _ctx) { MetricObjectPresenter.new(obj).attr_int(1) }
+      def value
+        MetricObjectPresenter.new(object).attr_int(1)
       end
     end
   end
