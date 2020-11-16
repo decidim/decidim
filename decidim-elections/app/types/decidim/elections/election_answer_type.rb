@@ -5,10 +5,8 @@ module Decidim
     # This type represents an answer to an election question.
     # The name is different from the model because to enforce consistency with Question type name.
     ElectionAnswerType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::TraceableInterface }
-      ]
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TraceableInterface
 
       name "ElectionAnswer"
       description "An answer for an election's question"

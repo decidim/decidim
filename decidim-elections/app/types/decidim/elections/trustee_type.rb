@@ -4,9 +4,7 @@ module Decidim
   module Elections
     # This type represents an election trustee.
     TrusteeType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::TraceableInterface }
-      ]
+      implements Decidim::Core::TraceableInterface
 
       name "Trustee"
       description "A trustee for an election"

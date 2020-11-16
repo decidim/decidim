@@ -6,6 +6,7 @@ module Decidim
     AssemblyMemberType = GraphQL::ObjectType.define do
       name "AssemblyMember"
       description "An assembly member"
+      implements Decidim::Core::TimestampsInterface
 
       field :id, !types.ID, "Internal ID of the member"
       field :fullName, types.String, "Full name of the member", property: :full_name
@@ -13,8 +14,6 @@ module Decidim
 
       field :user, Decidim::Core::UserType, "The corresponding decidim user", property: :user
 
-      field :createdAt, Decidim::Core::DateTimeType, "The time this member was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this member was updated", property: :updated_at
 
       field :weight, types.Int, "Order of appearance in which it should be represented"
       field :gender, types.String, "Gender of the member"

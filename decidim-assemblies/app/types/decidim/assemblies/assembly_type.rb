@@ -4,11 +4,10 @@ module Decidim
   module Assemblies
     # This type represents a assembly.
     AssemblyType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::ParticipatorySpaceResourceableInterface }
-      ]
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::ParticipatorySpaceResourceableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Assembly"
       description "An assembly"
@@ -19,8 +18,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description of this assembly"
       field :slug, !types.String, "The slug of this assembly"
       field :hashtag, types.String, "The hashtag for this assembly"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this assembly was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this assembly was updated", property: :updated_at
       field :publishedAt, !Decidim::Core::DateTimeType, "The time this assembly was published", property: :published_at
       field :reference, !types.String, "Reference for this assembly"
       field :categories, !types[Decidim::Core::CategoryType], "Categories for this assembly"

@@ -3,11 +3,11 @@
 module Decidim
   module Debates
     DebateType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::CategorizableInterface },
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AuthorableInterface }
-      ]
+
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Debate"
       description "A debate"
@@ -19,8 +19,6 @@ module Decidim
       field :startTime, Decidim::Core::DateTimeType, "The start time for this debate", property: :start_time
       field :endTime, Decidim::Core::DateTimeType, "The end time for this debate", property: :end_time
       field :image, types.String, "The image of this debate"
-      field :createdAt, Decidim::Core::DateTimeType, "When this debate was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this debate was updated", property: :updated_at
       field :informationUpdates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", property: :information_updates
       field :reference, types.String, "The reference for this debate"
     end

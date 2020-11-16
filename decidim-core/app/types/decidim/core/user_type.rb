@@ -7,9 +7,7 @@ module Decidim
       graphql_name "User"
       description "A user"
 
-      interfaces [
-        -> { Decidim::Core::AuthorInterface }
-      ]
+      implements Decidim::Core::AuthorInterface
 
       field :id, ID, null: false, description: "The user's id"
       field :name, String, null: false, description: "The user's name"

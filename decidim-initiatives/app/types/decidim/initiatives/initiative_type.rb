@@ -4,13 +4,12 @@ module Decidim
   module Initiatives
     # This type represents a Initiative.
     InitiativeType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorInterface },
-        -> { Decidim::Initiatives::InitiativeTypeInterface }
-      ]
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::AuthorInterface
+      implements Decidim::Initiatives::InitiativeTypeInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Initiative"
       description "A initiative"
@@ -18,8 +17,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative."
       field :slug, !types.String
       field :hashtag, types.String, "The hashtag for this initiative"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this initiative was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this initiative was updated", property: :updated_at
       field :publishedAt, !Decidim::Core::DateTimeType, "The time this initiative was published", property: :published_at
       field :reference, !types.String, "Reference prefix for this initiative"
       field :state, types.String, "Current status of the initiative"

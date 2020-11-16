@@ -3,7 +3,7 @@
 module Decidim
   module Sortitions
     SortitionsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Sortitions"
       description "A sortition component of a participatory space."

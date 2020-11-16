@@ -3,7 +3,7 @@
 module Decidim
   module Blogs
     BlogsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Blogs"
       description "A blogs component of a participatory space."

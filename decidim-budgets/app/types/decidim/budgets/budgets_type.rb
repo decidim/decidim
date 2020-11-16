@@ -3,7 +3,7 @@
 module Decidim
   module Budgets
     BudgetsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Budgets"
       description "A budget component of a participatory space."

@@ -6,19 +6,17 @@ module Decidim
       name "Proposal"
       description "A proposal"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::CoauthorableInterface },
-        -> { Decidim::Core::CategorizableInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::FingerprintInterface },
-        -> { Decidim::Core::AmendableInterface },
-        -> { Decidim::Core::AmendableEntityInterface },
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::EndorsableInterface },
-        -> { Decidim::Core::TimestampsInterface }
-      ]
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::CoauthorableInterface
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::FingerprintInterface
+      implements Decidim::Core::AmendableInterface
+      implements Decidim::Core::AmendableEntityInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::TimestampsInterface
 
       field :id, !types.ID
       field :title, Decidim::Core::TranslatedFieldType, "The title for this title"

@@ -2,9 +2,11 @@
 
 module Decidim
   module Meetings
-    MinutesType = GraphQL::ObjectType.define do
-      name "MeetingMinutes"
+
+    class MinutesType < GraphQL::Schema::Object
+      graphql_name "MeetingMinutes"
       description "A meeting minutes"
+      implements Decidim::Core::TimestampsInterface
 
       field :id, !types.ID, "The ID for the minutes"
       field :description, Decidim::Core::TranslatedFieldType, "The description for the minutes"
@@ -13,14 +15,6 @@ module Decidim
       # probably useful in the future, when handling user permissions
       # field :visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
 
-      field :createdAt, Decidim::Core::DateTimeType do
-        description "The date and time this minutes was created"
-        property :created_at
-      end
-      field :updatedAt, Decidim::Core::DateTimeType do
-        description "The date and time this minutes was updated"
-        property :updated_at
-      end
     end
   end
 end

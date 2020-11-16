@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     AccountabilityType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Accountability"
       description "An accountability component of a participatory space."

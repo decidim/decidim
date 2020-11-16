@@ -3,12 +3,11 @@
 module Decidim
   module Budgets
     ProjectType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::CategorizableInterface }
-      ]
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Project"
       description "A project"
@@ -18,8 +17,6 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description for this project"
       field :budget_amount, types.Int, "The budget amount for this project"
       field :selected, types.Boolean, "Whether this proposal is selected or not", property: :selected?
-      field :createdAt, Decidim::Core::DateTimeType, "When this project was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this project was updated", property: :updated_at
       field :reference, types.String, "The reference for this project"
     end
   end

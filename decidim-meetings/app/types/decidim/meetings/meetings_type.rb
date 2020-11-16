@@ -2,10 +2,10 @@
 
 module Decidim
   module Meetings
-    MeetingsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class MeetingsType < GraphQL::Schema::Object
+      graphql_name "Meetings"
+      implements Decidim::Core::ComponentInterface
 
-      name "Meetings"
       description "A meetings component of a participatory space."
 
       connection :meetings, MeetingType.connection_type do

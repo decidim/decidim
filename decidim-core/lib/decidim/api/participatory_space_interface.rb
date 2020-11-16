@@ -2,28 +2,30 @@
 
 module Decidim
   module Core
-    ParticipatorySpaceInterface = GraphQL::InterfaceType.define do
-      name "ParticipatorySpaceInterface"
-      description "The interface that all participatory spaces should implement."
 
-      field :id, !types.ID, "The participatory space's unique ID"
+    module ParticipatorySpaceInterface
+      include GraphQL::Schema::Interface
+      # name "ParticipatorySpaceInterface"
+      # description "The interface that all participatory spaces should implement."
 
-      field :title, !TranslatedFieldType, "The name of this participatory space."
+      field :id, GraphQL::Types::ID, null: false, description: "The participatory space's unique ID"
 
-      field :type, !types.String do
-        description "The participatory space class name. i.e. Decidim::ParticipatoryProcess"
-        resolve ->(participatory_space, _args, _ctx) {
+      field :title, TranslatedFieldType, null: false, description: "The name of this participatory space."
+
+      field :type, String, null: false, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess" do
+        def resolve(participatory_space, _args, _ctx)
           participatory_space.class.name
-        }
+        end
       end
 
       field :components,
-            type: types[ComponentInterface],
-            description: "Lists the components this space contains.",
-            function: ComponentListHelper.new
+            type: [ComponentInterface],
+            null: true,
+            description: "Lists the components this space contains."
+      # , function: Decidim::Core::ComponentListHelper.new
 
-      field :stats, types[Decidim::Core::StatisticType] do
-        resolve ->(participatory_space, _args, _ctx) {
+      field :stats, Decidim::Core::StatisticType, null: true do
+        def resolve(participatory_space:, _args:, _ctx:)
           return if participatory_space.respond_to?(:show_statistics) && !participatory_space.show_statistics
 
           published_components = Component.where(participatory_space: participatory_space).published
@@ -33,10 +35,12 @@ module Decidim
           end
 
           stats.reject(&:empty?)
-        }
+        end
       end
 
-      resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
+      def resolve_type(object:, _ctx:)
+        object.manifest.query_type.constantize
+      end
     end
 
     class ComponentListHelper < ComponentList

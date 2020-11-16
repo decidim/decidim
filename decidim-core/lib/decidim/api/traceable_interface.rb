@@ -3,12 +3,19 @@
 module Decidim
   module Core
     # This interface represents an traceable object.
-    TraceableInterface = GraphQL::InterfaceType.define do
-      name "TraceableInterface"
+    #
+    module TraceableInterface
+      include GraphQL::Schema::Interface
+      # name "TraceableInterface"
       description "An interface that can be used in objects with traceability (versions)"
 
-      field :versionsCount, !types.Int, "Total number of versions", property: :versions_count
-      field :versions, !types[Decidim::Core::TraceVersionType], "This object's versions"
+      field :versionsCount, Int, null: false, description: "Total number of versions"
+      field :versions, [Decidim::Core::TraceVersionType],  null: false, description: "This object's versions"
+
+
+      def versionsCount
+        object.versions_count
+      end
     end
   end
 end

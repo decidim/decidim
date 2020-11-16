@@ -3,7 +3,7 @@
 module Decidim
   module Debates
     DebatesType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Debates"
       description "A debates component of a participatory space."

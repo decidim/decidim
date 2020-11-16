@@ -7,9 +7,7 @@ module Decidim
       graphql_name "UserGroup"
       description "A user group"
 
-      interfaces [
-        -> { Decidim::Core::AuthorInterface }
-      ]
+      implements Decidim::Core::AuthorInterface
 
       field :id, ID, null: false, description: "The user group's id"
       field :name, String, null: false, description: "The user group's name"

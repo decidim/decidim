@@ -4,11 +4,10 @@ module Decidim
   module Conferences
     # This type represents a conference.
     ConferenceType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface }
-      ]
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Conference"
       description "A conference"
@@ -20,8 +19,6 @@ module Decidim
       field :hashtag, types.String, "The hashtag for this conference"
       field :slogan, Decidim::Core::TranslatedFieldType, "The slogan of the conference"
       field :location, types.String, "The location of this conference"
-      field :createdAt, Decidim::Core::DateTimeType, "The time this conference was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this conference was updated", property: :updated_at
       field :publishedAt, Decidim::Core::DateTimeType, "The time this conference was published", property: :published_at
       field :reference, types.String, "Reference prefix for this conference"
 

@@ -6,7 +6,7 @@ module Decidim
       graphql_name "Pages"
       description "A pages component of a participatory space."
 
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       field :pages, PageType.connection_type, null: false
       field(:page, PageType, null: true ) do

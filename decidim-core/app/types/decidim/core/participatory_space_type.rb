@@ -4,7 +4,7 @@ module Decidim
   module Core
     class ParticipatorySpaceType  < GraphQL::Schema::Object
       graphql_name "ParticipatorySpace"
-      interfaces [-> { ParticipatorySpaceInterface }]
+      implements ParticipatorySpaceInterface
 
       description "A participatory space"
     end

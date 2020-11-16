@@ -2,20 +2,19 @@
 
 module Decidim
   module Meetings
-    MeetingType = GraphQL::ObjectType.define do
-      name "Meeting"
+
+    class MeetingType < GraphQL::Schema::Object
+      graphql_name "Meeting"
       description "A meeting"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::CategorizableInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::TimestampsInterface },
-        -> { Decidim::Meetings::ServicesInterface },
-        -> { Decidim::Meetings::LinkedResourcesInterface },
-        -> { Decidim::Forms::QuestionnaireEntityInterface }
-      ]
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TimestampsInterface
+      implements Decidim::Meetings::ServicesInterface
+      implements Decidim::Meetings::LinkedResourcesInterface
+      implements Decidim::Forms::QuestionnaireEntityInterface
 
       field :id, !types.ID, "ID of this meeting"
       field :reference, !types.String, "Reference for this meeting"

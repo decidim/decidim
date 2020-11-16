@@ -4,9 +4,8 @@ module Decidim
   module Consultations
     # This type represents a consultation.
     ConsultationType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface }
-      ]
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Consultation"
       description "A consultation"
@@ -14,8 +13,6 @@ module Decidim
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this consultation"
       field :description, Decidim::Core::TranslatedFieldType, "The description of this consultation"
       field :slug, !types.String, "Slug of this consultation"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this consultation was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this consultation was updated", property: :updated_at
       field :publishedAt, !Decidim::Core::DateTimeType, "The time this consultation was published", property: :published_at
 
       field :introductoryVideoUrl, types.String, "The introductory video url for this consultation", property: :introductory_video_url

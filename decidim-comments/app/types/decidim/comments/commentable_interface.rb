@@ -2,60 +2,58 @@
 
 module Decidim
   module Comments
-    # This interface represents a commentable object.
-    CommentableInterface = GraphQL::InterfaceType.define do
-      name "CommentableInterface"
-      description "A commentable interface"
+    module CommentableInterface
+      include GraphQL::Schema::Interface
+      # name "CommentableInterface"
+      # description "A commentable interface"
 
-      field :id, !types.ID, "The commentable's ID"
-
-      field :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`" do
-        property :commentable_type
-      end
-
-      field :acceptsNewComments, !types.Boolean, "Whether the object can have new comments or not" do
-        property :accepts_new_comments?
-      end
-
-      field :commentsHaveAlignment, !types.Boolean, "Whether the object comments have alignment or not" do
-        property :comments_have_alignment?
-      end
-
-      field :commentsHaveVotes, !types.Boolean, "Whether the object comments have votes or not" do
-        property :comments_have_votes?
-      end
-
-      field :comments do
-        type !types[!CommentType]
-
+      field :id, types.ID, null: false, description: "The commentable's ID"
+      field :type, String, null: false, description: "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
+      field :acceptsNewComments, Boolean,  null: false, description: "Whether the object can have new comments or not"
+      field :commentsHaveAlignment, Boolean, null: false, description: "Whether the object comments have alignment or not"
+      field :commentsHaveVotes, Boolean, null: false, description: "Whether the object comments have votes or not"
+      field :comments, [CommentType], null: false do
         argument :orderBy, types.String, "Order the comments"
         argument :singleCommentId, types.String, "ID of the single comment to look at"
 
-        resolve lambda { |obj, args, _ctx|
-          SortedComments.for(obj, order_by: args[:orderBy], id: args[:singleCommentId])
-        }
+        def resolve(object:, _args:, context:)
+          SortedComments.for(object, order_by: args[:orderBy], id: args[:singleCommentId])
+        end
+      end
+      field :totalCommentsCount, Int, null: false, description: "The number of comments in all levels this resource holds" do
+        def resolve(object:, _args:, context:)
+          object.comments_count
+        end
       end
 
-      field :totalCommentsCount do
-        type !types.Int
-        description "The number of comments in all levels this resource holds"
-
-        resolve lambda { |obj, _args, _ctx|
-          obj.comments_count
-        }
+      field :hasComments, Boolean, null: false, description:  "Check if the commentable has comments" do
+        def resolve(object:, _args:, context:)
+          object.comment_threads.size.positive?
+        end
       end
 
-      field :hasComments, !types.Boolean, "Check if the commentable has comments" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.comment_threads.size.positive?
-        }
+      field :userAllowedToComment, Boolean, null: false, description:  "Check if the current user can comment" do
+        def resolve(object:, _args:, context:)
+          object.commentable? && object.user_allowed_to_comment?(context[:current_user])
+        end
       end
 
-      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
-        }
+      def commentsHaveAlignment
+        object.comments_have_alignment?
       end
+
+      def commentsHaveVotes
+        object.comments_have_votes?
+      end
+
+      def type
+        object.commentable_type
+      end
+
+      def acceptsNewComments
+        object.accepts_new_comments?
+      end
+
     end
   end
 end

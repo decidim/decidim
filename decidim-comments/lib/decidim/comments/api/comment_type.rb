@@ -7,9 +7,7 @@ module Decidim
       name "Comment"
       description "A comment"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface }
-      ]
+      implements Decidim::Comments::CommentableInterface
 
       field :author, !Decidim::Core::AuthorInterface, "The resource author" do
         resolve lambda { |obj, _args, _ctx|

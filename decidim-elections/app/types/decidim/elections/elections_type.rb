@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     ElectionsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+      implements Decidim::Core::ComponentInterface
 
       name "Elections"
       description "An elections component of a participatory space."

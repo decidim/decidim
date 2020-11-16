@@ -5,10 +5,9 @@ module Decidim
     class SurveyType < GraphQL::Schema::Object
       graphql_name "Survey"
       description "A survey"
+      implements Decidim::Core::TimestampsInterface
 
       field :id, ID, null: false , description: "The internal ID for this survey"
-      field :createdAt, Decidim::Core::DateTimeType, null: true , description:"The time this survey was created"
-      field :updatedAt, Decidim::Core::DateTimeType, null: true , description:"The time this survey was updated"
       field :questionnaire, Decidim::Forms::QuestionnaireType,null: true , description: "The questionnaire for this survey"
 
       def createdAt

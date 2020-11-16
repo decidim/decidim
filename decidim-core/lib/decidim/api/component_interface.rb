@@ -2,19 +2,26 @@
 
 module Decidim
   module Core
-    ComponentInterface = GraphQL::InterfaceType.define do
-      name "ComponentInterface"
-      description "This interface is implemented by all components that belong into a Participatory Space"
+    module ComponentInterface
+      include GraphQL::Schema::Interface
 
-      field :id, !types.ID, "The Component's unique ID"
+      # name "ComponentInterface"
+      # description "This interface is implemented by all components that belong into a Participatory Space"
 
-      field :name, !TranslatedFieldType, "The name of this component."
+      field :id, GraphQL::Types::ID, null: false, description: "The Component's unique ID"
+      field :name, TranslatedFieldType, null: false, description: "The name of this component."
+      field :weight, GraphQL::Types::Int, null: false, description: "The weight of the component"
+      field :participatorySpace, ParticipatorySpaceType, null: false, description: "The participatory space in which this component belongs to."
 
-      field :weight, !types.Int, "The weight of the component"
+      def participatorySpace
+        object.participatory_space
+      end
 
-      field :participatorySpace, !ParticipatorySpaceType, "The participatory space in which this component belongs to.", property: :participatory_space
-
-      resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
+      definition_methods do
+        def resolve_type(object, context)
+          object.manifest.query_type.constantize
+        end
+      end
     end
   end
 end

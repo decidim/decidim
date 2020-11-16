@@ -7,20 +7,17 @@ module Decidim
     class ParticipatoryProcessType  < GraphQL::Schema::Object
       graphql_name "ParticipatoryProcess"
 
-      interfaces [
-        -> { Decidim::Core::ParticipatorySpaceInterface },
-        -> { Decidim::Core::ParticipatorySpaceResourceableInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface }
-      ]
+      implements Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::ParticipatorySpaceResourceableInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TimestampsInterface
 
       description "A participatory process"
 
       field :id, ID, null: false, description: "The internal ID for this participatory process"
       field :slug, String, null: false
       field :hashtag, String, null: true, description: "The hashtag for this participatory process"
-      field :createdAt, Decidim::Core::DateTimeType, null: true, description: "The time this page was created"
-      field :updatedAt, Decidim::Core::DateTimeType,null: true, description: "The time this page was updated"
       field :publishedAt, Decidim::Core::DateTimeType, null: true, description: "The time this page was published"
       field :subtitle, Decidim::Core::TranslatedFieldType, null: false, description: "The subtitle of this participatory process."
       field :description, Decidim::Core::TranslatedFieldType, null: false, description: "The description of this participatory process."

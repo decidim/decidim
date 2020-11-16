@@ -6,9 +6,7 @@ module Decidim
       name "Question"
       description "A question in a questionnaire"
 
-      interfaces [
-        -> { Decidim::Core::TimestampsInterface }
-      ]
+      implements Decidim::Core::TimestampsInterface
 
       field :id, !types.ID, "ID of this question"
       field :body, !Decidim::Core::TranslatedFieldType, "What is being asked in this question."

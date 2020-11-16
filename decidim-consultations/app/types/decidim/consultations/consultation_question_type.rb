@@ -4,21 +4,19 @@ module Decidim
   module Consultations
     # This type represents a consultation.
     ConsultationQuestionType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Comments::CommentableInterface }
-      ]
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "ConsultationQuestion"
       description "A consultation question"
+
 
       field :id, !types.ID, "Internal ID of the question"
       field :title, Decidim::Core::TranslatedFieldType, "Title of the question"
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this question"
       field :slug, !types.String, "Slug of the question"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this question was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this question was updated", property: :updated_at
       field :publishedAt, !Decidim::Core::DateTimeType, "The time this question was published", property: :published_at
 
       field :components, types[Decidim::Core::ComponentInterface] do

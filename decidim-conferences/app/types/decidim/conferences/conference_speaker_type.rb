@@ -6,6 +6,7 @@ module Decidim
     ConferenceSpeakerType = GraphQL::ObjectType.define do
       name "ConferenceSpeaker"
       description "A conference speaker"
+      implements Decidim::Core::TimestampsInterface
 
       field :id, !types.ID, "Internal ID of the speaker"
       field :fullName, types.String, "Full name of the speaker", property: :full_name
@@ -17,8 +18,6 @@ module Decidim
       field :avatar, types.String, "Avatar of the speaker"
       field :user, Decidim::Core::UserType, "Decidim user corresponding to this speaker", property: :user
 
-      field :createdAt, Decidim::Core::DateTimeType, "The time this member was created ", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this member was updated", property: :updated_at
     end
   end
 end

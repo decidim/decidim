@@ -4,10 +4,9 @@ module Decidim
   module Elections
     # This type represents an Election.
     ElectionType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::TraceableInterface }
-      ]
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::TimestampsInterface
 
       name "Election"
       description "An election"
@@ -17,8 +16,6 @@ module Decidim
       field :description, !Decidim::Core::TranslatedFieldType, "The description for this election"
       field :startTime, !Decidim::Core::DateTimeType, "The start time for this election", property: :start_time
       field :endTime, !Decidim::Core::DateTimeType, "The end time for this election", property: :end_time
-      field :createdAt, Decidim::Core::DateTimeType, "When this election was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this election was updated", property: :updated_at
       field :publishedAt, Decidim::Core::DateTimeType, "When this election was published", property: :published_at
 
       field :questions, !types[Decidim::Elections::ElectionQuestionType], "The questions for this election"
