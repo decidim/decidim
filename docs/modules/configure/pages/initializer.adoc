@@ -4,7 +4,7 @@ There are some settings that you'll need to change in the `config/initializer/de
 
 This is where you can change the behaviour defined on the diferent components (most notably from `decidim-core`).
 
-After making changes to this file you'll need to also restart your application server. 
+After making changes to this file you'll need to also restart your application server.
 
 == Application name
 
@@ -105,7 +105,7 @@ Custom resource reference generator method. See the See xref:admin:system_panel.
 
 == Currency unit
 
-Allows to change the currency unit, for instance to `$`. By default is `€`. 
+Allows to change the currency unit, for instance to `$`. By default is `€`.
 
 [source,ruby]
 ....
@@ -119,10 +119,10 @@ Allows to change the currency unit, for instance to `$`. By default is `€`.
 
 Defines the quality of image uploads after processing. Image uploads are
 processed by Decidim, this value helps reduce the size of the files.
-  
+
 [source,ruby]
 ....
-  
+
   config.image_uploader_quality = 80
 ....
 
@@ -148,7 +148,7 @@ Mind that this depends on your environment, for instance you could also need to 
   config.maximum_avatar_size = 10.megabytes
 ....
 
-== Reports 
+== Reports
 
 The number of reports which a resource can receive before hiding it.
 

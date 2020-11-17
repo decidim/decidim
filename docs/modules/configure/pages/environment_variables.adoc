@@ -1,4 +1,4 @@
-= Environment Variables 
+= Environment Variables
 
 We try to let most of the things defined through Environment Variables, as https://12factor.net/config[12factor applications's config]. You'll need to configure through your hosting provider (for example in Heroku), through a gem like `figaro` or through docker-compose `env_file`.
 

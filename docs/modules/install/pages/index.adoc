@@ -53,8 +53,8 @@ This will also create some default data so you can start testing the app:
 
 |Decidim::System::Admin
 |system@example.org
-|decidim123456 
-|/system 
+|decidim123456
+|/system
 |Administrator for the multitenant
 
 |Decidim::User
@@ -94,7 +94,7 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 [source,console]
 ----
-# Remove expired data portability files 
+# Remove expired data portability files
 0 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:delete_data_portability_files
 
 # Compute metrics

@@ -1,4 +1,4 @@
-= Changelog 
+= Changelog
 
 For keeping track of changes we like the rules of https://keepachangelog.com/en/1.0.0/[Keep A Changelog].
 

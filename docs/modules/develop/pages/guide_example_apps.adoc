@@ -1,4 +1,4 @@
-= Example Apps 
+= Example Apps
 
 If you have worked in the past with Ruby on Rails, you'll notice quickly that Decidim is *not* your typical Ruby on Rails Vanilla App.
 
@@ -15,7 +15,7 @@ This means that:
 
 == Examples
 
-Here are some good examples of what can be done with Decidim: 
+Here are some good examples of what can be done with Decidim:
 
 === Helsinki OmaStadi
 
@@ -25,13 +25,13 @@ See the source code at https://github.com/City-of-Helsinki/decidim-helsinki/
 
 image::helsinki.png[Helsinki OmaStadi]
 
-Some highlights: 
+Some highlights:
 
 * They have their https://github.com/City-of-Helsinki/decidim-helsinki/blob/b9a09e570eb6090dee93f2ee73b5951882c74755/Gemfile[Gemfile] with lots of modules with their own code. Some of them are also in ruybgems (like `decidim-access_requests`, `decidim-antivirus`, `decidim-mpassid`, `decidim-process_groups_content_block`, `decidim-suomifi`, `decidim-term_customizer`), others are only in Github (`decidim-accountability_simple`, `decidim-apiauth`, `decidim-combined_budgeting`, `decidim-plans`, `decidim-redirects`). They even use a module made by other organization in the community (`decidim-budgets_enhanced`)
 * They have their UI customized to their needs. See the https://github.com/City-of-Helsinki/decidim-helsinki/tree/a7396a312cc04198654a86d66c2a7de556c212af/app/assets/stylesheets[CSS] and https://github.com/City-of-Helsinki/decidim-helsinki/tree/a7396a312cc04198654a86d66c2a7de556c212af/app/views[HTML (views)].
 * They have an awesome READE explaining how it works and what changes have made.
 
-=== Decidim Barcelona 
+=== Decidim Barcelona
 
 See the website at https://decidim.barcelona
 
@@ -39,7 +39,7 @@ See the source code at https://github.com/AjuntamentdeBarcelona/decidim-barcelon
 
 image::barcelona.png[Decidim Barcelona]
 
-Some highlights: 
+Some highlights:
 
 * In the https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/4d88ec6106c5f29354a1fd069dd50d7d123e492a/Gemfile#L7[Gemfile], they use some modules that are local only, as folders in the repository using the "path" Bundler directive: `decidim-dataviz`, `decidim-stats`, `decidim-valid_auth`
 * For the footer (FEDER logo notice) they use the `deface` gem instead of overriding. See https://github.com/AjuntamentdeBarcelona/decidim-barcelona/pull/300[Pull Request].
@@ -52,7 +52,7 @@ See the source code at https://github.com/Platoniq/decidim-indices
 
 image::indices.png[inDICEs]
 
-Some highlights: 
+Some highlights:
 
 * In the https://github.com/Platoniq/decidim-indices/blob/ef6d862900ed440aa5ee94c9618648650f3342c6/Gemfile#L13[Gemfile], they use modules on their git repositories: `decidim-decidim_awesome`, `decidim-direct_verifications`, `decidim-notify` and `decidim-term_customizer`.
 * They have their UI customized to their needs.

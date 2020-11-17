@@ -1,8 +1,8 @@
 = Configuring
 
-Decidim is a Ruby on Rails library, and as such we try to follow their conventions. Please read https://guides.rubyonrails.org/configuring.html[Configuring Rails Applications]. 
+Decidim is a Ruby on Rails library, and as such we try to follow their conventions. Please read https://guides.rubyonrails.org/configuring.html[Configuring Rails Applications].
 
-Just as a reminder, these files are important: 
+Just as a reminder, these files are important:
 
 * config/database.yml
 * config/secrets.yml

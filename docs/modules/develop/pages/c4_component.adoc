@@ -49,7 +49,7 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(proposals, assemblies, "Mounts in")
     ' Rel(proposals, participatory_processes, "Mounts in")
     ' Rel(proposals, conferences, "Mounts in")
-' 
+'
     ' Rel(consultations, comments, "Consumes")
     ' Rel(initiatives, comments, "Consumes")
     ' Rel(accountability, comments, "Consumes")
@@ -60,7 +60,7 @@ Container_Boundary(web_app, "Web Application") {
     ' Rel(debates, comments, "Consumes")
     ' Rel(proposals, comments, "Consumes")
     ' Rel(blogs, comments, "Consumes")
-' 
+'
     ' Rel(consultations, admin, "Managed in")
     ' Rel(initiatives, admin, "Managed in")
     ' Rel(accountability, admin, "Managed in")
