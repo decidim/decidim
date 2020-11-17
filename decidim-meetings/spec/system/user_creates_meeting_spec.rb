@@ -189,7 +189,6 @@ describe "User creates meeting", type: :system do
               select "On this platform", from: :meeting_registration_type
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
-              check :meeting_registrations_enabled
               select translated(category.name), from: :meeting_decidim_category_id
               scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
               select user_group.name, from: :meeting_user_group_id
@@ -246,13 +245,11 @@ describe "User creates meeting", type: :system do
             expect(page).to have_field("Registration URL")
             expect(page).to have_no_field("Available slots")
             expect(page).to have_no_field("Registration terms")
-            expect(page).to have_no_field("Registrations enabled")
 
             select "On this platform", from: :meeting_registration_type
             expect(page).to have_field("Available slots")
             expect(page).to have_no_field("Registration URL")
             expect(page).to have_field("Registration terms")
-            expect(page).to have_field("Registrations enabled")
           end
         end
 

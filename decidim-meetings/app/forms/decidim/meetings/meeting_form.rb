@@ -137,6 +137,10 @@ module Decidim
           ]
         end
       end
+
+      def registrations_enabled
+        on_this_platform?
+      end
     end
   end
 end

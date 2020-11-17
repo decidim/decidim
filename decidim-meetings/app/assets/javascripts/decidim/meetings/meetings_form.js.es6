@@ -31,7 +31,6 @@
 
       const $meetingRegistrationType = $form.find("#meeting_registration_type");
       const $meetingRegistrationTerms = $form.find("#meeting_registration_terms");
-      const $meetingRegistrationEnabled = $form.find("#meeting_registrations_enabled");
       const $meetingRegistrationUrl = $form.find("#meeting_registration_url");
       const $meetingAvailableSlots = $form.find("#meeting_available_slots");
 
@@ -39,13 +38,11 @@
         const $target = $(ev.target);
         toggleDependsOnSelect($target, $meetingAvailableSlots, "on_this_platform");
         toggleDependsOnSelect($target, $meetingRegistrationTerms, "on_this_platform");
-        toggleDependsOnSelect($target, $meetingRegistrationEnabled, "on_this_platform");
         toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
       });
 
       toggleDependsOnSelect($meetingRegistrationType, $meetingAvailableSlots, "on_this_platform");
       toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationTerms, "on_this_platform");
-      toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationEnabled, "on_this_platform");
       toggleDependsOnSelect($meetingRegistrationType, $meetingRegistrationUrl, "on_different_platform");
     }
   });
