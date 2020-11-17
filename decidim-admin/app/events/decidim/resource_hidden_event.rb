@@ -1,8 +1,8 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ReportCreatedEvent < Decidim::Events::SimpleEvent
-    i18n_attributes :resource_path, :report_reason, :resource_type
+  class ResourceHiddenEvent < Decidim::Events::SimpleEvent
+    i18n_attributes :resource_path, :report_reasons, :resource_type
 
     def resource_path
       @resource.reported_content_url
@@ -12,8 +12,10 @@ module Decidim
       @resource.reported_content_url
     end
 
-    def report_reason
-      I18n.t("decidim.admin.moderations.report.reasons.#{extra["report_reason"]}").downcase
+    def report_reasons
+      extra["report_reasons"].map do |reason|
+        I18n.t("decidim.admin.moderations.report.reasons.#{reason}").downcase
+      end.join(", ")
     end
 
     def resource_title
