@@ -140,7 +140,6 @@ pt:
             one: "%{count} eleição"
             other: "%{count} eleições"
         show:
-          back: Todas as eleições
           preview: Pré-visualizar
           vote: Voto
           voting_period_status:

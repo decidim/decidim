@@ -20,7 +20,6 @@ ru:
         other: Голосов
   decidim:
     comments:
-      comments: Комментарии
       last_activity:
         new_comment_at_html: "<span>Новый комментарий в %{link}</span>"
       votes:
@@ -71,7 +70,6 @@ ru:
         blocked_comments_for_user_warning: Сейчас вам недоступно комментирование, но вы можете прочесть предыдущие комментарии.
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
-        title: "%{count} комментариев"
     events:
       comments:
         comment_by_followed_user:

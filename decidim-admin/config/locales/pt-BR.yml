@@ -59,7 +59,6 @@ pt:
         primary_color: Primário
         reference_prefix: Prefixo de referência
         secondary_color: Secundário
-        show_statistics: Exibir estatisticas
         success_color: Sucesso
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
@@ -471,7 +470,6 @@ pt:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Ocorreu um erro ao atualizar essa organização.
@@ -678,7 +676,6 @@ pt:
           fields:
             hidden_at: Escondido em
             report_count: Contagem
-            reportable: Reportable
             reported_content_url: URL de conteúdo relatado
             reports: Denúncias
             visit_url: URL de visita

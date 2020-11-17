@@ -179,7 +179,6 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         show:
-          back: Wszystkie wybory
           preview: Podgląd
           vote: Głosuj
           voting_period_status:

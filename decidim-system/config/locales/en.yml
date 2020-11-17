@@ -8,6 +8,13 @@ en:
         organization_name: Organization
         organization_url: Organization URL
         redirect_uri: Redirect URI
+      organization:
+        address: SMTP hostname
+        from_email: Email address
+        from_label: Label
+        password: Password
+        port: Port
+        user_name: Username
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME types
@@ -154,8 +161,10 @@ en:
             api_key: API key
             api_secret: API secret
         smtp_settings:
+          fieldsets:
+            sender: Sender
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the ''from_email'' as label'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@example.org>". Leave blank to use the ''Email address'' as label'
           placeholder:
             from_email: your-organization@example.org
             from_label: your-organization-name

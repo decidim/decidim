@@ -63,9 +63,9 @@ module Decidim
     def retrieve_organization(resource)
       if @declared_fields[:organization_id].present?
         organization_id = read_field(resource, @declared_fields, :organization_id)
-        Decidim::Organization.find(organization_id)
+        Decidim::Organization.find_by(id: organization_id)
       else
-        participatory_space(resource).organization
+        participatory_space(resource)&.organization
       end
     end
 
@@ -128,7 +128,7 @@ module Decidim
 
       content = Array.wrap(content).collect do |item|
         text = if item.is_a?(Hash)
-                 item.dig(locale).presence || item.dig("machine_translations", locale) || ""
+                 item[locale].presence || item.dig("machine_translations", locale) || ""
                else
                  item
                end

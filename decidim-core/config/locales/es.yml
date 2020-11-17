@@ -129,7 +129,6 @@ es:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} ha invitado a %{resource_name} como participante privada"
-        create_via_csv: "%{user_name} ha invitado a %{resource_name} como participante privada"
         delete: "%{user_name} ha eliminado %{resource_name} como participante privada"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -918,8 +917,6 @@ es:
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
-      download:
-        csv: Descargar datos (csv)
       followers:
         description: Número de participantes que siguen este espacio de participación
         object: seguidoras
@@ -1061,6 +1058,7 @@ es:
           error: Se ha producido un error al aceptar los Términos y Condiciones.
           success: '¡Estupendo! Has aceptado los Términos y Condiciones.'
         form:
+          agreement: Estoy de acuerdo con estos términos
           legend: Acepto los Términos y Condiciones de uso
         refuse:
           modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{data_portability_path}">descargar tus datos</a> y / o <a href="%{delete_path}">eliminar tu cuenta</a>.
@@ -1120,7 +1118,6 @@ es:
         date: Reportado el
         details: Detalles
         hello: Hola %{name},
-        manage_moderations: Gestiona moderaciones
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>

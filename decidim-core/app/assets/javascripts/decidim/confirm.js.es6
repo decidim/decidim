@@ -109,11 +109,12 @@
           ) {
             exports.$(element).parents("form").submit();
           } else {
-            let newEv = ev;
+            let origEv = ev.originalEvent || ev;
+            let newEv = origEv;
             if (typeof Event === "function") {
               // Clone the event because otherwise some click events may not
               // work properly when re-dispatched.
-              newEv = new ev.constructor(ev.type, ev);
+              newEv = new origEv.constructor(origEv.type, origEv);
             }
             ev.target.dispatchEvent(newEv);
           }

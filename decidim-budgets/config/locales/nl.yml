@@ -134,10 +134,15 @@ nl:
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
           title: Bevestig de stem
         budget_excess:
+          budget_excess:
+            description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je voorkeuren.
+            title: Maximum budget overschreden
           close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als u wilt, kunt u een project verwijderen dat u al hebt geselecteerd om toe te voegen of uw stem te maken met uw voorkeuren.
+          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je eigen voorkeuren.
           ok: OK
-          title: Maximum budget overschreden
+          projects_excess:
+            description: Dit project overschrijdt het maximum aantal projecten en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je eigen voorkeuren.
+            title: Maximum aantal projecten overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
           assigned: 'Toegewezen:'
@@ -145,9 +150,23 @@ nl:
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
-          description_minimum_projects_rule: Voor welke projecten moeten we volgens u de begroting uittrekken? Selecteer ten minste %{minimum_number} projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          minimum_projects_rule:
+            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.
+            instruction: "<li>Kies minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.</li>"
+          projects_rule:
+            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.
+            instruction: "<li>Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.</li>"
+          projects_rule_maximum_only:
+            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.
+            instruction: "<li>Selecteer maximum %{maximum_number} project(en) en geef zo je voorkeur voor het budget door.</li>"
+          rules:
+            title: Budget regels
           title: U bepaalt het budget
+          total_budget: Totale budget
+          total_projects: Totaal aantal stemmen
+          vote_threshold_percent_rule:
+            description: Voor welke projecten vind jij dat we budget moeten vrijmaken? Wijs ten minste %{minimum_budget} toe aan de projecten die jij wil en geef zo je voorkeur voor het budget door.
+            instruction: "<li>Wijs minstens %{minimum_budget} toe aan de projecten die je wil en geef zo je voorkeur voor het budget door.</li>"
         count:
           projects_count:
             one: 1 project
@@ -182,7 +201,7 @@ nl:
           votes:
             one: stem
             other: stemmen
-          you_voted: Je hebt gestemd
+          you_voted: Je stemde hiervoor
         project_budget_button:
           add: Voeg toe aan je stem
           add_descriptive: Voeg project %{resource_name} toe aan uw stem
@@ -208,14 +227,16 @@ nl:
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina
-            resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
             title: Titel
             total_budget: Totale budget
             vote_minimum_budget_projects_number: Minimaal aantal projecten om te stemmen
             vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
+            vote_rule_selected_projects_enabled: 'Activeer regel: er moet over een minimum en een maximum aantal projecten gestemd worden'
             vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
+            vote_selected_projects_maximum: Minimaal aantal te selecteren projecten
+            vote_selected_projects_minimum: Minimaal aantal te selecteren projecten
             vote_threshold_percent: Percentage van het budget dat bereikt moet worden om te kunnen stemmen
             workflow: Workflow
             workflow_choices:
@@ -250,4 +271,3 @@ nl:
         project_proposal: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen
-  total_budget: Totale begroting

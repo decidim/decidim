@@ -88,14 +88,6 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when default_locale is missing" do
-        let(:default_locale) { nil }
-
-        before do
-          it { is_expected.to validate_inclusion_of(:default_locale).in_array(available_locales) }
-        end
-      end
-
       context "when reference_prefix is missing" do
         let(:reference_prefix) { nil }
 
@@ -116,14 +108,6 @@ module Decidim
         end
 
         it { is_expected.to be_invalid }
-      end
-
-      context "when default_locale is not an available locale" do
-        let!(:default_locale) { :de }
-
-        before do
-          it { is_expected.to validate_inclusion_of(:default_locale).in_array(available_locales) }
-        end
       end
     end
   end

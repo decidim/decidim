@@ -59,7 +59,6 @@ id:
         primary_color: Utama
         reference_prefix: Awalan referensi
         secondary_color: Sekunder
-        show_statistics: Tampilkan statistik
         success_color: Keberhasilan
         tos_version: Versi persyaratan layanan
         twitter_handler: Penangan Twitter
@@ -471,7 +470,6 @@ id:
           instagram: Instagram
           social_handlers: Sosial
           twitter: Kericau
-          url: Url
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.
@@ -678,7 +676,6 @@ id:
           fields:
             hidden_at: Tersembunyi di
             report_count: Menghitung
-            reportable: Dapat dilaporkan
             reported_content_url: URL konten yang dilaporkan
             reports: Laporan
             visit_url: Kunjungi URL

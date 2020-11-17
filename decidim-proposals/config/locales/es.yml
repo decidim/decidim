@@ -380,9 +380,7 @@ es:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Sube un documento de menos de 2 Mb, cada una de las secciones (hasta 3 niveles de profundidad) se convertirán en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: Añadir documento
             upload_document: Subir documento
           publish:
@@ -722,8 +720,13 @@ es:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
         edit:
+          add_documents: Documentos
+          add_images: Archivo
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
+          delete_document: Borrar Documento
+          delete_image: Borrar imagen
+          gallery_legend: "(Opcional) Añadir una imagen a la tarjeta de propuesta"
           select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta

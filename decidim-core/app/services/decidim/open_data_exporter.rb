@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "zip"
+
 module Decidim
   # Public: It generates a ZIP file with Open Data CSV files ready
   # to be uploaded somewhere so users can download an organization

@@ -356,9 +356,7 @@ it:
           new_import:
             accepted_mime_types:
               md: .md
-              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:
@@ -698,8 +696,13 @@ it:
             one: "%{count} proposta"
             other: "%{count} proposte"
         edit:
+          add_documents: Documenti
+          add_images: File
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
+          delete_document: Elimina Documento
+          delete_image: Elimina Immagine
+          gallery_legend: "(Facoltativo) Aggiungi un'immagine alla scheda proposta"
           select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta

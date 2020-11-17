@@ -15,14 +15,6 @@ gl:
           online: OnLine
         state: Estado
         title: Título
-      initiative_author:
-        address: Enderezo
-        city: Cidade
-        id_document: DNI / NIE
-        name: Nome e apelidos
-        phone_number: Número de teléfono
-        post_code: Código postal
-        province: Provincia
       initiatives_committee_member:
         user: Membro do comité
       initiatives_type:
@@ -249,14 +241,12 @@ gl:
         fill_data:
           back: De volta
           continue: Continuar
-          fill_data_help: "<ul> <li>Revise o contido da túa iniciativa. ¿É fácil de entender o teu título? ¿Ten claro o obxectivo da túa iniciativa?</li> <li>Debes escoller o tipo de sinatura. En persoa, en liña ou unha combinación de ambos</li> <li>Cal é o ámbito xeográfico da iniciativa? Cidade, barrio?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Máis información)"
           select_scope: Seleccione un alcance
         finish:
           back: De volta
           back_to_initiatives: Volver a iniciativas
-          callout_text: Parabéns! A túa iniciativa cidadá creouse con éxito.
           go_to_my_initiatives: Vaia ás miñas iniciativas
           more_information: "(Máis información)"
         finish_help:
@@ -273,14 +263,12 @@ gl:
           more_information: "(Máis información)"
         promotal_committee:
           back: De volta
-          individual_help_text: Este tipo de iniciativa cidadá require unha Comisión de Fomento composta por polo menos %{committee_size} persoas (testemuñas). Debes compartir a seguinte ligazón coas outras persoas que forman parte desta iniciativa. Cando os teus contactos reciban esta ligazón terán que seguir os pasos indicados.
           more_information: "(Máis información)"
         select_initiative_type:
           back: De volta
           choose_html: Quero crear un <strong>%{title}</strong>
           more_information: "(Máis información)"
           select: Quero promocionar esta iniciativa
-          select_initiative_type_help: As iniciativas cidadás son un medio polo cal a cidadanía pode intervir para que o Concello poida realizar accións en defensa do interese xeral que se atopan dentro das competencias municipais. ¿Que iniciativa desexas lanzar?
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Ligazón para convidar persoas que formarán parte do comité promotor
@@ -375,9 +363,7 @@ gl:
             validating: Esta proposta está a ser avaliada
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
         show:
-          any_vote_method: Esta iniciativa cidadá recolle soporte en liña e cara a cara.
           follow_description: Recibir unha notificación cando hai noticias nesta iniciativa
-          offline_method: Esta iniciativa cidadá só recolle apoios cara a cara.
         signatures_count:
           one: " sinatura"
           other: " sinaturas"

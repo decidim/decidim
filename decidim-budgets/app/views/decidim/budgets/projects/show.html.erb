@@ -19,10 +19,12 @@ edit_link(
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
 
-  <%= link_to resource_locator(budget).path(filter_link_params), class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".view_all_projects") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to resource_locator(budget).path(filter_link_params), class: "muted-link" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".view_all_projects") %>
+    <% end %>
+  </div>
   <h2 class="heading2"><%= translated_attribute project.title %></h2>
 </div>
 <div class="row">

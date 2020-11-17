@@ -59,7 +59,6 @@ gl:
         primary_color: Primaria
         reference_prefix: Prefijo de referencia
         secondary_color: Secundaria
-        show_statistics: Amosar estatísticas
         success_color: Éxito
         tos_version: Versión de condicións de servizo
         twitter_handler: Xestor de Twitter
@@ -471,7 +470,6 @@ gl:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Produciuse un erro ao actualizar esta organización.
@@ -678,7 +676,6 @@ gl:
           fields:
             hidden_at: Oculto en
             report_count: Conde
-            reportable: Reportable
             reported_content_url: URL de contido reportado
             reports: Informes
             visit_url: Visita o URL

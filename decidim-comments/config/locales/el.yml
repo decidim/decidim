@@ -16,7 +16,6 @@ el:
         other: Ψήφοι
   decidim:
     comments:
-      comments: Σχόλια
       comments_count: Αριθμός σχολίων
       last_activity:
         new_comment_at_html: "<span>Νέο σχόλιο στο %{link}</span>"
@@ -75,7 +74,6 @@ el:
         loading: Φόρτωση σχολίων...
         single_comment_warning: Μπορείτε να δείτε τα υπόλοιπα σχόλια <a href="%{url}">εδώ</a>.
         single_comment_warning_title: Βλέπετε ένα μόνο σχόλιο
-        title: "%{count} σχόλια"
       down_vote_button:
         text: Δεν συμφωνώ με αυτό το σχόλιο
       up_vote_button:

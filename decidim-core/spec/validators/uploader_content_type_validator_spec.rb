@@ -34,6 +34,7 @@ describe UploaderContentTypeValidator do
       end
 
       attr_accessor :file
+
       validates :file, uploader_content_type: true
       mount_uploader :file, mount_class
     end

@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
   s.license = "AGPL-3.0"
+  s.required_ruby_version = ">= 2.7"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
@@ -40,7 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency "geocoder", ">= 1.5"
   s.add_dependency "hashdiff", ">= 0.4.0", "< 2.0.0"
   s.add_dependency "invisible_captcha", "~> 0.12"
-  s.add_dependency "jquery-rails", "~> 4.3"
+  s.add_dependency "jquery-rails", "~> 4.4"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
   s.add_dependency "loofah", "~> 2.3.1"
   s.add_dependency "mini_magick", "~> 4.9"
@@ -63,7 +64,7 @@ Gem::Specification.new do |s|
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyzip", "~> 2.0"
-  s.add_dependency "sassc", "~> 2.3.0"
+  s.add_dependency "sassc", "~> 2.4.0"
   s.add_dependency "sassc-rails", "~> 2.1.2"
   s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"

@@ -336,8 +336,6 @@ sk:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p> <strong> Konzultácie </strong> sú priestor, ktorý vám umožňuje položiť jasnú otázku všetkým ľuďom, ktorí tvoria organizáciu, pozvať na účasť na konzultácii, vyvolať a nariadiť diskusiu za odpoveď alebo proti odpovedi. Keď príde dátum konzultácie, môžete hlasovať a zverejniť výsledky hlasovania. </p> <p> Príklady: Konzultácie sa môžu týkať takmer každého aspektu, ktorý ovplyvňuje organizáciu: niektoré príklady sa týkajú zmeny názvu alebo loga organizácie, ponúkajú niekoľko alternatív, rozhodujú o tom, či sa má organizácia stať súčasťou väčšej organizácie, potvrdia alebo odmietnu nový strategický plán alebo výsledok pracovnej skupiny alebo určia, či by na pozícii malo ostať maximálne 1, 2 alebo 3 mandátov. </p>\n"
-          page: "<p> <strong> Konzultácie </strong> sú priestor, ktorý vám umožňuje položiť jasnú otázku všetkým ľuďom, ktorí tvoria organizáciu, pozvať na účasť na konzultácii, vyvolať a nariadiť diskusiu za odpoveď alebo proti odpovedi. Keď príde dátum konzultácie, môžete hlasovať a zverejniť výsledky hlasovania. </p> <p> Príklady: Konzultácie sa môžu týkať takmer každého aspektu, ktorý ovplyvňuje organizáciu: niektoré príklady sa týkajú zmeny názvu alebo loga organizácie, ponúkajú niekoľko alternatív, rozhodujú o tom, či sa má organizácia stať súčasťou väčšej organizácie, potvrdia alebo odmietnu nový strategický plán alebo výsledok pracovnej skupiny alebo určia, či by na pozícii malo ostať maximálne 1, 2 alebo 3 mandátov. </p>\n"
           title: Čo sú konzultácie?
     menu:
       consultations: Konzultácie

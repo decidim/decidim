@@ -29,9 +29,7 @@ lv:
         title: Nosaukums
         transparent: Caurskatāms
       minutes:
-        audio_url: Audio URL
         description: Apraksts
-        video_url: Video URL
         visible: Ir redzams
     errors:
       models:
@@ -240,7 +238,6 @@ lv:
           form:
             address_help: 'Adresi Geocoder izmanto atrašanās vietas noteikšanai'
             location_help: 'Atrašanās vieta: ziņojums, kas paredzēts lietotājiem, norādot tikšanās vietu'
-            location_hints_help: 'Norādījumi par atrašanās vietu: papildu informācija. Piemērs: ēkas pirmais stāvs'
           index:
             title: Sanāksmes
           new:

@@ -3,6 +3,8 @@ it:
     attributes:
       answer:
         body: Risposta
+        choices: Scelte
+        selected_choices: Scelte selezionate
       question:
         max_choices: Numero massimo di scelte
         question_type: Tipo
@@ -76,7 +78,6 @@ it:
             collapse: Comprimi tutte le domande
             expand: Espandi tutte le domande
             preview: Anteprima
-            title: Modificare il modulo
             unpublished_warning: Il modulo non è pubblicato. Puoi modificare le sue domande, ma in questo modo cancellerai le risposte correnti.
           matrix_row:
             matrix_row: Riga
@@ -103,6 +104,7 @@ it:
             up: Su
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
+            success: Modulo salvato correttamente.
       errors:
         answer:
           body: Il corpo non può essere vuoto

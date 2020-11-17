@@ -4,9 +4,11 @@ require "spec_helper"
 
 describe "Admin manages elections", type: :system do
   let(:election) { create :election, :upcoming, :published, component: current_component }
+  let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
+
   before do
     election
     switch_to_host(organization.host)
@@ -15,6 +17,10 @@ describe "Admin manages elections", type: :system do
   end
 
   it_behaves_like "manage announcements"
+
+  it_behaves_like "manage questionnaires" do
+    let(:election) { create :election, :ongoing, :published, component: current_component }
+  end
 
   describe "admin form" do
     before { click_on "New Election" }
@@ -184,5 +190,13 @@ describe "Admin manages elections", type: :system do
         end
       end
     end
+  end
+
+  def questionnaire_edit_path
+    Decidim::EngineRouter.admin_proxy(current_component).edit_feedback_form_path(id: election.id)
+  end
+
+  def questionnaire_public_path
+    Decidim::EngineRouter.main_proxy(current_component).election_feedback_path(election_id: election.id)
   end
 end

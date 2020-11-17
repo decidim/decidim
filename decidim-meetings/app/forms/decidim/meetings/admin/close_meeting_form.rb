@@ -28,10 +28,10 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim.find_resource_manifest(:proposals)
-                                .try(:resource_scope, current_component)
-                                &.where(id: proposal_ids)
-                                &.order(title: :asc)
+          @proposals = Decidim.find_resource_manifest(:proposals)
+                              .try(:resource_scope, current_component)
+                              &.where(id: proposal_ids)
+                              &.order(title: :asc)
         end
       end
     end

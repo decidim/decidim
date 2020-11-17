@@ -29,9 +29,7 @@ id:
         title: Judul
         transparent: Transparan
       minutes:
-        audio_url: Url audio
         description: Deskripsi
-        video_url: Url video
         visible: Terlihat
     errors:
       models:

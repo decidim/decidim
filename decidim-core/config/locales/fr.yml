@@ -152,6 +152,8 @@ fr:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
+      user_moderation:
+        unreport: "%{user_name} a annulé le signalement de %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>CONDITIONS D'UTILISATION ADMINISTRATEUR</h2><p>Nous espérons que vous avez reçu les instructions de l'administrateur système de la plateforme. Ils se résument généralement à ces trois choses :</p><ol><li>Respecter la vie privée des autres.</li><li>Réfléchissez avant de cliquer.</li><li>Un grand pouvoir implique de grandes responsabilités.</li></ol>"
     alert:
@@ -603,6 +605,12 @@ fr:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Votre %{resource_type}</a> a été signalé comme "%{report_reason}". Un administrateur le vérifiera sous peu.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur du contenu signalé.
+          email_subject: Votre %{resource_type} a été signalé
+          notification_title: <a href="%{resource_path}">Votre %{resource_type}</a> a été signalé comme "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez :'
         email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -917,7 +925,7 @@ fr:
           error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
       download:
-        csv: Données de téléchargement (csv)
+        csv: Télécharger les données (CSV)
       followers:
         description: Nombre d'utilisateurs qui suivent cet espace de participation
         object: suiveurs
@@ -1119,7 +1127,6 @@ fr:
         date: Signalé le
         details: Détails
         hello: Bonjour %{name},
-        manage_moderations: Gérer les modérations
         participatory_space: Espace participatif
         reason: Raison
         report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
@@ -1195,6 +1202,15 @@ fr:
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un contenu inapproprié
+      flag_user_modal:
+        already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
+        close: Clore
+        description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
+        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        offensive: Contient des propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
+        report: Signalement
+        spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
+        title: Signaler un utilisateur inapproprié
       floating_help:
         close: Fermer l'aide
         help: Aidez-moi
@@ -1270,6 +1286,13 @@ fr:
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
+    user_report_mailer:
+      notify:
+        body_1: L'utilisateur %{user} a été signalé par %{token}
+        body_2: 'Motif : %{reason}'
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour %{admin},
+        subject: Un nouvel utilisateur a été signalé dans %{organization_name}
     version:
       show:
         back_to_resource: Revenir en arrière

@@ -29,9 +29,7 @@ module Decidim
       query = query.where(user: options[:user]) if options[:user]
       query = query.where(resource_type: options[:resource_name]) if options[:resource_name]
 
-      query = filter_follows(query)
-
-      query
+      filter_follows(query)
     end
 
     # Overwrites the default Searchlight run method since we want to return

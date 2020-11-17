@@ -724,8 +724,6 @@ pt:
           send: Enviar
           title: Comece uma conversa
     metrics:
-      download:
-        csv: Download de dados (csv)
       followers:
         description: Número de usuários que seguem este espaço de participação
         object: seguidores
@@ -899,7 +897,6 @@ pt:
         subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
         report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
         subject: Um recurso foi relatado
     reports:

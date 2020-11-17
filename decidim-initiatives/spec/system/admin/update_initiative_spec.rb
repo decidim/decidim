@@ -30,7 +30,7 @@ describe "User prints the initiative", type: :system do
           page.find(".action-icon--edit").click
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
-            select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
+            select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate
@@ -111,7 +111,7 @@ describe "User prints the initiative", type: :system do
           page.find(".action-icon--edit").click
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
-            select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
+            select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate
@@ -133,7 +133,7 @@ describe "User prints the initiative", type: :system do
           page.find(".action-icon--edit").click
           within ".edit_initiative" do
             select translated(other_initiatives_type.title), from: "initiative_type_id"
-            select translated(other_initiatives_type_scope), from: "initiative_decidim_scope_id"
+            select translated(other_initiatives_type_scope.scope.name), from: "initiative_decidim_scope_id"
             select "In-person", from: "initiative_signature_type"
           end
           submit_and_validate

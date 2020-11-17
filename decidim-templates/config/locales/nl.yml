@@ -48,7 +48,6 @@ nl:
           form:
             save: Opslaan
             template_title: Template informatie
-            title: Vragenlijst
           index:
             confirm_delete: Weet je zeker dat je dit template wilt verwijderen?
             title: Vragenlijst templates

@@ -3,6 +3,8 @@ fi:
     attributes:
       answer:
         body: Vastaus
+        choices: Vastausvaihtoehdot
+        selected_choices: Valitut vastausvaihtoehdot
       question:
         max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
@@ -76,7 +78,7 @@ fi:
             collapse: Sulje kaikki kysymykset
             expand: Avaa kaikki kysymykset
             preview: Esikatsele
-            title: Muokkaa lomaketta
+            title: Muokkaa lomaketta kyselylle %{questionnaire_for}
             unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta muokkaaminen poistaa nykyiset vastaukset.
           matrix_row:
             matrix_row: Rivi

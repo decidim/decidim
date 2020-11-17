@@ -27,6 +27,9 @@ fr:
         user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
+        cost: Coût
+        cost_report: Rapport de coût
+        execution_period: Période d'exécution
       proposals_copy:
         copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée vers la fonctionnalité actuelle et que cette action ne peut pas être inversée.
         origin_component_id: Fonctionnalité dont on veut copier les propositions
@@ -380,9 +383,9 @@ fr:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
+              odt: ODT
             bottom_hint: "(Vous pourrez prévisualiser et trier les sections de document)"
-            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux sera analysée en propositions. Les formats supportés sont: %{valid_mime_types}'
+            document_legend: 'Ajoutez un document inférieur à 2 Mo. Chaque section jusqu’à 3 niveaux de titre sera convertie en propositions. Les formats supportés sont : %{valid_mime_types}'
             title: Ajouter un document
             upload_document: Télécharger le document
           publish:
@@ -722,8 +725,13 @@ fr:
             one: "%{count} proposition"
             other: "%{count} propositions"
         edit:
+          add_documents: Documents
+          add_images: Fichier
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          delete_document: Supprimer le document
+          delete_image: Supprimer l'image
+          gallery_legend: "(Facultatif) Ajouter une image à la carte de proposition"
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition

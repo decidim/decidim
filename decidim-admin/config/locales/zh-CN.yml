@@ -1,0 +1,841 @@
+zh-CN:
+  activemodel:
+    attributes:
+      area:
+        area_type: 区域类型
+        name: 名称
+        organization: 组织
+      area_type:
+        name: 名称
+        organization: 组织
+        plural: 复数
+      attachment:
+        attachment_collection_id: 文件夹
+        description: 描述
+        file: 文件
+        title: 附件或图像名称
+      attachment_collection:
+        description: 描述
+        name: 名称
+      category:
+        description: 描述
+        name: 名称
+        parent_id: 父级
+      component:
+        name: 名称
+        published_at: 发布于
+        weight: 权重
+      id: ID
+      newsletter:
+        body: 正文内容
+        subject: 议 题
+      organization:
+        alert_color: 警告
+        badges_enabled: 启用徽章
+        comments_max_length: 评论最大长度 (默认值留0)
+        cta_button_path: 调用动作按钮路径
+        cta_button_text: 呼叫动作按钮文本
+        customize_welcome_notification: 自定义欢迎通知
+        default_locale: 默认区域设置
+        description: 描述
+        enable_omnipresent_banner: Show omnipresent banner
+        facebook_handler: Facebook 处理程序
+        favicon: 图标
+        from: 来自电子邮件地址
+        github_handler: GitHub handler
+        header_snippets: 头部代码片段
+        highlight_alternative_color: 高亮显示选项
+        highlight_color: 高亮
+        highlighted_content_banner_action_subtitle: 动作按钮字幕
+        highlighted_content_banner_action_title: 动作按钮标题
+        highlighted_content_banner_action_url: 动作按钮 URL
+        highlighted_content_banner_enabled: 显示突出显示的内容素材
+        highlighted_content_banner_image: 图片
+        highlighted_content_banner_short_description: 简短描述
+        highlighted_content_banner_title: 标题
+        instagram_handler: Instagram 处理器
+        logo: 徽标
+        machine_translation_display_priority: 机器翻译显示优先级
+        machine_translation_display_priority_original: 原始文本优先于
+        machine_translation_display_priority_translation: 先翻译文本
+        name: 名称
+        official_img_footer: 官方标志页脚
+        official_img_header: 官方标志标题
+        official_url: 官方组织 URL
+        omnipresent_banner_short_description: 简短描述
+        omnipresent_banner_title: 标题
+        omnipresent_banner_url: 网址
+        primary_color: 主要的
+        reference_prefix: 参考前缀
+        rich_text_editor_in_public_views: 为参与者启用富文本编辑器
+        secondary_color: 次要文件
+        send_welcome_notification: 发送欢迎通知
+        success_color: 成功
+        time_zone: 时区
+        tos_version: 服务条款版本
+        twitter_handler: Twitter handler
+        user_groups_enabled: 启用组
+        warning_color: 警告
+        welcome_notification_body: 欢迎通知机构
+        welcome_notification_subject: 欢迎通知主题
+        youtube_handler: YouTube 处理程序
+      scope:
+        code: 代码
+        name: 名称
+        organization: 组织
+        parent_id: 父级
+        scope_type: 范围类型
+        scope_type_id: 范围类型
+      scope_type:
+        name: 名称
+        organization: 组织
+        plural: 复数
+      static_page:
+        changed_notably: 出现了明显的变化。
+        content: 内容
+        organization: 组织
+        show_in_footer: 在页脚显示
+        slug: URL 名称
+        title: 标题
+        weight: 权重
+      static_page_topic:
+        description: 描述
+        show_in_footer: 在页脚显示
+        title: 标题
+        weight: 权重
+      user_group_csv_verification:
+        file: 文件
+    errors:
+      models:
+        organization:
+          attributes:
+            official_img_footer:
+              allowed_file_content_types: 无效的图像文件
+            official_img_header:
+              allowed_file_content_types: 无效的图像文件
+  activerecord:
+    attributes:
+      decidim/static_page:
+        content: 内容
+        slug: URL 名称
+        title: 标题
+      doorkeeper/application:
+        authorize_url: 授权 URL
+        client_id: 客户端ID
+        client_secret: 客户端密钥
+        organization_name: 组织名称
+        organization_url: 组织网址
+        redirect_uri: 重定向 URI
+        site: 网址
+  decidim:
+    admin:
+      actions:
+        add: 添加
+        browse: 浏览
+        export: 导出
+        manage: 管理
+        new: 新建 %{name}
+        per_page: 每页
+        permissions: 权限
+        reject: 拒绝
+        share: 分享
+        verify: 验证
+      admin_terms_of_use:
+        accept:
+          error: 接受管理员使用条款时出错。
+          success: 太棒了！您已经接受了管理员使用条款。
+        actions:
+          accept: 我同意这个管理条款
+          are_you_sure: 您确定要拒绝管理员条款吗？
+          refuse: 拒绝管理条款
+          title: 同意使用条款
+        required_review:
+          alert: '要求：审查我们的管理员使用条件'
+          callout: 请花一点时间来审阅管理员使用条款。否则您将无法管理平台。
+          cta: 现在审查它们。
+        title: 管理员使用条款
+      area_types:
+        create:
+          error: 创建新区域类型时出现问题。
+          success: 区域类型创建成功。
+        destroy:
+          success: 区域类型销毁成功
+        edit:
+          title: 编辑区域类型
+          update: 更新
+        new:
+          create: 创建区域类型
+          title: 新区域类型
+        update:
+          error: 更新区域类型时出现问题。
+          success: 区域类型更新成功
+      areas:
+        create:
+          error: 创建一个新区域时出现问题。
+          success: 区域创建成功。
+        destroy:
+          has_spaces: 区域有依赖空间，它不能有依赖关系才能被删除。
+          success: 已成功摧毁区域
+        edit:
+          title: 编辑区域
+          update: 更新
+        new:
+          create: 创建区域
+          title: 新建区域
+        no_areas: 无区域
+        update:
+          error: 更新这个区域时出现问题。
+          success: 区域更新成功
+      attachment_collections:
+        create:
+          error: 创建一个新文件夹时出现问题。
+          success: 文件夹创建成功。
+        destroy:
+          success: 文件夹已成功销毁。
+        edit:
+          title: 编辑文件夹
+          update: 更新
+        index:
+          attachment_collection_used: 无法删除此文件夹，因为它正在使用。
+          attachment_collections_title: 附件文件夹
+        new:
+          create: 创建
+          title: 新建文件夹
+        update:
+          error: 更新此文件夹时出现问题。
+          success: 文件夹更新成功。
+      attachments:
+        create:
+          error: 创建一个新附件时出现问题。
+          success: 附件创建成功。
+        destroy:
+          success: 附件已成功销毁。
+        edit:
+          title: 编辑附件
+          update: 更新
+        index:
+          attachments_title: 附件
+        new:
+          create: 创建附件
+          title: 新附件
+        update:
+          error: 更新此附件时出现问题。
+          success: 附件更新成功。
+      autocomplete:
+        no_results: 未找到结果
+        search_prompt: 输入至少三个字符进行搜索
+      categories:
+        create:
+          error: 创建此类别时出现问题。
+          success: 分类创建成功。
+        destroy:
+          error: 删除此类别时出错。请先删除任何子类别，请确保没有其他实体属于此类别，然后重试。
+          success: 类别删除成功。
+        edit:
+          title: 编辑类别
+          update: 更新
+        index:
+          categories_title: 类别管理
+          category_used: 无法删除此类别，因为它正在使用。
+        new:
+          create: 创建类别
+          title: 新类别
+        update:
+          error: 更新此类别时出现问题。
+          success: 类别更新成功。
+      component_permissions:
+        update:
+          error: 更新此组件的权限时出现问题。
+          success: 权限更新成功。
+      components:
+        create:
+          error: 创建此组件时出现问题。
+          success: 组件创建成功。
+        destroy:
+          error: 销毁此组件时出现问题。
+          success: 组件删除成功。
+        edit:
+          title: 编辑组件
+          update: 更新
+        form:
+          default_step_settings: 默认步骤设置
+          global_settings: 全局设置
+          step_settings: 步骤设置
+        index:
+          add: 添加组件
+          headers:
+            actions: 行动
+            name: 组件名称
+            scope: 组件范围
+            type: 组件类型
+        new:
+          add: 添加组件
+          title: '添加组件: %{name}'
+        publish:
+          success: 组件已成功发布。
+        title: 组件
+        unpublish:
+          success: 组件已成功取消发布。
+        update:
+          error: 更新此组件时出现问题。
+          success: 组件更新成功。
+      dashboard:
+        show:
+          view_more_logs: 查看更多日志
+          welcome: 欢迎来到Decidim管理面板
+      exports:
+        export_as: "%{name} 为 %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
+        notice: 您的导出正在进行。完成后您将收到一封电子邮件。
+      filters:
+        category_id_eq:
+          label: 类别
+        filter_label: 筛选器
+        officialized_at_null:
+          label: 状态
+          values:
+            'false': 已授权
+            'true': 未正式授权
+        private_space_eq:
+          label: 非公开的
+          values:
+            'false': 公开的
+            'true': 非公开的
+        published_at_null:
+          label: 已发布
+          values:
+            'false': 已发布
+            'true': 未发布
+        scope_id_eq:
+          label: 范围
+        search_label: 搜索
+        search_placeholder:
+          name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
+          title_cont: 按标题搜索 %{collection}。
+        state_eq:
+          label: 状态
+      help_sections:
+        error: 更新帮助部分时出错
+        form:
+          save: 保存
+        success: 帮助部分更新成功
+      impersonatable_users:
+        index:
+          filter:
+            all: 所有的
+            managed: 已管理
+            not_managed: 未管理
+          filter_by: 筛选方式
+          impersonate: 仿冒的
+          impersonate_new_managed_user: 管理新参与者
+          managed: 已管理
+          name: 名称
+          needs_authorization_warning: 您需要至少一个授权来启用此组织。
+          not_managed: 未管理
+          promote: 升级
+          search: 搜索
+          status: 状态
+          view_logs: 查看日志
+      impersonations:
+        close_session:
+          error: 在结束目前的参与人管理会议时遇到了问题。
+          success: 当前模拟会话已成功结束。
+        create:
+          error: 在管理参与者方面存在问题。
+          success: 管理参与者已成功创建。
+        form:
+          authorization_method: 授权方法
+          name: 名称
+          reason: 原因
+        new:
+          impersonate: 仿冒的
+          impersonate_existing_managed_user: 管理参与者 "%{name}"
+          impersonate_existing_user: 管理参与者 "%{name}"
+          impersonate_new_managed_user: 管理新参与者
+      logs:
+        logs_list:
+          no_logs_yet: 还没有日志
+      managed_users:
+        promotion:
+          error: 在促进管理下的参与者方面存在问题。
+          success: 管理下的参与者已经成功地得到提升。
+        promotions:
+          new:
+            explanation: 管理下的参与者可以提升到标准参与者。 这意味着他们将被邀请到应用程序中，您将无法再次管理他们。 邀请的参与者将收到一封电子邮件来接受您的邀请。
+            new_managed_user_promotion: 新管理的参与者促销活动
+            promote: 升级
+      menu:
+        admin_log: 管理员活动日志
+        admins: 管理员
+        appearance: 外观
+        area_types: 区域类型
+        areas: 地区
+        configuration: 配置
+        dashboard: 仪表板
+        help_sections: 帮助部分
+        homepage: 主页
+        impersonations: 影像
+        newsletters: 新闻通讯
+        participants: 参加者
+        scope_types: 范围类型
+        scopes: 范围
+        settings: 设置
+        static_pages: 页 次
+        user_groups: 群組
+        users: 参加者
+      metrics:
+        metrics:
+          see_more_metrics: 查看更多指标
+      models:
+        area:
+          fields:
+            area_type: 区域类型
+            name: 名称
+        area_type:
+          fields:
+            name: 名称
+            plural: 复数
+        attachment:
+          fields:
+            collection: 文件夹
+            content_type: 类型
+            file_size: 大小
+            title: 标题
+          name: 附文
+        attachment_collection:
+          name: 文件夹
+        category:
+          name: 类别
+        impersonation_log:
+          fields:
+            admin: 管理员
+            ended_at: 结束于
+            expired_at: 过期时间
+            reason: 原因
+            started_at: 开始于
+            user: 参与者
+        newsletter:
+          fields:
+            created_at: 创建于
+            progress: 进展情况
+            sent_at: 发送于
+            sent_to: 发送至
+            subject: 议 题
+          name: 通讯
+        participatory_space_private_user:
+          name: 参与性空间私人参与者
+        scope:
+          fields:
+            name: 名称
+            scope_type: 范围类型
+        scope_type:
+          fields:
+            name: 名称
+            plural: 复数
+        share_token:
+          fields:
+            created_at: 创建于
+            expires_at: 过期时间
+            last_used_at: 上次使用时间
+            times_used: 使用的时间
+            token: 令牌
+            user: 创建者
+        static_page:
+          fields:
+            created_at: 创建于
+            title: 标题
+        user:
+          fields:
+            created_at: 创建日期
+            email: 电子邮件地址
+            last_sign_in_at: 最后登录日期
+            name: 名称
+            role: 作用
+            roles:
+              admin: 管理员
+              user_manager: 参与者管理器
+          name: 参与者
+        user_group:
+          fields:
+            actions: 行动
+            created_at: 创建于
+            document_number: 文档编号
+            name: 名称
+            phone: 电话
+            state: 状态
+            users_count: 参与者数量
+      moderations:
+        index:
+          title: 版面
+        report:
+          reasons:
+            does_not_belong: 不属于哪个国家
+            offensive: 攻击性的
+            spam: 垃圾邮件
+      newsletter_templates:
+        index:
+          preview_template: 预览
+          title: 通讯模板
+          use_template: 使用此模板
+        show:
+          preview: '预览模板： %{template_name}'
+          use_template: 使用此模板
+      newsletters:
+        create:
+          error: 创建这份通讯时出现问题。
+          success: 通讯创建成功。请在发送前查看。
+        deliver:
+          error: 在传送这份通讯时遇到问题。
+          success: 通讯已成功发送。
+        destroy:
+          error_already_sent: '无法摧毁新闻通讯：它已经发送。'
+          success: 通讯已成功销毁。
+        edit:
+          save_and_preview: 保存并预览
+          title: 编辑通讯
+        index:
+          all: 所有的
+          all_users: '所有用户 '
+          and: '和 '
+          confirm_delete: 您确定要删除这个通讯吗？
+          followers: '关注者 '
+          has_been_sent_to: '已发送到： '
+          no_scopes: 无范围
+          not_sent: 未发送
+          participants: '参与者 '
+          segmented_to: '分段到 %{subject}： '
+          subscribed_count: '订阅者:'
+          title: 新闻通讯
+        new:
+          save: 保存
+          title: 新通讯
+        select_recipients_to_deliver:
+          all_spaces: 所有的
+          all_users_help: 向所有已确认的用户发送通讯。
+          confirm_deliver: 您确定要发送这个通讯吗？此操作不能撤消。
+          deliver: 发送通讯
+          followers_help: 发送通讯给所有已确认的用户，它们跟随列表中任何选定的参与空间。
+          none: 无
+          participants_help: 向参与名单中任何选定参与空间的所有经确认的用户发送通讯。
+          recipients_count: 这份通讯将发送给 <strong id='recipients_count'>%{count}</strong> 用户。
+          scopes_help: 发送通讯给在其帐户的“我的兴趣”设置中激活任何选定范围的用户。
+          select_scopes: 筛选已激活其账户中任何选定范围的用户。
+          select_spaces: 选择要断开通讯的空格
+          select_users: 选择您想要发送消息的用户
+          send_to_all_users: 发送给所有用户
+          send_to_followers: 发送给关注者
+          send_to_participants: 发送给参与者
+          title: 选择要交付的收件人
+          warning: "<strong>注意:</strong> 这份通讯将只发送给已激活 <em>我想在其通知设置中接收新闻简讯</em>。"
+        send:
+          no_recipients: 此选择没有收件人
+        show:
+          preview: 预览
+          select_recipients_to_deliver: 选择要交付的收件人
+          subject: 议 题
+        update:
+          error: 更新这份通讯时出现问题。
+          success: 通讯更新成功。请在发送前查看。
+      officializations:
+        create:
+          success: 参与者已成功正式化
+        destroy:
+          success: 参与者已成功取消授权
+        index:
+          actions: 行动
+          badge: 徽章
+          created_at: 创建于
+          name: 名称
+          nickname: 昵称
+          not_officialized: 未正式授权
+          officialize: 正式化
+          officialized: 已授权
+          reofficialize: 重新授权
+          show_email: 显示电子邮件地址
+          status: 状态
+          unofficialize: 充分化
+        new:
+          badge: 认证徽章
+          officialize: 正式化
+          title: 认证参与者 "%{name}"
+        show_email_modal:
+          close_modal: 关闭模式
+          description: 如果您需要直接联系参与者，您可以点击显示按钮查看电子邮件地址。此操作将被记录。
+          email_address: 电子邮件地址
+          full_name: 全名
+          hidden: hidden
+          show: 显示
+          title: 显示参与者电子邮件地址
+      organization:
+        edit:
+          title: 编辑组织
+          update: 更新
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          rich_text_editor_in_public_views_help: 在某些文本领域，参与者将能够通过使用丰富的文本编辑器插入一些HTML标签。
+          social_handlers: 社交活动
+          twitter: 推特
+          youtube: YouTube
+        update:
+          error: 更新这个组织时出现问题。
+          success: 组织更新成功。
+      organization_appearance:
+        edit:
+          update: 更新
+        form:
+          colors:
+            colors_title: 组织颜色
+            header_snippets_help: 使用此字段将物品添加到HTML头部。 最常见的用途是集成第三方服务，需要额外的 JavaScript 或 CSS 另外，您可以使用它添加额外的元标签到 HTML。 请注意，这只会在公开页面中提供，而不会在管理部分提供。
+          cta_button_path_help: '您可以覆盖主页链接中的通话动作按钮的位置。请使用部分路径，而不是这里的完整URL。 接受字母、 数字、 破折号和斜线，并且必须以字母开头。 “调用动作”按钮在主页的欢迎文本和描述之间显示。例如： %{url}'
+          cta_button_text_help: 您可以在主页中为您的组织中的每种可用语言覆盖“通话动作”按钮文本。 如果未设置，将使用默认值。 “通话动作”按钮显示在欢迎文本和描述之间的主页。
+          homepage_appearance_title: 编辑主页外观
+          homepage_highlighted_content_banner_title: 高亮的内容素材
+          images:
+            layout_appearance_title: 编辑布局外观
+            preview: 预览
+          omnipresent_banner_appearance_title: Edit omnipresent banner
+      organization_homepage:
+        edit:
+          active_content_blocks: 活动内容块
+          inactive_content_blocks: 非活动内容块
+      organization_homepage_content_blocks:
+        edit:
+          update: 更新
+      participatory_space_private_users:
+        create:
+          error: 在这种参与空间中添加私人参与者时出现了问题。
+          success: 参与性空间私人参与者访问成功创建。
+        destroy:
+          error: 删除这个参与空间的私人参与者时出错。
+          success: 参与性空间私人参与者访问成功被摧毁。
+        index:
+          title: 参与性空间私人参与者
+        new:
+          create: 创建
+          title: 新的参与性空间活动私人参与者。
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: 读取CSV文件时出现问题。
+          success: CSV 文件上传成功，我们正在向参与者发送邀请邮件。这可能需要一段时间。
+        new:
+          explanation: '上传您的 CSV 文件。 它必须在文件的第一列中包含两列电子邮件，文件的最后一列中的名字(电子邮件)， 您想要添加到参与性空间的用户，没有标题。 避免在用户名中使用无效字符，例如`<>?%&^*#@()[]=+:;"{}\|`。'
+          title: 上传您的 CSV 文件
+          upload: 上传
+      resource_permissions:
+        edit:
+          submit: 提交
+          title: 编辑权限
+        update:
+          success: 权限更新成功。
+      resources:
+        index:
+          headers:
+            scope: 范围
+      scope_types:
+        create:
+          error: 创建新的范围类型时出现问题。
+          success: 范围类型创建成功。
+        destroy:
+          success: 已成功销毁范围类型
+        edit:
+          title: 编辑范围类型
+          update: 更新
+        new:
+          create: 创建范围类型
+          title: 新建范围
+        update:
+          error: 更新这个范围类型时出现问题。
+          success: 范围类型更新成功
+      scopes:
+        create:
+          error: 创建新范围时出现问题。
+          success: 范围创建成功。
+        destroy:
+          success: 已成功摧毁范围
+        edit:
+          title: 编辑范围
+          update: 更新
+        new:
+          create: 创建范围
+          title: 新建范围
+        no_scopes: 没有此级别的范围。
+        update:
+          error: 更新这个范围时出现问题。
+          success: 范围已成功更新
+      share_tokens:
+        actions:
+          confirm_destroy: 您确定要删除此令牌吗？
+          destroy: 删除
+          share: 分享
+        destroy:
+          error: 摧毁令牌时出现问题。
+          success: 令牌已成功销毁。
+        share_tokens:
+          empty: 没有活动令牌
+          help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
+          title: 分享令牌
+      shared:
+        gallery:
+          add_images: 添加图像
+          delete_image: 删除图像
+          gallery_legend: 添加图片库 (可选)
+      static_page_topics:
+        create:
+          error: 创建一个新主题时出现问题。
+          success: 主题创建成功。
+        destroy:
+          success: 主题已成功删除
+        edit:
+          title: 编辑主题
+          update: 更新主题
+        new:
+          create: 创建主题
+          title: 新主题
+        update:
+          error: 更新这个主题时出现问题。
+          success: 主题更新成功
+      static_pages:
+        actions:
+          view: 查看公共页面
+        create:
+          error: 创建新页面时出现问题。
+          success: 页面创建成功。
+        destroy:
+          success: 页面已成功删除
+        edit:
+          changed_notably_help: 如果选中，将通知参与者接受新的条款和条件。
+          title: 编辑页面
+          update: 更新
+        form:
+          none: 无
+          slug_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。例如: %{url}'
+        index:
+          last_notable_change: 上一次值得注意的变化
+        new:
+          create: 创建页面
+          title: 新页面
+        topic:
+          destroy: 删除主题
+          edit: 编辑主题
+          empty: 此主题下没有页面
+          without_topic: 无主题页面
+        update:
+          error: 更新此页面时出现问题。
+          success: 页面更新成功
+      titles:
+        admin_log: 管理员日志
+        area_types: 区域类型
+        areas: 地区
+        authorization_workflows: 核查方法
+        dashboard: 仪表板
+        impersonatable_users: 可管理的参与者
+        impersonations: 参与者管理
+        metrics: 指标
+        participants: 参加者
+        scope_types: 范围类型
+        scopes: 范围
+        static_pages: 页 次
+        statistics: 活动
+        user_groups: 群組
+        users: 参加者
+      user_group:
+        csv_verify:
+          invalid: 读取CSV文件时出现问题。
+          success: CSV 文件上传成功，我们正在验证符合条件的组。这可能需要一段时间。
+        reject:
+          invalid: 拒绝这个组时出现问题。
+          success: 组成功拒绝
+        verify:
+          invalid: 验证此组时出现问题。
+          success: 组验证成功
+      user_groups:
+        index:
+          filter:
+            all: 所有的
+            pending: 待定
+            rejected: 已拒绝
+            verified: 已验证
+          filter_by: 筛选方式
+          search: 搜索
+          state:
+            pending: 待定
+            rejected: 已拒绝
+            verified: 已验证
+          verify_via_csv: 通过CSV验证
+      user_groups_csv_verifications:
+        new:
+          explanation: 上传您的 CSV 文件。它必须在文件的第一列中包含您组织中的群组的官方电子邮件，没有标题。 只有已确认其电子邮件并在CSV文件中出现电子邮件的组才会被验证。
+          title: 上传您的 CSV 文件
+          upload: 上传
+      users:
+        create:
+          error: 邀请此管理员时出现问题。
+          success: 参与者已成功邀请。
+        destroy:
+          error: 试图删除此管理员时出错。
+          success: 参与者不再是管理员。
+        form:
+          email: 电子邮件地址
+          name: 名称
+          role: 作用
+        new:
+          create: 邀请
+          title: 邀请参与者作为管理员
+      users_statistics:
+        users_count:
+          admins: 管理员
+          last_day: 最后一天
+          last_month: 上月
+          last_week: 上周
+          no_users_count_statistics_yet: 还没有用户统计信息
+          participants: 参加者
+      view_public_page: 查看公共页面
+    forms:
+      errors:
+        impersonate_user:
+          reason: 您需要在管理非管理参与者时提供一个原因
+    moderations:
+      actions:
+        hidden: Hidden
+        hide: 隐藏
+        not_hidden: 不隐藏
+        title: 行动
+        unhide: Unhide
+        unreport: 取消报告
+      admin:
+        reportable:
+          hide:
+            invalid: 隐藏资源时出现问题。
+            success: 资源已成功隐藏。
+          unhide:
+            invalid: 隐藏资源时出现问题。
+            success: 资源已成功取消隐藏。
+          unreport:
+            invalid: 出现了一个不报告资源的问题。
+            success: 资源已成功未报告。
+      models:
+        moderation:
+          fields:
+            hidden_at: 隐藏于
+            report_count: 计数
+            reported_content_url: 报告的内容 URL
+            reports: 报告
+            visit_url: 访问 URL
+  errors:
+    messages:
+      invalid_json: 无效的 JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: 新闻通讯
+        settings:
+          title: 设置
+        users:
+          title: 参加者

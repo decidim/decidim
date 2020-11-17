@@ -145,7 +145,6 @@ de:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
         show:
-          back: Alle Wahlen
           preview: Vorschau
           vote: Stimmen
           voting_period_status:
@@ -211,6 +210,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
           email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          elections_count: Wahlen
     participatory_processes:
       statistics:
         elections_count: Wahlen
