@@ -61,6 +61,11 @@ module Decidim::Admin
         expect(managed_user.reload.unconfirmed_email).to eq(email)
       end
 
+      it "update managed_user password" do
+        subject.call
+        expect(new_user.encrypted_password).to eq(managed_user.reload.encrypted_password)
+      end
+
       it "log transfer action" do
         expect { subject.call }.to change(Decidim::ActionLog, :count).by(1)
         log = Decidim::ActionLog.last

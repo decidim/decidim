@@ -23,7 +23,7 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
-          update_managed_user_email
+          update_managed_user
           mark_conflict_as_solved
           create_action_log
         end
@@ -47,9 +47,9 @@ module Decidim
         form.current_user
       end
 
-      def update_managed_user_email
+      def update_managed_user
         clean_email_and_delete_new_user if form.email == new_user.email
-        managed_user.update(email: form.email)
+        managed_user.update(email: form.email, encrypted_password: new_user.encrypted_password)
       end
 
       def clean_email_and_delete_new_user
