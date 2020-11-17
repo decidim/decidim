@@ -617,10 +617,12 @@ en:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
-          email_intro: An administrator removed <a href="%{resource_url}">your %{resource_type}</a> because it has been reported as %{report_reasons}.
+          email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.
           email_subject: Your %{resource_type} has been removed
-          notification_title: An administrator removed <a href="%{resource_url}">your %{resource_type}</a> because it has been reported as %{report_reasons}.
+          notification_title: |-
+            An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.

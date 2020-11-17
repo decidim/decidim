@@ -6,7 +6,7 @@ module Decidim
   describe ResourceHiddenEvent do
     include_context "when a simple event"
 
-    let(:comment) { create :comment }
+    let(:comment) { create :comment, body: { "en" => "a reported comment" } }
     let(:moderation) { create :moderation, reportable: comment }
     let(:report) { create :report, moderation: moderation }
     let(:resource) { comment }
@@ -16,10 +16,6 @@ module Decidim
     describe "notification_title" do
       it "includes the report reason" do
         expect(subject.notification_title).to include("spam")
-      end
-
-      it "includes the reportable link" do
-        expect(subject.notification_title).to include(comment.reported_content_url)
       end
     end
 
@@ -37,7 +33,13 @@ module Decidim
 
     describe "email_intro" do
       it "is generated correctly" do
-        expect(subject.email_intro).to eq("An administrator removed <a href=\"#{comment.reported_content_url}\">your comment</a> because it has been reported as spam.")
+        expect(subject.email_intro).to include("An administrator removed your comment because it has been reported as spam.")
+      end
+    end
+
+    describe "resource_text" do
+      it "is generated correctly" do
+        expect(subject.resource_text).to include("<i>#{comment.body["en"]}</i>")
       end
     end
   end
