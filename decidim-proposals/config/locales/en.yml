@@ -498,6 +498,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
             select_states: Check the status of the proposals to import
+            title: Import proposals
         proposals_merges:
           create:
             invalid: There was a problem merging the selected proposals.
