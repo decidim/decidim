@@ -2,16 +2,15 @@
 
 module Decidim
   module Initiatives
-    # This type represents a initiative committee member.
-    InitiativeCommitteeMemberType = GraphQL::ObjectType.define do
-      name "InitiativeCommitteeMemberType"
+    class InitiativeCommitteeMemberType < GraphQL::Schema::Object
+      graphql_name "InitiativeCommitteeMemberType"
       description "A initiative committee member"
       implements Decidim::Core::TimestampsInterface
 
-      field :id, !types.ID, "Internal ID for this member of the committee"
-      field :user, Decidim::Core::UserType, "The decidim user for this initiative committee member"
+      field :id, ID, null: false, description: "Internal ID for this member of the committee"
+      field :user, Decidim::Core::UserType, null: true, description: "The decidim user for this initiative committee member"
 
-      field :state, types.Int, "Type of the committee member"
+      field :state, Int, null: true, description: "Type of the committee member"
     end
   end
 end

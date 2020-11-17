@@ -7,14 +7,14 @@ module Decidim
       # name "CommentableInterface"
       # description "A commentable interface"
 
-      field :id, types.ID, null: false, description: "The commentable's ID"
+      field :id, ID, null: false, description: "The commentable's ID"
       field :type, String, null: false, description: "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
       field :acceptsNewComments, Boolean, null: false, description: "Whether the object can have new comments or not"
       field :commentsHaveAlignment, Boolean, null: false, description: "Whether the object comments have alignment or not"
       field :commentsHaveVotes, Boolean, null: false, description: "Whether the object comments have votes or not"
       field :comments, [CommentType], null: false do
-        argument :orderBy, types.String, "Order the comments"
-        argument :singleCommentId, types.String, "ID of the single comment to look at"
+        argument :orderBy, String, required: false, description: "Order the comments"
+        argument :singleCommentId, String, required: false, description: "ID of the single comment to look at"
 
         def resolve(object:, _args:, context:)
           SortedComments.for(object, order_by: args[:orderBy], id: args[:singleCommentId])

@@ -10,13 +10,6 @@ module Decidim
       field :id, ID, null: false, description: "The internal ID for this survey"
       field :questionnaire, Decidim::Forms::QuestionnaireType, null: true, description: "The questionnaire for this survey"
 
-      def createdAt
-        object.created_at
-      end
-
-      def updatedAt
-        object.updated_at
-      end
     end
   end
 end

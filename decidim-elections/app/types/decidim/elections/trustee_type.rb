@@ -3,15 +3,23 @@
 module Decidim
   module Elections
     # This type represents an election trustee.
-    TrusteeType = GraphQL::ObjectType.define do
+    class TrusteeType < GraphQL::Schema::Object
+      graphql_name "Trustee"
       implements Decidim::Core::TraceableInterface
 
-      name "Trustee"
       description "A trustee for an election"
 
-      field :id, !types.ID, "The internal ID of this trustee"
-      field :user, Decidim::Core::UserType, "The corresponding decidim user", property: :user
-      field :publicKey, types.String, "The public key of a trustee", property: :public_key
+      field :id, ID, null: false, description: "The internal ID of this trustee"
+      field :user, Decidim::Core::UserType, null: true, description: "The corresponding decidim user" do
+        def resolve(object:, _args:, context:)
+          object.user
+        end
+      end
+      field :publicKey, String, null: true, description: "The public key of a trustee" do
+        def resolve(object:, _args:, context:)
+          object.public_key
+        end
+      end
     end
   end
 end

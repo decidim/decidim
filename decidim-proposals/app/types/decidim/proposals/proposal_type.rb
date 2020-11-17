@@ -2,8 +2,8 @@
 
 module Decidim
   module Proposals
-    ProposalType = GraphQL::ObjectType.define do
-      name "Proposal"
+    class ProposalType < GraphQL::Schema::Object
+      graphql_name "Proposal"
       description "A proposal"
 
       implements Decidim::Comments::CommentableInterface
@@ -18,50 +18,60 @@ module Decidim
       implements Decidim::Core::EndorsableInterface
       implements Decidim::Core::TimestampsInterface
 
-      field :id, !types.ID
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this title"
-      field :body, Decidim::Core::TranslatedFieldType, "The description for this body"
-      field :address, types.String, "The physical address (location) of this proposal"
-      field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal" do
-        resolve ->(proposal, _args, _ctx) {
+      field :id, ID, null: false, description: "The internal ID of this proposal"
+      field :title, Decidim::Core::TranslatedFieldType, null: true, description:  "The title for this title"
+      field :body, Decidim::Core::TranslatedFieldType,null: true, description:  "The description for this body"
+      field :address, String, null: true, description:  "The physical address (location) of this proposal"
+      field :coordinates, Decidim::Core::CoordinatesType, null: true, description: "Physical coordinates for this proposal" do
+        def resolve(proposal, _args, _ctx)
           [proposal.latitude, proposal.longitude]
-        }
+        end
       end
-      field :reference, types.String, "This proposal's unique reference"
-      field :state, types.String, "The answer status in which proposal is in"
-      field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal"
+      field :reference, String, null: true, description:  "This proposal's unique reference"
+      field :state, String, null: true, description:  "The answer status in which proposal is in"
+      field :answer, Decidim::Core::TranslatedFieldType, null: true, description:  "The answer feedback for the status for this proposal"
 
-      field :answeredAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was answered"
-        property :answered_at
-      end
-
-      field :publishedAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was published"
-        property :published_at
+      field :answeredAt, Decidim::Core::DateTimeType, null: true, description: "The date and time this proposal was answered" do
+        def resolve(proposal, _, _)
+          proposal.answered_at
+        end
       end
 
-      field :participatoryTextLevel, types.String do
-        description "If it is a participatory text, the level indicates the type of paragraph"
-        property :participatory_text_level
+      field :publishedAt, Decidim::Core::DateTimeType , null: true, description: "The date and time this proposal was published" do
+        def resolve(proposal, _, _)
+          proposal.published_at
+        end
       end
-      field :position, types.Int, "Position of this proposal in the participatory text"
 
-      field :official, types.Boolean, "Whether this proposal is official or not", property: :official?
-      field :createdInMeeting, types.Boolean, "Whether this proposal comes from a meeting or not", property: :official_meeting?
-      field :meeting, Decidim::Meetings::MeetingType do
-        description "If the proposal comes from a meeting, the related meeting"
-        resolve ->(proposal, _, _) {
+      field :participatoryTextLevel, String, null: true, description: "If it is a participatory text, the level indicates the type of paragraph" do
+        def resolve(proposal, _, _)
+          proposal.participatory_text_level
+        end
+      end
+
+      field :position, Int, null: true, description: "Position of this proposal in the participatory text"
+
+      field :official, Boolean,null: true, description:  "Whether this proposal is official or not" do
+        def resolve(proposal, _, _)
+          proposal.official?
+        end
+      end
+      field :createdInMeeting, Boolean, null: true, description: "Whether this proposal comes from a meeting or not" do
+        def resolve(proposal, _, _)
+          proposal.official_meeting?
+        end
+      end
+      field :meeting, Decidim::Meetings::MeetingType ,null: true, description:  "If the proposal comes from a meeting, the related meeting" do
+        def resolve(proposal, _, _)
           proposal.authors.first if proposal.official_meeting?
-        }
+        end
       end
 
-      field :voteCount, types.Int do
-        description "The total amount of votes the proposal has received"
-        resolve ->(proposal, _args, _ctx) {
+      field :voteCount, Int, null: true, description: "The total amount of votes the proposal has received"do
+        def resolve(proposal, _args, _ctx)
           current_component = proposal.component
           proposal.proposal_votes_count unless current_component.current_settings.votes_hidden?
-        }
+        end
       end
     end
   end

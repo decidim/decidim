@@ -2,24 +2,36 @@
 
 module Decidim
   module Debates
-    DebateType = GraphQL::ObjectType.define do
+    class DebateType < GraphQL::Schema::Object
+      graphql_name "Debate"
       implements Decidim::Core::CategorizableInterface
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Core::TimestampsInterface
 
-      name "Debate"
       description "A debate"
 
-      field :id, !types.ID, "The internal ID for this debate"
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this debate"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for this debate"
-      field :instructions, Decidim::Core::TranslatedFieldType, "The instructions for this debate"
-      field :startTime, Decidim::Core::DateTimeType, "The start time for this debate", property: :start_time
-      field :endTime, Decidim::Core::DateTimeType, "The end time for this debate", property: :end_time
-      field :image, types.String, "The image of this debate"
-      field :informationUpdates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", property: :information_updates
-      field :reference, types.String, "The reference for this debate"
+      field :id, ID, null: false, description: "The internal ID for this debate"
+      field :title, Decidim::Core::TranslatedFieldType, null: true, description: "The title for this debate"
+      field :description, Decidim::Core::TranslatedFieldType, null: true, description: "The description for this debate"
+      field :instructions, Decidim::Core::TranslatedFieldType, null: true, description: "The instructions for this debate"
+      field :startTime, Decidim::Core::DateTimeType, null: true, description: "The start time for this debate" do
+        def resolve(object:, _args:, context:)
+          object.start_time
+        end
+      end
+      field :endTime, Decidim::Core::DateTimeType, null: true, description: "The end time for this debate" do
+        def resolve(object:, _args:, context:)
+          object.end_time
+        end
+      end
+      field :image, String, null: true, description: "The image of this debate"
+      field :informationUpdates, Decidim::Core::TranslatedFieldType, null: true, description: "The information updates for this debate" do
+        def resolve(object:, _args:, context:)
+          object.information_updates
+        end
+      end
+      field :reference, String, null: true, description: "The reference for this debate"
     end
   end
 end

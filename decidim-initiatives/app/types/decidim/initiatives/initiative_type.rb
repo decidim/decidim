@@ -2,8 +2,9 @@
 
 module Decidim
   module Initiatives
-    # This type represents a Initiative.
-    InitiativeType = GraphQL::ObjectType.define do
+    class InitiativeType < GraphQL::Schema::Object
+      graphql_name "Initiative"
+      # This type represents a Initiative.
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
@@ -11,29 +12,60 @@ module Decidim
       implements Decidim::Initiatives::InitiativeTypeInterface
       implements Decidim::Core::TimestampsInterface
 
-      name "Initiative"
       description "A initiative"
 
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this initiative."
-      field :slug, !types.String
-      field :hashtag, types.String, "The hashtag for this initiative"
-      field :publishedAt, !Decidim::Core::DateTimeType, "The time this initiative was published", property: :published_at
-      field :reference, !types.String, "Reference prefix for this initiative"
-      field :state, types.String, "Current status of the initiative"
-      field :signatureType, types.String, "Signature type of the initiative", property: :signature_type
-      field :signatureStartDate, !Decidim::Core::DateType, "The signature start date", property: :signature_start_date
-      field :signatureEndDate, !Decidim::Core::DateType, "The signature end date", property: :signature_end_date
-      field :offlineVotes, types.Int, "The number of offline votes in this initiative", property: :offline_votes
-      field :initiativeVotesCount, types.Int, "The number of votes in this initiative", property: :initiative_votes_count
-      field :initiativeSupportsCount, types.Int, "The number of supports in this initiative", property: :initiative_supports_count
-
-      field :author, !Decidim::Core::AuthorInterface, "The initiative author" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.user_group || obj.author
-        }
+      field :description, Decidim::Core::TranslatedFieldType, null: true, description: "The description of this initiative."
+      field :slug, String, null: false
+      field :hashtag, String, null: true, description: "The hashtag for this initiative"
+      field :publishedAt, Decidim::Core::DateTimeType, null: false, description: "The time this initiative was published" do
+        def resolve(object:, _args:, context:)
+          object.published_at
+        end
+      end
+      field :reference, String, null: false, description: "Reference prefix for this initiative"
+      field :state, String, null: true, description: "Current status of the initiative"
+      field :signatureType, String, null: true, description: "Signature type of the initiative" do
+        def resolve(object:, _args:, context:)
+          object.signature_type
+        end
+      end
+      field :signatureStartDate, Decidim::Core::DateType, null: false, description: "The signature start date" do
+        def resolve(object:, _args:, context:)
+          object.signature_start_date
+        end
+      end
+      field :signatureEndDate, Decidim::Core::DateType, null: false, description: "The signature end date" do
+        def resolve(object:, _args:, context:)
+          object.signature_end_date
+        end
+      end
+      field :offlineVotes, Int, null: true, description: "The number of offline votes in this initiative" do
+        def resolve(object:, _args:, context:)
+          object.offline_votes
+        end
+      end
+      field :initiativeVotesCount, Int, null: true, description: "The number of votes in this initiative" do
+        def resolve(object:, _args:, context:)
+          object.initiative_votes_count
+        end
+      end
+      field :initiativeSupportsCount, Int, null: true, description: "The number of supports in this initiative" do
+        def resolve(object:, _args:, context:)
+          object.initiative_supports_count
+        end
       end
 
-      field :committeeMembers, types[Decidim::Initiatives::InitiativeCommitteeMemberType], property: :committee_members
+      field :author, Decidim::Core::AuthorInterface, null: false, description: "The initiative author" do
+        def resolve(object:, _args:, context:)
+          object.user_group || object.author
+        end
+      end
+
+      field :committeeMembers, [Decidim::Initiatives::InitiativeCommitteeMemberType], null: true do
+        def resolve(object:, _args:, context:)
+          object.committee_members
+        end
+      end
     end
   end
 end

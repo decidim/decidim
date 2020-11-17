@@ -8,18 +8,18 @@ module Decidim
 
       description "A meetings component of a participatory space."
 
-      connection :meetings, MeetingType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  MeetingsTypeHelper.base_scope(component).includes(:component)
-                }
+      field :meetings, MeetingType.connection_type, null: false, connection: true do
+        def resolve(component, _args, _ctx)
+          MeetingsTypeHelper.base_scope(component).includes(:component)
+        end
       end
 
-      field(:meeting, MeetingType) do
-        argument :id, !types.ID
+      field(:meeting, MeetingType, null: false) do
+        argument :id, ID, required: true
 
-        resolve ->(component, args, _ctx) {
+        def resolve(component, args, _ctx)
           MeetingsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+        end
       end
     end
 

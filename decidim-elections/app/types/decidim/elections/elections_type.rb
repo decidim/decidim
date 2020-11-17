@@ -2,24 +2,23 @@
 
 module Decidim
   module Elections
-    ElectionsType = GraphQL::ObjectType.define do
+    class ElectionsType < GraphQL::Schema::Object
+      graphql_name "Elections"
       implements Decidim::Core::ComponentInterface
 
-      name "Elections"
       description "An elections component of a participatory space."
 
-      connection :elections, ElectionType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  ElectionsTypeHelper.base_scope(component).includes(:component)
-                }
+      field :elections, ElectionType.connection_type, null: false
+      field(:page, ElectionType, null: true) do
+        argument :id, ID, required: true
       end
 
-      field(:election, ElectionType) do
-        argument :id, !types.ID
+      def page(id:)
+        pages.find_by(id: id)
+      end
 
-        resolve ->(component, args, _ctx) {
-          ElectionsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def pages
+        ElectionsTypeHelper.base_scope(object).includes(:component)
       end
     end
 

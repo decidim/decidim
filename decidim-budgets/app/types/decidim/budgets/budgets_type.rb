@@ -2,24 +2,22 @@
 
 module Decidim
   module Budgets
-    BudgetsType = GraphQL::ObjectType.define do
+    class BudgetsType < GraphQL::Schema::Object
+      graphql_name "Budgets"
       implements Decidim::Core::ComponentInterface
-
-      name "Budgets"
       description "A budget component of a participatory space."
 
-      connection :budgets, BudgetType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  BudgetsTypeHelper.base_scope(component).includes(:component)
-                }
+      field :budgets, BudgetType.connection_type, null: false do
+        def resolve(component, _args, _ctx)
+          BudgetsTypeHelper.base_scope(component).includes(:component)
+        end
       end
+      field(:budget, BudgetType, null: true) do
+        argument :id, ID, required: true
 
-      field(:budget, BudgetType) do
-        argument :id, !types.ID
-
-        resolve ->(component, args, _ctx) {
+        def resolve(component, args, _ctx)
           BudgetsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+        end
       end
     end
 

@@ -7,12 +7,20 @@ module Decidim
       description "A meeting minutes"
       implements Decidim::Core::TimestampsInterface
 
-      field :id, !types.ID, "The ID for the minutes"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for the minutes"
-      field :videoUrl, types.String, "URL for the video of the session, if any", property: :video_url
-      field :audioUrl, types.String, "URL for the audio of the session, if any", property: :audio_url
+      field :id, ID, null: false, description:  "The ID for the minutes"
+      field :description, Decidim::Core::TranslatedFieldType,null: true , description:  "The description for the minutes"
+      field :videoUrl, String,null: true , description:  "URL for the video of the session, if any" do
+        def resolve(object:, _args:, context:)
+          object.video_url
+        end
+      end
+      field :audioUrl, String, null: true , description: "URL for the audio of the session, if any" do
+        def resolve(object:, _args:, context:)
+          object.audio_url
+        end
+      end
       # probably useful in the future, when handling user permissions
-      # field :visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
+      # field :visible, !Boolean, "Whether this minutes is public or not", property: :visible
     end
   end
 end

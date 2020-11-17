@@ -3,40 +3,84 @@
 module Decidim
   module Conferences
     # This type represents a conference.
-    ConferenceType = GraphQL::ObjectType.define do
+    class ConferenceType < GraphQL::Schema::Object
+      graphql_name "Conference"
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TimestampsInterface
 
-      name "Conference"
       description "A conference"
 
-      field :id, !types.ID, "Internal ID for this conference"
-      field :shortDescription, Decidim::Core::TranslatedFieldType, "The short description of this conference", property: :short_description
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this conference"
-      field :slug, types.String, "The slug of this conference"
-      field :hashtag, types.String, "The hashtag for this conference"
-      field :slogan, Decidim::Core::TranslatedFieldType, "The slogan of the conference"
-      field :location, types.String, "The location of this conference"
-      field :publishedAt, Decidim::Core::DateTimeType, "The time this conference was published", property: :published_at
-      field :reference, types.String, "Reference prefix for this conference"
+      field :id, ID, null: false, description: "Internal ID for this conference"
+      field :shortDescription, Decidim::Core::TranslatedFieldType, null: true, description: "The short description of this conference" do
+        def resolve(object:, arguments:, context:)
+          object.short_description
+        end
+      end
+      field :description, Decidim::Core::TranslatedFieldType, null: true, description: "The description of this conference"
+      field :slug, String, null: true, description: "The slug of this conference"
+      field :hashtag, String, null: true, description: "The hashtag for this conference"
+      field :slogan, Decidim::Core::TranslatedFieldType, null: true, description: "The slogan of the conference"
+      field :location, String, null: true, description: "The location of this conference"
+      field :publishedAt, Decidim::Core::DateTimeType, null: true, description: "The time this conference was published" do
+        def resolve(object:, arguments:, context:)
+          object.published_at
+        end
+      end
+      field :reference, String, null: true, description: "Reference prefix for this conference"
 
-      field :heroImage, types.String, "The hero image for this conference", property: :hero_image
-      field :bannerImage, types.String, "The banner image for this conference", property: :banner_image
-      field :promoted, types.Boolean, "If this conference is promoted (therefore in the homepage)"
-      field :objectives, Decidim::Core::TranslatedFieldType, "The objectives of the conference"
-      field :showStatistics, types.Boolean, "If this conference shows the statistics", property: :show_statistics
-      field :startDate, Decidim::Core::DateType, "The date this conference starts", property: :start_date
-      field :endDate, Decidim::Core::DateType, "The date this conference ends", property: :end_date
-      field :registrationsEnabled, types.Boolean, "If the registrations are enabled in this conference", property: :registrations_enabled
-      field :availableSlots, types.Int, "The number of available slots in this conference", property: :available_slots
-      field :registrationTerms, Decidim::Core::TranslatedFieldType, "The registration terms of this conference", property: :registration_terms
+      field :heroImage, String, null: true, description: "The hero image for this conference" do
+        def resolve(object:, arguments:, context:)
+          object.hero_image
+        end
+      end
+      field :bannerImage, String, null: true, description: "The banner image for this conference" do
+        def resolve(object:, arguments:, context:)
+          object.banner_image
+        end
+      end
+      field :promoted, Boolean, null: true, description: "If this conference is promoted (therefore in the homepage)"
+      field :objectives, Decidim::Core::TranslatedFieldType, null: true, description: "The objectives of the conference"
+      field :showStatistics, Boolean, null: true, description: "If this conference shows the statistics" do
+        def resolve(object:, arguments:, context:)
+          object.show_statistics
+        end
+      end
+      field :startDate, Decidim::Core::DateType, null: true, description: "The date this conference starts" do
+        def resolve(object:, arguments:, context:)
+          object.start_date
+        end
+      end
+      field :endDate, Decidim::Core::DateType, null: true, description: "The date this conference ends" do
+        def resolve(object:, arguments:, context:)
+          object.end_date
+        end
+      end
+      field :registrationsEnabled, Boolean, null: true, description: "If the registrations are enabled in this conference" do
+        def resolve(object:, arguments:, context:)
+          object.registrations_enabled
+        end
+      end
+      field :availableSlots, Int, null: true, description: "The number of available slots in this conference" do
+        def resolve(object:, arguments:, context:)
+          object.available_slots
+        end
+      end
+      field :registrationTerms, Decidim::Core::TranslatedFieldType, null: true, description: "The registration terms of this conference" do
+        def resolve(object:, arguments:, context:)
+          object.registration_terms
+        end
+      end
 
-      field :speakers, types[Decidim::Conferences::ConferenceSpeakerType], "List of speakers in this conference"
-      field :partners, types[Decidim::Conferences::ConferencePartnerType], "List of partners in this conference"
-      field :categories, types[Decidim::Core::CategoryType], "List of categories in this conference"
-      field :mediaLinks, types[Decidim::Conferences::ConferenceMediaLinkType], "List of media links in this conference", property: :media_links
+      field :speakers, [Decidim::Conferences::ConferenceSpeakerType], null: true, description: "List of speakers in this conference"
+      field :partners, [Decidim::Conferences::ConferencePartnerType], null: true, description: "List of partners in this conference"
+      field :categories, [Decidim::Core::CategoryType], null: true, description: "List of categories in this conference"
+      field :mediaLinks, [Decidim::Conferences::ConferenceMediaLinkType], null: true, description: "List of media links in this conference" do
+        def resolve(object:, arguments:, context:)
+          object.media_links
+        end
+      end
     end
   end
 end

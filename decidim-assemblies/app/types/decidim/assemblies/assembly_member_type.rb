@@ -17,7 +17,7 @@ module Decidim
       # field :birthday, Decidim::Core::DateType, "Birthday date of the member" # non-public currently
       field :birthplace, String, null: true, description: "Birthplace of the member"
       field :designationDate, Decidim::Core::DateType, null: true, description: "Date of designation of the member"
-      # field :designationMode, types.String, "Mode in which the member was designated", property: :designation_mode # non-public currently
+      # field :designationMode, String, "Mode in which the member was designated", property: :designation_mode # non-public currently
       field :positionOther, String, null: true, description: "Custom position name"
       field :ceasedDate, Decidim::Core::DateType, null: true, description: "Date of cease for the member"
 

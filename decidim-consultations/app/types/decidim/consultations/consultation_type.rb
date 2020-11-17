@@ -3,27 +3,59 @@
 module Decidim
   module Consultations
     # This type represents a consultation.
-    ConsultationType = GraphQL::ObjectType.define do
+    class ConsultationType < GraphQL::Schema::Object
+      graphql_name "Consultation"
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::TimestampsInterface
 
-      name "Consultation"
       description "A consultation"
 
-      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this consultation"
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this consultation"
-      field :slug, !types.String, "Slug of this consultation"
-      field :publishedAt, !Decidim::Core::DateTimeType, "The time this consultation was published", property: :published_at
+      field :subtitle, Decidim::Core::TranslatedFieldType, null: true, description: "The subtitle of this consultation"
+      field :description, Decidim::Core::TranslatedFieldType, null: true, description: "The description of this consultation"
+      field :slug, String, null: false, description: "Slug of this consultation"
+      field :publishedAt, Decidim::Core::DateTimeType, null: false, description: "The time this consultation was published" do
+        def resolve(object:, arguments:, context:)
+          object.published_at
+        end
+      end
 
-      field :introductoryVideoUrl, types.String, "The introductory video url for this consultation", property: :introductory_video_url
-      field :introductoryImage, types.String, "The introductory image for this consultation", property: :introductory_image
-      field :bannerImage, types.String, "The banner image for this consultation", property: :banner_image
-      field :highlightedScope, Decidim::Core::ScopeApiType, "This is the highlighted scope of this consultation", property: :highlighted_scope
-      field :startVotingDate, Decidim::Core::DateType, "Start date of the voting for this consultation", property: :start_voting_date
-      field :endVotingDate, Decidim::Core::DateType, "End date of the voting for this consultation", property: :end_voting_date
-      field :resultsPublishedAt, Decidim::Core::DateType, "Date when the results have been published", property: :results_published_at
+      field :introductoryVideoUrl, String, null: true, description: "The introductory video url for this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.introductory_video_url
+        end
+      end
+      field :introductoryImage, String, null: true, description: "The introductory image for this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.introductory_image
+        end
+      end
+      field :bannerImage, String, null: true, description: "The banner image for this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.banner_image
+        end
+      end
+      field :highlightedScope, Decidim::Core::ScopeApiType, null: true, description: "This is the highlighted scope of this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.highlighted_scope
+        end
+      end
+      field :startVotingDate, Decidim::Core::DateType, null: true, description: "Start date of the voting for this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.start_voting_date
+        end
+      end
+      field :endVotingDate, Decidim::Core::DateType, null: true, description: "End date of the voting for this consultation" do
+        def resolve(object:, arguments:, context:)
+          object.end_voting_date
+        end
+      end
+      field :resultsPublishedAt, Decidim::Core::DateType, null: true, description: "Date when the results have been published" do
+        def resolve(object:, arguments:, context:)
+          object.results_published_at
+        end
+      end
 
-      field :questions, types[Decidim::Consultations::ConsultationQuestionType], ""
+      field :questions, [Decidim::Consultations::ConsultationQuestionType], null: true, description: ""
     end
   end
 end

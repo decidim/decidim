@@ -17,6 +17,7 @@ module Decidim
         end
 
         Decidim.participatory_space_manifests.each do |participatory_space_manifest|
+          pp participatory_space_manifest.name.inspect
           field participatory_space_manifest.name.to_s.camelize(:lower),
                 type: [participatory_space_manifest.query_type.constantize],
                 null: true,

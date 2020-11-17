@@ -9,16 +9,16 @@ module Decidim
       # name "EndorsableInterface"
       # description "An interface that can be used in objects with endorsements"
 
-      field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this object." do
+      field :endorsements, [Decidim::Core::AuthorInterface], null: false, description: "The endorsements of this object." do
         def resolve(object:, arguments:, context:)
           object.endorsements.map(&:normalized_author)
         end
       end
 
-      field :endorsementsCount, Int, null: true, description: "The total amount of endorsements the object has received"
-
-      def endorsementsCount
-        object.endorsements_count
+      field :endorsementsCount, Int, null: true, description: "The total amount of endorsements the object has received" do
+        def resolve(object:, _args:, context:)
+          object.endorsements_count
+        end
       end
     end
   end
