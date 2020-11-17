@@ -30,7 +30,7 @@ module Decidim
       def persist_demographics
         demographic.data ||= {}
         form.attributes.map do |k, v|
-          demographic.data[k] = Decidim::AttributeEncryptor.encrypt(v)
+          demographic.data[k] = v
         end
         demographic.save!
       end

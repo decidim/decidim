@@ -7,7 +7,7 @@ module Decidim
       belongs_to :organization, foreign_key: :decidim_organization_id, class_name: "Decidim::Organization"
 
       AVAILABLE_GENDERS = %w(man woman non_binary).freeze
-      AGE_GROUPS = ["< 15", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80 +"].freeze
+      AGE_GROUPS = ["15-24","25-39","40-54","55-69","70+"].freeze
       MEMBER_STATES = %w(
         austrian
         belgian
@@ -38,7 +38,8 @@ module Decidim
         swede
         other
       ).freeze
-      PROFESSIONAL_CATEGORIES = %w(self-employed manager white-collar manual-worker house-worker unemployed retired student).freeze
+      PROFESSIONAL_CATEGORIES = %w(self-employed manager  manual-worker professional-worker house-person unemployed retired student other).freeze
+      LIVING_CONDITIONS = %w(rural small large unknown).freeze
 
       # DataPortability compatibility
       def self.user_collection(user)
