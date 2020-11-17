@@ -31,7 +31,6 @@ en:
         body: Body
         subject: Subject
       organization:
-        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)
@@ -67,8 +66,6 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
-        password: Password
-        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         rich_text_editor_in_public_views: Enable rich text editor for participants
@@ -80,7 +77,6 @@ en:
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
-        user_name: Username
         warning_color: Warning
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
