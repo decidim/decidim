@@ -250,6 +250,7 @@ en:
                 other: The meeting cannot be destroyed because it has %{count} proposals associated to it
             success: Meeting successfully deleted
           edit:
+            title: Edit meeting
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
