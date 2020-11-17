@@ -2,7 +2,7 @@
 
 Decidim is both and OAuth client (via https://github.com/omniauth/omniauth[omniauth]) and an OAuth provider (via https://github.com/doorkeeper-gem/doorkeeper[doorkeeper]).
 
-Check the https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md[Social Providers] document to check the the provider and client configurations.
+Check the xref:services:social_providers.adoc[Social Providers] document to check the provider and client configurations.
 
 == Performing more actions on omniauth registration
 
