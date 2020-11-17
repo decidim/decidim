@@ -32,12 +32,12 @@ module Decidim
       @events ||= Decidim::Notification.includes(:user)
                                        .not_expired(Decidim.config.batch_email_notifications_expired)
                                        .unsent.with_priority(:batch)
-                                       .order(created_at: :desc)
-                                       .limit(Decidim.config.batch_email_notifications_max_length)
     end
 
     def events_for(user)
-      @events.select { |event| event.user == user }
+      @events.where(user: user)
+             .order(created_at: :desc)
+             .limit(Decidim.config.batch_email_notifications_max_length)
     end
 
     def serialized_events(events)

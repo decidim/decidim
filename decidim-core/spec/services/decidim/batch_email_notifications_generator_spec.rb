@@ -89,8 +89,8 @@ describe Decidim::BatchEmailNotificationsGenerator do
       let!(:notifications) { create_list(:notification, 14, user: user) }
 
       it "returns notifications" do
-        expect(subject.send(:events)).to match_array(notifications.reverse.first(5))
-        expect(subject.send(:events).length).to eq(5)
+        expect(subject.send(:events)).to match_array(notifications)
+        expect(subject.send(:events).length).to eq(14)
       end
 
       context "with batch_email_notifications_expired" do
@@ -100,7 +100,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
         it "does not fetch the expired notifications" do
           expect(subject.send(:events)).not_to include(notifications.last)
-          expect(subject.send(:events).length).to eq(5)
+          expect(subject.send(:events).length).to eq(13)
         end
       end
 
@@ -113,7 +113,7 @@ describe Decidim::BatchEmailNotificationsGenerator do
 
         it "doesn't includes it" do
           expect(subject.send(:events)).not_to include(notifications.first)
-          expect(subject.send(:events).length).to eq(5)
+          expect(subject.send(:events).length).to eq(13)
         end
       end
     end
