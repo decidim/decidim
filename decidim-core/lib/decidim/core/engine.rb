@@ -28,6 +28,7 @@ require "omniauth-twitter"
 require "omniauth-google-oauth2"
 require "invisible_captcha"
 require "premailer/rails"
+require "premailer/adapter/decidim"
 require "geocoder"
 require "paper_trail"
 require "cells/rails"
@@ -504,6 +505,10 @@ module Decidim
 
       initializer "nbspw" do
         NOBSPW.configuration.use_ruby_grep = true
+      end
+
+      initializer "decidim.premailer" do
+        Premailer::Adapter.use = :decidim
       end
 
       config.to_prepare do
