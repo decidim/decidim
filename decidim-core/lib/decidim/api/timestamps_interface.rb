@@ -9,7 +9,7 @@ module Decidim
       description "An interface that can be used in objects with created_at and updated_at attributes"
 
       field :createdAt, Decidim::Core::DateTimeType, null: false, description: "The date and time this object was created"
-      field :updatedAt, Decidim::Core::DateTimeType, null: false, description:  "The date and time this object was updated"
+      field :updatedAt, Decidim::Core::DateTimeType, null: false, description: "The date and time this object was updated"
 
       def createdAt
         object.created_at
@@ -18,7 +18,6 @@ module Decidim
       def updatedAt
         object.updated_at
       end
-
     end
   end
 end

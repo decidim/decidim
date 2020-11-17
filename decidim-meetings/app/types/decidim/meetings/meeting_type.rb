@@ -2,7 +2,6 @@
 
 module Decidim
   module Meetings
-
     class MeetingType < GraphQL::Schema::Object
       graphql_name "Meeting"
       description "A meeting"

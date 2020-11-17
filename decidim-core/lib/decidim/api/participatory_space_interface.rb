@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     module ParticipatorySpaceInterface
       include GraphQL::Schema::Interface
       # name "ParticipatorySpaceInterface"

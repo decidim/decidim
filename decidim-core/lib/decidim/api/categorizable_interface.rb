@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     module CategorizableInterface
       include GraphQL::Schema::Interface
       # name "CategorizableInterface"

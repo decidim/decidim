@@ -10,8 +10,7 @@ module Decidim
       description "An interface that can be used in objects with traceability (versions)"
 
       field :versionsCount, Int, null: false, description: "Total number of versions"
-      field :versions, [Decidim::Core::TraceVersionType],  null: false, description: "This object's versions"
-
+      field :versions, [Decidim::Core::TraceVersionType], null: false, description: "This object's versions"
 
       def versionsCount
         object.versions_count

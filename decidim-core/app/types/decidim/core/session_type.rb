@@ -3,8 +3,8 @@
 module Decidim
   module Core
     # This type represents the current user session.
-    class SessionType  < GraphQL::Schema::Object
-      graphql_name  "Session"
+    class SessionType < GraphQL::Schema::Object
+      graphql_name "Session"
       description "The current session"
 
       field :user, UserType, null: true, description: "The current user"

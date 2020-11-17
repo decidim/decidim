@@ -11,12 +11,12 @@ module Decidim
 
       field :id, ID, null: false, description: "The user's id"
       field :name, String, null: false, description: "The user's name"
-      field :nickname, String, null: false, description:  "The user's nickname"
+      field :nickname, String, null: false, description: "The user's nickname"
       field :avatarUrl, String, null: false, description: "The user's avatar url"
       field :profilePath, String, null: false, description: "The user's profile url"
       field :directMessagesEnabled, String, null: false, description: "If the user making the request is logged in,
        it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests."
-      field :organizationName, String,null: false, description:  "The user's organization name"
+      field :organizationName, String, null: false, description: "The user's organization name"
       field :deleted, Boolean, null: false, description: "Whether the user's account has been deleted or not"
       field :badge, String, null: false, description: "A badge for the user group"
       field :groups, [UserGroupType], null: false, description: "Groups where this user belongs"
@@ -52,7 +52,6 @@ module Decidim
       def groups
         object.accepted_user_groups
       end
-
     end
   end
 end

@@ -2,8 +2,8 @@
 
 module Decidim
   module Core
-    class AttachmentType  < GraphQL::Schema::Object
-      graphql_name  "Attachment"
+    class AttachmentType < GraphQL::Schema::Object
+      graphql_name "Attachment"
       description "A file attachment"
 
       field :url, String, null: false, description: "The url of this attachment"

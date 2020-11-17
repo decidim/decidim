@@ -2,7 +2,6 @@
 
 module Decidim
   module Meetings
-
     class MinutesType < GraphQL::Schema::Object
       graphql_name "MeetingMinutes"
       description "A meeting minutes"
@@ -14,7 +13,6 @@ module Decidim
       field :audioUrl, types.String, "URL for the audio of the session, if any", property: :audio_url
       # probably useful in the future, when handling user permissions
       # field :visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
-
     end
   end
 end

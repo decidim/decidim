@@ -3,7 +3,7 @@
 module Decidim
   module Core
     # This type represents a User.
-    class HashtagType< GraphQL::Schema::Object
+    class HashtagType < GraphQL::Schema::Object
       graphql_name "HashtagType"
       description "hashtags list"
 

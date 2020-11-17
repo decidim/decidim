@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     module ScopableInterface
       include GraphQL::Schema::Interface
       # name "ScopableInterface"

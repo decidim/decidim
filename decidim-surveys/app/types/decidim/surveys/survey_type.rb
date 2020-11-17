@@ -7,12 +7,13 @@ module Decidim
       description "A survey"
       implements Decidim::Core::TimestampsInterface
 
-      field :id, ID, null: false , description: "The internal ID for this survey"
-      field :questionnaire, Decidim::Forms::QuestionnaireType,null: true , description: "The questionnaire for this survey"
+      field :id, ID, null: false, description: "The internal ID for this survey"
+      field :questionnaire, Decidim::Forms::QuestionnaireType, null: true, description: "The questionnaire for this survey"
 
       def createdAt
         object.created_at
       end
+
       def updatedAt
         object.updated_at
       end

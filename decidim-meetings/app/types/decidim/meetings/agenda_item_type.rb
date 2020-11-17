@@ -2,7 +2,6 @@
 
 module Decidim
   module Meetings
-
     class AgendaItemType < GraphQL::Schema::Object
       graphql_name "MeetingAgendaItem"
       description "A meeting agenda item"

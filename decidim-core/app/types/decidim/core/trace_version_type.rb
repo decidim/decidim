@@ -20,10 +20,7 @@ module Decidim
         author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
       end
 
-      def changeset
-        object.changeset
-      end
-
+      delegate :changeset, to: :object
     end
   end
 end

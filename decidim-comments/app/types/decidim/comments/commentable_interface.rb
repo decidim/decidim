@@ -9,7 +9,7 @@ module Decidim
 
       field :id, types.ID, null: false, description: "The commentable's ID"
       field :type, String, null: false, description: "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`"
-      field :acceptsNewComments, Boolean,  null: false, description: "Whether the object can have new comments or not"
+      field :acceptsNewComments, Boolean, null: false, description: "Whether the object can have new comments or not"
       field :commentsHaveAlignment, Boolean, null: false, description: "Whether the object comments have alignment or not"
       field :commentsHaveVotes, Boolean, null: false, description: "Whether the object comments have votes or not"
       field :comments, [CommentType], null: false do
@@ -26,13 +26,13 @@ module Decidim
         end
       end
 
-      field :hasComments, Boolean, null: false, description:  "Check if the commentable has comments" do
+      field :hasComments, Boolean, null: false, description: "Check if the commentable has comments" do
         def resolve(object:, _args:, context:)
           object.comment_threads.size.positive?
         end
       end
 
-      field :userAllowedToComment, Boolean, null: false, description:  "Check if the current user can comment" do
+      field :userAllowedToComment, Boolean, null: false, description: "Check if the current user can comment" do
         def resolve(object:, _args:, context:)
           object.commentable? && object.user_allowed_to_comment?(context[:current_user])
         end
@@ -53,7 +53,6 @@ module Decidim
       def acceptsNewComments
         object.accepts_new_comments?
       end
-
     end
   end
 end

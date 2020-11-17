@@ -18,7 +18,7 @@ module Decidim
       end
 
       definition_methods do
-        def resolve_type(object, context)
+        def resolve_type(object, _context)
           object.manifest.query_type.constantize
         end
       end

@@ -10,7 +10,7 @@ module Decidim
       # description "An interface that can be used in objects with endorsements"
 
       field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this object." do
-        def resolve(object: , arguments:, context:)
+        def resolve(object:, arguments:, context:)
           object.endorsements.map(&:normalized_author)
         end
       end

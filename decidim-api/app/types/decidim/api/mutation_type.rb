@@ -7,9 +7,7 @@ module Decidim
       graphql_name "Mutation"
       description "The root mutation of this schema"
 
-      def self.define(&block)
-
-      end
+      def self.define(&block); end
     end
   end
 end

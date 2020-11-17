@@ -3,7 +3,6 @@
 module Decidim
   module Accountability
     ResultType = GraphQL::ObjectType.define do
-
       implements Decidim::Core::ComponentInterface
       implements Decidim::Core::CategorizableInterface
       implements Decidim::Comments::CommentableInterface

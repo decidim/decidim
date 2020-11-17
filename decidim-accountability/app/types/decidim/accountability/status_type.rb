@@ -7,7 +7,6 @@ module Decidim
       description "A status"
       implements Decidim::Core::TimestampsInterface
 
-
       field :id, !types.ID, "The internal ID for this status"
       field :key, types.String, "The key for this status"
       field :name, Decidim::Core::TranslatedFieldType, "The name for this status"

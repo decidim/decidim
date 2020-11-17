@@ -7,7 +7,6 @@ module Decidim
   # This module's job is to extend the API with custom fields related to
   # decidim-core.
   module QueryExtensions
-
     def self.prepended(base)
       base.class_eval do
         field :decidim, Core::DecidimType, null: true, description: "Decidim's framework properties."
@@ -19,26 +18,26 @@ module Decidim
 
         Decidim.participatory_space_manifests.each do |participatory_space_manifest|
           field participatory_space_manifest.name.to_s.camelize(:lower),
-                      type: [participatory_space_manifest.query_type.constantize],
+                type: [participatory_space_manifest.query_type.constantize],
                 null: true,
-                     description: "Lists all #{participatory_space_manifest.name}"
-                     # ,function: participatory_space_manifest.query_list.constantize.new(manifest: participatory_space_manifest)
+                description: "Lists all #{participatory_space_manifest.name}"
+          # ,function: participatory_space_manifest.query_list.constantize.new(manifest: participatory_space_manifest)
 
           field participatory_space_manifest.name.to_s.singularize.camelize(:lower),
-                     participatory_space_manifest.query_type.constantize,
+                participatory_space_manifest.query_type.constantize,
                 null: true,
-                     description: "Finds a #{participatory_space_manifest.name.to_s.singularize}"
-                     # ,function: participatory_space_manifest.query_finder.constantize.new(manifest: participatory_space_manifest)
+                description: "Finds a #{participatory_space_manifest.name.to_s.singularize}"
+          # ,function: participatory_space_manifest.query_finder.constantize.new(manifest: participatory_space_manifest)
         end
 
         field :user, Core::AuthorInterface,
               null: true,
-                   description: "A participant (user or group) in the current organization"
+              description: "A participant (user or group) in the current organization"
         # , function: Core::UserEntityFinder.new
 
         field :users, [Core::AuthorInterface],
               null: true,
-                   description: "The participants (users or groups) for the current organization"
+              description: "The participants (users or groups) for the current organization"
         # , function: Core::UserEntityList.new
 
         field :session, Core::SessionType, null: true, description: "Return's information about the logged in user"
@@ -47,14 +46,13 @@ module Decidim
           argument :name, String, required: false, description: "The name of the hashtag"
         end
 
-
         field :metrics, [Decidim::Core::MetricType], null: true do
-          argument :names, [GraphQL::Types::String], required: false,description: "The names of the metrics you want to retrieve"
-          argument :space_type, GraphQL::Types::String, required: false,description: "The type of ParticipatorySpace you want to filter with"
-          argument :space_id, GraphQL::Types::Int, required: false, description:"The ID of ParticipatorySpace you want to filter with"
+          argument :names, [GraphQL::Types::String], required: false, description: "The names of the metrics you want to retrieve"
+          argument :space_type, GraphQL::Types::String, required: false, description: "The type of ParticipatorySpace you want to filter with"
+          argument :space_id, GraphQL::Types::Int, required: false, description: "The ID of ParticipatorySpace you want to filter with"
         end
 
-        def metrics(names: , space_type:, space_id: )
+        def metrics(names:, space_type:, space_id:)
           manifests = if names.blank?
                         Decidim.metrics_registry.all
                       else
@@ -73,7 +71,7 @@ module Decidim
           end
         end
 
-        def hashtags(name: )
+        def hashtags(name:)
           Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
         end
 
@@ -81,7 +79,7 @@ module Decidim
           context[:current_user]
         end
 
-        def component(id: )
+        def component(id:)
           component = Decidim::Component.published.find_by(id: id)
           component&.organization == context[:current_organization] ? component : nil
         end

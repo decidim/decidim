@@ -6,14 +6,13 @@ module Decidim
       graphql_name "Date"
       description "An ISO8601 date"
 
-      def coerce_input(value, ctx)
+      def coerce_input(value, _ctx)
         Date.iso8601(value)
       end
 
-      def coerce_result(value, ctx)
+      def coerce_result(value, _ctx)
         value.to_date.iso8601
       end
-
     end
   end
 end

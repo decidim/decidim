@@ -12,7 +12,6 @@ module Decidim
       name "ConsultationQuestion"
       description "A consultation question"
 
-
       field :id, !types.ID, "Internal ID of the question"
       field :title, Decidim::Core::TranslatedFieldType, "Title of the question"
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this question"

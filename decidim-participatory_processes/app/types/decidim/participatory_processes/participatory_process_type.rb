@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     # This type represents a ParticipatoryProcess.
 
-    class ParticipatoryProcessType  < GraphQL::Schema::Object
+    class ParticipatoryProcessType < GraphQL::Schema::Object
       graphql_name "ParticipatoryProcess"
 
       implements Decidim::Core::ParticipatorySpaceInterface
@@ -21,19 +21,19 @@ module Decidim
       field :publishedAt, Decidim::Core::DateTimeType, null: true, description: "The time this page was published"
       field :subtitle, Decidim::Core::TranslatedFieldType, null: false, description: "The subtitle of this participatory process."
       field :description, Decidim::Core::TranslatedFieldType, null: false, description: "The description of this participatory process."
-      field :shortDescription, Decidim::Core::TranslatedFieldType, null: false , description:  "The short description of this participatory process."
-      field :startDate, Decidim::Core::DateType, null: false , description: "This participatory process' start date."
+      field :shortDescription, Decidim::Core::TranslatedFieldType, null: false, description: "The short description of this participatory process."
+      field :startDate, Decidim::Core::DateType, null: false, description: "This participatory process' start date."
       field :endDate, Decidim::Core::DateType, null: false, description: "This participatory process' end date."
 
       field :bannerImage, String, null: false, description: "The banner image for this participatory process"
-      field :heroImage, String,null: false, description: "The hero image for this participatory process"
-      field :promoted, Boolean, null: false, description:"If this participatory process is promoted (therefore in the homepage)"
-      field :developerGroup, Decidim::Core::TranslatedFieldType, null: false, description:"The promoter group of this participatory process."
-      field :metaScope, Decidim::Core::TranslatedFieldType,null: false, description: "The scope metadata of this participatory process."
-      field :localArea, Decidim::Core::TranslatedFieldType, null: false, description:"The organization area of this participatory process."
-      field :target, Decidim::Core::TranslatedFieldType, null: false, description:"Who participates in this participatory process."
-      field :participatoryScope, Decidim::Core::TranslatedFieldType,null: false, description: "What is decided on this participatory process."
-      field :participatoryStructure, Decidim::Core::TranslatedFieldType, null: false, description:"How it is decided on this participatory process."
+      field :heroImage, String, null: false, description: "The hero image for this participatory process"
+      field :promoted, Boolean, null: false, description: "If this participatory process is promoted (therefore in the homepage)"
+      field :developerGroup, Decidim::Core::TranslatedFieldType, null: false, description: "The promoter group of this participatory process."
+      field :metaScope, Decidim::Core::TranslatedFieldType, null: false, description: "The scope metadata of this participatory process."
+      field :localArea, Decidim::Core::TranslatedFieldType, null: false, description: "The organization area of this participatory process."
+      field :target, Decidim::Core::TranslatedFieldType, null: false, description: "Who participates in this participatory process."
+      field :participatoryScope, Decidim::Core::TranslatedFieldType, null: false, description: "What is decided on this participatory process."
+      field :participatoryStructure, Decidim::Core::TranslatedFieldType, null: false, description: "How it is decided on this participatory process."
       field :showMetrics, Boolean, null: false, description: "If this participatory process should show metrics"
       field :showStatistics, Boolean, null: false, description: "If this participatory process should show statistics"
       field :scopesEnabled, Boolean, null: false, description: "If this participatory process has scopes enabled"

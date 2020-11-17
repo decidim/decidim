@@ -17,7 +17,6 @@ module Decidim
       field :personalUrl, types.String, "Personal URL of the speaker", property: :personal_url
       field :avatar, types.String, "Avatar of the speaker"
       field :user, Decidim::Core::UserType, "Decidim user corresponding to this speaker", property: :user
-
     end
   end
 end

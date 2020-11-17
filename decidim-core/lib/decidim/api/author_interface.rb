@@ -12,9 +12,9 @@ module Decidim
       field :name, GraphQL::Types::String, null: false, description: "The author's name"
       field :nickname, GraphQL::Types::String, null: false, description: "The author's nickname"
 
-      field :avatarUrl, GraphQL::Types::String, null: false, description:  "The author's avatar url"
+      field :avatarUrl, GraphQL::Types::String, null: false, description: "The author's avatar url"
       field :profilePath, GraphQL::Types::String, null: false, description: "The author's profile path"
-      field :badge, GraphQL::Types::String, null: false, description:  "The author's badge icon"
+      field :badge, GraphQL::Types::String, null: false, description: "The author's badge icon"
       field :organizationName, GraphQL::Types::String, null: false, description: "The authors's organization name"
       field :deleted, GraphQL::Types::Boolean, null: false, description: "Whether the author's account has been deleted or not"
 
@@ -23,7 +23,7 @@ module Decidim
       end
 
       definition_methods do
-        def resolve_type(object, context)
+        def resolve_type(object, _context)
           if object.is_a?(Decidim::User)
             Decidim::Core::UserType
           elsif object.is_a?(Decidim::UserGroup)
@@ -31,7 +31,6 @@ module Decidim
           end
         end
       end
-
     end
   end
 end

@@ -2,14 +2,13 @@
 
 module Decidim
   module Surveys
-
     class SurveysType < GraphQL::Schema::Object
       graphql_name "Survey"
       implements Decidim::Core::ComponentInterface
       description "A surveys component of a participatory space."
 
       field :surveys, SurveyType.connection_type, null: false
-      field(:survey, SurveyType, null: true ) do
+      field(:survey, SurveyType, null: true) do
         argument :id, ID, required: true
       end
 

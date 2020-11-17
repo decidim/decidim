@@ -11,7 +11,7 @@ module Decidim
 
       field :author, Decidim::Core::AuthorInterface, null: true, description: "The resource author" do
         # can be an Authorable or a Coauthorable
-        def resolve(authorable: , arguments:, context: )
+        def resolve(authorable:, arguments:, context:)
           if authorable.respond_to?(:normalized_author)
             authorable&.normalized_author
           elsif authorable.respond_to?(:creator_identity)

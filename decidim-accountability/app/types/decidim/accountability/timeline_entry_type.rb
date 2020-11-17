@@ -7,7 +7,6 @@ module Decidim
       description "A Timeline Entry"
       implements Decidim::Core::TimestampsInterface
 
-
       field :id, !types.ID, "The internal ID for this timeline entry"
       field :entryDate, Decidim::Core::DateType, "The entry date for this timeline entry", property: :entry_date
       field :description, Decidim::Core::TranslatedFieldType, "The description for this timeline entry"

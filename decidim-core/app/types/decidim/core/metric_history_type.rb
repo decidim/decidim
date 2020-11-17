@@ -2,8 +2,8 @@
 
 module Decidim
   module Core
-    class MetricHistoryType< GraphQL::Schema::Object
-      graphql_name  "MetricHistory"
+    class MetricHistoryType < GraphQL::Schema::Object
+      graphql_name "MetricHistory"
 
       field :key, String, null: false, description: "The key value"
       field :value, Int, null: false, description: "The value for each key"
