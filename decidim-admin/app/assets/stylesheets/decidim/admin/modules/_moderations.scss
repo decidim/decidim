@@ -1,0 +1,39 @@
+.moderation-details{
+  .toggle-content{
+    cursor: pointer;
+    margin-left: .5rem;
+    font-size: .9rem;
+  }
+
+  .reported-content{
+    .original{
+      display: none;
+    }
+  }
+
+  .callout{
+    &-text{
+      margin-left: .5rem;
+
+      .icon{
+        width: .6rem;
+        margin: 0 .2rem;
+      }
+    }
+  }
+
+  dd{
+    padding: $global-padding;
+    background-color: $light-gray;
+    margin-bottom: .5rem;
+  }
+
+  .reportable-authors{
+    list-style: none;
+    margin: 0;
+
+    .icon{
+      margin-left: .5rem;
+    }
+  }
+}

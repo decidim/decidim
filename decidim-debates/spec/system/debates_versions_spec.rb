@@ -72,7 +72,7 @@ describe "Explore versions", versioning: true, type: :system do
 
     it "allows going back to the versions list" do
       click_link "Show all versions"
-      expect(page).to have_current_path debate_path + "/versions"
+      expect(page).to have_current_path "#{debate_path}/versions"
     end
 
     it "shows the creation date" do
@@ -104,9 +104,11 @@ describe "Explore versions", versioning: true, type: :system do
 
   def update_debate
     form = Decidim::Debates::Admin::DebateForm.from_params(
-      title: { "en" => "New title" },
-      description: { "en" => "New description" },
-      instructions: { "en" => "New instructions" }
+      debate.attributes.with_indifferent_access.merge(
+        title: { "en" => "New title" },
+        description: { "en" => "New description" },
+        instructions: { "en" => "New instructions" }
+      )
     ).with_context(
       current_organization: organization,
       current_participatory_space: component.participatory_space,

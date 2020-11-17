@@ -131,7 +131,6 @@ ja:
             title: 現在の国勢調査データ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
-            title: この組織のCSVセンサスを有効にする必要があります
           new:
             file: "電子メールデータを含む.csvファイル"
             info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
@@ -215,7 +214,7 @@ ja:
               mark_as_sent: 送信済みにする
               not_yet_sent: 送信されていません
               title: 現在検証中
-              username: ニックネーム：
+              username: アカウントID
               verification_code: 認証コード
           postages:
             create:

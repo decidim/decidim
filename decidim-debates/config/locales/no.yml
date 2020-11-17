@@ -32,6 +32,7 @@
             announcement: Kunngjøring
             comments_enabled: Kommentarer er aktivert
             comments_max_length: Maks kommentarlengde
+            scope_id: Tema
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
@@ -103,6 +104,7 @@
           citizens: Innbyggere
           official: Offentlig
           origin: Opprinnelse
+          scope: Tema
           search: Søk
         filters_small_view:
           close_modal: Lukk vinduet
@@ -172,10 +174,16 @@
           email_subject: Innspillstråder nå tilgjengelig i %{participatory_space_title}
           notification_title: Du kan nå starte <a href="%{resource_path}">nye innspillstråder</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Innspillstråden %{resource_title} er avsluttet. Du kan lese oppsummeringen på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du følger innspillstråden "%{resource_title}". Du kan slutte å følge den ved å trykke på linken over.
-          email_subject: Innspillstråden %{resource_title} er avsluttet
-          notification_title: Innspillstråden <a href="%{resource_path}">%{resource_title}</a> er avsluttet.
+          affected_user:
+            email_intro: 'Innspillstråden %{resource_title} er avsluttet. Du kan lese oppsummeringen på denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger innspillstråden "%{resource_title}". Du kan slutte å følge den ved å trykke på linken over.
+            email_subject: Innspillstråden %{resource_title} er avsluttet
+            notification_title: Innspillstråden <a href="%{resource_path}">%{resource_title}</a> er avsluttet.
+          follower:
+            email_intro: 'Innspillstråden %{resource_title} er avsluttet. Du kan lese oppsummeringen på denne siden:'
+            email_outro: Du har mottatt denne varslingen fordi du følger innspillstråden "%{resource_title}". Du kan slutte å følge den ved å trykke på linken over.
+            email_subject: Innspillstråden %{resource_title} er avsluttet
+            notification_title: Innspillstråden <a href="%{resource_path}">%{resource_title}</a> er avsluttet.
     gamification:
       badges:
         commented_debates:

@@ -31,9 +31,7 @@
         title: Tittel
         transparent: Privat
       minutes:
-        audio_url: Audio url
         description: Beskrivelse
-        video_url: Video url
         visible: Er synlig
     errors:
       models:
@@ -242,7 +240,6 @@
           form:
             address_help: 'Adresse: brukes av Geocoder for å finne lokasjonen'
             location_help: 'Plassering: melding rettet til brukerne som antyder stedet å møte på'
-            location_hints_help: 'Plasseringstips: tilleggsinfo. Eksempel: gulvet i bygningen'
           index:
             title: Møter
           new:

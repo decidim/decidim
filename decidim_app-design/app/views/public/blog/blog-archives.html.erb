@@ -14,7 +14,7 @@
         <%= partial "filters_wrapper" %>
       </div>
       <div class="columns mediumlarge-8 large-9">
-        <h2 class="section-heading">Blogs&nbsp;<span class="muted"><%= Faker::Number.between(0, 100) %> results</span></h2>
+        <h2 class="section-heading">Blogs&nbsp;<span class="muted"><%= Faker::Number.between(from: 0, to: 100) %> results</span></h2>
         <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
           <div class="column">
             <article class="card card--blog">

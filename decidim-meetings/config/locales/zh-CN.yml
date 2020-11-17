@@ -1,0 +1,492 @@
+zh-CN:
+  activemodel:
+    attributes:
+      agenda:
+        description: 描述
+        duration: 期限
+        title: 标题
+      close_meeting:
+        attendees_count: 参与者人数
+        attending_organizations: 与会组织名单
+        closing_report: 报告
+        contributions_count: 捐款数目
+        proposal_ids: 会议上提出的建议
+      meeting:
+        address: 地址
+        available_slots: 本次会议可用的时间安排
+        decidim_category_id: 类别
+        decidim_scope_id: 范围
+        decidim_user_group_id: 用户组
+        description: 描述
+        end_time: 结束时间
+        location: 地点
+        location_hints: 位置提示
+        organizer_gid: 创建为
+        organizer_id: 组织者
+        private_meeting: 非公开会议
+        registration_form_enabled: 注册表单已启用
+        registration_terms: 注册条款
+        registrations_enabled: 注册已启用
+        start_time: 开始时间
+        title: 标题
+        transparent: 透明的
+      minutes:
+        description: 描述
+        visible: 可见
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: 项目持续时间超过 %{count} 分钟
+              too_many_minutes_child: 项目的持续时间超过议程项目 "%{parent_title}" 父时间 %{count} 分钟
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: 此电子邮件帐户已被邀请
+    models:
+      decidim/meetings/close_meeting_event: 会议结束
+      decidim/meetings/create_meeting_event: 会议
+      decidim/meetings/meeting_registrations_enabled_event: 注册已启用
+      decidim/meetings/meeting_registrations_over_percentage_event: 注册超过限制
+      decidim/meetings/upcoming_meeting_event: 即将举行的会议
+      decidim/meetings/update_meeting_event: 会议已更新
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        other: 会议
+      decidim/meetings/minutes:
+        other: 分钟
+      decidim/meetings/registration:
+        other: 注册
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: 重复这次会议时出现问题。
+          success: 会议成功重复。
+        new:
+          copy: 复制
+          select: 选择要重复的数据
+          title: 复制会议
+    components:
+      meetings:
+        actions:
+          join: 加入
+        name: 会议
+        settings:
+          global:
+            announcement: 通 知
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+            creation_enabled_for_participants: 参与者可以创建会议
+            default_registration_terms: 默认注册条款
+            enable_pads_creation: 启用页面创建
+            resources_permissions_enabled: 每次会议都可以设置动作权限
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+          step:
+            announcement: 通 知
+            comments_blocked: 评论已阻止
+            creation_enabled_for_participants: 与会者创建会议已启用
+            creation_enabled_for_user_groups: 已启用用户组创建会议
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: '您的会议 "%{resource_title}" 已关闭。您可以从其页面阅读结论：'
+            email_outro: 您收到此通知是因为您组织了 "%{resource_title}" 会议。
+            email_subject: '"%{resource_title}"会议已关闭'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会议已结束。
+          follower:
+            email_intro: '"%{resource_title}"会议已关闭。您可以从其页面阅读结论：'
+            email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+            email_subject: '"%{resource_title}"会议已关闭'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会议已结束。
+        meeting_created:
+          email_intro: 会议 "%{resource_title}" 已添加到"%{participatory_space_title}"你关注的"。
+          email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以从上一个链接取消关注它。
+          email_subject: 添加到 %{participatory_space_title} 的新会议
+          notification_title: 会议 <a href="%{resource_path}">%{resource_title}</a> 已添加到 %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: 您的会议注册 <a href="%{resource_url}">%{resource_title}</a> 已被确认。您的注册码是 %{registration_code}。
+        meeting_registrations_over_percentage:
+          email_intro: 分配给"%{resource_title}"会议的时间段超过 %{percentage}%。
+          email_outro: 您收到此通知是因为您是会议参与空间的管理员。
+          email_subject: 分配给"%{resource_title}"会议的时间段超过 %{percentage}%
+          notification_title: 分配给 <a href="%{resource_path}">%{resource_title}次</a> 次会议的时间段超过 %{percentage}%。
+        meeting_updated:
+          email_intro: '"%{resource_title}"会议已更新。您可以从其页面读取新版本：'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '“%{resource_title}”会议已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会议已更新。
+        registration_code_validated:
+          email_intro: 您的注册码%{registration_code}"%{resource_title}"会议的注册码已被验证。
+          email_outro: 您收到此通知是因为您的“%{resource_title}”会议的注册码已被验证。
+          email_subject: 您的注册代码 "%{registration_code}" 在 "%{resource_title}" 会议上已被验证
+          notification_title: 您的 <a href="%{resource_path}">%{resource_title}</a> 会议的注册代码 "%{registration_code}已被验证。
+        registrations_enabled:
+          email_intro: '"%{resource_title}"会议已启用注册。您可以在其页面上注册：'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '"%{resource_title}"会议已启用注册。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话已启用注册。
+        upcoming_meeting:
+          email_intro: '"%{resource_title}"会议将在不到48小时内开始。'
+          email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
+          email_subject: '"%{resource_title}"会议将在不到48小时内开始。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 次会话将在不到48小时内开始。
+    gamification:
+      badges:
+        attended_meetings:
+          conditions:
+            - 注册您想要参加的会议
+          description: 当你参加几次面对面的会议时颁发这个徽章。
+          description_another: 此参与者已经参加了 %{score} 次会议。
+          description_own: 您已经参加了 %{score} 次会议。
+          name: 出席会议
+          next_level_in: 再参加 %{score} 个会议来达到下一级！
+          unearned_another: 此参与者尚未参加任何会议。
+          unearned_own: 你还没有参加任何会议。
+    meetings:
+      actions:
+        agenda: 议程项目
+        attachment_collections: 文件夹
+        attachments: 附件
+        close: 关闭
+        confirm_destroy: 您确定要删除这个会议吗？
+        destroy: 删除
+        edit: 编辑
+        invalid_destroy:
+          proposals_count:
+            other: '会议不能被破坏，因为它有 %{count} 个建议与此相关联：'
+        minutes: 分钟
+        new: 新会议
+        preview: 预览
+        registrations: 注册
+        title: 行动
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: 添加议程分项目
+            agenda_item: 议程项目
+            agenda_item_children: 议程分项目
+            down: 向下
+            remove: 删除
+            up: 上移
+          agenda_item_child:
+            agenda_item_child: 议程分项目
+            down: 向下
+            remove: 删除
+            up: 上移
+          create:
+            invalid: 创建这个议程时遇到问题
+            success: 日程创建成功
+          edit:
+            title: 编辑议程
+            update: 更新
+          form:
+            add_agenda_item: 添加议程项目
+            agenda_items: 议程项目
+            end_date: 结束日期
+            start_date: 开始日期
+          new:
+            create: 创建
+            title: 新议程
+          update:
+            invalid: 更新这个议程时遇到问题
+            success: 日程更新成功
+        exports:
+          meetings: 会议
+          registrations: 注册
+        invite_join_meeting_mailer:
+          invite:
+            decline: 拒绝邀请
+            invited_you_to_join_a_meeting: "%{invited_by} 邀请您在 %{application}参加会议。您可以拒绝或接受以下链接。"
+            join: 加入会议%{meeting_title}
+        invites:
+          create:
+            error: 邀请与会者参加会议时遇到问题。
+            success: 成功邀请与会者加入会议。
+          form:
+            attendee_type: 参与者类型
+            existing_user: 现有参与者
+            invite: 邀请
+            invite_explanation: 与会者将应邀参加会议，也将应邀参加本组织。
+            non_user: 非现有参与者
+            select_user: 选择参与者
+          index:
+            filter:
+              accepted: 已接受
+              all: 所有的
+              rejected: 已拒绝
+              sent: 已发送
+            filter_by: 筛选方式
+            invite_attendee: 邀请参与者
+            invites: 邀请
+            registrations_disabled: 您不能邀请参与者，因为注册已被禁用。
+            search: 搜索
+        meeting_closes:
+          edit:
+            close: 关闭
+            title: 关闭会议
+        meetings:
+          close:
+            invalid: 本次会议结束时出现问题
+            success: 会议已成功关闭
+          create:
+            invalid: 创建此会议时出现问题
+            success: 会议已成功创建
+          destroy:
+            invalid:
+              proposals_count:
+                other: 会议不能被销毁，因为它有 %{count} 个建议相关联。
+            success: 会议已成功删除
+          edit:
+            update: 更新
+          form:
+            address_help: '地址：由地理编码器用来查找位置'
+            location_help: '位置：发送给用户的消息，这些消息暗示要会见的地点'
+          index:
+            title: 会议
+          new:
+            create: 创建
+            title: 创建会议
+          service:
+            description: 描述
+            down: 向下
+            remove: 删除
+            service: 服务
+            title: 标题
+            up: 上移
+          services:
+            add_service: 添加服务
+            services: 服务
+          update:
+            invalid: 更新本次会议时出错
+            success: 会议已成功更新
+        minutes:
+          create:
+            invalid: 创建这分钟时出错
+            success: 创建分钟成功
+          edit:
+            update: 更新
+          new:
+            create: 创建
+            title: 创建分钟
+          update:
+            invalid: 更新这分钟时出现问题
+            success: 分钟已成功更新
+        models:
+          meeting:
+            name: 会议
+        registrations:
+          edit:
+            save: 保存
+            validate: Validate
+            validate_registration_code: 验证注册码
+          form:
+            available_slots_help: 如果您有无限空位可用，则将其留给0。
+            invites: 邀请
+            recommendation_message: 出于隐私原因，当您不再需要它时，我们建议您删除此刻录表格。 默认情况下，这是会议结束后3个月的时间。
+            registration_form: 报名表
+            registrations_count:
+              other: 有 %{count} 个注册。
+            reserved_slots_help: 如果您没有预留位置，请将它留给0
+            reserved_slots_less_than: 必须小于或等于 %{count}
+            title: 注册
+          update:
+            invalid: 保存注册设置时出现问题。
+            success: 会议注册设置保存成功。
+          validate_registration_code:
+            invalid: 此注册码无效。
+            success: 注册码已成功验证。
+      admin_log:
+        invite:
+          create: "%{user_name} 邀請了 %{attendee_name} 在 %{space_name} 空间加入 %{resource_name} 次会议"
+          deleted: "%{user_name} 未邀请 %{attendee_name} 在 %{space_name} 空间加入 %{resource_name} 会议"
+          update: "%{user_name} 邀請了 %{attendee_name} 在 %{space_name} 空间加入 %{resource_name} 次会议"
+        meeting:
+          close: "%{user_name} 在 %{space_name} 空间结束了 %{resource_name} 次会议"
+          create: "%{user_name} 在 %{space_name} 空间创建了 %{resource_name} 次会议"
+          delete: "%{user_name} 删除了 %{resource_name} 次在 %{space_name} 空间的会议"
+          export_registrations: "%{user_name} 导出了 %{resource_name} 次会议在 %{space_name} 空间的注册"
+          update: "%{user_name} 更新了 %{resource_name} 次会议在 %{space_name} 空间"
+          value_types:
+            organizer_presenter:
+              not_found: '在数据库中找不到组织者 (ID: %{id})'
+        minutes:
+          create: "%{user_name} 在 %{space_name} 空间创建了会议记录 %{resource_name}"
+          update: "%{user_name} 更新了会议记录 %{resource_name} 在 %{space_name} 空间"
+      calendar_modal:
+        calendar_url: 日历 URL
+        close_window: 关闭窗口
+        export_calendar: 导出日历
+      conference_venues: 会议地点
+      content_blocks:
+        upcoming_events:
+          name: 即将到来的事件
+          upcoming_events: 即将举行的会议
+          view_all_events: 查看全部
+      directory:
+        meetings:
+          index:
+            all: 所有的
+            date: 日期
+            meetings: 会议
+            past: 过去的
+            search: 搜索
+            space_type: 参与空间
+            upcoming: 即将到来的
+      last_activity:
+        new_meeting_at_html: "<span>在 %{link}的新会议</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: 邀请加入会议
+        registration_mailer:
+          confirmation:
+            subject: 您的会议注册已确认
+      meeting:
+        not_allowed: 您无权查看此会议
+      meetings:
+        count:
+          meetings_count:
+            other: "%{count} 次会议"
+        create:
+          invalid: 创建这次会议时出现问题。
+          success: 您已成功创建会议。
+        edit:
+          back: 后退
+          title: 编辑您的会议
+          update: 更新
+        filters:
+          category: 类别
+          date: 日期
+          date_values:
+            all: 所有的
+            past: 过去的
+            upcoming: 即将到来的
+          origin: 始发地
+          origin_values:
+            all: 所有的
+            citizens: Citizens
+            official: 官方的
+            user_groups: 群組
+          scope: 范围
+          search: 搜索
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        form:
+          address_help: '地址：由地理编码器用来查找位置'
+          create_as: 创建会议为
+          location_help: '位置：发送给用户的消息，这些消息暗示要会见的地点'
+          select_a_category: 请选择一个类别
+        index:
+          new_meeting: 新会议
+        meeting_minutes:
+          meeting_minutes: 会议分钟
+          related_information: 相关信息
+        meetings:
+          no_meetings_warning: 没有符合您搜索条件的会议，也没有安排任何会议。
+          upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
+        new:
+          back: 后退
+          create: 创建
+          title: 创建您的会议
+        registration_confirm:
+          cancel: 取消
+          confirm: 确认
+        show:
+          attendees: 参与者数量
+          back: 返回列表
+          contributions: 捐款计数
+          date: 日期
+          edit_meeting: 编辑会议
+          going: 去了
+          join: 加入会议
+          meeting_report: 会议报告
+          no_slots_available: 无可用槽位
+          organizations: B. 参加组织
+          registration_code_help_text: 您的注册码
+          registration_state:
+            validated: 有效的
+            validation_pending: VALIDATED
+          remaining_slots:
+            other: "剩余 %{count} 个槽位"
+          view: 查看
+        update:
+          invalid: 更新会议时出现问题。
+          success: 您已成功更新会议。
+      meetings_map:
+        view_meeting: 查看会议
+      models:
+        invite:
+          fields:
+            email: 电子邮件地址
+            name: 名称
+            sent_at: 发送于
+            status: 状态
+          status:
+            accepted: 已接受 (%{at})
+            rejected: 已拒绝 (%{at})
+            sent: 已发送
+        meeting:
+          fields:
+            closed: 已关闭
+            end_time: 结束日期
+            map: 地图
+            official_meeting: 正式会议
+            start_time: 开始日期
+            title: 标题
+      read_more: "(阅读更多)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: 您注册的会议 <a href="%{url}">%{title}</a> 已被确认。
+          details: 您将在附件中找到会议的详细信息。
+          registration_code: 您的注册码是 %{code}。
+      registrations:
+        create:
+          invalid: 加入本次会议时出现问题。
+          success: 您已成功加入会议。由于您已经注册了这次会议，如果有更新，您将收到通知。
+        decline_invitation:
+          invalid: 有一个问题拒绝邀请。
+          success: 您已成功拒绝邀请。
+        destroy:
+          invalid: 离开这次会议时出现问题。
+          success: 您已成功离开会议。
+      types:
+        private_meeting: 非公开会议
+        transparent: 透明的
+      versions:
+        back_to_resource: 返回会议
+    metrics:
+      meetings:
+        description: 创建的会议数
+        object: 会议
+        title: 会议
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: 过去的会议
+          upcoming_meetings: 即将举行的会议
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: 过去的会议
+        see_all: 查看所有会议 (%{count})
+        upcoming_meetings: 即将举行的会议
+      upcoming_meeting_for_card:
+        upcoming_meeting: 即将举行的会议
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: '相关结果：'
+        result_meeting: '相关会议：'
+      proposals_from_meeting:
+        meeting_proposal: '3. 有关建议：'
+        proposal_meeting: '相关会议：'
+  devise:
+    mailer:
+      join_meeting:
+        subject: 邀请加入会议

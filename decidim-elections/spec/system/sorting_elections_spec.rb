@@ -8,8 +8,8 @@ describe "Sorting elections", type: :system do
 
   let(:organization) { create :organization }
   let!(:user) { create :user, :confirmed, organization: organization }
-  let(:election1) { create :election, :complete, :published, :ongoing, component: component, start_time: 1.day.ago }
-  let(:election2) { create :election, :complete, :published, :ongoing, component: component, start_time: 2.days.ago }
+  let!(:election1) { create :election, :complete, :published, :ongoing, component: component, start_time: 1.day.ago }
+  let!(:election2) { create :election, :complete, :published, :ongoing, component: component, start_time: 2.days.ago }
 
   before do
     switch_to_host(organization.host)
@@ -17,19 +17,19 @@ describe "Sorting elections", type: :system do
   end
 
   context "when ordering by recent" do
-    it "lists the elections in asc start_time order" do
+    it "lists the elections in desc start_time order" do
       visit_component
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: election1.title[:en])
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: election2.title[:en])
+      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election1.title))
+      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election2.title))
     end
   end
 
   context "when ordering by older" do
-    it "lists the elections in desc start_time order" do
+    it "lists the elections in asc start_time order" do
       visit_component
       within ".order-by" do
         expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Recent")
@@ -37,8 +37,8 @@ describe "Sorting elections", type: :system do
         click_link "Older"
       end
 
-      expect(page).to have_selector("#elections .card-grid .column:first-child", text: election2.title[:en])
-      expect(page).to have_selector("#elections .card-grid .column:last-child", text: election1.title[:en])
+      expect(page).to have_selector("#elections .card-grid .column:first-child", text: translated(election2.title))
+      expect(page).to have_selector("#elections .card-grid .column:last-child", text: translated(election1.title))
     end
   end
 end

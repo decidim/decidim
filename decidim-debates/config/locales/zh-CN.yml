@@ -1,0 +1,224 @@
+zh-CN:
+  activemodel:
+    attributes:
+      debate:
+        category_id: 类别
+        closed_at: 关闭于
+        conclusions: 四. 结论
+        decidim_category_id: 类别
+        description: 描述
+        end_time: 结束于
+        information_updates: 信息更新
+        instructions: 参与说明
+        start_time: 开始于
+        title: 标题
+        user_group_id: 创建辩论为
+    models:
+      decidim/debates/close_debate_event: 辩论结束
+      decidim/debates/create_debate_event: B. 辩论
+      decidim/debates/creation_disabled_event: 已禁用辩论
+      decidim/debates/creation_enabled_event: 辩论已启用
+  activerecord:
+    models:
+      decidim/debates/debate:
+        other: 辩论
+  decidim:
+    components:
+      debates:
+        actions:
+          create: 创建
+          endorse: 批准
+        name: 辩论
+        settings:
+          global:
+            announcement: 通 知
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+          step:
+            announcement: 通 知
+            comments_blocked: 评论已阻止
+            creation_enabled: 参与者创建辩论已启用
+            endorsements_blocked: 已阻止授权
+            endorsements_enabled: 授权已启用
+    debates:
+      actions:
+        close: 关闭
+        confirm_destroy: 您确定吗？
+        destroy: 删除
+        edit: 编辑
+        new: 新建 %{name}
+        title: 行动
+      admin:
+        debate_closes:
+          edit:
+            close: 关闭
+            title: 结束辩论
+        debates:
+          create:
+            invalid: 有一个问题是如何建立辩论。
+            success: 辩论成功创建。
+          destroy:
+            success: 辩论已成功删除。
+          edit:
+            title: 编辑辩论
+            update: 更新辩论
+          index:
+            title: 辩论
+          new:
+            create: 创建辩论
+            title: 新的辩论
+          update:
+            invalid: 在更新这次辩论时遇到了问题。
+            success: 辩论已成功更新。
+        models:
+          debate:
+            name: B. 辩论
+      admin_log:
+        debate:
+          close: "%{user_name} 关闭了 %{resource_name} 场内的 %{space_name} 个辩论"
+          create: "%{user_name} 在 %{space_name} 空间上创建了 %{resource_name} 辩论"
+          update: "%{user_name} 更新了 %{resource_name} 场关于 %{space_name} 空间的辩论"
+      debate_m:
+        commented_time_ago: '%{time} 前发表了评论'
+      debates:
+        close:
+          invalid: 辩论结束时遇到问题。
+          success: 辩论已成功结束。
+        close_debate_modal:
+          close: 关闭
+          description: 这次辩论的总结或结束是什么？
+          send: 结束辩论
+        closed: 已关闭
+        count:
+          debates_count:
+            other: "%{count} 次辩论"
+        create:
+          invalid: 有一个问题是如何建立辩论。
+          success: 辩论成功创建。
+        debate:
+          participate: 参与
+        edit:
+          back: 后退
+          save: 保存更改
+          title: 编辑辩论
+        filters:
+          activity: 我的活动
+          all: 所有的
+          category: 类别
+          category_prompt: 选择一个类别
+          citizens: Citizens
+          commented: 已评论
+          my_debates: 我的辩论
+          official: 官方的
+          origin: 始发地
+          scope: 范围
+          search: 搜索
+          state: 状态
+          state_values:
+            closed: 已关闭
+            open: 打开
+          user_groups: 群組
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        index:
+          new_debate: 新的辩论
+        new:
+          back: 后退
+          create: 创建
+          title: 新的辩论
+        orders:
+          commented: 最多评论
+          label: 排序由
+          random: 随机顺序
+          recent: 最新的
+          updated: 最近更新
+        show:
+          back: 返回列表
+          close_debate: 结束辩论
+          date: 日期
+          debate_closed: 已关闭
+          debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
+          edit_conclusions: 编辑结论
+          edit_debate: 编辑辩论
+          groups_count: 群組
+          last_comment_by: 最后评论者
+          no_comments_yet: 尚无评论
+          participants_count: 参加者
+        update:
+          invalid: 有人在更新辩论时遇到问题。
+          success: 辩论已成功更新。
+        versions:
+          debates:
+            back_to_resource: 回到辩论
+          index:
+            title: 版本
+        versions_list:
+          back_to_resource: 回到辩论
+      last_activity:
+        new_debate_at_html: "<span>在 %{link}进行新的辩论</span>"
+      models:
+        debate:
+          fields:
+            end_time: 结束日期
+            official_debate: 正式辩论
+            start_time: 开始日期
+            title: 标题
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              您好，
+              在参与性的 %{space_title} 空间上创建了一个新的辩论"%{resource_title}"。查看它并做出贡献：
+            email_outro: 您收到此通知是因为您正在关注 %{space_title} 个参与性空间。您可以停止收到跟随上一个链接的通知。
+            email_subject: 在%{resource_title}上的新辩论 " %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 辩论是在 <a href="%{space_path}">%{space_title}</a> 创建的。
+          user_followers:
+            email_intro: |-
+              你好，
+              %{author_name} %{author_nickname}, 你关注的人已经创建了一个新的辩论"%{resource_title}"。看看它并做出贡献：
+            email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
+            email_subject: '%{resource_title}的 %{author_nickname} 新辩论'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 创建了 <a href="%{resource_path}">%{resource_title}</a> 辩论。
+        creation_disabled:
+          email_intro: '辩论创建在 %{participatory_space_title}已不再活跃。您仍然可以从这个页面参与公开辩论：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 在 %{participatory_space_title} 中禁用了辩论创建
+          notification_title: 辩论创建已在 <a href="%{participatory_space_url}">%{participatory_space_title}禁用</a>
+        creation_enabled:
+          email_intro: '您现在可以在 %{participatory_space_title}开始新的辩论！开始参与这个页面：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 在 %{participatory_space_title} 中可以使用的辩论
+        debate_closed:
+          affected_user:
+            email_intro: '"%{resource_title}"辩论已经关闭。您可以从其页面阅读结论：'
+            email_outro: 您收到此通知是因为您正在关注"%{resource_title}"的辩论。您可以从上一个链接取消跟进。
+            email_subject: '"%{resource_title}"辩论已关闭'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 辩论已经结束。
+          follower:
+            email_intro: '"%{resource_title}"辩论已经关闭。您可以从其页面阅读结论：'
+            email_outro: 您收到此通知是因为您正在关注"%{resource_title}"的辩论。您可以从上一个链接取消跟进。
+            email_subject: '"%{resource_title}"辩论已关闭'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 辩论已经结束。
+    gamification:
+      badges:
+        commented_debates:
+          conditions:
+            - 选择要参与的公开辩论
+          description: 当你通过留下评论积极参与不同的辩论时，这个徽章将被授予。
+          description_another: 此参与者已经参加了 %{score} 场辩论。
+          description_own: 您已经参加了 %{score} 次辩论。
+          name: 辩论
+          next_level_in: 参加更多的 %{score} 次辩论，以达到下一级！
+          unearned_another: 这位与会者尚未参加任何辩论。
+          unearned_own: 你还没有参与任何辩论。
+    metrics:
+      debates:
+        description: 创建的辩论数
+        object: 辩论情况
+        title: 辩论

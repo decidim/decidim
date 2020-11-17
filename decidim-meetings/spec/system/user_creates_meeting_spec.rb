@@ -40,15 +40,16 @@ describe "User creates meeting", type: :system do
                  :with_creation_enabled,
                  participatory_space: participatory_process)
         end
-        let(:meeting_title) { Faker::Lorem.sentence(1) }
-        let(:meeting_description) { Faker::Lorem.sentence(2) }
-        let(:meeting_location) { Faker::Lorem.sentence(3) }
-        let(:meeting_location_hints) { Faker::Lorem.sentence(3) }
+        let(:meeting_title) { Faker::Lorem.sentence(word_count: 1) }
+        let(:meeting_description) { Faker::Lorem.sentence(word_count: 2) }
+        let(:meeting_location) { Faker::Lorem.sentence(word_count: 3) }
+        let(:meeting_location_hints) { Faker::Lorem.sentence(word_count: 3) }
         let(:meeting_address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
         let!(:meeting_start_time) { Time.current + 2.days }
         let(:meeting_end_time) { meeting_start_time + 4.hours }
+        let(:online_meeting_url) { "http://decidim.org" }
         let(:meeting_scope) { create :scope, organization: organization }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
@@ -77,11 +78,13 @@ describe "User creates meeting", type: :system do
           within ".new_meeting" do
             fill_in :meeting_title, with: meeting_title
             fill_in :meeting_description, with: meeting_description
+            select "In person", from: :meeting_type_of_meeting
             fill_in :meeting_location, with: meeting_location
             fill_in :meeting_location_hints, with: meeting_location_hints
             fill_in_geocoding :meeting_address, with: meeting_address
             fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
             fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+            select "Registration disabled", from: :meeting_registration_type
             select translated(category.name), from: :meeting_decidim_category_id
             scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
 
@@ -115,10 +118,12 @@ describe "User creates meeting", type: :system do
               within ".new_meeting" do
                 fill_in :meeting_title, with: meeting_title
                 fill_in :meeting_description, with: meeting_description
+                select "In person", from: :meeting_type_of_meeting
                 fill_in :meeting_location, with: meeting_location
                 fill_in :meeting_location_hints, with: meeting_location_hints
                 fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
                 fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+                select "Registration disabled", from: :meeting_registration_type
               end
             end
           end
@@ -137,11 +142,13 @@ describe "User creates meeting", type: :system do
             within ".new_meeting" do
               fill_in :meeting_title, with: meeting_title
               fill_in :meeting_description, with: meeting_description
+              select "In person", from: :meeting_type_of_meeting
               fill_in :meeting_location, with: meeting_location
               fill_in :meeting_location_hints, with: meeting_location_hints
               fill_in_geocoding :meeting_address, with: meeting_address
               fill_in :meeting_start_time, with: meeting_start_time.strftime(datetime_format)
               fill_in :meeting_end_time, with: meeting_end_time.strftime(datetime_format)
+              select "Registration disabled", from: :meeting_registration_type
               select translated(category.name), from: :meeting_decidim_category_id
               scope_pick select_data_picker(:meeting_decidim_scope_id), meeting_scope
               select user_group.name, from: :meeting_user_group_id
@@ -179,6 +186,47 @@ describe "User creates meeting", type: :system do
             click_link "New meeting"
             expect(page).to have_selector("#authorizationModal")
             expect(page).to have_content("Authorization required")
+          end
+        end
+
+        it "lets the user choose the registrations type" do
+          visit_component
+
+          click_link "New meeting"
+
+          within ".new_meeting" do
+            select "Registration disabled", from: :meeting_registration_type
+            expect(page).to have_no_field("Registration URL")
+            expect(page).to have_no_field("Available slots")
+            expect(page).to have_no_field("Registration terms")
+
+            select "On a different platform", from: :meeting_registration_type
+            expect(page).to have_field("Registration URL")
+            expect(page).to have_no_field("Available slots")
+            expect(page).to have_no_field("Registration terms")
+
+            select "On this platform", from: :meeting_registration_type
+            expect(page).to have_field("Available slots")
+            expect(page).to have_no_field("Registration URL")
+            expect(page).to have_field("Registration terms")
+          end
+        end
+
+        it "lets the user choose the meeting type" do
+          visit_component
+
+          click_link "New meeting"
+
+          within ".new_meeting" do
+            select "In person", from: :meeting_type_of_meeting
+            expect(page).to have_field("Address")
+            expect(page).to have_field(:meeting_location)
+            expect(page).to have_no_field("Online meeting URL")
+
+            select "Online", from: :meeting_type_of_meeting
+            expect(page).to have_no_field("Address")
+            expect(page).to have_no_field(:meeting_location)
+            expect(page).to have_field("Online meeting URL")
           end
         end
       end

@@ -18,6 +18,7 @@ module Decidim
           .includes(scoped_type: [:scope])
           .joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           .where(organization: options[:organization])
+          .published
       end
 
       # Handle the search_text filter
@@ -49,10 +50,8 @@ module Decidim
         answered = state.member?("answered") ? query.answered : nil
         open = state.member?("open") ? query.open : nil
         closed = state.member?("closed") ? query.closed : nil
-        draft = state.member?("created") ? query.created : nil
 
         query.where(id: [accepted, rejected, answered, open, closed])
-             .or(query.where(id: draft, published_at: nil))
       end
 
       def search_type_id
@@ -65,7 +64,8 @@ module Decidim
 
       def search_author
         if author == "myself" && options[:current_user]
-          query.where(decidim_author_id: options[:current_user].id)
+          query.where(decidim_author_id: options[:current_user], decidim_author_type: Decidim::UserBaseEntity.name)
+               .unscope(where: :published_at)
         else
           query
         end

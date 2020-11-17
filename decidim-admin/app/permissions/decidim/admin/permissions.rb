@@ -47,6 +47,7 @@ module Decidim
           allow! if permission_action.subject == :area_type
           allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
+          allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic
@@ -82,9 +83,9 @@ module Decidim
 
         case permission_action.action
         when :index, :create
-          return allow!
+          allow!
         when :read, :update, :destroy
-          return toggle_allow(user == newsletter.author)
+          toggle_allow(user == newsletter.author)
         end
       end
 
@@ -174,14 +175,12 @@ module Decidim
         return unless permission_action.action == :enter &&
                       permission_action.subject == :space_area
 
-        space_allows_admin_access_to_current_action?(args)
+        space_allows_admin_access_to_current_action?(**args)
       end
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
         Decidim.participatory_space_manifests.any? do |manifest|
-          if manifest.name != :initiatives && require_admin_terms_accepted
-            next unless admin_terms_accepted?
-          end
+          next if manifest.name != :initiatives && require_admin_terms_accepted && !admin_terms_accepted?
 
           new_permission_action = Decidim::PermissionAction.new(
             action: permission_action.action,

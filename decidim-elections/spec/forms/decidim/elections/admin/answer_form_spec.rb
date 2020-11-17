@@ -16,8 +16,8 @@ describe Decidim::Elections::Admin::AnswerForm do
   let(:election) { question.election }
   let(:question) { create :question }
   let(:component) { election.component }
-  let(:title) { Decidim::Faker::Localized.sentence(3) }
-  let(:description) { Decidim::Faker::Localized.sentence(3) }
+  let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
+  let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:weight) { 10 }
   let(:attachment_params) { nil }
   let(:attributes) do

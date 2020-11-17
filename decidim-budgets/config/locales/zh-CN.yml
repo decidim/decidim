@@ -1,0 +1,255 @@
+zh-CN:
+  activemodel:
+    attributes:
+      budget:
+        decidim_scope_id: 范围
+        description: 描述
+        title: 标题
+        total_budget: 预算总额
+        weight: 权重
+      project:
+        budget_amount: 预算金额
+        decidim_category_id: 类别
+        decidim_scope_id: 范围
+        description: 描述
+        proposal_ids: 有关提议
+        title: 标题
+  activerecord:
+    models:
+      decidim/budgets/project:
+        other: 项目
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: 文件夹
+        attachments: 附件
+        confirm_destroy: 您确定要删除此项目吗？
+        destroy: 删除
+        edit: 编辑
+        edit_projects: 管理项目
+        import: 导入提案到项目
+        new: 新建 %{name}
+        preview: 预览
+        title: 行动
+      admin:
+        budgets:
+          create:
+            invalid: 创建此预算时出现问题
+            success: 预算创建成功
+          destroy:
+            invalid: 删除这个预算时出错
+            success: 预算已成功删除
+          edit:
+            title: 编辑预算
+            update: 更新预算
+          index:
+            title: 预算
+          new:
+            create: 创建预算
+            title: 新预算
+          update:
+            invalid: 更新这个预算时出现问题
+            success: 预算已成功更新
+        models:
+          budget:
+            name: 三. 预算
+          project:
+            name: 项目
+        projects:
+          create:
+            invalid: 创建此项目时出现问题
+            success: 项目创建成功
+          destroy:
+            success: 工程删除成功
+          edit:
+            title: 编辑项目
+            update: 更新
+          index:
+            finished_orders: 完成的投票
+            pending_orders: 待决投票
+            selected: 已选择
+            title: 项目
+          new:
+            create: 创建
+            title: 新建项目
+          update:
+            invalid: 更新此项目时出现问题
+            success: 项目已成功更新
+        proposals_imports:
+          create:
+            invalid: 将建议导入项目时遇到问题
+            success: "%{number} 个建议已成功导入到项目"
+          new:
+            create: 导入提案到项目
+            no_components: 在这个参与性空间中，没有其他提案组成部分可以将提案导入项目。
+            select_component: 请选择一个组件
+      admin_log:
+        budget:
+          create: "%{user_name} 在 %{space_name} 空间中创建了 %{resource_name} 预算"
+          delete: "%{user_name} 删除了 %{resource_name} 在 %{space_name} 空间的预算"
+          update: "%{user_name} 在 %{space_name} 空间中更新了 %{resource_name} 预算"
+        project:
+          create: "%{user_name} 在 %{space_name} 空间中创建了 %{resource_name} 项目"
+          delete: "%{user_name} 在 %{space_name} 空间中删除了 %{resource_name} 项目"
+          update: "%{user_name} 在 %{resource_name} 空间更新 %{space_name} 项目"
+      budget:
+        view: 查看所有预算项目
+      budget_information_modal:
+        back_to: 返回 %{component_name}
+        close_modal: 关闭模式
+        continue: 继续
+        more_information: 更多信息
+      budgets_list:
+        cancel_order:
+          more_than_one: 删除您对 %{name} 的投票并开始
+          only_one: 删除您的投票并重新开始
+        finished_message: 您已经完成投票过程。感谢您的参与！
+        highlighted_cta: 对 %{name} 投票
+        if_change_opinion: 如果你改变了主意，你可以：
+        my_budgets: 我的预算
+        voted_on: 您已对 %{links} 投票
+      limit_announcement:
+        cant_vote: 您不能对此预算进行投票。 <a href="%{landing_path}">请尝试另一个预算</a>。
+        limit_reached: 您在 %{links}有活跃的投票。要对此预算进行投票，您必须 <a href="%{landing_path}">删除您的投票并开始于</a> 开始投票。
+      models:
+        budget:
+          fields:
+            name: 名称
+            projects_count: 项目计数
+            total_budget: 预算总额
+        project:
+          fields:
+            title: 标题
+      order_summary_mailer:
+        order_summary:
+          selected_projects: '您选择的项目是：'
+          subject: 您已经在 %{space_name} 参与性空间上投票
+          voted_on_space: 您在 %{budget_name} 的参与性空间中投票了 %{space_name} 的预算。
+      projects:
+        budget_confirm:
+          are_you_sure: 如果你改变主意，你可以稍后更改你的投票。
+          cancel: 取消
+          confirm: 确认
+          description: 这些是你选择作为预算一部分的项目。
+          title: 确认投票
+        budget_excess:
+          budget_excess:
+            title: 超出最大预算
+          close: 关闭
+          ok: 好的
+        budget_summary:
+          are_you_sure: 您确定要取消您的投票吗？
+          assigned: '已指派：'
+          cancel_order: 删除您的投票并开始
+          checked_out:
+            description: 您已经投票给了预算。如果您改变了主意，您可以 %{cancel_link}。
+            title: 预算投票完成
+          title: 您决定预算
+        count:
+          projects_count:
+            other: "%{count} 个项目"
+        filters:
+          category: 类别
+          scope: 范围
+          search: 搜索
+          status: 状态
+          status_values:
+            all: 所有的
+            not_selected: 未选择
+            selected: 已选择
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        order_progress:
+          vote: 投票
+        order_selected_projects:
+          remove: 删除
+          selected_projects:
+            other: 已选择的项目
+          view: 查看
+        orders:
+          highest_cost: 最高成本
+          label: 项目订购方式
+          lowest_cost: 最低成本
+          most_voted: 最多投票
+          random: 随机顺序
+          selected: 已选择
+        project:
+          add: 将项目 %{resource_name} 添加到您的投票
+          remove: 从您的投票中删除项目 %{resource_name}
+          selected: 已选择
+          view: 查看
+          votes:
+            other: 投票
+        project_budget_button:
+          add: 添加到您的投票
+          add_descriptive: 将项目 %{resource_name} 添加到您的投票
+          added: 添加到您的投票
+          added_descriptive: 项目 %{resource_name} 添加到您的投票
+        projects_for: '%{name} 的项目'
+        show:
+          budget: 三. 预算
+          view_all_projects: 查看所有项目
+    components:
+      budgets:
+        actions:
+          vote: 投票
+        name: 预算
+        settings:
+          global:
+            announcement: 通 知
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+            form:
+              errors:
+                budget_voting_rule_only_one: 只能启用一个投票规则
+                budget_voting_rule_required: 需要一个投票规则
+            landing_page_content: 预算登陆页
+            more_information_modal: 更多信息模式
+            projects_per_page: 每页项目数
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+            title: 标题
+            total_budget: 预算总额
+            vote_minimum_budget_projects_number: 要投票的项目最小数量
+            vote_rule_minimum_budget_projects_enabled: '启用规则：要投票的项目最小数量'
+            vote_rule_threshold_percent_enabled: '启用规则：最小预算百分比'
+            vote_threshold_percent: 投票阈值百分比
+            workflow: 工作流
+            workflow_choices:
+              all: '投票：允许参与者在所有预算中投票。'
+              one: '一次投票：允许与会者在任何预算中投票，但只能在一个预算中投票。'
+          step:
+            announcement: 通 知
+            comments_blocked: 评论已阻止
+            highlighted_heading: 高亮标题
+            landing_page_content: 预算登陆页
+            list_heading: 列表标题
+            more_information_modal: 更多信息模式
+            show_votes: 显示投票
+            title: 标题
+            votes: 表 决
+            votes_choices:
+              disabled: 投票已禁用
+              finished: 投票结束
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} 的预算现在为 %{participatory_space_title}激活。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{resource_title} 的预算现在在 %{participatory_space_title} 处于活动状态。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 预算现在已经在 %{participatory_space_title} 中生效。
+    orders:
+      checkout:
+        error: 处理您的投票时出现问题
+        success: 您的投票已被接受
+      destroy:
+        error: 取消投票时出现问题
+        success: 您的投票已成功取消
+    resource_links:
+      included_proposals:
+        project_proposal: '本项目中的建议：'
+  index:
+    confirmed_orders_count: 所得票数

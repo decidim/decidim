@@ -75,10 +75,10 @@ ro:
           description: Acestea sunt proiectele pe care aţi ales să le faceţi parte din buget.
           title: Confirmă votul
         budget_excess:
+          budget_excess:
+            title: Buget maxim depășit
           close: Inchide
-          description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă doriți, puteți șterge un proiect pe care l-ați selectat deja pentru a adăuga sau puteți vota cu preferințele dvs.
           ok: Ok
-          title: Buget maxim depășit
         budget_summary:
           are_you_sure: Ești sigur că vrei să anulezi votul?
           assigned: 'Atribuit'
@@ -86,8 +86,6 @@ ro:
           checked_out:
             description: Ai votat deja pentru buget. Dacă te-ai răzgândit, poți %{cancel_link}.
             title: Votul pentru buget finalizat
-          description: Ce proiecte credeţi că ar trebui să alocăm bugetul? Atribuiți cel puțin %{minimum_budget} proiectelor pe care le doriți și votați cu preferințele dvs. pentru a defini bugetul.
-          description_minimum_projects_rule: Ce proiecte credeţi că ar trebui să alocăm bugetul? Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați cu preferințele dvs. pentru a defini bugetul.
           title: Dumneavoastră decideţi bugetul
         count:
           projects_count:
@@ -145,7 +143,6 @@ ro:
                 budget_voting_rule_only_one: Doar o singură regulă de vot trebuie activată
                 budget_voting_rule_required: Este necesară o regulă de vot
             projects_per_page: Proiecte pe pagină
-            resources_permissions_enabled: Permisiunile de acțiuni pot fi setate pentru fiecare întâlnire
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
             vote_rule_minimum_budget_projects_enabled: 'Permite regula: numărul minim de proiecte care urmează să fie votate pe'
@@ -169,4 +166,3 @@ ro:
         project_proposal: 'Propuneri incluse în acest proiect:'
   index:
     confirmed_orders_count: Numărul de voturi
-  total_budget: Buget total

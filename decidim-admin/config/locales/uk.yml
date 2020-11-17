@@ -55,7 +55,6 @@ uk:
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
-        show_statistics: Показувати статистику
         tos_version: Версія умов участі
         twitter_handler: Адреса Twitter
         youtube_handler: Адреса YouTube
@@ -440,7 +439,6 @@ uk:
           instagram: Інстаграм
           social_handlers: Соціальні мережі
           twitter: Твіттер
-          url: Веб-адреса
           youtube: ЮТуб
         update:
           error: При спробі оновити цю організацію сталася помилка.
@@ -598,7 +596,6 @@ uk:
           fields:
             hidden_at: 'Приховано:'
             report_count: Кількість
-            reportable: Різновид скарги
             reported_content_url: Веб-адреса оскарженого вмісту
             reports: Скарги
             visit_url: Відвідайте веб-адресу

@@ -1,0 +1,883 @@
+zh-CN:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: 地址
+        body: 正文内容
+        category_id: 类别
+        decidim_scope_id: 范围
+        has_address: 有地址
+        scope_id: 范围
+        state: 状态
+        title: 标题
+        user_group_id: 创建协作草稿为
+      proposal:
+        address: 地址
+        answer: 答案
+        answered_at: 回答于
+        automatic_hashtags: 自动添加标签
+        body: 正文内容
+        category_id: 类别
+        decidim_scope_id: 范围
+        has_address: 有地址
+        scope_id: 范围
+        state: 状态
+        suggested_hashtags: 建议的哈希标签
+        title: 标题
+        user_group_id: 创建提案为
+      proposal_answer:
+        answer: 答案
+      proposals_copy:
+        copy_proposals: 我的理解是，这将从选定的组件导入所有建议到当前的组件，这个操作不能被撤销。
+        origin_component_id: 复制提议的构成部分
+      proposals_import:
+        import_proposals: 导入提议
+        keep_authors: 保留原始作者
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: 值名称
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: 需要重新连接
+            body:
+              cant_be_equal_to_template: 不能等于模板
+              identical: 和标题不能相同
+            title:
+              identical: 和正文不能相同
+    models:
+      decidim/proposals/accepted_proposal_event: 提议已被接受
+      decidim/proposals/admin/update_proposal_category_event: 建议类别已更改
+      decidim/proposals/admin/update_proposal_scope_event: 建议范围已更改
+      decidim/proposals/creation_enabled_event: 建议创建已启用
+      decidim/proposals/endorsing_enabled_event: 提案已启用
+      decidim/proposals/evaluating_proposal_event: 目前正在对提案进行评价
+      decidim/proposals/proposal_mentioned_event: 提及的建议
+      decidim/proposals/publish_proposal_event: 建议已发布
+      decidim/proposals/rejected_proposal_event: 被拒绝的提案
+      decidim/proposals/voting_enabled_event: 提案投票已启用
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        other: 合作草案
+      decidim/proposals/proposal:
+        other: 建议
+      decidim/proposals/proposal_note:
+        other: 注
+      decidim/proposals/proposal_vote:
+        other: 支持
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: 类别
+          is_emendation_true:
+            label: 类型
+            values:
+              'false': 建议
+              'true': 修 正 案
+          scope_id_eq:
+            label: 范围
+          state_eq:
+            label: 状态
+            values:
+              accepted: 已接受
+              evaluating: 评价
+              published: 已发布
+              rejected: 已拒绝
+              validating: 技术验证
+              withdrawn: 取出
+          state_null:
+            label: 状态
+            values:
+              'true': 未回答
+          valuator_role_ids_has:
+            label: 分配给值者
+        search_placeholder:
+          id_string_or_title_cont: 通过ID或标题搜索 %{collection}。
+    components:
+      proposals:
+        actions:
+          amend: 修改：
+          create: 创建
+          endorse: 批准
+          vote: 支持
+          withdraw: 取款
+        name: 建议
+        settings:
+          global:
+            allow_card_image: 允许卡片图像
+            amendments_enabled: 修改已启用
+            amendments_enabled_help: 如果激活，配置每一步的修正功能。
+            amendments_wizard_help_text: 修正向导帮助文本
+            announcement: 通 知
+            attachments_allowed: 允许附件
+            can_accumulate_supports_beyond_threshold: 可以积累超过阈值的支持
+            collaborative_drafts_enabled: 协作草稿已启用
+            comments_enabled: 评论已启用
+            comments_max_length: 评论最大长度 (默认值留0)
+            geocoding_enabled: 地理编码已启用
+            minimum_votes_per_user: 每个用户的最低支持
+            new_proposal_body_template: 新的提案正文模板
+            new_proposal_body_template_help: 您可以定义新建议将包含的预填文本
+            new_proposal_help_text: 新建议帮助文本
+            official_proposals_enabled: 正式建议已启用
+            participatory_texts_enabled: 参与性案文已启用
+            participatory_texts_enabled_readonly: 如果有现存的提议，无法与此设置进行交互。 请， 如果您想要启用此功能，或在"参与文本"菜单中放弃所有导入的提议，则创建一个新的 "建议组件"。
+            proposal_answering_enabled: 建议答案已启用
+            proposal_edit_before_minutes: 建议可以由作者在这么多分钟过去之前编辑
+            proposal_length: 最大建议体长度
+            proposal_limit: 每个参与者的建议限制
+            proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
+            proposal_wizard_step_2_help_text: 建议向导“Compare”步骤帮助文本
+            proposal_wizard_step_3_help_text: 建议向导“完成”步骤帮助文本
+            proposal_wizard_step_4_help_text: 建议向导"发布"步骤帮助文本
+            resources_permissions_enabled: 每个提案都可以设置动作权限
+            scope_id: 范围
+            scopes_enabled: 范围已启用
+            threshold_per_proposal: 每个建议的阈值
+            vote_limit: 每位参与者的支持限制
+          step:
+            amendment_creation_enabled: 修改创建已启用
+            amendment_creation_enabled_help: 参加者可以修改提案。
+            amendment_promotion_enabled: 已启用修正促销功能
+            amendment_promotion_enabled_help: 奖赏作者将能够提倡被否决的修正案。
+            amendment_reaction_enabled: 修正反应已启用
+            amendment_reaction_enabled_help: 建议书的作者将能够接受或拒绝参加者的建议。
+            amendments_visibility: 修改可见性
+            amendments_visibility_choices:
+              all: 所有修改都可见
+              participants: 修改仅对作者可见
+            amendments_visibility_help: 如果选择“修改仅对作者可见”，参与者必须登录才能看到所做的修改。
+            announcement: 通 知
+            answers_with_costs: 启用建议答案的成本
+            automatic_hashtags: 添加到所有建议的标签
+            comments_blocked: 评论已阻止
+            creation_enabled: 建议创建已启用
+            endorsements_blocked: 已阻止授权
+            endorsements_enabled: 授权已启用
+            proposal_answering_enabled: 建议答案已启用
+            publish_answers_immediately: 立即发布提案答案
+            suggested_hashtags: 推荐给参与者的新建议标签
+            votes_blocked: 支持被阻止
+            votes_enabled: 支持已启用
+            votes_hidden: 支持隐藏 (如果支持已启用，选中将隐藏支持次数)
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: 有人在提议 "%{resource_title}"上留下了一条笔记。请在管理面板 <a href="%{admin_proposal_info_url}">上查看</a>
+            email_outro: 您收到此通知是因为您可以评估提案。
+            email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
+            notification_title: 有人在提议 <a href="%{resource_path}">%{resource_title}</a>留下了一条笔记。请在 <a href="%{admin_proposal_info_path}">管理面板</a>
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} 已被接受作为贡献者访问 <a href="%{resource_path}">%{resource_title}</a> 协作草案。'
+          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
+          email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} 已被拒绝以贡献者身份访问 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。'
+          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
+          email_subject: "%{requester_name} 在 %{resource_title} 协作草稿中的贡献者被拒绝访问。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被 <strong>拒绝以贡献者身份访问</strong> <a href="%{resource_path}">%{resource_title}</a> 合作草稿。
+        collaborative_draft_access_requested:
+          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
+          email_subject: "%{requester_name} 请求访问权限为 %{resource_title} 捐款。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 请求访问权限以便为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。请 <strong>接受或拒绝请求</strong>
+        collaborative_draft_access_requester_accepted:
+          email_intro: 您已被接受作为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿的贡献者访问权限。
+          email_outro: 您收到此通知是因为您请求成为 <a href="%{resource_path}">%{resource_title}</a> 的合作者。
+          email_subject: 您已被接受为 %{resource_title} 的贡献者。
+        collaborative_draft_access_requester_rejected:
+          email_intro: 您已被拒绝以贡献者身份访问 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
+          email_outro: 您收到此通知是因为您请求成为 <a href="%{resource_path}">%{resource_title}</a> 的合作者。
+          email_subject: 您已被拒绝为 %{resource_title} 的贡献者。
+          notification_title: 您在 <a href="%{resource_path}">%{resource_title}</a> 协作草稿中的 <strong>被拒绝作为贡献者</strong> 访问。
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 撤回了 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
+          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
+          email_subject: "%{author_name} %{author_nickname} 撤销了 %{resource_title} 协作草稿。"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回</strong> <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
+        creation_enabled:
+          email_intro: '您现在可以在 %{participatory_space_title}中创建新的建议 ！开始参与这个页面：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 建议已在 %{participatory_space_title} 中可用
+        endorsing_enabled:
+          email_intro: '您可以在 %{participatory_space_title}中批准提案！开始参与此页面：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{participatory_space_title} 的建议已经开始'
+        proposal_accepted:
+          affected_user:
+            email_intro: '您的建议 "%{resource_title}" 已被接受。您可以在此页面中阅读答案：'
+            email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
+            email_subject: 您的建议已被接受
+            notification_title: 您的提议 <a href="%{resource_path}">%{resource_title}</a> 已被接受。
+          follower:
+            email_intro: '提议 "%{resource_title}" 已被接受。您可以在此页面中阅读答案：'
+            email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
+            email_subject: 您关注的建议已被接受
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被接受。
+        proposal_evaluating:
+          affected_user:
+            email_intro: '您的建议 "%{resource_title}" 目前正在评估中。您可以检查此页面的答案：'
+            email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
+            email_subject: 您的建议正在评估中
+            notification_title: 您的提议 <a href="%{resource_path}">%{resource_title}</a> 正在评估中。
+          follower:
+            email_intro: '提议 "%{resource_title}" 目前正在评估。您可以在这个页面检查答案：'
+            email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
+            email_subject: 正在评估您关注的建议
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议正在评估中。
+        proposal_mentioned:
+          email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
+          email_subject: 您的提议 "%{mentioned_proposal_title}" 已被提到了
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}, 你关注的人已经发布了一个叫做"%{resource_title}"的新建议。查看它并做出贡献：'
+          email_outro: 您收到此通知是因为您正在关注 %{author_nickname}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{resource_title}的 %{author_nickname} 新提案'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议由 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 发布。
+        proposal_published_for_space:
+          email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
+          email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
+          email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
+          notification_title: 提议 <a href="%{resource_path}">%{resource_title}</a> 已被添加到 %{participatory_space_title}
+        proposal_rejected:
+          affected_user:
+            email_intro: '您的提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
+            email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
+            email_subject: 您的建议已被拒绝
+            notification_title: 您的提议 <a href="%{resource_path}">%{resource_title}</a> 已被拒绝
+          follower:
+            email_intro: '提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
+            email_outro: 您收到此通知是因为您正在关注 "%{resource_title}"。您可以从上一个链接取消关注它。
+            email_subject: 您关注的建议已被拒绝
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议已被拒绝。
+        proposal_update_category:
+          email_intro: '管理员更新了您的提议 "%{resource_title}"的类别，在此页面查看：'
+          email_outro: 您收到此通知是因为您是提案的作者。
+          email_subject: '%{resource_title} 建议类别已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议类别已被管理员更新。
+        proposal_update_scope:
+          email_intro: '管理员更新了您的提议 "%{resource_title}"的范围，在此页面查看：'
+          email_outro: 您收到此通知是因为您是提案的作者。
+          email_subject: '%{resource_title} 建议范围已更新'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议范围已被管理员更新。
+        voting_enabled:
+          email_intro: '您可以在 %{participatory_space_title}中支持建议！开始参与此页面：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: '%{participatory_space_title} 的建议支持已经开始'
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            - 选择您感兴趣的提交建议的参与空间
+            - 尝试提出可以执行的建议。这种方式更有可能被接受。
+          description: 当您积极参加新的建议并接受这些建议时，将颁发这个徽章。
+          description_another: 此参与者有 %{score} 个已被接受的建议。
+          description_own: 您获得 %{score} 条建议被接受。
+          name: 已接受的提议
+          next_level_in: 获得更多 %{score} 个建议以达到下一级！
+          unearned_another: 该参与方尚未收到任何可接受的提议。
+          unearned_own: 您尚未接受任何建议。
+        proposal_votes:
+          conditions:
+            - 浏览并花一些时间阅读其他人的建议
+            - 支持您想要的建议或有趣的
+          description: 当你支持其他人的建议时，这个徽章将被授予。
+          description_another: 此参与者已经支持 %{score} 提案。
+          description_own: 您已经对 %{score} 的建议给予了支持。
+          name: 建议支持
+          next_level_in: 支持更多 %{score} 个建议以达到下一级！
+          unearned_another: 此参与者尚未支持任何建议。
+          unearned_own: 您还没有对任何建议给予支持。
+        proposals:
+          conditions:
+            - 选择您感兴趣的提交建议的参与空间
+            - 创建一个新提案
+          description: 当您积极参与新的建议时，将颁发这个徽章。
+          description_another: 此参与者已创建了 %{score} 个建议。
+          description_own: 您已创建了 %{score} 个建议。
+          name: 建议
+          next_level_in: 再创建 %{score} 个建议以达到下一关！
+          unearned_another: 此参与者尚未创建任何提案。
+          unearned_own: 您尚未创建任何提案。
+    metrics:
+      accepted_proposals:
+        description: 接受的建议数
+        object: 提议
+        title: 已接受的提议
+      endorsements:
+        description: 建议认可次数
+        object: 核准
+        title: 授权
+      proposals:
+        description: 建议数
+        object: 提议
+        title: 建议
+      votes:
+        description: 支持提议的数量
+        object: 支持
+        title: 支持
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: 建议
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: 查看所有建议 (%{count})
+    proposals:
+      actions:
+        answer_proposal: 答复建议
+        edit_proposal: 编辑提案
+        import: 从另一个组件导入
+        new: 新提案
+        participatory_texts: 参与性案文
+        show: 显示提案
+        title: 行动
+      admin:
+        actions:
+          preview: 预览
+        exports:
+          comments: 评论
+          proposals: 建议
+        models:
+          proposal:
+            name: 建议
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: 你确定要放弃整个参与性案文草案？
+            discard_all: 丢弃所有
+            import_doc: 导入文档
+          discard:
+            success: 所有参与性案文草案都已丢弃。
+          import:
+            invalid: 表单无效！
+            invalid_file: 文件包含一些错误，请尝试编辑文件内容并重新上传。
+            success: 恭喜您，以下部分已转换为建议。现在您可以在发布前审查和调整。
+          index:
+            info_1: 以下部分已转换为建议。现在您可以在发布前审查和调整。
+            publish_document: 发布文档
+            save_draft: 保存草稿
+            title: 预览参与文本
+          new_import:
+            accepted_mime_types:
+              md: Markdown
+            bottom_hint: "(您将能够预览和排序文档部分)"
+            title: 添加文档
+            upload_document: 上传文档
+          publish:
+            invalid: 无法发布提案
+            success: 所有建议已经发布
+          sections:
+            article: "<em>文章</em>"
+            sub-section: "<em>子部分：</em> %{title}"
+          update:
+            success: 参与性文本更新成功。
+        proposal_answers:
+          form:
+            accepted: 已接受
+            answer_proposal: 答案
+            evaluating: 评价
+            rejected: 已拒绝
+            title: 对提议 %{title} 的答案
+        proposal_notes:
+          create:
+            error: 创建此建议说明时出现问题
+            success: 提案备注创建成功
+          form:
+            note: 说明
+            submit: 提交
+          leave_your_note: 留下您的便笺
+          title: 私人笔记
+        proposals:
+          answer:
+            invalid: 回答此建议时出现问题
+            success: 已成功回复建议
+          create:
+            invalid: 创建此建议时出现问题
+            success: 建议已成功创建
+          edit:
+            title: 更新提议
+            update: 更新
+          form:
+            attachment_legend: "(可选) 添加附件"
+            created_in_meeting: 这项建议来自一次会议
+            select_a_category: 选择一个类别
+            select_a_meeting: 选择会议
+          index:
+            actions: 行动
+            assign_to_valuator: 分配给值器
+            assign_to_valuator_button: 分配
+            cancel: 取消
+            change_category: 更改类别
+            change_scope: 更改范围
+            merge: 合并为一个新的
+            merge_button: 合并
+            publish: 发布
+            publish_answers: 发布答案
+            select_component: 选择一个组件
+            selected: 已选择
+            split: 拆分提案
+            split_button: 拆分
+            title: 建议
+            unassign_from_valuator: 取消分配给值
+            unassign_from_valuator_button: 取消分配
+            update: 更新
+            update_scope_button: 更新范围
+          new:
+            create: 创建
+            title: 创建提案
+          publish_answers:
+            number_of_proposals: '%{number} 建议的答案将被发布。'
+            select_a_proposal: 请选择一个提议
+          show:
+            amendments_count: 修改计数
+            assigned_valuators: 分配给值者
+            authors: 作者
+            body: 正文内容
+            comments_count: 评论计数
+            comments_negative_count: 反对的
+            comments_neutral_count: 中性的
+            comments_positive_count: 收藏夹
+            created_at: 创建日期
+            documents: www.un.org/webcast
+            endorsements_count: 批准次数
+            endorsements_ranking: 经认可排序。
+            endorsers: 核可者
+            link: 链接
+            n_more_endorsers:
+              other: 和 %{count} 更多
+            photos: 照片
+            proposals: 建议
+            ranking: "%{ranking} / %{total}"
+            related_meetings: 相关会议
+            remove_assignment: 移除作业
+            remove_assignment_confirmation: 您确定要从此建议中删除值吗？
+            valuators: 估价器
+            votes_count: 支持计数
+            votes_ranking: 支持排序方式
+          update_category:
+            invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
+            select_a_category: 请选择一个类别
+            select_a_proposal: 请选择一个提议
+            success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
+          update_scope:
+            invalid: '这些建议已经有 %{subject_name} 范围： %{proposals}。'
+            select_a_proposal: 请选择一个提议
+            select_a_scope: 请选择范围
+            success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
+        proposals_imports:
+          create:
+            invalid: 导入提案时出现问题
+            success: "%{number} 个建议已成功导入"
+          new:
+            create: 导入提议
+            no_components: 在这个参与性空间中，没有其他提案组成部分可以从中导入。
+            select_component: 请选择一个组件
+            select_states: 检查要导入的建议的状态
+        proposals_merges:
+          create:
+            invalid: 合并选定的建议时出现问题。
+            success: 成功地将提案合并为一个新提案。
+        proposals_splits:
+          create:
+            invalid: 在分割选定的建议时遇到问题。
+            success: 成功地将建议分成新的建议。
+        valuation_assignments:
+          create:
+            invalid: 分配建议给值者时出错
+            success: 分配给估值者的建议
+          delete:
+            invalid: 有一个错误，未分配来自一个值的建议
+            success: 已成功从建议中删除值
+      admin_log:
+        proposal:
+          answer: "%{user_name} 回答了 %{resource_name} 在 %{space_name} 空间的建议"
+          create: "%{user_name} 在 %{space_name} 空间上创建了 %{resource_name} 提案作为官方提案"
+          publish_answer: "%{user_name} 在 %{space_name} 空间上发布了 %{resource_name} 建议的答案"
+          update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 空间的官方提议"
+        proposal_note:
+          create: "%{user_name} 在 %{space_name} 空间的 %{resource_name} 提案上留下了一个私人笔记"
+        valuation_assignment:
+          create: "%{user_name} 将 %{resource_name} 的建议分配给了一个值者"
+          delete: "%{user_name} 在 %{proposal_title} 提议中没有分配到一个值者"
+      answers:
+        accepted: 已接受
+        evaluating: 评价
+        not_answered: 未回答
+        rejected: 已拒绝
+        withdrawn: 取出
+      application_helper:
+        filter_category_values:
+          all: 所有的
+        filter_origin_values:
+          all: 所有的
+          citizens: Citizens
+          meetings: 会议
+          official: 官方的
+          user_groups: 群組
+        filter_scope_values:
+          all: 所有的
+        filter_state_values:
+          accepted: 已接受
+          all: 所有的
+          evaluating: 评价
+          not_answered: 未回答
+          rejected: 已拒绝
+        filter_type_values:
+          all: 所有的
+          amendments: 修 正 案
+          proposals: 建议
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: 发布合作草案时出现问题。
+            irreversible_action_modal:
+              body: 在将草案作为提案发表之后，草案将不再被编辑。该提案不会接受新的作者或贡献。
+              cancel: 取消
+              ok: 发布为提案
+              title: 以下操作是不可逆的
+            success: 合作草案作为一项建议成功发表。
+          view_collaborative_draft: 查看协作草稿
+          withdraw:
+            error: 在结束合作草案时遇到了问题。
+            irreversible_action_modal:
+              body: 草案结束后，草案将不会再被编辑。草案将不会接受新的作者或贡献。
+              cancel: 取消
+              ok: 撤回协作草稿
+              title: 以下操作是不可逆的
+            success: 协作草案已成功撤销。
+        compare:
+          mine_is_different: 我的合作草稿是不同的
+          no_similars_found: 干得好！找不到类似的协作草稿
+          title: 类似的合作草稿
+        complete:
+          send: 发送
+          title: 完成您的协作草稿
+        count:
+          drafts_count:
+            other: "%{count} 协作草稿"
+        create:
+          error: 创建这个合作草稿时出现问题
+          success: 协作草稿成功创建。
+        edit:
+          attachment_legend: "(可选) 添加附件"
+          back: 后退
+          select_a_category: 请选择一个类别
+          send: 发送
+          title: 编辑协作草稿
+        filters:
+          all: 所有的
+          amendment: 修 正 案
+          category: 类别
+          open: 打开
+          published: 已发布
+          related_to: 关联到
+          scope: 范围
+          search: 搜索
+          state: 状态
+          withdrawn: 取出
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        new:
+          send: 继续
+          title: 创建您的协作草稿
+        new_collaborative_draft_button:
+          new_collaborative_draft: 新的协作草稿
+        orders:
+          label: '订单草稿：'
+          most_contributed: 贡献最多的
+          random: 随机播放
+          recent: 最近的
+        requests:
+          accepted_request:
+            error: 无法接受为协作者，请稍后再试。
+            success: "@%{user} 已被成功接受为合作者"
+          access_requested:
+            error: 您的请求无法完成，请稍后再试。
+            success: 您的合作请求已成功发送
+          collaboration_requests:
+            accept_request: 接受
+            reject_request: 拒绝
+            title: 协作请求
+          rejected_request:
+            error: 无法以协作者身份拒绝，请稍后再试。
+            success: "@%{user} 已被成功拒绝为合作者"
+        show:
+          back: 后退
+          edit: 编辑协作草稿
+          final_proposal: 最后提案
+          final_proposal_help_text: 这个草稿已完成。查看最后建议
+          hidden_authors_count:
+            other: 和更多 %{count} 人
+          info-message: 这是一个提议的 <strong>协作草案</strong> 。 这意味着你可以帮助他们的作者使用下面的评论部分来塑造建议或通过请求访问来直接改进它。 一旦作者授予您访问权限，您将能够修改此草稿。
+          publish: 发布
+          publish_info: 发布此版本的草稿或
+          published_proposal: 已发布的提案
+          request_access: 请求访问
+          requested_access: 访问请求
+          version_history: 查看此建议的版本历史记录
+          withdraw: 撤回草案
+        states:
+          open: 打开
+          published: 已发布
+          withdrawn: 取出
+        update:
+          error: 保存合作草稿时出现问题。
+          success: 协作草稿已成功更新。
+          title: 编辑协作草稿
+        wizard_aside:
+          back: 后退
+          back_from_collaborative_draft: 返回协作草稿
+          back_from_step_1: 返回协作草稿
+          back_from_step_2: 返回协作草稿
+          back_from_step_3: 返回比较协作草稿
+          back_from_step_4: 返回编辑草稿
+          info: 您正在创建一个 <strong>协作草案</strong>。
+        wizard_steps:
+          current_step: 当前步骤
+          see_steps: 查看步骤
+          step_1: 创建您的协作草稿
+          step_2: 与协作草稿比较
+          step_3: 完成您的协作草稿
+          step_of: 步骤 %{current_step_num} / %{total_steps}
+          title: 协作创建步骤草案
+      create:
+        error: 保存建议时出现问题。
+        success: 建议已成功创建为草稿。
+      destroy_draft:
+        error: 删除合作草案时出现问题。
+        success: 提案草案已成功删除。
+      last_activity:
+        new_proposal_at_html: "<span>在 %{link}的新提议</span>"
+      models:
+        collaborative_draft:
+          fields:
+            authors: 作者
+            comments: 评论
+            contributions: 二. 捐款
+        proposal:
+          fields:
+            category: 类别
+            comments: 评论
+            id: ID
+            notes: 注
+            official_proposal: 正式提案
+            published_answer: 已发布的答案
+            published_at: 发布于
+            scope: 范围
+            state: 状态
+            title: 标题
+            valuator: 值者
+            valuators: 估价器
+            votes: 所得票数
+      new:
+        limit_reached: 您不能创建新的建议，因为您已经超过了限制。
+      participatory_text_proposal:
+        alternative_title: 目前没有参与性文本
+        buttons:
+          amend: 修改：
+          comment: 评论
+          comments: 评论
+      proposal_votes:
+        create:
+          error: 有一个问题支持这项提议。
+      proposals:
+        compare:
+          continue: 继续
+          no_similars_found: 干得好！没有找到类似的建议
+          title: 类似的提议
+        complete:
+          send: 发送
+          title: 完成您的提议
+        count:
+          proposals_count:
+            other: "%{count} 个提议"
+        edit:
+          add_documents: www.un.org/webcast
+          add_images: 文件
+          attachment_legend: "(可选) 添加附件"
+          back: 后退
+          delete_document: 删除文档
+          delete_image: 删除图像
+          gallery_legend: "(可选) 添加图像到提案卡"
+          select_a_category: 请选择一个类别
+          send: 发送
+          title: 编辑提案
+        edit_draft:
+          discard: 丢弃这个草稿
+          discard_confirmation: 您确定要放弃这个建议草案吗？
+          send: 预览
+          title: 编辑提案草案
+        filters:
+          activity: 我的活动
+          all: 所有的
+          amendment_type: 类型
+          category: 类别
+          my_proposals: 我的提议
+          origin: 始发地
+          related_to: 关联到
+          scope: 范围
+          search: 搜索
+          state: 状态
+          type: 类型
+          voted: 支持的
+        filters_small_view:
+          close_modal: 关闭模式
+          filter: 筛选器
+          filter_by: 筛选方式
+          unfold: 展开...
+        index:
+          collaborative_drafts_list: 访问协作草稿
+          new_proposal: 新提案
+          see_all_withdrawn: 查看所有已撤销的提案
+          view_proposal: 查看提案
+        linked_proposals:
+          proposal_votes:
+            other: 支持
+        new:
+          send: 继续
+          title: 创建您的提议
+        orders:
+          label: '排序提议：'
+          most_commented: 最多评论
+          most_endorsed: 最多支持
+          most_followed: 关注最多的
+          most_voted: 最多支持
+          random: 随机播放
+          recent: 最近的
+          with_more_authors: 有更多作者
+        participatory_texts:
+          index:
+            document_index: 文档索引
+          view_index:
+            see_index: 查看索引
+        preview:
+          modify: 修改提案
+          proposal_edit_before_minutes:
+            other: 您将能够在发布提案后的前 %{count} 分钟内编辑此提案。 一旦这次窗口通过后，您将无法编辑提案。
+          publish: 发布
+          title: 发布您的提议
+        proposal:
+          creation_date: '创建: %{date}'
+          view_proposal: 查看提案
+        proposals:
+          empty: 还没有提案
+          empty_filters: 没有任何符合此标准的提案
+        show:
+          answer: 答案
+          back_to: 返回到
+          back_to_list: 返回列表
+          changes_at_title: 对"%{title}" 的修正
+          comments: 评论
+          edit_proposal: 编辑提案
+          endorsements_list: 认可名单
+          estimated_cost: 估计费用
+          hidden_endorsers_count:
+            other: 和更多 %{count} 人
+          link_to_collaborative_draft_help_text: 此建议是协作草稿的结果，请查看历史记录
+          link_to_collaborative_draft_text: 查看协作草稿
+          link_to_promoted_emendation_help_text: 这项建议是一项提倡的修正
+          link_to_promoted_emendation_text: 见被拒绝的修正。
+          link_to_proposal_from_emendation_help_text: 这是一个被拒绝的修改
+          link_to_proposal_from_emendation_text: 见提案
+          proposal_accepted_reason: '这一提议已被接受，原因是：'
+          proposal_in_evaluation_reason: 这项建议正在评估
+          proposal_rejected_reason: '这一提议被否决，理由是：'
+          read_less: 阅读更多
+          read_more: 阅读更多
+          report: 报告
+          withdraw_btn_hint: 如果您改变主意，只要您没有得到任何支持，您可以撤回您的建议。 该提案未予删除，将列入撤回的提案清单。
+          withdraw_confirmation_html: 您确定要撤回此建议吗？<br><br><strong>此操作不能取消！</strong>
+          withdraw_proposal: 撤回提案
+        tags:
+          changed_from: "(来自 <u>%{previous_name}</u> 由管理员修改)"
+        update:
+          title: 更新提议
+        vote_button:
+          already_voted: 已经支持
+          already_voted_hover: 取款支持
+          maximum_votes_reached: 已达到支持上限
+          no_votes_remaining: 不支持剩余
+          vote: 支持
+          votes_blocked: 支持已禁用
+        votes_count:
+          count:
+            other: 支持
+          most_popular_proposal: 最受欢迎的提案
+          need_more_votes: 需要更多支持
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: 每个建议都可以积累超过 %{limit} 个支持
+          minimum_votes_per_user:
+            description: 您必须在不同的建议中至少分配 %{votes} 支持。
+            given_enough_votes: 您已经提供了足够的支持。
+            supports_remaining: 您必须支持 %{remaining_votes} 个更多的建议以便您的支持被考虑。
+          proposal_limit:
+            description: 您最多可以创建 %{limit} 个建议。
+          threshold_per_proposal:
+            description: 为了被验证的建议需要达到 %{limit} 支持
+          title: '支持受以下规则约束：'
+          vote_limit:
+            description: 您可以最多支持 %{limit} 个建议。
+            left: 剩余时间
+            votes: 支持
+        wizard_aside:
+          back: 后退
+          back_from_step_1: 回到提议
+          back_from_step_2: 回到提议
+          back_from_step_3: 返回比较提案
+          back_from_step_4: 返回编辑草稿
+          info: 您正在创建 <strong>提议</strong>。
+        wizard_steps:
+          current_step: 当前步骤
+          see_steps: 查看步骤
+          step_1: 创建您的提议
+          step_2: 比较
+          step_3: Complete
+          step_4: 发布您的提议
+          step_of: 步骤 %{current_step_num} / %{total_steps}
+          title: 建议创建步骤
+      proposals_picker:
+        choose_proposals: 选择建议
+        close: 关闭
+        more_proposals: 还有 %{number} 个建议。请仔细搜索以找到它们。
+        no_proposals: 没有符合您搜索条件的建议或没有任何建议。
+      publish:
+        error: 发布建议时出现问题。
+        success: 建议发布成功。
+      publish_answers:
+        success: 建议答案发布成功。
+      update:
+        error: 保存建议时出现问题。
+        success: 建议已成功更新。
+      update_draft:
+        error: 保存合作草稿时出现问题。
+        success: 建议草稿已成功更新。
+      versions:
+        collaborative_drafts:
+          back_to_resource: 返回协作草稿
+        index:
+          title: 版本
+        proposals:
+          back_to_resource: 返回提案
+      withdraw:
+        errors:
+          has_supports: 这项建议不能被撤回，因为它已经得到支持。
+    resource_links:
+      copied_from_component:
+        proposal_proposal: 有关提议
+      included_projects:
+        project_result: '此项目中出现的结果：'
+      included_proposals:
+        proposal_project: '这些项目中的建议：'
+        proposal_result: '这些结果中出现的建议：'

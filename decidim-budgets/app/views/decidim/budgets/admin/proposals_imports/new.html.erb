@@ -9,6 +9,11 @@
         <div class="row column">
           <%= f.select :origin_component_id, @form.origin_components_collection, prompt: t(".select_component") %>
         </div>
+        <% if current_component.scopes_enabled? %>
+          <div class="row column">
+            <%= scopes_picker_field f, :scope_id, root: budget.scope %>
+          </div>
+        <% end %>
         <div class="row column">
           <%= f.number_field :default_budget %>
         </div>

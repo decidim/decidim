@@ -30,7 +30,6 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
@@ -66,20 +65,16 @@ fr-CA:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
-        password: Mot de passe
-        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
         secondary_color: Secondaire
         send_welcome_notification: Envoyer un mail de bienvenue
-        show_statistics: Montrer les statistiques
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
-        user_name: Nom d'utilisateur
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
@@ -300,6 +295,9 @@ fr-CA:
         category_id_eq:
           label: Catégorie
         filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: État
           values:
@@ -320,6 +318,7 @@ fr-CA:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
         state_eq:
           label: État
@@ -481,6 +480,21 @@ fr-CA:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+        reports:
+          index:
+            author: Auteur(s)
+            callout_html: Un contenu apparaît dans le panneau de modération quand il a été signalé par un utilisateur (personne ayant un compte enregistré) en cliquant sur le drapeau %{icon} à côté de l'élément.
+            content_original_language: Langue d'origine du contenu
+            participatory_space: Espace participatif
+            reported_content: Contenu signalé
+            see_current: Voir en cours
+            see_original: Voir l'original
+            title: Signalements
+          show:
+            report_details: Motif du signalement
+            report_language: Langue d'origine du signalement
+            report_reason: Motif
+            title: Détails du signalement
       newsletter_templates:
         index:
           preview_template: Aperçu
@@ -586,7 +600,7 @@ fr-CA:
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -809,6 +823,7 @@ fr-CA:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
+        expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
@@ -829,12 +844,19 @@ fr-CA:
       models:
         moderation:
           fields:
+            created_at: Date de création
             hidden_at: Masqué le
             report_count: Compteur
-            reportable: Contenu
+            reportable_id: ID
+            reportable_type: Type
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+        report:
+          fields:
+            details: Détails du signalement
+            locale: Langue
+            reason: Motif
   errors:
     messages:
       invalid_json: JSON non valide

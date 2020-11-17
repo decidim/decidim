@@ -26,7 +26,7 @@ shared_context "with frontend map builder" do
   let(:organization) { create(:organization) }
   let(:template) { template_class.new }
   let(:options) { {} }
-  let(:js_options) { options.map { |k, v| [k.to_s.camelize(:lower), v] }.to_h }
+  let(:js_options) { options.transform_keys { |k| k.to_s.camelize(:lower) }.to_h }
 
   before do
     allow(template).to receive(:current_organization).and_return(organization)

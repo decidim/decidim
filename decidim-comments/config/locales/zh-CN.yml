@@ -1,0 +1,119 @@
+zh-CN:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: 评论
+      decidim/comments/comment_created_event: 评论
+      decidim/comments/reply_created_event: 评论回复
+      decidim/comments/user_group_mentioned_event: 提到了
+      decidim/comments/user_mentioned_event: 提到了
+  activerecord:
+    models:
+      decidim/comments/comment:
+        other: 评论
+      decidim/comments/comment_vote:
+        other: 所得票数
+  decidim:
+    comments:
+      comments_count: 评论计数
+      last_activity:
+        new_comment_at_html: "<span>在 %{link}的新评论</span>"
+      view: 查看
+      votes:
+        create:
+          error: 在表决该评论时出现问题。
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">使用您的帐户</a> 或 <a href="%{sign_up_url}">注册</a> 来添加您的评论。
+        form:
+          body:
+            label: 评论
+            placeholder: 你对此有什么看法？
+          form_error: 文本是必需的，不能超过 %{length} 个字符。
+          submit: 发送
+          user_group_id:
+            label: 评论为
+        opinion:
+          neutral: 中性的
+        remaining_characters: "剩余 %{count} 个字符"
+        remaining_characters_1: "剩余 %{count} 个字符"
+        title: 添加您的评论
+      comment:
+        alignment:
+          against: 反对的
+          in_favor: 优惠的
+        deleted_user: 删除参与者
+        hide_replies: 隐藏回复
+        reply: 答复
+        report:
+          action: 报告
+          already_reported: 此内容已经被报告，将由管理员审核。
+          close: 关闭
+          description: 这个内容是否不适当？
+          details: 其他评论
+          reasons:
+            does_not_belong: 包含非法活动、自杀威胁、个人信息或你认为不属于 %{organization_name} 的其他东西。
+            offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
+            spam: 包含点击、广告、骗子或脚本机器人。
+          title: 报告不恰当的内容
+        show_replies: 显示 %{replies_count} 个回复
+        single_comment_link_title: 获取单个评论的链接
+      comment_order_selector:
+        order:
+          best_rated: 最佳评分
+          most_discussed: 最多讨论
+          older: 更旧的
+          recent: 最近的
+        title: '排序方式：'
+      comment_thread:
+        title: 与 %{authorName} 的对话
+      comments:
+        blocked_comments_for_user_warning: 您此时无法评论，但您可以阅读前面的评论。
+        blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。
+        comment_details_title: 评论详情
+        loading: 正在加载评论...
+        single_comment_warning: 您可以在这里查看 <a href="%{url}">的其余评论</a>。
+        single_comment_warning_title: 您正在看到一个评论
+      down_vote_button:
+        text: 我不同意这个评论
+      up_vote_button:
+        text: 我同意这个评论
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} 在 %{resource_title}留下了一条评论。您可以在这个页面阅读："
+          email_outro: 您收到此通知是因为您正在关注 %{author_name}。您可以从其个人资料页面取消关注此用户。
+          email_subject: '%{author_name} 在 %{resource_title} 有一个新评论'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 有新的评论。
+        comment_by_followed_user_group:
+          email_intro: '组 %{author_name} 在 %{resource_title}留下了一个评论。您可以在这个页面阅读它：'
+          email_outro: 您收到此通知是因为您正在关注 %{author_name}。您可以从其个人资料页面取消关注此组。
+          email_subject: '%{author_name} 在 %{resource_title} 有一个新评论'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 在 <a href="%{resource_path}">%{resource_title}</a> 有新的评论。
+        comment_created:
+          email_intro: "%{resource_title} 已被评论。您可以阅读此页面中的评论："
+          email_outro: 您收到此通知是因为您正在关注"%{resource_title}"或其作者。您可以从上一个链接取消关注它。
+          email_subject: '%{author_name} 在 %{resource_title} 有一个新评论'
+          notification_title: 来自 <a href="%{author_path}">%{author_name} %{author_nickname}</a> 的新评论 <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} 在 %{resource_title}回复了您的评论。您可以在这个页面阅读："
+          email_outro: 您收到此通知是因为您的评论已被回复。
+          email_subject: "%{author_name} 在 %{resource_title} 回复了您的评论"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 回复了您在 <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: 已经提到您所属的组
+          email_outro: 您收到此通知是因为您是在 %{group_name} 中提及的组 %{resource_title} 的成员。
+          email_subject: 您已在 %{resource_title} 中被提及为 %{group_name} 的成员
+          notification_title: 您在 <a href="%{resource_path}">%{resource_title}中提到</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> 作为 <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: 您已被提到。
+          email_outro: 您收到此通知是因为您已在 %{resource_title} 中被提及。
+          email_subject: 您已在 %{resource_title} 中被提及了
+          notification_title: 您在 <a href="%{resource_path}">%{resource_title}中提到</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: 与会者生成的评论数
+        object: 评论
+        title: 评论
+  errors:
+    messages:
+      cannot_have_comments: 不能有评论

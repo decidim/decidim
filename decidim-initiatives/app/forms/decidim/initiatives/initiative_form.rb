@@ -71,7 +71,7 @@ module Decidim
       def scope_exists
         return if scope_id.blank?
 
-        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.where(type: initiative_type, scope: scope).exists?
+        errors.add(:scope_id, :invalid) unless InitiativesTypeScope.exists?(type: initiative_type, scope: scope)
       end
 
       # This method will add an error to the `attachment` field only if there's

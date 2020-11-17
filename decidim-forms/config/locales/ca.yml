@@ -3,6 +3,8 @@ ca:
     attributes:
       answer:
         body: Resposta
+        choices: Opcions
+        selected_choices: Opcions seleccionades
       question:
         max_choices: Nombre màxim d'opcions
         question_type: Tipus
@@ -76,7 +78,6 @@ ca:
             collapse: Redueix totes les preguntes
             expand: Expandeix totes les preguntes
             preview: Previsualitzar
-            title: Editar el formulari
             unpublished_warning: El formulari no està publicat. Pots modificar les preguntes, però al fer-ho s'esborraran les respostes actuals.
           matrix_row:
             matrix_row: Fila

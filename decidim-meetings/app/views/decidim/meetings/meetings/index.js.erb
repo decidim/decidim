@@ -14,7 +14,4 @@ var controller = $map.data("map-controller");
 if (controller) {
   controller.clearMarkers();
   controller.addMarkers(markerData);
-} else {
-  // @deprecated Legacy support
-  window.Decidim.currentMap = window.Decidim.loadMap('map', markerData);
 }

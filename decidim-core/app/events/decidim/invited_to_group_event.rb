@@ -23,11 +23,11 @@ module Decidim
     end
 
     def user_group_nickname
-      extra.dig("user_group_nickname")
+      extra["user_group_nickname"]
     end
 
     def user_group_name
-      extra.dig("user_group_name")
+      extra["user_group_name"]
     end
   end
 end

@@ -128,12 +128,14 @@ describe "Explore meetings", :slow, type: :system do
       it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          fill_in "filter[search_text]", with: translated(meetings.first.title)
+          # It seems that there's another field with the same name in another form on page.
+          # Because of that we try to select the correct field to set the value and submit the right form
+          find(:css, "#content form.new_filter [name='filter[search_text]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
           # somehow it's not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
-          find(".icon--magnifying-glass").click
+          find("#content form.new_filter .icon--magnifying-glass").click
         end
 
         expect(page).to have_css("#meetings-count", text: "1 MEETING")

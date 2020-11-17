@@ -70,11 +70,11 @@ module Decidim
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :sort_by_valuation_assignments_count_asc, lambda {
-        order(sort_by_valuation_assignments_count_nulls_last_query + "ASC NULLS FIRST")
+        order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
       }
 
       scope :sort_by_valuation_assignments_count_desc, lambda {
-        order(sort_by_valuation_assignments_count_nulls_last_query + "DESC NULLS LAST")
+        order("#{sort_by_valuation_assignments_count_nulls_last_query}DESC NULLS LAST")
       }
 
       def self.with_valuation_assigned_to(user, space)
@@ -225,6 +225,16 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:title, :body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [authors.map(&:name).join("\n")]
+      end
+
       # Public: Whether the proposal is official or not.
       def official?
         authors.first.is_a?(Decidim::Organization)
@@ -284,7 +294,7 @@ module Decidim
 
       # Defines the base query so that ransack can actually sort by this value
       def self.sort_by_valuation_assignments_count_nulls_last_query
-        <<-SQL
+        <<-SQL.squish
         (
           SELECT COUNT(decidim_proposals_valuation_assignments.id)
           FROM decidim_proposals_valuation_assignments
@@ -296,7 +306,7 @@ module Decidim
 
       # method to filter by assigned valuator role ID
       def self.valuator_role_ids_has(value)
-        query = <<-SQL
+        query = <<-SQL.squish
         :value = any(
           (SELECT decidim_proposals_valuation_assignments.valuator_role_id
           FROM decidim_proposals_valuation_assignments
@@ -337,7 +347,7 @@ module Decidim
       end
 
       ransacker :is_emendation do |_parent|
-        query = <<-SQL
+        query = <<-SQL.squish
         (
           SELECT EXISTS (
             SELECT 1 FROM decidim_amendments

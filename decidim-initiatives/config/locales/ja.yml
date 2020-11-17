@@ -16,14 +16,6 @@ ja:
           online: オンライン
         state: ステータス
         title: タイトル
-      initiative_author:
-        address: 住所
-        city: 市区町村名
-        id_document: 免許証/保険証/マイナンバーカード
-        name: 氏名と姓
-        phone_number: 電話番号
-        post_code: 郵便番号
-        province: 県
       initiatives_committee_member:
         user: 委員会メンバー
       initiatives_type:
@@ -316,7 +308,6 @@ ja:
         fill_data:
           back: 戻る
           continue: 続ける
-          fill_data_help: "<ul> <li>イニシアチブの内容を確認しましょう。件名はわかりやすいですか? イニシアチブの目的は明確ですか? </li> <li>署名の種類を選択する必要があります。直接署名、オンライン署名、または両方の組み合わせ</li> <li>イニシアチブの対象範囲はどのようなものですか? 市ですか？地区ですか?</li></ul>"
           initiative_type: イニシアティブの種類
           more_information: "(詳細)"
           select_area: エリアを選択
@@ -324,7 +315,6 @@ ja:
         finish:
           back: 戻る
           back_to_initiatives: イニシアチブに戻る
-          callout_text: おめでとうございます！あなたのイニシアチブが正常に作成されました。
           confirm: 確認する
           edit_my_initiative: 自分のイニシアチブを編集
           go_to_my_initiatives: 私のイニシアチブに移動
@@ -344,14 +334,12 @@ ja:
           more_information: "(詳細)"
         promotal_committee:
           back: 戻る
-          individual_help_text: この種の市民イニシアチブには、少なくとも %{committee_size} 人(証人)からなるプロモーション委員会が必要です。 このイニシアチブの一部である他の人と以下のリンクを共有する必要があります。 連絡先がこのリンクを受信すると、指定された手順に従う必要があります。
           more_information: "(詳細)"
         select_initiative_type:
           back: 戻る
           choose_html: <strong>%{title}</strong> を作成したい
           more_information: "(詳細)"
           select: 私はこのイニシアチブを推進したいです
-          select_initiative_type_help: 市民のイニシアチブは、市議会が市の管轄区域内にある一般的な利益の防衛のための行動を行うことができるように、市民権が介入することができる手段である。 どのイニシアチブを立ち上げますか？
         share_committee_link:
           continue: 続ける
           invite_to_committee_help: プロモーター委員会に参加する人を招待するためのリンク
@@ -454,9 +442,7 @@ ja:
             validating: この提案は評価されています
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
-          any_vote_method: この市民イニシアチブは、オンラインと対面の署名の両方を収集します。
           follow_description: このイニシアチブでニュースがある場合に通知を受け取る
-          offline_method: この市民イニシアチブは、個人の署名のみを収集します。
         signatures_count:
           other: " 署名"
         vote_cabin:
@@ -464,7 +450,7 @@ ja:
           supports_required: "%{total_supports} 署名が必要です"
           verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
-          votes_blocked: サインインが無効になりました
+          votes_blocked: ログインが無効になっています
         votes_count:
           count:
             other: 署名

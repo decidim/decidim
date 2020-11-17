@@ -36,7 +36,7 @@
 <%= content_for :question_header_details do %>
   <div id="question-header-details" class="row consultations-home-intro">
     <div class="columns medium-5">
-      <%= image_tag current_question.hero_image&.url, alt: t("question.hero_image", scope: "activemodel.attributes") %>
+      <%= image_tag current_question.hero_image&.url, alt: t("question.hero_image", scope: "activemodel.attributes") if current_question.hero_image&.url %>
     </div>
 
     <div class="columns medium-5">

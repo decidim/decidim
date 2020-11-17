@@ -1,0 +1,171 @@
+zh-CN:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth 应用程序名称
+        organization_logo: 组织徽标(正方形)
+        organization_name: 组织
+        organization_url: 组织网址
+        redirect_uri: 重定向 URI
+      organization_file_uploads:
+        allowed_content_types:
+          admin: 管理 MIME 类型
+          default: 默认 MIME 类型
+        allowed_file_extensions:
+          admin: 管理文件扩展名
+          default: 默认文件扩展名
+          image: 图像文件扩展名
+        maximum_file_size:
+          avatar: 头像文件大小
+          default: 默认文件大小
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: 重定向URI必须是一个 SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: 您确定要删除这个吗？
+        destroy: 删除
+        edit: 编辑
+        new: 新的
+        save: 保存
+        title: 行动
+      admins:
+        create:
+          error: 创建新管理员时出错。
+          success: 管理员创建成功
+        destroy:
+          success: 管理员删除成功
+        edit:
+          title: 编辑管理员
+          update: 更新
+        index:
+          title: 管理员
+        new:
+          create: 创建
+          title: 新管理员
+        update:
+          error: 更新此管理员时出错。
+          success: 管理员更新成功
+      default_pages:
+        placeholders:
+          content: 请添加有意义的内容到管理仪表盘上的 %{page} 静态页面。
+          title: '%{page} 的默认标题'
+      menu:
+        admins: 管理员
+        dashboard: 仪表板
+        oauth_applications: OAuth 应用程序
+        organizations: 组织
+      models:
+        admin:
+          fields:
+            created_at: 创建于
+            email: 电子邮件地址
+          name: 管理员
+          validations:
+            email_uniqueness: 已存在具有相同电子邮件的其他管理员
+        oauth_application:
+          fields:
+            created_at: 创建于
+            name: OAuth 应用程序名称
+            organization_name: 组织
+          name: OAuth 应用程序
+        organization:
+          actions:
+            save_and_invite: 创建机构并邀请管理员
+          fields:
+            created_at: 创建于
+            file_upload_settings: 文件上传设置
+            name: 名称
+            omniauth_settings: Omniauth 设置
+            smtp_settings: SMTP 设置
+          name: 组织
+      oauth_applications:
+        create:
+          error: 创建此应用程序时出现问题。
+          success: 应用程序创建成功。
+        destroy:
+          error: 销毁此应用程序时出现问题。
+          success: 应用程序已成功销毁。
+        edit:
+          save: 保存
+          title: 编辑应用程序
+        form:
+          select_organization: 选择一个组织
+        index:
+          confirm_delete: 您确定要删除此应用程序？
+          title: OAuth 应用程序
+        new:
+          save: 保存
+          title: 新的应用程序
+        update:
+          error: 更新此应用程序时出现问题。
+          success: 应用程序更新成功。
+      organizations:
+        create:
+          error: 创建一个新组织时出现问题。
+          success: 组织成功创建。
+        edit:
+          secondary_hosts_hint: 在新行中输入其中每一个
+        file_upload_settings:
+          content_types:
+            admin_hint: 管理员版块上传允许这些MIME类型。 管理员用户应该知道上传某些文件格式的风险， 这样您可以期望他们对文件上传更加谨慎。
+            default_hint: 默认允许所有用户使用MIME类型。
+            intro_html: 您为 MIME 类型添加了带有星号字符的通配符，例如 <code>图像/*</code>。
+            title: 允许的 MIME 类型
+          file_extensions:
+            admin_hint: 这些文件扩展名允许管理员上传。 管理员用户应该知道上传某些文件格式的风险， 这样您可以期望他们对文件上传更加谨慎。
+            default_hint: 默认允许所有用户使用这些文件扩展名。
+            image_hint: 这些文件扩展名允许任何类型的图像上传。
+            title: 允许的文件扩展
+          file_sizes:
+            avatar_hint: Megabytes (MB). 此文件大小限制用于头像图像上传。
+            default_hint: Megabytes (MB). 此文件大小限制是所有文件上传的默认值，除非另有指定。
+            title: 最大文件大小
+          intro: |
+            在考虑更改这些设置时，请特别谨慎。您允许的越少越好。
+            允许特定文件扩展名或 MIME 类型会使系统用户面临安全风险，并且还会影响网站的访问权限。
+        index:
+          title: 组织
+        new:
+          reference_prefix_hint: 引用前缀被用来独特地识别所有组织的资源
+          secondary_hosts_hint: 在新行中输入其中每一个
+          title: 新建组织
+        omniauth_settings:
+          decidim:
+            client_id: 客户端ID
+            client_secret: 客户端密钥
+            site_url: 站点网址
+          enabled: 已启用
+          enabled_by_default: 此提供商默认启用。它可以被编辑但不禁用。
+          facebook:
+            app_id: 应用程序 ID
+            app_secret: 应用密钥
+          google_oauth2:
+            client_id: 客户端ID
+            client_secret: 客户端密钥
+          icon: 图标
+          icon_path: 图标路径
+          twitter:
+            api_key: API 密钥
+            api_secret: API 密钥
+        smtp_settings:
+          placeholder:
+            from_email: Your-organization@example.org
+            from_label: 您的组织名称
+        update:
+          error: 更新这个组织时出现问题。
+          success: 组织已成功更新。
+        users_registration_mode:
+          disabled: 只能通过外部帐户访问
+          enabled: 允许参与者注册并登录
+          existing: 不允许参与者注册，但允许现有参与者登录
+      shared:
+        notices:
+          no_organization_warning_html: 您必须创建一个组织才能启动。请确保您在继续之前阅读 %{guide}。
+          our_getting_started_guide: 我们开始的指南
+      titles:
+        dashboard: 仪表板

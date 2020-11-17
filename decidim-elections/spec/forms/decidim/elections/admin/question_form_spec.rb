@@ -14,8 +14,8 @@ describe Decidim::Elections::Admin::QuestionForm do
   end
   let(:election) { create :election }
   let(:component) { election.component }
-  let(:title) { Decidim::Faker::Localized.sentence(3) }
-  let(:description) { Decidim::Faker::Localized.sentence(3) }
+  let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
+  let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:max_selections) { 3 }
   let(:weight) { 10 }
   let(:random_answers_order) { true }

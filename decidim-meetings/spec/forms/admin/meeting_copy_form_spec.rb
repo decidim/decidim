@@ -17,16 +17,16 @@ module Decidim::Meetings
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:title) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:location) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:location_hints) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:service_objects) do
       build_list(:service, 2)

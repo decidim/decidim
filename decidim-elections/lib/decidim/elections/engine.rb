@@ -11,6 +11,10 @@ module Decidim
 
       routes do
         resources :elections, only: [:index, :show] do
+          resource :feedback, only: [:show] do
+            post :answer
+          end
+
           resource :vote
         end
 

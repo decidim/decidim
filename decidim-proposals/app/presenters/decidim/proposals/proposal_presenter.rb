@@ -95,13 +95,13 @@ module Decidim
       private
 
       def sanitize_unordered_lists(text)
-        text.gsub(%r{(?=.*<\/ul>)(?!.*?<li>.*?<\/ol>.*?<\/ul>)<li>}) { |li| li + "• " }
+        text.gsub(%r{(?=.*</ul>)(?!.*?<li>.*?</ol>.*?</ul>)<li>}) { |li| "#{li}• " }
       end
 
       def sanitize_ordered_lists(text)
         i = 0
 
-        text.gsub(%r{(?=.*<\/ol>)(?!.*?<li>.*?<\/ul>.*?<\/ol>)<li>}) do |li|
+        text.gsub(%r{(?=.*</ol>)(?!.*?<li>.*?</ul>.*?</ol>)<li>}) do |li|
           i += 1
 
           li + "#{i}. "
@@ -109,11 +109,11 @@ module Decidim
       end
 
       def add_line_feeds_to_paragraphs(text)
-        text.gsub("</p>") { |p| p + "\n\n" }
+        text.gsub("</p>") { |p| "#{p}\n\n" }
       end
 
       def add_line_feeds_to_list_items(text)
-        text.gsub("</li>") { |li| li + "\n" }
+        text.gsub("</li>") { |li| "#{li}\n" }
       end
 
       # Adds line feeds after the paragraph and list item closing tags.

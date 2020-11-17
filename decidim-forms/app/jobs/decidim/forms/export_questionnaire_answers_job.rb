@@ -7,7 +7,7 @@ module Decidim
 
       def perform(user, title, answers)
         return if user&.email.blank?
-        return if answers&.blank?
+        return if answers.blank?
 
         serializer = Decidim::Forms::UserAnswersSerializer
         export_data = Decidim::Exporters::FormPDF.new(answers, serializer).export

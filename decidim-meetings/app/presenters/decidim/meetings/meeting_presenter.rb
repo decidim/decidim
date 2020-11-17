@@ -32,6 +32,39 @@ module Decidim
         end
       end
 
+      def location(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.location, all_locales) do |content|
+          content
+        end
+      end
+
+      def location_hints(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.location_hints, all_locales) do |content|
+          content
+        end
+      end
+
+      def registration_terms(all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.registration_terms, all_locales) do |content|
+          content
+        end
+      end
+
+      def closing_report(links: false, all_locales: false)
+        return unless meeting
+
+        handle_locales(meeting.closing_report, all_locales) do |content|
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(decidim_sanitize(content))
+          renderer.render(links: links).html_safe
+        end
+      end
+
       # Next methods are used for present a Meeting As Proposal Author
       def name
         title

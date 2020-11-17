@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t(".title") %>
-      <% unless questionnaire.questionnaire_for.class == Decidim::Templates::Template %>
+      <%= edit_questionnaire_title %>
+      <% unless template? questionnaire.questionnaire_for %>
         <% if allowed_to? :preview, :questionnaire %>
           <div class="button--title">
             <%= link_to t(".preview"), public_url, class: "button tiny button--simple", target: :_blank %>
@@ -10,7 +10,7 @@
         <% end %>
         <% if questionnaire.answers.any? %>
           <div class="button--title">
-            <%= export_dropdown if allowed_to? :export_answers, :questionnaire %>
+            <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
           </div>
           <div class="button--title">
             <% if allowed_to? :show, :questionnaire_answers %>
@@ -18,7 +18,7 @@
             <% end %>
           </div>
         <% else %>
-          <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></a>
+          <button class="button tiny button--title" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
         <% end %>
       <% end %>
     </h2>

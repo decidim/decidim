@@ -28,9 +28,7 @@ uk:
         title: Назва
         transparent: Прозора
       minutes:
-        audio_url: Веб-адреса аудіозапису
         description: Опис
-        video_url: Веб-адреса відеозапису
         visible: Видимий
     errors:
       models:

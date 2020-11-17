@@ -66,10 +66,67 @@ module Decidim::Budgets
 
     context "when the voting rule is set to minimum projects number" do
       context "and the order doesn't reach the minimum number of projects" do
-        let(:voting_rule) { :with_minimum_budget_projects }
+        let(:voting_rule) { :with_budget_projects_range }
 
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+    end
+
+    context "when the voting rule is set to maximum projects number" do
+      let(:component) do
+        create(
+          :budgets_component,
+          voting_rule,
+          vote_minimum_budget_projects_number: vote_minimum_budget_projects_number,
+          organization: user.organization
+        )
+      end
+      let(:voting_rule) { :with_budget_projects_range }
+      let(:vote_minimum_budget_projects_number) { 0 }
+
+      context "and the order exceed the maximum number of projects" do
+        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "when the total budget exceeds the maximum" do
+        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
+
+        it "broadcasts valid" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+      end
+    end
+
+    context "when the voting rule is set to minimum and maximum projects number" do
+      let(:voting_rule) { :with_budget_projects_range }
+
+      context "and the order exceed the maximum number of projects" do
+        let(:projects) { create_list(:project, 8, budget: budget, budget_amount: 45_000_000) }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "and the order doesn't reach the minimum number of projects" do
+        let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 45_000_000) }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
+        end
+      end
+
+      context "when the total budget exceeds the maximum" do
+        let(:projects) { create_list(:project, 4, budget: budget, budget_amount: 100_000_000) }
+
+        it "broadcasts valid" do
+          expect { subject.call }.to broadcast(:ok)
         end
       end
     end

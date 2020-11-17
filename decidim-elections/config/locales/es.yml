@@ -173,7 +173,6 @@ es:
           filter_by: Filtrar por
           unfold: Desplegar
         show:
-          back: Todas las votaciones
           preview: Previsualizar
           vote: Votar
           voting_period_status:

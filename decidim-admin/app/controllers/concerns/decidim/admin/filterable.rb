@@ -49,7 +49,7 @@ module Decidim
         end
 
         def allowed_query_params
-          [*extra_allowed_params, q: {}]
+          [*extra_allowed_params, { q: {} }]
         end
 
         # Non ransack params (outside :q) to be allowed in the query links.

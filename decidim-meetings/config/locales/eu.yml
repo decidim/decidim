@@ -29,9 +29,7 @@ eu:
         title: Titulua
         transparent: gardena
       minutes:
-        audio_url: Audioaren URLa
         description: deskribapena
-        video_url: Bideoaren URLa
         visible: Ikusgai dago
     errors:
       models:

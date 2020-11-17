@@ -190,6 +190,7 @@
             heading_leaf_level_results: Navn på "Prosjekter"
             heading_parent_level_results: Navn på "Resultater"
             intro: Introduksjon
+            scope_id: Tema
             subcategories_label: Navn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blokkert

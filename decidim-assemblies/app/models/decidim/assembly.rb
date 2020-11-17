@@ -67,7 +67,7 @@ module Decidim
     has_many :components, as: :participatory_space, dependent: :destroy
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
-    belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
+    belongs_to :parent, class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
 
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
@@ -215,9 +215,9 @@ module Decidim
     # rubocop:disable Rails/SkipsModelValidations
     def update_children_paths
       self.class.where(
-        ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", old_path: parents_path_before_last_save, id: id]
+        ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", { old_path: parents_path_before_last_save, id: id }]
       ).update_all(
-        ["parents_path = :new_path || subpath(parents_path, nlevel(:old_path))", new_path: parents_path, old_path: parents_path_before_last_save]
+        ["parents_path = :new_path || subpath(parents_path, nlevel(:old_path))", { new_path: parents_path, old_path: parents_path_before_last_save }]
       )
     end
     # rubocop:enable Rails/SkipsModelValidations

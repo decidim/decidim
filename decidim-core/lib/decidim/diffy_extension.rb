@@ -36,11 +36,11 @@ module Decidim
       end
 
       def unescaped_split_left
-        @diff.gsub(%r{<li class="ins">([\s\S]*?)<\/li>}, "")
+        @diff.gsub(%r{<li class="ins">([\s\S]*?)</li>}, "")
       end
 
       def unescaped_split_right
-        @diff.gsub(%r{<li class="del">([\s\S]*?)<\/li>}, "")
+        @diff.gsub(%r{<li class="del">([\s\S]*?)</li>}, "")
       end
     end
   end
