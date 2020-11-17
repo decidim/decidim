@@ -3,26 +3,39 @@
 module Decidim
   module Assemblies
     # This type represents a assembly.
-    AssemblyMemberType = GraphQL::ObjectType.define do
-      name "AssemblyMember"
+    class AssemblyMemberType < GraphQL::Schema::Object
+      graphql_name "AssemblyMember"
       description "An assembly member"
       implements Decidim::Core::TimestampsInterface
 
-      field :id, !types.ID, "Internal ID of the member"
-      field :fullName, types.String, "Full name of the member", property: :full_name
-      field :position, types.String, "Position of the member in the assembly"
-
-      field :user, Decidim::Core::UserType, "The corresponding decidim user", property: :user
-
-
-      field :weight, types.Int, "Order of appearance in which it should be represented"
-      field :gender, types.String, "Gender of the member"
+      field :id, ID, null: false, description:  "Internal ID of the member"
+      field :fullName, String, null: true, description:  "Full name of the member"
+      field :position, String, null: true, description:  "Position of the member in the assembly"
+      field :user, Decidim::Core::UserType, null: true, description:  "The corresponding decidim user"
+      field :weight, Int, null: true, description:  "Order of appearance in which it should be represented"
+      field :gender, String, null: true, description:  "Gender of the member"
       # field :birthday, Decidim::Core::DateType, "Birthday date of the member" # non-public currently
-      field :birthplace, types.String, "Birthplace of the member"
-      field :designationDate, Decidim::Core::DateType, "Date of designation of the member", property: :designation_date
+      field :birthplace, String, null: true, description:  "Birthplace of the member"
+      field :designationDate, Decidim::Core::DateType,null: true, description:   "Date of designation of the member"
       # field :designationMode, types.String, "Mode in which the member was designated", property: :designation_mode # non-public currently
-      field :positionOther, types.String, "Custom position name", property: :position_other
-      field :ceasedDate, Decidim::Core::DateType, "Date of cease for the member", property: :ceased_date
+      field :positionOther, String, null: true, description:  "Custom position name"
+      field :ceasedDate, Decidim::Core::DateType, null: true, description:  "Date of cease for the member"
+
+      def fullName
+        object.full_name
+      end
+      def designationDate
+        object.designation_date
+      end
+
+      def positionOther
+        object.position_other
+      end
+
+      def ceasedDate
+        object.ceased_date
+      end
+
     end
   end
 end
