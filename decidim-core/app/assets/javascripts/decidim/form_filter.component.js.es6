@@ -48,10 +48,12 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        if (this.$form.find(".spinner-container").length === 0) {
-          this.$form.append('<div class="spinner-container hide"><span class="loading-spinner full-screen-spinner"></span></div>');
+        let queue = 0;
+        
+        let content_container = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+        if(content_container[0] == null){
+          content_container = this.$form.data("remoteFill");
         }
-
         this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
 
         this.currentFormRequest = null;
@@ -60,14 +62,24 @@
             this.currentFormRequest.abort();
           }
           this.currentFormRequest = e.originalEvent.detail[0];
-          this.$form.find(".spinner-container").removeClass("hide");
+          queue ++;
+          if(queue > 0 && content_container[0] != null && !content_container.hasClass("spinner-container")){
+            content_container.addClass("spinner-container");
+          }
         });
 
         this.$form.on("ajax:success", () => {
-          this.$form.find(".spinner-container").addClass("hide");
+          queue --;
+          if(queue <= 0 && content_container[0] != null){
+            content_container.removeClass("spinner-container");
+          }
         });
 
         this.$form.on("ajax:error", () => {
+          queue --;
+          if(queue <= 0 && content_container[0] != null){
+            content_container.removeClass("spinner-container");
+          }
           this.$form.find(".spinner-container").addClass("hide");
         });
 
