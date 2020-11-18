@@ -22,7 +22,7 @@ module Decidim
       options[:tail] = options.delete(:separator) || options[:tail] || "..."
       options[:count_tags] ||= false
       options[:count_tail] ||= false
-      options[:tail_before_final_tag] ||= true
+      options[:tail_before_final_tag] = true unless options.has_key?(:tail_before_final_tag)
 
       Truncato.truncate(text, options)
     end
