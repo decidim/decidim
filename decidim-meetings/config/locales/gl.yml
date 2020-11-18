@@ -29,9 +29,7 @@ gl:
         title: Título
         transparent: Transparente
       minutes:
-        audio_url: URL de audio
         description: Descrición
-        video_url: URL do vídeo
         visible: É visible
     errors:
       models:

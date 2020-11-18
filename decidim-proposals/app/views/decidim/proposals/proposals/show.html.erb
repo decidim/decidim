@@ -34,10 +34,12 @@ extra_admin_link(
 <%= emendation_announcement_for @proposal %>
 <div class="row column view-header">
 
-  <%= link_to proposals_path(filter_link_params), class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back_to_list") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to proposals_path(filter_link_params), class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back_to_list") %>
+    <% end %>
+  </div>
 
   <% if @proposal.emendation? %>
     <h3 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h3>

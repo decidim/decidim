@@ -129,7 +129,6 @@ ca:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       participatory_space_private_user:
         create: "%{user_name} ha convidat %{resource_name} com a participant privada"
-        create_via_csv: "%{user_name} ha convidat %{resource_name} via csv per a ser un participant privat"
         delete: "%{user_name} ha eliminat %{resource_name} com a participant privada"
       scope:
         create: "%{user_name} ha creat l'àmbit %{resource_name}"
@@ -918,8 +917,6 @@ ca:
         update:
           error: El missatge no ha estat enviat degut a un error
     metrics:
-      download:
-        csv: Descarrega les dades (csv)
       followers:
         description: Nombre de participants que segueixen aquest espai de participació
         object: seguidores
@@ -1118,13 +1115,15 @@ ca:
       report:
         authors: Autores
         content: Contingut reportat
+        content_original_language: Idioma original del contingut
         date: Reportat el
         details: Detalls
         hello: Hola %{name},
-        manage_moderations: Gestiona moderacions
+        id: Identificador
         participatory_space: Espai de participació
         reason: Motiu
         report_html: <p>El següent <a href="%{url}">contingut</a> ha estat reportat.</p>
+        see_report: Mostra informe
         subject: Un contingut ha estat denunciat
     reports:
       create:

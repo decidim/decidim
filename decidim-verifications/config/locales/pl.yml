@@ -131,7 +131,6 @@ pl:
             title: Aktualne dane spisu
           instructions:
             body: Aby to zrobić, musisz wejść do administracji systemem i dodać uprawnienia csv_census do organizacji
-            title: Musisz aktywować spis csv dla tej organizacji
           new:
             file: "plik .csv z danymi e-maili"
             info: 'Musi to być plik w formacie CSV zawierający tylko jedną kolumnę z adresem e-mail:'

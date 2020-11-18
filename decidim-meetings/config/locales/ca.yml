@@ -26,14 +26,13 @@ ca:
         private_meeting: Trobada privada
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
+        registration_url: URL de registre
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent
       minutes:
-        audio_url: URL de l'àudio
         description: Descripció
-        video_url: URL del vídeo
         visible: És visible
     errors:
       models:
@@ -252,6 +251,7 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
           index:
             title: Trobades

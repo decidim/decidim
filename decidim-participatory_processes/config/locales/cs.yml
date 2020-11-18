@@ -323,6 +323,9 @@ cs:
         content_blocks:
           highlighted_processes:
             max_results: Maximální množství prvků, které chcete zobrazit
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'

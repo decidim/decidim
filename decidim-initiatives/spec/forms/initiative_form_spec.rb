@@ -88,6 +88,41 @@ module Decidim
         end
       end
 
+      describe "#area_updatable?" do
+        let(:user) { create(:user) }
+        let(:context) do
+          {
+            current_organization: organization,
+            current_component: nil,
+            initiative_type: initiatives_type,
+            current_user: user,
+            initiative: initiative
+          }
+        end
+
+        context "when initiative is created" do
+          subject { described_class.from_model(initiative).with_context(context).area_updatable? }
+
+          let(:initiative) { create(:initiative, organization: organization, state: "created", scoped_type: scope) }
+
+          it { is_expected.to eq(true) }
+        end
+
+        context "when current_user is admin" do
+          subject { described_class.from_model(initiative).with_context(context).area_updatable? }
+
+          let(:user) { create(:user, :admin) }
+
+          it { is_expected.to eq(true) }
+        end
+
+        context "when user is not admin and initiative is not created the area is not updatable" do
+          subject { described_class.from_model(initiative).with_context(context).area_updatable? }
+
+          it { is_expected.to eq(false) }
+        end
+      end
+
       describe "#signature_type_updatable?" do
         context "when created" do
           subject { described_class.from_model(initiative).with_context(context).signature_type_updatable? }

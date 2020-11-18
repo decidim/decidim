@@ -50,8 +50,6 @@ zh-CN:
         confirm_destroy: 您确定吗？
         destroy: 破坏的
         edit: 编辑
-        edit_answers: 编辑答案
-        edit_questions: 编辑问题
         import: 导入建议以答案
         new: 新建 %{name}
         preview: 预览
@@ -169,7 +167,6 @@ zh-CN:
           filter_by: 筛选方式
           unfold: 展开...
         show:
-          back: 所有选举
           preview: 预览
           vote: 投票
           voting_period_status:
