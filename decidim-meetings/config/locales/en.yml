@@ -289,6 +289,7 @@ en:
             invalid: There was a problem creating this minutes
             success: Minutes successfully created
           edit:
+            title: Edit minutes
             update: Update
           new:
             create: Create
