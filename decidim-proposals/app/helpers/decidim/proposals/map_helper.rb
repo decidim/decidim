@@ -37,6 +37,12 @@ module Decidim
       def has_position?(proposal)
         proposal.latitude.present? && proposal.longitude.present?
       end
+
+      private
+
+      def proposal_path(proposal)
+        Decidim::EngineRouter.main_proxy(proposal.component).proposal_path(proposal)
+      end
     end
   end
 end

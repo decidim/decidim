@@ -45,20 +45,6 @@ module Decidim
 
         alias component current_component
 
-        def geocodable?
-          return if Decidim.geocoder.blank?
-          return unless current_component.settings.geocoding_enabled?
-          return if address.blank?
-
-          address_has_changed?
-        end
-
-        def address_has_changed?
-          return true if id.nil?
-
-          address != Proposal.find(id).address unless id.nil?
-        end
-
         # Finds the Category from the category_id.
         #
         # Returns a Decidim::Category
