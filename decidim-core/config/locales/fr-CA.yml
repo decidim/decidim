@@ -1286,6 +1286,13 @@ fr-CA:
       update:
         error: Une erreur s'est produite lors de la mise à jour de vos centres d'intérêt.
         success: Vos intérêts ont été mis à jour avec succès.
+    user_report_mailer:
+      notify:
+        body_1: L'utilisateur %{user} a été signalé par %{token}
+        body_2: 'Motif : %{reason}'
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour %{admin},
+        subject: Un nouvel utilisateur a été signalé dans %{organization_name}
     version:
       show:
         back_to_resource: Revenir en arrière
