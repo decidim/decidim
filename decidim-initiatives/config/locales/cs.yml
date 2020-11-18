@@ -326,18 +326,10 @@ cs:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
-          confirm: Potvrdit
           edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
           send_my_initiative: Poslat moji iniciativu
-        finish_help:
-          access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
-          help_for_organizations: Pokud jste asociace, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
-          help_in_person_signatures: Pokud jste se rozhodli vyzvednout podpisy osobně nebo v kombinaci s online, budete muset nahrát požadované informace.
-          help_text: Nezapomeňte, že pro správné zpracování iniciativy musíte přistupovat k administračnímu panelu, kde naleznete uživatelské menu, nahrát požadované informace a odeslat je ke zpracování.
-          initiatives_page_link: Můžete si prohlédnout všechny tyto informace na odkazu %{link} určeném k informování o iniciativách.
-          page: stránka
         previous_form:
           back: Zpět
           continue: Pokračovat
@@ -454,6 +446,8 @@ cs:
           random: Náhodné
           recent: Nejnovější
           recently_published: Nedávno publikované
+        print:
+          city: Město
         result:
           answer_title:
             accepted: Tento návrh byl přijat, protože
