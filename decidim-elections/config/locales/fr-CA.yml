@@ -57,8 +57,6 @@ fr-CA:
         confirm_destroy: Êtes-vous certain ?
         destroy: Détruire
         edit: Modifier
-        edit_answers: Modifier les réponses
-        edit_questions: Modifier les questions
         feedback: Commentaires des votants
         import: Importer des propositions dans les réponses
         new: Nouveau %{name}
