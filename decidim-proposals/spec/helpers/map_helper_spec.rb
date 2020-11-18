@@ -43,6 +43,10 @@ module Decidim
       describe "#proposal_data_for_map" do
         subject { helper.proposal_data_for_map(proposal) }
 
+        before do
+          allow(helper).to receive(:proposal_path).and_return(Decidim::Proposals::ProposalPresenter.new(proposal).proposal_path)
+        end
+
         it "returns preview data" do
           expect(subject["latitude"]).to eq(latitude)
           expect(subject["longitude"]).to eq(longitude)
@@ -56,6 +60,10 @@ module Decidim
 
       describe "#proposals_data_for_map" do
         subject { helper.proposals_data_for_map(proposals) }
+
+        before do
+          allow(helper).to receive(:proposal_path).and_return(Decidim::Proposals::ProposalPresenter.new(proposal).proposal_path)
+        end
 
         it "returns preview data" do
           expect(subject.length).to eq(5)
