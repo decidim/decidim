@@ -13,6 +13,7 @@
 
 .spinner-container{
   position: relative;
+
   &::before{
     content: " ";
     position: absolute;
