@@ -128,7 +128,6 @@ Decidim.register_component(:meetings) do |component|
         visibility: "all"
       )
 
-
       _online_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,
         admin_user,

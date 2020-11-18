@@ -403,7 +403,7 @@ en:
           type: Type
           type_values:
             all: All
-            hybrid: Hybrid
+            hybrid: Both
             in_person: In-person
             online: Online
         filters_small_view:
@@ -503,7 +503,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
-        hybrid: Hybrid
+        hybrid: Both
         in_person: In person
         online: Online
       types:
