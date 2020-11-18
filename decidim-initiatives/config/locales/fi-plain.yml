@@ -320,18 +320,10 @@ fi-pl:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
-          confirm: Vahvista
           edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
           send_my_initiative: Lähetä aloitteeni
-        finish_help:
-          access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
-          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
-          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi palvelun ulkopuolisen keräyksen tai yhdistetyn keräyksen palvelussa ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
-          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintapaneelin käyttämistä, mistä löydät käyttäjävalikon, voit ladata tarvittavat tiedot ja lähettää aloitteen käsittelyyn.
-          initiatives_page_link: Näet kaiken tämän tiedon osoitteesta %{link}, jonka tarkoitus on antaa tietoa aloitteista.
-          page: sivu
         previous_form:
           back: Takaisin
           continue: Jatka
@@ -442,6 +434,8 @@ fi-pl:
           random: Satunnainen järjestys
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
+        print:
+          city: Kaupunki
         result:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
