@@ -39,6 +39,7 @@ module Decidim
 
       context "when :tail_before_final_tag is false" do
         subject { helper.html_truncate(text, length: length, tail_before_final_tag: false) }
+
         describe "truncating HTML text" do
           let(:text) { "<div><p>Hello, this is dog</p></div>" }
           let(:length) { 10 }
@@ -49,6 +50,7 @@ module Decidim
 
       context "when :tail_before_final_tag is true" do
         subject { helper.html_truncate(text, length: length, tail_before_final_tag: true) }
+
         describe "truncating HTML text" do
           let(:text) { "<p>Hello, <b>this is dog</b></p>" }
           let(:length) { 10 }
@@ -59,6 +61,7 @@ module Decidim
 
       context "when :tail_before_final_tag is missing" do
         subject { helper.html_truncate(text, length: length) }
+
         describe "truncating HTML text" do
           let(:text) { "<p>Hello, <b>this is dog</b></p>" }
           let(:length) { 10 }
