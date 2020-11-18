@@ -52,7 +52,7 @@
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktivert
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grensen
       decidim/meetings/upcoming_meeting_event: Kommende møte
-      decidim/meetings/update_meeting_event: Møtet oppdatert
+      decidim/meetings/update_meeting_event: Møtet er oppdatert
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -83,10 +83,13 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
+            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             creation_enabled_for_participants: Deltakere kan opprette møter
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
+            scope_id: Tema
+            scopes_enabled: Temaer aktivert
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer blokkert
@@ -158,6 +161,10 @@
         confirm_destroy: Er du sikker på at du vil slette dette møtet?
         destroy: Slett
         edit: Rediger
+        invalid_destroy:
+          proposals_count:
+            one: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
+            other: 'Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet:'
         minutes: Referat
         new: Nytt møte
         preview: Forhåndsvis
@@ -384,6 +391,7 @@
         show:
           attendees: Antall deltakere
           contributions: Bidrag teller
+          date: Dato
           going: Skal
           join: Bli med på møte
           meeting_report: Møtet rapportert
@@ -397,6 +405,9 @@
             one: "%{count} plass igjen"
             other: "%{count} plasser igjen"
           view: Vis
+        update:
+          invalid: Det oppstod et problem med å oppdatere dette møtet.
+          success: Du har nå oppdatert møtet.
       meetings_map:
         view_meeting: Vis møte
       models:
