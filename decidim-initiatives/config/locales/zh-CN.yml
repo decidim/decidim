@@ -315,18 +315,10 @@ zh-CN:
         finish:
           back: 后退
           back_to_initiatives: 回到倡议
-          confirm: 确认
           edit_my_initiative: 编辑我的倡议
           go_to_my_initiatives: 转到我的倡议
           more_information: "(更多信息)"
           send_my_initiative: 发送我的倡议
-        finish_help:
-          access_reminder: 请记住，您将始终能够通过参与者菜单访问您的倡议。
-          help_for_organizations: 如果您是一个协会，您必须上传所有组成促进委员会的组织的管理委员会的记录
-          help_in_person_signatures: 如果您选择亲自收集签名或与在线合并，您将必须上传所需信息。
-          help_text: 请记住，为了正确处理主动行动，您必须访问管理面板，您可以在那里找到用户菜单， 上传所需信息并发送以供处理。
-          initiatives_page_link: 您可以查询所有关于 %{link} 的信息来通报倡议。
-          page: 页面
         previous_form:
           back: 后退
           continue: 继续
@@ -432,6 +424,8 @@ zh-CN:
           random: 随机播放
           recent: 最新的
           recently_published: 最近发布的
+        print:
+          city: 城市
         result:
           answer_title:
             accepted: 这项建议已被接受，原因是：
