@@ -69,6 +69,17 @@ module Decidim
           command.call
         end
 
+        it "sends notification with email" do
+          follower = create(:user, organization: initiative.organization)
+          create(:follow, followable: initiative.author, user: follower)
+
+          expect do
+            perform_enqueued_jobs { command.call }
+          end.to change(emails, :count).by(2)
+
+          expect(last_email_body).to include("has endorsed the following initiative")
+        end
+
         context "when a new milestone is completed" do
           let(:initiative) do
             create(:initiative,
@@ -80,15 +91,15 @@ module Decidim
                    ))
           end
 
+          let!(:follower) { create(:user, organization: initiative.organization) }
+          let!(:follow) { create(:follow, followable: initiative, user: follower) }
+
           before do
             create(:initiative_user_vote, initiative: initiative)
             create(:initiative_user_vote, initiative: initiative)
           end
 
           it "notifies the followers" do
-            follower = create(:user, organization: initiative.organization)
-            create(:follow, followable: initiative, user: follower)
-
             expect(Decidim::EventsManager).to receive(:publish)
               .with(kind_of(Hash))
 
@@ -105,10 +116,22 @@ module Decidim
 
             command.call
           end
+
+          it "sends notification with email" do
+            # Here count change by 2 because there is some previous events :
+            # - decidim.events.initiatives.initiative_endorsed
+            # - Then : decidim.events.initiatives.milestone_completed - For follower
+            # - Then : decidim.events.initiatives.milestone_completed - For affected_user
+            expect do
+              perform_enqueued_jobs { command.call }
+            end.to change(emails, :count).by(3)
+
+            expect(last_email_body).to include("has achieved the 75% of signatures")
+          end
         end
 
         context "when support threshold is reached" do
-          let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+          let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
           let(:initiative) do
             create(:initiative,
                    organization: organization,
@@ -141,6 +164,18 @@ module Decidim
             command.call
           end
 
+          it "sends notification with email" do
+            # Here count change by 3 because there is some previous events :
+            # - decidim.events.initiatives.initiative_endorsed
+            # - decidim.events.initiatives.milestone_completed
+            # - Then : decidim.events.initiatives.support_threshold_reached
+            expect do
+              perform_enqueued_jobs { command.call }
+            end.to change(emails, :count).by(3)
+
+            expect(last_email_body).to include("has reached the support threshold")
+          end
+
           context "when more votes are added" do
             before do
               create(:initiative_user_vote, initiative: initiative)
@@ -159,7 +194,9 @@ module Decidim
                   followers: [admin]
                 )
 
-              command.call
+              expect do
+                perform_enqueued_jobs { command.call }
+              end.to change(emails, :count).by(1)
             end
           end
         end
