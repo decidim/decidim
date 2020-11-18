@@ -32,7 +32,7 @@ module Decidim
               params[:format] = "csv"
 
               expect(ExportJob).to receive(:perform_later)
-                .with(user, component, "dummies", "csv")
+                .with(user, component, "dummies", "csv", nil)
 
               post(:create, params: params)
             end
@@ -41,7 +41,7 @@ module Decidim
           context "when a format is not provided" do
             it "enqueues a job with the default format" do
               expect(ExportJob).to receive(:perform_later)
-                .with(user, component, "dummies", "json")
+                .with(user, component, "dummies", "json", nil)
 
               post(:create, params: params)
             end

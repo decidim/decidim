@@ -10,6 +10,7 @@ module Decidim
 
         let(:html) { cell("decidim/meetings/content_blocks/upcoming_events").call }
         let(:organization) { create(:organization) }
+        let(:current_user) { create :user, :admin, :confirmed, organization: organization }
 
         before do
           expect(controller).to receive(:current_organization).at_least(:once).and_return(organization)
@@ -42,6 +43,35 @@ module Decidim
               expect(subject.length).to eq(2)
               expect(subject.first).to eq(meeting)
               expect(subject.last).to eq(second_meeting)
+            end
+
+            context "with upcoming private events" do
+              let!(:meeting) do
+                create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
+              end
+              let!(:second_meeting) do
+                create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
+              end
+
+              it "renders nothing" do
+                expect(subject.length).to eq(0)
+              end
+            end
+
+            context "with upcoming private events but invited user" do
+              let!(:meeting) do
+                create(:meeting, start_time: 1.week.from_now, private_meeting: true, transparent: false)
+              end
+              let!(:second_meeting) do
+                create(:meeting, start_time: meeting.start_time.advance(weeks: 1), component: meeting.component, private_meeting: true, transparent: false)
+              end
+              let!(:meeting_registration) do
+                create(:registration, meeting: meeting, user: current_user)
+              end
+
+              it "renders only user's invited upcoming private meeting correctly" do
+                expect(subject.length).to eq(1)
+              end
             end
           end
         end

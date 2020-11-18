@@ -33,7 +33,6 @@ class UpdateInitiativeScopedType < ActiveRecord::Migration[5.1]
     self.table_name = :decidim_initiatives
 
     belongs_to :scoped_type,
-               foreign_key: "scoped_type_id",
                class_name: "InitiativesTypeScope"
 
     belongs_to :organization,

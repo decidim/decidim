@@ -380,9 +380,7 @@ ca:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegeix un document de menys de 2 MB, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AFEGIR DOCUMENT
             upload_document: Puja el document
           publish:
@@ -722,8 +720,13 @@ ca:
             one: "%{count} proposta"
             other: "%{count} propostes"
         edit:
+          add_documents: Documents
+          add_images: Arxiu
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
+          delete_document: Eliminar document
+          delete_image: Eliminar imatge
+          gallery_legend: "(Opcional) Afegir una imatge a la targeta de proposta"
           select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita proposta

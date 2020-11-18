@@ -303,9 +303,7 @@ id:
           new_import:
             accepted_mime_types:
               md: Penurunan harga
-              odt: Ganjil
             bottom_hint: "(Anda akan dapat melihat dan menyortir bagian dokumen)"
-            document_legend: 'Tambahkan dokumen yang kurang dari 2MB, setiap bagian hingga 3 level akan diuraikan menjadi Proposal. Format yang didukung adalah: %{valid_mime_types}'
             title: TAMBAHKAN DOKUMEN
             upload_document: Unggah dokumen
           publish:

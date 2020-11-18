@@ -23,9 +23,7 @@ is-IS:
         title: Titill
         transparent: Gegnsætt
       minutes:
-        audio_url: Audio url
         description: Lýsing
-        video_url: Video url
         visible: Er sýnilegt
   decidim:
     admin:

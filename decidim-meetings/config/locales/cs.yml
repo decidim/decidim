@@ -20,20 +20,23 @@ cs:
         description: Popis
         end_time: Čas ukončení
         location: Umístění
-        location_hints: Tipy pro umístění
+        location_hints: Nápověda k poloze
+        online_meeting_url: URL online schůzky
         organizer_gid: Vytvořit jako
         organizer_id: Organizátor
         private_meeting: Soukromá schůzka
         registration_form_enabled: Registrační formulář je povolen
         registration_terms: Podmínky registrace
+        registration_url: URL registrace
         registrations_enabled: Registrace povoleny
         start_time: Čas zahájení
         title: Název
         transparent: Transparentní
+        type_of_meeting: Typ
       minutes:
-        audio_url: Audio url
+        audio_url: Audio URL
         description: Popis
-        video_url: Video url
+        video_url: Video URL
         visible: Viditelný
     errors:
       models:
@@ -96,6 +99,7 @@ cs:
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -261,9 +265,15 @@ cs:
           edit:
             update: Aktualizace
           form:
-            address_help: 'Adresa: použitý Geocoder pro nalezení polohy'
+            address_help: 'Adresa: použita Geocoderem k nalezení polohy'
+            available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
+            disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
-            location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
+            location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
+            online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
+            registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
+            select_a_meeting_type: Vyberte prosím typ schůzky
+            select_a_registration_type: Vyberte prosím typ registrace
           index:
             title: Setkání
           new:
@@ -369,6 +379,11 @@ cs:
             subject: Registrace schůzky byla potvrzena
       meeting:
         not_allowed: Tuto schůzku není povoleno prohlížet
+      meeting_closes:
+        edit:
+          back: Zpět
+          close: Ukončit schůzku
+          title: Ukončit schůzku
       meetings:
         count:
           meetings_count:
@@ -398,6 +413,11 @@ cs:
             user_groups: Skupiny
           scope: Oblast působnosti
           search: Vyhledávání
+          type: Typ
+          type_values:
+            all: Vše
+            in_person: Osobně
+            online: Online
         filters_small_view:
           close_modal: Zavřít modální
           filter: Filtr
@@ -405,10 +425,16 @@ cs:
           unfold: Rozvinout
         form:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
+          available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
+          disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
-          location_hints_help: 'Určení polohy: dodatečné informace. Příklad: patro budovy'
+          location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
+          online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
+          registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
           select_a_category: Vyberte prosím kategorii
+          select_a_meeting_type: Vyberte prosím typ schůzky
+          select_a_registration_type: Vyberte prosím typ registrace
         index:
           new_meeting: Nová schůzka
         meeting_minutes:
@@ -427,6 +453,7 @@ cs:
         show:
           attendees: Počet účastníků
           back: Zpět na seznam
+          close_meeting: Ukončit schůzku
           contributions: Počet příspěvků
           date: Datum
           edit_meeting: Upravit schůzku
@@ -475,6 +502,10 @@ cs:
           confirmed_html: Vaše registrace pro schůzku <a href="%{url}">%{title}</a> byla potvrzena.
           details: Podrobnosti schůzky naleznete v příloze.
           registration_code: Váš registrační kód je %{code}.
+      registration_type:
+        on_different_platform: Na jiné platformě
+        on_this_platform: Na této platformě
+        registration_disabled: Registrace zakázána
       registrations:
         create:
           invalid: Na schůzi došlo k problému.
@@ -485,6 +516,9 @@ cs:
         destroy:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
+      type_of_meeting:
+        in_person: Osobně
+        online: Online
       types:
         private_meeting: Privátní setkání
         transparent: Průhledný

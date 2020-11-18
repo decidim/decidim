@@ -25,7 +25,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Randomable
 
-      belongs_to :last_comment_by, polymorphic: true, foreign_key: "last_comment_by_id", foreign_type: "last_comment_by_type", optional: true
+      belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
 
       validates :title, presence: true
@@ -60,6 +60,16 @@ module Decidim
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:title, :description]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
 
       # Public: Calculates whether the current debate is an AMA-styled one or not.

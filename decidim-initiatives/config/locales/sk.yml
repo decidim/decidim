@@ -15,14 +15,6 @@ sk:
           online: OnLine
         state: Štát
         title: Titul
-      initiative_author:
-        address: Adresa
-        city: Mesto
-        id_document: ID
-        name: Meno a priezvisko
-        phone_number: Telefónne číslo
-        post_code: PSČ
-        province: Okres
       initiatives_committee_member:
         user: člen komisie
       initiatives_type:
@@ -236,14 +228,12 @@ sk:
         fill_data:
           back: Späť
           continue: Pokračovať
-          fill_data_help: "<ul> <li> Preskúmajte obsah svojej iniciatívy. Je váš titul jednoduchý pochopiť? Je jasný cieľ vašej iniciatívy? </ li> <li> Musíte zvoliť typ podpisu. Osobne, online alebo kombinácia oboch </ li> <li > Ktorý je geografický rozsah iniciatívy? Mesto, okres? </ li> </ ul> "
           initiative_type: Typ iniciatívy
           more_information: "(Viac informácií)"
           select_scope: Zvoľte rozsah
         finish:
           back: Späť
           back_to_initiatives: Späť na iniciatívy
-          callout_text: Gratulujeme! Vaša iniciatíva občanov bola úspešne vytvorená.
           confirm: Potvrdiť
           edit_my_initiative: Upraviť moje iniciatívy
           go_to_my_initiatives: Ísť na mojej iniciatívy
@@ -263,14 +253,12 @@ sk:
           more_information: "(Viac informácií)"
         promotal_committee:
           back: Späť
-          individual_help_text: Tento druh iniciatívy občanov vyžaduje promotérske komisiu skladajúci sa z najmenej%{committee_size} ľudí (atestoři). Musíte zdieľať nasledujúci odkaz s ostatnými ľuďmi, ktorí sú súčasťou tejto iniciatívy. Keď vaše kontakty dostane tento odkaz, budú musieť postupovať podľa uvedených krokov.
           more_information: "(Viac informácií)"
         select_initiative_type:
           back: Späť
           choose_html: Chcem vytvoriť <strong>%{title} </strong>
           more_information: "(Viac informácií)"
           select: Chcem túto iniciatívu podporiť
-          select_initiative_type_help: Iniciatívy občanov sú prostriedkom, ktorým môže občianstvo zasahovať, aby mestská rada mohla podnikať kroky na ochranu všeobecného záujmu, ktoré patria do oblastí pôsobnosti obce. Ktorú iniciatívu chcete spustiť?
         share_committee_link:
           continue: Pokračovať
           invite_to_committee_help: Odkaz na pozvanie ľudí, ktorí budú súčasťou podporovaného výboru
@@ -368,9 +356,7 @@ sk:
             rejected: Tento návrh bol zamietnutý, pretože
           initiative_rejected_reason: Táto iniciatíva bola zamietnutá z dôvodu nedostatočnej podpory.
         show:
-          any_vote_method: Táto občianska iniciatíva zhromažďuje podporu online i tvárou v tvár.
           follow_description: Dostanete oznámenia, ak sú v tejto iniciatíve správy
-          offline_method: Táto iniciatíva občanov iba zhromažďuje podporu tvárou v tvár.
         signatures_count:
           one: "podpis"
           few: "podpisy"

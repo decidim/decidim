@@ -26,6 +26,10 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: nelze změnit
   activerecord:
     models:
       decidim/elections/answer:
@@ -59,8 +63,7 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Zničit
         edit: Upravit
-        edit_answers: Upravit odpovědi
-        edit_questions: Upravit otázky
+        feedback: Zpětná vazba voličů
         import: Importovat návrhy na odpovědi
         new: Nový %{name}
         preview: Náhled
@@ -110,6 +113,8 @@ cs:
           update:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
+        exports:
+          feedback_form_answers: Odpovědi na formulář zpětné vazby
         models:
           answer:
             name: Odpověď
@@ -117,6 +122,8 @@ cs:
             name: Volby
           question:
             name: Otázka
+          trustee:
+            name: Správce
         proposals_imports:
           create:
             invalid: Při importu návrhů do odpovědí došlo k potížím
@@ -143,6 +150,27 @@ cs:
           update:
             invalid: Při aktualizaci této otázky došlo k chybě
             success: Otázka byla úspěšně aktualizována
+        trustees_participatory_spaces:
+          actions:
+            disable: Zakázat
+            enable: Zvážit
+          create:
+            exists: Správce existuje pro tento participační prostor
+            invalid: Při vytváření správce došlo k chybě
+            success: Správce úspěšně vytvořen
+          delete:
+            invalid: Při odstraňování tohoto správce došlo k chybě
+            success: Správce byl úspěšně odstraněn
+          form:
+            select_user: Vybrat uživatele
+          index:
+            title: Správci
+          new:
+            create: Vytvořit správce
+            title: Nový správce
+          update:
+            invalid: Při aktualizaci správce %{trustee} došlo k chybě
+            success: Správce %{trustee} úspěšně aktualizován
       admin_log:
         election:
           publish: "%{user_name} zveřejnil volby %{resource_name}"
@@ -181,13 +209,22 @@ cs:
           filter_by: Filtrovat podle
           unfold: Rozbalit
         show:
-          back: Všechny volby
+          back: Dostupné volby
           preview: Náhled
+          questions_preview:
+            available_answers: Dostupné odpovědi
+            description: Toto jsou otázky, které najdete v procesu hlasování
+            title: Volební otázky
           vote: Hlasování
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
             ongoing: Hlasování končí %{end_time}
             upcoming: Hlasování začíná %{start_time}
+      feedback:
+        answer:
+          invalid: Při odesílání vaší zpětné vazby došlo k chybě.
+          spam_detected: Vyskytl se problém s odpovědí na formulář. Možná jste byl příliš rychlý, můžete to zkusit znovu?
+          success: Zpětná vazba byla úspěšně odeslána.
       models:
         answer:
           fields:
@@ -203,10 +240,55 @@ cs:
             answers: Odpovědi
             max_selections: Max. výběr
             title: Název
+        trustees_participatory_space:
+          fields:
+            considered: uváženo
+            email: E-mail
+            inactive: neaktivní
+            name: Jméno
+            notification: Oznámení odesláno
+            public_key: Veřejný klíč
+            status: Stav
       orders:
         label: Seřadit volby podle
         older: Starší
         recent: Nedávné
+      trustee_zone:
+        menu:
+          trustee_zone: Zóna správce
+        trustees:
+          show:
+            elections:
+              list:
+                election: Volby
+                status: Stav
+                voting_period: Hlasovací období
+              no_elections: Neexistují žádné volby, ve kterých byste jednal jako správce.
+              title: Volby
+            identification_keys:
+              cancel: Zrušit
+              generate: Generovat identifikační klíče
+              generate_error: Při generování identifikačních klíčů došlo k chybě.
+              generate_legend: Musíte vytvořit pár identifikačních klíčů pro účast ve volbách jako správce.
+              generate_legend_1: Po stisknutí tlačítka byste měli stáhnout soubor s vygenerovanými identifikačními klíči.
+              generate_legend_2: Kopírovat stažený soubor do čistého USB zařízení
+              generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
+              generate_legend_4: Vytvořit další kopii souboru na jiném externím zařízení a uložit jej na velmi bezpečném místě.
+              submit: Odeslat
+              submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server Decidim.
+              submit_title: Odeslat veřejný identifikační klíč
+              title: Identifikační klíče správce
+              upload: Nahrajte své identifikační klíče
+              upload_error:
+                invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
+                invalid_key: Identifikační klíče v nahraném souboru nelze načíst.
+                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají veřejnému identifikačnímu klíči uloženému v Decidim.
+              upload_legend: Decidim má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
+            not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
+            not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako správce
+            trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako správce.
+          update:
+            success: Váš identifikační veřejný klíč byl úspěšně uložen.
       votes:
         confirm:
           answer: Odpověď
@@ -257,6 +339,16 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení kliknutím na následující odkaz.
           email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: Administrátor vás přidal jako správce pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší správcovské zóně</a>
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.
+            email_subject: Jste správcem %{resource_name}.
+            notification_title: Jste správce pro <a href="%{participatory_space_url}">%{resource_name}</a>.
+    pages:
+      home:
+        statistics:
+          elections_count: Volby
     participatory_processes:
       statistics:
         elections_count: Volby

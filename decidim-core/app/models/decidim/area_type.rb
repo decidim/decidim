@@ -13,7 +13,7 @@ module Decidim
                class_name: "Decidim::Organization",
                inverse_of: :area_types
 
-    has_many :areas, foreign_key: "area_type_id", class_name: "Decidim::Area", inverse_of: :area_type, dependent: :nullify
+    has_many :areas, class_name: "Decidim::Area", inverse_of: :area_type, dependent: :nullify
 
     validates :name, presence: true
 

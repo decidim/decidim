@@ -96,10 +96,10 @@ module Decidim
 
       context "when highlighted_content_banner_enabled is true" do
         let(:highlighted_content_banner_enabled) { true }
-        let(:highlighted_content_banner_title) { Decidim::Faker::Localized.sentence(2) }
-        let(:highlighted_content_banner_short_description) { Decidim::Faker::Localized.sentence(2) }
-        let(:highlighted_content_banner_action_title) { Decidim::Faker::Localized.sentence(2) }
-        let(:highlighted_content_banner_action_subtitle) { Decidim::Faker::Localized.sentence(2) }
+        let(:highlighted_content_banner_title) { Decidim::Faker::Localized.sentence(word_count: 2) }
+        let(:highlighted_content_banner_short_description) { Decidim::Faker::Localized.sentence(word_count: 2) }
+        let(:highlighted_content_banner_action_title) { Decidim::Faker::Localized.sentence(word_count: 2) }
+        let(:highlighted_content_banner_action_subtitle) { Decidim::Faker::Localized.sentence(word_count: 2) }
         let(:highlighted_content_banner_action_url) { ::Faker::Internet.url }
         let(:highlighted_content_banner_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 

@@ -10,6 +10,14 @@
       vertical-align: bottom;
     }
   }
+
+  .action-space{
+    display: inline-block;
+
+    &:not(:last-child){
+      margin-right: 1rem;
+    }
+  }
 }
 
 a.red-icon{

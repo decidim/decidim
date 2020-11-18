@@ -187,10 +187,16 @@ pl:
           email_subject: Debaty są teraz dostępne w %{participatory_space_title}
           notification_title: Możesz teraz tworzyć <a href="%{resource_path}">nowe debaty</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz debatę "%{resource_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
-          email_subject: Debata "%{resource_title}" została zakończona
-          notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została zamknięta.
+          affected_user:
+            email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz debatę "%{resource_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
+            email_subject: Debata "%{resource_title}" została zakończona
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została zamknięta.
+          follower:
+            email_intro: 'Debata "%{resource_title}" została zamknięta. Możesz przeczytać wnioski na jej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz debatę "%{resource_title}". Możesz przestać ją obserwować po kliknięciu w poprzedni link.
+            email_subject: Debata "%{resource_title}" została zakończona
+            notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> została zamknięta.
     gamification:
       badges:
         commented_debates:

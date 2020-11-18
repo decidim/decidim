@@ -20,8 +20,8 @@ FactoryBot.define do
       create(:user, :admin, organization: component.organization) if component
     end
 
-    dice { Faker::Number.between(1, 6).to_i }
-    target_items { Faker::Number.between(1, 5).to_i }
+    dice { Faker::Number.between(from: 1, to: 6).to_i }
+    target_items { Faker::Number.between(from: 1, to: 5).to_i }
     request_timestamp { Time.now.utc }
     witnesses { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     additional_info { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }

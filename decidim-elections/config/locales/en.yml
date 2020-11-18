@@ -27,6 +27,10 @@ en:
           attributes:
             attachment:
               needs_to_be_reattached: Needs to be reattached
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: can't be changed
   activerecord:
     models:
       decidim/elections/answer:
@@ -54,12 +58,14 @@ en:
         confirm_destroy: Are you sure?
         destroy: Destroy
         edit: Edit
-        edit_answers: Edit answers
-        edit_questions: Edit questions
+        feedback: Voter feedback
         import: Import proposals to answers
+        manage_answers: Manage answers
+        manage_questions: Manage questions
         new: New %{name}
         preview: Preview
         publish: Publish
+        setup: Setup
         title: Actions
         unpublish: Unpublish
       admin:
@@ -100,11 +106,16 @@ en:
             title: New election
           publish:
             success: The election has been successfully published.
+          setup:
+            invalid: There was a problem setting up this election
+            success: Election successfully sent to the Bulletin Board
           unpublish:
             success: The election has been successfully unpublished.
           update:
             invalid: There was a problem updating this election
             success: Election successfully updated
+        exports:
+          feedback_form_answers: Feedback form answers
         models:
           answer:
             name: Answer
@@ -112,6 +123,8 @@ en:
             name: Election
           question:
             name: Question
+          trustee:
+            name: Trustee
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into answers
@@ -138,6 +151,50 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
+        setup:
+          errors:
+            max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
+            minimum_answers: Questions must have <strong>at least one answer</strong>.
+            minimum_questions: The election <strong>must have at least one question</strong>.
+            published: The election is <strong>not published</strong>
+            time_before: The start time is in <strong>less than 3 hours</strong> before the election starts
+            trustee_public_key: does not have a <strong>valid public key</strong>
+            trustees_quorum: The amount of trustees <strong>does not correspond with the trustees quorum</strong> required
+          requirements:
+            max_selections: All the questions have a correct value for <strong>maximum of answers</strong>
+            minimum_answers: Each question has <strong>at least 2 answers</strong>
+            minimum_questions: The election has <strong>at least 1 question</strong>
+            published: The election is <strong>published</strong>
+            time_before: The setup is being done <strong>at least 3 hours</strong> before the election starts
+            trustee_public_key: has a <strong>valid public key</strong>
+            trustees_quorum: The size of this list of trustees is correct and it will be needed <strong>at least %{quorum} trustees </strong> to perform the tally process
+          show:
+            setup: Setup election
+            title: Election setup
+          update:
+            setup: Setup election
+            title: Election setup
+        trustees_participatory_spaces:
+          actions:
+            disable: Disable
+            enable: Consider
+          create:
+            exists: Trustee exists for this participatory space
+            invalid: There was a problem creating a trustee
+            success: Trustee successfully created
+          delete:
+            invalid: There was a problem removing this trustee
+            success: Trustee successfully removed
+          form:
+            select_user: Select user
+          index:
+            title: Trustees
+          new:
+            create: Create Trustee
+            title: New Trustee
+          update:
+            invalid: There was a problem updating %{trustee} trustee
+            success: Trustee %{trustee} successfully updated
       admin_log:
         election:
           publish: "%{user_name} published the %{resource_name} election"
@@ -174,13 +231,22 @@ en:
           filter_by: Filter by
           unfold: Unfold
         show:
-          back: All elections
+          back: Available elections
           preview: Preview
+          questions_preview:
+            available_answers: Available answers
+            description: These are the questions you will find in the voting process
+            title: Election questions
           vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
             ongoing: Voting ends on %{end_time}
             upcoming: Voting begins on %{start_time}
+      feedback:
+        answer:
+          invalid: There was a problem submiting your feedback.
+          spam_detected: There was a problem answering the form. Maybe you've been too quick, can you try again?
+          success: Feedback successfully sent.
       models:
         answer:
           fields:
@@ -196,10 +262,55 @@ en:
             answers: Answers
             max_selections: Max. selections
             title: Title
+        trustees_participatory_space:
+          fields:
+            considered: considered
+            email: Email
+            inactive: inactive
+            name: Name
+            notification: Notification sent at
+            public_key: Public Key
+            status: Status
       orders:
         label: Order elections by
         older: Older
         recent: Recent
+      trustee_zone:
+        menu:
+          trustee_zone: Trustee zone
+        trustees:
+          show:
+            elections:
+              list:
+                election: Election
+                status: Status
+                voting_period: Voting period
+              no_elections: There are no elections where you act as a Trustee.
+              title: Elections
+            identification_keys:
+              cancel: Cancel
+              generate: Generate identification keys
+              generate_error: There was an error generating the identification keys.
+              generate_legend: You need to generate an identification pair of keys to participate on elections as a Trustee.
+              generate_legend_1: After pressing the button you should download the file with the generated identification keys.
+              generate_legend_2: Copy the downloaded file to a clean USB device
+              generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
+              generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
+              submit: Submit
+              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the Decidim server.
+              submit_title: Submit the public identification key
+              title: Trustee identification keys
+              upload: Upload your identification keys
+              upload_error:
+                invalid_format: The uploaded file doesn't contain any identification key.
+                invalid_key: The identification keys in the uploaded file can't be loaded.
+                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored by Decidim.
+              upload_legend: Decidim has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+            not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
+            not_supported_browser_title: Upgrade browser to act as a Trustee
+            trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
+          update:
+            success: Your identification public key was successfully stored.
       votes:
         confirm:
           answer: Answer
@@ -250,6 +361,21 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_intro: You got added as a trustee for the %{resource_title} election.
+            email_outro: You have received this notification because you've been added as trustee for the %{resource_title} election.
+            email_subject: You are a trustee for the %{resource_title} election..
+            notification_title: You are a trustee for <a href="%{resource_path}">%{resource_title}</a> election.
+          new_trustee:
+            email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
+            email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
+            email_subject: You are a trustee for %{resource_name}.
+            notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    pages:
+      home:
+        statistics:
+          elections_count: Elections
     participatory_processes:
       statistics:
         elections_count: Elections

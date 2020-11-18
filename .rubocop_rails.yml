@@ -7,6 +7,9 @@ Rails/ActionFilter:
   Include:
     - decidim-*/app/controllers/**/*.rb
 
+Rails/ContentTag:
+  Enabled: false
+
 Rails/CreateTableWithTimestamps:
   Enabled: false
 
@@ -63,6 +66,12 @@ Rails/Output:
     - decidim-templates/db/seeds.rb
 
 Rails/OutputSafety:
+  Enabled: false
+
+Rails/Pluck:
+  Enabled: false
+
+Rails/RakeEnvironment:
   Enabled: false
 
 Rails/ReadWriteAttribute:

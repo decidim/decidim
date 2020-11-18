@@ -22,6 +22,14 @@ module Decidim
       def valid_max_selection?
         max_selections <= answers.count
       end
+
+      def vote_variation
+        if max_selections == 1
+          "one_of_m"
+        else
+          "n_of_m"
+        end
+      end
     end
   end
 end

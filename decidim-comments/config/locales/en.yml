@@ -17,8 +17,11 @@ en:
         other: Votes
   decidim:
     comments:
-      comments: Comments
+      comments:
+        create:
+          error: There was a problem creating the comment.
       comments_count: Comments count
+      comments_title: Comments
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
       view: View
@@ -77,7 +80,9 @@ en:
         loading: Loading comments ...
         single_comment_warning: You can check the rest of the comments <a href="%{url}">here</a>.
         single_comment_warning_title: You are seeing a single comment
-        title: "%{count} comments"
+        title:
+          one: "%{count} comment"
+          other: "%{count} comments"
       down_vote_button:
         text: I disagree with this comment
       up_vote_button:

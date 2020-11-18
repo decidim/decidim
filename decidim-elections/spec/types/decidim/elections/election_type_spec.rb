@@ -66,6 +66,34 @@ module Decidim
         end
       end
 
+      describe "blocked" do
+        let(:query) { "{ blocked }" }
+
+        context "when the election's parameters are blocked" do
+          let!(:model) { create(:election, :started, :ready_for_setup) }
+
+          it "returns true " do
+            expect(response["blocked"]).to be true
+          end
+        end
+
+        context "when the election's parameters are not blocked" do
+          let(:model) { create(:election) }
+
+          it "returns false" do
+            expect(response["blocked"]).to be_falsey
+          end
+        end
+      end
+
+      describe "bb_status" do
+        let(:query) { "{ bb_status }" }
+
+        it "returns the bb_status" do
+          expect(response["bb_status"]).to eq(model.bb_status)
+        end
+      end
+
       describe "questions" do
         let!(:election2) { create(:election, :complete) }
         let(:query) { "{ questions { id } }" }
@@ -74,6 +102,15 @@ module Decidim
           ids = response["questions"].map { |question| question["id"] }
           expect(ids).to include(*model.questions.map(&:id).map(&:to_s))
           expect(ids).not_to include(*election2.questions.map(&:id).map(&:to_s))
+        end
+      end
+
+      describe "trustees" do
+        let(:query) { "{ trustees { id } }" }
+
+        it "returns the election trustees" do
+          ids = response["trustees"].map { |trustee| trustee["id"] }
+          expect(ids).to include(*model.trustees.map(&:id).map(&:to_s))
         end
       end
     end

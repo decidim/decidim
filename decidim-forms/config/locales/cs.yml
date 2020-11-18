@@ -3,6 +3,8 @@ cs:
     attributes:
       answer:
         body: Odpovědět
+        choices: Možnosti
+        selected_choices: Vyberte možnosti
       question:
         max_choices: Maximální počet možností
         question_type: Typ
@@ -76,7 +78,7 @@ cs:
             collapse: Sbalit všechny úlohy
             expand: Rozbalit všechny otázky
             preview: Náhled
-            title: Upravit formulář
+            title: Upravit formulář pro %{questionnaire_for}
             unpublished_warning: Formulář není zveřejněn. Můžete změnit jeho otázky, ale tím odstraníte aktuální odpovědi.
           matrix_row:
             matrix_row: Řádek

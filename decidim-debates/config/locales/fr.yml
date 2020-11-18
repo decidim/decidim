@@ -200,10 +200,16 @@ fr:
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
-          email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
-          email_subject: Le débat "%{resource_title}" est fermé
-          notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
+          affected_user:
+            email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_subject: Le débat "%{resource_title}" est fermé
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
+          follower:
+            email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_subject: Le débat "%{resource_title}" est fermé
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
     gamification:
       badges:
         commented_debates:

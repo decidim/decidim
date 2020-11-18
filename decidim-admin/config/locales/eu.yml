@@ -59,7 +59,6 @@ eu:
         primary_color: Lehen
         reference_prefix: Erreferentzia-aurrizkia
         secondary_color: Bigarren
-        show_statistics: Erakutsi estatistikak
         success_color: Arrakasta
         tos_version: Zerbitzu-baldintzak bertsioa
         twitter_handler: Twitter kudeatzailea
@@ -471,7 +470,6 @@ eu:
           instagram: Instagram
           social_handlers: Gizarte
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
@@ -678,7 +676,6 @@ eu:
           fields:
             hidden_at: Ezkutatze-data
             report_count: Zenbaketa
-            reportable: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
             visit_url: Bisitatu URLa

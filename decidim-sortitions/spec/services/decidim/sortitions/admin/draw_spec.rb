@@ -9,8 +9,8 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-        let(:target_items) { ::Faker::Number.number(2).to_i }
-        let(:seed) { Time.now.utc.to_i * ::Faker::Number.between(1, 6).to_i }
+        let(:target_items) { ::Faker::Number.number(digits: 2).to_i }
+        let(:seed) { Time.now.utc.to_i * ::Faker::Number.between(from: 1, to: 6).to_i }
         let!(:proposals) do
           create_list(:proposal, target_items * 2,
                       component: proposal_component,

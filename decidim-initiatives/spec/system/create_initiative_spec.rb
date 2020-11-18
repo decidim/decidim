@@ -111,7 +111,7 @@ describe "Initiative", type: :system do
       context "and select initiative type" do
         it "Offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("Citizen initiatives are a means by which the citizenship can intervene so that the City Council can undertake actions in defence of the general interest that are within fields of municipal jurisdiction. Which initiative do you want to launch?")
+            expect(page).to have_content("Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?")
           end
         end
 
@@ -245,7 +245,7 @@ describe "Initiative", type: :system do
             within ".callout.secondary" do
               expect(page).to have_content("Review the content of your initiative. Is your title easy to understand? Is the objective of your initiative clear?")
               expect(page).to have_content("You have to choose the type of signature. In-person, online or a combination of both")
-              expect(page).to have_content("Which is the geographic scope of the initiative? City, district?")
+              expect(page).to have_content("Which is the geographic scope of the initiative?")
             end
           end
 
@@ -318,7 +318,7 @@ describe "Initiative", type: :system do
 
         it "Offers contextual help" do
           within ".callout.secondary" do
-            expect(page).to have_content("This kind of citizen initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
+            expect(page).to have_content("This kind of initiative requires a Promoting Commission consisting of at least #{initiative_type_minimum_committee_members} people (attestors). You must share the following link with the other people that are part of this initiative. When your contacts receive this link they will have to follow the indicated steps.")
           end
         end
 
@@ -363,8 +363,7 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
-          fill_in :initiative_attachment_title, with: "Document name"
-          attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+          attach_file :initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf")
           find_button("Continue").click
         end
 
@@ -379,12 +378,12 @@ describe "Initiative", type: :system do
 
           it "Offers contextual help" do
             within ".callout.secondary" do
-              expect(page).to have_content("Congratulations! Your citizen initiative has been successfully created.")
+              expect(page).to have_content("Congratulations! Your initiative has been successfully created.")
             end
           end
 
           it "displays an edit link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Edit my initiative")
             end
           end
@@ -395,9 +394,10 @@ describe "Initiative", type: :system do
           let(:initiative_type_minimum_committee_members) { 0 }
 
           it "displays a send to technical validation link" do
-            within ".column.actions" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='Confirm']"
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
           end
 
@@ -409,10 +409,12 @@ describe "Initiative", type: :system do
           let(:initiative_type_promoting_committee_enabled) { false }
           let(:initiative_type_minimum_committee_members) { 0 }
 
+          expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+
           it "displays a send to technical validation link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='Confirm']"
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
           end
 

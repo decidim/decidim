@@ -305,6 +305,9 @@ fi:
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Jäsenet

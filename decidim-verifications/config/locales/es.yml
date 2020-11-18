@@ -131,7 +131,6 @@ es:
             title: Datos censales actuales
           instructions:
             body: Para ello, debes acceder a la administración del sistema y añadir las autorizaciones csv_census a la organización
-            title: Necesitas activar el censo csv para esta organización.
           new:
             file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'

@@ -134,10 +134,10 @@ ja:
           description: これらはあなたが予算の一部になることを選んだプロジェクトです。
           title: 投票の確認
         budget_excess:
+          budget_excess:
+            title: 最大予算を超えました
           close: 閉じる
-          description: このプロジェクトは予算上限を超えているため、追加できません。 必要に応じて、追加対象として選択したプロジェクトを削除したり、好みで投票を行うことができます。
           ok: OK
-          title: 最大予算を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
           assigned: 'アサイン済み:'
@@ -145,8 +145,6 @@ ja:
           checked_out:
             description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
             title: 予算投票が完了しました
-          description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトに少なくとも %{minimum_budget} を割り当て、予算を定義するためにあなたの設定で投票します。
-          description_minimum_projects_rule: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望する少なくとも %{minimum_number} 件のプロジェクトを選択し、予算を定義するためにあなたの設定に投票します。
           title: 予算を決める
         count:
           projects_count:
@@ -186,7 +184,6 @@ ja:
           view: 表示
           votes:
             other: 投票
-          you_voted: 投票済
         project_budget_button:
           add: 投票に追加
           add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
@@ -213,7 +210,7 @@ ja:
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数
-            resources_permissions_enabled: アクションの権限はミーティングごとに設定できます
+            resources_permissions_enabled: プロジェクトごとにアクションの権限を設定できます
             scope_id: スコープ
             scopes_enabled: スコープは有効です
             title: タイトル
@@ -259,4 +256,3 @@ ja:
         project_proposal: 'このプロジェクトに含まれる提案'
   index:
     confirmed_orders_count: 投票数
-  total_budget: 予算の合計

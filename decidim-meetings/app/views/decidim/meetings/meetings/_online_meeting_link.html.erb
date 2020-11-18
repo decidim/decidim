@@ -1,0 +1,11 @@
+<div class="card card--secondary">
+  <div class="card__content address">
+    <div class="address__info">
+      <%= icon "video", role: "img", "aria-hidden": true, remove_icon_class: true, width: 40, height: 70 %>
+      <div class="address__details">
+        <span><%= link_to(meeting.online_meeting_url, meeting.online_meeting_url, target: "_blank") %></span><br>
+        <span><%= translated_attribute meeting.location_hints %></span>
+      </div>
+    </div>
+  </div>
+</div>

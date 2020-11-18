@@ -1,0 +1,24 @@
+(function() {
+  var rootCommentableId = <%== "comments-for-#{commentable.commentable_type.demodulize}-#{commentable.id}".to_json %>;
+
+  var $comments = $("#" + rootCommentableId);
+  var component = $comments.data("comments");
+
+<% @comments.each do |comment| %>
+  var commentId = <%= comment.id.to_json %>;
+  var commentHtml = '<%== j(render comment).strip %>';
+  var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
+
+  var $comment = $("#comment_" + commentId);
+  if (1 > $comment.length) {
+    if (inReplyTo) {
+      component.addReply(inReplyTo, commentHtml);
+    } else {
+      component.addThread(commentHtml);
+    }
+  }
+<% end %>
+
+  // Update the comments count
+  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+}());

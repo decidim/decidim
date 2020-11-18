@@ -122,9 +122,10 @@ module Decidim
       end
 
       def recipients
-        if @model.is_a?(User)
+        case @model
+        when User
           [@model]
-        elsif @model.is_a?(UserGroup)
+        when UserGroup
           @model.users
         end
       end

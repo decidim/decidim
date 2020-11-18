@@ -30,7 +30,6 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        address: Nom del servidor SMTP
         alert_color: Alerta
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
@@ -66,20 +65,16 @@ ca:
         omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
-        password: Contrasenya
-        port: Port
         primary_color: Primària
         reference_prefix: prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         send_welcome_notification: Envia la notificació de benvinguda
-        show_statistics: Mostrar estadístiques
         success_color: Èxit
         time_zone: Zona horària
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
-        user_name: Àlies
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
@@ -300,6 +295,9 @@ ca:
         category_id_eq:
           label: Categoria
         filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Tipus
         officialized_at_null:
           label: Estat
           values:
@@ -481,6 +479,9 @@ ca:
             does_not_belong: No pertany
             offensive: Ofensiu
             spam: Contingut no desitjat
+        reports:
+          index:
+            author: Autor(s)
       newsletter_templates:
         index:
           preview_template: Previsualitzar
@@ -586,7 +587,6 @@ ca:
           rich_text_editor_in_public_views_help: En algunes àrees de text, les participants podran inserir algunes etiquetes HTML amb l'editor de text enriquit.
           social_handlers: Social
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: S'ha produït un error en actualitzar aquesta organització.
@@ -621,7 +621,6 @@ ca:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
         index:
-          import_via_csv: Importar via csv
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
@@ -831,7 +830,6 @@ ca:
           fields:
             hidden_at: Data d'ocultació
             report_count: Recompte
-            reportable: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
             visit_url: Visiteu l'URL

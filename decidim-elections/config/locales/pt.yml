@@ -48,8 +48,6 @@ pt:
         confirm_destroy: Tem a certeza?
         destroy: Destruir
         edit: Editar
-        edit_answers: Editar respostas
-        edit_questions: Editar perguntas
         import: Importar propostas para perguntas
         new: Novo %{name}
         preview: Pré-visualizar
@@ -140,7 +138,6 @@ pt:
             one: "%{count} eleição"
             other: "%{count} eleições"
         show:
-          back: Todas as eleições
           preview: Pré-visualizar
           vote: Voto
           voting_period_status:
