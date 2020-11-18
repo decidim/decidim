@@ -37,7 +37,7 @@ module Decidim
     def send_translated_report_notifications(reportable)
       reportable.moderation.reports.each do |report|
         reportable.moderation.participatory_space.moderators.each do |moderator|
-          Decidim::ReportedMailer.report(moderator, report)
+          Decidim::ReportedMailer.report(moderator, report).deliver_later
         end
       end
     end
