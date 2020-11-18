@@ -369,9 +369,7 @@ hu:
           new_import:
             accepted_mime_types:
               md: Árleszállítás
-              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:

@@ -132,7 +132,6 @@ ro:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat %{resource_name} prin csv să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
         create: "%{user_name} a creat scopul %{resource_name}"
@@ -923,8 +922,6 @@ ro:
           send: Trimite
           title: Începe o conversație
     metrics:
-      download:
-        csv: Descarcă date (csv)
       followers:
         description: Numărul de participanți care urmăresc acest spațiu de participare
         object: urmăritori
@@ -1125,7 +1122,6 @@ ro:
         date: Raportat la
         details: Detalii
         hello: Bună ziua %{name},
-        manage_moderations: Administreaza moderatii
         participatory_space: Spaţiu participativ
         reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>

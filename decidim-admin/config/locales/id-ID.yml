@@ -470,7 +470,6 @@ id:
           instagram: Instagram
           social_handlers: Sosial
           twitter: Kericau
-          url: Url
           youtube: Youtube
         update:
           error: Terjadi kesalahan saat memperbarui organisasi ini.

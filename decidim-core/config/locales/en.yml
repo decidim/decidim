@@ -619,6 +619,11 @@ en:
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
       reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Your %{resource_type}</a> has been reported as "%{report_reason}". An administrator will review it shortly.
+          email_outro: You have received this notification because you are an author of the reported content.
+          email_subject: Your %{resource_type} has been reported
+          notification_title: <a href="%{resource_path}">Your %{resource_type}</a> has been reported as "%{report_reason}".
         resource_hidden:
           email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
           email_outro: You have received this notification because you are an author of the removed content.

@@ -475,6 +475,7 @@ sv:
         index:
           choose_an_option: 'Välj registreringsalternativ:'
           login_as: Du är inloggad som %{name} <%{email}>
+          no_registrations: Inga anmälningar
           register: Registrera
           title: Registreringstyper
       shared:
@@ -538,6 +539,12 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer konferensen "%{resource_title}". Du kan sluta att följa den från föregående länk.
           email_subject: Konferensen "%{resource_title}" kommer!
           notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
+          page: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
+          title: Vad är konferenser?
     log:
       value_types:
         conference_presenter:

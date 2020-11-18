@@ -38,6 +38,10 @@ module Decidim
       render
     end
 
+    def flag_user_modal
+      render
+    end
+
     def flag
       render
     end

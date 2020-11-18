@@ -6,6 +6,7 @@ require "decidim/elections/engine"
 require "decidim/elections/admin_engine"
 require "decidim/elections/trustee_zone_engine"
 require "decidim/elections/component"
+require "decidim/elections/jwk_utils"
 
 module Decidim
   # This namespace holds the logic of the `Elections` component. This component

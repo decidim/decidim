@@ -10,8 +10,6 @@
   decidim:
     elections:
       actions:
-        edit_answers: Rediger svar
-        edit_questions: Rediger spørsmål
         import: Importer forslag til svar
       admin:
         proposals_imports:
@@ -23,7 +21,6 @@
             one: "%{count} valg"
             other: "%{count} valg"
         show:
-          back: Alle valg
           preview: Forhåndsvisning
           vote: Stem
           voting_period_status:

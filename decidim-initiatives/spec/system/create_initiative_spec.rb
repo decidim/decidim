@@ -363,8 +363,7 @@ describe "Initiative", type: :system do
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")
           select("Online", from: "Signature collection type")
-          fill_in :initiative_attachment_title, with: "Document name"
-          attach_file :initiative_attachment_file, Decidim::Dev.asset("Exampledocument.pdf")
+          attach_file :initiative_add_documents, Decidim::Dev.asset("Exampledocument.pdf")
           find_button("Continue").click
         end
 
@@ -384,7 +383,7 @@ describe "Initiative", type: :system do
           end
 
           it "displays an edit link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Edit my initiative")
             end
           end
@@ -395,9 +394,10 @@ describe "Initiative", type: :system do
           let(:initiative_type_minimum_committee_members) { 0 }
 
           it "displays a send to technical validation link" do
-            within ".column.actions" do
+            expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='Confirm']"
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
           end
 
@@ -409,10 +409,12 @@ describe "Initiative", type: :system do
           let(:initiative_type_promoting_committee_enabled) { false }
           let(:initiative_type_minimum_committee_members) { 0 }
 
+          expected_message = "You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?"
+
           it "displays a send to technical validation link" do
-            within ".column.actions" do
+            within ".actions" do
               expect(page).to have_link("Send my initiative")
-              expect(page).to have_selector "a[data-confirm='Confirm']"
+              expect(page).to have_selector "a[data-confirm='#{expected_message}']"
             end
           end
 

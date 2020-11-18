@@ -354,7 +354,6 @@ lv:
             accepted_mime_types:
               md: Marķējums
             bottom_hint: "(Jūs varēsiet priekšskatīt un kārtot dokumentu sadaļas)"
-            document_legend: 'Pievienojiet dokumentu, kas mazāks par 2 MB, katra sadaļa ar dziļumu līdz trim līmeņiem tiks parsēta priekšlikumos. Atbalstītie formāti: %{valid_mime_types}'
             upload_document: Augšupielādēt dokumentu
           publish:
             invalid: Nevarēja publicēt priekšlikumus

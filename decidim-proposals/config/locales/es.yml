@@ -380,9 +380,7 @@ es:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Sube un documento de menos de 2 Mb, cada una de las secciones (hasta 3 niveles de profundidad) se convertirán en propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: Añadir documento
             upload_document: Subir documento
           publish:

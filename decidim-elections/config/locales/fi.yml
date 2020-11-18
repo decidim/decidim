@@ -57,8 +57,6 @@ fi:
         confirm_destroy: Oletko varma?
         destroy: Tuhoa
         edit: Muokkaa
-        edit_answers: Muokkaa vastauksia
-        edit_questions: Muokkaa kysymyksiä
         feedback: Äänestäjän palaute
         import: Tuo ehdotuksia vastauksiin
         new: Uusi %{name}
@@ -203,8 +201,12 @@ fi:
           filter_by: Rajaa hakua
           unfold: Avaa
         show:
-          back: Kaikki vaalit
+          back: Käynnissä olevat vaalit
           preview: Esikatsele
+          questions_preview:
+            available_answers: Saatavilla olevat vastaukset
+            description: Nämä kysymykset esitetään äänestyksen yhteydessä
+            title: Vaaliin liittyvät kysymykset
           vote: Äänestä
           voting_period_status:
             finished: Äänestys alkoi %{start_time} ja päättyi %{end_time}

@@ -40,6 +40,28 @@ module Decidim
           end
         end
       end
+
+      # GET /initiatives/:initiative_id/committee_requests/:id/approve
+      def approve
+        enforce_permission_to :approve, :initiative_committee_member, request: membership_request
+        membership_request.accepted!
+
+        redirect_to edit_initiative_path(current_initiative)
+      end
+
+      # DELETE /initiatives/:initiative_id/committee_requests/:id/revoke
+      def revoke
+        enforce_permission_to :revoke, :initiative_committee_member, request: membership_request
+        membership_request.rejected!
+
+        redirect_to edit_initiative_path(current_initiative)
+      end
+
+      private
+
+      def membership_request
+        @membership_request ||= InitiativesCommitteeMember.find(params[:id])
+      end
     end
   end
 end
