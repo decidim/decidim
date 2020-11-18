@@ -53,8 +53,6 @@ es-PY:
         confirm_destroy: '¿Estás segura?'
         destroy: Destruir
         edit: Editar
-        edit_answers: Editar las respuestas
-        edit_questions: Editar las preguntas
         import: Importar de propuestas a respuestas
         new: Nueva %{name}
         preview: Previsualizar

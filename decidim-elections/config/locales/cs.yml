@@ -63,8 +63,6 @@ cs:
         confirm_destroy: Jste si jisti?
         destroy: Zničit
         edit: Upravit
-        edit_answers: Upravit odpovědi
-        edit_questions: Upravit otázky
         feedback: Zpětná vazba voličů
         import: Importovat návrhy na odpovědi
         new: Nový %{name}
