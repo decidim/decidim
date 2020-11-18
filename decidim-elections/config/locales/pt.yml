@@ -48,8 +48,6 @@ pt:
         confirm_destroy: Tem a certeza?
         destroy: Destruir
         edit: Editar
-        edit_answers: Editar respostas
-        edit_questions: Editar perguntas
         import: Importar propostas para perguntas
         new: Novo %{name}
         preview: Pré-visualizar
