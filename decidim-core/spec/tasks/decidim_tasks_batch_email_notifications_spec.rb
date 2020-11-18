@@ -15,11 +15,7 @@ describe "rake decidim:batch_email_notifications:send", type: :task do
 
     context "when batch email notifications is enabled" do
       before do
-        Decidim.config.batch_email_notifications_enabled = true
-      end
-
-      after do
-        Decidim.config.batch_email_notifications_enabled = false
+        allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
       end
 
       it "has to be executed without failures" do

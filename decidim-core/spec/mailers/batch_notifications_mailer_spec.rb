@@ -12,7 +12,7 @@ module Decidim
     let(:events) { events_serializer(notifications) }
     let(:see_more) { "You have received a lot of notifications on <a href='http://#{organization.host}/'>#{organization.name}</a>Go check them out on your <a href='/notifications'>notifications</a> space" }
 
-    describe "event_received" do
+    describe "#event_received" do
       let(:mail) { described_class.event_received(events, user) }
 
       it "gets the subject from the event" do
@@ -63,7 +63,7 @@ module Decidim
 
       context "when there is more email than batch_email_notifications_max_length" do
         before do
-          Decidim.config.batch_email_notifications_max_length = 1
+          allow(Decidim.config).to receive(:batch_email_notifications_max_length).and_return(1)
         end
 
         it "displays see more link" do

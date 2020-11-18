@@ -68,11 +68,7 @@ module Decidim::Meetings
 
       context "when batch notifications is enabled" do
         before do
-          Decidim.config.batch_email_notifications_enabled = true
-        end
-
-        after do
-          Decidim.config.batch_email_notifications_enabled = false
+          allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
         end
 
         it_behaves_like "notifies the change"

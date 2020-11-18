@@ -64,11 +64,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           context "and priority is batch" do
@@ -109,11 +105,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           [:batch, :now].each do |priority|
@@ -135,11 +127,7 @@ describe Decidim::EventPublisherJob do
 
           context "and batch notifications is enabled" do
             before do
-              Decidim.config.batch_email_notifications_enabled = true
-            end
-
-            after do
-              Decidim.config.batch_email_notifications_enabled = false
+              allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
             end
 
             [:batch, :now].each do |priority|
@@ -168,11 +156,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           context "and priority is batch" do
@@ -212,11 +196,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           [:batch, :now].each do |priority|
@@ -244,11 +224,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           context "and priority is batch" do
@@ -288,11 +264,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           [:batch, :now].each do |priority|
@@ -313,11 +285,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           context "and priority is batch" do
@@ -353,11 +321,7 @@ describe Decidim::EventPublisherJob do
 
           context "and batch notifications is enabled" do
             before do
-              Decidim.config.batch_email_notifications_enabled = true
-            end
-
-            after do
-              Decidim.config.batch_email_notifications_enabled = false
+              allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
             end
 
             [:batch, :now].each do |priority|
@@ -372,11 +336,7 @@ describe Decidim::EventPublisherJob do
 
         context "and batch notifications is enabled" do
           before do
-            Decidim.config.batch_email_notifications_enabled = true
-          end
-
-          after do
-            Decidim.config.batch_email_notifications_enabled = false
+            allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
           end
 
           context "and priority is batch" do
@@ -412,11 +372,7 @@ describe Decidim::EventPublisherJob do
 
           context "and batch notifications is enabled" do
             before do
-              Decidim.config.batch_email_notifications_enabled = true
-            end
-
-            after do
-              Decidim.config.batch_email_notifications_enabled = false
+              allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
             end
 
             [:batch, :now].each do |priority|

@@ -70,6 +70,24 @@ describe Decidim::BatchEmailNotificationsGenerator do
           subject.generate
         end
       end
+
+      context "when user deletes her account before notification has been sent" do
+        before do
+          user.destroy!
+        end
+
+        it "doesn't enqueues the job" do
+          expect(Decidim::BatchNotificationsMailer)
+            .not_to receive(:event_received)
+            .with(subject.send(:serialized_events, subject.send(:events_for, user)), user)
+
+          expect(mailer).not_to receive(:deliver_later)
+
+          expect do
+            perform_enqueued_jobs { subject.generate }
+          end.not_to change(emails, :count)
+        end
+      end
     end
 
     context "when there is no events" do

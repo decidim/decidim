@@ -44,5 +44,15 @@ describe Decidim::EmailNotificationGeneratorJob do
         end.not_to raise_error
       end
     end
+
+    context "when event_class_name is unknown" do
+      let(:event_class_name) { "Fake::Events::Class" }
+
+      it "does not raise error" do
+        expect do
+          subject.perform_now(event, event_class_name, resource, followers, affected_users, priority, extra)
+        end.not_to raise_error
+      end
+    end
   end
 end

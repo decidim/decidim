@@ -26,11 +26,7 @@ describe Decidim::BatchEmailNotificationsGeneratorJob do
 
     context "when batch email notifications is enabled" do
       before do
-        Decidim.config.batch_email_notifications_enabled = true
-      end
-
-      after do
-        Decidim.config.batch_email_notifications_enabled = false
+        allow(Decidim.config).to receive(:batch_email_notifications_enabled).and_return(true)
       end
 
       it "delegates the work to the class" do
