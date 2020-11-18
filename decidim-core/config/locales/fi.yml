@@ -608,12 +608,6 @@ fi:
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
-      reports:
-        report_created:
-          email_intro: <a href="%{resource_url}">Laatimasi %{resource_type}</a> on raportoitu syyllä "%{report_reason}". Hallintakäyttäjä tarkastaa sisällön pian.
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut raportoidun kohteen "%{resource_title}".
-          email_subject: Laatimasi %{resource_type} on raportoitu
-          notification_title: <a href="%{resource_path}">Laatimasi %{resource_type}</a> on raportoitu syyllä "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
