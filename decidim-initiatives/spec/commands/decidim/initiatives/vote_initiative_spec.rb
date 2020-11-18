@@ -118,10 +118,6 @@ module Decidim
           end
 
           it "sends notification with email" do
-            # Here count change by 2 because there is some previous events :
-            # - decidim.events.initiatives.initiative_endorsed
-            # - Then : decidim.events.initiatives.milestone_completed - For follower
-            # - Then : decidim.events.initiatives.milestone_completed - For affected_user
             expect do
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(3)
@@ -165,10 +161,6 @@ module Decidim
           end
 
           it "sends notification with email" do
-            # Here count change by 3 because there is some previous events :
-            # - decidim.events.initiatives.initiative_endorsed
-            # - decidim.events.initiatives.milestone_completed
-            # - Then : decidim.events.initiatives.support_threshold_reached
             expect do
               perform_enqueued_jobs { command.call }
             end.to change(emails, :count).by(3)
