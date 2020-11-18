@@ -6,15 +6,15 @@ module Decidim
       graphql_name "Statistic"
       description "Represents a single statistic"
 
-      field :name, String, null: false, description: "The name of the statistic"
-      field :value, Int, null: false, description: "The actual value of the statistic"
-
-      def value
-        statistic[1]
+      field :name, String, null: false, description: "The name of the statistic"do
+        def resolve_field(object, args, context)
+          object[0]
+        end
       end
-
-      def name
-        statistic[0]
+      field :value, Int, null: false, description: "The actual value of the statistic"do
+        def resolve_field(object, args, context)
+          object[1]
+        end
       end
     end
   end

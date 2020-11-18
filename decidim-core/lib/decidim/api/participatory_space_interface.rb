@@ -17,11 +17,13 @@ module Decidim
         end
       end
 
-      field :components,
-            type: [ComponentInterface],
-            null: true,
-            description: "Lists the components this space contains."
-      # , function: Decidim::Core::ComponentListHelper.new
+      field :components, type: [ComponentInterface], null: true, description: "Lists the components this space contains." do
+        argument :order, ComponentInputSort, required: false, description: "Provides several methods to order the results"
+        argument :filter, ComponentInputFilter, required: false, description: "Provides several methods to filter the results"
+        def resolve_field(object, args, ctx )
+          Decidim::Core::ComponentListHelper.new.call(object, args, ctx)
+        end
+      end
 
       field :stats, Decidim::Core::StatisticType, null: true do
         def resolve(participatory_space:, _args:, _ctx:)

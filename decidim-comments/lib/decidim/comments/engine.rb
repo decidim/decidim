@@ -34,9 +34,7 @@ module Decidim
       end
 
       initializer "decidim_comments.mutation_extensions" do
-        Decidim::Api::MutationType.define do
-          MutationExtensions.define(self)
-        end
+        Decidim::Api::MutationType.prepend Decidim::Comments::MutationExtensions
       end
 
       initializer "decidim.stats" do

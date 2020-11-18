@@ -33,13 +33,28 @@ module Decidim
 
         field :user, Core::AuthorInterface,
               null: true,
-              description: "A participant (user or group) in the current organization"
-        # , function: Core::UserEntityFinder.new
+              description: "A participant (user or group) in the current organization" do
+
+          argument :id, GraphQL::Types::ID, required: true, description: "The ID of the participant"
+          argument :nickname, GraphQL::Types::String, required: true, description:"The @nickname of the participant"
+
+          def resolve_field(object, args, ctx )
+            Core::UserEntityFinder.new.call(object, args, ctx)
+          end
+        end
 
         field :users, [Core::AuthorInterface],
               null: true,
-              description: "The participants (users or groups) for the current organization"
-        # , function: Core::UserEntityList.new
+              description: "The participants (users or groups) for the current organization" do
+
+          argument :order, Decidim::Core::UserEntityInputSort, required: false, description:  "Provides several methods to order the results"
+          argument :filter, Decidim::Core::UserEntityInputFilter, required: false, description: "Provides several methods to filter the results"
+
+          def resolve_field(object, args, ctx )
+            Core::UserEntityList.new.call(object, args, ctx)
+          end
+        end
+        # , function:
 
         field :session, Core::SessionType, null: true, description: "Return's information about the logged in user"
 

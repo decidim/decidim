@@ -3,7 +3,7 @@
 module Decidim
   module Api
     # This type represents the root query type of the whole API.
-    class QueryType < GraphQL::Schema::Types::QueryType
+    class QueryType < GraphQL::Schema::Object
       graphql_name "Query"
       description "The root query of this schema"
 

@@ -9,10 +9,10 @@ module Decidim
 
       field :id, ID, null: false, description: "Internal ID for this area"
       field :name, TranslatedFieldType, null: false, description: "The name of this area."
-      field :areaType, Decidim::Core::AreaTypeType, null: true, description: "The area type of this area"
-
-      def areaType
-        object.area_type
+      field :areaType, Decidim::Core::AreaTypeType, null: true, description: "The area type of this area"do
+        def resolve_field(object, args, context)
+          object.area_type
+        end
       end
     end
   end

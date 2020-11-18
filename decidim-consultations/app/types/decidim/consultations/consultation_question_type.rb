@@ -27,7 +27,7 @@ module Decidim
           Decidim::Component.where(
             participatory_space: object
           ).published
-                end
+        end
       end
 
       field :bannerImage, String, null: true, description: "The banner image for this question" do

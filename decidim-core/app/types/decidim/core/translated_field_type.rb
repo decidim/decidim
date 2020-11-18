@@ -14,11 +14,11 @@ module Decidim
 
       field :translation, String, null: true, description: "Returns a single translation given a locale." do
         argument :locale, String, required: true, description: "A locale to search for"
-      end
 
-      def translation(locale:)
-        translations = object.stringify_keys
-        translations[locale]
+        def resolve_field(object, args, ctx )
+          translations = object.stringify_keys
+          translations[args[:locale]]
+        end
       end
 
       def translations(locales:)

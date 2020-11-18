@@ -43,71 +43,71 @@ module Decidim
       field :categories, [Decidim::Core::CategoryType], null: true, description: "Categories for this participatory process"
       field :participatoryProcessGroup, ParticipatoryProcessGroupType, null: false, description: "The participatory process group in which this process belong to"
 
-      def participatoryScope
+      def participatoryScope(object:, args:, context:)
         object.participatory_scope
       end
 
-      def participatoryStructure
+      def participatoryStructure(object:, args:, context:)
         object.participatory_structure
       end
 
-      def developerGroup
+      def developerGroup(object:, args:, context:)
         object.developer_group
       end
 
-      def metaScope
+      def metaScope(object:, args:, context:)
         object.meta_scope
       end
 
-      def localArea
+      def localArea(object:, args:, context:)
         object.local_area
       end
 
-      def bannerImage
+      def bannerImage(object:, args:, context:)
         object.banner_image
       end
 
-      def heroImage
+      def heroImage(object:, args:, context:)
         object.hero_image
       end
 
-      def publishedAt
+      def publishedAt(object:, args:, context:)
         object.published_at
       end
 
-      def startDate
+      def startDate(object:, args:, context:)
         object.start_date
       end
 
-      def endDate
+      def endDate(object:, args:, context:)
         object.end_date
       end
 
-      def shortDescription
+      def shortDescription(object:, args:, context:)
         object.short_description
       end
 
-      def showMetrics
+      def showMetrics(object:, args:, context:)
         object.show_metrics
       end
 
-      def showStatistics
+      def showStatistics(object:, args:, context:)
         object.show_statistics
       end
 
-      def scopesEnabled
+      def scopesEnabled(object:, args:, context:)
         object.scopes_enabled
       end
 
-      def participatoryProcessGroup
+      def participatoryProcessGroup(object:, args:, context:)
         object.participatory_process_group
       end
 
-      def createdAt
+      def createdAt(object:, args:, context:)
         object.created_at
       end
 
-      def updatedAt
+      def updatedAt(object:, args:, context:)
         object.updated_at
       end
     end
