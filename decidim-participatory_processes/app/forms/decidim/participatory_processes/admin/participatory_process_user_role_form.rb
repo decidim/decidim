@@ -17,7 +17,6 @@ module Decidim
         validates :role, inclusion: { in: Decidim::ParticipatoryProcessUserRole::ROLES }
 
         validates :name, format: { with: UserBaseEntity::REGEXP_NAME }
-        validate :admin_uniqueness
 
         def roles
           Decidim::ParticipatoryProcessUserRole::ROLES.map do |role|
@@ -26,10 +25,6 @@ module Decidim
               role
             ]
           end
-        end
-
-        def admin_uniqueness
-          errors.add(:email, :taken) if context && context.current_organization && context.current_organization.admins.exists?(email: email)
         end
       end
     end
