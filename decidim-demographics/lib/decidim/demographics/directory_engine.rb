@@ -12,9 +12,11 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        scope path: "/", controller: :demographics do
-          get :new, as: :new
-          patch :create
+        authenticate(:user) do
+          scope path: "/", controller: :demographics do
+            get :new, as: :new
+            patch :create
+          end
         end
       end
 
