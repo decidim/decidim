@@ -135,7 +135,7 @@ module Decidim
         def setup_election
           signed_data = bulletin_board.encode_data(election_data)
 
-          response = bulletin_board.graphql_client.query do
+          response = Decidim::BulletinBoard::GraphqlClient.client.query do
             mutation do
               createElection(signedData: signed_data) do
                 election do
