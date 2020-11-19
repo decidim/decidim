@@ -52,7 +52,7 @@ edit_link(
               <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
               <div class="extra__time text-small"> <%= l debate.start_time, format: "%H:%M" %> a <%= l debate.end_time, format: "%H:%M" %></div>
               </br>
-
+    </div>
             <% elsif debate.start_time.strftime("%d") != debate.end_time.strftime("%d") && debate.start_time.strftime("%H") != debate.end_time.strftime("%H")%>
               <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
               <div class="extra__time text-small"> <%= l debate.start_time, format: "%H:%M" %></span></div> 
@@ -66,63 +66,46 @@ edit_link(
             </div>
         <% end %>
           <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
-              <div class="row collapse buttons__row">
-                <div class="column small-12 collapse">
-                  <%= endorsement_buttons_cell(debate) %>
-                </div>
-              </div>
-            <% end %>
-            <%= follow_button_for(debate) %>
-          </div>
-        </div> 
-
-          <div class="card extra">
-          <div class="definition-data">
-            <div class="definition-data__item definition-data__item">
-              <span class="definition-data__title">
-                <%= t ".last_comment_by" %>
-              </span>
-              <span class="definition-data__text">
-                <% if debate_presenter.last_comment_by %>
-                  <%= cell "decidim/author", debate_presenter.last_comment_by, context: { extra_classes: ["author-data--small"] } %>
-                <% else %>
-                  <%= t ".no_comments_yet" %>
-                <% end %>
-              </span>
-            </div>
-
-            <div class="definition-data__item definition-data__item--double">
-              <span class="definition-data__title">
-                <%= t ".participants_count" %>
-              </span>
-              <span class="definition-data__number"><%= debate_presenter.participants_count %></span>
-            </div>
-
-            <div class="definition-data__item definition-data__item--double">
-              <span class="definition-data__title">
-                <%= t ".groups_count" %>
-              </span>
-              <span class="definition-data__number"><%= debate_presenter.groups_count %></span>
+          <div class="row collapse buttons__row">
+            <div class="column small-12 collapse">
+              <%= endorsement_buttons_cell(debate) %>
             </div>
           </div>
-        </div> 
-        <%= resource_reference(debate) %>
-        <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
-        <%= render partial: "decidim/shared/share_modal" %>
-        <%= embed_modal_for debate_widget_url(debate, format: :js) %>
-      </div>
-      <div class="columns mediumlarge-8 mediumlarge-pull-4">
-        <div class="section">
-          <% if debate.closed? %>
-            <span class="success label proposal-status">
-              <%= t(".debate_closed") %>
-            </span>
-          <% end %>
+        <% end %>
+        <%= follow_button_for(debate) %>
       </div>
     </div>
-
-        
     
+    <div class="card extra">
+      <div class="definition-data">
+        <div class="definition-data__item definition-data__item">
+          <span class="definition-data__title">
+            <%= t ".last_comment_by" %>
+          </span>
+          <span class="definition-data__text">
+            <% if debate_presenter.last_comment_by %>
+              <%= cell "decidim/author", debate_presenter.last_comment_by, context: { extra_classes: ["author-data--small"] } %>
+            <% else %>
+              <%= t ".no_comments_yet" %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">
+            <%= t ".participants_count" %>
+          </span>
+          <span class="definition-data__number"><%= debate_presenter.participants_count %></span>
+        </div>
+
+        <div class="definition-data__item definition-data__item--double">
+          <span class="definition-data__title">
+            <%= t ".groups_count" %>
+          </span>
+          <span class="definition-data__number"><%= debate_presenter.groups_count %></span>
+        </div>
+      </div>
+    </div>
     <%= resource_reference(debate) %>
     <%= resource_version(debate_presenter, versions_path: debate_versions_path(debate)) %>
     <%= render partial: "decidim/shared/share_modal" %>
