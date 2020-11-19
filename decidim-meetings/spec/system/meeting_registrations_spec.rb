@@ -136,9 +136,6 @@ describe "Meeting registrations", type: :system do
         end
       end
 
-
-
-      
       context "and the user is logged in" do
         before do
           login_as user, scope: :user
