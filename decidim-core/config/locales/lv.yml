@@ -1422,7 +1422,8 @@ lv:
       widget:
         see_more: Skatīt vairāk
   locale:
-    name: Angliski
+    name: Latviešu
+    name_with_error: Latviešu (kļūda!)
   password_validator:
     domain_included_in_password: ir pārāk līdzīga šī domēna vārdam
     email_included_in_password: ir pārāk līdzīga jūsu e-pasta adresei
