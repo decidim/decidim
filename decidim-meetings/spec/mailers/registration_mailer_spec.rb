@@ -35,6 +35,10 @@ module Decidim::Meetings
     end
 
     context "when registration code is disabled" do
+      before do
+        component.update!(settings: { registration_code_enabled: false })
+      end
+
       it "includes the registration code" do
         expect(email_body(mail)).not_to match("Your registration code is #{registration.code}")
       end
