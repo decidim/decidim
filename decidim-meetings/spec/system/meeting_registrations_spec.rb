@@ -263,7 +263,6 @@ describe "Meeting registrations", type: :system do
       end
 
       context "when not showing the registration code validation state with registration code disabled" do
-
         before do
           component.update!(settings: { registration_code_enabled: false })
         end
@@ -292,7 +291,7 @@ describe "Meeting registrations", type: :system do
 
       context "when not showing the registration code validated for registration code disabled" do
         before do
-          component.update!(settings: { registration_code_enabled:  false })
+          component.update!(settings: { registration_code_enabled: false })
         end
 
         it "shows validated if validated" do
