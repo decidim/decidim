@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "support/tasks"
 
 describe "rake decidim:batch_email_notifications:send", type: :task do
   let(:task_name) { :"decidim:batch_email_notifications:send" }
