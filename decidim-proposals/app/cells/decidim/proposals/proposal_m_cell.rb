@@ -73,7 +73,7 @@ module Decidim
       end
 
       def creation_date_status
-        explanation = content_tag(:strong, t("activemodel.attributes.common.created_at"))
+        explanation = tag.strong(t("activemodel.attributes.common.created_at"))
         "#{explanation}<br>#{l(model.published_at.to_date, format: :decidim_short)}"
       end
 
@@ -87,7 +87,7 @@ module Decidim
 
       def endorsements_count
         with_tooltip t("decidim.endorsable.endorsements") do
-          icon("bullhorn", class: "icon--small") + " " + model.endorsements_count.to_s
+          "#{icon("bullhorn", class: "icon--small")} #{model.endorsements_count}"
         end
       end
 
@@ -116,11 +116,11 @@ module Decidim
       end
 
       def has_image?
-        model.attachments.first.present? && model.attachments.first.file.content_type.start_with?("image") && model.component.settings.allow_card_image
+        @has_image ||= model.component.settings.allow_card_image && model.attachments.find_by("content_type like '%image%'").present?
       end
 
       def resource_image_path
-        model.attachments.first.url if has_image?
+        @resource_image_path ||= has_image? ? model.attachments.find_by("content_type like '%image%'").url : nil
       end
     end
   end

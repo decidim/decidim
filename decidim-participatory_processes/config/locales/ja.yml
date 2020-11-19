@@ -27,7 +27,7 @@ ja:
         scope_type_max_depth_id: スコープフィルタの深さ
         scopes_enabled: スコープは有効です
         short_description: 短い説明
-        show_metrics: メトリックを表示
+        show_metrics: 指標を表示
         show_statistics: 統計情報を表示
         slug: URL スラグ
         start_date: 開始日
@@ -144,7 +144,7 @@ ja:
           title: 重複した参加型プロセス
       participatory_process_groups:
         destroy:
-          error: 参加者型プロセスグループの破壊中にエラーが発生しました。
+          error: 参加型プロセスグループの削除中にエラーが発生しました。
           success: 参加型プロセスグループが正常に削除されました。
         edit:
           title: 参加型プロセスグループを編集
@@ -370,7 +370,7 @@ ja:
           explanations:
             no_active: アクティブな参加型プロセスはありません
             no_active_nor_upcoming: アクティブな参加型プロセスも今後の参加型プロセスもありません
-            no_active_nor_upcoming_callout: アクティブなプ参加型ロセスも今後の参加型プロセスもありません。ここでは過去の参加型プロセスのリストを示します。
+            no_active_nor_upcoming_callout: アクティブな参加型プロセスも今後の参加型プロセスもありません。ここでは過去の参加型プロセスのリストを示します。
           names:
             active: アクティブ
             all: すべて

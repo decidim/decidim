@@ -19,6 +19,11 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 1.day.from_now }
     let(:user_group_id) { nil }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:registration_url) { "http://decidim.org" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -35,7 +40,13 @@ module Decidim::Meetings
         longitude: longitude,
         user_group_id: user_group_id,
         current_user: current_user,
-        current_organization: organization
+        current_organization: organization,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        registration_terms: "The meeting registration terms",
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       )
     end
 
@@ -51,8 +62,8 @@ module Decidim::Meetings
       it "updates the meeting" do
         subject.call
 
-        expect(meeting.title).to eq "The meeting title"
-        expect(meeting.description).to eq "The meeting description text"
+        expect(meeting.title).to include("en" => "The meeting title")
+        expect(meeting.description).to include("en" => "The meeting description text")
       end
 
       it "sets the scope" do
@@ -125,7 +136,13 @@ module Decidim::Meetings
             user_group_id: user_group_id,
             services_to_persist: [],
             current_user: current_user,
-            current_organization: organization
+            current_organization: organization,
+            registration_type: registration_type,
+            available_slots: available_slots,
+            registration_url: registration_url,
+            registration_terms: meeting.registration_terms,
+            clean_type_of_meeting: type_of_meeting,
+            online_meeting_url: online_meeting_url
           )
         end
 

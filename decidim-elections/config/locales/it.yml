@@ -14,6 +14,7 @@ it:
       question:
         description: Descrizione
         max_selections: Numero massimo di selezioni
+        min_selections: Nessuna delle precedenti opzioni
         title: Titolo
     errors:
       models:
@@ -48,8 +49,6 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
-        edit_answers: Modifica risposta
-        edit_questions: Modifica domanda
         import: Importa proposte in risposte
         new: Nuovo %{name}
         preview: Anteprima
@@ -140,7 +139,6 @@ it:
             one: "%{count} elezione"
             other: "%{count} elezioni"
         show:
-          back: Tutte le elezioni
           preview: Anteprima
           vote: Vota
           voting_period_status:
@@ -170,6 +168,7 @@ it:
           edit: modifica
           header: Conferma il tuo voto
           intro: Ecco un riassunto del voto che stai per lanciare. <br> Per favore conferma il tuo voto o modifica le tue risposte.
+          nota_option: Vuoto
           question: Domanda %{count}
         confirmed:
           back: Torna alle elezioni
@@ -192,8 +191,9 @@ it:
           close: Chiuso
           proposal_header: 'Proposte:'
         new:
-          answer_choices: Puoi selezionare fino a %{choices} risposte o nessuna risposta
+          answer_choices: Puoi selezionare fino a %{choices} risposte
           more_information: Altre informazioni
+          nota_option: Vuoto/ Nessuno dei precedenti
           preview_alert: Questa è un'anteprima della cabina di voto.
           question_steps: Domanda %{current_step} di %{total_steps}
           selections: "%{selected} di %{max_selections}<br> selezioni"

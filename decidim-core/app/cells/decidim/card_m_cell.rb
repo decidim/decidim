@@ -26,6 +26,10 @@ module Decidim
       nil
     end
 
+    def has_header?
+      true
+    end
+
     def has_image?
       false
     end
@@ -132,7 +136,7 @@ module Decidim
     end
 
     def render_comments_count
-      with_tooltip t("decidim.comments.comments") do
+      with_tooltip t("decidim.comments.comments_title") do
         render :comments_counter
       end
     end

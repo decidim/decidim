@@ -14,7 +14,7 @@ module Decidim::ParticipatoryProcesses
         Admin::ParticipatoryProcessGroupForm,
         invalid?: invalid,
         name: { en: "name" },
-        description: "description",
+        description: { en: "description" },
         hero_image: nil,
         current_organization: organization,
         current_user: current_user,

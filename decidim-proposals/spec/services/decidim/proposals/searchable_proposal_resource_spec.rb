@@ -13,6 +13,7 @@ module Decidim
       create(
         :proposal,
         :draft,
+        skip_injection: true,
         component: current_component,
         scope: scope1,
         body: description_1,
@@ -25,7 +26,7 @@ module Decidim
         context "when on create" do
           context "when proposals are NOT official" do
             let(:proposal2) do
-              create(:proposal, component: current_component)
+              create(:proposal, skip_injection: true, component: current_component)
             end
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do
@@ -73,7 +74,7 @@ module Decidim
             it "updates the associated SearchableResource after published Proposal update" do
               searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id)
               created_at = searchable.created_at
-              updated_title = "Brand new title"
+              updated_title = { "en" => "Brand new title", "machine_translations" => {} }
               proposal.update(title: updated_title)
 
               proposal.save!
@@ -81,7 +82,7 @@ module Decidim
 
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
-                expect(searchable.content_a).to eq updated_title
+                expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
                 expect(searchable.updated_at).to be > created_at
               end
             end
@@ -161,10 +162,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(proposal.title[locale]),
+        "content_a" => I18n.transliterate(translated(proposal.title, locale: locale)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(proposal.body[locale]),
+        "content_d" => I18n.transliterate(translated(proposal.body, locale: locale)),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

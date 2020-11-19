@@ -42,7 +42,8 @@ module Decidim
             description: form.description,
             start_time: form.start_time,
             end_time: form.end_time,
-            component: form.current_component
+            component: form.current_component,
+            questionnaire: Decidim::Forms::Questionnaire.new
           }
 
           @election = Decidim.traceability.create!(

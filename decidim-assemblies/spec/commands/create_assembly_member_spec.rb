@@ -19,7 +19,7 @@ module Decidim::Assemblies
           weight: 0,
           full_name: "Full name",
           gender: Faker::Lorem.word,
-          birthday: Faker::Date.birthday(20, 65),
+          birthday: Faker::Date.birthday(min_age: 20, max_age: 65),
           birthplace: Faker::Demographic.demonym,
           ceased_date: nil,
           designation_date: Time.current,

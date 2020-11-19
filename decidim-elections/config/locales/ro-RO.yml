@@ -51,8 +51,6 @@ ro:
         confirm_destroy: Ești sigur?
         destroy: Distruge
         edit: Editare
-        edit_answers: Editare răspunsuri
-        edit_questions: Editare întrebări
         import: Importă propunerile pentru răspunsuri
         new: '%{name} nou'
         preview: Previzualizare
@@ -144,7 +142,6 @@ ro:
             few: "%{count} alegeri"
             other: "%{count} alegeri"
         show:
-          back: Toate alegerile
           preview: Previzualizare
           vote: Votează
           voting_period_status:
@@ -196,7 +193,6 @@ ro:
           close: Inchide
           proposal_header: 'Propuneri:'
         new:
-          answer_choices: Poți selecta până la %{choices} răspunsuri sau nimic
           more_information: Mai multe informații
           preview_alert: Aceasta este o previzualizare a cabinei de votare.
           question_steps: Întrebarea %{current_step} din %{total_steps}

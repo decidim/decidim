@@ -20,10 +20,8 @@ module Decidim
       true
     end
 
-    # rubocop:disable Style/MethodMissingSuper
     def method_missing(_method, *_args)
       ""
     end
-    # rubocop:enable Style/MethodMissingSuper
   end
 end

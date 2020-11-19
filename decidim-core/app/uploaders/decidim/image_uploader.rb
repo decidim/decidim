@@ -3,8 +3,6 @@
 module Decidim
   # This class deals with uploading hero images to ParticipatoryProcesses.
   class ImageUploader < ApplicationUploader
-    include CarrierWave::MiniMagick
-
     process :validate_size, :validate_dimensions, :strip
     process quality: Decidim.image_uploader_quality
 
@@ -25,15 +23,12 @@ module Decidim
     # Fetches info about different versions, their processors and dimensions
     def dimensions_info
       if versions.any?
-        versions.map do |version, info|
-          [
-            version,
-            {
-              processor: info.processors[0][0],
-              dimensions: info.processors[0][1]
-            }
-          ]
-        end.to_h
+        versions.transform_values do |info|
+          {
+            processor: info.processors[0][0],
+            dimensions: info.processors[0][1]
+          }
+        end
       else
         processors.map do |info|
           [:default, { processor: info[0], dimensions: info[1] }]
@@ -67,13 +62,6 @@ module Decidim
 
     def max_image_height_or_width
       3840
-    end
-
-    def manipulate!
-      super
-    rescue CarrierWave::ProcessingError => e
-      Rails.logger.error(e)
-      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
     end
 
     private

@@ -1,5 +1,6 @@
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { attachGeocoding } = window.Decidim;
 
   const wrapperSelector = ".meeting-services";
   const fieldSelector = ".meeting-service";
@@ -93,5 +94,50 @@
 
     $privateMeeting.on("change", toggleDisabledHiddenFields);
     toggleDisabledHiddenFields();
+
+    attachGeocoding($form.find("#meeting_address"));
+
+    const $meetingRegistrationType = $form.find("#meeting_registration_type");
+    const $meetingRegistrationTerms = $form.find("#meeting_registration_terms");
+    const $meetingRegistrationUrl = $form.find("#meeting_registration_url");
+    const $meetingAvailableSlots = $form.find("#meeting_available_slots");
+
+    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+      const value = $target.val();
+      $showDiv.toggle(value === type);
+    };
+
+    $meetingRegistrationType.on("change", (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $meetingAvailableSlots, "on_this_platform");
+      toggleDependsOnSelect($target, $meetingRegistrationTerms, "on_this_platform");
+      toggleDependsOnSelect($target, $meetingRegistrationUrl, "on_different_platform");
+    });
+
+    $meetingRegistrationType.trigger("change");
+  }
+
+  const $meetingForm = $(".meetings_form");
+  if ($meetingForm.length > 0) {
+    const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
+    const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
+    const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
+
+    const toggleDependsOnSelect = ($target, $showDiv, type) => {
+      const value = $target.val();
+      $showDiv.hide();
+      if (value === type) {
+        $showDiv.show();
+      }
+    };
+
+    $meetingTypeOfMeeting.on("change", (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $meetingOnlineFields, "online");
+      toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+    });
+
+    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
+    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
   }
 })(window);

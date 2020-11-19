@@ -16,8 +16,12 @@ module Decidim
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
+      attribute :photos, Array[String]
+      attribute :add_photos, Array
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
 
-      validates :address, geocoding: true, if: ->(form) { Decidim.geocoder.present? && form.has_address? }
+      validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
@@ -58,8 +62,16 @@ module Decidim
         @scope_id || scope&.id
       end
 
+      def geocoding_enabled?
+        Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
+      end
+
       def has_address?
-        current_component.settings.geocoding_enabled? && has_address
+        geocoding_enabled? && has_address
+      end
+
+      def geocoded?
+        latitude.present? && longitude.present?
       end
 
       def extra_hashtags

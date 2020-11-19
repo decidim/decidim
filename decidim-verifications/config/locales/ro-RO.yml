@@ -131,7 +131,6 @@ ro:
             title: Date recensământ curente
           instructions:
             body: Pentru a face acest lucru, trebuie să introduceţi administrarea sistemului şi să adăugaţi autorizaţiile csv_recensământ în organizaţie
-            title: Trebuie să activați recensământul csv pentru această organizație
           new:
             file: "fișier .csv cu date de e-mail"
             info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresa de e-mail:'

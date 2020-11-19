@@ -10,13 +10,13 @@ module Decidim
 
         let(:organization) { create :organization }
         let(:initiatives_type) { create(:initiatives_type, organization: organization) }
-        let(:title) { Decidim::Faker::Localized.sentence(5) }
+        let(:title) { Decidim::Faker::Localized.sentence(word_count: 5) }
         let(:promoting_committee_enabled) { true }
         let(:minimum_committee_members) { 5 }
         let(:attributes) do
           {
             title: title,
-            description: Decidim::Faker::Localized.sentence(25),
+            description: Decidim::Faker::Localized.sentence(word_count: 25),
             online_signature_enabled: false,
             attachments_enabled: true,
             custom_signature_end_date_enabled: true,
@@ -41,8 +41,8 @@ module Decidim
         context "when minimum_committee_members is blank" do
           let(:minimum_committee_members) { " " }
 
-          it "is nullified" do
-            expect(subject.minimum_committee_members).to be_nil
+          it "is 2" do
+            expect(subject.minimum_committee_members).to eq(2)
           end
         end
 

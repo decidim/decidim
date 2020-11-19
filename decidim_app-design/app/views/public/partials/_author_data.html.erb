@@ -49,7 +49,7 @@
       <%= Faker::Date.backward(725).strftime("%d/%m/%Y") %>&nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="#comments" title="Comentarios">
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-        <%= Faker::Number.between(1, 100) %> comentarios
+        <%= Faker::Number.between(from: 1, to: 100) %> comentarios
       </a>
     </div>
   <% end %>

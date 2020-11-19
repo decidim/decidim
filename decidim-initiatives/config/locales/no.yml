@@ -15,14 +15,6 @@
           online: Online
         state: Status
         title: Tittel
-      initiative_author:
-        address: Adresse
-        city: By
-        id_document: DNI/NIE
-        name: Navn og Etternavn
-        phone_number: Telefonnummer
-        post_code: Postnummer
-        province: Distrikt
       initiatives_committee_member:
         user: Komité medlem
       initiatives_type:
@@ -123,6 +115,7 @@
             initiative_title: Tittel på initiativet
             name_and_surname: Navn og etternavn
             postal_code: Postnummer
+            scope: Tema
             time_and_date: Tid og dato
             timestamp: Tidsstempel
       titles:
@@ -272,14 +265,26 @@
           unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
       admin_states:
+        accepted: Nok signaturer
         created: Opprettet
         discarded: Forkastet
         published: Publisert
+        rejected: Ikke nok signaturer
         validating: Teknisk validering
       application_helper:
+        filter_area_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
         filter_state_values:
+          accepted: Nok signaturer
+          all: Alle
+          answered: Besvart
           closed: Lukket
           open: Åpen
+          rejected: Ikke nok signaturer
+        filter_type_values:
+          all: Alle
       committee_requests:
         new:
           continue: Fortsett
@@ -293,14 +298,13 @@
         fill_data:
           back: Tilbake
           continue: Fortsett
-          fill_data_help: "<ul> <li>Gå gjennom innholdet av initiativet ditt. Er tittelen din lett å forstå? Er målet med ditt initiativ klart?</li> <li>Du må velge signaturtypen. Personlig, online eller en kombinasjon av begge</li> <li>Hva er det geografiske omfanget av initiativet? By, distrikt?</li> </ul>"
           initiative_type: Initiativtype
           more_information: "(Mer informasjon)"
           select_scope: Velg et temaet
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
-          callout_text: Gratulerer! Ditt innbyggerinitiativ er opprettet.
+          confirm: Bekreft
           go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
         finish_help:
@@ -317,14 +321,12 @@
           more_information: "(Mer informasjon)"
         promotal_committee:
           back: Tilbake
-          individual_help_text: Denne typen innbyggerinitiativ krever en Promotør Kommisjon bestående av minst %{committee_size} personer (attester). Du må dele følgende lenke med de andre menneskene som er en del av dette initiativet. Når kontaktene dine mottar denne lenken, må de følge de angitte trinnene.
           more_information: "(Mer informasjon)"
         select_initiative_type:
           back: Tilbake
           choose_html: Jeg vil opprette en <strong>%{title}</strong>
           more_information: "(Mer informasjon)"
           select: Jeg ønsker å promotere dette initiativet
-          select_initiative_type_help: Innbyggerinitiativer er et middel som statsborgerskapet kan gripe inn slik at byrådet kan iverksette tiltak til forsvar for allmenn interesse som er innenfor felt av kommunal jurisdiksjon. Hvilket initiativ vil du sette i gang?
         share_committee_link:
           continue: Fortsett
           invite_to_committee_help: Lenke for å invitere folk som vil være en del av promotør komiteen
@@ -388,6 +390,7 @@
           any: Alle
           author: Forfatter
           myself: Initiativene mine
+          scope: Tema
           search: Søk
           state: Status
           type: Type
@@ -424,16 +427,10 @@
             validating: Dette forslaget blir evaluert
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
         show:
-          any_vote_method: Dette innbyggerinitiativet samler både online og personlige underskrifter.
           follow_description: Motta et varsel når det er nyheter i dette initiativet
-          offline_method: Dette innbyggerinitiativet samler bare inn personlige underskrifter.
-        signature_identities:
-          select_identity: Velg deltaker identifikator
         signatures_count:
           one: " underskrift"
           other: " underskrifter"
-        supports:
-          title: Liste over underskrifter
         vote_cabin:
           already_voted: Allerede signert
           supports_required: "%{total_supports} signaturer påkrevd"
@@ -464,6 +461,10 @@
           highlighted_initiatives:
             active_initiatives: Aktive initiativer
             see_all_initiatives: Se alle initiativer
+      show:
+        badge_name:
+          accepted: Nok signaturer
+          rejected: Ikke nok signaturer
       states:
         accepted: Aksepterte
         expired: Utløpt

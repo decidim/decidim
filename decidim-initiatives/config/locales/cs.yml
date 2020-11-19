@@ -5,6 +5,7 @@ cs:
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Podpora tváří v tvář
+        offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
         signature_end_date: Konec doby sběru podpisu
         signature_start_date: Začátek doby sběru podpisu
@@ -15,20 +16,13 @@ cs:
           online: OnLine
         state: Stát
         title: Titul
-      initiative_author:
-        address: Adresa
-        city: Město
-        id_document: DNI / NIE
-        name: Jméno a příjmení
-        phone_number: Telefonní číslo
-        post_code: PSČ
-        province: Okres
       initiatives_committee_member:
         user: člen komise
       initiatives_type:
         area_enabled: Povolit autorům vybrat oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
+        child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
         collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
@@ -36,6 +30,7 @@ cs:
         extra_fields_legal_information: Právní informace o shromažďování osobních údajů
         minimum_committee_members: Minimální počet členů výboru
         online_signature_enabled: Online podpis povolen
+        only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
         title: Titul
         undo_online_signatures_enabled: Povolit uživatelům vrátit své podpisy online
@@ -129,6 +124,7 @@ cs:
             initiative_title: Název iniciativy
             name_and_surname: Jméno a příjmení
             postal_code: Poštovní směrovací číslo
+            scope: Oblast působnosti
             time_and_date: Čas a datum
             timestamp: Časové razítko
       titles:
@@ -268,6 +264,10 @@ cs:
             destroy: Odstranit
             update: Aktualizovat
           form:
+            authorizations: Nastavení autorizace
+            child_scope_threshold_enabled_help: 'Tento znak konfigurace nepodporuje offline hlasování, umožňuje dílčí hlasování a pracuje s autorizačním handlerem, který uživateli přiřazuje oblast působnosti. Ujistěte se, že jste vybrali tuto autorizaci, níže v nastavení autorizace. Aby fungovala oblast působnosti, musí být nastavena hierarchickým způsobem: 1 nadřazený - N podřazených. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.'
+            only_global_scope_enabled_help: Zaškrtněte tuto poznámku, pokud jste povolili "Podřazená oblast působnosti" a nakonfigurovali globální rozsah jako vaši nadřazenou oblast působnosti. Povolením této možnosti bude výběr typu iniciativy přeskočeno v průvodci vytvořením iniciativy. Více informací o tom, jak tato konfigurace funguje, naleznete na tomto <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">odkazu</a>.
+            options: Možnosti
             title: Obecná informace
           initiative_type_scopes:
             title: Zaměřuje se na typ iniciativy
@@ -317,7 +317,7 @@ cs:
         fill_data:
           back: Zpět
           continue: Pokračovat
-          fill_data_help: "<ul> <li>Přezkoumejte obsah své iniciativy. Je váš titul snadný pochopit? Je jasný cíl vaší iniciativy?</li> <li>Musíte zvolit typ podpisu. Osobně, online nebo kombinace obou</li> <li>Který je geografický rozsah iniciativy? Město, okres?</li> </ul>"
+          fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
           initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
@@ -325,7 +325,7 @@ cs:
         finish:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
-          callout_text: Gratulujeme! Vaše občanská iniciativa byla úspěšně vytvořena.
+          callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
           confirm: Potvrdit
           edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
@@ -345,14 +345,14 @@ cs:
           more_information: "(Více informací)"
         promotal_committee:
           back: Zpět
-          individual_help_text: Tento druh občanské iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
+          individual_help_text: Tento druh iniciativy vyžaduje promoterskou komisi skládající se z nejméně %{committee_size} lidí (atestoři). Musíte sdílet následující odkaz s ostatními lidmi, kteří jsou součástí této iniciativy. Když vaše kontakty obdrží tento odkaz, budou muset postupovat podle uvedených kroků.
           more_information: "(Více informací)"
         select_initiative_type:
           back: Zpět
           choose_html: Chci vytvořit <strong>%{title}</strong>
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
-          select_initiative_type_help: Iniciativy občanů jsou prostředkem, kterým může občanství zasahovat, aby městská rada mohla podnikat kroky k ochraně obecného zájmu, které spadají do oblastí působnosti obce. Kterou iniciativu chcete spustit?
+          select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
@@ -464,18 +464,14 @@ cs:
             validating: Tento návrh se hodnotí
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
-          any_vote_method: Tato občanská iniciativa shromažďuje podporu online i tváří v tvář.
+          any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
-          offline_method: Tato občanská iniciativa pouze shromažďuje podporu tváří v tvář.
-        signature_identities:
-          select_identity: Vyberte identifikátor uživatele
+          offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
         signatures_count:
           one: " podpis"
           few: " podpisy"
           many: " podpisy"
           other: " podpisy"
-        supports:
-          title: Výpis podpisů
         vote_cabin:
           already_voted: Již jste podepsal
           supports_required: "Vyžaduje se %{total_supports} podpisů"

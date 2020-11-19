@@ -63,28 +63,42 @@ module Decidim
 
       # Caches the path for the given resource.
       def resource_path
-        @resource_path ||= resource_locator.path
+        @resource_path ||= begin
+          if resource&.respond_to?(:polymorphic_resource_path)
+            resource.polymorphic_resource_path(resource_url_params)
+          else
+            resource_locator.path(resource_url_params)
+          end
+        end
       end
 
       # Caches the URL for the given resource.
       def resource_url
-        @resource_url ||= resource_locator.url
+        @resource_url ||= begin
+          if resource&.respond_to?(:polymorphic_resource_url)
+            resource.polymorphic_resource_url(resource_url_params)
+          else
+            resource_locator.url(resource_url_params)
+          end
+        end
       end
 
       def resource_text; end
 
+      def safe_resource_text
+        translated_attribute(resource_text).to_s.html_safe
+      end
+
       def resource_title
         return unless resource
 
-        if resource.is_a?(Decidim::Hashtaggable)
-          translated_title = translated_attribute(resource.title)
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(translated_title)
-          renderer.render(links: false).html_safe
-        elsif resource.respond_to?(:title)
-          translated_attribute(resource.title)
-        elsif resource.respond_to?(:name)
-          translated_attribute(resource.name)
-        end
+        title = if resource.respond_to?(:title)
+                  translated_attribute(resource.title)
+                elsif resource.respond_to?(:name)
+                  translated_attribute(resource.name)
+                end
+
+        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
       end
 
       private
@@ -99,6 +113,10 @@ module Decidim
         return resource if resource.is_a?(Decidim::Participable)
 
         resource.try(:participatory_space)
+      end
+
+      def resource_url_params
+        {}
       end
 
       attr_reader :event_name, :resource, :user, :user_role, :priority, :extra

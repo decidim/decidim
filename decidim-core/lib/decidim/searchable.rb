@@ -38,6 +38,10 @@ module Decidim
       searchable_resources.select { |r| r.constantize.ancestors.include?(Decidim::HasComponent) }
     end
 
+    def self.searchable_resources_of_type_comment
+      searchable_resources.select { |r| r == "Decidim::Comments::Comment" }
+    end
+
     included do
       # Always access to this association scoping by_organization
       clazz = self
@@ -80,6 +84,8 @@ module Decidim
         return unless self.class.searchable_resource?(self)
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
+        return unless org
+
         searchables_in_org = searchable_resources.by_organization(org.id)
         if self.class.search_resource_fields_mapper.index_on_update?(self)
           if searchables_in_org.empty?

@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class HashtagRenderer < BaseRenderer
       # Matches a global id representing a Decidim::Hashtag
-      GLOBAL_ID_REGEX = %r{gid:\/\/[\w-]*\/Decidim::Hashtag\/(\d+)\/?(_?)([[:alnum:]](?:[[:alnum:]]|_)*)?\b}.freeze
+      GLOBAL_ID_REGEX = %r{gid://[\w-]*/Decidim::Hashtag/(\d+)/?(_?)([[:alnum:]](?:[[:alnum:]]|_)*)?\b}.freeze
 
       # Replaces found Global IDs matching an existing hashtag with
       # a link to their detail page. The Global IDs representing an
@@ -21,6 +21,8 @@ module Decidim
       #
       # @return [String] the content ready to display (contains HTML)
       def render(links: true, extras: true)
+        return content unless content.respond_to?(:gsub)
+
         content.gsub(GLOBAL_ID_REGEX) do |hashtag_gid|
           id, extra, cased_name = hashtag_gid.scan(GLOBAL_ID_REGEX).flatten
           hashtag = hashtags[id.to_i]
@@ -45,11 +47,8 @@ module Decidim
       private
 
       def hashtags
-        @hashtags ||= Hash[
-          existing_hashtags.map do |hashtag|
-            [hashtag.id, hashtag]
-          end
-        ]
+        @hashtags ||=
+          existing_hashtags.index_by(&:id)
       end
 
       def existing_hashtags

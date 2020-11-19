@@ -1,0 +1,64 @@
+<div class="card" id="trustees">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.new", scope: "decidim.elections", name: t("models.trustee.name", scope: "decidim.elections.admin")), new_trustee_path, class: "button tiny button--title new" %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.trustees_participatory_space.fields.name", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.email", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.public_key", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.notification", scope: "decidim.elections") %></th>
+            <th><%= t("models.trustees_participatory_space.fields.status", scope: "decidim.elections") %></th>
+            <th class="actions"><%= t("actions.title", scope: "decidim.elections") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% trustees.each do |trustee| %>
+            <tr>
+              <td>
+                <%= trustee.user.name %>
+              </td>
+              <td>
+                <%= trustee.user.email %>
+              </td>
+              <td>
+                <%= present(trustee).public_key_thumbprint %>
+              </td>
+              <td>
+                <%= trustee.created_at.ctime %>
+              </td>
+              <td>
+                <% if trustee_current_participatory_space(trustee).considered %>
+                  <%= t("models.trustees_participatory_space.fields.considered", scope: "decidim.elections") %>
+                <% else %>
+                  <%= t("models.trustees_participatory_space.fields.inactive", scope: "decidim.elections") %>
+                <% end %>
+              </td>
+              <td class="table-list__actions">
+                <% if allowed_to?(:update, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
+                  <%= icon_link_to considered_icon_action_for(trustee), edit_trustee_path(trustee_current_participatory_space(trustee)), considered_label_action_for(trustee), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon considered_icon_action_for(trustee), class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+
+                <% if allowed_to?(:delete, :trustee_participatory_space, trustee_participatory_space: trustee_current_participatory_space(trustee)) %>
+                  <%= icon_link_to "circle-x", trustee_path(trustee_current_participatory_space(trustee)), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate trustees, theme: "decidim" %>
+    </div>
+  </div>
+</div>

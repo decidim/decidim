@@ -27,6 +27,7 @@ describe PassthruValidator do
       end
 
       attr_accessor :organization, :file
+
       validates_upload :file
       mount_uploader :file, mount_class
     end

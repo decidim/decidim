@@ -81,10 +81,7 @@ el:
             api_key: Κλειδί API
             api_secret: Μυστικός κωδικός API
         smtp_settings:
-          instructions:
-            from_label: 'Ο αποστολέας email θα είναι: «το-όνομα-του-οργανισμού-σας <your-organization@your-provider.org>». Αφήστε κενό για να χρησιμοποιήσετε το πεδίο «από_email» ως ετικέτα'
           placeholder:
-            from_email: Ο-οργανισμός-σας@ο-πάροχός σας.org
             from_label: το-όνομα-του-οργανισμού-σας
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του οργανισμού.

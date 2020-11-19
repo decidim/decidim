@@ -58,6 +58,7 @@ module Decidim
               put :hide
               put :unhide
             end
+            resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
 
           resources :participatory_space_private_users, controller: "participatory_space_private_users" do

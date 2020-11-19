@@ -306,6 +306,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       before do
         create_list(:initiative, 2, organization: organization, author: user)
+        create_list(:initiative, 1, :created, organization: organization, author: user)
         create(:initiative, organization: organization)
 
         login_as user, scope: :user
@@ -336,8 +337,8 @@ describe "Filter Initiatives", :slow, type: :system do
             choose "My initiatives"
           end
 
-          expect(page).to have_css(".card--initiative", count: 2)
-          expect(page).to have_content("2 INITIATIVES")
+          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_content("3 INITIATIVES")
         end
       end
     end

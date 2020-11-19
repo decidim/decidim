@@ -19,6 +19,7 @@
 // = require ./draggable-list
 // = require ./sortable
 // = require ./gallery
+// = require ./moderations
 // = require decidim/input_tags
 // = require decidim/input_hashtags
 // = require decidim/input_mentions
@@ -27,6 +28,7 @@
 // = require decidim/ajax_modals
 // = require ./officializations
 // = require decidim/input_character_counter
+// = require decidim/geocoding/attach_input
 // = require_self
 
 window.Decidim = window.Decidim || {};

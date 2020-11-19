@@ -76,7 +76,6 @@ ro:
             collapse: Restrânge toate întrebările
             expand: Extinde toate întrebările
             preview: Previzualizare
-            title: Editare formular
             unpublished_warning: Formularul nu este publicat. Puteți modifica întrebările, dar acest lucru va șterge răspunsurile curente.
           matrix_row:
             matrix_row: Rând
@@ -103,7 +102,6 @@ ro:
             up: Sus
           update:
             invalid: A apărut o eroare la salvarea formularului.
-            success: Formulare salvate cu succes.
       errors:
         answer:
           body: Corpul nu poate fi gol

@@ -21,7 +21,7 @@ ja:
         name: 並べ替え
         settings:
           global:
-            comments_enabled: コメントは有効です
+            comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
     events:
       sortitions:
@@ -139,9 +139,9 @@ ja:
             other: 提案を選択しました
           view: 表示
         sortition_author:
-          deleted: 参加者を削除しました
+          deleted: 退会者
         sortition_cancel_author:
-          deleted: 参加者を削除しました
+          deleted: 退会者
         sortitions_count:
           count:
             other: "%{count} ソート数"

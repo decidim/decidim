@@ -13,6 +13,7 @@ module Decidim
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
+          objectives: Decidim::Faker::Localized.sentence,
           description: description_1
         )
       end
@@ -24,19 +25,20 @@ module Decidim
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
+          objectives: Decidim::Faker::Localized.sentence,
           description: description_2
         )
       end
       let(:participatory_space2) { conference_2 }
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
-          d = I18n.transliterate(space.description[locale])
+          d = I18n.transliterate(translated(space.description, locale: locale))
           d += " "
-          d += I18n.transliterate(space.objectives[locale])
+          d += I18n.transliterate(translated(space.objectives, locale: locale))
           {
-            "content_a" => I18n.transliterate(space.title[locale]),
-            "content_b" => I18n.transliterate(space.slogan[locale]),
-            "content_c" => I18n.transliterate(space.short_description[locale]),
+            "content_a" => I18n.transliterate(translated(space.title, locale: locale)),
+            "content_b" => I18n.transliterate(translated(space.slogan, locale: locale)),
+            "content_c" => I18n.transliterate(translated(space.short_description, locale: locale)),
             "content_d" => d
           }
         }

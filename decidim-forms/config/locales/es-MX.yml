@@ -3,6 +3,8 @@ es-MX:
     attributes:
       answer:
         body: Responder
+        choices: Opciones
+        selected_choices: Opciones seleccionadas
       question:
         max_choices: Número máximo de opciones
         question_type: Tipo
@@ -76,7 +78,7 @@ es-MX:
             collapse: Contraer todas las preguntas
             expand: Expandir todos las preguntas
             preview: Previsualizar
-            title: Editar el formulario
+            title: Editar formulario para %{questionnaire_for}
             unpublished_warning: El formulario no está publicado. Puedes modificar sus preguntas, pero al hacerlo eliminará las respuestas actuales.
           matrix_row:
             matrix_row: Fila
@@ -103,7 +105,7 @@ es-MX:
             up: Subir
           update:
             invalid: Ha habido errores al guardar el cuestionario.
-            success: Cuestionarios guardados con éxito.
+            success: Formulario guardado correctamente.
       errors:
         answer:
           body: El campo no puede estar en blanco

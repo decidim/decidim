@@ -1,0 +1,365 @@
+zh-CN:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: 横幅图像
+        decidim_highlighted_scope_id: 高亮范围
+        description: 描述
+        end_voting_date: 投票结束
+        introductory_image: 介绍图片
+        introductory_video_url: 介绍视频网址
+        questions: 问 题
+        slug: URL 名称
+        start_voting_date: 投票开始
+        subtitle: 字幕
+        title: 标题
+      question:
+        banner_image: 横幅图像
+        decidim_scope_id: 市区
+        hashtag: 标签
+        hero_image: 首页图像
+        i_frame_url: 外部投票系统 URL
+        instructions: 表决的其他指示
+        max_votes: 最大投票数
+        min_votes: 最小票数
+        origin_scope: 范围
+        origin_title: 始发地
+        origin_url: 起源网址
+        participatory_scope: 参与范围
+        promoter_group: 促销者组
+        question_context: 二. 背景
+        reference: 参考
+        scope: 市区
+        slug: URL 名称
+        subtitle: 字幕
+        vote: 外部投票系统
+        what_is_decided: 决定的内容
+      response:
+        decidim_consultations_response_group_id: 组别
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: 最大票数应高于或等于最小票数。
+      vote:
+        decidim_consultations_response_id:
+          not_found: 找不到响应。
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: 票数无效
+    models:
+      decidim/consultation:
+        other: 协商
+      decidim/consultations/question:
+        other: 问 题
+      decidim/consultations/response:
+        other: 回应
+      decidim/consultations/vote:
+        other: 所得票数
+  decidim:
+    admin:
+      actions:
+        back_to_responses: 回到回应
+        new_consultation: 新建咨询
+        new_question: 新问题
+        new_response: 新的响应
+        new_response_group: 新建组
+        publish_results: 发布结果
+        response_groups: 管理响应组
+        unpublish_results: 取消发布结果
+      consultation_publications:
+        create:
+          error: 发布此咨询时出现问题。
+          success: 审核已成功发布。
+        destroy:
+          error: 取消发布此咨询时出现问题。
+          success: 咨询已成功取消发布。
+      consultation_results_publications:
+        create:
+          error: 发布这次协商的结果时出现问题。
+          success: 咨询结果发布成功。
+        destroy:
+          error: 在为这次协商取消发布结果时遇到问题。
+          success: 咨询结果已成功取消发布。
+      consultations:
+        create:
+          error: 创建新咨询时出现问题。
+          success: 咨询已成功创建。
+        edit:
+          update: 更新
+        form:
+          slug_help: 'URL slugs 用于生成指向此咨询的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+          title: 通告周知
+        index:
+          not_published: 未发布
+          published: 已发布
+        new:
+          create: 创建
+          title: 新建咨询
+        results:
+          not_visible: 当咨询结束时，结果将可用
+          participants: "%{count} 位参与者"
+          total_votes: '总计： %{count} 票'
+        update:
+          error: 更新此咨询时出现问题。
+          success: 咨询更新成功。
+      menu:
+        consultations: 协商
+        consultations_submenu:
+          info: 信息
+          questions: 问 题
+          results: 成果
+        questions_submenu:
+          components: 组件
+          configuration: 配置
+          consultation: Consultation
+          info: 信息
+          responses: 回应
+      models:
+        consultation:
+          fields:
+            created_at: 创建于
+            published: 已发布
+            title: 标题
+          name:
+            other: 协商
+        question:
+          fields:
+            created_at: 创建于
+            published: 已发布
+            title: 标题
+          name:
+            other: 问 题
+        response:
+          fields:
+            created_at: 创建于
+            response_group: 组别
+            title: 标题
+          name:
+            other: 回应
+      question_configuration:
+        disable_external_voting: 请禁用高级配置的外部投票
+        form:
+          help: 通过增加参与者可以选择的最大回复数量来设置多个选项问题。 默认最大值为1，意味着只能投票一个回复。
+          title: 高级配置
+      question_publications:
+        create:
+          error: 发布此问题时出现问题。
+          success: 问题发布成功
+        destroy:
+          error: 取消发布此问题时出现问题。
+          success: 问题已成功取消发布。
+      questions:
+        create:
+          error: 出现了一个新的问题。
+          success: 已成功创建问题。
+        destroy:
+          success: 问题已成功删除。
+        edit:
+          update: 更新
+        form:
+          title: 通告周知
+        index:
+          not_published: 未发布
+          published: 已发布
+        new:
+          create: 创建
+          title: 新问题
+        update:
+          error: 更新这个问题时出现问题。
+          success: 问题已成功更新。
+      response_groups:
+        create:
+          error: 创建一个新的响应组时出现问题。
+          success: 响应组已成功创建。
+        destroy:
+          error: 删除响应组时出现问题。请检查是否有任何响应依赖于它。
+          success: 响应组已成功删除。
+        edit:
+          update: 更新
+        form:
+          title: 通告周知
+        help: 使用组来组织软件包中的多项选择问题。
+        new:
+          create: 创建
+          title: 新建响应组
+        update:
+          error: 更新此响应时出现问题。
+          success: 响应已成功更新。
+      responses:
+        create:
+          error: 产生新的反应时出现问题。
+          success: 响应成功创建。
+        destroy:
+          error: 删除答复时出现问题。
+          success: 响应已成功删除。
+        edit:
+          update: 更新
+        form:
+          title: 通告周知
+        new:
+          create: 创建
+          title: 新的响应
+        update:
+          error: 更新此响应时出现问题。
+          success: 响应已成功更新。
+      titles:
+        consultations: 协商
+        questions: 问 题
+        response_groups: 响应组
+        responses: 回应
+        results: 成果
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: 显示元素的最大数量
+      consultation:
+        start_voting_date: 投票开始
+        view_results: 查看结果
+      consultation_card:
+        view_results: 查看结果
+      consultations:
+        orders:
+          label: '咨询排序方式：'
+          random: 随机播放
+          recent: 最新的
+        show:
+          dates: 日期
+      content_blocks:
+        highlighted_consultations:
+          name: 重点协商
+      count:
+        title:
+          other: "%{count} 次咨询"
+      filters:
+        active: 已启用
+        all: 所有的
+        finished: 已完成
+        search: 搜索
+        state: 状态
+        upcoming: 即将到来的
+      filters_small_view:
+        close_modal: 关闭窗口
+        filter: 筛选器
+        filter_by: 筛选方式
+        unfold: 展开...
+      highlighted_questions:
+        title: 来自 %{scope_name} 的问题
+      index:
+        title: 协商
+      last_activity:
+        new_consultation: 新建咨询
+        new_question_at_html: "<span>在 %{link}的新问题</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: 积极协商
+            see_all_consultations: 查看所有协商
+            voting_ends_in:
+              other: 投票在 <strong>%{count} 天后结束</strong>
+            voting_ends_today: 今天结束 <strong></strong>
+      question:
+        take_part: 参与
+        view_results: 查看结果
+        votes_out_of:
+          other: 投票数
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: 参与者可以在不同的选项中至少分配 %{votes} 个选票。
+          title: 在这个问题中，允许的多个选择
+          total_participants: 共有 %{count} 人参加了投票。
+          vote_limit:
+            description: 参与者最多可以投票到 %{limit} 选项。
+        voting_rules:
+          minimum_votes_per_user:
+            description: 您必须在不同选项之间分配至少 %{votes} 张票。
+          title: '投票须遵守下列规则：'
+          vote_limit:
+            description: 您可以投票到 %{limit} 选项。
+            left: 剩余时间
+            votes: 所得票数
+      question_votes:
+        create:
+          error: 有一个问题被投票
+          success: 您可以在协商结束之前更改它。只接受最后一次投票。
+          title_error: 投票错误！
+          title_success: 投票成功注册
+      regular_questions:
+        title: 此咨询的问题
+      show:
+        badge_name:
+          finished: 已完成
+          open: 打开
+          open_votes: 公开投票
+          published_results: 结果已发布
+        footer_button_text:
+          debate: B. 辩论
+          view: 查看
+          view_results: 查看结果
+          vote: 投票
+        unspecified: 未指定
+    help:
+      participatory_spaces:
+        consultations:
+          title: 什么是协商？
+    menu:
+      consultations: 协商
+    pages:
+      home:
+        statistics:
+          consultations_count: 协商
+    questions:
+      next_button: 下一个问题
+      previous_button: 上一个问题
+      results:
+        title: 成果
+      show:
+        read_more: 阅读更多
+      statistics:
+        assistants_count_title: 助理
+        comments_count_title: 评论
+        meetings_count_title: 会议
+        supports_count_title: 所得票数
+      technical_info:
+        technical_data: 技术数据
+      vote_button:
+        already_voted: 已投票
+        already_voted_hover: 撤销投票
+        starting_from: 从 %{date} 开始
+        verification_required: 验证您的帐户以投票
+        vote: 投票
+      vote_modal:
+        close_modal: 关闭模式
+        contextual_help: 请选择一个选项。
+        title: '协商：问题表决'
+      vote_modal_confirm:
+        change: 更改
+        close_modal: 关闭模式
+        confirm: 确认
+        contextual_help: 请确认选中的选项。
+        title: '协商：确认投票'
+    resources:
+      consultations:
+        actions:
+          vote: 投票
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: 附件
+          categories: 类别管理
+      consultation_voting_data:
+        start_voting_date: 投票开始
+      question_components:
+        question_menu_item: 问题
+        unfold: 展开...
+      question_header:
+        back_to_consultation: 查看所有协商
+        back_to_question: 回到问题

@@ -76,7 +76,6 @@ de:
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             preview: Vorschau
-            title: Formular bearbeiten
             unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile
@@ -103,7 +102,7 @@ de:
             up: Hoch
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
-            success: Fragebögen wurden erfolgreich gespeichert.
+            success: Formular erfolgreich gespeichert.
       errors:
         answer:
           body: Körper kann nicht leer sein

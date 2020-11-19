@@ -47,7 +47,6 @@ gl:
             up: Arriba
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
-            success: Os cuestionarios gardáronse con éxito.
       errors:
         answer:
           body: O corpo non pode estar en branco

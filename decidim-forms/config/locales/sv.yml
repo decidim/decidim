@@ -76,7 +76,6 @@ sv:
             collapse: Komprimera alla frågor
             expand: Expandera alla frågor
             preview: Förhandsgranska
-            title: Redigera formulär
             unpublished_warning: Formuläret är inte publicerat. Du kan ändra dess frågor, men det kommer att ta bort aktuella svar.
           matrix_row:
             matrix_row: Rad
@@ -103,7 +102,6 @@ sv:
             up: Upp
           update:
             invalid: Det gick inte att spara formuläret.
-            success: Formuläret har sparats.
       errors:
         answer:
           body: Kroppen kan inte vara to

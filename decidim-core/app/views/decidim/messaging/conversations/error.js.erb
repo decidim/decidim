@@ -1,0 +1,10 @@
+var $messageError = $("#messageErrorModal");
+if ($messageError.length > 0) {
+  $messageError.foundation("_destroy").remove();
+}
+
+$("#messages").append("<%= j(render "error_modal", error: error, messages: messages).html_safe %>");
+$messageError = $("#messageErrorModal");
+
+var messageErrorReveal = new Foundation.Reveal($messageError);
+messageErrorReveal.open();

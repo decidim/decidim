@@ -128,7 +128,6 @@ lv:
         update: "%{user_name} atjaunināja organizācijas iestatījumus"
       participatory_space_private_user:
         create: "%{user_name} uzaicināja %{resource_name} par privāto dalībnieku"
-        create_via_csv: "%{user_name} izmantojot csv, uzaicināja %{resource_name} par privāto dalībnieku"
         delete: "%{user_name} noņēma %{resource_name} kā privāto dalībnieku"
       scope:
         create: "%{user_name} izveidoja darbības tvērumu %{resource_name}"
@@ -424,7 +423,6 @@ lv:
           buttons:
             check: Pārbaudīt un turpināt
             close_modal: Aizvērt modal
-            uncheck: Atstāt neatzīmētu
           notice: |-
             <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
             Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
@@ -867,11 +865,7 @@ lv:
         start:
           send: Sūtīt
           title: Sākt sarunu
-        update:
-          error: Ziņojums nav nosūtīts. Pamēģini vēlreiz vēlāk
     metrics:
-      download:
-        csv: Lejupielādēt datus (csv)
       followers:
         description: Dalībnieku skaits, kas seko šai līdzdalības telpai
         object: sekotāji
@@ -1010,7 +1004,6 @@ lv:
           error: Piekrītot lietošanas noteikumiem, radās problēma.
           success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
         form:
-          agreement: Es piekrītu šiem noteikumiem
           legend: Piekrist lietošanas noteikumiem
         refuse:
           modal_body: Ja atteiksieties, nevarēsiet izmantot platformu, varat <a href="%{data_portability_path}"> lejupielādēt savus datus </a> un/vai <a href="%{delete_path}"> izdzēst savu kontu </a>.
@@ -1065,7 +1058,6 @@ lv:
         subject: Vienums ir automātiski paslēpts
       report:
         hello: Sveiki, %{name}!
-        manage_moderations: Pārvaldiet moderāciju
         report_html: <p> Par šo <a href="%{url}"> saturu </a> ir ziņots.</p>
         subject: Par vienumu ir ziņots
     reports:

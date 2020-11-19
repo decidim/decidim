@@ -30,7 +30,6 @@
         body: Tekst
         subject: Emne
       organization:
-        address: SMTP vertsnavn
         alert_color: Varsel
         badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
@@ -56,6 +55,7 @@
         highlighted_content_banner_title: Tittel
         instagram_handler: Instagram brukernavn
         logo: Logo
+        machine_translation_display_priority: Maskinoversettelse viser prioritet
         machine_translation_display_priority_original: Orginal tekst først
         machine_translation_display_priority_translation: Oversatt tekst først
         name: Navn
@@ -65,20 +65,16 @@
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
-        password: Passord
-        port: Port
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
         secondary_color: Sekundær
         send_welcome_notification: Send velkomst varsel
-        show_statistics: Vis statistikk
         success_color: Vellykket
         time_zone: Tidssone
         tos_version: Vilkår for tjenester versjon
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
-        user_name: Brukernavn
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
@@ -142,6 +138,7 @@
         per_page: Per side
         permissions: Tillatelser
         reject: Avvis
+        share: Del
         verify: Verifiser
       admin_terms_of_use:
         accept:
@@ -438,6 +435,13 @@
           fields:
             name: Navn
             plural: Flertall
+        share_token:
+          fields:
+            created_at: Opprettet i
+            expires_at: Utløper
+            last_used_at: Sist brukt
+            times_used: Ganger brukt
+            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -557,6 +561,7 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
+          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -574,7 +579,7 @@
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -609,7 +614,6 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
-          import_via_csv: Improter via csv
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
@@ -619,7 +623,6 @@
           invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
-          explanation: Last opp CSV filen din. Den må ha to kolonner; med e-post i den første kolonnen av filen og navn i den andre kolonnen av filen (e-post, navn) til brukerne som du vil legge til deltakerområdet, uten overskrifter.
           title: Last opp din CSV fil
           upload: Last opp
       resource_permissions:
@@ -628,6 +631,10 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
+      resources:
+        index:
+          headers:
+            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
@@ -659,6 +666,10 @@
         update:
           error: Det oppstod et problem med å oppdatere dette temaet.
           success: Temaet ble oppdatert
+      share_tokens:
+        actions:
+          destroy: Slett
+          share: Del
       shared:
         gallery:
           add_images: Legg til bilder
@@ -803,7 +814,7 @@
           fields:
             hidden_at: Skjult på
             report_count: Antall
-            reportable: Rapporterbar
+            reportable_id: Id
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL

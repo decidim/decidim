@@ -10,6 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
+    include Decidim::UserReportable
 
     class Roles
       def self.all
@@ -193,7 +194,7 @@ module Decidim
     end
 
     def being_impersonated?
-      ImpersonationLog.active.where(user: self).exists?
+      ImpersonationLog.active.exists?(user: self)
     end
 
     def interested_scopes_ids

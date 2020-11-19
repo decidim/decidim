@@ -128,7 +128,6 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
-        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -438,7 +437,6 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
-            uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -909,11 +907,7 @@ sv:
         start:
           send: Skicka
           title: Starta en konversation
-        update:
-          error: Meddelandet har inte skickats. Försök igen senare
     metrics:
-      download:
-        csv: Hämta data (csv)
       followers:
         description: Antal deltagare som följer detta deltagarområde
         object: följare
@@ -993,7 +987,7 @@ sv:
     own_user_groups:
       index:
         pending: Avvaktande
-        rejected: Avvisade
+        rejected: Avvisad
         verified: Verifierad
     pad_iframe:
       disclaimer: Innehållet i detta memo är skrivet av registrerade användare och uttrycker deras åsikter. %{organization} kan inte hållas ansvarig för innehållet.
@@ -1055,7 +1049,6 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag godkänner användarvillkoren
           legend: Godkänn användarvillkoren
         refuse:
           modal_body: Om du vägrar kan du inte använda plattformen, men du kan <a href="%{data_portability_path}">hämta dina data</a> eller <a href="%{delete_path}">radera ditt konto</a>.
@@ -1112,13 +1105,15 @@ sv:
       report:
         authors: Författare
         content: Rapporterat innehåll
+        content_original_language: Innehållets originalspråk
         date: Rapporterades
         details: Detaljer
         hello: Hej %{name},
-        manage_moderations: Hantera moderering
+        id: ID
         participatory_space: Plats för deltagare
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
+        see_report: Se rapport
         subject: En resurs har rapporterats
     reports:
       create:

@@ -25,7 +25,7 @@ module Decidim
     #
     # Returns nothing.
     # rubocop:disable Metrics/ParameterLists
-    def self.publish(event:, event_class: Decidim::Events::BaseEvent, resource:, affected_users: [], followers: [], extra: {}, force_send: false, priority: "batch")
+    def self.publish(event:, resource:, event_class: Decidim::Events::BaseEvent, affected_users: [], followers: [], extra: {}, force_send: false, priority: "batch")
       ActiveSupport::Notifications.publish(
         event,
         event_class: event_class.name,

@@ -30,7 +30,6 @@ it:
         body: Testo
         subject: Oggetto
       organization:
-        address: Server SMTP
         alert_color: Notifica
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
@@ -63,20 +62,16 @@ it:
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
         omnipresent_banner_url: URL
-        password: Password
-        port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
         rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
         secondary_color: Secondario
         send_welcome_notification: Invia notifica di benvenuto
-        show_statistics: Mostra statistiche
         success_color: Successo
         time_zone: Fuso Orario
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
-        user_name: Pseudonimo
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
@@ -573,7 +568,6 @@ it:
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
           twitter: Twitter
-          url: URL
           youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
@@ -608,7 +602,6 @@ it:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
-          import_via_csv: Importa tramite csv
           title: Utente privato dello spazio partecipativo
         new:
           create: Creare
@@ -618,7 +611,6 @@ it:
           invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
-          explanation: Carica il tuo file CSV. Deve avere due colonne con email nella prima colonna del file e nome nell'ultima colonna del file (email, nome) degli utenti che si desidera aggiungere allo spazio partecipativo, senza intestazioni.
           title: Carica il tuo file CSV
           upload: Carica File
       resource_permissions:
@@ -802,7 +794,6 @@ it:
           fields:
             hidden_at: Nascosto a
             report_count: Conteggio
-            reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
             visit_url: Visita URL

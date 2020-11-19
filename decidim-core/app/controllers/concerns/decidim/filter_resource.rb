@@ -82,12 +82,13 @@ module Decidim
       # - ResourceSearch uses `component`
       # - ParticipatorySpaceSearch uses `organization`
       # - Both use `current_user`
+      # - Both need `organization` for localized searches in order to fetch the
+      #   available locales from the organization in Decidim::ResourceSearch.
       def context_params
         context = {
           current_user: current_user,
           organization: current_organization
         }
-
         context[:component] = current_component if respond_to?(:current_component)
 
         context

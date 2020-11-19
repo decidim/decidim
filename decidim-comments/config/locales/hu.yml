@@ -16,7 +16,6 @@ hu:
         other: Szavazatok
   decidim:
     comments:
-      comments: Megjegyzések
       last_activity:
         new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
       votes:
@@ -73,7 +72,6 @@ hu:
         loading: Hozzászólások betöltése ...
         single_comment_warning: A többi hozzászólást <a href="%{url}">itt</a> ellenőrizheti.
         single_comment_warning_title: Egyetlen megjegyzést látsz
-        title: "%{count} megjegyzés"
     events:
       comments:
         comment_by_followed_user:

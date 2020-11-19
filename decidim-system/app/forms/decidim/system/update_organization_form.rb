@@ -31,7 +31,7 @@ module Decidim
       ]
       attribute :file_upload_settings, FileUploadSettingsForm
 
-      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::User.omniauth_providers.map do |provider|
+      OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
         Rails.application.secrets.dig(:omniauth, provider).keys.map do |setting|
           if setting == :enabled
             ["omniauth_settings_#{provider}_enabled".to_sym, Boolean]
@@ -51,9 +51,9 @@ module Decidim
 
       def map_model(model)
         self.secondary_hosts = model.secondary_hosts.join("\n")
-        self.omniauth_settings = Hash[(model.omniauth_settings || []).map do |k, v|
-          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v]
-        end]
+        self.omniauth_settings = (model.omniauth_settings || {}).transform_values do |v|
+          Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.decrypt(v) : v
+        end
         self.file_upload_settings = FileUploadSettingsForm.from_model(model.file_upload_settings)
       end
 
@@ -74,21 +74,21 @@ module Decidim
       end
 
       def encrypted_smtp_settings
-        smtp_settings["from"] = set_from
+        smtp_settings[:from] = set_from
 
         smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
       end
 
       def set_from
-        return smtp_settings["from_email"] if smtp_settings["from_label"].blank?
+        return from_email if from_label.blank?
 
-        "#{smtp_settings["from_label"]} <#{smtp_settings["from_email"]}>"
+        "#{from_label} <#{from_email}>"
       end
 
       def encrypted_omniauth_settings
-        Hash[omniauth_settings.map do |k, v|
-          [k, Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v]
-        end]
+        omniauth_settings.transform_values do |v|
+          Decidim::OmniauthProvider.value_defined?(v) ? Decidim::AttributeEncryptor.encrypt(v) : v
+        end
       end
 
       private

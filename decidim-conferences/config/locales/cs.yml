@@ -8,15 +8,15 @@ cs:
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_features: Funkce kopírování
-        decidim_scope_id: Rozsah
+        decidim_scope_id: Oblast působnosti
         description: Popis
         hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
         participatory_processes_ids: Související procesy účasti
         promoted: Propagováno
         published_at: Publikováno v
-        scope_id: Rozsah
-        scopes_enabled: Schopnosti povoleny
+        scope_id: Oblast působnosti
+        scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
         show_statistics: Zobrazit statistiky
         slogan: Heslo
@@ -483,6 +483,7 @@ cs:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
           login_as: Jste přihlášeni jako %{name} <%{email}>
+          no_registrations: Žádné registrace
           register: Registrovat
           title: Typy registrace
       shared:
@@ -546,6 +547,12 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože jste sledovali konferenci "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Konference "%{resource_title}" přichází!
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> přichází za 2 dny.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd..</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
+          title: Co jsou konference?
     log:
       value_types:
         conference_presenter:

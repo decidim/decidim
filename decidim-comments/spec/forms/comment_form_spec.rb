@@ -86,6 +86,16 @@ module Decidim
 
           it { is_expected.to be_valid }
         end
+
+        context "when the component settings do not define comments_max_length" do
+          let(:organization) { create(:organization, comments_max_length: 3549) }
+          let(:settings) { double }
+
+          it "returns the organization comments_max_length" do
+            expect(component).to receive(:settings).and_return(settings)
+            expect(subject.max_length).to eq(organization.comments_max_length)
+          end
+        end
       end
     end
   end

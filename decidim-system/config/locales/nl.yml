@@ -1,4 +1,13 @@
 nl:
+  activemodel:
+    attributes:
+      organization:
+        address: SMTP hostname
+        from_email: E-mailadres
+        from_label: Label
+        password: Wachtwoord
+        port: Poort
+        user_name: Gebruikersnaam
   decidim:
     system:
       actions:
@@ -81,10 +90,11 @@ nl:
             api_key: API key
             api_secret: API secret
         smtp_settings:
+          fieldsets:
+            sender: Afzender
           instructions:
-            from_label: 'E-mail afzender zal zijn: "jouw-organisatie-naam <your-organization@your-provider.org>". Laat leeg om de ''van_email'' te gebruiken als label'
+            from_label: 'E-mail afzender zal zijn: "jouw-organisatie naam <your-organization@example.org>". Laat leeg om ''E-mailadres'' te gebruiken als label'
           placeholder:
-            from_email: jouw-organisatie@jouw-provider.org
             from_label: jouw-organisatienaam
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.

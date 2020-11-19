@@ -157,7 +157,7 @@ shared_examples "manage proposals" do
             end
           end
 
-          context "when geocoding is enabled" do
+          context "when geocoding is enabled", :serves_geocoding_autocomplete do
             before do
               current_component.update!(settings: { geocoding_enabled: true })
             end
@@ -182,6 +182,25 @@ shared_examples "manage proposals" do
                 expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
                 expect(proposal.category).to eq(category)
                 expect(proposal.scope).to eq(scope)
+              end
+            end
+
+            it_behaves_like(
+              "a record with front-end geocoding address field",
+              Decidim::Proposals::Proposal,
+              within_selector: ".new_proposal",
+              address_field: :proposal_address
+            ) do
+              let(:geocoded_address_value) { address }
+              let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+              before do
+                click_link "New proposal"
+
+                within ".new_proposal" do
+                  fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
+                  fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
+                end
               end
             end
           end

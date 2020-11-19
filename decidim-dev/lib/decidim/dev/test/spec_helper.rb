@@ -11,7 +11,7 @@ require "action_view/helpers/sanitize_helper"
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./rspec_support/ and its subdirectories.
-Dir["#{__dir__}/rspec_support/**/*.rb"].each { |f| require f }
+Dir["#{__dir__}/rspec_support/**/*.rb"].sort.each { |f| require f }
 
 require_relative "factories"
 

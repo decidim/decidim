@@ -30,7 +30,6 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
-        address: Nome do anfitrião SMTP
         alert_color: Alerta
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
@@ -63,20 +62,16 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Palavra-passe
-        port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
         rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
         secondary_color: Secundário
         send_welcome_notification: Enviar notificação de boas-vindas
-        show_statistics: Mostrar estatísticas
         success_color: Sucesso
         time_zone: Fuso Horário
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
-        user_name: Nome do utilizador
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas
@@ -573,7 +568,6 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.
@@ -608,7 +602,6 @@ pt:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
-          import_via_csv: Importar através de csv
           title: Espaço participativo de participante privado
         new:
           create: Criar
@@ -618,7 +611,6 @@ pt:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
-          explanation: Carregue o seu ficheiro CSV. Deverá possuir duas colunas com o e-mail na primeira coluna do ficheiro e o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que pretende adicionar ao espaço participativo, sem cabeçalhos.
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
@@ -802,7 +794,6 @@ pt:
           fields:
             hidden_at: Escondido em
             report_count: Contagem
-            reportable: Reportável
             reported_content_url: URL de conteúdo reportado
             reports: Relatórios
             visit_url: URL de visita

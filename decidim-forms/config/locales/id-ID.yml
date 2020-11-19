@@ -47,7 +47,6 @@ id:
             up: Naik
           update:
             invalid: Terjadi masalah saat menyimpan formulir.
-            success: Formulir berhasil disimpan.
       errors:
         answer:
           body: Tubuh tidak boleh kosong

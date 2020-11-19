@@ -17,15 +17,46 @@ module Decidim
     # translated_text - A String with the value of the field_name, translated
     #   into the target_locale
     def perform(resource, field_name, target_locale, translated_text)
-      if resource[field_name]["machine_translations"].present?
-        resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge(target_locale => translated_text)
-      else
-        resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
+      resource.with_lock do
+        if resource[field_name]["machine_translations"].present?
+          resource[field_name]["machine_translations"] = resource[field_name]["machine_translations"].merge(target_locale => translated_text)
+        else
+          resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
+        end
+
+        # rubocop:disable Rails/SkipsModelValidations
+        resource.update_column field_name.to_sym, resource[field_name]
+        # rubocop:enable Rails/SkipsModelValidations
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
-      resource.update_column field_name.to_sym, resource[field_name]
-      # rubocop:enable Rails/SkipsModelValidations
+      send_translated_report_notifications(resource) if reported_resource_in_organization_language?(resource, target_locale)
+    end
+
+    private
+
+    def send_translated_report_notifications(reportable)
+      reportable.moderation.reports.each do |report|
+        reportable.moderation.participatory_space.moderators.each do |moderator|
+          Decidim::ReportedMailer.report(moderator, report).deliver_later
+        end
+      end
+    end
+
+    def reported_resource_in_organization_language?(resource, target_locale)
+      return unless resource.try(:organization)
+
+      resource_reported?(resource) && target_locale == resource.organization.default_locale && resource_completely_translated?(resource, target_locale)
+    end
+
+    def resource_reported?(resource)
+      resource.class.included_modules.include?(Decidim::Reportable) && resource.reported?
+    end
+
+    def resource_completely_translated?(resource, target_locale)
+      reported_translatable_fields = resource.reported_attributes & resource.class.translatable_fields_list
+      reported_translatable_fields.all? do |field|
+        resource[field]&.dig("machine_translations", target_locale).present?
+      end
     end
   end
 end

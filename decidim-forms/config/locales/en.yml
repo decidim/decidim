@@ -4,6 +4,8 @@ en:
     attributes:
       answer:
         body: Answer
+        choices: Choices
+        selected_choices: Selected choices
       question:
         max_choices: Maximum number of choices
         question_type: Type
@@ -77,7 +79,7 @@ en:
             collapse: Collapse all questions
             expand: Expand all questions
             preview: Preview
-            title: Edit form
+            title: Edit form for %{questionnaire_for}
             unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row
@@ -104,7 +106,7 @@ en:
             up: Up
           update:
             invalid: There was a problem saving the form.
-            success: Forms successfully saved.
+            success: Form successfully saved.
       errors:
         answer:
           body: Body can't be blank

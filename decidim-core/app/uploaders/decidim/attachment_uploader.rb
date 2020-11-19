@@ -3,8 +3,6 @@
 module Decidim
   # This class deals with uploading attachments to a participatory space.
   class AttachmentUploader < ApplicationUploader
-    include CarrierWave::MiniMagick
-
     process :set_content_type_and_size_in_model
     process :validate_dimensions
     process :strip

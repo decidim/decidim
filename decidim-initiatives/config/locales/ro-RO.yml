@@ -15,14 +15,6 @@ ro:
           online: Online
         state: Status
         title: Titlu
-      initiative_author:
-        address: Adresa
-        city: Oraș
-        id_document: DNI/NIE
-        name: Nume și prenume
-        phone_number: Număr de telefon
-        post_code: Cod poștal
-        province: Județ
       initiatives_committee_member:
         user: Membru al Comitetului
       initiatives_type:
@@ -293,7 +285,6 @@ ro:
         fill_data:
           back: Înapoi
           continue: Continuă
-          fill_data_help: "<ul> <li>Examinați conținutul inițiativei dvs. Este ușor de înțeles titlul dvs.? Este obiectivul inițiativei dvs.?</li> <li>Trebuie să alegeți tipul de semnătură. Persoană, online sau o combinație a ambelor</li> <li>Care este domeniul geografic de aplicare al inițiativei? Oraș, județ?</li> </ul>"
           initiative_type: Tip de inițiativă
           more_information: "(Informaţii principale)"
           select_area: Selectează o zonă
@@ -301,7 +292,6 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
-          callout_text: Felicitări! Iniţiativa cetăţenească a fost creată cu succes.
           confirm: Confirmare
           edit_my_initiative: Editează inițiativele mele
           go_to_my_initiatives: Mergeți la inițiativele mele
@@ -321,14 +311,12 @@ ro:
           more_information: "(Informaţii principale)"
         promotal_committee:
           back: Înapoi
-          individual_help_text: Acest tip de inițiativă a cetățenilor necesită o Comisie de promovare formată din cel puțin %{committee_size} de persoane (atestatori). Trebuie să împărtășiți următorul link cu celelalte persoane care fac parte din această inițiativă. Când persoanele de contact primesc acest link vor trebui să urmeze pașii indicați.
           more_information: "(Informaţii principale)"
         select_initiative_type:
           back: Înapoi
           choose_html: Vreau să creez un <strong>%{title}</strong>
           more_information: "(Informaţii principale)"
           select: Doresc să promovez această iniţiativă
-          select_initiative_type_help: Iniţiativele cetăţeneşti sunt un mijloc prin care cetăţenia poate interveni astfel încât Consiliul municipal să poată întreprinde acţiuni de apărare a interesului general în domeniile de competenţă municipală. Ce inițiativă doriți să lansați?
         share_committee_link:
           continue: Continuă
           invite_to_committee_help: Link pentru a invita persoane care vor face parte din comitetul promotor
@@ -434,17 +422,11 @@ ro:
             validating: Această propunere este în curs de evaluare
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
         show:
-          any_vote_method: Această inițiativă cetățenească colectează semnături online și personale.
           follow_description: Primiți o notificare atunci când există știri în această inițiativă
-          offline_method: Această iniţiativă cetăţenească nu face decât să strângă semnături personale.
-        signature_identities:
-          select_identity: Selectați identificatorul de participant
         signatures_count:
           one: " semnătură"
           few: " semnături"
           other: " semnături"
-        supports:
-          title: Listarea semnăturilor
         vote_cabin:
           already_voted: Deja semnat
           supports_required: "%{total_supports} semnături necesare"

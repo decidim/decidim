@@ -49,7 +49,7 @@ module Decidim
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_params(params, initiative: current_initiative)
 
-          UpdateInitiative.call(current_initiative, @form, current_user) do
+          Decidim::Initiatives::Admin::UpdateInitiative.call(current_initiative, @form, current_user) do
             on(:ok) do |initiative|
               flash[:notice] = I18n.t("initiatives.update.success", scope: "decidim.initiatives.admin")
               redirect_to edit_initiative_path(initiative)
@@ -136,7 +136,7 @@ module Decidim
         def export_votes
           enforce_permission_to :export_votes, :initiative, initiative: current_initiative
 
-          votes = current_initiative.votes.votes.map(&:sha1)
+          votes = current_initiative.votes.map(&:sha1)
           csv_data = CSV.generate(headers: false) do |csv|
             votes.each do |sha1|
               csv << [sha1]
@@ -152,7 +152,7 @@ module Decidim
         def export_pdf_signatures
           enforce_permission_to :export_pdf_signatures, :initiative, initiative: current_initiative
 
-          @votes = current_initiative.votes.votes
+          @votes = current_initiative.votes
 
           output = render_to_string(
             pdf: "votes_#{current_initiative.id}",

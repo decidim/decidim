@@ -47,7 +47,6 @@ pt:
             up: Acima
           update:
             invalid: Houve erros ao salvar o questionário.
-            success: Questionários salvos com sucesso.
       errors:
         answer:
           body: O corpo não pode ficar em branco

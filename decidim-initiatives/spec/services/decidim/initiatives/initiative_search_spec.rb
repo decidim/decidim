@@ -151,6 +151,7 @@ module Decidim
         context "when the filter includes author" do
           let!(:initiative) { create(:initiative, organization: organization) }
           let!(:initiative2) { create(:initiative, organization: organization, author: user1) }
+          let!(:created_initiative) { create(:initiative, :created, organization: organization, author: user1) }
 
           context "and any author" do
             it "contains all initiatives" do
@@ -162,7 +163,7 @@ module Decidim
             let(:author) { "myself" }
 
             it "contains only initiatives of the author" do
-              expect(subject).to match_array [initiative2]
+              expect(subject).to match_array [initiative2, created_initiative]
             end
           end
         end

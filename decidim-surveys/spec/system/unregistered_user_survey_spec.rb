@@ -89,7 +89,7 @@ describe "Answer a survey", type: :system do
 
         accept_confirm { click_button "Submit" }
 
-        within ".alert.flash", wait: 3 do
+        within ".alert.flash", wait: 5 do
           expect(page).to have_content("problem")
         end
       end

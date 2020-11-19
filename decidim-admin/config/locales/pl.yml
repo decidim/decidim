@@ -30,7 +30,6 @@ pl:
         body: Treść
         subject: Temat
       organization:
-        address: Nazwa hosta SMTP
         alert_color: Powiadomienie
         badges_enabled: Włącz odznaki
         comments_max_length: Maksymalna długość komentarza (pozostaw 0 dla wartości domyślnej)
@@ -66,20 +65,16 @@ pl:
         omnipresent_banner_short_description: Krótki opis
         omnipresent_banner_title: Tytuł
         omnipresent_banner_url: URL
-        password: Hasło
-        port: Port
         primary_color: Podstawowy
         reference_prefix: Prefiks referencyjny
         rich_text_editor_in_public_views: Włącz edytor tekstu sformatowanego dla uczestników
         secondary_color: Drugorzędny
         send_welcome_notification: Wyślij komunikat powitalny
-        show_statistics: Pokaż statystyki
         success_color: Powodzenie
         time_zone: Strefa czasowa
         tos_version: Warunki korzystania z usługi
         twitter_handler: Handler Twittera
         user_groups_enabled: Włącz grupy użytkowników
-        user_name: Nazwa użytkownika
         warning_color: Ostrzeżenie
         welcome_notification_body: Treść komunikatu powitalnego
         welcome_notification_subject: Tytuł komunikatu powitalnego
@@ -586,7 +581,6 @@ pl:
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
@@ -621,7 +615,6 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
-          import_via_csv: Import z CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
@@ -631,7 +624,6 @@ pl:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
-          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adres e-mail, w drugiej kolumnie imię (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       resource_permissions:
@@ -831,7 +823,6 @@ pl:
           fields:
             hidden_at: Ukryto
             report_count: Liczba
-            reportable: Zgłoszone
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
             visit_url: Odwiedź adres URL

@@ -29,9 +29,7 @@ ar:
         title: عنوان
         transparent: شفاف
       minutes:
-        audio_url: العنوان الشبكي للصوت
         description: وصف
-        video_url: العنوان الشبكي للفيديو
         visible: مرئي
     errors:
       models:

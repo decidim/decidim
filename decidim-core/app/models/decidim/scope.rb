@@ -17,13 +17,11 @@ module Decidim
                inverse_of: :scopes
 
     belongs_to :scope_type,
-               foreign_key: "scope_type_id",
                class_name: "Decidim::ScopeType",
                inverse_of: :scopes,
                optional: true
 
     belongs_to :parent,
-               foreign_key: "parent_id",
                class_name: "Decidim::Scope",
                inverse_of: :children,
                optional: true
@@ -56,7 +54,7 @@ module Decidim
     end
 
     def descendants
-      organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
+      @descendants ||= organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
     def ancestor_of?(scope)

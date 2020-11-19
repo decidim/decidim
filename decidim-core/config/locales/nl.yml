@@ -128,7 +128,6 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -441,7 +440,7 @@ nl:
           buttons:
             check: Controleer en ga door
             close_modal: Sluit venster
-            uncheck: Blijf uitgeschakeld
+            uncheck: Uitgeschakeld houden
           notice: |-
             <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
             Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
@@ -607,6 +606,12 @@ nl:
           notification_title: De gebruikersgroep %{user_group_name} heeft zijn profiel bijgewerkt, het niet geverifieerd. U kunt het nu verifiëren in het beheerderspaneel <a href="%{groups_admin_path}"></a>.
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        report_created:
+          email_intro: <a href="%{resource_url}">Je %{resource_type}</a> is gerapporteerd als "%{report_reason}". Een beheerder zal dit binnenkort beoordelen.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van gerapporteerde inhoud.
+          email_subject: Je %{resource_type} is gerapporteerd
+          notification_title: <a href="%{resource_path}">Je %{resource_type}</a> is gerapporteerd als "%{report_reason}".
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, die je volgt, heeft zojuist goedgekeurd "%{resource_title}" en wij denken dat het interessant voor je kan zijn. Bekijk het en draag bij:'
         email_outro: Je hebt deze melding ontvangen omdat je %{endorser_nickname}volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
@@ -890,6 +895,11 @@ nl:
           show: Toon gesprek met %{sender}
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
+        error_modal:
+          close: Sluit venster
+          correct_errors: Corrigeer de fouten en probeer opnieuw.
+          intro: 'Er waren de volgende fouten met je bericht:'
+          ok: OK
         index:
           ago: geleden
           close: Sluit venster
@@ -913,10 +923,8 @@ nl:
           send: Verzenden
           title: Een gesprek beginnen
         update:
-          error: Bericht niet verzonden. Probeer het later nogmaals
+          error: Bericht is niet verzonden vanwege een fout
     metrics:
-      download:
-        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
@@ -978,7 +986,7 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
@@ -1115,13 +1123,15 @@ nl:
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
+        content_original_language: Oorspronkelijke taal inhoud
         date: Gerapporteerd op
         details: Beschrijving
         hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
+        id: ID
         participatory_space: Participatieve ruimte
         reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
+        see_report: Bekijk rapport
         subject: Een bron is gemeld
     reports:
       create:

@@ -13,6 +13,7 @@ module Decidim
       include Decidim::DataPortability
       include Decidim::Traceable
       include Decidim::Loggable
+      include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
 
@@ -52,6 +53,13 @@ module Decidim
       validate :commentable_can_have_comments
 
       delegate :organization, to: :commentable
+
+      translatable_fields :body
+      searchable_fields(
+        participatory_space: :itself,
+        A: :body,
+        datetime: :created_at
+      )
 
       def self.positive
         where(alignment: 1)
@@ -122,9 +130,14 @@ module Decidim
         end
       end
 
-      # Public: Returns the comment message ready to display (it is expected to include HTML)
-      def formatted_body
-        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body, "div")
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
       end
 
       def self.export_serializer
@@ -144,18 +157,23 @@ module Decidim
         root_commentable.can_participate?(user)
       end
 
+      def formatted_body
+        Decidim::ContentProcessor.render(sanitize_content(render_markdown(translated_body)), "div")
+      end
+
       def translated_body
-        translated_attribute(body, organization)
+        @translated_body ||= translated_attribute(body, organization)
       end
 
       private
 
       def body_length
-        errors.add(:body, :too_long, count: comment_maximum_length) unless body.length <= comment_maximum_length
+        language = (body.keys - ["machine_translations"]).first
+        errors.add(:body, :too_long, count: comment_maximum_length) unless body[language].length <= comment_maximum_length
       end
 
       def comment_maximum_length
-        return unless commentable.commentable?
+        return 0 unless commentable.commentable?
         return component.settings.comments_max_length if component_settings_comments_max_length?
         return organization.comments_max_length if organization.comments_max_length.positive?
 
@@ -180,11 +198,8 @@ module Decidim
       end
 
       # Private: Returns the comment body sanitized, sanitizing HTML tags
-      def sanitized_body
-        Rails::Html::WhiteListSanitizer.new.sanitize(
-          render_markdown(translated_body),
-          scrubber: Decidim::Comments::UserInputScrubber.new
-        ).try(:html_safe)
+      def sanitize_content(content)
+        Decidim::ContentProcessor.sanitize(content)
       end
 
       # Private: Initializes the Markdown parser

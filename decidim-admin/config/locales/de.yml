@@ -30,7 +30,6 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
-        address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -66,20 +65,16 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Passwort
-        port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
         secondary_color: Sekundär
         send_welcome_notification: Willkommens-Benachrichtigung senden
-        show_statistics: Zeige Statistiken
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
-        user_name: Benutzername
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -586,7 +581,6 @@ de:
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
@@ -621,7 +615,6 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
-          import_via_csv: Import via CSV
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
@@ -631,7 +624,6 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
-          explanation: Laden Sie Ihre CSV-Datei hoch. Diese Datei darf nur zwei Spalten und keine Kopfzeile haben. Die erste Spalte enthält die E-Mail-Adressen und und die zweite Spalte die Namen der Benutzer, die Sie zum Teilnehmerraum hinzufügen möchten.
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -831,7 +823,6 @@ de:
           fields:
             hidden_at: Versteckt bei
             report_count: Anzahl
-            reportable: Meldepflichtig
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL

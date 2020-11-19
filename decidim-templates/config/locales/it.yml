@@ -1,0 +1,59 @@
+it:
+  decidim:
+    admin:
+      menu:
+        templates: Modelli
+      templates:
+        apply:
+          error: Si è verificato un errore durante l'applicazione di questo modello.
+          success: Modello applicato con successo
+        copy:
+          error: Si è verificato un errore durante la copia di questo modello.
+          success: Modello copiato con successo
+        create:
+          error: Si è verificato un errore durante la creazione di questo modello.
+          success: Modello creato con successo
+        destroy:
+          success: Modello eliminato con successo
+        empty: Non ci sono ancora modelli.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo modello.
+          success: Modello aggiornato con successo
+      titles:
+        template_types:
+          questionnaires: Modelli di questionari
+        templates: Modelli
+    models:
+      questionnaire_template:
+        fields:
+          questions: Numero di domande
+          title: Titolo del questionario
+      template:
+        fields:
+          created_at: Data di creazione
+        name: Modello
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Crea dal modello
+            description: Stai per creare un nuovo questionario. Puoi scegliere un modello predefinito e modificarlo in seguito.
+            label: Scegli un modello
+            placeholder: Scegli un modello
+            skip_template: Ignora
+          edit:
+            edit: Modifica
+            empty: Non ci sono ancora domande
+            questionnaire: Questionario
+          form:
+            save: Salva
+            template_title: Informazioni del modello
+          index:
+            confirm_delete: Sei sicuro di voler eliminare questo modello?
+            title: Modelli di questionari
+          preview:
+            current_step: Passo %{step}
+            of_total_steps: di %{total_steps}
+            tos_agreement: Partecipando a questo sondaggio, accetti le sue condizioni di servizio
+      template_types:
+        questionnaires: Questionari

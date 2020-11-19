@@ -10,8 +10,6 @@
   decidim:
     elections:
       actions:
-        edit_answers: Rediger svar
-        edit_questions: Rediger spørsmål
         import: Importer forslag til svar
       admin:
         proposals_imports:
@@ -23,7 +21,6 @@
             one: "%{count} valg"
             other: "%{count} valg"
         show:
-          back: Alle valg
           preview: Forhåndsvisning
           vote: Stem
           voting_period_status:
@@ -60,7 +57,6 @@
           close: Lukk
           proposal_header: 'Forslag:'
         new:
-          answer_choices: Du kan velge opptil %{choices} svar eller ingen
           more_information: Mer informasjon
           preview_alert: Dette er en forhåndsvisning av stemmebåsen.
           question_steps: Spørsmål %{current_step} av %{total_steps}

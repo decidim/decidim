@@ -21,7 +21,7 @@ module Decidim
                         :admin_terms_of_use_body
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
-    has_many :static_page_topics, foreign_key: "organization_id", class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
+    has_many :static_page_topics, class_name: "Decidim::StaticPageTopic", inverse_of: :organization, dependent: :destroy
     has_many :scopes, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Scope", inverse_of: :organization
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization
     has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization
@@ -31,6 +31,8 @@ module Decidim
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
     has_many :hashtags, foreign_key: "decidim_organization_id", class_name: "Decidim::Hashtag", dependent: :destroy
+
+    has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
     # Users registration mode. Whether users can register or access the system. Doesn't affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).

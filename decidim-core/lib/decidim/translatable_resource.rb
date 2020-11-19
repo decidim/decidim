@@ -10,6 +10,8 @@ module Decidim
       after_create :machine_translation
       after_update :machine_translation
 
+      validate :translatable_fields_are_hashes
+
       def self.translatable_fields(*list)
         @translatable_fields = list
 
@@ -61,6 +63,25 @@ module Decidim
 
       def translatable_previous_changes
         previous_changes.slice(*self.class.translatable_fields_list)
+      end
+
+      def translatable_fields_are_hashes
+        self.class.translatable_fields_list.each do |field|
+          value = send(field).presence
+          next if value.nil? || value.is_a?(Hash)
+
+          errors.add(field, :invalid)
+        end
+      end
+
+      # Public: Returns the original language in which the resource was created or
+      #         the organization's default locale.
+      def content_original_language
+        field_name = self.class.translatable_fields_list.first
+        field_value = self[field_name]
+        return field_value.except("machine_translations").keys.first if field_value && field_value.except("machine_translations").keys.count == 1
+
+        organization.default_locale
       end
     end
   end

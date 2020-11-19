@@ -17,13 +17,15 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
-      include Decidim::Hashtaggable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::Paddable
       include Decidim::ActsAsAuthor
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::TranslatableResource
+
+      TYPE_OF_MEETING = %w(in_person online).freeze
+      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -37,7 +39,7 @@ module Decidim
 
       validates :title, presence: true
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
+      geocoded_by :address
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
@@ -51,6 +53,9 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
+      scope :online, -> { where(type_of_meeting: :online) }
+      scope :in_person, -> { where(type_of_meeting: :in_person) }
+
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: { component: :participatory_space },
@@ -60,6 +65,8 @@ module Decidim
                         },
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
+
+      after_initialize :set_default_salt
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -80,8 +87,17 @@ module Decidim
         !closed? && registrations_enabled? && can_participate?(user)
       end
 
+      def can_register_invitation?(user)
+        !closed? && registrations_enabled? &&
+          can_participate_in_space?(user) && user_has_invitation_for_meeting?(user)
+      end
+
       def closed?
         closed_at.present?
+      end
+
+      def past?
+        end_time < Time.current
       end
 
       def has_available_slots?
@@ -183,6 +199,32 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:description]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [normalized_author.name]
+      end
+
+      def online_meeting?
+        type_of_meeting == "online"
+      end
+
+      def registration_disabled?
+        registration_type == "registration_disabled"
+      end
+
+      def on_this_platform?
+        registration_type == "on_this_platform"
+      end
+
+      def on_different_platform?
+        registration_type == "on_different_platform"
+      end
+
       private
 
       def can_participate_in_meeting?(user)
@@ -190,6 +232,18 @@ module Decidim
         return false unless user
 
         registrations.exists?(decidim_user_id: user.id)
+      end
+
+      def user_has_invitation_for_meeting?(user)
+        return true unless private_meeting?
+        return false unless user
+
+        invites.exists?(decidim_user_id: user.id)
+      end
+
+      # salt is used to generate secure hash in pads
+      def set_default_salt
+        self.salt ||= Tokenizer.random_salt
       end
     end
   end

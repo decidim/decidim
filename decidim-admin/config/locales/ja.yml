@@ -30,7 +30,6 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        address: SMTP hostname
         alert_color: アラート
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
@@ -66,20 +65,16 @@ ja:
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
         omnipresent_banner_url: URL
-        password: パスワード
-        port: ポート
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: Secondary
         send_welcome_notification: ウェルカム通知を送信
-        show_statistics: 統計情報を表示
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: グループを有効にする
-        user_name: ユーザー名
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
@@ -143,6 +138,7 @@ ja:
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
+        share: 共有
         verify: 確認する
       admin_terms_of_use:
         accept:
@@ -151,7 +147,7 @@ ja:
         actions:
           accept: この管理者規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
-          refuse: 管理者用語を拒否する
+          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者の利用規約を確認してください'
@@ -163,7 +159,7 @@ ja:
           error: 新しいエリアタイプの作成中に問題が発生しました。
           success: エリアタイプが正常に作成されました。
         destroy:
-          success: エリアタイプを破壊しました
+          success: エリアタイプを削除しました
         edit:
           title: エリアタイプの編集
           update: 更新
@@ -179,7 +175,7 @@ ja:
           success: エリアの作成に成功しました。
         destroy:
           has_spaces: 領域には依存スペースがあり、削除するために依存関係を持っていてはなりません。
-          success: エリアの破壊に成功しました
+          success: エリアの削除に成功しました
         edit:
           title: エリアを編集
           update: 更新
@@ -254,10 +250,10 @@ ja:
       components:
         create:
           error: このコンポーネントの作成に問題がありました。
-          success: 構成部品が作成されました。
+          success: コンポーネントが作成されました。
         destroy:
-          error: このコンポーネントの破壊中に問題が発生しました。
-          success: 構成部品は正常に削除されました。
+          error: このコンポーネントの削除中に問題が発生しました。
+          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
@@ -270,6 +266,7 @@ ja:
           headers:
             actions: アクション
             name: コンポーネント名
+            scope: コンポーネントのスコープ
             type: コンポーネントタイプ
         new:
           add: コンポーネントを追加
@@ -287,7 +284,7 @@ ja:
           view_more_logs: もっとログを見る
           welcome: Decidim Admin Panelへようこそ。
       exports:
-        export_as: "%{name} として %{export_format}"
+        export_as: "%{name} を %{export_format} 形式で取得"
         formats:
           CSV: CSV
           Excel: エクセル
@@ -317,7 +314,7 @@ ja:
           label: スコープ
         search_label: 検索
         search_placeholder:
-          name_or_nickname_or_email_cont: '%{collection} をメール、名前、ニックネームで検索します。'
+          name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
           title_cont: '%{collection} をタイトルで検索します。'
         state_eq:
           label: 都道府県：
@@ -392,7 +389,7 @@ ja:
         users: 参加者
       metrics:
         metrics:
-          see_more_metrics: さらにメトリックを見る
+          see_more_metrics: さらに指標を見る
       models:
         area:
           fields:
@@ -439,6 +436,14 @@ ja:
           fields:
             name: 名前
             plural: 複数形
+        share_token:
+          fields:
+            created_at: 作成日時
+            expires_at: 有効期限
+            last_used_at: 前回の利用
+            times_used: 利用回数
+            token: トークン
+            user: 作成者
         static_page:
           fields:
             created_at: 作成日時
@@ -545,7 +550,7 @@ ja:
           badge: バッジ
           created_at: 作成日時
           name: 名前
-          nickname: ニックネーム：
+          nickname: アカウントID
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
@@ -576,7 +581,6 @@ ja:
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -611,7 +615,6 @@ ja:
           error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
-          import_via_csv: csv経由でインポート
           title: 参加スペースプライベート参加者
         new:
           create: 作成
@@ -621,7 +624,7 @@ ja:
           invalid: CSVファイルの読み込みに問題が発生しました。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
-          explanation: CSV ファイルをアップロードします。 ファイルの最初の列に電子メールを含む2つの列とファイルの最後の列に名前を持つ必要があります(電子メール)。 を選択します。
+          explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
       resource_permissions:
@@ -630,12 +633,16 @@ ja:
           title: 権限の編集
         update:
           success: 権限は正常に更新されました。
+      resources:
+        index:
+          headers:
+            scope: スコープ
       scope_types:
         create:
           error: 新しいスコープタイプの作成中に問題が発生しました。
           success: スコープタイプが正常に作成されました。
         destroy:
-          success: スコープの種類が破壊されました
+          success: スコープの種類が削除されました
         edit:
           title: スコープの種類を編集
           update: 更新
@@ -650,7 +657,7 @@ ja:
           error: 新しいスコープの作成中に問題が発生しました。
           success: スコープが正常に作成されました。
         destroy:
-          success: スコープが破壊されました
+          success: スコープが削除されました
         edit:
           title: スコープを編集
           update: 更新
@@ -661,6 +668,18 @@ ja:
         update:
           error: スコープの更新中に問題が発生しました。
           success: スコープが正常に更新されました
+      share_tokens:
+        actions:
+          confirm_destroy: このトークンを削除してもよろしいですか？
+          destroy: 削除
+          share: 共有
+        destroy:
+          error: トークンを削除する際に問題が発生しました。
+          success: トークンが正常に破棄されました。
+        share_tokens:
+          empty: アクティブなトークンはありません
+          help: これらのトークンは、公開されていないリソースをすべてのユーザーに公開するために使用されます。 リソースが公開されると、それらは非表示になります。共有可能なURLにアクセスするにはトークンの共有アイコンをクリックしてください。
+          title: トークンを共有
       shared:
         gallery:
           add_images: 画像を追加
@@ -671,7 +690,7 @@ ja:
           error: 新しいトピックを作成中に問題が発生しました。
           success: トピックを正常に作成しました。
         destroy:
-          success: トピックを破壊しました
+          success: トピックを削除しました
         edit:
           title: トピックを編集
           update: トピックを更新
@@ -688,7 +707,7 @@ ja:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
         destroy:
-          success: ページを破壊しました
+          success: ページを削除しました
         edit:
           changed_notably_help: チェックした場合、参加者に新しい利用規約に同意するよう通知されます。
           title: ページを編集
@@ -717,7 +736,7 @@ ja:
         dashboard: ダッシュボード
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
-        metrics: メトリック
+        metrics: 指標
         participants: 参加者
         scope_types: スコープの種類
         scopes: スコープ
@@ -805,7 +824,6 @@ ja:
           fields:
             hidden_at: '非表示:'
             report_count: カウント
-            reportable: 報告可能
             reported_content_url: 報告されたコンテンツ URL
             reports: レポート
             visit_url: URL を参照

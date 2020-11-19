@@ -20,6 +20,7 @@ module Decidim
   autoload :Traceable, "decidim/traceable"
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
+  autoload :UserReportable, "decidim/user_reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
@@ -77,7 +78,6 @@ module Decidim
   autoload :Amendable, "decidim/amendable"
   autoload :Gamification, "decidim/gamification"
   autoload :Hashtag, "decidim/hashtag"
-  autoload :Hashtaggable, "decidim/hashtaggable"
   autoload :Paddable, "decidim/paddable"
   autoload :OpenDataExporter, "decidim/open_data_exporter"
   autoload :IoEncoder, "decidim/io_encoder"
@@ -86,6 +86,9 @@ module Decidim
   autoload :Randomable, "decidim/randomable"
   autoload :Endorsable, "decidim/endorsable"
   autoload :ActionAuthorization, "decidim/action_authorization"
+  autoload :Map, "decidim/map"
+  autoload :Geocodable, "decidim/geocodable"
+  autoload :Snippets, "decidim/snippets"
   autoload :OrganizationSettings, "decidim/organization_settings"
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
@@ -113,7 +116,7 @@ module Decidim
           organization,
           manifest.name,
           Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(15)
+            Decidim::Faker::Localized.sentence(word_count: 15)
           end
         )
       end
@@ -147,7 +150,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -174,6 +177,10 @@ module Decidim
 
   # Exposes a configuration option: an object to configure geocoder
   config_accessor :geocoder
+
+  # Exposes a configuration option: an object to configure the mapping
+  # functionality. See Decidim::Map for more information.
+  config_accessor :maps
 
   # Exposes a configuration option: a custom method to generate references.
   # If overwritten, it should handle both component resources and participatory spaces.
@@ -353,6 +360,12 @@ module Decidim
   # step setting :amendments_visibility.
   config_accessor :amendments_visibility_options do
     %w(all participants)
+  end
+
+  # Exposes a configuration option: The maximum length for conversation
+  # messages.
+  config_accessor :maximum_conversation_message_length do
+    1_000
   end
 
   # Defines the name of the cookie used to check if the user allows Decidim to

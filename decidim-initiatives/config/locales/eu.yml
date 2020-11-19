@@ -15,14 +15,6 @@ eu:
           online: OnLine
         state: Estatu
         title: Izenburua
-      initiative_author:
-        address: Helbidea
-        city: hiria
-        id_document: DNI / NIE
-        name: Izena eta abizena
-        phone_number: Telefono zenbakia
-        post_code: Posta kodea
-        province: Probintzia
       initiatives_committee_member:
         user: Batzordeko kidea
       initiatives_type:
@@ -249,14 +241,12 @@ eu:
         fill_data:
           back: Back
           continue: Jarraitu
-          fill_data_help: "<ul> <li>Zure ekimenaren edukia berrikusi. Zure izenburua ulertzeko erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>pertsonalean, linean edo konbinazio batean. Zein da ekimenaren eremu geografikoa? Hiria, auzoa?</li> </ul>"
           initiative_type: Ekimen mota
           more_information: "(Informazio gehiago)"
           select_scope: Aukeratu esparrua
         finish:
           back: Back
           back_to_initiatives: Ekimenetara itzuli
-          callout_text: Zorionak! Herritarren ekimena ondo sortu da.
           go_to_my_initiatives: Joan nire ekimenei
           more_information: "(Informazio gehiago)"
         finish_help:
@@ -273,14 +263,12 @@ eu:
           more_information: "(Informazio gehiago)"
         promotal_committee:
           back: Back
-          individual_help_text: Herritarren ekimen mota honek gutxienez %{committee_size} pertsona (egiaztatzaile) osatutako Sustapen Batzordea eskatzen du. Hurrengo estekarekin partekatu behar duzu ekimen honen parte diren beste pertsona batzuekin. Zure kontaktuak esteka hau jasotzen duenean, adierazitako urratsak jarraitu beharko dituzte.
           more_information: "(Informazio gehiago)"
         select_initiative_type:
           back: Back
           choose_html: <strong>%{title}</strong>bat sortu nahi dut
           more_information: "(Informazio gehiago)"
           select: Ekimen hau sustatu nahi dut
-          select_initiative_type_help: Herritarren ekimenak herritarrek esku hartu ahal izateko bitartekoak dira, Udalak Udalaren jurisdikzioaren esparruan dauden interes orokorren defentsarako ekintzak burutzeko. Zein ekimen abiarazi nahi duzu?
         share_committee_link:
           continue: Jarraitu
           invite_to_committee_help: Sustapen batzordearen parte izango duten pertsonei gonbidatzeko esteka
@@ -375,16 +363,10 @@ eu:
             validating: Proposamen hau ebaluatzen ari da
           initiative_rejected_reason: Ekimen hau baztertu egin da laguntza faltagatik.
         show:
-          any_vote_method: Herritarren ekimen honek lineako laguntza eta aurrez aurre biltzen ditu.
           follow_description: Jakinarazpen bat jasotzen denean ekimen honetako berriak daude
-          offline_method: Herritarren ekimen honek aurrez aurrekoak baino ez ditu biltzen.
-        signature_identities:
-          select_identity: Hautatu erabiltzailearen identifikatzailea
         signatures_count:
           one: " sinadura"
           other: " sinadurak"
-        supports:
-          title: Sinadura zerrenda
         vote_cabin:
           already_voted: Dagoeneko sinatuta
           supports_required: "%{total_supports} sinadura beharrezkoa da"

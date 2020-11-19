@@ -17,19 +17,19 @@ module Decidim::Meetings
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:title) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:short_description) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:location) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:location_hints) do
-      Decidim::Faker::Localized.sentence(3)
+      Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:services) do
       build_list(:service, 2)
@@ -49,6 +49,11 @@ module Decidim::Meetings
     let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:type_of_meeting) { "in_person" }
+    let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -63,7 +68,12 @@ module Decidim::Meetings
         end_time: end_time,
         private_meeting: private_meeting,
         transparent: transparent,
-        services: services_attributes
+        services: services_attributes,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url
       }
     end
 
@@ -87,7 +97,8 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing" do
+    describe "when location is missing and type of meeting is in_person" do
+      let(:type_of_meeting) { "in_person" }
       let(:location) { { en: nil } }
 
       it { is_expected.not_to be_valid }
@@ -176,6 +187,39 @@ module Decidim::Meetings
       subject { form.number_of_services }
 
       it { is_expected.to eq(services.size) }
+    end
+
+    describe "when online meeting link is missing and type of meeting is online" do
+      let(:type_of_meeting) { "online" }
+      let(:online_meeting_url) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when type of meeting is missing" do
+      let(:type_of_meeting) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when registration type of meeting is missing" do
+      let(:registration_type) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when registration type is on this platform and available slots are missing" do
+      let(:available_slots) { nil }
+      let(:registration_type) { "on_this_platform" }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when registration url is missing and registration type of meeting is on different platform" do
+      let(:registration_type) { "on_different_platform" }
+      let(:registration_url) { nil }
+
+      it { is_expected.not_to be_valid }
     end
   end
 end

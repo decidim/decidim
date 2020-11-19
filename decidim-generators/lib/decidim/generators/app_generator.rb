@@ -115,7 +115,7 @@ module Decidim
         if current_gem == "decidim"
           gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-          %w(conferences consultations elections initiatives).each do |component|
+          %w(conferences consultations elections initiatives templates).each do |component|
             if options[:demo]
               gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
             else
@@ -170,7 +170,7 @@ module Decidim
         return unless options[:demo]
 
         gsub_file "config/initializers/decidim.rb",
-                  /# config.sms_gateway_service = \"MySMSGatewayService\"/,
+                  /# config.sms_gateway_service = "MySMSGatewayService"/,
                   "config.sms_gateway_service = 'Decidim::Verifications::Sms::ExampleGateway'"
       end
 
@@ -187,7 +187,7 @@ module Decidim
         return unless options[:demo]
 
         gsub_file "config/initializers/decidim.rb",
-                  /# config.timestamp_service = \"MyTimestampService\"/,
+                  /# config.timestamp_service = "MyTimestampService"/,
                   "config.timestamp_service = \"Decidim::Initiatives::DummyTimestamp\""
       end
 
@@ -195,7 +195,7 @@ module Decidim
         return unless options[:demo]
 
         gsub_file "config/initializers/decidim.rb",
-                  /# config.pdf_signature_service = \"MyPDFSignatureService\"/,
+                  /# config.pdf_signature_service = "MyPDFSignatureService"/,
                   "config.pdf_signature_service = \"Decidim::Initiatives::PdfSignatureExample\""
       end
 
@@ -203,7 +203,7 @@ module Decidim
         return unless options[:demo]
 
         gsub_file "config/initializers/decidim.rb",
-                  /# config.machine_translation_service = \"MyTranslationService\"/,
+                  /# config.machine_translation_service = "MyTranslationService"/,
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 

@@ -65,6 +65,7 @@ de:
     errors:
       general: Fehler bei der Bildverarbeitung
       image_too_big: Das Bild ist zu groß
+      not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -128,7 +129,6 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
-        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Benutzer eingeladen"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -441,7 +441,6 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
-            uncheck: Deaktivieren Sie das Kontrollkästchen
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -912,11 +911,7 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
-        update:
-          error: Nachricht nicht gesendet. Versuchen Sie es später noch einmal
     metrics:
-      download:
-        csv: Daten herunterladen (csv)
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
@@ -1058,7 +1053,6 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
-          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
@@ -1118,7 +1112,6 @@ de:
         date: Gemeldet am
         details: Einzelheiten
         hello: Hallo %{name},
-        manage_moderations: Moderationen verwalten
         participatory_space: Beteiligungsbereich
         reason: Grund
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>

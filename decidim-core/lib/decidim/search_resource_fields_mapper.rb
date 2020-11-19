@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A class with the responsibility to mapp fields between a Searchable and a SearchableResource.
+  # A class with the responsibility to map fields between a Searchable and a SearchableResource.
   class SearchResourceFieldsMapper
+    include ActionView::Helpers::SanitizeHelper
+
     #
     # Declared fields may be of types:
     # - Hash for deep associations.
@@ -61,9 +63,9 @@ module Decidim
     def retrieve_organization(resource)
       if @declared_fields[:organization_id].present?
         organization_id = read_field(resource, @declared_fields, :organization_id)
-        Decidim::Organization.find(organization_id)
+        Decidim::Organization.find_by(id: organization_id)
       else
-        participatory_space(resource).organization
+        participatory_space(resource)&.organization
       end
     end
 
@@ -125,8 +127,19 @@ module Decidim
       return if content.nil?
 
       content = Array.wrap(content).collect do |item|
-        item.is_a?(Hash) ? item[locale] : item
+        text = if item.is_a?(Hash)
+                 item[locale].presence || item.dig("machine_translations", locale) || ""
+               else
+                 item
+               end
+
+        if text.is_a?(String)
+          strip_tags(Decidim::ContentProcessor.render_without_format(text, links: false))
+        else
+          text
+        end
       end
+
       content.respond_to?(:join) ? content.join(" ") : content
     end
   end

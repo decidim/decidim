@@ -29,13 +29,13 @@
       <div class="mr-s">
         <%= link_to page_path("user/user-followers") do %>
           Followers
-          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
+          <h2 class="heading2"><strong><%= Faker::Number.number(digits: 2) %></strong></h2>
         <% end %>
       </div>
       <div class="ml-s">
         <%= link_to page_path("user/user-following") do %>
           Following
-          <h2 class="heading2"><strong><%= Faker::Number.number(2) %></strong></h2>
+          <h2 class="heading2"><strong><%= Faker::Number.number(digits: 2) %></strong></h2>
         <% end %>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <div class="row column mb-s">
         <strong class="muted">Badges</strong>
         <div class="badge-tip badge-tip--inline">
-          <div data-tooltip data-position="top" title="<%= Faker::Lebowski.quote %>">
+          <div data-tooltip data-position="top" title="<%= Faker::Movies::Lebowski.quote %>">
             <%= icon "info", class: "icon--small" %>
           </div>
         </div>

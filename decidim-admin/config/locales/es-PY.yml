@@ -30,7 +30,6 @@ es-PY:
         body: Cuerpo
         subject: Asunto
       organization:
-        address: Nombre de host SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -66,20 +65,16 @@ es-PY:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Contraseña
-        port: Puerto
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         rich_text_editor_in_public_views: Habilitar editor de texto enriquecido para las participantes
         secondary_color: Secundario
         send_welcome_notification: Enviar notificación de bienvenida
-        show_statistics: Mostrar estadísticas
         success_color: Éxito
         time_zone: Zona Horaria
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
-        user_name: Nombre de usuario
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
@@ -143,6 +138,7 @@ es-PY:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        share: Compartir
         verify: Verificar
       admin_terms_of_use:
         accept:
@@ -270,6 +266,7 @@ es-PY:
           headers:
             actions: Comportamiento
             name: Nombre del componente
+            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar componente
@@ -298,6 +295,9 @@ es-PY:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Estado
           values:
@@ -318,6 +318,7 @@ es-PY:
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+          reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
         state_eq:
           label: Estado
@@ -439,6 +440,14 @@ es-PY:
           fields:
             name: Nombre
             plural: Plural
+        share_token:
+          fields:
+            created_at: Creado el
+            expires_at: Caduca el
+            last_used_at: Último uso
+            times_used: Veces utilizado
+            token: Token
+            user: Creado por
         static_page:
           fields:
             created_at: Fecha de creación
@@ -471,6 +480,21 @@ es-PY:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+        reports:
+          index:
+            author: Autor(as)
+            callout_html: Un contenido aparece en el panel de moderación cuando ha sido reportado por una usuaria (puede ser cualquier persona con una cuenta registrada) haciendo clic en el icono %{icon} junto al contenido.
+            content_original_language: Idioma del contenido original
+            participatory_space: Espacio de participación
+            reported_content: Contenido reportado
+            see_current: Ver actual
+            see_original: Ver original
+            title: Informes de moderación
+          show:
+            report_details: Detalles del motivo
+            report_language: Idioma del informe
+            report_reason: Motivo
+            title: Detalles del informe
       newsletter_templates:
         index:
           preview_template: Previsualizar
@@ -576,7 +600,6 @@ es-PY:
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
@@ -611,7 +634,6 @@ es-PY:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
-          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
@@ -621,7 +643,7 @@ es-PY:
           invalid: Se ha producido un error al leer el archivo CSV.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
-          explanation: Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y nombre en la última columna del archivo (correo electrónico, nombre) de las participantes que quieras añadir al espacio participativo, sin cabeceras.
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo (correo electrónico, nombre) de los usuarios que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuario.'
           title: Sube tu archivo CSV
           upload: Subir
       resource_permissions:
@@ -630,6 +652,10 @@ es-PY:
           title: Editar permisos
         update:
           success: Permisos actualizados con éxito.
+      resources:
+        index:
+          headers:
+            scope: Ámbito
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -661,6 +687,18 @@ es-PY:
         update:
           error: Se produjo un error en la actualización de este ámbito.
           success: Ámbito actualizado correctamente
+      share_tokens:
+        actions:
+          confirm_destroy: '¿Seguro que quieres eliminar este token?'
+          destroy: Eliminar
+          share: Compartir
+        destroy:
+          error: Se ha producido un error al eliminar este token.
+          success: Token eliminado correctamente.
+        share_tokens:
+          empty: No hay tokens activos
+          help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
+          title: Compartir tokens
       shared:
         gallery:
           add_images: Añadir imágenes
@@ -783,6 +821,7 @@ es-PY:
           reason: Debe proporcionar una razón para impersonar a un usuario no administrado
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
@@ -803,12 +842,19 @@ es-PY:
       models:
         moderation:
           fields:
+            created_at: Fecha de creación
             hidden_at: Fecha de ocultación
             report_count: Recuento
-            reportable: Tipo
+            reportable_id: Id
+            reportable_type: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
             visit_url: Visita la URL
+        report:
+          fields:
+            details: Detalles del motivo
+            locale: Idioma
+            reason: Motivo
   errors:
     messages:
       invalid_json: JSON no válido

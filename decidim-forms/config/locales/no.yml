@@ -76,7 +76,6 @@
             up: Opp
           update:
             invalid: Det oppstod et problem med å lagre dette skjema.
-            success: Skjemaene ble lagret.
       errors:
         answer:
           body: Teksten kan ikke være blank

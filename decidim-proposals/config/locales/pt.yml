@@ -356,9 +356,7 @@ pt:
           new_import:
             accepted_mime_types:
               md: Anotação
-              odt: Odt
             bottom_hint: "(Será capaz de pré-visualizar e classificar as secções do documento)"
-            document_legend: 'Adicione um documento menor que 2MB, cada secção até 3 níveis de profundidade será analisada em Propostas. Os formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Enviar documento
           publish:
