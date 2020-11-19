@@ -459,6 +459,16 @@ fi:
           address: Osoite
           author_title: Aloitteen laatija
           city: Kaupunki
+          email: Sähköposti
+          full_name: Koko nimi
+          id_number: ID-numero
+          initiative:
+            description: 'Kuvaus:'
+            title: 'Otsikko:'
+            type: Aloitteen tyyppi
+          place_date: Paikka, Päivämäärä
+          postal_code: Postinumero
+          print: Tulosta
         result:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
