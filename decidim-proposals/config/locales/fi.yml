@@ -27,6 +27,7 @@ fi:
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
+        cost: Kustannusarvio
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
