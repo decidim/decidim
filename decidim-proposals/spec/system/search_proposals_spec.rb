@@ -4,6 +4,9 @@ require "spec_helper"
 
 describe "Search proposals", type: :system do
   include_context "with a component"
+  let(:participatory_process) do
+    create(:participatory_process, :published, :with_steps, organization: organization)
+  end
   let(:manifest_name) { "proposals" }
   let!(:searchables) { create_list(:proposal, 3, component: component) }
   let!(:term) { translated(searchables.first.title).split(" ").last }
