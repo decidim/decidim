@@ -30,7 +30,6 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
@@ -66,8 +65,6 @@ fr-CA:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
-        password: Mot de passe
-        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
@@ -79,7 +76,6 @@ fr-CA:
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
-        user_name: Nom d'utilisateur
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
