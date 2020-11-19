@@ -8,6 +8,7 @@ describe Decidim::EventPublisherJob do
   shared_examples_for "batch priority" do |priority, enqueues_jobs|
     let(:priority) { priority }
 
+    # rubocop:disable RSpec/EmptyExampleGroup
     context "when the priority is #{priority}" do
       if enqueues_jobs == true
         it "enqueues the jobs" do
@@ -26,6 +27,7 @@ describe Decidim::EventPublisherJob do
       end
     end
   end
+  # rubocop:enable RSpec/EmptyExampleGroup
 
   describe "queue" do
     it "is queued to events" do
