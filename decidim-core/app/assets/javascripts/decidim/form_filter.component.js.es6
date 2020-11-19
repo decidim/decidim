@@ -50,9 +50,9 @@
         this.mounted = true;
         let queue = 0;
 
-        let content_container = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
-        if(content_container[0] == null){
-          content_container = this.$form.data("remoteFill");
+        let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+        if (contentContainer[0] === undefined) {
+          contentContainer = this.$form.data("remoteFill");
         }
         this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
 
@@ -62,23 +62,23 @@
             this.currentFormRequest.abort();
           }
           this.currentFormRequest = e.originalEvent.detail[0];
-          queue ++;
-          if(queue > 0 && content_container[0] != null && !content_container.hasClass("spinner-container")){
-            content_container.addClass("spinner-container");
+          queue = queue + 1;
+          if (queue > 0 && contentContainer[0] !== undefined && !contentContainer.hasClass("spinner-container")) {
+            contentContainer.addClass("spinner-container");
           }
         });
 
         this.$form.on("ajax:success", () => {
-          queue --;
-          if(queue <= 0 && content_container[0] != null){
-            content_container.removeClass("spinner-container");
+          queue = queue - 1;
+          if (queue <= 0 && contentContainer[0] !== undefined) {
+            contentContainer.removeClass("spinner-container");
           }
         });
 
         this.$form.on("ajax:error", () => {
-          queue --;
-          if(queue <= 0 && content_container[0] != null){
-            content_container.removeClass("spinner-container");
+          queue = queue - 1;
+          if (queue <= 0 && contentContainer[0] !== undefined) {
+            contentContainer.removeClass("spinner-container");
           }
           this.$form.find(".spinner-container").addClass("hide");
         });
