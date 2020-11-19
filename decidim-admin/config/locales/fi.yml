@@ -30,7 +30,6 @@ fi:
         body: Runko
         subject: Otsikko
       organization:
-        address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -66,8 +65,6 @@ fi:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
-        password: Salasana
-        port: Portti
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
@@ -79,7 +76,6 @@ fi:
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
-        user_name: Käyttäjänimi
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
