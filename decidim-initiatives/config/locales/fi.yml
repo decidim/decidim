@@ -469,6 +469,8 @@ fi:
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
           print: Tulosta
+          province: Lääni tai maakunta
+          signature: Allekirjoitus
         result:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
@@ -480,8 +482,11 @@ fi:
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
+          edit: Muokkaa
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä aloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
+          print: Tulosta aloite
+          send_to_technical_validation: Lähetä tekniseen validointiin
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
@@ -527,6 +532,9 @@ fi:
         accepted: Hyväksytyt
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
+      update:
+        error: Tapahtui virhe
+        success: Aloitteen päivitys onnistui
       versions:
         shared:
           back_to_resource: Takaisin aloitteeseen
