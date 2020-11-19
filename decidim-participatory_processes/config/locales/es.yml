@@ -94,9 +94,6 @@ es:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grupos de procesos
-        participatory_process_groups_submenu:
-          info: Información
-          landing_page: Página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -148,13 +145,6 @@ es:
           copy: Copiar
           select: Seleccione los datos que deseas duplicar
           title: Duplicar proceso participativo
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Bloques de contenido activos
-          inactive_content_blocks: Bloques de contenido inactivos
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Actualizar
       participatory_process_groups:
         destroy:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.

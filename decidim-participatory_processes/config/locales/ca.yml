@@ -94,9 +94,6 @@ ca:
         unpublish: Despublicar
       menu:
         participatory_process_groups: Grups de processos
-        participatory_process_groups_submenu:
-          info: Informació
-          landing_page: Pàgina d'inici
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -148,13 +145,6 @@ ca:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
           title: Duplica procés participatiu
-      participatory_process_group_landing_page:
-        edit:
-          active_content_blocks: Blocs de contingut actiu
-          inactive_content_blocks: Blocs de contingut inactiu
-      participatory_process_group_landing_page_content_blocks:
-        edit:
-          update: Actualitza
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.
