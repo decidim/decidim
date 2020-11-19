@@ -478,6 +478,7 @@ fi:
             description: 'Kuvaus:'
             title: 'Otsikko:'
             type: Aloitteen tyyppi
+          legal_text: Kerätyt henkilötiedot liitetään aloitteeseesi ja käsitellään luottamuksellisesti ajantasaisen lainsäädännön mukaisesti.
           phone_number: Puhelinnumero
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
@@ -496,6 +497,7 @@ fi:
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
+          confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit: Muokkaa
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä aloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
