@@ -615,6 +615,14 @@ en:
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
+          email_outro: You have received this notification because you are an author of the removed content.
+          email_subject: Your %{resource_type} has been removed
+          notification_title: |-
+            An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
@@ -1128,13 +1136,15 @@ en:
       report:
         authors: Authors
         content: Reported content
+        content_original_language: Content original language
         date: Reported on
         details: Details
         hello: Hello %{name},
-        manage_moderations: Manage moderations
+        id: ID
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        see_report: See report
         subject: A resource has been reported
     reports:
       create:

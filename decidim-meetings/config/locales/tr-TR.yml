@@ -29,9 +29,7 @@ tr:
         title: Başlık
         transparent: Şeffaf
       minutes:
-        audio_url: Ses url
         description: Açıklama
-        video_url: Video linki
         visible: Görünür
     errors:
       models:

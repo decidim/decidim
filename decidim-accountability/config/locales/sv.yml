@@ -190,6 +190,8 @@ sv:
             heading_leaf_level_results: Namn för "Projekt"
             heading_parent_level_results: Namn för "Resultat"
             intro: Intro
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
             subcategories_label: Namn för "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerade

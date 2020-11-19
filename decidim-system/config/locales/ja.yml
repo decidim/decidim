@@ -153,8 +153,6 @@ ja:
             api_key: API キー
             api_secret: API secret
         smtp_settings:
-          instructions:
-            from_label: 'メール送信者は "あなたの組織名 <your-organization@example.org>"になります。''from_email''をラベルとして使用する場合は空白のままにしてください。'
           placeholder:
             from_email: your-organization@example.org
             from_label: 組織名

@@ -103,7 +103,6 @@ eu:
             title: Uneko erroldako datuak
           instructions:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
-            title: Erakunde honetarako Csv errolda aktibatu behar duzu
           new:
             file: ".csv fitxategia helbide elektronikoen datuekin"
             submit: Kargatu fitxategia

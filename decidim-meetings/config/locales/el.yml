@@ -29,9 +29,7 @@ el:
         title: Τίτλος
         transparent: Διαφανής
       minutes:
-        audio_url: Διεύθυνση url ήχου
         description: Περιγραφή
-        video_url: Διεύθυνση url βίντεο
         visible: Είναι ορατό
     errors:
       models:

@@ -486,6 +486,7 @@
           "default_registration_terms_es": null,
           "comments_enabled": true,
           "resources_permissions_enabled": true,
+          "registration_code_enabled": true,
           "enable_pads_creation": false
         },
         "weight": 0,

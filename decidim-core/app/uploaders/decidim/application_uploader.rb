@@ -5,6 +5,8 @@ module Decidim
   # hold the uploads configuration, so you should inherit from this class and
   # then tweak any configuration you need.
   class ApplicationUploader < CarrierWave::Uploader::Base
+    include CarrierWave::MiniMagick
+
     process :validate_inside_organization
 
     # Override the directory where uploaded files will be stored.

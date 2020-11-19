@@ -20,9 +20,9 @@ data:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
   write:
     <% Dir.glob("decidim-*").each do |path| -%>
-      <%= "- ['#{path.sub('-', '.')}.*', '#{path}/config/locales/%{locale}.yml']" %>
+    <%= "- ['#{path.sub('-', '.')}.*', '#{path}/config/locales/%{locale}.yml']" %>
     <% end -%>
-      - 'decidim-core/config/locales/%{locale}.yml'
+    - 'decidim-core/config/locales/%{locale}.yml'
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
   # router: convervative_router
@@ -45,20 +45,20 @@ search:
   ## Paths or `File.find` patterns to search in:
   paths:
     <% Dir.glob("decidim-*").each do |path| -%>
-      <%= "- #{path}/app\n" %>
-      <%= "- #{path}/lib\n" %>
+    <%= "- #{path}/app\n" %>
+    <%= "- #{path}/lib\n" %>
     <% end -%>
 
   # Root directories for relative keys resolution.
   relative_roots:
     <% Dir.glob("decidim-*").each do |path| -%>
-      <%= "- #{path}/app/controllers\n" %>
-      <%= "- #{path}/app/helpers\n" %>
-      <%= "- #{path}/app/mailers\n" %>
-      <%= "- #{path}/app/presenters\n" %>
-      <%= "- #{path}/app/services\n" %>
-      <%= "- #{path}/app/views\n" %>
-      <%= "- #{path}/app/cells\n" %>
+    <%= "- #{path}/app/controllers\n" %>
+    <%= "- #{path}/app/helpers\n" %>
+    <%= "- #{path}/app/mailers\n" %>
+    <%= "- #{path}/app/presenters\n" %>
+    <%= "- #{path}/app/services\n" %>
+    <%= "- #{path}/app/views\n" %>
+    <%= "- #{path}/app/cells\n" %>
     <% end -%>
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:

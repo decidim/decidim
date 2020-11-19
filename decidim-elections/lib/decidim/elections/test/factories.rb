@@ -16,15 +16,21 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     end_time { 3.days.from_now }
     published_at { nil }
+    blocked_at { nil }
+    bb_status { nil }
     questionnaire
     component { create(:elections_component) }
 
     trait :upcoming do
       start_time { 1.day.from_now }
+      blocked_at { Time.current }
+      bb_status { "key_ceremony" }
     end
 
     trait :started do
       start_time { 2.days.ago }
+      blocked_at { Time.current }
+      bb_status { "key_ceremony" }
     end
 
     trait :ongoing do
@@ -34,6 +40,8 @@ FactoryBot.define do
     trait :finished do
       started
       end_time { 1.day.ago }
+      blocked_at { Time.current }
+      bb_status { "key_ceremony" }
     end
 
     trait :published do
@@ -46,6 +54,13 @@ FactoryBot.define do
         election.questions << build(:question, :candidates, election: election, weight: 3)
         election.questions << build(:question, :projects, election: election, weight: 2)
         election.questions << build(:question, :nota, election: election, weight: 4)
+      end
+    end
+
+    trait :ready_for_setup do
+      complete
+      after(:create) do |election, _evaluator|
+        create_list(:trustees_participatory_space, 2, :trustee_ready, participatory_space: election.component.participatory_space)
       end
     end
   end
@@ -120,11 +135,20 @@ FactoryBot.define do
         trustee.elections << build(:election)
       end
     end
+
+    trait :with_public_key do
+      considered
+      public_key { Random.urlsafe_base64(30) }
+    end
   end
 
   factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do
     participatory_space { create(:participatory_process) }
     considered { true }
     trustee
+
+    trait :trustee_ready do
+      association :trustee, :with_public_key
+    end
   end
 end

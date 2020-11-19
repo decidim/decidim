@@ -1,10 +1,12 @@
 <% add_decidim_page_title(proposal_wizard_step_title(action_name)) %>
 
 <div class="row columns">
-  <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to :back, class: "muted-link" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
   <h2 class="section-heading"><%= t(".title") %></h2>
 </div>
 

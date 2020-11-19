@@ -315,6 +315,9 @@ sv:
         content_blocks:
           highlighted_processes:
             max_results: Högsta antal element att visa
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL-slugs används till att generera de URL:er som pekar på processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
