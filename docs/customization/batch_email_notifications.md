@@ -19,17 +19,21 @@ This is based on 3 parameters:
 - batch_email_notifications_max_length: Number of notifications to send in the same email (default to 5)
 
 ## How to setup?
+
 ### App setup
+
 In `config/initialize/decidim.rb`
 
 Set to desired value
-```
+
+```ruby
 config.batch_email_notifications_enabled = true
 config.batch_email_notifications_expired = 1.week
 config.batch_email_notifications_max_length = 5
 ```
 
 ### Server setup
+
 Batch email notification required to execute a rake task ("rake decidim:batch_email_notifications:send") at regular intervals.
 
 1. Cron setup
