@@ -44,6 +44,10 @@ module Decidim::Meetings
       let!(:registration) { create(:registration, meeting: meeting, code: code, validated_at: nil, user: user) }
 
       shared_examples_for "notifies the change" do
+        before do
+          meeting.component.update!(settings: { registration_code_enabled: true })
+        end
+
         it "notifies the change" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
