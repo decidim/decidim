@@ -30,7 +30,6 @@ zh-CN:
         body: 正文内容
         subject: 议 题
       organization:
-        address: SMTP hostname
         alert_color: 警告
         badges_enabled: 启用徽章
         comments_max_length: 评论最大长度 (默认值留0)
@@ -66,8 +65,6 @@ zh-CN:
         omnipresent_banner_short_description: 简短描述
         omnipresent_banner_title: 标题
         omnipresent_banner_url: 网址
-        password: 密码
-        port: 端口
         primary_color: 主要的
         reference_prefix: 参考前缀
         rich_text_editor_in_public_views: 为参与者启用富文本编辑器
@@ -79,7 +76,6 @@ zh-CN:
         tos_version: 服务条款版本
         twitter_handler: Twitter handler
         user_groups_enabled: 启用组
-        user_name: 用户名
         warning_color: 警告
         welcome_notification_body: 欢迎通知机构
         welcome_notification_subject: 欢迎通知主题
