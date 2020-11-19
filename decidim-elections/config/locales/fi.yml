@@ -157,7 +157,7 @@ fi:
             minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
             published: Vaalia <strong>ei ole julkaistu</strong>
             time_before: Aloitusaika on <strong>alle 3 tuntia</strong> ennen vaalin alkamista
-            trustee_public_key: ei ole <strong>kelvollista julkista avainta</strong>
+            trustee_public_key: luottamushenkilöllä ei ole <strong>kelvollista julkista avainta</strong>
             trustees_quorum: Luottamushenkilöiden määrä <strong>ei vastaa vaadittua luottamushenkilöiden määrää</strong>
           requirements:
             max_selections: Kaikilla kysymyksillä on oikea arvo asetukselle <strong>vastausten maksimimäärä</strong>
@@ -165,7 +165,7 @@ fi:
             minimum_questions: Vaalilla on <strong>vähintään 1 kysymys</strong>
             published: Vaali <strong>on julkaistu</strong>
             time_before: Vaalin määritys tulee tapahtua <strong>vähintään 3 tuntia</strong> ennen sen alkamista
-            trustee_public_key: on <strong>kelvollinen julkinen avain</strong>
+            trustee_public_key: luottamushenkilöllä on <strong>kelvollinen julkinen avain</strong>
             trustees_quorum: Tämän luottamushenkilölistan henkilöiden määrä on oikea ja se vaatii <strong>vähintään %{quorum} luottamushenkilöä</strong> ääntenlaskuprosessin suorittamiseksi
           show:
             setup: Määritä vaali
@@ -365,6 +365,7 @@ fi:
             email_intro: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}.
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_title}.
             email_subject: Sinut on lisätty luottamushenkilöksi vaaliin %{resource_title}..
+            notification_title: Olet luottamushenkilö vaalissa <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Hallinnointikäyttäjä on myöntänyt sinulle luottamushenkilön tehtävän kohteessa %{resource_name}. Sinun tulee luoda julkinen tunnistusavain <a href='%{trustee_zone_url}'>omalla luottamushenkilöiden alueellasi</a>
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinulle on myönnettu luottamushenkilön tehtävä kohteessa %{resource_name}.
