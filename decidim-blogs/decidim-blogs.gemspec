@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-admin", Decidim::Blogs.version
   s.add_dependency "decidim-comments", Decidim::Blogs.version
   s.add_dependency "decidim-core", Decidim::Blogs.version
-  s.add_dependency "httparty", "~> 0.17"
   s.add_dependency "jquery-tmpl-rails", "~> 1.1"
   s.add_dependency "kaminari", "~> 1.2", ">= 1.2.1"
 
