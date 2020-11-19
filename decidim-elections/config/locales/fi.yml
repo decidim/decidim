@@ -59,9 +59,12 @@ fi:
         edit: Muokkaa
         feedback: Äänestäjän palaute
         import: Tuo ehdotuksia vastauksiin
+        manage_answers: Hallitse vastauksia
+        manage_questions: Hallinnoi kysymyksiä
         new: Uusi %{name}
         preview: Esikatsele
         publish: Julkaise
+        setup: Asetukset
         title: Toiminnot
         unpublish: Lopeta julkaisu
       admin:
@@ -102,6 +105,9 @@ fi:
             title: Uusi vaali
           publish:
             success: Vaalin julkaisu onnistui.
+          setup:
+            invalid: Vaalin asetusten määrittäminen epäonnistui
+            success: Vaalin lähetys ilmoitustaululle onnistui
           unpublish:
             success: Vaalin julkaisu epäonnistui.
           update:
@@ -144,6 +150,13 @@ fi:
           update:
             invalid: Kysymyksen päivitys epäonnistui
             success: Kysymyksen päivitys onnistui
+        setup:
+          show:
+            setup: Määritä vaali
+            title: Vaalin asetukset
+          update:
+            setup: Määritä vaali
+            title: Vaalin asetukset
         trustees_participatory_spaces:
           actions:
             disable: Poista käytöstä
