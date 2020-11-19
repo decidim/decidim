@@ -347,6 +347,16 @@ fi:
           compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että allekirjoitat sen. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
           continue: Oma aloitteeni on erilainen
           more_information: "(Lisää tietoa)"
+      edit:
+        accept: Hyväksy aloite
+        back: Takaisin
+        confirm: Oletko varma?
+        discard: Peru aloite
+        export_pdf_signatures: Vie allekirjoitukset PDF-tiedostona
+        export_votes: Vie allekirjoitukset
+        reject: Hylkää aloite
+        title: Muokkaa aloitetta
+        update: Päivitä
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
@@ -358,6 +368,10 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        add_attachments: Asiakirjat
+        attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
+        delete_attachment: Poista
       index:
         title: Aloitteet
       initiative_signatures:
@@ -394,6 +408,13 @@ fi:
           hidden_authors_count:
             one: ja yksi muu henkilö
             other: ja %{count} muuta henkilöä
+        committee_members:
+          approve: Hyväksy
+          confirm_revoke: Oletko varma?
+          invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
+          no_members_yet: Kannatuskomiteassa ei ole jäseniä
+          revoke: Peruuta
+          title: Komitean jäsenet
         count:
           title:
             one: "%{count} aloite"
@@ -435,6 +456,8 @@ fi:
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
         print:
+          address: Osoite
+          author_title: Aloitteen laatija
           city: Kaupunki
         result:
           answer_title:
