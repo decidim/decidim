@@ -49,6 +49,11 @@ FactoryBot.define do
       online_meeting_url { "https://decidim.org" }
     end
 
+    trait :hybrid do
+      type_of_meeting { :hybrid }
+      online_meeting_url { "https://decidim.org" }
+    end
+
     trait :official do
       author { component.organization if component }
     end
