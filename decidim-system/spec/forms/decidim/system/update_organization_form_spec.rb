@@ -17,12 +17,12 @@ module Decidim::System
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
         smtp_settings: {
-          address: "mail.gotham.gov",
-          port: "25",
-          user_name: "f.laguardia",
-          password: Decidim::AttributeEncryptor.encrypt("password"),
-          from_email: "decide@gotham.gov",
-          from_label: from_label
+          "address" => "mail.gotham.gov",
+          "port" => "25",
+          "user_name" => "f.laguardia",
+          "password" => Decidim::AttributeEncryptor.encrypt("password"),
+          "from_email" => "decide@gotham.gov",
+          "from_label" => "Decide Gotham"
         },
         omniauth_settings: {
           "omniauth_settings_facebook_enabled" => true,
@@ -32,7 +32,6 @@ module Decidim::System
       )
     end
 
-    let(:from_label) { "Decide Gotham" }
     let(:facebook_app_id) { "plain-text-facebook-app-id" }
     let(:facebook_app_secret) { "plain-text-facebook-app-secret" }
 
@@ -58,24 +57,6 @@ module Decidim::System
           expect(
             Decidim::AttributeEncryptor.decrypt(encrypted_settings["omniauth_settings_facebook_app_secret"])
           ).to eq(facebook_app_secret)
-        end
-      end
-
-      describe "#set_from" do
-        it "concatenates from_label and from_email" do
-          from = subject.set_from
-
-          expect(from).to eq("Decide Gotham <decide@gotham.gov>")
-        end
-
-        context "when from_label is empty" do
-          let(:from_label) { "" }
-
-          it "returns the email" do
-            from = subject.set_from
-
-            expect(from).to eq("decide@gotham.gov")
-          end
         end
       end
     end
