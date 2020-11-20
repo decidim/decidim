@@ -12,7 +12,7 @@ module Decidim
           "address" => "mail.gotham.gov",
           "port" => "25",
           "user_name" => "f.laguardia",
-          "password" => Decidim::AttributeEncryptor.encrypt("password"),
+          "encrypted_password" => Decidim::AttributeEncryptor.encrypt("password"),
           "from_email" => "",
           "from_label" => "",
           "from" => from
