@@ -10,7 +10,7 @@ VCR.configure do |config|
   config.ignore_request do |request|
     if defined?(Decidim::Elections)
       URI(request.uri).port != URI(Decidim::Elections.bulletin_board.server).port
-    else 
+    else
       true
     end
   end
