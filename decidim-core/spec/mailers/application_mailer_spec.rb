@@ -18,7 +18,7 @@ module Decidim
           "from" => from
         }
       end
-      let(:mail) { described_class.fake_mail(user, organization) }
+      let(:mail) { described_class.send_email(user, organization) }
       let(:from) { "" }
 
       it "update correctly mail.delivery_method.settings" do
@@ -29,24 +29,24 @@ module Decidim
       end
 
       context "when there is no organization at all" do
-        let(:mail) { described_class.fake_mail(user, nil) }
+        let(:mail) { described_class.send_email(user, nil) }
 
-        it "returns values defined in Decidim.config" do
+        it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
           expect(mail.reply_to).to eq(nil)
         end
       end
 
-      context "when smtp_settings are not setted" do
+      context "when smtp_settings are not set" do
         let(:smtp_settings) { nil }
 
-        it "returns values defined in Decidim.config" do
+        it "returns default values" do
           expect(mail.from).to eq(["change-me@example.org"])
           expect(mail.reply_to).to eq(nil)
         end
       end
 
-      context "when from label is not setted" do
+      context "when from is not set" do
         let(:from) { nil }
 
         it "set default values for mail.from and mail.reply_to" do
@@ -55,7 +55,7 @@ module Decidim
         end
       end
 
-      context "when from label is setted" do
+      context "when from is set" do
         let(:from) { "Bruce Wayne <decide@gotham.org>" }
 
         it "set default values for mail.from and mail.reply_to" do
