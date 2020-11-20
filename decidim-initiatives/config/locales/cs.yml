@@ -360,6 +360,9 @@ cs:
         discard: Zrušit iniciativu
         export_pdf_signatures: Exportovat PDF podpisů
         export_votes: Exportovat podpisy
+        reject: Odmítnout iniciativu
+        title: Upravit iniciativu
+        update: Aktualizovat
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
@@ -371,6 +374,10 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Iniciativa byla schválena od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Dokumenty
+        attachment_legend: "(Volitelné) přidat přílohy"
+        delete_attachment: Smazat
       index:
         title: Iniciativy
       initiative_signatures:
@@ -409,6 +416,13 @@ cs:
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
             other: a %{count} dalších lidí
+        committee_members:
+          approve: Schválit
+          confirm_revoke: Jste si jist?
+          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru
+          no_members_yet: V propagačním výboru nejsou žádní členové
+          revoke: Odvolat
+          title: Členové výboru
         count:
           title:
             one: "%{count} iniciativa"
@@ -454,7 +468,26 @@ cs:
           recent: Nejnovější
           recently_published: Nedávno publikované
         print:
+          address: Adresa
+          author_title: Autor iniciativy
           city: Město
+          email: E-mail
+          full_name: Celé jméno
+          general_title: Žádost o přijetí iniciativy
+          id_number: Identifikační číslo
+          initiative:
+            attachments: Připojená dokumentace (napište prosím název každého dokumentu níže)
+            description: 'Popis:'
+            title: 'Titul:'
+            type: Typ iniciativy
+          legal_text: Shromážděné osobní údaje organizace začlení a bude s nimi nakládat důvěrně v souladu s platnými právními předpisy.
+          phone_number: Telefonní číslo
+          place_date: Místo, datum
+          postal_code: PSČ/ZIP
+          print: Tisk
+          province: Kraj / Stát
+          section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
+          signature: Podpis
         result:
           answer_title:
             accepted: Tento návrh byl přijat, protože
@@ -466,6 +499,8 @@ cs:
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
+          confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
+          edit: Upravit
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
         signatures_count:
