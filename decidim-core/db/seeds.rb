@@ -16,6 +16,9 @@ if !Rails.env.production? || ENV["SEED"]
     table.tr("_", "/").classify.safe_constantize
   end.compact.each(&:reset_column_information)
 
+  smtp_label = Faker::Twitter.unique.screen_name
+  smtp_email = Faker::Internet.email
+
   organization = Decidim::Organization.first || Decidim::Organization.create!(
     name: Faker::Company.name,
     twitter_handler: Faker::Hipster.word,
@@ -24,7 +27,9 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: Faker::Hipster.word,
     github_handler: Faker::Hipster.word,
     smtp_settings: {
-      from: Faker::Internet.email,
+      from: "#{smtp_label} <#{smtp_email}>",
+      from_email: smtp_email,
+      from_label: smtp_label,
       user_name: Faker::Twitter.unique.screen_name,
       encrypted_password: Decidim::AttributeEncryptor.encrypt(Faker::Internet.password(min_length: 8)),
       address: ENV["DECIDIM_HOST"] || "localhost",
