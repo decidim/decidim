@@ -5,6 +5,12 @@ require "spec_helper"
 describe "Admin manages participatory process group landing page", type: :system do
   include_context "when admin administrating a participatory process"
   let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+  let(:active_content_blocks) do
+    Decidim::ContentBlock.for_scope(
+      :participatory_process_group_homepage,
+      organization: organization
+    ).where(scoped_resource_id: participatory_process_group.id)
+  end
 
   before do
     switch_to_host(organization.host)
@@ -27,21 +33,24 @@ describe "Admin manages participatory process group landing page", type: :system
     it "creates the content block to the db before editing it" do
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
 
-      expect(Decidim::ContentBlock.for_scope(
-        :participatory_process_group_homepage,
-        organization: organization
-      ).where(scoped_resource_id: participatory_process_group.id).count).to eq 0
-
-      within ".js-list-availables" do
-        within find("li", text: "Hero image") do
-          find("svg.icon--pencil").click
+      expect do
+        within ".js-list-availables" do
+          within find("li", text: "Hero image") do
+            find("svg.icon--pencil").click
+          end
         end
-      end
+      end.to change(active_content_blocks, :count).by(1)
+    end
 
-      expect(Decidim::ContentBlock.for_scope(
-        :participatory_process_group_homepage,
-        organization: organization
-      ).where(scoped_resource_id: participatory_process_group.id).count).to eq 1
+    it "creates the content block when dragged from inactive to active panel" do
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
+      content_block = first("ul.js-list-availables li")
+      active_blocks_list = find("ul.js-list-actives")
+
+      expect do
+        content_block.drag_to(active_blocks_list)
+        sleep(2)
+      end.to change(active_content_blocks, :count).by(1)
     end
   end
 
