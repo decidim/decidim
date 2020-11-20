@@ -630,6 +630,11 @@ cs:
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
+          email_subject: Váš %{resource_type} byl odstraněn
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
