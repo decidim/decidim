@@ -106,33 +106,16 @@ module Decidim
             expect(organization.tos_version).to eq(tos_page.updated_at)
           end
 
-          describe "#encrypted_smtp_settings" do
-            it "concatenates from_email and from_label" do
-              expect do
-                perform_enqueued_jobs { command.call }
-              end.to change(emails, :count).by(1)
-
-              organization = Organization.last
-
-              expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
-              expect(organization.smtp_settings["from_label"]).to eq("Decide Gotham")
-              expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
-              expect(last_email.From.value).to eq("Decide Gotham <decide@gotham.gov>")
-            end
-
+          describe "encrypted smtp settings" do
             context "when from_label is empty" do
               let(:from_label) { "" }
 
               it "sets the label from email" do
-                expect do
-                  perform_enqueued_jobs { command.call }
-                end.to change(emails, :count).by(1)
-
+                command.call
                 organization = Organization.last
 
                 expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
                 expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
-                expect(last_email.From.value).to eq("decide@gotham.gov")
               end
             end
           end

@@ -3,7 +3,7 @@
 module Decidim
   module DummyResources
     class DummyResourceMailer < ApplicationMailer
-      def send_email(user, organization)
+      def fake_mail(user, organization)
         @user = user
         @organization = organization
 
