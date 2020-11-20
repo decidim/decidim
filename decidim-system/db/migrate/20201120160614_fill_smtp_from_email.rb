@@ -9,4 +9,6 @@ class FillSmtpFromEmail < ActiveRecord::Migration[5.2]
       end
     end
   end
+
+  def down; end
 end
