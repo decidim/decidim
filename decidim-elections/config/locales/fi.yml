@@ -84,6 +84,12 @@ fi:
           new:
             create: Luo vastaus
             title: Uusi vastaus
+          select:
+            enable: Merkitse vastaus valituksi
+            invalid: Vastauksen valinta epäonnistui
+            success: Vastauksen valinta onnistui
+          unselect:
+            invalid: Vastauksen valinnan poisto epäonnistui
           update:
             invalid: Vastauksen päivitys epäonnistui
             success: Vastauksen päivitys onnistui
@@ -229,6 +235,12 @@ fi:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        results:
+          selected: Valittu
+          title: Vaalin tulokset
+          votes:
+            one: "%{count} ääni"
+            other: "%{count} ääntä"
         show:
           back: Käynnissä olevat vaalit
           preview: Esikatsele
