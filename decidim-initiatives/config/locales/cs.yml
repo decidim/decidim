@@ -143,6 +143,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Na následujícím odkazu můžete přestat odebírat oznámení.
           email_subject: Datum ukončení podpisů iniciativy bylo rozšířeno!
           notification_title: Konec konce podpisu iniciativy <a href="%{resource_path}">%{resource_title}</a> byl prodloužen.
+        initiative_sent_to_technical_validation:
+          email_intro: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_url}">admin panel</a>
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Iniciativa "%{resource_title} byla odeslána na technické potvrzení.
+          notification_title: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_path}">admin panel</a>
         milestone_completed:
           affected_user:
             email_intro: Vaše iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
@@ -209,6 +214,7 @@ cs:
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
+            confirm_send_to_technical_validation: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
@@ -326,10 +332,14 @@ cs:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
+          confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
           send_my_initiative: Poslat moji iniciativu
+        finish_help:
+          access_reminder: K iniciativám můžete přistupovat prostřednictvím filtru %{link} na stránce Iniciativy.
+          publish_helper_text: Nezapomeňte, že pro publikování vaší iniciativy musíte vyplnit požadované informace a <strong>je zašlete na technické potvrzení</strong>, aby ji správce mohl zkontrolovat.
         previous_form:
           back: Zpět
           continue: Pokračovat
@@ -503,6 +513,8 @@ cs:
           edit: Upravit
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
+          print: Tisk iniciativy
+          send_to_technical_validation: Poslat na technické ověření
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -552,6 +564,9 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
+      update:
+        error: Došlo k chybě
+        success: Tato iniciativa byla úspěšně aktualizována
       versions:
         shared:
           back_to_resource: Přejít zpět na iniciativu
