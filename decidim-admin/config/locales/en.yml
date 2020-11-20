@@ -484,6 +484,7 @@ en:
           name: Name
           nickname: Nickname
           reason: Reason
+          reports: Reports count
           title: Listing reported users
         report:
           reasons:

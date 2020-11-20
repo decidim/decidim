@@ -13,6 +13,7 @@
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
           <th><%= t(".reason") %></th>
+          <th><%= t(".reports") %></th>
           <th class="actions"><%= t(".actions.title") %></th>
         </tr>
         </thead>
@@ -29,6 +30,9 @@
             <td> <%#= moderation.reason %>
               <% reports = moderation.reports.map { |report| render "report", report: report } %>
               <%= safe_join(reports, ",") %>
+            </td>
+            <td>
+              <%= moderation.report_count %>
             </td>
 
             <td class="actions">
