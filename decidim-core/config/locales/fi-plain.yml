@@ -152,6 +152,8 @@ fi-pl:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
+      user_moderation:
+        unreport: "%{user_name} poisti ilmoituksen kohteelta %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>HALLINTAKÄYTTÄJÄN KÄYTTÖEHDOT</h2><p>Oletamme, että olet saanut järjestelmänvalvojalta koulutuksen järjestelmän turvalliseen hallintakäyttöön. Usein siinä korostuu seuraavat asiat:</p><ol><li>Kunnioita muiden käyttäjien yksityisyyttä ja tietosuojaa.</li><li>Mieti hetki ennen kuin klikkaat painikkeita.</li><li>Mitä enemmän sinulla on valtaa, sitä enemmän sinulla on vastuuta tekemisistäsi.</li></ol>"
     alert:
@@ -608,6 +610,13 @@ fi-pl:
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      reports:
+        resource_hidden:
+          email_intro: Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se ilmoitettiin asiattomana syyllä "%{report_reasons}".
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut poistetun kohteen.
+          email_subject: Laatimasi %{resource_type} on ilmoitettu
+          notification_title: |-
+            Hallintakäyttäjä poisti luomasi kohteen %{resource_type}, koska se on ilmoitettu asiattomana syyllä "%{report_reasons}".</br><i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri suositellut kohdetta "%{resource_title}" ja uskomme, että tämä voi kiinnostaa sinua. Tutustu ehdotukseen ja osallistu:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -1202,6 +1211,15 @@ fi-pl:
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
+      flag_user_modal:
+        already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
+        close: Sulje
+        description: Mikä tässä käyttäjässä on asiatonta?
+        does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
+        report: Tee ilmoitus
+        spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
+        title: Ilmoita asiaton käyttäjä
       floating_help:
         close: Sulje ohjeet
         help: Ohjeet
@@ -1277,6 +1295,13 @@ fi-pl:
       update:
         error: Kiinnostuksen kohteiden päivittämisessä tapahtui virhe.
         success: Kiinnostuksen kohteet on päivitetty onnistuneesti.
+    user_report_mailer:
+      notify:
+        body_1: Käyttäjä %{user} on ilmoitettu käyttäjän %{token} toimesta
+        body_2: 'Syy: %{reason}'
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei %{admin},
+        subject: Uusi käyttäjä on ilmoitettu palvelussa %{organization_name}
     version:
       show:
         back_to_resource: Siirry takaisin
