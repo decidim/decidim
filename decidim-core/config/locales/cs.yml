@@ -635,6 +635,9 @@ cs:
           email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
           email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
           email_subject: Váš %{resource_type} byl odstraněn
+          notification_title: |-
+            Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
