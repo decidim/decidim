@@ -64,7 +64,7 @@ module Decidim
       end
     end
 
-    describe "there are more than one questionnaire" do
+    describe "user answers more than one questionnaire" do
       let!(:component) { create(:component, participatory_space: questionnaire.questionnaire_for, organization: questionnaire.questionnaire_for.organization) }
       let!(:questionnaire2) { create(:questionnaire, questionnaire_for: component) }
       let!(:questions2) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire2, position: n } }
@@ -75,7 +75,7 @@ module Decidim
       let!(:participant2) { answers2.first }
 
       context "when completion of different questionnaires" do
-        it "returns the participant's completion percentage of two different questionnaires" do
+        it "returns the participant's completion percentage without mixing different questionnaires" do
           expect(subject.completion).to eq(100)
         end
       end
