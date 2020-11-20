@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages answers", type: :system do
   let!(:proposals) { create_list :proposal, 3, :accepted, component: origin_component }
   let!(:origin_component) { create :proposal_component, participatory_space: current_component.participatory_space }
-  let(:election) { create :election, :upcoming, component: current_component }
+  let(:election) { create :election, component: current_component }
   let(:question) { create :question, election: election }
   let(:answer) { create :election_answer, question: question }
   let(:manifest_name) { "elections" }
@@ -19,11 +19,11 @@ describe "Admin manages answers", type: :system do
     visit_component_admin
 
     within find("tr", text: translated(election.title)) do
-      page.find(".action-icon--edit-questions").click
+      page.find(".action-icon--manage-questions").click
     end
 
     within find("tr", text: translated(question.title)) do
-      page.find(".action-icon--edit-answers").click
+      page.find(".action-icon--manage-answers").click
     end
   end
 

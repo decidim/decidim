@@ -29,9 +29,7 @@ sk:
         title: Názov
         transparent: Transparentné
       minutes:
-        audio_url: Audio url
         description: Popis
-        video_url: Video url
         visible: Viditeľný
     errors:
       models:

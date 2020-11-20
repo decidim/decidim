@@ -52,8 +52,6 @@ nl:
         confirm_destroy: Weet je het zeker?
         destroy: Vernietig
         edit: Bewerken
-        edit_answers: Antwoorden bewerken
-        edit_questions: Vragen bewerken
         import: Importeer voorstellen naar antwoorden
         new: Nieuwe %{name}
         preview: Voorvertoning
@@ -167,7 +165,6 @@ nl:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
         show:
-          back: Alle verkiezingen
           preview: Voorvertoning
           vote: Stemming
           voting_period_status:

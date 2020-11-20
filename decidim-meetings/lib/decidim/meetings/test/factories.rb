@@ -34,8 +34,11 @@ FactoryBot.define do
     transparent { true }
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
+    registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
+    salt { SecureRandom.hex(32) }
 
     author do
       component.try(:organization)

@@ -48,8 +48,6 @@ de:
         confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
-        edit_answers: Antworten bearbeiten
-        edit_questions: Fragen bearbeiten
         import: Importieren Sie Vorschläge in Projekte
         new: Neue(r/s) %{name}
         preview: Vorschau
@@ -145,7 +143,6 @@ de:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
         show:
-          back: Alle Wahlen
           preview: Vorschau
           vote: Stimmen
           voting_period_status:

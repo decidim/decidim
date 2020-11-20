@@ -7,7 +7,7 @@ Remember to follow the Gitflow branching workflow.
 ## Create the stable branch for the release
 
 1. Go to develop with `git checkout develop`
-1. Create the release branch `git checkout -b release/x.y.z-stable && git push origin release/x.y.z-stable`.
+1. Create the release branch `git checkout -b release/x.y-stable && git push origin release/x.y-stable`.
 1. If required, add the release branch to Crowdin so that any pending translations will generate a PR to this branch.
 
 Mark `develop` as the reference to the next release:
@@ -43,6 +43,36 @@ Mark `develop` as the reference to the next release:
   ```
 
 1. Push the changes `git add . && git commit -m "Bump develop to next release version" && git push origin develop`
+
+## Producing the CHANGELOG.md
+
+Look for the "Bump develop to next release version" commit sha1. You can do it either visually with `gitk .decidim-version` or by blaming `git blame .decidim-version`.
+
+Here you have different options to see what happened from one revision to another:
+
+```bash
+git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline
+git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --grep " (#[0-9]\+)" --oneline
+git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --grep " (#[0-9]\+)"
+git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --pretty=format:"commit %h%n%n%s%n%nNotes:%n%n%N"  > full_log
+```
+
+That last command is the one used to generate log content for the GitLogParser. The `GitLogParser` translates git-log entries into our `CHANGELOG.mv` entries.
+It also groups the commits if they have a git note with the format: `{groupname}: {affected_modules}`, for example `Fixed: **decidim-core**, **decidim-proposals**`. This last example will add the commit to the "Fixed" group and prefix the commit message with "- **decidim-core**, **decidim-proposals**".
+The number at the end of each commit message is also replaced for a markdown link to the commit.
+
+There's how to run the parser rake task:
+
+```bash
+# remember to have the latest commits and notes locally
+git pull && git fetch origin refs/notes/*:refs/notes/*
+# generate the git log in the expected format
+git log 7579b34f55e4dcfff43c160edbbf14a32bf643b2..HEAD --pretty=format:"commit %h%n%n%s%n%nNotes:%n%n%N"  > full_log
+# parse the git log in the expected format and produce grouped changelog entries
+bin/rake parse_git_log[full_log]
+```
+
+You can now copy+paste the output of this task to each of groups in the `CHANGELOG.md`.
 
 ## Release Candidates
 

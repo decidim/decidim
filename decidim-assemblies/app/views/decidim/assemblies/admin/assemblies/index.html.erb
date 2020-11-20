@@ -84,14 +84,20 @@
               <td class="table-list__actions">
                 <% if allowed_to? :create, :assembly, assembly: assembly %>
                   <%= icon_link_to "data-transfer-download", assembly_export_path(assembly), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :create, :assembly, assembly: assembly %>
                   <%= icon_link_to "clipboard", new_assembly_copy_path(assembly), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :assembly, assembly: assembly %>
                   <%= icon_link_to "pencil", edit_assembly_path(assembly), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if assembly.children.count.positive? || allowed_to?(:create, :assembly) %>
@@ -99,10 +105,14 @@
                       url_for(query_params_with(parent_id_eq: assembly.id)),
                       t("decidim.admin.titles.assemblies"),
                       class: "action-icon--dial #{'highlighted' if assembly.children.count.positive?}" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :preview, :assembly, assembly: assembly %>
                   <%= icon_link_to "eye", decidim_assemblies.assembly_path(assembly), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
               </td>
             </tr>

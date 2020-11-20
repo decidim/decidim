@@ -28,6 +28,9 @@ en:
         user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
+        cost: Cost
+        cost_report: Cost report
+        execution_period: Execution period
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from

@@ -45,6 +45,8 @@
                                    edit_response_group_path(current_question, group),
                                    t("actions.configure", scope: "decidim.admin"),
                                    class: "action-icon--edit" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
               </td>
             </tr>

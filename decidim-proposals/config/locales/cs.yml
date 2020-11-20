@@ -27,6 +27,9 @@ cs:
         user_group_id: Vytvořit návrh jako
       proposal_answer:
         answer: Odpovědět
+        cost: Náklady
+        cost_report: Přehled nákladů
+        execution_period: Období provádění
       proposals_copy:
         copy_proposals: Chápu, že to bude importovat všechny návrhy z vybrané komponenty na aktuální a že tato akce nemůže být zrušena.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -388,9 +391,9 @@ cs:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
+              odt: ODT
             bottom_hint: "(Budete mít možnost zobrazit a třídit sekce dokumentů)"
-            document_legend: 'Přidejte dokument nižší než 2 MB, každá sekce až do hloubky 3 úrovní bude analyzována do návrhů. Podporované formáty jsou: %{valid_mime_types}'
+            document_legend: 'Přidejte dokument o velikosti menší než 2 Mb, každá sekce do tří úrovní bude rozdělena do návrhů. Podporované formáty jsou: %{valid_mime_types}'
             title: PŘIDAT DOKUMENT
             upload_document: Nahrát dokument
           publish:

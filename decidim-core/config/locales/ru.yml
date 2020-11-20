@@ -109,7 +109,6 @@ ru:
         update: "%{user_name} обновил настройки организации"
       participatory_space_private_user:
         create: "%{user_name} пригласил %{resource_name} стать частным участником"
-        create_via_csv: "%{user_name} пригласил %{resource_name} через csv стать частным участником"
         delete: "%{user_name} удалил участника %{resource_name} как приватного участника"
       scope:
         create: "%{user_name} добавил охват %{resource_name}"
@@ -651,7 +650,6 @@ ru:
         subject: Ресурс был автоматически скрыт
       report:
         hello: Здравствуйте, %{name}!
-        manage_moderations: Управление действиями по модерации
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
         subject: О ресурсе была передана жалоба администраторам
     reports:

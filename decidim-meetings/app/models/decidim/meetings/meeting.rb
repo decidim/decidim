@@ -25,6 +25,7 @@ module Decidim
       include Decidim::TranslatableResource
 
       TYPE_OF_MEETING = %w(in_person online).freeze
+      REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -64,6 +65,8 @@ module Decidim
                         },
                         index_on_create: ->(meeting) { meeting.visible? },
                         index_on_update: ->(meeting) { meeting.visible? })
+
+      after_initialize :set_default_salt
 
       # Return registrations of a particular meeting made by users representing a group
       def user_group_registrations
@@ -210,6 +213,18 @@ module Decidim
         type_of_meeting == "online"
       end
 
+      def registration_disabled?
+        registration_type == "registration_disabled"
+      end
+
+      def on_this_platform?
+        registration_type == "on_this_platform"
+      end
+
+      def on_different_platform?
+        registration_type == "on_different_platform"
+      end
+
       private
 
       def can_participate_in_meeting?(user)
@@ -224,6 +239,11 @@ module Decidim
         return false unless user
 
         invites.exists?(decidim_user_id: user.id)
+      end
+
+      # salt is used to generate secure hash in pads
+      def set_default_salt
+        self.salt ||= Tokenizer.random_salt
       end
     end
   end

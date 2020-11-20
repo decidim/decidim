@@ -7,6 +7,7 @@ module Decidim
     include Decidim::ViewHooksHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include Decidim::CellsHelper
 
     helper_method :profile_user, :logged_in?, :current_user
 
