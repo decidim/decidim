@@ -477,8 +477,10 @@ en:
       moderated_users:
         index:
           actions:
-            title: Actions
+            suspend: Block User
             unreport: Unreport
+            unsuspend: Unblock User
+            title: Actions
           name: Name
           nickname: Nickname
           reason: Reason
@@ -593,9 +595,9 @@ en:
           reports: Reports
           show_email: Show email address
           status: Status
-          suspend: Suspend User
+          suspend: Block User
           unofficialize: Unofficialize
-          unsuspend: Unsuspend User
+          unsuspend: Unblock User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -609,11 +611,11 @@ en:
           show: Show
           title: Show participant email address
         suspend:
-          error: There was an error suspending the participant
-          success: Participant successfully suspended
+          error: There was an error blocking the participant
+          success: Participant successfully blocked
         unsuspend:
-          error: There was an error unsuspending the participant
-          success: Participant successfully unsuspended
+          error: There was an error unblocking the participant
+          success: Participant successfully unblocked
       organization:
         edit:
           title: Edit organization
@@ -824,7 +826,7 @@ en:
           action: Block account and send justification
           description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
           justification: Justification
-          title: Suspend User %{name}
+          title: Block User %{name}
       user_suspension_mailer:
         notify:
           body_1: Your account was blocked.
