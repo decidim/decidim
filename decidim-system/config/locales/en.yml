@@ -1,5 +1,14 @@
 ---
 en:
+  activemodel:
+    attributes:
+      organization:
+        address: SMTP hostname
+        from_email: Email address
+        from_label: Label
+        password: Password
+        port: Port
+        user_name: Username
   decidim:
     system:
       actions:
@@ -82,8 +91,10 @@ en:
             api_key: API key
             api_secret: API secret
         smtp_settings:
+          fieldsets:
+            sender: Sender
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@your-provider.org>". Leave blank to use the ''from_email'' as label'
+            from_label: 'Email sender will be: "your-organization-name <your-organization@your-provider.org>". Leave blank to use the ''Email address'' as label'
           placeholder:
             from_email: your-organization@your-provider.org
             from_label: your-organization-name

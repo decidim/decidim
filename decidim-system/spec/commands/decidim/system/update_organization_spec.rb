@@ -23,12 +23,12 @@ module Decidim
               force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing",
               smtp_settings: {
-                "address" => "mail.gotham.gov",
-                "port" => "25",
-                "user_name" => "f.laguardia",
-                "password" => Decidim::AttributeEncryptor.encrypt("password"),
-                "from_email" => "decide@gotham.gov",
-                "from_label" => from_label
+                address: "mail.gotham.gov",
+                port: "25",
+                user_name: "f.laguardia",
+                password: Decidim::AttributeEncryptor.encrypt("password"),
+                from_email: "decide@gotham.gov",
+                from_label: from_label
               },
               omniauth_settings_facebook_enabled: true,
               omniauth_settings_facebook_app_id: "facebook-app-id",
@@ -49,6 +49,7 @@ module Decidim
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
             expect(organization.users_registration_mode).to eq("existing")
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
+            expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
             expect(
               Decidim::AttributeEncryptor.decrypt(organization.omniauth_settings["omniauth_settings_facebook_app_id"])
@@ -67,6 +68,7 @@ module Decidim
                 organization = Organization.last
 
                 expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
+                expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
               end
             end
           end
