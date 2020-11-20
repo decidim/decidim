@@ -141,6 +141,7 @@ en:
             create: Import proposals to answers
             no_components: There are no other proposal components in this participatory space to import the proposals into answers.
             select_component: Please select a component
+            title: Import proposals
         questions:
           create:
             invalid: There was a problem creating this question
