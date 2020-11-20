@@ -65,9 +65,12 @@ cs:
         edit: Upravit
         feedback: Zpětná vazba voličů
         import: Importovat návrhy na odpovědi
+        manage_answers: Spravovat odpovědi
+        manage_questions: Spravovat otázky
         new: Nový %{name}
         preview: Náhled
         publish: Publikovat
+        setup: Nastavení
         title: Akce
         unpublish: Zrušit publikování
       admin:
@@ -108,6 +111,9 @@ cs:
             title: Nové volby
           publish:
             success: Volba byla úspěšně publikována.
+          setup:
+            invalid: Při zřizování těchto voleb došlo k chybě
+            success: Volba byla úspěšně odeslána do Bulletin Board
           unpublish:
             success: Volba byla úspěšně odebrána ze zveřejnění.
           update:
@@ -150,6 +156,15 @@ cs:
           update:
             invalid: Při aktualizaci této otázky došlo k chybě
             success: Otázka byla úspěšně aktualizována
+        setup:
+          errors:
+            max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
+            minimum_answers: Otázky musí mít <strong>alespoň jednu odpověď</strong>.
+            minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
+            published: Volby <strong>nejsou publikovány</strong>
+            time_before: Počáteční čas je za <strong>méně než 3 hodiny</strong> před zahájením voleb
+            trustee_public_key: nemá <strong>platný veřejný klíč</strong>
+            trustees_quorum: Množství správců <strong>neodpovídá požadovanému počtu usnášeníschopných správců</strong>
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
