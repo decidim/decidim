@@ -353,6 +353,13 @@ cs:
           compare_help: Pokud je některá z následujících iniciativ podobná vašim, doporučujeme vám ji podpořit. Váš návrh bude mít více možností, jak to udělat.
           continue: Moje iniciativa je jiná
           more_information: "(Více informací)"
+      edit:
+        accept: Přijmout iniciativu
+        back: Zpět
+        confirm: Jste si jist?
+        discard: Zrušit iniciativu
+        export_pdf_signatures: Exportovat PDF podpisů
+        export_votes: Exportovat podpisy
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
