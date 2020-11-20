@@ -196,10 +196,6 @@ fr-CA:
         show:
           back: Élections disponibles
           preview: Aperçu
-          questions_preview:
-            available_answers: Réponses disponibles
-            description: Voici les questions que vous trouverez dans le processus de vote
-            title: Questions sur l'élection
           vote: Voter
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}
