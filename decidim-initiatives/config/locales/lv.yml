@@ -295,18 +295,10 @@ lv:
         finish:
           back: Atpakaļ
           back_to_initiatives: Atpakaļ pie iniciatīvām
-          confirm: Apstiprināt
           edit_my_initiative: Rediģēt manas iniciatīvas
           go_to_my_initiatives: Doties pie manām iniciatīvām
           more_information: "(Papildu informācija)"
           send_my_initiative: Nosūtīt manu iniciatīvu
-        finish_help:
-          access_reminder: Atcerieties, ka jūs vienmēr varēsiet piekļūt savām iniciatīvām, izmantojot dalībnieku izvēlni.
-          help_for_organizations: Ja esat biedrība, jums būs jāaugšupielādē visu organizāciju, kas veido veicināšanas komisiju, valdes sēžu protokoli
-          help_in_person_signatures: Ja esat izvēlējies parakstus vākt klātienē vai klātienes un tiešsaistes apvienojumā, jums būs jāaugšupielādē nepieciešamā informācija.
-          help_text: Atcerieties, ka, lai pareizi apstrādātu iniciatīvu, jums jāpiekļūst administrācijas panelim, kurā atradīsiet lietotāja izvēlni, augšupielādēsiet nepieciešamo informāciju un nosūtīsiet to apstrādei.
-          initiatives_page_link: Visu šo informāciju varat meklēt %{link}, kas paredzēts, lai informētu par iniciatīvām.
-          page: lapa
         previous_form:
           back: Atpakaļ
           continue: Turpināt
@@ -410,6 +402,8 @@ lv:
           random: Nejauši
           recent: Jaunākās
           recently_published: Pēdējās publicētās
+        print:
+          city: Pilsēta
         result:
           answer_title:
             accepted: Šis priekšlikums ir pieņemts, jo
