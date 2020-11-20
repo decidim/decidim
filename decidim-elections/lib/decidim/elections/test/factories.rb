@@ -63,6 +63,24 @@ FactoryBot.define do
         create_list(:trustees_participatory_space, 2, :trustee_ready, participatory_space: election.component.participatory_space)
       end
     end
+
+    trait :results do
+      started
+      end_time { 1.day.ago }
+      blocked_at { Time.current }
+      bb_status { "results" }
+      after(:build) do |election, _evaluator|
+        election.questions << build_list(:question, 3, :with_votes, election: election)
+      end
+    end
+
+    trait :results_published do
+      finished
+      bb_status { "results_published" }
+      after(:build) do |election, _evaluator|
+        election.questions << build_list(:question, 3, :with_votes, election: election)
+      end
+    end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
@@ -111,6 +129,14 @@ FactoryBot.define do
       answers { 8 }
       min_selections { 0 }
     end
+
+    trait :with_votes do
+      after(:build) do |question, evaluator|
+        overrides = { question: question }
+        overrides[:description] = nil unless evaluator.more_information
+        question.answers = build_list(:election_answer, evaluator.answers, :with_votes, overrides)
+      end
+    end
   end
 
   factory :election_answer, class: "Decidim::Elections::Answer" do
@@ -118,6 +144,12 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     weight { Faker::Number.number(digits: 1) }
+    selected { false }
+    votes_count { 0 }
+
+    trait :with_votes do
+      votes_count { Faker::Number.number(digits: 1) }
+    end
   end
 
   factory :trustee, class: "Decidim::Elections::Trustee" do
