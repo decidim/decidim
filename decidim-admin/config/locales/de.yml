@@ -295,6 +295,9 @@ de:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        moderations:
+          reportable_type_string_eq:
+            label: Art
         officialized_at_null:
           label: Zustand
           values:
@@ -381,6 +384,7 @@ de:
         impersonations: Identitätswechsel
         newsletters: Newsletter
         participants: Teilnehmer
+        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -468,6 +472,15 @@ de:
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
+      moderated_users:
+        index:
+          actions:
+            title: Aktionen
+            unreport: Meldung Rückgängig machen
+          name: Name
+          nickname: Spitzname
+          reason: Grund
+          title: Liste der gemeldeten Benutzer
       moderations:
         index:
           title: Moderationen
