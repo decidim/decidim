@@ -39,6 +39,15 @@ module Decidim::Admin
           expect(subject.query).to match_array recipients
           expect(recipients.count).to eq 5
         end
+
+        context "with the scope_ids array containing an empty value" do
+          let(:scope_ids) { [""] }
+
+          it "returns all users" do
+            expect(subject.query).to match_array recipients
+            expect(recipients.count).to eq 5
+          end
+        end
       end
 
       context "when sending to followers" do
