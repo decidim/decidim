@@ -90,6 +90,13 @@ cs:
           new:
             create: Vytvořit odpověď
             title: Nová odpověď
+          select:
+            disable: Zrušit výběr odpovědi
+            enable: Označit odpověď jako vybranou
+            invalid: Při výběru této odpovědi došlo k potížím
+            success: Odpověď byla úspěšně vybrána
+          unselect:
+            invalid: Při zrušení výběru této odpovědi došlo k chybě
           update:
             invalid: Při aktualizaci této odpovědi došlo k chybě
             success: Odpověď byla úspěšně aktualizována
