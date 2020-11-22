@@ -318,6 +318,7 @@ de:
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: Suche in %{collection} nach Titel.
         state_eq:
           label: Bundesland
@@ -481,6 +482,9 @@ de:
           nickname: Spitzname
           reason: Grund
           title: Liste der gemeldeten Benutzer
+        report:
+          reasons:
+            spam: Spam
       moderations:
         index:
           title: Moderationen
@@ -489,6 +493,10 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
+        reports:
+          index:
+            author: Autor(en)
+            reported_content: Gemeldeter Inhalt
       newsletter_templates:
         index:
           preview_template: Vorschau
