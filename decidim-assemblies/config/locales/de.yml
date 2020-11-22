@@ -3,11 +3,11 @@ de:
     attributes:
       assembly:
         area_id: Bereich
-        assembly_type: Montageart
-        assembly_type_other: Montageart andere
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
         banner_image: Banner-Bild
         closing_date: Einsendeschluss
-        closing_date_reason: Schlussdatum Grund
+        closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
         copy_categories: Kategorien kopieren
         copy_components: Kopieren Sie Komponenten
@@ -74,7 +74,7 @@ de:
     models:
       decidim/assembly:
         one: Versammlung
-        other: Baugruppen
+        other: Versammlungen
       decidim/assembly_member:
         one: Gremienmitglieder
         other: Mitglieder der Versammlung
@@ -305,6 +305,9 @@ de:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Mitglieder
