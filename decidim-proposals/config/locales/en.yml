@@ -118,6 +118,8 @@ en:
           endorse: Endorse
           vote: Support
           withdraw: Withdraw
+          comment: Comment
+          vote_comment: Vote comment
         name: Proposals
         settings:
           global:

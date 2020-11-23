@@ -15,7 +15,7 @@ Decidim.register_component(:proposals) do |component|
 
   component.newsletter_participant_entities = ["Decidim::Proposals::Proposal"]
 
-  component.actions = %w(endorse vote create withdraw amend)
+  component.actions = %w(endorse vote create withdraw amend comment vote_comment)
 
   component.query_type = "Decidim::Proposals::ProposalsType"
 
