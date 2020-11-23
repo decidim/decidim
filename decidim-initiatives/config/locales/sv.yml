@@ -310,18 +310,10 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          confirm: Bekräfta
           edit_my_initiative: Redigera mina initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
           send_my_initiative: Skicka mitt initiativ
-        finish_help:
-          access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
-          help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
-          help_in_person_signatures: Om du har valt att samla in underskrifter fysiskt eller i kombination med digitala underskrifter måste du skicka in den information som krävs.
-          help_text: Kom ihåg att för att behandla initiativet på rätt sätt måste du öppna administratörspanelen där du hittar användarmenyn, skicka in den information som krävs och skicka den för bearbetning.
-          initiatives_page_link: Du kan slå upp all denna information på %{link}, som informerar om initiativ.
-          page: sida
         previous_form:
           back: Tillbaka
           continue: Fortsätt
@@ -430,6 +422,8 @@ sv:
           random: Slumpmässig
           recent: Senaste
           recently_published: Senast publicerade
+        print:
+          city: Stad
         result:
           answer_title:
             accepted: Detta förslag har accepterats eftersom
