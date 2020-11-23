@@ -757,6 +757,7 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -822,6 +823,7 @@ de:
           reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
     moderations:
       actions:
+        expand: Ausklappen
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
@@ -842,11 +844,19 @@ de:
       models:
         moderation:
           fields:
+            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             report_count: Anzahl
+            reportable_id: ID
+            reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL
+        report:
+          fields:
+            details: Details zum Grund
+            locale: Sprache
+            reason: Grund
   errors:
     messages:
       invalid_json: Ungültiger JSON
