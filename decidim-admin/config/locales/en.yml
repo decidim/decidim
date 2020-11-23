@@ -491,6 +491,9 @@ en:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Not Blocked
       moderations:
         index:
           title: Moderations

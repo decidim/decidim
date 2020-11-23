@@ -7,7 +7,8 @@ module Decidim
 
       def index
         enforce_permission_to :read, :moderate_users
-        @moderated_users = UserModeration.page(params[:page]).per(15)
+        target_scope = params[:blocked] && params[:blocked] == "true" ? :blocked : :unblocked
+        @moderated_users = UserModeration.send(target_scope).page(params[:page]).per(15)
       end
 
       def ignore
