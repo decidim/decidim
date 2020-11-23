@@ -125,7 +125,7 @@ de:
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:
@@ -484,6 +484,8 @@ de:
           title: Liste der gemeldeten Benutzer
         report:
           reasons:
+            does_not_belong: Gehört nicht zu
+            offensive: Offensiv
             spam: Spam
       moderations:
         index:
@@ -496,7 +498,17 @@ de:
         reports:
           index:
             author: Autor(en)
+            content_original_language: Originalsprache des Inhalts
+            participatory_space: Beteiligungsbereich
             reported_content: Gemeldeter Inhalt
+            see_current: Siehe aktuelles
+            see_original: Original ansehen
+            title: Moderationsberichte
+          show:
+            report_details: Details zum Grund
+            report_language: Berichtssprache
+            report_reason: Grund
+            title: Berichtdetails
       newsletter_templates:
         index:
           preview_template: Vorschau
@@ -576,6 +588,7 @@ de:
           officialize: Offizialisieren
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
+          reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
           unofficialize: Nicht offiziell
@@ -602,6 +615,7 @@ de:
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
@@ -636,6 +650,7 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
+          import_via_csv: Aus CSV-Datein importieren
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
