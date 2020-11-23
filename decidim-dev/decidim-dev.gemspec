@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "byebug", "~> 11.0"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
-  s.add_dependency "erb_lint", "~> 0.0.28"
+  s.add_dependency "erb_lint", "~> 0.0.35"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "mdl", "~> 0.10"
   s.add_dependency "nokogiri", ">= 1.10.8"
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-rails", "~> 3.7"
   s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rspec_junit_formatter", "~> 0.3.0"
-  s.add_dependency "rubocop", "~> 0.71.0"
+  s.add_dependency "rubocop", "~> 0.71"
   s.add_dependency "rubocop-rails", "~> 2.0"
   s.add_dependency "rubocop-rspec", "~> 1.21"
   s.add_dependency "selenium-webdriver", "~> 3.142"
