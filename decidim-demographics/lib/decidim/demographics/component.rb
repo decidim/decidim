@@ -8,10 +8,10 @@ Decidim.register_component(:demographics) do |component|
   component.icon = "decidim/demographics/icon.svg"
   component.data_portable_entities = ["Decidim::Demographics::Demographic"]
 
-  # component.query_type = "Decidim::Demographics::DemographicsType"
-  # component.on(:before_destroy) do |instance|
-  #   # Code executed before removing the component
-  # end
+  component.query_type = "Decidim::Demographics::DemographicsType"
+  component.on(:before_destroy) do |instance|
+     # Code executed before removing the component
+  end
 
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
