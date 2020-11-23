@@ -7,7 +7,7 @@ module Decidim
   module Demographics
     describe DemographicsType, type: :graphql do
       include_context "with a graphql type"
-      let(:model) { create(:encrypted_demographic) }
+      let(:model) { create(:demographic) }
 
       it_behaves_like "a component query type"
 
@@ -33,29 +33,53 @@ module Decidim
         it "returns the nationalities field" do
           expect(response["nationalities"]).to eq(model.nationalities)
         end
+      end
 
-        context "when empty json field" do
-          let(:model) { create(:encrypted_demographic, data: {}) }
+      describe "residences" do
+        let(:query) { "{ residences }" }
 
-          it "returns empty array" do
-            expect(response["nationalities"]).to be_a(Array)
-          end
+        it "returns the residences field" do
+          expect(response["residences"]).to eq(model.residences)
         end
       end
 
-      describe "background" do
-        let(:query) { "{ background }" }
+      describe "current_occupations" do
+        let(:query) { "{ current_occupations }" }
 
-        it "returns the background field" do
-          expect(response["background"]).to eq(model.background)
+        it "returns the current_occupations field" do
+          expect(response["current_occupations"]).to eq(model.current_occupations)
         end
       end
 
-      describe "postal_code" do
-        let(:query) { "{ postal_code }" }
+      describe "living_condition" do
+        let(:query) { "{ living_condition }" }
 
-        it "returns the postal_code field" do
-          expect(response["postal_code"]).to eq(model.postal_code)
+        it "returns the living_condition field" do
+          expect(response["living_condition"]).to eq(model.living_condition)
+        end
+      end
+
+      describe "attended_eu_event" do
+        let(:query) { "{ attended_before }" }
+
+        it "returns the attended_before field" do
+          expect(response["attended_before"]).to eq(model.attended_before)
+        end
+      end
+
+      describe "newsletter_sign_in" do
+        let(:query) { "{ newsletter_sign_in }" }
+
+        it "returns the newsletter_sign_in field" do
+          expect(response["newsletter_sign_in"]).to eq(model.newsletter_sign_in.to_s)
+        end
+      end
+
+      describe "attended_before" do
+        let(:query) { "{ attended_before }" }
+
+        it "returns the attended_before field" do
+          expect(response["attended_before"]).to eq(model.attended_before)
         end
       end
     end

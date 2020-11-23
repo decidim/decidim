@@ -15,14 +15,9 @@ module Decidim
         expect(demo).to respond_to :organization
       end
 
-      %w(age background gender nationalities postal_code).each do |field|
+      %w(gender age nationalities other_nationalities residences other_residences living_condition current_occupations education_age_stop other_ocupations attended_before newsletter_sign_in).each do |field|
         it "has a #{field} method" do
           expect(demo).to respond_to field.to_sym
-        end
-
-        it "calls decrypts on #{field} method" do
-          expect(Decidim::AttributeEncryptor).to receive(:decrypt)
-          demo.send(field.to_sym)
         end
       end
     end

@@ -9,21 +9,22 @@ module Decidim
       attribute :gender, String
       attribute :age, String
       attribute :nationalities, String
-      attribute :other_nationalities, Text
-      attribute :residences String
-      attribute :other_residences, Text
-      attribute :living_conditions, String
-      attribute :current_occupation, String
-      attribute :eductation_age_stop, String
-      attribute :attended_eu_event, String
-      attribute :newsletter_subscribe, Boolean
+      attribute :other_nationalities, String
+      attribute :residences, String
+      attribute :other_residences, String
+      attribute :living_condition, String
+      attribute :current_occupations, String
+      attribute :education_age_stop, String
+      attribute :other_ocupations, String
+      attribute :attended_before, String
+      attribute :newsletter_sign_in, String
 
       validates_presence_of :gender, :age, :nationalities
-      validates :postal_code, format: { with: /\A[0-9]*\z/ }
 
       def self.from_params(params, additional_params = {})
-        params["demographic"]["nationalities"] = params["demographic"]["nationalities"]&.reject(&:empty?)&.compact
-        params["demographic"]["residences"] = params["demographic"]["residences"]&.reject(&:empty?)&.compact
+        %w(nationalities residences occupations).each do |o|
+          params["demographic"][o] = params["demographic"][o]&.reject(&:empty?)&.compact
+        end
         super
       end
 

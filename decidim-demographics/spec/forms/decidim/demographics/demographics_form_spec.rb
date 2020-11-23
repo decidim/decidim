@@ -17,15 +17,12 @@ module Decidim
       let(:gender) { ::Faker::Lorem.word }
       let(:nationalities) { ["Belgian"] }
       let(:age) { "24" }
-      let(:postal_code) { "2425" }
       let(:attributes) do
         {
           "demographic" => {
             "gender" => gender,
             "age" => age,
-            "nationalities" => nationalities,
-            "postal_code" => postal_code,
-            "background" => ""
+            "nationalities" => nationalities
           }
         }
       end
@@ -53,14 +50,6 @@ module Decidim
       describe "nationalities" do
         context "when is missing" do
           let(:nationalities) { [] }
-
-          it { is_expected.to be_invalid }
-        end
-      end
-
-      describe "postal_code" do
-        context "when the format is not correct" do
-          let(:postal_code) { "5f34" }
 
           it { is_expected.to be_invalid }
         end
