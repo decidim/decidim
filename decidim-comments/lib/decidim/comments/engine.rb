@@ -71,6 +71,7 @@ module Decidim
           resource.model_class_name = "Decidim::Comments::Comment"
           resource.card = "decidim/comments/comment_card"
           resource.searchable = true
+          resource.actions = %(create vote)
         end
       end
 

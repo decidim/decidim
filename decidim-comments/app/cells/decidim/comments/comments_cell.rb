@@ -9,11 +9,16 @@ module Decidim
       delegate :user_signed_in?, to: :controller
 
       def add_comment
+        return unless action_authorized?
         return if single_comment?
         return if comments_blocked?
         return if user_comments_blocked?
 
         render :add_comment
+      end
+
+      def action_authorized?
+        action_authorized_to(:create, resource: nil, permissions_holder: model).ok?
       end
 
       def single_comment_warning

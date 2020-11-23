@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::HasResourcePermission
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -81,6 +82,11 @@ module Decidim
 
       def component
         commentable.component if commentable.respond_to?(:component)
+      end
+
+      # Public: Override Resourcable concern method `allow_resource_permissions?`
+      def allow_resource_permissions?
+        true
       end
 
       # Public: Override Commentable concern method `accepts_new_comments?`
