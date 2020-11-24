@@ -1,7 +1,8 @@
 <dl>
   <%= display_for participatory_process_group,
     :name,
-    :description %>
+    :description,
+    :hashtag %>
 
   <dt><%= display_label(participatory_process_group, :participatory_processes) %></dt>
   <% if participatory_process_group.participatory_processes.any? %>

@@ -22,6 +22,7 @@ module Decidim::ParticipatoryProcesses
           description_en: "description en",
           description_es: "description es",
           description_ca: "description ca",
+          hashtag: "hashtag",
           hero_image: nil,
           current_organization: organization,
           current_user: current_user,
