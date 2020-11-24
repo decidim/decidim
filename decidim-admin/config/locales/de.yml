@@ -126,7 +126,7 @@ de:
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:
