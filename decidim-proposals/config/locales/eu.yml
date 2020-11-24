@@ -307,9 +307,7 @@ eu:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: ODT
             bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
-            document_legend: 'Gehitu dokumentua baino 2MB baino txikiagoa, atal bakoitza 3 mailatan sakonduko da proposamenetan. Formatu onartzen dira: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
           publish:

@@ -22,6 +22,25 @@ module Decidim
       def valid_max_selection?
         max_selections <= answers.count
       end
+
+      def vote_variation
+        if max_selections == 1
+          "one_of_m"
+        else
+          "n_of_m"
+        end
+      end
+
+      def total_votes
+        answers.sum(:votes_count)
+      end
+
+      def votes_percentage(answer_votes)
+        return 0 unless answer_votes.positive?
+
+        result = answer_votes.to_f / total_votes * 100.0
+        result.round
+      end
     end
   end
 end

@@ -53,8 +53,6 @@ ca:
         confirm_destroy: N'estàs segura?
         destroy: Eliminar
         edit: Editar
-        edit_answers: Edita les respostes
-        edit_questions: Edita les preguntes
         import: Importar propostes com a respostes
         new: Nova %{name}
         preview: Previsualitzar
@@ -173,7 +171,6 @@ ca:
           filter_by: Filtra per
           unfold: Desplegar
         show:
-          back: Totes les votacions
           preview: Previsualitzar
           vote: Votar
           voting_period_status:

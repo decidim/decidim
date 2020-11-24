@@ -32,18 +32,24 @@ module Decidim
           initiative ? "/initiatives/#{initiative.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { initiative_id: /[0-9]+/ }
 
-        resources :initiatives, param: :slug, only: [:index, :show], path: "initiatives" do
+        resources :initiatives, param: :slug, only: [:index, :show, :edit, :update], path: "initiatives" do
           resources :initiative_signatures
 
           member do
             get :authorization_sign_modal, to: "authorization_sign_modals#show"
+            get :print, to: "initiatives#print", as: "print"
+            get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
           end
 
           resource :initiative_vote, only: [:create, :destroy]
           resource :widget, only: :show, path: "embed"
-          resources :committee_requests, only: [:new], shallow: true do
+          resources :committee_requests, only: [:new] do
             collection do
               get :spawn
+            end
+            member do
+              get :approve
+              delete :revoke
             end
           end
           resources :versions, only: [:show, :index]

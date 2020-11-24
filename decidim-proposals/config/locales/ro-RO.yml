@@ -359,9 +359,7 @@ ro:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Veţi putea previzualiza şi sorta secţiunile de document)"
-            document_legend: 'Adauga un document mai mic de 2MB, fiecare sectiune pana la 3 nivele in detaliu va fi prelucrat in Propuneri. Formatele Suportate sunt: %{valid_mime_types}'
             title: Adaugă DOCUMENT
             upload_document: Încărcați documentul
           publish:

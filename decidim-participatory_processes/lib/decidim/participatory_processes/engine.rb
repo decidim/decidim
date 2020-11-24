@@ -81,6 +81,25 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :hero) do |content_block|
+          content_block.cell = "decidim/content_blocks/hero"
+          content_block.settings_form_cell = "decidim/content_blocks/hero_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.hero.name"
+
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute :welcome_text, type: :text, translated: true
+          end
+
+          content_block.default!
+        end
       end
 
       initializer "decidim_participatory_processes.stats" do

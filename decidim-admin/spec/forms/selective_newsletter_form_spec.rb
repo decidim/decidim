@@ -111,6 +111,19 @@ module Decidim
           it { is_expected.to be_invalid }
         end
       end
+
+      describe "#scope_ids" do
+        context "when the scope IDs contain an empty value" do
+          # When the scope is selected from a dropdown and no value is selected
+          # this is what will be sent by the form
+          # (<option value="">...</option>).
+          let(:scope_ids) { [""] }
+
+          it "returns an empty array" do
+            expect(subject.scope_ids.empty?).to be(true)
+          end
+        end
+      end
     end
   end
 end

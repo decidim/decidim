@@ -249,13 +249,6 @@ tr:
           back_to_initiatives: Girişimlere geri dönüş
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
-        finish_help:
-          access_reminder: Kullanıcı menüsü aracılığıyla girişimlerinize her zaman erişebileceğinizi unutmayın.
-          help_for_organizations: Eğer bir dernekseniz, Teşvik Komisyonunu oluşturan tüm kuruluşların yönetim kurulunun tutanaklarını yüklemeniz gerekecektir.
-          help_in_person_signatures: İmzaları şahsen ya da çevrimiçi olarak bir araya getirmeyi seçtiyseniz, gerekli bilgileri yüklemeniz gerekecektir.
-          help_text: Girişimi doğru şekilde işlemek için kullanıcı menüsünü bulacağınız, gerekli bilgileri yükleyeceğiniz ve işlem için göndereceğiniz yönetim paneline erişmeniz gerektiğini unutmayın.
-          initiatives_page_link: Tüm bu bilgileri inisiyatifler hakkında bilgilendirmek için %{link} bakabilirsiniz.
-          page: sayfa
         previous_form:
           back: Geri
           continue: Devam et
@@ -353,6 +346,8 @@ tr:
           most_voted: En imzalanmış
           random: rasgele
           recent: En yeni
+        print:
+          city: Kent
         result:
           answer_title:
             accepted: Bu teklif kabul edildi çünkü

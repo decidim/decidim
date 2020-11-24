@@ -249,13 +249,6 @@ eu:
           back_to_initiatives: Ekimenetara itzuli
           go_to_my_initiatives: Joan nire ekimenei
           more_information: "(Informazio gehiago)"
-        finish_help:
-          access_reminder: Gogoratu beti izango duzula zure ekimenak sartzeko erabiltzailearen menuan.
-          help_for_organizations: Elkarte bat bazara, Promozio Batzordea osatzen duten erakunde guztien kudeaketa-batzordearen minutuak kargatu beharko dituzu
-          help_in_person_signatures: Seinaleak pertsonan biltzeko edo linean konbinatuta hautatu baduzu, beharrezko informazioa kargatu beharko duzu.
-          help_text: Gogoan izan ekimena behar bezala prozesatu ahal izateko, erabiltzaile-menua aurkituko duzuen administrazio-panelean sartzeko, beharrezkoa den informazioa kargatzeko eta prozesura bidaltzeko.
-          initiatives_page_link: Informazio hau guztia bilatu dezakezu %{link} ekimenei buruzko informazioa emateko.
-          page: orri
         previous_form:
           back: Back
           continue: Jarraitu
@@ -353,6 +346,8 @@ eu:
           most_voted: Gehien sinatuta
           random: Random
           recent: Berrienak
+        print:
+          city: hiria
         result:
           answer_title:
             accepted: Proposamen hau onartu egin delako

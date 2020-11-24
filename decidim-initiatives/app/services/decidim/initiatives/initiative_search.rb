@@ -18,6 +18,7 @@ module Decidim
           .includes(scoped_type: [:scope])
           .joins("JOIN decidim_users ON decidim_users.id = decidim_initiatives.decidim_author_id")
           .where(organization: options[:organization])
+          .published
       end
 
       # Handle the search_text filter
@@ -44,15 +45,14 @@ module Decidim
 
       # Handle the state filter
       def search_state
-        accepted = state.member?("accepted") ? query.accepted : nil
-        rejected = state.member?("rejected") ? query.rejected : nil
-        answered = state.member?("answered") ? query.answered : nil
-        open = state.member?("open") ? query.open : nil
-        closed = state.member?("closed") ? query.closed : nil
-        draft = state.member?("created") ? query.created : nil
+        ids = []
+        ids += state.member?("accepted") ? query.accepted.ids : []
+        ids += state.member?("rejected") ? query.rejected.ids : []
+        ids += state.member?("answered") ? query.answered.ids : []
+        ids += state.member?("open") ? query.open.ids : []
+        ids += state.member?("closed") ? query.closed.ids : []
 
-        query.where(id: [accepted, rejected, answered, open, closed])
-             .or(query.where(id: draft, published_at: nil))
+        query.where(id: ids)
       end
 
       def search_type_id
@@ -65,7 +65,13 @@ module Decidim
 
       def search_author
         if author == "myself" && options[:current_user]
-          query.where(decidim_author_id: options[:current_user].id)
+          co_authoring_initiative_ids = Decidim::InitiativesCommitteeMember.where(
+            decidim_users_id: options[:current_user].id
+          ).pluck(:decidim_initiatives_id)
+
+          query.where(decidim_author_id: options[:current_user].id, decidim_author_type: Decidim::UserBaseEntity.name)
+               .or(query.where(id: co_authoring_initiative_ids))
+               .unscope(where: :published_at)
         else
           query
         end

@@ -311,6 +311,7 @@ es:
         fill_data:
           back: Volver
           continue: Continuar
+          fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona un área
@@ -318,18 +319,11 @@ es:
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
-          confirm: Confirmar
+          callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
           edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
           send_my_initiative: Enviar mi iniciativa
-        finish_help:
-          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de participante.
-          help_for_organizations: Si eres una asociación, tendrás que subir las actias del consejo de administración de todas las organizaciones que formen la Comisión Promotora
-          help_in_person_signatures: Si has escogido recoger las firmas presenciales o combinarlas con las digitales, tendrás que subir la información requerida.
-          help_text: Recuerda que para procesar correctamente la iniciativa, tienes que acceder al panel de administración donde encontrarás el menú de participante, cargar la información solicitada y enviarla para su tramitación.
-          initiatives_page_link: Puedes consultar toda esta información en el %{link}, dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Volver
           continue: Continuar
@@ -337,12 +331,14 @@ es:
           more_information: "(Más información)"
         promotal_committee:
           back: Volver
+          individual_help_text: Este tipo de iniciativa ciudadana requiere un comité promotor compuesto por al menos %{committee_size} miembros (certificadores). Debes compartir el siguiente enlace con las demás personas que forman parte de esta iniciativa. Cuando tus contactos reciban este enlace, tendrán que seguir los pasos que se les indiquen.
           more_information: "(Más información)"
         select_initiative_type:
           back: Volver
           choose_html: Quiero <strong>%{title}</strong>
           more_information: "(Más información)"
           select: Quiero promover esta iniciativa
+          select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
@@ -438,6 +434,8 @@ es:
           random: Aleatorio
           recent: Más recientes
           recently_published: Publicada más recientemente
+        print:
+          city: Ciudad
         result:
           answer_title:
             accepted: Esta propuesta se ha aceptado porque
@@ -448,7 +446,9 @@ es:
             validating: Esta propuesta está siendo evaluada
           initiative_rejected_reason: Esta iniciativa ha sido rechazada debido a la falta de firmas.
         show:
+          any_vote_method: Esta iniciativa recoge firmas digitales y presenciales.
           follow_description: Recibir una notificación cuando haya novedades sobre esta iniciativa
+          offline_method: Esta iniciativa solo recoge firmas presenciales.
         signatures_count:
           one: " firma"
           other: " firmas"

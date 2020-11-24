@@ -31,9 +31,7 @@ ja:
         title: タイトル
         transparent: 透明度
       minutes:
-        audio_url: オーディオ URL
         description: 説明
-        video_url: ビデオ URL
         visible: 非表示にする
     errors:
       models:
