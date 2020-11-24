@@ -83,6 +83,10 @@ de:
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:
+        close_debate_modal:
+          close: Schließen
+          send: Debatte schließen
+        closed: Geschlossen
         count:
           debates_count:
             one: "%{count} Debatte"
@@ -134,8 +138,15 @@ de:
           updated: Kürzlich aktualisiert
         show:
           back: Zurück zur Liste
+          close_debate: Debatte schließen
           date: Datum
+          debate_closed: Geschlossen
+          debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_debate: Debatte bearbeiten
+          groups_count: Gruppen
+          last_comment_by: Letzter Kommentar von
+          no_comments_yet: Noch keine Kommentare
+          participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.
