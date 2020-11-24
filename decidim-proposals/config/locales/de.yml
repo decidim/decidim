@@ -80,6 +80,14 @@ de:
     admin:
       filters:
         proposals:
+          state_eq:
+            values:
+              validating: Technische Validierung
+              withdrawn: Zurückgezogen
+          state_null:
+            label: Bundesländer
+            values:
+              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
@@ -358,6 +366,7 @@ de:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
