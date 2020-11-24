@@ -10,7 +10,7 @@ Decidim.register_component(:demographics) do |component|
 
   component.query_type = "Decidim::Demographics::DemographicsType"
   component.on(:before_destroy) do |instance|
-     # Code executed before removing the component
+    # Code executed before removing the component
   end
 
   # These actions permissions can be configured in the admin panel
