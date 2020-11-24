@@ -67,6 +67,7 @@ edit_link(
 <% unless election.finished? %>
   <%= render partial: "preview", election: election %>
 <% end %>
+
 <!-- Election results -->
 <% if election.results_published? %>
   <%= render partial: "results", election: election %>
