@@ -13,8 +13,9 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
+          include Decidim::Admin::PrivateUsers::Filterable
           helper PaginateHelper
-          helper_method :privatable_to, :collection
+          helper_method :privatable_to, :collection, :query
 
           def index
             enforce_permission_to :read, :space_private_user
