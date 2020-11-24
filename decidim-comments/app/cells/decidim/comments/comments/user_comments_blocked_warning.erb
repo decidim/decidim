@@ -1,3 +1,8 @@
+<% message = model.user_authorized_to_comment?(current_user) ?
+  "blocked_comments_for_user_warning" :
+  "blocked_comments_for_unauthorized_user_warning"
+%>
+
 <div class="callout warning">
-  <p><%= t("decidim.components.comments.blocked_comments_for_user_warning") %></p>
+  <p><%= t("decidim.components.comments.#{message}") %></p>
 </div>
