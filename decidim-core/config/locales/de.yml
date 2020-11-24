@@ -1200,7 +1200,11 @@ de:
       flag_user_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
         report: Melden
+        spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+        title: Unangemessenen Nutzer melden
       floating_help:
         close: Hilfe schließen
         help: Hilfe
@@ -1278,6 +1282,7 @@ de:
         success: Ihre Interessen wurden erfolgreich aktualisiert.
     user_report_mailer:
       notify:
+        body_1: Benutzer %{user} wurde von %{token} gemeldet
         body_2: 'Grund: %{reason}'
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo %{admin},
