@@ -18,11 +18,11 @@ module Decidim
         end
       end
 
-      describe "name" do
-        let(:query) { '{ name { translation(locale: "en")}}' }
+      describe "title" do
+        let(:query) { '{ title { translation(locale: "en")}}' }
 
         it "returns all the required fields" do
-          expect(response["name"]["translation"]).to eq(model.name["en"])
+          expect(response["title"]["translation"]).to eq(model.title["en"])
         end
       end
 

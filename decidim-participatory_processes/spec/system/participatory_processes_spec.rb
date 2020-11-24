@@ -128,7 +128,7 @@ describe "Participatory Processes", type: :system do
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_content(translated(group.name, locale: :en))
+          expect(page).to have_content(translated(group.title, locale: :en))
           expect(page).to have_selector(".card", count: 3)
 
           expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))

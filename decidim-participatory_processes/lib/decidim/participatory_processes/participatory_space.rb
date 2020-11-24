@@ -67,7 +67,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     process_groups = []
     2.times do
       process_groups << Decidim::ParticipatoryProcessGroup.create!(
-        name: Decidim::Faker::Localized.sentence(word_count: 3),
+        title: Decidim::Faker::Localized.sentence(word_count: 3),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,

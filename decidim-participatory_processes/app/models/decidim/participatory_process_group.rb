@@ -7,7 +7,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
 
-    translatable_fields :name, :description, :developer_group, :local_area, :meta_scope, :participatory_scope,
+    translatable_fields :title, :description, :developer_group, :local_area, :meta_scope, :participatory_scope,
                         :participatory_structure, :target
 
     has_many :participatory_processes,

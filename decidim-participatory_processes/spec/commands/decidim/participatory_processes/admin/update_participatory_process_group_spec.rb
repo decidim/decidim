@@ -10,16 +10,16 @@ module Decidim::ParticipatoryProcesses
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:invalid) { false }
-    let(:name_en) { "name es" }
+    let(:title_en) { "title es" }
     let(:developer_group) { participatory_process_group.developer_group }
 
     let(:params) do
       {
         participatory_process_group: {
           id: participatory_process_group.id,
-          name_en: name_en,
-          name_es: "name es",
-          name_ca: "name ca",
+          title_en: title_en,
+          title_es: "title es",
+          title_ca: "title ca",
           description_en: "description en",
           description_es: "description es",
           description_ca: "description ca",
@@ -50,7 +50,7 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when the form is not valid" do
-      let(:name_en) { nil }
+      let(:title_en) { nil }
 
       it "broadcasts invalid" do
         expect { subject.call }.to broadcast(:invalid)
@@ -60,17 +60,17 @@ module Decidim::ParticipatoryProcesses
         subject.call
         participatory_process_group.reload
 
-        expect(participatory_process_group.name["en"]).not_to eq("name es")
+        expect(participatory_process_group.title["en"]).not_to eq("title es")
       end
 
       it "adds errors to the form" do
         subject.call
-        expect(form.errors[:name_en]).not_to be_empty
+        expect(form.errors[:title_en]).not_to be_empty
       end
     end
 
     context "when everything is ok" do
-      let(:name_en) { "new_name" }
+      let(:title_en) { "new_title" }
       let(:developer_group) { { en: "new developer group" } }
 
       it "broadcasts ok" do
@@ -81,7 +81,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:ok)
         participatory_process_group.reload
 
-        expect(participatory_process_group.name["en"]).to eq("new_name")
+        expect(participatory_process_group.title["en"]).to eq("new_title")
         expect(participatory_process_group.developer_group["en"]).to eq("new developer group")
       end
 

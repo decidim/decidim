@@ -23,7 +23,7 @@ module Decidim
             group_url: :string,
             local_area: :i18n,
             meta_scope: :i18n,
-            name: :i18n,
+            title: :i18n,
             participatory_scope: :i18n,
             participatory_structure: :i18n,
             target: :i18n

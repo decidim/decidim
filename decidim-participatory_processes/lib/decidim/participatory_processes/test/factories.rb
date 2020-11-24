@@ -85,7 +85,7 @@ FactoryBot.define do
   end
 
   factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
-    name { generate_localized_title }
+    title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     organization

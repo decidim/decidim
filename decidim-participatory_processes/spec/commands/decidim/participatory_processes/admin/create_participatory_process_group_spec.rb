@@ -13,7 +13,7 @@ module Decidim::ParticipatoryProcesses
       instance_double(
         Admin::ParticipatoryProcessGroupForm,
         invalid?: invalid,
-        name: { en: "name" },
+        title: { en: "title" },
         description: { en: "description" },
         hashtag: "hashtag",
         group_url: "http://example.org",

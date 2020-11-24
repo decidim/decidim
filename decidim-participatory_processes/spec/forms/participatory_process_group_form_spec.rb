@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create :organization }
         let(:participatory_processes) { create_list :participatory_process, 3, organization: organization }
-        let(:name) do
+        let(:title) do
           {
             en: "Title",
             es: "Título",
@@ -45,9 +45,9 @@ module Decidim
 
         let(:attributes) do
           {
-            "name_en" => name[:en],
-            "name_es" => name[:es],
-            "name_ca" => name[:ca],
+            "title_en" => title[:en],
+            "title_es" => title[:es],
+            "title_ca" => title[:ca],
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
@@ -80,7 +80,7 @@ module Decidim
         end
 
         context "when default language in title is missing" do
-          let(:name) do
+          let(:title) do
             {
               ca: "Títol"
             }
