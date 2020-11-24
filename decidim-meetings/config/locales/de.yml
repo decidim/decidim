@@ -260,6 +260,8 @@ de:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+            online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
           index:
             title: Meetings
           new:
@@ -283,6 +285,7 @@ de:
             invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
             success: Minuten erfolgreich erstellt
           edit:
+            title: Minuten bearbeiten
             update: Aktualisieren
           new:
             create: Erstellen
@@ -363,6 +366,11 @@ de:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
       meeting:
         not_allowed: Sie dürfen dieses Meeting nicht sehen
+      meeting_closes:
+        edit:
+          back: Zurück
+          close: Meeting beenden
+          title: Meeting beenden
       meetings:
         count:
           meetings_count:
@@ -390,6 +398,11 @@ de:
             user_groups: Gruppen
           scope: Umfang
           search: Suche
+          type: Art
+          type_values:
+            all: Alle
+            in_person: Persönlich
+            online: Online
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
