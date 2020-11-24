@@ -889,6 +889,8 @@ de:
           show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        error_modal:
+          ok: OK
         index:
           ago: vor
           close: Modal schließen
@@ -911,6 +913,8 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
@@ -1187,6 +1191,9 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      flag_user_modal:
+        close: Schließen
+        report: Melden
       floating_help:
         close: Hilfe schließen
         help: Hilfe
@@ -1262,6 +1269,9 @@ de:
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
+    user_report_mailer:
+      notify:
+        hello: Hallo %{admin},
     version:
       show:
         back_to_resource: Zurück
