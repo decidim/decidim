@@ -1108,7 +1108,7 @@ a .card__title{
     &:not(:nth-child(4n)){
       border-right: 0;
       border-bottom: $card-border;
-      
+
       @include breakpoint(medium){
         border-bottom: 0;
         border-right: $card-border;
