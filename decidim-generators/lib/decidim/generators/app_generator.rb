@@ -35,7 +35,7 @@ module Decidim
 
       class_option :edge, type: :boolean,
                           default: false,
-                          desc: "Use GitHub's edge version from master branch"
+                          desc: "Use GitHub's edge version from develop branch"
 
       class_option :branch, type: :string,
                             default: nil,

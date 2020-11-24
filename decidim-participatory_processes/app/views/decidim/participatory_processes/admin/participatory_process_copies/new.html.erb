@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("participatory_process_copies.new.select", scope: "decidim.admin")) %>
+
 <%= decidim_form_for(@form, url: participatory_process_copies_path(current_participatory_process), method: :post, html: { class: "form copy_participatory_process" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("participatory_process_copies.new.title", scope: "decidim.admin"), select: t("participatory_process_copies.new.select", scope: "decidim.admin") } %>
 

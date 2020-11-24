@@ -88,6 +88,11 @@ module Decidim::Meetings
         expect(meeting.registrations_enabled).to eq registrations_enabled
       end
 
+      it "sets the registrations_enabled flag" do
+        subject.call
+        expect(meeting.registrations_enabled).to eq registrations_enabled
+      end
+
       it "sets the component" do
         subject.call
         expect(meeting.component).to eq current_component

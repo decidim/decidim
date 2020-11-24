@@ -318,18 +318,10 @@ ca:
         finish:
           back: Torna
           back_to_initiatives: Torna a iniciatives
-          confirm: Confirmar
           edit_my_initiative: Editar les meves iniciatives
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
           send_my_initiative: Enviar la meva iniciativa
-        finish_help:
-          access_reminder: Recorda que sempre pots accedir a les teves iniciatives a través del menú de participant.
-          help_for_organizations: Si ets una associació, hauràs de pujar les actes del consell d'administració de totes les organitzacions que formen la Comissió Promotora
-          help_in_person_signatures: Si has triat recollir les signatures presencials o combinar-les amb les digitals, hauràs de pujar la informació requerida.
-          help_text: Recorda que per processar correctament la iniciativa, has d'accedir al panell d'administració on trobaràs el menú de participant, pujar la informació requerida i enviar-la per a la seva tramitació.
-          initiatives_page_link: Pots consultar tota aquesta informació a %{link}, dedicat a informar sobre iniciatives.
-          page: pàgina
         previous_form:
           back: Torna
           continue: Continua
@@ -438,6 +430,8 @@ ca:
           random: Aleatori
           recent: Més recents
           recently_published: Publicada més recentment
+        print:
+          city: Ciutat
         result:
           answer_title:
             accepted: Aquesta proposta s'ha acceptat perquè

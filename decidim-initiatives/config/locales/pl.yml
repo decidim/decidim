@@ -316,18 +316,10 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
-          confirm: Potwierdź
           edit_my_initiative: Edytuj moje inicjatywy
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
           send_my_initiative: Wyślij moją inicjatywę
-        finish_help:
-          access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
-          help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły ze spotkania zarządu wszystkich organizacji, które tworzą Komisję Organizacyjną
-          help_in_person_signatures: Jeśli zdecydowałeś się zebrać podpisy na piśmie lub częściowo online, będziesz musiał przesłać wymagane informacje.
-          help_text: Pamiętaj, że aby poprawnie przeprowadzić inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrasz wymagane informacje i wyślesz je do przetworzenia.
-          initiatives_page_link: Możesz sprawdzić wszystkie te informacje na stronie %{link} poświęconej informowaniu o inicjatywach.
-          page: strona
         previous_form:
           back: Wróć
           continue: Dalej
@@ -442,6 +434,8 @@ pl:
           random: Losowo
           recent: Najnowsze
           recently_published: Ostatnio opublikowane
+        print:
+          city: Miasto
         result:
           answer_title:
             accepted: Ta propozycja została zaakceptowana, ponieważ
