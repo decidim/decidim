@@ -153,7 +153,7 @@ module Decidim
       end
 
       def current_component
-        root_commentable.component
+        root_commentable.try(:component)
       end
 
       def vote_button_to(path, params, &block)
