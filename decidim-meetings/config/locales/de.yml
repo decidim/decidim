@@ -262,6 +262,7 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           index:
             title: Meetings
           new:
@@ -410,6 +411,7 @@ de:
           unfold: Entfalten
         form:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+          available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           select_a_category: Bitte wählen sie eine Kategorie
