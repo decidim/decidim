@@ -128,6 +128,7 @@ cs:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
         exports:
+          elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
         models:
           answer:
