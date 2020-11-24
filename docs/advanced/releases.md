@@ -105,7 +105,7 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
 1. Run `bin/rake webpack`, this will update the JavaScript bundle.
 1. Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y-stable`.
 1. Create the PR for the new version.
-    1. `git checkout master && git checkout -b release/x.y.z`
+    1. `git checkout master && git pull && git checkout -b release/x.y.z`
     1. The following strategy has been discarded because it produces a lot of problems (still needs manual intervention for many files, backported commits via cherry-pick are applied twice, etc..)
         1. `git merge release/x.y-stable`
         1. `git checkout --theirs *`
@@ -115,7 +115,7 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
         1. Remove all files except `.git` from clone A.
         1. Copy all files except `.git` from clone B.
         1. Paste all files except `.git` to clone A.
-        1. Commit the differences to be merged to `master`: `git add -A && git commit -m "Merge release/x.y-stable"`
+        1. Commit the differences to be merged to `master`: `git add -A && git commit -m "Merge release 0.x.y"`
     1. `git push origin release/x.y.z`
     1. Create the PR. The base for this PR should be `master`, but GitHub may crash if there are a lot of changes. As a workaround create the branch against `develop` and, when created, change the base to `master`.
     1. Still don't merge it.
@@ -147,4 +147,4 @@ Releasing new versions from a ***release/x.y-stable*** branch is quite easy. The
 
 ## Docker images for each release
 
-1. After each release, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, create a PR that just updates `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml). Then the continous integration circleci build will generate and publish the images in docker hub.
+1. After each release, you should update our [Docker repository](https://github.com/decidim/docker) so new images are build for the new release. To do it, create a PR that just updates `DECIDIM_VERSION` at [circle.yml](https://github.com/decidim/docker/blob/master/circle.yml). Then the continous integration circleci build will generate the images and they will be published to docker hub when the PR is merged.
