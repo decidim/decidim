@@ -139,6 +139,8 @@ de:
             title: Maximales Budget überschritten
           close: Schließen
           ok: OK
+          projects_excess:
+            title: Maximale Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme absagen wollen?
           assigned: 'Zugewiesen:'
@@ -146,7 +148,11 @@ de:
           checked_out:
             description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Haushaltsabstimmung abgeschlossen
+          rules:
+            title: Budgetregeln
           title: Sie entscheiden über das Budget
+          total_budget: Gesamtbudget
+          total_projects: Stimmen insgesamt
         count:
           projects_count:
             one: 1 Projekt
@@ -185,6 +191,7 @@ de:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Aussicht
+          you_voted: Du hast für dieses gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
