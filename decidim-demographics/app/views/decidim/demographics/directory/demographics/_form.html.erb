@@ -19,7 +19,7 @@
 </div>
 
 <div class="field">
-  <%= label_tag t('.nationality_prompt')%>
+  <%= label_tag t(".nationality_prompt") %>
   <%= form.collection_check_boxes(
           :nationalities,
           Decidim::Demographics::Demographic::MEMBER_CITIZENSHIPS,
@@ -27,8 +27,8 @@
           ->(nationality) { t(".nationalities.#{nationality}") },
       ) do |cb| %>
         <%= cb.check_box class: "nationality-checkbox" %>
-        <%= cb.text %>     
-        <br/>
+        <%= cb.text %>
+        <br>
       <% end %>
 </div>
 
@@ -36,9 +36,8 @@
     <%= form.text_field :other_nationalities %>
 </div>
 
-
 <div class="field">
-<%= label_tag t('.residence_prompt')%>
+<%= label_tag t(".residence_prompt") %>
   <%= form.collection_check_boxes(
           :residences,
           Decidim::Demographics::Demographic::MEMBER_COUNTRIES,
@@ -46,8 +45,8 @@
           ->(country) { t(".countries.#{country}") },
       ) do |cb| %>
         <%= cb.check_box class: "residence-checkbox" %>
-        <%= cb.text %>     
-        <br/>
+        <%= cb.text %>
+        <br>
       <% end %>
 </div>
 
@@ -60,22 +59,21 @@
           :living_condition,
           Decidim::Demographics::Demographic::LIVING_CONDITIONS,
           :to_s,
-          ->(living_condition) { t(".living_conditions.#{living_condition}") } 
+          ->(living_condition) { t(".living_conditions.#{living_condition}") }
       ) %>
 </div>
 
-
 <div class="field">
-<%= label_tag t('.current_occupation_prompt')%>
+<%= label_tag t(".current_occupation_prompt") %>
   <%= form.collection_check_boxes(
           :current_occupations,
           Decidim::Demographics::Demographic::PROFESSIONAL_CATEGORIES,
           :to_s,
-          ->(current_occupations) { t(".current_occupations.#{current_occupations}") } 
-      ) do |cb| %>      
+          ->(current_occupations) { t(".current_occupations.#{current_occupations}") }
+      ) do |cb| %>
         <%= cb.check_box class: "occupation-checkbox" %>
-        <%= cb.text %>     
-        <br/>
+        <%= cb.text %>
+        <br>
       <% end %>
 </div>
 <div class="field hide" id="other_occupations">
@@ -106,7 +104,7 @@
 </div>
 
 <% unless @tos_page.nil? %>
-  <%= t('.tos_page_link') %>
+  <%= t(".tos_page_link") %>
   <%= link_to translated_attribute(@tos_page.title), decidim.page_path(@tos_page) %>
 <% end %>
 <script type="text/javascript">
@@ -114,10 +112,10 @@
         $(` .${$target}-checkbox`).change(function () {
           var a = $(`input.${$target}-checkbox:checked`).length;
           if (a > $limit) { this.checked= false; }
-          if (this.value=="other") { 
+          if (this.value=="other") {
             $(` #other_${$target}s`).toggleClass("hide");
           }
-        }); 
+        });
       };
 
     $(document).ready(function () {
