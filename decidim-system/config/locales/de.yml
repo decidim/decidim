@@ -2,6 +2,8 @@ de:
   activemodel:
     attributes:
       oauth_application:
+        name: Name OAuth-Anwendung
+        organization_logo: Organisationslogo (quadratisch)
         organization_name: Organisation
         organization_url: URL der Organisation
         redirect_uri: Weiterleitungs-URI
