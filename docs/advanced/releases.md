@@ -128,7 +128,7 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
 1. Update Crowdin synchronization configuration with Github:
     1. Add the new `release/x.y-stable` branch.
     1. Remove from Crowdin branches that are not officially supported anymore. That way they don't synchronize with Github.
-1. Update the `CHANGELOG.MD` in `release/x.y-stable`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removedgit` empty sections. After that, the header with the current version. Add the `Unreleased` section or create the new current version section.
+1. Update the `CHANGELOG.MD` in `release/x.y-stable`. At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections. After that, the header with the current version. Add the `Unreleased` section or create the new current version section.
 
 ## Releasing patch versions
 
