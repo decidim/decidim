@@ -51,7 +51,7 @@
         let queue = 0;
 
         let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
-        if (contentContainer[0] === undefined) {
+        if (contentContainer.length === 0) {
           contentContainer = this.$form.data("remoteFill");
         }
         this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
@@ -62,22 +62,22 @@
             this.currentFormRequest.abort();
           }
           this.currentFormRequest = e.originalEvent.detail[0];
-          queue = queue + 1;
-          if (queue > 0 && contentContainer[0] !== undefined && !contentContainer.hasClass("spinner-container")) {
+          queue += 1;
+          if (queue > 0 && contentContainer.length > 0 && !contentContainer.hasClass("spinner-container")) {
             contentContainer.addClass("spinner-container");
           }
         });
 
         this.$form.on("ajax:success", () => {
-          queue = queue - 1;
-          if (queue <= 0 && contentContainer[0] !== undefined) {
+          queue -= 1;
+          if (queue <= 0 && contentContainer.length > 0) {
             contentContainer.removeClass("spinner-container");
           }
         });
 
         this.$form.on("ajax:error", () => {
-          queue = queue - 1;
-          if (queue <= 0 && contentContainer[0] !== undefined) {
+          queue -= 1;
+          if (queue <= 0 && contentContainer.length > 0) {
             contentContainer.removeClass("spinner-container");
           }
           this.$form.find(".spinner-container").addClass("hide");
