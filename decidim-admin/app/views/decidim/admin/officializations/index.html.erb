@@ -35,9 +35,9 @@
               <td class="table-list__actions">
                 <% if allowed_to?(:suspend, :admin_user) %>
                   <% if user.suspended? %>
-                    <%= icon_link_to "ban", user_suspend_path(user_id: user.id), t(".unsuspend"), class: "action-icon action-icon", method: :delete %>
+                    <%= icon_link_to "ban", user_suspend_path(user_id: user.id), t(".unsuspend"), class: "action-icon action-icon--disabled", method: :delete %>
                   <% else %>
-                    <%= icon_link_to "ban", new_user_suspend_path(user_id: user.id), t(".suspend"), class: "action-icon action-icon--disabled" %>
+                    <%= icon_link_to "ban", new_user_suspend_path(user_id: user.id), t(".suspend"), class: "action-icon action-icon" %>
                   <% end %>
                 <% end %>
                 <% if allowed_to? :show_email, :user, user: user %>
