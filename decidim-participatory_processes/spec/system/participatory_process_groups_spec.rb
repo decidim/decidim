@@ -10,7 +10,9 @@ describe "Participatory Process Groups", type: :system do
       :participatory_process_group,
       :with_participatory_processes,
       organization: organization,
-      title: { en: "Title", ca: "Títol", es: "Título" }
+      title: { en: "Title", ca: "Títol", es: "Título" },
+      hashtag: "my_awesome_hashtag",
+      group_url: "https://www.example.org/external"
     )
   end
   let(:group_processes) { participatory_process_group.participatory_processes }
@@ -49,31 +51,37 @@ describe "Participatory Process Groups", type: :system do
   end
 
   describe "show" do
-    let!(:unpublished_group_processes) do
-      create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group)
-    end
-
-    before do
-      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
-    end
-
-    it "lists all the processes" do
-      within "#processes-grid" do
-        within "#processes-grid h1" do
-          expect(page).to have_content("2")
-        end
-
-        expect(page).to have_content(translated(group_processes.first.title, locale: :en))
-        expect(page).to have_selector(".card", count: 2)
-
-        expect(page).to have_no_content(translated(unpublished_group_processes.first.title, locale: :en))
+    context "when the title_content block is enabled" do
+      before do
+        create(
+          :content_block,
+          organization: organization,
+          scope_name: :participatory_process_group_homepage,
+          scoped_resource_id: participatory_process_group.id,
+          manifest_name: :title
+        )
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
       end
-    end
 
-    it "links to the individual process page" do
-      first(".card__link", text: translated(group_processes.first.title, locale: :en)).click
+      it "shows the title" do
+        expect(page).to have_content("Title")
+      end
 
-      expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(group_processes.first)
+      it "shows the description" do
+        expect(page).to have_i18n_content(participatory_process_group.description)
+      end
+
+      it "shows the meta scope name" do
+        expect(page).to have_i18n_content(participatory_process_group.meta_scope)
+      end
+
+      it "shows the hashtag" do
+        expect(page).to have_content("#my_awesome_hashtag")
+      end
+
+      it "has a link to the group url" do
+        expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
+      end
     end
   end
 end
