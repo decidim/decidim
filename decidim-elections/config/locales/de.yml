@@ -14,6 +14,7 @@ de:
       question:
         description: Beschreibung
         max_selections: Maximale Anzahl von Auswahlen
+        min_selections: Nichts davon
         title: Titel
     errors:
       models:
@@ -21,6 +22,10 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Muss erneut angehängt werden
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: kann nicht geändert werden
   activerecord:
     models:
       decidim/elections/answer:
@@ -48,6 +53,7 @@ de:
         confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
+        feedback: Feedback der Wähler
         import: Importieren Sie Vorschläge in Projekte
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
@@ -74,6 +80,10 @@ de:
           new:
             create: Antwort erstellen
             title: Neue Antwort
+          select:
+            disable: Antwort abwählen
+            enable: Antwort als ausgewählt markieren
+            success: Antwort erfolgreich ausgewählt
           update:
             invalid: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten
             success: Antwort wurde erfolgreich aktualisiert
@@ -102,6 +112,9 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten
             success: Wahl wurde erfolgreich aktualisiert
+        exports:
+          elections: Wahlen
+          feedback_form_answers: Antworten auf Feedback-Formular
         models:
           answer:
             name: Antwort
@@ -117,6 +130,7 @@ de:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie ein Objekt
+            title: Vorschläge importieren
         questions:
           create:
             invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
