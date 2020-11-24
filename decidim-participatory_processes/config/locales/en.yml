@@ -321,6 +321,12 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        metadata:
+          developer_group: Promoted by
+          name: Metadata
+          participatory_scope: What is decided
+          participatory_structure: How is it decided
+          target: Who participates
         title:
           meta_scope: Scope
           name: Title, description and hashtag

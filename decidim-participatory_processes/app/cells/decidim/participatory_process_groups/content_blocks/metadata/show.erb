@@ -1,0 +1,28 @@
+<section class="section" id="participatory_process_group-metadata">
+  <article class="card card__row">
+    <div>
+      <div class="mb-xs"><strong><%= t(".developer_group") %></strong></div>
+      <div class="text-small">
+        <%= decidim_sanitize translated_attribute(participatory_process_group.developer_group) %>
+      </div>
+    </div>
+    <div>
+      <div class="mb-xs"><strong><%= t(".target") %></strong></div>
+      <div class="text-small">
+        <%= decidim_sanitize translated_attribute(participatory_process_group.target) %>
+      </div>
+    </div>
+    <div>
+      <div class="mb-xs"><strong><%= t(".participatory_scope") %></strong></div>
+      <div class="text-small">
+        <%= decidim_sanitize translated_attribute(participatory_process_group.participatory_scope) %>
+      </div>
+    </div>
+    <div>
+      <div class="mb-xs"><strong><%= t(".participatory_structure") %></strong></div>
+      <div class="text-small">
+        <%= decidim_sanitize translated_attribute(participatory_process_group.participatory_structure) %>
+      </div>
+    </div>
+  </article>
+</section>
