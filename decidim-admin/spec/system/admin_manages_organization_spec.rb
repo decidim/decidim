@@ -98,7 +98,7 @@ describe "Admin manages organization", type: :system do
           HTML
         end
 
-        it "renders an image and its attribute inside the editor" do
+        it "renders an image and its attributes inside the editor" do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
