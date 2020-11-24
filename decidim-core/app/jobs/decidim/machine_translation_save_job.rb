@@ -28,6 +28,35 @@ module Decidim
         resource.update_column field_name.to_sym, resource[field_name]
         # rubocop:enable Rails/SkipsModelValidations
       end
+
+      send_translated_report_notifications(resource) if reported_resource_in_organization_language?(resource, target_locale)
+    end
+
+    private
+
+    def send_translated_report_notifications(reportable)
+      reportable.moderation.reports.each do |report|
+        reportable.moderation.participatory_space.moderators.each do |moderator|
+          Decidim::ReportedMailer.report(moderator, report).deliver_later
+        end
+      end
+    end
+
+    def reported_resource_in_organization_language?(resource, target_locale)
+      return unless resource.try(:organization)
+
+      resource_reported?(resource) && target_locale == resource.organization.default_locale && resource_completely_translated?(resource, target_locale)
+    end
+
+    def resource_reported?(resource)
+      resource.class.included_modules.include?(Decidim::Reportable) && resource.reported?
+    end
+
+    def resource_completely_translated?(resource, target_locale)
+      reported_translatable_fields = resource.reported_attributes & resource.class.translatable_fields_list
+      reported_translatable_fields.all? do |field|
+        resource[field]&.dig("machine_translations", target_locale).present?
+      end
     end
   end
 end

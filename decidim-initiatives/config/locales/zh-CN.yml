@@ -16,14 +16,6 @@ zh-CN:
           online: 在线
         state: 状态
         title: 标题
-      initiative_author:
-        address: 地址
-        city: 城市
-        id_document: DNI/NIE
-        name: 姓名：
-        phone_number: 电话号码
-        post_code: 邮编
-        province: 省
       initiatives_committee_member:
         user: 委员会成员
       initiatives_type:
@@ -316,7 +308,6 @@ zh-CN:
         fill_data:
           back: 后退
           continue: 继续
-          fill_data_help: "<ul> <li>查看您倡议的内容。 您的标题易于理解吗？您的主动行动的目标是否明确？</li> <li>您必须选择签名类型。 在本人、在线或两者兼而有</li> <li>倡议的地理范围是什么？ 城市，区？</li> </ul>"
           initiative_type: 倡议类型
           more_information: "(更多信息)"
           select_area: 选择区域
@@ -324,19 +315,10 @@ zh-CN:
         finish:
           back: 后退
           back_to_initiatives: 回到倡议
-          callout_text: 恭喜！您的公民倡议已成功创建。
-          confirm: 确认
           edit_my_initiative: 编辑我的倡议
           go_to_my_initiatives: 转到我的倡议
           more_information: "(更多信息)"
           send_my_initiative: 发送我的倡议
-        finish_help:
-          access_reminder: 请记住，您将始终能够通过参与者菜单访问您的倡议。
-          help_for_organizations: 如果您是一个协会，您必须上传所有组成促进委员会的组织的管理委员会的记录
-          help_in_person_signatures: 如果您选择亲自收集签名或与在线合并，您将必须上传所需信息。
-          help_text: 请记住，为了正确处理主动行动，您必须访问管理面板，您可以在那里找到用户菜单， 上传所需信息并发送以供处理。
-          initiatives_page_link: 您可以查询所有关于 %{link} 的信息来通报倡议。
-          page: 页面
         previous_form:
           back: 后退
           continue: 继续
@@ -344,14 +326,12 @@ zh-CN:
           more_information: "(更多信息)"
         promotal_committee:
           back: 后退
-          individual_help_text: 这种公民倡议需要一个至少由 %{committee_size} 人组成的促进委员会(证明人)。 您必须与属于此倡议一部分的其他人分享以下链接。 当您的联系人收到此链接时，他们必须遵循指定的步骤。
           more_information: "(更多信息)"
         select_initiative_type:
           back: 后退
           choose_html: 我想要创建 <strong>%{title}</strong>
           more_information: "(更多信息)"
           select: 我想促进这项倡议
-          select_initiative_type_help: 公民倡议是公民可以进行干预的一种手段，使市议会能够采取行动，维护市政管辖范围内的普遍利益。 你想要发起哪个倡议？
         share_committee_link:
           continue: 继续
           invite_to_committee_help: 邀请将成为促进委员会成员的人的链接
@@ -444,6 +424,8 @@ zh-CN:
           random: 随机播放
           recent: 最新的
           recently_published: 最近发布的
+        print:
+          city: 城市
         result:
           answer_title:
             accepted: 这项建议已被接受，原因是：
@@ -454,9 +436,7 @@ zh-CN:
             validating: 这项建议正在评估
           initiative_rejected_reason: 这项倡议由于没有签字而被拒绝。
         show:
-          any_vote_method: 这项公民倡议收集在线签名和亲身签名。
           follow_description: 当该倡议有消息时收到通知
-          offline_method: 这项公民倡议只收集亲身签名。
         signatures_count:
           other: " 签名"
         vote_cabin:

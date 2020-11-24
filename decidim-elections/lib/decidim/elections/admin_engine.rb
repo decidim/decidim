@@ -10,16 +10,29 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        get "/answer_options", to: "feedback_forms#answer_options", as: :answer_options_election_feedback, defaults: { format: "json" }
+
         resources :elections do
           member do
             put :publish
             put :unpublish
+            resource :feedback_form, only: [:edit, :update] do
+              collection do
+                get :answers, to: "feedback_forms#index"
+                get "/answer/:session_token", to: "feedback_forms#show", as: :answer
+                get "/answer/:session_token/export", to: "feedback_forms#export_response", as: :answer_export
+              end
+            end
           end
           resources :questions do
             resources :answers do
-              get :proposals_picker, on: :collection
               collection do
+                get :proposals_picker
                 resource :proposals_import, only: [:new, :create]
+              end
+              member do
+                put :select
+                put :unselect
               end
             end
           end
@@ -27,6 +40,7 @@ module Decidim
 
         resources :trustees, only: [:index, :new, :edit, :create, :destroy], controller: "trustees_participatory_spaces"
 
+        resources :setup, only: [:show, :update]
         root to: "elections#index"
       end
 

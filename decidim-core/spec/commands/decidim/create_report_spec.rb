@@ -55,6 +55,21 @@ module Decidim
           expect(last_moderation.reportable).to eq(reportable)
         end
 
+        it "updates the moderation to include the reported content" do
+          command.call
+          last_moderation = Moderation.last
+
+          expect(last_moderation.reported_content).to eq(reportable.reported_searchable_content_text)
+        end
+
+        it "stores the current locale to the report" do
+          I18n.with_locale :ca do
+            command.call
+            last_report = Report.last
+            expect(last_report.locale).to eq("ca")
+          end
+        end
+
         it "sends an email to the admin" do
           allow(ReportedMailer).to receive(:report).and_call_original
           command.call

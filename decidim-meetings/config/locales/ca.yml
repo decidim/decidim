@@ -26,14 +26,13 @@ ca:
         private_meeting: Trobada privada
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
+        registration_url: URL de registre
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
         title: Títol
         transparent: Transparent
       minutes:
-        audio_url: URL de l'àudio
         description: Descripció
-        video_url: URL del vídeo
         visible: És visible
     errors:
       models:
@@ -87,6 +86,7 @@ ca:
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
+            registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
@@ -252,8 +252,8 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
+            available_slots_help: Deixeu-ho a 0 si les places disponibles són il·limitades
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
-            location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
           index:
             title: Trobades
           new:
@@ -393,8 +393,8 @@ ca:
           address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
           create_as: Crear trobada com a
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
-          location_hints_help: 'Ajuda de localització: informació addicional. Per exemple: la planta de l''edifici'
           select_a_category: Si us plau, selecciona una categoria
+          select_a_meeting_type: Si us plau selecciona un tipus de trobada
         index:
           new_meeting: Nova trobada
         meeting_minutes:
@@ -469,6 +469,9 @@ ca:
         destroy:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.
+      type_of_meeting:
+        in_person: Presencial
+        online: Online
       types:
         private_meeting: Trobada privada
         transparent: Transparent

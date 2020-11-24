@@ -30,7 +30,7 @@ module Decidim
                 id: proposal.id,
                 position: new_positions.shift,
                 title: ::Faker::Books::Lovecraft.fhtagn,
-                body: { en: ::Faker::Books::Lovecraft.fhtagn(5) }
+                body: { en: ::Faker::Books::Lovecraft.fhtagn(number: 5) }
               ).with_context(
                 current_participatory_space: current_component.participatory_space,
                 current_component: current_component

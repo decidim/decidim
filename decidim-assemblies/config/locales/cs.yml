@@ -311,6 +311,9 @@ cs:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Členové

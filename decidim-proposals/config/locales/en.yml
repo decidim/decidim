@@ -28,6 +28,9 @@ en:
         user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
+        cost: Cost
+        cost_report: Cost report
+        execution_period: Execution period
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_component_id: Component to copy the proposals from
@@ -381,9 +384,9 @@ en:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
+              odt: ODT
             bottom_hint: "(You will be able to preview and sort document sections)"
-            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into Proposals. Suported formats are: %{valid_mime_types}'
+            document_legend: 'Add a document lesser than 2MB, each section until 3 levels deep will be parsed into proposals. Suported formats are: %{valid_mime_types}'
             title: Add document
             upload_document: Upload document
           publish:
@@ -498,6 +501,7 @@ en:
             no_components: There are no other proposal components in this participatory space to import the proposals from.
             select_component: Please select a component
             select_states: Check the status of the proposals to import
+            title: Import proposals
         proposals_merges:
           create:
             invalid: There was a problem merging the selected proposals.

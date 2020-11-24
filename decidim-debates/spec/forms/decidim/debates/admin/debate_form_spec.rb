@@ -15,13 +15,13 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process }
   let(:title) do
-    Decidim::Faker::Localized.sentence(3)
+    Decidim::Faker::Localized.sentence(word_count: 3)
   end
   let(:description) do
-    Decidim::Faker::Localized.sentence(3)
+    Decidim::Faker::Localized.sentence(word_count: 3)
   end
   let(:instructions) do
-    Decidim::Faker::Localized.sentence(3)
+    Decidim::Faker::Localized.sentence(word_count: 3)
   end
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }

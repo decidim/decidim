@@ -4,10 +4,17 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class ModerationsController < Decidim::Admin::ApplicationController
-      helper_method :moderations, :allowed_to?
+      include Decidim::Moderations::Admin::Filterable
+
+      helper_method :moderations, :allowed_to?, :query
 
       def index
         enforce_permission_to :read, :moderation
+      end
+
+      def show
+        enforce_permission_to :read, :moderation
+        @moderation = collection.find(params[:id])
       end
 
       def unreport
@@ -60,14 +67,23 @@ module Decidim
 
       private
 
-      def moderations
-        @moderations ||= begin
+      # Private: This method is used by the `Filterable` concern as the base query
+      #          without applying filtering and/or sorting options.
+      def collection
+        @collection ||= begin
           if params[:hidden]
             participatory_space_moderations.where.not(hidden_at: nil)
           else
             participatory_space_moderations.where(hidden_at: nil)
           end
         end
+      end
+
+      # Private: Returns a collection of `Moderation` filtered and/or sorted by
+      #          some criteria. The `filtered_collection` is provided by the
+      #          `Filterable` concern.
+      def moderations
+        @moderations ||= filtered_collection
       end
 
       def reportable

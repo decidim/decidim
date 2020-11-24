@@ -53,15 +53,15 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
     2.times do |_n|
       conference = Decidim::Conference.create!(
-        title: Decidim::Faker::Localized.sentence(5),
-        slogan: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 5),
+        slogan: Decidim::Faker::Localized.sentence(word_count: 2),
         slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.sentence(3)
+          Decidim::Faker::Localized.sentence(word_count: 3)
         end,
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         organization: organization,
         hero_image: File.new(File.join(seeds_root, "city.jpeg")), # Keep after organization
@@ -69,14 +69,14 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
         promoted: true,
         published_at: 2.weeks.ago,
         objectives: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         start_date: Time.current,
         end_date: 2.months.from_now.at_midnight,
         registrations_enabled: [true, false].sample,
         available_slots: (10..50).step(10).to_a.sample,
         registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end
       )
       conference.add_to_index_as_search_resource
@@ -106,37 +106,37 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       attachment_collection = Decidim::AttachmentCollection.create!(
         name: Decidim::Faker::Localized.word,
-        description: Decidim::Faker::Localized.sentence(5),
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
         collection_for: conference
       )
 
       Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
         attachment_collection: attachment_collection,
         attached_to: conference,
         file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: conference,
         file: File.new(File.join(seeds_root, "city.jpeg")) # Keep after attached_to
       )
 
       Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(2),
-        description: Decidim::Faker::Localized.sentence(5),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
+        description: Decidim::Faker::Localized.sentence(word_count: 5),
         attached_to: conference,
         file: File.new(File.join(seeds_root, "Exampledocument.pdf")) # Keep after attached_to
       )
 
       2.times do
         Decidim::Category.create!(
-          name: Decidim::Faker::Localized.sentence(5),
+          name: Decidim::Faker::Localized.sentence(word_count: 5),
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           participatory_space: conference
         )
@@ -147,9 +147,9 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
           user: conference.organization.users.sample,
           full_name: Faker::Name.name,
           position: Decidim::Faker::Localized.word,
-          affiliation: Decidim::Faker::Localized.paragraph(3),
+          affiliation: Decidim::Faker::Localized.paragraph(sentence_count: 3),
           short_bio: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           twitter_handle: Faker::Twitter.unique.screen_name,
           personal_url: Faker::Internet.url,
@@ -172,7 +172,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       5.times do
         Decidim::Conferences::MediaLink.create!(
-          title: Decidim::Faker::Localized.sentence(2),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
           link: Faker::Internet.url,
           date: Date.current,
           weight: Faker::Number.between(from: 1, to: 10),
@@ -182,8 +182,8 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
 
       5.times do
         Decidim::Conferences::RegistrationType.create!(
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.sentence(5),
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
           weight: Faker::Number.between(from: 1, to: 10),
           price: Faker::Number.between(from: 1, to: 300),
           published_at: 2.weeks.ago,

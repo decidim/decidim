@@ -95,6 +95,9 @@ en:
         unpublish: Unpublish
       menu:
         participatory_process_groups: Process groups
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Landing page
         participatory_processes: Processes
         participatory_processes_submenu:
           attachment_collections: Folders
@@ -146,6 +149,13 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate participatory process
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Update
       participatory_process_groups:
         destroy:
           error: There was an error while destroying the Participatory process group.
@@ -316,6 +326,9 @@ en:
         content_blocks:
           highlighted_processes:
             max_results: Maximum amount of elements to show
+        new_import:
+          accepted_types:
+            json: JSON
         participatory_process_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

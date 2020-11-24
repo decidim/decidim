@@ -4,9 +4,11 @@ require "spec_helper"
 
 describe "Admin manages elections", type: :system do
   let(:election) { create :election, :upcoming, :published, component: current_component }
+  let(:questionnaire) { election.questionnaire }
   let(:manifest_name) { "elections" }
 
   include_context "when managing a component as an admin"
+
   before do
     election
     switch_to_host(organization.host)
@@ -15,6 +17,10 @@ describe "Admin manages elections", type: :system do
   end
 
   it_behaves_like "manage announcements"
+
+  it_behaves_like "manage questionnaires" do
+    let(:election) { create :election, :ongoing, :published, component: current_component }
+  end
 
   describe "admin form" do
     before { click_on "New Election" }
@@ -68,6 +74,8 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "updating an election" do
+    let(:election) { create :election, :published, component: current_component }
+
     it "updates an election" do
       within find("tr", text: translated(election.title)) do
         page.find(".action-icon--edit").click
@@ -104,7 +112,7 @@ describe "Admin manages elections", type: :system do
 
   describe "publishing an election" do
     context "when the election is unpublished" do
-      let!(:election) { create(:election, :upcoming, :complete, component: current_component) }
+      let!(:election) { create(:election, :complete, component: current_component) }
 
       it "publishes the election" do
         within find("tr", text: translated(election.title)) do
@@ -122,7 +130,37 @@ describe "Admin manages elections", type: :system do
     end
   end
 
+  describe "set up an election" do
+    context "when the election is published", :vcr do
+      let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
+
+      it "sets up an election" do
+        within find("tr", text: translated(election.title)) do
+          page.find(".action-icon--setup-election").click
+        end
+
+        within ".setup_election" do
+          expect(page).to have_css(".card-title", text: "Election setup")
+          expect(page).to have_content("The election is published")
+          expect(page).to have_content("The setup is being done at least 3 hours before the election starts")
+          expect(page).to have_content("The election has at least 1 question")
+          expect(page).to have_content("Each question has at least 2 answers")
+          expect(page).to have_content("All the questions have a correct value for maximum of answers")
+          expect(page).to have_content("The size of this list of trustees is correct and it will be needed at least #{Decidim::Elections.bulletin_board.quorum} trustees to perform the tally process")
+          Decidim::Elections.bulletin_board.quorum.times do
+            expect(page).to have_content("valid public key")
+          end
+
+          page.find(".button").click
+        end
+        expect(page).to have_admin_callout("successfully")
+      end
+    end
+  end
+
   describe "unpublishing an election" do
+    let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
+
     it "unpublishes an election" do
       within find("tr", text: translated(election.title)) do
         page.find(".action-icon--unpublish").click
@@ -159,6 +197,8 @@ describe "Admin manages elections", type: :system do
   end
 
   describe "deleting an election" do
+    let!(:election) { create(:election, component: current_component) }
+
     it "deletes an election" do
       within find("tr", text: translated(election.title)) do
         accept_confirm do
@@ -184,5 +224,13 @@ describe "Admin manages elections", type: :system do
         end
       end
     end
+  end
+
+  def questionnaire_edit_path
+    Decidim::EngineRouter.admin_proxy(current_component).edit_feedback_form_path(id: election.id)
+  end
+
+  def questionnaire_public_path
+    Decidim::EngineRouter.main_proxy(current_component).election_feedback_path(election_id: election.id)
   end
 end

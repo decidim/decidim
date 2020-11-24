@@ -15,14 +15,6 @@ pl:
           online: Online
         state: Stan
         title: Tytuł
-      initiative_author:
-        address: Adres
-        city: Miasto
-        id_document: Numer dokumentu
-        name: Imię i nazwisko
-        phone_number: Numer telefonu
-        post_code: Kod pocztowy
-        province: Województwo
       initiatives_committee_member:
         user: Członek Komisji
       initiatives_type:
@@ -317,7 +309,6 @@ pl:
         fill_data:
           back: Wróć
           continue: Dalej
-          fill_data_help: "<ul> <li>Popraw treść swojej inicjatywy. Czy twój tytuł jest łatwy do zrozumienia? Czy cel Twojej inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Osobiście, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy? Miasto, dzielnica?</li> </ul>"
           initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
@@ -325,19 +316,10 @@ pl:
         finish:
           back: Wróć
           back_to_initiatives: Wróć do inicjatyw
-          callout_text: Gratulacje! Twoja inicjatywa została pomyślnie utworzona.
-          confirm: Potwierdź
           edit_my_initiative: Edytuj moje inicjatywy
           go_to_my_initiatives: Przejdź do moich inicjatyw
           more_information: "(Więcej informacji)"
           send_my_initiative: Wyślij moją inicjatywę
-        finish_help:
-          access_reminder: Pamiętaj, że zawsze będziesz mieć dostęp do swoich inicjatyw za pośrednictwem menu użytkownika.
-          help_for_organizations: Jeśli jesteś stowarzyszeniem, musisz przesłać protokoły ze spotkania zarządu wszystkich organizacji, które tworzą Komisję Organizacyjną
-          help_in_person_signatures: Jeśli zdecydowałeś się zebrać podpisy na piśmie lub częściowo online, będziesz musiał przesłać wymagane informacje.
-          help_text: Pamiętaj, że aby poprawnie przeprowadzić inicjatywę musisz uzyskać dostęp do panelu administracyjnego, w którym znajdziesz menu użytkownika, wgrasz wymagane informacje i wyślesz je do przetworzenia.
-          initiatives_page_link: Możesz sprawdzić wszystkie te informacje na stronie %{link} poświęconej informowaniu o inicjatywach.
-          page: strona
         previous_form:
           back: Wróć
           continue: Dalej
@@ -345,14 +327,12 @@ pl:
           more_information: "(Więcej informacji)"
         promotal_committee:
           back: Wróć
-          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga Komisji Organizacyjnej, która składa się z co najmniej %{committee_size} osób (atestatorów). Musisz udostępnić poniższy link innym osobom, które są częścią tej inicjatywy. Kiedy Twoi znajomi otrzymają ten link, będą musieli wykonać wskazane kroki.
           more_information: "(Więcej informacji)"
         select_initiative_type:
           back: Wróć
           choose_html: Chcę utworzyć <strong>%{title}</strong>
           more_information: "(Więcej informacji)"
           select: Chcę utworzyć inicjatywę tego typu
-          select_initiative_type_help: Inicjatywy obywatelskie są środkiem, za pomocą którego obywatele mogą interweniować, aby Rada Miejska podejmowała działania w obronie interesu ogólnego w ramach obszaru ich jurysdykcji. Którą inicjatywę chcesz uruchomić?
         share_committee_link:
           continue: Dalej
           invite_to_committee_help: Link do zaproszenia osób, które będą częścią komitetu organizacyjnego
@@ -454,6 +434,8 @@ pl:
           random: Losowo
           recent: Najnowsze
           recently_published: Ostatnio opublikowane
+        print:
+          city: Miasto
         result:
           answer_title:
             accepted: Ta propozycja została zaakceptowana, ponieważ
@@ -464,9 +446,7 @@ pl:
             validating: Ta propozycja jest oceniana
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
-          any_vote_method: Ta inicjatywa obywatelska zbiera podpisy online i na piśmie.
           follow_description: Otrzymuj powiadomienie, gdy pojawią się wiadomości dotyczące tej inicjatywy
-          offline_method: Ta inicjatywa obywatelska zbiera jedynie podpisy na piśmie.
         signatures_count:
           one: " podpis"
           few: " podpisy"

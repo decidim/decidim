@@ -15,14 +15,6 @@ pt:
           online: Conectados
         state: Estado
         title: Título
-      initiative_author:
-        address: Endereço
-        city: Cidade
-        id_document: DNI / NIE
-        name: Nome e sobrenome
-        phone_number: Número de telefone
-        post_code: CEP
-        province: Província
       initiatives_committee_member:
         user: membro do Comitê
       initiatives_type:
@@ -249,23 +241,14 @@ pt:
         fill_data:
           back: Costas
           continue: Continuar
-          fill_data_help: "<ul> <li>Revise o conteúdo da sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Distrito da cidade?</li> </ul>"
           initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_scope: Selecione um âmbito
         finish:
           back: Costas
           back_to_initiatives: De volta às iniciativas
-          callout_text: Parabéns! Sua iniciativa cidadã foi criada com sucesso.
           go_to_my_initiatives: Vá para minhas iniciativas
           more_information: "(Mais Informações)"
-        finish_help:
-          access_reminder: Lembre-se de que você sempre poderá acessar suas iniciativas através do menu do usuário.
-          help_for_organizations: Se você é uma associação, você terá que enviar as atas do conselho de administração de todas as organizações que formam a Comissão Promotora.
-          help_in_person_signatures: Se você optou por coletar as assinaturas pessoalmente ou combinadas com on-line, será necessário fazer o upload das informações necessárias.
-          help_text: Lembre-se de que, para processar adequadamente a iniciativa, você deve acessar o painel de administração, onde encontrará o menu do usuário, carregará as informações necessárias e as enviará para processamento.
-          initiatives_page_link: Você pode procurar todas essas informações no %{link} dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Costas
           continue: Continuar
@@ -273,14 +256,12 @@ pt:
           more_information: "(Mais Informações)"
         promotal_committee:
           back: Costas
-          individual_help_text: Este tipo de iniciativa cidadã requer uma Comissão Promotora composta por pelo menos %{committee_size} pessoas (atestadores). Você deve compartilhar o seguinte link com as outras pessoas que fazem parte dessa iniciativa. Quando seus contatos receberem este link, eles deverão seguir as etapas indicadas.
           more_information: "(Mais Informações)"
         select_initiative_type:
           back: Costas
           choose_html: Eu quero criar um <strong>%{title}</strong>
           more_information: "(Mais Informações)"
           select: Eu quero promover essa iniciativa
-          select_initiative_type_help: As iniciativas cidadãs são um meio pelo qual a cidadania pode intervir para que a Câmara Municipal possa empreender ações em defesa do interesse geral que se encontram dentro dos campos de jurisdição municipal. Qual iniciativa você quer lançar?
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Link para convidar pessoas que farão parte do comitê de promotores
@@ -365,6 +346,8 @@ pt:
           most_voted: Mais assinadas
           random: Aleatória
           recent: Mais recente
+        print:
+          city: Cidade
         result:
           answer_title:
             accepted: Esta proposta foi aceita porque
@@ -375,9 +358,7 @@ pt:
             validating: Esta proposta está sendo avaliada
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de suporte.
         show:
-          any_vote_method: Essa iniciativa cidadã coleta suporte on-line e também presencial.
           follow_description: Receber uma notificação quando houver notícias nesta iniciativa
-          offline_method: Esta iniciativa cidadã só recolhe apoios face a face.
         signatures_count:
           one: " assinatura"
           other: " assinaturas"

@@ -15,14 +15,6 @@ ar:
           online: عبر الانترنت
         state: الحالة
         title: عنوان
-      initiative_author:
-        address: عنوان
-        city: مدينة
-        id_document: DNI / NIE
-        name: اسم ولقب
-        phone_number: رقم الهاتف
-        post_code: الرمز البريدي
-        province: المحافظة
       initiatives_committee_member:
         user: عضو لجنة
       initiatives_type:
@@ -267,23 +259,14 @@ ar:
         fill_data:
           back: الى الخلف
           continue: استمر
-          fill_data_help: "<ul> <li>راجع محتوى مبادرتك. هل عنوانك سهل الفهم؟ هل هدف مبادرتك واضح؟</li> <li>عليك اختيار نوع التوقيع. شخصيا ، عبر الإنترنت أو مزيج من</li> <li>ما هو النطاق الجغرافي للمبادرة؟ مقاطعه المدينه؟</li> </ul>"
           initiative_type: نوع المبادرة
           more_information: "(معلومات اكثر)"
           select_scope: حدد النطاق
         finish:
           back: الى الخلف
           back_to_initiatives: العودة إلى المبادرات
-          callout_text: تهانينا! تم إنشاء مبادرة المواطن بنجاح.
           go_to_my_initiatives: انتقل إلى مبادراتي
           more_information: "(معلومات اكثر)"
-        finish_help:
-          access_reminder: تذكر أنك ستتمكن دائمًا من الوصول إلى مبادراتك من خلال قائمة المشاركين.
-          help_for_organizations: إذا كنت جمعية ، فسيتعين عليك رفع محاضر مجلس إدارة جميع المنظمات التي تشكل لجنة الترويج
-          help_in_person_signatures: إذا اخترت جمع التواقيع شخصيًا أو دمجها مع الإنترنت ، فسيلزمك تحميل المعلومات المطلوبة.
-          help_text: تذكر أنه من أجل معالجة المبادرة بشكل صحيح ، يجب عليك الوصول إلى لوحة الإدارة حيث ستجد قائمة المستخدم ، وتحميل المعلومات المطلوبة وإرسالها للمعالجة.
-          initiatives_page_link: يمكنك البحث عن كل هذه المعلومات على %{link} مخصصة للإبلاغ عن المبادرات.
-          page: صفحة
         previous_form:
           back: الى الخلف
           continue: استمر
@@ -291,14 +274,12 @@ ar:
           more_information: "(معلومات اكثر)"
         promotal_committee:
           back: الى الخلف
-          individual_help_text: يتطلب هذا النوع من مبادرات المواطنين لجنة ترويج تتألف من ما لا يقل عن %{committee_size} شخصًا (شهادات). يجب مشاركة الرابط التالي مع الأشخاص الآخرين الذين يشكلون جزءًا من هذه المبادرة. عندما تتلقى جهات الاتصال الخاصة بك هذا الرابط سيتعين عليهم اتباع الخطوات المشار إليها.
           more_information: "(معلومات اكثر)"
         select_initiative_type:
           back: الى الخلف
           choose_html: أريد إنشاء <strong>%{title}</strong>
           more_information: "(معلومات اكثر)"
           select: أريد أن أشجع هذه المبادرة
-          select_initiative_type_help: مبادرات المواطن هي وسيلة يمكن من خلالها للجنسية أن تتدخل حتى يتمكن مجلس المدينة من اتخاذ إجراءات دفاعية عن المصلحة العامة التي تدخل في نطاق اختصاص البلدية. ما هي المبادرة التي تريد إطلاقها؟
         share_committee_link:
           continue: استمر
           invite_to_committee_help: رابط لدعوة الأشخاص الذين سيكونون جزءًا من لجنة المروجين
@@ -395,6 +376,8 @@ ar:
           most_voted: الأكثر توقيعا
           random: عشوائية
           recent: الأحدث
+        print:
+          city: مدينة
         result:
           answer_title:
             accepted: تم قبول هذا الاقتراح بسبب
@@ -405,9 +388,7 @@ ar:
             validating: هذا الاقتراح قيد التقييم
           initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
         show:
-          any_vote_method: تجمع مبادرة المواطن هذه التوقيعات عبر الإنترنت والشخصية.
           follow_description: تلقي إشعار عند وجود أخبار في هذه المبادرة
-          offline_method: تجمع مبادرة المواطن هذه التوقيعات الشخصية فقط.
         signatures_count:
           zero: " التوقيعات"
           one: " التوقيع"

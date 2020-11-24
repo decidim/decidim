@@ -18,6 +18,10 @@ module Decidim
       attribute :signature_end_date, Date
       attribute :state, String
       attribute :attachment, AttachmentForm
+      attribute :documents, Array[String]
+      attribute :add_documents, Array
+      attribute :photos, Array[String]
+      attribute :hashtag, String
 
       validates :title, :description, presence: true
       validates :title, length: { maximum: 150 }
@@ -40,6 +44,14 @@ module Decidim
         state == "created" || state.nil?
       end
 
+      def state_updatable?
+        false
+      end
+
+      def area_updatable?
+        @area_updatable ||= current_user.admin? || context.initiative.created?
+      end
+
       def scope_id
         return nil if initiative_type.only_global_scope_enabled?
 
@@ -51,7 +63,7 @@ module Decidim
       end
 
       def initiative_type
-        @initiative_type ||= InitiativesType.find(type_id)
+        @initiative_type ||= type_id ? InitiativesType.find(type_id) : context.initiative.type
       end
 
       def available_scopes
@@ -66,7 +78,17 @@ module Decidim
         @scope ||= Scope.find(scope_id) if scope_id.present?
       end
 
+      def scoped_type_id
+        return unless type && scope_id
+
+        type.scopes.find_by(decidim_scopes_id: scope_id.presence).id
+      end
+
       private
+
+      def type
+        @type ||= type_id ? Decidim::InitiativesType.find(type_id) : context.initiative.type
+      end
 
       def scope_exists
         return if scope_id.blank?

@@ -13,6 +13,9 @@ module Decidim
         # Accepted mime types
         # keys: are used for dynamic help text on admin form.
         # values: are used to validate the file format of imported document.
+        #
+        # WARNING: consider adding/removing the relative translation key at
+        # decidim.assemblies.admin.new_import.accepted_types when modifying this hash
         ACCEPTED_TYPES = {
           json: JSON_MIME_TYPE
         }.freeze

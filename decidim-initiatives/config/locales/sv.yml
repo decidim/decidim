@@ -15,14 +15,6 @@ sv:
           online: Online
         state: Status
         title: Titel
-      initiative_author:
-        address: Adress
-        city: Stad
-        id_document: Personnummer
-        name: Namn och efternamn
-        phone_number: Telefonnummer
-        post_code: Postnummer
-        province: Län
       initiatives_committee_member:
         user: Kommittémedlem
       initiatives_type:
@@ -311,7 +303,6 @@ sv:
         fill_data:
           back: Tillbaka
           continue: Fortsätt
-          fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrifter. Fysiska, digitala eller en kombination av båda</li> <li>Vilket är initiativets geografiska omfång? Stad, distrikt?</li> </ul>"
           initiative_type: Typ av initiativ
           more_information: "(Mer information)"
           select_area: Välj ett område
@@ -319,19 +310,10 @@ sv:
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
-          callout_text: Grattis! Ditt medborgarinitiativ har skapats.
-          confirm: Bekräfta
           edit_my_initiative: Redigera mina initiativ
           go_to_my_initiatives: Gå till mina initiativ
           more_information: "(Mer information)"
           send_my_initiative: Skicka mitt initiativ
-        finish_help:
-          access_reminder: Kom ihåg att du alltid kan komma åt dina initiativ via deltagarmenyn.
-          help_for_organizations: Om du är en förening måste du skicka in protokollen från styrelserna för alla organisationer som bildar kampanjutskottet
-          help_in_person_signatures: Om du har valt att samla in underskrifter fysiskt eller i kombination med digitala underskrifter måste du skicka in den information som krävs.
-          help_text: Kom ihåg att för att behandla initiativet på rätt sätt måste du öppna administratörspanelen där du hittar användarmenyn, skicka in den information som krävs och skicka den för bearbetning.
-          initiatives_page_link: Du kan slå upp all denna information på %{link}, som informerar om initiativ.
-          page: sida
         previous_form:
           back: Tillbaka
           continue: Fortsätt
@@ -339,14 +321,12 @@ sv:
           more_information: "(Mer information)"
         promotal_committee:
           back: Tillbaka
-          individual_help_text: Denna typ av medborgarinitiativ kräver ett kampanjuskott bestående av minst %{committee_size} personer (understödjare). Du måste dela följande länk med de andra personerna som ingår i initiativet. När dina kontakter får länken måste de följa de angivna stegen.
           more_information: "(Mer information)"
         select_initiative_type:
           back: Tillbaka
           choose_html: Jag vill skapa ett <strong>%{title}</strong>
           more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
-          select_initiative_type_help: Medborgainitiativ är ett sätt för medborgarna att berätta för kommunfullmäktige vilka åtgärder som ligger i det allmänna intresset inom den kommunala jurisdiktionen. Vilket initiativ vill du föra fram?
         share_committee_link:
           continue: Fortsätt
           invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
@@ -442,6 +422,8 @@ sv:
           random: Slumpmässig
           recent: Senaste
           recently_published: Senast publicerade
+        print:
+          city: Stad
         result:
           answer_title:
             accepted: Detta förslag har accepterats eftersom
@@ -452,9 +434,7 @@ sv:
             validating: Detta förslag utvärderas
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
-          any_vote_method: Detta medborgarinitiativ samlar in både digitala och fysiska underskrifter.
           follow_description: Få ett meddelande när det finns nyheter om detta initiativ
-          offline_method: Detta medborgarinitiativ samlar bara in fysiska underskrifter.
         signatures_count:
           one: " underskrift"
           other: " underskrifter"

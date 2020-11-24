@@ -31,9 +31,7 @@ it:
         title: Titolo
         transparent: Trasparente
       minutes:
-        audio_url: URL audio
         description: Descrizione
-        video_url: URL del video
         visible: È visibile
     errors:
       models:
@@ -251,7 +249,6 @@ it:
           form:
             address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
             location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
-            location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio'
           index:
             title: Incontri
           new:
@@ -391,7 +388,6 @@ it:
           address_help: 'Indirizzo: usato da Geocoder per trovare la posizione'
           create_as: Crea riunione come
           location_help: 'Posizione: messaggio diretto agli utenti che riporta il luogo dell''incontro'
-          location_hints_help: 'Suggerimenti di posizione: informazioni aggiuntive. Esempio: il piano dell''edificio'
           select_a_category: Scegli una categoria
         index:
           new_meeting: Nuova riunione

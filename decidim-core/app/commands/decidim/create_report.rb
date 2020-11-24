@@ -25,6 +25,7 @@ module Decidim
 
       transaction do
         find_or_create_moderation!
+        update_reported_content!
         create_report!
         update_report_count!
       end
@@ -47,12 +48,17 @@ module Decidim
       @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_space)
     end
 
+    def update_reported_content!
+      @moderation.update!(reported_content: @reportable.reported_searchable_content_text)
+    end
+
     def create_report!
       @report = Report.create!(
         moderation: @moderation,
         user: @current_user,
         reason: form.reason,
-        details: form.details
+        details: form.details,
+        locale: I18n.locale
       )
     end
 

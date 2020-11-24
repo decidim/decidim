@@ -368,9 +368,7 @@ zh-CN:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: 好的
             bottom_hint: "(您将能够预览和排序文档部分)"
-            document_legend: '添加一个小于2MB的文档，每个部分直到3级深度将被解析为建议书。支持的格式为： %{valid_mime_types}'
             title: 添加文档
             upload_document: 上传文档
           publish:

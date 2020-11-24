@@ -31,9 +31,7 @@ ja:
         title: タイトル
         transparent: 透明度
       minutes:
-        audio_url: オーディオ URL
         description: 説明
-        video_url: ビデオ URL
         visible: 非表示にする
     errors:
       models:
@@ -58,7 +56,7 @@ ja:
       decidim/meetings/meeting:
         other: ミーティング
       decidim/meetings/minutes:
-        other: 分
+        other: 議事録
       decidim/meetings/registration:
         other: 登録
   decidim:
@@ -160,8 +158,8 @@ ja:
         edit: 編集
         invalid_destroy:
           proposals_count:
-            other: '%{count} 件の提案が関連付けられているため、会議を破壊できません:'
-        minutes: 分
+            other: '%{count} 件の提案が関連付けられているため、会議を削除できません:'
+        minutes: 議事録
         new: 新しいミーティング
         preview: プレビュー
         registrations: 登録
@@ -241,14 +239,13 @@ ja:
           destroy:
             invalid:
               proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、会議を破壊できません'
+                other: '%{count} 件の提案が関連付けられているため、会議を削除できません'
             success: ミーティングを削除しました
           edit:
             update: 更新
           form:
             address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
             location_help: '場所: ユーザーにメッセージが表示されます。'
-            location_hints_help: '位置情報：追加情報。例：建物の床。'
           index:
             title: ミーティング
           new:
@@ -270,15 +267,15 @@ ja:
         minutes:
           create:
             invalid: この分を作成する際に問題が発生しました
-            success: 正常に作成された分
+            success: 議事録が正常に作成された
           edit:
             update: 更新
           new:
             create: 作成
-            title: 分を作成
+            title: 議事録を作成
           update:
             invalid: この議事録の更新中に問題が発生しました
-            success: 分が正常に更新されました
+            success: 議事録が正常に更新されました
         models:
           meeting:
             name: 会議
@@ -369,11 +366,11 @@ ja:
             all: すべて
             past: 過去
             upcoming: 近日公開
-          origin: 原点：
+          origin: 起案者：
           origin_values:
             all: すべて
-            citizens: Citizens
-            official: オフィシャル
+            citizens: 一般参加者
+            official: 事務局
             user_groups: グループ
           scope: スコープ
           search: 検索
@@ -386,12 +383,11 @@ ja:
           address_help: 'アドレス: ジオコーダーが場所を見つけるために使用'
           create_as: 次のユーザとしてミーティングを作成：
           location_help: '場所: ユーザーにメッセージが表示されます。'
-          location_hints_help: '位置情報：追加情報。例：建物の床。'
           select_a_category: カテゴリを選択してください
         index:
           new_meeting: 新しいミーティング
         meeting_minutes:
-          meeting_minutes: ミーティング時間
+          meeting_minutes: ミーティング議事録
           related_information: 関連情報
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，スケジュールされたミーティングがありません．

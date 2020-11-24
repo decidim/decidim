@@ -30,7 +30,6 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
-        address: SMTP-palvelimen osoite
         alert_color: Ilmoitus
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -66,20 +65,16 @@ fi-pl:
         omnipresent_banner_short_description: Lyhyt kuvaus
         omnipresent_banner_title: Otsikko
         omnipresent_banner_url: URL
-        password: Salasana
-        port: Portti
         primary_color: Ensisijainen
         reference_prefix: Viitteen etuliite
         rich_text_editor_in_public_views: Ota käyttöön rikas tekstieditori osallistujille
         secondary_color: Toissijainen
         send_welcome_notification: Lähetä tervetuloilmoitus
-        show_statistics: Näytä tilastot
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
         twitter_handler: Twitter-käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
-        user_name: Käyttäjänimi
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
@@ -300,6 +295,9 @@ fi-pl:
         category_id_eq:
           label: Aihepiiri
         filter_label: Suodata
+        moderations:
+          reportable_type_string_eq:
+            label: Tyyppi
         officialized_at_null:
           label: Tila
           values:
@@ -320,6 +318,7 @@ fi-pl:
         search_label: Hae
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
+          reported_id_string_or_reported_content_cont: Etsi kohteista %{collection} raportoitavan kohteen ID:n tai sisällön perusteella.
           title_cont: '%{collection}: Hae otsikon perusteella'
         state_eq:
           label: Tila
@@ -386,6 +385,7 @@ fi-pl:
         impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
         participants: Osallistujat
+        reported_users: Ilmoitetut käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -473,6 +473,20 @@ fi-pl:
             phone: Puhelinnumero
             state: Tila
             users_count: Käyttäjämäärä
+      moderated_users:
+        index:
+          actions:
+            title: Toiminnot
+            unreport: Poista ilmoitus
+          name: Nimi
+          nickname: Nimimerkki
+          reason: Syy
+          title: Ilmoitettujen käyttäjien lista
+        report:
+          reasons:
+            does_not_belong: Ei kuulu
+            offensive: Loukkaava
+            spam: Roskaposti
       moderations:
         index:
           title: Moderoinnit
@@ -481,6 +495,21 @@ fi-pl:
             does_not_belong: Ei kuulu
             offensive: Loukkaava
             spam: Roskaposti
+        reports:
+          index:
+            author: Tekijä(t)
+            callout_html: Sisältö tulee näkyviin moderointinäkymään, kun joku käyttäjä (kuka tahansa käyttäjä, jolla on tili alustalla) on ilmoittanut sisällön painamalla sisällön yhteydessä näkyvää %{icon} lippukuvaketta.
+            content_original_language: Sisällön alkuperäinen kieli
+            participatory_space: Osallistumistila
+            reported_content: Ilmoitettu sisältö
+            see_current: Näytä nykyinen
+            see_original: Näytä alkuperäinen
+            title: Moderointi-ilmoitukset
+          show:
+            report_details: Syyn lisätiedot
+            report_language: Ilmoituksen kieli
+            report_reason: Syy
+            title: Ilmoituksen lisätiedot
       newsletter_templates:
         index:
           preview_template: Esikatsele
@@ -560,6 +589,7 @@ fi-pl:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
+          reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
           unofficialize: Poista virallistaminen
@@ -809,6 +839,7 @@ fi-pl:
           reason: Sinun on annettava syy esittäessäsi käyttäjää, joka ei ole hallittu
     moderations:
       actions:
+        expand: Avaa
         hidden: Piilotettu
         hide: Piilota
         not_hidden: Näkyvillä
@@ -829,12 +860,19 @@ fi-pl:
       models:
         moderation:
           fields:
+            created_at: Luonnin ajankohta
             hidden_at: Piilotuksen ajankohta
             report_count: Määrä
-            reportable: Raportoitava
+            reportable_id: Id
+            reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
             visit_url: Vieraile URL-osoitteessa
+        report:
+          fields:
+            details: Syyn lisätiedot
+            locale: Kieli
+            reason: Syy
   errors:
     messages:
       invalid_json: Virheellinen JSON

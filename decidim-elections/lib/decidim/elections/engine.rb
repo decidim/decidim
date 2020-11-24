@@ -2,6 +2,7 @@
 
 require "rails"
 require "decidim/core"
+require "graphlient"
 
 module Decidim
   module Elections
@@ -11,6 +12,10 @@ module Decidim
 
       routes do
         resources :elections, only: [:index, :show] do
+          resource :feedback, only: [:show] do
+            post :answer
+          end
+
           resource :vote
         end
 

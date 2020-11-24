@@ -48,8 +48,8 @@ describe "Homepage", type: :system do
                  official_url: official_url,
                  enable_omnipresent_banner: true,
                  omnipresent_banner_url: "#{official_url}/processes",
-                 omnipresent_banner_title: Decidim::Faker::Localized.sentence(3),
-                 omnipresent_banner_short_description: Decidim::Faker::Localized.sentence(3))
+                 omnipresent_banner_title: Decidim::Faker::Localized.sentence(word_count: 3),
+                 omnipresent_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 3))
         end
 
         before do
@@ -307,10 +307,10 @@ describe "Homepage", type: :system do
           create(:organization,
                  official_url: official_url,
                  highlighted_content_banner_enabled: true,
-                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(2),
-                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(2),
-                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(2),
-                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(2),
+                 highlighted_content_banner_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                 highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(word_count: 2),
+                 highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(word_count: 2),
+                 highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
                  highlighted_content_banner_action_url: ::Faker::Internet.url,
                  highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
         end
@@ -351,6 +351,7 @@ describe "Homepage", type: :system do
             expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
             expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
+            expect(zipfile.glob("*open-data-elections.csv").length).to eq(1)
           end
         end
       end

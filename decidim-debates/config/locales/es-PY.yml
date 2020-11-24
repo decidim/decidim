@@ -200,10 +200,16 @@ es-PY:
           email_subject: Debates ahora disponibles en %{participatory_space_title}
           notification_title: Ahora puedes crear <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
-          email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: Se ha cerrado el debate "%{resource_title}"
-          notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> ha sido cerrado.
+          affected_user:
+            email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
+            email_outro: Ha recibido esta notificación porque usted sigue el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Se ha cerrado el debate "%{resource_title}"
+            notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> ha sido cerrado.
+          follower:
+            email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
+            email_outro: Ha recibido esta notificación porque usted sigue el debate "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_subject: Se ha cerrado el debate "%{resource_title}"
+            notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> ha sido cerrado.
     gamification:
       badges:
         commented_debates:

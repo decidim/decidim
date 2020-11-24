@@ -53,8 +53,6 @@ es-MX:
         confirm_destroy: '¿Seguro que quieres eliminar?'
         destroy: Eliminar
         edit: Modificar
-        edit_answers: Editar las respuestas
-        edit_questions: Editar las preguntas
         import: Importar de propuestas a respuestas
         new: Nuevo %{name}
         preview: Vista previa
@@ -173,7 +171,6 @@ es-MX:
           filter_by: Filtrar por
           unfold: Desplegar
         show:
-          back: Todas las votaciones
           preview: Previsualizar
           vote: Votar
           voting_period_status:

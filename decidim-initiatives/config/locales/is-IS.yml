@@ -8,14 +8,6 @@ is-IS:
         signature_type_values:
           any: Blandað
         title: Titill
-      initiative_author:
-        address: Heimilisfang
-        city: Borg
-        id_document: DNI / NIE
-        name: Nafn og eftirnafn
-        phone_number: Símanúmer
-        post_code: Póstnúmer
-        province: Héraði
       initiatives_committee_member:
         user: Nefndarmaður
       initiatives_type:
@@ -146,10 +138,6 @@ is-IS:
           back_to_initiatives: Aftur á frumkvæði
           go_to_my_initiatives: Farið að verkefnum mínum
           more_information: "(Meiri upplýsingar)"
-        finish_help:
-          help_in_person_signatures: Ef þú hefur valið að safna undirskriftum í persónu eða í sambandi við á netinu verður þú að hlaða upp nauðsynlegum upplýsingum.
-          initiatives_page_link: Þú getur leitað upp allar þessar upplýsingar á %{link} tileinkað til að upplýsa um frumkvæði.
-          page: síðu
         previous_form:
           back: Til baka
           continue: Haltu áfram
@@ -161,7 +149,6 @@ is-IS:
         select_initiative_type:
           back: Til baka
           more_information: "(Meiri upplýsingar)"
-          select_initiative_type_help: Citizen frumkvæði er leið til þess að ríkisborgararétt geti gripið til þess að borgarstjórnar geti gripið til aðgerða til varnar almannahagsmunum sem falla undir lögsögu sveitarfélaga. Hvaða frumkvæði viltu hleypa af stokkunum?
         share_committee_link:
           continue: Haltu áfram
         show_similar_initiatives:
@@ -206,6 +193,8 @@ is-IS:
           most_commented: Flestir athugasemdir
           random: Handahófi
           recent: Síðast
+        print:
+          city: Borg
         vote_cabin:
           vote: Skráðu þig
         votes_count:

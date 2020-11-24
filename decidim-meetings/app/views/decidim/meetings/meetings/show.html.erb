@@ -16,10 +16,12 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <%= link_to meetings_path(filter_link_params), class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to meetings_path(filter_link_params), class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
 
   <h2 class="heading2"><%= present(meeting).title(links: true) %></h2>
 
@@ -32,6 +34,10 @@ edit_link(
 
     <% if allowed_to?(:update, :meeting, meeting: meeting) %>
       <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+    <% end %>
+
+    <% if allowed_to?(:close, :meeting, meeting: meeting) %>
+      <%= link_to t(".close_meeting"), edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
     <div class="card extra">
@@ -73,7 +79,7 @@ edit_link(
       <% end %>
     </div>
 
-    <% if registration.present? %>
+    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
       <div class="card extra">
         <div class="card__content">
             <div class="registration_code">

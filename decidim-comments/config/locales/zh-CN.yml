@@ -14,7 +14,6 @@ zh-CN:
         other: 所得票数
   decidim:
     comments:
-      comments: 评论
       comments_count: 评论计数
       last_activity:
         new_comment_at_html: "<span>在 %{link}的新评论</span>"
@@ -74,7 +73,6 @@ zh-CN:
         loading: 正在加载评论...
         single_comment_warning: 您可以在这里查看 <a href="%{url}">的其余评论</a>。
         single_comment_warning_title: 您正在看到一个评论
-        title: "%{count} 条评论"
       down_vote_button:
         text: 我不同意这个评论
       up_vote_button:

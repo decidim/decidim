@@ -15,14 +15,6 @@ id:
           online: On line
         state: Negara
         title: Judul
-      initiative_author:
-        address: Alamat
-        city: Kota
-        id_document: DNI / NIE
-        name: Nama dan nama keluarga
-        phone_number: Nomor telepon
-        post_code: Kode Pos
-        province: Propinsi
       initiatives_committee_member:
         user: anggota Komite
       initiatives_type:
@@ -246,23 +238,14 @@ id:
         fill_data:
           back: Kembali
           continue: Terus
-          fill_data_help: "<ul> <li>Merevisi isi inisiatif Anda. Apakah judul Anda mudah dimengerti? Apakah tujuan dari inisiatif Anda jelas?</li> <li>Anda harus memilih jenis tanda tangan. In-person, online atau kombinasi keduanya</li> <li>Manakah ruang lingkup geografis dari inisiatif ini? Distrik kota?</li> </ul>"
           initiative_type: Jenis inisiatif
           more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
           back: Kembali
           back_to_initiatives: Kembali ke inisiatif
-          callout_text: Selamat! Inisiatif warga Anda telah berhasil dibuat.
           go_to_my_initiatives: Pergi ke inisiatif saya
           more_information: "(Informasi lebih lanjut)"
-        finish_help:
-          access_reminder: Ingat bahwa Anda akan selalu dapat mengakses inisiatif Anda melalui menu pengguna.
-          help_for_organizations: Jika Anda adalah asosiasi Anda harus mengunggah menit dari dewan manajemen dari semua organisasi yang membentuk Komisi Promosi
-          help_in_person_signatures: Jika Anda telah memilih untuk mengumpulkan tanda tangan secara langsung atau dikombinasikan dengan online, Anda harus mengunggah informasi yang diperlukan.
-          help_text: Ingat bahwa untuk memproses inisiatif dengan baik, Anda harus mengakses panel administrasi tempat Anda akan menemukan menu pengguna, mengunggah informasi yang diperlukan dan mengirimkannya untuk diproses.
-          initiatives_page_link: Anda dapat mencari semua informasi ini di %{link} didedikasikan untuk menginformasikan tentang inisiatif.
-          page: halaman
         previous_form:
           back: Kembali
           continue: Terus
@@ -270,14 +253,12 @@ id:
           more_information: "(Informasi lebih lanjut)"
         promotal_committee:
           back: Kembali
-          individual_help_text: Inisiatif warga negara semacam ini membutuhkan Komisi Promosi yang terdiri dari setidaknya %{committee_size} orang (pengacara). Anda harus membagikan tautan berikut dengan orang lain yang merupakan bagian dari inisiatif ini. Ketika kontak Anda menerima tautan ini, mereka harus mengikuti langkah-langkah yang ditunjukkan.
           more_information: "(Informasi lebih lanjut)"
         select_initiative_type:
           back: Kembali
           choose_html: Saya ingin membuat <strong>%{title}</strong>
           more_information: "(Informasi lebih lanjut)"
           select: Saya ingin mempromosikan inisiatif ini
-          select_initiative_type_help: Inisiatif warga adalah cara yang dapat dilakukan oleh kewarganegaraan sehingga Dewan Kota dapat melakukan tindakan untuk membela kepentingan umum yang berada di dalam wilayah yurisdiksi kota. Inisiatif apa yang ingin Anda luncurkan?
         share_committee_link:
           continue: Terus
           invite_to_committee_help: Tautan untuk mengundang orang yang akan menjadi bagian dari komite promotor
@@ -359,6 +340,8 @@ id:
           most_voted: Paling banyak ditandatangani
           random: Acak
           recent: Terbaru
+        print:
+          city: Kota
         result:
           answer_title:
             accepted: Proposal ini telah diterima karena
@@ -369,9 +352,7 @@ id:
             validating: Proposal ini sedang dievaluasi
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         show:
-          any_vote_method: Inisiatif warga ini mengumpulkan dukungan online serta tatap muka.
           follow_description: Terima pemberitahuan saat ada berita dalam inisiatif ini
-          offline_method: Inisiatif warga ini hanya mengumpulkan dukungan tatap muka.
         signatures_count:
           other: " tanda tangan"
         vote_cabin:

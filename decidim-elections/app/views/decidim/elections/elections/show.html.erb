@@ -18,10 +18,12 @@ edit_link(
   <div class="columns">
 
     <% unless single? %>
-      <%= link_to :elections, class: "small hollow" do %>
-        <%= icon "caret-left", class: "icon--small" %>
-        <%= t(".back") %>
-      <% end %>
+      <div class="m-bottom">
+        <%= link_to :elections, class: "small hollow" do %>
+          <%= icon "caret-left", class: "icon--small" %>
+          <%= t(".back") %>
+        <% end %>
+      </div>
     <% end %>
 
     <h1 class="heading2">
@@ -49,14 +51,24 @@ edit_link(
           <%= t(".vote") %>
         <% end %>
       <% else %>
-        <span class="title-action__action button small disabled"><%= t(".vote") %></span>
+        <span class="button disabled"><%= t(".vote") %></span>
       <% end %>
 
       <% if allowed_to? :preview, :election, election: election %>
-        <%= link_to new_election_vote_path(election.id), class: "title-action__action button small" do %>
+        <%= link_to new_election_vote_path(election.id), class: "button" do %>
           <%= t(".preview") %>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
+
+<!-- Election questions preview -->
+<% unless election.finished? %>
+  <%= render partial: "preview", election: election %>
+<% end %>
+
+<!-- Election results -->
+<% if election.results_published? %>
+  <%= render partial: "results", election: election %>
+<% end %>

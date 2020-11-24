@@ -49,7 +49,7 @@ en:
           form:
             save: Save
             template_title: Template information
-            title: Questionnaire
+            title: Questionnaire template %{questionnaire_for}
           index:
             confirm_delete: Are you sure you want to delete this template?
             title: Questionnaire templates

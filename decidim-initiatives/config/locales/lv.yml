@@ -15,12 +15,6 @@ lv:
           online: Tiešsaistē
         state: Statuss
         title: Nosaukums
-      initiative_author:
-        address: Adrese
-        city: Pilsēta
-        name: Vārds un uzvārds
-        phone_number: Tālruņa numurs
-        post_code: Pasta indekss
       initiatives_committee_member:
         user: Komitejas loceklis
       initiatives_type:
@@ -294,7 +288,6 @@ lv:
         fill_data:
           back: Atpakaļ
           continue: Turpināt
-          fill_data_help: "<ul> <li> Pārskatiet savas iniciatīvas saturu. Vai jūsu nosaukums ir viegli saprotams? Vai jūsu iniciatīvas mērķis ir skaidrs? </li> <li> Jums jāizvēlas paraksta veids. Klātienē, tiešsaistē vai abu apvienojums </li> <li> Kāds ir iniciatīvas ģeogrāfiskais tvērums? Pilsēta, rajons? </li> </ul>"
           initiative_type: Iniciatīvas veids
           more_information: "(Papildu informācija)"
           select_area: Izvēlieties jomu
@@ -302,19 +295,10 @@ lv:
         finish:
           back: Atpakaļ
           back_to_initiatives: Atpakaļ pie iniciatīvām
-          callout_text: Apsveicam! Jūsu pilsoniskā iniciatīva ir veiksmīgi izveidota.
-          confirm: Apstiprināt
           edit_my_initiative: Rediģēt manas iniciatīvas
           go_to_my_initiatives: Doties pie manām iniciatīvām
           more_information: "(Papildu informācija)"
           send_my_initiative: Nosūtīt manu iniciatīvu
-        finish_help:
-          access_reminder: Atcerieties, ka jūs vienmēr varēsiet piekļūt savām iniciatīvām, izmantojot dalībnieku izvēlni.
-          help_for_organizations: Ja esat biedrība, jums būs jāaugšupielādē visu organizāciju, kas veido veicināšanas komisiju, valdes sēžu protokoli
-          help_in_person_signatures: Ja esat izvēlējies parakstus vākt klātienē vai klātienes un tiešsaistes apvienojumā, jums būs jāaugšupielādē nepieciešamā informācija.
-          help_text: Atcerieties, ka, lai pareizi apstrādātu iniciatīvu, jums jāpiekļūst administrācijas panelim, kurā atradīsiet lietotāja izvēlni, augšupielādēsiet nepieciešamo informāciju un nosūtīsiet to apstrādei.
-          initiatives_page_link: Visu šo informāciju varat meklēt %{link}, kas paredzēts, lai informētu par iniciatīvām.
-          page: lapa
         previous_form:
           back: Atpakaļ
           continue: Turpināt
@@ -322,14 +306,12 @@ lv:
           more_information: "(Papildu informācija)"
         promotal_committee:
           back: Atpakaļ
-          individual_help_text: Šāda veida pilsoniskai iniciatīvai ir nepieciešama veicināšanas komisija, kurā ir vismaz %{committee_size} cilvēki (liecinieki). Jums jādalās ar šo saiti ar citiem cilvēkiem, kuri piedalās šajā iniciatīvā. Kad jūsu kontaktpersonas saņems šo saiti, viņām būs jāveic norādītās darbības.
           more_information: "(Papildu informācija)"
         select_initiative_type:
           back: Atpakaļ
           choose_html: Es vēlos izveidot <strong>%{title}</strong>
           more_information: "(Papildu informācija)"
           select: Es vēlos veicināt šo iniciatīvu
-          select_initiative_type_help: Pilsoniskās iniciatīvas ir līdzeklis, ar kuru pilsonība var iejaukties, panākot, lai pilsētas dome varētu aizstāvēt tās sabiedrības daļas intereses, kas ietilpst domes jurisdikcijā. Kādu iniciatīvu jūs vēlaties sākt?
         share_committee_link:
           continue: Turpināt
           invite_to_committee_help: Saite, lai uzaicinātu cilvēkus, kas piedalīsies veicinātāju komitejā
@@ -420,6 +402,8 @@ lv:
           random: Nejauši
           recent: Jaunākās
           recently_published: Pēdējās publicētās
+        print:
+          city: Pilsēta
         result:
           answer_title:
             accepted: Šis priekšlikums ir pieņemts, jo
@@ -430,9 +414,7 @@ lv:
             validating: Šis priekšlikums tiek vērtēts
           initiative_rejected_reason: Šī iniciatīva ir noraidīta parakstu trūkuma dēļ.
         show:
-          any_vote_method: Šī pilsoņu iniciatīva vāc gan tiešsaistes, gan klātienes parakstus.
           follow_description: Saņemiet paziņojumu, kad ir jaunumi par šo iniciatīvu
-          offline_method: Šī pilsoņu iniciatīva vāc tikai klātienes parakstus.
         signatures_count:
           zero: "paraksti"
           one: "paraksts"

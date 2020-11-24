@@ -48,7 +48,7 @@ cs:
           form:
             save: Uložit
             template_title: Informace o šabloně
-            title: Dotazník
+            title: Šablona dotazníku %{questionnaire_for}
           index:
             confirm_delete: Jste si jisti, že chcete odstranit tuto šablonu?
             title: Šablony dotazníků

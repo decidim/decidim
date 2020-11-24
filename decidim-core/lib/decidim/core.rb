@@ -20,6 +20,7 @@ module Decidim
   autoload :Traceable, "decidim/traceable"
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
+  autoload :UserReportable, "decidim/user_reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
@@ -115,7 +116,7 @@ module Decidim
           organization,
           manifest.name,
           Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.sentence(15)
+            Decidim::Faker::Localized.sentence(word_count: 15)
           end
         )
       end

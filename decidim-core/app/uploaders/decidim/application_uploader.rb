@@ -5,6 +5,8 @@ module Decidim
   # hold the uploads configuration, so you should inherit from this class and
   # then tweak any configuration you need.
   class ApplicationUploader < CarrierWave::Uploader::Base
+    include CarrierWave::MiniMagick
+
     process :validate_inside_organization
 
     # Override the directory where uploaded files will be stored.
@@ -15,6 +17,16 @@ module Decidim
       return File.join(Decidim.base_uploads_path, default_path) if Decidim.base_uploads_path.present?
 
       default_path
+    end
+
+    # When the uploaded content can't be processed, we want to make sure
+    # not to expose internal tools errors to the users.
+    # We'll show a generic error instead.
+    def manipulate!
+      super
+    rescue CarrierWave::ProcessingError => e
+      Rails.logger.error(e)
+      raise CarrierWave::ProcessingError, I18n.t("carrierwave.errors.general")
     end
 
     protected

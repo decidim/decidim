@@ -13,7 +13,7 @@
       <%= form.color_field :highlight_alternative_color, value: current_organization.colors["highlight-alternative"] %>
     </div>
 
-    <% if true %>
+    <% if Decidim.enable_html_header_snippets %>
       <div class="row column">
         <%= form.text_area :header_snippets %>
         <p class="help-text"><%= t(".header_snippets_help") %></p>
