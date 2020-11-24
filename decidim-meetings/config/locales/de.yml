@@ -21,17 +21,22 @@ de:
         end_time: Endzeit
         location: Ort
         location_hints: Standorthinweise
+        online_meeting_url: Online Meeting URL
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Privates Treffen
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
         start_time: Startzeit
         title: Titel
         transparent: Transparent
+        type_of_meeting: Art
       minutes:
+        audio_url: Audio-URL
         description: Beschreibung
+        video_url: Video-URL
         visible: Ist sichtbar
     errors:
       models:
@@ -85,9 +90,11 @@ de:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -247,9 +254,11 @@ de:
                 other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
+            title: Meeting bearbeiten
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           index:
             title: Meetings
