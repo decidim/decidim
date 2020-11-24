@@ -96,6 +96,7 @@ cs:
             creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
             enable_pads_creation: Povolit vytvoření sdíleného textu
+            registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny

@@ -246,13 +246,6 @@ id:
           back_to_initiatives: Kembali ke inisiatif
           go_to_my_initiatives: Pergi ke inisiatif saya
           more_information: "(Informasi lebih lanjut)"
-        finish_help:
-          access_reminder: Ingat bahwa Anda akan selalu dapat mengakses inisiatif Anda melalui menu pengguna.
-          help_for_organizations: Jika Anda adalah asosiasi Anda harus mengunggah menit dari dewan manajemen dari semua organisasi yang membentuk Komisi Promosi
-          help_in_person_signatures: Jika Anda telah memilih untuk mengumpulkan tanda tangan secara langsung atau dikombinasikan dengan online, Anda harus mengunggah informasi yang diperlukan.
-          help_text: Ingat bahwa untuk memproses inisiatif dengan baik, Anda harus mengakses panel administrasi tempat Anda akan menemukan menu pengguna, mengunggah informasi yang diperlukan dan mengirimkannya untuk diproses.
-          initiatives_page_link: Anda dapat mencari semua informasi ini di %{link} didedikasikan untuk menginformasikan tentang inisiatif.
-          page: halaman
         previous_form:
           back: Kembali
           continue: Terus
@@ -347,6 +340,8 @@ id:
           most_voted: Paling banyak ditandatangani
           random: Acak
           recent: Terbaru
+        print:
+          city: Kota
         result:
           answer_title:
             accepted: Proposal ini telah diterima karena

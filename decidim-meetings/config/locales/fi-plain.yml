@@ -90,6 +90,7 @@ fi-pl:
             creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
+            registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
