@@ -28,6 +28,7 @@ As per [\#6498](https://github.com/decidim/decidim/pull/6498), the comments comp
 ### Removed
 
 - **decidim-core**: Remove legacy 'show statistics' checkbox in Appearance. [\#6575](https://github.com/decidim/decidim/pull/6575)
+- **decidim-system**: Remove migration `FillSmtpFromEmail` [\#6908](https://github.com/decidim/decidim/pull/6908)
 
 ## Previous versions
 
