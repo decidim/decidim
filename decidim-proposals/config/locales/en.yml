@@ -114,12 +114,12 @@ en:
       proposals:
         actions:
           amend: Amend
+          comment: Comment
           create: Create
           endorse: Endorse
           vote: Support
-          withdraw: Withdraw
-          comment: Comment
           vote_comment: Vote comment
+          withdraw: Withdraw
         name: Proposals
         settings:
           global:
