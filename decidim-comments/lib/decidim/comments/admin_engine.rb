@@ -9,12 +9,6 @@ module Decidim
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
 
-      resources :comments do
-        collection do
-          resource :permissions, controller: "comment_permissions"
-        end
-      end
-
       def load_seed
         nil
       end

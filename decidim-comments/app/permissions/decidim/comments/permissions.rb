@@ -10,10 +10,8 @@ module Decidim
         when :read
           can_read_comments?
         when :create
-          return unless authorized? :create
           can_create_comment?
         when :vote
-          return unless authorized? :vote
           can_vote_comment?
         end
 
@@ -21,12 +19,6 @@ module Decidim
       end
 
       private
-
-      def authorized?(permission_action, resource: nil)
-        return unless comment || commentable
-
-        ActionAuthorizer.new(user, permission_action, comment, commentable).authorize.ok?
-      end
 
       def can_read_comments?
         return disallow! unless commentable.commentable?
