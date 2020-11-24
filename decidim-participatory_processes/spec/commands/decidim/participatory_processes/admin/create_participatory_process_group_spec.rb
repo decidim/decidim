@@ -21,7 +21,7 @@ module Decidim::ParticipatoryProcesses
         current_organization: organization,
         current_user: current_user,
         participatory_process_ids: [],
-        developer_group: { en: "developer group"},
+        developer_group: { en: "developer group" },
         local_area: { en: "local area" },
         meta_scope: { en: "meta scope" },
         target: { en: "target" },
