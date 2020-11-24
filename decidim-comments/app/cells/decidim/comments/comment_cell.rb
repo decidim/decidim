@@ -151,6 +151,18 @@ module Decidim
       def has_replies?
         model.comment_threads.any?
       end
+
+      def current_component
+        root_commentable.component
+      end
+
+      def vote_button_to(path, params, &block)
+        if root_commentable.permissions&.dig("vote_comment").present?
+          action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
+        else
+          button_to path, params, &block
+        end
+      end
     end
   end
 end
