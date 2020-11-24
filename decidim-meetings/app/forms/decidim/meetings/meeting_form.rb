@@ -88,7 +88,7 @@ module Decidim
       end
 
       def needs_address?
-        in_person_meeting?
+        in_person_meeting? || hybrid_meeting?
       end
 
       def geocoded?
