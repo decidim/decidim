@@ -122,7 +122,7 @@ module Decidim
     end
 
     def open_data_file
-      @open_data_file ||= OpenDataUploader.new.tap do |uploader|
+      @open_data_file ||= OpenDataUploader.new(self).tap do |uploader|
         uploader.retrieve_from_store! open_data_file_path
         uploader.cache! open_data_file_path
       end
