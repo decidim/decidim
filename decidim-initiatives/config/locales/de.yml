@@ -125,6 +125,7 @@ de:
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
             postal_code: Postleitzahl
+            scope: Umfang
             time_and_date: Zeit und Datum
             timestamp: Zeitstempel
       titles:
@@ -265,6 +266,7 @@ de:
             update: Aktualisieren
           form:
             authorizations: Autorisierungseinstellungen
+            options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
@@ -431,6 +433,7 @@ de:
             explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
             title: Autorisierung erforderlich
         initiatives:
+          closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
         interactions:
           comments_count:
