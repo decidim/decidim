@@ -111,7 +111,7 @@ module Decidim::Comments
               }
             }
           end
-      
+
           before do
             organization.available_authorizations = ["dummy_authorization_handler"]
             organization.save!
