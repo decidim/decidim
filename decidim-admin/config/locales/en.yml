@@ -129,6 +129,13 @@ en:
         redirect_uri: Redirect URI
         site: Website
   decidim:
+    metrics:
+      suspended_users:
+        title: Suspended users
+      user_reports:
+        title: User reports
+      reported_users:
+        title: Reported users
     admin:
       actions:
         add: Add
