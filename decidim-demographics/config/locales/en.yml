@@ -53,8 +53,7 @@ en:
               manager: Manager
               manual-worker: Manual worker
               other: Other (please specify)
-              professional-worker: Professional worker (architect, accountant, lawyer,
-                doctor, etc.)
+              professional-worker: Professional worker (architect, accountant, lawyer, doctor, etc.)
               retired: Retired (please also tick occupation before retirement)
               self-employed: Self-employed
               student: Student
@@ -70,8 +69,7 @@ en:
             gender_prompt: Your gender
             genders:
               man: Man
-              non_binary: None of the above/ Non binary/ do not recognize yourself
-                in above categories
+              non_binary: None of the above/ Non binary/ do not recognize yourself in above categories
               woman: Woman
             living_conditions:
               large: Large town
@@ -109,10 +107,8 @@ en:
               swede: Swede
             nationality_prompt: 'Nationality (tick up to 3):'
             residence_prompt: 'Country of Residence (tick up to 2):'
-            subscribe_help: Please note, you can unsubscribe at any point via the
-              platform or through pressing unsubscribe on the newsletter itself.
-            tos_page_link: 'By clicking on the button below you expressly confirm
-              that you have read and understood our '
+            subscribe_help: Please note, you can unsubscribe at any point via the platform or through pressing unsubscribe on the newsletter itself.
+            tos_page_link: 'By clicking on the button below you expressly confirm that you have read and understood our '
           new:
             save: Save
   layouts:
