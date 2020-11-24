@@ -53,6 +53,16 @@ Decidim.register_component(:elections) do |component|
     exports.serializer Decidim::Forms::UserAnswersSerializer
   end
 
+  component.exports :elections do |exports|
+    exports.collection do |component_instance|
+      Decidim::Elections::Question.where(election: Decidim::Elections::Election.where(component: component_instance).bb_results_published).collect(&:answers).flatten
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Elections::AnswerSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -182,7 +192,7 @@ Decidim.register_component(:elections) do |component|
           end,
           start_time: 4.weeks.ago,
           end_time: 3.weeks.ago,
-          published_at: Faker::Boolean.boolean(true_ratio: 0.5) ? 1.week.ago : nil
+          published_at: 4.weeks.ago
         },
         visibility: "all"
       )
@@ -371,7 +381,7 @@ Decidim.register_component(:elections) do |component|
         end,
         start_time: 2.weeks.ago,
         end_time: 2.weeks.from_now + 4.hours,
-        published_at: 1.week.ago
+        published_at: 3.weeks.ago
       },
       visibility: "all"
     )
