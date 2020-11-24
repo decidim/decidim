@@ -121,6 +121,7 @@ fr-CA:
             invalid: Il y a eu un problème lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
         exports:
+          elections: Élections
           feedback_form_answers: Commentaires des réponses au formulaire
         models:
           answer:
