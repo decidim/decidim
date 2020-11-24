@@ -1,4 +1,4 @@
-<% message = model.user_authorized_to_comment?(current_user) ?
+<% message = [true, nil].include?(model.try(:user_authorized_to_comment?, current_user)) ?
   "blocked_comments_for_user_warning" :
   "blocked_comments_for_unauthorized_user_warning" %>
 
