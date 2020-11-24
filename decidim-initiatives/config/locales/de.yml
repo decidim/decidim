@@ -5,6 +5,7 @@ de:
         decidim_user_group_id: Autor
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
+        offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
         signature_end_date: Ende der Unterschriftensammlung
         signature_start_date: Beginn der Unterschriftensammlung
@@ -28,6 +29,7 @@ de:
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
+        only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
         promoting_committee_enabled: Förderkomitee freigeben
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
@@ -65,6 +67,20 @@ de:
       actions:
         new_initiative_type: Neuer Initiativentyp
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Bereich
+          state_eq:
+            label: Zustand
+            values:
+              accepted: Ausreichend Unterschriften
+              created: Erstellt
+              discarded: Verworfen
+              published: Veröffentlicht
+              rejected: Zu wenige Unterschriften
+              validating: Technische Validierung
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       menu:
@@ -240,6 +256,7 @@ de:
             destroy: Löschen
             update: Aktualisieren
           form:
+            authorizations: Autorisierungseinstellungen
             title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
@@ -393,6 +410,8 @@ de:
             close: Schließen
             explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
             title: Autorisierung erforderlich
+        initiatives:
+          no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
         interactions:
           comments_count:
             count:
@@ -406,7 +425,26 @@ de:
           recent: Neueste
           recently_published: Zuletzt veröffentlicht
         print:
+          address: Adresse
+          author_title: Autor der Initiative
           city: Stadt
+          email: E-Mail
+          full_name: Vollständiger Name
+          general_title: Antrag auf Aufnahme einer Initiative
+          id_number: ID Nummer
+          initiative:
+            attachments: Angehängte Dokumentation (bitte geben Sie den Namen jedes Dokuments unten ein)
+            description: 'Beschreibung:'
+            title: 'Titel:'
+            type: Art der Initiative
+          legal_text: Die erhobenen personenbezogenen Daten werden von der Organisation entsprechend der geltenden Gesetzgebung vertraulich behandelt und aufgenommen.
+          phone_number: Telefonnummer
+          place_date: Ort, Datum
+          postal_code: Postleitzahl
+          print: Drucken
+          province: Bundesland
+          section: 'Falls von der Organisation angefragt, drucken Sie bitte dieses Formular aus und füllen Sie es aus, um dort einzureichen, wo angegeben wurde:'
+          signature: Unterschrift
         result:
           answer_title:
             accepted: Dieser Vorschlag wurde angenommen, weil
@@ -417,7 +455,13 @@ de:
             validating: Dieser Vorschlag wird geprüft
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
+          any_vote_method: Diese Bürgerinitiative sammelt sowohl online als auch persönlich Unterschriften.
+          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
+          edit: Bearbeiten
           follow_description: Erhalten Sie eine Benachrichtigung, wenn es Neuigkeiten bei dieser Initiative gibt
+          offline_method: Diese Bürgerinitiative sammelt nur persönliche Unterschriften.
+          print: Initiative ausdrucken
+          send_to_technical_validation: Zur technischen Validierung senden
         signatures_count:
           one: " Unterschrift"
           other: " Signaturen"
@@ -463,6 +507,9 @@ de:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
+      update:
+        error: Ein Fehler ist aufgetreten
+        success: Die Initiative wurde erfolgreich aktualisiert
       versions:
         shared:
           back_to_resource: Zurück zur Initiative
