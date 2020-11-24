@@ -10,8 +10,16 @@ module Decidim
         include TranslatableAttributes
         include Decidim::HasUploadValidations
 
-        translatable_attribute :name, String
         translatable_attribute :description, String
+        translatable_attribute :developer_group, String
+        translatable_attribute :local_area, String
+        translatable_attribute :meta_scope, String
+        translatable_attribute :name, String
+        translatable_attribute :participatory_scope, String
+        translatable_attribute :participatory_structure, String
+        translatable_attribute :target, String
+
+        attribute :group_url, String
         attribute :hashtag, String
         attribute :participatory_process_ids, Array[Integer]
 
