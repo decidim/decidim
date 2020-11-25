@@ -4,6 +4,7 @@ if !Rails.env.production? || ENV["SEED"]
   print "Creating seeds for decidim-core...\n" unless Rails.env.test?
 
   require "decidim/faker/localized"
+  require "decidim/faker/internet"
 
   seeds_root = File.join(__dir__, "seeds")
 
