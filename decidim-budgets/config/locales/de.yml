@@ -242,6 +242,10 @@ de:
               disabled: Abstimmung deaktiviert
               enabled: Abstimmung aktiviert
               finished: Abstimmung beendet
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv. Einsehbar auf dieser Seite:'
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
