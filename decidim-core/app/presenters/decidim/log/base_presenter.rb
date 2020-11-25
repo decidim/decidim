@@ -205,7 +205,7 @@ module Decidim
       # Private: Lists the log actions for which the diff changeset should be
       # shown.
       #
-      # Returns a Boolean.
+      # Returns an Array of Strings.
       def diff_actions
         %w(update create)
       end
