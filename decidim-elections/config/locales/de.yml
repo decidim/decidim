@@ -144,6 +144,14 @@ de:
         badge_name:
           finished: Abgeschlossen
           ongoing: Aktiv
+          upcoming: Anstehend
+        end_date: Endet
+        footer:
+          view: Ansicht
+        label:
+          date: Daten
+        questions: Fragen %{count}
+        start_date: Startet
       elections:
         count:
           elections_count:

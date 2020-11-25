@@ -891,6 +891,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
+          intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
         index:
           ago: vor
