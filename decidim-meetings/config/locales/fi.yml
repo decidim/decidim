@@ -254,6 +254,7 @@ fi:
                 other: Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta
             success: Tapahtuman poisto onnistui
           edit:
+            title: Muokkaa tapaamista
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
@@ -288,6 +289,7 @@ fi:
             invalid: Pöytäkirjan luonti epäonnistui
             success: Pöytäkirjan luonti onnistui
           edit:
+            title: Muokkaa pöytäkirjaa
             update: Päivitä
           new:
             create: Luo

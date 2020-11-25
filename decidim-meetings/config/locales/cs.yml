@@ -264,6 +264,7 @@ cs:
                 other: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
             success: Setkání bylo úspěšně smazáno
           edit:
+            title: Upravit schůzku
             update: Aktualizace
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
@@ -298,6 +299,7 @@ cs:
             invalid: Při vytváření těchto minut došlo k problému
             success: Minuty úspěšně vytvořeny
           edit:
+            title: Upravit minuty
             update: Aktualizace
           new:
             create: Vytvořit

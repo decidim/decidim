@@ -500,6 +500,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
+            title: Tuo ehdotuksia
         proposals_merges:
           create:
             invalid: Yhdistettäessä ehdotuksia tapahtui virhe.
