@@ -49,6 +49,8 @@ module Decidim
           if user.present?
             where("decidim_meetings_meetings.private_meeting = ?
             OR decidim_meetings_meetings.transparent = ?
+            OR decidim_meetings_meetings.id IN
+              (SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?)
             OR decidim_meetings_meetings.decidim_component_id IN
               (SELECT decidim_components.id FROM decidim_components
                 WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
@@ -76,7 +78,7 @@ module Decidim
                     (SELECT CONCAT(decidim_participatory_process_user_roles.decidim_participatory_process_id, '-Decidim::ParticipatoryProcess')
                     FROM decidim_participatory_process_user_roles WHERE decidim_participatory_process_user_roles.decidim_user_id = ? )
               )
-            ", false, true, user.id, user.id, user.id, user.id)
+            ", false, true, user.id, user.id, user.id, user.id, user.id)
               .distinct
           else
             visible
