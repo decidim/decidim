@@ -39,11 +39,45 @@ module Decidim
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
 
       scope :visible_meeting_for, lambda { |user|
-                                    joins("LEFT JOIN decidim_meetings_registrations ON
-                                    decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-                                      .where("(private_meeting = ? and decidim_meetings_registrations.decidim_user_id = ?)
-                                    or private_meeting = ? or (private_meeting = ? and transparent = ?)", true, user, false, true, true).distinct
-                                  }
+        (all.distinct if user&.admin?) ||
+          if user.present?
+            where("decidim_meetings_meetings.private_meeting = ?
+            OR decidim_meetings_meetings.transparent = ?
+            OR decidim_meetings_meetings.id IN
+              (SELECT decidim_meetings_registrations.decidim_meeting_id FROM decidim_meetings_registrations WHERE decidim_meetings_registrations.decidim_user_id = ?)
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (SELECT decidim_components.id FROM decidim_components
+                WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                IN
+                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
+                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+              )
+            OR decidim_meetings_meetings.decidim_component_id IN
+              (
+                SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_assembly_user_roles.decidim_assembly_id, '-Decidim::Assembly')
+                    FROM decidim_assembly_user_roles WHERE decidim_assembly_user_roles.decidim_user_id = ? )
+                UNION
+                SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_conference_user_roles.decidim_conference_id, '-Decidim::Conference')
+                    FROM decidim_conference_user_roles WHERE decidim_conference_user_roles.decidim_user_id = ?)
+                UNION
+                SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_participatory_process_user_roles.decidim_participatory_process_id, '-Decidim::ParticipatoryProcess')
+                    FROM decidim_participatory_process_user_roles WHERE decidim_participatory_process_user_roles.decidim_user_id = ? )
+              )
+            ", false, true, user.id, user.id, user.id, user.id, user.id)
+              .distinct
+          else
+            visible
+          end
+      }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
