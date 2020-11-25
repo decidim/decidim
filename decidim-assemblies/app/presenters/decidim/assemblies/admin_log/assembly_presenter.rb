@@ -70,8 +70,8 @@ module Decidim
           end
         end
 
-        def has_diff?
-          action == "unpublish" || super
+        def diff_actions
+          super + %w(unpublish)
         end
       end
     end
