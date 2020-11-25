@@ -80,8 +80,21 @@ de:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Art
+            values:
+              'false': Vorschläge
+              'true': Änderungen
+          scope_id_eq:
+            label: Umfang
           state_eq:
             values:
+              accepted: Angenommen
+              evaluating: In Bearbeitung
+              published: Veröffentlicht
+              rejected: Abgelehnt
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           state_null:
