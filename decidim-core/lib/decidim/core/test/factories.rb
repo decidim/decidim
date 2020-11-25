@@ -95,11 +95,11 @@ FactoryBot.define do
     machine_translation_display_priority { "original" }
     smtp_settings do
       {
-        from: "test@example.org",
-        user_name: "test",
-        encrypted_password: Decidim::AttributeEncryptor.encrypt("demo"),
-        port: "25",
-        address: "smtp.example.org"
+        "from" => "test@example.org",
+        "user_name" => "test",
+        "encrypted_password" => Decidim::AttributeEncryptor.encrypt("demo"),
+        "port" => "25",
+        "address" => "smtp.example.org"
       }
     end
     file_upload_settings { Decidim::OrganizationSettings.default(:upload) }
