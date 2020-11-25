@@ -12,6 +12,13 @@ module Decidim
           participatory_space_private_users_path(current_participatory_process)
         end
 
+        def share
+          privatable_to.share_tokens.create!(user: current_user, organization: current_organization)
+
+          flash[:notice] = I18n.t("participatory_space_private_users.share.success", scope: "decidim.admin")
+          redirect_to action: :index
+        end
+
         def privatable_to
           current_participatory_process
         end

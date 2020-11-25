@@ -73,6 +73,7 @@ module Decidim
             end
             collection do
               resource :participatory_space_private_users_csv_import, only: [:new, :create], path: "csv_import"
+              get :share
             end
           end
         end

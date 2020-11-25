@@ -658,6 +658,8 @@ en:
         new:
           create: Create
           title: New Participatory Space private participant.
+        share:
+          success: Token to take part as private participant successfully created.
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file.
@@ -715,6 +717,10 @@ en:
         destroy:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
+        private_users_share_tokens:
+          help: These tokens are used to publicly share this private space to any user. Users following the URL will be added automatically to the private participants list. Click on the token's share icon to visit the shareable URL.
+          new: New share token
+          title: Share tokens for private participants
         share_tokens:
           empty: There are no active tokens
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
