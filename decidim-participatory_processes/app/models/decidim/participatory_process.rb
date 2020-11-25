@@ -21,6 +21,7 @@ module Decidim
     include Decidim::Searchable
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,
                         :target, :participatory_scope, :participatory_structure, :announcement
@@ -170,6 +171,10 @@ module Decidim
 
     def attachment_context
       :admin
+    end
+
+    def shareable_url(share_token)
+      ResourceLocatorPresenter.new(self).path(share_token: share_token.token)
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
