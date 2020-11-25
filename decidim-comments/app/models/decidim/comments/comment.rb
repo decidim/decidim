@@ -59,7 +59,7 @@ module Decidim
           participatory_space: :itself,
           A: :body,
           datetime: :created_at,
-          index_on_create: ->(comment) { comment.visible? },
+          index_on_create: true,
           index_on_update: ->(comment) { comment.visible? }
       )
 
