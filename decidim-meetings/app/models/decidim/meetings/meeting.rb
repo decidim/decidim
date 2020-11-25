@@ -46,7 +46,8 @@ module Decidim
 
       scope :visible_meeting_for, lambda { |user|
         (all.distinct if user&.admin?) ||
-          where("decidim_meetings_meetings.private_meeting = ?
+          if user.present?
+            where("decidim_meetings_meetings.private_meeting = ?
             OR decidim_meetings_meetings.transparent = ?
             OR decidim_meetings_meetings.decidim_component_id IN
               (SELECT decidim_components.id FROM decidim_components
@@ -76,7 +77,10 @@ module Decidim
                     FROM decidim_participatory_process_user_roles WHERE decidim_participatory_process_user_roles.decidim_user_id = ? )
               )
             ", false, true, user.id, user.id, user.id, user.id)
-            .distinct
+              .distinct
+          else
+            visible
+          end
       }
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
