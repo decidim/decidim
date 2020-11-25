@@ -38,8 +38,8 @@ module Decidim
           "activemodel.attributes.valuation_assignment.admin_log"
         end
 
-        def has_diff?
-          %w(create delete).include?(action) || super
+        def diff_actions
+          super + %w(create delete)
         end
 
         def i18n_params
