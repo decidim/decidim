@@ -46,18 +46,36 @@ module Decidim
 
       scope :visible_meeting_for, lambda { |user|
         (all.distinct if user&.admin?) ||
-          joins("LEFT JOIN decidim_meetings_registrations ON
-              decidim_meetings_registrations.decidim_meeting_id = #{table_name}.id")
-            .joins("LEFT JOIN decidim_users ON
-              decidim_users.id = decidim_meetings_registrations.decidim_user_id")
-            .joins("LEFT JOIN decidim_components ON
-              decidim_components.id = #{table_name}.decidim_component_id")
-            .joins("LEFT JOIN decidim_participatory_process_user_roles ON
-              decidim_participatory_process_user_roles.decidim_participatory_process_id = decidim_components.participatory_space_id")
-            .where("decidim_meetings_meetings.private_meeting = ?
-              OR decidim_meetings_meetings.transparent = ?
-              OR decidim_participatory_process_user_roles.decidim_user_id = ?
-              OR decidim_meetings_registrations.decidim_user_id = ?", false, true, user, user)
+          where("decidim_meetings_meetings.private_meeting = ?
+            OR decidim_meetings_meetings.transparent = ?
+            OR decidim_meetings_meetings.decidim_component_id IN
+      			  (SELECT decidim_components.id FROM decidim_components
+                WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                IN
+                  (SELECT CONCAT(decidim_participatory_space_private_users.privatable_to_id, '-', decidim_participatory_space_private_users.privatable_to_type)
+                  FROM decidim_participatory_space_private_users WHERE decidim_participatory_space_private_users.decidim_user_id = ?)
+              )
+            OR decidim_meetings_meetings.decidim_component_id IN
+          		(
+          			SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_assembly_user_roles.decidim_assembly_id, '-Decidim::Assembly')
+                    FROM decidim_assembly_user_roles WHERE decidim_assembly_user_roles.decidim_user_id = ? )
+          			UNION
+          			SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_conference_user_roles.decidim_conference_id, '-Decidim::Conference')
+                    FROM decidim_conference_user_roles WHERE decidim_conference_user_roles.decidim_user_id = ?)
+          			UNION
+          			SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                    (SELECT CONCAT(decidim_participatory_process_user_roles.decidim_participatory_process_id, '-Decidim::ParticipatoryProcess')
+                    FROM decidim_participatory_process_user_roles WHERE decidim_participatory_process_user_roles.decidim_user_id = ? )
+          		)
+            ", false, true, user.id, user.id, user.id, user.id)
             .distinct
       }
 
