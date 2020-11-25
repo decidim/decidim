@@ -109,7 +109,7 @@ module Decidim
       end
 
       def has_descendants?
-        try(:components)
+        try(:components).present?
       end
 
       def contents_to_searchable_resource_attributes(fields, locale)

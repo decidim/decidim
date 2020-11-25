@@ -12,18 +12,22 @@ module Decidim
 
     def query
       @participatory_space.components.flat_map do |component|
-        klass = manifest_name_to_class(component.manifest.name.to_s)
+        klass = manifest_name_to_class(component.manifest_name)
 
+        next if klass.blank?
         next unless klass.column_names.include? "decidim_component_id"
 
         klass.where(component: component)
-      end
+      end.compact
     end
 
     private
 
     def manifest_name_to_class(name)
-      Decidim.resource_registry.find(name).model_class_name.constantize
+      resource_registry = Decidim.resource_registry.find(name)
+      return if resource_registry.blank?
+
+      resource_registry.model_class_name&.safe_constantize
     end
   end
 end

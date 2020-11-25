@@ -102,7 +102,11 @@ module Decidim
       #
       # @return If the resource is also Publicable checks if the resource is published, otherwise returns true by default.
       def resource_visible?
-        (!hidden? if respond_to?(:hidden?)) && (published? if respond_to?(:published?))
+        return !hidden? && published? if respond_to?(:hidden?) && respond_to?(:published?)
+        return published? if respond_to?(:published?)
+        return !hidden? if respond_to?(:hidden?)
+
+        true
       end
 
       # Public: Whether the permissions for this object actions can be set at resource level.

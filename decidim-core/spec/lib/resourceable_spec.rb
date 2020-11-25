@@ -139,13 +139,13 @@ module Decidim
         it { is_expected.to be_visible }
       end
 
-      context "when ParticipatorySpace is private" do
+      context "when participatory space is private" do
         before { subject.component.participatory_space.update(private_space: true) }
 
         it { is_expected.not_to be_visible }
       end
 
-      context "when ParticipatorySpace is unpublished" do
+      context "when participatory space is unpublished" do
         before { subject.component.participatory_space.update(published_at: nil) }
 
         it { is_expected.not_to be_visible }

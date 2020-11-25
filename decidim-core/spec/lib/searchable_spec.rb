@@ -80,7 +80,7 @@ module Decidim
         let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let!(:resource) { create(:proposal, :official, component: proposal_component) }
 
-        it "enqueues the job" do
+        it "enqueues the job when participatory process is updated" do
           expect(Decidim::UpdateResourcesIndexJob).to receive(:perform_later).with(participatory_process)
 
           participatory_process.update!(published_at: nil)
