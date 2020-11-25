@@ -129,6 +129,15 @@ module Decidim
 
         !model.user_allowed_to_comment?(current_user)
       end
+
+      # action_authorization_link expects current_component to be available
+      def current_component
+        model.try(:component)
+      end
+
+      def comment_link_to(path, params, &block)
+        action_authorized_link_to(:comment, path, params.merge(resource: model), &block)
+      end
     end
   end
 end
