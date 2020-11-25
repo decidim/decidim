@@ -23,12 +23,12 @@ module Decidim
               force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing",
               smtp_settings: {
-                address: "mail.gotham.gov",
-                port: "25",
-                user_name: "f.laguardia",
-                password: Decidim::AttributeEncryptor.encrypt("password"),
-                from_email: "decide@gotham.gov",
-                from_label: from_label
+                "address" => "mail.gotham.gov",
+                "port" => "25",
+                "user_name" => "f.laguardia",
+                "password" => Decidim::AttributeEncryptor.encrypt("password"),
+                "from_email" => "decide@gotham.gov",
+                "from_label" => from_label
               },
               omniauth_settings_facebook_enabled: true,
               omniauth_settings_facebook_app_id: "facebook-app-id",
