@@ -15,7 +15,7 @@ module Decidim
         resource.data.map do |key, value|
           next if value.blank?
 
-          object[key.to_sym] = Decidim::AttributeEncryptor.decrypt(value)
+          object[key.to_sym] = value
         end
         object
       end

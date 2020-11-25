@@ -9,20 +9,28 @@ module Decidim
       attribute :gender, String
       attribute :age, String
       attribute :nationalities, String
-      attribute :postal_code, String
-      attribute :background, String
+      attribute :other_nationalities, String
+      attribute :residences, String
+      attribute :other_residences, String
+      attribute :living_condition, String
+      attribute :current_occupations, String
+      attribute :education_age_stop, String
+      attribute :other_ocupations, String
+      attribute :attended_before, String
+      attribute :newsletter_sign_in, String
 
       validates_presence_of :gender, :age, :nationalities
-      validates :postal_code, format: { with: /\A[0-9]*\z/ }
 
       def self.from_params(params, additional_params = {})
-        params["demographic"]["nationalities"] = params["demographic"]["nationalities"]&.reject(&:empty?)&.compact
+        %w(nationalities residences occupations).each do |o|
+          params["demographic"][o] = params["demographic"][o]&.reject(&:empty?)&.compact
+        end
         super
       end
 
       def map_model(model)
         Hash[(model.data || [])].map do |k, v|
-          self[k.to_sym] = Decidim::AttributeEncryptor.decrypt(v)
+          self[k.to_sym] = v
         end
       end
     end

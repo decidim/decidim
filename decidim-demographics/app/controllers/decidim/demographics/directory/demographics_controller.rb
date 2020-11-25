@@ -12,6 +12,7 @@ module Decidim
           enforce_permission_to :update, :user, current_user: current_user
 
           @form = demographics_form.from_model(demographics_data)
+          @tos_page = current_organization.static_pages.find_by(slug: "terms-and-conditions")
         end
 
         def create

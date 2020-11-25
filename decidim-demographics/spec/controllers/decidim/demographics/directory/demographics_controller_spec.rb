@@ -14,9 +14,7 @@ describe Decidim::Demographics::Directory::DemographicsController, type: :contro
       demographic: {
         gender: "male",
         age: "< 15",
-        nationalities: [:romanian],
-        postal_code: "111222",
-        background: "self-employed"
+        nationalities: [:romanian]
       }
     }
   end
