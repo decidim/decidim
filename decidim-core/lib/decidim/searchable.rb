@@ -99,17 +99,13 @@ module Decidim
           searchables_in_org.destroy_all
         end
 
-        update_index_for_resources if has_descendants?
+        find_and_update_descendants
       end
 
       private
 
-      def update_index_for_resources
-        Decidim::UpdateResourcesIndexJob.perform_later(self)
-      end
-
-      def has_descendants?
-        try(:components).present?
+      def find_and_update_descendants
+        Decidim::FindAndUpdateDescendantsJob.perform_later(self)
       end
 
       def contents_to_searchable_resource_attributes(fields, locale)

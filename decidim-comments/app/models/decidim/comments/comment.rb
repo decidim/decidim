@@ -56,9 +56,11 @@ module Decidim
 
       translatable_fields :body
       searchable_fields(
-        participatory_space: :itself,
-        A: :body,
-        datetime: :created_at
+          participatory_space: :itself,
+          A: :body,
+          datetime: :created_at,
+          index_on_create: ->(comment) { comment.visible? },
+          index_on_update: ->(comment) { comment.visible? }
       )
 
       def self.positive
@@ -71,6 +73,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?)
       end
 
       def participatory_space
@@ -101,7 +107,7 @@ module Decidim
       # comment is replied
       def users_to_notify_on_comment_created
         Decidim::User.where(id: commentable.users_to_notify_on_comment_created).or(
-          Decidim::User.where(id: decidim_author_id)
+            Decidim::User.where(id: decidim_author_id)
         )
       end
 
@@ -146,7 +152,7 @@ module Decidim
 
       def self.newsletter_participant_ids(space)
         authors_sql = Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
-                                                .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
+                          .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
 
         Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
       end

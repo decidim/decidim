@@ -2,12 +2,14 @@
 
 require "spec_helper"
 
-describe Decidim::UpdateResourcesIndexJob do
+describe Decidim::FindAndUpdateDescendantsJob do
   subject { described_class }
 
   let!(:participatory_process) { create(:participatory_process) }
   let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:resource) { create(:proposal, :official, component: proposal_component) }
+  let!(:post_component) { create(:post_component, participatory_space: participatory_process) }
+  let!(:proposal) { create(:proposal, :official, component: proposal_component) }
+  let!(:post) { create(:post, component: post_component) }
 
   describe "queue" do
     it "is queued to events" do
@@ -17,15 +19,16 @@ describe Decidim::UpdateResourcesIndexJob do
 
   describe "perform" do
     it "calls method on resources" do
-      expect(resource.searchable_resources).not_to be_empty
+      expect(proposal.searchable_resources).not_to be_empty
+      expect(post.searchable_resources).not_to be_empty
 
       # rubocop:disable Rails/SkipsModelValidations:
       participatory_process.update_column(:published_at, nil)
       # rubocop:enable Rails/SkipsModelValidations:
 
-      Decidim::UpdateResourcesIndexJob.perform_now(participatory_process)
-
-      expect(resource.searchable_resources).to be_empty
+      expect {
+        Decidim::FindAndUpdateDescendantsJob.perform_now(participatory_process)
+      }.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).exactly(:twice)
     end
   end
 end
