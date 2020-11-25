@@ -475,6 +475,7 @@ de:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
           login_as: Sie sind als %{name} <%{email}> angemeldet
+          no_registrations: Keine Registrierungen
           register: Registrieren
           title: Registrierungsarten
       shared:

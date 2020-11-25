@@ -30,7 +30,6 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
-        address: Nome do anfitrião SMTP
         alert_color: Alerta
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
@@ -63,8 +62,6 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Palavra-passe
-        port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
         rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
@@ -76,7 +73,6 @@ pt:
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
-        user_name: Nome do utilizador
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas

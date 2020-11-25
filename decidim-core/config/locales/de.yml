@@ -890,6 +890,8 @@ de:
           show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        error_modal:
+          ok: OK
         index:
           ago: vor
           close: Modal schließen
@@ -912,6 +914,8 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
       download:
         csv: Daten herunterladen (csv)
@@ -1056,6 +1060,7 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
+          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.

@@ -30,7 +30,6 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
-        address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -66,8 +65,6 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Passwort
-        port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
@@ -79,7 +76,6 @@ de:
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
-        user_name: Benutzername
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -130,7 +126,7 @@ de:
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:

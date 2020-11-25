@@ -204,7 +204,7 @@ de:
           update:
             error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
             success: Das Dokument wurde erfolgreich neu geladen
-        dni: DNI
+        dni: Personalausweis
         nie: NIE
         passport: Reisepass
       postal_letter:

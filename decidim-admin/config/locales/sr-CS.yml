@@ -29,7 +29,6 @@ sr:
         body: Glavni deo teksta
         subject: Naslov
       organization:
-        address: SMTP domaćin
         alert_color: Upozorеnjе
         badges_enabled: Omogući značke
         cta_button_path: Put dugmeta poziva na akciju
@@ -59,8 +58,6 @@ sr:
         omnipresent_banner_short_description: Kratak opis
         omnipresent_banner_title: Naslov
         omnipresent_banner_url: Adrеsa
-        password: Šifra
-        port: Port
         primary_color: Primarni
         reference_prefix: Prefiks reference
         rich_text_editor_in_public_views: Omogući korisnicima uređivanje teksta sa formatiranjem
@@ -72,7 +69,6 @@ sr:
         tos_version: Verzija uslova korišćenja
         twitter_handler: Administrator Twitter-a
         user_groups_enabled: Omogući grupe
-        user_name: Korisničko ime
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
         welcome_notification_subject: Naslov obaveštenja dobrodošlice

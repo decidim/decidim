@@ -78,11 +78,20 @@ de:
             name: Debatte
       admin_log:
         debate:
+          close: "%{user_name} hat die %{resource_name} Debatte im %{space_name} Bereich beendet"
           create: "%{user_name} erstellt die %{resource_name} Debatte über die %{space_name} Räume"
           update: "%{user_name} aktualisierte die %{resource_name} Debatte über die %{space_name} Räume"
       debate_m:
         commented_time_ago: Vor %{time} kommentiert
       debates:
+        close:
+          invalid: Beim Beenden der Debatte ist ein Problem aufgetreten.
+          success: Debatte erfolgreich beendet.
+        close_debate_modal:
+          close: Schließen
+          description: Wie lautet die Zusammenfassung oder Schlussfolgerung dieser Debatte?
+          send: Debatte schließen
+        closed: Geschlossen
         count:
           debates_count:
             one: "%{count} Debatte"
@@ -134,8 +143,16 @@ de:
           updated: Kürzlich aktualisiert
         show:
           back: Zurück zur Liste
+          close_debate: Debatte schließen
           date: Datum
+          debate_closed: Geschlossen
+          debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
+          edit_conclusions: Schlussfolgerungen bearbeiten
           edit_debate: Debatte bearbeiten
+          groups_count: Gruppen
+          last_comment_by: Letzter Kommentar von
+          no_comments_yet: Noch keine Kommentare
+          participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
           success: Debatte erfolgreich aktualisiert.

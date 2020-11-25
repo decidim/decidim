@@ -5,6 +5,7 @@ de:
         decidim_user_group_id: Autor
         description: Beschreibung
         offline_votes: Face-to-Face-Unterstützung
+        offline_votes_for_scope: Persönliche Unterschriften für %{scope_name}
         scope_id: Umfang
         signature_end_date: Ende der Unterschriftensammlung
         signature_start_date: Beginn der Unterschriftensammlung
@@ -36,6 +37,7 @@ de:
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
         minimum_committee_members: Minimum der Ausschussmitglieder
         online_signature_enabled: Online-Signatur aktiviert
+        only_global_scope_enabled: Nur die Erstellung globaler Initiativen zulassen
         promoting_committee_enabled: Förderkomitee freigeben
         title: Titel
         undo_online_signatures_enabled: Ermöglichen Sie Benutzern, ihre Online-Signaturen rückgängig zu machen
@@ -73,6 +75,20 @@ de:
       actions:
         new_initiative_type: Neuer Initiativentyp
       filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Bereich
+          state_eq:
+            label: Zustand
+            values:
+              accepted: Ausreichend Unterschriften
+              created: Erstellt
+              discarded: Verworfen
+              published: Veröffentlicht
+              rejected: Zu wenige Unterschriften
+              validating: Technische Validierung
+          type_id_eq:
+            label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
       menu:
@@ -109,6 +125,7 @@ de:
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
             postal_code: Postleitzahl
+            scope: Umfang
             time_and_date: Zeit und Datum
             timestamp: Zeitstempel
       titles:
@@ -248,6 +265,8 @@ de:
             destroy: Löschen
             update: Aktualisieren
           form:
+            authorizations: Autorisierungseinstellungen
+            options: Optionen
             title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
@@ -413,6 +432,9 @@ de:
             close: Schließen
             explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
             title: Autorisierung erforderlich
+        initiatives:
+          closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
+          no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
         interactions:
           comments_count:
             count:

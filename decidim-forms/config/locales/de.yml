@@ -3,6 +3,8 @@ de:
     attributes:
       answer:
         body: Antworten
+        choices: Auswahl
+        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art

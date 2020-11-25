@@ -14,10 +14,15 @@ de:
       question:
         description: Beschreibung
         max_selections: Maximale Anzahl von Auswahlen
+        min_selections: Nichts davon
         title: Titel
     errors:
       models:
         answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+        election:
           attributes:
             attachment:
               needs_to_be_reattached: Muss erneut angehängt werden
@@ -167,6 +172,10 @@ de:
             answers: Antworten
             max_selections: Maximale Auswahl
             title: Titel
+      orders:
+        label: Wahlen ordnen nach
+        older: Älter
+        recent: Neueste
       votes:
         confirm:
           answer: Antwort
@@ -175,6 +184,7 @@ de:
           edit: bearbeiten
           header: Bestätige deine Stimme
           intro: Hier ist eine Zusammenfassung der Wahl, die Sie abgeben möchten. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
+          nota_option: Leer
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
@@ -197,13 +207,18 @@ de:
           close: Schließen
           proposal_header: 'Vorschläge:'
         new:
+          answer_choices: Sie können bis zu %{choices} Antworten auswählen
           more_information: Weitere Informationen
+          nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
         voting_step:
           back: Zurück
           continue: Weiter
+      warnings:
+        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
+        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:

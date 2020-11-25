@@ -30,7 +30,6 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        address: Nom del servidor SMTP
         alert_color: Alerta
         badges_enabled: Habilitar les ensenyes
         comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
@@ -66,8 +65,6 @@ ca:
         omnipresent_banner_short_description: Breu descripció
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
-        password: Contrasenya
-        port: Port
         primary_color: Primària
         reference_prefix: prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
@@ -79,7 +76,6 @@ ca:
         tos_version: Versió dels Termes de Servei
         twitter_handler: Nom d'usuària de Twitter
         user_groups_enabled: Habilitar grups
-        user_name: Àlies
         warning_color: Avís
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda

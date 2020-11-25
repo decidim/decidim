@@ -29,7 +29,6 @@ ar:
         body: المحتوى
         subject: الموضوع
       organization:
-        address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
@@ -59,8 +58,6 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
-        password: الكلمة السرية
-        port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
@@ -72,7 +69,6 @@ ar:
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
-        user_name: اسم المستخدم
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب

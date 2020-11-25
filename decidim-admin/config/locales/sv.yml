@@ -30,7 +30,6 @@ sv:
         body: Innehåll
         subject: Ämne
       organization:
-        address: SMTP-värdnamn
         alert_color: Larm
         badges_enabled: Aktivera märken
         comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
@@ -66,8 +65,6 @@ sv:
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Lösenord
-        port: Port
         primary_color: Primär
         reference_prefix: Referensprefix
         rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
@@ -79,7 +76,6 @@ sv:
         tos_version: Version på användarvillkor
         twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
-        user_name: Användarnamn
         warning_color: Varning
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad

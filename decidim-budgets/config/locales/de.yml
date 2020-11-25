@@ -13,6 +13,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
+        selected: Zur Implementierung ausgewählt
         title: Titel
   activerecord:
     models:

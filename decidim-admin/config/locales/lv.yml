@@ -28,7 +28,6 @@ lv:
         body: Pamatteksts
         subject: Temats
       organization:
-        address: SMTP saimniekdatora nosaukums
         alert_color: Brīdinājums
         badges_enabled: Iespējot žetonus
         cta_button_path: Pogas Call To Action ceļš
@@ -57,8 +56,6 @@ lv:
         official_url: Oficiālais organizācijas URL
         omnipresent_banner_short_description: Īss apraksts
         omnipresent_banner_title: Nosaukums
-        password: Parole
-        port: Ports
         primary_color: Primārais
         reference_prefix: Atsauces prefikss
         rich_text_editor_in_public_views: Iespējot bagātinātā teksta redaktoru dalībniekiem
@@ -70,7 +67,6 @@ lv:
         tos_version: Pakalpojumu sniegšanas noteikumu versija
         twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
-        user_name: Lietotājvārds
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
         welcome_notification_subject: Sveiciena paziņojuma temats
