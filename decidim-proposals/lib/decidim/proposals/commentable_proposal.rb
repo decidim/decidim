@@ -38,11 +38,13 @@ module Decidim
         def user_allowed_to_comment?(user)
           return unless can_participate_in_space?(user)
 
-          user_authorized_to_comment?(user)
+          ActionAuthorizer.new(user, "comment", component, self).authorize.ok?
         end
 
-        def user_authorized_to_comment?(user)
-          ActionAuthorizer.new(user, "comment", component, self).authorize.ok?
+        def user_allowed_to_vote_comment?(user)
+          return unless can_participate_in_space?(user)
+
+          ActionAuthorizer.new(user, "vote_comment", component, self).authorize.ok?
         end
       end
     end

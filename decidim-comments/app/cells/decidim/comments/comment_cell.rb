@@ -152,16 +152,13 @@ module Decidim
         model.comment_threads.any?
       end
 
+      # action_authorization_button expects current_component to be available
       def current_component
         root_commentable.try(:component)
       end
 
       def vote_button_to(path, params, &block)
-        if root_commentable.permissions&.dig("vote_comment").present?
-          action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
-        else
-          button_to path, params, &block
-        end
+        action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
       end
     end
   end
