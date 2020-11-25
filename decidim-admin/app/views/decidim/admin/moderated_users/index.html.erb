@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".nickname") %></th>
+          <th><%= t(".reason") %></th>
+          <th class="actions"><%= t(".actions.title") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @moderated_users.each do |moderation| %>
+          <tr data-id="<%= moderation.id %>">
+            <% if moderation.user.nickname.present? %>
+              <td><%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname) %></td>
+              <td><%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname) %></td>
+            <% else %>
+              <td><%= moderation.user.name %></td>
+              <td><%= moderation.user.nickname %></td>
+            <% end %>
+            <td> <%#= moderation.reason %>
+              <% reports = moderation.reports.map { |report| render "report", report: report } %>
+              <%= safe_join(reports, ",") %>
+            </td>
+
+            <td class="actions">
+              <% if allowed_to?(:unreport, :moderate_users) %>
+                <%= icon_link_to "action-undo",  ignore_moderated_user_path(id: moderation),  t(".actions.unreport"),  class: "action-icon--unreport",  method: :put %>
+              <% end %>
+              <% if allowed_to?(:ban, :moderate_users) %>
+                <%= icon "ban", class: "action-icon action-icon--disabled", role: "img" %>
+              <% end %>
+
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

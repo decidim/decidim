@@ -27,6 +27,9 @@ cs:
         user_group_id: Vytvořit návrh jako
       proposal_answer:
         answer: Odpovědět
+        cost: Náklady
+        cost_report: Přehled nákladů
+        execution_period: Období provádění
       proposals_copy:
         copy_proposals: Chápu, že to bude importovat všechny návrhy z vybrané komponenty na aktuální a že tato akce nemůže být zrušena.
         origin_component_id: Komponenta pro kopírování návrhů z
@@ -507,6 +510,7 @@ cs:
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
             select_states: Zkontrolujte stav návrhů, které chcete importovat
+            title: Importovat návrhy
         proposals_merges:
           create:
             invalid: Při propojení vybraných návrhů došlo k chybě.

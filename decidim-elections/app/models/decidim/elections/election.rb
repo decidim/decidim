@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
+      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _prefix: :bb
 
       component_manifest_name "elections"
 
@@ -63,13 +64,39 @@ module Decidim
         started? && !finished?
       end
 
+      # Public: Checks if the election start_time is minimum 3 hours later than the present time
+      #
+      # Returns a boolean.
+      def minimum_three_hours_before_start?
+        start_time > (Time.zone.at(3.hours.from_now))
+      end
+
+      # Public: Checks if the number of answers are minimum 2 for each question
+      #
+      # Returns a boolean.
+      def minimum_answers?
+        questions.all? { |question| question.answers.size > 1 }
+      end
+
+      # Public: Checks if the election results are published and election finished
+      #
+      # Returns a boolean.
+      def results_published?
+        bb_results_published?
+      end
+
+      # Public: Checks if the election results present
+      #
+      # Returns a boolean.
+      def results?
+        bb_results?
+      end
+
       # Public: Checks if the election questions are valid
       #
       # Returns a boolean.
       def valid_questions?
-        questions.each do |question|
-          return false unless question.valid_max_selection?
-        end
+        questions.all?(&:valid_max_selection?)
       end
 
       # Public: Gets the voting period status of the election
@@ -83,6 +110,13 @@ module Decidim
         else
           :upcoming
         end
+      end
+
+      # Public: Checks if the election has a blocked_at value
+      #
+      # Returns a boolean.
+      def blocked?
+        blocked_at.present?
       end
 
       # Public: Overrides the Resourceable concern method to allow setting permissions at resource level

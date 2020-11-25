@@ -49,8 +49,6 @@ lv:
         confirm_destroy: Vai esat pārliecināts?
         destroy: Dzēst
         edit: Labot
-        edit_answers: Rediģēt atbildes
-        edit_questions: Rediģēt jautājumus
         import: Importēt priekšlikumus atbildēm
         new: Jauns %{name}
         preview: Priekšskatīt

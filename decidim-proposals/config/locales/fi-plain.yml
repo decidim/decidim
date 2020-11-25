@@ -27,6 +27,9 @@ fi-pl:
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
+        cost: Kustannusarvio
+        cost_report: Kustannusraportti
+        execution_period: Toteutusjakso
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen komponenttiin ja että tätä toimenpidettä ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
@@ -497,6 +500,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
+            title: Tuo ehdotuksia
         proposals_merges:
           create:
             invalid: Yhdistettäessä ehdotuksia tapahtui virhe.

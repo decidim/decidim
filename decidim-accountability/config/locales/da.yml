@@ -1,1 +1,198 @@
 da:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Status
+        decidim_category_id: Kategori
+        decidim_scope_id: Anvendelsesområde
+        description: Beskrivelse
+        end_date: Slutdato
+        progress: Fremskridt
+        project_ids: Inkluderede projekter
+        proposals: Inkluderede projekter
+        start_date: Start dato
+        title: Titel
+        updated_at: Opdateret
+      status:
+        description: Beskrivelse
+        key: Nøgle
+        name: Navn
+        progress: Fremskridt
+      timeline_entry:
+        description: Beskrivelse
+        entry_date: Dato
+    models:
+      decidim/accountability/proposal_linked_event: Projekter, der indgår i dette resultat
+      decidim/accountability/result_progress_updated_event: Resultatstatus opdateret
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultater
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Er du sikker på, at du vil slette dette %{name}?
+        destroy: Slet
+        edit: Rediger
+        import_csv: Importér CSV
+        new: Nyt %{name}
+        preview: Eksempelvisning
+        timeline_entries: Projektudvikling
+        title: Handlinger
+      admin:
+        exports:
+          results: Resultater
+        import_results:
+          new:
+            import: Import
+            info: "<p>Vi anbefaler, at du følger disse trin:</p><ol><li>Opret status for de resultater, du ønsker at tilføje (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Opret mindst ét resultat manuelt via dette administrationspanel (<a href='%{link_new_result}' target='_blank'>link</a>) før brug af import for at få en bedre forståelse af formatet, og hvad du har brug for til at udfylde det.</li><li>Download eksporten som CSV-format (%{link_export_csv})</li><li>Lav ændringerne lokalt. Du kan kun ændre følgende kolonner i CSV’et:</li></ol><ul><li><b>category/id:</b> ID for kategorien</li><li><b>scope/id:</b> ID for anvendelsesområde</li><li><b>parent/id:</b> ID for forælder(tilknyttede resultater). Valgfrit</li><li><b>title/I18N:</b> Titel for X-sprog</li><li><b>description/I18N:</b> Beskrivelse på X-sprog</li><li><b> dato, hvor resultatet begynder med at blive gennemført (format YYYY-MM-DD)</li><li><b>slutdato:</b> dato, hvor gennemførelsen af resultatet afsluttes (format YYYY-MM-DD)</li><li><b>status/id:</b> ID for status for dette resultat</li><li><b>fremskridt:</b> procentandel (fra 0 til 100) for gennemførelsen </li><li><b>proposals_ids:</b> internt ID for de tilknyttede forslag (adskilt med et komma). Den konverteres automatisk til <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: link
+            title: Importresultater fra CSV
+        imports:
+          create:
+            success: Import af filen er begyndt. Du vil inden for de næste få minutter modtage en e-mail med resultatet af importen
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Status
+          timeline_entry:
+            name: Indførsel på tidslinje
+        results:
+          create:
+            invalid: Der opstod et problem med oprettelsen af dette resultat
+            success: Resultat oprettet
+          destroy:
+            success: Resultat slettet
+          edit:
+            title: Rediger resultat
+            update: Opdater resultat
+          index:
+            title: Resultater
+          new:
+            create: Opret resultat
+            title: Nyt resultat
+          update:
+            invalid: Der opstod et problem med opdateringen af dette resultat
+            success: Resultat opdateret
+        shared:
+          subnav:
+            statuses: Statusser
+        statuses:
+          create:
+            invalid: Der opstod et problem med oprettelsen af denne status
+            success: Status oprettet
+          destroy:
+            success: Status slettet
+          edit:
+            title: Rediger status
+            update: Opdater status
+          index:
+            title: Statusser
+          new:
+            create: Opret status
+            title: Ny status
+          update:
+            invalid: Der opstod et problem med oprettelsen af denne status
+            success: Status opdateret
+        timeline_entries:
+          create:
+            invalid: Der opstod et problem med at oprette dette indlæg
+            success: Indlægget blev oprettet
+          destroy:
+            success: Indlægget blev slettet
+          edit:
+            title: Rediger Indlæg
+            update: Opdater indlæg
+          index:
+            title: Projekt tidslinje indlæg
+          new:
+            create: Opret indlæg
+            title: Nyt indlæg
+          update:
+            invalid: Der opstod et problem med at opdatere dette indlæg
+            success: Indlæg opdateret
+      admin_log:
+        result:
+          create: "%{user_name} oprettede resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettede %{resource_name} resultatet i %{space_name}"
+          update: "%{user_name} opdaterede resultat %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Forældretypen blev ikke fundet i databasen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fejl
+          errors_present: Der opstod et problem med at importere resultater
+          row_number: Række
+          subject: Succesfuld import af resultater
+          success: Succesfuld import af resultater. Du kan gennemgå resultaterne i administrator interfacet.
+      last_activity:
+        new_result_at_html: "<span>Nyt resultat på %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Slutdato
+            progress: Fremskridt
+            start_date: Start dato
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Beskrivelse
+            key: Nøgle
+            name: Navn
+            progress: Fremskridt
+        timeline_entry:
+          fields:
+            description: Beskrivelse
+            entry_date: Dato
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultater"
+        filters:
+          all: Alle
+          scopes: Områder
+        home:
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
+        home_header:
+          global_status: Samlet gennemførelsesstatus
+        nav_breadcrumb:
+          global: Samlet udførelse
+        search:
+          search: Søg efter handlinger
+        show:
+          stats:
+            attendees: Mødedeltagere
+            back_to_resource: Tilbage til resultater
+            comments: Kommentarer
+            contributions: Bidrag
+            last_edited_by: Sidst redigeret af
+            last_updated_at: Senest opdateret den
+            meetings: Møder
+            proposals: Forslag
+            votes: Støtter
+        timeline:
+          title: Projektets udvikling
+    components:
+      accountability:
+        name: Ansvarlighed
+        settings:
+          global:
+            categories_label: Navn for "kategorier"
+            comments_enabled: Kommentarer aktiveret
+            comments_max_length: Kommentarer maks. længde (Leave 0 for standardværdi)
+            display_progress_enabled: Vis fremskridt
+            heading_leaf_level_results: Navn for "Projekter"
+            heading_parent_level_results: Navn for "Resultater"
+            intro: Intro
+            scope_id: Omfang
+            scopes_enabled: Omfang aktiveret
+            subcategories_label: Navn for "Underkategorier"
+    resource_links:
+      included_proposals:
+        result_proposal: Forslag i dette resultat

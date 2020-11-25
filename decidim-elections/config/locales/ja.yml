@@ -50,8 +50,6 @@ ja:
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
-        edit_answers: 回答を編集
-        edit_questions: 質問を編集
         feedback: 投票者からのフィードバック
         import: 提案を回答にインポート
         new: 新しい %{name}

@@ -1117,12 +1117,15 @@ nl:
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
+        content_original_language: Oorspronkelijke taal inhoud
         date: Gerapporteerd op
         details: Beschrijving
         hello: Hallo %{name},
+        id: ID
         participatory_space: Participatieve ruimte
         reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
+        see_report: Bekijk rapport
         subject: Een bron is gemeld
     reports:
       create:

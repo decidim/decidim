@@ -23,6 +23,9 @@ module Decidim
         return broadcast(:invalid) unless hideable?
 
         hide!
+
+        send_hide_notification_to_author
+
         broadcast(:ok, @reportable)
       end
 
@@ -43,6 +46,24 @@ module Decidim
         ) do
           @reportable.moderation.update!(hidden_at: Time.current)
         end
+      end
+
+      def send_hide_notification_to_author
+        data = {
+          event: "decidim.events.reports.resource_hidden",
+          event_class: Decidim::ResourceHiddenEvent,
+          resource: @reportable,
+          extra: {
+            report_reasons: report_reasons
+          },
+          affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
+        }
+
+        Decidim::EventsManager.publish(data)
+      end
+
+      def report_reasons
+        @reportable.moderation.reports.pluck(:reason).uniq
       end
     end
   end

@@ -10,19 +10,19 @@ module Decidim
           case permission_action.subject
           when :question, :answer
             case permission_action.action
-            when :create, :update, :delete
-              allow_if_not_started
-            when :import_proposals
-              allow_if_not_started
+            when :create, :update, :delete, :import_proposals
+              allow_if_not_blocked
+            when :select
+              allow_if_results
             end
           when :election
             case permission_action.action
             when :create, :read
               allow!
-            when :delete, :update, :unpublish
-              allow_if_not_started
+            when :delete, :update, :unpublish, :setup
+              allow_if_not_blocked
             when :publish
-              allow_if_valid_and_not_started
+              allow_if_valid_and_not_blocked
             end
           when :trustee_participatory_space
             case permission_action.action
@@ -62,12 +62,16 @@ module Decidim
           @trustee_participatory_space ||= context.fetch(:trustee_participatory_space, nil)
         end
 
-        def allow_if_not_started
-          toggle_allow(election && !election.started?)
+        def allow_if_results
+          toggle_allow(election && election.results?)
         end
 
-        def allow_if_valid_and_not_started
-          toggle_allow(election && !election.started? && election.valid_questions?)
+        def allow_if_not_blocked
+          toggle_allow(election && !election.blocked?)
+        end
+
+        def allow_if_valid_and_not_blocked
+          toggle_allow(election && !election.blocked? && election.valid_questions?)
         end
 
         def allow_if_not_related_to_any_election

@@ -37,7 +37,13 @@
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(election).path, t("actions.preview", scope: "decidim.elections"), class: "action-icon--preview", target: :blank %>
 
-                <%= icon_link_to "list", election_questions_path(election), t("actions.edit_questions", scope: "decidim.elections"), class: "action-icon--edit-questions" %>
+                <%= icon_link_to "list", election_questions_path(election), t("actions.manage_questions", scope: "decidim.elections"), class: "action-icon--manage-questions" %>
+
+                <% if allowed_to? :setup, :election, election: election %>
+                  <%= icon_link_to "power-standby", url_for(action: :show, id: election, controller: "setup"), t("actions.setup", scope: "decidim.elections"), class: "action-icon--setup-election" %>
+                <% else %>
+                  <%= icon "power-standby", class: "action-icon action-icon--disabled", role: "img" %>
+                <% end %>
 
                 <% if allowed_to? :update, :election, election: election %>
                   <%= icon_link_to "pencil", edit_election_path(election), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>

@@ -138,6 +138,11 @@ en:
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: Initiative signatures end date extended!
           notification_title: The signatures end date for the <a href="%{resource_path}">%{resource_title}</a> initiative have been extended.
+        initiative_sent_to_technical_validation:
+          email_intro: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_url}">the admin panel</a>
+          email_outro: You have received this notification because you are an admin of the platform.
+          email_subject: Initiative "%{resource_title}" was sent to technical validation.
+          notification_title: The initiative "%{resource_title}" has been sent to technical validation. Check it out at <a href="%{admin_initiative_path}">the admin panel</a>
         milestone_completed:
           affected_user:
             email_intro: Your initiative %{resource_title} has achieved the %{percentage}% of signatures!
@@ -204,6 +209,7 @@ en:
           edit:
             accept: Accept initiative
             confirm: Are you sure?
+            confirm_send_to_technical_validation: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures
@@ -321,18 +327,14 @@ en:
           back: Back
           back_to_initiatives: Back to initiatives
           callout_text: Congratulations! Your initiative has been successfully created.
-          confirm: Confirm
+          confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
           edit_my_initiative: Edit my initiatives
           go_to_my_initiatives: Go to my initiatives
           more_information: "(More information)"
           send_my_initiative: Send my initiative
         finish_help:
-          access_reminder: Remember that you will always be able to access your initiatives through the participant menu.
-          help_for_organizations: If you are an association you will have to upload the minutes of the management board of all the organisations that form the Promoting Commission
-          help_in_person_signatures: If you have chosen to collect the signatures in-person or combined with online, you will have to upload the required information.
-          help_text: Remember that in order to properly process the initiative you must access the administration panel where you will find the user menu, upload the information required and send it for processing.
-          initiatives_page_link: You can look up all this information on the %{link} dedicated to inform about initiatives.
-          page: page
+          access_reminder: You can access your initiatives through the %{link} filter on the Initiatives page.
+          publish_helper_text: Remember that for your initiative to be published you must complete the required information and <strong>send it to technical validation</strong> for an administrator to review it.
         previous_form:
           back: Back
           continue: Continue
@@ -356,6 +358,16 @@ en:
           compare_help: If any of the following initiatives is similar to yours we encourage you to sign it. Your proposal will have more possibilities to get done.
           continue: My initiative is different
           more_information: "(More information)"
+      edit:
+        accept: Accept the initiative
+        back: Back
+        confirm: Are you sure?
+        discard: Discard the initiative
+        export_pdf_signatures: Export PDF of signatures
+        export_votes: Export signatures
+        reject: Reject initiative
+        title: Edit Initiative
+        update: Update
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new initiative, check it out and contribute:"
@@ -367,6 +379,10 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Documents
+        attachment_legend: "(Optional) Add Attachments"
+        delete_attachment: Delete
       index:
         title: Initiatives
       initiative_signatures:
@@ -403,6 +419,13 @@ en:
           hidden_authors_count:
             one: and 1 more person
             other: and %{count} more people
+        committee_members:
+          approve: Approve
+          confirm_revoke: Are you sure?
+          invite_to_committee_help: Share this link to invite other participants to the promoter committee
+          no_members_yet: There are no members in the promoter committee
+          revoke: Revoke
+          title: Committee members
         count:
           title:
             one: "%{count} initiative"
@@ -443,6 +466,27 @@ en:
           random: Random
           recent: Most recent
           recently_published: Most recently published
+        print:
+          address: Address
+          author_title: Author of the initiative
+          city: City
+          email: Email
+          full_name: Full Name
+          general_title: Application for admission of an initiative
+          id_number: ID Number
+          initiative:
+            attachments: Attached documentation (please write the name of each document below)
+            description: 'Description:'
+            title: 'Title:'
+            type: Type of initiative
+          legal_text: The personal data collected will be incorporated and treated confidentially by the organization, according to current legislation.
+          phone_number: Phone Number
+          place_date: Place, Date
+          postal_code: Postal Code/ZIP
+          print: Print
+          province: Province/State
+          section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
+          signature: Signature
         result:
           answer_title:
             accepted: This proposal has been accepted because
@@ -454,8 +498,12 @@ en:
           initiative_rejected_reason: This initiative has been rejected due to its lack of signatures.
         show:
           any_vote_method: This initiative collects both online and in-person signatures.
+          confirm: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
+          edit: Edit
           follow_description: Receive a notification when there are news in this initiative
           offline_method: This initiative only collects in-person signatures.
+          print: Print Initiative
+          send_to_technical_validation: Send to technical validation
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -501,6 +549,9 @@ en:
         accepted: Accepted
         expired: Expired
       unavailable_scope: Unavailable scope
+      update:
+        error: An error has occurred
+        success: The initiative has been successfully updated
       versions:
         shared:
           back_to_resource: Go back to initiative
