@@ -74,7 +74,7 @@ module Decidim
       end
 
       def encrypted_smtp_settings
-        smtp_settings[:from] = set_from
+        smtp_settings["from"] = set_from
 
         smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
       end
