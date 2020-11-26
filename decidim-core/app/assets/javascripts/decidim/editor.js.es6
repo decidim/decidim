@@ -1,15 +1,16 @@
-// = require quill.min
+// = require quill
+// = require decidim/editor/linebreak_module
 // = require_self
 
 ((exports) => {
-  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt"];
+  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 
   const createQuillEditor = (container) => {
     const toolbar = $(container).data("toolbar");
     const disabled = $(container).data("disabled");
 
     let quillToolbar = [
-      ["bold", "italic", "underline"],
+      ["bold", "italic", "underline", "linebreak"],
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "clean"]
     ];
@@ -27,12 +28,22 @@
       ];
     }
 
-    const $input = $(container).siblings('input[type="hidden"]');
+    const $input = $(container).siblings('input[type="hidden"]')
+    // console.log("$input.val", $input.val())
     container.innerHTML = $input.val() || "";
 
     const quill = new Quill(container, {
       modules: {
-        toolbar: quillToolbar
+        linebreak: {},
+        toolbar: {
+          container: quillToolbar,
+          handlers: {
+            "linebreak": lineBreakHandler
+          }
+        },
+        clipboard: {
+          matchVisual: false
+        }
       },
       formats: quillFormats,
       theme: "snow"
