@@ -73,6 +73,7 @@ en:
           edit:
             title: Edit debate
             update: Update debate
+          empty: There are no debates matching these criteria.
           index:
             title: Debates
           new:
