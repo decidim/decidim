@@ -44,6 +44,23 @@ module Decidim
       scope :visible_meeting_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
+            user_role_queries = %w(conference assembly participatory_process).map do |participatory_space_name|
+              # rubocop: disable Style/RedundantBegin
+              begin
+                if "Decidim::#{participatory_space_name.classify}".constantize
+                  "SELECT decidim_components.id FROM decidim_components
+                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+                  IN
+                  (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
+                  FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
+                  "
+                end
+              rescue NameError
+                nil
+              end
+              # rubocop: enable Style/RedundantBegin
+            end
+
             where("decidim_meetings_meetings.private_meeting = ?
             OR decidim_meetings_meetings.transparent = ?
             OR decidim_meetings_meetings.id IN
@@ -57,25 +74,9 @@ module Decidim
               )
             OR decidim_meetings_meetings.decidim_component_id IN
               (
-                SELECT decidim_components.id FROM decidim_components
-                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
-                  IN
-                    (SELECT CONCAT(decidim_assembly_user_roles.decidim_assembly_id, '-Decidim::Assembly')
-                    FROM decidim_assembly_user_roles WHERE decidim_assembly_user_roles.decidim_user_id = ? )
-                UNION
-                SELECT decidim_components.id FROM decidim_components
-                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
-                  IN
-                    (SELECT CONCAT(decidim_conference_user_roles.decidim_conference_id, '-Decidim::Conference')
-                    FROM decidim_conference_user_roles WHERE decidim_conference_user_roles.decidim_user_id = ?)
-                UNION
-                SELECT decidim_components.id FROM decidim_components
-                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
-                  IN
-                    (SELECT CONCAT(decidim_participatory_process_user_roles.decidim_participatory_process_id, '-Decidim::ParticipatoryProcess')
-                    FROM decidim_participatory_process_user_roles WHERE decidim_participatory_process_user_roles.decidim_user_id = ? )
+                #{user_role_queries.compact.join(" UNION ")}
               )
-            ", false, true, user.id, user.id, user.id, user.id, user.id)
+            ", false, true, user.id, user.id, *user_role_queries.compact.map { user.id })
               .distinct
           else
             visible
@@ -175,9 +176,8 @@ module Decidim
         can_participate_in_space?(user) && can_participate_in_meeting?(user)
       end
 
-      def current_user_can_visit_meeting?(current_user)
-        (private_meeting? && registrations.exists?(decidim_user_id: current_user.try(:id))) ||
-          !private_meeting? || (private_meeting? && transparent?)
+      def current_user_can_visit_meeting?(user)
+        Decidim::Meetings::Meeting.visible_meeting_for(user).find_by(id: id)
       end
 
       # Return the duration of the meeting in minutes
