@@ -12,6 +12,8 @@ module Decidim
           case permission_action.action
           when :create, :read
             allow!
+          when :archive
+            toggle_allow(debate && debate.closed? && debate.official?)
           when :update
             toggle_allow(debate && !debate.closed? && debate.official?)
           when :delete, :close

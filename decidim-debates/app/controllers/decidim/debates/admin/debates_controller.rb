@@ -61,6 +61,24 @@ module Decidim
           end
         end
 
+        def archive
+          enforce_permission_to :archive, :debate, debate: debate
+
+          archive = params[:archive] == "true"
+
+          ArchiveDebate.call(archive, debate, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("debates.#{archive ? "archive" : "unarchive"}.success", scope: "decidim.debates.admin")
+              redirect_to debates_path(archive ? {} : { filter: "archive" })
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("debates.#{archive ? "archive" : "unarchive"}.invalid", scope: "decidim.debates.admin")
+              redirect_to debates_path(archive ? {} : { filter: "archive" })
+            end
+          end
+        end
+
         def destroy
           enforce_permission_to :delete, :debate, debate: debate
 
@@ -74,11 +92,19 @@ module Decidim
         private
 
         def debates
-          @debates ||= Debate.where(component: current_component)
+          @debates ||= archive? ? all_debates.archived : all_debates.not_archived
         end
 
         def debate
-          @debate ||= debates.find(params[:id])
+          @debate ||= all_debates.find(params[:id])
+        end
+
+        def all_debates
+          Debate.where(component: current_component)
+        end
+
+        def archive?
+          params[:filter] == "archive"
         end
       end
     end

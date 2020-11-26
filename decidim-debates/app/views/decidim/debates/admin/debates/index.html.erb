@@ -4,6 +4,7 @@
       <%= t(".title") %>
 
       <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--title" if allowed_to? :create, :debate %>
+      <%= link_to_filtered_debates if allowed_to? :read, :debate %>
     </h2>
   </div>
 
@@ -47,6 +48,12 @@
                   <%= icon_link_to "lock-locked", edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), t("actions.close", scope: "decidim.debates"), class: "action-icon--close" %>
                 <% else %>
                   <span class="action-space icon"></span>
+                <% end %>
+                
+                <% if debate.closed? %>
+                  <% if allowed_to? :archive, :debate, debate: debate %>
+                    <%= icon_link_to "folder", archive_debate_path(id: debate.id, archive: !debate.archived?), t("actions.#{ debate.archived? ? "unarchive" : "archive" }", scope: "decidim.debates"), class: "action-icon--archive", method: :post %>
+                  <% end %>
                 <% end %>
 
                 <% if allowed_to? :delete, :debate, debate: debate %>
