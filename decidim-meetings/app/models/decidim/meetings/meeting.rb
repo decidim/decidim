@@ -188,10 +188,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        return true unless private_meeting?
-        return true if private_meeting? && transparent?
-        return true if user.admin? || participatory_space.users.include?(user) || participatory_space.participatory_space_private_users.include(user)
-        return true if registrations.exists?(decidim_user_id: user.try(:id))
+        Decidim::Meetings::Meeting.visible_meeting_for(user).find_by(id: id)
       end
 
       # Return the duration of the meeting in minutes
