@@ -23,7 +23,10 @@ module Decidim
         #
         # Returns nothing.
         def call
-          archive_debate ? broadcast(:ok) : broadcast(:invalid)
+          archive_debate
+          broadcast(:ok)
+        rescue ActiveRecord::RecordInvalid
+          broadcast(:invalid)
         end
 
         attr_reader :debate
