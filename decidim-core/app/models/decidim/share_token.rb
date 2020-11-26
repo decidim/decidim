@@ -10,7 +10,10 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :token_for, foreign_type: "token_for_type", polymorphic: true
 
-    after_initialize :generate, :set_default_expiration
+    after_initialize :generate
+    before_create :set_default_expiration, unless: :expiration_blank
+
+    attr_accessor :expiration_blank
 
     def self.use!(token_for:, token:)
       record = find_by!(token_for: token_for, token: token)
@@ -24,7 +27,7 @@ module Decidim
     end
 
     def expired?
-      expires_at.past?
+      expires_at&.past?
     end
 
     def url
