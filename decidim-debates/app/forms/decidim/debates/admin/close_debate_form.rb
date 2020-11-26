@@ -24,6 +24,10 @@ module Decidim
           debate&.closed_at || Time.current
         end
 
+        def map_model(model)
+          self.archive = model.archived_at.present?
+        end
+
         private
 
         def user_can_close_debate
