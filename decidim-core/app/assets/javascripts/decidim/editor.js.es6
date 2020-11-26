@@ -1,4 +1,4 @@
-// = require quill
+// = require quill.min
 // = require decidim/editor/linebreak_module
 // = require_self
 
@@ -40,10 +40,10 @@
           handlers: {
             "linebreak": exports.lineBreakHandler
           }
-        },
-        clipboard: {
-          matchVisual: false
         }
+        // clipboard: {
+        //   matchVisual: false
+        // }
       },
       formats: quillFormats,
       theme: "snow"
@@ -69,11 +69,16 @@
         $input.val(quill.root.innerHTML);
       }
     });
+    // After editor is ready, linebreak_module deletes two extraneous new lines
+    quill.emitter.emit("editor-ready");
+
+    return quill;
   };
 
   const quillEditor = () => {
     $(".editor-container").each((_idx, container) => {
-      createQuillEditor(container);
+      const quill = createQuillEditor(container);
+      $(container).data("quill", quill);
     });
   };
 

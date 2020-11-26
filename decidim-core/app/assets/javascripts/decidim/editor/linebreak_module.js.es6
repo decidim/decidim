@@ -7,9 +7,9 @@
   icons.linebreak = "⏎";
 
   const lineBreakHandler = (quill) => {
-    let range = quill.selection.getRange()[0]
-    let currentLeaf = quill.getLeaf(range.index)[0]
-    let nextLeaf = quill.getLeaf(range.index + 1)[0]
+    let range = quill.selection.getRange()[0];
+    let currentLeaf = quill.getLeaf(range.index)[0];
+    let nextLeaf = quill.getLeaf(range.index + 1)[0];
 
     quill.insertEmbed(range.index, "break", true, "user");
 
@@ -44,52 +44,17 @@
       lineBreakHandler(quill);
     });
 
-    const initHandler = (delta, _oldDelta, source) => {
-      if (source !== "api") {
-        return;
-      }
+    quill.emitter.on("editor-ready", () => {
+      const length = quill.getLength()
+      const text = quill.getText(length - 2, 2)
 
-      quill.emitter.off("text-change", initHandler);
-      console.log(delta.ops);
+      // console.log(quill.getText().replace(/\n/g, "\\n"));
 
-      if (!delta.ops || delta.ops.length < 1) {
-        return;
+      // Remove extraneous new lines
+      if (text === "\n\n") {
+        quill.deleteText(quill.getLength() - 2, 2)
       }
-
-      let lastInsetOpsIndex = 0;
-      for (let idx = delta.ops.length - 1; idx >= 0; idx -= 1) {
-        if (delta.ops[idx].insert) {
-          lastInsetOpsIndex = idx;
-          break;
-        }
-      }
-      // console.log("lastInsetOpsIndex", lastInsetOpsIndex)
-      const lastInsertOp = delta.ops[lastInsetOpsIndex];
-      // console.log("lastInsertOp", lastInsertOp)
-      if (!lastInsertOp.insert) {
-        return;
-      }
-
-      if (lastInsertOp.insert.lastIndexOf("\n") !== lastInsertOp.insert.length - 1) {
-        return;
-      }
-      // console.log("lastindex", lastInsertOp.insert.lastIndexOf("\n"));
-
-      let lineBreakCount = 1
-      for (let idx = 1; idx <= lastInsertOp.insert.length; idx += 1) {
-        if (lastInsertOp.insert[lastInsertOp.insert.length - idx] !== "\n") {
-          break;
-        }
-        lineBreakCount = idx;
-      }
-      // console.log("quill length", quill.getLength())
-      // console.log("linebreakCount", lineBreakCount)
-      quill.deleteText((quill.getLength() - 1) - lineBreakCount, lineBreakCount + 1);
-      // console.log("quill.length", quill.getLength())
-      // console.log("lastindex", lastInsertOp.insert.lastIndexOf("\n"));
-      // console.log("quillOps", quill.getContents().ops)
-    }
-    quill.emitter.on("text-change", initHandler);
+    });
 
     quill.clipboard.addMatcher("BR", () => {
       let newDelta = new Delta();
@@ -106,6 +71,53 @@
 
     // HAX: make our binding the first one in order to override Quill defaults
     quill.keyboard.bindings[13].unshift(quill.keyboard.bindings[13].pop());
+
+    // Replace the default enter handling because we have modified the break element
+    // Normally this is the second last handler
+    const enterHandlerIndex = quill.keyboard.bindings[13].findIndex((bindDef) => {
+      return typeof bindDef.collapsed === "undefined" && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
+    });
+    quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
+    const lastBinding = quill.keyboard.bindings[13].pop();
+    quill.keyboard.addBinding({ key: 13 }, (range, context) => {
+      console.log("ENTER");
+      const lineFormats = Object.keys(context.format).reduce(
+        (formats, format) => {
+          // See Parchment registry.ts => (1 << 3) | ((1 << 2) - 1) = 8 | 3 = 11
+          const blockScope = 11;
+          if (
+            quill.scroll.query(format, blockScope) &&
+            !Array.isArray(context.format[format])
+          ) {
+            formats[format] = context.format[format];
+          }
+          return formats;
+        },
+        {},
+      );
+      const delta = new Delta().retain(range.index).delete(range.length).insert("\n", lineFormats);
+      quill.updateContents(delta, Quill.sources.USER);
+      quill.setSelection(range.index + 1, Quill.sources.SILENT);
+      quill.focus();
+
+      Object.keys(context.format).forEach((name) => {
+        if (lineFormats[name] !== null) {
+          return;
+        }
+        if (Array.isArray(context.format[name])) {
+          return;
+        }
+        if (name === "code" || name === "link") {
+          return;
+        }
+        quill.format(name, context.format[name], Quill.sources.USER);
+      });
+    });
+    quill.keyboard.bindings[13].push(lastBinding);
+
+    // Now it is the last one
+    console.log(quill.keyboard.bindings[13]);
+    return;
   });
 
   exports.lineBreakHandler = lineBreakHandler;
