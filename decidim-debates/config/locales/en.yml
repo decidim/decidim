@@ -59,6 +59,8 @@ en:
       admin:
         debate_closes:
           edit:
+            archive: Archive this debate
+            archive_help: Archiving this debate will hide it from the public debates section
             close: Close
             title: Close debate
         debates:

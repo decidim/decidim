@@ -15,6 +15,7 @@ module Decidim
         end
 
         attribute :debate, Debate
+        attribute :archive, Boolean
 
         validates :debate, presence: true
         validate :user_can_close_debate
