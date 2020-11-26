@@ -49,8 +49,8 @@
         return;
       }
 
-      // quill.emitter.off("text-change", initHandler);
-      // console.log(delta.ops);
+      quill.emitter.off("text-change", initHandler);
+      console.log(delta.ops);
 
       if (!delta.ops || delta.ops.length < 1) {
         return;
@@ -65,7 +65,7 @@
       }
       // console.log("lastInsetOpsIndex", lastInsetOpsIndex)
       const lastInsertOp = delta.ops[lastInsetOpsIndex];
-      // console.log("deltaOps", lastInsertOp)
+      // console.log("lastInsertOp", lastInsertOp)
       if (!lastInsertOp.insert) {
         return;
       }
@@ -75,19 +75,19 @@
       }
       // console.log("lastindex", lastInsertOp.insert.lastIndexOf("\n"));
 
-
-      let lineBreakCount = 0
-      for (let idx = 1; idx < lastInsertOp.insert.length; idx += 1) {
+      let lineBreakCount = 1
+      for (let idx = 1; idx <= lastInsertOp.insert.length; idx += 1) {
         if (lastInsertOp.insert[lastInsertOp.insert.length - idx] !== "\n") {
           break;
         }
-        lineBreakCount = idx
+        lineBreakCount = idx;
       }
       // console.log("quill length", quill.getLength())
       // console.log("linebreakCount", lineBreakCount)
-      quill.deleteText(quill.getLength() - lineBreakCount - 2, lineBreakCount);
+      quill.deleteText((quill.getLength() - 1) - lineBreakCount, lineBreakCount + 1);
+      // console.log("quill.length", quill.getLength())
       // console.log("lastindex", lastInsertOp.insert.lastIndexOf("\n"));
-      // console.log("quillOps", quill.getContents().ops[0])
+      // console.log("quillOps", quill.getContents().ops)
     }
     quill.emitter.on("text-change", initHandler);
 

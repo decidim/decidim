@@ -150,7 +150,7 @@ describe "Admin manages organization", type: :system do
           find('div[contenteditable="true"].ql-editor').send_keys [:enter], "Here shift+enter makes line change:", [:shift, :enter], "instead of new paragraph!"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
-          )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>and not a new paragraph!</p>".gsub("\n", ""))
+          )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>instead of new paragraph!</p>".gsub("\n", ""))
         end
       end
     end
