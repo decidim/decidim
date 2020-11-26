@@ -720,6 +720,7 @@ en:
         private_users_share_tokens:
           help: These tokens are used to publicly share this private space to any user. Users following the URL will be added automatically to the private participants list. Click on the token's share icon to visit the shareable URL.
           new: New share token
+          sign_up_url: Sign up URL to share
           title: Share tokens for private participants
         share_tokens:
           empty: There are no active tokens

@@ -1,60 +1,59 @@
-<div class="card-divider">
-  <h2 class="card-title">
-    <div class="flex--sbc flex-gap--1">
-      <%= t(".title") %>
-      <%= link_to t(".new"), url_for(action: :share), class: "button tiny" %>
-    </div>
-  </h2>
-</div>
-<div class="card-section">
-  <div class="help-text">
-    <p><%= t(".help") %></p>
+<div class="card" id="share_tokens">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <div class="flex--sbc flex-gap--1">
+        <%= t(".title") %>
+        <%= link_to t(".new"), url_for(action: :share), class: "button tiny" %>
+      </div>
+    </h2>
   </div>
-  <% if share_tokens.any? %>
-    <div class="table-scroll">
-      <table class="table-list">
-        <thead>
-          <tr>
-            <th><%= t("models.share_token.fields.token", scope: "decidim.admin") %></th>
-            <th><%= t("models.share_token.fields.user", scope: "decidim.admin") %></th>
-            <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
-            <th><%= t("models.share_token.fields.last_used_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.share_token.fields.created_at", scope: "decidim.admin") %></th>
-            <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
-            <th class="actions"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% share_tokens.each do |share_token| %>
-            <tr>
-              <td><%= share_token.token %></td>
-              <td><%= share_token.user.name %></td>
-              <td><%= share_token.times_used %></td>
-              <td><%= l share_token.last_used_at, format: :short if share_token.last_used_at.present? %></td>
-              <td><%= l share_token.created_at, format: :short %></td>
-              <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
-              <td class="table-list__actions">
-                <%= icon_link_to "share",
-                  share_token.url,
-                  t("actions.share", scope: "decidim.admin.share_tokens"),
-                  class: "action-icon--share",
-                  target: "_blank" %>
-                <%= icon_link_to "circle-x",
-                  decidim_admin.share_token_path(
-                    share_token,
-                    url: request.fullpath
-                ),
-                t("actions.destroy", scope: "decidim.admin.share_tokens"),
-                class: "action-icon--remove",
-                method: :delete,
-                data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
-            </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <div class="card-section">
+    <div class="help-text">
+      <p><%= t(".help") %></p>
     </div>
-  <% else %>
-    <p><%= t("share_tokens.share_tokens.empty", scope: "decidim.admin") %></p>
-  <% end %>
+    <% if share_tokens.any? %>
+      <div class="table-scroll">
+        <table class="table-list">
+          <thead>
+            <tr>
+              <th><%= t(".sign_up_url") %></th>
+              <th><%= t("models.share_token.fields.user", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.last_used_at", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.created_at", scope: "decidim.admin") %></th>
+              <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
+              <th class="actions"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% share_tokens.each do |share_token| %>
+              <tr>
+                <td>
+                  <%= decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host) %>
+                </td>
+                <td><%= share_token.user.name %></td>
+                <td><%= share_token.times_used %></td>
+                <td><%= l share_token.last_used_at, format: :short if share_token.last_used_at.present? %></td>
+                <td><%= l share_token.created_at, format: :short %></td>
+                <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
+                <td class="table-list__actions">
+                  <%= icon_link_to "circle-x",
+                    decidim_admin.share_token_path(
+                      share_token,
+                      url: request.fullpath
+                  ),
+                  t("actions.destroy", scope: "decidim.admin.share_tokens"),
+                  class: "action-icon--remove",
+                  method: :delete,
+                  data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
+              </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+      <p><%= t("share_tokens.share_tokens.empty", scope: "decidim.admin") %></p>
+    <% end %>
+  </div>
 </div>

@@ -58,7 +58,8 @@
       <%= decidim_paginate collection %>
     <% end %>
   </div>
-  <% if current_participatory_space.class.reflect_on_association(:share_tokens).present? %>
-    <%= render partial: "decidim/admin/share_tokens/private_users_share_tokens", locals: { share_tokens: current_participatory_space.share_tokens } %>
-  <% end %>
 </div>
+
+<% if current_participatory_space.class.reflect_on_association(:share_tokens).present? %>
+  <%= render partial: "decidim/admin/share_tokens/private_users_share_tokens", locals: { share_tokens: current_participatory_space.share_tokens } %>
+<% end %>
