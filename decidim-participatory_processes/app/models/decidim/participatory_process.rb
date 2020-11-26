@@ -174,7 +174,7 @@ module Decidim
     end
 
     def shareable_url(share_token)
-      ResourceLocatorPresenter.new(self).path(share_token: share_token.token)
+      Decidim::ParticipatoryProcesses::Engine.routes.url_helpers.use_share_token_participatory_process_path(self, share_token: share_token.token)
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)

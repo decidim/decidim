@@ -30,6 +30,7 @@ module Decidim
 
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
+          get "use_share_token", on: :member
           get "all-metrics", on: :member
           resources :participatory_process_steps, only: [:index], path: "steps"
           resource :widget, only: :show, path: "embed"

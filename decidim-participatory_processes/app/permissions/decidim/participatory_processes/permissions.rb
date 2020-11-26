@@ -18,6 +18,7 @@ module Decidim
           public_list_processes_action?
           public_list_process_groups_action?
           public_read_process_group_action?
+          public_use_share_token?
           public_read_process_action?
           public_report_content_action?
           return permission_action
@@ -182,6 +183,18 @@ module Decidim
         return unless read_process_list_permission_action?
 
         toggle_allow(user.admin? || has_manageable_processes?)
+      end
+
+      def public_use_share_token?
+        return unless user &&
+                      permission_action.action == :use_share_token &&
+                      permission_action.subject == :process
+
+        return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token])
+      rescue ActiveRecord::RecordNotFound
+        disallow!
+      rescue StandardError
+        disallow!
       end
 
       def user_can_read_current_process?

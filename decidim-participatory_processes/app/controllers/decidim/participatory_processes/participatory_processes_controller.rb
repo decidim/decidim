@@ -8,6 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+      include HasPrivateUsersWithShareToken
 
       helper_method :collection,
                     :promoted_collection,
