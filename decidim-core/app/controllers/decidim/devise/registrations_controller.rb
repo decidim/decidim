@@ -45,6 +45,13 @@ module Decidim
 
       protected
 
+      def after_sign_in_path_for(user)
+        share_token = params[:share_token].presence && Decidim::ShareToken.find_by(token: params[:share_token])
+        return share_token.url if share_token.present?
+
+        super
+      end
+
       def check_sign_up_enabled
         redirect_to new_user_session_path unless current_organization.sign_up_enabled?
       end
