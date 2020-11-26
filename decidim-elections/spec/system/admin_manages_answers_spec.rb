@@ -162,4 +162,30 @@ describe "Admin manages answers", type: :system do
       end
     end
   end
+
+  context "when answer has votes" do
+    let!(:election) { create :election, :results, component: current_component }
+    let!(:question) { election.questions.first }
+    let!(:answer) { question.answers.first }
+
+    it "can change selected status" do
+      within find("tr", text: translated(answer.title)) do
+        expect(page).to have_selector(".action-icon")
+      end
+    end
+
+    it "toggles selected status" do
+      within find("tr", text: translated(answer.title)) do
+        first(".action-icon").click
+      end
+
+      within find("tr", text: translated(answer.title)) do
+        expect(page).to have_selector(".action-icon--success")
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("Answer successfully selected")
+      end
+    end
+  end
 end

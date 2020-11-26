@@ -85,6 +85,7 @@ sv:
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
+            registration_code_enabled: Registreringskod aktiverad
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande

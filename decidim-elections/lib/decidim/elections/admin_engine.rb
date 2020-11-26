@@ -30,6 +30,10 @@ module Decidim
                 get :proposals_picker
                 resource :proposals_import, only: [:new, :create]
               end
+              member do
+                put :select
+                put :unselect
+              end
             end
           end
         end
