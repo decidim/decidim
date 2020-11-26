@@ -54,8 +54,8 @@ en:
         destroy: Delete
         edit: Edit
         new: New %{name}
-        unarchive: Unarchive
         title: Actions
+        unarchive: Unarchive
       admin:
         debate_closes:
           edit:

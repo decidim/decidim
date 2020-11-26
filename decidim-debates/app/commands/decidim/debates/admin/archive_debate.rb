@@ -37,7 +37,7 @@ module Decidim
             @user
           ) do
             @debate.update!(
-              archived_at: @archive ? Time.now : nil
+              archived_at: @archive ? Time.zone.now : nil
             )
           end
         end

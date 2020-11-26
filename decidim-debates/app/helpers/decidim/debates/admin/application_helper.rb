@@ -12,7 +12,7 @@ module Decidim
           unfiltered = params[:filter].blank?
           link_to(
             t("actions.#{unfiltered ? "archived" : "active"}", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")),
-            debates_path(unfiltered ? { filter: "archive" } : { } ),
+            debates_path(unfiltered ? { filter: "archive" } : {}),
             class: "button tiny button--title"
           )
         end

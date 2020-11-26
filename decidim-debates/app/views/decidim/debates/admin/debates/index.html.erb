@@ -50,7 +50,7 @@
                   <% else %>
                     <span class="action-space icon"></span>
                   <% end %>
-                  
+
                   <% if debate.closed? %>
                     <% if allowed_to? :archive, :debate, debate: debate %>
                       <%= icon_link_to "folder", archive_debate_path(id: debate.id, archive: !debate.archived?), t("actions.#{ debate.archived? ? "unarchive" : "archive" }", scope: "decidim.debates"), class: "action-icon--archive", method: :post %>
