@@ -122,10 +122,35 @@ describe "Admin manages organization", type: :system do
           HTML
         end
 
-        it "renders an image and its attribute inside the editor" do
+        it "renders br tags inside the editor" do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+        end
+      end
+
+      context "when adding br tags to terms of use content" do
+        let(:another_organization) { create(:organization) }
+        let(:image) { create(:attachment, attached_to: another_organization) }
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+        let(:terms_content) do
+          <<~HTML
+            <p>Paragraph</p>
+            <p>Some<br>text<br>here</p>
+            <p>Another paragraph</p>
+          HTML
+        end
+
+        it "renders new br tags inside the editor" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "Here shift+enter makes line change:", [:shift, :enter], "instead of new paragraph!"
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>and not a new paragraph!</p>".gsub("\n", ""))
         end
       end
     end
