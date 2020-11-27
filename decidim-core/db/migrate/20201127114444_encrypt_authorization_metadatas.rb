@@ -26,8 +26,9 @@ class EncryptAuthorizationMetadatas < ActiveRecord::Migration[5.2]
   private
 
   def decrypt_hash(hash)
+    # ActiveSupport::JSON.decode(decrypt_value(value))
     hash.transform_values do |value|
-      Decidim::AttributeEncryptor.decrypt(value)
+      ActiveSupport::JSON.decode(Decidim::AttributeEncryptor.decrypt(value))
     rescue ActiveSupport::MessageEncryptor::InvalidMessage
       value
     end
