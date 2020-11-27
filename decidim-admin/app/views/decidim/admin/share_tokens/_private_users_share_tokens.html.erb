@@ -21,7 +21,6 @@
               <th><%= t("models.share_token.fields.times_used", scope: "decidim.admin") %></th>
               <th><%= t("models.share_token.fields.last_used_at", scope: "decidim.admin") %></th>
               <th><%= t("models.share_token.fields.created_at", scope: "decidim.admin") %></th>
-              <th><%= t("models.share_token.fields.expires_at", scope: "decidim.admin") %></th>
               <th class="actions"></th>
             </tr>
           </thead>
@@ -35,7 +34,6 @@
                 <td><%= share_token.times_used %></td>
                 <td><%= l share_token.last_used_at, format: :short if share_token.last_used_at.present? %></td>
                 <td><%= l share_token.created_at, format: :short %></td>
-                <td><%= l share_token.expires_at, format: :short if share_token.expires_at.present? %></td>
                 <td class="table-list__actions">
                   <%= icon_link_to "circle-x",
                     decidim_admin.share_token_path(
