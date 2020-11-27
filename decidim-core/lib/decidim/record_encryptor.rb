@@ -123,13 +123,16 @@ module Decidim
     def decrypt_hash_values(hash)
       return hash unless hash.is_a?(Hash)
 
-      hash.transform_values { |value| decrypt_value(value) }
+      hash.transform_values { |value| ActiveSupport::JSON.decode(decrypt_value(value)) }
     end
 
     def encrypt_hash_values(hash)
       return hash unless hash.is_a?(Hash)
 
-      hash.transform_values { |value| encrypt_value(value) }
+      # The values are stored in JSON encoded format in order to match the
+      # PostgreSQL adapter's default functionality as you can see at:
+      # https://git.io/JkdYJ
+      hash.transform_values { |value| encrypt_value(ActiveSupport::JSON.encode(value)) }
     end
   end
 end
