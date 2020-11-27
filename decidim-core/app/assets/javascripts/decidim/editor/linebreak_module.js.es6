@@ -2,6 +2,7 @@
   const Quill = exports.Quill;
   const Parchment = Quill.import("parchment")
   const Delta = Quill.import("delta");
+  const { AttributeMap } = Quill.import("delta");
   const Break = Quill.import("blots/break");
   const Embed = Quill.import("blots/embed");
   let icons = Quill.import("ui/icons");
@@ -73,6 +74,49 @@
     // HAX: make our binding the first one in order to override Quill defaults
     quill.keyboard.bindings[13].unshift(quill.keyboard.bindings[13].pop());
 
+    // const backspaceHandlerIndex = quill.keyboard.bindings[8].findIndex((bindDef) => {
+    //   return bindDef.collapsed === true && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
+    // });
+    // quill.keyboard.bindings[8].splice(backspaceHandlerIndex, 1);
+    // const lastBackspaceBinding = quill.keyboard.bindings[8].pop();
+    quill.keyboard.addBinding({ key: 8, offset: 0 }, (range, context) => {
+      // console.log("MEIÄN HANDLERI")
+      // console.log("range", range);
+      // console.log("context", context)
+      const length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
+      if (range.index === 0 || quill.getLength() <= 1) {
+        return;
+      }
+      let formats = {};
+      const [line] = quill.getLine(range.index);
+      let delta = new Delta().retain(range.index - length).delete(length);
+      if (context.offset === 0) {
+        // Always deleting newline here, length always 1
+        const [prev] = quill.getLine(range.index - 1);
+        if (prev) {
+          const isPrevLineEmpty =
+            prev.statics.blotName === 'block' && prev.length() <= 1;
+          if (!isPrevLineEmpty) {
+            const curFormats = line.formats();
+            const prevFormats = quill.getFormat(range.index - 1, 1);
+            formats = AttributeMap.diff(curFormats, prevFormats) || {};
+            if (Object.keys(formats).length > 0) {
+              // line.length() - 1 targets \n in line, another -1 for newline being deleted
+              const formatDelta = new Delta()
+                .retain(range.index + line.length() - 2)
+                .retain(1, formats);
+              delta = delta.compose(formatDelta);
+            }
+          }
+        }
+      }
+      quill.updateContents(delta, Quill.sources.USER);
+      quill.focus();
+    });
+
+    quill.keyboard.bindings[8].unshift(quill.keyboard.bindings[8].pop());
+
+
     // Replace the default enter handling because we have modified the break element
     // Normally this is the second last handler
     const enterHandlerIndex = quill.keyboard.bindings[13].findIndex((bindDef) => {
@@ -81,10 +125,6 @@
     quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
     const lastBinding = quill.keyboard.bindings[13].pop();
     quill.keyboard.addBinding({ key: 13 }, (range, context) => {
-      // console.log("range", range);
-      // console.log("context", context)
-      // console.log("query", Parchment.query)
-
       const lineFormats = Object.keys(context.format).reduce(
         (formats, format) => {
           // See Parchment registry.ts => (1 << 3) | ((1 << 2) - 1) = 8 | 3 = 11
@@ -99,16 +139,25 @@
         },
         {},
       );
-      console.log("lineFormats", lineFormats)
+      // console.log("lineFormats", lineFormats)
+      console.log("ops", quill.getContents().ops)
+
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
       const delta = new Delta().retain(range.index).delete(range.length).insert("\n", lineFormats);
-      const endFormatDelta = new Delta().retain(range.index - length - 1).delete(length + 1);
       console.log(`nextChar_${nextChar}_nextchar`)
       if (previousChar === "" || previousChar === "\n") {
-        if (lineFormats.list && nextChar === "\n") {
-          quill.updateContents(endFormatDelta, Quill.sources.USER);
-          // quill.setSelection(range.index + 2, Quill.sources.SILENT);
+        if (lineFormats.list && previousChar === "\n" && nextChar === "\n") {
+          if (quill.getLength() - range.index > 2) {
+            const endFormatDelta = new Delta().retain(range.index - length - 1).delete(length + 1);
+            quill.updateContents(endFormatDelta, Quill.sources.USER);
+          } else {
+            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1)
+            const endFormatDelta2 = new Delta().retain(range.index).insert("\n")
+            quill.updateContents(endFormatDelta, Quill.sources.USER);
+            quill.updateContents(endFormatDelta2, Quill.sources.USER);
+            quill.setSelection(range.index + 1, Quill.sources.SILENT);
+          }
         } else {
           quill.updateContents(delta, Quill.sources.USER);
           quill.setSelection(range.index + 2, Quill.sources.SILENT);
