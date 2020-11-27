@@ -542,6 +542,8 @@ de:
     help:
       participatory_spaces:
         conferences:
+          contextual: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          page: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
           title: Was sind Konferenzen?
     log:
       value_types:

@@ -165,6 +165,8 @@ de:
             published: Die Wahl ist <strong>nicht veröffentlicht</strong>
             time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl
             trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
+          requirements:
+            published: Die Wahl ist <strong>veröffentlicht</strong>
           show:
             setup: Wahl einrichten
           update:
@@ -182,6 +184,14 @@ de:
         badge_name:
           finished: Abgeschlossen
           ongoing: Aktiv
+          upcoming: Anstehend
+        end_date: Endet
+        footer:
+          view: Ansicht
+        label:
+          date: Daten
+        questions: Fragen %{count}
+        start_date: Startet
       elections:
         count:
           elections_count:

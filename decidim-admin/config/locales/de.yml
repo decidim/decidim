@@ -498,6 +498,7 @@ de:
         reports:
           index:
             author: Autor(en)
+            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer signalisiert wurde (kann jeder mit einem registrierten Konto sein), indem er auf die %{icon} Flagge neben dem Element klickt.
             content_original_language: Originalsprache des Inhalts
             participatory_space: Beteiligungsbereich
             reported_content: Gemeldeter Inhalt
@@ -660,6 +661,7 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
+          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
