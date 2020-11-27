@@ -16,9 +16,22 @@ module Decidim
   module RecordEncryptor
     extend ActiveSupport::Concern
 
+    included do
+      # Store the encrypted attributes in a class accessor
+      cattr_accessor :encrypted_attributes
+
+      before_save :ensure_encrypted_attributes if respond_to?(:before_save)
+      after_save :clear_encrypted_attributes_cache if respond_to?(:after_save)
+    end
+
     class_methods do
       # Public: Defines an attribute that should be encrypted
       def encrypt_attribute(attribute, type:)
+        self.encrypted_attributes ||= []
+        raise "The attribute #{attribute} is already defined as encrypted" if encrypted_attributes.include?(attribute)
+
+        encrypted_attributes << attribute
+
         # Defines the suffix for the encrypt and decrypt methods. E.g. when
         # the `type` is `:hash`, method `decrypt_hash_values` would be called
         # for decryption and `encrypt_hash_values` would be called for
@@ -45,26 +58,25 @@ module Decidim
         #   end
         class_eval <<-RUBY, __FILE__, __LINE__ + 1
           def #{attribute}
-            encrypted_value = begin
+            return @#{attribute}_decrypted if instance_variable_defined?(:@#{attribute}_decrypted)
+
+            @#{attribute}_encrypted ||= begin
               if defined?(super)
                 super
               elsif instance_variable_defined?(:@#{attribute})
                 @#{attribute}
-              else
-                nil
               end
             end
-
-            decrypt_#{method_suffix}(encrypted_value)
+            @#{attribute}_decrypted = decrypt_#{method_suffix}(@#{attribute}_encrypted)
           end
 
           def #{attribute}=(value)
-            encrypted_value = encrypt_#{method_suffix}(value)
+            @#{attribute}_encrypted = encrypt_#{method_suffix}(value)
 
             if defined?(super)
-              super(encrypted_value)
+              super(@#{attribute}_encrypted)
             else
-              @#{attribute} = encrypted_value
+              @#{attribute} = @#{attribute}_encrypted
             end
           end
         RUBY
@@ -72,6 +84,28 @@ module Decidim
     end
 
     private
+
+    # Re-assign the encrypted attributes before save so they are also saved when
+    # they are modified without calling the accessors. This could happen e.g.
+    # for hashes which are modified directly as follows:
+    #
+    #  record = Example.find(1)
+    #  record.metadata["foo"] = "bar"
+    #  record.save!
+    def ensure_encrypted_attributes
+      self.class.encrypted_attributes.each do |attr|
+        send("#{attr}=", send(attr))
+      end
+    end
+
+    # This clears the cache after the record is saved so that the values are
+    # re-fetched after the save.
+    def clear_encrypted_attributes_cache
+      self.class.encrypted_attributes.each do |attr|
+        remove_instance_variable("@#{attr}_decrypted")
+        remove_instance_variable("@#{attr}_encrypted")
+      end
+    end
 
     def decrypt_value(value)
       Decidim::AttributeEncryptor.decrypt(value)
