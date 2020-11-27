@@ -5,3 +5,4 @@
 //= link decidim/admin/newsletters.js
 //= link decidim/admin/application.css
 //= link decidim/admin/form.js
+//= link decidim/admin/copy_sign_up_share_token_url.js
