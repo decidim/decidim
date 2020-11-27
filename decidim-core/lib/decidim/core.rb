@@ -93,6 +93,7 @@ module Decidim
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
+  autoload :RecordEncryptor, "decidim/record_encryptor"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
