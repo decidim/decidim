@@ -53,7 +53,7 @@ module Decidim
         expect(subject.metadata).to eq(metadata)
         expect(
           ae.decrypt(subject.instance_variable_get(:@metadata)[:foo])
-        ).to eq(metadata[:foo])
+        ).to eq(ActiveSupport::JSON.encode(metadata[:foo]))
         expect(subject.metadata).to be_instance_of(Hash)
       end
     end
@@ -106,7 +106,9 @@ module Decidim
         expect(ae.decrypt(subject.original_name)).to eq(name)
         expect(ae.decrypt(subject.original_year)).to eq(year)
         expect(ae.decrypt(subject.original_coverage)).to eq(coverage)
-        expect(ae.decrypt(subject.original_metadata[:foo])).to eq(metadata[:foo])
+        expect(ae.decrypt(subject.original_metadata[:foo])).to eq(
+          ActiveSupport::JSON.encode(metadata[:foo])
+        )
       end
     end
 
