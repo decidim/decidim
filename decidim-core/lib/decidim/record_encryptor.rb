@@ -60,23 +60,23 @@ module Decidim
           def #{attribute}
             return @#{attribute}_decrypted if instance_variable_defined?(:@#{attribute}_decrypted)
 
-            @#{attribute}_encrypted ||= begin
+            encrypted_value = begin
               if defined?(super)
                 super
               elsif instance_variable_defined?(:@#{attribute})
                 @#{attribute}
               end
             end
-            @#{attribute}_decrypted = decrypt_#{method_suffix}(@#{attribute}_encrypted)
+            @#{attribute}_decrypted = decrypt_#{method_suffix}(encrypted_value)
           end
 
           def #{attribute}=(value)
-            @#{attribute}_encrypted = encrypt_#{method_suffix}(value)
+            encrypted_value = encrypt_#{method_suffix}(value)
 
             if defined?(super)
-              super(@#{attribute}_encrypted)
+              super(encrypted_value)
             else
-              @#{attribute} = @#{attribute}_encrypted
+              @#{attribute} = encrypted_value
             end
           end
         RUBY
@@ -103,7 +103,6 @@ module Decidim
     def clear_encrypted_attributes_cache
       self.class.encrypted_attributes.each do |attr|
         remove_instance_variable("@#{attr}_decrypted")
-        remove_instance_variable("@#{attr}_encrypted")
       end
     end
 
