@@ -13,6 +13,10 @@ module Decidim
   class Authorization < ApplicationRecord
     include Decidim::Traceable
     include Decidim::HasUploadValidations
+    include Decidim::RecordEncryptor
+
+    encrypt_attribute :metadata, type: :hash
+    encrypt_attribute :verification_metadata, type: :hash
 
     validates_upload :verification_attachment
     mount_uploader :verification_attachment, Decidim::Verifications::AttachmentUploader
