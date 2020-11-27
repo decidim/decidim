@@ -118,6 +118,48 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
     end
 
+    context "when using a share_token" do
+      let(:action) do
+        { scope: :public, action: :use_share_token, subject: :process }
+      end
+      let(:context) { { process: process, share_token: share_token } }
+
+      context "when share token doesn't exist" do
+        let(:share_token) { "deerhoof" }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when share token is for other resource" do
+        let(:token) { create(:share_token, user: user, organization: organization, token_for: user) }
+        let(:share_token) { token.token }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when share token is expired" do
+        let(:token) { create(:share_token, :expired, user: user, organization: organization, token_for: process) }
+        let(:share_token) { token.token }
+
+        it { is_expected.to eq false }
+      end
+
+      context "when user is not set" do
+        let(:user) { nil }
+        let(:token) { create(:share_token, user: create(:user, organization: organization), organization: organization, token_for: process) }
+        let(:share_token) { token.token }
+
+        it_behaves_like "permission is not set"
+      end
+
+      context "when share token is for process and not expired" do
+        let(:token) { create(:share_token, user: user, organization: organization, token_for: process) }
+        let(:share_token) { token.token }
+
+        it { is_expected.to eq true }
+      end
+    end
+
     context "when listing processes" do
       let(:action) do
         { scope: :public, action: :list, subject: :process }
