@@ -71,6 +71,7 @@ module Decidim
           end
 
           def #{attribute}=(value)
+            remove_instance_variable(:@#{attribute}_decrypted) if instance_variable_defined?(:@#{attribute}_decrypted)
             encrypted_value = encrypt_#{method_suffix}(value)
 
             if defined?(super)
@@ -102,6 +103,8 @@ module Decidim
     # re-fetched after the save.
     def clear_encrypted_attributes_cache
       self.class.encrypted_attributes.each do |attr|
+        next unless instance_variable_defined?("@#{attr}_decrypted")
+
         remove_instance_variable("@#{attr}_decrypted")
       end
     end
