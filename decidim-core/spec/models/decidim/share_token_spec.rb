@@ -8,18 +8,21 @@ module Decidim
 
     let(:share_token) { build(:share_token, attributes) }
     let(:expired_token) { build(:share_token, :expired, attributes) }
+    let(:unbounded_expiration_token) { create(:share_token, attributes.merge(expiration_blank: true)) }
 
     let(:attributes) do
       {
         token_for: token_for,
         user: user,
-        organization: organization
+        organization: organization,
+        expiration_blank: expiration_blank
       }
     end
 
     let(:user) { create(:user) }
     let(:token_for) { create(:component) }
     let(:organization) { token_for.organization }
+    let(:expiration_blank) { nil }
 
     it { is_expected.to be_valid }
 
@@ -49,8 +52,18 @@ module Decidim
         expect(subject.token).to match(/^[a-zA-Z0-9]{64}$/)
       end
 
-      it "sets expires_at attribute to one day from current time" do
+      it "sets expires_at attribute to one day from current time after creation" do
+        subject.save
         expect(subject.expires_at).to be_within(1.second).of 1.day.from_now
+      end
+
+      context "when expiration blank is true" do
+        let(:expiration_blank) { true }
+
+        it "sets expires_at as nil after creation" do
+          subject.save
+          expect(subject.expires_at).to be_nil
+        end
       end
     end
 
@@ -93,8 +106,18 @@ module Decidim
 
     describe "#expired?" do
       context "when share_token has not expired" do
+        let(:share_token) { create(:share_token, attributes) }
+
         it "returns true" do
           expect(subject.expired?).to eq false
+        end
+      end
+
+      context "when share_token expired_at is nil" do
+        let(:share_token) { unbounded_expiration_token }
+
+        it "returns nil" do
+          expect(subject.expired?).to be_nil
         end
       end
 
