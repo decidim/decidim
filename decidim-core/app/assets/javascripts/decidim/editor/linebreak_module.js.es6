@@ -81,9 +81,9 @@
     quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
     const lastBinding = quill.keyboard.bindings[13].pop();
     quill.keyboard.addBinding({ key: 13 }, (range, context) => {
-      console.log("range", range);
-      console.log("context", context)
-      console.log("query", Parchment.query)
+      // console.log("range", range);
+      // console.log("context", context)
+      // console.log("query", Parchment.query)
 
       const lineFormats = Object.keys(context.format).reduce(
         (formats, format) => {
@@ -99,12 +99,22 @@
         },
         {},
       );
-      const delta = new Delta().retain(range.index).delete(range.length).insert("\n", lineFormats);
-      quill.updateContents(delta, Quill.sources.USER);
+      console.log("lineFormats", lineFormats)
       const previousChar = quill.getText(range.index - 1, 1);
+      const nextChar = quill.getText(range.index, 1);
+      const delta = new Delta().retain(range.index).delete(range.length).insert("\n", lineFormats);
+      const endFormatDelta = new Delta().retain(range.index - length - 1).delete(length + 1);
+      console.log(`nextChar_${nextChar}_nextchar`)
       if (previousChar === "" || previousChar === "\n") {
-        quill.setSelection(range.index + 2, Quill.sources.SILENT);
+        if (lineFormats.list && nextChar === "\n") {
+          quill.updateContents(endFormatDelta, Quill.sources.USER);
+          // quill.setSelection(range.index + 2, Quill.sources.SILENT);
+        } else {
+          quill.updateContents(delta, Quill.sources.USER);
+          quill.setSelection(range.index + 2, Quill.sources.SILENT);
+        }
       } else {
+        quill.updateContents(delta, Quill.sources.USER);
         quill.setSelection(range.index + 1, Quill.sources.SILENT);
       }
       quill.focus();
@@ -119,6 +129,7 @@
         if (name === "code" || name === "link") {
           return;
         }
+        console.log("FORMATEE")
         quill.format(name, context.format[name], Quill.sources.USER);
       });
     });
