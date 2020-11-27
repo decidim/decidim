@@ -1,5 +1,6 @@
 ((exports) => {
   const Quill = exports.Quill;
+  const Parchment = Quill.import("parchment")
   const Delta = Quill.import("delta");
   const Break = Quill.import("blots/break");
   const Embed = Quill.import("blots/embed");
@@ -80,13 +81,16 @@
     quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
     const lastBinding = quill.keyboard.bindings[13].pop();
     quill.keyboard.addBinding({ key: 13 }, (range, context) => {
-      console.log("ENTER");
+      console.log("range", range);
+      console.log("context", context)
+      console.log("query", Parchment.query)
+
       const lineFormats = Object.keys(context.format).reduce(
         (formats, format) => {
           // See Parchment registry.ts => (1 << 3) | ((1 << 2) - 1) = 8 | 3 = 11
           const blockScope = 11;
           if (
-            quill.scroll.query(format, blockScope) &&
+            Parchment.query(format, blockScope) &&
             !Array.isArray(context.format[format])
           ) {
             formats[format] = context.format[format];
@@ -97,7 +101,12 @@
       );
       const delta = new Delta().retain(range.index).delete(range.length).insert("\n", lineFormats);
       quill.updateContents(delta, Quill.sources.USER);
-      quill.setSelection(range.index + 1, Quill.sources.SILENT);
+      const previousChar = quill.getText(range.index - 1, 1);
+      if (previousChar === "" || previousChar === "\n") {
+        quill.setSelection(range.index + 2, Quill.sources.SILENT);
+      } else {
+        quill.setSelection(range.index + 1, Quill.sources.SILENT);
+      }
       quill.focus();
 
       Object.keys(context.format).forEach((name) => {
