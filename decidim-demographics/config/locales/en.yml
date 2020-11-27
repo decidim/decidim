@@ -20,7 +20,6 @@ en:
         demographics:
           form:
             age_help: Pleae select your age group
-            age_label: How old are you?
             age_prompt: Please select your age
             attended_before:
               affirmative: 'Yes'
