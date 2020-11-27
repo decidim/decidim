@@ -95,7 +95,8 @@ module Decidim
         text: { klass: String, default: nil },
         array: { klass: Array, default: [] },
         enum: { klass: String, default: nil },
-        scope: { klass: Integer, default: nil }
+        scope: { klass: Integer, default: nil },
+        time: { klass: Time, default: nil }
       }.freeze
 
       attribute :type, Symbol, default: :boolean

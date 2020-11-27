@@ -13,7 +13,8 @@ module Decidim
         string: :text_field,
         text: :text_area,
         scope: :scope_field,
-        enum: :collection_radio_buttons
+        enum: :collection_radio_buttons,
+        time: :datetime_field
       }.freeze
 
       # Public: Renders a form field that matches a settings attribute's

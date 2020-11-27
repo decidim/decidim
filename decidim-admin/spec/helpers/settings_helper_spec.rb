@@ -130,6 +130,15 @@ module Decidim
           render_input
         end
       end
+
+      describe "times" do
+        let(:type) { :time }
+
+        it "is supported" do
+          expect(form).to receive(:datetime_field).with(:test, options)
+          render_input
+        end
+      end
     end
   end
 end
