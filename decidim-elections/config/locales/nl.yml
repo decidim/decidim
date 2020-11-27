@@ -105,6 +105,8 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze verkiezingen
             success: Verkiezing succesvol bijgewerkt
+        exports:
+          elections: Verkiezingen
         models:
           answer:
             name: Beantwoorden

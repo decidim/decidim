@@ -774,6 +774,7 @@ fi:
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         metrics: Tilastomittarit
+        panel: Hallintakäyttäjä
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat

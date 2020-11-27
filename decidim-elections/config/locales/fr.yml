@@ -84,6 +84,14 @@ fr:
           new:
             create: Créer une réponse
             title: Nouvelle réponse
+          select:
+            disable: Désélectionner la réponse
+            enable: Marquer la réponse comme sélectionnée
+            invalid: Un problème est survenu lors de la sélection de cette réponse
+            success: Réponse sélectionnée avec succès
+          unselect:
+            invalid: Une erreur est survenue lors de la désélection de cette réponse
+            success: Réponse désélectionnée avec succès
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réponse
             success: Réponse mise à jour avec succès
@@ -113,6 +121,7 @@ fr:
             invalid: Il y a eu un problème lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
         exports:
+          elections: Élections
           feedback_form_answers: Commentaires des réponses au formulaire
         models:
           answer:
@@ -193,6 +202,14 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir plus
+        preview:
+          available_answers: Réponses disponibles
+          description: Voici les questions que vous trouverez dans le processus de vote
+          title: Questions sur l'élection
+        results:
+          description: Ce sont les résultats du vote, pour chaque question
+          selected: Sélectionné
+          title: Résultats de l'élection
         show:
           back: Élections disponibles
           preview: Aperçu

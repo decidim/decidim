@@ -500,6 +500,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
             select_component: Valitse komponentti
             select_states: Tarkista tuotavien ehdotusten tilat
+            title: Tuo ehdotuksia
         proposals_merges:
           create:
             invalid: Yhdistettäessä ehdotuksia tapahtui virhe.
@@ -724,6 +725,8 @@ fi-pl:
           proposals_count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
+        dynamic_map_instructions:
+          instructions: <h3>Voit siirtää karttapistettä</h3><p>Muistathan painaa "Päivitä sijainti" -painiketta ennen kuin julkaiset ehdotuksen.</p>
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
@@ -784,6 +787,8 @@ fi-pl:
             document_index: Asiakirjan hakemisto
           view_index:
             see_index: Näytä hakemisto
+        placeholder:
+          address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
@@ -791,6 +796,7 @@ fi-pl:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
+          update_position: Päivitä sijainti
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus

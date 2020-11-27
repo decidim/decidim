@@ -29,6 +29,7 @@ fi-pl:
             success: Artikkeli poistettu onnistuneesti
           edit:
             save: Päivitä
+            title: Muokkaa artikkelia
           index:
             title: Artikkelit
           new:

@@ -89,6 +89,7 @@ fr-CA:
             creation_enabled_for_participants: Les participants peuvent créer des réunions
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
+            registration_code_enabled: Code d'enregistrement activé
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             scope_id: Secteur
             scopes_enabled: Secteurs activés

@@ -117,7 +117,7 @@ shared_examples_for "add display conditions" do
               option_elements = page.all("select[id$=condition_type] option")
               option_elements = option_elements.to_a.reject { |option| option[:style].match? "display: none" }
 
-              expect(option_elements.map(&:text)).to eq(options)
+              expect(option_elements.map(&:text)).to match_array(options)
             end
           end
         end
@@ -132,7 +132,7 @@ shared_examples_for "add display conditions" do
               option_elements = page.all("select[id$=condition_type] option")
               option_elements = option_elements.to_a.reject { |option| option[:style].match? "display: none" }
 
-              expect(option_elements.map(&:text)).to eq(options)
+              expect(option_elements.map(&:text)).to match_array(options)
             end
           end
         end

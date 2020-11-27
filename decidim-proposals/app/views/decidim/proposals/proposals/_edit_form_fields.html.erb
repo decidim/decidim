@@ -25,7 +25,7 @@
   <div class="field">
     <%= form.label :suggested_hashtags, nil, for: nil %>
     <div class="checkboxes hashtags">
-      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map {|hashtag| [hashtag.downcase, "##{hashtag}"]}, :first, :last do |option|
+      <%= form.collection_check_boxes :suggested_hashtags, @form.component_suggested_hashtags.map { |hashtag| [hashtag.downcase, "##{hashtag}"] }, :first, :last do |option|
         option.label { option.check_box(checked: @form.suggested_hashtag_checked?(option.value)) + option.text }
       end %>
     </div>
@@ -38,7 +38,7 @@
   </div>
 
   <div class="field" id="address_input">
-    <%= form.geocoding_field :address %>
+    <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
   </div>
 <% end %>
 

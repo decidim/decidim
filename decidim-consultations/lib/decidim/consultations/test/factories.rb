@@ -5,11 +5,11 @@ require "decidim/dev"
 
 FactoryBot.define do
   sequence(:consultation_slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   sequence(:question_slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :consultation, class: "Decidim::Consultation" do
