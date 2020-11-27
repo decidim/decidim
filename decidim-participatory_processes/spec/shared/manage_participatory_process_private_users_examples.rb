@@ -4,6 +4,8 @@ shared_examples "manage participatory process private users examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
 
   let!(:participatory_space_private_user) { create :participatory_space_private_user, user: user, privatable_to: participatory_process }
+  let!(:share_token) { create :share_token, user: user, organization: organization, token_for: participatory_process, token: "deerhoof" }
+  let!(:other_share_token) { create :share_token, user: user, organization: organization, token_for: other_user, token: "wadus" }
 
   before do
     switch_to_host(organization.host)
@@ -32,6 +34,26 @@ shared_examples "manage participatory process private users examples" do
 
     within "#private_users table" do
       expect(page).to have_content(other_user.email)
+    end
+  end
+
+  it "shows share token list" do
+    within "#share_tokens table" do
+      expect(page).to have_content("deerhoof")
+      expect(page).to have_no_content("wadus")
+    end
+  end
+
+  it "creates a new share token" do
+    within "#share_tokens" do
+      expect do
+        find(".card-title a.button").click
+      end.to change(Decidim::ShareToken, :count)
+
+      new_share_token = Decidim::ShareToken.last
+
+      expect(new_share_token.token_for).to eq(participatory_process)
+      expect(new_share_token.user).to eq(user)
     end
   end
 
