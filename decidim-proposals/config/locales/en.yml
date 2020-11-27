@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -360,7 +361,7 @@ en:
         actions:
           preview: Preview
         exports:
-          comments: Comments
+          proposal_comments: Comments
           proposals: Proposals
         models:
           proposal:

@@ -141,12 +141,14 @@ Decidim.register_component(:proposals) do |component|
     exports.serializer Decidim::Proposals::ProposalSerializer
   end
 
-  component.exports :comments do |exports|
+  component.exports :proposal_comments do |exports|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Proposals::Proposal, component_instance
       )
     end
+
+    exports.include_in_open_data = true
 
     exports.serializer Decidim::Comments::CommentSerializer
   end
