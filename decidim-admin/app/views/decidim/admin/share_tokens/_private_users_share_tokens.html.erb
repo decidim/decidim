@@ -28,7 +28,12 @@
             <% share_tokens.each do |share_token| %>
               <tr>
                 <td>
-                  <%= decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host) %>
+                  <div class="clipboard-copy"
+                       aria-label="Copy"
+                       data-url="<%= decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host) %>">
+                       <%= truncate(decidim.new_user_registration_url(share_token: share_token.token, host: current_organization.host), length: 70) %>
+                       <%= icon_link_to "clipboard", "#", t(".share_token_help"), class: "card--list__data__icon sign-up-share-token-url" %>
+                  </div>
                 </td>
                 <td><%= share_token.user.name %></td>
                 <td><%= share_token.times_used %></td>
@@ -55,3 +60,4 @@
     <% end %>
   </div>
 </div>
+<%= javascript_include_tag "decidim/admin/copy_sign_up_share_token_url.js" %>
