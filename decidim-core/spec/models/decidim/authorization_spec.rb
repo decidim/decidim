@@ -47,7 +47,9 @@ module Decidim
         it "encrypts the metadata to the database" do
           expect(
             Decidim::AttributeEncryptor.decrypt(database_metadata["foo"])
-          ).to eq(expected_foo)
+          ).to eq(
+            ActiveSupport::JSON.encode(expected_foo)
+          )
         end
 
         it "decrypts the final values automatically" do
@@ -106,7 +108,9 @@ module Decidim
         it "encrypts the metadata to the database" do
           expect(
             Decidim::AttributeEncryptor.decrypt(database_metadata["foo"])
-          ).to eq(expected_foo)
+          ).to eq(
+            ActiveSupport::JSON.encode(expected_foo)
+          )
         end
 
         it "decrypts the final values automatically" do
