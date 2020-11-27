@@ -13,7 +13,7 @@ module Decidim
           when :create, :read
             allow!
           when :archive
-            toggle_allow(debate && debate.closed? && debate.official?)
+            toggle_allow(debate && debate.closed?)
           when :update
             toggle_allow(debate && !debate.closed? && debate.official?)
           when :delete, :close
