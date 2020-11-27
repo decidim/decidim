@@ -35,8 +35,8 @@ module Decidim
           "activemodel.attributes.participatory_process_group"
         end
 
-        def has_diff?
-          action == "unpublish" || super
+        def diff_actions
+          super + %w(unpublish)
         end
       end
     end

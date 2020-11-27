@@ -85,6 +85,7 @@ fi:
             create: Tuo ehdotuksia suunnitelmiksi
             no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiksi.
             select_component: Valitse komponentti
+            title: Tuo ehdotuksia
       admin_log:
         budget:
           create: "%{user_name} loi budjetin %{resource_name} osallistumistilassa %{space_name}"
@@ -246,8 +247,8 @@ fi:
             vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien suunnitelmien vähimmäismäärä'
             vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavat suunnitelmat määritettyjen vähimmäis- ja enimmäismäärän mukaisesti'
             vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
-            vote_selected_projects_maximum: Valittavien suunnitelmien vähimmäismäärä
-            vote_selected_projects_minimum: Valittavien suunnitelmien enimmäismäärä
+            vote_selected_projects_maximum: Valittavien suunnitelmien enimmäismäärä
+            vote_selected_projects_minimum: Valittavien suunnitelmien vähimmäismäärä
             vote_threshold_percent: Äänestyksen kynnysprosentti
             workflow: Työnkulku
             workflow_choices:

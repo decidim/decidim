@@ -5,7 +5,7 @@ require "decidim/dev"
 
 FactoryBot.define do
   sequence(:conference_slug) do |n|
-    "#{Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
+    "#{Decidim::Faker::Internet.slug(words: nil, glue: "-")}-#{n}"
   end
 
   factory :conference, class: "Decidim::Conference" do

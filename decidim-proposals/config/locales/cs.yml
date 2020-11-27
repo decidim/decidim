@@ -510,6 +510,7 @@ cs:
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
             select_component: Vyberte součást
             select_states: Zkontrolujte stav návrhů, které chcete importovat
+            title: Importovat návrhy
         proposals_merges:
           create:
             invalid: Při propojení vybraných návrhů došlo k chybě.
@@ -740,6 +741,8 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+        dynamic_map_instructions:
+          instructions: <h3>Můžete přesunout bod na mapě. </h3><p>Nezapomeňte kliknout na tlačítko "Aktualizovat pozici" před zveřejněním vašeho návrhu.</p>
         edit:
           add_documents: Dokumenty
           add_images: Soubor
@@ -802,6 +805,8 @@ cs:
             document_index: Index dokumentů
           view_index:
             see_index: Viz index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           modify: Upravte návrh
           proposal_edit_before_minutes:
@@ -811,6 +816,7 @@ cs:
             other: Budete mít možnost upravit tento návrh během prvních %{count} minut po návrh zveřejněn. Po uplynutí tohoto časového okna nebudete moci návrh upravit.
           publish: Publikovat
           title: Publikujte svůj návrh
+          update_position: Aktualizovat pozici
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
