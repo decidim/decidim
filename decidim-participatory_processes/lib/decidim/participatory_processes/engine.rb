@@ -104,6 +104,27 @@ module Decidim
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.metadata.name"
           content_block.default!
         end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :cta) do |content_block|
+          content_block.cell = "decidim/content_blocks/cta"
+          content_block.settings_form_cell = "decidim/content_blocks/cta_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.cta.name"
+
+          content_block.images = [
+            {
+              name: :background_image,
+              uploader: "Decidim::HomepageImageUploader"
+            }
+          ]
+
+          content_block.settings do |settings|
+            settings.attribute :button_text, type: :text, translated: true
+            settings.attribute :button_url, type: :string, required: true
+            settings.attribute :description, type: :string, translated: true, editor: true
+          end
+
+          content_block.default!
+        end
       end
 
       initializer "decidim_participatory_processes.stats" do
