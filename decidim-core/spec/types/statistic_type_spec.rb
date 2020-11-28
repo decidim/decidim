@@ -7,6 +7,7 @@ module Decidim
   module Core
     describe StatisticType do
       subject { described_class }
+
       include_context "with a graphql class type"
       let(:model) { [:foo, 123] }
 

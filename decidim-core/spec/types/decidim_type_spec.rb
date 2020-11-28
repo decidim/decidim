@@ -7,6 +7,7 @@ module Decidim
   module Core
     describe DecidimType do
       subject { described_class }
+
       include_context "with a graphql class type"
 
       let(:model) do
