@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/api/engine"
+require "decidim/api/types"
 
 module Decidim
   # This module holds all business logic related to exposing a Public API for
