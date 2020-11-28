@@ -20,10 +20,7 @@ module Decidim
       Class.new do
         include mod
 
-        attr_accessor :name
-        attr_accessor :year
-        attr_accessor :coverage
-        attr_accessor :metadata
+        attr_accessor :name, :year, :coverage, :metadata
 
         encrypt_attribute :name, type: :string
         encrypt_attribute :year, type: :integer
@@ -66,10 +63,7 @@ module Decidim
         Class.new do
           include mod
 
-          attr_accessor :name
-          attr_accessor :year
-          attr_accessor :coverage
-          attr_accessor :metadata
+          attr_accessor :name, :year, :coverage, :metadata
 
           def original_name
             @name
@@ -132,6 +126,66 @@ module Decidim
         expect(subject.year).to be(nil)
         expect(subject.coverage).to be(nil)
         expect(subject.metadata).to be(nil)
+      end
+    end
+
+    context "with active record" do
+      subject do
+        klass.create!(
+          title: title,
+          reference: reference
+        )
+      end
+
+      let(:klass) do
+        mod = described_class
+        Class.new(ApplicationRecord) do
+          include mod
+
+          self.table_name = "decidim_dummy_resources_dummy_resources"
+
+          encrypt_attribute :title, type: :hash
+          encrypt_attribute :reference, type: :string
+        end
+      end
+
+      let(:title) { { en: "Test title" } }
+      let(:reference) { "REF123" }
+
+      it "returns the unencrypted values for all accessors with correct types" do
+        # If the stored instance values are note encrypted properly, the decrypt
+        # calls would throw an ActiveSupport::MessageEncryptor::InvalidMessage.
+        expect(subject.title).to eq("en" => title[:en])
+        expect(
+          ae.decrypt(subject.read_attribute(:title)["en"])
+        ).to eq(ActiveSupport::JSON.encode(title[:en]))
+        expect(subject.title).to be_instance_of(Hash)
+        expect(subject.reference).to eq(reference)
+        expect(ae.decrypt(subject.read_attribute(:reference))).to eq(reference)
+        expect(subject.reference).to be_instance_of(String)
+      end
+
+      context "when changing a JSON attribute values directly" do
+        before do
+          subject.title[:en] = "Updated title"
+          subject.save!
+        end
+
+        it "stores the updated value in the database after save" do
+          resource = klass.find(subject.id)
+          expect(resource.title["en"]).to eq("Updated title")
+        end
+      end
+
+      context "when updating an encrypted attribute without storing the value" do
+        before do
+          subject.reference # this should cache the original decrypted value
+          subject.reference = "UPDREF"
+        end
+
+        it "updates the cached variable correctly" do
+          expect(subject.reference).to eq("UPDREF")
+        end
       end
     end
   end
