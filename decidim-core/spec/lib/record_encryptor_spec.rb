@@ -53,6 +53,15 @@ module Decidim
         ).to eq(ActiveSupport::JSON.encode(metadata[:foo]))
         expect(subject.metadata).to be_instance_of(Hash)
       end
+
+      it "returns the original value when the value is not encrypted" do
+        subject.instance_variable_set(:@name, "Unencrypted")
+
+        # This would throw an ActiveSupport::MessageEncryptor::InvalidMessage
+        # which happens if the decryption fails. This is catched and the
+        # original value is returned instead.
+        expect(subject.name).to eq("Unencrypted")
+      end
     end
 
     it_behaves_like "encrypted record"
@@ -165,7 +174,7 @@ module Decidim
         expect(subject.reference).to be_instance_of(String)
       end
 
-      context "when changing a JSON attribute values directly" do
+      context "when changing JSON attribute values directly" do
         before do
           subject.title[:en] = "Updated title"
           subject.save!
