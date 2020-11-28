@@ -11,17 +11,27 @@ module Decidim
       component_manifest_name "surveys"
 
       validates :questionnaire, presence: true
-      validates :starts_at, presence: { if: ->(object) { object.ends_at.present? } }
 
       def clean_after_publish?
         component.settings.clean_after_publish?
       end
 
-      def open?
-        return true if starts_at.blank?
-        return true if ends_at.blank? && starts_at.past?
+      def starts_at
+        component.settings.starts_at
+      end
 
-        Time.zone.now.between?(starts_at, ends_at)
+      def ends_at
+        component.settings.ends_at
+      end
+
+      def open?
+        return true if starts_at.blank? && ends_at.blank?
+        return true if ends_at.blank? && starts_at.past?
+        return true if starts_at.blank? && ends_at.future?
+
+        return Time.zone.now.between?(starts_at, ends_at) if starts_at.present? && ends_at.present?
+
+        false
       end
     end
   end

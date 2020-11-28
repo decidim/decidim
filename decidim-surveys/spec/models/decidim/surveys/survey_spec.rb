@@ -7,9 +7,7 @@ module Decidim
     describe Survey do
       subject { survey }
 
-      let(:survey) { create(:survey, starts_at: starts_at, ends_at: ends_at) }
-      let(:starts_at) { nil }
-      let(:ends_at) { nil }
+      let(:survey) { create(:survey) }
 
       include_examples "has component"
 
@@ -44,6 +42,12 @@ module Decidim
       describe "#open?" do
         subject { survey.open? }
 
+        let(:component) { survey.component }
+
+        before do
+          component.settings = { starts_at: starts_at, ends_at: ends_at }
+        end
+
         context "when neither starts_at or ends_at are defined" do
           let(:starts_at) { nil }
           let(:ends_at) { nil }
@@ -54,16 +58,32 @@ module Decidim
         context "when starts_at is defined" do
           let(:ends_at) { nil }
 
-          context "and starts_at is a date in the past" do
+          context "and it is a date in the past" do
             let(:starts_at) { 1.day.ago }
 
             it { is_expected.to be_truthy }
           end
 
-          context "and starts_at is a date in the future" do
+          context "and it is a date in the future" do
             let(:starts_at) { 1.day.from_now }
 
             it { is_expected.to be_falsey }
+          end
+        end
+
+        context "when ends_at is defined" do
+          let(:starts_at) { nil }
+
+          context "and it is a date in the past" do
+            let(:ends_at) { 1.day.ago }
+
+            it { is_expected.to be_falsey }
+          end
+
+          context "and it is a date in the future" do
+            let(:ends_at) { 1.day.from_now }
+
+            it { is_expected.to be_truthy }
           end
         end
 
