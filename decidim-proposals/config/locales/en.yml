@@ -670,6 +670,9 @@ en:
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
           title: Collaborative draft creation steps
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
