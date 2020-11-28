@@ -87,6 +87,7 @@ module Decidim
       end
 
       initializer "decidim.graphql_api" do
+        GraphQL::DeprecatedDSL.activate
         Decidim::Api::QueryType.define do
           Decidim::QueryExtensions.define(self)
         end
