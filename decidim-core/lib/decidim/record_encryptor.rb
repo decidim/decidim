@@ -21,7 +21,6 @@ module Decidim
       cattr_accessor :encrypted_attributes
 
       before_save :ensure_encrypted_attributes if respond_to?(:before_save)
-      after_save :clear_encrypted_attributes_cache if respond_to?(:after_save)
     end
 
     class_methods do
@@ -93,19 +92,12 @@ module Decidim
     #  record = Example.find(1)
     #  record.metadata["foo"] = "bar"
     #  record.save!
+    #
+    # This will also clear the cached attributes during saving so that next time
+    # they are accessed, they will be updated according to the stored values.
     def ensure_encrypted_attributes
       self.class.encrypted_attributes.each do |attr|
         send("#{attr}=", send(attr))
-      end
-    end
-
-    # This clears the cache after the record is saved so that the values are
-    # re-fetched after the save.
-    def clear_encrypted_attributes_cache
-      self.class.encrypted_attributes.each do |attr|
-        next unless instance_variable_defined?("@#{attr}_decrypted")
-
-        remove_instance_variable("@#{attr}_decrypted")
       end
     end
 
