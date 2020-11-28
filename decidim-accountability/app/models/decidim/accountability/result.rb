@@ -30,6 +30,8 @@ module Decidim
       has_many :timeline_entries, -> { order(:entry_date) }, foreign_key: "decidim_accountability_result_id",
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
+
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
       searchable_fields(
