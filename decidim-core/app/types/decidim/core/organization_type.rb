@@ -2,18 +2,15 @@
 
 module Decidim
   module Core
-    OrganizationType = GraphQL::ObjectType.define do
-      name "Organization"
+    class OrganizationType < Decidim::Api::Types::BaseObject
       description "The current organization"
 
-      field :name, types.String, "The name of the current organization"
+      field :name, GraphQL::Types::String, "The name of the current organization", null: true
 
-      field :stats do
-        type types[Core::StatisticType]
-        description "The statistics associated to this object"
-        resolve ->(object, _args, _ctx) {
-          Decidim.stats.with_context(object)
-        }
+      field :stats, [Core::StatisticType, { null: true }], description: "The statistics associated to this object", null: true
+
+      def stats
+        Decidim.stats.with_context(object)
       end
     end
   end
