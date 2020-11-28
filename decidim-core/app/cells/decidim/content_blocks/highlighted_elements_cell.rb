@@ -33,10 +33,6 @@ module Decidim
                                   end
       end
 
-      def results_count
-        base_relation.count
-      end
-
       def block_id
         "#{model.scope_name}-#{model.manifest_name}".parameterize.gsub("_", "-")
       end

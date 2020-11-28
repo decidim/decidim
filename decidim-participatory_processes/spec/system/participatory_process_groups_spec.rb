@@ -169,7 +169,6 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of proposals from both processes" do
         within("#participatory-process-group-homepage-highlighted-proposals") do
-          expect(page).to have_content("2 RESULTS")
           expect(page).to have_selector("#proposal_#{proposal_1.id}")
           expect(page).to have_selector("#proposal_#{proposal_2.id}")
 
