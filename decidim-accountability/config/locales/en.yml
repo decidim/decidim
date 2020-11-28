@@ -122,6 +122,9 @@ en:
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          results: Results
       import_mailer:
         import:
           errors: Errors
