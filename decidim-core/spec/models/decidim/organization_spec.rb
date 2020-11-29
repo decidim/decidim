@@ -108,5 +108,13 @@ module Decidim
         end
       end
     end
+
+    describe "#static_pages_accessible_for" do
+      it_behaves_like "accessible static pages" do
+        let(:actual_page_ids) do
+          organization.static_pages_accessible_for(user).pluck(:id)
+        end
+      end
+    end
   end
 end
