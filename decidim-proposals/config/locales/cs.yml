@@ -627,10 +627,10 @@ cs:
         new_collaborative_draft_button:
           new_collaborative_draft: Nový návrh spolupráce
         orders:
-          label: 'Objednejte návrhy podle:'
-          most_contributed: Většina přispěla
-          random: Náhodný
-          recent: Nedávno
+          label: 'Řazení konceptů podle:'
+          most_contributed: Nejvíce příspěvků
+          random: Náhodně
+          recent: Nedávné
         requests:
           accepted_request:
             error: Nelze přijmout jako spolupracovník, zkuste to znovu později.
@@ -792,13 +792,13 @@ cs:
           send: Pokračovat
           title: Vytvořte svůj návrh
         orders:
-          label: 'Objednejte návrhy podle:'
+          label: 'Seřadit návrhy podle:'
           most_commented: Nejvíce komentované
           most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
-          most_voted: Nejvíce hlasovalo
-          random: Náhodný
-          recent: Nedávno
+          most_voted: Nejvíce podporované
+          random: Náhodně
+          recent: Nedávné
           with_more_authors: S více autory
         participatory_texts:
           index:
