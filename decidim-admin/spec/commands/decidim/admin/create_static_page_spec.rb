@@ -38,7 +38,7 @@ module Decidim::Admin
         it "uses traceability to create the page", versioning: true do
           expect(Decidim.traceability)
             .to receive(:create!)
-            .with(Decidim::StaticPage, user, hash_including(:title, :slug, :content, :organization))
+            .with(Decidim::StaticPage, user, hash_including(:title, :slug, :content, :organization, :allow_public_access))
             .and_call_original
 
           expect { command.call }.to change(Decidim::ActionLog, :count)

@@ -10,7 +10,7 @@ module Decidim::Admin
       let(:user) { create :user, :admin, :confirmed, organization: organization }
       let(:form) do
         StaticPageForm.from_params(
-          static_page: page.attributes.merge(slug: "new-slug")
+          static_page: page.attributes.merge(slug: "new-slug", allow_public_access: true)
         ).with_context(
           current_organization: page.organization,
           current_user: user
@@ -58,6 +58,7 @@ module Decidim::Admin
           page.reload
 
           expect(page.slug).to eq("new-slug")
+          expect(page.allow_public_access).to eq(true)
         end
       end
     end
