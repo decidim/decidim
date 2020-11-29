@@ -172,7 +172,7 @@ cs:
               participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
             announcement: Oznámení
-            answers_with_costs: Povolit náklady na odpovědi návrhu
+            answers_with_costs: Povoleny náklady v odpovědi návrhu
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Vytváření návrhu je povoleno
@@ -387,7 +387,7 @@ cs:
             info_1: Následující oddíly byly analyzovány z importovaného dokumentu, byly převedeny na návrhy. Nyní můžete před publikováním zkontrolovat a upravit vše, co potřebujete.
             publish_document: Publikujte dokument
             save_draft: Uložit koncept
-            title: PŘEHLED ÚČASTNÍHO TEXTU
+            title: Náhled participačního textu
           new_import:
             accepted_mime_types:
               md: Markdown
