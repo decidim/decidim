@@ -27,3 +27,9 @@
 <div class="row column">
   <%= form.check_box :show_in_footer %>
 </div>
+
+<% if form.object.control_public_access? %>
+  <div class="row column">
+    <%= form.check_box :allow_public_access %>
+  </div>
+<% end %>

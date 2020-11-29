@@ -22,6 +22,7 @@ module Decidim
             page.title = localized_attribute(slug, :title)
             page.content = localized_attribute(slug, :content)
             page.show_in_footer = true
+            page.allow_public_access = true if slug == "terms-and-conditions"
           end
         end
       end

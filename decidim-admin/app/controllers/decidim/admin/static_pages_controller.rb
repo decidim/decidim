@@ -86,6 +86,7 @@ module Decidim
         return form_params unless page
 
         form_params["static_page"]["slug"] ||= page.slug
+        form_params["static_page"]["allow_public_access"] ||= page.allow_public_access
         form_params
       end
 
