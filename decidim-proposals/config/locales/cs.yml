@@ -804,7 +804,7 @@ cs:
           index:
             document_index: Index dokumentů
           view_index:
-            see_index: Viz index
+            see_index: Prohlédnout seznam
         placeholder:
           address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
