@@ -266,7 +266,7 @@ cs:
         all: Všechno
         finished: Dokončeno
         search: Vyhledávání
-        state: Stát
+        state: Stav
         upcoming: Nadcházející
       filters_small_view:
         close_modal: Zavřete okno
