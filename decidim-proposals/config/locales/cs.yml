@@ -8,7 +8,7 @@ cs:
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
-        state: Stát
+        state: Stav
         title: Titul
         user_group_id: Vytvořit návrh spolupráce jako
       proposal:
@@ -21,7 +21,7 @@ cs:
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
-        state: Stát
+        state: Stav
         suggested_hashtags: Navrhované hashtags
         title: Titul
         user_group_id: Vytvořit návrh jako
@@ -614,7 +614,7 @@ cs:
           related_to: Související s
           scope: Rozsah
           search: Vyhledávání
-          state: Stát
+          state: Stav
           withdrawn: Staženo
         filters_small_view:
           close_modal: Zavřít modální
@@ -711,7 +711,7 @@ cs:
             published_answer: Publikovaná odpověď
             published_at: Publikováno v
             scope: Rozsah
-            state: Stát
+            state: Stav
             title: Titul
             valuator: Hodnotitel
             valuators: Hodnotitelé
@@ -769,7 +769,7 @@ cs:
           related_to: Související s
           scope: Rozsah
           search: Vyhledávání
-          state: Stát
+          state: Stav
           type: Typ
           voted: Hlasoval
         filters_small_view:
