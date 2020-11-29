@@ -248,7 +248,7 @@ cs:
       consultations:
         orders:
           label: 'Seřadit konzultace podle:'
-          random: Náhodný
+          random: Náhodně
           recent: Nejnovější
         show:
           dates: Data
