@@ -384,7 +384,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
-        moderation: Moderations
+        moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
         reported_users: Reported Users
