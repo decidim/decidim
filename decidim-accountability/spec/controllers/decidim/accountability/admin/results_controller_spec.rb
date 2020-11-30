@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Accountability
     module Admin
-      describe ResultsController, type: :controller do
+      describe Admin::ResultsController, type: :controller do
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
 
