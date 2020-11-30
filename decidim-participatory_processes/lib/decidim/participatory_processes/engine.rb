@@ -90,7 +90,7 @@ module Decidim
 
         (1..3).each do |index|
           Decidim.content_blocks.register(:participatory_process_group_homepage, :"html_#{index}") do |content_block|
-            content_block.cell = "decidim/content_blocks/html"
+            content_block.cell = "decidim/participatory_process_groups/content_blocks/html"
             content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.html_#{index}.name"
             content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
 
