@@ -159,6 +159,12 @@ module Decidim
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.stats.name"
           content_block.default!
         end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :participatory_processes) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/highlighted_participatory_processes"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.participatory_processes.name"
+          content_block.default!
+        end
       end
 
       initializer "decidim_participatory_processes.stats" do
