@@ -724,6 +724,8 @@ fr-CA:
           proposals_count:
             one: "%{count} proposition"
             other: "%{count} propositions"
+        dynamic_map_instructions:
+          instructions: <h3>Vous pouvez déplacer le point sur la carte. </h3><p>N'oubliez pas de cliquer sur le bouton "Mettre à jour la position" avant de publier votre proposition.</p>
         edit:
           add_documents: Documents
           add_images: Fichier
@@ -784,6 +786,8 @@ fr-CA:
             document_index: Index de document
           view_index:
             see_index: Voir index
+        placeholder:
+          address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
@@ -791,6 +795,7 @@ fr-CA:
             other: Vous avez la possibilité de modifier cette proposition dans les %{count} minutes suivant sa publication. Une fois ce laps de temps écoulé, vous ne pourrez plus la modifier.
           publish: Publier
           title: Publier la proposition
+          update_position: Mettre à jour la position
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition

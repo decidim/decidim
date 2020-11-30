@@ -245,8 +245,6 @@ fr:
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
             vote_rule_selected_projects_enabled: 'Activer la règle : Projets sélectionnés avec un nombre minimum et maximum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
-            vote_selected_projects_maximum: Nombre minimum de projets à sélectionner
-            vote_selected_projects_minimum: Nombre maximum de projets à sélectionner
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
             workflow: Processus
             workflow_choices:

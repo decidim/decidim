@@ -889,6 +889,9 @@ de:
           show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        error_modal:
+          intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
+          ok: OK
         index:
           ago: vor
           close: Modal schließen
@@ -911,7 +914,11 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
+      download:
+        csv: Daten herunterladen (CSV)
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
@@ -1053,6 +1060,7 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
+          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
@@ -1109,12 +1117,15 @@ de:
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
+        content_original_language: Originalsprache des Inhalts
         date: Gemeldet am
         details: Einzelheiten
         hello: Hallo %{name},
+        id: ID
         participatory_space: Beteiligungsbereich
         reason: Grund
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
+        see_report: Den Bericht ansehen
         subject: Eine Ressource wurde gemeldet
     reports:
       create:
@@ -1187,6 +1198,15 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      flag_user_modal:
+        already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+        close: Schließen
+        description: Was ist unangebracht über den Benutzer?
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
+        report: Melden
+        spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+        title: Unangemessenen Nutzer melden
       floating_help:
         close: Hilfe schließen
         help: Hilfe
@@ -1262,6 +1282,13 @@ de:
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
+    user_report_mailer:
+      notify:
+        body_1: Benutzer %{user} wurde von %{token} gemeldet
+        body_2: 'Grund: %{reason}'
+        greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo %{admin},
+        subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
     version:
       show:
         back_to_resource: Zurück

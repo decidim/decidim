@@ -5,6 +5,7 @@ require "decidim/components/namer"
 Decidim.register_component(:proposals) do |component|
   component.engine = Decidim::Proposals::Engine
   component.admin_engine = Decidim::Proposals::AdminEngine
+  component.stylesheet = "decidim/proposals/proposals"
   component.icon = "decidim/proposals/icon.svg"
 
   component.on(:before_destroy) do |instance|

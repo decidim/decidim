@@ -115,11 +115,19 @@ Release Candidates will be tested in a production server (usually meta-decidim) 
 . Run `bin/rake webpack`, this will update the JavaScript bundle.
 . Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y-stable`.
 . Create the PR for the new version.
- .. `git checkout master && git checkout -b release/x.y.z`
- .. `git merge release/x.y-stable`
- .. `git checkout --theirs *`
- .. `git checkout --theirs .github/* \.*`
- .. Review changes in `CHANGELOG.md`, manually update and create a "changelog" commit if required.
+ .. `git checkout master && git pull && git checkout -b release/x.y.z`
+ .. The following strategy has been discarded because it produces a lot of problems (still needs manual intervention for many files, backported commits via cherry-pick are applied twice, etc..)
+  ... `git merge release/x.y-stable`
+  ... `git checkout --theirs *`
+  ... `git checkout --theirs .github/* \.*`
+  ... Review changes in `CHANGELOG.md`, manually update and create a "changelog" commit if required.
+ .. The simpler is to have two clones of the project, let's name current clone A, in `release/x.y.z`.
+The clone B is in `release/x.y-stable`.
+Now do the following from a file explorer
+  ... Remove all files except `.git` from clone A.
+  ... Copy all files except `.git` from clone B.
+  ... Paste all files except `.git` to clone A.
+  ... Commit the differences to be merged to `master`: `git add -A && git commit -m "Merge release 0.x.y"`
  .. `git push origin release/x.y.z`
  .. Create the PR.
 The base for this PR should be `master`, but GitHub may crash if there are a lot of changes.
@@ -131,9 +139,9 @@ If such branch does not exists, it has to be created now, before merging the new
 So, if this is the release of v0.22.0, branch off `release/0.21-stable` from `master`.
 These stable branches will be able to receive bugfixes, backports and will be the origin of patch releases for older releases.
 . Merge (after proper peer review) the PR to `master` and remove `release/x.y.z` branch.
-. Run `git checkout master && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
+. Run `git checkout master && git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 . Once all the gems are published you should create a new release at this repository, just go to the https://github.com/decidim/decidim/releases[releases page] and create a new one.
-. Create the stable branch for the current version.
+. Create the stable branch for the current version if it does not exist.
 From `master`: `git checkout -b release/x.y-stable && git push origin release/x.y-stable`.
 . Update Decidim's Docker repository as explained in the Docker images section below.
 . Update Crowdin synchronization configuration with Github:
@@ -166,4 +174,5 @@ After that, the header with the current version and link like `+## [0.20.0](http
 == Docker images for each release
 
 . After each release, you should update our https://github.com/decidim/docker[Docker repository] so new images are build for the new release.
-To do it, just update `DECIDIM_VERSION` at https://github.com/decidim/docker/blob/master/circle.yml[circle.yml].
+To do it, create a PR that just updates `DECIDIM_VERSION` at https://github.com/decidim/docker/blob/master/circle.yml[circle.yml].
+Then the continous integration circleci build will generate the images and they will be published to docker hub when the PR is merged.
