@@ -100,12 +100,12 @@ describe Decidim::Debates::Admin::Permissions do
     context "when debate is open" do
       let(:debate) { create :debate, component: debates_component }
 
-      it { is_expected.to eq false }
+      it { is_expected.to eq true }
 
       context "and it is not official" do
         let(:debate) { create :debate, author: user, component: debates_component }
 
-        it { is_expected.to eq false }
+        it { is_expected.to eq true }
       end
     end
   end
