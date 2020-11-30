@@ -18,6 +18,9 @@
           <tr>
             <th><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></th>
+            <% if !respond_to?(:current_participatory_space) %>
+              <th><%= t("models.moderation.fields.participatory_space", scope: "decidim.moderations") %></th>
+            <% end %>
             <th><%= sort_link(query, :report_count, t("models.moderation.fields.report_count", scope: "decidim.moderations")) %></th>
             <th><%= t("models.moderation.fields.reported_content_url", scope: "decidim.moderations") %></th>
             <th><%= t("models.moderation.fields.reports", scope: "decidim.moderations") %></th>
@@ -35,6 +38,11 @@
               <td>
                 <%= moderation.reportable.class.name.demodulize %>
               </td>
+              <% if !respond_to?(:current_participatory_space) %>
+                <td>
+                  <%= participatory_space_title_for(moderation.reportable) %>
+                </td>
+              <% end %>
               <td>
                 <%= moderation.report_count %>
               </td>
