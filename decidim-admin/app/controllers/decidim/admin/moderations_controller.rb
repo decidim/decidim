@@ -6,7 +6,7 @@ module Decidim
     class ModerationsController < Decidim::Admin::ApplicationController
       include Decidim::Moderations::Admin::Filterable
 
-      helper_method :moderations, :allowed_to?, :query
+      helper_method :moderations, :allowed_to?, :query, :permission_resource
 
       def index
         enforce_permission_to :read, permission_resource
