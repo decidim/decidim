@@ -156,12 +156,12 @@ module Decidim
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)
+        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_process)
+        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
         end
       end
 

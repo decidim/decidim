@@ -2,10 +2,12 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This class counts unique Participants on a participatory processes
+    # This class counts unique Participants on a participatory process or
+    # participatory processes belonging to a participatory process group
     class StatsParticipantsCount < Rectify::Query
       def self.for(participatory_space)
-        return 0 unless participatory_space.is_a? Decidim::ParticipatoryProcess
+        return 0 unless participatory_space.is_a?(Decidim::ParticipatoryProcess) ||
+                        participatory_space.is_a?(Decidim::ParticipatoryProcessGroup) && participatory_space.participatory_processes.exists?
 
         new(participatory_space).query
       end
@@ -30,9 +32,17 @@ module Decidim
 
       attr_reader :participatory_space
 
+      def participatory_space_ids
+        @participatory_space_ids ||= if participatory_space.is_a?(Decidim::ParticipatoryProcess)
+                                       participatory_space.id
+                                     else
+                                       participatory_space.participatory_processes.pluck(:id)
+                                     end
+      end
+
       def comments_query
         Decidim::Comments::Comment
-          .where(decidim_root_commentable_id: participatory_space.id)
+          .where(decidim_root_commentable_id: participatory_space_ids)
           .pluck(:decidim_author_id)
           .uniq
       end
@@ -89,7 +99,11 @@ module Decidim
       end
 
       def space_components
-        @space_components ||= participatory_space.components
+        @space_components ||= if participatory_space.is_a?(Decidim::ParticipatoryProcess)
+                                participatory_space.components
+                              else
+                                Decidim::Component.where(participatory_space: participatory_space.participatory_processes)
+                              end
       end
 
       def proposals_components
