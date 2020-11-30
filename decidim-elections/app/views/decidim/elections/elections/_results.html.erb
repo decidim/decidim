@@ -1,0 +1,47 @@
+<div class="row section">
+  <div class="columns large-8">
+    <h2 class="section-heading"><%= t(".title") %></h2>
+      <p>
+        <%= t(".description") %>:
+      </p>
+      <ul class="accordion mb-m evote__preview"
+        data-accordion
+        data-multi-expand="true"
+        data-allow-all-closed="true">
+        <% election.questions.each_with_index do |question, i| %>
+          <li class="accordion-item evote__preview-question <%= " is-active" if i == 0 %>" data-accordion-item>
+            <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
+            <div class="accordion-content" data-tab-content>
+              <% question.answers.each do |answer| %>
+                <div class="evote__preview-result">
+                  <h3 class="evote__preview-option">
+                    <%= translated_attribute(answer.title) %>
+                    <% if answer.selected? %>
+                      <span class="label label--small label--highlight">
+                        <%= t(".selected") %>
+                      </span>
+                    <% end %>
+                  </h3>
+
+                  <div class="progress__bar">
+                    <div class="evote__preview-bar">
+                      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= answer.question.votes_percentage(answer.votes_count) %>%" aria-valuemin="0" aria-valuetext="<%= answer.question.votes_percentage(answer.votes_count) %>% percent" aria-valuemax="100">
+                        <div class="progress-meter progress__bar__bar--complete" style="width: <%= answer.question.votes_percentage(answer.votes_count) %>%"></div>
+                        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= answer.question.votes_percentage(answer.votes_count) %>%);"></div>
+                      </div>
+                      <div class="evote__preview-perc">
+                        <%= answer.question.votes_percentage(answer.votes_count) %>%
+                      </div>
+                      </div>
+                      <div class="evote__preview-label">
+                        <%= t(".votes", count: answer.votes_count) %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+      </ul>
+  </div>
+</div>

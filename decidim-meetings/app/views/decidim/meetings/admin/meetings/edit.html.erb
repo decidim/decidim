@@ -1,5 +1,5 @@
 <%= decidim_form_for(@form, url: { action: "update" }, html: { class: "form meetings_form edit_meeting" })  do |f| %>
-  <%= render partial: "form", object: f %>
+  <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
     <div class="button--double form-general-submit">
       <%= f.submit t(".update") %>

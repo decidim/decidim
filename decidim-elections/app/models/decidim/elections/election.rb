@@ -16,7 +16,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
 
       translatable_fields :title, :description
-      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _suffix: true
+      enum bb_status: [:key_ceremony, :ready, :vote, :tally, :results, :results_published].map { |status| [status, status.to_s] }.to_h, _prefix: :bb
 
       component_manifest_name "elections"
 
@@ -76,6 +76,20 @@ module Decidim
       # Returns a boolean.
       def minimum_answers?
         questions.all? { |question| question.answers.size > 1 }
+      end
+
+      # Public: Checks if the election results are published and election finished
+      #
+      # Returns a boolean.
+      def results_published?
+        bb_results_published?
+      end
+
+      # Public: Checks if the election results present
+      #
+      # Returns a boolean.
+      def results?
+        bb_results?
       end
 
       # Public: Checks if the election questions are valid

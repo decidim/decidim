@@ -385,6 +385,7 @@ fi-pl:
         impersonations: Esiintymiset toisena käyttäjänä
         newsletters: Uutiskirjeet
         participants: Osallistujat
+        reported_users: Ilmoitetut käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -472,6 +473,20 @@ fi-pl:
             phone: Puhelinnumero
             state: Tila
             users_count: Käyttäjämäärä
+      moderated_users:
+        index:
+          actions:
+            title: Toiminnot
+            unreport: Poista ilmoitus
+          name: Nimi
+          nickname: Nimimerkki
+          reason: Syy
+          title: Ilmoitettujen käyttäjien lista
+        report:
+          reasons:
+            does_not_belong: Ei kuulu
+            offensive: Loukkaava
+            spam: Roskaposti
       moderations:
         index:
           title: Moderoinnit
@@ -574,6 +589,7 @@ fi-pl:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
+          reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
           unofficialize: Poista virallistaminen

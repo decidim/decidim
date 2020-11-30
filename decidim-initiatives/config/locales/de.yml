@@ -296,18 +296,10 @@ de:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
-          confirm: Bestätigen
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiativen senden
-        finish_help:
-          access_reminder: Denken Sie daran, dass Sie immer über das Benutzermenü auf Ihre Initiativen zugreifen können.
-          help_for_organizations: Wenn Sie eine Vereinigung sind, müssen Sie die Protokolle des Vorstands aller Organisationen hochladen, die die Förderkommission bilden
-          help_in_person_signatures: Wenn Sie sich entschieden haben, die Unterschriften persönlich oder in Verbindung mit Online zu sammeln, müssen Sie die erforderlichen Informationen hochladen.
-          help_text: Denken Sie daran, dass Sie zur ordnungsgemäßen Verarbeitung der Initiative auf das Administrationsfenster zugreifen müssen, in dem Sie das Benutzermenü finden, laden Sie die erforderlichen Informationen hoch und senden Sie sie zur Verarbeitung.
-          initiatives_page_link: Sie können alle diese Informationen auf der %{link} gewidmet ist, um über Initiativen zu informieren.
-          page: Seite
         previous_form:
           back: Zurück
           continue: Fortsetzen
@@ -413,6 +405,8 @@ de:
           random: Zufällig
           recent: Neueste
           recently_published: Zuletzt veröffentlicht
+        print:
+          city: Stadt
         result:
           answer_title:
             accepted: Dieser Vorschlag wurde angenommen, weil
