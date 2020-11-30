@@ -13,7 +13,7 @@ fi:
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
         address: Osoite
-        available_slots: Tämän tapahtuman vapaiden paikkojen määrä
+        available_slots: Tämän tapaamisen vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
@@ -24,7 +24,7 @@ fi:
         online_meeting_url: Verkkotapaamisen osoite (URL)
         organizer_gid: Luo käyttäjänä
         organizer_id: Järjestäjä
-        private_meeting: Yksityinen tapahtuma
+        private_meeting: Yksityinen tapaaminen
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
@@ -43,24 +43,24 @@ fi:
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: Kohteiden kesto ylittää tapahtuman keston %{count} minuutilla
+              too_many_minutes: Kohteiden kesto ylittää tapaamisen keston %{count} minuutilla
               too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla
         meeting_registration_invite:
           attributes:
             email:
               already_invited: Tämä sähköposti on jo kutsuttu
     models:
-      decidim/meetings/close_meeting_event: Tapahtuma suljettu
-      decidim/meetings/create_meeting_event: Tapahtuma
+      decidim/meetings/close_meeting_event: Tapaaminen suljettu
+      decidim/meetings/create_meeting_event: Tapaaminen
       decidim/meetings/meeting_registrations_enabled_event: Ilmoittautumiset ovat käytössä
       decidim/meetings/meeting_registrations_over_percentage_event: Ilmoittautumiset ylittävät rajan
-      decidim/meetings/upcoming_meeting_event: Tuleva tapahtuma
-      decidim/meetings/update_meeting_event: Tapahtuma päivitetty
+      decidim/meetings/upcoming_meeting_event: Tuleva tapaaminen
+      decidim/meetings/update_meeting_event: Tapaaminen päivitetty
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Tapahtuma
-        other: Tapahtumat
+        one: Tapaaminen
+        other: Tapaamiset
       decidim/meetings/minutes:
         one: Pöytäkirja
         other: Pöytäkirjat
@@ -71,40 +71,40 @@ fi:
     admin:
       meeting_copies:
         create:
-          error: Tapahtuman monistaminen epäonnistui.
-          success: Tapahtuman monistaminen onnistui.
+          error: Tapaamisen kopioiminen epäonnistui.
+          success: Tapaamien kopioiminen onnistui.
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat monistaa
-          title: Monista tapahtuma
+          title: Kopioi tapaaminen
     components:
       meetings:
         actions:
           join: Liity mukaan
-        name: Tapahtumat
+        name: Tapaamiset
         settings:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentit ovat käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
-            creation_enabled_for_participants: Osallistujat voivat luoda tapahtumia
+            creation_enabled_for_participants: Osallistujat voivat luoda tapaamisia
             default_registration_terms: Ilmoittautumisen oletusehdot
             enable_pads_creation: Ota käyttöön muistioiden luominen
             registration_code_enabled: Ilmoittautumiskoodit käytössä
-            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapahtumalle
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapaamiselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-            creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
-            creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
+            creation_enabled_for_participants: Tapaamisten luonti sallittu osallistujille
+            creation_enabled_for_user_groups: Tapaamisten luonti sallittu ryhmille
     events:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Tapahtumasi "%{resource_title}" on suljettu. Voit lukea johtopäätökset täältä:'
+            email_intro: 'Tapaamisesi "%{resource_title}" on suljettu. Voit lukea johtopäätökset täältä:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet järjestänyt tapahtuman "%{resource_title}".
             email_subject: Tapahtuma "%{resource_title}" suljettiin
             notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> suljettiin.
@@ -213,7 +213,7 @@ fi:
           invite:
             decline: Hylkää kutsu
             invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut osallistumaan tapahtumaan kohdassa %{application}. Voit hyväksyä tai hylätä kutsun alla olevien linkkien kautta."
-            join: Ilmoittaudu tapahtumaan "%{meeting_title}"
+            join: Ilmoittaudu tapaamiseen "%{meeting_title}"
         invites:
           create:
             error: Käyttäjän kutsuminen tapahtumaan epäonnistui.
