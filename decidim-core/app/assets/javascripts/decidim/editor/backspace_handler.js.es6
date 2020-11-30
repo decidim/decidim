@@ -22,16 +22,23 @@
   }
 
   const backspaceBindings = (quill) => {
-    quill.keyboard.addBinding({ key: 8, offset: 0 }, (range, context) => {
+    quill.keyboard.addBinding({ key: 8, offset: 1 }, (range, context) => {
+      const previousChar = quill.getText(range.index - 1, 1);
+      console.log("range", range)
+      console.log("context", context)
+      console.log(`previousChar_${previousChar}_previousChar`)
       const length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
       if (range.index === 0 || quill.getLength() <= 1) {
+        console.log("RETURNAA")
         return;
       }
       let formats = {};
       const [line] = quill.getLine(range.index);
       let delta = new Delta().retain(range.index - length).delete(length);
-      if (context.offset === 0) {
-        // Always deleting newline here, length always 1
+      if (context.offset === 1 && previousChar === "\n") {
+        delta = new Delta().retain(range.index + line.length() - 2).delete(1)
+        quill.deleteText(quill.getLength() - 2, 2)
+      } else {
         const [prev] = quill.getLine(range.index - 1);
         if (prev) {
           const isPrevLineEmpty =
@@ -42,6 +49,7 @@
             // console.log("curFormats", curFormats)
             // console.log("prevFormats", prevFormats)
             formats = attributeDiff(curFormats, prevFormats) || {};
+            // console.log("foramts", formats)
             if (Object.keys(formats).length > 0) {
               // line.length() - 1 targets \n in line, another -1 for newline being deleted
               const formatDelta = new Delta().retain(range.index + line.length() - 2).retain(1, formats);
@@ -52,7 +60,6 @@
       }
       quill.updateContents(delta, Quill.sources.USER);
       quill.focus();
-      console.log("ops", quill.getContents().ops)
     });
     // const backspaceHandlerIndex = quill.keyboard.bindings[8].findIndex((bindDef) => {
     //   return bindDef.collapsed === true && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
