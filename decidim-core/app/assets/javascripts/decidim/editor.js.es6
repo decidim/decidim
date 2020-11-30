@@ -37,9 +37,9 @@
         linebreak: {},
         toolbar: {
           container: quillToolbar,
-          handlers: {
-            "linebreak": exports.lineBreakHandler
-          }
+          // handlers: {
+          //   "linebreak": exports.lineBreakHandler
+          // }
         }
         // clipboard: {
         //   matchVisual: false
