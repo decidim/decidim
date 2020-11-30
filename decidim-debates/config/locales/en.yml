@@ -66,6 +66,10 @@ en:
           edit:
             title: Edit debate
             update: Update debate
+          form:
+            debate_type: Debate type
+            finite: Finite (With start and end times)
+            permanent: Permanent (No start or end times)
           index:
             title: Debates
           new:

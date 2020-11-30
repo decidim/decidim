@@ -21,6 +21,10 @@ module Decidim
       def load_seed
         nil
       end
+
+      initializer "decidim_debates.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_debates_manifest.js)
+      end
     end
   end
 end
