@@ -336,7 +336,7 @@ de:
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
-          choose_html: Ich möchte eine <strong>%{title}</strong>erstellen
+          choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: "(Weitere Informationen)"
           select: Ich möchte diese Initiative fördern
         share_committee_link:
