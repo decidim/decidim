@@ -274,4 +274,59 @@ describe "Participatory Process Groups", type: :system do
       end
     end
   end
+
+  context "when the stats content block is enabled" do
+    before do
+      create(
+        :content_block,
+        organization: organization,
+        scope_name: :participatory_process_group_homepage,
+        scoped_resource_id: participatory_process_group.id,
+        manifest_name: :stats
+      )
+    end
+
+    it "shows no data if there are no components or followers in depending participatory processes" do
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+
+      within("#participatory_process_group-statistics") do
+        expect(page).to have_content("There are no statistics yet")
+      end
+    end
+
+    context "when there are components and depending resources" do
+      let(:process) { participatory_process_group.participatory_processes.first }
+      let(:other_process) { participatory_process_group.participatory_processes.last }
+      let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
+      let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
+      let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
+      let!(:user) { create(:user, organization: organization) }
+
+      before do
+        create_list(:proposal, 3, component: proposals_component)
+        create_list(:proposal, 7, component: other_process_proposals_component)
+        create_list(:meeting, 4, component: other_process_meetings_component)
+
+        # Set same coauthorships for all proposals
+        Decidim::Proposals::Proposal.where(component: [proposals_component, other_process_proposals_component]).each do |proposal|
+          proposal.coauthorships.clear
+          proposal.coauthorships.create(author: user)
+        end
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      end
+
+      it "shows unique participants count from both participatory processes" do
+        within("#participatory_process_group-statistics") do
+          expect(page).to have_content("1\nPARTICIPANTS")
+        end
+      end
+
+      it "shows accumulated resources from components of both participatory processes" do
+        within("#participatory_process_group-statistics") do
+          expect(page).to have_content("10\nPROPOSALS")
+          expect(page).to have_content("4\nMEETINGS")
+        end
+      end
+    end
+  end
 end
