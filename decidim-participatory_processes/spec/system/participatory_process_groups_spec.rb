@@ -16,6 +16,8 @@ describe "Participatory Process Groups", type: :system do
     )
   end
   let(:group_processes) { participatory_process_group.participatory_processes }
+  let(:process) { group_processes.first }
+  let(:other_process) { group_processes.last }
   let(:cta_settings) do
     {
       button_url: "https://example.org/action",
@@ -148,8 +150,6 @@ describe "Participatory Process Groups", type: :system do
     end
 
     context "when the proposals block is enabled" do
-      let(:process) { participatory_process_group.participatory_processes.first }
-      let(:other_process) { participatory_process_group.participatory_processes.last }
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:proposal_1) { create(:proposal, component: proposals_component, title: { en: "First awesome proposal!" }) }
@@ -186,8 +186,6 @@ describe "Participatory Process Groups", type: :system do
     end
 
     context "when the results block is enabled" do
-      let(:process) { participatory_process_group.participatory_processes.first }
-      let(:other_process) { participatory_process_group.participatory_processes.last }
       let!(:accountability_component) { create(:component, :published, participatory_space: process, manifest_name: :accountability) }
       let!(:other_process_accountability_component) { create(:component, :published, participatory_space: other_process, manifest_name: :accountability) }
       let!(:result_1) { create(:result, component: accountability_component, title: { en: "First awesome result!" }) }
@@ -246,6 +244,33 @@ describe "Participatory Process Groups", type: :system do
         within("#testing-html") do
           expect(page).to have_content("HTML block")
         end
+      end
+    end
+  end
+
+  context "when the meetings block is enabled" do
+    let!(:meetings_component) { create(:component, :published, participatory_space: process, manifest_name: :meetings) }
+    let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
+    let!(:meeting_1) { create(:meeting, component: meetings_component, title: { en: "First awesome meeting!" }) }
+    let!(:meeting_2) { create(:meeting, component: other_process_meetings_component, title: { en: "Second fabulous meeting!" }) }
+
+    before do
+      create(
+        :content_block,
+        organization: organization,
+        scope_name: :participatory_process_group_homepage,
+        scoped_resource_id: participatory_process_group.id,
+        manifest_name: :highlighted_meetings
+      )
+
+      visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+    end
+
+    it "shows cards of meetings from both processes" do
+      within("#participatory-process-group-homepage-highlighted-meetings") do
+        expect(page).to have_content "UPCOMING MEETINGS"
+        expect(page).to have_content "First awesome meeting!"
+        expect(page).to have_content "Second fabulous meeting!"
       end
     end
   end
