@@ -786,6 +786,8 @@ fr-CA:
             document_index: Index de document
           view_index:
             see_index: Voir index
+        placeholder:
+          address: 60 Boulevard Victor Hugo Saint-Jean-de-Luz, BP 64500
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
