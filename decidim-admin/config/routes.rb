@@ -102,7 +102,7 @@ Decidim::Admin::Engine.routes.draw do
         put :hide
         put :unhide
       end
-      resources :reports, controller: "moderations/reports", only: [:index, :show]
+      resources :reports, controller: "global_moderations/reports", only: [:index, :show]
     end
 
     root to: "dashboard#show"
