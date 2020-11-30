@@ -333,6 +333,8 @@ en:
           participatory_scope: What is decided
           participatory_structure: How is it decided
           target: Who participates
+        stats:
+          name: Statistics
         title:
           meta_scope: Scope
           name: Title, description and hashtag
