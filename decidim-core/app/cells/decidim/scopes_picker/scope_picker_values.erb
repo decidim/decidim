@@ -1,0 +1,5 @@
+<div class="picker-values">
+  <%- scopes.each do |scope, params| %>
+    <div><%= link_to params[:text], params[:url], data: { picker_value: scope.id } %></div>
+  <% end %>
+</div>
