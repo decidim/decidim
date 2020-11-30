@@ -4856,6 +4856,7 @@ function handleEnter(range, context) {
     }
     return lineFormats;
   }, {});
+  console.log("lineFormats", lineFormats)
   this.quill.insertText(range.index, '\n', lineFormats, _quill2.default.sources.USER);
   // Earlier scroll.deleteAt might have messed up our selection,
   // so insertText's built in selection preservation is not reliable
@@ -4865,6 +4866,9 @@ function handleEnter(range, context) {
     if (lineFormats[name] != null) return;
     if (Array.isArray(context.format[name])) return;
     if (name === 'link') return;
+    console.log("context.format", context.format)
+    console.log("name", name)
+    console.log("context.format[name] @ quill.js", context.format[name])
     _this3.quill.format(name, context.format[name], _quill2.default.sources.USER);
   });
 }

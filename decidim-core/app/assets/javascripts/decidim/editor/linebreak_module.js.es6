@@ -26,7 +26,6 @@
         quill.deleteText(quill.getLength() - 2, 2)
       }
     });
-
     addEnterBindings(quill);
     backspaceBindings(quill);
 

@@ -24,12 +24,11 @@
   const backspaceBindings = (quill) => {
     quill.keyboard.addBinding({ key: 8, offset: 1 }, (range, context) => {
       const previousChar = quill.getText(range.index - 1, 1);
-      console.log("range", range)
-      console.log("context", context)
-      console.log(`previousChar_${previousChar}_previousChar`)
+      // console.log("range", range)
+      // console.log("context", context)
+      // console.log(`previousChar_${previousChar}_previousChar`)
       const length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
       if (range.index === 0 || quill.getLength() <= 1) {
-        console.log("RETURNAA")
         return;
       }
       let formats = {};
@@ -67,7 +66,7 @@
     // quill.keyboard.bindings[8].splice(backspaceHandlerIndex, 1);
     // const lastBackspaceBinding = quill.keyboard.bindings[8].pop();
     quill.keyboard.bindings[8].unshift(quill.keyboard.bindings[8].pop());
-    console.log(quill.keyboard.bindings[8]);
+    // console.log(quill.keyboard.bindings[8]);
   }
 
   exports.Decidim.backspaceBindings = backspaceBindings;
