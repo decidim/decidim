@@ -407,7 +407,6 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completa el perfil
-          nickname_help: Tu alias en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -416,7 +415,6 @@ es:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Tu alias en %{organization}
           password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
