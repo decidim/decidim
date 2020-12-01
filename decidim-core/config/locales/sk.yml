@@ -408,7 +408,6 @@ sk:
           email_already_exists: Iný účet používa rovnakú e-mailovú adresu
         new:
           complete_profile: Kompletné profil
-          nickname_help: Vaša prezývka v %{organization}
           sign_up: Prosím, vyplňte svoj profil
           subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
@@ -417,7 +416,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          nickname_help: Vaša prezývka v %{organization}
           password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
