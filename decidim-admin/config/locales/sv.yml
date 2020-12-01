@@ -145,7 +145,6 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
-          accept: Jag godkänner villkoren för administratörer
           are_you_sure: Vill du avvisa villkoren för administratörer?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
