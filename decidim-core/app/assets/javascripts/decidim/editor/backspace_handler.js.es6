@@ -42,12 +42,10 @@
             let prevFormats = quill.getFormat(range.index-1, 1);
             formats = attributeDiff(curFormats, prevFormats) || {};
           }
-          console.log("ÄLÄ DELETEE LISTAA", formats)
+          console.log(`prevChar_${previousChar}_prevChar`)
+          console.log(`ÄLÄ DELETEE LISTAA_${quill.getText(range.index - 2, 1)}_TOKAVIKA`);
           console.log("range.index", range.index)
-          delta = new Delta().retain(range.index - 2).delete(2).insert({insert: "\n", attributes: {list: "bullet"}})
-          // quill.updateContents(delta, Quill.sources.USER);
-          // quill.setSelection(range.index - 2, Quill.sources.SILENT);
-          // delta = new Delta().retain(range.index - 2).delete(1)
+          delta = new Delta().retain(range.index - 2).delete(2).insert("\n", { list: "bullet" });
         } else {
           console.log("ELSE")
           delta = new Delta().retain(range.index + line.length() - 2).delete(1)
@@ -76,6 +74,7 @@
       }
       quill.updateContents(delta, Quill.sources.USER);
       quill.focus();
+      console.log("ops after", quill.getContents().ops)
     });
     // const backspaceHandlerIndex = quill.keyboard.bindings[8].findIndex((bindDef) => {
     //   return bindDef.collapsed === true && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
