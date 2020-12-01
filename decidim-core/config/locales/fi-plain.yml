@@ -413,7 +413,6 @@ fi-pl:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -422,7 +421,6 @@ fi-pl:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
