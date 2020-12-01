@@ -424,7 +424,7 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse tapahtuma
+            select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
@@ -472,7 +472,7 @@ fi:
             photos: Kuvat
             proposals: Ehdotukset
             ranking: "%{ranking} / %{total}"
-            related_meetings: Liittyvät tapahtumat
+            related_meetings: Liittyvät tapaamiset
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
