@@ -141,7 +141,6 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu termenii de administrare
           are_you_sure: Sigur doriți să refuzați termenii de administrator?
           refuse: Refuză termenii de administrare
           title: Sunt de acord cu termenii și condițiile de utilizare
