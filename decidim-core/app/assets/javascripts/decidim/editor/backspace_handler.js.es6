@@ -37,21 +37,25 @@
       let delta = new Delta().retain(range.index - length).delete(length);
       if (context.offset === 1 && previousChar === "\n") {
         const [prev] = quill.getLine(range.index - 2);
+        console.log("prev", prev)
         if (prev && prev.statics.blotName === "list-item") {
           if (prev != null && prev.length() > 1) {
             let curFormats = line.formats();
-            let prevFormats = quill.getFormat(range.index-1, 1);
+            let prevFormats = quill.getFormat(range.index - 1, 1);
             formats = attributeDiff(curFormats, prevFormats) || {};
           }
-          console.log(`prevChar_${previousChar}_prevChar`)
-          console.log(`ÄLÄ DELETEE LISTAA_${quill.getText(range.index - 2, 1)}_TOKAVIKA`);
-          console.log("range.index", range.index)
-          delta = new Delta().retain(range.index - 2).delete(2).insert("\n", { list: "bullet" });
+          // console.log(`prevChar_${previousChar}_prevChar`)
+          // console.log(`ÄLÄ DELETEE LISTAA_${quill.getText(range.index - 2, 1)}_TOKAVIKA`);
+          // console.log("range.index", range.index)
+          console.log("getFormat", quill.getFormat(range.index - 2))
+          const listFormat = quill.getFormat(range.index - 2);
+          const listType = delta.filter((op) => typeof op.insert === 'string').map((op) => op.insert).join("");
+          console.log("listType", listType)
+          delta = new Delta().retain(range.index - 2).delete(2).insert("\n", listFormat);
           if (nextChar === "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
           }
         } else {
-          console.log("ELSE")
           delta = new Delta().retain(range.index + line.length() - 2).delete(1)
           quill.deleteText(range.index - 2, 2)
         }
@@ -77,6 +81,9 @@
         }
       }
       quill.updateContents(delta, Quill.sources.USER);
+      if (Object.keys(formats).length > 0) {
+        quill.formatLine(range.index - length, length, formats, Quill.sources.USER);
+      }
       quill.focus();
       console.log("ops after", quill.getContents().ops)
     });
