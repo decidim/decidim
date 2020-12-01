@@ -24,6 +24,7 @@
   const backspaceBindings = (quill) => {
     quill.keyboard.addBinding({ key: 8, offset: 1 }, (range, context) => {
       const previousChar = quill.getText(range.index - 1, 1);
+      const nextChar = quill.getText(range.index, 1)
       // console.log("range", range)
       // console.log("context", context)
       // console.log(`previousChar_${previousChar}_previousChar`)
@@ -46,6 +47,9 @@
           console.log(`ÄLÄ DELETEE LISTAA_${quill.getText(range.index - 2, 1)}_TOKAVIKA`);
           console.log("range.index", range.index)
           delta = new Delta().retain(range.index - 2).delete(2).insert("\n", { list: "bullet" });
+          if (nextChar === "\n") {
+            quill.setSelection(range.index - 1, Quill.sources.SILENT);
+          }
         } else {
           console.log("ELSE")
           delta = new Delta().retain(range.index + line.length() - 2).delete(1)
