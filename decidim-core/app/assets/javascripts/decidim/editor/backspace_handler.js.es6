@@ -44,9 +44,12 @@
           }
           console.log("ÄLÄ DELETEE LISTAA", formats)
           console.log("range.index", range.index)
-          delta = new Delta().retain(range.index - 2).delete(1).insert({insert: "\n", attributes: {list: "bullet"}})
+          delta = new Delta().retain(range.index - 2).delete(2).insert({insert: "\n", attributes: {list: "bullet"}})
+          // quill.updateContents(delta, Quill.sources.USER);
           // quill.setSelection(range.index - 2, Quill.sources.SILENT);
+          // delta = new Delta().retain(range.index - 2).delete(1)
         } else {
+          console.log("ELSE")
           delta = new Delta().retain(range.index + line.length() - 2).delete(1)
           quill.deleteText(range.index - 2, 2)
         }
