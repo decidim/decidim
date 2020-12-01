@@ -44,7 +44,8 @@ module Decidim
       end
 
       def create_verification_conflict
-        authorization = Decidim::Authorization.find_by(unique_id: handler.document_number)
+        document_number = handler.try(:document_number).presence || handler.try(:document_passport)
+        authorization = Decidim::Authorization.find_by(unique_id: document_number)
         return if authorization.blank?
 
         conflict = Decidim::Verifications::Conflict.find_or_initialize_by(

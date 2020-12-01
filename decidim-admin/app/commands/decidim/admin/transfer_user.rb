@@ -49,7 +49,12 @@ module Decidim
 
       def update_managed_user
         clean_email_and_delete_new_user if form.email == new_user.email
-        managed_user.update(email: form.email, encrypted_password: new_user.encrypted_password)
+        managed_user.email = form.email
+        managed_user.encrypted_password = new_user.encrypted_password
+        managed_user.confirmed_at = new_user.confirmed_at
+        managed_user.managed = false
+        managed_user.skip_reconfirmation!
+        managed_user.save!
       end
 
       def clean_email_and_delete_new_user

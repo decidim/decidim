@@ -10,7 +10,7 @@ module Decidim::Admin
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, organization: organization }
-    let(:new_user) { create :user, :admin, organization: organization, email: email }
+    let(:new_user) { create :user, :admin, organization: organization, email: email, confirmed_at: Time.now.utc }
     let(:managed_user) { create :user, managed: true, organization: organization }
     let(:conflict) do
       Decidim::Verifications::Conflict.create(current_user: new_user, managed_user: managed_user)
@@ -58,12 +58,22 @@ module Decidim::Admin
 
       it "update email" do
         subject.call
-        expect(managed_user.reload.unconfirmed_email).to eq(email)
+        expect(managed_user.reload.email).to eq(email)
       end
 
       it "update managed_user password" do
         subject.call
         expect(new_user.encrypted_password).to eq(managed_user.reload.encrypted_password)
+      end
+
+      it "update confirmed at" do
+        subject.call
+        expect(managed_user.reload.confirmed_at).to eq(new_user.confirmed_at)
+      end
+
+      it "update managed to false" do
+        subject.call
+        expect(managed_user.reload.managed).to be(false)
       end
 
       it "log transfer action" do
