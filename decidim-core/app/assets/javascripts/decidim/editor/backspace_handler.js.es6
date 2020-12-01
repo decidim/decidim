@@ -35,13 +35,22 @@
       const [line] = quill.getLine(range.index);
       let delta = new Delta().retain(range.index - length).delete(length);
       if (context.offset === 1 && previousChar === "\n") {
-        delta = new Delta().retain(range.index + line.length() - 2).delete(1)
-        quill.deleteText(range.index - 2, 2)
-        // console.log("delta", delta);
-        // console.log("line", line);
-        console.log("line.length", line.length())
-        // console.log("offset", offset)
-        // console.log("context", context)
+        const [prev] = quill.getLine(range.index - 2);
+        if (prev && prev.statics.blotName === "list-item") {
+          if (prev != null && prev.length() > 1) {
+            let curFormats = line.formats();
+            let prevFormats = quill.getFormat(range.index-1, 1);
+            formats = attributeDiff(curFormats, prevFormats) || {};
+          }
+          console.log("ÄLÄ DELETEE LISTAA", formats)
+          console.log("range.index", range.index)
+          delta = new Delta().retain(range.index - 2).delete(1).insert({insert: "\n", attributes: {list: "bullet"}})
+          // quill.setSelection(range.index - 2, Quill.sources.SILENT);
+        } else {
+          delta = new Delta().retain(range.index + line.length() - 2).delete(1)
+          quill.deleteText(range.index - 2, 2)
+        }
+
       } else {
         const [prev] = quill.getLine(range.index - 1);
         if (prev) {
