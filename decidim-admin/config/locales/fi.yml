@@ -145,7 +145,6 @@ fi:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn nämä hallintakäyttäjän ehdot
           are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
