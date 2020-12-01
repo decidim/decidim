@@ -5,6 +5,8 @@ module Decidim
     # This controller allows admin users to manage all moderations from the
     # participatory spaces they have access to.
     class GlobalModerationsController < Decidim::Admin::ModerationsController
+      layout "decidim/admin/global_moderations"
+
       # Private: This method is used by the `Filterable` concern as the base query
       # without applying filtering and/or sorting options.
       def collection

@@ -1,0 +1,19 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav">
+    <div class="secondary-nav__title">
+      <%= t ".title" %>
+    </div>
+    <ul>
+      <li <% if params[:hidden].blank? %> class="is-active" <% end %>>
+        <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), decidim_admin.moderations_path %>
+      </li>
+      <li <% if params[:hidden].present? %> class="is-active" <% end %>>
+        <%= link_to t("actions.hidden", scope: "decidim.moderations"), decidim_admin.moderations_path(hidden: true) %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

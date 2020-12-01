@@ -883,6 +883,8 @@ en:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:

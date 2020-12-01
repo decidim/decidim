@@ -5,6 +5,8 @@ module Decidim
     module GlobalModerations
       # This controller allows admins to manage reports in a moderation.
       class ReportsController < Decidim::Admin::Moderations::ReportsController
+        layout "decidim/admin/global_moderations"
+
         def permission_resource
           :global_moderation
         end
