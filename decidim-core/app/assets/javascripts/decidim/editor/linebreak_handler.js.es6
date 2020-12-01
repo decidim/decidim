@@ -34,6 +34,7 @@ const Embed = Quill.import("blots/embed");
       if (name === "link") {
         return;
       }
+      console.log("format: name:", name)
       quill.format(name, context.format[name], Quill.sources.USER);
     });
   }
@@ -111,28 +112,35 @@ const Embed = Quill.import("blots/embed");
       const delta = new Delta().retain(range.index).insert("\n", lineFormats);
       // console.log(`nextChar_${nextChar}_nextchar`)
       if (previousChar === "" || previousChar === "\n") {
+        console.log("DEBUG1")
         if (lineFormats.list && nextChar === "\n") {
+          console.log("DEBUG2")
           if (quill.getLength() - range.index > 2) {
+            console.log("DEBUG3")
             const endFormatDelta = new Delta().retain(range.index - length - 1).delete(length + 1);
             quill.updateContents(endFormatDelta, Quill.sources.USER);
           } else {
+            // Delete empty list item and end the list
             const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1)
-            const endFormatDelta2 = new Delta().retain(range.index).insert("\n", lineFormats)
+            const endFormatDelta2 = new Delta().retain(range.index).insert("\n\n\n")
             quill.updateContents(endFormatDelta, Quill.sources.USER);
             quill.updateContents(endFormatDelta2, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
           }
         } else {
+          console.log("DEBUG5")
           quill.updateContents(delta, Quill.sources.USER);
           quill.setSelection(range.index + 2, Quill.sources.SILENT);
         }
       } else {
+        console.log("DEBUG6")
         quill.updateContents(delta, Quill.sources.USER);
         quill.setSelection(range.index + 1, Quill.sources.SILENT);
       }
       quill.focus();
 
-      continueFormats(quill, context, lineFormats)
+      console.log("quill.contents.ops", quill.getContents().ops)
+      // continueFormats(quill, context, lineFormats)
     });
     // const lastBinding = quill.keyboard.bindings[13].pop();
     // quill.keyboard.bindings[13].push(lastBinding);
