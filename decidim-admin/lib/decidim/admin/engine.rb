@@ -46,6 +46,7 @@ module Decidim
                     position: 4,
                     active: [%w(
                       decidim/admin/global_moderations
+                      decidim/admin/global_moderations/reports
                     ), []],
                     if: allowed_to?(:read, :global_moderation)
 
