@@ -145,7 +145,6 @@ es:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
-          accept: Estoy de acuerdo con estos Términos y Condiciones de Administración
           are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
