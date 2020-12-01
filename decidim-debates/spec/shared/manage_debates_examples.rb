@@ -63,7 +63,7 @@ RSpec.shared_examples "manage debates" do
 
   it "creates a new debate" do
     within ".card-title" do
-      click_link "New debate"
+      click_link "New Debate"
     end
 
     within ".new_debate" do
