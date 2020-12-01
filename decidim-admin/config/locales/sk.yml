@@ -137,7 +137,6 @@ sk:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
-          accept: Súhlasím s týmito podmienkami použitia.
           are_you_sure: Ste si istí, že chcete odmietnuť podmienky použitia pre administrátorov?
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
           title: Súhasím s podmienkami použitia.
