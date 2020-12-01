@@ -88,7 +88,6 @@ en:
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debate_m:
         commented_time_ago: Commented %{time} ago
-        open: Open debate
       debates:
         close:
           invalid: There was a problem closing the debate.
@@ -158,6 +157,7 @@ en:
           groups_count: Groups
           last_comment_by: Last comment by
           no_comments_yet: No comments yet
+          open: Open debate
           participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
