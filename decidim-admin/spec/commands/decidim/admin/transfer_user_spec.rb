@@ -68,7 +68,7 @@ module Decidim::Admin
 
       it "update confirmed at" do
         subject.call
-        expect(managed_user.reload.confirmed_at).to eq(new_user.confirmed_at)
+        expect(managed_user.reload.confirmed_at).not_to be_nil
       end
 
       it "update managed to false" do
