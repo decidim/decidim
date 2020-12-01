@@ -44,7 +44,7 @@ cs:
         from: Z e-mailové adresy
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
-        highlight_alternative_color: Zvýraznění, alternativa
+        highlight_alternative_color: Jiné zvýraznění
         highlight_color: Zvýraznit
         highlighted_content_banner_action_subtitle: Podnadpis Tlačítka Akce
         highlighted_content_banner_action_title: Název tlačítka akce
@@ -631,7 +631,7 @@ cs:
           cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
           cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
-          homepage_highlighted_content_banner_title: Vysoce kvalitní banner obsahu
+          homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
             layout_appearance_title: Upravit vzhled vzhledu
             preview: Náhled
