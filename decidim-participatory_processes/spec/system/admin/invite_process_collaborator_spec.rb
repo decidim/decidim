@@ -30,7 +30,7 @@ describe "Invite process collaborator", type: :system do
       expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
-      find_button("I agree this admin terms").click
+      find_button("I agree with the following terms").click
 
       click_link "Processes"
 
