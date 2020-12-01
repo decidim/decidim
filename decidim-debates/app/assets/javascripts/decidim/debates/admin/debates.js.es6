@@ -6,7 +6,7 @@
     createFieldDependentInputs({
         controllerField: $debateType,
         wrapperSelector: ".debate-fields",
-        dependentFieldsSelector: ".debate-fields--permanent",
+        dependentFieldsSelector: ".debate-fields--open",
         dependentInputSelector: "input",
         enablingCondition: () => {
             return $("#debate_finite_false").is(":checked")

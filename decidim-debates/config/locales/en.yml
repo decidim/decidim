@@ -69,7 +69,7 @@ en:
           form:
             debate_type: Debate type
             finite: Finite (With start and end times)
-            permanent: Permanent (No start or end times)
+            open: Open (No start or end times)
           index:
             title: Debates
           new:
@@ -88,6 +88,7 @@ en:
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debate_m:
         commented_time_ago: Commented %{time} ago
+        open: Open debate
       debates:
         close:
           invalid: There was a problem closing the debate.
