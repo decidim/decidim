@@ -69,7 +69,7 @@ cs:
             title: Upravit projekt
             update: Aktualizace
           index:
-            finished_orders: Hotové hlasy
+            finished_orders: Dokončené hlasy
             pending_orders: Čeká na hlasování
             selected: Vybrané
             title: Projekty
@@ -262,7 +262,7 @@ cs:
           notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     orders:
       checkout:
-        error: Při zpracování hlasu došlo k chybě
+        error: Při zpracování vašeho hlasování došlo k potížím
         success: Váš hlas byl úspěšně přijat
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě
