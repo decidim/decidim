@@ -36,7 +36,12 @@
       let delta = new Delta().retain(range.index - length).delete(length);
       if (context.offset === 1 && previousChar === "\n") {
         delta = new Delta().retain(range.index + line.length() - 2).delete(1)
-        quill.deleteText(quill.getLength() - 2, 2)
+        quill.deleteText(range.index - 2, 2)
+        // console.log("delta", delta);
+        // console.log("line", line);
+        console.log("line.length", line.length())
+        // console.log("offset", offset)
+        // console.log("context", context)
       } else {
         const [prev] = quill.getLine(range.index - 1);
         if (prev) {

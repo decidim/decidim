@@ -44,7 +44,7 @@ const Embed = Quill.import("blots/embed");
     const nextLeaf = quill.getLeaf(range.index + 1)[0];
     // const format = quill.getFormat(range)
     // console.log("format", format)
-    console.log("context", context)
+    // console.log("context", context)
 
 
     quill.insertEmbed(range.index, "break", true, "user");
