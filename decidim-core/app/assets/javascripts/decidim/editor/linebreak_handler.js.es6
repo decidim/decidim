@@ -105,7 +105,6 @@ const Embed = Quill.import("blots/embed");
     quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
 
     quill.keyboard.addBinding({ key: 13, shiftKey: false }, (range, context) => {
-      console.log("ops before", quill.getContents().ops)
       const lineFormats = getLineFormats(context)
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
@@ -119,16 +118,12 @@ const Embed = Quill.import("blots/embed");
           } else {
             // Delete empty list item and end the list
             const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1)
-            const endFormatDelta2 = new Delta().retain(range.index).insert("\n\n\n")
+            const endFormatDelta2 = new Delta().retain(range.index).insert("\n")
             quill.updateContents(endFormatDelta, Quill.sources.USER);
             quill.updateContents(endFormatDelta2, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
           }
         } else {
-          console.log("DEBUG5")
-          console.log(`previousChar${previousChar}_previousChar`)
-          console.log(`nextChar_${nextChar}_nextChar`)
-          console.log("context.offset", context.offset)
           quill.updateContents(delta, Quill.sources.USER);
           if (context.offset === 1 && previousChar === "\n") {
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
@@ -142,7 +137,7 @@ const Embed = Quill.import("blots/embed");
       }
       quill.focus();
 
-      console.log("ops after", quill.getContents().ops)
+      // console.log("ops after", quill.getContents().ops)
       continueFormats(quill, context, lineFormats)
     });
     // const lastBinding = quill.keyboard.bindings[13].pop();
