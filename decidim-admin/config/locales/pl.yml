@@ -145,7 +145,6 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Akceptuję niniejsze warunki dla administratorów
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
