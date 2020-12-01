@@ -179,11 +179,25 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>".gsub("\n", ""))
         end
 
-        it "renders new paragraph" do
+        it "ends the list when pressing enter twice and starts new paragraph" do
           find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter], "Another paragraph"
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
+        end
+
+        it "deletes empty list item when pressing backspace and starts new paragraph" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :backspace], "Another paragraph"
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
+        end
+
+        it "deletes linebreaks using the backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter, :enter, :backspace, :backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
       end
     end

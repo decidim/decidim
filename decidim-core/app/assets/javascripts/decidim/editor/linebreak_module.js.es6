@@ -1,5 +1,5 @@
-// = require decidim/editor/linebreak_handler
-// = require decidim/editor/backspace_handler
+// = require decidim/editor/modified_enter
+// = require decidim/editor/modified_backspace
 
 ((exports) => {
   const Quill = exports.Quill;
