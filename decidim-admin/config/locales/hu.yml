@@ -144,7 +144,6 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          accept: Elfogadom ezeket az admin feltételeket
           are_you_sure: Biztosan visszautasítod az admin feltételek elfogadását?
           refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
