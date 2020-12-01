@@ -14,7 +14,7 @@ cs:
           any: Smíšený
           offline: Z očí do očí
           online: OnLine
-        state: Stát
+        state: Stav
         title: Titul
       initiative_author:
         address: Adresa
@@ -107,7 +107,7 @@ cs:
             created_at: Vytvořeno v
             id: ID
             published_at: Publikováno v
-            state: Stát
+            state: Stav
             supports_count: Podpisy
             title: Iniciativy
         initiatives_type_scope:
@@ -199,7 +199,7 @@ cs:
             description: Popis
             initiative_votes_count: Počet hlasů
             initiatives: Iniciativy
-            state: Stát
+            state: Stav
         committee_requests:
           index:
             approve: Schvalovat
@@ -431,7 +431,7 @@ cs:
           myself: Moje iniciativy
           scope: Oblast působnosti
           search: Vyhledávání
-          state: Stát
+          state: Stav
           type: Typ
         filters_small_view:
           close_modal: Zavřít okno
@@ -456,9 +456,9 @@ cs:
               many: Komentáře
               other: Komentáře
         orders:
-          label: 'Třídit iniciativy podle:'
+          label: 'Seřadit iniciativy podle:'
           most_commented: Nejvíce komentované
-          most_voted: Nejvíce podepsané
+          most_voted: S nejvíce podpisy
           random: Náhodné
           recent: Nejnovější
           recently_published: Nedávno publikované
