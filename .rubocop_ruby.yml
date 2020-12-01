@@ -1,0 +1,1752 @@
+require:
+  - rubocop-rspec
+  - rubocop-faker
+
+# Common configuration.
+AllCops:
+  Include:
+    - .simplecov
+    - "**/*.rb"
+    - "**/*.rake"
+    - "**/*.gemspec"
+    - "**/*.ru"
+    - "**/Gemfile"
+    - "**/Rakefile"
+  Exclude:
+    - "**/vendor/**/*"
+    - "development_app/**/*"
+    - "spec/decidim_dummy_app/**/*"
+    - "node_modules/**/*"
+  # Default formatter will be used if no -f/--format option is given.
+  DefaultFormatter: progress
+  # Cop names are not displayed in offense messages by default. Change behavior
+  # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
+  # option.
+  DisplayCopNames: true
+  # Style guide URLs are not displayed in offense messages by default. Change
+  # behavior by overriding DisplayStyleGuide, or by giving the
+  # -S/--display-style-guide option.
+  DisplayStyleGuide: false
+  # Extra details are not displayed in offense messages by default. Change
+  # behavior by overriding ExtraDetails, or by giving the
+  # -E/--extra-details option.
+  ExtraDetails: false
+  NewCops: enable
+  # Additional cops that do not reference a style guide rule may be enabled by
+  # default. Change behavior by overriding StyleGuideCopsOnly, or by giving
+  # the --only-guide-cops option.
+  StyleGuideCopsOnly: false
+  # All cops except the ones in disabled.yml are enabled by default. Change
+  # this behavior by overriding DisabledByDefault. When DisabledByDefault is
+  # true, all cops in the default configuration are disabled, and and only cops
+  # in user configuration are enabled. This makes cops opt-in instead of
+  # opt-out. Note that when DisabledByDefault is true, cops in user
+  # configuration will be enabled even if they don't set the Enabled parameter.
+  DisabledByDefault: false
+  # Enables the result cache if true. Can be overridden by the --cache command
+  # line option.
+  UseCache: true
+  # Threshold for how many files can be stored in the result cache before some
+  # of the files are automatically removed.
+  MaxFilesInCache: 20000
+  # The cache will be stored in "rubocop_cache" under this directory. The name
+  # "/tmp" is special and will be converted to the system temporary directory,
+  # which is "/tmp" on Unix-like systems, but could be something else on other
+  # systems.
+  CacheRootDirectory: /tmp
+  # The default cache root directory is /tmp, which on most systems is
+  # writable by any system user. This means that it is possible for a
+  # malicious user to anticipate the location of Rubocop's cache directory,
+  # and create a symlink in its place that could cause Rubocop to overwrite
+  # unintended files, or read malicious input. If you are certain that your
+  # cache location is secure from this kind of attack, and wish to use a
+  # symlinked cache location, set this value to "true".
+  AllowSymlinksInCacheRootDirectory: true
+  # What MRI version of the Ruby interpreter is the inspected code intended to
+  # run on? (If there is more than one, set this to the lowest version.)
+  # If a value is specified for TargetRubyVersion then it is used.
+  # Else if .ruby-version exists and it contains an MRI version it is used.
+  # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
+  TargetRubyVersion: 2.7
+
+  RSpec:
+    Patterns:
+      - "(?:^|/)spec/"
+      - "(?:^|/)test/"
+
+# Indent private/protected/public as deep as method definitions
+Layout/AccessModifierIndentation:
+  EnforcedStyle: indent
+  SupportedStyles:
+    - outdent
+    - indent
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Style/Alias:
+  EnforcedStyle: prefer_alias
+  SupportedStyles:
+    - prefer_alias
+    - prefer_alias_method
+
+# Align the elements of a hash literal if they span more than one line.
+Layout/HashAlignment:
+  # Alignment of entries using hash rocket as separator. Valid values are:
+  #
+  # key - left alignment of keys
+  #   "a" => 2
+  #   "bb" => 3
+  # separator - alignment of hash rockets, keys are right aligned
+  #    "a" => 2
+  #   "bb" => 3
+  # table - left alignment of keys, hash rockets, and values
+  #   "a"  => 2
+  #   "bb" => 3
+  EnforcedHashRocketStyle: key
+  # Alignment of entries using colon as separator. Valid values are:
+  #
+  # key - left alignment of keys
+  #   a: 0
+  #   bb: 1
+  # separator - alignment of colons, keys are right aligned
+  #    a: 0
+  #   bb: 1
+  # table - left alignment of keys and values
+  #   a:  0
+  #   bb: 1
+  EnforcedColonStyle: key
+  # Select whether hashes that are the last argument in a method call should be
+  # inspected? Valid values are:
+  #
+  # always_inspect - Inspect both implicit and explicit hashes.
+  #   Registers an offense for:
+  #     function(a: 1,
+  #       b: 2)
+  #   Registers an offense for:
+  #     function({a: 1,
+  #       b: 2})
+  # always_ignore - Ignore both implicit and explicit hashes.
+  #   Accepts:
+  #     function(a: 1,
+  #       b: 2)
+  #   Accepts:
+  #     function({a: 1,
+  #       b: 2})
+  # ignore_implicit - Ignore only implicit hashes.
+  #   Accepts:
+  #     function(a: 1,
+  #       b: 2)
+  #   Registers an offense for:
+  #     function({a: 1,
+  #       b: 2})
+  # ignore_explicit - Ignore only explicit hashes.
+  #   Accepts:
+  #     function({a: 1,
+  #       b: 2})
+  #   Registers an offense for:
+  #     function(a: 1,
+  #       b: 2)
+  EnforcedLastArgumentHashStyle: always_inspect
+  SupportedLastArgumentHashStyles:
+    - always_inspect
+    - always_ignore
+    - ignore_implicit
+    - ignore_explicit
+
+Layout/ParameterAlignment:
+  # Alignment of parameters in multi-line method calls.
+  #
+  # The `with_first_parameter` style aligns the following lines along the same
+  # column as the first parameter.
+  #
+  #     method_call(a,
+  #                 b)
+  #
+  # The `with_fixed_indentation` style aligns the following lines with one
+  # level of indentation relative to the start of the line with the method call.
+  #
+  #     method_call(a,
+  #       b)
+  EnforcedStyle: with_first_parameter
+  SupportedStyles:
+    - with_first_parameter
+    - with_fixed_indentation
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Style/AndOr:
+  # Whether `and` and `or` are banned only in conditionals (conditionals)
+  # or completely (always).
+  EnforcedStyle: always
+  SupportedStyles:
+    - always
+    - conditionals
+
+Style/AsciiComments:
+  Enabled: false
+
+# Checks if usage of %() or %Q() matches configuration.
+Style/BarePercentLiterals:
+  EnforcedStyle: bare_percent
+  SupportedStyles:
+    - percent_q
+    - bare_percent
+
+Style/BlockDelimiters:
+  EnforcedStyle: line_count_based
+  SupportedStyles:
+    # The `line_count_based` style enforces braces around single line blocks and
+    # do..end around multi-line blocks.
+    - line_count_based
+    # The `semantic` style enforces braces around functional blocks, where the
+    # primary purpose of the block is to return a value and do..end for
+    # procedural blocks, where the primary purpose of the block is its
+    # side-effects.
+    #
+    # This looks at the usage of a block's method to determine its type (e.g. is
+    # the result of a `map` assigned to a variable or passed to another
+    # method) but exceptions are permitted in the `ProceduralMethods`,
+    # `FunctionalMethods` and `IgnoredMethods` sections below.
+    - semantic
+    # The `braces_for_chaining` style enforces braces around single line blocks
+    # and do..end around multi-line blocks, except for multi-line blocks whose
+    # return value is being chained with another method (in which case braces
+    # are enforced).
+    - braces_for_chaining
+  ProceduralMethods:
+    # Methods that are known to be procedural in nature but look functional from
+    # their usage, e.g.
+    #
+    #   time = Benchmark.realtime do
+    #     foo.bar
+    #   end
+    #
+    # Here, the return value of the block is discarded but the return value of
+    # `Benchmark.realtime` is used.
+    - benchmark
+    - bm
+    - bmbm
+    - create
+    - each_with_object
+    - measure
+    - new
+    - realtime
+    - tap
+    - with_object
+  FunctionalMethods:
+    # Methods that are known to be functional in nature but look procedural from
+    # their usage, e.g.
+    #
+    #   let(:foo) { Foo.new }
+    #
+    # Here, the return value of `Foo.new` is used to define a `foo` helper but
+    # doesn't appear to be used from the return value of `let`.
+    - let
+    - let!
+    - subject
+    - watch
+  IgnoredMethods:
+    # Methods that can be either procedural or functional and cannot be
+    # categorised from their usage alone, e.g.
+    #
+    #   foo = lambda do |x|
+    #     puts "Hello, #{x}"
+    #   end
+    #
+    #   foo = lambda do |x|
+    #     x * 100
+    #   end
+    #
+    # Here, it is impossible to tell from the return value of `lambda` whether
+    # the inner block's return value is significant.
+    - lambda
+    - proc
+    - it
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashLikeCase:
+  MinBranchesCount: 5
+
+# Indentation of `when`.
+Layout/CaseIndentation:
+  EnforcedStyle: case
+  SupportedStyles:
+    - case
+    - end
+  IndentOneStep: false
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  # This only matters if IndentOneStep is true
+  IndentationWidth: ~
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+  # Checks the style of children definitions at classes and modules.
+  #
+  # Basically there are two different styles:
+  #
+  # `nested` - have each child on a separate line
+  #   class Foo
+  #     class Bar
+  #     end
+  #   end
+  #
+  # `compact` - combine definitions as much as possible
+  #   class Foo::Bar
+  #   end
+  #
+  # The compact style is only forced, for classes / modules with one child.
+  EnforcedStyle: nested
+  SupportedStyles:
+    - nested
+    - compact
+
+Style/ClassCheck:
+  EnforcedStyle: is_a?
+  SupportedStyles:
+    - is_a?
+    - kind_of?
+
+# Align with the style guide.
+Style/CollectionMethods:
+  # Mapping from undesired method to desired_method
+  # e.g. to use `detect` over `find`:
+  #
+  # CollectionMethods:
+  #   PreferredMethods:
+  #     find: detect
+  PreferredMethods:
+    collect: "map"
+    collect!: "map!"
+    inject: "reduce"
+    detect: "find"
+    find_all: "select"
+
+# Use ` or %x around command literals.
+Style/CommandLiteral:
+  EnforcedStyle: backticks
+  # backticks: Always use backticks.
+  # percent_x: Always use %x.
+  # mixed: Use backticks on single-line commands, and %x on multi-line commands.
+  SupportedStyles:
+    - backticks
+    - percent_x
+    - mixed
+  # If false, the cop will always recommend using %x if one or more backticks
+  # are found in the command string.
+  AllowInnerBackticks: false
+
+# Checks formatting of special comments
+Style/CommentAnnotation:
+  Keywords:
+    - TODO
+    - FIXME
+    - OPTIMIZE
+    - HACK
+    - REVIEW
+
+Style/ConditionalAssignment:
+  EnforcedStyle: assign_to_condition
+  SupportedStyles:
+    - assign_to_condition
+    - assign_inside_condition
+  # When configured to `assign_to_condition`, `SingleLineConditionsOnly`
+  # will only register an offense when all branches of a condition are
+  # a single line.
+  # When configured to `assign_inside_condition`, `SingleLineConditionsOnly`
+  # will only register an offense for assignment to a condition that has
+  # at least one multiline branch.
+  SingleLineConditionsOnly: true
+
+# Checks that you have put a copyright in a comment before any code.
+#
+# You can override the default Notice in your .rubocop.yml file.
+#
+# In order to use autocorrect, you must supply a value for the
+# AutocorrectNotice key that matches the regexp Notice.  A blank
+# AutocorrectNotice will cause an error during autocorrect.
+#
+# Autocorrect will add a copyright notice in a comment at the top
+# of the file immediately after any shebang or encoding comments.
+#
+# Example rubocop.yml:
+#
+# Style/Copyright:
+#   Enabled: true
+#   Notice: 'Copyright (\(c\) )?2015 Yahoo! Inc'
+#   AutocorrectNotice: "# Copyright (c) 2015 Yahoo! Inc."
+#
+Style/Copyright:
+  Notice: '^Copyright (\(c\) )?2[0-9]{3} .+'
+  AutocorrectNotice: ""
+
+Style/DocumentationMethod:
+  RequireForNonPublicMethods: false
+
+# Multi-line method chaining should be done with leading dots.
+Layout/DotPosition:
+  EnforcedStyle: leading
+  SupportedStyles:
+    - leading
+    - trailing
+
+# Warn on empty else statements
+# empty - warn only on empty else
+# nil - warn on else with nil in it
+# both - warn on empty else and else with nil in it
+Style/EmptyElse:
+  EnforcedStyle: both
+  SupportedStyles:
+    - empty
+    - nil
+    - both
+
+# Use empty lines between defs.
+Layout/EmptyLineBetweenDefs:
+  # If true, this parameter means that single line method definitions don't
+  # need an empty line between them.
+  AllowAdjacentOneLineDefs: false
+
+Layout/EmptyLinesAroundBlockBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: no_empty_lines
+  SupportedStyles:
+    - empty_lines
+    - no_empty_lines
+
+# Checks whether the source file has a utf-8 encoding comment or not
+# AutoCorrectEncodingComment must match the regex
+# /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
+Style/Encoding:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  # When true, allows most uses of extra spacing if the intent is to align
+  # things with the previous or next line, not counting empty lines or comment
+  # lines.
+  AllowForAlignment: false
+  # When true, forces the alignment of = in assignments on consecutive lines.
+  ForceEqualSignAlignment: false
+
+Naming/FileName:
+  Exclude:
+    - "**/Gemfile"
+    - "**/Rakefile"
+    - "**/*.gemspec"
+  # When true, requires that each source file should define a class or module
+  # with a name which matches the file name (converted to ... case).
+  # It further expects it to be nested inside modules which match the names
+  # of subdirectories in its path.
+  ExpectMatchingDefinition: false
+  # If non-nil, expect all source file names to match the following regex.
+  # Only the file name itself is matched, not the entire file path.
+  # Use anchors as necessary if you want to match the entire name rather than
+  # just a part of it.
+  Regex: ~
+  # With `IgnoreExecutableScripts` set to `true`, this cop does not
+  # report offending filenames for executable scripts (i.e. source
+  # files with a shebang in the first line).
+  IgnoreExecutableScripts: true
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: special_for_inner_method_call_in_parentheses
+  SupportedStyles:
+    # The first parameter should always be indented one step more than the
+    # preceding line.
+    - consistent
+    # The first parameter should normally be indented one step more than the
+    # preceding line, but if it's a parameter for a method call that is itself
+    # a parameter in a method call, then the inner parameter should be indented
+    # relative to the inner method.
+    - special_for_inner_method_call
+    # Same as special_for_inner_method_call except that the special rule only
+    # applies if the outer method call encloses its arguments in parentheses.
+    - special_for_inner_method_call_in_parentheses
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+# Checks use of for or each in multiline loops.
+Style/For:
+  EnforcedStyle: each
+  SupportedStyles:
+    - for
+    - each
+
+# Enforce the method used for string formatting.
+Style/FormatString:
+  EnforcedStyle: format
+  SupportedStyles:
+    - format
+    - sprintf
+    - percent
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+  SupportedStyles:
+    - never
+    # `always` will always add the frozen string literal comment to a file
+    # regardless of the Ruby version or if `freeze` or `<<` are called on a
+    # string literal. If you run code against multiple versions of Ruby, it is
+    # possible that this will create errors in Ruby 2.3.0+.
+    - always
+
+# Built-in global variables are allowed by default.
+Style/GlobalVars:
+  AllowedVariables: []
+
+# `MinBodyLength` defines the number of lines of the a body of an if / unless
+# needs to have to trigger this cop
+Style/GuardClause:
+  MinBodyLength: 6
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+  SupportedStyles:
+    # checks for 1.9 syntax (e.g. {a: 1}) for all symbol keys
+    - ruby19
+    # checks for hash rocket syntax for all hashes
+    - hash_rockets
+    # forbids mixed key syntaxes (e.g. {a: 1, :b => 2})
+    - no_mixed_keys
+    # enforces both ruby19 and no_mixed_keys styles
+    - ruby19_no_mixed_keys
+  # Force hashes that have a symbol value to use hash rockets
+  UseHashRocketsWithSymbolValues: false
+  # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
+  PreferHashRocketsForNonAlnumEndingSymbols: false
+
+Layout/IndentationConsistency:
+  # The difference between `rails` and `normal` is that the `rails` style
+  # prescribes that in classes and modules the `protected` and `private`
+  # modifier keywords shall be indented the same as public methods and that
+  # protected and private members shall be indented one step more than the
+  # modifiers. Other than that, both styles mean that entities on the same
+  # logical depth shall have the same indentation.
+  EnforcedStyle: normal
+  SupportedStyles:
+    - normal
+    - rails
+
+Layout/IndentationWidth:
+  # Number of spaces for each indentation level.
+  Width: 2
+
+# Checks the indentation of the first element in an array literal.
+Layout/FirstArrayElementIndentation:
+  # The value `special_inside_parentheses` means that array literals with
+  # brackets that have their opening bracket on the same line as a surrounding
+  # opening round parenthesis, shall have their first element indented relative
+  # to the first position inside the parenthesis.
+  #
+  # The value `consistent` means that the indentation of the first element shall
+  # always be relative to the first position of the line where the opening
+  # bracket is.
+  #
+  # The value `align_brackets` means that the indentation of the first element
+  # shall always be relative to the position of the opening bracket.
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+    - special_inside_parentheses
+    - consistent
+    - align_brackets
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+# Checks the indentation of assignment RHS, when on a different line from LHS
+Layout/AssignmentIndentation:
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+# Checks the indentation of the first key in a hash literal.
+Layout/FirstHashElementIndentation:
+  # The value `special_inside_parentheses` means that hash literals with braces
+  # that have their opening brace on the same line as a surrounding opening
+  # round parenthesis, shall have their first key indented relative to the
+  # first position inside the parenthesis.
+  #
+  # The value `consistent` means that the indentation of the first key shall
+  # always be relative to the first position of the line where the opening
+  # brace is.
+  #
+  # The value `align_braces` means that the indentation of the first key shall
+  # always be relative to the position of the opening brace.
+  EnforcedStyle: special_inside_parentheses
+  SupportedStyles:
+    - special_inside_parentheses
+    - consistent
+    - align_braces
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Style/Lambda:
+  EnforcedStyle: line_count_dependent
+  SupportedStyles:
+    - line_count_dependent
+    - lambda
+    - literal
+  Exclude:
+    - "**/types/**/*"
+    - "**/*_interface.rb"
+
+Style/LambdaCall:
+  EnforcedStyle: call
+  SupportedStyles:
+    - call
+    - braces
+
+Style/Next:
+  # With `always` all conditions at the end of an iteration needs to be
+  # replaced by next - with `skip_modifier_ifs` the modifier if like this one
+  # are ignored: [1, 2].each { |a| return "yes" if a == 1 }
+  EnforcedStyle: skip_modifier_ifs
+  # `MinBodyLength` defines the number of lines of the a body of an if / unless
+  # needs to have to trigger this cop
+  MinBodyLength: 3
+  SupportedStyles:
+    - skip_modifier_ifs
+    - always
+
+Style/NonNilCheck:
+  # With `IncludeSemanticChanges` set to `true`, this cop reports offenses for
+  # `!x.nil?` and autocorrects that and `x != nil` to solely `x`, which is
+  # **usually** OK, but might change behavior.
+  #
+  # With `IncludeSemanticChanges` set to `false`, this cop does not report
+  # offenses for `!x.nil?` and does no changes that might change behavior.
+  IncludeSemanticChanges: false
+
+Style/NumericPredicate:
+  EnforcedStyle: predicate
+  SupportedStyles:
+    - predicate
+    - comparison
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+    - require_no_parentheses_except_multiline
+
+Naming/MethodName:
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+Style/ModuleFunction:
+  EnforcedStyle: module_function
+  SupportedStyles:
+    - module_function
+    - extend_self
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last element
+    - symmetrical
+    - new_line
+    - same_line
+
+Layout/MultilineAssignmentLayout:
+  # The types of assignments which are subject to this rule.
+  SupportedTypes:
+    - block
+    - case
+    - class
+    - if
+    - kwbegin
+    - module
+  EnforcedStyle: new_line
+  SupportedStyles:
+    # Ensures that the assignment operator and the rhs are on the same line for
+    # the set of supported types.
+    - same_line
+    # Ensures that the assignment operator and the rhs are on separate lines
+    # for the set of supported types.
+    - new_line
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on same line as last element
+    - symmetrical
+    - new_line
+    - same_line
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last argument
+    - symmetrical
+    - new_line
+    - same_line
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: aligned
+  SupportedStyles:
+    - aligned
+    - indented
+    - indented_relative_to_receiver
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: symmetrical
+  SupportedStyles:
+    # symmetrical: closing brace is positioned in same way as opening brace
+    # new_line: closing brace is always on a new line
+    # same_line: closing brace is always on the same line as last parameter
+    - symmetrical
+    - new_line
+    - same_line
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: aligned
+  SupportedStyles:
+    - aligned
+    - indented
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  IndentationWidth: ~
+
+Style/NumericLiterals:
+  MinDigits: 5
+
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_with_o
+  SupportedOctalStyles:
+    - zero_with_o
+    - zero_only
+
+Style/OptionHash:
+  # A list of parameter names that will be flagged by this cop.
+  SuspiciousParamNames:
+    - options
+    - opts
+    - args
+    - params
+    - parameters
+
+# Allow safe assignment in conditions.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: true
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%":  ()
+    "%i": ()
+    "%q": ()
+    "%Q": ()
+    "%r": "{}"
+    "%s": ()
+    "%w": ()
+    "%W": ()
+    "%x": ()
+
+Style/PercentQLiterals:
+  EnforcedStyle: lower_case_q
+  SupportedStyles:
+    - lower_case_q # Use %q when possible, %Q when necessary
+    - upper_case_q # Always use %Q
+
+Style/SlicingWithRange:
+  Enabled: false
+
+Naming/PredicateName:
+  # Predicate name prefixes.
+  NamePrefix:
+    - is_
+    - has_
+    - have_
+  # Predicate name prefixes that should be removed.
+  ForbiddenPrefixes:
+    - is_
+    - have_
+  # Predicate names which, despite having a blacklisted prefix, or no ?,
+  # should still be accepted
+  AllowedMethods:
+    - is_a?
+  # Exclude Rspec specs because there is a strong convetion to write spec
+  # helpers in the form of `have_something` or `be_something`.
+  Exclude:
+    - "**/spec/**/*"
+    - "**/test/**/*"
+
+Style/PreferredHashMethods:
+  Enabled: true
+  EnforcedStyle: verbose
+
+Style/DateTime:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+  SupportedStyles:
+    - compact # raise Exception.new(msg)
+    - exploded # raise Exception, msg
+
+Style/RedundantReturn:
+  # When true allows code like `return x, y`.
+  AllowMultipleReturnValues: false
+
+# Use / or %r around regular expressions.
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  # slashes: Always use slashes.
+  # percent_r: Always use %r.
+  # mixed: Use slashes on single-line regexes, and %r on multi-line regexes.
+  SupportedStyles:
+    - slashes
+    - percent_r
+    - mixed
+  # If false, the cop will always recommend using %r if one or more slashes
+  # are found in the regexp string.
+  AllowInnerSlashes: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/Semicolon:
+  # Allow ; to separate several expressions on the same line.
+  AllowAsExpressionSeparator: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+  SupportedStyles:
+    - only_raise
+    - only_fail
+    - semantic
+
+Style/SingleLineBlockParams:
+  Methods:
+    - reduce:
+        - a
+        - e
+    - inject:
+        - a
+        - e
+
+Style/SingleLineMethods:
+  AllowIfMethodIsEmpty: true
+
+Layout/SpaceBeforeFirstArg:
+  # When true, allows most uses of extra spacing if the intent is to align
+  # things with the previous or next line, not counting empty lines or comment
+  # lines.
+  AllowForAlignment: true
+
+Style/SpecialGlobalVars:
+  EnforcedStyle: use_english_names
+  SupportedStyles:
+    - use_perl_names
+    - use_english_names
+
+Style/StabbyLambdaParentheses:
+  EnforcedStyle: require_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+  # If true, strings which span multiple lines using \ for continuation must
+  # use the same type of quotes on each line.
+  ConsistentQuotesInMultiline: false
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/StringMethods:
+  # Mapping from undesired method to desired_method
+  # e.g. to use `to_sym` over `intern`:
+  #
+  # StringMethods:
+  #   PreferredMethods:
+  #     intern: to_sym
+  PreferredMethods:
+    intern: to_sym
+
+Layout/SpaceAroundBlockParameters:
+  EnforcedStyleInsidePipes: no_space
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+Layout/SpaceAroundOperators:
+  # When true, allows most uses of extra spacing if the intent is to align
+  # with an operator on the previous or next line, not counting empty lines
+  # or comment lines.
+  AllowForAlignment: true
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  SupportedStyles:
+    - space
+    - no_space
+  # Valid values are: space, no_space
+  EnforcedStyleForEmptyBraces: no_space
+  # Space between { and |. Overrides EnforcedStyle if there is a conflict.
+  SpaceBeforeBlockParameters: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SupportedStyles:
+    - space
+    - no_space
+    # "compact" normally requires a space inside hash braces, with the exception
+    # that successive left braces or right braces are collapsed together
+    - compact
+
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: no_space
+  SupportedStyles:
+    - space
+    - no_space
+
+Style/AccessModifierDeclarations:
+  Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+  SupportedStyles:
+    - percent
+    - brackets
+
+Style/SymbolProc:
+  # A list of method names to be ignored by the check.
+  # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
+  IgnoredMethods:
+    - respond_to
+    - define_method
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_no_parentheses
+  SupportedStyles:
+    - require_parentheses
+    - require_no_parentheses
+  AllowSafeAssignment: true
+
+Layout/TrailingEmptyLines:
+  EnforcedStyle: final_newline
+  SupportedStyles:
+    - final_newline
+    - final_blank_line
+
+Style/TrailingCommaInArguments:
+  # If `comma`, the cop requires a comma after the last argument, but only for
+  # parenthesized method calls where each argument is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last argument,
+  # for all parenthesized method calls with arguments.
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInArrayLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInHashLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
+
+# TrivialAccessors requires exact name matches and doesn't allow
+# predicated methods by default.
+Style/TrivialAccessors:
+  # When set to false the cop will suggest the use of accessor methods
+  # in situations like:
+  #
+  # def name
+  #   @other_name
+  # end
+  #
+  # This way you can uncover "hidden" attributes in your code.
+  ExactNameMatch: true
+  AllowPredicates: true
+  # Allows trivial writers that don't end in an equal sign. e.g.
+  #
+  # def on_exception(action)
+  #   @on_exception=action
+  # end
+  # on_exception :restart
+  #
+  # Commonly used in DSLs
+  AllowDSLWriters: false
+  IgnoreClassMethods: false
+  AllowedMethods:
+    - to_ary
+    - to_a
+    - to_c
+    - to_enum
+    - to_h
+    - to_hash
+    - to_i
+    - to_int
+    - to_io
+    - to_open
+    - to_path
+    - to_proc
+    - to_r
+    - to_regexp
+    - to_str
+    - to_s
+    - to_sym
+
+Naming/VariableName:
+  EnforcedStyle: snake_case
+  SupportedStyles:
+    - snake_case
+    - camelCase
+
+Naming/VariableNumber:
+  EnforcedStyle: normalcase
+  SupportedStyles:
+    - snake_case
+    - normalcase
+    - non_integer
+
+# WordArray enforces how array literals of word-like strings should be expressed.
+Style/WordArray:
+  EnforcedStyle: percent
+  SupportedStyles:
+    # percent style: %w(word1 word2)
+    - percent
+    # bracket style: ["word1", "word2"]
+    - brackets
+  # The MinSize option causes the WordArray rule to be ignored for arrays
+  # smaller than a certain size.  The rule is only applied to arrays
+  # whose element count is greater than or equal to MinSize.
+  MinSize: 2
+  # The regular expression WordRegex decides what is considered a word.
+  WordRegex: !ruby/regexp '/\A[\p{Word}\n\t]+\z/'
+
+##################### Metrics ##################################
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be an Integer or
+  # a Float.
+  Max: 15
+  Enabled: false
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  CountComments: false  # count full line comments?
+  Max: 100
+  Enabled: false
+
+Metrics/ModuleLength:
+  CountComments: false  # count full line comments?
+  Max: 100
+  Enabled: false
+
+# Avoid complex methods.
+Metrics/CyclomaticComplexity:
+  Max: 9
+  Exclude:
+    - "bin/bundle"
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+    - "**/*/dummy_authorization_handler.rb"
+    - "**/*/permissions.rb"
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 15
+  Enabled: false
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+  Exclude:
+    - "decidim-core/lib/decidim/filter_form_builder.rb"
+
+Metrics/PerceivedComplexity:
+  Max: 10
+  Exclude:
+    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
+    - "**/*/dummy_authorization_handler.rb"
+    - "**/*/permissions.rb"
+
+##################### Lint ##################################
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+  Exclude:
+    - "**/abilities/**/*"
+
+# Allow safe assignment in conditions.
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: true
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+# Call super to initialize state of the parent class.
+Lint/MissingSuper:
+  Enabled: false
+
+# checks whether the end keywords are aligned properly for `do` `end` blocks.
+Layout/BlockAlignment:
+  # The value `start_of_block` means that the `end` should be aligned with line
+  # where the `do` keyword appears.
+  # The value `start_of_line` means it should be aligned with the whole
+  # expression's starting line.
+  # The value `either` means both are allowed.
+  EnforcedStyleAlignWith: either
+
+# Align ends correctly.
+Layout/EndAlignment:
+  # The value `keyword` means that `end` should be aligned with the matching
+  # keyword (if, while, etc.).
+  # The value `variable` means that in assignments, `end` should be aligned
+  # with the start of the variable on the left hand side of `=`. In all other
+  # situations, `end` should still be aligned with the keyword.
+  # The value `start_of_line` means that `end` should be aligned with the start
+  # of the line which the matching keyword appears on.
+  EnforcedStyleAlignWith: keyword
+  AutoCorrect: false
+
+Layout/DefEndAlignment:
+  # The value `def` means that `end` should be aligned with the def keyword.
+  # The value `start_of_line` means that `end` should be aligned with method
+  # calls like `private`, `public`, etc, if present in front of the `def`
+  # keyword on the same line.
+  EnforcedStyleAlignWith: start_of_line
+  AutoCorrect: false
+
+Lint/InheritException:
+  # The default base class in favour of `Exception`.
+  EnforcedStyle: runtime_error
+  SupportedStyles:
+    - runtime_error
+    - standard_error
+
+Layout/LineLength:
+  Max: 180
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # containing a URI to be longer than Max.
+  AllowHeredoc: true
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Exclude:
+    - "**/spec/**/*"
+
+# Checks for unused block arguments
+Lint/UnusedBlockArgument:
+  IgnoreEmptyBlocks: true
+  AllowUnusedKeywordArguments: false
+
+# Checks for unused method arguments.
+Lint/UnusedMethodArgument:
+  AllowUnusedKeywordArguments: false
+  IgnoreEmptyMethods: true
+
+##################### Performance ############################
+
+Metrics/BlockLength:
+  Enabled: false
+
+RSpec/BeforeAfterAll:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/gemfiles_spec.rb
+    - spec/js_bundles_spec.rb
+    - spec/i18n_spec.rb
+    - "**/*/spec/**/*_badge_spec.rb"
+    - decidim-core/spec/lib/global_engines_spec.rb
+    - "**/tasks/**/*"
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
+
+RSpec/ExampleLength:
+  Max: 49
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 35
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupDescription:
+  Enabled: false
+
+RSpec/RepeatedExampleGroupBody:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+# This is the default configuration file.
+
+Faker/DeprecatedArguments:
+  Description: 'Checks that Faker arguments style is based on Faker 2.'
+  Enabled: true
+  VersionAdded: '0.1'
+  Reference: 'https://github.com/faker-ruby/faker/blob/master/CHANGELOG.md#v20-2019-31-07'
+  ArgumentKeywords:
+    #
+    # FakerClassName:
+    #   method_name:
+    #     - keyword_name_for_first_argument
+    #     - keyword_name_for_second_argument
+    #     - keyword_name_for_third_argument
+    #
+    Faker::Dune:
+      quote:
+        - character
+      saying:
+        - source
+    Faker::Books::Lovecraft:
+      fhtagn:
+        - number
+      sentence:
+        - word_count
+        - random_words_to_add
+      words:
+        - number
+        - spaces_allowed
+      sentences:
+        - number
+      paragraph:
+        - sentence_count
+        - random_sentences_to_add
+      paragraphs:
+        - number
+      paragraph_by_chars:
+        - characters
+    Faker::Address:
+      city:
+        - options
+      street_address:
+        - include_secondary
+      zip_code:
+        - state_abbreviation
+      country_by_code:
+        - code
+      country_name_to_code:
+        - name
+    Faker::Alphanumeric:
+      alpha:
+        - number
+      alphanumeric:
+        - number
+    Faker::App:
+      semantic_version:
+        - major
+        - minor
+        - patch
+    Faker::Avatar:
+      image:
+        - slug
+        - size
+        - format
+        - set
+        - bgset
+    Faker::Bank:
+      account_number:
+        - digits
+      iban:
+        - country_code
+    Faker::Boolean:
+      boolean:
+        - true_ratio
+    Faker::ChileRut:
+      rut:
+        - min_rut
+        - fixed
+      full_rut:
+        - min_rut
+        - fixed
+    Faker::Code:
+      isbn:
+        - base
+      ean:
+        - base
+      nric:
+        - min_age
+        - max_age
+    Faker::Commerce:
+      promotion_code:
+        - digits
+      department:
+        - max
+        - fixed_amount
+      price:
+        - range
+        - as_string
+    Faker::Company:
+      polish_register_of_national_economy:
+        - length
+      brazilian_company_number:
+        - formatted
+    Faker::CryptoCoin:
+      coin_name:
+        - coin
+      acronym:
+        - coin
+      url_logo:
+        - coin
+    Faker::Date:
+      between:
+        - from
+        - to
+      between_except:
+        - from
+        - to
+        - excepted
+      forward:
+        - days
+      backward:
+        - days
+      birthday:
+        - min_age
+        - max_age
+    Faker::Demographic:
+      height:
+        - unit
+    Faker::DrivingLicence:
+      british_driving_licence:
+        - last_name
+        - initials
+        - gender
+        - date_of_birth
+    Faker::File:
+      dir:
+        - segment_count
+        - root
+        - directory_separator
+      file_name:
+        - dir
+        - name
+        - ext
+        - directory_separator
+    Faker::Fillmurray:
+      image:
+        - grayscale
+        - width
+        - height
+    Faker::Finance:
+      vat_number:
+        - country
+    Faker::Hipster:
+      words:
+        - number
+        - supplemental
+        - spaces_allowed
+      sentence:
+        - word_count
+        - supplemental
+        - random_words_to_add
+      sentences:
+        - number
+        - supplemental
+      paragraph:
+        - sentence_count
+        - supplemental
+        - random_sentences_to_add
+      paragraphs:
+        - number
+        - supplemental
+      paragraph_by_chars:
+        - characters
+        - supplemental
+    Faker::IDNumber:
+      brazilian_citizen_number:
+        - formatted
+      brazilian_id:
+        - formatted
+    Faker::Internet:
+      email:
+        - name
+        - separators
+      free_email:
+        - name
+      safe_email:
+        - name
+      username:
+        - specifier
+        - separators
+      password:
+        - min_length
+        - max_length
+        - mix_case
+        - special_characters
+      domain_name:
+        - subdomain
+      fix_umlauts:
+        - string
+      mac_address:
+        - prefix
+      url:
+        - host
+        - path
+        - scheme
+      slug:
+        - words
+        - glue
+      user_agent:
+        - vendor
+    Faker::Invoice:
+      amount_between:
+        - from
+        - to
+      creditor_reference:
+        - ref
+      reference:
+        - ref
+    Faker::Json:
+      shallow_json:
+        - width
+        - options
+      add_depth_to_json:
+        - json
+        - width
+        - options
+    Faker::Lorem:
+      words:
+        - number
+        - supplemental
+      characters:
+        - number
+      sentence:
+        - word_count
+        - supplemental
+        - random_words_to_add
+      sentences:
+        - number
+        - supplemental
+      paragraph:
+        - sentence_count
+        - supplemental
+        - random_sentences_to_add
+      paragraphs:
+        - number
+        - supplemental
+      paragraph_by_chars:
+        - number
+        - supplemental
+      question:
+        - word_count
+        - supplemental
+        - random_words_to_add
+      questions:
+        - number
+        - supplemental
+    Faker::LoremFlickr:
+      image:
+        - size
+        - search_terms
+        - match_all
+      grayscale_image:
+        - size
+        - search_terms
+        - match_all
+      pixelated_image:
+        - size
+        - search_terms
+        - match_all
+      colorized_image:
+        - size
+        - color
+        - search_terms
+        - match_all
+    Faker::LoremPixel:
+      image:
+        - size
+        - is_gray
+        - category
+        - number
+        - text
+        - secure
+    Faker::Markdown:
+      sandwich:
+        - sentences
+        - repeat
+    Faker::Measurement:
+      height:
+        - amount
+      length:
+        - amount
+      volume:
+        - amount
+      weight:
+        - amount
+      metric_height:
+        - amount
+      metric_length:
+        - amount
+      metric_volume:
+        - amount
+      metric_weight:
+        - amount
+    Faker::Name:
+      initials:
+        - number
+    Faker::NationalHealthService:
+      check_digit:
+        - number
+    Faker::Number:
+      number:
+        - digits
+      leading_zero_number:
+        - digits
+      decimal_part:
+        - digits
+      decimal:
+        - l_digits
+        - r_digits
+      hexadecimal:
+        - digits
+      normal:
+        - mean
+        - standard_deviation
+      between:
+        - from
+        - to
+      within:
+        - range
+      positive:
+        - from
+        - to
+      negative:
+        - from
+        - to
+    Faker::Omniauth:
+      google:
+        - name
+        - email
+        - uid
+      facebook:
+        - name
+        - email
+        - username
+        - uid
+      twitter:
+        - name
+        - nickname
+        - uid
+      linkedin:
+        - name
+        - email
+        - uid
+      github:
+        - name
+        - email
+        - uid
+    Faker::PhoneNumber:
+      subscriber_number:
+        - length
+    Faker::Placeholdit:
+      image:
+        - size
+        - format
+        - background_color
+        - text_color
+        - text
+    Faker::Relationship:
+      familial:
+        - connection
+    Faker::Source:
+      hello_world:
+        - lang
+      print:
+        - str
+        - lang
+      print_1_to_10:
+        - lang
+    Faker::String:
+      random:
+        - length
+    Faker::Stripe:
+      valid_card:
+        - card_type
+      valid_token:
+        - card_type
+      invalid_card:
+        - card_error
+      ccv:
+        - card_type
+    Faker::Time:
+      between:
+        - from
+        - to
+        - format
+      between_dates:
+        - from
+        - to
+        - period
+        - format
+      forward:
+        - days
+        - period
+        - format
+      backward:
+        - days
+        - period
+        - format
+    Faker::Twitter:
+      user:
+        - include_status
+        - include_email
+      status:
+        - include_user
+        - include_photo
+      status_entities:
+        - include_photo
+    Faker::Types:
+      rb_string:
+        - words
+      rb_integer:
+        - from
+        - to
+      rb_hash:
+        - number
+        - type
+      complex_rb_hash:
+        - number
+      rb_array:
+        - len
+    Faker::Vehicle:
+      model:
+        - make_of_model
+      mileage:
+        - min
+        - max
+      license_plate:
+        - state_abbreviation
+    Faker::WorldCup:
+      group:
+        - group
+      roster:
+        - country
+        - type
+    Faker::Dota:
+      quote:
+        - hero
+    Faker::Movies::StarWars:
+      quote:
+        - character
+    Decidim::Faker::Localized:
+      words:
+        - number
+        - supplemental
+      characters:
+        - number
+      sentence:
+        - word_count
+        - supplemental
+        - random_words_to_add
+      sentences:
+        - number
+        - supplemental
+      paragraph:
+        - sentence_count
+        - supplemental
+        - random_sentences_to_add
+      paragraphs:
+        - number
+        - supplemental
+      paragraph_by_chars:
+        - number
+        - supplemental
+      question:
+        - word_count
+        - supplemental
+        - random_words_to_add
+      questions:
+        - number
+        - supplemental
+
