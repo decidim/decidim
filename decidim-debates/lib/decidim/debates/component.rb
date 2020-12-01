@@ -84,7 +84,8 @@ Decidim.register_component(:debates) do |component|
       Decidim::Component.create!(params)
     end
 
-    3.times do
+    3.times do |x|
+      finite = x != 2
       params = {
         component: component,
         category: participatory_space.categories.sample,
@@ -95,8 +96,8 @@ Decidim.register_component(:debates) do |component|
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
+        start_time: (3.weeks.from_now if finite),
+        end_time: (3.weeks.from_now + 4.hours if finite),
         author: component.organization
       }
 
