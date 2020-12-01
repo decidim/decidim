@@ -54,8 +54,16 @@ module Decidim
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
     scope :interested_in_scopes, lambda { |scope_ids|
-      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
-      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+      actual_ids = scope_ids.select(&:presence)
+      if actual_ids.count.positive?
+        ids = actual_ids.map(&:to_i).join(",")
+        where("extended_data->'interested_scopes' @> ANY('{#{ids}}')")
+      else
+        # Do not apply the scope filter when there are scope ids available. Note
+        # that the active record scope must always return an active record
+        # collection.
+        self
+      end
     }
 
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }

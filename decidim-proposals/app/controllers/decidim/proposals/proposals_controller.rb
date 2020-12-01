@@ -112,6 +112,7 @@ module Decidim
 
       def preview
         @step = :step_4
+        @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish

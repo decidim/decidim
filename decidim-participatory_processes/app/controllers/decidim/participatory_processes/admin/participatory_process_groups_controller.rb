@@ -16,6 +16,7 @@ module Decidim
 
         def show
           enforce_permission_to :read, :process_group, process_group: participatory_process_group
+          render layout: "decidim/admin/participatory_process_group"
         end
 
         def new
@@ -44,6 +45,7 @@ module Decidim
           @participatory_process_group = collection.find(params[:id])
           enforce_permission_to :update, :process_group, process_group: @participatory_process_group
           @form = form(ParticipatoryProcessGroupForm).from_model(@participatory_process_group)
+          render layout: "decidim/admin/participatory_process_group"
         end
 
         def update
@@ -59,7 +61,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("participatory_process_groups.update.error", scope: "decidim.admin")
-              render :edit
+              render :edit, layout: "decidim/admin/participatory_process_group"
             end
           end
         end

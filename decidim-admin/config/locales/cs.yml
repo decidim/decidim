@@ -299,7 +299,7 @@ cs:
           reportable_type_string_eq:
             label: Typ
         officialized_at_null:
-          label: Stát
+          label: Stav
           values:
             'false': Úředně
             'true': Není oficializováno
@@ -471,7 +471,7 @@ cs:
             document_number: Číslo dokumentu
             name: název
             phone: Telefon
-            state: Stát
+            state: Stav
             users_count: Počet účastníků
       moderated_users:
         index:
@@ -774,6 +774,7 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         metrics: Metriky
+        panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti

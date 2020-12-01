@@ -248,7 +248,7 @@ cs:
       consultations:
         orders:
           label: 'Seřadit konzultace podle:'
-          random: Náhodný
+          random: Náhodně
           recent: Nejnovější
         show:
           dates: Data
@@ -266,7 +266,7 @@ cs:
         all: Všechno
         finished: Dokončeno
         search: Vyhledávání
-        state: Stát
+        state: Stav
         upcoming: Nadcházející
       filters_small_view:
         close_modal: Zavřete okno

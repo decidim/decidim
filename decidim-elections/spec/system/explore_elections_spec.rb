@@ -17,12 +17,12 @@ describe "Explore elections", :slow, type: :system do
         Decidim::Elections::Election.destroy_all
       end
 
-      let!(:single_elections) { create_list(:election, 1, :complete, :published, :finished, component: component) }
+      let!(:single_elections) { create_list(:election, 1, :complete, :published, :ongoing, component: component) }
 
       it "redirects to the only election" do
         visit_component
 
-        expect(page).to have_content("Voting began on")
+        expect(page).to have_content("Voting ends on")
         expect(page).not_to have_content("All elections")
         expect(page).to have_content("These are the questions you will find in the voting process")
       end
@@ -165,6 +165,21 @@ describe "Explore elections", :slow, type: :system do
       it "shows the image" do
         expect(page).to have_xpath("//img[@src=\"#{image.url}\"]")
       end
+    end
+  end
+
+  context "with results" do
+    let(:election) { create(:election, :published, :results_published, component: component) }
+    let(:question) { create :question, :with_votes, election: election }
+
+    before do
+      election.update!(questions: [question])
+      visit resource_locator(election).path
+    end
+
+    it "shows result information" do
+      expect(page).to have_i18n_content(question.title)
+      expect(page).to have_content("ELECTION RESULTS")
     end
   end
 end

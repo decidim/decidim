@@ -315,18 +315,10 @@ ja:
         finish:
           back: 戻る
           back_to_initiatives: イニシアチブに戻る
-          confirm: 確認する
           edit_my_initiative: 自分のイニシアチブを編集
           go_to_my_initiatives: 私のイニシアチブに移動
           more_information: "(詳細)"
           send_my_initiative: 自分のイニシアチブを送信
-        finish_help:
-          access_reminder: 参加者メニューから常にあなたのイニシアチブにアクセスできることを忘れないでください。
-          help_for_organizations: あなたが団体である場合は、プロモーション委員会を構成するすべての組織の管理委員会の議事録をアップロードする必要があります。
-          help_in_person_signatures: 直接署名を収集する場合、またはオンラインと組み合わせる場合は、必要な情報をアップロードする必要があります。
-          help_text: イニシアチブを適切に処理するには、ユーザーメニューが表示される管理パネルにアクセスする必要があります。 必要な情報をアップロードして処理のために送信してください
-          initiatives_page_link: '%{link} のすべての情報を調べることができます。'
-          page: ページ
         previous_form:
           back: 戻る
           continue: 続ける
@@ -432,6 +424,8 @@ ja:
           random: Random
           recent: 直近のもの
           recently_published: 直近に公開
+        print:
+          city: 市区町村名
         result:
           answer_title:
             accepted: 'この提案は受け入れられた理由:'

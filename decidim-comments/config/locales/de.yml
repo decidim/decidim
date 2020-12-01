@@ -16,9 +16,14 @@ de:
         other: Stimmen
   decidim:
     comments:
+      comments:
+        create:
+          error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
+      comments_title: Kommentare
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
+      view: Ansicht
       votes:
         create:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
@@ -74,6 +79,9 @@ de:
         loading: Kommentare werden geladen ...
         single_comment_warning: Sie können die restlichen Kommentare <a href="%{url}">hier</a> prüfen.
         single_comment_warning_title: Ihnen wird ein einzelner Kommentar angezeigt
+        title:
+          one: "%{count} Kommentar"
+          other: "%{count} Kommentare"
       down_vote_button:
         text: Ich bin mit diesem Kommentar nicht einverstanden
       up_vote_button:
