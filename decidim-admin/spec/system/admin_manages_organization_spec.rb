@@ -153,6 +153,39 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>instead of new paragraph!</p>".gsub("\n", ""))
         end
       end
+
+      context "when modifying list using rich text editor" do
+        let(:another_organization) { create(:organization) }
+        let(:image) { create(:attachment, attached_to: another_organization) }
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+        let(:terms_content) do
+          <<~HTML
+            <p>Paragraph</p><ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li></ul>
+          HTML
+        end
+
+        it "renders new list item" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "List item 4"
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>List item 4</li></ul>".gsub("\n", ""))
+        end
+
+        it "renders new paragraph" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter], "Another paragraph"
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
+        end
+      end
     end
   end
 
