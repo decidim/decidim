@@ -189,7 +189,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_meeting_for(user).find_by(id: id)
+        Decidim::Meetings::Meeting.visible_meeting_for(user).exists?(id: id)
       end
 
       # Return the duration of the meeting in minutes
