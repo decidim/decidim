@@ -37,7 +37,6 @@ cs:
       participatory_process_group:
         description: Popis
         hero_image: obraz
-        name: název
         participatory_process_ids: Související procesy
       participatory_process_step:
         cta_path: Cesta k akci
@@ -125,8 +124,6 @@ cs:
             title: Titul
           name: Participační proces
         participatory_process_group:
-          fields:
-            name: název
           name: Skupina procesů
         participatory_process_step:
           fields:
@@ -318,11 +315,6 @@ cs:
         related_assemblies: Související shromáždění
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 pro %{group}
-          few: "%{count} procesů pro %{group}"
-          many: "%{count} procesů pro %{group}"
-          other: "%{count} procesů pro %{group}"
         title: Skupiny zúčastněných procesů
     participatory_process_steps:
       index:
