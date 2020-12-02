@@ -37,7 +37,6 @@ fi-pl:
       participatory_process_group:
         description: Kuvaus
         hero_image: Kuva
-        name: Nimi
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
         cta_path: Call to Action -polku
@@ -119,8 +118,6 @@ fi-pl:
             title: Otsikko
           name: Osallisuusprosessi
         participatory_process_group:
-          fields:
-            name: Nimi
           name: Prosessiryhmä
         participatory_process_step:
           fields:
@@ -312,9 +309,6 @@ fi-pl:
         related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 prosessi ryhmälle %{group}
-          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallisuusprosessiryhmät
     participatory_process_steps:
       index:
