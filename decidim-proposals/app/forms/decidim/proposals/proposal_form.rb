@@ -67,7 +67,7 @@ module Decidim
       end
 
       def has_address?
-        geocoding_enabled? && has_address
+        geocoding_enabled? && address.present?
       end
 
       def geocoded?

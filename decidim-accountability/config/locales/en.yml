@@ -122,6 +122,11 @@ en:
         value_types:
           parent_presenter:
             not_found: 'The parent was not found on the database (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Dates
+          results: Results
+          unspecified: Not specified
       import_mailer:
         import:
           errors: Errors
@@ -149,6 +154,9 @@ en:
           fields:
             description: Description
             entry_date: Date
+      result_m:
+        executed: Executed
+        view: View
       results:
         count:
           results_count:

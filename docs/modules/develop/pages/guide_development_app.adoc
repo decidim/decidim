@@ -1,0 +1,42 @@
+= Development App
+
+In order to start developing you will need what is called a `development_app`. This is nearly the same as a new Decidim app (that you can create with `decidim app_name`) but with a Gemfile pre-configured for local development and some other small config modifications.
+You need it in order to have a Rails application configured to lookup Decidim modules from your filesystem. This way changes in your modules will be directly observed by this `development_app`.
+
+You can create a `development_app` from inside the project's root folder with the command:
+
+[source,console]
+----
+git clone https://github.com/decidim/decidim.git
+cd decidim
+bundle install
+bundle exec rake development_app
+cd development_app
+----
+
+A development_app/ entry appears in the .gitignore file, so you don't have to worry about commiting the development app by mistake.
+
+On creation, this steps are automatically invoked by the generator:
+
+* create a `config/database.yml`
+* `bundle install`
+* `bin/rails decidim:upgrade`
+* `bin/rails db:migrate db:seed`
+
+If the default database.yml does not suit your needs you can always configure it at your will and run this steps manually.
+
+Once created you are ready to:
+
+* `bin/rails s`
+
+== Migrations
+
+When creating new migrations in Decidim's modules, you will need to "apply" this migrations to your development_app. The way to do this is by copying the migration from your module into the db/migrate dir of your development_app. Luckily we already have a script that automates this: it copies all missing migrations in development_app/db/migrate. The command is:
+
+[source,console]
+----
+bin/rails decidim:upgrade
+----
+
+Anyway we recommend re-creating your development_app every once in a while.
+

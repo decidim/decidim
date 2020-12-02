@@ -321,6 +321,12 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        html_1:
+          name: First HTML block
+        html_2:
+          name: Second HTML block
+        html_3:
+          name: Third HTML block
         metadata:
           developer_group: Promoted by
           name: Metadata
