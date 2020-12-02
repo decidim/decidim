@@ -150,6 +150,7 @@ const Embed = Quill.import("blots/embed");
     return;
   }
 
-  exports.Decidim.lineBreakHandler = lineBreakHandler;
-  exports.Decidim.addEnterBindings = addEnterBindings;
+  exports.Editor = exports.Editor || {};
+  exports.Editor.lineBreakHandler = lineBreakHandler;
+  exports.Editor.addEnterBindings = addEnterBindings;
 })(window)

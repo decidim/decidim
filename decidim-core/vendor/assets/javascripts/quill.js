@@ -4779,6 +4779,7 @@ function handleBackspace(range, context) {
       line = _quill$getLine12[0];
 
   var formats = {};
+  console.log("formatsQUILL1", formats)
   if (context.offset === 0) {
     var _quill$getLine13 = this.quill.getLine(range.index - 1),
         _quill$getLine14 = _slicedToArray(_quill$getLine13, 1),
@@ -4788,6 +4789,7 @@ function handleBackspace(range, context) {
       var curFormats = line.formats();
       var prevFormats = this.quill.getFormat(range.index - 1, 1);
       formats = _op2.default.attributes.diff(curFormats, prevFormats) || {};
+      console.log("formatsQUILL2", formats)
     }
   }
   // Check for astral symbols

@@ -1,5 +1,7 @@
 // = require decidim/editor/modified_enter
-// = require decidim/editor/modified_backspace
+// = require decidim/editor/modified_backspace_utils
+// = require decidim/editor/modified_backspace_range_any
+// = require decidim/editor/modified_backspace_range1
 
 ((exports) => {
   const Quill = exports.Quill;
@@ -7,9 +9,10 @@
   icons.linebreak = "⏎";
 
   Quill.register("modules/linebreak", (quill) => {
-    const { lineBreakHandler } = exports.Decidim;
-    const { addEnterBindings } = exports.Decidim;
-    const { backspaceBindings } = exports.Decidim;
+    const { lineBreakHandler } = exports.Editor;
+    const { addEnterBindings } = exports.Editor;
+    const { backspaceBindingsRangeAny } = exports.Editor;
+    const { backspaceBindings } = exports.Editor;
 
     quill.getModule("toolbar").addHandler("linebreak", () => {
       lineBreakHandler(quill);
@@ -27,6 +30,7 @@
       }
     });
     addEnterBindings(quill);
+    backspaceBindingsRangeAny(quill);
     backspaceBindings(quill);
 
     return;

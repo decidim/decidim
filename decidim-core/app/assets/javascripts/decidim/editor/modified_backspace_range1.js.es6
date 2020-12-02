@@ -1,28 +1,10 @@
 ((exports) => {
   const Quill = exports.Quill;
   const Delta = Quill.import("delta");
-
-  const attributeDiff = (alpha, beta) => {
-    if (typeof a !== "object") {
-      alpha = {};
-    }
-    if (typeof b !== "object") {
-      beta = {};
-    }
-    const attributes = Object.keys(alpha).concat(Object.keys(beta)).reduce((attrs, key) => {
-      // if (!isEqual(a[key], b[key])) {
-      if (alpha[key] !== beta[key]) {
-        attrs[key] = beta[key] === undefined ? null : beta[key];
-      }
-      return attrs;
-    }, {});
-    // console.log("attributes", attributes)
-
-    return Object.keys(attributes).length > 0 ? attributes : undefined;
-  }
-
   const backspaceBindings = (quill) => {
-    quill.keyboard.addBinding({ key: 8, offset: 1 }, (range, context) => {
+    const { attributeDiff } = exports.Editor;
+    quill.keyboard.addBinding({ key: 8, offset: 1, collapsed: true }, (range, context) => {
+      console.log("OFFSET1")
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1)
       // console.log("range", range)
@@ -86,9 +68,9 @@
     // });
     // quill.keyboard.bindings[8].splice(backspaceHandlerIndex, 1);
     // const lastBackspaceBinding = quill.keyboard.bindings[8].pop();
-    quill.keyboard.bindings[8].unshift(quill.keyboard.bindings[8].pop());
-    // console.log(quill.keyboard.bindings[8]);
+    quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
+    console.log(quill.keyboard.bindings[8]);
   }
 
-  exports.Decidim.backspaceBindings = backspaceBindings;
+  exports.Editor.backspaceBindings = backspaceBindings;
 })(window)
