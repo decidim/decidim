@@ -1,6 +1,5 @@
 ((exports) => {
   const Quill = exports.Quill;
-  // const Delta = Quill.import("delta");
   const { attributeDiff } = exports.Editor
 
   const backspaceBindingsRangeAny = (quill) => {
@@ -16,11 +15,6 @@
           let curFormats = line.formats();
           let prevFormats = quill.getFormat(range.index - 1, 1);
           formats = attributeDiff(curFormats, prevFormats) || {};
-
-          // console.log("curFormats", curFormats)
-          // console.log("prevFormats", prevFormats)
-          // console.log("context.offset", context.offset)
-          // console.log("prevline", quill.getLine(range.index - 1))
           const previousLineLength = quill.getLine(range.index - 1)[1];
           const beforePreviousChar = quill.getText(range.index - 2, 1);
           if (prevFormats && prevFormats.list && previousLineLength && previousLineLength === 1 && beforePreviousChar === "\n") {
@@ -28,16 +22,19 @@
           }
         }
       }
-      let length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
-      // console.log("length", length)
+      let length = 1;
+      if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
+        length = 2
+      }
       quill.deleteText(range.index - length, length, Quill.sources.USER);
 
-      // console.log("formats", formats)
       if (Object.keys(formats).length > 0) {
         quill.formatLine(range.index - length, length, formats, Quill.sources.USER);
       }
       quill.focus();
     })
+
+    // Put this backspace binding to second (after backspce_offset1 it's going to be third)
     quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
   }
 

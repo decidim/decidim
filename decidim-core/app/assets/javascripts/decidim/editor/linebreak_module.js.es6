@@ -1,12 +1,30 @@
 // = require decidim/editor/modified_enter
 // = require decidim/editor/modified_backspace_utils
-// = require decidim/editor/modified_backspace_range_any
-// = require decidim/editor/modified_backspace_range1
+// = require decidim/editor/modified_backspace_offset_any
+// = require decidim/editor/modified_backspace_offset1
 
 ((exports) => {
   const Quill = exports.Quill;
+  const Break = Quill.import("blots/break");
+  const Embed = Quill.import("blots/embed");
   let icons = Quill.import("ui/icons");
   icons.linebreak = "⏎";
+
+  class SmartBreak extends Break {
+    length() {
+      return 1;
+    }
+
+    value() {
+      return "\n";
+    }
+
+    insertInto(parent, ref) {
+      // Embed.prototype.insertInto.call(this, parent, ref);
+      Reflect.apply(Embed.prototype.insertInto, this, [parent, ref]);
+    }
+  }
+  Quill.register(SmartBreak);
 
   const lineBreakButtonHandler = (quill) => {
     let range = quill.selection.getRange()[0];

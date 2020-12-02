@@ -1,9 +1,7 @@
-const Parchment = Quill.import("parchment")
-const Break = Quill.import("blots/break");
-const Embed = Quill.import("blots/embed");
 
 ((exports) => {
   const Quill = exports.Quill;
+  const Parchment = Quill.import("parchment")
   const Delta = Quill.import("delta");
 
   const getLineFormats = (context) => {
@@ -56,22 +54,6 @@ const Embed = Quill.import("blots/embed");
     continueFormats(quill, context, lineFormats)
   };
 
-  class SmartBreak extends Break {
-    length() {
-      return 1;
-    }
-
-    value() {
-      return "\n";
-    }
-
-    insertInto(parent, ref) {
-      // Embed.prototype.insertInto.call(this, parent, ref);
-      Reflect.apply(Embed.prototype.insertInto, this, [parent, ref]);
-    }
-  }
-  Quill.register(SmartBreak);
-
   const addEnterBindings = (quill) => {
     quill.clipboard.addMatcher("BR", () => {
       let newDelta = new Delta();
@@ -97,7 +79,6 @@ const Embed = Quill.import("blots/embed");
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
       const delta = new Delta().retain(range.index).insert("\n", lineFormats);
-      // console.log(`nextChar_${nextChar}_nextchar`)
       if (previousChar === "" || previousChar === "\n") {
         if (lineFormats.list && nextChar === "\n") {
           if (quill.getLength() - range.index > 2) {
@@ -125,16 +106,11 @@ const Embed = Quill.import("blots/embed");
       }
       quill.focus();
 
-      // console.log("ops after", quill.getContents().ops)
       continueFormats(quill, context, lineFormats)
     });
-    // const lastBinding = quill.keyboard.bindings[13].pop();
-    // quill.keyboard.bindings[13].push(lastBinding);
 
     // Replace the default enter handling because we have modified the break element
-    // Normally this is the second last handler
     quill.keyboard.bindings[13].unshift(quill.keyboard.bindings[13].pop());
-    // console.log(quill.keyboard.bindings[13]);
     return;
   }
 
