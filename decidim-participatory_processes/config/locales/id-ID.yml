@@ -35,7 +35,6 @@ id:
       participatory_process_group:
         description: Deskripsi
         hero_image: Gambar
-        name: Nama
         participatory_process_ids: Proses terkait
       participatory_process_step:
         cta_path: Call to Action path
@@ -104,8 +103,6 @@ id:
             title: Judul
           name: Proses partisipatif
         participatory_process_group:
-          fields:
-            name: Nama
           name: Kelompok proses
         participatory_process_step:
           fields:
@@ -267,8 +264,6 @@ id:
         title: Proses partisipatif
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          other: "%{count} proses untuk %{group}"
         title: Kelompok proses partisipatif
     participatory_process_steps:
       index:
