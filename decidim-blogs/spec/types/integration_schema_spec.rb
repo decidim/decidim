@@ -152,13 +152,14 @@ describe "Decidim::Api::QueryType" do
 
       let(:component_fragment) do
         %Q(
-      fragment fooComponent on Blogs {
-        posts(#{criteria}){
-          edges {
-            node{ id }
+          fragment fooComponent on Blogs {
+            posts(#{criteria}){
+              edges {
+                node{ id }
+              }
+            }
           }
-        }
-      })
+        )
       end
 
       let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component) }
