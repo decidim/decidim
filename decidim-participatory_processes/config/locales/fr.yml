@@ -37,7 +37,6 @@ fr:
       participatory_process_group:
         description: Description
         hero_image: Image
-        name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
         cta_path: Chemin d'accès à l'action
@@ -119,8 +118,6 @@ fr:
             title: Titre
           name: Concertation
         participatory_process_group:
-          fields:
-            name: Nom
           name: Groupe de concertations
         participatory_process_step:
           fields:
@@ -312,9 +309,6 @@ fr:
         related_assemblies: Assemblées associées
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 concertation pour %{group}
-          other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
     participatory_process_steps:
       index:
