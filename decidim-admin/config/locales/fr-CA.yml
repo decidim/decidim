@@ -145,6 +145,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
+          accept: J'accepte les conditions suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
