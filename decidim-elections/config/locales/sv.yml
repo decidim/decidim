@@ -99,6 +99,8 @@ sv:
           update:
             invalid: Det gick inte att uppdatera valet
             success: Val har uppdaterats
+        exports:
+          elections: Val
         models:
           answer:
             name: Svar

@@ -37,7 +37,6 @@ ca:
       participatory_process_group:
         description: Descripció
         hero_image: Imatge
-        name: Nom
         participatory_process_ids: Processos relacionats
       participatory_process_step:
         cta_path: Ruta del botó d'acció
@@ -116,8 +115,6 @@ ca:
             title: Títol
           name: Procés participatiu
         participatory_process_group:
-          fields:
-            name: Nom
           name: Grup de processos
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@ ca:
         related_assemblies: Assemblees relacionades
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: Un procés per a %{group}
-          other: "%{count} processos per a %{group}"
         title: Grups de processos participatius
     participatory_process_steps:
       index:

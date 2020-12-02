@@ -14,6 +14,7 @@ de:
       question:
         description: Beschreibung
         max_selections: Maximale Anzahl von Auswahlen
+        min_selections: Nichts davon
         title: Titel
     errors:
       models:
@@ -21,6 +22,14 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Muss erneut angehängt werden
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: kann nicht geändert werden
   activerecord:
     models:
       decidim/elections/answer:
@@ -48,6 +57,7 @@ de:
         confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
+        feedback: Feedback der Wähler
         import: Importieren Sie Vorschläge in Projekte
         manage_answers: Antworten verwalten
         manage_questions: Fragen verwalten
@@ -74,6 +84,14 @@ de:
           new:
             create: Antwort erstellen
             title: Neue Antwort
+          select:
+            disable: Antwort abwählen
+            enable: Antwort als ausgewählt markieren
+            invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten
+            success: Antwort erfolgreich ausgewählt
+          unselect:
+            invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten
+            success: Antwort erfolgreich abgwählt
           update:
             invalid: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten
             success: Antwort wurde erfolgreich aktualisiert
@@ -102,6 +120,9 @@ de:
           update:
             invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten
             success: Wahl wurde erfolgreich aktualisiert
+        exports:
+          elections: Wahlen
+          feedback_form_answers: Antworten auf Feedback-Formular
         models:
           answer:
             name: Antwort
@@ -117,6 +138,7 @@ de:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie ein Objekt
+            title: Vorschläge importieren
         questions:
           create:
             invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
@@ -143,6 +165,17 @@ de:
             published: Die Wahl ist <strong>nicht veröffentlicht</strong>
             time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl
             trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
+          requirements:
+            published: Die Wahl ist <strong>veröffentlicht</strong>
+          show:
+            setup: Wahl einrichten
+          update:
+            setup: Wahl einrichten
+        trustees_participatory_spaces:
+          actions:
+            disable: Deaktivieren
+          form:
+            select_user: Nutzer wählen
       admin_log:
         election:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
@@ -151,18 +184,36 @@ de:
         badge_name:
           finished: Abgeschlossen
           ongoing: Aktiv
+          upcoming: Anstehend
+        end_date: Endet
+        footer:
+          view: Ansicht
+        label:
+          date: Daten
+        questions: Fragen %{count}
+        start_date: Startet
       elections:
         count:
           elections_count:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
+        results:
+          votes:
+            one: "%{count} Stimme"
+            other: "%{count} Stimmen"
         show:
+          back: Verfügbare Wahlen
           preview: Vorschau
           vote: Stimmen
           voting_period_status:
             finished: Die Abstimmung begann am %{start_time} und endete am %{end_time}
             ongoing: Die Abstimmung endet am %{end_time}
             upcoming: Die Abstimmung beginnt am %{start_time}
+      feedback:
+        answer:
+          invalid: Beim Senden Ihrer Meldung ist ein Fehler aufgetreten.
+          spam_detected: Bei der Beantwortung des Fragebogens ist ein Fehler aufgetreten. Möglicherweise waren Sie zu schnell. Versuchen Sie es vielleicht erneut.
+          success: Feedback erfolgreich versand.
       models:
         answer:
           fields:
@@ -178,6 +229,44 @@ de:
             answers: Antworten
             max_selections: Maximale Auswahl
             title: Titel
+        trustees_participatory_space:
+          fields:
+            email: E-Mail
+            inactive: inaktiv
+            name: Name
+            notification: Benachrichtigung versendet um
+            public_key: Öffentlicher Schlüssel
+            status: Status
+      orders:
+        label: Wahlen ordnen nach
+        older: Älter
+        recent: Neueste
+      trustee_zone:
+        trustees:
+          show:
+            elections:
+              list:
+                election: Wahl
+                status: Status
+                voting_period: Abstimmungsperiode
+              title: Wahlen
+            identification_keys:
+              cancel: Abbrechen
+              generate: Identifikationsschlüssel generieren
+              generate_error: Beim Generieren der Identifikationsschlüssel ist ein Fehler aufgetreten.
+              generate_legend_1: Nach Drücken des Buttons sollten Sie die Datei mit den generierten Identifikationsschlüssel herunterladen.
+              generate_legend_2: Kopiere die heruntergeladene Datei auf ein sauberen USB-Stick
+              generate_legend_3: Stellen Sie sicher, dass Ihr Computer keine Kopie der Datei hat (z.B. überprüfen Sie die Download- und Desktop-Ordner).
+              generate_legend_4: Machen Sie eine weitere Kopie der Datei auf einem anderen externen Gerät und speichern Sie sie an einem sehr sicheren Ort.
+              submit: Einreichen
+              submit_legend: Nachdem Sie alle oben beschriebenen Schritte befolgt haben, führen Sie den Prozess durch, der den öffentlichen Identifikationsschlüssel an den Decidim-Server sendet.
+              submit_title: Öffentlichen Identifikationsschlüssel einreichen
+              upload: Lade deine Identifikationsschlüssel hoch
+              upload_error:
+                invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
+                invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
+                invalid_public_key: Die Identifikationsschlüssel in der hochgeladenen Datei stimmen nicht mit dem öffentlichen Identifikationsschlüssel überein, der von Decidim gespeichert wird.
+              upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
       votes:
         confirm:
           answer: Antwort
@@ -186,6 +275,7 @@ de:
           edit: bearbeiten
           header: Bestätige deine Stimme
           intro: Hier ist eine Zusammenfassung der Wahl, die Sie abgeben möchten. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
+          nota_option: Leer
           question: Frage %{count}
         confirmed:
           back: Zurück zu den Wahlen
@@ -208,13 +298,18 @@ de:
           close: Schließen
           proposal_header: 'Vorschläge:'
         new:
+          answer_choices: Sie können bis zu %{choices} Antworten auswählen
           more_information: Weitere Informationen
+          nota_option: Nichts davon
           preview_alert: Dies ist eine Vorschau des Abstimmungsstandes.
           question_steps: Frage %{current_step} von %{total_steps}
           selections: "%{selected} von %{max_selections}<br> ausgewählt"
         voting_step:
           back: Zurück
           continue: Weiter
+      warnings:
+        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
+        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
     events:
       elections:
         election_published:

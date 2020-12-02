@@ -37,7 +37,6 @@ fr-CA:
       participatory_process_group:
         description: Description
         hero_image: Image
-        name: Nom
         participatory_process_ids: Concertations liées
       participatory_process_step:
         cta_path: Chemin d'accès à l'action
@@ -94,6 +93,9 @@ fr-CA:
         unpublish: Dépublier
       menu:
         participatory_process_groups: Groupes de concertations
+        participatory_process_groups_submenu:
+          info: Information
+          landing_page: Page d'accueil
         participatory_processes: Concertations
         participatory_processes_submenu:
           attachment_collections: Dossiers
@@ -116,8 +118,6 @@ fr-CA:
             title: Titre
           name: Concertation
         participatory_process_group:
-          fields:
-            name: Nom
           name: Groupe de concertations
         participatory_process_step:
           fields:
@@ -145,6 +145,13 @@ fr-CA:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
           title: Dupliquer la concertation
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Mettre à jour
       participatory_process_groups:
         destroy:
           error: Une erreur s'est produite lors de la suppression du groupe de concertations.
@@ -302,9 +309,6 @@ fr-CA:
         related_assemblies: Assemblées associées
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 concertation pour %{group}
-          other: "%{count} concertations pour %{group}"
         title: Groupes de concertations
     participatory_process_steps:
       index:
