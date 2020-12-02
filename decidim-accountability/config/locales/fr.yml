@@ -212,10 +212,6 @@ fr:
         description: Nombre de résultats générés
         object: résultats
         title: Résultats
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Réalisations
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})
