@@ -193,7 +193,7 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq("#{terms_content}<p>Another paragraph</p>".gsub("\n", ""))
         end
 
-        it "deletes linebreaks using the backspace" do
+        it "deletes linebreaks (and smartbreaks) using the backspace" do
           find('div[contenteditable="true"].ql-editor').send_keys [:enter, :enter, :enter, :backspace, :backspace]
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"

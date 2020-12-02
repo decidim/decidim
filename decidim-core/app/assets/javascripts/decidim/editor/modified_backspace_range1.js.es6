@@ -10,7 +10,7 @@
       // console.log("range", range)
       // console.log("context", context)
       // console.log(`previousChar_${previousChar}_previousChar`)
-      const length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
+      let length = /[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix) ? 2 : 1;
       if (range.index === 0 || quill.getLength() <= 1) {
         return;
       }
@@ -21,12 +21,15 @@
         const [prev] = quill.getLine(range.index - 2);
         if (prev && prev.statics.blotName === "list-item") {
           if (prev !== null && prev.length() > 1) {
+            console.log("DEBUG2")
             let curFormats = line.formats();
-            let prevFormats = quill.getFormat(range.index - 1, 1);
+            let prevFormats = quill.getFormat(range.index - 2, 1);
             formats = attributeDiff(curFormats, prevFormats) || {};
+            console.log("formats", formats)
+            length += 1;
           }
-          const listFormat = quill.getFormat(range.index - 2);
-          delta = new Delta().retain(range.index - 2).delete(2).insert("\n", listFormat);
+          // const listFormat = quill.getFormat(range.index - length);
+          delta = new Delta().retain(range.index - 2).delete(2)
           if (nextChar === "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
           }
