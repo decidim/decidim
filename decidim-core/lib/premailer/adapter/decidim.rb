@@ -16,10 +16,10 @@ class Premailer
       # @return [String] a plain text.
       def to_plain_text
         html_src = begin
-          @doc.at("body").inner_html
-        rescue StandardError
-          ""
-        end
+                     @doc.at("body").inner_html
+                   rescue StandardError
+                     ""
+                   end
 
         html_src = @doc.to_html unless html_src && html_src.present?
 
