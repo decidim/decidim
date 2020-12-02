@@ -194,9 +194,9 @@ fr:
             L'amendement pour %{amendable_type} %{proposal_link} a été accepté
             le <strong>%{date}</strong>.
           evaluating: |-
-            Cet amendement pour le %{amendable_type} %{amendable_link}
+            Cet amendement pour le %{amendable_type} %{proposal_link}
             est en cours d’évaluation.
-          promoted: Promouvé à un %{amendable_type}.
+          promoted: Promu comme %{amendable_type}.
           rejected: "Cet amendement pour la proposition %{amendable_type}\n%{proposal_link}\na été rejeté le <strong>%{date}</strong>."
           withdrawn: |-
             L'amendement pour le %{amendable_type} %{proposal_link}
