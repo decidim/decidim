@@ -229,6 +229,10 @@ bg:
         proposal_published_for_space:
           email_intro: Предложението "%{resource_title}" беше добавено в "%{participatory_space_title}", което следвате.
           email_outro: Получавате това известие, защото следвате "%{participatory_space_title}". Може да прекратите известията чрез предната връзка.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Предложения
     proposals:
       versions:
         collaborative_drafts:

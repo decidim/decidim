@@ -193,6 +193,10 @@ da:
             scope_id: Omfang
             scopes_enabled: Omfang aktiveret
             subcategories_label: Navn for "Underkategorier"
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultater
     resource_links:
       included_proposals:
         result_proposal: Forslag i dette resultat

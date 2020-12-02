@@ -460,7 +460,7 @@ cs:
             email: E-mail
             name: název
             registration_type: Typ registrace
-            state: Stát
+            state: Stav
             states:
               confirmed: Potvrzeno
               pending: čekající
