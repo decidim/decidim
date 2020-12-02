@@ -3,24 +3,21 @@
   // const Delta = Quill.import("delta");
 
   const attributeDiff = (alpha, beta) => {
-    console.log("alpha", alpha)
-    console.log("beta", beta)
-    if (typeof a !== "object") {
+    if (typeof alpha !== "object") {
       alpha = {};
     }
-    if (typeof b !== "object") {
+    if (typeof beta !== "object") {
       beta = {};
     }
     const attributes = Object.keys(alpha).concat(Object.keys(beta)).reduce((attrs, key) => {
-      // if (!isEqual(a[key], b[key])) {
-      if (alpha[key] !== beta[key]) {
+      // ORGINAL: import isEqual from 'lodash.isequal'; if (!isEqual(a[key], b[key]))
+      if ((alpha[key] !== beta[key])) {
         attrs[key] = beta[key] === undefined ? null : beta[key];
       }
       return attrs;
     }, {});
-    // console.log("attributes", attributes)
 
-    return Object.keys(attributes).length > 0 ? attributes : undefined;
+    return  Object.keys(attributes).length > 0 ? attributes : undefined;
   }
 
   exports.Editor.attributeDiff = attributeDiff
