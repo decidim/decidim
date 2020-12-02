@@ -145,7 +145,6 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb aquests termes
           are_you_sure: Segur que vols rebutjar els Termes i Condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració

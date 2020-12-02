@@ -423,11 +423,6 @@ lv:
         description: Izveidoto sanāksmju skaits
         object: sanāksmes
         title: Sanāksmes
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Iepriekšējās sanāksmes
-          upcoming_meetings: Gaidāmās sanāksmes
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Iepriekšējās sanāksmes

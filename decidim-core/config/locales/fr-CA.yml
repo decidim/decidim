@@ -413,7 +413,7 @@ fr-CA:
           email_already_exists: Un autre compte utilise la même adresse email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre alias dans %{organization}
+          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -422,7 +422,7 @@ fr-CA:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          nickname_help: Votre alias dans %{organization}
+          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire

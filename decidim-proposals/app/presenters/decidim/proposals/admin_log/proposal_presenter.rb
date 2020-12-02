@@ -42,8 +42,8 @@ module Decidim
           "activemodel.attributes.proposal"
         end
 
-        def has_diff?
-          action == "answer" || super
+        def diff_actions
+          super + %w(answer)
         end
       end
     end

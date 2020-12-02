@@ -37,7 +37,6 @@ cs:
       participatory_process_group:
         description: Popis
         hero_image: obraz
-        name: název
         participatory_process_ids: Související procesy
       participatory_process_step:
         cta_path: Cesta k akci
@@ -100,6 +99,9 @@ cs:
         unpublish: Zrušit publikování
       menu:
         participatory_process_groups: Skupiny procesů
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Úvodní stránka
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -122,8 +124,6 @@ cs:
             title: Titul
           name: Participační proces
         participatory_process_group:
-          fields:
-            name: název
           name: Skupina procesů
         participatory_process_step:
           fields:
@@ -151,6 +151,13 @@ cs:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktivní bloky obsahu
+          inactive_content_blocks: Neaktivní bloky obsahu
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.
@@ -308,11 +315,6 @@ cs:
         related_assemblies: Související shromáždění
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 pro %{group}
-          few: "%{count} procesů pro %{group}"
-          many: "%{count} procesů pro %{group}"
-          other: "%{count} procesů pro %{group}"
         title: Skupiny zúčastněných procesů
     participatory_process_steps:
       index:
