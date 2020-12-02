@@ -30,8 +30,8 @@ module Decidim
             Decidim
               .find_participatory_space_manifest(manifest.name)
               .participatory_spaces
-              .call(organization)&.select do |space|
-                space.admins.exists?(id: user.id)
+              .call(current_organization)&.select do |space|
+                space.moderators.exists?(id: current_user.id)
               end
           end
       end
