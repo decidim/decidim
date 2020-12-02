@@ -85,6 +85,23 @@ describe "Admin manages participatory process group landing page", type: :system
         scoped_resource_id: participatory_process_group.id
       )
     end
+    let(:cta_settings) do
+      {
+        button_url: "https://example.org/action",
+        button_text_en: "cta text",
+        description_en: "cta description"
+      }
+    end
+    let!(:cta_content_block) do
+      create(
+        :content_block,
+        organization: organization,
+        scope_name: :participatory_process_group_homepage,
+        scoped_resource_id: participatory_process_group.id,
+        manifest_name: :cta,
+        settings: cta_settings
+      )
+    end
 
     it "updates the settings of the content block" do
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
@@ -101,6 +118,13 @@ describe "Admin manages participatory process group landing page", type: :system
       content_block.reload
 
       expect(content_block.settings.to_json).to match(/Custom welcome text!/)
+    end
+
+    it "shows settings of cta" do
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :cta)
+      cta_settings.values.each do |value|
+        expect(page).to have_selector("input[value='#{value}']")
+      end
     end
   end
 end

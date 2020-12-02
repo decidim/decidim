@@ -69,7 +69,7 @@ cs:
             title: Upravit projekt
             update: Aktualizace
           index:
-            finished_orders: Hotové hlasy
+            finished_orders: Dokončené hlasy
             pending_orders: Čeká na hlasování
             selected: Vybrané
             title: Projekty
@@ -87,6 +87,7 @@ cs:
             create: Návrhy na projekty
             no_components: V tomto participativním prostoru neexistují jiné komponenty návrhu, které by mohly importovat návrhy do projektů.
             select_component: Vyberte součást
+            title: Importovat návrhy
       admin_log:
         budget:
           create: "%{user_name} vytvořil %{resource_name} rozpočet ve skupině %{space_name}"
@@ -254,8 +255,8 @@ cs:
             vote_rule_minimum_budget_projects_enabled: 'Povolit pravidlo: Minimální počet projektů, o kterých se má hlasovat'
             vote_rule_selected_projects_enabled: 'Povolit pravidlo: Vybrané projekty s minimálním a maximálním počtem projektů, o kterých se má hlasovat'
             vote_rule_threshold_percent_enabled: 'Povolit pravidlo: minimální procento rozpočtu'
-            vote_selected_projects_maximum: Minimální počty projektů, které mají být vybrány
-            vote_selected_projects_minimum: Maximální počty projektů, které mají být vybrány
+            vote_selected_projects_maximum: Maximální počet projektů, které mají být vybrány
+            vote_selected_projects_minimum: Minimální počet projektů, které mají být vybrány
             vote_threshold_percent: Prahová hodnota pro hlasování v procentech
             workflow: Pracovní postup
             workflow_choices:
@@ -284,7 +285,7 @@ cs:
           notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
     orders:
       checkout:
-        error: Při zpracování hlasu došlo k chybě
+        error: Při zpracování vašeho hlasování došlo k potížím
         success: Váš hlas byl úspěšně přijat
       destroy:
         error: Při rušení vašeho hlasování došlo k chybě

@@ -125,7 +125,7 @@ de:
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:
@@ -295,6 +295,9 @@ de:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        moderations:
+          reportable_type_string_eq:
+            label: Art
         officialized_at_null:
           label: Zustand
           values:
@@ -315,6 +318,7 @@ de:
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: Suche in %{collection} nach Titel.
         state_eq:
           label: Bundesland
@@ -381,6 +385,7 @@ de:
         impersonations: Identitätswechsel
         newsletters: Newsletter
         participants: Teilnehmer
+        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -468,6 +473,20 @@ de:
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
+      moderated_users:
+        index:
+          actions:
+            title: Aktionen
+            unreport: Meldung Rückgängig machen
+          name: Name
+          nickname: Spitzname
+          reason: Grund
+          title: Liste der gemeldeten Benutzer
+        report:
+          reasons:
+            does_not_belong: Gehört nicht zu
+            offensive: Offensiv
+            spam: Spam
       moderations:
         index:
           title: Moderationen
@@ -476,6 +495,21 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
+        reports:
+          index:
+            author: Autor(en)
+            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer signalisiert wurde (kann jeder mit einem registrierten Konto sein), indem er auf die %{icon} Flagge neben dem Element klickt.
+            content_original_language: Originalsprache des Inhalts
+            participatory_space: Beteiligungsbereich
+            reported_content: Gemeldeter Inhalt
+            see_current: Siehe aktuelles
+            see_original: Original ansehen
+            title: Moderationsberichte
+          show:
+            report_details: Details zum Grund
+            report_language: Berichtssprache
+            report_reason: Grund
+            title: Berichtdetails
       newsletter_templates:
         index:
           preview_template: Vorschau
@@ -555,6 +589,7 @@ de:
           officialize: Offizialisieren
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
+          reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
           unofficialize: Nicht offiziell
@@ -581,6 +616,7 @@ de:
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
@@ -615,6 +651,7 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
+          import_via_csv: Aus CSV-Datein importieren
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
@@ -624,6 +661,7 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
+          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -736,6 +774,7 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -801,6 +840,7 @@ de:
           reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
     moderations:
       actions:
+        expand: Ausklappen
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
@@ -821,11 +861,19 @@ de:
       models:
         moderation:
           fields:
+            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             report_count: Anzahl
+            reportable_id: ID
+            reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL
+        report:
+          fields:
+            details: Details zum Grund
+            locale: Sprache
+            reason: Grund
   errors:
     messages:
       invalid_json: Ungültiger JSON

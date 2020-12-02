@@ -670,6 +670,9 @@ en:
           step_3: Complete your collaborative draft
           step_of: Step %{current_step_num} of %{total_steps}
           title: Collaborative draft creation steps
+      content_blocks:
+        highlighted_proposals:
+          proposals: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
@@ -722,6 +725,8 @@ en:
           proposals_count:
             one: "%{count} proposal"
             other: "%{count} proposals"
+        dynamic_map_instructions:
+          instructions: <h3>You can move the point on the map. </h3><p>Don't forget to click on the "Update Position" button before publishing your proposal.</p>
         edit:
           add_documents: Documents
           add_images: File
@@ -782,6 +787,8 @@ en:
             document_index: Document index
           view_index:
             see_index: See index
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           modify: Modify the proposal
           proposal_edit_before_minutes:
@@ -789,6 +796,7 @@ en:
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
+          update_position: Update position
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal

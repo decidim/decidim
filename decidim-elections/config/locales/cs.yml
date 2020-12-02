@@ -90,6 +90,14 @@ cs:
           new:
             create: Vytvořit odpověď
             title: Nová odpověď
+          select:
+            disable: Zrušit výběr odpovědi
+            enable: Označit odpověď jako vybranou
+            invalid: Při výběru této odpovědi došlo k potížím
+            success: Odpověď byla úspěšně vybrána
+          unselect:
+            invalid: Při zrušení výběru této odpovědi došlo k chybě
+            success: Odpovědi byl úspěšně zrušen výběr
           update:
             invalid: Při aktualizaci této odpovědi došlo k chybě
             success: Odpověď byla úspěšně aktualizována
@@ -120,6 +128,7 @@ cs:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
         exports:
+          elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
         models:
           answer:
@@ -138,6 +147,7 @@ cs:
             create: Importovat návrhy na odpovědi
             no_components: V tomto participačním prostoru nejsou žádné další prvky návrhu, které by mohly do odpovědí importovat návrhy.
             select_component: Vyberte komponentu
+            title: Importovat návrhy
         questions:
           create:
             invalid: Při vytváření této otázky došlo k chybě
@@ -237,6 +247,19 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit
+        preview:
+          available_answers: Dostupné odpovědi
+          description: Toto jsou otázky, které najdete v procesu hlasování
+          title: Volební otázky
+        results:
+          description: To jsou výsledky hlasování, pro každou otázku
+          selected: Vybrané
+          title: Výsledky voleb
+          votes:
+            one: "%{count} hlas"
+            few: "%{count} hlasy"
+            many: "%{count} hlasů"
+            other: "%{count} hlasů"
         show:
           back: Dostupné volby
           preview: Náhled

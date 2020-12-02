@@ -26,6 +26,11 @@
         $(`#${this.config.popupTemplateId}`).html()
       );
 
+      const updateCoordinates = (data) => {
+        $('input[data-type="latitude"]').val(data.lat);
+        $('input[data-type="longitude"]').val(data.lng);
+      };
+
       const bounds = new L.LatLngBounds(
         markersData.map(
           (markerData) => [markerData.latitude, markerData.longitude]
@@ -36,17 +41,30 @@
         let marker = L.marker([markerData.latitude, markerData.longitude], {
           icon: this.createIcon(),
           keyboard: true,
-          title: markerData.title
+          title: markerData.title,
+          draggable: markerData.draggable
         });
-        let node = document.createElement("div");
 
-        $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
-        marker.bindPopup(node, {
-          maxwidth: 640,
-          minWidth: 500,
-          keepInView: true,
-          className: "map-info"
-        }).openPopup();
+        if (markerData.draggable) {
+          updateCoordinates({
+            lat: markerData.latitude,
+            lng: markerData.longitude
+          });
+          marker.on("drag", (ev) => {
+            updateCoordinates(ev.target.getLatLng());
+          });
+        } else {
+          let node = document.createElement("div");
+
+          $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
+
+          marker.bindPopup(node, {
+            maxwidth: 640,
+            minWidth: 500,
+            keepInView: true,
+            className: "map-info"
+          }).openPopup();
+        }
 
         this.markerClusters.addLayer(marker);
       });

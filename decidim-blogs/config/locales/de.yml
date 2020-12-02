@@ -29,6 +29,7 @@ de:
             success: Beitrag wurde erfolgreich gelöscht
           edit:
             save: Aktualisieren
+            title: Post bearbeiten
           index:
             title: Beiträge
           new:
