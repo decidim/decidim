@@ -36,8 +36,16 @@ de:
         title: Titel
       participatory_process_group:
         description: Beschreibung
+        developer_group: Gruppe der Unterstützer
+        group_url: Website
+        hashtag: Hashtag
         hero_image: Bild
+        local_area: Organisationsbereich
         participatory_process_ids: Ähnliche Beteiligungsprozesse
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird es entschieden
+        target: Wer nimmt teil
+        title: Titel
       participatory_process_step:
         cta_path: Aufruf zum Aktionspfad
         cta_text: Call to Action-Text
@@ -118,6 +126,8 @@ de:
             title: Titel
           name: Beteiligungsprozess
         participatory_process_group:
+          fields:
+            title: Titel
           name: Prozessgruppe
         participatory_process_step:
           fields:
@@ -308,6 +318,22 @@ de:
       show:
         related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Erster HTML-Block
+        html_2:
+          name: Zweiter HTML-Block
+        html_3:
+          name: Dritter HTML-Block
+        metadata:
+          developer_group: Unterstützt von
+          name: Metadaten
+          participatory_scope: Was wird entschieden
+          participatory_structure: Wie wird es entschieden
+          target: Wer nimmt teil
+        title:
+          meta_scope: Umfang
+          name: Titel, Beschreibung und Hashtag
       show:
         title: Partizipative Prozessgruppen
     participatory_process_steps:
@@ -325,6 +351,10 @@ de:
         participatory_process_copies:
           form:
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadaten
+            title: Allgemeine Informationen
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
