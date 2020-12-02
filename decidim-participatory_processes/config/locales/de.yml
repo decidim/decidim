@@ -37,7 +37,6 @@ de:
       participatory_process_group:
         description: Beschreibung
         hero_image: Bild
-        name: Name
         participatory_process_ids: Ähnliche Beteiligungsprozesse
       participatory_process_step:
         cta_path: Aufruf zum Aktionspfad
@@ -119,8 +118,6 @@ de:
             title: Titel
           name: Beteiligungsprozess
         participatory_process_group:
-          fields:
-            name: Name
           name: Prozessgruppe
         participatory_process_step:
           fields:
@@ -312,9 +309,6 @@ de:
         related_assemblies: Ähnliche Versammlungen
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 Prozesse für %{group}
-          other: "%{count} Prozesse für %{group}"
         title: Partizipative Prozessgruppen
     participatory_process_steps:
       index:
