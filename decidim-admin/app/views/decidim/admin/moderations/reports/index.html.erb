@@ -74,7 +74,7 @@
             <tr data-id="<%= report.id %>">
               <td><%= t("decidim.admin.moderations.report.reasons.#{report.reason}") %></td>
               <td><%= report.locale.present? ? locale_name(report.locale) : "" %></td>
-              <td><%= report.details %></td>
+              <td><%= report.details&.truncate(250) %></td>
               <td class="actions">
                 <%= icon_link_to "fullscreen-enter",
                                   moderation_report_path(moderation_id: moderation, id: report.id),
