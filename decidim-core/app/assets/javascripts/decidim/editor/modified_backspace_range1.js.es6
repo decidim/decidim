@@ -20,13 +20,12 @@
       if (context.offset === 1 && previousChar === "\n") {
         const [prev] = quill.getLine(range.index - 2);
         if (prev && prev.statics.blotName === "list-item") {
-          if (prev != null && prev.length() > 1) {
+          if (prev !== null && prev.length() > 1) {
             let curFormats = line.formats();
             let prevFormats = quill.getFormat(range.index - 1, 1);
             formats = attributeDiff(curFormats, prevFormats) || {};
           }
           const listFormat = quill.getFormat(range.index - 2);
-          const listType = delta.filter((op) => typeof op.insert === "string").map((op) => op.insert).join("");
           delta = new Delta().retain(range.index - 2).delete(2).insert("\n", listFormat);
           if (nextChar === "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
@@ -35,7 +34,6 @@
           delta = new Delta().retain(range.index + line.length() - 2).delete(1)
           quill.deleteText(range.index - 2, 2)
         }
-
       } else {
         const [prev] = quill.getLine(range.index - 1);
         if (prev) {

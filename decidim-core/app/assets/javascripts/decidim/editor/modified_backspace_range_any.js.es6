@@ -9,11 +9,11 @@
       if (range.index === 0 || quill.getLength() <= 1) {
         return;
       }
-      let [line, ] = quill.getLine(range.index);
+      let [line] = quill.getLine(range.index);
       let formats = {};
       if (context.offset === 0) {
         let [prev, ] = quill.getLine(range.index - 1);
-        if (prev != null && prev.length() > 1) {
+        if (prev !== null && prev.length() > 1) {
           let curFormats = line.formats();
           let prevFormats = quill.getFormat(range.index - 1, 1);
           formats = attributeDiff(curFormats, prevFormats) || {};

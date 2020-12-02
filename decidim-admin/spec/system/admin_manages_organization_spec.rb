@@ -199,6 +199,20 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
+
+        it "keeps right curson position when using the backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, "bc", :left, :left, :enter, :backspace, :backspace, "a"]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abc</li></ul>".to_s.gsub("\n", ""))
+        end
+
+        it "keeps right format when using the backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, :backspace, "abc", :left, :left, :left, :backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3abc</li></ul>".to_s.gsub("\n", ""))
+        end
       end
     end
   end
