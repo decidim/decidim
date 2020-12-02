@@ -370,6 +370,13 @@ fr:
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, texte et bouton d'appel à l'action
+      cta_settings_form:
+        background_image: Image d'arrière-plan
+        button_text: Texte d'appel à l'action
+        button_url: 'Appel à l''action: URL'
+        description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
@@ -379,6 +386,11 @@ fr:
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Trier les éléments par:'
+          random: Aléatoire
+          recent: Les plus récents
       how_to_participate:
         name: Comment participer
       html:
