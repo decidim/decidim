@@ -37,7 +37,6 @@ zh-CN:
       participatory_process_group:
         description: 描述
         hero_image: 图片
-        name: 名称
         participatory_process_ids: 相关进程
       participatory_process_step:
         cta_path: 调用行动路径
@@ -113,8 +112,6 @@ zh-CN:
             title: 标题
           name: 参与性进程
         participatory_process_group:
-          fields:
-            name: 名称
           name: 流程组
         participatory_process_step:
           fields:
@@ -299,8 +296,6 @@ zh-CN:
         related_assemblies: 相关的会议
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          other: "%{count} 的 %{group} 进程"
         title: 参与性进程组
     participatory_process_steps:
       index:

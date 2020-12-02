@@ -1,0 +1,73 @@
+= Git Conventions
+
+== GitFlow Branching model
+
+The Decidim respository follows the GitFlow branching model. There are good documentations on it at:
+
+* https://nvie.com/posts/a-successful-git-branching-model/[the original post]
+* https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow[Atlassian tutorial]
+
+This model introduces the `develop` branch as a kind of queue for new features to enter into the next release.
+
+In summary, Decidim developers that work on `+feature/...+` or `+fix/...+` branches will branch off from `develop` and must be merged back into `develop`.
+
+Then, to start a new feature branch off from `develop` in the following way:
+
+[source,bash]
+----
+git checkout develop
+git checkout -b feature/xxx
+----
+
+Implement the feature, and open a Pull Request as normal, but against `develop` branch. As this is the most common operation, `develop` is the default branch instead of `master`.
+
+== Naming branches
+
+We would like to have all branches following this namings:
+
+|===
+| Branch prefix | Comment
+
+| chore/
+| Internal work. For instance, automatisms, etc. No production code change.
+
+| ci/
+| For continous integration related tasks. No production code change.
+
+| deps/
+| For dependency management tasks.
+
+| doc/
+| For changes to the documentation.
+
+| feature/
+| For new features for the users or for the Decidim command.
+
+| fix/
+| For feature bugfixing.
+
+| release/
+| With MAYOR.MINOR-stable. For instance, release/0.22-stable
+
+| refactor/
+| For refactorings related with production code.
+
+| test/
+| When adding missing tests, refactoring tests, improving coverage, etc.
+
+| backport/
+| We only offer support for the last mayor version.
+|===
+
+== Git commit messages and Pull Request titles
+
+We recommend following https://chris.beams.io/posts/git-commit/[this guide] for making good git commit messages. It also applies to Pull Request titles. The summary is:
+
+. Separate subject from body with a blank line
+. Limit the subject line to 50 characters
+. Capitalize the subject line
+. Do not end the subject line with a period
+. Use the imperative mood in the subject line
+. Wrap the body at 72 characters
+. Use the body to explain what and why vs. how
+

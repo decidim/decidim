@@ -70,7 +70,7 @@ cs:
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené
-          most_discussed: Nejdiskutovanější
+          most_discussed: Nejvíce diskutované
           older: Starší
           recent: Nedávné
         title: 'Seřadit podle:'

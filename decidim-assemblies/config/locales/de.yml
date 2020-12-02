@@ -3,20 +3,20 @@ de:
     attributes:
       assembly:
         area_id: Bereich
-        assembly_type: Montageart
-        assembly_type_other: Montageart andere
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
         banner_image: Banner-Bild
         closing_date: Einsendeschluss
-        closing_date_reason: Schlussdatum Grund
+        closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
         copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
+        copy_components: Komponenten kopieren
         copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Montageart
+        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -32,13 +32,13 @@ de:
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
-        parent_id: Elternversammlung
+        parent_id: Haupt Versammlung
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Privatsphäre
-        promoted: Gefördert
-        published_at: Veröffentlicht unter
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
@@ -74,7 +74,7 @@ de:
     models:
       decidim/assembly:
         one: Versammlung
-        other: Baugruppen
+        other: Versammlungen
       decidim/assembly_member:
         one: Gremienmitglieder
         other: Mitglieder der Versammlung
@@ -305,6 +305,9 @@ de:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Mitglieder

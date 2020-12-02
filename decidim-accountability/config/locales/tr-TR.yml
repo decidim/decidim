@@ -192,10 +192,6 @@ tr:
         description: Üretilen sonuç sayısı
         object: Sonuçlar
         title: Sonuçlar
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Sonuçlar
     resource_links:
       included_projects:
         result_project: Bu sonuca dahil edilen projeler

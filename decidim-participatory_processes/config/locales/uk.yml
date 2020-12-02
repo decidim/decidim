@@ -33,7 +33,6 @@ uk:
       participatory_process_group:
         description: Опис
         hero_image: Зображення
-        name: Ім'я
         participatory_process_ids: Супутні рухи
       participatory_process_step:
         description: Опис
@@ -106,8 +105,6 @@ uk:
             title: Назва
           name: Рух співучасті
         participatory_process_group:
-          fields:
-            name: Ім'я
           name: Сукупність рухів
         participatory_process_step:
           fields:
@@ -258,11 +255,6 @@ uk:
       processes: Рухи
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 рух у %{group}
-          few: "%{count} рухи у %{group}"
-          many: "%{count} рухів у %{group}"
-          other: "%{count} рухів у %{group}"
         title: Сукупності рухів співучасті
     participatory_process_steps:
       index:
