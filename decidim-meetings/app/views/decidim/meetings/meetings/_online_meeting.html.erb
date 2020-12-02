@@ -1,0 +1,59 @@
+<% online_meeting_api = "https://meet.jit.si/external_api.js" %>
+<% online_meeting_domain = "meet.jit.si" %>
+<% online_meeting_room_name = "room1234567890" %>
+<% online_meeting_open = true # todo make available X minutes before and X minutes after meeting %>
+
+<% if online_meeting_open %>
+  <div class="card">
+    <div id="videoconference-container"></div>
+    <div id="videoconference-closed-message" class="hide callout warning">
+      <p><%= t(".closed") %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="callout warning">
+    <p><%= t(".unavailable") %></p>
+  </div>
+<% end %>
+
+<script src="<%= online_meeting_api %>"></script>
+<script>
+	const domain = "<%= online_meeting_domain %>";
+	const options = {
+		roomName: "<%= online_meeting_room_name %>",
+		height: 600,
+		parentNode: document.getElementById('videoconference-container'),
+		configOverwrite: {},
+		interfaceConfigOverwrite: {
+			filmStripOnly: true,
+			SHOW_JITSI_WATERMARK: false,
+      HIDE_INVITE_MORE_HEADER: true,
+		},
+		configOverwrite: {
+      disableDeepLinking: true,
+      disableInviteFunctions: true,
+      disableProfile: true,
+			disableSimulcast: false,
+      enableWelcomePage: false,
+      prejoinPageEnabled: true,
+      startAudioMuted: 1,
+      startWithAudioMuted: true,
+      startVideoMuted: 1,
+      startWithVideoMuted: true,
+		},
+    userInfo: {
+      email: "<%= current_user&.email %>",
+      displayName: "<%= current_user&.name %>",
+    }
+	}
+
+	const api = new JitsiMeetExternalAPI(domain, options);
+
+  const onVideoConferenceLeave = () => {
+    $('#videoconference-container').remove();
+    $('#videoconference-closed-message').removeClass("hide");
+  }
+
+  api.addEventListener("videoConferenceLeft", onVideoConferenceLeave);
+
+</script>
