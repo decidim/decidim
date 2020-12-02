@@ -121,6 +121,11 @@ de:
         value_types:
           parent_presenter:
             not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Daten
+          results: Ergebnisse
+          unspecified: Keine Angabe
       import_mailer:
         import:
           errors: Fehler
@@ -148,6 +153,9 @@ de:
           fields:
             description: Beschreibung
             entry_date: Datum
+      result_m:
+        executed: Ausgeführt
+        view: Ansicht
       results:
         count:
           results_count:
