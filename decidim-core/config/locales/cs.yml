@@ -429,7 +429,6 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Vaše přezdívka v %{organization}
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -438,7 +437,6 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Vaše přezdívka v %{organization}
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se

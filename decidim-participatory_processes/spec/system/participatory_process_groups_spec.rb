@@ -222,5 +222,31 @@ describe "Participatory Process Groups", type: :system do
         end
       end
     end
+
+    context "when the html block is enabled" do
+      before do
+        create(
+          :content_block,
+          organization: organization,
+          scope_name: :participatory_process_group_homepage,
+          scoped_resource_id: participatory_process_group.id,
+          manifest_name: :html_1,
+          settings: {
+            html_content_ca: nil,
+            html_content_en: "<div id=\"testing-html\">HTML block</div>",
+            html_content_es: nil
+          }
+        )
+
+        visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      end
+
+      it "renders the content of content block" do
+        expect(page).to have_selector("#testing-html")
+        within("#testing-html") do
+          expect(page).to have_content("HTML block")
+        end
+      end
+    end
   end
 end

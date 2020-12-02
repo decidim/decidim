@@ -146,7 +146,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree this admin terms
+          accept: I agree with the following terms
           are_you_sure: Are you sure to refuse the admin terms?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use

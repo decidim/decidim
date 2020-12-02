@@ -84,6 +84,14 @@ fi-pl:
           new:
             create: Luo vastaus
             title: Uusi vastaus
+          select:
+            disable: Poista vastausvalinta
+            enable: Merkitse vastaus valituksi
+            invalid: Vastauksen valinta epäonnistui
+            success: Vastauksen valinta onnistui
+          unselect:
+            invalid: Vastauksen valinnan poisto epäonnistui
+            success: Vastauksen valinnan poisto onnistui
           update:
             invalid: Vastauksen päivitys epäonnistui
             success: Vastauksen päivitys onnistui
@@ -114,6 +122,7 @@ fi-pl:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
         exports:
+          elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
         models:
           answer:
@@ -132,6 +141,7 @@ fi-pl:
             create: Tuo ehdotuksia vastauksiksi
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja, joista voisit tuoda ehdotuksia vastauksiksi.
             select_component: Valitse komponentti
+            title: Tuo ehdotuksia
         questions:
           create:
             invalid: Kysymyksen luonti epäonnistui
@@ -229,6 +239,17 @@ fi-pl:
           filter: Rajaa
           filter_by: Rajaa hakua
           unfold: Avaa
+        preview:
+          available_answers: Vastausvaihtoehdot
+          description: Nämä kysymykset esitetään äänestyksen yhteydessä
+          title: Vaaliin liittyvät kysymykset
+        results:
+          description: Tässä on äänestyksen tulokset kaikille kysymyksille
+          selected: Valittu
+          title: Vaalin tulokset
+          votes:
+            one: "%{count} ääni"
+            other: "%{count} ääntä"
         show:
           back: Käynnissä olevat vaalit
           preview: Esikatsele
