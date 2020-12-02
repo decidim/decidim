@@ -8,14 +8,30 @@
   let icons = Quill.import("ui/icons");
   icons.linebreak = "⏎";
 
+  const lineBreakButtonHandler = (quill) => {
+    let range = quill.selection.getRange()[0];
+    let currentLeaf = quill.getLeaf(range.index)[0];
+    let nextLeaf = quill.getLeaf(range.index + 1)[0];
+
+    quill.insertEmbed(range.index, "break", true, "user");
+
+    // Insert a second break if:
+    // At the end of the editor, OR next leaf has a different parent (<p>)
+    if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
+      quill.insertEmbed(range.index, "break", true, "user");
+    }
+
+    // Now that we've inserted a line break, move the cursor forward
+    quill.setSelection(range.index + 1, Quill.sources.SILENT);
+  };
+
   Quill.register("modules/linebreak", (quill) => {
-    const { lineBreakHandler } = exports.Editor;
     const { addEnterBindings } = exports.Editor;
     const { backspaceBindingsRangeAny } = exports.Editor;
     const { backspaceBindings } = exports.Editor;
 
     quill.getModule("toolbar").addHandler("linebreak", () => {
-      lineBreakHandler(quill);
+      lineBreakButtonHandler(quill);
     });
 
     quill.emitter.on("editor-ready", () => {
@@ -36,4 +52,5 @@
     return;
   });
 
+  exports.Editor.lineBreakButtonHandler = lineBreakButtonHandler;
 })(window);

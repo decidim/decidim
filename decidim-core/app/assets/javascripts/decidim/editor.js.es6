@@ -37,13 +37,10 @@
         linebreak: {},
         toolbar: {
           container: quillToolbar,
-          // handlers: {
-          //   "linebreak": exports.lineBreakHandler
-          // }
+          handlers: {
+            "linebreak": exports.Editor.lineBreakButtonHandler
+          }
         }
-        // clipboard: {
-        //   matchVisual: false
-        // }
       },
       formats: quillFormats,
       theme: "snow"

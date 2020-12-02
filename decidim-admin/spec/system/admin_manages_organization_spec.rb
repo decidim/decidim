@@ -152,6 +152,15 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>Here shift+enter makes line change:<br>instead of new paragraph!</p>".gsub("\n", ""))
         end
+
+        it "makes smartbreak (<br>) when pressing ⏎ button" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter], "foo"
+          click_button("⏎")
+          find('div[contenteditable="true"].ql-editor').send_keys "bar"
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("#{terms_content}<p>foo<br>bar</p>".gsub("\n", ""))
+        end
       end
 
       context "when modifying list using rich text editor" do

@@ -39,29 +39,17 @@ const Embed = Quill.import("blots/embed");
   }
 
   const lineBreakHandler = (quill, range, context) => {
-    // const range = quill.selection.getRange()[0];
     const currentLeaf = quill.getLeaf(range.index)[0];
     const nextLeaf = quill.getLeaf(range.index + 1)[0];
-    // const format = quill.getFormat(range)
-    // console.log("format", format)
-    // console.log("context", context)
-
 
     quill.insertEmbed(range.index, "break", true, "user");
     quill.formatText(range.index + 1, "bold", true)
-    // const delta = new Delta().retain(range.index).insert({"break": true}).retain(0, format)
-    // quill.updateContents(delta, Quill.sources.USER);
 
-    // Insert a second break if:
-    // At the end of the editor, OR next leaf has a different parent (<p>)
     if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
       quill.insertEmbed(range.index, "break", true, "user");
-      // quill.formatText(range.index + 1, "bold", true)
-      // quill.updateContents(delta, Quill.sources.USER);
     }
 
     quill.format(name, context.format[name], "user");
-    // Now that we've inserted a line break, move the cursor forward
     quill.setSelection(range.index + 1, Quill.sources.SILENT);
 
     const lineFormats = getLineFormats(context)
@@ -101,7 +89,7 @@ const Embed = Quill.import("blots/embed");
     const enterHandlerIndex = quill.keyboard.bindings[13].findIndex((bindDef) => {
       return typeof bindDef.collapsed === "undefined" && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
     });
-    // HAX: make our SHIFT+ENTER binding the first one in order to override Quill defaults
+    // HAX: make our SHIFT+ENTER binding the second one in order to override Quill defaults
     quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
 
     quill.keyboard.addBinding({ key: 13, shiftKey: false }, (range, context) => {
@@ -151,6 +139,5 @@ const Embed = Quill.import("blots/embed");
   }
 
   exports.Editor = exports.Editor || {};
-  exports.Editor.lineBreakHandler = lineBreakHandler;
   exports.Editor.addEnterBindings = addEnterBindings;
 })(window)
