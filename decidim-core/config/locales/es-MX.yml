@@ -1534,7 +1534,7 @@ es-MX:
       widget:
         see_more: Ver más
   locale:
-    name: Castellano
+    name: Español
     name_with_error: Inglés (¡error!)
   password_validator:
     domain_included_in_password: Es muy similar a este nombre de dominio
