@@ -36,7 +36,7 @@ module Decidim
           end
       end
 
-      # Private: finds the mdoeration the current user can manage, taking into
+      # Private: finds the moderations the current user can manage, taking into
       # account whether the user is an organization-wide admin or a
       # "participatory space admin".
       #
@@ -48,6 +48,14 @@ module Decidim
           else
             Decidim::Moderation.where(participatory_space: spaces_user_is_admin_to)
           end
+      end
+
+      # Private: fins the reportable of the specific moderation the user is
+      # trying to manage.
+      #
+      # Returns a resource implementing the `Decidim::Reportable` concern.
+      def reportable
+        @reportable ||= moderations_for_user.find(params[:id]).reportable
       end
 
       # Private: Overwrites the method from the parent controller so that the
