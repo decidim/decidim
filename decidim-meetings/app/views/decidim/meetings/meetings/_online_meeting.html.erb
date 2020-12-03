@@ -1,4 +1,4 @@
-<% if embedded_meeting_open?(meeting) %>
+<% if embedded_meeting_open?(meeting) && embedded_meeting_role_for(meeting, current_user) != "none" %>
   <div class="card">
     <%= embedded_meeting(meeting, current_user) %>
     <div id="videoconference-closed-message" class="hide callout warning">
