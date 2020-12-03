@@ -172,6 +172,18 @@ module Decidim
       :admin
     end
 
+    def sidebar_content_block
+      @sidebar_content_block ||= Decidim::ContentBlock.published.for_scope(:topics_sidebar, organization: organization).where(scoped_resource_id: self.id).first_or_initialize
+    end
+
+    def sidebar_content_block_settings
+      sidebar_content_block.settings
+    end
+
+    def sidebar_content_block_enabled
+      sidebar_content_block.published?
+    end
+
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker :title do |parent|
       Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))

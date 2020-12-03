@@ -47,6 +47,10 @@ module Decidim
         attribute :remove_banner_image
         attribute :remove_hero_image
 
+        attribute :sidebar_content_block_enabled, Boolean
+        translatable_attribute :sidebar_content_block_settings, String
+
+
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
@@ -57,6 +61,7 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
+
 
         alias organization current_organization
 
