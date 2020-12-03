@@ -213,7 +213,7 @@ module Decidim
       def online_meeting?
         type_of_meeting == "online"
       end
-      
+
       def embedded_meeting?
         type_of_meeting == "embedded"
       end

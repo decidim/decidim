@@ -6,13 +6,13 @@ module Decidim
     module EmbeddedMeetingsHelper
       def embedded_meeting(meeting, user)
         content_tag :div, nil, id: "jitsi-embedded-meeting", data: {
-            room_name: embedded_meeting_room_name(meeting),
-            domain: embedded_meeting_domain,
-            api_url: embedded_meeting_api_url,
-            user_email: user&.email,
-            user_display_name: user&.name,
-            user_role: embedded_meeting_role_for(meeting, user)
-          }
+          room_name: embedded_meeting_room_name(meeting),
+          domain: embedded_meeting_domain,
+          api_url: embedded_meeting_api_url,
+          user_email: user&.email,
+          user_display_name: user&.name,
+          user_role: embedded_meeting_role_for(meeting, user)
+        }
       end
 
       def embedded_meeting_room_name(meeting)
@@ -20,7 +20,7 @@ module Decidim
       end
 
       def embedded_meeting_open?(meeting)
-        Time.zone.now.between?(meeting.start_time - 30.minutes, meeting.end_time + 10.minutes) # TODO make configurable
+        Time.zone.now.between?(meeting.start_time - 30.minutes, meeting.end_time + 10.minutes) # TODO: make configurable
       end
 
       def embedded_meeting_role_for(meeting, user)
@@ -35,11 +35,11 @@ module Decidim
         end
       end
 
-      def embedded_meeting_api_url # TODO make configurable
+      def embedded_meeting_api_url # TODO: make configurable
         "https://meet.jit.si/external_api.js"
       end
 
-      def embedded_meeting_domain # TODO make configurable
+      def embedded_meeting_domain # TODO: make configurable
         "meet.jit.si"
       end
     end
