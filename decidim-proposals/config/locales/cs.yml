@@ -683,6 +683,9 @@ cs:
           step_3: Dokončete návrh spolupráce
           step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroky pro vytvoření společného návrhu
+      content_blocks:
+        highlighted_proposals:
+          proposals: Návrhy
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
