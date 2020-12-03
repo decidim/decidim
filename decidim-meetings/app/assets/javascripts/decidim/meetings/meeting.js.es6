@@ -1,7 +1,7 @@
 ((exports) => {
   const { createJitsiMeetVideoConference } = exports.Decidim;
   const onVideoConferenceLeave = () => {
-    $("#videoconference-container").remove();
+    $("#jitsi-embedded-meeting").remove();
     $("#videoconference-closed-message").removeClass("hide");
   }
 
