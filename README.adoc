@@ -79,38 +79,6 @@ See the https://github.com/decidim/decidim/blob/master/docs/getting_started.md[G
 
 See xref:CONTRIBUTING.adoc[Contributing].
 
-=== Browse Decidim
-
-After you create a development app (`bundle exec rake development_app`), you have to switch to it and boot the rails server with `cd development_app && bundle exec rails s`.
-
-After that, you can:
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the main interface at `+http://localhost:3000+`, and log in as: user@example.org
-| decidim123456
-|===
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the admin interface at `+http://localhost:3000/admin+`, and log in as: admin@example.org
-| decidim123456
-|===
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the system interface at `+http://localhost:3000/system+`, and log in as: system@example.org
-| decidim123456
-|===
-
-Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
-
 == Modules
 
 If you need to have some features that we don't have yet, we recommend that you make a module.
