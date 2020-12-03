@@ -7,6 +7,14 @@
       this._run();
     }
 
+    _userIsAdmin(role) {
+      return role === "admin";
+    }
+
+    _userIsVisitor(role) {
+      return role === "visitor";
+    }
+
     _run() {
       const $wrapper = this.$wrapper;
 
@@ -18,22 +26,40 @@
 
       const userEmail = $wrapper.data("userEmail");
       const userDisplayName = $wrapper.data("userDisplayName");
-      const userIsVisitor = $wrapper.data("userIsVisitor") || false;
+      const userRole = $wrapper.data("userRole");
 
-      const startWithAudioMuted = $wrapper.data("startWithAudioMuted") || userIsVisitor;
-      const startWithVideoMuted = $wrapper.data("startWithVideoMuted") || userIsVisitor;
+      const isAdmin = this._userIsAdmin(userRole);
+      const isVisitor = this._userIsVisitor(userRole);
 
-      const enableInvite = $wrapper.data("enableInvite") || false;
+      const startWithAudioMuted = $wrapper.data("startWithAudioMuted") || isVisitor;
+      const startWithVideoMuted = $wrapper.data("startWithVideoMuted") || isVisitor;
+
+      const enableInvite = $wrapper.data("enableInvite");
 
       const onVideoConferenceLeave = this.onVideoConferenceLeave;
 
       let toolbarButtons = [
-        "microphone", "camera", "closedcaptions", "desktop", "embedmeeting", "fullscreen",
-        "fodeviceselection", "hangup", "profile", "chat", "recording",
-        "livestreaming", "etherpad", "sharedvideo", "settings", "raisehand",
-        "videoquality", "filmstrip", "feedback", "stats", "shortcuts",
-        "tileview", "videobackgroundblur", "download", "help", "mute-everyone", "security"
+        "chat", "closedcaptions", "fullscreen",
+        "fodeviceselection", "etherpad",
+        "videoquality", "filmstrip", "shortcuts",
+        "videobackgroundblur", "download", "help"
       ];
+
+      const fullControlButtons = [
+        "mute-everyone", "recording", "livestreaming", "sharedvideo", "embedmeeting", "stats", "settings", "security"
+      ];
+
+      const userControlButtons = [
+        "camera", "microphone", "raisehand", "videobackgroundblur", "hangup", "profile", "feedback", "desktop", "tileview"
+      ];
+
+      if (isAdmin) {
+        toolbarButtons = toolbarButtons.concat(fullControlButtons);
+      }
+
+      if (!isVisitor) {
+        toolbarButtons = toolbarButtons.concat(userControlButtons);
+      }
 
       if (enableInvite) {
         toolbarButtons.push("invite");
@@ -45,14 +71,13 @@
         parentNode: $wrapper[0],
         interfaceConfigOverwrite: {
           SHOW_JITSI_WATERMARK: false,
-          HIDE_INVITE_MORE_HEADER: true,
+          HIDE_INVITE_MORE_HEADER: !enableInvite,
           TOOLBAR_BUTTONS: toolbarButtons
         },
         configOverwrite: {
           disableInviteFunctions: true,
           disableSimulcast: false,
-          // enableWelcomePage: false,
-          // prejoinPageEnabled: false,
+          // enableWelcomePage: !isVisitor,
           // startAudioMuted: 1,
           startWithAudioMuted: startWithAudioMuted,
           // startVideoMuted: 1,
