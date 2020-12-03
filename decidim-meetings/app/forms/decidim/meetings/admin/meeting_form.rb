@@ -117,6 +117,10 @@ module Decidim
           type_of_meeting == "online"
         end
 
+        def embedded_meeting?
+          type_of_meeting == "embedded"
+        end
+
         def in_person_meeting?
           type_of_meeting == "in_person"
         end

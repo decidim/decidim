@@ -122,6 +122,7 @@
     const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
     const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
+    const $meetingEmbeddedFields = $meetingForm.find(".field[data-meeting-type='embedded']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -135,9 +136,11 @@
       const $target = $(ev.target);
       toggleDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
+      toggleDependsOnSelect($target, $meetingEmbeddedFields, "embedded");
     });
 
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
+    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingEmbeddedFields, "embedded");
   }
 })(window);

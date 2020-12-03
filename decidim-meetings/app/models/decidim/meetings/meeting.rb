@@ -24,7 +24,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
-      TYPE_OF_MEETING = %w(in_person online).freeze
+      TYPE_OF_MEETING = %w(in_person online embedded).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
@@ -55,6 +55,7 @@ module Decidim
 
       scope :online, -> { where(type_of_meeting: :online) }
       scope :in_person, -> { where(type_of_meeting: :in_person) }
+      scope :embedded, -> { where(type_of_meeting: :embedded) }
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -211,6 +212,10 @@ module Decidim
 
       def online_meeting?
         type_of_meeting == "online"
+      end
+      
+      def embedded_meeting?
+        type_of_meeting == "embedded"
       end
 
       def registration_disabled?

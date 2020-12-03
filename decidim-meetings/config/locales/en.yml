@@ -508,6 +508,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
+        embedded: Online - Embedded in Decidim
         in_person: In person
         online: Online
       types:
