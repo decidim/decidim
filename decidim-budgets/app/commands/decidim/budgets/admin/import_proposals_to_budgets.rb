@@ -46,10 +46,12 @@ module Decidim
             budget: form.budget,
             title: original_proposal.title,
             description: original_proposal.body,
-            budget_amount: form.default_budget,
+            budget_amount: original_proposal.cost,
             category: original_proposal.category,
             scope: original_proposal.scope
           }
+
+          params[:budget_amount] = form.default_budget if params[:budget_amount].blank?
 
           @project = Decidim.traceability.create!(
             Project,
