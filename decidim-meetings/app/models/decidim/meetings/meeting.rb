@@ -48,7 +48,7 @@ module Decidim
         (all.distinct if user&.admin?) ||
           if user.present?
             spaces = %w(assembly participatory_process)
-            spaces.append("conference") if defined?(Decidim::Conference)
+            spaces << "conference" if defined?(Decidim::Conference)
             user_role_queries = spaces.map do |participatory_space_name|
               "SELECT decidim_components.id FROM decidim_components
               WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
