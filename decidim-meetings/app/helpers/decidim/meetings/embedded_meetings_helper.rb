@@ -11,7 +11,7 @@ module Decidim
             api_url: embedded_meeting_api_url,
             user_email: user&.email,
             user_display_name: user&.name,
-            user_is_visitor: embedded_meeting_role_for(meeting, user) == "visitor"
+            user_role: embedded_meeting_role_for(meeting, user)
           }
       end
 
@@ -24,7 +24,9 @@ module Decidim
       end
 
       def embedded_meeting_role_for(meeting, user)
-        if meeting.can_participate?(user)
+        if user&.admin?
+          "admin"
+        elsif meeting.can_participate?(user)
           "participant"
         elsif meeting.current_user_can_visit_meeting?(user)
           "visitor"
