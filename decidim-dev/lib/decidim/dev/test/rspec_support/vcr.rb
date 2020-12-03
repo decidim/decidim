@@ -8,6 +8,10 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.ignore_request do |request|
-    URI(request.uri).port != URI(Decidim::Elections.bulletin_board.server).port
+    if defined?(Decidim::Elections)
+      URI(request.uri).port != URI(Decidim::Elections.bulletin_board.server).port
+    else
+      true
+    end
   end
 end
