@@ -54,11 +54,11 @@ image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20V
 
 = What do you need to do?
 
-* https://docs.decidim.org/[Official Documentation] *[NOT UP TO DATE]*
-* <<getting-started-with-decidim,Getting started with Decidim>>
-* <<how-to-contribute,Contribute to the project>>
-* <<modules,Modules>>
-* <<browse-decidim,Create & browse development app>>
+- https://docs.decidim.org/[Official Documentation]
+- <<getting-started-with-decidim,Getting started with Decidim>>
+- <<how-to-contribute,Contribute to the project>>
+- <<modules,Modules>>
+- <<browse-decidim,Create & browse development app>>
 
 '''
 
@@ -95,26 +95,26 @@ See https://decidim.org/modules[Modules page on Decidim.org].
 One specific thing regarding these kind of applications is the xref:decidim-verifications/README.adoc[authorization/verification] logic.
 Here are some examples:
 
-* https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
-* https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
-* https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
-* https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
-* https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
-* https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
-* https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
-* https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
-* https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
-* https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
-* https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
-* https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
-* https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
+- https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
+- https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
+- https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
+- https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
+- https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
+- https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
+- https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
+- https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
+- https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
+- https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
+- https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
+- https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
+- https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
 
 Other special verifications:
 
-* https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
-* https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
-* https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
-* https://github.com/mainio/decidim-module-access_requests[Access Requests]
+- https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
+- https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
+- https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
+- https://github.com/mainio/decidim-module-access_requests[Access Requests]
 
 == Following our license
 
@@ -127,17 +127,17 @@ If you have any trouble you can contact us on https://gitter.im/decidim/decidim[
 Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made.
 Here's a partial list with some of the projects that have used Decidim:
 
-* http://staging.decidim.codegram.com[Demo]
-* https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
-* https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
-* https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
-* https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
-* https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
-* https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
-* http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
-* https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
-* https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
-* https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
+- http://staging.decidim.codegram.com[Demo]
+- https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
+- https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
+- https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
+- https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
+- https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
+- https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
+- http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
+- https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
+- https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
+- https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
 
 == Security
 
