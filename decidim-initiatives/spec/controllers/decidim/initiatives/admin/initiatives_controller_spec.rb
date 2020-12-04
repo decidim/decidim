@@ -13,6 +13,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let!(:initiative) { create(:initiative, organization: organization) }
         let!(:created_initiative) { create(:initiative, :created, organization: organization) }
+        let!(:discarded_initiative) { create(:initiative, :discarded, organization: organization) }
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -318,7 +319,7 @@ module Decidim
         end
 
         context "when GET send_to_technical_validation" do
-          context "and Initiative not in created state" do
+          context "and Initiative not in created state (published)" do
             before do
               sign_in initiative.author, scope: :user
             end
@@ -327,6 +328,19 @@ module Decidim
               get :send_to_technical_validation, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
               expect(response).to have_http_status(:found)
+            end
+          end
+
+          context "and Initiative in discarded state" do
+            before do
+              sign_in discarded_initiative.author, scope: :user
+            end
+
+            it "Passes to technical validation phase" do
+              get :send_to_technical_validation, params: { slug: discarded_initiative.to_param }
+
+              discarded_initiative.reload
+              expect(discarded_initiative).to be_validating
             end
           end
 
