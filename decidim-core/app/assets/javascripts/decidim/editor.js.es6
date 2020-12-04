@@ -2,7 +2,7 @@
 // = require_self
 
 ((exports) => {
-  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video"];
+  const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt"];
 
   const createQuillEditor = (container) => {
     const toolbar = $(container).data("toolbar");
