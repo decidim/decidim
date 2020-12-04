@@ -11,6 +11,7 @@ module Decidim
 
       helper_method :collection,
                     :promoted_participatory_processes,
+                    :promoted_participatory_process_groups,
                     :participatory_processes,
                     :stats,
                     :metrics,
@@ -70,6 +71,10 @@ module Decidim
 
       def promoted_participatory_processes
         @promoted_participatory_processes ||= published_processes | PromotedParticipatoryProcesses.new
+      end
+
+      def promoted_participatory_process_groups
+        @promoted_participatory_process_groups ||= PromotedParticipatoryProcessGroups.new
       end
 
       def collection

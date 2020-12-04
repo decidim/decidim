@@ -481,6 +481,7 @@ en:
           take_part: Take part
       participatory_processes:
         index:
+          promoted_process_groups: Highlighted process groups
           promoted_processes: Highlighted processes
         participatory_process:
           active_step: 'Current phase:'
@@ -494,6 +495,8 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
+        promoted_process_group:
+          more_info: More info
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases
