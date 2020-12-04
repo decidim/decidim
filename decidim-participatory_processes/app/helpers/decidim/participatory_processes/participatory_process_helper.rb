@@ -32,6 +32,27 @@ module Decidim
 
         "#{path}/#{process.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
       end
+
+      # Public: Returns the settings of a cta content block associated if
+      # exists
+      #
+      # Returns a Hash with content block settings or nil
+      def participatory_process_group_cta_settings(process_group)
+        cta_settings = Decidim::ContentBlock.for_scope(
+          :participatory_process_group_homepage,
+          organization: current_organization
+        ).find_by(
+          manifest_name: "cta",
+          scoped_resource_id: process_group.id
+        )&.settings
+
+        return if cta_settings.blank? || cta_settings.button_url.blank?
+
+        OpenStruct.new(
+          text: translated_attribute(cta_settings.button_text),
+          path: cta_settings.button_url
+        )
+      end
     end
   end
 end
