@@ -383,6 +383,7 @@ de:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
         reported_users: Gemeldete Nutzer
@@ -863,6 +864,7 @@ de:
           fields:
             created_at: Erstellungsdatum
             hidden_at: Versteckt bei
+            participatory_space: Beteiligungsbereich
             report_count: Anzahl
             reportable_id: ID
             reportable_type: Typ
@@ -880,6 +882,8 @@ de:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:
