@@ -668,6 +668,9 @@ fr-CA:
           step_3: Complétez votre projet collaboratif
           step_of: Etape %{current_step_num} sur %{total_steps}
           title: Étapes de création du brouillon collaboratif
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propositions
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.

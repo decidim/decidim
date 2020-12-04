@@ -6,19 +6,19 @@ module Decidim
     class ModerationsController < Decidim::Admin::ApplicationController
       include Decidim::Moderations::Admin::Filterable
 
-      helper_method :moderations, :allowed_to?, :query
+      helper_method :moderations, :allowed_to?, :query, :permission_resource
 
       def index
-        enforce_permission_to :read, :moderation
+        enforce_permission_to :read, permission_resource
       end
 
       def show
-        enforce_permission_to :read, :moderation
+        enforce_permission_to :read, permission_resource
         @moderation = collection.find(params[:id])
       end
 
       def unreport
-        enforce_permission_to :unreport, :moderation
+        enforce_permission_to :unreport, permission_resource
 
         Admin::UnreportResource.call(reportable, current_user) do
           on(:ok) do
@@ -34,7 +34,7 @@ module Decidim
       end
 
       def hide
-        enforce_permission_to :hide, :moderation
+        enforce_permission_to :hide, permission_resource
 
         Admin::HideResource.call(reportable, current_user) do
           on(:ok) do
@@ -50,7 +50,7 @@ module Decidim
       end
 
       def unhide
-        enforce_permission_to :unhide, :moderation
+        enforce_permission_to :unhide, permission_resource
 
         Admin::UnhideResource.call(reportable, current_user) do
           on(:ok) do
@@ -92,6 +92,14 @@ module Decidim
 
       def participatory_space_moderations
         @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space)
+      end
+
+      # Private: Defines the resource that permissions will check. This is
+      # added so that the `GlobalModerationController` can overwrite this method
+      # and define the custom permission resource, so that the permission system
+      # is not overridden.
+      def permission_resource
+        :moderation
       end
     end
   end

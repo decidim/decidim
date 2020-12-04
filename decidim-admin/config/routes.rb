@@ -99,6 +99,15 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :share_tokens, only: :destroy
 
+    resources :moderations, controller: "global_moderations" do
+      member do
+        put :unreport
+        put :hide
+        put :unhide
+      end
+      resources :reports, controller: "global_moderations/reports", only: [:index, :show]
+    end
+
     root to: "dashboard#show"
   end
 end
