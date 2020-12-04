@@ -402,6 +402,7 @@ fi:
         personal_website: Henkilökohtainen verkkosivusto
         show:
           more_info: lisätietoja
+          speaking_at: Esitys alkaa klo
       conference_speaker_cell:
         personal_url:
           personal_website: Henkilökohtainen verkkosivusto

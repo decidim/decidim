@@ -37,7 +37,6 @@
       participatory_process_group:
         description: Beskrivelse
         hero_image: Bilde
-        name: Navn
         participatory_process_ids: Relaterte prosesser
       participatory_process_step:
         cta_path: Annonseringsknapp
@@ -116,8 +115,6 @@
             title: Tittel
           name: Deltakende prosess
         participatory_process_group:
-          fields:
-            name: Navn
           name: Prosessgruppe
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@
         related_assemblies: Relaterte forsamlinger
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 prosess for %{group}
-          other: "%{count} prosesser i %{group}"
         title: Prosessgrupper
     participatory_process_steps:
       index:

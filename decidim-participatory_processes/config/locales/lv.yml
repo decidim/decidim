@@ -37,7 +37,6 @@ lv:
       participatory_process_group:
         description: Apraksts
         hero_image: Attēls
-        name: Nosaukums
         participatory_process_ids: Saistītie procesi
       participatory_process_step:
         cta_path: Call To Action ceļš
@@ -119,8 +118,6 @@ lv:
             title: Nosaukums
           name: Līdzdalības process
         participatory_process_group:
-          fields:
-            name: Nosaukums
           name: Procesa grupa
         participatory_process_step:
           fields:
@@ -305,10 +302,6 @@ lv:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          zero: "%{count} procesi %{group}"
-          one: viens process %{group}
-          other: "%{count} procesi %{group}"
         title: Līdzdalības procesa grupas
     participatory_process_steps:
       index:
