@@ -21,17 +21,22 @@ de:
         end_time: Endzeit
         location: Ort
         location_hints: Standorthinweise
+        online_meeting_url: Online Meeting URL
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
         private_meeting: Privates Treffen
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
+        registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
         start_time: Startzeit
         title: Titel
         transparent: Transparent
+        type_of_meeting: Art
       minutes:
+        audio_url: Audio-URL
         description: Beschreibung
+        video_url: Video-URL
         visible: Ist sichtbar
     errors:
       models:
@@ -85,9 +90,11 @@ de:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -247,10 +254,15 @@ de:
                 other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
+            title: Meeting bearbeiten
             update: Aktualisieren
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+            online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           index:
             title: Meetings
           new:
@@ -274,6 +286,7 @@ de:
             invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
             success: Minuten erfolgreich erstellt
           edit:
+            title: Minuten bearbeiten
             update: Aktualisieren
           new:
             create: Erstellen
@@ -354,6 +367,11 @@ de:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
       meeting:
         not_allowed: Sie dürfen dieses Meeting nicht sehen
+      meeting_closes:
+        edit:
+          back: Zurück
+          close: Meeting beenden
+          title: Meeting beenden
       meetings:
         count:
           meetings_count:
@@ -381,6 +399,11 @@ de:
             user_groups: Gruppen
           scope: Umfang
           search: Suche
+          type: Art
+          type_values:
+            all: Alle
+            in_person: Persönlich
+            online: Online
         filters_small_view:
           close_modal: Modal schließen
           filter: Filter
@@ -388,9 +411,12 @@ de:
           unfold: Entfalten
         form:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+          available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           select_a_category: Bitte wählen sie eine Kategorie
+          select_a_meeting_type: Bitte eine Meeting-Art auswählen
+          select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
         index:
           new_meeting: Neue Besprechung
         meeting_minutes:
@@ -409,6 +435,7 @@ de:
         show:
           attendees: Teilnehmer zählen
           back: Zurück zur Liste
+          close_meeting: Meeting beenden
           contributions: Beiträge zählen
           date: Datum
           edit_meeting: Besprechung bearbeiten
@@ -455,6 +482,10 @@ de:
           confirmed_html: Ihre Registrierung für das Treffen <a href="%{url}">%{title}</a> wurde bestätigt.
           details: Sie finden die Details zum Meeting im Anhang.
           registration_code: Ihr Registrierungscode ist %{code}.
+      registration_type:
+        on_different_platform: Auf einer anderen Plattform
+        on_this_platform: Auf dieser Plattform
+        registration_disabled: Registrierung ist gesperrt
       registrations:
         create:
           invalid: Bei diesem Meeting ist ein Problem aufgetreten.
@@ -465,6 +496,9 @@ de:
         destroy:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
+      type_of_meeting:
+        in_person: In Person
+        online: Online
       types:
         private_meeting: Privates Treffen
         transparent: Transparent
@@ -475,11 +509,6 @@ de:
         description: Anzahl der erstellten Meetings
         object: Treffen
         title: Meetings
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Vergangene Treffen
-          upcoming_meetings: Bevorstehende Treffen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen

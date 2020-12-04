@@ -1,0 +1,10 @@
+= SMTP
+
+You can configure SMTP for the application with the following Environment Variables:
+
+* SMTP_ADDRESS: Hostname for the SMTP server, for sending emails. See SMTP
+* SMTP_DOMAIN: Domain for the SMTP server, for sending emails. See SMTP
+* SMTP_PASSWORD: Password for the SMTP server, for sending emails. See SMTP
+* SMTP_USERNAME: Username for the SMTP server, for sending emails. See SMTP
+
+You can also configure it on the System Panel for every given Organization, as this could change on an Organization basis.

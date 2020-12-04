@@ -31,8 +31,8 @@ module Decidim
           ).changeset
         end
 
-        def has_diff?
-          action == "delete" || super
+        def diff_actions
+          super + %w(delete)
         end
 
         def action_string

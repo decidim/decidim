@@ -16,7 +16,7 @@ module Decidim
       end
 
       def title
-        translated_attribute model.name
+        translated_attribute model.title
       end
 
       def resource_path

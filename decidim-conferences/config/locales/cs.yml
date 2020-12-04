@@ -410,6 +410,7 @@ cs:
         personal_website: Osobní web
         show:
           more_info: více informací
+          speaking_at: Má projev v
       conference_speaker_cell:
         personal_url:
           personal_website: Osobní web
@@ -460,7 +461,7 @@ cs:
             email: E-mail
             name: název
             registration_type: Typ registrace
-            state: Stát
+            state: Stav
             states:
               confirmed: Potvrzeno
               pending: čekající

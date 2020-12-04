@@ -88,8 +88,8 @@ module Decidim
         "activemodel.attributes.organization"
       end
 
-      def has_diff?
-        action == "update_id_documents_config" || super
+      def diff_actions
+        super + %w(update_id_documents_config)
       end
     end
   end

@@ -56,7 +56,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     2.times do |n|
       params = {
         title: Decidim::Faker::Localized.sentence(word_count: 5),
-        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+        slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
         subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -139,7 +139,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
       child = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 5),
-        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+        slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
         subtitle: Decidim::Faker::Localized.sentence(word_count: 2),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
