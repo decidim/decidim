@@ -37,7 +37,6 @@ ja:
       participatory_process_group:
         description: 説明
         hero_image: 画像
-        name: 名前
         participatory_process_ids: 関連する参加型プロセス
       participatory_process_step:
         cta_path: コールからアクションパス
@@ -113,8 +112,6 @@ ja:
             title: タイトル
           name: 参加型プロセス
         participatory_process_group:
-          fields:
-            name: 名前
           name: 参加型プロセスグループ
         participatory_process_step:
           fields:
@@ -299,8 +296,6 @@ ja:
         related_assemblies: 関連する参加スペース
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          other: "%{group} 内の %{count} の参加型プロセス"
         title: 参加型プロセスグループ
     participatory_process_steps:
       index:

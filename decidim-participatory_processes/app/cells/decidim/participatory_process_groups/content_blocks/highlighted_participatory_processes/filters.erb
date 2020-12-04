@@ -1,0 +1,22 @@
+<%= filter_form_for filter, decidim_participatory_processes.participatory_process_group_path(participatory_process_group) do |form| %>
+  <div class="columns mediumlarge-6 large-5">
+    <%= cell(
+      "decidim/scopes_picker",
+      form,
+      attribute: :scope_id,
+      multiple: true,
+      legend_title: I18n.t("decidim.scopes.scopes"),
+      label: false,
+      checkboxes_on_top: false
+    ) %>
+  </div>
+  <div class="columns mediumlarge-6 large-5">
+    <%= form.areas_select :area_id,
+                          areas_for_select(current_organization),
+                          legend_title: t("decidim.shared.participatory_space_filters.filters.areas"),
+                          label: "",
+                          selected: filter.area_id,
+                          include_blank: t("decidim.shared.participatory_space_filters.filters.select_an_area") %>
+  </div>
+<% end %>
+<%= javascript_include_tag "decidim/filters" %>

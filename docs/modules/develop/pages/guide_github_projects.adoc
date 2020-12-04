@@ -1,0 +1,42 @@
+= GitHub Projects Workflow
+
+This is an internal document on how we're organizing the development of Decidim with external contractors through Github projects.
+
+There are three teams:
+
+1. Product team: formed by representatives of the Barcelona City Council, Localret and Decidim Association who make functional decisions. They have the product vision and ensure that all the developments that are merged are coherent and consistent. You can summon them by mentioning in GitHub at @decidim/product
+2. Contractors: depends on the project. Most of the current developments are funded by the city of Barcelona, and the teams depend on the contract that has won the public procurement process. If there's any published contract we link it in the description of the project.
+3. Maintainers: developers that make the releases, review the Pull Requests, update dependencies and generally take care of all the Decidim source code. You can summon them by mentioning in GitHub at @decidim/core
+
+We follow some rules of Agile Development (mostly Scrum and KanBan).
+
+== Explanation of the columns
+
+=== Product Backlog
+
+The Product team prepares all the issues following the same template and order them by priority.
+
+=== Sprint Backlog
+
+Issues fully refined than will be tackled on the Sprint. Each Sprint has a duration of 3 weeks.
+The issues in this column will be agreed upon at the beginning of the Sprint between the Product Team and Contractors.
+
+=== Doing
+
+Issues on active development by Contractors.
+
+=== Ready
+
+Issues completed by Contractors. Ready to be tested and reviewed by Product Team.
+
+=== QA Testing
+
+Issues on functional testing and review by Product Team.
+
+=== Technical Review
+
+Quality and technical peer review by Maintainers.
+
+=== Done
+
+Merged by Maintainers. The issue can be closed.

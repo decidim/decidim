@@ -122,7 +122,7 @@ cs:
           selected_proposals: Vybrané návrhy
         orders:
           label: 'Řazení losování podle:'
-          random: Náhodný
+          random: Náhodně
           recent: Nedávné
         results_count:
           count:

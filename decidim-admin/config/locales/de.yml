@@ -145,7 +145,7 @@ de:
           error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
           success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme diesen Admin-Bedingungen zu
+          accept: Ich stimme den folgenden Bedingungen zu
           are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
           refuse: Die Admin-Bedingungen ablehnen
           title: Den Nutzungsbedingungen zustimmen

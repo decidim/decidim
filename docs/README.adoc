@@ -1,0 +1,27 @@
+= Decidim Developer Docmentation
+
+== What's this?
+
+This is the internal Decidim documentation.
+If you want to see it in a nice UI you can do it at the https://docs.decidim.org[Decidim Documentation Site].
+Some of the sections are available on https://github.com/decidim/documentation[Decidim Documentation repository].
+
+== How this works?
+
+This is made with https://antora.org/[Antora].
+It uses https://asciidoc.org/[AsciiDoc] mark-up document format.
+It's pretty similar to Markdown, although is more standarized and can do more complex things.
+Read more about https://asciidoctor.org/docs/asciidoc-vs-markdown/[Markdown vs AsciiDoc].
+
+If you want to convert from Markdown to AsciiDoc:
+
+. online pandoc conversor or
+. using kramdoc:
+
+[source,bash]
+----
+gem install kramdown-asciidoc
+kramdoc --format=GFM --output=your-doc.adoc --wrap=ventilate your-doc.md
+----
+
+The nice thing about Antora is that you can have multi-repositories for your documentation, so we have some technical sections in this repository (like Install, Customize and Develop) and other sections that are not for developers or system administrators on the https://github.com/decidim/documentation[other repository].

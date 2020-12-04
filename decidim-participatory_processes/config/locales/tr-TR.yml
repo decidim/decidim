@@ -35,7 +35,6 @@ tr:
       participatory_process_group:
         description: Açıklama
         hero_image: görüntü
-        name: isim
         participatory_process_ids: İlgili süreçler
       participatory_process_step:
         cta_path: Eylem yolunu çağır
@@ -107,8 +106,6 @@ tr:
             title: Başlık
           name: Katılımcı süreç
         participatory_process_group:
-          fields:
-            name: isim
           name: İşlem grubu
         participatory_process_step:
           fields:
@@ -270,9 +267,6 @@ tr:
         title: Katılımcı süreçler
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: '%{group}için 1 süreç'
-          other: "%{count} için işlemler %{group}"
         title: Katılımcı süreç grupları
     participatory_process_steps:
       index:

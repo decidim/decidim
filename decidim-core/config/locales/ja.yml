@@ -402,7 +402,6 @@ ja:
           email_already_exists: 別のアカウントは同じメールアドレスを使用しています
         new:
           complete_profile: プロファイルを完了
-          nickname_help: '%{organization} での別名'
           sign_up: プロフィールを完成してください
           subtitle: ユーザ登録を完了するには、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
@@ -411,7 +410,6 @@ ja:
           already_have_an_account?: 既にアカウントをお持ちですか？
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          nickname_help: '%{organization} での別名'
           password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
           sign_in: ログイン
           sign_up: 新規登録

@@ -37,7 +37,6 @@ el:
       participatory_process_group:
         description: Περιγραφή
         hero_image: Εικόνα
-        name: Όνομα
         participatory_process_ids: Σχετικές διαδικασίες
       participatory_process_step:
         cta_path: Διαδρομή Call To Action
@@ -116,8 +115,6 @@ el:
             title: Τίτλος
           name: Διαδικασία συμμετοχής
         participatory_process_group:
-          fields:
-            name: Όνομα
           name: Ομάδα διαδικασιών
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@ el:
         related_assemblies: Σχετικές συνελεύσεις
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 διαδικασία για την ομάδα %{group}
-          other: "%{count} διαδικασίες για την ομάδα %{group}"
         title: Ομάδες διαδικασιών συμμετοχής
     participatory_process_steps:
       index:
