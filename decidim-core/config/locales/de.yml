@@ -799,8 +799,8 @@ de:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} Sie durch die Leerzeichen, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Baugruppen, Initiativen, Konsultationen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
-          title: Was kann ich in %{organization}?
+          content: "<p>In der %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
+          title: Was kann ich in %{organization} tun?
         description: Lesen Sie mehr über %{organization}
         title: Allgemeine Hilfe
     last_activities:
@@ -1435,7 +1435,7 @@ de:
     shared:
       links:
         back: Zurück
-        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsanweisungen erhalten?
+        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
