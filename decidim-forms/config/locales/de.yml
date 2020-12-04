@@ -3,6 +3,8 @@ de:
     attributes:
       answer:
         body: Antworten
+        choices: Auswahl
+        selected_choices: Ausgewählte Auswahl
       question:
         max_choices: Maximale Anzahl von Auswahlmöglichkeiten
         question_type: Art
@@ -76,6 +78,7 @@ de:
             collapse: Alle Fragen einklappen
             expand: Alle Fragen ausklappen
             preview: Vorschau
+            title: Formular für %{questionnaire_for} bearbeiten
             unpublished_warning: Das Formular ist nicht öffentlich. Sie können die Fragen ändern, dabei werden allerdings die aktuellen Antworten gelöscht.
           matrix_row:
             matrix_row: Zeile

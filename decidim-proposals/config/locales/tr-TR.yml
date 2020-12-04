@@ -272,10 +272,6 @@ tr:
         description: Kullanıcıların tekliflerinde oluşturulan oy sayısı
         object: oy
         title: oy
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Teklif
     participatory_spaces:
       highlighted_proposals:
         see_all: Tümünü gör (%{count})

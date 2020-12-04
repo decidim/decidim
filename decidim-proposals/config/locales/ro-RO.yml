@@ -315,10 +315,6 @@ ro:
         description: Numărul de suporturi pentru propuneri
         object: suportă
         title: Suportă
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propuneri
     participatory_spaces:
       highlighted_proposals:
         see_all: Vezi toate (%{count})
