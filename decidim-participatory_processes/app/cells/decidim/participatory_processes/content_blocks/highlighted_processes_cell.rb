@@ -5,6 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ViewModel
         include Decidim::SanitizeHelper
+        include Decidim::CardHelper
 
         delegate :current_user, to: :controller
 
