@@ -48,7 +48,7 @@ module Decidim
         attribute :remove_hero_image
 
         attribute :sidebar_content_block_enabled, Boolean
-        translatable_attribute :sidebar_content_block_settings, String
+        attribute :sidebar_content_block, Decidim::Admin::ContentBlockForm
 
 
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
@@ -90,6 +90,14 @@ module Decidim
 
         def processes
           @processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)
+        end
+
+        def sidebar_content_block
+          return @sidebar_content_block unless id.blank?
+
+          Decidim::Admin::ContentBlockForm.
+            from_model(Decidim::ContentBlock.for_scope(:topics_sidebar, organization: organization).where(manifest_name: :html, scoped_resource_id: self.id).
+            first_or_initialize(@sidebar_content_block))
         end
 
         private

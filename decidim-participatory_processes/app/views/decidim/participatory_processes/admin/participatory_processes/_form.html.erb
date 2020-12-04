@@ -115,8 +115,10 @@
     </div>
 
     <div class="row column">
-      <%= form.fields_for :sidebar_content_block_settings, form.object.sidebar_content_block_settings do |settings_fields| %>
-        <%= settings_fields.translated :text_area, :html_content %>
+      <%= form.fields_for :sidebar_content_block, form.object.sidebar_content_block do |settings_fields| %>
+        <% settings_fields.fields_for :settings, settings_fields.object.settings do |o|%>
+          <%= o.translated :editor, :html_content %>
+        <% end %>
       <% end %>
     </div>
   </div>
