@@ -331,6 +331,10 @@ de:
           participatory_scope: Was wird entschieden
           participatory_structure: Wie wird es entschieden
           target: Wer nimmt teil
+        participatory_processes:
+          name: Beteiligungsprozesse
+        stats:
+          name: Statistiken
         title:
           meta_scope: Umfang
           name: Titel, Beschreibung und Hashtag
