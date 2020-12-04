@@ -747,7 +747,7 @@ cs:
         destroy:
           success: Stránka byla úspěšně zničena
         edit:
-          changed_notably_help: Pokud je zaškrtnuto, uživatelé budou upozorněni, aby přijali nové smluvní podmínky.
+          changed_notably_help: Pokud je zaškrtnuto, účastníci budou upozorněni, aby přijali nové smluvní podmínky.
           title: Upravit stránku
           update: Aktualizace
         form:
@@ -815,7 +815,7 @@ cs:
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.
-          success: Účastník pozván úspěšně.
+          success: Účastník úspěšně pozván.
         destroy:
           error: Při pokusu o odstranění tohoto administrátora došlo k chybě.
           success: Účastník již není administrátorem.
@@ -887,4 +887,4 @@ cs:
         settings:
           title: Nastavení
         users:
-          title: Uživatelé
+          title: Účastníci
