@@ -774,6 +774,7 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         metrics: Metriky
+        panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti

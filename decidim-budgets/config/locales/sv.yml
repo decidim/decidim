@@ -246,8 +246,6 @@ sv:
             vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
             vote_rule_selected_projects_enabled: 'Aktivera regel: Valda projekt med min och max antal projekt att välja'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
-            vote_selected_projects_maximum: Minsta antal projekt att välja
-            vote_selected_projects_minimum: Högsta antal projekt att välja
             vote_threshold_percent: Tröskel för röster i procent
             workflow: Arbetsflöde
             workflow_choices:

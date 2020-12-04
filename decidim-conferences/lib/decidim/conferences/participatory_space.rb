@@ -55,7 +55,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
       conference = Decidim::Conference.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         slogan: Decidim::Faker::Localized.sentence(word_count: 2),
-        slug: Faker::Internet.unique.slug(words: nil, glue: "-"),
+        slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
         hashtag: "##{Faker::Lorem.word}",
         short_description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.sentence(word_count: 3)

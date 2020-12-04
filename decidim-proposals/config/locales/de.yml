@@ -27,6 +27,9 @@ de:
         user_group_id: Vorschlag erstellen als
       proposal_answer:
         answer: Antworten
+        cost: Kosten
+        cost_report: Kostenbericht
+        execution_period: Ausführungszeitraum
       proposals_copy:
         copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
@@ -80,6 +83,27 @@ de:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorie
+          is_emendation_true:
+            label: Art
+            values:
+              'false': Vorschläge
+              'true': Änderungen
+          scope_id_eq:
+            label: Umfang
+          state_eq:
+            values:
+              accepted: Angenommen
+              evaluating: In Bearbeitung
+              published: Veröffentlicht
+              rejected: Abgelehnt
+              validating: Technische Validierung
+              withdrawn: Zurückgezogen
+          state_null:
+            label: Bundesländer
+            values:
+              'true': Unbeantwortet
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
@@ -358,6 +382,7 @@ de:
           new_import:
             accepted_mime_types:
               md: Markdown
+              odt: ODT
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
@@ -473,6 +498,7 @@ de:
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
             select_component: Bitte wählen Sie eine Komponente aus
             select_states: Überprüfen Sie die Status der zu importierenden Vorschläge
+            title: Vorschläge importieren
         proposals_merges:
           create:
             invalid: Beim Zusammenführen der ausgewählten Vorschläge ist ein Fehler aufgetreten.
@@ -698,8 +724,13 @@ de:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
         edit:
+          add_documents: Dokumente
+          add_images: Datei
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
+          delete_document: Dokument löschen
+          delete_image: Bild löschen
+          gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
           select_a_category: Bitte wählen sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten

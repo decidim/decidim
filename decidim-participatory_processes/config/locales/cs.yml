@@ -100,6 +100,9 @@ cs:
         unpublish: Zrušit publikování
       menu:
         participatory_process_groups: Skupiny procesů
+        participatory_process_groups_submenu:
+          info: Info
+          landing_page: Úvodní stránka
         participatory_processes: Procesy
         participatory_processes_submenu:
           attachment_collections: Složky
@@ -151,6 +154,13 @@ cs:
           copy: kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplicitní participační proces
+      participatory_process_group_landing_page:
+        edit:
+          active_content_blocks: Aktivní bloky obsahu
+          inactive_content_blocks: Neaktivní bloky obsahu
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizovat
       participatory_process_groups:
         destroy:
           error: Došlo k chybě při zrušení skupiny účastnických procesů.
