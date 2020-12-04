@@ -1,11 +1,74 @@
-<div 
-  class="key-ceremony"
+<%= stylesheet_link_tag "decidim/elections/trustee_zone", media: "all" %>
+
+<div class="key-ceremony"
   data-election-id="<%= election.id %>"
   data-trustee-id="<%= trustee.id %>"
   data-trustee-public-key="<%= trustee.public_key %>"
-  data-trustee-unique-id="<%= trustee.user.name.parameterize %>">
-  <button class="button start">Start</button>
+  data-trustee-unique-id="<%= trustee.user.name.parameterize %>"
+  data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
+  data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
+  data-authority-name="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>">
+  <div class="election-key-generation">
+    <h2><%= t(".generate_election_keys.title", election: translated_attribute(election.title)) %></h2>
+    <p><%= t(".generate_election_keys.description") %></p>
+    <div class="callout alert">
+      <p><%= t(".generate_election_keys.process_warning") %></p>
+    </div>
+
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t(".generate_election_keys.list.task") %></th>
+            <th><%= t(".generate_election_keys.list.status") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= t(".generate_election_keys.keys.generation") %></td>
+            <td id="key_generation">
+              <span class="pending"><%= t(".generate_election_keys.status.pending") %></span>
+              <span class="processing hide"><%= t(".generate_election_keys.status.processing") %></span>
+              <span class="completed hide"><%= t(".generate_election_keys.status.completed") %></span>
+            </td>
+          </tr>
+          <tr>
+            <td><%= t(".generate_election_keys.keys.publishing") %></td>
+            <td id="key_publishing">
+              <span class="pending"><%= t(".generate_election_keys.status.pending") %></span>
+              <span class="processing hide"><%= t(".generate_election_keys.status.processing") %></span>
+              <span class="completed hide"><%= t(".generate_election_keys.status.completed") %></span>
+            </td>
+          </tr>
+          <tr>
+            <td><%= t(".generate_election_keys.keys.joint_key") %></td>
+            <td id="joint_key">
+              <span class="pending"><%= t(".generate_election_keys.status.pending") %></span>
+              <span class="processing hide"><%= t(".generate_election_keys.status.processing") %></span>
+              <span class="completed hide"><%= t(".generate_election_keys.status.completed") %></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button class="button start">
+      <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".generate_election_keys.start_icon") %>
+      <span><%= t(".generate_election_keys.start") %></span>
+    </button>
+  </div>
+
+  <div class="backup-election-keys hide">
+    <h2><%= t(".backup_election_keys.title", election: translated_attribute(election.title)) %></h2>
+    <div class="callout alert">
+      <p><%= t(".backup_election_keys.process_warning") %></p>
+    </div>
+    <button class="button download-election-keys">
+      <%= icon "data-transfer-download", class: "icon", role: "img", aria_label: t(".backup_election_keys.download_icon") %>
+      <span><%= t(".backup_election_keys.download_election_keys") %></span>
+    </button>
+  </div>
 </div>
+
 <script language="JavaScript" type="text/javascript"
         src="https://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js">
 </script>
