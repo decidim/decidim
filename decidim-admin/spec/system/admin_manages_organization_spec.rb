@@ -80,6 +80,29 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
         end
       end
+
+      context "when the admin terms of use content has an image with an alt tag" do
+        let(:another_organization) { create(:organization) }
+        let(:image) { create(:attachment, attached_to: another_organization) }
+        let(:organization) do
+          create(
+            :organization,
+            admin_terms_of_use_body: Decidim::Faker::Localized.localized { terms_content }
+          )
+        end
+        let(:terms_content) do
+          <<~HTML
+            <p>Paragraph</p>
+            <p><img src="#{image.url}" alt="foo bar"></p>
+          HTML
+        end
+
+        it "renders an image and its attributes inside the editor" do
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+        end
+      end
     end
   end
 
