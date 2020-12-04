@@ -14,6 +14,7 @@ module Decidim
                     :participatory_processes,
                     :stats,
                     :metrics,
+                    :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
                     :linked_assemblies
@@ -94,6 +95,10 @@ module Decidim
 
       def metrics
         @metrics ||= ParticipatoryProcessMetricChartsPresenter.new(participatory_process: current_participatory_space)
+      end
+
+      def participatory_process_group
+        @participatory_process_group ||= current_participatory_space.participatory_process_group
       end
 
       def default_date_filter

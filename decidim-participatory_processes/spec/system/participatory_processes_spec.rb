@@ -275,6 +275,16 @@ describe "Participatory Processes", type: :system do
           let(:collection_for) { participatory_process }
         end
 
+        context "and it belongs to a group" do
+          let!(:group) { create :participatory_process_group, participatory_processes: [participatory_process], organization: organization }
+
+          it "has a link to the group the process belongs to" do
+            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+
+            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group))
+          end
+        end
+
         context "when it has some linked processes" do
           let(:published_process) { create :participatory_process, :published, organization: organization }
           let(:unpublished_process) { create :participatory_process, :unpublished, organization: organization }
