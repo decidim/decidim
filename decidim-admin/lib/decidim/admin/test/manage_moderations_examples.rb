@@ -16,10 +16,11 @@ shared_examples "manage moderations" do
       moderation
     end
   end
+  let(:moderations_link_text) { "Moderations" }
 
   before do
     visit participatory_space_path
-    click_link "Moderations"
+    click_link moderations_link_text
   end
 
   context "when listing moderations" do
@@ -94,7 +95,9 @@ shared_examples "manage moderations" do
 
   context "when listing hidden resources" do
     it "user can review them" do
-      click_link "Hidden"
+      within ".card-title" do
+        click_link "Hidden"
+      end
 
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do

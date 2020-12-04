@@ -29,6 +29,8 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
+        allow! if permission_action.subject == :global_moderation
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_metrics_action?
