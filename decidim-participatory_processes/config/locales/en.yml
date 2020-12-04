@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -375,6 +376,7 @@ en:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
+            content_blocks: "Content blocks"
             duration: Duration
             filters: Filters
             images: Images

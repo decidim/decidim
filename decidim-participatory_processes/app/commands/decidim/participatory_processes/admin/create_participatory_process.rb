@@ -72,6 +72,10 @@ module Decidim
           transaction do
             process.save!
 
+            process.sidebar_content_block.published_at = (Time.zone.now if form.sidebar_content_block_enabled)
+            process.sidebar_content_block.settings = form.sidebar_content_block.settings
+            process.sidebar_content_block.save!
+
             log_process_creation(process)
 
             process.steps.create!(

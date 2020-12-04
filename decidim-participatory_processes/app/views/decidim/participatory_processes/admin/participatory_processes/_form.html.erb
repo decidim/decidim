@@ -106,6 +106,24 @@
   </div>
 
   <div class="card-divider">
+    <h2 class="card-title"><%= t(".content_blocks") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :sidebar_content_block_enabled %>
+    </div>
+
+    <div class="row column">
+      <%= form.fields_for :sidebar_content_block, form.object.sidebar_content_block do |settings_fields| %>
+        <% settings_fields.fields_for :settings, settings_fields.object.settings do |o|%>
+          <%= o.translated :editor, :html_content %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-divider">
     <h2 class="card-title"><%= t(".filters") %></h2>
   </div>
 
