@@ -406,7 +406,6 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
-          nickname_help: O seu pseudónimo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -415,7 +414,6 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          nickname_help: O seu pseudónimo em %{organization}
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se

@@ -212,10 +212,6 @@ sv:
         description: Antal genererade resultat
         object: resultat
         title: Resultat
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Resultat
     participatory_spaces:
       highlighted_results:
         see_all: Se alla resultat (%{count})

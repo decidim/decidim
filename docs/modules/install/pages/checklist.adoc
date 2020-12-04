@@ -1,0 +1,32 @@
+= Checklist
+
+As a technopolitical project, Decidim needs several things to work. This is a non comprehensive list that serves as a general recommendation of what things you need to have it working with the best practices:
+
+== Technological
+
+. Choose a *domain or subdomain* for your application. Some typical names involve "Participation" or "Decision" conjugations.
+. Choose which *languages* do you want for your application. In case that your language isn't supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
+. Customize the xref:customize:styles.adoc[*look and feel*] (colors, pictures, fonts, etc).
+. Configure *SSL*. We recommend using at least https://letsencrypt.org/[Let's Encrypt] for a minimum security. You should also check that there's an enforced redirection from HTTP to HTTPS on your web server.
+. Configure your *SMTP* server.
+. Setup the *geolocation* service. We recommend using https://developer.here.com/[Here Maps], but you can use other kind of tiling server compatible with https://www.openstreetmap.org/[Open Street Maps].
+. Setup *backup* on your server. The most important things to save are the `public/uploads` and the database.
+. Decide and implement which kind of *xref:customize:authorizations.adoc[Authorization]* you're going to use.
+. Comply with our License (Affero GPL 3) and *publish your code* to http://github.com[GitHub] or wherever you want.
+. Review your *decidim initializer* on your application (config/initializers/decidim.rb).
+. Configure your xref:services:activejob.adoc[*ActiveJob*] background queue.
+. If you want, configure your xref:services:social_providers.adoc[*social providers*] to enable login using external applications.
+. Check that you don't have any *default users, emails and passwords*, neither on the admin or on the system panel.
+. Configure xref:install:index.adoc#scheduled_tasks[scheduled tasks].
+. You should have a *staging* / preproduction environment where to test changes before deploying to production. If this environment has a copy of production database, you should disable the SMTP server and for privacy issues you should change the usernames / names / emails.
+. You should have a *exception tracking* service or gem, like https://errbit.com/[Errbit], https://github.com/smartinez87/exception_notification[Exception Notification], https://airbrake.io/[Airbrake] or https://sentry.io[Sentry].
+
+== Contents
+
+. Ideally you'll have a *Team* formed with experts on IT, Communication, Participation, Design and Law.
+. Texts for at least, *terms of use, privacy policy and frequently asked questions*. To show the "Terms and conditions" body text in the "Sign Up Form", it is a requirement that the slug of this page to be equal `terms-and-conditions`.
+. Comply with your current *legal requirements*, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
+. Fill the *Participatory Processes Configuration Form* to prepare your Participatory Process for Decidim.
+. Read the *https://decidim.org/docs/[Administration manual]*.
+. Participate on *http://meta.decidim.org[MetaDecidim]*.
+. Read the Decidim *https://decidim.org/contract/[Social Contract]*.

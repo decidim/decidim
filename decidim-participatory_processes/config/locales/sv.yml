@@ -37,7 +37,6 @@ sv:
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
-        name: Namn
         participatory_process_ids: Relaterade dialoger
       participatory_process_step:
         cta_path: Uppmaningens sökväg
@@ -116,8 +115,6 @@ sv:
             title: Titel
           name: Dialog
         participatory_process_group:
-          fields:
-            name: Namn
           name: Dialoggrupp
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@ sv:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: En dialog för %{group}
-          other: "%{count} dialoger för %{group}"
         title: Dialoggrupper
     participatory_process_steps:
       index:

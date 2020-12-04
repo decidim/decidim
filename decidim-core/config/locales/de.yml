@@ -367,6 +367,13 @@ de:
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Bild, Text und Call to Action-Schaltfläche
+      cta_settings_form:
+        background_image: Hintergrundbild
+        button_text: Call to Action-Text
+        button_url: URL des Call to Action
+        description: Beschreibung
       footer_sub_hero:
         name: Fußzeile sub hero Banner
       hero:
@@ -376,6 +383,11 @@ de:
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Elemente sortieren nach:'
+          random: Zufällig
+          recent: Neueste
       how_to_participate:
         name: Wie kann ich mich beteiligen
       html:
@@ -410,7 +422,7 @@ de:
           email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
         new:
           complete_profile: Profil vervollständingen
-          nickname_help: Ihr Pseudonym in %{organization}
+          nickname_help: Ihr Alias in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
@@ -419,7 +431,7 @@ de:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
-          nickname_help: Ihr Pseudonym in %{organization}
+          nickname_help: Ihr Alias in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu häufig (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
           sign_in: Anmelden
           sign_up: Registrieren
