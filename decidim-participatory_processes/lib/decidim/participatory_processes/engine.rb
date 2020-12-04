@@ -147,15 +147,33 @@ module Decidim
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
           end
         end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
+          content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+          content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_events.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/stats"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.stats.name"
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:participatory_process_group_homepage, :participatory_processes) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/highlighted_participatory_processes"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.participatory_processes.name"
+          content_block.default!
+        end
       end
 
       initializer "decidim_participatory_processes.stats" do
-        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_process)
+        Decidim.stats.register :followers_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsFollowersCount.for(participatory_space)
         end
 
-        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_process|
-          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_process)
+        Decidim.stats.register :participants_count, priority: StatsRegistry::HIGH_PRIORITY do |participatory_space|
+          Decidim::ParticipatoryProcesses::StatsParticipantsCount.for(participatory_space)
         end
       end
 
