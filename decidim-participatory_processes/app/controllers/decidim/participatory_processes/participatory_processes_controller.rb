@@ -10,8 +10,7 @@ module Decidim
       include FilterResource
 
       helper_method :collection,
-                    :promoted_participatory_processes,
-                    :promoted_participatory_process_groups,
+                    :promoted_collection,
                     :participatory_processes,
                     :stats,
                     :metrics,
@@ -75,6 +74,10 @@ module Decidim
 
       def promoted_participatory_process_groups
         @promoted_participatory_process_groups ||= PromotedParticipatoryProcessGroups.new
+      end
+
+      def promoted_collection
+        @promoted_collection ||= promoted_participatory_processes.query + promoted_participatory_process_groups.query
       end
 
       def collection

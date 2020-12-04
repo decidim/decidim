@@ -227,31 +227,21 @@ describe "Participatory Processes", type: :system do
         end
       end
 
-      context "when there are no promoted participatory process groups" do
-        before do
-          visit decidim_participatory_processes.participatory_processes_path
-        end
-
-        it "doesn't show a highlighted groups section" do
-          expect(page).to have_no_content("HIGHLIGHTED PROCESS GROUPS")
-        end
-      end
-
       context "when there are promoted participatory process groups" do
         let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
-        let(:promoted_group_titles) { page.all("#highlighted-process-groups .card__title").map(&:text) }
+        let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
         before do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "shows a highligted groups section" do
-          expect(page).to have_content("HIGHLIGHTED PROCESS GROUPS")
+        it "shows a highligted processes section" do
+          expect(page).to have_content("HIGHLIGHTED PROCESSES")
         end
 
         it "lists only promoted groups" do
-          expect(promoted_group_titles).to include(translated(promoted_group.title, locale: :en))
-          expect(promoted_group_titles).not_to include(translated(group.title, locale: :en))
+          expect(promoted_items_titles).to include(translated(promoted_group.title, locale: :en))
+          expect(promoted_items_titles).not_to include(translated(group.title, locale: :en))
         end
 
         context "and promoted group has defined a CTA content block" do
@@ -276,7 +266,7 @@ describe "Participatory Processes", type: :system do
           end
 
           it "shows a CTA button inside group card" do
-            within("#highlighted-process-groups") do
+            within("#highlighted-processes") do
               expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
             end
           end

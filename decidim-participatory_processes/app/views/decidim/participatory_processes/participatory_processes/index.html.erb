@@ -9,17 +9,12 @@ edit_link(
 %>
 
 <%= participatory_space_wrapper do %>
-  <% if promoted_participatory_process_groups.any? %>
-    <section id="highlighted-process-groups" class="row section">
-      <h1 class="section-heading"><%= t("participatory_processes.index.promoted_process_groups", scope: "layouts.decidim") %></h1>
-      <%= render partial: "promoted_process_group", collection: promoted_participatory_process_groups, as: :promoted_process_group %>
-    </section>
-  <% end %>
-
-  <% if promoted_participatory_processes.any? %>
+  <% if promoted_collection.any? %>
     <section id="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
-      <%= render partial: "promoted_process", collection: promoted_participatory_processes, as: :promoted_process %>
+      <% promoted_collection.each do |promoted_item| %>
+        <%= render_highlighted_partial_for promoted_item %>
+      <% end %>
     </section>
   <% end %>
 
