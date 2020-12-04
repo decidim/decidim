@@ -72,11 +72,7 @@ module Decidim
           transaction do
             process.save!
 
-            if form.sidebar_content_block_enabled
-              process.sidebar_content_block.published_at = Time.zone.now
-            else
-              process.sidebar_content_block.published_at = nil
-            end
+            process.sidebar_content_block.published_at = (Time.zone.now if form.sidebar_content_block_enabled)
             process.sidebar_content_block.settings = form.sidebar_content_block.settings
             process.sidebar_content_block.save!
 

@@ -50,7 +50,6 @@ module Decidim
         attribute :sidebar_content_block_enabled, Boolean
         attribute :sidebar_content_block, Decidim::Admin::ContentBlockForm
 
-
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
@@ -61,7 +60,6 @@ module Decidim
 
         validates :banner_image, passthru: { to: Decidim::ParticipatoryProcess }
         validates :hero_image, passthru: { to: Decidim::ParticipatoryProcess }
-
 
         alias organization current_organization
 
@@ -93,10 +91,10 @@ module Decidim
         end
 
         def sidebar_content_block
-          return @sidebar_content_block unless id.blank?
+          return @sidebar_content_block if id.present?
 
-          Decidim::Admin::ContentBlockForm.
-            from_model(Decidim::ContentBlock.for_scope(:topics_sidebar, organization: organization).where(manifest_name: :html, scoped_resource_id: self.id).
+          Decidim::Admin::ContentBlockForm
+            .from_model(Decidim::ContentBlock.for_scope(:topics_sidebar, organization: organization).where(manifest_name: :html, scoped_resource_id: id).
             first_or_initialize(@sidebar_content_block))
         end
 
