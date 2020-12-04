@@ -364,6 +364,7 @@ en:
           form:
             metadata: Metadata
             title: General Information
+            visibility: Visibility
         participatory_process_imports:
           form:
             document_legend: Add a document
