@@ -128,7 +128,7 @@ describe "Participatory Processes", type: :system do
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
-          expect(page).to have_content(translated(group.name, locale: :en))
+          expect(page).to have_content(translated(group.title, locale: :en))
           expect(page).to have_selector(".card", count: 3)
 
           expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
@@ -316,6 +316,8 @@ describe "Participatory Processes", type: :system do
               expect(page).to have_css("h3.section-heading", text: "METRICS")
 
               within "#metrics" do
+                expect(page).to have_css("input#metrics-space_type[value='Decidim::ParticipatoryProcess']", visible: :hidden)
+                expect(page).to have_css("input#metrics-space_id[value='#{participatory_process.id}']", visible: :hidden)
                 Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
                 end

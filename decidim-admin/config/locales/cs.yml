@@ -44,7 +44,7 @@ cs:
         from: Z e-mailové adresy
         github_handler: GitHub handler
         header_snippets: Úryvky záhlaví
-        highlight_alternative_color: Zvýraznění, alternativa
+        highlight_alternative_color: Jiné zvýraznění
         highlight_color: Zvýraznit
         highlighted_content_banner_action_subtitle: Podnadpis Tlačítka Akce
         highlighted_content_banner_action_title: Název tlačítka akce
@@ -145,7 +145,7 @@ cs:
           error: Při přijímání správcovských podmínek použití došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
-          accept: Souhlasím s těmito podmínkami administrátora
+          accept: Souhlasím s následujícími podmínkami
           are_you_sure: Opravdu chcete odmítnout administrátorské podmínky?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
@@ -299,7 +299,7 @@ cs:
           reportable_type_string_eq:
             label: Typ
         officialized_at_null:
-          label: Stát
+          label: Stav
           values:
             'false': Úředně
             'true': Není oficializováno
@@ -471,7 +471,7 @@ cs:
             document_number: Číslo dokumentu
             name: název
             phone: Telefon
-            state: Stát
+            state: Stav
             users_count: Počet účastníků
       moderated_users:
         index:
@@ -631,7 +631,7 @@ cs:
           cta_button_path_help: 'Můžete přepisovat, kde se na domovské stránce odkazuje tlačítko Volat na akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem. Příklad: %{url}'
           cta_button_text_help: Přepínání textu tlačítka volání na akci můžete na domovské stránce přepisovat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastavena, bude použita výchozí hodnota. Tlačítko Volat na akci se na domovské stránce zobrazí mezi vítaným textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
-          homepage_highlighted_content_banner_title: Vysoce kvalitní banner obsahu
+          homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
           images:
             layout_appearance_title: Upravit vzhled vzhledu
             preview: Náhled
@@ -753,7 +753,7 @@ cs:
           none: Žádný
           slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
         index:
-          last_notable_change: Poslední pozoruhodná změna
+          last_notable_change: Poslední významná změna
         new:
           create: Vytvořit stránku
           title: Nová stránka
@@ -774,6 +774,7 @@ cs:
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         metrics: Metriky
+        panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti

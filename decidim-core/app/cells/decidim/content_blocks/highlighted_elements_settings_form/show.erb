@@ -1,0 +1,3 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.select :order, order_options, prompt: "", label: label %>
+<% end %>
