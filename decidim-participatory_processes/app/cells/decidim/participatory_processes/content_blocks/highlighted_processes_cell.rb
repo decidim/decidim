@@ -4,8 +4,12 @@ module Decidim
   module ParticipatoryProcesses
     module ContentBlocks
       class HighlightedProcessesCell < Decidim::ViewModel
+        include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::CardHelper
+        include Cell::ViewModel::Partial
+        include ParticipatoryProcessHelper
+        include Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
 
         delegate :current_user, to: :controller
 
