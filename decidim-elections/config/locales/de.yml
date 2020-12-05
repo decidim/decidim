@@ -187,6 +187,11 @@ de:
             disable: Deaktivieren
           create:
             exists: Ein Wahlhelfer existiert für diesen partizipativen Raum
+            invalid: Es ist ein Problem beim erstellen des Wahlhelfers aufgetreten
+            success: Wahlhelfer erfolgreich erstellt
+          delete:
+            invalid: Es ist ein Problem beim entfernen des Wahlhelfers aufgetreten
+            success: Wahlhelfer erfolgreich entfernt
           form:
             select_user: Nutzer wählen
           index:
@@ -357,6 +362,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
           email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+        trustees:
+          new_election:
+            email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
+            notification_title: Sie sind Wahlhelfer für die <a href="%{resource_path}">%{resource_title}</a> Wahl.
     pages:
       home:
         statistics:
