@@ -106,6 +106,7 @@ de:
             title: Wahl bearbeiten
             update: Wahl aktualisieren
           index:
+            no_bulletin_board: Es ist kein <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board Server</a> konfiguriert, das benötigt wird, um dieses Modul zu verwenden. Diese Aufgabe sollte vom Systemadministrator erledigt werden.
             title: Wahlen
           new:
             create: Wahl erstellen
@@ -167,17 +168,32 @@ de:
             published: Die Wahl ist <strong>nicht veröffentlicht</strong>
             time_before: Die Startzeit ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl
             trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
+            trustees_quorum: Die Anzahl der Vertrauensperson <strong>entspricht nicht der erforderlichen Vertrauenspersonquorum</strong>
           requirements:
+            max_selections: Alle Fragen haben einen korrekten Wert für <strong>maximum of answers</strong>
+            minimum_answers: Jede Frage hat <strong>mindestens 2 Antworten</strong>
+            minimum_questions: Jede Frage hat <strong>mindestens eine Antwort</strong>
             published: Die Wahl ist <strong>veröffentlicht</strong>
+            time_before: Die Einrichtung ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl fertig gestellt worden
+            trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
           show:
             setup: Wahl einrichten
+            title: Einrichtung der Wahl
           update:
             setup: Wahl einrichten
+            title: Einrichtung der Wahl
         trustees_participatory_spaces:
           actions:
             disable: Deaktivieren
+          create:
+            exists: Ein Wahlhelfer existiert für diesen partizipativen Raum
           form:
             select_user: Nutzer wählen
+          index:
+            title: Wahlhelfer
+          new:
+            create: Wahlhelfer erstellen
+            title: Neuer Wahlhelfer
       admin_log:
         election:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
@@ -190,16 +206,36 @@ de:
         end_date: Endet
         footer:
           view: Ansicht
+          vote: Abstimmung
         label:
           date: Daten
         questions: Fragen %{count}
         start_date: Startet
+        unspecified: Nicht angegeben
       elections:
         count:
           elections_count:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
+        filters:
+          active: Aktiv
+          all: Alle
+          finished: Abgeschlossen
+          search: Suche
+          state: Status
+          upcoming: Anstehend
+        filters_small_view:
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Aufklappen
+        preview:
+          available_answers: Verfügbare Antworten
+          description: Dies sind die Fragen, die Sie im Abstimmungsverfahren finden werden
+          title: Wahlfragen
         results:
+          description: Dies sind die Abstimmungsergebnisse für jede Frage
+          selected: Ausgewählt
+          title: Wahlergebnisse
           votes:
             one: "%{count} Stimme"
             other: "%{count} Stimmen"
@@ -244,6 +280,8 @@ de:
         older: Älter
         recent: Neueste
       trustee_zone:
+        menu:
+          trustee_zone: Wahlhelfer Zone
         trustees:
           show:
             elections:
