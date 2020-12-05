@@ -132,7 +132,7 @@ de:
           question:
             name: Frage
           trustee:
-            name: Vertrauensperson
+            name: Wahlhelfer
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
