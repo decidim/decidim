@@ -366,6 +366,10 @@ de:
           new_election:
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
             notification_title: Sie sind Wahlhelfer für die <a href="%{resource_path}">%{resource_title}</a> Wahl.
+          new_trustee:
+            email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
+            email_subject: Sie sind Wahlhelfer für %{resource_name}.
+            notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
       home:
         statistics:
