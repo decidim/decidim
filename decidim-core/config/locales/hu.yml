@@ -393,7 +393,6 @@ hu:
           email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
-          nickname_help: 'Egyedi azonosítód ehhez: %{organization}'
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -402,7 +401,6 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
-          nickname_help: 'Egyedi azonosítód ehhez: %{organization}'
           password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció

@@ -123,6 +123,11 @@ cs:
         value_types:
           parent_presenter:
             not_found: 'Rodič nebyl nalezen v databázi (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Data
+          results: Výsledky
+          unspecified: Nespecifikováno
       import_mailer:
         import:
           errors: Chyby
@@ -150,6 +155,9 @@ cs:
           fields:
             description: Popis
             entry_date: Datum
+      result_m:
+        executed: Provedeno
+        view: Zobrazit
       results:
         count:
           results_count:
@@ -216,10 +224,6 @@ cs:
         description: Počet vygenerovaných výsledků
         object: výsledky
         title: Výsledky
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: Výsledky
     participatory_spaces:
       highlighted_results:
         see_all: Zobrazit všechny výsledky (%{count})

@@ -1,0 +1,17 @@
+= Users registration mode
+
+Decidim allows organizations to choose one of the three modes related to the registration and login of users. This can be configured by the system user, in the organization manager zone.
+
+== Allow users to register and login
+
+This is the default mode. It enables the registration form and allow anyone to create a new account and log in.
+
+== Don't allow users to register, but allow existing users to login
+
+This mode disables the registration form, but allows existing users to log in. This mode could be useful for organizations with a closed census that do not want to offer other people to register.
+
+NOTE: if you have configured xref:services:social_providers.adoc[social providers], users will still be able to sign in with external accounts even when this mode is configured.
+
+== Access only can be done with external accounts
+
+This mode disables the registration form and the login form. With this mode, users only can access through xref:services:social_providers.adoc[social providers], so it is recommended to configure at least one of them. This can be useful when an organization needs to allow participation only to users of another application of the organization itself.

@@ -60,8 +60,8 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
           ca: "Descripció més llarga"
         )
 
-        group_name = participatory_process_groups.first.name["en"]
-        select group_name, from: :participatory_process_participatory_process_group_id
+        group_title = participatory_process_groups.first.title["en"]
+        select group_title, from: :participatory_process_participatory_process_group_id
 
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_hashtag, with: "#hashtag"
