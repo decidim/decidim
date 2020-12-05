@@ -93,6 +93,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
+            label: Zustand
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -789,6 +790,7 @@ de:
             other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Vorschlag veröffentlichen
+          update_position: Position aktualisieren
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
