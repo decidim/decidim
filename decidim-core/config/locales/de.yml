@@ -453,6 +453,7 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
+            uncheck: Deaktivierung beibehalten
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -902,6 +903,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
+          correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
         index:
