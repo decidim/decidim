@@ -204,6 +204,9 @@ de:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Aussicht
+          votes:
+            one: Abstimmung
+            other: Abstimmungen
           you_voted: Du hast für dieses gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
