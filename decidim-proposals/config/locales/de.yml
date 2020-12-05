@@ -90,6 +90,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
+            label: Zustand
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
