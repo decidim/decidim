@@ -52,3 +52,9 @@ de:
           index:
             confirm_delete: Möchten Sie diese Vorlage wirklich löschen?
             title: Fragebogenvorlagen
+          preview:
+            current_step: Schritt %{step}
+            of_total_steps: von %{total_steps}
+            tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+      template_types:
+        questionnaires: Fragebögen
