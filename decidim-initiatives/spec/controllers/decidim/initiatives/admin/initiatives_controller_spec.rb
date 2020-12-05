@@ -13,7 +13,6 @@ module Decidim
         let(:organization) { create(:organization) }
         let!(:initiative) { create(:initiative, organization: organization) }
         let!(:created_initiative) { create(:initiative, :created, organization: organization) }
-        let!(:discarded_initiative) { create(:initiative, :discarded, organization: organization) }
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -319,7 +318,7 @@ module Decidim
         end
 
         context "when GET send_to_technical_validation" do
-          context "and Initiative not in created state (published)" do
+          context "and Initiative not in created or discarded state (published)" do
             before do
               sign_in initiative.author, scope: :user
             end
@@ -332,6 +331,8 @@ module Decidim
           end
 
           context "and Initiative in discarded state" do
+            let!(:discarded_initiative) { create(:initiative, :discarded, organization: organization) }
+
             before do
               sign_in discarded_initiative.author, scope: :user
             end
