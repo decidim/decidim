@@ -129,6 +129,7 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -622,6 +623,7 @@ de:
       reports:
         resource_hidden:
           email_intro: Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor von dem entfernten Inhalt sind.
           email_subject: Ihr %{resource_type} wurde entfernt
           notification_title: |-
             Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
