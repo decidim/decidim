@@ -95,8 +95,8 @@ de:
           update: Aktualisieren
         index:
           not_published: Nicht veröffentlicht
-          private: Privatgelände
-          public: Öffentlichkeit
+          private: Privat
+          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
@@ -201,7 +201,7 @@ de:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privatgelände
+            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -267,7 +267,7 @@ de:
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
-            select_an_assembly_type: Wählen Sie einen Montagetyp
+            select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
@@ -325,7 +325,7 @@ de:
       created_by:
         city_council: Stadtrat
         others: Andere
-        public: Öffentlichkeit
+        public: Öffentlich
       filter:
         all: Alle Typen
         commission: Kommission
