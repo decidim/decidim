@@ -130,6 +130,8 @@ de:
             name: Wahl
           question:
             name: Frage
+          trustee:
+            name: Vertrauensperson
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
