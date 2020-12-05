@@ -73,8 +73,8 @@ de:
   activerecord:
     models:
       decidim/assembly:
-        one: Versammlung
-        other: Versammlungen
+        one: Gre­mi­um
+        other: Gremien
       decidim/assembly_member:
         one: Gremienmitglieder
         other: Mitglieder der Versammlung
@@ -85,7 +85,7 @@ de:
     admin:
       actions:
         import_assembly: Importieren
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
         new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
@@ -100,7 +100,7 @@ de:
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neue Montage
+          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
@@ -321,7 +321,7 @@ de:
         working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
-          name: Hervorgehobene Baugruppen
+          name: Hervorgehobene Gremien
       created_by:
         city_council: Stadtrat
         others: Andere
@@ -332,27 +332,27 @@ de:
         consultative_advisory: Beratung / Beratung
         executive: Executive
         government: Regierung
-        help: 'Show:'
+        help: 'Anzeigen:'
         others: Andere
         participatory: Partizipativ
         working_group: Arbeitsgruppe
       index:
-        title: Baugruppen
+        title: Gremien
       last_activity:
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive Baugruppen
+            active_assemblies: Aktive Gremien
             assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Baugruppen anzeigen
+            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
       show:
         area: Bereich
         assembly_type: Montageart
-        children: Baugruppen
+        children: Gremien
         closing_date: Einsendeschluss
         composition: Zusammensetzung
         created_by: Erstellt von
@@ -379,7 +379,7 @@ de:
         target: Wer nimmt teil?
       statistics:
         answers_count: Antworten
-        assemblies_count: Baugruppen
+        assemblies_count: Gremien
         comments_count: Bemerkungen
         debates_count: Debatten
         endorsements_count: Empfehlungen
@@ -465,7 +465,7 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Gremium"
+            one: "%{count} Gremien"
             other: "%{count} Gremien"
         promoted_assembly:
           more_info: Mehr Informationen
