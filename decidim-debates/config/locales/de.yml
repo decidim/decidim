@@ -199,6 +199,13 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Debatten jetzt in %{participatory_space_title}verfügbar
           notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+        debate_closed:
+          affected_user:
+            email_subject: Die "%{resource_title}" Debatte wurde beendet
+            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde beendet.
+          follower:
+            email_subject: Die "%{resource_title}" Debatte wurde beendet
+            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde beendet.
     gamification:
       badges:
         commented_debates:
