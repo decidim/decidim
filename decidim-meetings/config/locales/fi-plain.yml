@@ -261,7 +261,7 @@ fi-pl:
             available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
             disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
-            location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+            location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
             registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
             select_a_meeting_type: Valitse tapaamisen tyyppi
@@ -373,8 +373,8 @@ fi-pl:
       meeting_closes:
         edit:
           back: Takaisin
-          close: Sulje tapahtuma
-          title: Sulje tapahtuma
+          close: Sulje tapaaminen
+          title: Sulje tapaaminen
       meetings:
         count:
           meetings_count:
@@ -418,7 +418,7 @@ fi-pl:
           create_as: Luo tapahtuma käyttäjänä
           disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
-          location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapahtumissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
+          location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
           select_a_category: Valitse aihepiiri
@@ -442,7 +442,7 @@ fi-pl:
         show:
           attendees: Osallistujamäärä
           back: Takaisin listaan
-          close_meeting: Sulje tapahtuma
+          close_meeting: Sulje tapaaminen
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
           edit_meeting: Muokkaa tapahtumaa
@@ -516,11 +516,6 @@ fi-pl:
         description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Aiemmat tapahtumat
-          upcoming_meetings: Tulevat tapahtumat
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat

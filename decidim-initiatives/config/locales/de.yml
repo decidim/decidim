@@ -336,7 +336,7 @@ de:
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
-          choose_html: Ich möchte eine <strong>%{title}</strong>erstellen
+          choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: "(Weitere Informationen)"
           select: Ich möchte diese Initiative fördern
         share_committee_link:
@@ -499,7 +499,7 @@ de:
           already_voted: Schon unterschrieben
           supports_required: "%{total_supports} Signaturen erforderlich"
           verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
-          vote: Schild
+          vote: Signieren
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
           count:

@@ -337,7 +337,7 @@ fi:
           comment: Kommentti
           debate: Keskustelu
           initiative: Aloite
-          meeting: Tapahtuma
+          meeting: Tapaaminen
           post: Artikkeli
           proposal: Ehdotus
           question: Kysymys
@@ -413,7 +413,6 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -422,7 +421,6 @@ fi:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          nickname_help: Nimimerkkisi organisaatiossa %{organization}
           password_help: "Tulee sisältää vähintään %{minimun_characters} merkkiä, ei voi olla yleisesti käytetty salasana (esim. 123456), eikä voi vastata nimimerkkiäsi tai sähköpostiosoitettasi."
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
@@ -1015,7 +1013,7 @@ fi:
         verified: Varmennettu
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
-      explanation: Käytä tätä muistiota yhdessä muiden kanssa tehdäksesi muistiinpanoja kokouksen aikana, jotta pöytäkirja olisi helpompi kirjoittaa myöhemmin.
+      explanation: Käytä tätä muistiota yhdessä muiden kanssa tehdäksesi muistiinpanoja tapaamisen aikana, jotta pöytäkirja olisi helpompi kirjoittaa myöhemmin.
       pad: Muistio
     pages:
       home:
@@ -1023,8 +1021,8 @@ fi:
           debates: Keskustelut
           debates_explanation: Väittele, keskustele ja jaa näkemyksesi rikastuttaaksesi sinua koskettavia aiheita.
           how_to_participate: Kuinka osallistun prosessiin?
-          meetings: Tapahtumat
-          meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapahtumiin.
+          meetings: Tapaamiset
+          meetings_explanation: Selvitä missä ja milloin voit osallistua julkisiin tapaamisiin.
           more_info: Lisätietoja kohteesta %{resource_name}
           proposals: Ehdotukset
           proposals_explanation: Tee ehdotuksia, tue muiden tekemiä ehdotuksia ja edistä muutoksia, joita haluat nähdä.
@@ -1045,7 +1043,7 @@ fi:
           debates_count: Keskusteluja
           endorsements_count: Suosituksia
           headline: '%{organization} numeroina'
-          meetings_count: Tapahtumia
+          meetings_count: Tapaamista
           orders_count: Ääniä
           pages_count: Sivuja
           processes_count: Prosesseja

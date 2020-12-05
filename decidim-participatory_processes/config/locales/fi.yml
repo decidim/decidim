@@ -37,7 +37,6 @@ fi:
       participatory_process_group:
         description: Kuvaus
         hero_image: Kuva
-        name: Nimi
         participatory_process_ids: Liittyvät prosessit
       participatory_process_step:
         cta_path: Call to Action -polku
@@ -119,8 +118,6 @@ fi:
             title: Otsikko
           name: Osallistumisprosessi
         participatory_process_group:
-          fields:
-            name: Nimi
           name: Prosessiryhmä
         participatory_process_step:
           fields:
@@ -312,9 +309,6 @@ fi:
         related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 prosessi ryhmälle %{group}
-          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
@@ -421,7 +415,7 @@ fi:
         endorsements_count: Suositusta
         followers_count: Seuraajia
         headline: Tilastot
-        meetings_count: Tapahtumaa
+        meetings_count: Tapaamista
         no_stats: Tilastoja ei ole vielä saatavilla.
         orders_count: Kannatusta
         pages_count: Sivua

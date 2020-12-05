@@ -370,6 +370,13 @@ fr-CA:
             dummy_step_translatable_text: Texte traduisible de l'étape factice
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, texte et bouton d'appel à l'action
+      cta_settings_form:
+        background_image: Image d'arrière-plan
+        button_text: Texte d'appel à l'action
+        button_url: 'Appel à l''action: URL'
+        description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
       hero:
@@ -379,6 +386,11 @@ fr-CA:
         welcome_text: Texte de bienvenue
       highlighted_content_banner:
         name: Bannière de contenu mis en valeur
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Trier les éléments par:'
+          random: Aléatoire
+          recent: Les plus récents
       how_to_participate:
         name: Comment participer
       html:
@@ -413,7 +425,7 @@ fr-CA:
           email_already_exists: Un autre compte utilise la même adresse email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre alias dans %{organization}
+          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -422,7 +434,7 @@ fr-CA:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
-          nickname_help: Votre alias dans %{organization}
+          nickname_help: Votre alias dans %{organization}. Ne peut contenir que des lettres, chiffres, '-' et '_'.
           password_help: "%{minimun_characters} caractères minimum, ne doit pas être trop commun (par exemple 123456) et doit être différent de votre pseudo et de votre email."
           sign_in: Se connecter
           sign_up: S'inscrire

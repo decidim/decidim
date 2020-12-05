@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     class ParticipatoryProcessGroupsController < Decidim::ParticipatoryProcesses::ApplicationController
       helper Decidim::SanitizeHelper
-      helper_method :participatory_processes, :group, :collection
+      helper_method :participatory_processes, :group
 
       before_action :set_group
 
@@ -27,7 +27,6 @@ module Decidim
                                        group.participatory_processes.published.public_spaces
                                      end
       end
-      alias collection participatory_processes
 
       def set_group
         @group = Decidim::ParticipatoryProcessGroup.find(params[:id])
