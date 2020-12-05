@@ -318,15 +318,56 @@ module Decidim
         end
 
         context "when GET send_to_technical_validation" do
-          context "and Initiative not in created or discarded state (published)" do
-            before do
-              sign_in initiative.author, scope: :user
+          context "and Initiative in created state" do
+            context "and has not enough committee members" do
+              before do
+                created_initiative.author.confirm
+                sign_in created_initiative.author, scope: :user
+              end
+  
+              it "does not pass to technical validation phase" do
+                created_initiative.type.update(minimum_committee_members: 4)
+                get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+  
+                created_initiative.reload
+                expect(created_initiative).not_to be_validating
+              end
+  
+              it "does pass to technical validation phase" do
+                created_initiative.type.update(minimum_committee_members: 3)
+                get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+  
+                created_initiative.reload
+                expect(created_initiative).to be_validating
+              end
             end
-
-            it "Raises an error" do
-              get :send_to_technical_validation, params: { slug: initiative.to_param }
-              expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(:found)
+  
+            context "and User is not the owner of the initiative" do
+              let(:other_user) { create(:user, organization: organization) }
+  
+              before do
+                sign_in other_user, scope: :user
+              end
+  
+              it "Raises an error" do
+                get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+                expect(flash[:alert]).not_to be_empty
+                expect(response).to have_http_status(:found)
+              end
+            end
+  
+            context "and User is the owner of the initiative. It is in created state" do
+              before do
+                created_initiative.author.confirm
+                sign_in created_initiative.author, scope: :user
+              end
+  
+              it "Passes to technical validation phase" do
+                get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+  
+                created_initiative.reload
+                expect(created_initiative).to be_validating
+              end
             end
           end
 
@@ -345,54 +386,15 @@ module Decidim
             end
           end
 
-          context "and Initiative has not enough committee members" do
+          context "and Initiative not in created or discarded state (published)" do
             before do
-              created_initiative.author.confirm
-              sign_in created_initiative.author, scope: :user
-            end
-
-            it "does not pass to technical validation phase" do
-              created_initiative.type.update(minimum_committee_members: 4)
-              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
-
-              created_initiative.reload
-              expect(created_initiative).not_to be_validating
-            end
-
-            it "does pass to technical validation phase" do
-              created_initiative.type.update(minimum_committee_members: 3)
-              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
-
-              created_initiative.reload
-              expect(created_initiative).to be_validating
-            end
-          end
-
-          context "and User is not the owner of the initiative" do
-            let(:other_user) { create(:user, organization: organization) }
-
-            before do
-              sign_in other_user, scope: :user
+              sign_in initiative.author, scope: :user
             end
 
             it "Raises an error" do
-              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
+              get :send_to_technical_validation, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
               expect(response).to have_http_status(:found)
-            end
-          end
-
-          context "and User is the owner of the initiative. It is in created state" do
-            before do
-              created_initiative.author.confirm
-              sign_in created_initiative.author, scope: :user
-            end
-
-            it "Passes to technical validation phase" do
-              get :send_to_technical_validation, params: { slug: created_initiative.to_param }
-
-              created_initiative.reload
-              expect(created_initiative).to be_validating
             end
           end
         end
