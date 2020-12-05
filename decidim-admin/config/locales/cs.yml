@@ -882,6 +882,8 @@ cs:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globální moderace
         newsletters:
           title: Zpravodaje
         settings:
