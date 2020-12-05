@@ -783,6 +783,8 @@ de:
             document_index: Dokumentenindex
           view_index:
             see_index: Index anzeigen
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
