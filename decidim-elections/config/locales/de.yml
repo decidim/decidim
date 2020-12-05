@@ -312,6 +312,8 @@ de:
                 invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
                 invalid_public_key: Die Identifikationsschlüssel in der hochgeladenen Datei stimmen nicht mit dem öffentlichen Identifikationsschlüssel überein, der von Decidim gespeichert wird.
               upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
+          update:
+            success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
         confirm:
           answer: Antwort
@@ -364,6 +366,7 @@ de:
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
         trustees:
           new_election:
+            email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
             notification_title: Sie sind Wahlhelfer für die <a href="%{resource_path}">%{resource_title}</a> Wahl.
           new_trustee:
