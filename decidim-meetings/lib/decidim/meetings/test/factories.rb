@@ -39,6 +39,7 @@ FactoryBot.define do
     type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
     salt { SecureRandom.hex(32) }
+    category { create(:category, participatory_space: participatory_space )}
 
     author do
       component.try(:organization)

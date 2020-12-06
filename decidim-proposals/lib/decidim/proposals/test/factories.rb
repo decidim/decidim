@@ -275,6 +275,9 @@ FactoryBot.define do
     component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+    category { create(:category, participatory_space: participatory_space )}
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
 
     after(:build) do |proposal, evaluator|
       proposal.title = if evaluator.title.is_a?(String)
