@@ -121,7 +121,7 @@ de:
         title: Titel
       doorkeeper/application:
         authorize_url: URL autorisieren
-        client_id: Kunden ID
+        client_id: Client-ID
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
