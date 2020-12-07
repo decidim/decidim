@@ -1,4 +1,4 @@
-// = require quill.js
+// = require quill.min
 // = require decidim/editor/linebreak_module
 // = require_self
 
