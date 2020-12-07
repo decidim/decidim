@@ -27,7 +27,8 @@
             length += 1;
           }
           delta = new Delta().retain(range.index - 2).delete(2);
-          if (nextChar === "\n") {
+          const firstCharacterOfPreviousLine = quill.getText(range.index - 3, 1);
+          if (nextChar === "\n" || firstCharacterOfPreviousLine !== "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
           } else {
             quill.setSelection(range.index - 3, Quill.sources.SILENT);
