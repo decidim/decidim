@@ -3,7 +3,7 @@
 module Decidim
   module Elections
     module TrusteeZone
-      # TODO: proper documentation
+      # Handles the KeyCeremony for trustee users
       class KeysController < ::Decidim::ApplicationController
         include Decidim::UserProfile
 

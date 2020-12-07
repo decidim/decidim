@@ -1,0 +1,46 @@
+<h2><%= t(".title", election: translated_attribute(election.title)) %></h2>
+<p><%= t(".description") %></p>
+<div class="callout alert">
+  <p><%= t(".process_warning") %></p>
+</div>
+
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+      <tr>
+        <th><%= t(".list.task") %></th>
+        <th><%= t(".list.status") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= t(".keys.generation") %></td>
+        <td id="key_generation">
+          <span class="pending"><%= t(".status.pending") %></span>
+          <span class="processing hide"><%= t(".status.processing") %></span>
+          <span class="completed hide"><%= t(".status.completed") %></span>
+        </td>
+      </tr>
+      <tr>
+        <td><%= t(".keys.publishing") %></td>
+        <td id="key_publishing">
+          <span class="pending"><%= t(".status.pending") %></span>
+          <span class="processing hide"><%= t(".status.processing") %></span>
+          <span class="completed hide"><%= t(".status.completed") %></span>
+        </td>
+      </tr>
+      <tr>
+        <td><%= t(".keys.joint_key") %></td>
+        <td id="joint_key">
+          <span class="pending"><%= t(".status.pending") %></span>
+          <span class="processing hide"><%= t(".status.processing") %></span>
+          <span class="completed hide"><%= t(".status.completed") %></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button class="button start">
+  <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
+  <span><%= t(".start") %></span>
+</button>
