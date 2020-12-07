@@ -1,6 +1,6 @@
 ((exports) => {
   const Quill = exports.Quill;
-  const { attributeDiff } = exports.Editor
+  const { attributeDiff } = exports.Decidim.Editor
 
   const backspaceBindingsRangeAny = (quill) => {
     quill.keyboard.addBinding({ key: 8, altKey: null, ctrlKey: null, metaKey: null, shiftKey: null, collapsed: true }, (range, context) => {
@@ -38,5 +38,5 @@
     quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
   }
 
-  exports.Editor.backspaceBindingsRangeAny = backspaceBindingsRangeAny;
+  exports.Decidim.Editor.backspaceBindingsRangeAny = backspaceBindingsRangeAny;
 })(window)

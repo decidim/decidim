@@ -2,7 +2,7 @@
   const Quill = exports.Quill;
   const Delta = Quill.import("delta");
   const backspaceBindings = (quill) => {
-    const { attributeDiff } = exports.Editor;
+    const { attributeDiff } = exports.Decidim.Editor;
     quill.keyboard.addBinding({ key: 8, offset: 1, collapsed: true }, (range, context) => {
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
@@ -29,6 +29,8 @@
           delta = new Delta().retain(range.index - 2).delete(2);
           if (nextChar === "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
+          } else {
+            quill.setSelection(range.index - 3, Quill.sources.SILENT);
           }
         } else {
           delta = new Delta().retain(range.index + line.length() - 2).delete(1);
@@ -62,5 +64,5 @@
     quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
   }
 
-  exports.Editor.backspaceBindings = backspaceBindings;
+  exports.Decidim.Editor.backspaceBindings = backspaceBindings;
 })(window)

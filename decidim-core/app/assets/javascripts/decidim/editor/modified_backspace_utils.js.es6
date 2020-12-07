@@ -27,5 +27,5 @@
     return null;
   }
 
-  exports.Editor.attributeDiff = attributeDiff
+  exports.Decidim.Editor.attributeDiff = attributeDiff
 })(window)

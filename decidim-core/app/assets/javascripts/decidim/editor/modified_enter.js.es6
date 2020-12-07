@@ -83,10 +83,8 @@
             quill.updateContents(endFormatDelta, Quill.sources.USER);
           } else {
             // Delete empty list item and end the list
-            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1);
-            const endFormatDelta2 = new Delta().retain(range.index).insert("\n");
+            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1).retain(range.index).insert("\n");
             quill.updateContents(endFormatDelta, Quill.sources.USER);
-            quill.updateContents(endFormatDelta2, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
           }
         } else {
@@ -111,6 +109,6 @@
     return;
   }
 
-  exports.Editor = exports.Editor || {};
-  exports.Editor.addEnterBindings = addEnterBindings;
+  exports.Decidim.Editor = exports.Decidim.Editor || {};
+  exports.Decidim.Editor.addEnterBindings = addEnterBindings;
 })(window)

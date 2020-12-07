@@ -37,7 +37,7 @@
         toolbar: {
           container: quillToolbar,
           handlers: {
-            "linebreak": exports.Editor.lineBreakButtonHandler
+            "linebreak": exports.Decidim.Editor.lineBreakButtonHandler
           }
         }
       },

@@ -45,9 +45,9 @@
   };
 
   Quill.register("modules/linebreak", (quill) => {
-    const { addEnterBindings } = exports.Editor;
-    const { backspaceBindingsRangeAny } = exports.Editor;
-    const { backspaceBindings } = exports.Editor;
+    const { addEnterBindings } = exports.Decidim.Editor;
+    const { backspaceBindingsRangeAny } = exports.Decidim.Editor;
+    const { backspaceBindings } = exports.Decidim.Editor;
 
     quill.getModule("toolbar").addHandler("linebreak", () => {
       lineBreakButtonHandler(quill);
@@ -69,5 +69,5 @@
     return;
   });
 
-  exports.Editor.lineBreakButtonHandler = lineBreakButtonHandler;
+  exports.Decidim.Editor.lineBreakButtonHandler = lineBreakButtonHandler;
 })(window);
