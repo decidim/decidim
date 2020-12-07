@@ -73,8 +73,7 @@
 
   const quillEditor = () => {
     $(".editor-container").each((_idx, container) => {
-      const quill = createQuillEditor(container);
-      $(container).data("quill", quill);
+      createQuillEditor(container);
     });
   };
 
