@@ -439,6 +439,7 @@ en:
           title: Create Your Meeting
         online_meeting:
           closed: The videoconference has ended.
+          join: Join videoconference
           unavailable: The videoconference for this meeting is not available at the current time.
         registration_confirm:
           cancel: Cancel

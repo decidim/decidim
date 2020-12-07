@@ -5,9 +5,20 @@
     $("#videoconference-closed-message").removeClass("hide");
   }
 
-  createJitsiMeetVideoConference({
-    wrapper: $("#jitsi-embedded-meeting"),
-    onVideoConferenceLeave: onVideoConferenceLeave
+  const joinVideoConference = () => {
+    const wrapper = $("#jitsi-embedded-meeting");
+    wrapper.removeClass("hide");
+    createJitsiMeetVideoConference({
+      wrapper: wrapper,
+      onVideoConferenceLeave: onVideoConferenceLeave
+    });
+  }
+
+  $(document).ready(() => {
+    $("#join-videoconference").on("click", (event) => {
+      $(event.target).addClass("hide");
+      joinVideoConference();
+    });
   });
 
 })(window);
