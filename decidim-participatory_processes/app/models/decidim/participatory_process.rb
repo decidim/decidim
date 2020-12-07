@@ -173,10 +173,10 @@ module Decidim
     end
 
     def sidebar_content_block
-      @sidebar_content_block ||= Decidim::ContentBlock.
-                                 for_scope(:participatory_process_group_sidebar, organization: organization).
-                                 where(manifest_name: :html, scoped_resource_id: id)
-                                                      .first_or_initialize
+      @sidebar_content_block ||= Decidim::ContentBlock
+                                 .for_scope(:participatory_process_group_sidebar, organization: organization)
+                                 .where(manifest_name: :html, scoped_resource_id: id)
+                                 .first_or_initialize
     end
 
     delegate :settings, to: :sidebar_content_block, prefix: true
