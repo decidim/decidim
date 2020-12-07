@@ -11,7 +11,8 @@ module Decidim
           api_url: embedded_meeting_api_url,
           user_email: user&.email,
           user_display_name: user&.name,
-          user_role: embedded_meeting_role_for(meeting, user)
+          user_role: embedded_meeting_role_for(meeting, user),
+          attendance_url: meeting_videoconference_attendance_logs_path(meeting_id: meeting.id)
         }
       end
 

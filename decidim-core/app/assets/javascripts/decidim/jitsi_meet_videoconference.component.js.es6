@@ -3,6 +3,7 @@
   class JitsiMeetVideoConference {
     constructor(options = {}) {
       this.$wrapper = options.wrapper;
+      this.onVideoConferenceJoined = options.onVideoConferenceJoined;
       this.onVideoConferenceLeave = options.onVideoConferenceLeave;
       this._run();
     }
@@ -21,7 +22,7 @@
       const roomName = $wrapper.data("roomName");
       const domain = $wrapper.data("domain") || "meet.jit.si";
       const apiUrl = $wrapper.data("apiUrl") || "https://meet.jit.si/external_api.js";
-
+      
       const height = $wrapper.data("height") || 600;
 
       const userEmail = $wrapper.data("userEmail");
@@ -36,6 +37,7 @@
 
       const enableInvite = $wrapper.data("enableInvite");
 
+      const onVideoConferenceJoined = this.onVideoConferenceJoined;
       const onVideoConferenceLeave = this.onVideoConferenceLeave;
 
       let toolbarButtons = [
@@ -92,12 +94,12 @@
       $.getScript(apiUrl).
         done(function() {
           const api = new JitsiMeetExternalAPI(domain, options);
+          api.addEventListener("videoConferenceJoined", onVideoConferenceJoined);
           api.addEventListener("videoConferenceLeft", onVideoConferenceLeave);
         }).
         fail(function() {
           $wrapper.appendElement("<p class=\"callout alert\">Jitsi Meet Videoconference could not be loaded</p>");
         });
-
     }
   }
 

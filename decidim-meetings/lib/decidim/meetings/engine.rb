@@ -31,6 +31,7 @@ module Decidim
           end
           resources :versions, only: [:show, :index]
           resource :widget, only: :show, path: "embed"
+          resources :videoconference_attendance_logs, only: [:create], path: "videoconference_attendance_logs"
         end
         root to: "meetings#index"
         resource :calendar, only: [:show], format: :text
