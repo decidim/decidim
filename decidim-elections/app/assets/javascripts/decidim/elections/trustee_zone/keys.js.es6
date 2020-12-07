@@ -4,10 +4,10 @@
  * Generate and backup election keys.
  */
 
-$(() => { 
+$(() => {
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
-  const $downloadButton = $keyCeremony.find(".download-election-keys")
+  const $downloadButton = $keyCeremony.find(".download-election-keys");
   const $keyGeneration = $keyCeremony.find("#key_generation");
   const $keyPublishing = $keyCeremony.find("#key_publishing");
   const $jointKey = $keyCeremony.find("#joint_key");
@@ -38,7 +38,6 @@ $(() => {
       const keyCeremony = new KeyCeremony({
         bulletinBoardClient,
         electionContext: {
-          authorityName: $keyCeremony.data("authorityName"),
           id: `${$keyCeremony.data("authorityName")}.${$keyCeremony.data("electionId")}`,
           currentTrusteeContext: {
             id: trusteeContext.uniqueId,
@@ -54,14 +53,14 @@ $(() => {
         $keyGeneration.find(".processing").removeClass("hide")
         $startButton.addClass("disabled");
         const result = await keyCeremony.run();
-        console.log("RESULT", result)
+
         if (result) {
           $jointKey.find(".pending").addClass("hide")
           $jointKey.find(".processing").addClass("hide")
           $jointKey.find(".completed").removeClass("hide")
           $startButton.addClass("hide");
           $generateElectionKeys.addClass("hide");
-          $backupElectionKeys.removeClass("hide")
+          $backupElectionKeys.removeClass("hide");
           $electionKeys = result.joint_election_key
         }
       })
@@ -83,14 +82,14 @@ $(() => {
         })
       })
 
-      keyCeremony.events.subscribe((event) => {   
-        if (event.type === "[Message] Received" && event.message.message_id.includes("create_election")) {
+      keyCeremony.events.subscribe((event) => {
+        if (event.type === "[Message] Received" && event.message.messageId.includes("create_election")) {
           $keyGeneration.find(".processing").addClass("hide")
           $keyGeneration.find(".completed").removeClass("hide")
           $keyPublishing.find(".pending").addClass("hide")
           $keyPublishing.find(".processing").removeClass("hide")
         }
-        if (event.type === "[Message] Processed" && event.message.message_id.includes("key_ceremony")) {
+        if (event.type === "[Message] Processed" && event.message.messageId.includes("key_ceremony")) {
           $keyPublishing.find(".processing").addClass("hide")
           $keyPublishing.find(".completed").removeClass("hide")
           $jointKey.find(".pending").addClass("hide")
