@@ -384,6 +384,7 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
         reported_users: Reported Users
@@ -878,6 +879,7 @@ en:
           fields:
             created_at: Creation date
             hidden_at: Hidden at
+            participatory_space: Participatory space
             report_count: Count
             reportable_id: Id
             reportable_type: Type
@@ -895,6 +897,8 @@ en:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:
