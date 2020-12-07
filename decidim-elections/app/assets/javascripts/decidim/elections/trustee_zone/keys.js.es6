@@ -1,16 +1,21 @@
 // = require decidim-bulletin_board
 // = require ../identification_keys
+/**
+ * Generate and backup election keys.
+ */
 
 $(() => { 
-  // TODO: hardcoded stuff
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
+  const $downloadButton = $keyCeremony.find(".download-election-keys")
   const $keyGeneration = $keyCeremony.find("#key_generation");
   const $keyPublishing = $keyCeremony.find("#key_publishing");
   const $jointKey = $keyCeremony.find("#joint_key");
-  const $backupElectionKeys = $keyCeremony.find(".backup-election-keys")
-  const $generateElectionKeys = $keyCeremony.find(".election-key-generation")
-  
+  const $backupElectionKeys = $keyCeremony.find(".backup-election-keys");
+  const $generateElectionKeys = $keyCeremony.find(".election-key-generation");
+  const $electionKeyIdentifier = `${$keyCeremony.data("authorityName")}_election_key_backup`;
+  let $electionKeys = "";
+
   const trusteeContext = {
     id: $keyCeremony.data("trusteeId"),
     publicKeyJSON: JSON.stringify($keyCeremony.data("trusteePublicKey"))
@@ -20,7 +25,7 @@ $(() => {
   identificationKeys.present(async (exists) => {
     if (exists) {
       const { Client, KeyCeremony } = decidimBulletinBoard;
-  
+
       const bulletinBoardClient = new Client({
         apiEndpointUrl: $keyCeremony.data("apiEndpointUrl"),
         wsEndpointUrl: $keyCeremony.data("websocketUrl"),
@@ -55,7 +60,25 @@ $(() => {
           $startButton.addClass("hide");
           $generateElectionKeys.addClass("hide");
           $backupElectionKeys.removeClass("hide")
+          $electionKeys = result.joint_election_key
         }
+      })
+
+      $downloadButton.on("click", async () => {
+        return new Promise((resolve, reject) => {
+          try {
+            let element = document.createElement("a");
+            element.setAttribute("href", `data:text/plain;charset=utf-8,${$electionKeys}`);
+            element.setAttribute("download", `${$electionKeyIdentifier}.txt`);
+            element.style.display = "none";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            return resolve();
+          } catch (error) {
+            return reject();
+          }
+        })
       })
 
       keyCeremony.events.subscribe((event) => {   
@@ -75,4 +98,3 @@ $(() => {
     }
   });
 })
-

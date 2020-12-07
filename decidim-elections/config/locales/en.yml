@@ -295,29 +295,28 @@ en:
         recent: Recent
       trustee_zone:
         keys:
-          new:
-            backup_election_keys:
-              download_election_keys: Download election keys
-              download_icon: Icon that indicates a download action
-              process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place.
-              title: Backup election keys for %{election}
-            generate_election_keys:
-              description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
-              keys:
-                generation: Keys generation
-                joint_key: Joint Key generation
-                publishing: Keys publishing
-              list:
-                status: Status
-                task: Task
-              process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
-              start: Start
-              start_icon: Icon that indicates a start button to start the election keys generation
-              status:
-                completed: Completed
-                pending: Pending
-                processing: Processing
-              title: Create election keys for %{election}
+          backup_election_keys:
+            download_election_keys: Download election keys
+            download_icon: Icon that indicates a download action
+            process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place.
+            title: Backup election keys for %{election}
+          generate_election_keys:
+            description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
+            keys:
+              generation: Keys generation
+              joint_key: Joint Key generation
+              publishing: Keys publishing
+            list:
+              status: Status
+              task: Task
+            process_warning: Once the process is started, you should not exit this page until the process ends. It will take several minutes, as all Trustees should be connected to complete it.
+            start: Start
+            start_icon: Icon that indicates a start button to start the election keys generation
+            status:
+              completed: Completed
+              pending: Pending
+              processing: Processing
+            title: Create election keys for %{election}
         menu:
           trustee_zone: Trustee zone
         trustees:
