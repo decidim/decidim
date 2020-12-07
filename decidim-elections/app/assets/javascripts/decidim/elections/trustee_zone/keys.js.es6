@@ -17,6 +17,7 @@ $(() => {
   let $electionKeys = "";
 
   const trusteeContext = {
+    uniqueId: $keyCeremony.data("trusteeUniqueId"),
     id: $keyCeremony.data("trusteeId"),
     publicKeyJSON: JSON.stringify($keyCeremony.data("trusteePublicKey"))
   };
@@ -37,9 +38,10 @@ $(() => {
       const keyCeremony = new KeyCeremony({
         bulletinBoardClient,
         electionContext: {
+          authorityName: $keyCeremony.data("authorityName"),
           id: `${$keyCeremony.data("authorityName")}.${$keyCeremony.data("electionId")}`,
           currentTrusteeContext: {
-            id: `trustee-${trusteeContext.id}`,
+            id: trusteeContext.uniqueId,
             identificationKeys
           }
         }
@@ -52,7 +54,7 @@ $(() => {
         $keyGeneration.find(".processing").removeClass("hide")
         $startButton.addClass("disabled");
         const result = await keyCeremony.run();
-
+        console.log("RESULT", result)
         if (result) {
           $jointKey.find(".pending").addClass("hide")
           $jointKey.find(".processing").addClass("hide")
@@ -82,13 +84,13 @@ $(() => {
       })
 
       keyCeremony.events.subscribe((event) => {   
-        if (event.type === "[Message] Received" && event.message.logType === "create_election") {
+        if (event.type === "[Message] Received" && event.message.message_id.includes("create_election")) {
           $keyGeneration.find(".processing").addClass("hide")
           $keyGeneration.find(".completed").removeClass("hide")
           $keyPublishing.find(".pending").addClass("hide")
           $keyPublishing.find(".processing").removeClass("hide")
         }
-        if (event.type === "[Message] Processed" && event.message.logType === "key_ceremony") {
+        if (event.type === "[Message] Processed" && event.message.message_id.includes("key_ceremony")) {
           $keyPublishing.find(".processing").addClass("hide")
           $keyPublishing.find(".completed").removeClass("hide")
           $jointKey.find(".pending").addClass("hide")
