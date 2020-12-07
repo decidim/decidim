@@ -303,7 +303,6 @@ shared_examples "proposals wizards" do |options|
     end
   end
 
-  # rubocop:disable RSpec/EmptyExampleGroup
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
@@ -314,5 +313,4 @@ shared_examples "proposals wizards" do |options|
     it_behaves_like "with address" if options[:with_address]
     it_behaves_like "without address" unless options[:with_address]
   end
-  # rubocop:enable RSpec/EmptyExampleGroup
 end

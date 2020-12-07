@@ -94,8 +94,8 @@ module Decidim
           return @sidebar_content_block if id.present?
 
           Decidim::Admin::ContentBlockForm
-            .from_model(Decidim::ContentBlock.for_scope(:participatory_process_group_sidebar, organization: organization).where(manifest_name: :html, scoped_resource_id: id).
-            first_or_initialize(@sidebar_content_block))
+            .from_model(Decidim::ContentBlock.for_scope(:participatory_process_group_sidebar, organization: organization).where(manifest_name: :html, scoped_resource_id: id)
+            .first_or_initialize(@sidebar_content_block))
         end
 
         private
