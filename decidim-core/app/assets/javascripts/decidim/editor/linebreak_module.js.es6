@@ -3,6 +3,7 @@
 // = require decidim/editor/modified_backspace_offset_any
 // = require decidim/editor/modified_backspace_offset1
 
+// It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 ((exports) => {
   const Quill = exports.Quill;
   const Break = Quill.import("blots/break");
@@ -55,8 +56,6 @@
     quill.emitter.on("editor-ready", () => {
       const length = quill.getLength()
       const text = quill.getText(length - 2, 2)
-
-      // console.log(quill.getText().replace(/\n/g, "\\n"));
 
       // Remove extraneous new lines
       if (text === "\n\n") {

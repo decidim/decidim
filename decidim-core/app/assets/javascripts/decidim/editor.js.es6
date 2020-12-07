@@ -29,7 +29,6 @@
     }
 
     const $input = $(container).siblings('input[type="hidden"]')
-    // console.log("$input.val", $input.val())
     container.innerHTML = $input.val() || "";
 
     const quill = new Quill(container, {

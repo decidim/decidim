@@ -68,11 +68,8 @@
       lineBreakHandler(quill, range, context);
     });
 
-    const enterHandlerIndex = quill.keyboard.bindings[13].findIndex((bindDef) => {
-      return typeof bindDef.collapsed === "undefined" && typeof bindDef.format === "undefined" && bindDef.shiftKey === null;
-    });
-    // HAX: make our SHIFT+ENTER binding the second one in order to override Quill defaults
-    quill.keyboard.bindings[13].splice(enterHandlerIndex, 1);
+    // HAX: make our SHIFT+ENTER binding the second (first is added below) in order to override Quill defaults
+    quill.keyboard.bindings[13].unshift(quill.keyboard.bindings[13].pop());
 
     quill.keyboard.addBinding({ key: 13, shiftKey: false }, (range, context) => {
       const lineFormats = getLineFormats(context)

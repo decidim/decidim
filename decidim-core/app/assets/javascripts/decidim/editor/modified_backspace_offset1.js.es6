@@ -19,7 +19,6 @@
       let delta = new Delta().retain(range.index - length).delete(length);
       if (context.offset === 1 && previousChar === "\n") {
         const [prev] = quill.getLine(range.index - 2);
-        // Should probably atleast check for indents also
         if (prev && prev.statics.blotName === "list-item") {
           if (prev !== null && prev.length() > 1) {
             let curFormats = line.formats();
