@@ -50,8 +50,8 @@
     quill.format(name, context.format[name], "user");
     quill.setSelection(range.index + 1, Quill.sources.SILENT);
 
-    const lineFormats = getLineFormats(context)
-    continueFormats(quill, context, lineFormats)
+    const lineFormats = getLineFormats(context);
+    continueFormats(quill, context, lineFormats);
   };
 
   const addEnterBindings = (quill) => {
@@ -72,7 +72,7 @@
     quill.keyboard.bindings[13].unshift(quill.keyboard.bindings[13].pop());
 
     quill.keyboard.addBinding({ key: 13, shiftKey: false }, (range, context) => {
-      const lineFormats = getLineFormats(context)
+      const lineFormats = getLineFormats(context);
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
       const delta = new Delta().retain(range.index).insert("\n", lineFormats);
@@ -83,8 +83,8 @@
             quill.updateContents(endFormatDelta, Quill.sources.USER);
           } else {
             // Delete empty list item and end the list
-            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1)
-            const endFormatDelta2 = new Delta().retain(range.index).insert("\n")
+            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1);
+            const endFormatDelta2 = new Delta().retain(range.index).insert("\n");
             quill.updateContents(endFormatDelta, Quill.sources.USER);
             quill.updateContents(endFormatDelta2, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
@@ -103,7 +103,7 @@
       }
       quill.focus();
 
-      continueFormats(quill, context, lineFormats)
+      continueFormats(quill, context, lineFormats);
     });
 
     // Replace the default enter handling because we have modified the break element

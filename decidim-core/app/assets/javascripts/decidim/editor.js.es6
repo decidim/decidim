@@ -28,7 +28,7 @@
       ];
     }
 
-    const $input = $(container).siblings('input[type="hidden"]')
+    const $input = $(container).siblings('input[type="hidden"]');
     container.innerHTML = $input.val() || "";
 
     const quill = new Quill(container, {

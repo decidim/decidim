@@ -24,7 +24,7 @@
       }
       let length = 1;
       if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
-        length = 2
+        length = 2;
       }
       quill.deleteText(range.index - length, length, Quill.sources.USER);
 
@@ -38,5 +38,5 @@
     quill.keyboard.bindings[8].splice(1, 0, quill.keyboard.bindings[8].pop());
   }
 
-  exports.Editor.backspaceBindingsRangeAny = backspaceBindingsRangeAny
+  exports.Editor.backspaceBindingsRangeAny = backspaceBindingsRangeAny;
 })(window)

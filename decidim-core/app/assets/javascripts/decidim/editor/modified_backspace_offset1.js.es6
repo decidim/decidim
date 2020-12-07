@@ -5,7 +5,7 @@
     const { attributeDiff } = exports.Editor;
     quill.keyboard.addBinding({ key: 8, offset: 1, collapsed: true }, (range, context) => {
       const previousChar = quill.getText(range.index - 1, 1);
-      const nextChar = quill.getText(range.index, 1)
+      const nextChar = quill.getText(range.index, 1);
       let length = 1
       if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
         length = 2;
@@ -26,13 +26,13 @@
             formats = attributeDiff(curFormats, prevFormats) || {};
             length += 1;
           }
-          delta = new Delta().retain(range.index - 2).delete(2)
+          delta = new Delta().retain(range.index - 2).delete(2);
           if (nextChar === "\n") {
             quill.setSelection(range.index - 1, Quill.sources.SILENT);
           }
         } else {
-          delta = new Delta().retain(range.index + line.length() - 2).delete(1)
-          quill.deleteText(range.index - 2, 2)
+          delta = new Delta().retain(range.index + line.length() - 2).delete(1);
+          quill.deleteText(range.index - 2, 2);
         }
       } else {
         const [prev] = quill.getLine(range.index - 1);

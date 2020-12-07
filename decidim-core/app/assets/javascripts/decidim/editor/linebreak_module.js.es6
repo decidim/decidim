@@ -54,12 +54,12 @@
     });
 
     quill.emitter.on("editor-ready", () => {
-      const length = quill.getLength()
-      const text = quill.getText(length - 2, 2)
+      const length = quill.getLength();
+      const text = quill.getText(length - 2, 2);
 
       // Remove extraneous new lines
       if (text === "\n\n") {
-        quill.deleteText(quill.getLength() - 2, 2)
+        quill.deleteText(quill.getLength() - 2, 2);
       }
     });
     addEnterBindings(quill);
