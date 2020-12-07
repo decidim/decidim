@@ -222,6 +222,13 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3abc</li></ul>".to_s.gsub("\n", ""))
         end
+
+        it "keeps right cursor position when using backspace after empty list item" do
+          find('div[contenteditable="true"].ql-editor').send_keys [:enter, "bcd", :left, :left, :left, :enter, :backspace, :enter, :enter, :backspace, :backspace, :backspace, "a"]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>Paragraph</p><ul><li>List item 1</li><li>List item 2</li><li>List item 3</li><li>abcd</li></ul>".to_s.gsub("\n", ""))
+        end
       end
     end
   end
