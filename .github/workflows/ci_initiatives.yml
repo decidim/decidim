@@ -6,7 +6,6 @@ on:
       - master
       - release/*
       - "*-stable"
-      - feature/allow-admin-discarded-to-tech-eval
   pull_request:
     branches-ignore:
       - "chore/l10n*"
