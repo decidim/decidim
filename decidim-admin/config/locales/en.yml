@@ -129,13 +129,6 @@ en:
         redirect_uri: Redirect URI
         site: Website
   decidim:
-    metrics:
-      suspended_users:
-        title: Suspended users
-      user_reports:
-        title: User reports
-      reported_users:
-        title: Reported users
     admin:
       actions:
         add: Add
@@ -486,9 +479,9 @@ en:
         index:
           actions:
             suspend: Block User
+            title: Actions
             unreport: Unreport
             unsuspend: Unblock User
-            title: Actions
           name: Name
           nickname: Nickname
           reason: Reason
@@ -874,6 +867,13 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non managed participant
+    metrics:
+      reported_users:
+        title: Reported users
+      suspended_users:
+        title: Suspended users
+      user_reports:
+        title: User reports
     moderations:
       actions:
         expand: Expand
