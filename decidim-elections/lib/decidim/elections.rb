@@ -12,7 +12,6 @@ module Decidim
   # This namespace holds the logic of the `Elections` component. This component
   # allows users to create elections in a participatory space.
   module Elections
-    autoload :BulletinBoardClient, "decidim/elections/bulletin_board_client"
     autoload :AnswerSerializer, "decidim/elections/answer_serializer"
 
     def self.bulletin_board
