@@ -48,7 +48,7 @@ module Decidim::ParticipatoryProcesses
         sidebar_content_block: sidebar_content_block
       )
     end
-    let(:sidebar_content_block) do 
+    let(:sidebar_content_block) do
       instance_double(Decidim::Admin::ContentBlockForm, settings: true)
     end
     let(:invalid) { false }

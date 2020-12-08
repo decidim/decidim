@@ -43,10 +43,10 @@ module Decidim::ParticipatoryProcesses
         }
       end
 
-      let(:sidebar_content_block) do 
+      let(:sidebar_content_block) do
         instance_double(Decidim::Admin::ContentBlockForm, settings: true, to_hash: {})
       end
-      
+
       let(:user) { create :user, :admin, :confirmed, organization: my_process.organization }
       let(:context) do
         {

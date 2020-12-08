@@ -40,8 +40,8 @@ module Decidim::ParticipatoryProcesses
         }
       }
     end
-    
-    let(:sidebar_content_block) do 
+
+    let(:sidebar_content_block) do
       instance_double(Decidim::Admin::ContentBlockForm, settings: true)
     end
     let(:context) do
