@@ -45,6 +45,8 @@ en:
             title: Edit budget
             update: Update budget
           index:
+            finished_orders: Finished orders
+            pending_orders: Pending orders
             title: Budgets
           new:
             create: Create budget
