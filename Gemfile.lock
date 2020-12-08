@@ -159,6 +159,7 @@ PATH
       webmock (~> 3.6)
       wisper-rspec (~> 1.0)
     decidim-elections (0.24.0.dev)
+      decidim-bulletin_board (= 0.2.0)
       decidim-core (= 0.24.0.dev)
       decidim-forms (= 0.24.0.dev)
       decidim-proposals (= 0.24.0.dev)
@@ -353,6 +354,13 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
+    decidim-bulletin_board (0.2.0)
+      activemodel (~> 5.0, >= 5.0.0.1)
+      activesupport (~> 5.0, >= 5.0.0.1)
+      byebug (~> 11.0)
+      graphlient (~> 0.4.0)
+      jwt
+      wisper (~> 2.0.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -404,6 +412,8 @@ GEM
       i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (1.0.0)
+      faraday (~> 1.0)
     ffi (1.13.1)
     file_validators (2.3.0)
       activemodel (>= 3.2)
@@ -424,7 +434,14 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
+    graphlient (0.4.0)
+      faraday (>= 1.0)
+      faraday_middleware
+      graphql-client
     graphql (1.11.5)
+    graphql-client (0.16.0)
+      activesupport (>= 3.0)
+      graphql (~> 1.8)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
