@@ -34,9 +34,15 @@ module Decidim::ParticipatoryProcesses
           meta_scope: participatory_process_group.meta_scope,
           target: participatory_process_group.target,
           participatory_scope: participatory_process_group.participatory_scope,
-          participatory_structure: participatory_process_group.participatory_structure
+          participatory_structure: participatory_process_group.participatory_structure,
+          sidebar_content_block_enabled: false,
+          sidebar_content_block: sidebar_content_block
         }
       }
+    end
+    
+    let(:sidebar_content_block) do 
+      instance_double(Decidim::Admin::ContentBlockForm, settings: true)
     end
     let(:context) do
       {
