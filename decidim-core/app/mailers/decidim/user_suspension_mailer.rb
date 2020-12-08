@@ -12,7 +12,7 @@ module Decidim
       mail(
         to: user.email,
         subject: I18n.t(
-          "decidim.admin.user_suspension_mailer.notify.subject",
+          "decidim.user_suspension_mailer.notify.subject",
           organization_name: @organization.name,
           justification: @justification
         )
