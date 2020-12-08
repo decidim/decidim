@@ -6,6 +6,7 @@ describe Decidim::Elections::Admin::SetupElection do
   subject { described_class.new(form, bulletin_board: bulletin_board) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
+  let(:invalid) { false }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
@@ -32,7 +33,7 @@ describe Decidim::Elections::Admin::SetupElection do
       }
     }
   end
-  let(:status) { OpenStruct.new(status: "key_ceremony")}
+  let(:status) { OpenStruct.new(status: "key_ceremony") }
   let(:response) do
     OpenStruct.new(election: status, error: nil)
   end
@@ -42,12 +43,10 @@ describe Decidim::Elections::Admin::SetupElection do
   end
 
   before do
-    allow(bulletin_board).to receive(:authority_slug) { "decidim-test-authority"}
+    allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")
     allow(bulletin_board).to receive(:scheme).and_return(scheme)
     allow(bulletin_board).to receive(:setup_election).and_return(response)
   end
-
-  let(:invalid) { false }
 
   context "when the form is not valid" do
     let(:invalid) { true }
