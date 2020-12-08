@@ -370,6 +370,13 @@ fi:
             dummy_step_translatable_text: Vaiheen käännettävän tekstin esimerkki
     contact: Ota yhteyttä
     content_blocks:
+      cta:
+        name: Kuva, teksti ja toimintopainike (Call to Action)
+      cta_settings_form:
+        background_image: Taustakuva
+        button_text: Toimintopainikkeen (Call to Action) teksti
+        button_url: Toimintopainikkeen (Call To Action) URL-osoite
+        description: Kuvaus
       footer_sub_hero:
         name: Alaosion esialueen banneri
       hero:
@@ -379,6 +386,10 @@ fi:
         welcome_text: Tervetuloa-teksti
       highlighted_content_banner:
         name: Tärkeä sisältöbanneri
+      highlighted_elements_settings_form:
+        orders:
+          random: Satunnainen
+          recent: Viimeisimmät
       how_to_participate:
         name: Kuinka osallistua
       html:
