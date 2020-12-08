@@ -833,13 +833,6 @@ en:
           description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
           justification: Justification
           title: Block User %{name}
-      user_suspension_mailer:
-        notify:
-          body_1: Your account was blocked.
-          body_2: 'Reason: %{justification}'
-          greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-          hello: Hello,
-          subject: Your account was blocked by %{organization_name}?
       users:
         create:
           error: There was a problem inviting this admin.
@@ -871,7 +864,7 @@ en:
       reported_users:
         title: Reported users
       suspended_users:
-        title: Suspended users
+        title: Blocked users
       user_reports:
         title: User reports
     moderations:

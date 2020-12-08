@@ -47,12 +47,6 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
-    resources :moderated_users, only: [:index, :ignore] do
-      member do
-        put :ignore
-      end
-    end
-
     resources :moderated_users, only: [:index] do
       member do
         put :ignore
