@@ -37,7 +37,6 @@ ro:
       participatory_process_group:
         description: Descriere
         hero_image: Imagine
-        name: Nume
         participatory_process_ids: Procese conexe
       participatory_process_step:
         cta_path: Apel la calea de acțiune
@@ -119,8 +118,6 @@ ro:
             title: Titlu
           name: Procesul participativ
         participatory_process_group:
-          fields:
-            name: Nume
           name: Procesează grup
         participatory_process_step:
           fields:
@@ -305,10 +302,6 @@ ro:
         related_assemblies: Asambluri asemănătoare
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 proces pentru %{group}
-          few: "%{count} procese pentru %{group}"
-          other: "%{count} procese pentru %{group}"
         title: Grupuri participante
     participatory_process_steps:
       index:

@@ -10,7 +10,7 @@ module Decidim
 
         let(:organization) { create :organization }
         let(:participatory_processes) { create_list :participatory_process, 3, organization: organization }
-        let(:name) do
+        let(:title) do
           {
             en: "Title",
             es: "Título",
@@ -24,19 +24,37 @@ module Decidim
             ca: "Descripció"
           }
         end
+        let(:meta_attributes) do
+          %w(
+            developer_group
+            local_area
+            meta_scope
+            target
+            participatory_scope
+            participatory_structure
+          ).each_with_object({}) do |attr, attrs|
+            [:en, :es, :ca].each do |locale|
+              attrs.update("#{attr}_#{locale}" => "#{attr.titleize} #{locale}")
+            end
+          end
+        end
+        let(:hashtag) { "hashtag" }
+        let(:group_url) { "http://example.org" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
         let(:attributes) do
           {
-            "name_en" => name[:en],
-            "name_es" => name[:es],
-            "name_ca" => name[:ca],
+            "title_en" => title[:en],
+            "title_es" => title[:es],
+            "title_ca" => title[:ca],
             "description_en" => description[:en],
             "description_es" => description[:es],
             "description_ca" => description[:ca],
+            "hashtag" => hashtag,
+            "group_url" => group_url,
             "hero_image" => attachment,
             "participatory_processes" => participatory_processes
-          }
+          }.merge(meta_attributes)
         end
 
         context "when everything is OK" do
@@ -61,7 +79,7 @@ module Decidim
         end
 
         context "when default language in title is missing" do
-          let(:name) do
+          let(:title) do
             {
               ca: "Títol"
             }
@@ -76,6 +94,20 @@ module Decidim
               ca: "Descripció"
             }
           end
+
+          it { is_expected.to be_invalid }
+        end
+
+        context "when group_url doesn't start with http" do
+          let(:group_url) { "example.org" }
+
+          it "adds it" do
+            expect(subject.group_url).to eq("http://example.org")
+          end
+        end
+
+        context "when it's not a valid URL" do
+          let(:group_url) { "Groundhog Day" }
 
           it { is_expected.to be_invalid }
         end

@@ -210,10 +210,6 @@ ja:
         description: 生成した結果の数
         object: 結果
         title: 結果
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: 結果
     participatory_spaces:
       highlighted_results:
         see_all: すべての結果を見る (%{count})
