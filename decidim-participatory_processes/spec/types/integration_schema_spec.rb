@@ -11,7 +11,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:pp) { create(:participatory_process, organization: current_organization) }
 
-  let(:participatoryProcess) do
+  let(:participatory_process) do
     %(
       participatoryProcess {
         announcement{
@@ -210,7 +210,7 @@ describe "Decidim::Api::QueryType" do
   let(:query) do
     %(
       query {
-        #{participatoryProcess}
+        #{participatory_process}
       }
     )
   end
@@ -220,8 +220,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]).to eq(pp_data)
-    end
+    it { expect(response["participatoryProcess"]).to eq(pp_data) }
   end
 end
