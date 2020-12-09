@@ -61,6 +61,10 @@ module Decidim
       end
 
       # If the action is officialization, then we want to show the diff
+      def has_diff?
+        %w(officialize unofficialize suspend).include?(action)
+      end
+
       def diff_actions
         %w(officialize unofficialize suspend)
       end
