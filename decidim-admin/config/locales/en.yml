@@ -864,7 +864,7 @@ en:
       reported_users:
         title: Reported users
       suspended_users:
-        title: Suspended users
+        title: Blocked users
       user_reports:
         title: User reports
     moderations:
