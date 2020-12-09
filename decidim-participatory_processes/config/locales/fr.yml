@@ -360,6 +360,7 @@ fr:
           form:
             metadata: Métadonnées
             title: Informations générales
+            visibility: Visibilité
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
@@ -489,6 +490,8 @@ fr:
           more_info_about: Plus d'infos sur la concertation %{resource_name}
           take_part: Participer
           take_part_in: Participer à la concertation %{resource_name}
+        promoted_process_group:
+          more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes
