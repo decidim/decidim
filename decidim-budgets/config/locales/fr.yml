@@ -13,6 +13,7 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        selected: Sélectionné pour l'implémentation
         title: Titre
   activerecord:
     models:
@@ -84,6 +85,7 @@ fr:
             create: Importer des propositions dans des projets
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
             select_component: Veuillez sélectionner un module
+            title: Importer des propositions
       admin_log:
         budget:
           create: "%{user_name} a créé le budget %{resource_name} dans l'espace %{space_name}"
@@ -245,6 +247,8 @@ fr:
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
             vote_rule_selected_projects_enabled: 'Activer la règle : Projets sélectionnés avec un nombre minimum et maximum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
+            vote_selected_projects_maximum: Nombre maximum de projets à sélectionner
+            vote_selected_projects_minimum: Nombre minimum de projets à sélectionner
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
             workflow: Processus
             workflow_choices:
