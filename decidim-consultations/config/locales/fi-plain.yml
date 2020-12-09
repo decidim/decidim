@@ -16,7 +16,7 @@ fi-pl:
       question:
         banner_image: Bannerikuva
         decidim_scope_id: Kunnan alue
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         i_frame_url: Ulkopuolisen äänestysjärjestelmän URL-osoite
         instructions: Lisäohjeet äänestykseen
