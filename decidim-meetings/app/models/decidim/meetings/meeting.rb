@@ -44,21 +44,15 @@ module Decidim
       scope :visible_meeting_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
-            user_role_queries = %w(conference assembly participatory_process).map do |participatory_space_name|
-              # rubocop: disable Style/RedundantBegin
-              begin
-                if "Decidim::#{participatory_space_name.classify}".constantize
-                  "SELECT decidim_components.id FROM decidim_components
-                  WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
-                  IN
-                  (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
-                  FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
-                  "
-                end
-              rescue NameError
-                nil
-              end
-              # rubocop: enable Style/RedundantBegin
+            spaces = %w(assembly participatory_process)
+            spaces << "conference" if defined?(Decidim::Conference)
+            user_role_queries = spaces.map do |participatory_space_name|
+              "SELECT decidim_components.id FROM decidim_components
+              WHERE CONCAT(decidim_components.participatory_space_id, '-', decidim_components.participatory_space_type)
+              IN
+              (SELECT CONCAT(decidim_#{participatory_space_name}_user_roles.decidim_#{participatory_space_name}_id, '-Decidim::#{participatory_space_name.classify}')
+              FROM decidim_#{participatory_space_name}_user_roles WHERE decidim_#{participatory_space_name}_user_roles.decidim_user_id = ?)
+              "
             end
 
             where("decidim_meetings_meetings.private_meeting = ?
