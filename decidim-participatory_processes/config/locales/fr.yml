@@ -431,6 +431,7 @@ fr:
           loading: Chargement des résultats...
       show:
         area: Périmètre d'assemblée
+        belongs_to_group: Ce processus appartient à
         dates: Dates
         developer_group: Organisateur
         end_date: Date de fin
