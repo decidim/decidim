@@ -471,13 +471,13 @@ fr:
           city: Ville
           email: Email
           full_name: Nom Complet
-          general_title: Demande d'admission d'une initiative
+          general_title: Demande d'admission d'une pétition
           id_number: Numéro du document d'identification
           initiative:
             attachments: Documentation jointe (veuillez écrire le nom de chaque document ci-dessous)
             description: 'Description :'
             title: 'Titre :'
-            type: Type d'initiative
+            type: Type de pétition
           legal_text: Les données personnelles recueillies seront incorporées et traitées de façon confidentielle par l'organisation, conformément à la législation en vigueur.
           phone_number: Numéro de téléphone
           place_date: Lieu, Date
@@ -496,11 +496,11 @@ fr:
             validating: Cette proposition est en cours d'évaluation
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
-          any_vote_method: Cette initiative recueille des signatures en ligne ainsi qu'en présentiel.
+          any_vote_method: Cette pétition recueille des signatures en ligne ainsi qu'en présentiel.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit: Modifier
           follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
-          offline_method: Cette initiative ne recueille que des signatures en présentiel.
+          offline_method: Cette pétition ne recueille que des signatures en présentiel.
           print: Imprimer la pétition
           send_to_technical_validation: Envoyer à la validation technique
         signatures_count:
