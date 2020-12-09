@@ -145,7 +145,7 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions suivantes
+          accept: J'accepte les conditions d'utilisation suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -383,7 +383,7 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
-        moderation: Modérations globale
+        moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
         reported_users: Utilisateurs signalés
