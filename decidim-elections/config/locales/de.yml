@@ -92,6 +92,7 @@ de:
             title: Wahl bearbeiten
             update: Wahl aktualisieren
           index:
+            no_bulletin_board: Es ist kein <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board Server</a> konfiguriert, das benötigt wird, um dieses Modul zu verwenden. Diese Aufgabe sollte vom Systemadministrator erledigt werden.
             title: Wahlen
           new:
             create: Wahl erstellen
@@ -148,15 +149,28 @@ de:
         end_date: Endet
         footer:
           view: Ansicht
+          vote: Abstimmung
         label:
           date: Daten
         questions: Fragen %{count}
         start_date: Startet
+        unspecified: Nicht angegeben
       elections:
         count:
           elections_count:
             one: "%{count} Wahlen"
             other: "%{count} Wahlen"
+        filters:
+          active: Aktiv
+          all: Alle
+          finished: Abgeschlossen
+          search: Suche
+          state: Status
+          upcoming: Anstehend
+        filters_small_view:
+          filter: Filter
+          filter_by: Filtern nach
+          unfold: Aufklappen
         show:
           back: Alle Wahlen
           preview: Vorschau

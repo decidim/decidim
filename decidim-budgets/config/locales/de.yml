@@ -188,6 +188,9 @@ de:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Aussicht
+          votes:
+            one: Abstimmung
+            other: Abstimmungen
           you_voted: Du hast abgestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
@@ -246,6 +249,9 @@ de:
       budgets:
         budget_published:
           email_intro: 'Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv. Einsehbar auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Sie können dem vorherigen Link verwenden um  keine Benachrichtigungen mehr zu erhalten.
+          email_subject: Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv.
+          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Budget ist jetzt aktiv für %{participatory_space_title}.
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

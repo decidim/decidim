@@ -82,7 +82,7 @@ de:
           name: OAuth-Anwendung
         organization:
           actions:
-            save_and_invite: Organisieren & einladen admin erstellen
+            save_and_invite: Organisation erstellen & den Admin einladen
           fields:
             created_at: Hergestellt in
             file_upload_settings: Datei-Upload Einstellungen
