@@ -435,6 +435,7 @@ en:
           loading: Loading results...
       show:
         area: Area
+        belongs_to_group: This process belongs to
         dates: Dates
         developer_group: Promoter group
         end_date: End date
