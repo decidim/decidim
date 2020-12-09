@@ -66,7 +66,7 @@ module Decidim
       end
 
       def diff_actions
-        %w(officialize unofficialize)
+        %w(officialize unofficialize suspend)
       end
     end
   end
