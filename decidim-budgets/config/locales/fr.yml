@@ -13,6 +13,7 @@ fr:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        selected: Sélectionné pour l'implémentation
         title: Titre
   activerecord:
     models:
