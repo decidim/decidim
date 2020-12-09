@@ -10,7 +10,7 @@ fi-pl:
         copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         participatory_processes_ids: Liittyvät osallisuusprosessit
         promoted: Korostettu
