@@ -333,7 +333,7 @@ fr:
           participatory_structure: Modalités de décision
           target: Qui participe
         participatory_processes:
-          name: Processus participatifs
+          name: Concertations
         stats:
           name: Statistiques
         title:
@@ -435,7 +435,7 @@ fr:
           loading: Chargement des résultats...
       show:
         area: Périmètre d'assemblée
-        belongs_to_group: Ce processus appartient à
+        belongs_to_group: Cette concertation appartient à
         dates: Dates
         developer_group: Organisateur
         end_date: Date de fin
