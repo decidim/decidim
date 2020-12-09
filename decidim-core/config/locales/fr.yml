@@ -617,6 +617,14 @@ fr:
           notification_title: Le groupe d'utilisateurs %{user_group_name} a mis à jour son profil, le laissant non vérifié. Vous pouvez maintenant le vérifier dans le <a href="%{groups_admin_path}">panneau d'administration</a>.
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur du contenu modéré.
+          email_subject: Votre %{resource_type} a été modérée
+          notification_title: |-
+            Un administrateur a modéré votre %{resource_type} car il a été signalé comme %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, que vous suivez, vient de soutenir "%{resource_title}" et nous pensons que cela pourrait vous intéresser. Découvrez-le et contribuez :'
         email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -1130,12 +1138,15 @@ fr:
       report:
         authors: Auteurs
         content: Contenu signalé
+        content_original_language: Langue d'origine du contenu
         date: Signalé le
         details: Détails
         hello: Bonjour %{name},
+        id: ID
         participatory_space: Espace participatif
         reason: Raison
         report_html: <p>Le <a href="%{url}">contenu</a> suivant a été signalé.</p>
+        see_report: Voir le signalement
         subject: Un contenu a été signalé
     reports:
       create:
