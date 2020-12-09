@@ -15,14 +15,14 @@ fi:
         address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        automatic_hashtags: Hashtagit, jotka lisätään automaattisesti
+        automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
-        suggested_hashtags: Ehdotetut hashtagit
+        suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
@@ -162,14 +162,14 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
-            automatic_hashtags: Hashtagit, jotka lisätään kaikkiin ehdotuksiin
+            automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
-            suggested_hashtags: Käyttäjille ehdotettavat hashtagit uusille ehdotuksille
+            suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Kannatukset estetty
             votes_enabled: Kannatukset käytössä
             votes_hidden: Piilota kannatusmäärät (jos kannatukset ovat käytössä, tämä valitseminen piilottaa kannatusmäärän)
