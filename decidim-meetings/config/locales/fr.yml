@@ -21,13 +21,13 @@ fr:
         end_time: Date de fin
         location: Lieu
         location_hints: Indicateurs d’emplacement
-        online_meeting_url: URL de la réunion
+        online_meeting_url: URL de la rencontre
         organizer_gid: Créer en tant que
         organizer_id: Organisateur
         private_meeting: Rencontre privée
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
-        registration_url: URL du lien d'inscription
+        registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
         start_time: Heure de début
         title: Titre
@@ -94,7 +94,7 @@ fr:
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             scope_id: Secteur
             scopes_enabled: Secteurs activés
-            terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les créateurs de réunion
+            terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
