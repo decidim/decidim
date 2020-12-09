@@ -98,6 +98,7 @@ pl:
             title: Edytuj wybór
             update: Aktualizuj wybór
           index:
+            no_bulletin_board: Nie ma skonfigurowanego serwera <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board</a>, który jest potrzebny do korzystania z tego modułu. Zadanie to powinno być wykonane przez administratora systemu.
             title: Wybory
           new:
             create: Utwórz wybór
