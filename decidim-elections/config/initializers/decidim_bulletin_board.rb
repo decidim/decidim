@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+return if Rails.application.secrets.bulletin_board.blank?
+
 Decidim::BulletinBoard.configure do |config|
   # Exposes a configuration option: the bulletin board server
   config.server = Rails.application.secrets.bulletin_board[:server]
