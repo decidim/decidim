@@ -391,6 +391,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        belongs_to_group: Denna process tillhör
         dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum
