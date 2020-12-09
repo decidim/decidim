@@ -883,7 +883,7 @@ fr:
     decidim:
       admin:
         global_moderations:
-          title: Modérations globale
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:
