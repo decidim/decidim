@@ -322,10 +322,15 @@ de:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
+          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
+          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiativen senden
+        finish_help:
+          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
+          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zurück
           continue: Fortsetzen
@@ -412,6 +417,7 @@ de:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
+          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
           title: Ausschussmitglieder
         count:
