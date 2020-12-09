@@ -775,6 +775,7 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
