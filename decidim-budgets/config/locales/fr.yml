@@ -163,13 +163,13 @@ fr:
             description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au maximum %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
             instruction: "<li>Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
           rules:
-            title: Règles budgétaires
+            title: Règles du vote
           title: Vous décidez du budget
           total_budget: Budget total
-          total_projects: Total des votes
+          total_projects: Nombre total de votes
           vote_threshold_percent_rule:
             description: À quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
-            instruction: "<li>Assignez au moins %{minimum_budget} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+            instruction: "<li>Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.</li>"
         count:
           projects_count:
             one: 1 projet
@@ -211,7 +211,7 @@ fr:
           votes:
             one: vote
             other: votes
-          you_voted: Vous avez voté ceci
+          you_voted: Vous avez voté pour
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
