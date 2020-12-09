@@ -339,6 +339,9 @@ fr:
         title:
           meta_scope: Secteur
           name: Titre, description et hashtag
+          participatory_processes:
+            one: 1 concertation
+            other: "%{count} concertations"
       show:
         title: Groupes de concertations
     participatory_process_steps:
