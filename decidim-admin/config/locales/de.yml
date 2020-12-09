@@ -122,7 +122,7 @@ de:
         title: Titel
       doorkeeper/application:
         authorize_url: URL autorisieren
-        client_id: Kunden ID
+        client_id: Client-ID
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
@@ -732,7 +732,7 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert
       titles:
-        admin_log: Administratorprotokoll
+        admin_log: Adminprotokoll
         area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
