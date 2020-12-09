@@ -364,6 +364,7 @@ en:
           form:
             metadata: Metadata
             title: General Information
+            visibility: Visibility
         participatory_process_imports:
           form:
             document_legend: Add a document
@@ -493,6 +494,8 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
+        promoted_process_group:
+          more_info: More info
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases

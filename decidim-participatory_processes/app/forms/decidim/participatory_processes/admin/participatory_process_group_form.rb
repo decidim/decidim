@@ -23,6 +23,8 @@ module Decidim
         attribute :hashtag, String
         attribute :participatory_process_ids, Array[Integer]
 
+        attribute :promoted, Boolean
+
         mimic :participatory_process_group
 
         attribute :hero_image

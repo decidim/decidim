@@ -32,6 +32,41 @@ module Decidim
 
         "#{path}/#{process.active_step.cta_path}" + (params.present? ? "?#{params}" : "")
       end
+
+      # Public: Returns the settings of a cta content block associated if
+      # exists
+      #
+      # Returns a Hash with content block settings or nil
+      def participatory_process_group_cta_settings(process_group)
+        block = Decidim::ContentBlock.for_scope(
+          :participatory_process_group_homepage,
+          organization: current_organization
+        ).find_by(
+          manifest_name: "cta",
+          scoped_resource_id: process_group.id
+        )
+
+        cta_settings = block&.settings
+
+        return if cta_settings.blank? || cta_settings.button_url.blank?
+
+        OpenStruct.new(
+          text: translated_attribute(cta_settings.button_text),
+          path: cta_settings.button_url,
+          image_url: block.images_container.background_image.big.url
+        )
+      end
+
+      # Public: Invokes the appropriate partial for a promoted
+      # participatory process or group based on the type name
+      #
+      # promoted_item - Can be a Decidim::ParticipatoryProcess or
+      #                 Decidim::ParticipatoryProcessGroup
+      def render_highlighted_partial_for(promoted_item)
+        name = promoted_item.class.name.demodulize.underscore.gsub("participatory_", "promoted_")
+
+        render partial: name, locals: { name => promoted_item }.symbolize_keys
+      end
     end
   end
 end
