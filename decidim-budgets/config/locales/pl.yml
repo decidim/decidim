@@ -13,6 +13,7 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         proposal_ids: Powiązane propozycje
+        selected: Wybrane do implementacji
         title: Tytuł
   activerecord:
     models:
@@ -86,6 +87,7 @@ pl:
             create: Importuj propozycje do projektów
             no_components: W tej przestrzeni partycypacyjnej nie ma innych komponentów do zaimportowania propozycji jako projektów.
             select_component: Wybierz komponent
+            title: Importuj propozycje
       admin_log:
         budget:
           create: "%{user_name} utworzył(a) budżet %{resource_name} w przestrzeni %{space_name}"
@@ -148,7 +150,11 @@ pl:
           checked_out:
             description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono głosowanie dot. budżetu
+          rules:
+            title: Przepisy budżetowe
           title: Ty decydujesz o budżecie
+          total_budget: Cały budżet
+          total_projects: Suma głosów
         count:
           projects_count:
             one: 1 projekt
@@ -196,6 +202,7 @@ pl:
             few: głosów
             many: głosów
             other: głosów
+          you_voted: Zagłosowałeś na to
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
