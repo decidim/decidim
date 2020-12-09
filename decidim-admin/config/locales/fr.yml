@@ -481,7 +481,7 @@ fr:
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
-          reason: Raison
+          reason: Raison du signalement
           title: Liste des utilisateurs signalés
         report:
           reasons:
