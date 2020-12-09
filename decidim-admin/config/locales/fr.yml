@@ -383,6 +383,7 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        moderation: Modérations globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
         reported_users: Utilisateurs signalés
@@ -862,6 +863,7 @@ fr:
           fields:
             created_at: Date de création
             hidden_at: Masqué le
+            participatory_space: Espace participatif
             report_count: Compteur
             reportable_id: ID
             reportable_type: Type
@@ -879,6 +881,8 @@ fr:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modérations globale
         newsletters:
           title: Newsletters
         settings:

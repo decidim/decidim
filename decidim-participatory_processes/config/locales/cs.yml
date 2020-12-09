@@ -338,6 +338,10 @@ cs:
           participatory_scope: O čem se rozhoduje
           participatory_structure: Jak se o tom rozhoduje
           target: Kdo se účastní
+        participatory_processes:
+          name: Participativní procesy
+        stats:
+          name: Statistiky
         title:
           meta_scope: Oblast působnosti
           name: Název, popis a hashtag

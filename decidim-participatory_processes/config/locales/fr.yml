@@ -332,6 +332,10 @@ fr:
           participatory_scope: Ce qui est décidé
           participatory_structure: Modalités de décision
           target: Qui participe
+        participatory_processes:
+          name: Processus participatifs
+        stats:
+          name: Statistiques
         title:
           meta_scope: Secteur
           name: Titre, description et hashtag
