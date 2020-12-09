@@ -424,7 +424,7 @@ fr:
           invite_to_committee_help: Partagez ce lien pour inviter d'autres utilisateurs au Comité de promotion
           no_members_yet: Il n'y a pas encore de membres dans le Comité de promotion
           revoke: Révoquer
-          title: Membre du Comité de promotion
+          title: Membres du Comité de promotion
         count:
           title:
             one: "%{count} initiative"
@@ -466,7 +466,26 @@ fr:
           recent: Les plus récentes
           recently_published: Plus récemment publié
         print:
+          address: Adresse
+          author_title: Auteur de la pétition
           city: Ville
+          email: Email
+          full_name: Nom Complet
+          general_title: Demande d'admission d'une initiative
+          id_number: Numéro du document d'identification
+          initiative:
+            attachments: Documentation jointe (veuillez écrire le nom de chaque document ci-dessous)
+            description: 'Description :'
+            title: 'Titre :'
+            type: Type d'initiative
+          legal_text: Les données personnelles recueillies seront incorporées et traitées de façon confidentielle par l'organisation, conformément à la législation en vigueur.
+          phone_number: Numéro de téléphone
+          place_date: Lieu, Date
+          postal_code: Code Postal/ZIP
+          print: Imprimer
+          province: Province/état
+          section: 'Si l''organisme le demande, veuillez imprimer et remplir ce formulaire pour soumettre si indiqué:'
+          signature: Signature
         result:
           answer_title:
             accepted: Cette proposition a été acceptée car
@@ -478,8 +497,12 @@ fr:
           initiative_rejected_reason: Cette initiative a été rejetée car elle n'a pas atteint le nombre de signatures requis dans le délai de collecte.
         show:
           any_vote_method: Cette initiative recueille des signatures en ligne ainsi qu'en présentiel.
+          confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
+          edit: Modifier
           follow_description: Recevoir une notification lorsqu'il y a des actualités sur cette initiative
           offline_method: Cette initiative ne recueille que des signatures en présentiel.
+          print: Imprimer la pétition
+          send_to_technical_validation: Envoyer à la validation technique
         signatures_count:
           one: " signature"
           other: " signatures"
@@ -525,6 +548,9 @@ fr:
         accepted: Acceptées
         expired: Expirées
       unavailable_scope: Portée indisponible
+      update:
+        error: Une erreur est survenue
+        success: La pétition a été mise à jour avec succès
       versions:
         shared:
           back_to_resource: Retour à l'initiative
