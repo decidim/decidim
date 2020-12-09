@@ -375,7 +375,7 @@ fr:
       cta_settings_form:
         background_image: Image d'arrière-plan
         button_text: Texte d'appel à l'action
-        button_url: 'Appel à l''action: URL'
+        button_url: URL du bouton d'appel à l’action
         description: Description
       footer_sub_hero:
         name: Section "Bienvenue sur la plateforme" (. footer_sub_hero)
@@ -1221,12 +1221,12 @@ fr:
         title: Signaler un contenu inapproprié
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
-        close: Clore
+        close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
-        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
-        offensive: Contient des propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
-        report: Signalement
-        spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
+        does_not_belong: Rédige des contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
+        report: Signaler
+        spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un utilisateur inapproprié
       floating_help:
         close: Fermer l'aide
