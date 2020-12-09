@@ -364,8 +364,8 @@ fr:
         discard: Rejeter l'initiative
         export_pdf_signatures: Exporter le PDF des signatures
         export_votes: Exporter les signatures
-        reject: Rejeter l'initiative
-        title: Modifier l'initiative
+        reject: Rejeter la pétition
+        title: Modifier la pétition
         update: Mettre à jour
       events:
         create_initiative_event:
