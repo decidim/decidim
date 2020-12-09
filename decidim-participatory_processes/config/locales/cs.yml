@@ -371,6 +371,7 @@ cs:
           form:
             metadata: Metadata
             title: Obecné informace
+            visibility: Viditelnost
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
@@ -450,6 +451,7 @@ cs:
           loading: Načítání výsledků...
       show:
         area: Oblast
+        belongs_to_group: Tento proces patří do
         dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
@@ -507,6 +509,8 @@ cs:
           more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
           take_part_in: Zapojte se do procesu %{resource_name}
+        promoted_process_group:
+          more_info: Více informací
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Zobrazit kroky
