@@ -24,7 +24,7 @@ describe "I18n sanity" do
 
   it "does not have missing keys" do
     expect(missing_keys).to be_empty,
-                            "Missing #{missing_keys.leaves.count} i18n keys, run `i18n-tasks missing' to show them"
+                            "Missing #{missing_keys.leaves.count} i18n keys, run `i18n-tasks missing' here are the keys: #{missing_keys.leaves.inspect}"
   end
 
   it "does not have unused keys" do
