@@ -64,7 +64,7 @@ module Decidim
       def has_diff?
         %w(officialize unofficialize suspend).include?(action)
       end
-
+      
       def diff_actions
         %w(officialize unofficialize suspend)
       end
