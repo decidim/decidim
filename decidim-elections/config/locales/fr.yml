@@ -211,6 +211,9 @@ fr:
           description: Ce sont les résultats du vote, pour chaque question
           selected: Sélectionné
           title: Résultats de l'élection
+          votes:
+            one: "%{count} vote"
+            other: "%{count} votes"
         show:
           back: Élections disponibles
           preview: Aperçu
