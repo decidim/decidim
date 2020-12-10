@@ -293,7 +293,7 @@ fr:
         recent: Les plus récents
       trustee_zone:
         menu:
-          trustee_zone: Zone de Mandature
+          trustee_zone: Espace de garant
         trustees:
           show:
             elections:
@@ -301,30 +301,30 @@ fr:
                 election: Élection
                 status: Statut
                 voting_period: Période de vote
-              no_elections: Il n'y a pas d'élections lorsque vous agissez en temps que mandataire.
+              no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
               title: Élections
             identification_keys:
               cancel: Annuler
               generate: Générer les clés d'identification
               generate_error: Une erreur s'est produite lors de la génération des clés d'identification.
-              generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que Mandataire.
-              generate_legend_1: Après appui sur le bouton vous devriez télécharger le fichier contenant les clés d'identification générées.
+              generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que garant.
+              generate_legend_1: Après avoir cliqué sur le bouton, le téléchargement du fichier contenant les clés d'identification générées va commencer.
               generate_legend_2: Copiez le fichier téléchargé sur un périphérique USB fiable
               generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
               submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur Decidim.
               submit_title: Soumettre la clé d'identification publique
-              title: Clés d'identification Mandataire
+              title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée par Decidim.
               upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
-            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que Mandataire. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches d'administrateur.
-            not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que Mandataire
-            trustee_role_description: Vous avez été assigné à agir en tant que Mandataire lors de certaines des élections mises en place dans cette plateforme.
+            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
+            not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
@@ -384,7 +384,7 @@ fr:
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
-            email_intro: Un administrateur vous a ajouté en tant que mandataire pour %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre zone de mandature</a>
+            email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
             email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
