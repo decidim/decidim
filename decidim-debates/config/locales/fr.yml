@@ -45,18 +45,27 @@ fr:
             endorsements_enabled: Soutiens activés
     debates:
       actions:
+        active: Débats en cours
+        archive: Archiver
+        archived: Débats archivés
         close: Fermer
         confirm_destroy: Êtes-vous certain ?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
         title: Actions
+        unarchive: Annuler l'archivage
       admin:
         debate_closes:
           edit:
+            archive: Archiver ce débat
+            archive_help: L'archivage de ce débat le masquera de la section des débats publics
             close: Fermer
             title: Clore le débat
         debates:
+          archive:
+            invalid: Un problème est survenu lors de l'archivage du débat.
+            success: Le débat a été archivé avec succès.
           create:
             invalid: Il y a eu un problème lors de la création du débat.
             success: Débat créé avec succès.
@@ -65,11 +74,15 @@ fr:
           edit:
             title: Modifier le débat
             update: Actualiser le débat
+          empty: Aucun débat ne correspond à ces critères.
           index:
             title: Débats
           new:
             create: Créer un débat
             title: Nouveau débat
+          unarchive:
+            invalid: Un problème est survenu lors du désarchivage du débat.
+            success: Débat désarchivé avec succès.
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
