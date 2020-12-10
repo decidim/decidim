@@ -3,14 +3,11 @@
 <div class="focus__content evote">
   <div class="row">
     <h1 class="heading2">
-      <%= t("decidim.elections.votes.confirmed.header") %>
+      <%= t("decidim.elections.votes.failed.header") %>
     </h1>
-    <h2 class="h4"><%= t("decidim.elections.votes.confirmed.lead") %></h2>
+    <h2 class="h4"><%= t("decidim.elections.votes.failed.lead") %></h2>
     <div class="evote__content">
-      <%= t("decidim.elections.votes.confirmed.text", e_vote_poll_id: encrypted_vote_hash).html_safe %>
-      <p>
-        <%= t("decidim.elections.votes.confirmed.verify_text").html_safe %>
-      </p>
+      <%= t("decidim.elections.votes.failed.text") %>
     </div>
 
     <%= link_to :elections, class: "button" do %>
