@@ -120,7 +120,7 @@ de:
         participatory_process:
           fields:
             created_at: Hergestellt in
-            private: Privatgelände
+            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -242,8 +242,8 @@ de:
           update: Aktualisieren
         index:
           not_published: Nicht veröffentlicht
-          private: Privatgelände
-          public: Öffentlichkeit
+          private: Privat
+          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
@@ -331,9 +331,16 @@ de:
           participatory_scope: Was wird entschieden
           participatory_structure: Wie wird es entschieden
           target: Wer nimmt teil
+        participatory_processes:
+          name: Beteiligungsprozesse
+        stats:
+          name: Statistiken
         title:
           meta_scope: Umfang
           name: Titel, Beschreibung und Hashtag
+          participatory_processes:
+            one: 1 Prozess
+            other: "%{count} Prozesse"
       show:
         title: Partizipative Prozessgruppen
     participatory_process_steps:
@@ -355,6 +362,7 @@ de:
           form:
             metadata: Metadaten
             title: Allgemeine Informationen
+            visibility: Sichtbarkeit
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
@@ -426,6 +434,7 @@ de:
           loading: Ergebnisse werden geladen ...
       show:
         area: Bereich
+        belongs_to_group: Dieser Prozess gehört zu
         dates: Daten
         developer_group: Promoter-Gruppe
         end_date: Endtermin
@@ -483,6 +492,8 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
+        promoted_process_group:
+          more_info: Mehr Info
       process_header_steps:
         step: Schritt %{current} von %{total}
         view_steps: Schritte anzeigen

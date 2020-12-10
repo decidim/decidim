@@ -21,17 +21,44 @@ Code quality
 
 image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codecov,link=https://codecov.io/gh/decidim/decidim] image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability] image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim] image:http://inch-ci.org/github/decidim/decidim.svg?branch=master[Inline docs,link=http://inch-ci.org/github/decidim/decidim] image:https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/[Accessibility issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y] image:https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/[HTML issues,link=https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html]
 
-Test suite+++<details>++++++<summary>+++See all+++</summary>+++ [![Accountability](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability)](https://github.com/decidim/decidim/actions) [![Admin](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Admin/develop.svg?label=%5BCI%5D%20Admin)](https://github.com/decidim/decidim/actions) [![Api](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api)](https://github.com/decidim/decidim/actions) [![Assemblies](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies)](https://github.com/decidim/decidim/actions) [![Blogs](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs)](https://github.com/decidim/decidim/actions) [![Budgets](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets)](https://github.com/decidim/decidim/actions) [![Comments](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments)](https://github.com/decidim/decidim/actions) [![Conferences](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences)](https://github.com/decidim/decidim/actions) [![Consultations](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations)](https://github.com/decidim/decidim/actions) [![Core](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core)](https://github.com/decidim/decidim/actions) [![Debates](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates)](https://github.com/decidim/decidim/actions) [![Forms](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms)](https://github.com/decidim/decidim/actions) [![Generators](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators)](https://github.com/decidim/decidim/actions) [![Initiatives](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives)](https://github.com/decidim/decidim/actions) [![Main](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main)](https://github.com/decidim/decidim/actions) [![Meetings](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings)](https://github.com/decidim/decidim/actions) [![Pages](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages)](https://github.com/decidim/decidim/actions) [![Participatory processes](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes)](https://github.com/decidim/decidim/actions) [![Proposals (system admin)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)>)](https://github.com/decidim/decidim/actions) [![Proposals (system public)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)>)](https://github.com/decidim/decidim/actions) [![Proposals (unit tests)](<https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)>)](https://github.com/decidim/decidim/actions) [![Sortitions](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions)](https://github.com/decidim/decidim/actions) [![Surveys](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys)](https://github.com/decidim/decidim/actions) [![System](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System)](https://github.com/decidim/decidim/actions) [![Verifications](https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications)](https://github.com/decidim/decidim/actions)+++</details>+++
+Test suite
+
++++<details>++++++<summary>+++See all+++</summary>+++
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Accountability/develop.svg?label=%5BCI%5D%20Accountability[Accountability,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Api/develop.svg?label=%5BCI%5D%20Api[Api,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Assemblies/develop.svg?label=%5BCI%5D%20Assemblies[Assemblies,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Blogs/develop.svg?label=%5BCI%5D%20Blogs[Blogs,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Budgets/develop.svg?label=%5BCI%5D%20Budgets[Budgets,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Comments/develop.svg?label=%5BCI%5D%20Comments[Comments,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Conferences/develop.svg?label=%5BCI%5D%20Conferences[Conferences,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Consultations/develop.svg?label=%5BCI%5D%20Consultations[Consultations,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Core/develop.svg?label=%5BCI%5D%20Core[Core,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Debates/develop.svg?label=%5BCI%5D%20Debates[Debates,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Forms/develop.svg?label=%5BCI%5D%20Forms[Forms,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Generators/develop.svg?label=%5BCI%5D%20Generators[Generators,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Initiatives/develop.svg?label=%5BCI%5D%20Initiatives[Initiatives,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Main%20folder/develop.svg?label=%5BCI%5D%20Main[Main,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Meetings/develop.svg?label=%5BCI%5D%20Meetings[Meetings,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Pages/develop.svg?label=%5BCI%5D%20Pages[Pages,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Participatory%20processes/develop.svg?label=%5BCI%5D%20Participatory%20processes[Participatory processes,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20admin)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20admin)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(system%20public)/develop.svg?label=%5BCI%5D%20Proposals%20(system%20public)[Proposals (system admin),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Proposals%20(unit%20tests)/develop.svg?label=%5BCI%5D%20Proposals%20(unit%20tests)[Proposals (unit tests),link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Sortitions/develop.svg?label=%5BCI%5D%20Sortitions[Sortitions,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Surveys/develop.svg?label=%5BCI%5D%20Surveys[Surveys,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20System/develop.svg?label=%5BCI%5D%20System[System,link=https://github.com/decidim/decidim/actions]
+image:https://img.shields.io/github/workflow/status/decidim/decidim/%5BCI%5D%20Verifications/develop.svg?label=%5BCI%5D%20Verifications[Verifications,link=https://github.com/decidim/decidim/actions]
++++</details>+++
 
 '''
 
 = What do you need to do?
 
-* https://docs.decidim.org/[Official Documentation] *[NOT UP TO DATE]*
-* <<getting-started-with-decidim,Getting started with Decidim>>
-* <<how-to-contribute,Contribute to the project>>
-* <<modules,Modules>>
-* <<browse-decidim,Create & browse development app>>
+- https://docs.decidim.org/[Official Documentation]
+- <<getting-started-with-decidim,Getting started with Decidim>>
+- <<how-to-contribute,Contribute to the project>>
+- <<modules,Modules>>
+- <<browse-decidim,Create & browse development app>>
 
 '''
 
@@ -52,38 +79,6 @@ See the https://github.com/decidim/decidim/blob/master/docs/getting_started.md[G
 
 See xref:CONTRIBUTING.adoc[Contributing].
 
-=== Browse Decidim
-
-After you create a development app (`bundle exec rake development_app`), you have to switch to it and boot the rails server with `cd development_app && bundle exec rails s`.
-
-After that, you can:
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the main interface at `+http://localhost:3000+`, and log in as: user@example.org
-| decidim123456
-|===
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the admin interface at `+http://localhost:3000/admin+`, and log in as: admin@example.org
-| decidim123456
-|===
-
-* {blank}
-+
-[cols=2*]
-|===
-| Browse the system interface at `+http://localhost:3000/system+`, and log in as: system@example.org
-| decidim123456
-|===
-
-Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
-
 == Modules
 
 If you need to have some features that we don't have yet, we recommend that you make a module.
@@ -100,26 +95,26 @@ See https://decidim.org/modules[Modules page on Decidim.org].
 One specific thing regarding these kind of applications is the xref:decidim-verifications/README.adoc[authorization/verification] logic.
 Here are some examples:
 
-* https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
-* https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
-* https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
-* https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
-* https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
-* https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
-* https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
-* https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
-* https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
-* https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
-* https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
-* https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
-* https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
+- https://github.com/AjuntamentdeBarcelona/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb[Barcelona (City)]
+- https://github.com/AjuntamentdeCalafell/decidim-calafell/blob/master/app/services/census_authorization_handler.rb[Calafell]
+- https://github.com/diputacioBCN/decidim-diba/blob/master/decidim-diba_census_api/app/services/diba_census_api_authorization_handler.rb[DIBA (Barcelona Province)]
+- https://github.com/AjuntamentDeGava/decidim-gava/blob/master/app/services/census_authorization_handler.rb[Gavà]
+- https://github.com/HospitaletDeLlobregat/decidim-hospitalet/blob/master/app/services/census_authorization_handler.rb[Hospitalet de Llobregat]
+- https://github.com/AjMalgrat/decidim-malgrat/blob/master/app/services/carpetaciutada_handler.rb[Malgrat de Mar]
+- https://github.com/AjuntamentDeMataro/decidimmataro.cat/blob/master/app/services/census_authorization_handler.rb[Mataró]
+- https://github.com/ErabakiPamplona/erabaki/blob/master/app/services/census_authorization_handler.rb[Pamplona]
+- https://github.com/AjuntamentdeReus/decidim/blob/master/app/services/census_authorization_handler.rb[Reus]
+- https://github.com/AjuntamentDeSabadell/decidim-sabadell/blob/master/app/services/census_authorization_handler.rb[Sabadell]
+- https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb[Sant Cugat]
+- https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb[Terrassa]
+- https://github.com/vilanovailageltru/decidim-vilanova/blob/master/app/services/vilanova_authorization_handler.rb[Vilanova i la Geltrú]
 
 Other special verifications:
 
-* https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
-* https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
-* https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
-* https://github.com/mainio/decidim-module-access_requests[Access Requests]
+- https://github.com/podemos-info/participa2/tree/master/decidim-module-census_connector[Podemos]
+- https://github.com/ElectricThings/fund_action/blob/master/app/services/anybody_authorization_handler.rb[FundAction]
+- https://github.com/CodiTramuntana/decidim-verifications-csv_emails[CSV emails]
+- https://github.com/mainio/decidim-module-access_requests[Access Requests]
 
 == Following our license
 
@@ -132,17 +127,17 @@ If you have any trouble you can contact us on https://gitter.im/decidim/decidim[
 Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made.
 Here's a partial list with some of the projects that have used Decidim:
 
-* http://staging.decidim.codegram.com[Demo]
-* https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
-* https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
-* https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
-* https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
-* https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
-* https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
-* http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
-* https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
-* https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
-* https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
+- http://staging.decidim.codegram.com[Demo]
+- https://decidim.barcelona[Decidim Barcelona] - https://github.com/AjuntamentdeBarcelona/decidim-barcelona[View code]
+- https://www.lhon-participa.cat[L'H ON Participa] - https://github.com/HospitaletDeLlobregat/decidim-hospitalet[View code]
+- https://participa.terrassa.cat[Decidim Terrassa] - https://github.com/AjuntamentDeTerrassa/decidim-terrassa[View code]
+- https://decidim.sabadell.cat[Decidim Sabadell] - https://github.com/AjuntamentDeSabadell/decidim-sabadell[View code]
+- https://participa.gavaciutat.cat[Decidim Gavà] - https://github.com/AjuntamentDeGava/decidim-gava[View code]
+- https://decidim.santcugat.cat/[Decidim Sant Cugat] - https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat[View code]
+- http://participa.vilanova.cat[Vilanova Participa] - https://github.com/vilanovailageltru/decidim-vilanova[View code]
+- https://erabaki.pamplona.es[Erabaki Pamplona] - https://github.com/ErabakiPamplona/erabaki[View code]
+- https://www.decidimmataro.cat[Decidim Mataró] - https://github.com/AjuntamentDeMataro/decidim-mataro[View code]
+- https://meta.decidim.barcelona/[MetaDecidim] - https://github.com/decidim/metadecidim[View Code]
 
 == Security
 

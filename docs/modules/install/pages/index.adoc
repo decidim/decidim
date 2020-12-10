@@ -73,6 +73,8 @@ This will also create some default data so you can start testing the app:
 
 This data won't be created in production environments, if you still want to do it, run: `$ SEED=true rails db:setup`. We recomend that you first login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `+https://example.org:3001+`, you need to write `example.org`). After it'd be good to execute the `seed` command, as that would be created with the first Organization created.
 
+If you want to verify yourself against the default authorization handler use a document number ended with "X".
+
 You can now start your server!
 
 [source,console]
