@@ -688,7 +688,6 @@ fr-CA:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images paysagères, le service récolte l'image.
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image de paysage qui n'a pas de texte.
