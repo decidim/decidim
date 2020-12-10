@@ -145,7 +145,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions suivantes
+          accept: J'accepte les conditions d'utilisation suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -383,7 +383,7 @@ fr-CA:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
-        moderation: Modérations globale
+        moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
         reported_users: Utilisateurs signalés
@@ -481,7 +481,7 @@ fr-CA:
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
-          reason: Raison
+          reason: Raison du signalement
           title: Liste des utilisateurs signalés
         report:
           reasons:
@@ -775,6 +775,7 @@ fr-CA:
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
@@ -882,7 +883,7 @@ fr-CA:
     decidim:
       admin:
         global_moderations:
-          title: Modérations globale
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:
