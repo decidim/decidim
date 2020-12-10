@@ -29,7 +29,7 @@ fr:
         trustee:
           attributes:
             public_key:
-              cant_be_changed: ne peut être modifié
+              cant_be_changed: ne peut être modifiée
   activerecord:
     models:
       decidim/elections/answer:
@@ -57,7 +57,7 @@ fr:
         confirm_destroy: Êtes-vous certain ?
         destroy: Détruire
         edit: Modifier
-        feedback: Commentaires des votants
+        feedback: Feedbacks des votants
         import: Importer des propositions dans les réponses
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
