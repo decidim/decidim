@@ -83,16 +83,16 @@ Decidim.register_component(:debates) do |component|
       Decidim::Component.create!(params)
     end
 
-    3.times do
+    5.times do
       params = {
         component: component,
         category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(2),
+        title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
+          Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         start_time: 3.weeks.from_now,
         end_time: 3.weeks.from_now + 4.hours,
@@ -109,22 +109,27 @@ Decidim.register_component(:debates) do |component|
       Decidim::Comments::Seed.comments_for(debate)
     end
 
-    closed_debate = Decidim::Debates::Debate.last
-    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(3)
+    Decidim::Debates::Debate.last(2).each do |debate|
+      debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+      end
+      debate.closed_at = Time.current
+      debate.save!
     end
-    closed_debate.closed_at = Time.current
-    closed_debate.save!
+
+    archived_debate = Decidim::Debates::Debate.last
+    archived_debate.archived_at = Time.current
+    archived_debate.save!
 
     params = {
       component: component,
       category: participatory_space.categories.sample,
-      title: Decidim::Faker::Localized.sentence(2),
+      title: Decidim::Faker::Localized.sentence(word_count: 2),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(3)
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end,
       author: user
     }
