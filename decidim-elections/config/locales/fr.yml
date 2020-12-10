@@ -64,7 +64,7 @@ fr:
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
-        setup: Configuration
+        setup: Configurer
         title: Actions
         unpublish: Dépublier
       admin:
