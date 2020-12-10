@@ -145,7 +145,6 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          accept: Jeg er enig med disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk

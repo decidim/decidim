@@ -138,6 +138,7 @@ fr:
             create: Importer des propositions dans les réponses
             no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
             select_component: Veuillez sélectionner une fonctionnalité
+            title: Importer des propositions
         questions:
           create:
             invalid: Il y a eu un problème lors de la création de cette question
@@ -210,6 +211,9 @@ fr:
           description: Ce sont les résultats du vote, pour chaque question
           selected: Sélectionné
           title: Résultats de l'élection
+          votes:
+            one: "%{count} vote"
+            other: "%{count} votes"
         show:
           back: Élections disponibles
           preview: Aperçu

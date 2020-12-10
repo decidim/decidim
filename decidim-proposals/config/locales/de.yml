@@ -93,6 +93,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
+            label: Zustand
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -338,10 +339,6 @@ de:
         description: Anzahl der Unterstützungen zu Vorschlägen
         object: Unterstützer
         title: Unterstützer
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Vorschläge
     participatory_spaces:
       highlighted_proposals:
         see_all: Alle anzeigen (%{count})
@@ -671,6 +668,9 @@ de:
           step_3: Vervollständigen Sie Ihren gemeinsamen Entwurf
           step_of: Schritt %{current_step_num} von %{total_steps}
           title: Gemeinschaftliche Entwurfsschritte
+      content_blocks:
+        highlighted_proposals:
+          proposals: Vorschläge
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
@@ -783,6 +783,8 @@ de:
             document_index: Dokumentenindex
           view_index:
             see_index: Index anzeigen
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           modify: Vorschlag ändern
           proposal_edit_before_minutes:
@@ -790,6 +792,7 @@ de:
             other: Sie können diesen Vorschlag in den ersten %{count} Minute nach seiner Veröffentlichung bearbeiten. Nach Ablauf dieses Zeitfensters können Sie diesen nicht mehr bearbeiten.
           publish: Veröffentlichen
           title: Vorschlag veröffentlichen
+          update_position: Position aktualisieren
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen

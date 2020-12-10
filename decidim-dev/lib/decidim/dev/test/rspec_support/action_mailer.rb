@@ -27,7 +27,7 @@ module MailerHelpers
   end
 
   def email_body(email)
-    (email.try(:html_part).try(:body) || email.body).encoded
+    (email.try(:html_part).try(:body) || email.try(:body))&.encoded
   end
 
   def last_email_link

@@ -7,6 +7,16 @@ pl:
         organization_name: Organizacja
         organization_url: Adres URL organizacji
         redirect_uri: Przekierowanie URI
+      organization:
+        address: Nazwa hosta SMTP
+        from_email: Adresy e-mail
+        from_label: Etykieta
+        password: Hasło
+        port: Port
+        user_name: Nazwa użytkownika
+      organization_file_uploads:
+        maximum_file_size:
+          default: Domyślny rozmiar pliku
     errors:
       models:
         oauth_application:
@@ -67,6 +77,7 @@ pl:
             save_and_invite: Utwórz organizację i zaproś administratora
           fields:
             created_at: Utworzono
+            file_upload_settings: Ustawienia przesyłania pliku
             name: Nazwa
             omniauth_settings: Ustawienia Omniauth
             smtp_settings: Ustawienia SMTP
@@ -98,6 +109,9 @@ pl:
           success: Organizacja została utworzona.
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
+        file_upload_settings:
+          file_sizes:
+            title: Maksymalne rozmiary plików
         index:
           title: Organizacje
         new:
@@ -123,7 +137,10 @@ pl:
             api_key: Klucz API
             api_secret: Sekret API
         smtp_settings:
+          fieldsets:
+            sender: Nadawca
           placeholder:
+            from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.

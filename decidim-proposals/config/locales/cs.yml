@@ -347,10 +347,6 @@ cs:
         description: Počet hlasů vygenerovaných v návrzích uživatelů
         object: hlasů
         title: Hlasy
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Návrhy
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobrazit všechny (%{count})
@@ -687,6 +683,9 @@ cs:
           step_3: Dokončete návrh spolupráce
           step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroky pro vytvoření společného návrhu
+      content_blocks:
+        highlighted_proposals:
+          proposals: Návrhy
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.

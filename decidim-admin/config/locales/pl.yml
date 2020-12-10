@@ -145,7 +145,7 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Akceptuję niniejsze warunki dla administratorów
+          accept: Zgadzam się z następującymi warunkami
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -468,6 +468,10 @@ pl:
             phone: Telefon
             state: Stan
             users_count: Liczba użytkowników
+      moderated_users:
+        report:
+          reasons:
+            spam: Spam
       moderations:
         index:
           title: Moderacje
@@ -476,6 +480,12 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+        reports:
+          index:
+            author: Autorzy
+            see_original: Zobacz oryginał
+          show:
+            report_reason: Powód
       newsletter_templates:
         index:
           preview_template: Podgląd
@@ -555,6 +565,7 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
+          reports: Raporty
           show_email: Pokaż adres e-mail
           status: Status
           unofficialize: Nieoficjalne
@@ -581,6 +592,7 @@ pl:
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
           twitter: Twitter
+          url: Adres URL
           youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
@@ -736,6 +748,7 @@ pl:
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         metrics: Wskaźniki
+        panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -801,6 +814,7 @@ pl:
           reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
     moderations:
       actions:
+        expand: Rozwiń
         hidden: Ukryty
         hide: Ukryj
         not_hidden: Widoczny
@@ -823,15 +837,22 @@ pl:
           fields:
             hidden_at: Ukryto
             report_count: Liczba
+            reportable_id: Id
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
             visit_url: Odwiedź adres URL
+        report:
+          fields:
+            locale: Język
+            reason: Powód
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globalna moderacja
         newsletters:
           title: Newslettery
         settings:

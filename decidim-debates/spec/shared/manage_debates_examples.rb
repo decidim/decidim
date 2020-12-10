@@ -191,4 +191,46 @@ RSpec.shared_examples "manage debates" do
       end
     end
   end
+
+  describe "archiving a debate" do
+    let!(:debate) { create(:debate, :closed, component: current_component) }
+
+    it "archives a debate" do
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--archive").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      expect(page).to have_no_content(translated(debate.title))
+
+      click_link "Archived debates"
+      expect(page).to have_content(translated(debate.title))
+    end
+  end
+
+  describe "unarchiving a debate" do
+    let!(:debate) { create(:debate, :closed, component: current_component, archived_at: 1.day.ago) }
+
+    before do
+      click_link "Archived debates"
+    end
+
+    it "unarchives a debate" do
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--archive").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      expect(page).to have_no_content(translated(debate.title))
+
+      click_link "Active debates"
+      expect(page).to have_content(translated(debate.title))
+    end
+  end
 end

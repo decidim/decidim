@@ -48,10 +48,10 @@ describe "User edit meeting", type: :system do
         click_button "Close meeting"
       end
 
-      click_link translated(meeting.title)
-
       expect(page).to have_content(closing_report)
       expect(page).not_to have_content "Close meeting"
+      expect(page).not_to have_content "ATTENDEES COUNT"
+      expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
       expect(meeting.reload.closed_at).not_to be nil
     end
   end

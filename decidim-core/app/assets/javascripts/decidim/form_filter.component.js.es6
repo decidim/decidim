@@ -1,4 +1,5 @@
 /* eslint-disable no-div-regex, no-useless-escape, no-param-reassign, id-length */
+/* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
 /**
  * A plain Javascript component that handles the form filter.
@@ -47,7 +48,12 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
+        let queue = 0;
 
+        let contentContainer = $(this.$form.closest(".filters").parent().find(".skip").attr("href"));
+        if (contentContainer.length === 0) {
+          contentContainer = this.$form.data("remoteFill");
+        }
         this.$form.on("change", "input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])", this._onFormChange);
 
         this.currentFormRequest = null;
@@ -56,6 +62,25 @@
             this.currentFormRequest.abort();
           }
           this.currentFormRequest = e.originalEvent.detail[0];
+          queue += 1;
+          if (queue > 0 && contentContainer.length > 0 && !contentContainer.hasClass("spinner-container")) {
+            contentContainer.addClass("spinner-container");
+          }
+        });
+
+        this.$form.on("ajax:success", () => {
+          queue -= 1;
+          if (queue <= 0 && contentContainer.length > 0) {
+            contentContainer.removeClass("spinner-container");
+          }
+        });
+
+        this.$form.on("ajax:error", () => {
+          queue -= 1;
+          if (queue <= 0 && contentContainer.length > 0) {
+            contentContainer.removeClass("spinner-container");
+          }
+          this.$form.find(".spinner-container").addClass("hide");
         });
 
         exports.theCheckBoxesTree.setContainerForm(this.$form);

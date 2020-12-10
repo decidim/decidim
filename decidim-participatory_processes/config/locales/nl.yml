@@ -37,7 +37,6 @@ nl:
       participatory_process_group:
         description: Beschrijving
         hero_image: Afbeelding
-        name: Naam
         participatory_process_ids: Verwante thema's
       participatory_process_step:
         cta_path: Call to Action-pad
@@ -116,8 +115,6 @@ nl:
             title: Titel
           name: Inspraakproces
         participatory_process_group:
-          fields:
-            name: Naam
           name: Groep inspraakprocessen
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@ nl:
         related_assemblies: Verwante assemblies
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 proces voor %{group}
-          other: "%{count} processen voor %{group}"
         title: Groepen van participatieve processen
     participatory_process_steps:
       index:

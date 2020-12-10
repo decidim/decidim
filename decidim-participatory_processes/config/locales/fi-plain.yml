@@ -13,7 +13,7 @@ fi-pl:
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymispäivä
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         local_area: Järjestöalue
         meta_scope: Teeman metadata
@@ -36,9 +36,17 @@ fi-pl:
         title: Otsikko
       participatory_process_group:
         description: Kuvaus
+        developer_group: Edistäjäryhmä
+        group_url: Verkkosivusto
+        hashtag: Aihetunniste (hashtag)
         hero_image: Kuva
-        name: Nimi
+        local_area: Organisaation alue
+        meta_scope: Teeman metatiedot
         participatory_process_ids: Liittyvät prosessit
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
+        target: Kuka osallistuu
+        title: Otsikko
       participatory_process_step:
         cta_path: Call to Action -polku
         cta_text: Call to Action -teksti
@@ -120,7 +128,7 @@ fi-pl:
           name: Osallisuusprosessi
         participatory_process_group:
           fields:
-            name: Nimi
+            title: Otsikko
           name: Prosessiryhmä
         participatory_process_step:
           fields:
@@ -311,10 +319,30 @@ fi-pl:
       show:
         related_assemblies: Liittyvät ryhmät
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: Ensimmäinen HTML-osio
+        html_2:
+          name: Toinen HTML-osio
+        html_3:
+          name: Kolmas HTML-osio
+        metadata:
+          developer_group: Edistäjäryhmä
+          name: Metatiedot
+          participatory_scope: Mitä päätetään
+          participatory_structure: Miten päätetään
+          target: Kuka osallistuu
+        participatory_processes:
+          name: Osallistumisprosessit
+        stats:
+          name: Tilastot
+        title:
+          meta_scope: Teema
+          name: Otsikko, kuvaus ja aihetunniste (hashtag)
+          participatory_processes:
+            one: 1 prosessi
+            other: "%{count} prosessia"
       show:
-        group_participatory_processes:
-          one: 1 prosessi ryhmälle %{group}
-          other: "%{count} prosessia ryhmälle %{group}"
         title: Osallisuusprosessiryhmät
     participatory_process_steps:
       index:
@@ -331,6 +359,10 @@ fi-pl:
         participatory_process_copies:
           form:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metatiedot
+            title: Yleiset tiedot
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
