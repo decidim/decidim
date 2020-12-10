@@ -115,6 +115,7 @@ fr:
             success: L'élection a été publiée avec succès.
           setup:
             invalid: Une erreur est survenue lors de la création de l'élection
+            success: Élection envoyée avec succès au Bulletin
           unpublish:
             success: L'élection a été dépubliée avec succès.
           update:
@@ -130,6 +131,8 @@ fr:
             name: Élection
           question:
             name: Question
+          trustee:
+            name: Garant
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions en réponses
@@ -165,9 +168,42 @@ fr:
             published: L'élection est <strong>non publiée</strong>
             time_before: L'heure de début se situe <strong>moins de 3 heures</strong> avant le début de l'élection
             trustee_public_key: n'a pas de <strong>clé publique valide</strong>
+            trustees_quorum: Le nombre de garants <strong>ne correspond pas au quorum des garants</strong> requis
+          requirements:
+            max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>
+            minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>
+            minimum_questions: L'élection a <strong>au moins 1 question</strong>
+            published: L'élection est <strong>publiée</strong>
+            time_before: La configuration est réalisée <strong>au moins 3 heures</strong> avant le début de l'élection
+            trustee_public_key: a une <strong>clé publique valide</strong>
+            trustees_quorum: La taille de cette liste des garants est correcte et il sera nécessaire d'avoir <strong>au moins %{quorum} de garants </strong> pour effectuer le processus de comptabilisation
+          show:
+            setup: Configurer l'élection
+            title: Configuration de l'élection
+          update:
+            setup: Configurer l'élection
+            title: Configuration de l'élection
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
+            enable: Autoriser
+          create:
+            exists: Ce garant existe déjà dans cet espace participatif
+            invalid: Une erreur s'est produite lors de la création du garant
+            success: Le garant a bien été créé
+          delete:
+            invalid: Il y a eu un problème lors de la suppression de ce garant
+            success: Le garant a bien été supprimé
+          form:
+            select_user: Sélectionner un utilisateur
+          index:
+            title: Garants
+          new:
+            create: Créer un garant
+            title: Nouveau garant
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
+            success: Le garant %{trustee} a été mis à jour avec succès
       admin_log:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
@@ -242,6 +278,15 @@ fr:
             answers: Réponses
             max_selections: Nombre maximum de sélections
             title: Titre
+        trustees_participatory_space:
+          fields:
+            considered: autorisé
+            email: Email
+            inactive: inactif
+            name: Nom
+            notification: Notification envoyée à
+            public_key: Clé publique
+            status: Statut
       orders:
         label: Trier les élections par 
         older: Les plus anciens
@@ -333,8 +378,16 @@ fr:
           email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
           notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
         trustees:
+          new_election:
+            email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que mandataire pour %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre zone de mandature</a>
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
+            notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
       home:
         statistics:
