@@ -496,6 +496,7 @@ fr-CA:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
+            title: Importer des propositions
         proposals_merges:
           create:
             invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.

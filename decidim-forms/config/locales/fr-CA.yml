@@ -78,7 +78,7 @@ fr-CA:
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
             preview: Aperçu
-            title: Modifier le formulaire pour %{questionnaire_for}
+            title: Modifier le questionnaire pour %{questionnaire_for}
             unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne

@@ -45,18 +45,27 @@ de:
             endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
+        active: Aktive Debatten
+        archive: Archiv
+        archived: Archivierte Debatten
         close: Schließen
         confirm_destroy: Bist du sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neu %{name}
         title: Aktionen
+        unarchive: Aus Archiv zurückholen
       admin:
         debate_closes:
           edit:
+            archive: Diese Debatte archivieren
+            archive_help: Die Archivierung dieser Debatte wird sie aus den öffentlich einsehbaren Debatten entfernen
             close: Schließen
             title: Debatte schließen
         debates:
+          archive:
+            invalid: Es gab ein Problem bei der Archivierung der Debatte.
+            success: Debatte erfolgreich archiviert.
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.
             success: Diskussion erfolgreich erstellt
@@ -65,11 +74,15 @@ de:
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
+          empty: Es gibt keine Debatten, die diesen Kriterien entsprechen.
           index:
             title: Debatten
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
+          unarchive:
+            invalid: Es gab ein Problem bei der Entarchivierung der Debatte.
+            success: Debatte erfolgreich entarchiviert.
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
