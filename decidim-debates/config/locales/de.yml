@@ -63,6 +63,9 @@ de:
             close: Schließen
             title: Debatte schließen
         debates:
+          archive:
+            invalid: Es gab ein Problem bei der Archivierung der Debatte.
+            success: Debatte erfolgreich archiviert.
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.
             success: Diskussion erfolgreich erstellt
@@ -71,11 +74,15 @@ de:
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
+          empty: Es gibt keine Debatten, die diesen Kriterien entsprechen.
           index:
             title: Debatten
           new:
             create: Erstelle eine Debatte
             title: Neue Debatte
+          unarchive:
+            invalid: Es gab ein Problem bei der Entarchivierung der Debatte.
+            success: Debatte erfolgreich entarchiviert.
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
