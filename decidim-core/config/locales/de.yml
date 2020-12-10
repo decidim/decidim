@@ -1367,13 +1367,13 @@ de:
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       invite_collaborator:
         subject: Du wurdest eingeladen, an %{organization}
       invite_private_user:
-        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
+        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
         message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.

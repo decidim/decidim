@@ -16,7 +16,7 @@ fi:
       question:
         banner_image: Bannerikuva
         decidim_scope_id: Kunnan alue
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         i_frame_url: Ulkopuolisen äänestysjärjestelmän URL-osoite
         instructions: Lisäohjeet äänestykseen
@@ -26,7 +26,7 @@ fi:
         origin_title: Alkuperä
         origin_url: Alkuperän URL-osoite
         participatory_scope: Osallistumisteema
-        promoter_group: Suositteluryhmä
+        promoter_group: Edistäjäryhmä
         question_context: Konteksti
         reference: Viite
         scope: Kunnan alue

@@ -10,10 +10,10 @@ fi:
         copy_steps: Kopioi vaiheet
         decidim_area_id: Alue
         description: Kuvaus
-        developer_group: Kehittäjäryhmä
+        developer_group: Edistäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymispäivä
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         local_area: Järjestöalue
         meta_scope: Teeman metadata
@@ -393,7 +393,7 @@ fi:
       show:
         area: Alue
         dates: Päivämäärät
-        developer_group: Kehittäjäryhmä
+        developer_group: Edistäjäryhmä
         end_date: Päättymispäivä
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään

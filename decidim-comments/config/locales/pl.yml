@@ -24,6 +24,7 @@ pl:
       comments_count: Liczba komentarzy
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
+      view: Zobacz
       votes:
         create:
           error: Podczas dodawania komentarza wystąpił błąd.

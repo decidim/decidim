@@ -13,7 +13,7 @@ fi-pl:
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
         end_date: Päättymispäivä
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         local_area: Järjestöalue
         meta_scope: Teeman metadata
