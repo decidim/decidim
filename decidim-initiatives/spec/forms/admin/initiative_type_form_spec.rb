@@ -41,8 +41,8 @@ module Decidim
         context "when minimum_committee_members is blank" do
           let(:minimum_committee_members) { " " }
 
-          it "is nullified" do
-            expect(subject.minimum_committee_members).to be_nil
+          it "is 2" do
+            expect(subject.minimum_committee_members).to eq(2)
           end
         end
 

@@ -53,8 +53,6 @@ es:
         confirm_destroy: '¿Estás segura?'
         destroy: Destruir
         edit: Editar
-        edit_answers: Editar las respuestas
-        edit_questions: Editar las preguntas
         import: Importar propuestas como respuestas
         new: Nueva %{name}
         preview: Previsualizar
@@ -173,7 +171,6 @@ es:
           filter_by: Filtrar por
           unfold: Desplegar
         show:
-          back: Todas las votaciones
           preview: Previsualizar
           vote: Votar
           voting_period_status:

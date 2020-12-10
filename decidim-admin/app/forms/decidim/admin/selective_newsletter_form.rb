@@ -24,6 +24,12 @@ module Decidim
         end
       end
 
+      # Make sure the empty scope is not passed because then some logic could
+      # assume erroneously that some scope is selected.
+      def scope_ids
+        super.select(&:presence)
+      end
+
       private
 
       def at_least_one_participatory_space_selected

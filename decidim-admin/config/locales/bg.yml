@@ -30,7 +30,6 @@ bg:
         body: Тяло
         subject: Тема
       organization:
-        address: Име на SMTP хост
         alert_color: Аларма
         badges_enabled: Включи значките
         comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
@@ -66,8 +65,6 @@ bg:
         omnipresent_banner_short_description: Кратко описание
         omnipresent_banner_title: Заглавие
         omnipresent_banner_url: URL адрес
-        password: Парола
-        port: Порт
         primary_color: Основен
         reference_prefix: Префикс на препратка
         rich_text_editor_in_public_views: Разреши редактора на rich text за участниците
@@ -78,7 +75,6 @@ bg:
         tos_version: Версия на условия за ползване
         twitter_handler: Манипулатор на Twitter
         user_groups_enabled: Разреши групи
-        user_name: Потребителско име
         warning_color: Предупреждение
         welcome_notification_body: Тяло на приветствието
         welcome_notification_subject: Тема на приветствието

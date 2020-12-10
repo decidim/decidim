@@ -15,7 +15,11 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :participatory_process_groups
+        resources :participatory_process_groups do
+          resource :landing_page, only: [:edit, :update], controller: "participatory_process_group_landing_page" do
+            resources :content_blocks, only: [:edit, :update], controller: "participatory_process_group_landing_page_content_blocks"
+          end
+        end
         resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]

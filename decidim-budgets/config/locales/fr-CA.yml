@@ -136,9 +136,14 @@ fr-CA:
           title: Confirmez votre vote
         budget_excess:
           budget_excess:
+            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
             title: Budget maximum dépassé
           close: Fermer
+          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
           ok: D'accord
+          projects_excess:
+            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné ou voter selon vos préférences.
+            title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
           assigned: 'Affecté à :'
@@ -146,7 +151,23 @@ fr-CA:
           checked_out:
             description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
+          minimum_projects_rule:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez au moins %{minimum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+          projects_rule:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez entre %{minimum_number} et %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+          projects_rule_maximum_only:
+            description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au maximum %{maximum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Sélectionnez au maximum %{maximum_number} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
+          rules:
+            title: Règles budgétaires
           title: Vous décidez du budget
+          total_budget: Budget total
+          total_projects: Total des votes
+          vote_threshold_percent_rule:
+            description: À quels projets pensez-vous que nous devrions allouer un budget ? Assignez au moins %{minimum_budget} aux projets que vous soutenez et votez selon vos préférences pour définir le budget.
+            instruction: "<li>Assignez au moins %{minimum_budget} projets que vous souhaitez et votez selon vos préférences pour définir le budget.</li>"
         count:
           projects_count:
             one: 1 projet
@@ -188,6 +209,7 @@ fr-CA:
           votes:
             one: vote
             other: votes
+          you_voted: Vous avez voté ceci
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
@@ -221,6 +243,7 @@ fr-CA:
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
             vote_rule_minimum_budget_projects_enabled: 'Activer la règle : Nombre minimum de projets à voter'
+            vote_rule_selected_projects_enabled: 'Activer la règle : Projets sélectionnés avec un nombre minimum et maximum de projets à voter'
             vote_rule_threshold_percent_enabled: 'Activer la règle : Pourcentage de budget minimum'
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
             workflow: Processus

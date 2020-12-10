@@ -304,7 +304,6 @@ is-IS:
         subject: Úrræði hefur verið falið sjálfkrafa
       report:
         hello: Halló %{name},
-        manage_moderations: Stjórna meðlimum
         report_html: <p>Eftirfarandi <a href="%{url}">efni</a> hefur verið tilkynnt.</p>
         subject: Úrræði hafa verið tilkynntar
     reports:

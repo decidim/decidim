@@ -30,7 +30,6 @@ ro:
         body: Corp
         subject: Subiect
       organization:
-        address: SMTP hostname
         alert_color: Alertă
         badges_enabled: Activează insigne
         comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
@@ -63,8 +62,6 @@ ro:
         omnipresent_banner_short_description: Descriere scurtă
         omnipresent_banner_title: Titlu
         omnipresent_banner_url: URL
-        password: Parolă
-        port: Portul
         primary_color: Primară
         reference_prefix: Prefix de referință
         rich_text_editor_in_public_views: Activează editorul de text bogat pentru participanți
@@ -75,7 +72,6 @@ ro:
         tos_version: Termenii versiunii serviciului
         twitter_handler: Twitter handler
         user_groups_enabled: Activare grupuri
-        user_name: Nume
         warning_color: Avertizare
         welcome_notification_body: Organismul de notificare de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
@@ -145,7 +141,6 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu termenii de administrare
           are_you_sure: Sigur doriți să refuzați termenii de administrator?
           refuse: Refuză termenii de administrare
           title: Sunt de acord cu termenii și condițiile de utilizare
@@ -571,7 +566,6 @@ ro:
           rich_text_editor_in_public_views_help: În unele domenii de text, participanţii vor putea insera unele tag-uri HTML folosind bogatul editor de text.
           social_handlers: Sociale
           twitter: Twitter
-          url: Url-ul
           youtube: YouTube
         update:
           error: A apărut o eroare la actualizarea acestei organizații.
@@ -602,7 +596,6 @@ ro:
           error: A apărut o eroare la ștergerea unui participant privat pentru acest spațiu participativ.
           success: Accesul participanților privați la spațiul participativ a fost distrus cu succes.
         index:
-          import_via_csv: Import prin csv
           title: Participant privat la spațiu
         new:
           create: Crează

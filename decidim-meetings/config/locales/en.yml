@@ -91,6 +91,7 @@ en:
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
+            registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
@@ -254,6 +255,7 @@ en:
                 other: The meeting cannot be destroyed because it has %{count} proposals associated to it
             success: Meeting successfully deleted
           edit:
+            title: Edit meeting
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
@@ -288,6 +290,7 @@ en:
             invalid: There was a problem creating this minutes
             success: Minutes successfully created
           edit:
+            title: Edit minutes
             update: Update
           new:
             create: Create
@@ -514,11 +517,6 @@ en:
         description: Number of meetings created
         object: meetings
         title: Meetings
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Past meetings
-          upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings

@@ -30,7 +30,6 @@ hu:
         body: Szöveg
         subject: Tárgy
       organization:
-        address: SMTP host név
         alert_color: Figyelmeztetés
         badges_enabled: Jelvények engedélyezése
         comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
@@ -66,8 +65,6 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
-        password: Jelszó
-        port: Port
         primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
         rich_text_editor_in_public_views: A résztvevők számára a szövegszerkesztő felület engedélyezése
@@ -78,7 +75,6 @@ hu:
         tos_version: Használati feltételek
         twitter_handler: Twitter handler
         user_groups_enabled: Csoportok engedélyezése
-        user_name: Felhasználónév
         warning_color: Figyelmeztetés
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
@@ -148,7 +144,6 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          accept: Elfogadom ezeket az admin feltételeket
           are_you_sure: Biztosan visszautasítod az admin feltételek elfogadását?
           refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
@@ -575,7 +570,6 @@ hu:
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Hiba történt a szervezet frissítése során.
@@ -610,7 +604,6 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
-          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás

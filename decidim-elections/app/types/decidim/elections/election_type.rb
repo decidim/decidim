@@ -20,6 +20,8 @@ module Decidim
       field :createdAt, Decidim::Core::DateTimeType, "When this election was created", property: :created_at
       field :updatedAt, Decidim::Core::DateTimeType, "When this election was updated", property: :updated_at
       field :publishedAt, Decidim::Core::DateTimeType, "When this election was published", property: :published_at
+      field :blocked, types.Boolean, "Whether this election has it's parameters blocked or not", property: :blocked?
+      field :bb_status, types.String, "The status for this election in the bulletin board"
 
       field :questions, !types[Decidim::Elections::ElectionQuestionType], "The questions for this election"
       field :trustees, !types[Decidim::Elections::TrusteeType], "The trustees for this election"

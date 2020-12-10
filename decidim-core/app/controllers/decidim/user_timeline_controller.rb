@@ -6,6 +6,7 @@ module Decidim
     include Paginable
     include UserGroups
     include FilterResource
+    include Flaggable
 
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user

@@ -30,6 +30,7 @@ en:
             success: Post successfully deleted
           edit:
             save: Update
+            title: Edit post
           index:
             title: Posts
           new:

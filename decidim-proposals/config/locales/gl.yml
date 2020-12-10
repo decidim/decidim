@@ -266,10 +266,6 @@ gl:
         description: Número de votos xerados nas propostas dos usuarios
         object: votos
         title: Votos
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -307,9 +303,7 @@ gl:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Poderá ver e ordenar as seccións do documento)"
-            document_legend: 'Engada un documento inferior a 2 MB, cada sección até que se analizen 3 niveis de profundidade nas Propostas. Os formatos soportados son: %{valid_mime_types}'
             title: AGREGAR DOCUMENTOS
             upload_document: Cargar documento
           publish:

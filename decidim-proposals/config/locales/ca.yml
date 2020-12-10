@@ -336,10 +336,6 @@ ca:
         description: Nombre de suports a les propostes
         object: suports
         title: Suports
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostes
     participatory_spaces:
       highlighted_proposals:
         see_all: Veure tots (%{count})
@@ -380,9 +376,7 @@ ca:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
-            document_legend: 'Afegeix un document de menys de 2 MB, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
             title: AFEGIR DOCUMENT
             upload_document: Puja el document
           publish:

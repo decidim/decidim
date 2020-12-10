@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/elections/jwk_utils"
 
 module Decidim
   module Elections
@@ -11,93 +12,42 @@ module Decidim
         {
           identification_private_key: identification_private_key,
           server: server,
-          api_key: api_key
+          api_key: api_key,
+          scheme: scheme,
+          authority_name: authority_name
         }
       end
 
-      let(:identification_private_key) { identification_private_key_content }
+      let(:identification_private_key) do
+        { "kty": "RSA", "n": "pNgMt8lnPDD3TlWYGhRiV1oZkPQmnLdiUzwyb_-35qKD9k-HU86xo0uSgoOUWkBtnvFscq8zNDPAGAlZVokaN_z9ksZblSce0LEl8lJa3ICgghg7e8vg_7Lz5dyHSQ3PCLgenyFGcL401aglDde1Xo4ujdz33Lklc4U9zoyoLUI2_viYmNOU6n5Mn0sJd30FeICMrLD2gX46pGe3MGug6groT9EvpKcdOoJHKoO5yGSVaeY5-Bo3gngvlgjlS2mfwjCtF4NYwIQSd2al-p4BKnuYAVKRSgr8rYnnjhWfJ4GsCaqiyXNi5NPYRV6gl_cx_1jUcA1rRJqQR32I8c8QbAXm5qNO4URcdaKys9tNcVgXBL1FsSdbrLVVFWen1tfWNfHm-8BjiWCWD79-uk5gI0SjC9tWvTzVvswWXI5weNqqVXqpDydr46AsHE2sG40HRCR3UF3LupT-HwXTcYcOZr5dJClJIsU3Hrvy4wLssub69YSNR1Jxn-KX2vUc06xY8CNIuSMpfufEq5cZopL6O2l1pRsW1FQnF3s078_Y9MaQ1gPyBo0IipLBVUj5IjEIfPuiEk4jxkiUYDeqzf7bAvSFckp94yLkRWTs_pEZs7b_ogwRG6WMHjtcaNYe4CufhIm9ekkKDeAWOPRTHfKNmohRBh09XuvSjqrx5Z7rqb8", "e": "AQAB", "kid": "b8dba1459df956d60107690c34fa490db681eac4f73ffaf6e4055728c02ddc8e", "d": "Uh3KIBe1VJez6pLbBUrYPlmE2N-3CGSWF46qNX62lq6ofB_b8xTJCuaPonJ3iYoE0aPEeVDrefq5m3-0wFXl-LQPgXlMj_1_7UgB9jeuSZ_N1WDK6P2EJPx5YS09O1gkpVxK7Mx_sZQe77wmUUH-eI7tg__qfUrB7E0Yn_cTpBATI2qlYaQsz6-A7e1MVvixq_ilmzVAZvuBrPp5mCZVb6FlXrV_PU9-UPIrD3O1La1lfO6SPBSbSGQkmGHwD2QbkHn9D_R_Vs-z_0TkM_dX71jIPQhrle3pN222KuJ8eQqwr9QP6biQMBuT5eKgr3MVtfUDRpp4sCEq9GIFwSd8LvbmGPrOoz8ueOEQ05nisIBQuOTYiWpYs2CEV062HR1bLFRLDUcSlflGNr0bgiXTUFx4wxRG06OaI-rQ6nG3M8TE0I0phMNCG3c7YyV28z_k2I65oQF9aKtiwFwc0YsUSGPTOFZGWHuCCPLm0lFeebpI_JIYqIv70NJxbSZEBY8DAIqZPqP6y_CRo2_C7piCgsjg9pnF8cp45vz4L6DWZ0Tumc_5aRuqIBkYXXwP9TjqhzxL-2SQHIqUAjj6Y6S35tZT6ekZSbnPIKX_e42y6bDT_Ztf01QfKiTkcx3_I8RwOuh6CzJzr72AykQpU3XKOKF1x1GBtYyrno4jG5LgaGE", "p": "1UARZ-rRnpKG5NHKlXTys3irCy-d91edHL3fEIzDKvhMRQCIWh7dt8l0_sIpcBF-EbVilbFKj7yfgZBTr8EkAXHgweayK8rnlMqi2jte1_u-5DBtrGVVUTSQltSLDOZHK5QfUxVK6Bbk8K5ROLvef91oNgnSNWNOeoCZdlS55nMZcAgY_6mxSuuMq54Tgy8o4Ip890-ZEYY6OSFXhU-ieoGO4Jw--c6QzmCa3gGo2oVClidMNaM1jquK4Pj6xaoxR2NWeIX9Ix7k1P2B24pegyHXjSIpQ6JYdn352VViXi2tx7TTJh6ClNVjgoRmL4Gfy_IJNx0GhF5OB3yughUc7w", "q": "xePJGBt466qM9F0BPxWFjyWbIs_GNXr-lBGASui0Z94cfgFbsZwqRsWQEf7jDVQsDNVnPSWZ_Wd6UqoQaIxc0tE8gaokPG6A4EUDyoLaZ231ZydDVoWof8FnPDaJwrcPwZ4R6ZLKGmkfytCZuU9I_9B4uuV0dyjEzKfS-Os3UcLumKPlgJ71OZAb49GTqUHuTePcSJjyYOYXx6eE7i_1m8TjU9Ut18BJNQhLqWmerA6X1ijbR2_syY6GXhGSfciSBH8xVkiUnqXb2jt1bE8nwWw-Sam5ikjzNbXqqs978IcCE5HTddQmy99bwuArA8PLqIFj3OOO1CSo8oyn2XDgMQ", "dp": "Diky_rOZN-6DBq7nxQT_GOvqb9O5qbMnu8DgDzlJvJDAf9SJOXLTRmEaY9CA7_A5bvOcmFQtn13nObNb20_4FCB7zGSFcGMI_dh2-Ab5RV5yTrTok4onID1dXKbAlRq1ny825U2Eq-TZTyJEQoA3RkZtpSkBzInLrFbd2f3GWodKKSZggpnCLDd4H-1fXlbDYCXSJpoikAdZ1nFgXnnrUDdKRaAajnwpIYtIvXVewSQYR-BULzunUtIRZt8hx_6FRzhRha9gH_TtPTeYZ_vISuz0Y2rhUpx1Q2kaLlR9M8PUxm47l0xvX3LMKN6h6oWxFtn7wq0qwZ-Bjv24mOrOAQ", "dq": "nXGD10hURrwk9W7hxP0sjB2Rdnr06iv3THs4JWFL16_h32bZO1BSWoho_chbgYlMmtFXGFFIWVLxAcAI2gWC_MA4cbmapvIMW2LNh1vgxJW5v95_NuGUlECeEEwcAu1-_b7z5XBCmAy3nLem9sbb_5wv0hMpPH0VRvbnZeBO3SBIkO0lddYCqU-8wN9HqkyoexQleSUnAm1O0iy4GIHT2aEmdNaRaKy2EhmNiTZdZeseZueOvyGPtTVONp2ofacMdcN0z39jr22qo9DWtdusd7nVPOpqkllEF6GrGUeHBnGD92n4YjDuxRnqefu8fXxUFrcLav0p8CNSv9ek291woQ", "qi": "w6hfKEBLLHRWPkjajgxZyyetj-UFfVkILRT0plOllJ2JV8whcOXRXbiXH2r8zqMeyMFrrMwmuvv4TVQaruKB0ZQOG7Tz5Lw0RZEREOLnBwc3vSi_iLd-jBz01LdExTpqsAHMkaMQR9x62J8DE1ZNxVdn3ELYKik0f1L2r_WErzhvT1uq69HAybUp6WHcFYH0PSqHg4LOneXAdU1_g-ji2Zn9dlA_2oYGQ5S6JXPV7v2IVbEFpxyVD1lPbFT0iKhyZZevictjgD_JGHveIVqsq5w0Csyz08h0oEW9hYEq-4bquMxSf18gjldoS5uQPD7FUECgL8bxsCdc4hP6UEKYGw" }
+      end
+
       let(:server) { "https://bb.example.org" }
       let(:api_key) { Random.urlsafe_base64(30) }
+      let(:scheme) do
+        {
+          name: "test",
+          parameters: {
+            quorum: 2
+          }
+        }
+      end
+      let(:authority_name) { "Decidim Test Authority" }
+      let(:election_data) do
+        {
+          schema: scheme,
+          election_id: authority_name
+        }
+      end
 
       let(:identification_private_key_content) do
-        <<~KEY
-          -----BEGIN RSA PRIVATE KEY-----
-          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
-          -----END RSA PRIVATE KEY-----
-        KEY
+        Decidim::Elections::JwkUtils.import_private_key(identification_private_key)
       end
 
       it { is_expected.to be_configured }
 
       it "has an identification public key" do
-        expect(subject.public_key).to be_public
-      end
-
-      context "when private key is a path to a file" do
-        around do |example|
-          Tempfile.create do |file|
-            file << identification_private_key_content
-            file.flush
-            @temp_file_path = file.path
-            example.call
-          end
-        end
-
-        let(:identification_private_key) { @temp_file_path }
-
-        it { is_expected.to be_configured }
-
-        it "has an identification public key" do
-          expect(subject.public_key).to be_public
-        end
+        expect(subject.public_key).not_to be_nil
       end
 
       context "when private key is not present" do
@@ -120,6 +70,14 @@ module Decidim
         let(:api_key) { "" }
 
         it { is_expected.not_to be_configured }
+      end
+
+      context "when election data is called" do
+        it "encodes election data" do
+          expect(subject.encode_data(election_data)).to eq(
+            "eyJhbGciOiJSUzI1NiJ9.eyJzY2hlbWEiOnsibmFtZSI6InRlc3QiLCJwYXJhbWV0ZXJzIjp7InF1b3J1bSI6Mn19LCJlbGVjdGlvbl9pZCI6IkRlY2lkaW0gVGVzdCBBdXRob3JpdHkifQ.LdFMOzHHFdpTRr7IZsktM9HxucKhfJ8cCjbyVTQu4deyiQPTczeqNAqOIUvgBFmrRGZ5qRvN8dS0sfmdW0I2J3079ooTavVwd6t-A6MuJzRUzuGx1M7jGwrnmUyQ5_r3e7dtpGdqKqCoEydmP3LaXS6G4dZTftk_MAvQQlbRCUg9VBcedlNI6OUZW-vATK4aEfJlMjZEBgzzw-7Oh3FR1mqE8FqKrTCH2Ro9jwwS2sc0moq5tPG368IR86JwRmBlNO7bq5nD-ZSpGF8hlcphucZGSbm95GBrkWjZxCsEPThj8pEBng-e_Duz-8ctVFDGbocjc90-ksLkhhHAwnPg82zlC3jp2CpQjBvs870kkKR8-qAwW3J_YMjWHsfrXb0LpSSEYNnZolks1F0ZsjxNmn5cPbB2g5ItSFGv53OGyEc5iq8g-7tkkuVfGxKt4kTP3WsULuV1ClkjswZiTVOQPSRAuDyWpWogT6fCe6r0wtzs3z3nz5p7aO48VBo18hRwmmLap49dzATDDCuFw8T182_BAm99JaJ7SebAyEBiNHCqU2FtMQUL_YeXrNeuC586w-oA_LFz0kRVyxaB3ZUkzcry96vWJoYTvvoI_3zU3n_o0xCiiKzxRAatGW6thagEkbRC3AQlGuwqECxCSNf3cv7JD8MWsKLZNHWAHxlDYpc"
+          )
+        end
       end
     end
   end

@@ -55,6 +55,8 @@
 
                 <% if allowed_to? :copy, :meeting, meeting: meeting %>
                   <%= icon_link_to "clipboard", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
@@ -69,18 +71,29 @@
                   <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
                   <%= icon_link_to "clock", meeting.minutes.present? ? edit_meeting_minute_path(meeting, meeting.minutes) : new_meeting_minute_path(meeting), t("actions.minutes", scope: "decidim.meetings"), class: "action-icon--minutes" %>
                   <%= icon_link_to "calendar", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                  <span class="action-space icon"></span>
+                  <span class="action-space icon"></span>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :close, :meeting, meeting: meeting %>
                   <%= icon_link_to "lock-locked", edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), t("actions.close", scope: "decidim.meetings"), class: "action-icon--close" %>
+                <% else %>
+                    <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
                     <%= icon_link_to "folder", meeting_attachment_collections_path(meeting), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <% else %>
+                    <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
                   <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <%= resource_permissions_link(meeting) %>
@@ -102,6 +115,8 @@
                       end
                     %>
                   <% end %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
               </td>
             </tr>

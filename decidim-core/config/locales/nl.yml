@@ -128,7 +128,6 @@ nl:
         update: "%{user_name} heeft de organisatie-instellingen bijgewerkt"
       participatory_space_private_user:
         create: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
-        create_via_csv: "%{user_name} heeft %{resource_name} uitgenodigd om een privé deelnemer te zijn"
         delete: "%{user_name} heeft de deelnemer %{resource_name} verwijderd als privé-deelnemer"
       scope:
         create: "%{user_name} heeft het bereik %{resource_name} gemaakt"
@@ -410,7 +409,6 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw alias in %{organization}
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
@@ -419,7 +417,6 @@ nl:
           already_have_an_account?: Heb je al een account?
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          nickname_help: Jouw bijnaam in %{organization}
           password_help: "gebruik minimaal %{minimun_characters} tekens, deze mogen niet te algemeen zijn (bijv. 123456) en moeten anders zijn dan je alias en je e-mail."
           sign_in: Aanmelden
           sign_up: Registratie
@@ -920,8 +917,6 @@ nl:
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
-      download:
-        csv: Gegevens downloaden (csv)
       followers:
         description: Aantal deelnemers dat deze participatieruimte volgt
         object: volgers
@@ -983,7 +978,7 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Laat iedereen mij een persoonlijk bericht sturen, zelfs als ik deze niet volgt.
+        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
@@ -1120,13 +1115,15 @@ nl:
       report:
         authors: Auteurs
         content: Gerapporteerde inhoud
+        content_original_language: Oorspronkelijke taal inhoud
         date: Gerapporteerd op
         details: Beschrijving
         hello: Hallo %{name},
-        manage_moderations: Beheer moderaties
+        id: ID
         participatory_space: Participatieve ruimte
         reason: Reden
         report_html: <p>De volgende <a href="%{url}">content</a> is aangemeld.</p>
+        see_report: Bekijk rapport
         subject: Een bron is gemeld
     reports:
       create:

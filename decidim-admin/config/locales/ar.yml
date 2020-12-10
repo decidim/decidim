@@ -29,7 +29,6 @@ ar:
         body: المحتوى
         subject: الموضوع
       organization:
-        address: خادم SMTP
         alert_color: تنبيه
         badges_enabled: تمكين الشارات
         cta_button_path: دعوة إلى العمل مسار زر
@@ -59,8 +58,6 @@ ar:
         omnipresent_banner_short_description: وصف قصير
         omnipresent_banner_title: العنوان
         omnipresent_banner_url: العنوان الشبكي
-        password: الكلمة السرية
-        port: المَنفذ
         primary_color: ابتدائي
         reference_prefix: بادئة المرجع
         rich_text_editor_in_public_views: إتاحة محرر النص الغني للمشارِكين
@@ -71,7 +68,6 @@ ar:
         tos_version: شروط وأحكام الخدمة
         twitter_handler: مُعرّف حساب تويتر
         user_groups_enabled: تمكين المجموعات
-        user_name: اسم المستخدم
         warning_color: تحذير
         welcome_notification_body: محتوى إشعار الترحيب
         welcome_notification_subject: موضوع إشعار الترحيب
@@ -140,7 +136,6 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          accept: أوافق على شروط المدير هذه
           are_you_sure: هل أنت متأكد مِن أنك رافض لشروط المدير؟
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
@@ -525,7 +520,6 @@ ar:
           instagram: إينستاجرام
           social_handlers: التواصل الاجتماعي
           twitter: تويتر
-          url: العنوان الشبكي
           youtube: يوتيوب
         update:
           error: حدثت مشكلة أثناء تحديث هذه المؤسسة.
@@ -559,7 +553,6 @@ ar:
           error: حدثت مشكلة في حذف مشارك خاص لهذه المساحة التشاركية.
           success: المشاركة الفضاء الفضاء وصول المشاركين دمرت بنجاح.
         index:
-          import_via_csv: استيراد عبر ملف csv
           title: المشاركة الفضاء المشارك الخاص
         new:
           create: إنشاء

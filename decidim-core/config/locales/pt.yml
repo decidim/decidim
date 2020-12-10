@@ -128,7 +128,6 @@ pt:
         update: "%{user_name} atualizou as configurações da organização"
       participatory_space_private_user:
         create: "%{user_name} convidou %{resource_name} para ser um participante privado"
-        create_via_csv: "%{user_name} convidou %{resource_name} através de csv para ser um participante privado"
         delete: "%{user_name} removeu o participante %{resource_name} como participante privado"
       scope:
         create: "%{user_name} criou o âmbito %{resource_name}"
@@ -407,7 +406,6 @@ pt:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
           complete_profile: Complete o seu perfil
-          nickname_help: O seu pseudónimo em %{organization}
           sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece nas suas publicações. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -416,7 +414,6 @@ pt:
           already_have_an_account?: Já tem uma conta?
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
-          nickname_help: O seu pseudónimo em %{organization}
           password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -909,8 +906,6 @@ pt:
           send: Enviar
           title: Iniciar uma conversa
     metrics:
-      download:
-        csv: Transferência de dados (csv)
       followers:
         description: Número de participantes que seguem este espaço de participação
         object: seguidores
@@ -1111,7 +1106,6 @@ pt:
         date: Reportado em
         details: Detalhes
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
         participatory_space: Espaço participativo
         reason: Razão
         report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>

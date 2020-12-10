@@ -18,10 +18,12 @@ edit_link(
   <div class="columns">
 
     <% unless single? %>
-      <%= link_to :elections, class: "small hollow" do %>
-        <%= icon "caret-left", class: "icon--small" %>
-        <%= t(".back") %>
-      <% end %>
+      <div class="m-bottom">
+        <%= link_to :elections, class: "small hollow" do %>
+          <%= icon "caret-left", class: "icon--small" %>
+          <%= t(".back") %>
+        <% end %>
+      </div>
     <% end %>
 
     <h1 class="heading2">
@@ -62,29 +64,11 @@ edit_link(
 </div>
 
 <!-- Election questions preview -->
-<div class="row section">
-  <div class="columns large-8">
-    <h2 class="section-heading"><%= t(".questions_preview.title") %></h2>
-    <p>
-      <%= t(".questions_preview.description") %>:
-    </p>
-    <ul class="accordion mb-m evote__preview"
-        data-accordion
-        data-multi-expand="true"
-        data-allow-all-closed="true">
-          <% election.questions.each do |question| %>
-            <li class="accordion-item evote__preview-question" data-accordion-item>
-              <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
-              <div class="accordion-content" data-tab-content>
-                <strong><%= t(".questions_preview.available_answers") %>:</strong>
-                <ul>
-                  <% question.answers.each do |answer| %>
-                  <li><%= translated_attribute(answer.title) %></li>
-                  <% end %>
-                </ul>
-              </div>
-            </li>
-          <% end %>
-      </ul>
-  </div>
-</div>
+<% unless election.finished? %>
+  <%= render partial: "preview", election: election %>
+<% end %>
+
+<!-- Election results -->
+<% if election.results_published? %>
+  <%= render partial: "results", election: election %>
+<% end %>

@@ -265,18 +265,10 @@ hu:
         finish:
           back: Vissza
           back_to_initiatives: Vissza a kezdeményezésekhez
-          confirm: Megerősít
           edit_my_initiative: Kezdeményezéseim szerkesztése
           go_to_my_initiatives: Ugrás a saját kezdeményezéseimhez
           more_information: "(További információk)"
           send_my_initiative: Kezdeményezésem elküldése
-        finish_help:
-          access_reminder: Ne felejtsd el, hogy a menüben mindig hozzáférhetsz a kezdeményezéseihez.
-          help_for_organizations: Ha egyesületként regisztrálsz, fel kell töltened az összes szerv vezetői testületének jegyzőkönyveit, amelyek megfelelnek a Támogató Bizottság feltételeinek
-          help_in_person_signatures: Ha úgy döntöttél, hogy az aláírásokat személyesen és online módon kombinálva gyűjtöd, akkor töltsd fel a szükséges adatokat.
-          help_text: Ne feledd, hogy a kezdeményezés feldolgozásához hozzá kell férned az adminisztrációs panelhez, ahol a felhasználó menü is található. Ugyanitt töltheted fel a szükséges információkat és indíthatsz eljárást.
-          initiatives_page_link: '%{link} segítségével megnézheted a kezdeményezésekre vonatkozó összes információt.'
-          page: oldal
         previous_form:
           back: Vissza
           continue: Tovább
@@ -377,6 +369,8 @@ hu:
           most_voted: Legtöbb aláírás
           random: Véletlenszerű
           recent: Legutóbbi
+        print:
+          city: Település
         result:
           answer_title:
             accepted: Ezt a javaslatot azért fogadták el, mert

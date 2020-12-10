@@ -23,10 +23,10 @@
       let $selectedSubform = $form.find(`#${subformWrapperClass}-${value}`)
 
       if ($target.prop("checked")) {
-        $selectedSubform.find("input,textarea").prop("disabled", false);
+        $selectedSubform.find("input,textarea,select").prop("disabled", false);
         $selectedSubform.show();
       } else {
-        $selectedSubform.find("input,textarea").prop("disabled", true);
+        $selectedSubform.find("input,textarea,select").prop("disabled", true);
         $selectedSubform.hide();
       }
     }

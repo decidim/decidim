@@ -274,7 +274,6 @@ it:
           all: Tutti
           answered: Risposto
           closed: Chiuso
-          draft: Bozza
           open: Aperto
           rejected: Firme non sufficienti
         filter_type_values:
@@ -299,18 +298,10 @@ it:
         finish:
           back: Indietro
           back_to_initiatives: Torna alle iniziative
-          confirm: Conferma
           edit_my_initiative: Modifica le mie iniziative
           go_to_my_initiatives: Vai alle mie iniziative
           more_information: "(Maggiori informazioni)"
           send_my_initiative: Invia la mia iniziativa
-        finish_help:
-          access_reminder: Ricorda che potrai sempre accedere alle tue iniziative attraverso il menu utente.
-          help_for_organizations: Se sei un'associazione dovrai caricare i verbali del consiglio di amministrazione di tutte le organizzazioni che formano la Commissione Promotrice
-          help_in_person_signatures: Se hai scelto di raccogliere le firme di persona o anche online, dovrai caricare le informazioni richieste.
-          help_text: Ricorda che per elaborare correttamente l'iniziativa devi accedere al pannello di amministrazione dove troverai il menu utente, caricare le informazioni richieste e inviarlo per l'elaborazione.
-          initiatives_page_link: Puoi consultare tutte queste informazioni sul %{link} dedicato a informare sulle iniziative.
-          page: pagina
         previous_form:
           back: Indietro
           continue: Continua
@@ -416,6 +407,8 @@ it:
           random: Casuale
           recent: Piu recente
           recently_published: Pubblicati più di recente
+        print:
+          city: Città
         result:
           answer_title:
             accepted: Questa proposta è stata accettata perché

@@ -128,7 +128,6 @@
         update: "%{user_name} oppdaterte organisasjonens innstillinger"
       participatory_space_private_user:
         create: "%{user_name} inviterte %{resource_name} til å bli en privat deltaker"
-        create_via_csv: "%{user_name} inviterte %{resource_name} via csv til å bli en privat deltaker"
         delete: "%{user_name} fjernet deltakeren %{resource_name} som en privat deltaker"
       scope:
         create: "%{user_name} laget temaet %{resource_name}"
@@ -351,6 +350,7 @@
             dummy_global_translatable_text: Dummy Oversettbar tekst
             enable_pads_creation: Aktiver oppretting av pads
             resources_permissions_enabled: Ressurs tillatelser aktivert
+            scope_id: Tema
           step:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -405,7 +405,6 @@
           email_already_exists: En annen bruker er registrert under samme e-postadresse
         new:
           complete_profile: Fullfør profilen
-          nickname_help: Aliaset ditt i %{organization}
           sign_up: Vennligs fullfør profilen din
           subtitle: Vennligst fyll ut det følgende skjemaet for å fullføre registreringen
           username_help: Offentlig navn som vises i innleggene dine. Med målet om å garantere anonymiteten, kan være hvilket som helst navn.
@@ -414,7 +413,6 @@
           already_have_an_account?: Har du allerede en bruker?
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
-          nickname_help: Aliaset ditt i %{organization}
           password_help: "%{minimun_characters} tegn minimum, må ikke være for vanlig (f.eks. 123456) og må være forskjellig fra kallenavnet og e-postadressen din."
           sign_in: Logg inn
           sign_up: Registrer deg
@@ -889,6 +887,7 @@
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         error_modal:
+          close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
           intro: 'Det var følgende feil med din melding:'
           ok: Ok
@@ -916,8 +915,6 @@
         update:
           error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
-      download:
-        csv: Last ned data (csv)
       followers:
         description: Antall deltakere som følger dette deltakerområdet
         object: følgere
@@ -1091,7 +1088,7 @@
         subject: En ressurs var automatisk skjult
       report:
         hello: Hei %{name},
-        manage_moderations: Administrer moderasjoner
+        id: ID
         report_html: <p>Det følgene <a href="%{url}">innholdet</a> har blitt rapportert.</p>
         subject: En ressurs er blitt rapportert
     reports:
@@ -1128,7 +1125,14 @@
           one: "%{count} resultat"
           other: "%{count} resultater"
         view_all: Vis alle (%{count})
+    security:
+      selfxss_warning:
+        description: Denne funksjonaliteten i nettleseren er ment for utviklere. Du må ikke lime inn noe her, selv om du blir bedt om det. Dersom du limer inn noe her, kan personvernet brytes, og gi hackere tilgang til kontoen din.
+        title: Stopp!
     shared:
+      confirm_modal:
+        cancel: Avbryt
+        close_modal: Lukk modal
       embed_modal:
         close_window: Lukk vindu
         embed: Lim inn denne koden på siden din
@@ -1208,6 +1212,9 @@
       update:
         error: Det oppstod et problem med å oppdatere interessene dine.
         success: Interessene dine er oppdatert.
+    user_report_mailer:
+      notify:
+        hello: Hei %{admin},
     version:
       show:
         back_to_resource: Gå tilbake
@@ -1521,6 +1528,7 @@
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
+      long_dashed: "%d.%m.%Y %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

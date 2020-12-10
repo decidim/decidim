@@ -29,7 +29,6 @@ ru:
         body: Основной текст
         subject: Тема
       organization:
-        address: Имя хоста SMTP
         alert_color: Оповещение
         badges_enabled: Включить значки
         cta_button_path: Путь кнопки "Призвать к действию"
@@ -59,8 +58,6 @@ ru:
         omnipresent_banner_short_description: Краткое описание
         omnipresent_banner_title: Заголовок
         omnipresent_banner_url: Веб-адрес
-        password: Пароль
-        port: Порт
         primary_color: Основной
         reference_prefix: Справочный префикс
         secondary_color: Дополнительный
@@ -69,7 +66,6 @@ ru:
         tos_version: Версия условий участия
         twitter_handler: Обработчик Twitter
         user_groups_enabled: Включить группы
-        user_name: Имя пользователя
         warning_color: Предупреждение
         welcome_notification_body: Текст приветствия
         welcome_notification_subject: Тема приветствия
@@ -490,7 +486,6 @@ ru:
           instagram: Инстаграм
           social_handlers: Социальные сети
           twitter: Твиттер
-          url: Веб-сайт
           youtube: ЮТуб
         update:
           error: При попытке обновить эту организацию произошла ошибка.

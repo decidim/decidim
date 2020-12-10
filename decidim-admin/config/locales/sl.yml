@@ -29,7 +29,6 @@ sl:
         body: Telo
         subject: Zadeva
       organization:
-        address: SMTP Gostitelj
         alert_color: Opozorilo
         badges_enabled: Omogoči značke
         comments_max_length: Maksimalna dolžina komentarjev (0 je privzeta)
@@ -58,8 +57,6 @@ sl:
         omnipresent_banner_short_description: Kratek opis
         omnipresent_banner_title: Naziv
         omnipresent_banner_url: URL
-        password: Geslo
-        port: Vrata
         primary_color: Primarni
         rich_text_editor_in_public_views: Omogoči napredni tekstovni urejevalnik za obiskovalce
         secondary_color: Sekundarni
@@ -69,7 +66,6 @@ sl:
         tos_version: Pogoji storitve - verzija
         twitter_handler: Twitter krmilnik
         user_groups_enabled: Omogoči grupe
-        user_name: Uporabniško ime
         warning_color: Opozorilo
         welcome_notification_body: Sporočilo dobrodošlice - vsebina
         welcome_notification_subject: Sporočilo dobrodošlice - naslov

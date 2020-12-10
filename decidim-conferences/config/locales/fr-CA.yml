@@ -539,6 +539,12 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.
           email_subject: La conférence "%{resource_title}" arrive!
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> arrive dans 2 jours.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Une <strong>conférence</strong> est un ensemble de réunions organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.). .</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
+          page: "<p>Une <strong>conférence</strong> est un ensemble de réunions organisées dans un programme, avec un certain nombre de personnes invitées en tant qu'orateurs, et d'autres informations typiques des grands congrès ou événements (inscription, liste des organisations qui soutiennent ou parrainent l'événement, etc.). .</p> <p>Exemples : Une conférence peut être un événement pertinent pour une organisation et ses membres, ou se dérouler dans le cadre d'un processus participatif ou faire suite à une consultation.</p>\n"
+          title: Que sont les conférences?
     log:
       value_types:
         conference_presenter:

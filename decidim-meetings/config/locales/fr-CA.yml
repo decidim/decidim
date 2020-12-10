@@ -33,9 +33,9 @@ fr-CA:
         transparent: Visible par les non-membres
         type_of_meeting: Type
       minutes:
-        audio_url: Lien vers l'audio
+        audio_url: URL de l'audio
         description: Description
-        video_url: Lien vers la vidéo
+        video_url: URL de la vidéo
         visible: Est visible
     errors:
       models:
@@ -89,6 +89,7 @@ fr-CA:
             creation_enabled_for_participants: Les participants peuvent créer des réunions
             default_registration_terms: Conditions d'inscription par défaut
             enable_pads_creation: Activer la création de pads
+            registration_code_enabled: Code d'enregistrement activé
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             scope_id: Secteur
             scopes_enabled: Secteurs activés
@@ -362,6 +363,11 @@ fr-CA:
             subject: Votre inscription a bien été enregistrée
       meeting:
         not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
+      meeting_closes:
+        edit:
+          back: Retour
+          close: Clôturer la réunion
+          title: Clôturer la réunion
       meetings:
         count:
           meetings_count:
@@ -425,6 +431,7 @@ fr-CA:
         show:
           attendees: Nombre de participants
           back: Retour à la liste
+          close_meeting: Clôturer la réunion
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la réunion
@@ -494,11 +501,6 @@ fr-CA:
         description: Nombre de rencontres créées
         object: rencontres
         title: Rencontres
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Rencontres passées
-          upcoming_meetings: Rencontres à venir
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées

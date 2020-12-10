@@ -30,7 +30,6 @@ ja:
         body: 本文
         subject: 件名
       organization:
-        address: SMTP hostname
         alert_color: アラート
         badges_enabled: バッジを有効にする
         comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
@@ -66,8 +65,6 @@ ja:
         omnipresent_banner_short_description: 短い説明
         omnipresent_banner_title: タイトル
         omnipresent_banner_url: URL
-        password: パスワード
-        port: ポート
         primary_color: プライマリ（プライマリ）
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
@@ -78,7 +75,6 @@ ja:
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: グループを有効にする
-        user_name: ユーザー名
         warning_color: 警告
         welcome_notification_body: Welcome通知本文
         welcome_notification_subject: ウェルカム通知の件名
@@ -149,7 +145,6 @@ ja:
           error: 管理者の利用規約に同意中にエラーが発生しました。
           success: 素晴らしい！管理者の利用規約に同意しました。
         actions:
-          accept: この管理者規約に同意します
           are_you_sure: 管理者の条件を拒否してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
@@ -585,7 +580,6 @@ ja:
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: この組織の更新に問題がありました。
@@ -620,7 +614,6 @@ ja:
           error: この参加スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加スペースのプライベート参加者アクセスが正常に破棄されました。
         index:
-          import_via_csv: csv経由でインポート
           title: 参加スペースプライベート参加者
         new:
           create: 作成

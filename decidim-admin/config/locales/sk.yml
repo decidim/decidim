@@ -29,7 +29,6 @@ sk:
         body: Telo textu
         subject: Predmet
       organization:
-        address: SMTP hostname
         alert_color: Upozornenie
         badges_enabled: Povoliť odznaky
         cta_button_path: URL odkaz na tlačítko Výzva do akcie
@@ -59,8 +58,6 @@ sk:
         omnipresent_banner_short_description: Krátky popis
         omnipresent_banner_title: Názov
         omnipresent_banner_url: Adresa URL
-        password: Heslo
-        port: Port
         primary_color: Primárne
         reference_prefix: Referenčná predpona
         rich_text_editor_in_public_views: Povoliť pokročilý textový editor pre účastníkov
@@ -71,7 +68,6 @@ sk:
         tos_version: Verzia podmienok použitia
         twitter_handler: Twitter handler
         user_groups_enabled: Povoliť skupiny
-        user_name: Používateľské meno
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
         welcome_notification_subject: Predmet textu úvodného privítania
@@ -141,7 +137,6 @@ sk:
           error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
-          accept: Súhlasím s týmito podmienkami použitia.
           are_you_sure: Ste si istí, že chcete odmietnuť podmienky použitia pre administrátorov?
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
           title: Súhasím s podmienkami použitia.
@@ -560,7 +555,6 @@ sk:
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
@@ -594,7 +588,6 @@ sk:
           error: Pri vymazaní súkromného používateľa pre tento participačný priestor došlo k chybe.
           success: Participatívny priestor bol zneprístupnený súkromnému užívateľovi.
         index:
-          import_via_csv: Import z CSV
           title: Súkromný účastník participatívneho priestoru
         new:
           create: Vytvoriť

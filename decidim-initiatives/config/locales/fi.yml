@@ -137,6 +137,11 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Aloitteen allekirjoitusten keräämisen aikaa on jatkettu!
           notification_title: Aloitteen <a href="%{resource_path}">%{resource_title}</a> allekirjoitusten keräysaikaa on jatkettu.
+        initiative_sent_to_technical_validation:
+          email_intro: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_url}">hallintapaneelin kautta</a>
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
+          email_subject: Aloite "%{resource_title}" lähetettiin tekniseen tarkastukseen.
+          notification_title: Aloite "%{resource_title}" on lähetetty tekniseen tarkastukseen. Tustustu siihen <a href="%{admin_initiative_path}">hallintapaneelin kautta</a>
         milestone_completed:
           affected_user:
             email_intro: Aloitteesi %{resource_title} on saavuttanut %{percentage}% allekirjoituksista!
@@ -203,6 +208,7 @@ fi:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
+            confirm_send_to_technical_validation: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
             discard: Hylkää aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
@@ -294,7 +300,6 @@ fi:
           all: Kaikki
           answered: Vastattu
           closed: Suljettu
-          draft: Luonnokset
           open: Avaa
           rejected: Liian vähän allekirjoituksia
         filter_type_values:
@@ -321,18 +326,14 @@ fi:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
           callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
-          confirm: Vahvista
+          confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit_my_initiative: Muokkaa omia aloitteita
           go_to_my_initiatives: Siirry omiin aloitteisiini
           more_information: "(Lisää tietoa)"
           send_my_initiative: Lähetä aloitteeni
         finish_help:
-          access_reminder: Muista, että pääset tarkastelemaan omia aloitteitasi käyttäjävalikon kautta.
-          help_for_organizations: Jos olet yhdistyksen jäsen, sinun on lähetettävä johtokunnan pöytäkirjat kaikista organisaatioista, jotka liittyvät muodostettavaan kannatuskomiteaan
-          help_in_person_signatures: Jos olet valinnut allekirjoitusten keräystavaksi palvelun ulkopuolisen keräyksen tai yhdistetyn keräyksen palvelussa ja sen ulkopuolella, sinun on lähetettävä vaaditut tiedot ja dokumentit.
-          help_text: Muista, että aloitteen asianmukainen käsittely edellyttää hallintapaneelin käyttämistä, mistä löydät käyttäjävalikon, voit ladata tarvittavat tiedot ja lähettää aloitteen käsittelyyn.
-          initiatives_page_link: Näet kaiken tämän tiedon osoitteesta %{link}, jonka tarkoitus on antaa tietoa aloitteista.
-          page: sivu
+          access_reminder: Pääset käsiksi aloitteisiin suodatuslinkin %{link} kautta aloitteiden sivulla.
+          publish_helper_text: Saadaksesi aloitteesi julkaistuksi, sinun tulee viimeistellä vaaditut tiedot ja <strong>lähettää aloite hallintakäyttäjän tekniseen tarkastukseen</strong>.
         previous_form:
           back: Takaisin
           continue: Jatka
@@ -356,6 +357,16 @@ fi:
           compare_help: Jos jokin seuraavista aloitteista on samankaltainen omasi kanssa, suosittelemme, että allekirjoitat sen. Tällä tavoin aloitteellasi on enemmän mahdollisuuksia toteutua.
           continue: Oma aloitteeni on erilainen
           more_information: "(Lisää tietoa)"
+      edit:
+        accept: Hyväksy aloite
+        back: Takaisin
+        confirm: Oletko varma?
+        discard: Peru aloite
+        export_pdf_signatures: Vie allekirjoitukset PDF-tiedostona
+        export_votes: Vie allekirjoitukset
+        reject: Hylkää aloite
+        title: Muokkaa aloitetta
+        update: Päivitä
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden aloitteen. Tutustu siihen ja osallistu:"
@@ -367,6 +378,10 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_nickname} on suositellut aloitetta'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on suositellut aloitetta <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        add_attachments: Asiakirjat
+        attachment_legend: "(Vapaaehtoinen) Lisää liitteitä"
+        delete_attachment: Poista
       index:
         title: Aloitteet
       initiative_signatures:
@@ -403,6 +418,13 @@ fi:
           hidden_authors_count:
             one: ja yksi muu henkilö
             other: ja %{count} muuta henkilöä
+        committee_members:
+          approve: Hyväksy
+          confirm_revoke: Oletko varma?
+          invite_to_committee_help: Jaa tämä linkki ja kutsu muita käyttäjiä kannatuskomiteaan
+          no_members_yet: Kannatuskomiteassa ei ole jäseniä
+          revoke: Peruuta
+          title: Komitean jäsenet
         count:
           title:
             one: "%{count} aloite"
@@ -443,6 +465,27 @@ fi:
           random: Satunnainen järjestys
           recent: Viimeisimmät
           recently_published: Viimeisimmäksi julkaistut
+        print:
+          address: Osoite
+          author_title: Aloitteen laatija
+          city: Kaupunki
+          email: Sähköposti
+          full_name: Koko nimi
+          general_title: Aloitteen hyväksymistä koskeva hakemus
+          id_number: ID-numero
+          initiative:
+            attachments: Liitetyt asiakirjat (kirjoita jokaiselle asiakirjalle nimi)
+            description: 'Kuvaus:'
+            title: 'Otsikko:'
+            type: Aloitteen tyyppi
+          legal_text: Kerätyt henkilötiedot liitetään aloitteeseesi ja käsitellään luottamuksellisesti ajantasaisen lainsäädännön mukaisesti.
+          phone_number: Puhelinnumero
+          place_date: Paikka, Päivämäärä
+          postal_code: Postinumero
+          print: Tulosta
+          province: Lääni tai maakunta
+          section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
+          signature: Allekirjoitus
         result:
           answer_title:
             accepted: Tämä ehdotus on hyväksytty, koska
@@ -454,8 +497,12 @@ fi:
           initiative_rejected_reason: Tämä aloite on hylätty, koska se ei kerännyt tarpeeksi allekirjoituksia.
         show:
           any_vote_method: Tämä aloite kerää allekirjoituksia verkossa ja palvelun ulkopuolella.
+          confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
+          edit: Muokkaa
           follow_description: Vastaanota ilmoitus, kun tätä aloitetta koskevia uutisia julkaistaan
           offline_method: Tämä aloite kerää allekirjoituksia ainoastaan palvelun ulkopuolella.
+          print: Tulosta aloite
+          send_to_technical_validation: Lähetä tekniseen validointiin
         signatures_count:
           one: " allekirjoitus"
           other: " allekirjoitusta"
@@ -501,6 +548,9 @@ fi:
         accepted: Hyväksytyt
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
+      update:
+        error: Tapahtui virhe
+        success: Aloitteen päivitys onnistui
       versions:
         shared:
           back_to_resource: Takaisin aloitteeseen

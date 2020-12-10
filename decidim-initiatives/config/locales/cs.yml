@@ -14,7 +14,7 @@ cs:
           any: Smíšený
           offline: Z očí do očí
           online: OnLine
-        state: Stát
+        state: Stav
         title: Titul
       initiatives_committee_member:
         user: člen komise
@@ -99,7 +99,7 @@ cs:
             created_at: Vytvořeno v
             id: ID
             published_at: Publikováno v
-            state: Stát
+            state: Stav
             supports_count: Podpisy
             title: Iniciativy
         initiatives_type_scope:
@@ -143,6 +143,11 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{resource_title}. Na následujícím odkazu můžete přestat odebírat oznámení.
           email_subject: Datum ukončení podpisů iniciativy bylo rozšířeno!
           notification_title: Konec konce podpisu iniciativy <a href="%{resource_path}">%{resource_title}</a> byl prodloužen.
+        initiative_sent_to_technical_validation:
+          email_intro: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_url}">admin panel</a>
+          email_outro: Toto oznámení jste obdrželi, protože jste administrátor platformy.
+          email_subject: Iniciativa "%{resource_title} byla odeslána na technické potvrzení.
+          notification_title: Iniciativa "%{resource_title}" byla odeslána na technické potvrzení. Podívejte se na <a href="%{admin_initiative_path}">admin panel</a>
         milestone_completed:
           affected_user:
             email_intro: Vaše iniciativa %{resource_title} dosáhla %{percentage}% podpisů!
@@ -191,7 +196,7 @@ cs:
             description: Popis
             initiative_votes_count: Počet hlasů
             initiatives: Iniciativy
-            state: Stát
+            state: Stav
         committee_requests:
           index:
             approve: Schvalovat
@@ -209,6 +214,7 @@ cs:
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
+            confirm_send_to_technical_validation: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
@@ -300,7 +306,6 @@ cs:
           all: Vše
           answered: Odpovězeno
           closed: Uzavřeno
-          draft: Návrh
           open: otevřeno
           rejected: Nedostatek podpisů
         filter_type_values:
@@ -327,18 +332,14 @@ cs:
           back: Zpět
           back_to_initiatives: Zpět na iniciativy
           callout_text: Blahopřejeme! Vaše iniciativa byla úspěšně vytvořena.
-          confirm: Potvrdit
+          confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
           edit_my_initiative: Upravit mé iniciativy
           go_to_my_initiatives: Jít na mé iniciativy
           more_information: "(Více informací)"
           send_my_initiative: Poslat moji iniciativu
         finish_help:
-          access_reminder: Nezapomeňte, že budete mít vždy přístup k vašim iniciativám prostřednictvím uživatelského menu.
-          help_for_organizations: Pokud jste asociace, musíte nahrát zápisy ze správní rady všech organizací, které tvoří Komise pro podporu
-          help_in_person_signatures: Pokud jste se rozhodli vyzvednout podpisy osobně nebo v kombinaci s online, budete muset nahrát požadované informace.
-          help_text: Nezapomeňte, že pro správné zpracování iniciativy musíte přistupovat k administračnímu panelu, kde naleznete uživatelské menu, nahrát požadované informace a odeslat je ke zpracování.
-          initiatives_page_link: Můžete si prohlédnout všechny tyto informace na odkazu %{link} určeném k informování o iniciativách.
-          page: stránka
+          access_reminder: K iniciativám můžete přistupovat prostřednictvím filtru %{link} na stránce Iniciativy.
+          publish_helper_text: Nezapomeňte, že pro publikování vaší iniciativy musíte vyplnit požadované informace a <strong>je zašlete na technické potvrzení</strong>, aby ji správce mohl zkontrolovat.
         previous_form:
           back: Zpět
           continue: Pokračovat
@@ -362,6 +363,16 @@ cs:
           compare_help: Pokud je některá z následujících iniciativ podobná vašim, doporučujeme vám ji podpořit. Váš návrh bude mít více možností, jak to udělat.
           continue: Moje iniciativa je jiná
           more_information: "(Více informací)"
+      edit:
+        accept: Přijmout iniciativu
+        back: Zpět
+        confirm: Jste si jist?
+        discard: Zrušit iniciativu
+        export_pdf_signatures: Exportovat PDF podpisů
+        export_votes: Exportovat podpisy
+        reject: Odmítnout iniciativu
+        title: Upravit iniciativu
+        update: Aktualizovat
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, kterého sledujete, vytvořil novou iniciativu, zkontroloval ji a přispěl:"
@@ -373,6 +384,10 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{author_nickname}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Iniciativa byla schválena od %{author_nickname}
           notification_title: Iniciativa <a href="%{resource_path}">%{resource_title}</a> byla schválena <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Dokumenty
+        attachment_legend: "(Volitelné) přidat přílohy"
+        delete_attachment: Smazat
       index:
         title: Iniciativy
       initiative_signatures:
@@ -411,6 +426,13 @@ cs:
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
             other: a %{count} dalších lidí
+        committee_members:
+          approve: Schválit
+          confirm_revoke: Jste si jist?
+          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru
+          no_members_yet: V propagačním výboru nejsou žádní členové
+          revoke: Odvolat
+          title: Členové výboru
         count:
           title:
             one: "%{count} iniciativa"
@@ -424,7 +446,7 @@ cs:
           myself: Moje iniciativy
           scope: Oblast působnosti
           search: Vyhledávání
-          state: Stát
+          state: Stav
           type: Typ
         filters_small_view:
           close_modal: Zavřít okno
@@ -449,12 +471,33 @@ cs:
               many: Komentáře
               other: Komentáře
         orders:
-          label: 'Třídit iniciativy podle:'
+          label: 'Seřadit iniciativy podle:'
           most_commented: Nejvíce komentované
-          most_voted: Nejvíce podepsané
+          most_voted: S nejvíce podpisy
           random: Náhodné
           recent: Nejnovější
           recently_published: Nedávno publikované
+        print:
+          address: Adresa
+          author_title: Autor iniciativy
+          city: Město
+          email: E-mail
+          full_name: Celé jméno
+          general_title: Žádost o přijetí iniciativy
+          id_number: Identifikační číslo
+          initiative:
+            attachments: Připojená dokumentace (napište prosím název každého dokumentu níže)
+            description: 'Popis:'
+            title: 'Titul:'
+            type: Typ iniciativy
+          legal_text: Shromážděné osobní údaje organizace začlení a bude s nimi nakládat důvěrně v souladu s platnými právními předpisy.
+          phone_number: Telefonní číslo
+          place_date: Místo, datum
+          postal_code: PSČ/ZIP
+          print: Tisk
+          province: Kraj / Stát
+          section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
+          signature: Podpis
         result:
           answer_title:
             accepted: Tento návrh byl přijat, protože
@@ -466,8 +509,12 @@ cs:
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
+          confirm: Chystáte se poslat iniciativu správci, aby ji zkontroloval a publikoval ji. Po zveřejnění jej nebudete moci upravovat. Jste si jisti?
+          edit: Upravit
           follow_description: Obdržíte oznámení, pokud jsou v této iniciativě zprávy
           offline_method: Tato iniciativa shromažďuje pouze osobní podpisy.
+          print: Tisk iniciativy
+          send_to_technical_validation: Poslat na technické ověření
         signatures_count:
           one: " podpis"
           few: " podpisy"
@@ -517,6 +564,9 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
+      update:
+        error: Došlo k chybě
+        success: Tato iniciativa byla úspěšně aktualizována
       versions:
         shared:
           back_to_resource: Přejít zpět na iniciativu

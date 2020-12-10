@@ -132,7 +132,6 @@ ro:
         update: "%{user_name} a actualizat setările organizației"
       participatory_space_private_user:
         create: "%{user_name} a invitat %{resource_name} să fie un participant privat"
-        create_via_csv: "%{user_name} a invitat %{resource_name} prin csv să fie un participant privat"
         delete: "%{user_name} a eliminat participantul %{resource_name} ca participant privat"
       scope:
         create: "%{user_name} a creat scopul %{resource_name}"
@@ -416,7 +415,6 @@ ro:
           email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
-          nickname_help: Aliasul tău în %{organization}
           sign_up: Vă rugăm să completați profilul
           subtitle: Vă rugăm să completaţi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
@@ -425,7 +423,6 @@ ro:
           already_have_an_account?: Ai deja un cont?
           newsletter: Primiți un buletin informativ ocazional cu informații relevante
           newsletter_title: Permisiune contact
-          nickname_help: Aliasul tău în %{organization}
           password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
@@ -923,8 +920,6 @@ ro:
           send: Trimite
           title: Începe o conversație
     metrics:
-      download:
-        csv: Descarcă date (csv)
       followers:
         description: Numărul de participanți care urmăresc acest spațiu de participare
         object: urmăritori
@@ -1125,7 +1120,6 @@ ro:
         date: Raportat la
         details: Detalii
         hello: Bună ziua %{name},
-        manage_moderations: Administreaza moderatii
         participatory_space: Spaţiu participativ
         reason: Motiv
         report_html: <p>A fost raportat următorul <a href="%{url}">conținut</a> .</p>

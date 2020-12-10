@@ -37,7 +37,6 @@ hu:
       participatory_process_group:
         description: Leírás
         hero_image: Kép
-        name: Név
         participatory_process_ids: Kapcsolódó folyamatok
       participatory_process_step:
         cta_path: Hívás cselekvés útjára
@@ -116,8 +115,6 @@ hu:
             title: Cím
           name: Részvételi folyamat
         participatory_process_group:
-          fields:
-            name: Név
           name: Folyamat csoport
         participatory_process_step:
           fields:
@@ -294,9 +291,6 @@ hu:
         title: Részvételi folyamatok
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: '1 folyamat itt: %{group}'
-          other: "%{count} folyamat itt: %{group}"
         title: Részvételi folyamat csoportok
     participatory_process_steps:
       index:

@@ -7,13 +7,16 @@ module Decidim
       #
       module QuestionnaireAnswersHelper
         def first_table_th(answer)
-          return translated_attribute answer.first_short_answer.question.body if answer.first_short_answer
+          if answer.first_short_answer
+            @first_short_answer = answer.first_short_answer
+            return translated_attribute @first_short_answer.question.body
+          end
 
           t("session_token", scope: "decidim.forms.user_answers_serializer")
         end
 
         def first_table_td(answer)
-          return answer.first_short_answer.body if answer.first_short_answer
+          return answer.first_short_answer&.body if @first_short_answer
 
           answer.session_token
         end

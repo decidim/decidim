@@ -27,6 +27,9 @@ pl:
         user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
+        cost: Koszt
+        cost_report: Raport kosztów
+        execution_period: Okres wykonawczy
       proposals_copy:
         copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent z którego kopiuję propozycję
@@ -344,10 +347,6 @@ pl:
         description: Liczba uzyskanych wsparć dla propozycji
         object: wsparcia
         title: Wsparcia
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propozycje
     participatory_spaces:
       highlighted_proposals:
         see_all: Zobacz wszystkie propozycje (%{count})
@@ -388,9 +387,7 @@ pl:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(Będziesz mógł przeglądać i sortować sekcje dokumentów)"
-            document_legend: 'Dodaj dokument mniejszy niż 2MB, każda sekcja, aż do 3 poziomu, zostanie przekowertowana w propozycję. Wspierane formaty to: %{valid_mime_types}'
             title: Dodaj dokument
             upload_document: Prześlij dokument
           publish:

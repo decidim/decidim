@@ -64,10 +64,17 @@ module Decidim
       end
 
       def pad_id
-        @pad_id ||= [
-          reference,
-          Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
-        ].join("-").slice(0, 50)
+        @pad_id ||= [reference, token].join("-").slice(0, 50)
+      end
+
+      # compatibilize with old versions if no salt available (less secure)
+      def token
+        if defined?(salt) && salt.present?
+          tokenizer = Decidim::Tokenizer.new(salt: salt)
+          return tokenizer.hex_digest(id)
+        end
+
+        Digest::MD5.hexdigest("#{id}-#{Rails.application.secrets.secret_key_base}")
       end
 
       def build_pad_url(id)

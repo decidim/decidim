@@ -20,6 +20,7 @@ module Decidim
       attribute :online_meeting_url, String
       attribute :type_of_meeting, String
       attribute :registration_type, String
+      attribute :registrations_enabled, Boolean, default: false
       attribute :registration_url, String
       attribute :available_slots, Integer, default: 0
       attribute :registration_terms, String
@@ -135,6 +136,10 @@ module Decidim
             type
           ]
         end
+      end
+
+      def registrations_enabled
+        on_this_platform?
       end
     end
   end

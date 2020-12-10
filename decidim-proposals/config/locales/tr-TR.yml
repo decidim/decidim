@@ -272,10 +272,6 @@ tr:
         description: Kullanıcıların tekliflerinde oluşturulan oy sayısı
         object: oy
         title: oy
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Teklif
     participatory_spaces:
       highlighted_proposals:
         see_all: Tümünü gör (%{count})
@@ -313,9 +309,7 @@ tr:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: odt
             bottom_hint: "(Belge bölümlerini önizleyebilir ve sıralayabilirsiniz)"
-            document_legend: '2 MB''tan küçük bir belge ekleyin, her bölüm 3 seviye derinliğinde Teklifler''e ayrıştırılıncaya kadar Gösterilen biçimler: %{valid_mime_types}'
             title: BELGE EKLE
             upload_document: Belge yükle
           publish:

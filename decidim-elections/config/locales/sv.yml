@@ -52,8 +52,6 @@ sv:
         confirm_destroy: Är du säker?
         destroy: Förstör
         edit: Redigera
-        edit_answers: Redigera svar
-        edit_questions: Redigera frågor
         import: Importera förslag till svar
         new: Ny %{name}
         preview: Förhandsgranska
@@ -101,6 +99,8 @@ sv:
           update:
             invalid: Det gick inte att uppdatera valet
             success: Val har uppdaterats
+        exports:
+          elections: Val
         models:
           answer:
             name: Svar
@@ -170,7 +170,6 @@ sv:
           filter_by: Filtrera efter
           unfold: Veckla ut
         show:
-          back: Alla val
           preview: Förhandsgranska
           vote: Rösta
           voting_period_status:

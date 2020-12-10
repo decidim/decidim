@@ -29,9 +29,7 @@ tr:
         title: Başlık
         transparent: Şeffaf
       minutes:
-        audio_url: Ses url
         description: Açıklama
-        video_url: Video linki
         visible: Görünür
     errors:
       models:
@@ -415,11 +413,6 @@ tr:
         description: Oluşturulan toplantı sayısı
         object: toplantılar
         title: Toplantılar
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Geçmiş toplantılar
-          upcoming_meetings: Yaklaşan toplantılar
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Geçmiş toplantılar

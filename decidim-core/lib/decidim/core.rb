@@ -20,6 +20,7 @@ module Decidim
   autoload :Traceable, "decidim/traceable"
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
+  autoload :UserReportable, "decidim/user_reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"

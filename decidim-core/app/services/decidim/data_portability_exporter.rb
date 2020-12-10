@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "seven_zip_ruby"
+require "zip"
 require_relative "zip_stream/zip_stream_writer"
 
 module Decidim

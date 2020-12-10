@@ -23,8 +23,8 @@ describe "Admin manages participatory process groups", type: :system do
 
     within ".new_participatory_process_group" do
       fill_in_i18n(
-        :participatory_process_group_name,
-        "#participatory_process_group-name-tabs",
+        :participatory_process_group_title,
+        "#participatory_process_group-title-tabs",
         en: "My group",
         es: "Mi grupo",
         ca: "El meu grup"
@@ -36,6 +36,15 @@ describe "Admin manages participatory process groups", type: :system do
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
+      fill_in :participatory_process_group_hashtag, with: "hashtag"
+      fill_in :participatory_process_group_group_url, with: "http://example.org"
+      fill_in_i18n(
+        :participatory_process_group_developer_group,
+        "#participatory_process_group-developer_group-tabs",
+        en: "X corporation",
+        es: "La corporación X",
+        ca: "La corporació X"
+      )
       select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
       attach_file :participatory_process_group_hero_image, image1_path
 
@@ -44,6 +53,9 @@ describe "Admin manages participatory process groups", type: :system do
 
     expect(page).to have_admin_callout("successfully")
     expect(page).to have_content("My group")
+    expect(page).to have_content("hashtag")
+    expect(page).to have_content("http://example.org")
+    expect(page).to have_content("X corporation")
     expect(page).to have_content(participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
@@ -60,14 +72,14 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     it "can edit them" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
       within ".edit_participatory_process_group" do
         fill_in_i18n(
-          :participatory_process_group_name,
-          "#participatory_process_group-name-tabs",
+          :participatory_process_group_title,
+          "#participatory_process_group-title-tabs",
           en: "My old group",
           es: "Mi grupo antiguo",
           ca: "El meu grup antic"
@@ -79,6 +91,15 @@ describe "Admin manages participatory process groups", type: :system do
           es: "Nueva descripción",
           ca: "Nova descripció"
         )
+        fill_in :participatory_process_group_hashtag, with: "new_hashtag"
+        fill_in :participatory_process_group_group_url, with: "http://new-example.org"
+        fill_in_i18n(
+          :participatory_process_group_developer_group,
+          "#participatory_process_group-developer_group-tabs",
+          en: "Z corporation",
+          es: "La corporación Z",
+          ca: "La corporació Z"
+        )
         select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
         attach_file :participatory_process_group_hero_image, image2_path
 
@@ -88,12 +109,35 @@ describe "Admin manages participatory process groups", type: :system do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
+      expect(page).to have_content("new_hashtag")
+      expect(page).to have_content("http://new-example.org")
+      expect(page).to have_content("Z corporation")
       expect(page).to have_content(participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end
 
+    it "validates the group attributes" do
+      within find("tr", text: participatory_process_group.title["en"]) do
+        click_link "Edit"
+      end
+
+      within ".edit_participatory_process_group" do
+        fill_in_i18n(
+          :participatory_process_group_title,
+          "#participatory_process_group-title-tabs",
+          en: "",
+          es: "",
+          ca: ""
+        )
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("There was a problem updating this participatory process group")
+    end
+
     it "can remove its image" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         click_link "Edit"
       end
 
@@ -104,14 +148,27 @@ describe "Admin manages participatory process groups", type: :system do
     end
 
     it "can delete them" do
-      within find("tr", text: participatory_process_group.name["en"]) do
+      within find("tr", text: participatory_process_group.title["en"]) do
         accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_no_content(participatory_process_group.name["en"])
+        expect(page).to have_no_content(participatory_process_group.title["en"])
+      end
+    end
+
+    it "has sub nav with Info active by default" do
+      within find("tr", text: participatory_process_group.title["en"]) do
+        click_link "Edit"
+      end
+
+      within "div.secondary-nav" do
+        expect(page).to have_content("Info")
+        expect(page).to have_content("Landing page")
+        active_secondary_nav = find(:xpath, ".//li[@class='is-active']")
+        expect(active_secondary_nav.text).to eq("Info")
       end
     end
   end

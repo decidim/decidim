@@ -312,10 +312,6 @@ it:
         description: Numero di voti generati nelle proposte degli utenti
         object: voti
         title: Voti
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: proposte
     participatory_spaces:
       highlighted_proposals:
         see_all: Vedi tutto (%{count})
@@ -356,9 +352,7 @@ it:
           new_import:
             accepted_mime_types:
               md: .md
-              odt: odt
             bottom_hint: "(Sarai in grado di visualizzare in anteprima e ordinare le sezioni del documento)"
-            document_legend: 'Aggiungi un documento inferiore a 2 MB, ciascuna sezione fino a quando non verranno analizzati 3 livelli in Proposte. I formati supportati sono: %{valid_mime_types}'
             title: AGGIUNGI DOCUMENTO
             upload_document: Carica il documento
           publish:

@@ -56,6 +56,8 @@
                                    edit_consultation_path(consultation),
                                    t("actions.configure", scope: "decidim.admin"),
                                    class: "action-icon--edit" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :preview, :consultation, consultation: consultation %>
@@ -64,6 +66,8 @@
                                    t("actions.preview", scope: "decidim.admin"),
                                    class: "action-icon--preview",
                                    target: "_blank" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
               </td>
             </tr>

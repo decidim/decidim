@@ -294,7 +294,6 @@ fr-CA:
           all: Tout
           answered: Répondu
           closed: Fermées
-          draft: Brouillon
           open: Ouvrir
           rejected: Pas assez de signatures
         filter_type_values:
@@ -321,18 +320,10 @@ fr-CA:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
           callout_text: Bravo ! Votre initiative a été créée avec succès.
-          confirm: Confirmer
           edit_my_initiative: Modifier mes initiatives
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
           send_my_initiative: Envoyer mon initiative
-        finish_help:
-          access_reminder: Rappelez-vous que vous serez toujours en mesure d'accéder à vos initiatives via le menu utilisateur.
-          help_for_organizations: Si vous êtes une association, vous devrez télécharger les procès-verbaux du conseil d'administration de toutes les organisations qui constituent le Comité de promotion
-          help_in_person_signatures: Si vous avez choisi de recueillir les signatures en présentiel ou de façon combinée, vous devrez télécharger les informations requises.
-          help_text: N'oubliez pas que pour valider correctement l'initiative, vous devez accéder au panneau d'administration dans lequel vous trouverez le menu utilisateur, télécharger les informations requises et l'envoyer pour validation technique.
-          initiatives_page_link: Vous pouvez consulter toutes ces informations sur la %{link} dédié à l'information sur les initiatives.
-          page: page
         previous_form:
           back: Retour
           continue: Continuer
@@ -443,6 +434,8 @@ fr-CA:
           random: Aléatoire
           recent: Les plus récentes
           recently_published: Plus récemment publié
+        print:
+          city: Ville
         result:
           answer_title:
             accepted: Cette proposition a été acceptée car

@@ -30,6 +30,9 @@
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
+        <% if participatory_process_group.present? %>
+          <%= render partial: "participatory_process_group" %>
+        <% end %>
         <div class="lead">
           <%= decidim_sanitize translated_attribute(current_participatory_space.short_description) %>
         </div>

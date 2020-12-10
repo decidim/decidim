@@ -223,19 +223,61 @@ describe "Meeting registrations", type: :system do
         login_as user, scope: :user
       end
 
-      it "shows the registration code" do
-        visit_meeting
+      context "when registration code is enabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: true })
+        end
 
-        expect(page).to have_css(".registration_code")
-        expect(page).to have_content(registration.code)
+        it "shows the registration code" do
+          visit_meeting
+
+          expect(page).to have_css(".registration_code")
+          expect(page).to have_content(registration.code)
+        end
       end
 
-      context "when showing the registration code validation state" do
+      context "when registration code is disabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: false })
+        end
+
+        it "does not show the registration code" do
+          visit_meeting
+
+          expect(page).to have_no_css(".registration_code")
+          expect(page).to have_no_content(registration.code)
+        end
+      end
+
+      context "when showing the registration code validation state with registration code enabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: true })
+        end
+
         it "shows validation pending if not validated" do
           visit_meeting
 
           expect(registration.validated_at).to be(nil)
           expect(page).to have_content("VALIDATION PENDING")
+        end
+      end
+
+      context "when not showing the registration code validation state with registration code disabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: false })
+        end
+
+        it "shows validation pending if not validated" do
+          visit_meeting
+
+          expect(registration.validated_at).to be(nil)
+          expect(page).to have_no_content("VALIDATION PENDING")
+        end
+      end
+
+      context "when showing the registration code validated for registration code enabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: true })
         end
 
         it "shows validated if validated" do
@@ -244,6 +286,20 @@ describe "Meeting registrations", type: :system do
 
           expect(registration.validated_at).not_to be(nil)
           expect(page).to have_content("VALIDATED")
+        end
+      end
+
+      context "when not showing the registration code validated for registration code disabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: false })
+        end
+
+        it "shows validated if validated" do
+          registration.update validated_at: Time.current
+          visit_meeting
+
+          expect(registration.validated_at).not_to be(nil)
+          expect(page).to have_no_content("VALIDATED")
         end
       end
 

@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("participatory_process_user_roles.new.title", scope: "decidim.admin")) %>
+
 <%= decidim_form_for(@form, html: { class: "form new_participatory_process_user_role" }) do |f| %>
   <%= render partial: "form", object: f, locals: { title: t("participatory_process_user_roles.new.title", scope: "decidim.admin") } %>
 

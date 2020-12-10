@@ -64,7 +64,11 @@ shared_examples "manage registrations" do
     end
   end
 
-  context "when validating registration codes" do
+  context "when validating registration codes when registration code is enabled" do
+    before do
+      meeting.component.update!(settings: { registration_code_enabled: true })
+    end
+
     let!(:registration) { create :registration, meeting: meeting, code: "QW12ER34" }
 
     it "can validate a valid registration code" do

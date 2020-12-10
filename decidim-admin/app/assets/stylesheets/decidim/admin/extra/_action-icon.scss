@@ -9,6 +9,19 @@
       color: $warning-color;
       vertical-align: bottom;
     }
+
+    &.action-icon--success{
+      color: $success-color;
+      vertical-align: bottom;
+    }
+  }
+
+  .action-space{
+    display: inline-block;
+
+    &:not(:last-child){
+      margin-right: 1rem;
+    }
   }
 }
 

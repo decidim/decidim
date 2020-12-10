@@ -129,7 +129,6 @@ sk:
             title: Aktuálne údaje o sčítaní
           instructions:
             body: Ak chcete urobiť, musíte vstúpiť do správy systému a pridať oprávnenia csv_census organizáciu
-            title: Pre túto organizáciu musíte aktivovať csv sčítanie
           new:
             file: ".CSV súbor s dátami e-mailov"
             info: 'Must byť súborom vo formáte CSV s iba jedným stĺpcom s e-mailovou adresou:'
