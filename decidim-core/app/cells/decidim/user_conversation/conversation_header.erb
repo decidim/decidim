@@ -4,7 +4,7 @@
       <%= icon "chevron-left", role: "img" %>
     <% end %>
   </div>
-  <%= link_to decidim.profile_conversations_path(nickname: user.nickname) do %>
+  <%= link_to profile_path(user.nickname) do %>
     <%= image_tag conversation_avatar, alt: t("decidim.author.avatar") %>
   <% end %>
 
