@@ -362,6 +362,7 @@ de:
           form:
             metadata: Metadaten
             title: Allgemeine Informationen
+            visibility: Sichtbarkeit
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
@@ -433,6 +434,7 @@ de:
           loading: Ergebnisse werden geladen ...
       show:
         area: Bereich
+        belongs_to_group: Dieser Prozess gehört zu
         dates: Daten
         developer_group: Promoter-Gruppe
         end_date: Endtermin
@@ -490,6 +492,8 @@ de:
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
+        promoted_process_group:
+          more_info: Mehr Info
       process_header_steps:
         step: Schritt %{current} von %{total}
         view_steps: Schritte anzeigen
