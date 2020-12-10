@@ -53,6 +53,8 @@ en:
           update:
             invalid: There was a problem updating this budget
             success: Budget successfully updated
+        exports:
+          projects: Projects
         models:
           budget:
             name: Budget

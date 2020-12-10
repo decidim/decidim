@@ -62,6 +62,20 @@ Decidim.register_component(:budgets) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Budgets::Project", decidim_followable_id: projects_ids).count
   end
 
+  component.exports :projects do |exports|
+    exports.collection do |component_instance, user|
+      space = component_instance.participatory_space
+
+      collection = Decidim::Budgets::Project
+                   .where(component: component_instance)
+                   .includes(:category, :component)
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Budgets::ProjectSerializer
+  end
+
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope

@@ -4,6 +4,9 @@
       <%= t(".title") %>
 
       <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
+      <% if allowed_to? :read, :budget #implement :export %>
+        <%= export_dropdown %>
+      <% end %>
     </h2>
   </div>
 
