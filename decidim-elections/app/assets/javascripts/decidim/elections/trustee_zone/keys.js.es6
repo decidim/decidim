@@ -11,9 +11,8 @@ $(() => {
   const $keyGeneration = $keyCeremony.find("#key_generation");
   const $keyPublishing = $keyCeremony.find("#key_publishing");
   const $jointKey = $keyCeremony.find("#joint_key");
-  const $backupElectionKeys = $keyCeremony.find(".backup-election-keys");
-  const $generateElectionKeys = $keyCeremony.find(".election-key-generation");
   const $electionKeyIdentifier = `${$keyCeremony.data("authorityName")}_election_key_backup`;
+
   let $electionKeys = "";
 
   const trusteeContext = {
@@ -22,6 +21,17 @@ $(() => {
     publicKeyJSON: JSON.stringify($keyCeremony.data("trusteePublicKey"))
   };
   const identificationKeys = new window.Decidim.IdentificationKeys(`trustee-${trusteeContext.id}`, trusteeContext.publicKeyJSON);
+
+  const updateElectionStatus = () => {
+    $.ajax({
+      method: "PUT",
+      url: $keyCeremony.data("updateElectionStatusUrl"),
+      contentType: "application/json",
+      headers: {
+        "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+      }
+    });
+  };
 
   identificationKeys.present(async (exists) => {
     if (exists) {
@@ -59,9 +69,8 @@ $(() => {
           $jointKey.find(".processing").addClass("hide")
           $jointKey.find(".completed").removeClass("hide")
           $startButton.addClass("hide");
-          $generateElectionKeys.addClass("hide");
-          $backupElectionKeys.removeClass("hide");
           $electionKeys = result.joint_election_key
+          updateElectionStatus();
         }
       })
 

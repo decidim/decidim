@@ -13,7 +13,7 @@ module Decidim
       routes do
         resource :trustee, path: "/", only: [:show, :update] do
           resources :election, only: [] do
-            resource :keys, only: [:new]
+            resource :elections, only: [:show, :update]
           end
         end
       end

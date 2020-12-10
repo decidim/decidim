@@ -294,7 +294,7 @@ en:
         older: Older
         recent: Recent
       trustee_zone:
-        keys:
+        elections:
           backup_election_keys:
             download_election_keys: Download election keys
             download_icon: Icon that indicates a download action
@@ -317,6 +317,9 @@ en:
               pending: Pending
               processing: Processing
             title: Create election keys for %{election}
+          update:
+            error: The election status couldn't get updated.
+            success: The election status got updated and is now %{status}
         menu:
           trustee_zone: Trustee zone
         trustees:
