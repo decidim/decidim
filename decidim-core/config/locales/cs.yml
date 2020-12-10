@@ -715,7 +715,6 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
