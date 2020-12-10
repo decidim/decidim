@@ -8,8 +8,14 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::Proposals::Admin::Picker
+        include Decidim::ParticipatoryProcesses::Admin::Filterable
+
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present
+
+        def collection
+          @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
+        end
 
         def new
           enforce_permission_to :create, :result
