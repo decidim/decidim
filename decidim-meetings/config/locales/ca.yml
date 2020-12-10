@@ -86,6 +86,7 @@ ca:
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
             enable_pads_creation: Habilitar la creació de pads
+            registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
@@ -481,11 +482,6 @@ ca:
         description: Nombre de trobades creades
         object: trobades
         title: Trobades
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Trobades anteriors
-          upcoming_meetings: Properes trobades
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors

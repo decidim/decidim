@@ -58,6 +58,7 @@ module Decidim::Meetings
         registration_type: registration_type,
         available_slots: available_slots,
         registration_terms: registration_terms,
+        registrations_enabled: true,
         registration_url: registration_url
       }
     end

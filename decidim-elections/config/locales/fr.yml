@@ -59,9 +59,12 @@ fr:
         edit: Modifier
         feedback: Commentaires des votants
         import: Importer des propositions dans les réponses
+        manage_answers: Gérer les réponses
+        manage_questions: Gérer les questions
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
+        setup: Configuration
         title: Actions
         unpublish: Dépublier
       admin:
@@ -81,6 +84,14 @@ fr:
           new:
             create: Créer une réponse
             title: Nouvelle réponse
+          select:
+            disable: Désélectionner la réponse
+            enable: Marquer la réponse comme sélectionnée
+            invalid: Un problème est survenu lors de la sélection de cette réponse
+            success: Réponse sélectionnée avec succès
+          unselect:
+            invalid: Une erreur est survenue lors de la désélection de cette réponse
+            success: Réponse désélectionnée avec succès
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette réponse
             success: Réponse mise à jour avec succès
@@ -102,12 +113,15 @@ fr:
             title: Nouvelle élection
           publish:
             success: L'élection a été publiée avec succès.
+          setup:
+            invalid: Une erreur est survenue lors de la création de l'élection
           unpublish:
             success: L'élection a été dépubliée avec succès.
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette élection
             success: Élection mise à jour avec succès
         exports:
+          elections: Élections
           feedback_form_answers: Commentaires des réponses au formulaire
         models:
           answer:
@@ -124,6 +138,7 @@ fr:
             create: Importer des propositions dans les réponses
             no_components: Il n'y a pas d'autres fonctionnalités Propositions dans cet espace participatif pour importer des propositions.
             select_component: Veuillez sélectionner une fonctionnalité
+            title: Importer des propositions
         questions:
           create:
             invalid: Il y a eu un problème lors de la création de cette question
@@ -142,6 +157,14 @@ fr:
           update:
             invalid: Une erreur s'est produite lors de la mise à jour de cette question
             success: Question mise à jour avec succès
+        setup:
+          errors:
+            max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
+            minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
+            minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
+            published: L'élection est <strong>non publiée</strong>
+            time_before: L'heure de début se situe <strong>moins de 3 heures</strong> avant le début de l'élection
+            trustee_public_key: n'a pas de <strong>clé publique valide</strong>
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
@@ -180,13 +203,20 @@ fr:
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir plus
+        preview:
+          available_answers: Réponses disponibles
+          description: Voici les questions que vous trouverez dans le processus de vote
+          title: Questions sur l'élection
+        results:
+          description: Ce sont les résultats du vote, pour chaque question
+          selected: Sélectionné
+          title: Résultats de l'élection
+          votes:
+            one: "%{count} vote"
+            other: "%{count} votes"
         show:
           back: Élections disponibles
           preview: Aperçu
-          questions_preview:
-            available_answers: Réponses disponibles
-            description: Voici les questions que vous trouverez dans le processus de vote
-            title: Questions sur l'élection
           vote: Voter
           voting_period_status:
             finished: Le vote a commencé le %{start_time} et s'est terminé le %{end_time}

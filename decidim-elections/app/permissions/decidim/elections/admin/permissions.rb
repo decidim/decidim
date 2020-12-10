@@ -12,6 +12,8 @@ module Decidim
             case permission_action.action
             when :create, :update, :delete, :import_proposals
               allow_if_not_blocked
+            when :select
+              allow_if_results
             end
           when :election
             case permission_action.action
@@ -58,6 +60,10 @@ module Decidim
 
         def trustee_participatory_space
           @trustee_participatory_space ||= context.fetch(:trustee_participatory_space, nil)
+        end
+
+        def allow_if_results
+          toggle_allow(election && election.results?)
         end
 
         def allow_if_not_blocked

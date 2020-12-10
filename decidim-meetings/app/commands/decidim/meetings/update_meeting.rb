@@ -60,6 +60,7 @@ module Decidim
             registration_url: form.registration_url,
             available_slots: form.available_slots,
             registration_terms: { I18n.locale => form.registration_terms },
+            registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
             online_meeting_url: form.online_meeting_url
           },

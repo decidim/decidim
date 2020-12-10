@@ -280,5 +280,41 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "#has_contributions?" do
+      context "when the meeting has contributions" do
+        let(:meeting) { build :meeting, contributions_count: 10 }
+
+        it "returns true" do
+          expect(subject.has_contributions?).to be true
+        end
+      end
+
+      context "when the meeting does not have contributions" do
+        let(:meeting) { build :meeting }
+
+        it "returns false" do
+          expect(subject.has_contributions?).to be false
+        end
+      end
+    end
+
+    describe "#has_attendees?" do
+      context "when the meeting has attendees" do
+        let(:meeting) { build :meeting, attendees_count: 10 }
+
+        it "returns true" do
+          expect(subject.has_attendees?).to be true
+        end
+      end
+
+      context "when the meeting does not have attendees" do
+        let(:meeting) { build :meeting }
+
+        it "returns false" do
+          expect(subject.has_attendees?).to be false
+        end
+      end
+    end
   end
 end

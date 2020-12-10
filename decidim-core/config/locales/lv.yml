@@ -392,7 +392,6 @@ lv:
           email_already_exists: Citam kontam jau izmantota tā pati e-pasta adrese
         new:
           complete_profile: Pabeigt profila izveidi
-          nickname_help: Jūsu segvārds %{organization}
           sign_up: Lūdzu, pabeidziet aizpildīt savu profilu
           subtitle: Lūdzu, aizpildiet šo anketu, lai pabeigtu reģistrēšanos
           username_help: Publiski redzamais vārds, kas parādās pie jūsu ierakstiem. Lai garantētu anonimitāti, tas var būt jebkurš vārds.
@@ -401,7 +400,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          nickname_help: Jūsu segvārds %{organization}
           password_help: "Vismaz %{minimun_characters} rakstzīmes, nedrīkst būt pārlieku izplatītas (piem., 123456), un tām jāatšķiras no jūsu segvārda un e-pasta adreses."
           sign_in: Pieteikties
           sign_up: Reģistrēties
@@ -1422,7 +1420,8 @@ lv:
       widget:
         see_more: Skatīt vairāk
   locale:
-    name: Angliski
+    name: Latviešu
+    name_with_error: Latviešu (kļūda!)
   password_validator:
     domain_included_in_password: ir pārāk līdzīga šī domēna vārdam
     email_included_in_password: ir pārāk līdzīga jūsu e-pasta adresei

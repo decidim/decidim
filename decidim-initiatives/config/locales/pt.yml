@@ -294,18 +294,10 @@ pt:
         finish:
           back: Retroceder
           back_to_initiatives: Retroceder para as iniciativas
-          confirm: Confirmar
           edit_my_initiative: Editar as minhas iniciativas
           go_to_my_initiatives: Ir para as minhas iniciativas
           more_information: "(Mais informações)"
           send_my_initiative: Enviar a minha iniciativa
-        finish_help:
-          access_reminder: Lembre-se de que poderá sempre aceder às suas iniciativas através do menu de participante.
-          help_for_organizations: Se é uma associação, terá que enviar as atas do conselho de administração de todas as organizações que formam a Comissão Promotora
-          help_in_person_signatures: Se optou por coletar as assinaturas pessoalmente ou combinadas com on-line, será necessário fazer o carregamento das informações necessárias.
-          help_text: Lembre-se de que, para processar adequadamente a iniciativa, deverá aceder ao painel de administração, onde encontrará o menu de utilizador, carregará as informações necessárias e as enviará para processamento.
-          initiatives_page_link: Pode procurar todas estas informações no %{link} dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Retroceder
           continue: Continuar
@@ -411,6 +403,8 @@ pt:
           random: Aleatório
           recent: Mais recente
           recently_published: Publicado mais recentemente
+        print:
+          city: Cidade
         result:
           answer_title:
             accepted: Esta proposta foi aceite porque

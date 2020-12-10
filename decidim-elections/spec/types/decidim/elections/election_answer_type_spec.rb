@@ -45,8 +45,24 @@ module Decidim
       describe "weight" do
         let(:query) { "{ weight }" }
 
-        it "returns the election weight" do
+        it "returns the answers weight" do
           expect(response["weight"]).to eq(model.weight)
+        end
+      end
+
+      describe "votes" do
+        let(:query) { "{ votes_count }" }
+
+        it "returns the votes for this answer" do
+          expect(response["votes_count"]).to eq(model.votes_count)
+        end
+      end
+
+      describe "selected" do
+        let(:query) { "{ selected }" }
+
+        it "returns if answer is selected" do
+          expect(response["selected"]).to eq(model.selected)
         end
       end
 

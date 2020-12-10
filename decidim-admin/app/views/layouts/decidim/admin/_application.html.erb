@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("titles.panel", scope: "decidim.admin")) %>
+<% add_decidim_page_title(current_organization.name) %>
 <!doctype html>
 <html class="no-js" lang="<%= I18n.locale %>">
   <head>
@@ -7,7 +9,7 @@
     <meta name="copyright" content="">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/admin/header" %>
     <%= foundation_datepicker_locale_tag %>
   </head>

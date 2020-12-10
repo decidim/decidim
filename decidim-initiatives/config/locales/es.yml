@@ -320,18 +320,10 @@ es:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          confirm: Confirmar
           edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
           send_my_initiative: Enviar mi iniciativa
-        finish_help:
-          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de participante.
-          help_for_organizations: Si eres una asociación, tendrás que subir las actias del consejo de administración de todas las organizaciones que formen la Comisión Promotora
-          help_in_person_signatures: Si has escogido recoger las firmas presenciales o combinarlas con las digitales, tendrás que subir la información requerida.
-          help_text: Recuerda que para procesar correctamente la iniciativa, tienes que acceder al panel de administración donde encontrarás el menú de participante, cargar la información solicitada y enviarla para su tramitación.
-          initiatives_page_link: Puedes consultar toda esta información en el %{link}, dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Volver
           continue: Continuar
@@ -442,6 +434,8 @@ es:
           random: Aleatorio
           recent: Más recientes
           recently_published: Publicada más recientemente
+        print:
+          city: Ciudad
         result:
           answer_title:
             accepted: Esta propuesta se ha aceptado porque

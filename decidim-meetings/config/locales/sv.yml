@@ -85,6 +85,7 @@ sv:
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
             enable_pads_creation: Aktivera skapande av memo
+            registration_code_enabled: Registreringskod aktiverad
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
           step:
             announcement: Meddelande
@@ -479,11 +480,6 @@ sv:
         description: Antal skapade möten
         object: möten
         title: Möten
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Tidigare möten
-          upcoming_meetings: Kommande möten
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten

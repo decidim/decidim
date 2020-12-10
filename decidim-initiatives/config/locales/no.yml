@@ -304,16 +304,8 @@
         finish:
           back: Tilbake
           back_to_initiatives: Tilbake til initiativer
-          confirm: Bekreft
           go_to_my_initiatives: Gå til mine initiativer
           more_information: "(Mer informasjon)"
-        finish_help:
-          access_reminder: Husk at du vil alltid kunne få tilgang til dine initiativer gjennom deltakermenyen.
-          help_for_organizations: Hvis du er en forening, må du laste opp referatet fra styret for alle organisasjonene som utgjør Promoterings Kommisjonen
-          help_in_person_signatures: Hvis du har valgt å samle inn underskriftene personlig eller kombinert med online, må du laste opp den nødvendige informasjonen.
-          help_text: Husk at for å kunne behandle initiativet riktig må du gå til administrasjonspanelet der du finner brukermenyen, laste opp den nødvendige informasjonen og sende den til behandling.
-          initiatives_page_link: Du kan slå opp all denne informasjonen på %{link} som er dedikert til å informere om initiativer.
-          page: side
         previous_form:
           back: Tilbake
           continue: Fortsett
@@ -417,6 +409,8 @@
           most_voted: Mest signert
           random: Tilfeldig
           recent: Nyligst
+        print:
+          city: By
         result:
           answer_title:
             accepted: Dette forslaget ble akseptert fordi

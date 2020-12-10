@@ -129,6 +129,7 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -367,6 +368,13 @@ de:
             dummy_step_translatable_text: Übersetzbarer Blindtext des Schritts
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Bild, Text und Call to Action-Schaltfläche
+      cta_settings_form:
+        background_image: Hintergrundbild
+        button_text: Call to Action-Text
+        button_url: URL des Call to Action
+        description: Beschreibung
       footer_sub_hero:
         name: Fußzeile sub hero Banner
       hero:
@@ -376,6 +384,11 @@ de:
         welcome_text: Willkommenstext
       highlighted_content_banner:
         name: Hervorgehobenes Inhaltsbanner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Elemente sortieren nach:'
+          random: Zufällig
+          recent: Neueste
       how_to_participate:
         name: Wie kann ich mich beteiligen
       html:
@@ -410,7 +423,7 @@ de:
           email_already_exists: Ein anderes Konto verwendet dieselbe E-Mail-Adresse
         new:
           complete_profile: Profil vervollständingen
-          nickname_help: Ihr Pseudonym in %{organization}
+          nickname_help: Ihr Alias in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
@@ -419,7 +432,7 @@ de:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
           newsletter_title: Kontakt Erlaubnis
-          nickname_help: Ihr Pseudonym in %{organization}
+          nickname_help: Ihr Alias in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
           password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu häufig (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
           sign_in: Anmelden
           sign_up: Registrieren
@@ -441,6 +454,7 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
+            uncheck: Deaktivierung beibehalten
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -606,6 +620,14 @@ de:
           notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über den <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor von dem entfernten Inhalt sind.
+          email_subject: Ihr %{resource_type} wurde entfernt
+          notification_title: |-
+            Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade „%{resource_title}“ befürwortet, und wir denken, das könnte für Sie interessant sein. Über folgenden Link können Sie es anzeigen und daran teilnehmen:'
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
@@ -798,8 +820,8 @@ de:
     help:
       main_topic:
         default_page:
-          content: "<p>In %{organization} Sie durch die Leerzeichen, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Baugruppen, Initiativen, Konsultationen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
-          title: Was kann ich in %{organization}?
+          content: "<p>In der %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
+          title: Was kann ich in %{organization} tun?
         description: Lesen Sie mehr über %{organization}
         title: Allgemeine Hilfe
     last_activities:
@@ -889,6 +911,10 @@ de:
           show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
+        error_modal:
+          correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
+          intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
+          ok: OK
         index:
           ago: vor
           close: Modal schließen
@@ -911,7 +937,11 @@ de:
         start:
           send: Senden
           title: Ein Gespräch beginnen
+        update:
+          error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
+      download:
+        csv: Daten herunterladen (CSV)
       followers:
         description: Anzahl der Benutzer, die dieser Teilnahme folgen
         object: Anhänger
@@ -1053,6 +1083,7 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Groß! Sie haben die Allgemeinen Geschäftsbedingungen akzeptiert.
         form:
+          agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
           modal_body: Wenn Sie sich weigern, werden Sie nicht in der Lage sein , die Plattform zu nutzen, können Sie <a href="%{data_portability_path}">laden Sie Ihre Daten</a> und / oder <a href="%{delete_path}">Ihr Konto löschen</a>.
@@ -1109,12 +1140,15 @@ de:
       report:
         authors: Autoren
         content: Gemeldeter Inhalt
+        content_original_language: Originalsprache des Inhalts
         date: Gemeldet am
         details: Einzelheiten
         hello: Hallo %{name},
+        id: ID
         participatory_space: Beteiligungsbereich
         reason: Grund
         report_html: <p>Der folgende <a href="%{url}">Inhalt</a> wurde gemeldet.</p>
+        see_report: Den Bericht ansehen
         subject: Eine Ressource wurde gemeldet
     reports:
       create:
@@ -1187,6 +1221,15 @@ de:
         report: Bericht
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Ein Problem melden
+      flag_user_modal:
+        already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+        close: Schließen
+        description: Was ist unangebracht über den Benutzer?
+        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
+        report: Melden
+        spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
+        title: Unangemessenen Nutzer melden
       floating_help:
         close: Hilfe schließen
         help: Hilfe
@@ -1262,6 +1305,13 @@ de:
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
+    user_report_mailer:
+      notify:
+        body_1: Benutzer %{user} wurde von %{token} gemeldet
+        body_2: 'Grund: %{reason}'
+        greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo %{admin},
+        subject: Ein neuer Benutzer wurde in %{organization_name} gemeldet
     version:
       show:
         back_to_resource: Zurück
@@ -1355,13 +1405,13 @@ de:
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       invite_collaborator:
         subject: Du wurdest eingeladen, an %{organization}
       invite_private_user:
-        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
+        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
         message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
@@ -1425,7 +1475,7 @@ de:
     shared:
       links:
         back: Zurück
-        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungsanweisungen erhalten?
+        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen

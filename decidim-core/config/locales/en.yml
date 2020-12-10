@@ -371,6 +371,13 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, text and Call To Action button
+      cta_settings_form:
+        background_image: Background image
+        button_text: Call To Action text
+        button_url: Call To Action URL
+        description: Description
       footer_sub_hero:
         name: Footer sub hero banner
       hero:
@@ -380,6 +387,11 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sort elements by:'
+          random: Random
+          recent: Most recent
       how_to_participate:
         name: How to participate
       html:
@@ -414,7 +426,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -423,7 +435,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
@@ -686,7 +698,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image.
+          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.

@@ -3,20 +3,20 @@ de:
     attributes:
       assembly:
         area_id: Bereich
-        assembly_type: Montageart
-        assembly_type_other: Montageart andere
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
         banner_image: Banner-Bild
         closing_date: Einsendeschluss
-        closing_date_reason: Schlussdatum Grund
+        closing_date_reason: Schlussdatums Grund
         composition: Zusammensetzung
         copy_categories: Kategorien kopieren
-        copy_components: Kopieren Sie Komponenten
+        copy_components: Komponenten kopieren
         copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
         creation_date: Datum erstellt
         decidim_area_id: Bereich
-        decidim_assemblies_type_id: Montageart
+        decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
@@ -32,13 +32,13 @@ de:
         is_transparent: Ist transparent
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
-        parent_id: Elternversammlung
+        parent_id: Haupt Versammlung
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Privatsphäre
-        promoted: Gefördert
-        published_at: Veröffentlicht unter
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht am
         purpose_of_action: Zweck der Aktion
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
@@ -73,8 +73,8 @@ de:
   activerecord:
     models:
       decidim/assembly:
-        one: Versammlung
-        other: Baugruppen
+        one: Gre­mi­um
+        other: Gremien
       decidim/assembly_member:
         one: Gremienmitglieder
         other: Mitglieder der Versammlung
@@ -85,7 +85,7 @@ de:
     admin:
       actions:
         import_assembly: Importieren
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
         new_assembly_type: Neuer Gremiumtyp
       assemblies:
         create:
@@ -95,12 +95,12 @@ de:
           update: Aktualisieren
         index:
           not_published: Nicht veröffentlicht
-          private: Privatgelände
-          public: Öffentlichkeit
+          private: Privat
+          public: Öffentlich
           published: Veröffentlicht
         new:
           create: Erstellen
-          title: Neue Montage
+          title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
           success: Das Gremium wurde erfolgreich aktualisiert.
@@ -201,7 +201,7 @@ de:
         assembly:
           fields:
             created_at: Hergestellt in
-            private: Privatgelände
+            private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
             title: Titel
@@ -267,7 +267,7 @@ de:
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
-            select_an_assembly_type: Wählen Sie einen Montagetyp
+            select_an_assembly_type: Wählen Sie einen Gremiumstyp
             select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
@@ -305,6 +305,9 @@ de:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Mitglieder
@@ -318,38 +321,38 @@ de:
         working_group: Arbeitsgruppe
       content_blocks:
         highlighted_assemblies:
-          name: Hervorgehobene Baugruppen
+          name: Hervorgehobene Gremien
       created_by:
         city_council: Stadtrat
         others: Andere
-        public: Öffentlichkeit
+        public: Öffentlich
       filter:
         all: Alle Typen
         commission: Kommission
         consultative_advisory: Beratung / Beratung
         executive: Executive
         government: Regierung
-        help: 'Show:'
+        help: 'Anzeigen:'
         others: Andere
         participatory: Partizipativ
         working_group: Arbeitsgruppe
       index:
-        title: Baugruppen
+        title: Gremien
       last_activity:
-        new_assembly: Neue Montage
+        new_assembly: Neues Gremium
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive Baugruppen
+            active_assemblies: Aktive Gremien
             assemblies_button_title: Verknüpfung zu der Versammlungsseite mit einem Überblick aller Versammlungen
-            see_all_assemblies: Alle Baugruppen anzeigen
+            see_all_assemblies: Alle Gremien anzeigen
         user_profile:
           member_of:
             member_of: Mitglied von
       show:
         area: Bereich
         assembly_type: Montageart
-        children: Baugruppen
+        children: Gremien
         closing_date: Einsendeschluss
         composition: Zusammensetzung
         created_by: Erstellt von
@@ -376,7 +379,7 @@ de:
         target: Wer nimmt teil?
       statistics:
         answers_count: Antworten
-        assemblies_count: Baugruppen
+        assemblies_count: Gremien
         comments_count: Bemerkungen
         debates_count: Debatten
         endorsements_count: Empfehlungen
@@ -462,7 +465,7 @@ de:
           reset_chart: Zurücksetzen
         order_by_assemblies:
           assemblies:
-            one: "%{count} Gremium"
+            one: "%{count} Gremien"
             other: "%{count} Gremien"
         promoted_assembly:
           more_info: Mehr Informationen

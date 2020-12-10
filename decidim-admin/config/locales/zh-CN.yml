@@ -145,7 +145,6 @@ zh-CN:
           error: 接受管理员使用条款时出错。
           success: 太棒了！您已经接受了管理员使用条款。
         actions:
-          accept: 我同意这个管理条款
           are_you_sure: 您确定要拒绝管理员条款吗？
           refuse: 拒绝管理条款
           title: 同意使用条款

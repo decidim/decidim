@@ -37,7 +37,6 @@ sv:
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
-        name: Namn
         participatory_process_ids: Relaterade dialoger
       participatory_process_step:
         cta_path: Uppmaningens sökväg
@@ -116,8 +115,6 @@ sv:
             title: Titel
           name: Dialog
         participatory_process_group:
-          fields:
-            name: Namn
           name: Dialoggrupp
         participatory_process_step:
           fields:
@@ -301,10 +298,12 @@ sv:
       show:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
+      content_blocks:
+        participatory_processes:
+          name: Deltagandeprocesser
+        stats:
+          name: Statistik
       show:
-        group_participatory_processes:
-          one: En dialog för %{group}
-          other: "%{count} dialoger för %{group}"
         title: Dialoggrupper
     participatory_process_steps:
       index:
@@ -392,6 +391,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        belongs_to_group: Denna process tillhör
         dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum

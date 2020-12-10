@@ -1,12 +1,46 @@
 # frozen_string_literal: true
 
-shared_examples "with promoted participatory processes" do
+shared_examples "with promoted participatory processes and groups" do
   before do
     request.env["decidim.current_organization"] = organization
   end
 
-  describe "promoted_participatory_processes" do
-    it "orders them by active_step end_date" do
+  describe "promoted_collection" do
+    it "includes promoted participatory processes and groups placing groups in first place" do
+      create(
+        :participatory_process_group,
+        organization: organization
+      )
+
+      unpromoted_process = create(
+        :participatory_process,
+        :with_steps,
+        :published,
+        organization: organization
+      )
+      unpromoted_process.active_step.update!(end_date: Time.current.advance(days: 1))
+
+      promoted_process = create(
+        :participatory_process,
+        :with_steps,
+        :published,
+        :promoted,
+        organization: organization
+      )
+      promoted_process.active_step.update!(end_date: Time.current.advance(days: 2))
+
+      promoted_group = create(
+        :participatory_process_group,
+        :promoted,
+        organization: organization
+      )
+
+      expect(controller.helpers.promoted_collection).to(
+        match_array([promoted_group, promoted_process])
+      )
+    end
+
+    it "orders participatory processes by active_step end_date" do
       create(
         :participatory_process,
         :with_steps,
@@ -57,7 +91,7 @@ shared_examples "with promoted participatory processes" do
 
       second.active_step.update!(end_date: Time.current.advance(days: 4))
 
-      expect(controller.helpers.promoted_participatory_processes).to(
+      expect(controller.helpers.promoted_collection).to(
         match_array([first, second, last])
       )
     end

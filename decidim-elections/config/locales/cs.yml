@@ -65,9 +65,12 @@ cs:
         edit: Upravit
         feedback: Zpětná vazba voličů
         import: Importovat návrhy na odpovědi
+        manage_answers: Spravovat odpovědi
+        manage_questions: Spravovat otázky
         new: Nový %{name}
         preview: Náhled
         publish: Publikovat
+        setup: Nastavení
         title: Akce
         unpublish: Zrušit publikování
       admin:
@@ -87,6 +90,14 @@ cs:
           new:
             create: Vytvořit odpověď
             title: Nová odpověď
+          select:
+            disable: Zrušit výběr odpovědi
+            enable: Označit odpověď jako vybranou
+            invalid: Při výběru této odpovědi došlo k potížím
+            success: Odpověď byla úspěšně vybrána
+          unselect:
+            invalid: Při zrušení výběru této odpovědi došlo k chybě
+            success: Odpovědi byl úspěšně zrušen výběr
           update:
             invalid: Při aktualizaci této odpovědi došlo k chybě
             success: Odpověď byla úspěšně aktualizována
@@ -108,12 +119,16 @@ cs:
             title: Nové volby
           publish:
             success: Volba byla úspěšně publikována.
+          setup:
+            invalid: Při zřizování těchto voleb došlo k chybě
+            success: Volba byla úspěšně odeslána do Bulletin Board
           unpublish:
             success: Volba byla úspěšně odebrána ze zveřejnění.
           update:
             invalid: Při aktualizaci těchto voleb došlo k chybě
             success: Volba byla úspěšně aktualizována
         exports:
+          elections: Volby
           feedback_form_answers: Odpovědi na formulář zpětné vazby
         models:
           answer:
@@ -132,6 +147,7 @@ cs:
             create: Importovat návrhy na odpovědi
             no_components: V tomto participačním prostoru nejsou žádné další prvky návrhu, které by mohly do odpovědí importovat návrhy.
             select_component: Vyberte komponentu
+            title: Importovat návrhy
         questions:
           create:
             invalid: Při vytváření této otázky došlo k chybě
@@ -150,6 +166,29 @@ cs:
           update:
             invalid: Při aktualizaci této otázky došlo k chybě
             success: Otázka byla úspěšně aktualizována
+        setup:
+          errors:
+            max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
+            minimum_answers: Otázky musí mít <strong>alespoň jednu odpověď</strong>.
+            minimum_questions: Volby <strong>musí mít alespoň jednu otázku</strong>.
+            published: Volby <strong>nejsou publikovány</strong>
+            time_before: Počáteční čas je za <strong>méně než 3 hodiny</strong> před zahájením voleb
+            trustee_public_key: nemá <strong>platný veřejný klíč</strong>
+            trustees_quorum: Množství správců <strong>neodpovídá požadovanému počtu usnášeníschopných správců</strong>
+          requirements:
+            max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>
+            minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>
+            minimum_questions: Volba má <strong>alespoň jednu otázku</strong>
+            published: Volby jsou <strong>publikovány</strong>
+            time_before: Nastavení se provádí <strong>nejméně 3 hodiny</strong> před zahájením voleb
+            trustee_public_key: má <strong>platný veřejný klíč</strong>
+            trustees_quorum: Velikost tohoto seznamu správců je správná a k provedení procesu bude potřeba <strong>alespoň %{quorum} správců </strong>
+          show:
+            setup: Nastavení voleb
+            title: Nastavení voleb
+          update:
+            setup: Nastavení voleb
+            title: Nastavení voleb
         trustees_participatory_spaces:
           actions:
             disable: Zakázat
@@ -208,13 +247,22 @@ cs:
           filter: Filtr
           filter_by: Filtrovat podle
           unfold: Rozbalit
+        preview:
+          available_answers: Dostupné odpovědi
+          description: Toto jsou otázky, které najdete v procesu hlasování
+          title: Volební otázky
+        results:
+          description: To jsou výsledky hlasování, pro každou otázku
+          selected: Vybrané
+          title: Výsledky voleb
+          votes:
+            one: "%{count} hlas"
+            few: "%{count} hlasy"
+            many: "%{count} hlasů"
+            other: "%{count} hlasů"
         show:
           back: Dostupné volby
           preview: Náhled
-          questions_preview:
-            available_answers: Dostupné odpovědi
-            description: Toto jsou otázky, které najdete v procesu hlasování
-            title: Volební otázky
           vote: Hlasování
           voting_period_status:
             finished: Hlasování začalo %{start_time} a skončilo %{end_time}
@@ -340,6 +388,11 @@ cs:
           email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
         trustees:
+          new_election:
+            email_intro: Přidali jste jako správce pro volby %{resource_title}.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce pro %{resource_title} volby.
+            email_subject: Jste správcem pro %{resource_title} volby..
+            notification_title: Jste správcem volby <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrátor vás přidal jako správce pro %{resource_name}. Měli byste vytvořit váš veřejný klíč <a href='%{trustee_zone_url}'>ve vaší správcovské zóně</a>
             email_outro: Obdrželi jste toto oznámení, protože jste byli přidáni jako správce %{resource_name}.

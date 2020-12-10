@@ -407,7 +407,6 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El teu àlies a %{organization}
           sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -416,7 +415,6 @@ ca:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          nickname_help: El teu àlies a %{organization}
           password_help: "%{minimun_characters} caràcters mínim, no ha de ser massa comú (per exemple 123456) i ha de ser diferent del teu nom d'usuari i la teva adreça de correu electrònic."
           sign_in: Entra
           sign_up: Registra't
@@ -604,6 +602,14 @@ ca:
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Un administrador ha eliminat el teu %{resource_type} degut a que ha estat denunciat com a %{report_reasons}.
+          email_outro: Heu rebut aquesta notificació degut a que sou un autor del contingut eliminat.
+          email_subject: S'ha eliminat el vostre %{resource_type}
+          notification_title: |-
+            Un administrador ha eliminat el vostre %{resource_type} degut a que ha estat denunciat com a %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d''adherir-se a una proposta que et pot resultar interessant, revisa-la i contribueix:'
         email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.

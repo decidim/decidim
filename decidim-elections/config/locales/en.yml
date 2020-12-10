@@ -85,6 +85,14 @@ en:
           new:
             create: Create answer
             title: New answer
+          select:
+            disable: Unselect answer
+            enable: Mark answer as selected
+            invalid: There was a problem selecting this answer
+            success: Answer successfully selected
+          unselect:
+            invalid: There was a problem unselecting this answer
+            success: Answer successfully unselected
           update:
             invalid: There was a problem updating this answer
             success: Answer successfully updated
@@ -115,6 +123,7 @@ en:
             invalid: There was a problem updating this election
             success: Election successfully updated
         exports:
+          elections: Elections
           feedback_form_answers: Feedback form answers
         models:
           answer:
@@ -133,6 +142,7 @@ en:
             create: Import proposals to answers
             no_components: There are no other proposal components in this participatory space to import the proposals into answers.
             select_component: Please select a component
+            title: Import proposals
         questions:
           create:
             invalid: There was a problem creating this question
@@ -230,13 +240,21 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        preview:
+          available_answers: Available answers
+          description: These are the questions you will find in the voting process
+          title: Election questions
+        results:
+          description: These are the results of the voting, for each question
+          selected: Selected
+          title: Election results
+          votes:
+            one: "%{count} vote"
+            other: "%{count} votes"
+            zero: "%{count} votes"
         show:
           back: Available elections
           preview: Preview
-          questions_preview:
-            available_answers: Available answers
-            description: These are the questions you will find in the voting process
-            title: Election questions
           vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}

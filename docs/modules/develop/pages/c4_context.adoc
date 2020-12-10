@@ -1,0 +1,34 @@
+[plantuml]
+....
+@startuml
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_TOP_DOWN
+' uncommetn the following line to make proposals
+'LAYOUT_AS_SKETCH
+
+title System Context diagram for Decidim Applications (https://decidim.org)
+
+
+Person_Ext(visitor_user, "Visitor User", "Anonymous, non registered user.")
+Person(participant_user, "Participant User", "A registered user. Could also be verified.")
+Person(administration_user, "Administration User", "A registered user with special permissions.")
+
+System(decidim_system, "Decidim", "Allows participants to make decisions collaboratively through participatory processes, assemblies, consultations, initiatives, etc.")
+
+System_Ext(mail_system, "SMTP system (e-mail)", "Sends mails to users, like confirmations, reminders, notifications, etc.")
+System_Ext(etherpad_system, "Etherpad-Lite system", "Optional. Allows real-time text edition in Meetings.")
+System_Ext(geocoding_system, "Geocoding system", "Optional. An Open Street Maps provider, allows geographical localization of Proposals and Meetings..")
+System_Ext(oauth_system, "OAUTH2 System", "Optional. Third party sign on systems. Could be Twitter, Facebook, Google or any other OAUTH2 providers.")
+
+Rel(visitor_user, decidim_system, "Uses")
+Rel(participant_user, decidim_system, "Uses")
+Rel(administration_user, decidim_system, "Uses")
+Rel_Back(participant_user, mail_system, "Sends e-mails to")
+Rel_Back(administration_user, mail_system, "Sends e-mails to")
+Rel_Neighbor(decidim_system, mail_system, "Sends e-mails", "SMTP")
+Rel(decidim_system, oauth_system, "Uses")
+Rel(decidim_system, geocoding_system, "Uses")
+Rel(decidim_system, etherpad_system, "Embeds", "Through an Iframe")
+@enduml
+....

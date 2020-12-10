@@ -234,18 +234,10 @@ sk:
         finish:
           back: Späť
           back_to_initiatives: Späť na iniciatívy
-          confirm: Potvrdiť
           edit_my_initiative: Upraviť moje iniciatívy
           go_to_my_initiatives: Ísť na mojej iniciatívy
           more_information: "(Viac informácií)"
           send_my_initiative: Odoslať moje iniciatívy
-        finish_help:
-          access_reminder: Nezabudnite, že budete mať vždy prístup k vašim iniciatívam prostredníctvom používateľského menu.
-          help_for_organizations: Ak ste asociácie, musíte nahrať zápisy zo správnej rady všetkých organizácií, ktoré tvoria Komisie pre podporu
-          help_in_person_signatures: Ak ste sa rozhodli vyzdvihnúť podpisy osobne alebo v kombinácii s online, budete musieť nahrať požadované informácie.
-          help_text: Nezabudnite, že pre správne spracovanie iniciatívy musíte pristupovať k administračnému panelu, kde nájdete užívateľské menu, nahrať požadované informácie a odoslať ich na spracovanie.
-          initiatives_page_link: Môžete si pozrieť všetky tieto informácie na odkaze %{link} určenom na informovanie o iniciatívach.
-          page: stránka
         previous_form:
           back: Späť
           continue: Pokračovať
@@ -347,6 +339,8 @@ sk:
           most_voted: Najviac podpísané
           random: Náhodné
           recent: Najnovšie
+        print:
+          city: Mesto
         result:
           answer_title:
             accepted: Tento návrh bol prijatý, pretože

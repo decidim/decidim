@@ -320,18 +320,10 @@ es-MX:
           back: Volver
           back_to_initiatives: Volver a iniciativas
           callout_text: '¡Enhorabuena! Tu iniciativa se ha creado correctamente.'
-          confirm: Confirmar
           edit_my_initiative: Editar mis iniciativas
           go_to_my_initiatives: Ir a mis iniciativas
           more_information: "(Más información)"
           send_my_initiative: Enviar la meva iniciativa
-        finish_help:
-          access_reminder: Recuerda que siempre podrás acceder a tus iniciativas a través del menú de usuario.
-          help_for_organizations: Si sois una asociación, tendréis que facilitar los datos de los miembros de la junta de todas las organizaciones que conforman la Comisión Promotora.
-          help_in_person_signatures: Si eliges recolectar las firmas en persona o combinadas en línea, tendrás que cargar la información requerida.
-          help_text: Recuerda que para procesar correctamente la iniciativa debes acceder al panel de administración donde encontrarás el menú de usuario, cargar la información solicitada y enviarla para su tramitación.
-          initiatives_page_link: Puedes buscar toda esta información en el %{link} dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Volver
           continue: Continuar
@@ -442,6 +434,8 @@ es-MX:
           random: Aleatorio
           recent: Más reciente
           recently_published: Publicada más recientemente
+        print:
+          city: Ciudad
         result:
           answer_title:
             accepted: Esta propuesta ha sido aceptada porque

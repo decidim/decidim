@@ -52,7 +52,7 @@ module Decidim
         private
 
         def sibilings
-          Answer.where(session_token: participant.session_token).joins(:question).order("decidim_forms_questions.position ASC")
+          Answer.where(questionnaire: questionnaire, session_token: participant.session_token).joins(:question).order("decidim_forms_questions.position ASC")
         end
       end
     end

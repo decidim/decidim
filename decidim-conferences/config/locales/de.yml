@@ -402,6 +402,7 @@ de:
         personal_website: Persönliche Webseite
         show:
           more_info: Mehr Informationen
+          speaking_at: Sprecher bei
       conference_speaker_cell:
         personal_url:
           personal_website: Persönliche Webseite
@@ -475,6 +476,7 @@ de:
         index:
           choose_an_option: 'Wählen Sie Ihre Registrierungsoption:'
           login_as: Sie sind als %{name} <%{email}> angemeldet
+          no_registrations: Keine Registrierungen
           register: Registrieren
           title: Registrierungsarten
       shared:
@@ -487,7 +489,7 @@ de:
         details: Einzelheiten
         introduction: Einführung
         objectives: Ziele
-        related_assemblies: Ähnliche Assemblies
+        related_assemblies: Ähnliche Gremien
         related_consultations: Verwandte Konsultationen
         related_participatory_processes: Ähnliche Beteiligungsprozesse
       statistics:
@@ -538,6 +540,12 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
           email_subject: Die "%{resource_title}" -Konferenz kommt!
           notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz kommt in 2 Tagen.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          page: "<p>Eine <strong>Konferenz</strong> ist eine Sammlung von Meetings, die in einem Programm organisiert werden, mit einer Anzahl von Personen, die als Referenten eingeladen werden und andere Informationsfelder, die für große Kongresse oder gesellschaftliche Veranstaltungen typisch sind (Registrierung, Liste der Organisationen, die die Veranstaltung unterstützen oder sponsern, usw.)..</p> <p>Beispiele: Eine Konferenz kann ein relevantes Ereignis für eine Organisation und ihre Mitglieder sein oder im Rahmen eines partizipatorischen Prozesses oder einer Beratung folgen.</p>\n"
+          title: Was sind Konferenzen?
     log:
       value_types:
         conference_presenter:

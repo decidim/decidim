@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     class ProcessFiltersCell < Decidim::ViewModel
-      ALL_FILTERS = %w(active past upcoming all).freeze
+      ALL_FILTERS = %w(active upcoming past all).freeze
 
       def filter_link(filter)
         Decidim::ParticipatoryProcesses::Engine

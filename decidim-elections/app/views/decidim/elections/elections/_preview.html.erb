@@ -1,0 +1,26 @@
+  <div class="row section">
+    <div class="columns large-8">
+      <h2 class="section-heading"><%= t(".title") %></h2>
+      <p>
+        <%= t(".description") %>:
+      </p>
+      <ul class="accordion mb-m evote__preview"
+          data-accordion
+          data-multi-expand="true"
+          data-allow-all-closed="true">
+            <% election.questions.each do |question| %>
+              <li class="accordion-item evote__preview-question" data-accordion-item>
+                <a href="#" class="accordion-title flex--sbc"><%= translated_attribute(question.title) %></a>
+                <div class="accordion-content" data-tab-content>
+                  <strong><%= t(".available_answers") %>:</strong>
+                  <ul>
+                    <% question.answers.each do |answer| %>
+                    <li><%= translated_attribute(answer.title) %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </li>
+            <% end %>
+        </ul>
+    </div>
+  </div>

@@ -145,7 +145,7 @@ fi:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn nämä hallintakäyttäjän ehdot
+          accept: Hyväksyn seuraavat ehdot
           are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
@@ -383,8 +383,10 @@ fi:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
+        reported_users: Ilmoitetut käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -472,6 +474,20 @@ fi:
             phone: Puhelinnumero
             state: Tila
             users_count: Käyttäjämäärä
+      moderated_users:
+        index:
+          actions:
+            title: Toiminnot
+            unreport: Poista ilmoitus
+          name: Nimi
+          nickname: Nimimerkki
+          reason: Syy
+          title: Ilmoitettujen käyttäjien lista
+        report:
+          reasons:
+            does_not_belong: Ei kuulu
+            offensive: Loukkaava
+            spam: Roskaposti
       moderations:
         index:
           title: Moderoinnit
@@ -574,6 +590,7 @@ fi:
           officialize: Virallista
           officialized: Virallistettu
           reofficialize: Virallista uudestaan
+          reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
           unofficialize: Poista virallistaminen
@@ -758,6 +775,7 @@ fi:
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         metrics: Tilastomittarit
+        panel: Hallintakäyttäjä
         participants: Käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
@@ -846,6 +864,7 @@ fi:
           fields:
             created_at: Luonnin ajankohta
             hidden_at: Piilotuksen ajankohta
+            participatory_space: Osallistumistila
             report_count: Määrä
             reportable_id: Id
             reportable_type: Tyyppi
@@ -863,6 +882,8 @@ fi:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Yleiset moderoinnit
         newsletters:
           title: Uutiskirjeet
         settings:
