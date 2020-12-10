@@ -78,7 +78,7 @@
               <td><%= election.voting_period_status %></td>
               <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
               <td>
-                <%= link_to "Create elections keys", new_trustee_election_keys_path(election) %>
+                <%= link_to "Create elections keys", trustee_election_elections_path(election) %>
               </td>
             </tr>
           <% end %>

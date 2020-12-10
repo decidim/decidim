@@ -7,12 +7,16 @@
   data-trustee-unique-id="<%= trustee.user.name.parameterize %>"
   data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
   data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
-  data-authority-name="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>">
+  data-authority-name="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
+  data-update-election-status-url="<%= trustee_election_elections_path(election) %>">
 
   <div class="election-key-generation">
      <%= render("generate_election_keys") %>
   </div>
 
+   <div class="key-ceremony-result">
+
+   </div>
   <div class="backup-election-keys hide">
      <%= render("backup_election_keys") %>
   </div>
@@ -21,4 +25,5 @@
 <script language="JavaScript" type="text/javascript"
         src="https://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js">
 </script>
+
 <%= javascript_include_tag "decidim/elections/trustee_zone/keys", integrity: true %>

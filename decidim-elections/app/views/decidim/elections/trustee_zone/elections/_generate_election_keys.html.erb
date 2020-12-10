@@ -44,3 +44,7 @@
   <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
   <span><%= t(".start") %></span>
 </button>
+
+<div class="election-status">
+  <%= link_to "", trustee_election_elections_path(election), method: :put, class: "hide" %>
+</div>
