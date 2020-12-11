@@ -142,6 +142,16 @@ $(() => {
   // cast vote
   function castVote(_boothMode, formData) {
     const voter = new Voter($voteWrapper.data("voterId"));
+    let encryptedVoteHashToVerify = null;
+
+    // This is a monkey patch until the real implementation works.
+    voter.verifyVote = (_voteHash) => {
+      return new Promise((resolve) => {
+        setInterval(() => {
+          resolve();
+        }, 1000)
+      });
+    };
 
     voter.encrypt(formData).then((encryptedVoteAsJSON) => {
       return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON)).then((hashBuffer) => {
@@ -154,6 +164,8 @@ $(() => {
         };
       })
     }).then(({ encryptedVote, encryptedVoteHash}) => {
+      encryptedVoteHashToVerify = encryptedVoteHash;
+
       return $.ajax({
         method: "POST",
         url: $voteWrapper.data("castVoteUrl"),
@@ -163,10 +175,15 @@ $(() => {
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
       });
-    }).then((_result) => {
+    }).then(() => {
       $voteWrapper.find("#encrypting").addClass("hide")
       $voteWrapper.find("#confirmed_page").removeClass("hide")
+      $voteWrapper.find(".vote-confirmed-result").hide();
       window.confirmed = true;
+      return voter.verifyVote(encryptedVoteHashToVerify);
+    }).then(() => {
+      $voteWrapper.find(".vote-confirmed-processing").hide();
+      $voteWrapper.find(".vote-confirmed-result").show();
     })
   }
 

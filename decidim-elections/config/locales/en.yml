@@ -422,6 +422,9 @@ en:
         encrypting:
           header: Encoding vote...
           text: Your vote is being encrypted to ensure you can cast it anonymously.
+        processing:
+          header: Processing vote...
+          text: Your vote has been received and it is being processing. Please wait.
         failed:
           header: Vote failed
           lead: Your vote has not been casted!
