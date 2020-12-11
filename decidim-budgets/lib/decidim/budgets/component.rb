@@ -64,11 +64,10 @@ Decidim.register_component(:budgets) do |component|
 
   component.exports :projects do |exports|
     exports.collection do |component_instance|
-      # budgets = Decidim::Budgets::Budget.where(decidim_component_id: component_instance.id)
-      # Decidim::Budgets::Project
-      #   .where(decidim_budgets_budget_id: budgets)
-      #   .includes(:category, :component)
-      Decidim::Budgets::Project.all
+      budgets = Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
+      Decidim::Budgets::Project
+        .where(decidim_budgets_budget_id: budgets)
+        .includes(:category, :component)
     end
 
     exports.include_in_open_data = true
