@@ -66,22 +66,24 @@
         <thead>
           <tr>
             <th><%= t(".elections.list.election") %></th>
-            <th><%= t(".elections.list.status") %></th>
             <th><%= t(".elections.list.voting_period") %></th>
             <th><%= t(".elections.list.bb_status") %></th>
-            <th>Actions</th>
+            <th><%= t(".elections.list.action_required.name") %></th>
           </tr>
         </thead>
         <tbody>
           <% trustee.elections.each do |election| %>
             <tr>
               <td><%= present(election).title %></td>
-              <td><%= election.voting_period_status %></td>
               <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
               <td><%= election.bb_status %></td>
               <td>
-                <%= link_to trustee_election_elections_path(election) do %>
-                  <%= t(".elections.link.election_keys") %>
+                <% if election.trustee_action_required? %>
+                  <%= link_to trustee_election_elections_path(election) do %>
+                    <%= t(".elections.list.action_required.true") %>
+                  <% end %>
+                <% else %>
+                  <%= t(".elections.list.action_required.false") %>
                 <% end %>
               </td>
             </tr>

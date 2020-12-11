@@ -301,6 +301,7 @@ en:
             process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
             title: Backup election keys for %{election}
           generate_election_keys:
+            back: Back
             description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
             keys:
               generation: Keys generation
@@ -326,11 +327,14 @@ en:
           show:
             elections:
               link:
-                election_keys: Create elections keys
+                election_keys: Create election keys
               list:
-                bb_status: Bulletin Board status
+                action_required:
+                  'false': 'No'
+                  name: Action required?
+                  'true': Perform action
+                bb_status: Status
                 election: Election
-                status: Status
                 voting_period: Voting period
               no_elections: There are no elections where you act as a Trustee.
               title: Elections
