@@ -8,13 +8,23 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::Proposals::Admin::Picker
-        include Decidim::ParticipatoryProcesses::Admin::Filterable
+        include Decidim::Accountability::Admin::Filterable
 
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
-          @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
+          # @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
+          @collection ||= Result.where(decidim_component_id: params[:component_id])
+        end
+
+        def index
+          Rails.logger.debug "\nTRACE: *** In ResultsController#INDEX\n"
+          ## from participatory_processes_controller:
+          # enforce_permission_to :read, :process_list
+          # @participatory_processes = filtered_collection
+          # enforce_permission_to :read, :results
+          @results = filtered_collection
         end
 
         def new
