@@ -898,7 +898,7 @@ ca:
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
         index:
-          ago: anteriors
+          ago: fa
           close: Tanca modal
           from: De
           groups: Els meus grups
