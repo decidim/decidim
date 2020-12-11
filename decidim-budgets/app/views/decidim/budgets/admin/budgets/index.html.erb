@@ -1,12 +1,17 @@
-<div class="card">
+<div class="card with-overflow">
   <div class="card-divider">
-    <h2 class="card-title">
-      <%= t(".title") %>
-
-      <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
-      <% if allowed_to? :read, :budget #implement :export %>
-        <%= export_dropdown %>
-      <% end %>
+    <h2 class="card-title flex--sbc">
+      <div>
+        <%= t(".title") %>
+      </div>
+      <div class="flex--cc flex-gap--1">
+        <% if allowed_to? :read, :budget #implement :export %>
+          <%= export_dropdown %>
+        <% end %>
+        <div id="js-other-actions-wrapper">
+          <%= link_to t("actions.new", scope: "decidim.budgets", name: t("models.budget.name", scope: "decidim.budgets.admin")), new_budget_path, class: "button tiny button--title" if allowed_to? :create, :budget %>
+        </div>
+      </div>
     </h2>
   </div>
 
