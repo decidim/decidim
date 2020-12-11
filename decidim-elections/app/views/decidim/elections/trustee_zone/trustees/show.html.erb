@@ -68,6 +68,7 @@
             <th><%= t(".elections.list.election") %></th>
             <th><%= t(".elections.list.status") %></th>
             <th><%= t(".elections.list.voting_period") %></th>
+            <th><%= t(".elections.list.bb_status") %></th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -77,8 +78,11 @@
               <td><%= present(election).title %></td>
               <td><%= election.voting_period_status %></td>
               <td><%= l(election.start_time, format: :decidim_short) %> - <%= l(election.end_time, format: :decidim_short) %></td>
+              <td><%= election.bb_status %></td>
               <td>
-                <%= link_to "Create elections keys", trustee_election_elections_path(election) %>
+                <%= link_to trustee_election_elections_path(election) do %>
+                  <%= t(".elections.link.election_keys") %>
+                <% end %>
               </td>
             </tr>
           <% end %>
