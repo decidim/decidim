@@ -4,6 +4,7 @@
 
   const backspaceBindingsRangeAny = (quill) => {
     quill.keyboard.addBinding({ key: 8, altKey: null, ctrlKey: null, metaKey: null, shiftKey: null, collapsed: true }, (range, context) => {
+      let length = 1;
       if (range.index === 0 || quill.getLength() <= 1) {
         return;
       }
@@ -16,15 +17,20 @@
           let prevFormats = quill.getFormat(range.index - 1, 1);
           formats = attributeDiff(curFormats, prevFormats) || {};
           const previousLineLength = quill.getLine(range.index - 1)[1];
+          const previousChar = quill.getText(range.index - 1, 1)
           const beforePreviousChar = quill.getText(range.index - 2, 1);
-          if (prevFormats && prevFormats.list && previousLineLength && previousLineLength === 1 && beforePreviousChar === "\n") {
-            quill.setSelection(range.index - 2, Quill.sources.SILENT);
+          if (previousLineLength && previousLineLength === 1 && beforePreviousChar === "\n") {
+            if (prevFormats && prevFormats.list) {
+              quill.setSelection(range.index - 2, Quill.sources.SILENT);
+            } else if (previousChar === "\n" && beforePreviousChar === "\n") {
+              length += 1;
+            }
           }
         }
       }
-      let length = 1;
+
       if (/[\uD800-\uDBFF][\uDC00-\uDFFF]$/.test(context.prefix)) {
-        length = 2;
+        length += 1;
       }
       quill.deleteText(range.index - length, length, Quill.sources.USER);
 
