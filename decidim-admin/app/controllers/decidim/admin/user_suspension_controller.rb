@@ -49,10 +49,6 @@ module Decidim
 
       private
 
-      def collection
-        @collection ||= current_organization.users.not_deleted
-      end
-
       def user
         @user ||= Decidim::User.find_by(
           id: params[:user_id],
