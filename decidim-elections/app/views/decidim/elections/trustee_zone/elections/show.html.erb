@@ -8,17 +8,14 @@
   data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
   data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
   data-authority-name="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
-  data-update-election-status-url="<%= trustee_election_elections_path(election) %>">
+  data-update-election-status-url="<%= trustee_election_elections_path(election) %>"
+  data-backup="false">
+
+  <div class="key-ceremony-result">
+  </div>
 
   <div class="election-key-generation">
      <%= render("generate_election_keys") %>
-  </div>
-
-   <div class="key-ceremony-result">
-
-   </div>
-  <div class="backup-election-keys hide">
-     <%= render("backup_election_keys") %>
   </div>
 </div>
 

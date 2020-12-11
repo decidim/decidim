@@ -39,7 +39,12 @@
       </tr>
     </tbody>
   </table>
+  <button type="button" id="backup-modal" class="link hide" data-toggle="show-backup-modal">
+    ""
+  </button>
+  <%= render("backup_modal") %>
 </div>
+
 <button class="button start">
   <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
   <span><%= t(".start") %></span>

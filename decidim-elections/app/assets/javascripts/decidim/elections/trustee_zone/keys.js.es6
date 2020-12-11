@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+
 // = require decidim-bulletin_board
 // = require ../identification_keys
 /**
@@ -7,7 +9,7 @@
 $(() => {
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
-  const $downloadButton = $keyCeremony.find(".download-election-keys");
+  const $downloadButton = $(".download-election-keys");
   const $keyGeneration = $keyCeremony.find("#key_generation");
   const $keyPublishing = $keyCeremony.find("#key_publishing");
   const $jointKey = $keyCeremony.find("#joint_key");
@@ -33,7 +35,17 @@ $(() => {
     });
   };
 
+  const continueProcess = () => {
+    $jointKey.find(".pending").addClass("hide")
+    $jointKey.find(".processing").removeClass("hide")
+    $jointKey.find(".processing").addClass("hide")
+    $jointKey.find(".completed").removeClass("hide")
+    $startButton.addClass("hide");
+    updateElectionStatus();
+  }
+
   identificationKeys.present(async (exists) => {
+
     if (exists) {
       const { Client, KeyCeremony } = decidimBulletinBoard;
 
@@ -65,12 +77,8 @@ $(() => {
         const result = await keyCeremony.run();
 
         if (result) {
-          $jointKey.find(".pending").addClass("hide")
-          $jointKey.find(".processing").addClass("hide")
-          $jointKey.find(".completed").removeClass("hide")
-          $startButton.addClass("hide");
           $electionKeys = result.joint_election_key
-          updateElectionStatus();
+          $("#backup-modal").get(0).click();      
         }
       })
 
@@ -84,6 +92,8 @@ $(() => {
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
+            $keyCeremony.data("backup", "true")
+            continueProcess()
             return resolve();
           } catch (error) {
             return reject();
@@ -101,8 +111,6 @@ $(() => {
         if (event.type === "[Message] Processed" && event.message.messageId.includes("key_ceremony")) {
           $keyPublishing.find(".processing").addClass("hide")
           $keyPublishing.find(".completed").removeClass("hide")
-          $jointKey.find(".pending").addClass("hide")
-          $jointKey.find(".processing").removeClass("hide")
         }
       })
     }

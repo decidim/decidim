@@ -295,10 +295,10 @@ en:
         recent: Recent
       trustee_zone:
         elections:
-          backup_election_keys:
-            download_election_keys: Download election keys
+          backup_modal:
+            download_election_keys: Backup election keys
             download_icon: Icon that indicates a download action
-            process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place.
+            process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
             title: Backup election keys for %{election}
           generate_election_keys:
             description: This election is being created in the Bulletin Board. To complete this process, your participitation as a Trustee is needed.
@@ -318,14 +318,17 @@ en:
               processing: Processing
             title: Create election keys for %{election}
           update:
-            error: The election status couldn't get updated.
-            success: The election status got updated and is now %{status}
+            error: The election status wasn't updated.
+            success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone
         trustees:
           show:
             elections:
+              link:
+                election_keys: Create elections keys
               list:
+                bb_status: Bulletin Board status
                 election: Election
                 status: Status
                 voting_period: Voting period
