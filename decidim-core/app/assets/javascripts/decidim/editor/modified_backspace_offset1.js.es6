@@ -35,7 +35,11 @@
           }
         } else {
           delta = new Delta().retain(range.index + line.length() - 2).delete(1);
-          quill.deleteText(range.index - 2, 2);
+          if (range.index >= 2) {
+            quill.deleteText(range.index - 2, 2);
+          } else {
+            quill.deleteText(range.index - 1, 1);
+          }
         }
       } else {
         const [prev] = quill.getLine(range.index - 1);
