@@ -63,12 +63,12 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.exports :projects do |exports|
-    exports.collection do |component_instance, user|
-      space = component_instance.participatory_space
-
-      collection = Decidim::Budgets::Project
-                   .where(component: component_instance)
-                   .includes(:category, :component)
+    exports.collection do |component_instance|
+      # budgets = Decidim::Budgets::Budget.where(decidim_component_id: component_instance.id)
+      # Decidim::Budgets::Project
+      #   .where(decidim_budgets_budget_id: budgets)
+      #   .includes(:category, :component)
+      Decidim::Budgets::Project.all
     end
 
     exports.include_in_open_data = true
