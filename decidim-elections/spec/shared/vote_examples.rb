@@ -123,14 +123,6 @@ shared_examples "uses the voting booth" do
       click_link("Confirm")
     end
 
-    # ciphering animation step
-    non_question_step("#encrypting") do
-      expect(page).to have_content("Encoding vote...")
-      expect(page).to have_content("Your vote is being encrypted to ensure you can cast it anonymously.")
-    end
-
-    sleep(3)
-
     # confirmed vote page
     non_question_step("#confirmed_page") do
       expect(page).to have_content("Vote confirmed")

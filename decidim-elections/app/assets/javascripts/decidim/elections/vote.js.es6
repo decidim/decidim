@@ -5,7 +5,7 @@
 $(() => {
   const { Voter } = decidimBulletinBoard;
 
-  const $voteWrapper = $('.vote-wrapper');
+  const $voteWrapper = $(".vote-wrapper");
   const $continueButton = $voteWrapper.find("a.focus__next");
   const $confirmButton = $voteWrapper.find("a.focus__next.confirm");
   const $continueSpan = $voteWrapper.find("span.disabled-continue");
@@ -141,37 +141,33 @@ $(() => {
 
   // cast vote
   function castVote(_boothMode, formData) {
-    const voter = new Voter($voteWrapper.data('voterId'));
+    const voter = new Voter($voteWrapper.data("voterId"));
 
-    voter.encrypt(formData)
-      .then(encryptedVoteAsJSON => {
-        return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON))
-                .then(hashBuffer => {
-                  const hashArray = Array.from(new Uint8Array(hashBuffer));
-                  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    voter.encrypt(formData).then((encryptedVoteAsJSON) => {
+      return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON)).then((hashBuffer) => {
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 
-                  return {
-                    encryptedVote: encryptedVoteAsJSON,
-                    encryptedVoteHash: hashHex
-                  };
-                })
+        return {
+          encryptedVote: encryptedVoteAsJSON,
+          encryptedVoteHash: hashHex
+        };
       })
-      .then(({ encryptedVote, encryptedVoteHash}) => {
-        return $.ajax({
-          method: "POST",
-          url: $voteWrapper.data('castVoteUrl'),
-          contentType: "application/json",
-          data: JSON.stringify({ encrypted_vote: encryptedVote, encrypted_vote_hash: encryptedVoteHash }),
-          headers: {
-            'X-CSRF-Token': $('meta[name=csrf-token]').attr('content')
-          }
-        });
-      })
-      .then(_result => {
-        $voteWrapper.find("#encrypting").addClass("hide")
-        $voteWrapper.find("#confirmed_page").removeClass("hide")
-        window.confirmed = true;
-      })
+    }).then(({ encryptedVote, encryptedVoteHash}) => {
+      return $.ajax({
+        method: "POST",
+        url: $voteWrapper.data("castVoteUrl"),
+        contentType: "application/json",
+        data: JSON.stringify({ encrypted_vote: encryptedVote, encrypted_vote_hash: encryptedVoteHash }), // eslint-disable-line camelcase
+        headers: {
+          "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
+        }
+      });
+    }).then((_result) => {
+      $voteWrapper.find("#encrypting").addClass("hide")
+      $voteWrapper.find("#confirmed_page").removeClass("hide")
+      window.confirmed = true;
+    })
   }
 
   // exit message before confirming

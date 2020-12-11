@@ -77,6 +77,10 @@ RSpec.configure do |config|
     end
   end
 
+  config.after(type: :system) do
+    STDERR.puts page.driver.browser.manage.logs.get(:browser)
+  end
+
   config.include Decidim::CapybaraTestHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :system
 end

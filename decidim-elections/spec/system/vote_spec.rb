@@ -12,14 +12,14 @@ describe "Vote in an election", type: :system do
 
   before do
     election.reload
-    switch_to_host(organization.host)
     login_as user, scope: :user
+    allow(Decidim::Elections.bulletin_board).to receive(:cast_vote).and_return({ ok: true })
   end
 
-  include_context "with a component"
+  include_context "with a component with secure context"
 
   it_behaves_like "allows to vote"
-
+ 
   shared_examples "allow admins to preview the voting booth" do
     let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
 

@@ -21,6 +21,8 @@ module Decidim
       def cast
         form = build_form(params)
         @encrypted_vote_hash = form.encrypted_vote_hash
+        return render :cast_success if preview?
+            
         Voter::CastVote.call(form, bulletin_board_client) do
           on(:ok) do
             render :cast_success
@@ -73,6 +75,10 @@ module Decidim
 
       def bulletin_board_client
         Decidim::Elections.bulletin_board
+      end
+
+      def preview?
+        booth_mode == :preview
       end
     end
   end
