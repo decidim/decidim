@@ -9,6 +9,7 @@
 $(() => {
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
+  const $backButton = $keyCeremony.find(".back");
   const $downloadButton = $(".download-election-keys");
   const $keyGeneration = $keyCeremony.find("#key_generation");
   const $keyPublishing = $keyCeremony.find("#key_publishing");
@@ -41,6 +42,7 @@ $(() => {
     $jointKey.find(".processing").addClass("hide")
     $jointKey.find(".completed").removeClass("hide")
     $startButton.addClass("hide");
+    $backButton.removeClass("hide");
     updateElectionStatus();
   }
 
