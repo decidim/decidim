@@ -541,14 +541,14 @@ ja:
       gamification:
         badge_earned:
           email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
-          email_outro: 当社のウェブサイトでアクティビティを行ったため、この通知を受け取りました。
+          email_outro: サイトでの活動によって、この通知を受け取りました。
           email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
           notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
-          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
-          email_outro: 当社のウェブサイトでアクティビティを行ったため、この通知を受け取りました。
-          email_subject: '%{current_level} のバッジがレベル %{badge_name} に達しました！'
-          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッヂ</a> のレベル %{current_level} に到達しました！
+          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
+          email_outro: サイトでの活動によって、この通知を受け取りました。
+          email_subject: '%{badge_name} のバッジがレベル %{current_level} に達しました！'
+          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
