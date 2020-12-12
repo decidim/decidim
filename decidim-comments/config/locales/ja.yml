@@ -82,18 +82,18 @@ ja:
         comment_by_followed_user:
           email_intro: "%{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:"
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのユーザーのフォローを解除することができます。'
-          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
           email_intro: 'グループ %{author_name} は %{resource_title}にコメントを残しました。このページで読むことができます:'
           email_outro: '%{author_name}をフォローしているため、この通知を受け取りました。プロフィールページからこのグループのフォローを解除できます。'
-          email_subject: '%{author_name} に %{resource_title} による新しいコメントがあります'
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
           email_outro: '"%{resource_title}" またはその著者をフォローしているため、この通知を受け取りました。前のリンクからフォローを解除することができます。'
-          email_subject: '%{author_name} に %{resource_title} から新しいコメントがあります'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title}に新しいコメントがあります</a>
+          email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
         reply_created:
           email_intro: "%{author_name} は %{resource_title}であなたのコメントを返信しました。このページで読むことができます:"
           email_outro: コメントが返信されたため、この通知を受信しました。
