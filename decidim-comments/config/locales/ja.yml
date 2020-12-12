@@ -91,7 +91,7 @@ ja:
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} はコメントされました。このページでコメントを読むことができます："
-          email_outro: '"%{resource_title}" またはその著者をフォローしているため、この通知を受け取りました。前のリンクからフォローを解除することができます。'
+          email_outro: '"%{resource_title}" 、またはその参加者をフォローしているためこの通知を受け取りました。前のリンクからフォローを解除することができます。'
           email_subject: '%{author_name} から %{resource_title} に対して新しいコメントがあります'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> から <a href="%{resource_path}">%{resource_title} に対して新しいコメントがあります</a>
         reply_created:
