@@ -281,6 +281,16 @@ module Decidim
     #   api_version: <your version>
     # }
   end
+  
+  # Exposes a configuration option: an object to configure Videoconferences
+  config_accessor :videoconferences do
+    # {
+    #   jitsi: {
+    #     domain: <your jitsi domain>,
+    #     api_url: <your jitsi api url>
+    #   }
+    # }
+  end
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
