@@ -31,7 +31,7 @@ module Decidim
           component: { id: component.id },
           title: project.title,
           description: project.description,
-          budget: project.budget,
+          budget: project.budget_amount,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments.count,
           attachments: project.attachments.count,
@@ -52,9 +52,7 @@ module Decidim
       end
 
       def related_proposals
-        project.linked_resources(:proposals, "included_proposals").map do |proposal|
-          proposal.id
-        end
+        project.linked_resources(:proposals, "included_proposals").map(&:id)
       end
 
       def related_proposal_titles
