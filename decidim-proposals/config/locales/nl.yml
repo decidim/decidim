@@ -449,7 +449,7 @@ nl:
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
             remove_assignment: Opdracht verwijderen
-            remove_assignment_confirmation: Weet u zeker dat u de waarde uit dit voorstel wilt verwijderen?
+            remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
             valuators: Beoordelaars
             votes_count: Aantal stemmen
             votes_ranking: Rangschikking door ondersteuning
@@ -483,10 +483,10 @@ nl:
         valuation_assignments:
           create:
             invalid: Er is een fout opgetreden bij het toewijzen van voorstellen aan een beoordelaar
-            success: Voorstellen die met succes aan een waardering zijn toegewezen
+            success: De voorstellen zijn aan een beoordelaar toegewezen
           delete:
-            invalid: Er is een fout opgetreden bij het ontkoppelen van voorstellen van een waardezer
-            success: Valuator die met succes is toegewezen aan voorstellen
+            invalid: Er is een fout opgetreden bij het ongedaan maken van voorstellen van een beoordelaar
+            success: Toewijzing voorstellen aan beoordelaar ongedaan gemaakt
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
@@ -497,7 +497,7 @@ nl:
           create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} ruimte"
         valuation_assignment:
           create: "%{user_name} heeft het %{resource_name} voorstel toegewezen aan een beoordelaar"
-          delete: "%{user_name} heeft een waarde niet toegewezen uit het %{proposal_title} voorstel"
+          delete: "%{user_name} heeft de toewijzing van een beoordelaar aan voorstel %{proposal_title} ongedaan gemaakt"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
