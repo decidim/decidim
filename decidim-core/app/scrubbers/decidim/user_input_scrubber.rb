@@ -25,7 +25,7 @@ module Decidim
     end
 
     def custom_allowed_tags
-      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe)
+      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe style)
     end
   end
 end
