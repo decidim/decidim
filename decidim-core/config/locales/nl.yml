@@ -1025,7 +1025,7 @@ nl:
           answers_count: Voltooide enquêtes
           assemblies_count: Groepen
           comments_count: Reacties
-          conferences_count: conferenties
+          conferences_count: Conferenties
           debates_count: Debatten
           endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
