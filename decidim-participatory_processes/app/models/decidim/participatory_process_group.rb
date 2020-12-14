@@ -23,6 +23,13 @@ module Decidim
     validates_upload :hero_image
     mount_uploader :hero_image, Decidim::HeroImageUploader
 
+    # Scope to return only the promoted groups.
+    #
+    # Returns an ActiveRecord::Relation.
+    def self.promoted
+      where(promoted: true)
+    end
+
     def self.log_presenter_class_for(_log)
       Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessGroupPresenter
     end

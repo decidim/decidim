@@ -332,9 +332,16 @@ fr-CA:
           participatory_scope: Ce qui est décidé
           participatory_structure: Modalités de décision
           target: Qui participe
+        participatory_processes:
+          name: Concertations
+        stats:
+          name: Statistiques
         title:
           meta_scope: Secteur
           name: Titre, description et hashtag
+          participatory_processes:
+            one: 1 concertation
+            other: "%{count} concertations"
       show:
         title: Groupes de concertations
     participatory_process_steps:
@@ -356,6 +363,7 @@ fr-CA:
           form:
             metadata: Métadonnées
             title: Informations générales
+            visibility: Visibilité
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
@@ -427,6 +435,7 @@ fr-CA:
           loading: Chargement des résultats...
       show:
         area: Périmètre d'assemblée
+        belongs_to_group: Cette concertation appartient à
         dates: Dates
         developer_group: Organisateur
         end_date: Date de fin
@@ -484,6 +493,8 @@ fr-CA:
           more_info_about: Plus d'infos sur le processus %{resource_name}
           take_part: Participer
           take_part_in: Participer au processus %{resource_name}
+        promoted_process_group:
+          more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
         view_steps: Voir les étapes

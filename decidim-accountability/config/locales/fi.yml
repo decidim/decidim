@@ -121,6 +121,11 @@ fi:
         value_types:
           parent_presenter:
             not_found: 'Pääelementtiä ei löytynyt tietokannasta (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: Päivämäärät
+          results: Tulokset
+          unspecified: Ei määritelty
       import_mailer:
         import:
           errors: Virheet
@@ -148,6 +153,9 @@ fi:
           fields:
             description: Kuvaus
             entry_date: Päivämäärä
+      result_m:
+        executed: Valmistunut
+        view: Näytä
       results:
         count:
           results_count:
