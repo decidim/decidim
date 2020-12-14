@@ -16,7 +16,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) if false # TODO
-        
+
         create_videoconference_attendance_log!
 
         broadcast(:ok, videoconference_attendance)

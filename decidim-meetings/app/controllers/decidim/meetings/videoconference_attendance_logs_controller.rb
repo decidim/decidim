@@ -19,7 +19,7 @@ module Decidim
               error: I18n.t("videoconference_attendance_logs.create.success", scope: "decidim.meetings")
             }, status: :ok
           end
-          
+
           on(:invalid) do
             render json: {
               error: I18n.t("videoconference_attendance_logs.create.error", scope: "decidim.meetings")
