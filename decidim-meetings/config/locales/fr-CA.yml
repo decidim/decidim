@@ -262,9 +262,9 @@ fr-CA:
             disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
             location_help: 'Le lieu indique le nom de l''endroit qui accueille la réunion (ex : Maison de la citoyenneté)'
             location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-            online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
+            online_meeting_url_help: 'Lien : permet aux participants de se connecter directement à votre réunion'
             registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
-            select_a_meeting_type: Veuillez sélectionner un type de réunion
+            select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
           index:
             title: Rencontres
@@ -373,8 +373,8 @@ fr-CA:
       meeting_closes:
         edit:
           back: Retour
-          close: Clôturer la réunion
-          title: Clôturer la réunion
+          close: Clore la rencontre
+          title: Clore la rencontre
       meetings:
         count:
           meetings_count:
@@ -419,10 +419,10 @@ fr-CA:
           disclaimer: 'Avertissement : En utilisant un système d''enregistrement externe, sachez que les organisateurs de %{organization} ne sont pas responsables des données fournies par les utilisateurs au service externe.'
           location_help: 'Emplacement: message adressé aux utilisateurs impliquant le point de rencontre à'
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
-          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre réunion'
+          online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
           registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
           select_a_category: Veuillez sélectionner une catégorie
-          select_a_meeting_type: Veuillez sélectionner un type de réunion
+          select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
         index:
           new_meeting: Nouvelle réunion
@@ -442,7 +442,7 @@ fr-CA:
         show:
           attendees: Nombre de participants
           back: Retour à la liste
-          close_meeting: Clôturer la réunion
+          close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
           edit_meeting: Modifier la réunion
