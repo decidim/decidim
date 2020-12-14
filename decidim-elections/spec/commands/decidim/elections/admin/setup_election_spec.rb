@@ -48,14 +48,6 @@ describe Decidim::Elections::Admin::SetupElection do
     allow(bulletin_board).to receive(:setup_election).and_return(response)
   end
 
-  context "when the form is not valid" do
-    let(:invalid) { true }
-
-    it "is not valid" do
-      expect { subject.call }.to broadcast(:invalid)
-    end
-  end
-
   context "when valid form" do
     let(:trustee_users) { trustees.collect(&:user) }
 
@@ -72,6 +64,29 @@ describe Decidim::Elections::Admin::SetupElection do
       expect { subject.call }.to change { election.trustees.count }.by(5)
       expect(election.blocked_at).to be_within(1.second).of election.updated_at
       expect(election.blocked?).to be true
+    end
+  end
+
+  context "when the form is not valid" do
+    let(:invalid) { true }
+
+    it "is not valid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+  end
+
+  context "when the bulletin board returns an error message" do
+    let(:response) do
+      OpenStruct.new(election: nil, error: "An error!")
+    end
+
+    it "is not valid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "returns the error message" do
+      expect(form.errors).to receive(:add).with(:base, "An error!")
+      subject.call
     end
   end
 end
