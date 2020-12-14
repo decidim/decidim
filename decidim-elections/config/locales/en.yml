@@ -326,8 +326,6 @@ en:
         trustees:
           show:
             elections:
-              link:
-                election_keys: Create election keys
               list:
                 action_required:
                   'false': 'No'
