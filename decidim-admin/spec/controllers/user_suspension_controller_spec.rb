@@ -15,7 +15,6 @@ module Decidim
         sign_in current_user, scope: :user
       end
 
-
       describe "unsuspend" do
         let!(:user) { create(:user, :blocked, :confirmed, organization: organization, nickname: "some_nickname") }
 
@@ -23,10 +22,9 @@ module Decidim
           it "flashes a notice message" do
             delete :destroy, params: { user_id: user.id }
 
-            expect(user.reload.suspended?).to be_falsey
+            expect(user.reload.suspended?).to be(false)
           end
         end
-
       end
 
       describe "suspend" do
@@ -36,12 +34,10 @@ module Decidim
           it "flashes a notice message" do
             put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
 
-            expect(user.reload.suspended?).to be_truthy
+            expect(user.reload.suspended?).to be(true)
           end
         end
-
       end
-
     end
   end
 end
