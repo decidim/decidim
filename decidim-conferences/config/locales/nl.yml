@@ -183,7 +183,7 @@ nl:
             admin: Beheerder
             collaborator: Medewerker
             moderator: Moderator
-            valuator: 'Waarde:'
+            valuator: Beoordelaar
         media_link:
           fields:
             date: Datum
