@@ -87,6 +87,8 @@ en:
           update:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
+        exports:
+          comments: Comments
         models:
           debate:
             name: Debate

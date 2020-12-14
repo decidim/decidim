@@ -56,6 +56,16 @@ Decidim.register_component(:debates) do |component|
 
   component.actions = %w(create endorse)
 
+  component.exports :comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Debates::Debate, component_instance
+      )
+    end
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
