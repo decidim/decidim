@@ -34,6 +34,11 @@ describe Decidim::UserInputScrubber do
     expect(html).to be_scrubbed
   end
 
+  it "allows style tags" do
+    html = "<style> body{ color: red; } </style>"
+    expect(html).to be_scrubbed
+  end
+
   it "allows most basic tags" do
     html = "<a></a><b></b><strong></strong><em></em><i></i><p></p><br>"
     expect(html).to be_scrubbed
