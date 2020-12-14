@@ -668,8 +668,8 @@ nl:
           explanation: 'Begeleiding voor bestand:'
           message_1: Moet een afbeelding of een document zijn.
         image:
-          explanation: 'Begeleiding voor afbeelding:'
-          message_1: Bij voorkeur een landschap afbeelding die geen tekst bevat.
+          explanation: 'Eigenschappen afbeelding:'
+          message_1: Bij voorkeur een afbeelding in 'landscape' die geen tekst bevat.
           message_2: De service is de afbeelding.
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
