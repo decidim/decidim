@@ -677,7 +677,6 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, folosește de preferință imagini peisaj, serviciul recoltează imaginea.
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: Recomandat o imagine peisaj care nu are nici un text.

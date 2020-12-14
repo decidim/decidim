@@ -46,7 +46,7 @@ de:
     debates:
       actions:
         active: Aktive Debatten
-        archive: Archiv
+        archive: Archiv 
         archived: Archivierte Debatten
         close: Schließen
         confirm_destroy: Bist du sicher?

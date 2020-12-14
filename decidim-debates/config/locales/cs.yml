@@ -47,18 +47,27 @@ cs:
             endorsements_enabled: Schvalování povoleno
     debates:
       actions:
+        active: Aktivní debaty
+        archive: Archiv
+        archived: Archivované debaty
         close: Zavřít
         confirm_destroy: Jste si jisti?
         destroy: Odstranit
         edit: Upravit
         new: Nové %{name}
         title: Akce
+        unarchive: Obnovit z archivu
       admin:
         debate_closes:
           edit:
+            archive: Archivovat tuto debatu
+            archive_help: Archivace této debaty ji skryje v sekci veřejných debat
             close: Zavřít
             title: Ukončit debatu
         debates:
+          archive:
+            invalid: Při archivaci debaty došlo k chybě.
+            success: Debata byla úspěšně archivována.
           create:
             invalid: Během debaty vznikl problém.
             success: Debata byla úspěšně vytvořena.
@@ -67,11 +76,15 @@ cs:
           edit:
             title: Upravit debatu
             update: Aktualizovat debatu
+          empty: Tato kritéria neodpovídají žádné debatě.
           index:
             title: Debaty
           new:
             create: Vytvořit debatu
             title: Nová debata
+          unarchive:
+            invalid: Při vyjmutí debaty z archivu došlo k chybě.
+            success: Debata byla úspěšně vyjmuta z archivu.
           update:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
