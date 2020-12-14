@@ -103,7 +103,7 @@ shared_context "with a graphql scalar type" do
 end
 
 shared_context "with a graphql scalar class type" do
-  include_context "with a graphql type"
+  include_context "with a graphql class type"
 
   let(:root_value) do
     OpenStruct.new(value: model)
