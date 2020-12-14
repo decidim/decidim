@@ -15,14 +15,14 @@ fi:
         address: Osoite
         answer: Vastaus
         answered_at: Vastattu osoitteessa
-        automatic_hashtags: Hashtagit, jotka lisätään automaattisesti
+        automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
         state: Tila
-        suggested_hashtags: Ehdotetut hashtagit
+        suggested_hashtags: Ehdotetut aihetunnisteet (hashtag)
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
@@ -165,14 +165,14 @@ fi:
             amendments_visibility_help: Jos asetus "Muutokset ovat näkyvillä ainoastaan niiden laatijoille" on määritetty, osallistujien tulee kirjautua sisään nähdäkseen tehdyt muutokset.
             announcement: Ilmoitus
             answers_with_costs: Ota käyttöön kustannusarviointi ehdotusten vastauksissa
-            automatic_hashtags: Hashtagit, jotka lisätään kaikkiin ehdotuksiin
+            automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään kaikkiin ehdotuksiin
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotuksen luominen käytössä
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
-            suggested_hashtags: Käyttäjille ehdotettavat hashtagit uusille ehdotuksille
+            suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Kannatukset estetty
             votes_enabled: Kannatukset käytössä
             votes_hidden: Piilota kannatusmäärät (jos kannatukset ovat käytössä, tämä valitseminen piilottaa kannatusmäärän)
@@ -339,10 +339,6 @@ fi:
         description: Ehdotuksiin kohdistuneiden kannatusten määrä
         object: kannatukset
         title: Kannatukset
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
         see_all: Näytä kaikki ehdotukset (%{count} kpl)
@@ -427,7 +423,7 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             select_a_category: Valitse aihepiiri
-            select_a_meeting: Valitse tapahtuma
+            select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
             assign_to_valuator: Anna tehtäväksi arvioijalle
@@ -475,7 +471,7 @@ fi:
             photos: Kuvat
             proposals: Ehdotukset
             ranking: "%{ranking} / %{total}"
-            related_meetings: Liittyvät tapahtumat
+            related_meetings: Liittyvät tapaamiset
             remove_assignment: Poista tehtävä arvioijalta
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
@@ -673,6 +669,9 @@ fi:
           step_3: Tee yhteistyöluonnoksesi valmiiksi
           step_of: Vaihe %{current_step_num} / %{total_steps}
           title: Yhteistyölunnoksen luonnin vaiheet
+      content_blocks:
+        highlighted_proposals:
+          proposals: Ehdotukset
       create:
         error: Ehdotuksen tallennus epäonnistui.
         success: Ehdotuksen luonti onnistui. Ehdotus on tallennettu luonnoksena.
@@ -725,6 +724,8 @@ fi:
           proposals_count:
             one: "%{count} ehdotus"
             other: "%{count} ehdotusta"
+        dynamic_map_instructions:
+          instructions: <h3>Voit siirtää karttapistettä</h3><p>Muistathan painaa "Päivitä sijainti" -painiketta ennen kuin julkaiset ehdotuksen.</p>
         edit:
           add_documents: Asiakirjat
           add_images: Tiedosto
@@ -785,6 +786,8 @@ fi:
             document_index: Asiakirjan hakemisto
           view_index:
             see_index: Näytä hakemisto
+        placeholder:
+          address: Mannerheimintie 1 A, 00100 Helsinki
         preview:
           modify: Muokkaa ehdotusta
           proposal_edit_before_minutes:
@@ -792,6 +795,7 @@ fi:
             other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen julkaisemisesta. Kun tämä aikaikkuna sulkeutuu, et pysty muokkaamaan ehdotusta.
           publish: Julkaise
           title: Julkaise ehdotuksesi
+          update_position: Päivitä sijainti
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus

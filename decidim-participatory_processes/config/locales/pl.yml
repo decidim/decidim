@@ -37,7 +37,6 @@ pl:
       participatory_process_group:
         description: Opis
         hero_image: Obraz
-        name: Nazwa
         participatory_process_ids: Powiązane procesy
       participatory_process_step:
         cta_path: Ścieżka przycisku CTA
@@ -122,8 +121,6 @@ pl:
             title: Tytuł
           name: Proces partycypacyjny
         participatory_process_group:
-          fields:
-            name: Nazwa
           name: Grupa procesu
         participatory_process_step:
           fields:
@@ -308,11 +305,6 @@ pl:
         related_assemblies: Powiązane zespoły
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 proces dla %{group}
-          few: "%{count} procesy dla %{group}"
-          many: "%{count} procesów dla %{group}"
-          other: "%{count} procesów dla %{group}"
         title: Uczestniczące grupy procesów
     participatory_process_steps:
       index:

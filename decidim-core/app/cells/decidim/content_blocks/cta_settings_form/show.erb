@@ -1,0 +1,9 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.translated :text_field, :button_text, label: t("decidim.content_blocks.cta_settings_form.button_text") %>
+  <%= settings_fields.text_field :button_url, label: t("decidim.content_blocks.cta_settings_form.button_url") %>
+  <%= settings_fields.translated :text_field, :description, label: t("decidim.content_blocks.cta_settings_form.description") %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :background_image, label: t("decidim.content_blocks.cta_settings_form.background_image") %>
+<% end %>

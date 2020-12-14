@@ -150,11 +150,22 @@ de:
           checked_out:
             description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
             title: Haushaltsabstimmung abgeschlossen
+          minimum_projects_rule:
+            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            instruction: "<li>Wählen Sie mindestens %{minimum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
+          projects_rule:
+            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            instruction: "<li>Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} Projekte, die Sie wünschen und stimmen Sie nach Ihren Präferenzen ab, um das Budget zu definieren.</li>"
+          projects_rule_maximum_only:
+            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie bis zu %{maximum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            instruction: "<li>Wählen Sie bis zu %{maximum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
           rules:
             title: Budgetregeln
           title: Sie entscheiden über das Budget
           total_budget: Gesamtbudget
           total_projects: Stimmen insgesamt
+          vote_threshold_percent_rule:
+            description: Für welche Projekte sollten wir das Budget bereitstellen? Weisen Sie den gewünschten Projekten mindestens %{minimum_budget} zu und stimmen Sie mit Ihren Einstellungen ab, um das Budget zu definieren.
         count:
           projects_count:
             one: 1 Projekt
@@ -193,6 +204,9 @@ de:
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Aussicht
+          votes:
+            one: Abstimmung
+            other: Abstimmungen
           you_voted: Du hast für dieses gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
@@ -220,6 +234,7 @@ de:
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
+            resources_permissions_enabled: Berechtigungen können für jedes Projekt festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
             title: Titel
@@ -248,6 +263,13 @@ de:
               disabled: Abstimmung deaktiviert
               enabled: Abstimmung aktiviert
               finished: Abstimmung beendet
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv. Einsehbar auf dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Sie können dem vorherigen Link verwenden um  keine Benachrichtigungen mehr zu erhalten.
+          email_subject: Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv.
+          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Budget ist jetzt aktiv für %{participatory_space_title}.
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

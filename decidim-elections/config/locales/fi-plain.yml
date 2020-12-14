@@ -122,6 +122,7 @@ fi-pl:
             invalid: Vaalin päivitys epäonnistui
             success: Vaalin päivitys onnistui
         exports:
+          elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
         models:
           answer:

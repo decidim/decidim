@@ -211,6 +211,7 @@ ignore_unused:
   - decidim.initiatives.pages.home.highlighted_initiatives.*
   - decidim.content_blocks.*.name
   - decidim.participatory_processes.content_blocks.*.name
+  - decidim.participatory_process_groups.content_blocks.*.name
   - decidim.assemblies.content_blocks.*.name
   - decidim.initiatives.content_blocks.*.name
   - decidim.consultations.content_blocks.*.name

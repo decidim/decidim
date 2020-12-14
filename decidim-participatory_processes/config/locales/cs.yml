@@ -36,9 +36,17 @@ cs:
         title: Titul
       participatory_process_group:
         description: Popis
+        developer_group: Skupina propagátorů
+        group_url: Webová stránka
+        hashtag: Hashtag
         hero_image: obraz
-        name: název
+        local_area: Oblast organizace
+        meta_scope: Metadata oblasti působnosti
         participatory_process_ids: Související procesy
+        participatory_scope: Co je rozhodnuto
+        participatory_structure: Jak se o tom rozhoduje
+        target: Kdo se účastní
+        title: Název
       participatory_process_step:
         cta_path: Cesta k akci
         cta_text: Text výzvy k akci
@@ -126,7 +134,7 @@ cs:
           name: Participační proces
         participatory_process_group:
           fields:
-            name: název
+            title: Název
           name: Skupina procesů
         participatory_process_step:
           fields:
@@ -317,12 +325,32 @@ cs:
       show:
         related_assemblies: Související shromáždění
     participatory_process_groups:
+      content_blocks:
+        html_1:
+          name: První HTML blok
+        html_2:
+          name: Druhý HTML blok
+        html_3:
+          name: Třetí HTML blok
+        metadata:
+          developer_group: Propagováno
+          name: Metadata
+          participatory_scope: O čem se rozhoduje
+          participatory_structure: Jak se o tom rozhoduje
+          target: Kdo se účastní
+        participatory_processes:
+          name: Participativní procesy
+        stats:
+          name: Statistiky
+        title:
+          meta_scope: Oblast působnosti
+          name: Název, popis a hashtag
+          participatory_processes:
+            one: 1 proces
+            few: "%{count} procesy"
+            many: "%{count} procesů"
+            other: "%{count} procesy"
       show:
-        group_participatory_processes:
-          one: 1 pro %{group}
-          few: "%{count} procesů pro %{group}"
-          many: "%{count} procesů pro %{group}"
-          other: "%{count} procesů pro %{group}"
         title: Skupiny zúčastněných procesů
     participatory_process_steps:
       index:
@@ -339,6 +367,11 @@ cs:
         participatory_process_copies:
           form:
             slug_help: 'Sloupce adres URL se používají k vygenerování adres URL, které směřují k tomuto procesu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        participatory_process_groups:
+          form:
+            metadata: Metadata
+            title: Obecné informace
+            visibility: Viditelnost
         participatory_process_imports:
           form:
             document_legend: Přidat dokument
@@ -418,6 +451,7 @@ cs:
           loading: Načítání výsledků...
       show:
         area: Oblast
+        belongs_to_group: Tento proces patří do
         dates: Data
         developer_group: Skupina promotérů
         end_date: Datum ukončení
@@ -475,6 +509,8 @@ cs:
           more_info_about: Další informace o procesu %{resource_name}
           take_part: Zúčastnit se
           take_part_in: Zapojte se do procesu %{resource_name}
+        promoted_process_group:
+          more_info: Více informací
       process_header_steps:
         step: Krok %{current} z %{total}
         view_steps: Zobrazit kroky

@@ -415,7 +415,6 @@ ro:
           email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
-          nickname_help: Aliasul tău în %{organization}
           sign_up: Vă rugăm să completați profilul
           subtitle: Vă rugăm să completaţi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe posturi. Cu scopul de a garanta anonimitatea, poate fi orice nume.
@@ -424,7 +423,6 @@ ro:
           already_have_an_account?: Ai deja un cont?
           newsletter: Primiți un buletin informativ ocazional cu informații relevante
           newsletter_title: Permisiune contact
-          nickname_help: Aliasul tău în %{organization}
           password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
@@ -679,7 +677,6 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, folosește de preferință imagini peisaj, serviciul recoltează imaginea.
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: Recomandat o imagine peisaj care nu are nici un text.

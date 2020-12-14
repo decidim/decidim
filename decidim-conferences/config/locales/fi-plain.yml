@@ -10,7 +10,7 @@ fi-pl:
         copy_features: Kopioi ominaisuudet
         decidim_scope_id: Teema
         description: Kuvaus
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         participatory_processes_ids: Liittyvät osallisuusprosessit
         promoted: Korostettu
@@ -402,6 +402,7 @@ fi-pl:
         personal_website: Henkilökohtainen verkkosivusto
         show:
           more_info: lisätietoja
+          speaking_at: Esitys alkaa klo
       conference_speaker_cell:
         personal_url:
           personal_website: Henkilökohtainen verkkosivusto

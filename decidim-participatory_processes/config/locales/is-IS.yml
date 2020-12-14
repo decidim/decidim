@@ -28,7 +28,6 @@ is-IS:
       participatory_process_group:
         description: Lýsing
         hero_image: Mynd
-        name: Nafn
         participatory_process_ids: Tengd ferli
       participatory_process_step:
         description: Lýsing
@@ -71,8 +70,6 @@ is-IS:
             title: Titill
           name: Þátttökuferli
         participatory_process_group:
-          fields:
-            name: Nafn
           name: Vinnuhópur
         participatory_process_step:
           fields:
