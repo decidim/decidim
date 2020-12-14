@@ -49,7 +49,7 @@ $(() => {
   identificationKeys.present(async (exists) => {
 
     if (exists) {
-      const { Client, KeyCeremony } = decidimBulletinBoard;
+      const { Client, KeyCeremony } = window.decidimBulletinBoard;
 
       const bulletinBoardClient = new Client({
         apiEndpointUrl: $keyCeremony.data("apiEndpointUrl"),
@@ -80,7 +80,7 @@ $(() => {
 
         if (result) {
           $electionKeys = result.joint_election_key
-          $("#backup-modal").get(0).click();      
+          $("#backup-modal").get(0).click();
         }
       })
 

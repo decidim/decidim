@@ -120,7 +120,7 @@
 
       const data = `${this.jwtHeader}.${this._encode64(JSON.stringify(payload))}`;
       const signature = await this.crypto.subtle.sign(this.algorithm, this.privateKey, this.textEncoder.encode(data));
-      return `${data}.${btoa(String.fromCharCode.apply(null, new Uint8Array(signature))).replace(/[=]/g, "").replace(/\+/g, "-").replace(/\//g, "_")}`;
+      return `${data}.${btoa(Reflect.apply(String.fromCharCode.apply, null, new Uint8Array(signature))).replace(/[=]/g, "").replace(/\+/g, "-").replace(/\//g, "_")}`;
     }
 
     _checkBrowserSupport() {
