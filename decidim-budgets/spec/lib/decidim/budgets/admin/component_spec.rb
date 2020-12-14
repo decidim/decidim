@@ -243,4 +243,32 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
       end
     end
   end
+
+  describe "projects exporter" do
+    subject do
+      component
+        .manifest
+        .export_manifests
+        .find { |manifest| manifest.name == :projects }
+        .collection
+        .call(component, user)
+    end
+
+    let(:component) { create(:budgets_component) }
+    let(:component2) { create(:budgets_component) }
+    let(:budget) { create(:budget, component: component) }
+    let(:budget2) { create(:budget, component: component2) }
+    let!(:components_projects) { create_list(:project, 2, budget: budget) }
+    let!(:other_projects) { create_list(:project, 3, budget: budget2) }
+    let(:organization) { component.participatory_space.organization }
+
+    context "when the user is an admin" do
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports all proposals from the component" do
+        expect(subject.count).to eq(2)
+        expect(subject).to match_array(components_projects)
+      end
+    end
+  end
 end
