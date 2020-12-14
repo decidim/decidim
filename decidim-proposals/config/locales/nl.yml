@@ -656,7 +656,7 @@ nl:
         collaborative_draft:
           fields:
             authors: auteurs
-            comments: Opmerkingen
+            comments: Reacties
             contributions: bijdragen
         proposal:
           fields:
