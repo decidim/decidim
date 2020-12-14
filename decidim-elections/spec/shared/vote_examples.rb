@@ -54,7 +54,7 @@ end
 shared_examples "uses the voting booth" do
   include_context "with elections router"
 
-  it "uses the voting booth" do # rubocop:disable RSpec/ExampleLength
+  it "uses the voting booth" do
     selected_answers = []
     non_selected_answers = []
 

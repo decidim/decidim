@@ -78,7 +78,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do
-    STDERR.puts page.driver.browser.manage.logs.get(:browser)
+    warn page.driver.browser.manage.logs.get(:browser)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

@@ -19,7 +19,7 @@ describe "Vote in an election", type: :system do
   include_context "with a component with secure context"
 
   it_behaves_like "allows to vote"
- 
+
   shared_examples "allow admins to preview the voting booth" do
     let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
 
