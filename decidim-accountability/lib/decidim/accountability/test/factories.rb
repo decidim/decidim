@@ -40,7 +40,6 @@ FactoryBot.define do
     end_date { "30/9/2017" }
     status { create :status, component: component }
     progress { rand(1..100) }
-    category { create(:category, participatory_space: component.participatory_space )}
   end
 
   factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do

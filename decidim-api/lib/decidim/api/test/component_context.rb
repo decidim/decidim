@@ -9,11 +9,10 @@ shared_context "with a graphql decidim component" do
 
   let(:locale) { "en" }
 
-  let(:component_fragment) { }
-
+  let(:component_fragment) {}
 
   let(:participatory_process_query) do
-    %Q(
+    %(
       participatoryProcess {
         components{
           id
@@ -30,7 +29,7 @@ shared_context "with a graphql decidim component" do
   end
 
   let(:query) do
-    %Q(
+    %(
       query {
         #{participatory_process_query}
       }

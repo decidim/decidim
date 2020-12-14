@@ -10,57 +10,58 @@ describe "Decidim::Api::QueryType" do
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :meeting_component, participatory_space: participatory_process }
   let!(:meeting) { create(:meeting, :not_official, :with_services, :closed, component: current_component) }
-  let!(:agenda)  { create(:agenda, :with_agenda_items, meeting: meeting) }
-  let!(:invite)  { create(:invite, :accepted, meeting: meeting) }
-  let!(:minutes)  { create(:minutes, meeting: meeting) }
+  let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting) }
+  let!(:invite) { create(:invite, :accepted, meeting: meeting) }
+  let!(:minutes) { create(:minutes, meeting: meeting) }
 
   let(:meeting_single_result) do
     {
       "acceptsNewComments" => meeting.accepts_new_comments?,
       "address" => meeting.address,
-      "agenda" => {"id"=>meeting.agenda.id.to_s},
+      "agenda" => { "id" => meeting.agenda.id.to_s },
       "attachments" => [],
       "attendeeCount" => meeting.attendees_count,
       "attendingOrganizations" => meeting.attending_organizations,
-      "category" => { "id"=>meeting.category.id.to_s },
+      "category" => { "id" => meeting.category.id.to_s },
       "closed" => true,
       "closingReport" => { "translation" => meeting.closing_report[locale] },
       "comments" => [],
       "commentsHaveAlignment" => meeting.comments_have_alignment?,
       "commentsHaveVotes" => meeting.comments_have_votes?,
       "contributionCount" => meeting.contributions_count,
-      "coordinates" => { "latitude"=>meeting.latitude, "longitude"=>meeting.longitude},
+      "coordinates" => { "latitude" => meeting.latitude, "longitude" => meeting.longitude },
       "createdAt" => meeting.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "description" => {"translation"=> meeting.description[locale]},
+      "description" => { "translation" => meeting.description[locale] },
       "endTime" => meeting.end_time.iso8601.to_s.gsub("Z", "+00:00"),
       "hasComments" => meeting.comment_threads.size.positive?,
       "id" => meeting.id.to_s,
-      "location" => {"translation"=> meeting.location[locale]},
-      "locationHints" => {"translation"=>meeting.location_hints[locale]},
-      "minutes" => {"id"=>meeting.minutes.id.to_s},
+      "location" => { "translation" => meeting.location[locale] },
+      "locationHints" => { "translation" => meeting.location_hints[locale] },
+      "minutes" => { "id" => meeting.minutes.id.to_s },
       "privateMeeting" => false,
       "proposalsFromMeeting" => [],
       "reference" => meeting.reference,
-      "registrationForm" => {"id"=>meeting.questionnaire.id.to_s},
-      "registrationTerms" => {"translation"=>meeting.registration_terms[locale]},
+      "registrationForm" => { "id" => meeting.questionnaire.id.to_s },
+      "registrationTerms" => { "translation" => meeting.registration_terms[locale] },
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
       "scope" => nil,
       "services" => [
         {
-          "description"=>{"translation"=>meeting.services.first.description[locale]},
-          "title"=>{"translation"=>meeting.services.first.title[locale]}
+          "description" => { "translation" => meeting.services.first.description[locale] },
+          "title" => { "translation" => meeting.services.first.title[locale] }
         }, {
-          "description"=>{"translation"=>meeting.services.last.description[locale]},
-          "title"=>{"translation"=>meeting.services.last.title[locale]}
-        }],
-      "startTime"=>meeting.start_time.iso8601.to_s.gsub("Z", "+00:00"),
-      "title"=>{"translation"=>meeting.title[locale]},
-      "totalCommentsCount"=>meeting.comments_count,
+          "description" => { "translation" => meeting.services.last.description[locale] },
+          "title" => { "translation" => meeting.services.last.title[locale] }
+        }
+      ],
+      "startTime" => meeting.start_time.iso8601.to_s.gsub("Z", "+00:00"),
+      "title" => { "translation" => meeting.title[locale] },
+      "totalCommentsCount" => meeting.comments_count,
       "transparent" => meeting.transparent?,
       "type" => "Decidim::Meetings::Meeting",
       "updatedAt" => meeting.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user),
+      "userAllowedToComment" => meeting.user_allowed_to_comment?(current_user)
     }
   end
 
@@ -81,7 +82,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid connection query" do
-
     let(:component_fragment) do
       %(
       fragment fooComponent on Meetings {
@@ -176,9 +176,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first).to eq(meeting_data)
-    end
+    it { expect(response["participatoryProcess"]["components"].first).to eq(meeting_data) }
   end
 
   describe "valid query" do
@@ -272,8 +270,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first["meeting"]).to eq(meeting_single_result)
-    end
+    it { expect(response["participatoryProcess"]["components"].first["meeting"]).to eq(meeting_single_result) }
   end
 end

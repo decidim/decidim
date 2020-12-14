@@ -11,28 +11,27 @@ describe "Decidim::Api::QueryType" do
     {
       "acceptsNewComments" => proposal.accepts_new_comments?,
       "address" => proposal.address,
-      "amendments" => proposal.amendments.map{|a| {"id" => a.id.to_s} },
+      "amendments" => proposal.amendments.map { |a| { "id" => a.id.to_s } },
       "answer" => nil,
       "answeredAt" => nil,
       "attachments" => [],
-      "author" => {"id"=>proposal.authors.first.id.to_s},
-      "authors" => proposal.authors.map{|a| {"id" => a.id.to_s} },
+      "author" => { "id" => proposal.authors.first.id.to_s },
+      "authors" => proposal.authors.map { |a| { "id" => a.id.to_s } },
       "authorsCount" => proposal.authors.size,
-      "body" => {"translation"=>proposal.body[locale]},
-      "category" => {"id"=>proposal.category.id.to_s},
+      "body" => { "translation" => proposal.body[locale] },
+      "category" => { "id" => proposal.category.id.to_s },
       "comments" => [],
       "commentsHaveAlignment" => proposal.comments_have_alignment?,
       "commentsHaveVotes" => proposal.comments_have_votes?,
-      "coordinates" => {"latitude"=>proposal.latitude, "longitude"=>proposal.longitude},
+      "coordinates" => { "latitude" => proposal.latitude, "longitude" => proposal.longitude },
       "createdAt" => proposal.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "createdInMeeting" => proposal.created_in_meeting?,
-      "endorsements" => proposal.endorsements.map { |e|
-        { "deleted"=>e.author.deleted?, "id"=>e.author.id.to_s, "name"=>e.author.name, "nickname"=>"@#{e.author.nickname}",
-          "organizationName"=>e.author.organization.name, "profilePath"=>"/profiles/#{e.author.nickname}"
-        }
-      },
+      "endorsements" => proposal.endorsements.map do |e|
+        { "deleted" => e.author.deleted?, "id" => e.author.id.to_s, "name" => e.author.name, "nickname" => "@#{e.author.nickname}",
+          "organizationName" => e.author.organization.name, "profilePath" => "/profiles/#{e.author.nickname}" }
+      end,
       "endorsementsCount" => proposal.endorsements.size,
-      "fingerprint" => {"source"=>proposal.fingerprint.source, "value"=>proposal.fingerprint.value},
+      "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
       "hasComments" => proposal.comment_threads.size.positive?,
       "id" => proposal.id.to_s,
       "meeting" => nil,
@@ -43,14 +42,14 @@ describe "Decidim::Api::QueryType" do
       "reference" => proposal.reference,
       "scope" => proposal.scope,
       "state" => proposal.state,
-      "title" => {"translation"=>proposal.title[locale]},
+      "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
       "updatedAt" => proposal.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => proposal.user_allowed_to_comment?(current_user),
       "versions" => [],
       "versionsCount" => 0,
-      "voteCount" => proposal.votes.size,
+      "voteCount" => proposal.votes.size
     }
   end
 
@@ -72,7 +71,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :proposal_component, participatory_space: participatory_process }
-  let!(:proposal) { create(:proposal, :with_votes , :with_endorsements , :with_amendments, :citizen_author, component: current_component) }
+  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, :citizen_author, component: current_component) }
 
   describe "valid connection query" do
     let(:component_fragment) do
@@ -273,7 +272,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
+    it do
       expect(response["participatoryProcess"]["components"].first["proposal"]).to eq(proposal_single_result)
     end
   end

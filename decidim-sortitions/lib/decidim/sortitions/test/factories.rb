@@ -14,8 +14,6 @@ FactoryBot.define do
   factory :sortition, class: "Decidim::Sortitions::Sortition" do
     component { create(:sortition_component) }
     decidim_proposals_component { create(:proposal_component, organization: component.organization) }
-    category { create(:category, participatory_space: participatory_space )}
-
 
     title { generate_localized_title }
     author do

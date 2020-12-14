@@ -10,23 +10,23 @@ describe "Decidim::Api::QueryType" do
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :surveys_component, participatory_space: participatory_process }
   let!(:survey) { create(:survey, component: current_component) }
-  let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey)}
+  let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
 
   let(:survey_single_result) do
     {
       "createdAt" => survey.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "id" => survey.id.to_s,
       "questionnaire" => {
-        "createdAt"=> survey.questionnaire.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "description"=>{"translation"=>survey.questionnaire.description[locale]},
-        "forType"=>"Decidim::Surveys::Survey",
-        "id"=>survey.questionnaire.id.to_s,
-        "questions"=> survey.questionnaire.questions.map { |q| { "id" => q.id.to_s } } ,
-        "title"=>{"translation"=>survey.questionnaire.title[locale]},
-        "tos"=>{"translation"=>survey.questionnaire.tos[locale]},
-        "updatedAt"=>survey.questionnaire.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "createdAt" => survey.questionnaire.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+        "description" => { "translation" => survey.questionnaire.description[locale] },
+        "forType" => "Decidim::Surveys::Survey",
+        "id" => survey.questionnaire.id.to_s,
+        "questions" => survey.questionnaire.questions.map { |q| { "id" => q.id.to_s } },
+        "title" => { "translation" => survey.questionnaire.title[locale] },
+        "tos" => { "translation" => survey.questionnaire.tos[locale] },
+        "updatedAt" => survey.questionnaire.updated_at.iso8601.to_s.gsub("Z", "+00:00")
       },
-      "updatedAt" => survey.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => survey.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
 
@@ -89,9 +89,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first).to eq(survey_data)
-    end
+    it { expect(response["participatoryProcess"]["components"].first).to eq(survey_data) }
   end
 
   describe "valid query" do
@@ -133,8 +131,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first["survey"]).to eq(survey_single_result)
-    end
+    it { expect(response["participatoryProcess"]["components"].first["survey"]).to eq(survey_single_result) }
   end
 end

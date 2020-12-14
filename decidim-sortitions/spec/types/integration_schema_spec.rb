@@ -14,30 +14,30 @@ describe "Decidim::Api::QueryType" do
   let(:page_single_result) do
     {
       "acceptsNewComments" => sortition.accepts_new_comments?,
-      "additionalInfo" => {"translation"=> sortition.additional_info[locale] },
-      "author" => {"id"=> sortition.normalized_author.id.to_s },
+      "additionalInfo" => { "translation" => sortition.additional_info[locale] },
+      "author" => { "id" => sortition.normalized_author.id.to_s },
       "cancelReason" => sortition.cancel_reason,
       "cancelledByUser" => sortition.cancelled_by_user,
       "cancelledOn" => sortition.cancelled_on,
       "candidateProposals" => sortition.candidate_proposals,
-      "category" => {"id"=>sortition.category.id.to_s},
+      "category" => { "id" => sortition.category.id.to_s },
       "comments" => [],
-      "commentsHaveAlignment"=>sortition.comments_have_alignment?,
-      "commentsHaveVotes"=>sortition.comments_have_votes?,
+      "commentsHaveAlignment" => sortition.comments_have_alignment?,
+      "commentsHaveVotes" => sortition.comments_have_votes?,
       "createdAt" => sortition.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "dice" => sortition.dice,
-      "hasComments"=>sortition.comment_threads.size.positive?,
+      "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
       "reference" => sortition.reference,
       "requestTimestamp" => "2020-12-06",
       "selectedProposals" => sortition.selected_proposals,
       "targetItems" => sortition.target_items,
-      "title" => {"translation"=> sortition.title[locale]},
+      "title" => { "translation" => sortition.title[locale] },
       "totalCommentsCount" => sortition.comments_count,
       "type" => "Decidim::Sortitions::Sortition",
-      "updatedAt" =>sortition.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => sortition.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => sortition.user_allowed_to_comment?(current_user),
-      "witnesses" => {"translation"=> sortition.witnesses[locale]},
+      "witnesses" => { "translation" => sortition.witnesses[locale] }
     }
   end
 
@@ -102,9 +102,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first).to eq(page_data)
-    end
+    it { expect(response["participatoryProcess"]["components"].first).to eq(page_data) }
   end
 
   describe "valid query" do
@@ -157,8 +155,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(page_single_result)
-    end
+    it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(page_single_result) }
   end
 end

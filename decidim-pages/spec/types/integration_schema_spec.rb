@@ -13,11 +13,11 @@ describe "Decidim::Api::QueryType" do
 
   let(:page_single_result) do
     {
-      "body" => {"translation"=>page.body[locale]},
+      "body" => { "translation" => page.body[locale] },
       "createdAt" => page.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "id" => page.id.to_s,
-      "title" => {"translation"=>page.title[locale]},
-      "updatedAt" => page.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "title" => { "translation" => page.title[locale] },
+      "updatedAt" => page.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
 
@@ -64,9 +64,7 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first).to eq(page_data)
-    end
+    it { expect(response["participatoryProcess"]["components"].first).to eq(page_data) }
   end
 
   describe "valid query" do
@@ -92,8 +90,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it "" do
-      expect(response["participatoryProcess"]["components"].first["page"]).to eq(page_single_result)
-    end
+    it { expect(response["participatoryProcess"]["components"].first["page"]).to eq(page_single_result) }
   end
 end

@@ -122,7 +122,6 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     budget_amount { Faker::Number.number(digits: 8) }
     budget { create(:budget) }
-    category { create(:category, participatory_space: participatory_space )}
 
     trait :selected do
       selected_at { Time.current }

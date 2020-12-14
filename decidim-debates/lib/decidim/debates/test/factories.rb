@@ -12,7 +12,6 @@ FactoryBot.define do
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_debate_title } }
     component { build(:component, manifest_name: "debates") }
     author { component.try(:organization) }
-    category { create(:category, participatory_space: participatory_space )}
 
     trait :open_ama do
       start_time { 1.day.ago }
