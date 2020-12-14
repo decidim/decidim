@@ -16,9 +16,14 @@ it:
         other: voti
   decidim:
     comments:
+      comments:
+        create:
+          error: Ci sono stati problemi durante la creazione del commento.
       comments_count: Conteggio dei Commenti
+      comments_title: Commenti
       last_activity:
         new_comment_at_html: "<span>Nuovo commento al %{link}</span>"
+      view: Visualizza
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.

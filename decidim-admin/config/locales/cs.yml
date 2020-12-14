@@ -383,6 +383,7 @@ cs:
         help_sections: Sekce nápovědy
         homepage: Domovská stránka
         impersonations: Vydávání se za uživatele
+        moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
         reported_users: Nahlášení uživatelé
@@ -432,7 +433,7 @@ cs:
             subject: Předmět
           name: Zpravodaj
         participatory_space_private_user:
-          name: Účastnický prostor soukromého účastníka
+          name: Participační prostor soukromého účastníka
         scope:
           fields:
             name: název
@@ -500,7 +501,7 @@ cs:
             author: Autor(ři)
             callout_html: Obsah se zobrazí v panelu moderátora, když byl signalizován uživatelem (může to být někdo s registrovaným účtem) kliknutím na vlaječku %{icon} vedle položky.
             content_original_language: Původní jazyk obsahu
-            participatory_space: Účastnický prostor
+            participatory_space: Participační prostor
             reported_content: Nahlášený obsah
             see_current: Zobrazit aktuální
             see_original: Zobrazit originál
@@ -540,7 +541,7 @@ cs:
           has_been_sent_to: 'Byl poslán: '
           no_scopes: Žádné oblasti působnosti
           not_sent: Neodesláno
-          participants: 'uživatelé '
+          participants: 'účastníci '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
@@ -596,7 +597,7 @@ cs:
         new:
           badge: Oficializační odznak
           officialize: Úředně
-          title: Oficializovat uživatele "%{name}"
+          title: Oficializovat účastníka "%{name}"
         show_email_modal:
           close_modal: Zavřít okno
           description: Pokud potřebujete kontaktovat účastníka, můžete kliknout na tlačítko Zobrazit pro zobrazení e-mailové adresy. Tato akce bude zaznamenána.
@@ -604,7 +605,7 @@ cs:
           full_name: Celé jméno
           hidden: skrytý
           show: Zobrazit
-          title: Zobrazit e-mailovou adresu uživatele
+          title: Zobrazit e-mailovou adresu účastníka
       organization:
         edit:
           title: Upravit organizaci
@@ -646,16 +647,16 @@ cs:
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
-          success: Úspěšně byl úspěšně vytvořen soukromý uživatelský přístup.
+          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně vytvořen.
         destroy:
           error: Při odstraňování soukromého uživatele tohoto participačního prostoru došlo k chybě.
-          success: Úspěšně zničen soukromý uživatelský prostor účastníka.
+          success: Přístup soukromého účastníka do participativního prostoru byl úspěšně zrušen.
         index:
           import_via_csv: Importovat přes CSV
-          title: Účastní prostor soukromý uživatel
+          title: Participační prostor soukromého účastníka
         new:
           create: Vytvořit
-          title: Nový účastnický prostor soukromého účastníka.
+          title: Nový participační prostor soukromého účastníka.
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV došlo k chybě.
@@ -746,7 +747,7 @@ cs:
         destroy:
           success: Stránka byla úspěšně zničena
         edit:
-          changed_notably_help: Pokud je zaškrtnuto, uživatelé budou upozorněni, aby přijali nové smluvní podmínky.
+          changed_notably_help: Pokud je zaškrtnuto, účastníci budou upozorněni, aby přijali nové smluvní podmínky.
           title: Upravit stránku
           update: Aktualizace
         form:
@@ -814,7 +815,7 @@ cs:
       users:
         create:
           error: Při pozvání tohoto administrátora došlo k chybě.
-          success: Účastník pozván úspěšně.
+          success: Účastník úspěšně pozván.
         destroy:
           error: Při pokusu o odstranění tohoto administrátora došlo k chybě.
           success: Účastník již není administrátorem.
@@ -863,6 +864,7 @@ cs:
           fields:
             created_at: Datum vytvoření
             hidden_at: Skryté u
+            participatory_space: Participativní prostor
             report_count: Spočítat
             reportable_id: Id
             reportable_type: Typ
@@ -880,9 +882,11 @@ cs:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globální moderace
         newsletters:
           title: Zpravodaje
         settings:
           title: Nastavení
         users:
-          title: Uživatelé
+          title: Účastníci

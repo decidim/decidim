@@ -46,18 +46,27 @@ en:
             endorsements_enabled: Endorsements enabled
     debates:
       actions:
+        active: Active debates
+        archive: Archive
+        archived: Archived debates
         close: Close
         confirm_destroy: Are you sure?
         destroy: Delete
         edit: Edit
         new: New %{name}
         title: Actions
+        unarchive: Unarchive
       admin:
         debate_closes:
           edit:
+            archive: Archive this debate
+            archive_help: Archiving this debate will hide it from the public debates section
             close: Close
             title: Close debate
         debates:
+          archive:
+            invalid: There was a problem archiving the debate.
+            success: Debate successfully archived.
           create:
             invalid: There was a problem creating the debate.
             success: Debate successfully created.
@@ -66,14 +75,20 @@ en:
           edit:
             title: Edit debate
             update: Update debate
+          empty: There are no debates matching these criteria.
           index:
             title: Debates
           new:
             create: Create debate
             title: New debate
+          unarchive:
+            invalid: There was a problem unarchiving the debate.
+            success: Debate successfully unarchived.
           update:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
+        exports:
+          comments: Comments
         models:
           debate:
             name: Debate
