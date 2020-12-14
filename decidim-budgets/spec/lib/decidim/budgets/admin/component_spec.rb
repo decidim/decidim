@@ -244,7 +244,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     end
   end
 
-  describe "projects exporter" do
+  describe "component projects exporter" do
     subject do
       component
         .manifest
@@ -258,16 +258,44 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
     let(:component2) { create(:budgets_component) }
     let(:budget) { create(:budget, component: component) }
     let(:budget2) { create(:budget, component: component2) }
+    let(:budget3) { create(:budget, component: component2) }
     let!(:components_projects) { create_list(:project, 2, budget: budget) }
-    let!(:other_projects) { create_list(:project, 3, budget: budget2) }
+    let!(:another_component_projects) { create_list(:project, 3, budget: budget2) }
+    let!(:another_component_projects2) { create_list(:project, 4, budget: budget3) }
     let(:organization) { component.participatory_space.organization }
 
     context "when the user is an admin" do
       let!(:user) { create :user, admin: true, organization: organization }
 
-      it "exports all proposals from the component" do
+      it "exports all budgets from the component" do
         expect(subject.count).to eq(2)
         expect(subject).to match_array(components_projects)
+      end
+    end
+  end
+
+  describe "budget projects exporter" do
+    subject do
+      component
+        .manifest
+        .export_manifests
+        .find { |manifest| manifest.name == :projects }
+        .collection
+        .call(component, user, budget1.id)
+    end
+
+    let(:component) { create(:budgets_component) }
+    let(:budget1) { create(:budget, component: component) }
+    let(:budget2) { create(:budget, component: component) }
+    let!(:budget1_projects) { create_list(:project, 3, budget: budget1) }
+    let!(:budget2_projects) { create_list(:project, 2, budget: budget2) }
+    let(:organization) { component.participatory_space.organization }
+
+    context "when the user is an admin" do
+      let!(:user) { create :user, admin: true, organization: organization }
+
+      it "exports projects of individual budget" do
+        expect(subject.count).to eq(3)
       end
     end
   end

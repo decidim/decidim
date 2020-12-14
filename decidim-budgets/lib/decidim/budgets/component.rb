@@ -63,8 +63,8 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.exports :projects do |exports|
-    exports.collection do |component_instance|
-      budgets = Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
+    exports.collection do |component_instance, _user, resource_id|
+      budgets = resource_id ? Decidim::Budgets::Budget.find(resource_id) : Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
       Decidim::Budgets::Project
         .where(decidim_budgets_budget_id: budgets)
         .includes(:category, :component)
