@@ -86,6 +86,8 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
+        exports:
+          comments: Commentaires
         models:
           debate:
             name: Débat
