@@ -22,6 +22,21 @@ module Decidim
           it "flashes a notice message" do
             delete :destroy, params: { user_id: user.id }
 
+            expect(flash[:notice]).to be_present
+            expect(user.reload.suspended?).to be(false)
+          end
+        end
+
+        context "when the user is not blocked" do
+          before do
+            user.suspended = false
+            user.save!
+          end
+
+          it "flashes an alert message" do
+            delete :destroy, params: { user_id: user.id }
+
+            expect(flash[:alert]).to be_present
             expect(user.reload.suspended?).to be(false)
           end
         end
@@ -34,7 +49,17 @@ module Decidim
           it "flashes a notice message" do
             put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
 
+            expect(flash[:notice]).to be_present
             expect(user.reload.suspended?).to be(true)
+          end
+        end
+
+        context "when form is invalid" do
+          it "flashes an alert message" do
+            put :create, params: { user_id: user.id, justification: nil }
+
+            expect(flash[:alert]).to be_present
+            expect(user.reload.suspended?).to be(false)
           end
         end
       end
