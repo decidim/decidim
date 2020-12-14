@@ -57,6 +57,16 @@ Decidim.register_component(:debates) do |component|
 
   component.actions = %w(create endorse)
 
+  component.exports :comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Debates::Debate, component_instance
+      )
+    end
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.seeds do |participatory_space|
     admin_user = Decidim::User.find_by(
       organization: participatory_space.organization,
@@ -84,7 +94,7 @@ Decidim.register_component(:debates) do |component|
       Decidim::Component.create!(params)
     end
 
-    3.times do |x|
+    5.times do |x|
       finite = x != 2
       params = {
         component: component,
@@ -111,12 +121,17 @@ Decidim.register_component(:debates) do |component|
       Decidim::Comments::Seed.comments_for(debate)
     end
 
-    closed_debate = Decidim::Debates::Debate.last
-    closed_debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-      Decidim::Faker::Localized.paragraph(sentence_count: 3)
+    Decidim::Debates::Debate.last(2).each do |debate|
+      debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+      end
+      debate.closed_at = Time.current
+      debate.save!
     end
-    closed_debate.closed_at = Time.current
-    closed_debate.save!
+
+    archived_debate = Decidim::Debates::Debate.last
+    archived_debate.archived_at = Time.current
+    archived_debate.save!
 
     params = {
       component: component,

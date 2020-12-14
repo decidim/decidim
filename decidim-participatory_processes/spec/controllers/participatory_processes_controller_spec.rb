@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      include_examples "with promoted participatory processes"
+      include_examples "with promoted participatory processes and groups"
 
       describe "collection" do
         before do

@@ -37,7 +37,6 @@ pt:
       participatory_process_group:
         description: Descrição
         hero_image: Imagem
-        name: Nome
         participatory_process_ids: Processos relacionados
       participatory_process_step:
         cta_path: Caminho de Chamada para Ação
@@ -116,8 +115,6 @@ pt:
             title: Título
           name: Processo participativo
         participatory_process_group:
-          fields:
-            name: Nome
           name: Grupo de processo
         participatory_process_step:
           fields:
@@ -302,9 +299,6 @@ pt:
         related_assemblies: Reuniões relacionadas
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          one: 1 processos para %{group}
-          other: "%{count} processos para %{group}"
         title: Grupos do processo participativo
     participatory_process_steps:
       index:

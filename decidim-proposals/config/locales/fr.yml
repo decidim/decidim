@@ -339,10 +339,6 @@ fr:
         description: Nombre de votes générés dans les propositions par les utilisateurs
         object: votes
         title: Votes
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propositions
     participatory_spaces:
       highlighted_proposals:
         see_all: Tout voir (%{count})
@@ -500,6 +496,7 @@ fr:
             no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
             select_component: Veuillez sélectionner une fonctionnalité
             select_states: Vérifiez l'état des propositions à importer
+            title: Importer des propositions
         proposals_merges:
           create:
             invalid: Une erreur s'est produite lors de la fusion des propositions sélectionnées.
@@ -672,6 +669,9 @@ fr:
           step_3: Complétez votre projet collaboratif
           step_of: Etape %{current_step_num} sur %{total_steps}
           title: Étapes de création du brouillon collaboratif
+      content_blocks:
+        highlighted_proposals:
+          proposals: Propositions
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.

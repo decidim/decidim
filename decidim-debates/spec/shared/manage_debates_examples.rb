@@ -63,7 +63,7 @@ RSpec.shared_examples "manage debates" do
 
   it "creates a new finite debate" do
     within ".card-title" do
-      page.find(".button.button--title").click
+      click_link "New Debate"
     end
 
     within ".new_debate" do
@@ -240,6 +240,48 @@ RSpec.shared_examples "manage debates" do
           expect(page).to have_no_selector(".action-icon--close")
         end
       end
+    end
+  end
+
+  describe "archiving a debate" do
+    let!(:debate) { create(:debate, :closed, component: current_component) }
+
+    it "archives a debate" do
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--archive").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      expect(page).to have_no_content(translated(debate.title))
+
+      click_link "Archived debates"
+      expect(page).to have_content(translated(debate.title))
+    end
+  end
+
+  describe "unarchiving a debate" do
+    let!(:debate) { create(:debate, :closed, component: current_component, archived_at: 1.day.ago) }
+
+    before do
+      click_link "Archived debates"
+    end
+
+    it "unarchives a debate" do
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--archive").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      expect(page).to have_no_content(translated(debate.title))
+
+      click_link "Active debates"
+      expect(page).to have_content(translated(debate.title))
     end
   end
 end
