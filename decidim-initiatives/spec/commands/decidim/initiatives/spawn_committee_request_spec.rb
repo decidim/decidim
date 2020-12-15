@@ -31,6 +31,20 @@ module Decidim
           expect { command.call }.to broadcast :ok
         end
 
+        it "notifies author" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.initiatives.spawn_committee_request",
+              event_class: Decidim::Initiatives::SpawnCommitteeRequest,
+              resource: initiative,
+              affected_users: [initiative.author],
+              extra: { applicant: current_user }
+            )
+
+          command.call
+        end
+
         it "Creates a committee membership request" do
           expect do
             command.call
