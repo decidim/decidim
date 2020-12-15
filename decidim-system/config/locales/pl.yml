@@ -15,7 +15,15 @@ pl:
         port: Port
         user_name: Nazwa użytkownika
       organization_file_uploads:
+        allowed_content_types:
+          admin: Typy MIME administratora
+          default: Domyślne typy MIME
+        allowed_file_extensions:
+          admin: Rozszerzenia plików administratora
+          default: Domyślne rozszerzenia plików
+          image: Rozszerzenia pliku obrazu
         maximum_file_size:
+          avatar: Rozmiar pliku awatara
           default: Domyślny rozmiar pliku
     errors:
       models:
@@ -110,8 +118,18 @@ pl:
         edit:
           secondary_hosts_hint: Wpisz każdy z nich w nowej linii
         file_upload_settings:
+          content_types:
+            default_hint: Te typy MIME są domyślnie dozwolone dla wszystkich użytkowników.
+            title: Dozwolone typy MIME
+          file_extensions:
+            title: Dozwolone rozszerzenia plików
           file_sizes:
+            avatar_hint: Megabajty (MB). Ten limit rozmiaru pliku jest używany do przesyłania obrazu awatara.
+            default_hint: Megabajty (MB). Ten limit rozmiaru pliku jest domyślny, jest używany dla wszystkich przesyłanych plików, chyba że określono inaczej.
             title: Maksymalne rozmiary plików
+          intro: |
+            Proszę zachować szczególną ostrożność podczas rozważania zmiany tych ustawień. Im mniej na to pozwalasz, tym lepiej.
+            Zezwalanie na określone rozszerzenia plików lub typów MIME może narazić użytkowników systemu na zagrożenia bezpieczeństwa i może mieć również wpływ na dostępność witryny.
         index:
           title: Organizacje
         new:
@@ -139,6 +157,8 @@ pl:
         smtp_settings:
           fieldsets:
             sender: Nadawca
+          instructions:
+            from_label: 'Nadawcą wiadomości e-mail będzie: "Twoja organizacja <your-organization@example.org>". Pozostaw puste, aby użyć "Adres e-mail" jako etykiety'
           placeholder:
             from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji

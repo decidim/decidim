@@ -76,11 +76,10 @@ module Decidim::Proposals
         let!(:attachment_1_pdf) { create(:attachment, :with_pdf, attached_to: proposal) }
         let!(:attachment_2_img) { create(:attachment, :with_image, attached_to: proposal) }
         let!(:attachment_3_pdf) { create(:attachment, :with_pdf, attached_to: proposal) }
-        let!(:attachment_4_img) { create(:attachment, :with_image, attached_to: proposal) }
 
         it "renders the first image in the card whatever the order between attachments" do
           expect(subject).to have_css(".card__image")
-          expect(subject).to have_css("img[src=\"#{attachment_2_img.url}\"]")
+          expect(subject.find(".card__image")[:src]).to eq(attachment_2_img.url)
         end
       end
     end

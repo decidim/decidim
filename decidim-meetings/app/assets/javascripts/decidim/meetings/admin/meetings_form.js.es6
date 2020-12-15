@@ -125,9 +125,13 @@
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
-      $showDiv.hide();
-      if (value === type) {
+      if (value === "hybrid") {
         $showDiv.show();
+      } else {
+        $showDiv.hide();
+        if (value === type) {
+          $showDiv.show();
+        }
       }
     };
 

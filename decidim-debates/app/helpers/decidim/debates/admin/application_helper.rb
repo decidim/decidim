@@ -13,7 +13,7 @@ module Decidim
           link_to(
             t("actions.#{unfiltered ? "archived" : "active"}", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")),
             debates_path(unfiltered ? { filter: "archive" } : {}),
-            class: "button tiny button--title"
+            class: "button tiny button--simple"
           )
         end
       end

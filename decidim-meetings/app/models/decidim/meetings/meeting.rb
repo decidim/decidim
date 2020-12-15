@@ -24,7 +24,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
-      TYPE_OF_MEETING = %w(in_person online).freeze
+      TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
@@ -82,8 +82,9 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
-      scope :online, -> { where(type_of_meeting: :online) }
-      scope :in_person, -> { where(type_of_meeting: :in_person) }
+      TYPE_OF_MEETING.each do |type|
+        scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
+      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -235,6 +236,10 @@ module Decidim
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
         [normalized_author.name]
+      end
+
+      def hybrid_meeting?
+        type_of_meeting == "hybrid"
       end
 
       def online_meeting?
