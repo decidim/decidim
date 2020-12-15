@@ -7,11 +7,16 @@ module Decidim
         def permissions
           # The public part needs to be implemented yet
           return permission_action if permission_action.scope != :admin
+
+          can_export_comments?
+
           return permission_action if permission_action.subject != :debate
 
           case permission_action.action
-          when :create, :read
+          when :create, :read, :export
             allow!
+          when :archive
+            toggle_allow(debate.present?)
           when :update
             toggle_allow(debate && !debate.closed? && debate.official?)
           when :delete, :close
@@ -25,6 +30,10 @@ module Decidim
 
         def debate
           @debate ||= context.fetch(:debate, nil)
+        end
+
+        def can_export_comments?
+          allow! if permission_action.subject == :comments && permission_action.action == :export
         end
       end
     end

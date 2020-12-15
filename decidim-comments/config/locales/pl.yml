@@ -20,9 +20,14 @@ pl:
         other: Głosy
   decidim:
     comments:
+      comments:
+        create:
+          error: Wystąpił błąd podczas tworzenia komentarza.
       comments_count: Liczba komentarzy
+      comments_title: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
+      view: Zobacz
       votes:
         create:
           error: Podczas dodawania komentarza wystąpił błąd.

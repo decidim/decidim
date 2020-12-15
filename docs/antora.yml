@@ -1,0 +1,7 @@
+name: en
+title: "Decidim Developers Documentation"
+version: master
+asciidoc:
+  attributes:
+    page-lang: en@
+

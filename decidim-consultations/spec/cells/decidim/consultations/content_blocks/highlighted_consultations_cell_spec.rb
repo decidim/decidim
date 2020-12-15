@@ -10,6 +10,8 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
   let!(:consultations) { create_list :consultation, 5, :active, organization: organization }
   let(:settings) { {} }
 
+  let(:highlighted_consultations) { subject.find("#highlighted-consultations") }
+
   controller Decidim::PagesController
 
   before do
@@ -18,9 +20,7 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
 
   context "when the content block has no settings" do
     it "shows 4 processes" do
-      within "#highlighted-consultation" do
-        expect(subject).to have_selector(".card--process", count: 4)
-      end
+      expect(highlighted_consultations).to have_selector("a.card--consultation", count: 4)
     end
   end
 
@@ -32,9 +32,7 @@ describe Decidim::Consultations::ContentBlocks::HighlightedConsultationsCell, ty
     end
 
     it "shows up to 8 consultations" do
-      within "#highlighted-consultations" do
-        expect(subject).to have_selector("article.card--consultation", count: 5)
-      end
+      expect(highlighted_consultations).to have_selector("a.card--consultation", count: 5)
     end
   end
 end

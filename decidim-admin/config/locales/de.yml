@@ -121,7 +121,7 @@ de:
         title: Titel
       doorkeeper/application:
         authorize_url: URL autorisieren
-        client_id: Kunden ID
+        client_id: Client-ID
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
@@ -145,7 +145,7 @@ de:
           error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
           success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme diesen Admin-Bedingungen zu
+          accept: Ich stimme den folgenden Bedingungen zu
           are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
           refuse: Die Admin-Bedingungen ablehnen
           title: Den Nutzungsbedingungen zustimmen
@@ -383,6 +383,7 @@ de:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
         reported_users: Gemeldete Nutzer
@@ -766,7 +767,7 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert
       titles:
-        admin_log: Administratorprotokoll
+        admin_log: Adminprotokoll
         area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
@@ -863,6 +864,7 @@ de:
           fields:
             created_at: Erstellungsdatum
             hidden_at: Versteckt bei
+            participatory_space: Beteiligungsbereich
             report_count: Anzahl
             reportable_id: ID
             reportable_type: Typ
@@ -880,6 +882,8 @@ de:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:

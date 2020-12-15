@@ -200,10 +200,6 @@ ar:
         description: عدد النتائج الناتجة
         object: النتائج
         title: النتائج
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_results:
-          results: النتائج
     resource_links:
       included_projects:
         result_project: المشاريع المدرجة في هذه النتيجة

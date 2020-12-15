@@ -145,7 +145,7 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Akceptuję niniejsze warunki dla administratorów
+          accept: Zgadzam się z następującymi warunkami
           are_you_sure: Czy na pewno chcesz odrzucić warunki dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -295,6 +295,9 @@ pl:
         category_id_eq:
           label: Kategoria
         filter_label: Filtr
+        moderations:
+          reportable_type_string_eq:
+            label: Typ
         officialized_at_null:
           label: Stan
           values:
@@ -315,6 +318,7 @@ pl:
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
+          reported_id_string_or_reported_content_cont: Szukaj %{collection} według identyfikatora lub treści raportu.
           title_cont: Przeszukaj %{collection} według tytułu.
         state_eq:
           label: Stan
@@ -379,8 +383,10 @@ pl:
         help_sections: Sekcje pomocy
         homepage: Strona główna
         impersonations: Podszywanie się pod inne osoby
+        moderation: Globalne moderacje
         newsletters: Newslettery
         participants: Użytkownicy
+        reported_users: Zgłoszeni użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -468,6 +474,19 @@ pl:
             phone: Telefon
             state: Stan
             users_count: Liczba użytkowników
+      moderated_users:
+        index:
+          actions:
+            title: Działania
+          name: Imię
+          nickname: Pseudonim
+          reason: Powód
+          title: Lista zgłoszonych użytkowników
+        report:
+          reasons:
+            does_not_belong: Nie należy
+            offensive: Ofensywny
+            spam: Spam
       moderations:
         index:
           title: Moderacje
@@ -476,6 +495,20 @@ pl:
             does_not_belong: Nie należy
             offensive: Ofensywa
             spam: Spam
+        reports:
+          index:
+            author: Autorzy
+            callout_html: Zawartość pojawia się w panelu moderacji, gdy została zasygnalizowana przez użytkownika (może to być każdy, kto ma zarejestrowane konto) poprzez kliknięcie na flagę %{icon} obok elementu.
+            content_original_language: Oryginalny język treści
+            reported_content: Zgłoszona zawartość
+            see_current: Zobacz bieżący
+            see_original: Zobacz oryginał
+            title: Raporty moderacyjne
+          show:
+            report_details: Szczegóły przyczyny
+            report_language: Zgłoś język
+            report_reason: Powód
+            title: Szczegóły raportu
       newsletter_templates:
         index:
           preview_template: Podgląd
@@ -555,6 +588,7 @@ pl:
           officialize: Oficjalizuj
           officialized: Oficjalny
           reofficialize: Reoficjalizuj
+          reports: Raporty
           show_email: Pokaż adres e-mail
           status: Status
           unofficialize: Nieoficjalne
@@ -581,6 +615,7 @@ pl:
           rich_text_editor_in_public_views_help: W niektórych polach tekstowych uczestnicy będą mogli wstawiać znaczniki HTML za pomocą edytora.
           social_handlers: Profile społecznościowe
           twitter: Twitter
+          url: Adres URL
           youtube: YouTube
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
@@ -615,6 +650,7 @@ pl:
           error: Wystąpił błąd podczas usuwania użytkownika prywatnego z tej przestrzeni partycypacyjnej.
           success: Usunięto dostęp dla prywatnego użytkownika w tej przestrzeni partycypacyjnej.
         index:
+          import_via_csv: Importuj przez CSV
           title: Prywatny użytkownik przestrzeni partycypacyjnej
         new:
           create: Utwórz
@@ -736,6 +772,7 @@ pl:
         impersonatable_users: Zarządzaj użytkownikami
         impersonations: Zarządzanie użytkownikami
         metrics: Wskaźniki
+        panel: Administrator
         participants: Użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -801,6 +838,7 @@ pl:
           reason: Musisz podać powód podszywania się pod niezarządzanego użytkownika
     moderations:
       actions:
+        expand: Rozwiń
         hidden: Ukryty
         hide: Ukryj
         not_hidden: Widoczny
@@ -821,17 +859,27 @@ pl:
       models:
         moderation:
           fields:
+            created_at: Data utworzenia
             hidden_at: Ukryto
             report_count: Liczba
+            reportable_id: Id
+            reportable_type: Typ
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
             visit_url: Odwiedź adres URL
+        report:
+          fields:
+            details: Szczegóły przyczyny
+            locale: Język
+            reason: Powód
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globalna moderacja
         newsletters:
           title: Newslettery
         settings:

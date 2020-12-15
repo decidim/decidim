@@ -386,6 +386,13 @@ cs:
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Tlačítko obrázek, text a Výzva k akci
+      cta_settings_form:
+        background_image: Obrázek pozadí
+        button_text: Text tlačítka Výzvy k akci
+        button_url: URL tlačítka Výzva k akci
+        description: Popis
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
       hero:
@@ -395,6 +402,11 @@ cs:
         welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Seřadit prvky podle:'
+          random: Náhodně
+          recent: Nejnovější
       how_to_participate:
         name: Jak se zapojit
       html:
@@ -429,7 +441,7 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Vaše přezdívka v %{organization}
+          nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -438,7 +450,7 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Vaše přezdívka v %{organization}
+          nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se
@@ -703,7 +715,7 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+          message_2: Pro obrázky použijte pokud možno orientaci na šířku, služba ořeže obrázek. Pro CSV soubory musí být oddělovač mezi sloupci čárkou (",")
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.

@@ -145,7 +145,7 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte ces conditions d'administration
+          accept: J'accepte les conditions d'utilisation suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -383,6 +383,7 @@ fr:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
         reported_users: Utilisateurs signalés
@@ -480,7 +481,7 @@ fr:
             unreport: Annuler le signalement
           name: Nom
           nickname: Pseudonyme
-          reason: Raison
+          reason: Raison du signalement
           title: Liste des utilisateurs signalés
         report:
           reasons:
@@ -502,7 +503,7 @@ fr:
             content_original_language: Langue d'origine du contenu
             participatory_space: Espace participatif
             reported_content: Contenu signalé
-            see_current: Voir en cours
+            see_current: Voir le contenu dans sa langue d'origine
             see_original: Voir l'original
             title: Signalements
           show:
@@ -774,6 +775,7 @@ fr:
         impersonatable_users: Utilisateurs pouvant être représentés
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
@@ -862,6 +864,7 @@ fr:
           fields:
             created_at: Date de création
             hidden_at: Masqué le
+            participatory_space: Espace participatif
             report_count: Compteur
             reportable_id: ID
             reportable_type: Type
@@ -879,6 +882,8 @@ fr:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:

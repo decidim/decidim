@@ -418,6 +418,7 @@ en:
           type: Type
           type_values:
             all: All
+            hybrid: Both
             in_person: In-person
             online: Online
         filters_small_view:
@@ -528,6 +529,7 @@ en:
           success: You have left the meeting successfully.
       type_of_meeting:
         embedded: Embedded videoconference
+        hybrid: Both
         in_person: In person
         online: Online
       types:

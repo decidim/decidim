@@ -9,8 +9,8 @@ fr-CA:
         redirect_uri: URI de redirection
       organization:
         address: Nom de l'hôte SMTP
-        from_email: Adresse e-mail
-        from_label: Etiquette
+        from_email: Adresse e-mail d'envoi des notifications
+        from_label: Label de l'envoyeur
         password: Mot de passe
         port: Port
         user_name: Nom d'utilisateur

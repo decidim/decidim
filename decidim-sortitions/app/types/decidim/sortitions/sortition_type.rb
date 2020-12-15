@@ -26,7 +26,7 @@ module Decidim
       field :cancelReason, Decidim::Core::TranslatedFieldType, "The cancel reason for this sortition", property: :cancel_reason
       field :cancelledOn, Decidim::Core::DateType, "When this sortition was cancelled", property: :cancelled_on
       field :cancelledByUser, Decidim::Core::UserType, "Who cancelled this sortition", property: :cancelled_by_user
-      field :candidateProposals, Decidim::Core::TranslatedFieldType, "The candidate proposal for this sortition", property: :candidate_proposals
+      field :candidateProposals, types[types.Int], "The candidate proposal for this sortition", property: :candidate_proposals
     end
   end
 end
