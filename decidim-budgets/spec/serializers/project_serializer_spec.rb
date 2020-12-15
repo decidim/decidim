@@ -48,8 +48,12 @@ module Decidim::Budgets
         expect(serialized[:description]).to include(project.description)
       end
 
+      it "includes the budget id" do
+        expect(serialized[:budget]).to eq(id: project.budget.id)
+      end
+
       it "includes the budget amount" do
-        expect(serialized[:budget]).to eq(project.budget_amount)
+        expect(serialized[:budget_amount]).to eq(project.budget_amount)
       end
 
       it "includes count of confirmed votes" do
@@ -58,11 +62,6 @@ module Decidim::Budgets
 
       it "includes comment count" do
         expect(serialized[:comments]).to eq(project.comments.count)
-      end
-
-      it "includes attachment count" do
-        attachment
-        expect(serialized[:attachments]).to eq(1)
       end
 
       it "includes the created at" do
