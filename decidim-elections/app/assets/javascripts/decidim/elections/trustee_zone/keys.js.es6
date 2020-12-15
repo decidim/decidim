@@ -2,21 +2,24 @@
 
 // = require decidim-bulletin_board
 // = require ../identification_keys
+
 /**
- * Generate and backup election keys.
+ * This file is responsible to generate election keys,
+ * create a backup of keys for the trustee and
+ * update the election bulletin board status
  */
 
 $(() => {
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
   const $backButton = $keyCeremony.find(".back");
-  const $downloadButton = $(".download-election-keys");
-  const $keyGeneration = $keyCeremony.find("#key_generation");
-  const $keyPublishing = $keyCeremony.find("#key_publishing");
+  const $backupButton = $(".download-election-keys");
+  // const $keyGeneration = $keyCeremony.find("#key_generation");
+  // const $keyPublishing = $keyCeremony.find("#key_publishing");
   const $jointKey = $keyCeremony.find("#joint_key");
   const $electionKeyIdentifier = `${$keyCeremony.data("authorityName")}_election_key_backup`;
 
-  let $electionKeys = "";
+  let $wrapperStatus = "";
 
   const trusteeContext = {
     uniqueId: $keyCeremony.data("trusteeUniqueId"),
@@ -25,6 +28,7 @@ $(() => {
   };
   const identificationKeys = new window.Decidim.IdentificationKeys(`trustee-${trusteeContext.id}`, trusteeContext.publicKeyJSON);
 
+  // updates the BulletinBoard Election Status
   const updateElectionStatus = () => {
     $.ajax({
       method: "PUT",
@@ -36,7 +40,7 @@ $(() => {
     });
   };
 
-  const continueProcess = () => {
+  const completeProcess = () => {
     $jointKey.find(".pending").addClass("hide")
     $jointKey.find(".processing").removeClass("hide")
     $jointKey.find(".processing").addClass("hide")
@@ -46,10 +50,11 @@ $(() => {
     updateElectionStatus();
   }
 
+  // generates the keys
   identificationKeys.present(async (exists) => {
 
     if (exists) {
-      const { Client, KeyCeremony } = window.decidimBulletinBoard;
+      const { Client, KeyCeremony, MessageIdentifier } = window.decidimBulletinBoard;
 
       const bulletinBoardClient = new Client({
         apiEndpointUrl: $keyCeremony.data("apiEndpointUrl"),
@@ -73,29 +78,27 @@ $(() => {
       await keyCeremony.setup();
 
       $startButton.on("click", async () => {
-        $keyGeneration.find(".pending").addClass("hide")
-        $keyGeneration.find(".processing").removeClass("hide")
+        // $keyGeneration.find(".pending").addClass("hide")
+        // $keyGeneration.find(".processing").removeClass("hide")
         $startButton.addClass("disabled");
-        const result = await keyCeremony.run();
-
-        if (result) {
-          $electionKeys = result.joint_election_key
-          $("#backup-modal").get(0).click();
-        }
+        keyCeremony.run();
+        // if (result) {
+        //   // $electionKeys = result.joint_election_key
+        //   // $("#backup-modal").get(0).click();
+        // }
       })
 
-      $downloadButton.on("click", async () => {
+      $backupButton.on("click", async () => {
         return new Promise((resolve, reject) => {
           try {
             let element = document.createElement("a");
-            element.setAttribute("href", `data:text/plain;charset=utf-8,${$electionKeys}`);
+            element.setAttribute("href", `data:text/plain;charset=utf-8,${$wrapperStatus}`);
             element.setAttribute("download", `${$electionKeyIdentifier}.txt`);
             element.style.display = "none";
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
-            $keyCeremony.data("backup", "true")
-            continueProcess()
+            keyCeremony.run()
             return resolve();
           } catch (error) {
             return reject();
@@ -104,15 +107,34 @@ $(() => {
       })
 
       keyCeremony.events.subscribe((event) => {
+        // let messageIdentifier = MessageIdentifier.parse(event.message.messageId);
         if (event.type === "[Message] Received" && event.message.messageId.includes("create_election")) {
-          $keyGeneration.find(".processing").addClass("hide")
-          $keyGeneration.find(".completed").removeClass("hide")
-          $keyPublishing.find(".pending").addClass("hide")
-          $keyPublishing.find(".processing").removeClass("hide")
+
+          // $keyGeneration.find(".processing").addClass("hide")
+          // $keyGeneration.find(".completed").removeClass("hide")
+          // $keyPublishing.find(".pending").addClass("hide")
+          // $keyPublishing.find(".processing").removeClass("hide")
         }
-        if (event.type === "[Message] Processed" && event.message.messageId.includes("key_ceremony")) {
-          $keyPublishing.find(".processing").addClass("hide")
-          $keyPublishing.find(".completed").removeClass("hide")
+
+        if (event.type === "[Message] Processed") {
+          if (event.result) {
+            if (event.result.save) {
+              $wrapperStatus = keyCeremony.backup()
+              $("#backup-modal").get(0).click();
+            }
+  
+            if (event.result.done) {
+              completeProcess();
+            }
+          }
+
+          if (event.message.messageId.includes("create_election")) {
+            // $keyPublishing.find(".processing").addClass("hide")
+            // $keyPublishing.find(".completed").removeClass("hide")
+          }
+
+          // $keyPublishing.find(".processing").addClass("hide")
+          // $keyPublishing.find(".completed").removeClass("hide")
         }
       })
     }
