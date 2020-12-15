@@ -7,11 +7,19 @@ module Decidim::Admin
     subject { described_class.new(suspendable, current_user) }
 
     let(:current_user) { create :user, :admin }
-    let(:suspendable) { create :user, :managed, suspended: true }
+    let(:suspendable) { create :user, :managed, suspended: true, name: "Testingname" }
 
     context "when the suspension is valid" do
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "user is updated" do
+        subject.call
+        expect(suspendable.suspended).to be(false)
+        expect(suspendable.name).to eq("Testingname")
+        expect(suspendable.suspended_at).to be_nil
+        expect(suspendable.suspension_id).to be_nil
       end
 
       it "tracks the changes" do
