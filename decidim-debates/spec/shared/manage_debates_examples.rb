@@ -119,7 +119,7 @@ RSpec.shared_examples "manage debates" do
 
   it "creates a new open debate" do
     within ".card-title" do
-      page.find(".button.button--title").click
+      click_link "New Debate"
     end
 
     within ".new_debate" do
