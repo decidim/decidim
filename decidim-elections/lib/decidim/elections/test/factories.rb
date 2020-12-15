@@ -170,7 +170,11 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
-      public_key { Random.urlsafe_base64(30) }
+      sequence(:public_key) do
+        private_key = JWT::JWK.new(OpenSSL::PKey::RSA.new(4096))
+        public_key = private_key.export
+        public_key.to_json
+      end
     end
   end
 
