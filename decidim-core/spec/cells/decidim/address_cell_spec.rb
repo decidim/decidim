@@ -6,9 +6,9 @@ describe Decidim::AddressCell, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/address", model) }
-  let(:address) { "Carrer del Pare Llaurador, 113" }
-  let(:latitude) { 40.1234 }
-  let(:longitude) { 2.1234 }
+  let(:address) { "Carrer de Pepe Rubianes, 1" }
+  let(:latitude) { 41.378481 }
+  let(:longitude) { 2.1879618 }
   let(:model) { create(:dummy_resource, address: address, latitude: latitude, longitude: longitude) }
 
   let(:icondata_address) { subject.find(".card__icondata--address") }
