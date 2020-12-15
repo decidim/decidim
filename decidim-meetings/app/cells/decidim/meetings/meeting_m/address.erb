@@ -1,4 +1,4 @@
-<% if online_meeting? %>
+<% if online_meeting? || embedded_meeting? %>
   <%= cell "decidim/meetings/meeting_url", model %>
 <% else %>
   <%= cell "decidim/address", model %>

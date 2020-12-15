@@ -376,6 +376,8 @@ en:
           back: Back
           close: Close meeting
           title: Close meeting
+      meeting_url:
+        embedded: Embedded videoconference
       meetings:
         count:
           meetings_count:
