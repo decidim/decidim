@@ -12,6 +12,10 @@
     <% end %>
 
     <% if allowed_to? :create, :proposal %>
+      <%= import_dropdown %>
+    <% end %>
+
+    <% if allowed_to? :create, :proposal %>
       <%= link_to t("actions.new", scope: "decidim.proposals"), new_proposal_path, class: "button tiny button--simple" %>
     <% end %>
   </div>
