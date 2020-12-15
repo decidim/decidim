@@ -113,7 +113,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
           success: Overleg succesvol bijgewerkt.
       menu:
-        consultations: burgerinspraak
+        consultations: Burgerinspraaken
         consultations_submenu:
           info: Informatie
           questions: vragen
@@ -131,8 +131,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Raadpleging
-            other: Raadplegingen
+            one: Burgerinspraak 
+            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op
@@ -216,7 +216,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
           success: Reactie is bijgewerkt.
       titles:
-        consultations: Burgerinspraak
+        consultations: Burgerinspraaken
         questions: vragen
         response_groups: Responsgroepen
         responses: Antwoorden
@@ -260,7 +260,7 @@ nl:
       highlighted_questions:
         title: Vragen vanaf %{scope_name}
       index:
-        title: Burgerinspraak
+        title: Burgerinspraaken
       last_activity:
         new_consultation: Nieuw overleg
         new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
@@ -322,7 +322,7 @@ nl:
           page: "<p>Overleg is een ruimte waarin u een duidelijke vraag kunt stellen aan alle mensen die een organisatie vormen, een oproep doen om deel te nemen aan de raadpleging, een vonk kunt opzetten en het debat voor of tegen een reactie kunt bestellen. Wanneer de consultatiedatum arriveert, kunt u stemmen en de resultaten van de stemmen publiceren.</p> <p>Voorbeelden: het overleg kan gaan over bijna elk aspect dat een organisatie raakt: sommige voorbeelden veranderen de naam of het logo van de organisatie met verschillende alternatieven, beslissen Ja of Nee om deel uit te maken van een grotere organisatie, een nieuwe strategische validatie of afwijzing plan of het resultaat van een werkgroep, of definiëren of de posities maximaal 1, 2 of 3 mandaten in de organisatie moeten blijven.</p>\n"
           title: Wat zijn raadplegingen?
     menu:
-      consultations: Burgerinspraak
+      consultations: Burgerinspraaken
     pages:
       home:
         statistics:
