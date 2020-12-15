@@ -11,8 +11,8 @@ module Decidim
         it "strips the tags from the target string" do
           expect(helper.decidim_sanitize(user_input, strip_tags: true)).not_to include("<p>")
           expect(helper.decidim_sanitize(user_input, strip_tags: true)).not_to include("</p>")
-          expect(helper.decidim_sanitize_mailer(user_input, strip_tags: true)).not_to include("<p>")
-          expect(helper.decidim_sanitize_mailer(user_input, strip_tags: true)).not_to include("</p>")
+          expect(helper.decidim_sanitize_newsletter(user_input, strip_tags: true)).not_to include("<p>")
+          expect(helper.decidim_sanitize_newsletter(user_input, strip_tags: true)).not_to include("</p>")
         end
 
         context "when there is no tags in user_input" do
@@ -20,7 +20,7 @@ module Decidim
 
           it "does not strip the target string" do
             expect(helper.decidim_sanitize(user_input, strip_tags: true)).to eq(user_input)
-            expect(helper.decidim_sanitize_mailer(user_input, strip_tags: true)).to eq(user_input)
+            expect(helper.decidim_sanitize_newsletter(user_input, strip_tags: true)).to eq(user_input)
           end
         end
 
@@ -29,7 +29,7 @@ module Decidim
 
           it "does not strip the target string" do
             expect(helper.decidim_sanitize(user_input, strip_tags: false)).to eq(user_input)
-            expect(helper.decidim_sanitize_mailer(user_input, strip_tags: false)).to eq(user_input)
+            expect(helper.decidim_sanitize_newsletter(user_input, strip_tags: false)).to eq(user_input)
           end
         end
       end
@@ -39,9 +39,9 @@ module Decidim
           expect(helper.decidim_sanitize(user_input)).to include("<p>")
           expect(helper.decidim_sanitize(user_input)).to include("</p>")
           expect(helper.decidim_sanitize(user_input)).to eq(user_input)
-          expect(helper.decidim_sanitize_mailer(user_input)).to include("<p>")
-          expect(helper.decidim_sanitize_mailer(user_input)).to include("</p>")
-          expect(helper.decidim_sanitize_mailer(user_input)).to eq(user_input)
+          expect(helper.decidim_sanitize_newsletter(user_input)).to include("<p>")
+          expect(helper.decidim_sanitize_newsletter(user_input)).to include("</p>")
+          expect(helper.decidim_sanitize_newsletter(user_input)).to eq(user_input)
         end
       end
     end
