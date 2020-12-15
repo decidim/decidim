@@ -1,22 +1,29 @@
 ((exports) => {
   const { createJitsiMeetVideoConference } = exports.Decidim;
   const wrapperSelector = "#jitsi-embedded-meeting";
-  let userVideoconferenceId = null;
+
+  let state = {
+    event: null,
+    userVideoconferenceId: null
+  };
 
   $(document).ready(() => {
     const attendanceUrl = $(wrapperSelector).data("attendanceUrl");
 
     const onVideoConferenceJoined = (data) => {
-      userVideoconferenceId = data.id;
-
+      state.userVideoconferenceId = data.id;
+      state.event = "join";
       data.event = "join";
 
       $.post(attendanceUrl, data);
     }
 
-    const onVideoConferenceLeave = (roomName) => {
-      $.post(attendanceUrl, { roomName: roomName, id: userVideoconferenceId, event: "leave" });
+    const onVideoConferenceLeave = (data) => {
+      if (state.event === "join") {
+        $.post(attendanceUrl, { roomName: data.roomName, id: state.userVideoconferenceId, event: "leave" });
+      }
 
+      state.event = "leave";
       $(wrapperSelector).remove();
       $("#videoconference-closed-message").removeClass("hide");
     }
