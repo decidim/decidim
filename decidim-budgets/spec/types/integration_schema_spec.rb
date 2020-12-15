@@ -79,10 +79,12 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
+  let(:category) { create(:category, participatory_space: participatory_process) }
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :budgets_component, participatory_space: participatory_process }
-  let!(:budget) { create(:budget, :with_projects, component: current_component) }
+  let!(:budget) { create(:budget, component: current_component) }
+  let!(:projects) { create_list(:project, 2, budget: budget, category: category) }
 
   describe "valid connection query" do
     let(:budget_single_result) do

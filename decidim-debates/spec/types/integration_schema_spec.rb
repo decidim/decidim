@@ -50,8 +50,10 @@ describe "Decidim::Api::QueryType" do
   end
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+
   let!(:current_component) { create :debates_component, participatory_space: participatory_process }
-  let!(:debate) { create(:debate, :citizen_author, component: current_component) }
+  let!(:debate) { create(:debate, :citizen_author, component: current_component, category: category) }
 
   describe "valid connection query" do
     let(:component_fragment) do

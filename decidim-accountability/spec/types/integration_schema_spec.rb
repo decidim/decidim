@@ -29,19 +29,19 @@ describe "Decidim::Api::QueryType" do
       "id" => result.id.to_s,
       "parent" => result.parent,
       "participatorySpace" => { "id" => result.participatory_space.id.to_s },
-      "progress" => result.progress,
+      "progress" => result.progress.to_f,
       "reference" => result.reference,
       "scope" => result.scope,
       "startDate" => result.start_date.to_s,
       "status" => {
-        "createdAt" => "2020-12-01",
+        "createdAt" => result.status.created_at.to_date.to_s,
         "description" => { "translation" => result.status.description[locale] },
         "id" => result.status.id.to_s,
         "key" => result.status.key,
         "name" => { "translation" => result.status.name[locale] },
         "progress" => result.status.progress,
         "results" => [{ "id" => result.id.to_s }],
-        "updatedAt" => "2020-12-01"
+        "updatedAt" => result.status.updated_at.to_date.to_s
       },
       "timelineEntries" => [
         {
@@ -58,7 +58,7 @@ describe "Decidim::Api::QueryType" do
       "type" => "Decidim::Accountability::Result",
       "updatedAt" => result.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
       "userAllowedToComment" => result.user_allowed_to_comment?(current_user),
-      "weight" => result.weight
+      "weight" => result.weight.to_i
     }
   end
 
@@ -79,8 +79,9 @@ describe "Decidim::Api::QueryType" do
   end
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:category) { create(:category, participatory_space: participatory_process) }
   let!(:current_component) { create :accountability_component, participatory_space: participatory_process }
-  let!(:result) { create(:result, component: current_component) }
+  let!(:result) { create(:result, component: current_component, category: category) }
   let!(:timeline_entry) { create(:timeline_entry, result: result) }
 
   describe "valid connection query" do

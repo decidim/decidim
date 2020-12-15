@@ -9,7 +9,7 @@ describe "Decidim::Api::QueryType" do
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :sortition_component, participatory_space: participatory_process }
-  let!(:sortition) { create(:sortition, component: current_component) }
+  let!(:sortition) { create(:sortition, component: current_component, category: create(:category, participatory_space: participatory_process)) }
 
   let(:page_single_result) do
     {
@@ -29,7 +29,7 @@ describe "Decidim::Api::QueryType" do
       "hasComments" => sortition.comment_threads.size.positive?,
       "id" => sortition.id.to_s,
       "reference" => sortition.reference,
-      "requestTimestamp" => "2020-12-06",
+      "requestTimestamp" => sortition.request_timestamp.to_date.to_s,
       "selectedProposals" => sortition.selected_proposals,
       "targetItems" => sortition.target_items,
       "title" => { "translation" => sortition.title[locale] },

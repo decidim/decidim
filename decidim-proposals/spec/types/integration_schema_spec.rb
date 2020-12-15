@@ -7,11 +7,28 @@ require "decidim/proposals/test/factories"
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
 
+  let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:category) { create(:category, participatory_space: participatory_process) }
+  let!(:current_component) { create :proposal_component, participatory_space: participatory_process }
+  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :citizen_author, component: current_component, category: category) }
+  let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
+
   let(:proposal_single_result) do
+    proposal.reload
     {
       "acceptsNewComments" => proposal.accepts_new_comments?,
       "address" => proposal.address,
-      "amendments" => proposal.amendments.map { |a| { "id" => a.id.to_s } },
+      "amendments" => proposal.amendments.map do |a|
+        {
+          "amendable" => { "id" => a.amendable.id.to_s },
+          "amendableType" => a.amendable.class.name,
+          "amender" => { "id" => a.amender.id.to_s },
+          "emendation" => { "id" => a.emendation.id.to_s },
+          "emendationType" => a.emendation.class.name,
+          "id" => a.id.to_s,
+          "state" => a.state
+        }
+      end,
       "answer" => nil,
       "answeredAt" => nil,
       "attachments" => [],
@@ -27,8 +44,12 @@ describe "Decidim::Api::QueryType" do
       "createdAt" => proposal.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "createdInMeeting" => proposal.created_in_meeting?,
       "endorsements" => proposal.endorsements.map do |e|
-        { "deleted" => e.author.deleted?, "id" => e.author.id.to_s, "name" => e.author.name, "nickname" => "@#{e.author.nickname}",
-          "organizationName" => e.author.organization.name, "profilePath" => "/profiles/#{e.author.nickname}" }
+        { "deleted" => e.author.deleted?,
+          "id" => e.author.id.to_s,
+          "name" => e.author.name,
+          "nickname" => "@#{e.author.nickname}",
+          "organizationName" => e.author.organization.name,
+          "profilePath" => "/profiles/#{e.author.nickname}" }
       end,
       "endorsementsCount" => proposal.endorsements.size,
       "fingerprint" => { "source" => proposal.fingerprint.source, "value" => proposal.fingerprint.value },
@@ -69,10 +90,6 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
-  let!(:current_component) { create :proposal_component, participatory_space: participatory_process }
-  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, :citizen_author, component: current_component) }
-
   describe "valid connection query" do
     let(:component_fragment) do
       %(
@@ -80,11 +97,16 @@ describe "Decidim::Api::QueryType" do
         proposals {
           edges{
             node{
-
               acceptsNewComments
               address
               amendments {
                 id
+                state
+                amender { id }
+                amendable { id }
+                emendation { id }
+                emendationType
+                amendableType
               }
               answer {
                 translation(locale:"#{locale}")
@@ -171,10 +193,6 @@ describe "Decidim::Api::QueryType" do
     it "executes sucessfully" do
       expect { response }.not_to raise_error(StandardError)
     end
-
-    # it "" do
-    #   expect(response["participatoryProcess"]["components"].first).to eq(proposals_data)
-    # end
   end
 
   describe "valid query" do
@@ -182,11 +200,16 @@ describe "Decidim::Api::QueryType" do
       %(
       fragment fooComponent on Proposals {
         proposal(id: #{proposal.id}) {
-
           acceptsNewComments
           address
           amendments {
             id
+            state
+            amender { id }
+            amendable { id }
+            emendation { id }
+            emendationType
+            amendableType
           }
           answer {
             translation(locale:"#{locale}")
