@@ -18,7 +18,7 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.result.fields.title", scope: "decidim.accountability") %></th>
+            <th><%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %></th>
             <%= th_resource_scope_label %>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
