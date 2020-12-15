@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::UserInputScrubber do
+describe Decidim::NewsletterScrubber do
   subject { described_class.new }
 
   def scrub(html)
@@ -31,6 +31,11 @@ describe Decidim::UserInputScrubber do
 
   it "allows iframes to embed videos" do
     html = "<iframe frameborder=\"0\" allowfullscreen=\"true\" src=\"url\"></iframe>"
+    expect(html).to be_scrubbed
+  end
+
+  it "allows style tags" do
+    html = "<style> body{ color: red; } </style>"
     expect(html).to be_scrubbed
   end
 
