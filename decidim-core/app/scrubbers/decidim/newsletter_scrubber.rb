@@ -11,7 +11,7 @@ module Decidim
   #
   # Lists of default tags and attributes are extracted from
   # https://stackoverflow.com/a/35073814/2110884.
-  class UserInputScrubber < Rails::Html::PermitScrubber
+  class NewsletterScrubber < Rails::Html::PermitScrubber
     def initialize
       super
       self.tags = custom_allowed_tags
@@ -25,7 +25,7 @@ module Decidim
     end
 
     def custom_allowed_tags
-      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe)
+      Loofah::HTML5::SafeList::ALLOWED_ELEMENTS_WITH_LIBXML2 + %w(iframe style)
     end
   end
 end
