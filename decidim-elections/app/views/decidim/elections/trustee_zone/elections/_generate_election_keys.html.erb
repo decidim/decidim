@@ -13,30 +13,16 @@
       </tr>
     </thead>
     <tbody>
+      <% %w(create_election key_ceremony.step_1 key_ceremony.joint_election_key).each do |step| %>
       <tr>
-        <td><%= t(".keys.generation") %></td>
-        <td id="key_generation">
+        <td><%= t(".keys.#{step}") %></td>
+        <td id="key_ceremony.<%= step %>">
           <span class="pending"><%= t(".status.pending") %></span>
           <span class="processing hide"><%= t(".status.processing") %></span>
           <span class="completed hide"><%= t(".status.completed") %></span>
         </td>
       </tr>
-      <tr>
-        <td><%= t(".keys.publishing") %></td>
-        <td id="key_publishing">
-          <span class="pending"><%= t(".status.pending") %></span>
-          <span class="processing hide"><%= t(".status.processing") %></span>
-          <span class="completed hide"><%= t(".status.completed") %></span>
-        </td>
-      </tr>
-      <tr>
-        <td><%= t(".keys.joint_key") %></td>
-        <td id="joint_key">
-          <span class="pending"><%= t(".status.pending") %></span>
-          <span class="processing hide"><%= t(".status.processing") %></span>
-          <span class="completed hide"><%= t(".status.completed") %></span>
-        </td>
-      </tr>
+      <% end %>
     </tbody>
   </table>
   <button type="button" id="backup-modal" class="link hide" data-toggle="show-backup-modal">
