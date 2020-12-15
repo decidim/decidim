@@ -32,6 +32,7 @@
     }
     $("#join-videoconference").on("click", (event) => {
       $(event.target).addClass("hide");
+      $(".videoconference .help").addClass("hide");
       joinVideoConference();
     });
   });

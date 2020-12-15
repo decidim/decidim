@@ -8,7 +8,6 @@ module Decidim
       include Flaggable
       include FormFactory
       include Paginable
-      helper EmbeddedMeetingsHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
 

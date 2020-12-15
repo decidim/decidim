@@ -439,10 +439,6 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
-        online_meeting:
-          closed: The videoconference has ended.
-          join: Join videoconference
-          unavailable: The videoconference for this meeting is not available at the current time.
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -511,7 +507,7 @@ en:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
       type_of_meeting:
-        embedded: Online - Embedded in Decidim
+        embedded: Embedded videoconference
         in_person: In person
         online: Online
       types:
@@ -519,6 +515,13 @@ en:
         transparent: Transparent
       versions:
         back_to_resource: Go back to meeting
+      videoconference:
+        disclaimer: "%{organization} cannot be held responsible for the content of this videoconference."
+        closed: The videoconference has ended.
+        explanation: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference.
+        join: Join videoconference
+        title: Videoconference
+        unavailable: The videoconference for this meeting is not available at the current time.
     metrics:
       meetings:
         description: Number of meetings created

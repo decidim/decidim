@@ -1,0 +1,36 @@
+<div class="row videoconference jitsi">
+  <div class="columns large-12">
+    <div class="section">
+      <h4 class="section-heading"><%= t(".title") %></h4>
+        <% if videoconference_visible? %>
+          <p class="help"><%= t(".explanation") %></p>
+          
+          <button id="join-videoconference" class="button">
+            <%= t(".join") %>
+          </button>
+
+          <%= content_tag :div, nil, id: "jitsi-embedded-meeting", data: {
+            room_name: room_name,
+            domain: domain,
+            api_url: api_url,
+            user_email: current_user&.email,
+            user_display_name: current_user&.name,
+            user_role: user_role,
+            attendance_url: attendance_url
+          } %>
+
+          <p><%= t(".disclaimer", organization: current_organization.name) %></p>
+
+          <div id="videoconference-closed-message" class="hide callout warning">
+            <p><%= t(".closed") %></p>
+          </div>
+        <% else %>
+          <div class="callout warning">
+            <p><%= t(".unavailable") %></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "decidim/meetings/meeting" %>
