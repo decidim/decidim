@@ -5,7 +5,7 @@
         <%= t(".title") %>
       </div>
       <div class="flex--cc flex-gap--1">
-        <% if allowed_to? :read, :budget #implement :export %>
+        <% if allowed_to? :export, :budget %>
           <%= export_dropdown %>
         <% end %>
         <div id="js-other-actions-wrapper">
