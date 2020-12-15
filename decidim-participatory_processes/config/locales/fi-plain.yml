@@ -363,6 +363,7 @@ fi-pl:
           form:
             metadata: Metatiedot
             title: Yleiset tiedot
+            visibility: Näkyvyys
         participatory_process_imports:
           form:
             document_legend: Lisää asiakirja
@@ -434,6 +435,7 @@ fi-pl:
           loading: Ladataan tulokset...
       show:
         area: Alue
+        belongs_to_group: Tämä prosessi kuuluu ryhmään
         dates: Päivämäärät
         developer_group: Kehittäjäryhmä
         end_date: Päättymispäivä
@@ -491,6 +493,8 @@ fi-pl:
           more_info_about: Lisätietoja prosessista %{resource_name}
           take_part: Osallistu
           take_part_in: Osallistu prosessiin %{resource_name}
+        promoted_process_group:
+          more_info: Lisätietoja
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Näytä vaiheet

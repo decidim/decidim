@@ -129,7 +129,7 @@ fr:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
-        create_via_csv: "%{user_name} a invité %{resource_name} via csv à être un utilisateur privé"
+        create_via_csv: "%{user_name} a invité %{resource_name} via CSV à être un utilisateur privé"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} tant qu'utilisateur privé"
       scope:
         create: "%{user_name} a créé le périmètre d'application %{resource_name}"
@@ -688,7 +688,7 @@ fr:
         file:
           explanation: 'Orientation pour le fichier :'
           message_1: Doit être une image ou un document.
-          message_2: Pour les images, utilisez de préférence des images en format paysage, le service recadre l'image.
+          message_2: Pour les images, utilisez de préférence des formats paysage, car le service recadre l'image. Pour les fichiers CSV, le séparateur entre les colonnes doit être une virgule (",")
         image:
           explanation: 'Orientation pour l''image:'
           message_1: De préférence une image au format paysage qui n'a pas de texte.
