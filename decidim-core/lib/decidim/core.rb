@@ -281,7 +281,7 @@ module Decidim
     #   api_version: <your version>
     # }
   end
-  
+
   # Exposes a configuration option: an object to configure Videoconferences
   config_accessor :videoconferences do
     # {
