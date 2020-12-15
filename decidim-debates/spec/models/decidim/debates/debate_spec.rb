@@ -125,4 +125,20 @@ describe Decidim::Debates::Debate do
       it { is_expected.to be_falsey }
     end
   end
+
+  describe "archived?" do
+    subject { debate.archived? }
+
+    context "when the debate has an archived_at time" do
+      let(:debate) { build :debate, archived_at: 2.days.ago }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context "when the debate does not have an archived_at time" do
+      let(:debate) { build :debate, archived_at: nil }
+
+      it { is_expected.to be_falsey }
+    end
+  end
 end

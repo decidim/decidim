@@ -37,13 +37,24 @@ it:
             creation_enabled: Creazione di dibattiti da parte degli utenti abilitati
     debates:
       actions:
+        active: Discussioni attive
+        archive: Archivia
+        archived: Dibattiti archiviati
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
         new: Nuovo %{name}
         title: Azioni
+        unarchive: Rimuovi dall'archivio
       admin:
+        debate_closes:
+          edit:
+            archive: Archivia questo dibattito
+            archive_help: L'archiviazione di questo dibattito lo nasconderà dalla sezione dei dibattiti pubblici
         debates:
+          archive:
+            invalid: C'è stato un problema durante l'archiviazione del dibattito.
+            success: Dibattito correttamente archiviato.
           create:
             invalid: C'è stato un problema durante la creazione del dibattito.
             success: Dibattito creato con successo.
@@ -52,11 +63,15 @@ it:
           edit:
             title: Modifica dibattito
             update: Aggiornamento del dibattito
+          empty: Non ci sono dibattiti corrispondenti a questi filtri.
           index:
             title: Discussioni
           new:
             create: Crea dibattito
             title: Nuovo dibattito
+          unarchive:
+            invalid: C'è stato un problema durante l'archiviazione del dibattito.
+            success: Dibattito correttamente archiviato.
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo dibattito.
             success: Dibattito aggiornato con successo.

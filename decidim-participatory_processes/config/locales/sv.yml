@@ -298,6 +298,11 @@ sv:
       show:
         related_assemblies: Relaterade sammankomster
     participatory_process_groups:
+      content_blocks:
+        participatory_processes:
+          name: Deltagandeprocesser
+        stats:
+          name: Statistik
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -386,6 +391,7 @@ sv:
           loading: Läser in resultat...
       show:
         area: Område
+        belongs_to_group: Denna process tillhör
         dates: Datum
         developer_group: Kampanjgrupp
         end_date: Slutdatum

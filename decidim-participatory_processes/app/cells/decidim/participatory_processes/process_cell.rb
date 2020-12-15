@@ -12,7 +12,12 @@ module Decidim
       private
 
       def card_size
-        "decidim/participatory_processes/process_m"
+        case @options[:size]
+        when :s
+          "decidim/participatory_processes/process_s"
+        else
+          "decidim/participatory_processes/process_m"
+        end
       end
     end
   end

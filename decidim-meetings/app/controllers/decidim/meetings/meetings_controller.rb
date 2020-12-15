@@ -58,7 +58,7 @@ module Decidim
         return if meeting.current_user_can_visit_meeting?(current_user)
 
         flash[:alert] = I18n.t("meeting.not_allowed", scope: "decidim.meetings")
-        redirect_to action: "index"
+        redirect_to(ResourceLocatorPresenter.new(meeting).index)
       end
 
       def edit
@@ -126,7 +126,7 @@ module Decidim
       end
 
       def default_filter_type_params
-        %w(all online in_person)
+        %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
       end
 
       def default_search_params

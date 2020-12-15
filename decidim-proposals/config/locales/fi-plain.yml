@@ -669,6 +669,9 @@ fi-pl:
           step_3: Tee yhteistyöluonnoksesi valmiiksi
           step_of: Vaihe %{current_step_num} / %{total_steps}
           title: Yhteistyölunnoksen luonnin vaiheet
+      content_blocks:
+        highlighted_proposals:
+          proposals: Ehdotukset
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.

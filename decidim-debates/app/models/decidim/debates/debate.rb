@@ -42,6 +42,8 @@ module Decidim
 
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil) }
+      scope :archived, -> { where.not(archived_at: nil) }
+      scope :not_archived, -> { where(archived_at: nil) }
       scope :authored_by, ->(author) { where(author: author) }
       scope :commented_by, lambda { |author|
         joins(:comments).where(
@@ -94,6 +96,13 @@ module Decidim
       # Returns a boolean.
       def open?
         (ama? && open_ama?) || !ama?
+      end
+
+      # Public: Checks if the debate is archived or not.
+      #
+      # Returns a boolean.
+      def archived?
+        archived_at.present?
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.
@@ -164,6 +173,13 @@ module Decidim
       #
       # user - the user to check for authorship
       def closeable_by?(user)
+        authored_by?(user)
+      end
+
+      # Checks whether the user can archive the debate.
+      #
+      # user - the user to check for authorship
+      def archivable_by?(user)
         authored_by?(user)
       end
 

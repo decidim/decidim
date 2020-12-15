@@ -66,6 +66,7 @@ module Decidim
           {
             iat: Time.now.to_i,
             election_id: election_id,
+            message_id: "#{election_id}.create_election+a.#{bulletin_board.authority_slug}",
             type: "create_election",
             scheme: bulletin_board.scheme,
             trustees:
@@ -133,28 +134,14 @@ module Decidim
         end
 
         def setup_election
-          signed_data = bulletin_board.encode_data(election_data)
+          response = bulletin_board.setup_election(election_data)
 
-          response = bulletin_board.graphql_client.query do
-            mutation do
-              createElection(signedData: signed_data) do
-                election do
-                  id
-                  status
-                  title
-                  authority
-                end
-                error
-              end
-            end
-          end
-
-          if response.data.create_election.error.present?
-            error = response.data.create_election.error
+          if response.error.present?
+            error = response.error
             form.errors.add(:base, error)
             raise ActiveRecord::Rollback
           else
-            store_bulletin_board_status(response.data.create_election.election.status)
+            store_bulletin_board_status(response.election.status)
           end
         end
 
