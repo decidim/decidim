@@ -65,6 +65,14 @@
                   <% else %>
                     <%= icon_link_to "people", meeting.on_this_platform? ? edit_meeting_registrations_path(meeting) : meeting.registration_url, t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                   <% end %>
+                <% else %>
+                  <span class="action-space icon"></span>
+                <% end %>
+
+                <% if allowed_to? :read_logs, :meeting, meeting: meeting %>
+                  <%= icon_link_to "pulse", meeting_videoconference_attendance_logs_path(meeting), t("actions.attendance", scope: "decidim.meetings"), class: "action-icon--attendance" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
@@ -72,7 +80,6 @@
                   <%= icon_link_to "clock", meeting.minutes.present? ? edit_meeting_minute_path(meeting, meeting.minutes) : new_meeting_minute_path(meeting), t("actions.minutes", scope: "decidim.meetings"), class: "action-icon--minutes" %>
                   <%= icon_link_to "calendar", meeting.agenda.present? ? edit_meeting_agenda_path(meeting, meeting.agenda) : new_meeting_agenda_path(meeting), t("actions.agenda", scope: "decidim.meetings"), class: "action-icon--agenda" %>
                 <% else %>
-                  <span class="action-space icon"></span>
                   <span class="action-space icon"></span>
                   <span class="action-space icon"></span>
                   <span class="action-space icon"></span>
