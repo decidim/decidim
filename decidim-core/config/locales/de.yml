@@ -129,6 +129,7 @@ de:
         update: "%{user_name} aktualisiert die Organisationseinstellungen"
       participatory_space_private_user:
         create: "%{user_name} lud %{resource_name} , ein privater Benutzer zu sein"
+        create_via_csv: "%{user_name} hat %{resource_name} per CSV als privaten Teilnehmer eingeladen"
         delete: "%{user_name} den Benutzer %{resource_name} als privaten Benutzer entfernt"
       scope:
         create: "%{user_name} hat den %{resource_name} Bereich erstellt"
@@ -453,6 +454,7 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
+            uncheck: Deaktivierung beibehalten
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -618,6 +620,14 @@ de:
           notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über den <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
       notification_event:
         notification_title: Ein Ereignis trat auf <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Autor von dem entfernten Inhalt sind.
+          email_subject: Ihr %{resource_type} wurde entfernt
+          notification_title: |-
+            Ein Administrator hat Ihr %{resource_type} entfernt, weil es als %{report_reasons} gemeldet wurde.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, dem Sie folgen, hat gerade „%{resource_title}“ befürwortet, und wir denken, das könnte für Sie interessant sein. Über folgenden Link können Sie es anzeigen und daran teilnehmen:'
         email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{endorser_nickname} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
@@ -681,7 +691,7 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
-          message_2: Für Bilder verwenden Sie vorzugsweise Landschaftsbilder, der Dienst bewirtschaftet das Bild.
+          message_2: Für Bilder, verwenden Sie vorzugsweise Landschaftsbilder, der Dienst erzeugt das Bild. Für CSV-Dateien muss der Trenner zwischen Spalten ein Komma (",") sein
         image:
           explanation: 'Anleitung für Bild:'
           message_1: Vorzugsweise ein Querformat ohne Text.
@@ -902,6 +912,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
+          correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK
         index:
@@ -1394,13 +1405,13 @@ de:
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       invite_collaborator:
         subject: Du wurdest eingeladen, an %{organization}
       invite_private_user:
-        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization}eingeladen
+        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization} eingeladen
       organization_admin_invitation_instructions:
-        subject: Du wurdest eingeladen, %{organization}zu verwalten
+        subject: Du wurdest eingeladen, %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
         message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.

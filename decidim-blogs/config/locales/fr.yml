@@ -29,6 +29,7 @@ fr:
             success: Article supprimé avec succès
           edit:
             save: Mettre à jour
+            title: Éditer le post
           index:
             title: Articles
           new:

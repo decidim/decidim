@@ -312,6 +312,9 @@ it:
         participatory_process_copies:
           form:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
+        participatory_process_groups:
+          form:
+            visibility: Visibilità
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
@@ -440,6 +443,8 @@ it:
           more_info_about: Maggiori informazioni sul processo %{resource_name}
           take_part: Partecipa
           take_part_in: Maggiori informazioni sul processo %{resource_name}
+        promoted_process_group:
+          more_info: Ulteriori informazioni
       process_header_steps:
         step: Fase %{current} di %{total}
         view_steps: Visualizza le fasi

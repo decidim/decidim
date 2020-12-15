@@ -139,8 +139,8 @@ de:
           title: Neue Organisation
         omniauth_settings:
           decidim:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
             site_url: Website-URL
           enabled: Aktiviert
           enabled_by_default: Dieser Anbieter ist standardmäßig aktiviert. Er kann bearbeitet aber nicht deaktiviert werden.
@@ -148,8 +148,8 @@ de:
             app_id: App-ID
             app_secret: App-Geheimnis
           google_oauth2:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
           icon: Symbol
           icon_path: Icon-Pfad
           twitter:

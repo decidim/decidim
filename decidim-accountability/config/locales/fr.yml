@@ -124,7 +124,7 @@ fr:
       content_blocks:
         highlighted_results:
           dates: Dates
-          results: Résultats
+          results: Réalisations
           unspecified: Non précisé
       import_mailer:
         import:
@@ -154,8 +154,8 @@ fr:
             description: Description
             entry_date: Date
       result_m:
-        executed: Fait
-        view: Aperçu
+        executed: Exécuté
+        view: Voir
       results:
         count:
           results_count:
