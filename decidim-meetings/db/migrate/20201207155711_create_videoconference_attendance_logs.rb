@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateVideoconferenceAttendanceLogs < ActiveRecord::Migration[5.2]
   def change
     create_table :decidim_meetings_videoconference_attendance_logs do |t|
