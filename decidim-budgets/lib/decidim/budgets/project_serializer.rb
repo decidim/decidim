@@ -58,7 +58,7 @@ module Decidim
       def related_proposal_titles
         project.linked_resources(:proposals, "included_proposals").map do |proposal|
           Decidim::Proposals::ProposalPresenter.new(proposal).title
-        end.join(";")
+        end
       end
 
       def related_proposal_urls
