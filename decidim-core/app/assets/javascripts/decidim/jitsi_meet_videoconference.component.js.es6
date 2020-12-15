@@ -22,7 +22,7 @@
       const roomName = $wrapper.data("roomName");
       const domain = $wrapper.data("domain") || "meet.jit.si";
       const apiUrl = $wrapper.data("apiUrl") || "https://meet.jit.si/external_api.js";
-      
+
       const height = $wrapper.data("height") || 600;
 
       const userEmail = $wrapper.data("userEmail");
