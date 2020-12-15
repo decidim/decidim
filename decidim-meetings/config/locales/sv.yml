@@ -385,6 +385,8 @@ sv:
             user_groups: Grupper
           scope: Omfattning
           search: Sök
+          type_values:
+            hybrid: Båda
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
@@ -470,6 +472,8 @@ sv:
         destroy:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
+      type_of_meeting:
+        hybrid: Båda
       types:
         private_meeting: Privat möte
         transparent: Transparent
