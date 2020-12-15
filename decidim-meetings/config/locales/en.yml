@@ -504,9 +504,9 @@ en:
             events:
               join: Join
               leave: Leave
+            user_email: Email
             user_id: User ID
             user_name: Name
-            user_email: Email
       read_more: "(read more)"
       registration_mailer:
         confirmation:
@@ -538,8 +538,8 @@ en:
       versions:
         back_to_resource: Go back to meeting
       videoconference:
-        disclaimer: "%{organization} cannot be held responsible for the content of this videoconference."
         closed: The videoconference has ended.
+        disclaimer: "%{organization} cannot be held responsible for the content of this videoconference."
         explanation: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference.
         join: Join videoconference
         title: Videoconference
