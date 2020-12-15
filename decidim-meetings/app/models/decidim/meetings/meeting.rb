@@ -257,13 +257,13 @@ module Decidim
       def on_different_platform?
         registration_type == "on_different_platform"
       end
-      
+
       def has_contributions?
-        contributions_count && contributions_count.positive?
+        !!contributions_count && contributions_count.positive?
       end
 
       def has_attendees?
-        attendees_count && attendees_count.positive?
+        !!attendees_count && attendees_count.positive?
       end
 
       private
