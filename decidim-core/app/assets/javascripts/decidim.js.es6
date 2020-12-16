@@ -44,8 +44,6 @@
 // = require decidim/assets
 // = require decidim/floating_help
 
-// = require decidim/jitsi_meet_videoconference.component
-
 /* globals svg4everybody */
 
 window.Decidim = window.Decidim || {};

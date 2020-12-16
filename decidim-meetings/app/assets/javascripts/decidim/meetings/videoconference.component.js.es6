@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 ((exports) => {
-  class JitsiMeetVideoConference {
+  class Videoconference {
     constructor(options = {}) {
       this.$wrapper = options.wrapper;
       this.onVideoConferenceJoined = options.onVideoConferenceJoined;
@@ -92,19 +92,19 @@
       }
 
       $.getScript(apiUrl).
-        done(function() {
-          const api = new JitsiMeetExternalAPI(domain, options);
-          api.addEventListener("videoConferenceJoined", onVideoConferenceJoined);
-          api.addEventListener("videoConferenceLeft", onVideoConferenceLeave);
-        }).
-        fail(function() {
-          $wrapper.appendElement("<p class=\"callout alert\">Jitsi Meet Videoconference could not be loaded</p>");
-        });
+      done(function() {
+        const api = new JitsiMeetExternalAPI(domain, options);
+        api.addEventListener("videoConferenceJoined", onVideoConferenceJoined);
+        api.addEventListener("videoConferenceLeft", onVideoConferenceLeave);
+      }).
+      fail(function() {
+        $wrapper.appendElement("<p class=\"callout alert\">Jitsi Meet Videoconference could not be loaded</p>");
+      });
     }
   }
 
   exports.Decidim = exports.Decidim || {};
-  exports.Decidim.createJitsiMeetVideoConference = (options) => {
-    return new JitsiMeetVideoConference(options);
+  exports.Decidim.createVideoconference = (options) => {
+    return new Videoconference(options);
   };
 })(window);

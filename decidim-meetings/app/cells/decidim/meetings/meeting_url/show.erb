@@ -9,7 +9,7 @@
           <% if model.online_meeting? %>
             <span><%= link_to(model.online_meeting_url, model.online_meeting_url, target: "_blank") %></span><br>
             <span><%= translated_attribute model.location_hints %></span>
-          <% elsif model.embedded_meeting? %>
+          <% elsif model.embedded_videoconference? %>
             <span><%= t(".embedded") %></span>
           <% end %>
         </div>

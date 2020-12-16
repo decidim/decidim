@@ -1,5 +1,7 @@
+// = require ./videoconference.component
+
 ((exports) => {
-  const { createJitsiMeetVideoConference } = exports.Decidim;
+  const { createVideoconference } = exports.Decidim;
   const wrapperSelector = "#jitsi-embedded-meeting";
 
   let state = {
@@ -31,7 +33,7 @@
     const joinVideoConference = () => {
       $(wrapperSelector).removeClass("hide");
 
-      createJitsiMeetVideoConference({
+      createVideoconference({
         wrapper: $(wrapperSelector),
         onVideoConferenceLeave: onVideoConferenceLeave,
         onVideoConferenceJoined: onVideoConferenceJoined
