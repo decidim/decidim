@@ -151,16 +151,16 @@ de:
           assigned: 'Zugewiesen:'
           cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
-            description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
-            title: Haushaltsabstimmung abgeschlossen
+            description: Sie haben bereits für die Verteilung dieses Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            title: Budget-Abstimmung abgeschlossen
           minimum_projects_rule:
-            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            description: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
             instruction: "<li>Wählen Sie mindestens %{minimum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
           projects_rule:
-            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            description: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
             instruction: "<li>Wählen Sie mindestens %{minimum_number} und bis zu %{maximum_number} Projekte, die Sie wünschen und stimmen Sie nach Ihren Präferenzen ab, um das Budget zu definieren.</li>"
           projects_rule_maximum_only:
-            description: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie bis zu %{maximum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            description: Welche Projekte sollen finanziert werden? Wählen Sie bis zu %{maximum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
             instruction: "<li>Wählen Sie bis zu %{maximum_number} Projekte, die Sie unterstützen möchten, und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget zu definieren.</li>"
           rules:
             title: Budgetregeln
@@ -168,7 +168,7 @@ de:
           total_budget: Gesamtbudget
           total_projects: Stimmen insgesamt
           vote_threshold_percent_rule:
-            description: Für welche Projekte sollten wir das Budget bereitstellen? Weisen Sie den gewünschten Projekten mindestens %{minimum_budget} zu und stimmen Sie mit Ihren Einstellungen ab, um das Budget zu definieren.
+            description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
         count:
           projects_count:
             one: 1 Projekt
@@ -186,7 +186,7 @@ de:
           close_modal: Modal schließen
           filter: Filter
           filter_by: Filtern nach
-          unfold: Entfalten
+          unfold: Aufklappen
         order_progress:
           vote: Abstimmung
         order_selected_projects:
@@ -194,7 +194,7 @@ de:
           selected_projects:
             one: Projekt ausgewählt
             other: ausgewählte Projekte
-          view: Aussicht
+          view: Ansehen
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -206,7 +206,7 @@ de:
           add: Projekt %{resource_name} Ihrer Stimme hinzufügen
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
-          view: Aussicht
+          view: Ansehen
           votes:
             one: Abstimmung
             other: Abstimmungen
