@@ -24,7 +24,7 @@ de:
     budgets:
       actions:
         attachment_collections: Ordner
-        attachments: Anlagen
+        attachments: Anhänge
         confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
