@@ -6,11 +6,11 @@ de:
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
-        end_date: Endtermin
+        end_date: Enddatum
         progress: Fortschritt
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
-        start_date: Anfangsdatum
+        start_date: Startdatum
         title: Titel
         updated_at: Aktualisiert am
       status:
@@ -138,9 +138,9 @@ de:
       models:
         result:
           fields:
-            end_date: Endtermin
+            end_date: Enddatum
             progress: Fortschritt
-            start_date: Anfangsdatum
+            start_date: Startdatum
             status: Status
             title: Titel
         status:
