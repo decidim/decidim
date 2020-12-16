@@ -160,6 +160,28 @@ describe Decidim::Meetings::Admin::Permissions do
       it_behaves_like "action requiring a meeting"
     end
 
+    context "when reading logs" do
+      let(:action_name) { :read_logs }
+      let(:type) { "in_person" }
+      let(:meeting) { create :meeting, registrations_enabled: true, type_of_meeting: type, component: meeting_component }
+
+      context "when meeting is present" do
+        it { is_expected.to eq false }
+
+        context "when meeting is of type embedded" do
+          let(:type) {"embedded" }
+
+          it { is_expected.to eq true }
+        end
+      end
+
+      context "when meeting is missing" do
+        let(:meeting) { nil }
+
+        it { is_expected.to eq false }
+      end
+    end
+
     context "when updating a meeting" do
       let(:action_name) { :update }
 
