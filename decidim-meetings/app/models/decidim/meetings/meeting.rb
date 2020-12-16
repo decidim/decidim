@@ -24,7 +24,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::TranslatableResource
 
-      TYPE_OF_MEETING = %w(in_person online hybrid embedded).freeze
+      TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
@@ -244,10 +244,6 @@ module Decidim
 
       def online_meeting?
         type_of_meeting == "online"
-      end
-
-      def embedded_meeting?
-        type_of_meeting == "embedded"
       end
 
       def registration_disabled?

@@ -17,6 +17,7 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
+        attribute :embedded_videoconference, Boolean
         attribute :online_meeting_url, String
         attribute :type_of_meeting, String
         attribute :registration_type, String
@@ -111,10 +112,6 @@ module Decidim
 
         def online_meeting?
           type_of_meeting == "online"
-        end
-
-        def embedded_meeting?
-          type_of_meeting == "embedded"
         end
 
         def in_person_meeting?
