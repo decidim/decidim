@@ -14,28 +14,11 @@ module Decidim
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
-# byebug          
-          # @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
-          # @collection ||= ResultsWithUserRole.for(current_user)
-          # see Proposals collection; maybe we should also filter on Published?
-          @collection ||= Decidim::Accountability::Result.where(decidim_component_id: params[:component_id])
+          @collection ||= results
         end
 
-        ## all the Accountability components list urls:
-        # GET "/admin/participatory_processes/et-id/                components/16/manage/"
-        # GET "/admin/conferences            /illum-quidem/         components/76/manage/"
-        # GET "/admin/assemblies             /aliquam-reprehenderit/components/26/manage/"
-        # and another place with two components, to complete 8 seeded components?
-
         def index
-          # GET "/admin/participatory_processes/et-id/components/16/manage/"
-
-          # Rails.logger.debug "\nTRACE: *** In ResultsController#index\n"
-          ## from participatory_processes_controller:
-          # enforce_permission_to :read, :process_list
-          # @participatory_processes = filtered_collection
-
-          # enforce_permission_to :read, :results
+          # enforce_permission_to :read, :process_list # what action/permission? :results?
           @results = filtered_collection
         end
 
