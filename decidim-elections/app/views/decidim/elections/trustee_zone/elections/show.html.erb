@@ -2,12 +2,11 @@
 
 <div class="key-ceremony"
   data-election-id="<%= election.id %>"
-  data-trustee-id="<%= trustee.id %>"
   data-trustee-public-key="<%= trustee.public_key %>"
-  data-trustee-unique-id="<%= trustee.user.name.parameterize %>"
+  data-trustee-unique-id="<%= trustee.unique_id %>"
   data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
   data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
-  data-authority-name="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
+  data-authority-unique-id="<%= Rails.application.secrets.bulletin_board[:authority_name].parameterize %>"
   data-update-election-status-url="<%= trustee_election_elections_path(election) %>"
   data-backup="false">
 
