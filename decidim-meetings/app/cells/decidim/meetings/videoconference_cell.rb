@@ -4,16 +4,6 @@ module Decidim
   module Meetings
     # This cell is used to render an iframe to embed a Jitsi videoconference from a meeting
     class VideoconferenceCell < Decidim::ViewModel
-      include Decidim::ApplicationHelper
-      include Decidim::Meetings::Engine.routes.url_helpers
-
-      def show
-        return unless current_user
-        return unless visible?
-
-        render
-      end
-
       def visible?
         Time.zone.now.between?(meeting.start_time - 30.minutes, meeting.end_time + 10.minutes)
       end
@@ -49,11 +39,11 @@ module Decidim
 
         Digest::SHA1.hexdigest "#{meeting.id}-#{Rails.application.secrets.secret_key_base}"
       end
-      
+
       def attendance_url
-        meeting_videoconference_attendance_logs_url(meeting_id: meeting.id)
+        Decidim::EngineRouter.main_proxy(model.component).meeting_videoconference_attendance_logs_url(meeting_id: meeting.id)
       end
-      
+
       def meeting
         model
       end

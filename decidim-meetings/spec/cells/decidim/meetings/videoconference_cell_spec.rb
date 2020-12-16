@@ -2,86 +2,71 @@
 
 require "spec_helper"
 
-describe Decidim::Meetings::VideoconferenceCell, type: :cell do
-  subject { described_class.new(model, context: { current_user: current_user }) }
+module Decidim::Meetings
+  describe VideoconferenceCell, type: :cell do
+    controller Decidim::Meetings::MeetingsController
 
-  let(:my_cell) { cell("decidim/meetings/videoconference", model, context: { current_user: current_user }) }
-  let(:model) { create(:meeting) }
-  let(:current_user) { create(:user) }
+    let!(:meeting) { create(:meeting) }
+    let(:model) { meeting }
+    let(:the_cell) { cell("decidim/meetings/videoconference", model, context: { current_user: user }) }
+    let(:user) { create(:user) }
 
-  context "when rendering" do
-    subject { my_cell.call }
+    context "when rendering" do
+      subject { the_cell.call }
 
-    let(:html) { subject }
+      let(:html) { subject }
 
-    context "when there's no current user" do
-      let(:current_user) { nil }
+      context "when the videoconference is not visible" do
+        before do
+          expect(the_cell).to receive(:visible?).and_return(false)
+        end
 
-      it "renders nothing" do
-        expect(html).to have_no_css("iframe")
-      end
-    end
+        it "does not render the videoconference div" do
+          expect(html).to have_no_selector("#jitsi-embedded-meeting")
+        end
 
-    context "when the videoconference is not visible" do
-      before do
-        expect(my_cell).to receive(:pad_is_visible?).and_return(false)
-      end
+        it "does not render the join button" do
+          expect(html).to have_no_button("Join videoconference")
+        end
 
-      it "renders nothing" do
-        expect(html).to have_no_css("iframe")
-      end
-    end
-
-    context "when the videoconference is visible" do
-      context "when the pad has contents" do
-        it "renders an iframe" do
-          expect(html).to have_css("iframe")
+        it "renders a warning message" do
+          expect(html).to have_content("not available")
         end
       end
 
-      context "when the pad has no contents" do
-        let(:pad_text) { nil }
+      context "when the videoconference is visible" do
+        before do
+          expect(the_cell).to receive(:visible?).at_least(:once).and_return(true)
+        end
 
-        it "renders nothing" do
-          expect(html).to have_no_css("iframe")
+        let(:attributes) { html.find("#jitsi-embedded-meeting").native.attributes }
+
+        it "renders the videoconference div" do
+          expect(html).to have_selector("#jitsi-embedded-meeting")
+          expect(attributes["data-room-name"].value).to eq(the_cell.room_name)
+          expect(attributes["data-user-email"].value).to eq(user.email)
+          expect(attributes["data-user-display-name"].value).to eq(user.name)
+          expect(attributes["data-user-role"].value).to eq("participant")
+        end
+
+        it "renders the join button" do
+          expect(html).to have_button("Join videoconference")
+        end
+
+        it "does not render the warning message" do
+          expect(html).to have_no_content("not available")
         end
       end
     end
 
-    it "renders an iframe" do
-      expect(html).to have_css("iframe")
-    end
-  end
-
-  describe "iframe_url" do
-    context "when the pad is writable" do
+    describe "#room_name" do
       before do
-        expect(model).to receive(:pad_is_writable?).and_return(true)
+        expect(the_cell).to receive(:token).and_return("token")
       end
 
-      it "includes the writable url" do
-        expect(subject.iframe_url).to include("PUBLIC_URL")
+      it "generates a room name with the meeting reference and a random token" do
+        expect(the_cell.room_name).to eq("#{meeting.reference}-token")
       end
-    end
-
-    context "when the pad is only readable" do
-      before do
-        expect(model).to receive(:pad_is_writable?).and_return(false)
-      end
-
-      it "includes the read only url" do
-        expect(subject.iframe_url).to include("READ_ONLY_URL")
-      end
-    end
-
-    it "includes the user's nickname" do
-      expect(subject.iframe_url).to include("userName=")
-      expect(subject.iframe_url).to include(current_user.nickname)
-    end
-
-    it "includes the user's locale" do
-      expect(subject.iframe_url).to include("lang=")
-      expect(subject.iframe_url).to include(current_user.locale)
     end
   end
 end
