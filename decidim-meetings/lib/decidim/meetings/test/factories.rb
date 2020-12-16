@@ -176,8 +176,8 @@ FactoryBot.define do
   factory :videoconference_attendance_log, class: "Decidim::Meetings::VideoconferenceAttendanceLog" do
     meeting
     user
-    room_name { Faker::Misc.sha1 }
-    user_videoconference_id { Faker::Misc.password(8) }
+    room_name { Faker::Hipster.word }
+    user_videoconference_id { Faker::Internet.password }
     user_display_name { Faker::Name.name }
     event { %w(join leave).sample }
   end
