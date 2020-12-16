@@ -27,7 +27,7 @@ module Decidim
         present(model).title
       end
 
-      delegate :online_meeting?, :embedded_meeting?, to: :model
+      delegate :online_meeting?, to: :model
 
       private
 
