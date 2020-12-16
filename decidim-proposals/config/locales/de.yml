@@ -8,9 +8,9 @@ de:
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
-        state: Zustand
+        state: Status
         title: Titel
-        user_group_id: Erstellen Sie einen gemeinsamen Entwurf als
+        user_group_id: Kollaborativen Entwurf erstellen als
       proposal:
         address: Adresse
         answer: Antworten
@@ -21,7 +21,7 @@ de:
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
-        state: Zustand
+        state: Status
         suggested_hashtags: Vorgeschlagene Hashtags
         title: Titel
         user_group_id: Vorschlag erstellen als
