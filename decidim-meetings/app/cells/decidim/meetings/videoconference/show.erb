@@ -1,12 +1,12 @@
 <div class="row videoconference jitsi">
   <div class="columns large-12">
     <div class="section">
-      <h4 class="section-heading"><%= t(".title") %></h4>
+      <h4 class="section-heading"><%= t("title", scope: "decidim.meetings.videoconference") %></h4>
         <% if visible? %>
-          <p class="help"><%= t(".explanation") %></p>
+          <p class="help"><%= t("explanation", scope: "decidim.meetings.videoconference") %></p>
 
           <button id="join-videoconference" class="button">
-            <%= t(".join") %>
+            <%= t("join", scope: "decidim.meetings.videoconference") %>
           </button>
 
           <%= content_tag :div, nil, id: "jitsi-embedded-meeting", data: {
@@ -20,11 +20,11 @@
           } %>
 
           <div id="videoconference-closed-message" class="hide callout warning">
-            <p><%= t(".closed") %></p>
+            <p><%= t("closed", scope: "decidim.meetings.videoconference") %></p>
           </div>
         <% else %>
           <div class="callout warning">
-            <p><%= t(".unavailable") %></p>
+            <p><%= t("unavailable", scope: "decidim.meetings.videoconference") %></p>
           </div>
         <% end %>
     </div>

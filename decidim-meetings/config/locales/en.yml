@@ -328,12 +328,6 @@ en:
             success: Registration code successfully validated.
         videoconference_attendance_logs:
           index:
-            filter:
-              all: All
-              join: Join
-              leave: Leave
-            filter_by: Filter by
-            search: Search
             title: Attendance logs
       admin_log:
         invite:
@@ -433,8 +427,6 @@ en:
           available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
           disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
-          embedded_videoconference: Embed videoconference
-          embedded_videoconference_help: 'Embed videoconference: A videoconference room will be generated and inserted into the meeting public page.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
