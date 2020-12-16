@@ -31,7 +31,10 @@ describe "Decidim::Api::QueryType" do
       "commentsHaveAlignment" => meeting.comments_have_alignment?,
       "commentsHaveVotes" => meeting.comments_have_votes?,
       "contributionCount" => meeting.contributions_count,
-      "coordinates" => { "latitude" => meeting.latitude, "longitude" => meeting.longitude },
+      "coordinates" => {
+        "latitude" => meeting.latitude.to_f,
+        "longitude" => meeting.longitude.to_f
+      },
       "createdAt" => meeting.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => meeting.description[locale] },
       "endTime" => meeting.end_time.iso8601.to_s.gsub("Z", "+00:00"),
@@ -48,15 +51,12 @@ describe "Decidim::Api::QueryType" do
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
       "scope" => nil,
-      "services" => [
+      "services" => meeting.services.map do |s|
         {
-          "description" => { "translation" => meeting.services.first.description[locale] },
-          "title" => { "translation" => meeting.services.first.title[locale] }
-        }, {
-          "description" => { "translation" => meeting.services.last.description[locale] },
-          "title" => { "translation" => meeting.services.last.title[locale] }
+          "description" => { "translation" => s.description[locale] },
+          "title" => { "translation" => s.title[locale] }
         }
-      ],
+      end,
       "startTime" => meeting.start_time.iso8601.to_s.gsub("Z", "+00:00"),
       "title" => { "translation" => meeting.title[locale] },
       "totalCommentsCount" => meeting.comments_count,
