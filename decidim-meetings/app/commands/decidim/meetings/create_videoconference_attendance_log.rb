@@ -2,8 +2,8 @@
 
 module Decidim
   module Meetings
-    # This command is executed when the user joins an embedded online
-    # meeting videoconference
+    # This command is executed when the user or leaves an embedded
+    # online meeting videoconference
     class CreateVideoconferenceAttendanceLog < Rectify::Command
       def initialize(meeting, user, data)
         @meeting = meeting
