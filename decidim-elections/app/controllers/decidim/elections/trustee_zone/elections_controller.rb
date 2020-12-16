@@ -10,12 +10,12 @@ module Decidim
         helper_method :election, :trustee
 
         def show
-          # TODO: Set permissions
+          enforce_permission_to :view, :election, trustee: trustee
         end
 
         def update
-          # TODO: Set permissions
-          # enforce_permission_to :update, :election, trustee: trustee
+          enforce_permission_to :update, :election, trustee: trustee
+
           UpdateElectionBulletinBoardStatus.call(election, :key_ceremony) do
             on(:ok) do
               render :update
@@ -27,6 +27,17 @@ module Decidim
         end
 
         private
+
+        def permission_scope
+          :trustee_zone
+        end
+
+        def permission_class_chain
+          [
+            Decidim::Elections::Permissions,
+            Decidim::Permissions
+          ]
+        end
 
         def election
           @election ||= Decidim::Elections::Election.find(params[:election_id])
