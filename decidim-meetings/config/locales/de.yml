@@ -51,16 +51,16 @@ de:
               already_invited: Diese E-Mail wurde bereits eingeladen
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
-      decidim/meetings/create_meeting_event: Treffen
+      decidim/meetings/create_meeting_event: Sitzung
       decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
-      decidim/meetings/upcoming_meeting_event: Kommendes Treffen
+      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
       decidim/meetings/update_meeting_event: Besprechung aktualisiert
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Treffen
-        other: Meetings
+        one: Sitzung
+        other: Sitzungen
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokoll
