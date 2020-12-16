@@ -24,7 +24,7 @@ de:
         online_meeting_url: Online Meeting URL
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
-        private_meeting: Privates Treffen
+        private_meeting: Private Sitzung
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
@@ -198,8 +198,8 @@ de:
           form:
             add_agenda_item: Tagesordnungspunkt hinzufügen
             agenda_items: Tagesordnungspunkte
-            end_date: Endtermin
-            start_date: Anfangsdatum
+            end_date: Enddatum
+            start_date: Startdatum
           new:
             create: Erstellen
             title: Neue Agenda
@@ -504,7 +504,7 @@ de:
         in_person: In Person
         online: Online
       types:
-        private_meeting: Privates Treffen
+        private_meeting: Private Sitzung
         transparent: Transparent
       versions:
         back_to_resource: Zurück zur Besprechung
