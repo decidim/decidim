@@ -365,7 +365,7 @@ de:
     decidim:
       admin:
         question:
-          attachments: Anlagen
+          attachments: Anhänge
           categories: Kategorien
       consultation_voting_data:
         start_voting_date: Die Abstimmung beginnt
