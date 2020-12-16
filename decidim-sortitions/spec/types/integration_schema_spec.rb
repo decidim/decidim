@@ -43,8 +43,6 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
-
-
   let(:sortition_data) do
     {
       "__typename" => "Sortitions",

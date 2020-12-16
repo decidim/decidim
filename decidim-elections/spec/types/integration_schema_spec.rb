@@ -2,47 +2,71 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :elections_component, participatory_space: participatory_process }
-  let!(:election) { create(:election, :complete, component: current_component) }
+  let!(:election) { create(:election, :complete, :published, :finished, component: current_component) }
 
   let(:election_single_result) do
     {
-      #       "acceptsNewComments" => debate.accepts_new_comments?,
-      #       "author" => { "id"=>debate.author.id.to_s },
-      #       "category" => { "id"=>debate.category.id.to_s },
-      #       "comments"=>[],
-      #       "commentsHaveAlignment" => debate.comments_have_alignment?,
-      #       "commentsHaveVotes" => debate.comments_have_votes?,
-      #       "createdAt" => debate.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-      #       "description" => {"translation" => debate.description[locale]},
-      #       "endTime"=>debate.end_time,
-      #       "hasComments" => debate.comment_threads.size.positive?,
-      #       "id" => debate.id.to_s,
-      #       "image" => nil,
-      #       "informationUpdates"=>{"translation"=>debate.information_updates[locale]},
-      #       "instructions"=>{"translation"=>debate.instructions[locale]},
-      #       "reference"=>debate.reference,
-      #       "startTime"=>debate.start_time,
-      #       "title"=>{"translation"=>debate.title[locale]},
-      #       "totalCommentsCount"=>debate.comments_count,
-      #       "type" => "Decidim::Debates::Debate",
-      #       "updatedAt" => debate.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-      #       "userAllowedToComment" => debate.user_allowed_to_comment?(current_user),
+      "attachments" => [],
+      "bb_status" => election.bb_status,
+      "blocked" => election.blocked?,
+      "createdAt" => election.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "description" => { "translation" => election.description[locale] },
+      "endTime" => election.end_time.iso8601.to_s.gsub("Z", "+00:00"),
+      "id" => election.id.to_s,
+      "publishedAt" => election.published_at.iso8601.to_s.gsub("Z", "+00:00"),
+
+      "questions" => election.questions.order(:id).map do |q|
+        {
+          "answers" => q.answers.order(:id).map do |a|
+            {
+              "attachments" => [],
+              "description" => begin
+                { "translation" => a.description[locale] }
+              rescue StandardError
+                nil
+              end,
+              "id" => a.id.to_s,
+              "proposals" => a.proposals.map { |p| { "id" => p.id.to_s } },
+              "selected" => a.selected?,
+              "title" => { "translation" => a.title[locale] },
+              "versions" => [],
+              "versionsCount" => 0,
+              "votes_count" => a.votes_count.to_i,
+              "weight" => a.weight.to_i
+            }
+          end,
+          "description" => { "translation" => q.description[locale] },
+          "id" => q.id.to_s,
+          "maxSelections" => q.max_selections,
+          "minSelections" => q.min_selections,
+          "randomAnswersOrder" => q.random_answers_order,
+          "title" => { "translation" => q.title[locale] },
+          "versions" => [],
+          "versionsCount" => 0,
+          "weight" => q.weight
+        }
+      end,
+      "startTime" => election.start_time.iso8601.to_s.gsub("Z", "+00:00"),
+      "title" => { "translation" => election.title[locale] },
+      "trustees" => [],
+      "updatedAt" => election.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "versions" => [],
+      "versionsCount" => 0
     }
   end
 
   let(:elections_data) do
     {
-      "__typename" => "Debates",
+      "__typename" => "Elections",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Debates" },
-      "debates" => {
+      "name" => { "translation" => "Elections" },
+      "elections" => {
         "edges" => [
           {
             "node" => election_single_result
@@ -56,50 +80,74 @@ describe "Decidim::Api::QueryType" do
   describe "valid connection query" do
     let(:component_fragment) do
       %(
-      fragment fooComponent on Elections {
-        elections{
-          edges{
-            node{
-#               acceptsNewComments
-#               author {
-#                 id
-#               }
-#               category {
-#                 id
-#               }
-#               comments {
-#                 id
-#               }
-#               commentsHaveAlignment
-#               commentsHaveVotes
-#               createdAt
-#               description {
-#                 translation(locale: "#{locale}")
-#               }
-#               endTime
-#               hasComments
-#               id
-#               image
-#               informationUpdates {
-#                 translation(locale: "#{locale}")
-#               }
-#               instructions {
-#                 translation(locale: "#{locale}")
-#               }
-#               reference
-#               startTime
-#               title {
-#                 translation(locale: "#{locale}")
-#               }
-#               totalCommentsCount
-#               type
-#               updatedAt
-#               userAllowedToComment
+        fragment fooComponent on Elections {
+          elections{
+            edges{
+              node{
+                attachments {
+                  thumbnail
+                }
+                bb_status
+                blocked
+                createdAt
+                description {
+                  translation(locale: "en")
+                }
+                endTime
+                id
+                publishedAt
+                questions {
+                  answers {
+                    attachments {  type}
+                    description {
+                      translation(locale: "en")
+                    }
+                    id
+                    proposals {id }
+                    selected
+                    title {
+                      translation(locale: "en")
+                    }
+                    versions {
+                      id
+                    }
+                    versionsCount
+                    votes_count
+                    weight
+                  }
+                  description {
+                    translation(locale: "en")
+                  }
+                  id
+                  maxSelections
+                  minSelections
+                  randomAnswersOrder
+                  title {
+                    translation(locale: "en")
+                  }
+                  versions {
+                    id
+                  }
+                  versionsCount
+                  weight
+                }
+                startTime
+                title {
+                  translation(locale: "en")
+                }
+                trustees {
+                  id
+                }
+                updatedAt
+                versions {
+                  id
+                }
+                versionsCount
+              }
             }
           }
         }
-      }
-)
+      )
     end
 
     it "executes sucessfully" do
@@ -116,41 +164,65 @@ describe "Decidim::Api::QueryType" do
       %(
       fragment fooComponent on Elections {
         election(id: #{election.id}){
-#           acceptsNewComments
-#           author {
-#             id
-#           }
-#           category {
-#             id
-#           }
-#           comments {
-#             id
-#           }
-#           commentsHaveAlignment
-#           commentsHaveVotes
-#           createdAt
-#           description {
-#             translation(locale: "#{locale}")
-#           }
-#           endTime
-#           hasComments
-#           id
-#           image
-#           informationUpdates {
-#             translation(locale: "#{locale}")
-#           }
-#           instructions {
-#             translation(locale: "#{locale}")
-#           }
-#           reference
-#           startTime
-#           title {
-#             translation(locale: "#{locale}")
-#           }
-#           totalCommentsCount
-#           type
-#           updatedAt
-#           userAllowedToComment
+          attachments {
+            thumbnail
+          }
+          bb_status
+          blocked
+          createdAt
+          description {
+            translation(locale: "en")
+          }
+          endTime
+          id
+          publishedAt
+          questions {
+            answers {
+              attachments {  type}
+              description {
+                translation(locale: "en")
+              }
+              id
+              proposals {id }
+              selected
+              title {
+                translation(locale: "en")
+              }
+              versions {
+                id
+              }
+              versionsCount
+              votes_count
+              weight
+            }
+            description {
+              translation(locale: "en")
+            }
+            id
+            maxSelections
+            minSelections
+            randomAnswersOrder
+            title {
+              translation(locale: "en")
+            }
+            versions {
+              id
+            }
+            versionsCount
+            weight
+          }
+          startTime
+          title {
+            translation(locale: "en")
+          }
+          trustees {
+            id
+          }
+          updatedAt
+          versions {
+            id
+          }
+          versionsCount
         }
       }
 )
