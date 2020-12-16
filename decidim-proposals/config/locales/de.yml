@@ -108,7 +108,7 @@ de:
           valuator_role_ids_has:
             label: Zugewiesen zu dem Schätzer
         search_placeholder:
-          id_string_or_title_cont: Suche in %{collection} nach ID oder Titel.
+          id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
     components:
       proposals:
         actions:
