@@ -283,7 +283,7 @@ de:
       orders:
         label: Wahlen ordnen nach
         older: Chronologisch
-        recent: Neueste
+        recent: Kürzlich hinzugefügt
       trustee_zone:
         menu:
           trustee_zone: Wahlhelfer Zone
