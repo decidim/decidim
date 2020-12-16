@@ -37,7 +37,7 @@ de:
           form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
           submit: Senden
           user_group_id:
-            label: Kommentar als
+            label: Kommentieren als
         opinion:
           neutral: Neutral
         remaining_characters: "%{count} Zeichen übrig"
