@@ -146,9 +146,9 @@ de:
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme den folgenden Bedingungen zu
-          are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
-          refuse: Die Admin-Bedingungen ablehnen
-          title: Den Nutzungsbedingungen zustimmen
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
+          refuse: Die Admin-Nutzungsbedingungen ablehnen
+          title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
@@ -206,21 +206,21 @@ de:
           success: Der Ordner wurde erfolgreich aktualisiert.
       attachments:
         create:
-          error: Beim Erstellen eines neuen Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich erstellt.
+          error: Beim Erstellen des neuen Anhangs ist ein Fehler aufgetreten.
+          success: Anhang wurde erfolgreich erstellt.
         destroy:
-          success: Anlage wurde erfolgreich zerstört.
+          success: Anhang wurde erfolgreich entfernt.
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
         index:
-          attachments_title: Anlagen
+          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
         update:
           error: Beim Aktualisieren dieses Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich aktualisiert.
+          success: Anhang wurde erfolgreich aktualisiert.
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
@@ -319,7 +319,7 @@ de:
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
-          title_cont: Suche in %{collection} nach Titel.
+          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
       help_sections:
