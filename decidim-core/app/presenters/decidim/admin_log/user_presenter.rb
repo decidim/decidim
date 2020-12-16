@@ -42,7 +42,7 @@ module Decidim
       end
 
       def previous_justification
-        action_log.extra.dig("extra", "previous_justification") || ""
+        action_log.extra.dig("extra", "previous_justification") || Hash.new("")
       end
 
       def current_justification
