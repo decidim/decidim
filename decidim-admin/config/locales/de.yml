@@ -131,7 +131,7 @@ de:
     admin:
       actions:
         add: Hinzufügen
-        browse: Durchsuche
+        browse: Durchsuchen
         export: Export
         manage: Verwalten
         new: Neu %{name}
@@ -142,8 +142,8 @@ de:
         verify: Überprüfen
       admin_terms_of_use:
         accept:
-          error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
-          success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
+          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
+          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme den folgenden Bedingungen zu
           are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
@@ -151,9 +151,9 @@ de:
           title: Den Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Andernfalls können Sie die Plattform nicht administrieren.
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
           cta: Lesen Sie sie jetzt.
-        title: Admin Nutzungsbedingungen
+        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
