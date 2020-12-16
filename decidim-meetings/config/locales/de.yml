@@ -395,7 +395,7 @@ de:
           origin: Ursprung
           origin_values:
             all: Alle
-            citizens: Bürger
+            citizens: Einzelpersonen
             official: Offiziell
             user_groups: Gruppen
           scope: Umfang
