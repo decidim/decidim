@@ -143,7 +143,7 @@ de:
           notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
         milestone_completed:
           affected_user:
-            email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
+            email_intro: Ihre Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
