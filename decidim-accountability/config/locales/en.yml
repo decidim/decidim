@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -31,6 +32,11 @@ en:
         one: Result
         other: Results
   decidim:
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Label
     accountability:
       actions:
         confirm_destroy: Are you sure you want to delete this %{name}?

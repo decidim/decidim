@@ -8,6 +8,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::Proposals::Admin::Picker
+        include Decidim::Accountability::Admin::Filterable
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
@@ -74,9 +75,13 @@ module Decidim
 
         private
 
-        def results
+        def collection
           parent_id = params[:parent_id].presence
-          @results ||= Result.where(component: current_component, parent_id: parent_id).page(params[:page]).per(15)
+          @collection ||= Result.where(component: current_component, parent_id: parent_id)
+        end
+
+        def results
+          @results ||= filtered_collection
         end
 
         def result
