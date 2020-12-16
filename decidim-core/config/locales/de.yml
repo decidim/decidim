@@ -388,7 +388,7 @@ de:
         orders:
           label: 'Elemente sortieren nach:'
           random: Zufällig
-          recent: Neueste
+          recent: Neueste zuerst
       how_to_participate:
         name: Wie kann ich mich beteiligen
       html:
