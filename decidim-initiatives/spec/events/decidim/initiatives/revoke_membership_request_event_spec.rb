@@ -17,8 +17,8 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, :created, organization: organization) }
   let(:author) { initiative.author }
-  let(:author_profile_url) {Decidim::UserPresenter.new(author).profile_url}
-  let(:author_nickname) {Decidim::UserPresenter.new(author).nickname}
+  let(:author_profile_url) { Decidim::UserPresenter.new(author).profile_url }
+  let(:author_nickname) { Decidim::UserPresenter.new(author).nickname }
   let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
   let(:resource_url) { resource_locator(initiative).url }
   let(:resource_title) { translated(initiative.title) }

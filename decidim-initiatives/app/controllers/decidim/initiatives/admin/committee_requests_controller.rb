@@ -19,7 +19,7 @@ module Decidim
           ApproveMembershipRequest.call(membership_request) do
             on(:ok) do
               redirect_to edit_initiative_path(current_initiative), flash: {
-                  notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
+                notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
               }
             end
           end
@@ -32,7 +32,7 @@ module Decidim
           RevokeMembershipRequest.call(membership_request) do
             on(:ok) do
               redirect_to edit_initiative_path(current_initiative), flash: {
-                  notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
+                notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
               }
             end
           end
