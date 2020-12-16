@@ -24,6 +24,23 @@ describe "Space admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
+  context "when the user can visualize the components" do
+    let!(:reportable) { create(:dummy_resource, component: current_component, title: { user.locale => "Dummy Title" } ) }
+    let!(:moderation) { create(:moderation, reportable: reportable) }
+
+    it "can see links to components" do
+      visit decidim_admin.moderations_path
+
+      expect(page).to have_content("Moderations")
+
+      expect(page).to have_link("Visit URL")
+      tooltip_id = find_link('Visit URL')['data-toggle']
+      result = page.find("##{tooltip_id}", visible: :all)
+      expect(result).to have_content(tooltip_id)
+      # expect(result).to eq(tooltip_id)
+      end
+  end
+
   context "when the user can manage a space that has moderations" do
     it_behaves_like "manage moderations" do
       let(:moderations_link_text) { "Global moderations" }
