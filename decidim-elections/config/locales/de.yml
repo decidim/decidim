@@ -282,7 +282,7 @@ de:
             status: Status
       orders:
         label: Wahlen ordnen nach
-        older: Älter
+        older: Chronologisch
         recent: Neueste
       trustee_zone:
         menu:
