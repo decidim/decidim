@@ -527,7 +527,7 @@ de:
             email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
-            notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
           follower:
             email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
@@ -538,7 +538,7 @@ de:
             email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
