@@ -162,10 +162,10 @@ de:
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         amended_by: Geändert durch
-        button: '%{model_name}ändern'
+        button: '%{model_name} ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
         help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
-        promote_button: Auf %{model_name}
+        promote_button: Zu %{model_name} befördern
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
@@ -191,8 +191,8 @@ de:
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
         announcement:
           accepted: |-
-            Durch diese Änderung für die %{amendable_type} %{amendable_link} wurde
-            auf akzeptiert <strong>%{announcement_date}</strong>.
+            Dieser Änderungsvorschlag für %{amendable_type} %{proposal_link}
+            wurde am <strong>%{date}</strong> akzeptiert.
           evaluating: |-
             Diese Änderung für die %{amendable_type} %{amendable_link}
             wird bewertet.
