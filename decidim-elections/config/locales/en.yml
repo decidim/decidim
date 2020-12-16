@@ -296,9 +296,9 @@ en:
       trustee_zone:
         elections:
           backup_modal:
-            download_election_keys: Backup election keys
+            description: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
+            download_election_keys: Download election keys
             download_icon: Icon that indicates a download action
-            process_warning: This election is being created in the Bulletin Board. Is is very important that every Trustee participating in it creates a backup copy of these keys and store them in a safe place. After that, the process continues.
             title: Backup election keys for %{election}
           generate_election_keys:
             back: Back
@@ -319,6 +319,11 @@ en:
               pending: Pending
               processing: Processing
             title: Create election keys for %{election}
+          restore_modal:
+            description: The Bulletin Board has information from you as a Trustee on this election. To continue the process, first upload the backup file generated during the previous session.
+            upload_election_keys: Upload election keys
+            upload_icon: Icon that indicates a download action
+            title: Restore election keys for %{election}
           update:
             error: The election status wasn't updated.
             success: 'The election status is: %{status}'

@@ -69,6 +69,10 @@ module Decidim
             message_id: "#{election_id}.create_election+a.#{bulletin_board.authority_slug}",
             type: "create_election",
             scheme: bulletin_board.scheme,
+            authority: {
+              name: bulletin_board.authority_name,
+              public_key: bulletin_board.public_key
+            },
             trustees:
               trustees.collect do |trustee|
                 {
