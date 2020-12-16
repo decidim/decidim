@@ -49,7 +49,7 @@ de:
           attributes:
             attachment:
               file: Datei ist ungültig
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
               title: Der Titel sollte nicht leer sein
   activerecord:
     models:
