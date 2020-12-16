@@ -142,6 +142,6 @@ describe "Decidim::Api::QueryType" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(sortition_single_result) }
+    it { expect(response["participatoryProcess"]).to eq(sortition_single_result) }
   end
 end
