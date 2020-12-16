@@ -113,7 +113,7 @@ de:
           invalid: Es gab ein Problem beim Erstellen der Debatte.
           success: Diskussion erfolgreich erstellt
         debate:
-          participate: Sich beteiligen
+          participate: Mitmachen
         edit:
           back: Zurück
           save: Änderungen speichern
@@ -123,7 +123,7 @@ de:
           all: Alle
           category: Kategorie
           category_prompt: Wählen Sie eine Kategorie
-          citizens: Bürger
+          citizens: Einzelpersonen
           commented: Kommentiert
           my_debates: Meine Debatten
           official: Offiziell
@@ -203,7 +203,7 @@ de:
             email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die <a href="%{resource_path}">%{resource_title}</a> Debatte geschaffen.
         creation_disabled:
-          email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title}nicht mehr aktiv. Sie können weiterhin an offenen Debatten von dieser Seite teilnehmen:'
+          email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title} nicht mehr aktiviert. Sie können weiterhin an offenen Debatten teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Die Erstellung von Debatten wurde in %{participatory_space_title}deaktiviert
           notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a>deaktiviert
@@ -232,9 +232,9 @@ de:
           description_another: Dieser Benutzer hat an %{score} Debatten teilgenommen.
           description_own: Sie haben an %{score} Debatten teilgenommen.
           name: Debatten
-          next_level_in: Nimm an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
+          next_level_in: Nehmen Sie an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
-          unearned_own: Sie haben bereits an Debatten teilgenommen.
+          unearned_own: Sie haben bisher an keiner Debatte teilgenommen.
     metrics:
       debates:
         description: Anzahl der erstellten Debatten
