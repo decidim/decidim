@@ -72,7 +72,7 @@ module Decidim
             trustees:
               trustees.collect do |trustee|
                 {
-                  name: trustee.user.name,
+                  name: trustee.name,
                   public_key: trustee.public_key
                 }
               end,
