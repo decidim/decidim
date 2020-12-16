@@ -2,7 +2,7 @@
   <div class="columns large-12">
     <div class="section">
       <h4 class="section-heading"><%= t(".title") %></h4>
-        <% if videoconference_visible? %>
+        <% if visible? %>
           <p class="help"><%= t(".explanation") %></p>
 
           <button id="join-videoconference" class="button">
@@ -18,8 +18,6 @@
             user_role: user_role,
             attendance_url: attendance_url
           } %>
-
-          <p><%= t(".disclaimer", organization: current_organization.name) %></p>
 
           <div id="videoconference-closed-message" class="hide callout warning">
             <p><%= t(".closed") %></p>

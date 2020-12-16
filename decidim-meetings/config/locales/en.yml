@@ -544,7 +544,6 @@ en:
         back_to_resource: Go back to meeting
       videoconference:
         closed: The videoconference has ended.
-        disclaimer: "%{organization} cannot be held responsible for the content of this videoconference."
         explanation: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference.
         join: Join videoconference
         title: Videoconference

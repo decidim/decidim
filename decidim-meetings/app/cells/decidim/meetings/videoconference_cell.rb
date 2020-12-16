@@ -9,9 +9,17 @@ module Decidim
 
       def show
         return unless current_user
-        return unless videoconference_visible?
+        return unless visible?
 
         render
+      end
+
+      def visible?
+        Time.zone.now.between?(meeting.start_time - 30.minutes, meeting.end_time + 10.minutes)
+      end
+
+      def room_name
+        @room_name ||= [meeting.reference, token].join("-").slice(0, 50)
       end
 
       def iframe_id
@@ -24,10 +32,6 @@ module Decidim
 
       def api_url
         Decidim.videoconferences.dig(:jitsi, :api_url)
-      end
-
-      def room_name
-        @room_name ||= [meeting.reference, token].join("-").slice(0, 50)
       end
 
       def user_role
@@ -45,21 +49,13 @@ module Decidim
 
         Digest::SHA1.hexdigest "#{meeting.id}-#{Rails.application.secrets.secret_key_base}"
       end
-
-      def meeting
-        model
-      end
-
-      def current_organization
-        current_user.organization
-      end
-
+      
       def attendance_url
         meeting_videoconference_attendance_logs_url(meeting_id: meeting.id)
       end
-
-      def videoconference_visible?
-        Time.zone.now.between?(meeting.start_time - 30.minutes, meeting.end_time + 10.minutes)
+      
+      def meeting
+        model
       end
     end
   end
