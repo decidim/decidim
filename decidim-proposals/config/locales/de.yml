@@ -237,7 +237,7 @@ de:
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Ihr Angebot "%{resource_title}" wird derzeit geprüft. Sie können auf dieser Seite nach einer Antwort suchen:'
+            email_intro: 'Ihr Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
             email_subject: Ihr Vorschlag wird geprüft
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird geprüft.
