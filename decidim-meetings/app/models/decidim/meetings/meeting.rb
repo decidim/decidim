@@ -246,6 +246,10 @@ module Decidim
         type_of_meeting == "online"
       end
 
+      def embedded?
+        embedded_videoconference
+      end
+
       def registration_disabled?
         registration_type == "registration_disabled"
       end

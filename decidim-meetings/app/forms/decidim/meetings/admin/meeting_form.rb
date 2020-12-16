@@ -39,7 +39,7 @@ module Decidim
 
         validates :address, presence: true, if: ->(form) { form.needs_address? }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
-        validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
+        validates :online_meeting_url, presence: true, url: true, if: ->(form) { (form.online_meeting? || form.hybrid_meeting? )&& !form.embedded_videoconference }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 

@@ -41,6 +41,7 @@ module Decidim
             end_time: form.end_time,
             start_time: form.start_time,
             online_meeting_url: form.online_meeting_url,
+            embedded_videoconference: form.embedded_videoconference,
             registration_type: form.registration_type,
             registration_url: form.registration_url,
             available_slots: form.available_slots,

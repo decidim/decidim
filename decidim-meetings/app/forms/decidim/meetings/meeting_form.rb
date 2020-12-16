@@ -17,6 +17,7 @@ module Decidim
       attribute :decidim_scope_id, Integer
       attribute :decidim_category_id, Integer
       attribute :user_group_id, Integer
+      attribute :embedded_videoconference, Boolean
       attribute :online_meeting_url, String
       attribute :type_of_meeting, String
       attribute :registration_type, String
@@ -31,7 +32,7 @@ module Decidim
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :address, presence: true, if: ->(form) { form.needs_address? }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
-      validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
+      validates :online_meeting_url, presence: true, url: true, if: ->(form) { (form.online_meeting? || form.hybrid_meeting?) && !form.embedded_videoconference }
       validates :registration_type, presence: true
       validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
       validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
