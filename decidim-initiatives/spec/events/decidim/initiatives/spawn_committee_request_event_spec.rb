@@ -20,6 +20,7 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
   let(:applicant_profile_url) { Decidim::UserPresenter.new(applicant).profile_url }
   let(:applicant_nickname) { Decidim::UserPresenter.new(applicant).nickname }
   let(:resource_url) { resource_locator(initiative).url }
+  let(:resource_title) { translated(initiative.title) }
 
   describe "types" do
     subject { described_class }
@@ -41,21 +42,21 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{translated(initiative.title)}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>.")
+      expect(subject.email_intro).to eq("<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{resource_title}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>.")
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you are the author of this initiative : <a href=\"#{resource_url}\">#{translated(initiative.title)}</a>.")
+        .to eq("You received this notification because you are the author of this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{translated(initiative.title)}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>.")
+        .to eq("<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{resource_title}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>.")
     end
   end
 end
