@@ -235,7 +235,7 @@ de:
         orders:
           label: 'Sortieren Sie die Konsultationen nach:'
           random: Zufällig
-          recent: Neueste
+          recent: Neueste zuerst
         show:
           dates: Daten
       content_blocks:
@@ -305,15 +305,15 @@ de:
         title: Fragen für diese Konsultation
       show:
         badge_name:
-          finished: Fertig
+          finished: Abgeschlossen
           open: Öffnen
           open_votes: Stimmen öffnen
           published_results: Ergebnisse veröffentlicht
         footer_button_text:
           debate: Debatte
-          view: Aussicht
+          view: Ansehen
           view_results: Ergebnisse anzeigen
-          vote: Abstimmung
+          vote: Abstimmen
         unspecified: Keine Angabe
     help:
       participatory_spaces:
