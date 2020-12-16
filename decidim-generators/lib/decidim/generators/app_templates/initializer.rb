@@ -240,12 +240,12 @@ Decidim.configure do |config|
   # Decidim for embedded videoconferences. See Decidim docs at
   # docs/services/videoconferences.md in order to set it up.
   #
-  # config.videoconferences = {
+  config.videoconferences = {
   #   jitsi: {
   #     domain: Rails.application.secrets.videoconferences[:jitsi][:domain],
   #     api_url: Rails.application.secrets.videoconferences[:jitsi][:api_url]
   #   }
-  # }
+  }
 
   # Sets Decidim::Exporters::CSV's default column separator
   # config.default_csv_col_sep = ";"
