@@ -8,10 +8,12 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
 
   let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:category) { create(:category, participatory_space: participatory_process) }
   let!(:current_component) { create :sortition_component, participatory_space: participatory_process }
-  let!(:sortition) { create(:sortition, component: current_component, category: create(:category, participatory_space: participatory_process)) }
+  let!(:sortition) { create(:sortition, component: current_component, category: category) }
 
   let(:page_single_result) do
+    sortition.reload
     {
       "acceptsNewComments" => sortition.accepts_new_comments?,
       "additionalInfo" => { "translation" => sortition.additional_info[locale] },
@@ -68,9 +70,7 @@ describe "Decidim::Api::QueryType" do
               additionalInfo {  translation(locale: "#{locale}") }
               author { id }
               cancelReason { translation(locale: "#{locale}") }
-              cancelledByUser {
-                id
-              }
+              cancelledByUser { id }
               cancelledOn
               candidateProposals
               category { id }
@@ -115,21 +115,13 @@ describe "Decidim::Api::QueryType" do
           additionalInfo {
             translation(locale: "#{locale}")
           }
-          author {
-            id
-          }
+          author { id }
           cancelReason { translation(locale: "#{locale}") }
-          cancelledByUser {
-            id
-          }
+          cancelledByUser { id }
           cancelledOn
           candidateProposals
-          category {
-            id
-          }
-          comments {
-            id
-          }
+          category { id }
+          comments { id }
           commentsHaveAlignment
           commentsHaveVotes
           createdAt

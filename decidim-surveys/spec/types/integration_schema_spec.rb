@@ -13,6 +13,7 @@ describe "Decidim::Api::QueryType" do
   let!(:questionnaire) { create(:questionnaire, :with_questions, questionnaire_for: survey) }
 
   let(:survey_single_result) do
+    survey.reload
     {
       "createdAt" => survey.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "id" => survey.id.to_s,

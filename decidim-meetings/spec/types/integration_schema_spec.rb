@@ -17,6 +17,7 @@ describe "Decidim::Api::QueryType" do
   let!(:minutes) { create(:minutes, meeting: meeting) }
 
   let(:meeting_single_result) do
+    meeting.reload
     {
       "acceptsNewComments" => meeting.accepts_new_comments?,
       "address" => meeting.address,
