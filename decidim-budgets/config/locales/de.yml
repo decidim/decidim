@@ -131,20 +131,23 @@ de:
           voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
-          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Abstimmung nachträglich ändern.
+          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
           cancel: Stornieren
           confirm: Bestätigen
-          description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
+          description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung
         budget_excess:
           budget_excess:
+            description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
             title: Maximales Budget überschritten
           close: Schließen
+          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
           ok: OK
           projects_excess:
-            title: Maximale Projekte überschritten
+            description: Dieses Projekt überschreitet die maximale Anzahl Projekte und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
+            title: Maximale Anzahl Projekte überschritten
         budget_summary:
-          are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme absagen wollen?
+          are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
           assigned: 'Zugewiesen:'
           cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
