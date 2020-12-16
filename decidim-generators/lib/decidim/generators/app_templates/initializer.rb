@@ -241,10 +241,10 @@ Decidim.configure do |config|
   # docs/services/videoconferences.md in order to set it up.
   #
   config.videoconferences = {
-  #   jitsi: {
-  #     domain: Rails.application.secrets.videoconferences[:jitsi][:domain],
-  #     api_url: Rails.application.secrets.videoconferences[:jitsi][:api_url]
-  #   }
+    #    jitsi: {
+    #      domain: Rails.application.secrets.videoconferences[:jitsi][:domain],
+    #      api_url: Rails.application.secrets.videoconferences[:jitsi][:api_url]
+    #    }
   }
 
   # Sets Decidim::Exporters::CSV's default column separator
