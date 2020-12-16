@@ -33,9 +33,14 @@
       <p class="help-text"><%= t(".location_hints_help") %></p>
     </div>
 
-    <div class="field" data-meeting-type="online">
+    <div class="field" data-meeting-type="online" id="online_meeting_url">
       <%= form.text_field :online_meeting_url %>
       <p class="help-text"><%= t(".online_meeting_url_help") %></p>
+    </div>
+
+    <div class="field" data-meeting-type="online" id="embedded_videoconference">
+      <%= form.check_box :embedded_videoconference, label: t(".embedded_videoconference") %>
+      <p class="help-text"><%= t(".embedded_videoconference_help") %></p>
     </div>
 
     <div class="row">

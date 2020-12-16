@@ -37,6 +37,10 @@
     }
   };
 
+  const toggleEmbeddedVideoconference = (controlField, toggledField) => {
+    toggledField.toggle(controlField.value);
+  }
+
   createDynamicFields({
     placeholderId: "meeting-service-id",
     wrapperSelector: wrapperSelector,
@@ -122,7 +126,6 @@
     const $meetingTypeOfMeeting = $meetingForm.find("#meeting_type_of_meeting");
     const $meetingOnlineFields = $meetingForm.find(".field[data-meeting-type='online']");
     const $meetingInPersonFields = $meetingForm.find(".field[data-meeting-type='in_person']");
-    const $meetingEmbeddedFields = $meetingForm.find(".field[data-meeting-type='embedded']");
 
     const toggleDependsOnSelect = ($target, $showDiv, type) => {
       const value = $target.val();
@@ -140,11 +143,17 @@
       const $target = $(ev.target);
       toggleDependsOnSelect($target, $meetingOnlineFields, "online");
       toggleDependsOnSelect($target, $meetingInPersonFields, "in_person");
-      toggleDependsOnSelect($target, $meetingEmbeddedFields, "embedded");
     });
 
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
-    toggleDependsOnSelect($meetingTypeOfMeeting, $meetingEmbeddedFields, "embedded");
+
+    const $embeddedVideoconferenceField = $("#embedded_videoconference input");
+    const $onlineMeetingUrlField = $("#online_meeting_url");
+    $embeddedVideoconferenceField.on("change", () => {
+      toggleEmbeddedVideoconference($embeddedVideoconferenceField, $onlineMeetingUrlField);
+    });
+
+    toggleEmbeddedVideoconference($embeddedVideoconferenceField, $onlineMeetingUrlField);
   }
 })(window);
