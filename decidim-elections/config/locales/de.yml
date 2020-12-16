@@ -208,14 +208,14 @@ de:
           finished: Abgeschlossen
           ongoing: Aktiv
           upcoming: Anstehend
-        end_date: Endet
+        end_date: Endet am
         footer:
           view: Ansicht
           vote: Abstimmung
         label:
           date: Daten
         questions: Fragen %{count}
-        start_date: Startet
+        start_date: Startet am
         unspecified: Nicht angegeben
       elections:
         count:
