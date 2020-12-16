@@ -4,7 +4,7 @@
 
 ((exports) => {
   class IdentificationKeys {
-    constructor(trusteeId, storedPublicKey) {
+    constructor(trusteeUniqueId, storedPublicKey) {
       this.format = "jwk";
       this.algorithm = {
         name: "RSASSA-PKCS1-v1_5",
@@ -16,11 +16,11 @@
       this.publicKeyAttrs = ["alg", "e", "kty", "n"];
       this.jwtHeader = this._encode64(JSON.stringify({alg: "RS256", typ: "JWT"}));
 
-      this.trusteeId = trusteeId;
+      this.trusteeUniqueId = trusteeUniqueId;
       this.privateKey = null;
       this.publicKey = null;
       this.storedPublicKey = JSON.parse(storedPublicKey || null);
-      this.keyIdentifier = `${trusteeId}_identification_key`;
+      this.keyIdentifier = `${trusteeUniqueId}-private-key`;
       this.browserSupport = this._checkBrowserSupport();
       this.textEncoder = new TextEncoder("utf-8");
 
