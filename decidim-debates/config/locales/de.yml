@@ -12,7 +12,7 @@ de:
         instructions: Anweisungen zur Teilnahme
         start_time: Startet um
         title: Titel
-        user_group_id: Erstellen Sie eine Debatte als
+        user_group_id: Debatte erstellen als
     models:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
