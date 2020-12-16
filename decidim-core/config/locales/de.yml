@@ -502,8 +502,8 @@ de:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
+            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
@@ -513,7 +513,7 @@ de:
             notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
             email_subject: Neuer Änderungsantrag für %{amendable_title}
             notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
@@ -524,7 +524,7 @@ de:
             notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
             email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue %{amendable_type}
             notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
@@ -535,7 +535,7 @@ de:
             notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
             email_subject: Ein Änderungsantrag wurde für %{amendable_title} von %{emendation_author_nickname}abgelehnt
             notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
@@ -1467,11 +1467,11 @@ de:
       update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
       updated: Ihr Konto wurde erfolgreich aktualisiert.
     sessions:
-      already_signed_out: Erfolgreich abgesendet
+      already_signed_out: Erfolgreich abgemeldet.
       new:
         sign_in: Einloggen
       signed_in: Erfolgreich angemeldet
-      signed_out: Erfolgreich abgesendet
+      signed_out: Erfolgreich abgemeldet.
     shared:
       links:
         back: Zurück
