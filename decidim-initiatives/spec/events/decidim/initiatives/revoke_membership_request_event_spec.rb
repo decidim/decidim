@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   subject do
     described_class.new(
-        resource: initiative,
-        event_name: event_name,
-        user: [membership_request.user],
-        user_role: :affected_user,
-        extra: { author: author }
+      resource: initiative,
+      event_name: event_name,
+      user: [membership_request.user],
+      user_role: :affected_user,
+      extra: { author: author }
     )
   end
 
@@ -50,14 +50,14 @@ describe Decidim::Initiatives::RevokeMembershipRequestEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-          .to eq("You received this notification because you applied to this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("You received this notification because you applied to this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-          .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> Rejected you application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> Rejected you application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 end

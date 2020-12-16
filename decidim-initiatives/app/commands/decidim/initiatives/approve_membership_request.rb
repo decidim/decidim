@@ -4,7 +4,6 @@ module Decidim
   module Initiatives
     # A command with all the business logic that creates a new initiative.
     class ApproveMembershipRequest < Rectify::Command
-
       # Public: Initializes the command.
       #
       # membership_request - A pending committee member
@@ -28,11 +27,11 @@ module Decidim
 
       def notify_applicant
         Decidim::EventsManager.publish(
-            event: "decidim.events.initiatives.approve_membership_request",
-            event_class: Decidim::Initiatives::ApproveMembershipRequest,
-            resource: @membership_request.initiative,
-            affected_users: [@membership_request.user],
-            extra: { author: @membership_request.initiative.author }
+          event: "decidim.events.initiatives.approve_membership_request",
+          event_class: Decidim::Initiatives::ApproveMembershipRequest,
+          resource: @membership_request.initiative,
+          affected_users: [@membership_request.user],
+          extra: { author: @membership_request.initiative.author }
         )
       end
     end

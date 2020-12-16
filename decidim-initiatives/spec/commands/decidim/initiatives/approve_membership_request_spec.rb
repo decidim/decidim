@@ -18,14 +18,14 @@ module Decidim
 
         it "notifies author" do
           expect(Decidim::EventsManager)
-              .to receive(:publish)
-                      .with(
-                          event: "decidim.events.initiatives.approve_membership_request",
-                          event_class: Decidim::Initiatives::ApproveMembershipRequest,
-                          resource: initiative,
-                          affected_users: [membership_request.user],
-                          extra: { author: initiative.author }
-                      )
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.initiatives.approve_membership_request",
+              event_class: Decidim::Initiatives::ApproveMembershipRequest,
+              resource: initiative,
+              affected_users: [membership_request.user],
+              extra: { author: initiative.author }
+            )
 
           command.call
         end

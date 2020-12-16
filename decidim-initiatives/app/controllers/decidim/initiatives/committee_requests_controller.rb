@@ -21,21 +21,21 @@ module Decidim
         enforce_permission_to :request_membership, :initiative, initiative: current_initiative
 
         form = Decidim::Initiatives::CommitteeMemberForm
-                   .from_params(initiative_id: current_initiative.id, user_id: current_user.id, state: "requested")
+               .from_params(initiative_id: current_initiative.id, user_id: current_user.id, state: "requested")
 
         SpawnCommitteeRequest.call(form, current_user) do
           on(:ok) do
             redirect_to initiatives_path, flash: {
-                notice: I18n.t(
-                    "success",
-                    scope: %w(decidim initiatives committee_requests spawn)
-                )
+              notice: I18n.t(
+                "success",
+                scope: %w(decidim initiatives committee_requests spawn)
+              )
             }
           end
 
           on(:invalid) do |request|
             redirect_to initiatives_path, flash: {
-                error: request.errors.full_messages.to_sentence
+              error: request.errors.full_messages.to_sentence
             }
           end
         end
@@ -48,7 +48,7 @@ module Decidim
         ApproveMembershipRequest.call(membership_request) do
           on(:ok) do
             redirect_to edit_initiative_path(current_initiative), flash: {
-                notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
+              notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.approve")
             }
           end
         end
@@ -61,7 +61,7 @@ module Decidim
         RevokeMembershipRequest.call(membership_request) do
           on(:ok) do
             redirect_to edit_initiative_path(current_initiative), flash: {
-                notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
+              notice: I18n.t("success", scope: "decidim.initiatives.committee_requests.revoke")
             }
           end
         end

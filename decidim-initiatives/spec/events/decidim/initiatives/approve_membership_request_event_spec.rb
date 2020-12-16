@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   subject do
     described_class.new(
-        resource: initiative,
-        event_name: event_name,
-        user: [membership_request.user],
-        user_role: :affected_user,
-        extra: { author: author }
+      resource: initiative,
+      event_name: event_name,
+      user: [membership_request.user],
+      user_role: :affected_user,
+      extra: { author: author }
     )
   end
 
@@ -17,7 +17,7 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   let(:organization) { create(:organization) }
   let!(:initiative) { create(:initiative, :created, organization: organization) }
   let(:author) { initiative.author }
-  let(:author_profile_url) {Decidim::UserPresenter.new(author).profile_url}
+  let(:author_profile_url) { Decidim::UserPresenter.new(author).profile_url}
   let(:author_nickname) {Decidim::UserPresenter.new(author).nickname}
   let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
   let(:resource_url) { resource_locator(initiative).url }
@@ -50,14 +50,14 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-          .to eq("You received this notification because you applied to this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("You received this notification because you applied to this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-          .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
     end
   end
 end
