@@ -191,15 +191,15 @@ de:
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
         announcement:
           accepted: |-
-            Dieser Änderungsvorschlag für %{amendable_type} %{proposal_link}
+            Diese Änderung für %{amendable_type} %{proposal_link}
             wurde am <strong>%{date}</strong> akzeptiert.
           evaluating: |-
-            Diese Änderung für die %{amendable_type} %{amendable_link}
-            wird bewertet.
-          promoted: Hochgestuft auf %{amendable_type}.
-          rejected: "Diese Änderung für die %{amendable_type} %{amendable_link}\nwurde am <strong>%{announcement_date}</strong>abgelehnt."
+            Diese Änderung für %{amendable_type} %{proposal_link}
+            wird derzeit bewertet.
+          promoted: Befördert zu %{amendable_type}.
+          rejected: Diese Änderung für %{amendable_type} %{proposal_link} wurde am <strong>%{date}</strong> abgelehnt.
           withdrawn: |-
-            Diese Änderung für die %{amendable_type} %{amendable_link}
+            Diese Änderung für %{amendable_type} %{proposal_link}
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
@@ -246,7 +246,7 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Ähnliche Bilder
+        related_photos: Zugehörige Bilder
     author:
       avatar: Profilbild
       comments:
