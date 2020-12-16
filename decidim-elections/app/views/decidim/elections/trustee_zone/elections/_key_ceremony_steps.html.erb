@@ -16,7 +16,7 @@
       <% %w(create_election key_ceremony.step_1 key_ceremony.joint_election_key).each do |step| %>
       <tr>
         <td><%= t(".keys.#{step}") %></td>
-        <td id="<%= step %>">
+        <td id="<%= step.gsub(".", "-") %>">
           <span class="pending"><%= t(".status.pending") %></span>
           <span class="processing hide"><%= t(".status.processing") %></span>
           <span class="completed hide"><%= t(".status.completed") %></span>
@@ -25,13 +25,11 @@
       <% end %>
     </tbody>
   </table>
-  <button type="button" id="backup-modal" class="link hide" data-toggle="show-backup-modal">
-    ""
-  </button>
   <%= render("backup_modal") %>
+  <%= render("restore_modal") %>
 </div>
 
-<button class="button start">
+<button class="button start disabled">
   <%= icon "power-standby", class: "icon", role: "img", aria_label: t(".start_icon") %>
   <span><%= t(".start") %></span>
 </button>

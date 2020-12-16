@@ -1,4 +1,4 @@
-<div class="reveal" id="show-backup-modal" data-reveal data-close-on-click="false">
+<div class="reveal" id="show-restore-modal" data-reveal data-close-on-click="false">
   <div class="reveal__header">
     <h3 class="reveal__title"><%= t(".title", election: translated_attribute(election.title)) %></h3>
   </div>
@@ -6,7 +6,7 @@
   <div class="row m-bottom">
     <div class="columns">
       <div class="section">
-        <div class="callout alert">
+        <div class="callout info">
           <p><%= t(".description") %></p>
         </div>
       </div>
@@ -15,9 +15,9 @@
 
   <div class="row">
     <div class="columns medium-5 medium-centered">
-      <button class="button download-election-keys">
-        <%= icon "data-transfer-download", class: "icon", role: "img", aria_label: t(".download_icon") %>
-        <span><%= t(".download_election_keys") %></span>
+      <button class="button upload-election-keys">
+        <%= icon "data-transfer-upload", class: "icon", role: "img", aria_label: t(".upload_icon") %>
+        <span><%= t(".upload_election_keys") %></span>
       </button>
     </div>
   </div>
