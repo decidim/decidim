@@ -455,7 +455,7 @@ de:
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
-          view: Aussicht
+          view: Anzeigen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Besprechung erfolgreich aktualisiert.
