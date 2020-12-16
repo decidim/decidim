@@ -127,7 +127,7 @@ de:
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
             can_accumulate_supports_beyond_threshold: Kann Unterstützungen über den Schwellenwert hinaus ansammeln
-            collaborative_drafts_enabled: Gemeinsame Entwürfe aktiviert
+            collaborative_drafts_enabled: Kollaborative Entwürfe aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             geocoding_enabled: Geocoding aktiviert
@@ -613,7 +613,7 @@ de:
           label: 'Bestellentwürfe von:'
           most_contributed: Am meisten beigetragen
           random: Zufällig
-          recent: Neueste
+          recent: Kürzlich hinzugefügt
         requests:
           accepted_request:
             error: Könnte nicht als Mitarbeiter akzeptiert werden, versuchen Sie es später erneut.
@@ -776,7 +776,7 @@ de:
           most_followed: Am meisten gefolgt
           most_voted: Am meisten unterstützt
           random: Zufällig
-          recent: Kürzlich
+          recent: Kürzlich hinzugefügt
           with_more_authors: Mit mehr Autoren
         participatory_texts:
           index:
