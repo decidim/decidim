@@ -23,7 +23,7 @@ de:
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
-        custom_signature_end_date_enabled: Die Auswahl des Endes der Unterschriftensammlung für Autoren freigeben
+        custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
@@ -110,10 +110,10 @@ de:
             date_of_birth: Geburtsdatum
             document_number: Dokumentnummer
             hash: Hash
-            initiative_end_date: Endtermin
+            initiative_end_date: Enddatum
             initiative_id: Initiativ-ID
             initiative_signatures_count: Anzahl der Unterschriften
-            initiative_start_date: Anfangsdatum
+            initiative_start_date: Startdatum
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
             postal_code: Postleitzahl
