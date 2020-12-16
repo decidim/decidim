@@ -144,7 +144,7 @@ de:
         milestone_completed:
           affected_user:
             email_intro: Ihre Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind.
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
           follower:
