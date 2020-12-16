@@ -30,10 +30,15 @@ module Decidim
 
       # Public: The css class applied based on the proposal state.
       #
-      # state - The String state of the proposal.
+      # proposal - The proposal to evaluate.
       #
       # Returns a String.
-      def proposal_state_css_class(state)
+      def proposal_state_css_class(proposal)
+        state = proposal.state
+        if proposal.answered? && !proposal.published_state?
+          state = proposal.internal_state
+        end
+
         case state
         when "accepted"
           "text-success"
