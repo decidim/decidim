@@ -194,7 +194,7 @@ de:
           selected_projects:
             one: Projekt ausgewählt
             other: ausgewählte Projekte
-          view: Ansehen
+          view: Anzeigen
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -206,7 +206,7 @@ de:
           add: Projekt %{resource_name} Ihrer Stimme hinzufügen
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
-          view: Ansehen
+          view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen
