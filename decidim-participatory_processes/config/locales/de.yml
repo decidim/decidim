@@ -437,14 +437,14 @@ de:
         belongs_to_group: Dieser Prozess gehört zu
         dates: Daten
         developer_group: Promoter-Gruppe
-        end_date: Endtermin
+        end_date: Enddatum
         local_area: Organisationsbereich
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie ist es entschieden?
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
-        start_date: Anfangsdatum
+        start_date: Startdatum
         target: Wer nimmt teil?
         unspecified: Keine Angabe
       statistics:
