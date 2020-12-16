@@ -12,7 +12,7 @@ describe "Decidim::Api::QueryType" do
   let!(:current_component) { create :sortition_component, participatory_space: participatory_process }
   let!(:sortition) { create(:sortition, component: current_component, category: category) }
 
-  let(:page_single_result) do
+  let(:sortition_single_result) do
     sortition.reload
     {
       "acceptsNewComments" => sortition.accepts_new_comments?,
@@ -43,7 +43,9 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
-  let(:page_data) do
+
+
+  let(:sortition_data) do
     {
       "__typename" => "Sortitions",
       "id" => current_component.id.to_s,
@@ -51,7 +53,7 @@ describe "Decidim::Api::QueryType" do
       "sortitions" => {
         "edges" => [
           {
-            "node" => page_single_result
+            "node" => sortition_single_result
           }
         ]
       },
@@ -62,47 +64,47 @@ describe "Decidim::Api::QueryType" do
   describe "valid connection query" do
     let(:component_fragment) do
       %(
-      fragment fooComponent on Sortitions {
-        sortitions{
-          edges{
-            node{
-              acceptsNewComments
-              additionalInfo {  translation(locale: "#{locale}") }
-              author { id }
-              cancelReason { translation(locale: "#{locale}") }
-              cancelledByUser { id }
-              cancelledOn
-              candidateProposals
-              category { id }
-              comments { id }
-              commentsHaveAlignment
-              commentsHaveVotes
-              createdAt
-              dice
-              hasComments
-              id
-              reference
-              requestTimestamp
-              selectedProposals
-              targetItems
-              title { translation(locale: "#{locale}") }
-              totalCommentsCount
-              type
-              updatedAt
-              userAllowedToComment
-              witnesses { translation(locale: "#{locale}") }
+        fragment fooComponent on Sortitions {
+          sortitions {
+            edges{
+              node{
+                acceptsNewComments
+                additionalInfo {  translation(locale: "#{locale}") }
+                author { id }
+                cancelReason { translation(locale: "#{locale}") }
+                cancelledByUser { id }
+                cancelledOn
+                candidateProposals
+                category { id }
+                comments { id }
+                commentsHaveAlignment
+                commentsHaveVotes
+                createdAt
+                dice
+                hasComments
+                id
+                reference
+                requestTimestamp
+                selectedProposals
+                targetItems
+                title { translation(locale: "#{locale}") }
+                totalCommentsCount
+                type
+                updatedAt
+                userAllowedToComment
+                witnesses { translation(locale: "#{locale}") }
+              }
             }
           }
         }
-      }
-)
+      )
     end
 
     it "executes sucessfully" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it { expect(response["participatoryProcess"]["components"].first).to eq(page_data) }
+    it { expect(response["participatoryProcess"]["components"].first).to eq(sortition_data) }
   end
 
   describe "valid query" do
@@ -110,11 +112,8 @@ describe "Decidim::Api::QueryType" do
       %(
       fragment fooComponent on Sortitions {
         sortition(id: #{sortition.id}){
-
           acceptsNewComments
-          additionalInfo {
-            translation(locale: "#{locale}")
-          }
+          additionalInfo {  translation(locale: "#{locale}") }
           author { id }
           cancelReason { translation(locale: "#{locale}") }
           cancelledByUser { id }
@@ -140,13 +139,13 @@ describe "Decidim::Api::QueryType" do
           witnesses { translation(locale: "#{locale}") }
         }
       }
-)
+    )
     end
 
     it "executes sucessfully" do
       expect { response }.not_to raise_error(StandardError)
     end
 
-    it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(page_single_result) }
+    it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(sortition_single_result) }
   end
 end
