@@ -34,8 +34,8 @@ module Decidim
           meeting: meeting,
           user: user,
           user_videoconference_id: id,
-          room_name: data.delete(:room_name) || join_log_for(id).room_name,
           user_display_name: data.delete(:user_display_name) || join_log_for(id).user_display_name,
+          room_name: data.delete(:room_name) || join_log_for(id).room_name,
           event: data.delete(:event),
           extra: data
         }
