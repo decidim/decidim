@@ -52,7 +52,7 @@ module Decidim
       end
 
       def author
-        @applicant ||= Decidim::UserPresenter.new(@extra["author"])
+        @author ||= Decidim::UserPresenter.new(@extra["author"])
       end
     end
   end
