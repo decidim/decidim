@@ -29,8 +29,8 @@ de:
         destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
-        import: Importieren Sie Vorschläge in Projekte
-        new: Neu %{name}
+        import: Vorschläge in Projekte importieren
+        new: Neue(r/s) %{name}
         preview: Vorschau
         title: Aktionen
       admin:
@@ -223,7 +223,7 @@ de:
     components:
       budgets:
         actions:
-          vote: Abstimmung
+          vote: Abstimmen
         name: Budgets
         settings:
           global:
