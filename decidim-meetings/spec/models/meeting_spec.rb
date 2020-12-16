@@ -316,5 +316,23 @@ module Decidim::Meetings
         end
       end
     end
+
+    describe "#embedded?" do
+      context "when embedded_videoconference attribute is true" do
+        let(:meeting) { build :meeting, embedded_videoconference: true }
+
+        it "returns true" do
+          expect(subject.embedded?).to be true
+        end
+      end
+
+      context "when embedded_videoconference attribute is false" do
+        let(:meeting) { build :meeting, embedded_videoconference: false }
+
+        it "returns false" do
+          expect(subject.embedded?).to be false
+        end
+      end
+    end
   end
 end
