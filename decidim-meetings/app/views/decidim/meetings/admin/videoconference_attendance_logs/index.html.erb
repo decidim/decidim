@@ -9,10 +9,10 @@
         <thead>
           <tr>
             <th><%= t("models.videoconference_attendance_log.fields.created_at", scope: "decidim.meetings") %></th>
-            <th><%= t("models.videoconference_attendance_log.fields.event", scope: "decidim.meetings") %></th>
             <th><%= t("models.videoconference_attendance_log.fields.user_id", scope: "decidim.meetings") %></th>
             <th><%= t("models.videoconference_attendance_log.fields.user_name", scope: "decidim.meetings") %></th>
             <th><%= t("models.videoconference_attendance_log.fields.user_email", scope: "decidim.meetings") %></th>
+            <th><%= t("models.videoconference_attendance_log.fields.event", scope: "decidim.meetings") %></th>
           </tr>
         </thead>
         <tbody>
@@ -22,9 +22,6 @@
                 <%= l log.created_at, format: :long %>
               </td>
               <td>
-                <%= t("models.videoconference_attendance_log.fields.events.#{log.event}", scope: "decidim.meetings") %>
-              </td>
-              <td>
                 <%= log.user_videoconference_id %>
               </td>
               <td>
@@ -32,6 +29,9 @@
               </td>
               <td>
                 <%= log.user&.email %>
+              </td>
+              <td>
+                <%= t("models.videoconference_attendance_log.fields.events.#{log.event}", scope: "decidim.meetings") %>
               </td>
             </tr>
           <% end %>
