@@ -48,17 +48,17 @@ de:
           against: Gegen
           in_favor: Zugunsten
         deleted_user: Gelöschter Benutzer
-        hide_replies: Antworten ausblenden
+        hide_replies: Antworten verbergen
         reply: Antworten
         report:
-          action: Bericht
+          action: Melden
           already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
           close: Schließen
           description: Ist dieser Inhalt unangemessen?
           details: Zusätzliche Kommentare
           reasons:
-            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
-            offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
+            offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
         show_replies: '%{replies_count} Antworten anzeigen'
