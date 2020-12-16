@@ -21,11 +21,11 @@ de:
         answer:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         trustee:
           attributes:
             public_key:
