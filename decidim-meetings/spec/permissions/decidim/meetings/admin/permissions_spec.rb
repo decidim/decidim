@@ -170,6 +170,7 @@ describe Decidim::Meetings::Admin::Permissions do
 
         context "when meeting is embedded videoconference" do
           let(:embedded_videoconference) { true }
+
           it { is_expected.to eq true }
         end
       end
