@@ -105,8 +105,8 @@ de:
         meeting_closed:
           affected_user:
             email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Schlussfolgerungen auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" organisiert haben.
-            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
+            email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
             notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
           follower:
             email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
