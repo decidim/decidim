@@ -117,7 +117,7 @@ de:
         orders:
           label: 'Sortieren nach:'
           random: Zufällig
-          recent: Kürzlich
+          recent: Kürzlich hinzugefügt
         results_count:
           count:
             one: ausgewählter Vorschlag
@@ -142,7 +142,7 @@ de:
           selected_proposals:
             one: Vorschlag ausgewählt
             other: Vorschläge ausgewählt
-          view: Aussicht
+          view: Anzeigen
         sortition_author:
           deleted: Gelöschter Benutzer
         sortition_cancel_author:
