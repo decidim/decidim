@@ -10,7 +10,7 @@ de:
         attending_organizations: Liste der Organisationen, die teilgenommen haben
         closing_report: Bericht
         contributions_count: Anzahl der Beiträge
-        proposal_ids: Vorschläge in der Sitzung erstellt
+        proposal_ids: An der Sitzung entstandene Vorschläge
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
