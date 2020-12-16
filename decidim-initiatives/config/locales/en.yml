@@ -384,6 +384,11 @@ en:
           email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: Initiative endorsed by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> initiative was endorsed by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        revoke_membership_request:
+          email_intro: <a href="%{author_profile_url}">%{author_nickname}</a> rejected your application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: 'You received this notification because you applied to this initiative : <a href="%{resource_url}">%{resource_title}</a>.'
+          email_subject: "%{author_nickname} Rejected your application to the promoter committee"
+          notification_title: <a href="%{author_profile_url}">%{author_nickname}</a> Rejected you application to be part of the promoter committee for the following initiative <a href="%{resource_url}">%{resource_title}</a>.
         spawn_committee_request_event:
           email_intro: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> applied for the promoter committee of your initiative <a href="%{resource_url}">%{resource_title}</a>. To accept or reject click <a href="%{resource_url}/edit">here</a>.
           email_outro: 'You received this notification because you are the author of this initiative : <a href="%{resource_url}">%{resource_title}</a>.'
