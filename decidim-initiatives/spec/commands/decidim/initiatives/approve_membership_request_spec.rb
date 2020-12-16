@@ -30,10 +30,10 @@ module Decidim
           command.call
         end
 
-        it "Creates a committee membership request" do
+        it "approves membership requests " do
           expect do
             command.call
-          end.to change(InitiativesCommitteeMember, :count)
+          end.to change(membership_request, :state).from("requested").to("accepted")
         end
       end
     end
