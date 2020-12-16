@@ -48,7 +48,7 @@ de:
         proposal:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss wieder angebracht werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
             body:
               cant_be_equal_to_template: kann nicht gleich der Vorlage sein
               identical: UND Titel dürfen nicht identisch sein
