@@ -545,6 +545,22 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
+  context "when the meeting is an embedded videoconference" do
+    let!(:meeting) { create :meeting, scope: scope, component: current_component, embedded_videoconference: true }
+
+    it "allows the admin to view the attendance logs for the meeting" do
+      within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+        klass = "action-icon--attendance"
+        href = Decidim::EngineRouter.admin_proxy(meeting.component).meeting_videoconference_attendance_logs_path(meeting_id: meeting.id)
+
+        expect(page).to have_selector(
+          :xpath,
+          "//a[contains(@class,'#{klass}')][@href='#{href}']"
+        )
+      end
+    end
+  end
+
   private
 
   def fill_in_services
