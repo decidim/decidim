@@ -161,7 +161,7 @@ de:
       actions:
         agenda: Agenda
         attachment_collections: Ordner
-        attachments: Anlagen
+        attachments: Anhänge
         close: Schließen
         confirm_destroy: Möchten Sie dieses Meeting wirklich löschen?
         destroy: Löschen
