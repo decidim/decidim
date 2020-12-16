@@ -44,7 +44,7 @@ module Decidim
       end
 
       def join_log_for(id)
-        VideoconferenceAttendanceLog.find_by(event: "join", user_videoconference_id: id)
+        VideoconferenceAttendanceLog.find_by(meeting: meeting, event: "join", user_videoconference_id: id)
       end
     end
   end

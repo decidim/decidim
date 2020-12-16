@@ -172,4 +172,13 @@ FactoryBot.define do
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
   end
+
+  factory :videoconference_attendance_log, class: "Decidim::Meetings::VideoconferenceAttendanceLog" do
+    meeting
+    user
+    room_name { Faker::Misc.sha1 }
+    user_videoconference_id { Faker::Misc.password(8) }
+    user_display_name { Faker::Name.name }
+    event { %w(join leave).sample }
+  end
 end

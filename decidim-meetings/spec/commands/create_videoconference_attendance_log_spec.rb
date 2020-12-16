@@ -65,6 +65,37 @@ module Decidim::Meetings
         subject.call
         expect(videoconference_attendance_log.event).to eq event
       end
+
+      context "when data has no user_display_name and room_name information" do
+        let(:user_videoconference_id) { "test-user-id" }
+
+        let!(:last_videoconference_attendance_log) do
+          create(
+            :videoconference_attendance_log,
+            room_name: "wonderland",
+            meeting: meeting,
+            user: user,
+            user_videoconference_id: user_videoconference_id,
+            user_display_name: "alice",
+            event: "join"
+          )
+        end
+
+        let(:data) do
+          {
+            meeting: meeting,
+            user: user,
+            user_videoconference_id: user_videoconference_id,
+            event: "leave"
+          }
+        end
+
+        it "gets the info from the last join event for the user_videoconference_id" do
+          subject.call
+          expect(videoconference_attendance_log.user_display_name).to eq "alice"
+          expect(videoconference_attendance_log.room_name).to eq "wonderland"
+        end
+      end
     end
   end
 end
