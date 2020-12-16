@@ -6,11 +6,9 @@ require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
+  let(:component_type) { "Meetings" }
 
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
   let!(:current_component) { create :meeting_component, participatory_space: participatory_process }
-  let(:category) { create(:category, participatory_space: participatory_process) }
-
   let!(:meeting) { create(:meeting, :not_official, :with_services, :closed, component: current_component, category: category) }
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting) }
   let!(:invite) { create(:invite, :accepted, meeting: meeting) }

@@ -6,55 +6,39 @@ require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
+  let(:component_type) { "Budgets" }
+  let!(:current_component) { create :budgets_component, participatory_space: participatory_process }
+  let!(:budget) { create(:budget, component: current_component) }
+  let!(:projects) { create_list(:project, 2, budget: budget, category: category) }
 
   let(:budget_single_result) do
-    first_project = budget.projects.first
-    last_project = budget.projects.last
     {
       "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
       "description" => { "translation" => budget.description[locale] },
       "id" => budget.id.to_s,
-      "projects" => [{
-        "acceptsNewComments" => first_project.accepts_new_comments?,
-        "attachments" => [],
-        "budget_amount" => first_project.budget_amount,
-        "category" => { "id" => first_project.category.id.to_s },
-        "comments" => [],
-        "commentsHaveAlignment" => first_project.comments_have_alignment?,
-        "commentsHaveVotes" => first_project.comments_have_votes?,
-        "createdAt" => first_project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "description" => { "translation" => first_project.description[locale] },
-        "hasComments" => first_project.comment_threads.size.positive?,
-        "id" => first_project.id.to_s,
-        "reference" => first_project.reference,
-        "scope" => nil,
-        "selected" => first_project.selected?,
-        "title" => { "translation" => first_project.title[locale] },
-        "totalCommentsCount" => first_project.comments_count,
-        "type" => "Decidim::Budgets::Project",
-        "updatedAt" => first_project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "userAllowedToComment" => first_project.user_allowed_to_comment?(current_user)
-      }, {
-        "acceptsNewComments" => last_project.accepts_new_comments?,
-        "attachments" => [],
-        "budget_amount" => last_project.budget_amount,
-        "category" => { "id" => last_project.category.id.to_s },
-        "comments" => [],
-        "commentsHaveAlignment" => last_project.comments_have_alignment?,
-        "commentsHaveVotes" => last_project.comments_have_votes?,
-        "createdAt" => last_project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "description" => { "translation" => last_project.description[locale] },
-        "hasComments" => last_project.comment_threads.size.positive?,
-        "id" => last_project.id.to_s,
-        "reference" => last_project.reference,
-        "scope" => nil,
-        "selected" => last_project.selected?,
-        "title" => { "translation" => last_project.title[locale] },
-        "totalCommentsCount" => last_project.comments_count,
-        "type" => "Decidim::Budgets::Project",
-        "updatedAt" => last_project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
-        "userAllowedToComment" => last_project.user_allowed_to_comment?(current_user)
-      }],
+      "projects" => budget.projects.map do |project|
+        {
+          "acceptsNewComments" => project.accepts_new_comments?,
+          "attachments" => [],
+          "budget_amount" => project.budget_amount,
+          "category" => { "id" => project.category.id.to_s },
+          "comments" => [],
+          "commentsHaveAlignment" => project.comments_have_alignment?,
+          "commentsHaveVotes" => project.comments_have_votes?,
+          "createdAt" => project.created_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "description" => { "translation" => project.description[locale] },
+          "hasComments" => project.comment_threads.size.positive?,
+          "id" => project.id.to_s,
+          "reference" => project.reference,
+          "scope" => nil,
+          "selected" => project.selected?,
+          "title" => { "translation" => project.title[locale] },
+          "totalCommentsCount" => project.comments_count,
+          "type" => "Decidim::Budgets::Project",
+          "updatedAt" => project.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+          "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
+        }
+      end,
       "scope" => nil,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
@@ -79,26 +63,14 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
-  let(:category) { create(:category, participatory_space: participatory_process) }
-
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
-  let!(:current_component) { create :budgets_component, participatory_space: participatory_process }
-  let!(:budget) { create(:budget, component: current_component) }
-  let!(:projects) { create_list(:project, 2, budget: budget, category: category) }
 
   describe "valid connection query" do
     let(:budget_single_result) do
-      first_project = budget.projects.first
-      last_project = budget.projects.last
       {
         "createdAt" => budget.created_at.iso8601.to_s.gsub("Z", "+00:00"),
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
-        "projects" => [{
-          "id" => first_project.id.to_s
-        }, {
-          "id" => last_project.id.to_s
-        }],
+        "projects" => budget.projects.map { |project| { "id" => project.id.to_s } },
         "scope" => nil,
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,

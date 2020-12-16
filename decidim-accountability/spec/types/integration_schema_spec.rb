@@ -6,6 +6,10 @@ require "decidim/accountability/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
+  let(:component_type) { "Accountability" }
+  let!(:current_component) { create :accountability_component, participatory_space: participatory_process }
+  let!(:result) { create(:result, component: current_component, category: category) }
+  let!(:timeline_entry) { create(:timeline_entry, result: result) }
 
   let(:accountability_single_result) do
     {
@@ -77,12 +81,6 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
-
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
-  let(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:current_component) { create :accountability_component, participatory_space: participatory_process }
-  let!(:result) { create(:result, component: current_component, category: category) }
-  let!(:timeline_entry) { create(:timeline_entry, result: result) }
 
   describe "valid connection query" do
     let(:component_fragment) do

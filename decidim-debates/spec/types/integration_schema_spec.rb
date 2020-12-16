@@ -6,6 +6,10 @@ require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
+  let(:component_type) { "Debates" }
+
+  let!(:current_component) { create :debates_component, participatory_space: participatory_process }
+  let!(:debate) { create(:debate, :citizen_author, component: current_component, category: category) }
 
   let(:debate_single_result) do
     {
@@ -48,12 +52,6 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
-
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
-  let(:category) { create(:category, participatory_space: participatory_process) }
-
-  let!(:current_component) { create :debates_component, participatory_space: participatory_process }
-  let!(:debate) { create(:debate, :citizen_author, component: current_component, category: category) }
 
   describe "valid connection query" do
     let(:component_fragment) do

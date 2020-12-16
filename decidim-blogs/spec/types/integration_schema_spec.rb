@@ -6,6 +6,9 @@ require "decidim/accountability/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
+  let(:component_type) { "Blogs" }
+  let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
+  let!(:post) { create(:post, :with_endorsements, component: current_component) }
 
   let(:post_single_result) do
     {
@@ -64,10 +67,6 @@ describe "Decidim::Api::QueryType" do
       "weight" => 0
     }
   end
-
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
-  let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
-  let!(:post) { create(:post, :with_endorsements, component: current_component) }
 
   describe "valid connection query" do
     let(:component_fragment) do

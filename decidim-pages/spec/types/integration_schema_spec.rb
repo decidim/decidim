@@ -6,8 +6,7 @@ require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
-
-  let(:participatory_process) { create :participatory_process, organization: current_organization }
+  let(:component_type) { "Pages" }
   let!(:current_component) { create :page_component, participatory_space: participatory_process }
   let!(:page) { create(:page, component: current_component) }
 
