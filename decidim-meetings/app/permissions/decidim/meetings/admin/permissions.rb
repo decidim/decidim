@@ -44,7 +44,7 @@ module Decidim
           when :invite_attendee
             toggle_allow(meeting.present? && meeting.registrations_enabled?)
           when :read_logs
-            toggle_allow(meeting.present? && meeting.embedded_meeting?)
+            toggle_allow(meeting.present? && meeting.embedded?)
           when :create
             allow!
           end
