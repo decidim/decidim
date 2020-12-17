@@ -47,6 +47,10 @@ module Decidim
       def meeting
         model
       end
+
+      def organization
+        meeting.component.organization
+      end
     end
   end
 end

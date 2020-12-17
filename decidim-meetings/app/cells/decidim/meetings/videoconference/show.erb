@@ -3,7 +3,7 @@
     <div class="section">
       <h4 class="section-heading"><%= t("title", scope: "decidim.meetings.videoconference") %></h4>
         <% if visible? %>
-          <p class="help"><%= t("explanation", scope: "decidim.meetings.videoconference") %></p>
+          <p class="help"><%= t("explanation", scope: "decidim.meetings.videoconference", organization: organization) %></p>
 
           <button id="join-videoconference" class="button">
             <%= t("join", scope: "decidim.meetings.videoconference") %>
