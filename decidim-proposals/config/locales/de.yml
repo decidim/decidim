@@ -247,10 +247,10 @@ de:
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird evaluiert.
         proposal_mentioned:
-          email_intro: Ihr Vorschlag „%{mentioned_proposal_title}“ wurde in diesem <a href="%{resource_url}">Bereich</a> in den Kommentaren erwähnt.
+          email_intro: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_url}">in diesem Bereich</a> in den Kommentaren erwähnt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
           email_subject: Ihr Vorschlag "%{mentioned_proposal_title}" wurde erwähnt
-          notification_title: Ihr Vorschlag „%{mentioned_proposal_title}“ erwähnt <a href="%{resource_path}">in diesem Raum</a> in den Kommentaren.
+          notification_title: Ihr Vorschlag "%{mentioned_proposal_title}" wurde <a href="%{resource_path}">hier</a> in den Kommentaren erwähnt.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Überprüfen Sie es und tragen Sie bei:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
