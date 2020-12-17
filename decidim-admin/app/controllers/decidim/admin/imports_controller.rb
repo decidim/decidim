@@ -6,21 +6,34 @@ module Decidim
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
 
-      def new_import
-        raise "NEW IMPORT"
-        enforce_permission_to :import, :translation_set, translation_set: set
-
-        @import = form(Admin::TranslationsImportForm).instance
+      def new
+        enforce_permission_to :import, :component_data, component: component
+        # id = params[:id]
+        # flash[:notice] = t("decidim.admin.imports.notice")
+        # redirect_back(fallback_location: manage_component_path(component))
+        # raise params.inspect
+        @import = form(Admin::ImportForm).instance
       end
 
       def create
         enforce_permission_to :import, :component_data, component: component
-        name = params[:id]
-        ImportJob.perform_later(current_user, component, name, params[:format] || default_format, params[:resource_id].presence)
 
-        flash[:notice] = t("decidim.admin.imports.notice")
+        @import = form(Admin::ImportForm).from_params(
+          params,
+          current_organization: current_organization
+        )
 
-        redirect_back(fallback_location: manage_component_path(component))
+        CreateImport.call(@import) do
+          on(:ok) do
+            flash[:notice] = t("decidim.admin.imports.notice")
+            redirect_back(fallback_location: manage_component_path(component))
+          end
+
+          on(:invalid) do
+            flash[:alert] = t("decidim.admin.imports.alert")
+            render action: "new"
+          end
+        end
       end
 
       private

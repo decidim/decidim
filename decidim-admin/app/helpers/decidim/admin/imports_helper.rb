@@ -8,7 +8,17 @@ module Decidim
       end
 
       def admin_imports_path(component, options)
-        EngineRouter.admin_proxy(component.participatory_space).component_imports_path(options.merge(component_id: component))
+        EngineRouter.admin_proxy(component.participatory_space).new_component_imports_path(options.merge(component_id: component))
+      end
+
+      def mime_types
+        types = ""
+        accepted_mime_types = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES.keys
+        accepted_mime_types.each_with_index do |mime_type, index|
+          types += t(".accepted_mime_types.#{mime_type}")
+          types += ", " unless accepted_mime_types.length == index + 1
+        end
+        types
       end
     end
   end

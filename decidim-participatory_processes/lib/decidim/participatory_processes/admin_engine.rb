@@ -56,6 +56,7 @@ module Decidim
               get :share
             end
             resources :exports, only: :create
+            resource :imports, only: [:new, :create]
           end
 
           resources :moderations do

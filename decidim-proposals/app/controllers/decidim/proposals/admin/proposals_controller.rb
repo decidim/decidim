@@ -27,6 +27,7 @@ module Decidim
         end
 
         def create
+          raise "CREATE"
           enforce_permission_to :create, :proposal
           @form = form(Decidim::Proposals::Admin::ProposalForm).from_params(params)
 

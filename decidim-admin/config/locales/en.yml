@@ -392,6 +392,15 @@ en:
           Excel: Excel
           JSON: JSON
         import_as: "%{name} as %{import_format}"
+        new:
+          accepted_mime_types:
+            csv: csv
+            xls: xls
+            json: json
+          actions:
+            back: Back
+          file_legend: 'Add an import file that will be parsed.'
+          start_import: Start import
       logs:
         logs_list:
           no_logs_yet: There are no logs yet

@@ -1,0 +1,40 @@
+<%= decidim_form_for(@import, url: component_imports_path({}), class: "form grid-container") do |form| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title flex--sbc">
+        <div>
+          <%#= link_to t("decidim.term_customizer.menu.term_customizer"), translation_sets_path %>
+          &gt;
+          <%#= link_to translated_attribute(set.name), translation_set_translations_path(set) %>
+          &gt;
+          <%#= t "translations.new_import.title", scope: "decidim.term_customizer.admin" %>
+        </div>
+
+        <div class="flex--cc flex-gap--1">
+          <div id="js-other-actions-wrapper">
+            <%= link_to t(".actions.back"), manage_component_path(@component), class: "button hollow tiny button--simple" %>
+          </div>
+        </div>
+      </h2>
+    </div>
+    <div class="card-section">
+      <div class="grid-x">
+        <div class="cell">
+          <fieldset>
+            <legend>
+              <%= t(".file_legend", valid_mime_types: mime_types).html_safe %>
+              <br />
+              <%#= t(".zip_hint") %>
+            </legend>
+            <div class="row column">
+              <%= form.upload :file, optional: false %>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-x align-center mt-sm">
+    <%= form.submit t(".start_import") %>
+  </div>
+<% end -%>

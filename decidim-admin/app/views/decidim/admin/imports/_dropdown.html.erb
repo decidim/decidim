@@ -6,7 +6,7 @@
         <li class="exports--format--<%= format.downcase %> exports--<%= manifest.name %>">
           <%= link_to t("decidim.admin.imports.import_as", name: t("decidim.#{component.manifest.name}.admin.imports.#{manifest.name}"), import_format: t("decidim.admin.imports.formats.#{format}")),
             admin_imports_path(component, id: manifest.name, format: format, resource_id: resource_id),
-            method: :post %>
+            method: :get %>
         </li>
       <% end %>
     <% end %>
