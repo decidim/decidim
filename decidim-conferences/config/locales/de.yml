@@ -146,7 +146,7 @@ de:
         conferences_submenu:
           attachment_collections: Ordner
           attachment_files: Dateien
-          attachments: Anlagen
+          attachments: Anhänge
           categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
@@ -351,7 +351,7 @@ de:
             title: Registrierungsarten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> in den Anlagen.
+            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
@@ -428,7 +428,7 @@ de:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
           pending_validation:
-            subject: Die Anmeldung Ihrer Konferenz steht noch aus
+            subject: Ihre Anmeldung zur Konferenz steht noch aus
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
