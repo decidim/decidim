@@ -153,7 +153,7 @@ de:
         verify: "%{user_name} die %{resource_name} Benutzergruppe verifiziert"
         verify_via_csv: "%{user_name} die %{resource_name} Benutzergruppe über eine CSV-Datei überprüft"
     admin_terms_of_use:
-      default_body: "<h2>NUTZUNGSBEDINGUNGEN</h2><p>Wahrscheinlich haben Sie bereits vom lokalen Systemadministrator gehört. Meist lässt das sich auf die folgenden drei Punkte konzentrieren:</p><ol><li>Respektieren Sie die Privatsphäre anderer.</li><li>Denken Sie nach, bevor Sie klicken.</li><li>Große Macht erfordert große Verantwortung.</li></ol>"
+      default_body: "<h2>ADMIN-NUTZUNGSBEDINGUNGEN</h2><p>Wahrscheinlich haben Sie bereits vom lokalen Systemadministrator gehört. Meist lässt das sich auf die folgenden drei Punkte konzentrieren:</p><ol><li>Respektieren Sie die Privatsphäre anderer.</li><li>Denken Sie nach, bevor Sie klicken.</li><li>Große Macht erfordert große Verantwortung.</li></ol>"
     alert:
       dismiss: Benachrichtigung schließen
     amendments:
@@ -162,10 +162,10 @@ de:
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         amended_by: Geändert durch
-        button: '%{model_name}ändern'
+        button: '%{model_name} ändern'
         error: Bei der Änderung dieser Ressource ist ein Fehler aufgetreten.
         help_text: Verbessern Sie diese %{model_name} indem Sie ihre %{amendable_fields}ändern
-        promote_button: Auf %{model_name}
+        promote_button: Zu %{model_name} befördern
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
         promote_help_text: Sie können diese Erweiterung fördern und als unabhängige %{model_name}
         section_heading: Änderungen (%{count})
@@ -191,15 +191,15 @@ de:
           help_text: Überprüfen Sie die Änderungen und akzeptieren Sie diese Änderung oder lehnen Sie diese ab. Eine Benachrichtigung wird an den / die Verfasser gesendet.
         announcement:
           accepted: |-
-            Durch diese Änderung für die %{amendable_type} %{amendable_link} wurde
-            auf akzeptiert <strong>%{announcement_date}</strong>.
+            Diese Änderung für %{amendable_type} %{proposal_link}
+            wurde am <strong>%{date}</strong> akzeptiert.
           evaluating: |-
-            Diese Änderung für die %{amendable_type} %{amendable_link}
-            wird bewertet.
-          promoted: Hochgestuft auf %{amendable_type}.
-          rejected: "Diese Änderung für die %{amendable_type} %{amendable_link}\nwurde am <strong>%{announcement_date}</strong>abgelehnt."
+            Diese Änderung für %{amendable_type} %{proposal_link}
+            wird derzeit bewertet.
+          promoted: Befördert zu %{amendable_type}.
+          rejected: Diese Änderung für %{amendable_type} %{proposal_link} wurde am <strong>%{date}</strong> abgelehnt.
           withdrawn: |-
-            Diese Änderung für die %{amendable_type} %{amendable_link}
+            Diese Änderung für %{amendable_type} %{proposal_link}
             wurde vom Autor zurückgezogen.
       new:
         amendment_author: Änderungsautor
@@ -246,7 +246,7 @@ de:
       documents:
         related_documents: Zugehörige Dokumente
       photos:
-        related_photos: Ähnliche Bilder
+        related_photos: Zugehörige Bilder
     author:
       avatar: Profilbild
       comments:
@@ -418,10 +418,10 @@ de:
       registrations:
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
-          newsletter: Erhalten Sie einen gelegentlichen Newsletter mit relevanten Informationen
-          newsletter_title: Kontakt Erlaubnis
+          newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
+          newsletter_title: Kontakterlaubnis
           nickname_help: Ihr Pseudonym in %{organization}
-          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu häufig (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z.B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
           sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
@@ -442,7 +442,7 @@ de:
           buttons:
             check: Überprüfen und fortfahren
             close_modal: Modal schließen
-            uncheck: Deaktivierung beibehalten
+            uncheck: Ohne Kontakterlaubnis fortfahren
           notice: |-
             <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
             Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
@@ -490,45 +490,45 @@ de:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
-            email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
-            notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
+            email_intro: 'Eine Änderung an %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Akzeptierte Änderung für %{amendable_title} von %{emendation_author_nickname}
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde angenommen.
           follower:
-            email_intro: 'Eine Emendation wurde für %{amendable_title}akzeptiert. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung für %{amendable_title} wurde akzeptiert. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Eine für %{amendable_title} angenommene Änderung von %{emendation_author_nickname}
             notification_title: Die <a href="%{emendation_path}">Abänderung</a> die durch <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
+            email_intro: 'Eine neue Änderung wurde für %{amendable_title} vorgeschlagen. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
             email_subject: Neuer Änderungsantrag für %{amendable_title}
-            notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: Neue Änderung für <a href="%{amendable_path}">%{amendable_title}</a> erstellt.
           follower:
-            email_intro: 'Eine neue Ausgabe wurde für %{amendable_title}. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine neue Änderung für %{amendable_title} wurde erstellt. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Neuer Änderungsantrag für %{amendable_title}
             notification_title: Eine neue Änderung wurde für <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
-            email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
-            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue %{amendable_type}
-            notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
+            email_intro: 'Eine abgelehnte Änderung an %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue/n %{amendable_type} veröffentlicht
+            notification_title: Die <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> als neue/n %{amendable_type} veröffentlicht.
           follower:
-            email_intro: 'Eine für %{amendable_title} abgelehnte Ausgabe wurde zu einer unabhängigen %{amendable_type}. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine abgelehnte Änderung für %{amendable_title} wurde als neue/n %{amendable_type} veröffentlicht. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Eine Änderung von %{emendation_author_nickname} wurde als neue %{amendable_type}
             notification_title: A <a href="%{emendation_path}">abgelehnte Änderung</a> für <a href="%{amendable_path}">%{amendable_title}</a> hat als neue veröffentlicht %{amendable_type} von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
-            email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title}.
-            email_subject: Ein Änderungsantrag wurde für %{amendable_title} von %{emendation_author_nickname}abgelehnt
-            notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
+            email_intro: 'Eine Änderung an %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von %{amendable_title} sind.
+            email_subject: Abgelehnter Änderungsantrag für %{amendable_title} von %{emendation_author_nickname}
+            notification_title: Die <a href="%{emendation_path}">Änderung</a> von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> für <a href="%{amendable_path}">%{amendable_title}</a> wurde abgelehnt.
           follower:
-            email_intro: 'Eine Ausgabe wurde für %{amendable_title}abgelehnt. Sie können es auf dieser Seite sehen:'
+            email_intro: 'Eine Änderung für %{amendable_title} wurde abgelehnt. Sie können das auf dieser Seite sehen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{amendable_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
             email_subject: Ein Änderungsantrag wurde für %{amendable_title} von %{emendation_author_nickname}abgelehnt
             notification_title: Die <a href="%{emendation_path}">Änderung</a> die von <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> wurde, wurde für <a href="%{amendable_path}">%{amendable_title}</a>abgelehnt.
@@ -800,7 +800,7 @@ de:
     help:
       main_topic:
         default_page:
-          content: "<p>In der %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
+          content: "<p>In %{organization} können Sie durch die Felder, die Sie im oberen Menü sehen, an verschiedenen Themen teilnehmen: Prozesse, Gremien, Initiativen, Beratungen.</p> <p>In jedem Bereich finden Sie verschiedene Optionen für die Teilnahme: Vorschläge machen - einzeln oder mit anderen -, an Debatten teilnehmen, Prioritäten für umzusetzende Projekte setzen, persönliche Treffen und andere Aktionen besuchen.</p>\n"
           title: Was kann ich in %{organization} tun?
         description: Lesen Sie mehr über %{organization}
         title: Allgemeine Hilfe
@@ -1400,7 +1400,7 @@ de:
         change_your_password: Ändern Sie Ihr Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu häufig (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
@@ -1429,11 +1429,11 @@ de:
       update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
       updated: Ihr Konto wurde erfolgreich aktualisiert.
     sessions:
-      already_signed_out: Erfolgreich abgesendet
+      already_signed_out: Erfolgreich abgemeldet.
       new:
         sign_in: Einloggen
       signed_in: Erfolgreich angemeldet
-      signed_out: Erfolgreich abgesendet
+      signed_out: Erfolgreich abgemeldet.
     shared:
       links:
         back: Zurück
