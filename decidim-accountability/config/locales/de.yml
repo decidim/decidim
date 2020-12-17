@@ -115,12 +115,12 @@ de:
             success: Eintrag erfolgreich aktualisiert
       admin_log:
         result:
-          create: "%{user_name} erstellt Ergebnis %{resource_name} in %{space_name}"
-          delete: "%{user_name} löschte das %{resource_name} Ergebnis in %{space_name}"
-          update: "%{user_name} aktualisiert Ergebnis %{resource_name} in %{space_name}"
+          create: "%{user_name} hat Ergebnis %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         value_types:
           parent_presenter:
-            not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+            not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
       content_blocks:
         highlighted_results:
           dates: Daten
