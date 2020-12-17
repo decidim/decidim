@@ -649,7 +649,7 @@ de:
     filters:
       linked_classes:
         all: Alle
-        collaborative_draft: Gemeinsamer Entwurf
+        collaborative_draft: Kollaborativer Entwurf
         dummy_resource: Dummy-Ressourcen
         meeting: Meetings
         project: Projekte
@@ -674,7 +674,7 @@ de:
       create:
         button: Folgen
         error: Beim Folgen dieser Ressource ist ein Fehler aufgetreten.
-        participatory_space: Folge bereits <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Sie folgen <span class="show-for-sr">%{resource_name}</span> bereits
       destroy:
         button: Entfolgen
         error: Beim Entfolgen dieser Ressource ist ein Fehler aufgetreten.
