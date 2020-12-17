@@ -405,6 +405,7 @@ fr-CA:
           type: Type
           type_values:
             all: Tous
+            hybrid: Hybride
             in_person: En présentiel
             online: En ligne
         filters_small_view:
@@ -504,6 +505,7 @@ fr-CA:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
       type_of_meeting:
+        hybrid: Hybride
         in_person: En présentiel
         online: En ligne
       types:
