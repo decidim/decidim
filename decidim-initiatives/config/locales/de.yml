@@ -130,17 +130,17 @@ de:
             email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_url}">den Admin-Panel</a> können Sie sie aufrufen
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
             email_subject: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet.
-            notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
+            notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
         initiative_extended:
           email_intro: Das Enddatum der Signaturen für die Initiative %{resource_title} wurde verlängert!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Initiativsignaturendatum verlängert!
-          notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
+          notification_title: Das Enddatum der Unterschriftensammlung für die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde verlängert.
         initiative_sent_to_technical_validation:
           email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_url}">den Admin-Panel</a> können Sie sie aufrufen
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
           email_subject: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet.
-          notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
+          notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
         milestone_completed:
           affected_user:
             email_intro: Ihre Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
@@ -156,7 +156,7 @@ de:
           email_intro: Die Initiative %{resource_title} hat die Unterstützungsschwelle erreicht
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
           email_subject: Unterstützungsschwelle erreicht
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Unterstützungsschwelle erreicht
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die nötige Anzahl Unterstützer erreicht
     gamification:
       badges:
         initiatives:
@@ -367,12 +367,12 @@ de:
           email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, überprüfe es und trage dazu bei:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Neue Initiative von %{author_nickname}
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
         endorse_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat die folgende Initiative unterstützt, vielleicht möchtest du zur Konversation beitragen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Initiative mit %{author_nickname}befürwortet
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
       form:
         add_attachments: Dokumente
         attachment_legend: "(Optional) Anhang hinzufügen"
