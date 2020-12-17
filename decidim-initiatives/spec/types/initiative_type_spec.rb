@@ -127,6 +127,14 @@ module Decidim
         end
       end
 
+      describe "onlineVotes" do
+        let(:query) { "{ onlineVotes }" }
+
+        it "has a onlineVotes" do
+          expect(response).to include("onlineVotes" => model.online_votes_count)
+        end
+      end
+
       describe "initiativeVotesCount" do
         let(:query) { "{ initiativeVotesCount }" }
 
