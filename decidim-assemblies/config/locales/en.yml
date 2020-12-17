@@ -61,10 +61,13 @@ en:
         full_name: Full name
         gender: Gender
         position: Position
+        user_id: User
       assembly_user_role:
         email: Email
         name: Name
         role: Role
+      assemblies_setting:
+        enable_organization_chart: Enable organization chart
     errors:
       models:
         assembly:
