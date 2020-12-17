@@ -234,8 +234,8 @@ de:
         assemblies_types: Versammlungstypen
     admin_log:
       assembly:
-        create: "%{user_name} erstellt die %{resource_name} Assembly"
-        publish: "%{user_name} veröffentlichte das Gremium %{resource_name}"
+        create: "%{user_name} hat das Gremium %{resource_name} erstellt"
+        publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
         unpublish: "%{user_name} unveröffentlicht die %{resource_name} Assembly"
         update: "%{user_name} aktualisierte die %{resource_name} Assembly"
       assembly_member:
