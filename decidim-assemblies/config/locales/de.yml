@@ -236,22 +236,22 @@ de:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
-        unpublish: "%{user_name} unveröffentlicht die %{resource_name} Assembly"
-        update: "%{user_name} aktualisierte die %{resource_name} Assembly"
+        unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
-        create: "%{user_name} erstellt das %{resource_name} Mitglied in der %{space_name} Assembly"
-        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Gremium %{space_name}"
-        update: "%{user_name} hat das %{resource_name} Mitglied in der %{space_name} Assembly aktualisiert"
+        create: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} erstellt"
+        delete: "%{user_name} hat das Mitglied %{resource_name} aus dem Gremium %{space_name} entfernt"
+        update: "%{user_name} hat das Mitglied %{resource_name} im Gremium %{space_name} aktualisiert"
       assembly_setting:
-        update: "%{user_name} aktualisierte die Versammlungseinstellungen"
+        update: "%{user_name} hat die Versammlungseinstellungen aktualisiert"
       assembly_type:
-        create: "%{user_name} erstellte den Versammlungstyp %{resource_name}"
-        delete: "%{user_name} entfernte das Mitglied %{resource_name} aus dem Versammlungstyp %{space_name}"
-        publish: "%{user_name} veröffentlichte den Versammlungstyp %{resource_name}"
-        unpublish: "%{user_name} unveröffentlichte den Versammlungstyp %{resource_name}"
-        update: "%{user_name} aktualisierte den Versammlungstyp %{resource_name}"
+        create: "%{user_name} hat den Versammlungstyp %{resource_name} erstellt"
+        delete: "%{user_name} hat das Mitglied %{resource_name} aus dem Versammlungstyp %{space_name} entfernt"
+        publish: "%{user_name} hat den Versammlungstyp %{resource_name} veröffentlicht"
+        unpublish: "%{user_name} hat den Versammlungstyp %{resource_name} auf \"unveröffentlicht\" gesetzt"
+        update: "%{user_name} hat den Gremientyp %{resource_name} aktualisiert"
       assembly_user_role:
-        create: "%{user_name} lud %{resource_name} zur %{space_name} Versammlung ein"
+        create: "%{user_name} hat %{resource_name} zum Gremium %{space_name} eingeladen"
         delete: "%{user_name} entfernte den Benutzer %{resource_name} von der %{space_name} Assembly"
         update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Assembly geändert"
     assemblies:
