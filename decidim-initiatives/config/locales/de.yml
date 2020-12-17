@@ -148,10 +148,10 @@ de:
             email_subject: Neuer Meilenstein abgeschlossen!
             notification_title: Ihre Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
           follower:
-            email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+            email_intro: Die Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neuer Meilenstein abgeschlossen!
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+            notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
         support_threshold_reached:
           email_intro: Die Initiative %{resource_title} hat die Unterstützungsschwelle erreicht
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
