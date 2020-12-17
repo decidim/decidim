@@ -52,7 +52,9 @@ module Decidim
       end
 
       def applicant
-        @applicant ||= Decidim::UserPresenter.new(@extra["applicant"])
+        @applicant ||= Decidim::UserPresenter.new(
+          Decidim::User.find(@extra["applicant"]["id"])
+        )
       end
     end
   end

@@ -39,6 +39,7 @@ module Decidim
               event_class: Decidim::Initiatives::SpawnCommitteeRequestEvent,
               resource: initiative,
               affected_users: [initiative.author],
+              force_send: true,
               extra: { applicant: current_user }
             )
 

@@ -31,6 +31,7 @@ module Decidim
           event_class: Decidim::Initiatives::ApproveMembershipRequestEvent,
           resource: @membership_request.initiative,
           affected_users: [@membership_request.user],
+          force_send: true,
           extra: { author: @membership_request.initiative.author }
         )
       end

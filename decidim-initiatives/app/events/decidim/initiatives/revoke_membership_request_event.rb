@@ -52,7 +52,9 @@ module Decidim
       end
 
       def author
-        @author ||= Decidim::UserPresenter.new(@extra["author"])
+        @author ||= Decidim::UserPresenter.new(
+          Decidim::User.find(@extra["author"]["id"])
+        )
       end
     end
   end
