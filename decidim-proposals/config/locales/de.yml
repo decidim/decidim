@@ -183,17 +183,17 @@ de:
             email_intro: Jemand hat eine Notiz zum Vorschlag "%{resource_title}" hinterlassen. Schauen Sie sich diese im <a href="%{admin_proposal_info_url}">Admin-Panel</a> an
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
-            notification_title: Jemand hat eine Notiz für Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über <a href="%{admin_proposal_info_path}">den Admin-Panel</a> anzeigen
+            notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde zur Mitwirkung an %{resource_title} akzeptiert."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs angenommen.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>angenommen</strong>.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs <a href="%{resource_path}">%{resource_title}</a> abgelehnt.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} wurde als Mitwirkender des kollaborativen Entwurfs %{resource_title} abgelehnt."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde <strong>abgelehnt, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs einzusehen.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} hat um Zugriff auf Ihren kollaborativen Entwurf angefragt. Sie können den Antrag auf der Seite des kollaborativen Entwurfs <a href="%{resource_path}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
@@ -218,12 +218,12 @@ de:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title} erstellen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen
         endorsing_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title} unterstützen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
-          notification_title: Sie können nun beginnen <a href="%{resource_path}">Vorschläge befürworten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Sie können nun Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Antwort auf dieser Seite lesen:'
@@ -254,12 +254,12 @@ de:
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, dem Sie folgen, hat einen neuen Vorschlag mit dem Namen "%{resource_title}" veröffentlicht. Sehen Sie es sich an und reden Sie mit:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Neuer Vorschlag "%{resource_title}" um %{author_nickname}
+          email_subject: Neuer Vorschlag "%{resource_title}" von %{author_nickname}
           notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: Der Vorschlag "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-          email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title}hinzugefügt
+          email_subject: Neuer Vorschlag "%{resource_title}" zu %{participatory_space_title} hinzugefügt
           notification_title: Der Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
         proposal_rejected:
           affected_user:
@@ -280,13 +280,13 @@ de:
         proposal_update_scope:
           email_intro: 'Ein Administrator hat den Bereich Ihres Vorschlags „%{resource_title}“ aktualisiert, sehen Sie es sich das auf dieser Seite an:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
-          email_subject: Der Umfang des Vorschlags %{resource_title} wurde aktualisiert
+          email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
           notification_title: Der Umgang des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         voting_enabled:
           email_intro: 'Sie können für Vorschläge in %{participatory_space_title} abstimmen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Abstimmung der Vorschläge hat für %{participatory_space_title}
-          notification_title: Sie können jetzt <a href="%{resource_path}">Abstimmungsvorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+          email_subject: In %{participatory_space_title} ist es jetzt möglich, für Vorschläge abzustimmen
+          notification_title: Sie können jetzt für Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">abstimmen</a>
     gamification:
       badges:
         accepted_proposals:
