@@ -232,7 +232,7 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde angenommen.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde akzeptiert. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde akzeptiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde angenommen.
         proposal_evaluating:
@@ -242,8 +242,8 @@ de:
             email_subject: Ihr Vorschlag wird geprüft
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wird geprüft.
           follower:
-            email_intro: 'Der Vorschlag "%{resource_title}" wird gerade ausgewertet. Sie können auf dieser Seite nach einer Antwort suchen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_intro: 'Der Vorschlag "%{resource_title}" wird derzeit geprüft. Das Resultat wird auf dieser Seite aufgeschaltet werden:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wird evaluiert
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wird evaluiert.
         proposal_mentioned:
@@ -269,7 +269,7 @@ de:
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Ein Vorschlag, dem Sie folgen, wurde abgelehnt
             notification_title: Der <a href="%{resource_path}">%{resource_title}</a> Vorschlag wurde abgelehnt.
         proposal_update_category:
