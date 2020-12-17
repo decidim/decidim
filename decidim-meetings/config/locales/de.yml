@@ -10,7 +10,7 @@ de:
         attending_organizations: Liste der Organisationen, die teilgenommen haben
         closing_report: Bericht
         contributions_count: Anzahl der Beiträge
-        proposal_ids: Vorschläge in der Sitzung erstellt
+        proposal_ids: An der Sitzung entstandene Vorschläge
       meeting:
         address: Adresse
         available_slots: Verfügbare Slots für dieses Meeting
@@ -23,7 +23,7 @@ de:
         location_hints: Standorthinweise
         organizer_gid: Erstellt als
         organizer_id: Veranstalter
-        private_meeting: Privates Treffen
+        private_meeting: Private Sitzung
         registration_form_enabled: Anmeldeformular aktiviert
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
@@ -48,16 +48,16 @@ de:
               already_invited: Diese E-Mail wurde bereits eingeladen
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
-      decidim/meetings/create_meeting_event: Treffen
+      decidim/meetings/create_meeting_event: Sitzung
       decidim/meetings/meeting_registrations_enabled_event: Registrierungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über Limit
-      decidim/meetings/upcoming_meeting_event: Kommendes Treffen
+      decidim/meetings/upcoming_meeting_event: Kommende Sitzung
       decidim/meetings/update_meeting_event: Besprechung aktualisiert
   activerecord:
     models:
       decidim/meetings/meeting:
-        one: Treffen
-        other: Meetings
+        one: Sitzung
+        other: Sitzungen
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokoll
@@ -99,12 +99,12 @@ de:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Ihre Besprechung "%{resource_title}" wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" organisiert haben.
-            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
-            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
+            email_intro: 'Ihre Sitzung "%{resource_title}" wurde geschlossen. Sie können die Schlussfolgerungen auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Sitzung "%{resource_title}" organisiert haben.
+            email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
+            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
           follower:
-            email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
+            email_intro: 'Die Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
             email_subject: Das "%{resource_title}" Meeting wurde geschlossen
             notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
@@ -156,7 +156,7 @@ de:
       actions:
         agenda: Agenda
         attachment_collections: Ordner
-        attachments: Anlagen
+        attachments: Anhänge
         close: Schließen
         confirm_destroy: Möchten Sie dieses Meeting wirklich löschen?
         destroy: Löschen
@@ -193,8 +193,8 @@ de:
           form:
             add_agenda_item: Tagesordnungspunkt hinzufügen
             agenda_items: Tagesordnungspunkte
-            end_date: Endtermin
-            start_date: Anfangsdatum
+            end_date: Enddatum
+            start_date: Startdatum
           new:
             create: Erstellen
             title: Neue Agenda
@@ -379,7 +379,7 @@ de:
           origin: Ursprung
           origin_values:
             all: Alle
-            citizens: Bürger
+            citizens: Einzelpersonen
             official: Offiziell
             user_groups: Gruppen
           scope: Umfang
@@ -428,7 +428,7 @@ de:
           remaining_slots:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
-          view: Aussicht
+          view: Anzeigen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Besprechung erfolgreich aktualisiert.
@@ -470,7 +470,7 @@ de:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       types:
-        private_meeting: Privates Treffen
+        private_meeting: Private Sitzung
         transparent: Transparent
       versions:
         back_to_resource: Zurück zur Besprechung
