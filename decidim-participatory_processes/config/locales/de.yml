@@ -287,7 +287,7 @@ de:
     events:
       participatory_process:
         role_assigned:
-          email_intro: Sie wurden als %{role} für den Beteiligungsprozess „%{resource_title}“ ausgewählt.
+          email_intro: Sie wurden als %{role} für den Beteiligungsprozess "%{resource_title}" ausgewählt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{role} im Beteiligungsprozess "%{resource_title}" sind.
           email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für den Beteiligungsprozess <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
