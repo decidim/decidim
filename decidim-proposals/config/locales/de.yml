@@ -198,17 +198,17 @@ de:
           email_intro: '%{requester_name} hat um Zugriff auf Ihren kollaborativen Entwurf angefragt. Sie können den Antrag auf der Seite des kollaborativen Entwurfs <a href="%{resource_path}">%{resource_title}</a> <strong>annehmen oder ablehnen</strong>.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitwirken.
           email_subject: "%{requester_name} hat um Zugang zur Mitwirkung bei %{resource_title} angefragt."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> beantragten Zugang zum <a href="%{resource_path}">%{resource_title}</a> Verbundentwurf. Bitte <strong>akzeptieren oder den Antrag ablehnen</strong>.
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> hat Zugriff beantragt, um beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> mitzuwirken. Bitte <strong>den Antrag akzeptieren oder ablehnen</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> akzeptiert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
           email_subject: Sie wurden als Mitwirkender von %{resource_title} angenommen.
-          notification_title: Sie haben <strong>als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> kollaborativen Entwurfs akzeptiert.
+          notification_title: Sie wurden zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>akzeptiert</strong>.
         collaborative_draft_access_requester_rejected:
           email_intro: Der Zugriff auf den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> wurde Ihnen verweigert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie angefragt haben, bei <a href="%{resource_path}">%{resource_title}</a> mitzuwirken.
           email_subject: Sie wurden als Mitwirkender von %{resource_title} abgelehnt.
-          notification_title: Sie wurden abgelehnt <strong>, um als Beitragszahler</strong> des <a href="%{resource_path}">%{resource_title}</a> Gemeinschaftsentwurfs zuzugreifen.
+          notification_title: Sie wurden als Mitwirkender beim kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>abgelehnt</strong>.
         collaborative_draft_withdrawn:
           email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat den kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> zurückgezogen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_path}">%{resource_title}</a> mitwirken.
