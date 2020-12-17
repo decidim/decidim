@@ -29,6 +29,23 @@ module Decidim
           sign_in current_user
         end
 
+        describe "GET index" do
+          let!(:results) { create_list(:result, 5, component: component) }
+          let(:results_count) { results.size }
+
+          it "shows the number of results for a component" do
+            # visit_component_admin
+            visit decidim_admin_participatory_process_accountability.results_path(
+              component_id: component.id,
+              participatory_process_slug: participatory_space.slug
+            )
+
+            within ".subscribed_count" do
+              expect(page).to have_content(results_count)
+            end
+          end
+        end
+
         describe "GET the proposals picker" do
           before do
             get :proposals_picker, params: params
