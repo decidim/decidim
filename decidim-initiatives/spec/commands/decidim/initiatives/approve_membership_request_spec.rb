@@ -21,7 +21,7 @@ module Decidim
             .to receive(:publish)
             .with(
               event: "decidim.events.initiatives.approve_membership_request",
-              event_class: Decidim::Initiatives::ApproveMembershipRequest,
+              event_class: Decidim::Initiatives::ApproveMembershipRequestEvent,
               resource: initiative,
               affected_users: [membership_request.user],
               extra: { author: initiative.author }

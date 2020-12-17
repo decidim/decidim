@@ -36,7 +36,7 @@ module Decidim
             .to receive(:publish)
             .with(
               event: "decidim.events.initiatives.spawn_committee_request",
-              event_class: Decidim::Initiatives::SpawnCommitteeRequest,
+              event_class: Decidim::Initiatives::SpawnCommitteeRequestEvent,
               resource: initiative,
               affected_users: [initiative.author],
               extra: { applicant: current_user }

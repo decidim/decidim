@@ -28,7 +28,7 @@ module Decidim
       def notify_applicant
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.approve_membership_request",
-          event_class: Decidim::Initiatives::ApproveMembershipRequest,
+          event_class: Decidim::Initiatives::ApproveMembershipRequestEvent,
           resource: @membership_request.initiative,
           affected_users: [@membership_request.user],
           extra: { author: @membership_request.initiative.author }

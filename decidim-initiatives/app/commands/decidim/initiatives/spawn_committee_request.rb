@@ -21,8 +21,8 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if form.invalid?
 
+        return broadcast(:invalid) if form.invalid?
         request = create_request
 
         if request.persisted?
@@ -54,7 +54,7 @@ module Decidim
 
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.spawn_committee_request",
-          event_class: Decidim::Initiatives::SpawnCommitteeRequest,
+          event_class: Decidim::Initiatives::SpawnCommitteeRequestEvent,
           resource: initiative,
           affected_users: [initiative.author],
           extra: { applicant: current_user }

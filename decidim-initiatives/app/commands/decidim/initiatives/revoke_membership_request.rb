@@ -28,7 +28,7 @@ module Decidim
       def notify_applicant
         Decidim::EventsManager.publish(
           event: "decidim.events.initiatives.revoke_membership_request",
-          event_class: Decidim::Initiatives::RevokeMembershipRequest,
+          event_class: Decidim::Initiatives::RevokeMembershipRequestEvent,
           resource: @membership_request.initiative,
           affected_users: [@membership_request.user],
           extra: { author: @membership_request.initiative.author }
