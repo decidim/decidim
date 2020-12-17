@@ -8,7 +8,7 @@ module Decidim
         -> { Decidim::Core::ParticipatorySpaceInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorInterface },
+        # -> { Decidim::Core::AuthorInterface },
         -> { Decidim::Initiatives::InitiativeTypeInterface }
       ]
 
