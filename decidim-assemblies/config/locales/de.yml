@@ -414,7 +414,7 @@ de:
       assembly:
         role_assigned:
           email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung „%{resource_title}“ sind.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung "%{resource_title}" sind.
           email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
           notification_title: Sie wurden als %{role} für die Versammlung <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
     help:
