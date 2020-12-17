@@ -179,31 +179,31 @@ de:
             email_intro: |-
               Hallo,
               Eine neue Debatte "%{resource_title}" wurde in %{space_title} erstellt, sehen Sie es sich an und reden Sie mit:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie dem %{space_title} Teilnahmebereich folgen. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-            email_subject: Neue Debatte "%{resource_title}" am %{space_title}
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde am <a href="%{space_path}">%{space_title}</a>.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Neue Debatte "%{resource_title}" in %{space_title}
+            notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde in <a href="%{space_path}">%{space_title}</a> erstellt.
           user_followers:
             email_intro: |-
               Hallo,
               %{author_name} %{author_nickname}, dem Sie folgen, hat eine neue Debatte "%{resource_title}" erstellt. Sehen Sie es sich an und reden Sie mit:
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neue Debatte "%{resource_title}" von %{author_nickname}
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die <a href="%{resource_path}">%{resource_title}</a> Debatte geschaffen.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat die Debatte <a href="%{resource_path}">%{resource_title}</a> erstellt.
         creation_disabled:
           email_intro: 'Die Erstellung von Debatten ist in %{participatory_space_title} nicht mehr aktiviert. Sie können weiterhin an offenen Debatten teilnehmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Die Erstellung von Debatten wurde in %{participatory_space_title}deaktiviert
-          notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a>deaktiviert
+          notification_title: Die Erstellung von Debatten ist jetzt in <a href="%{participatory_space_url}">%{participatory_space_title}</a> deaktiviert
         creation_enabled:
-          email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title}! Starten Sie die Teilnahme an dieser Seite:'
+          email_intro: 'Sie können jetzt neue Debatten in %{participatory_space_title} eröffnen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
           email_subject: Debatten jetzt in %{participatory_space_title}verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>starten
+          notification_title: Sie können jetzt <a href="%{resource_path}">neue Debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> starten
         debate_closed:
           email_intro: 'Die "%{resource_title}" Debatte wurde beendet. Sie können das Ergebnis auf der Seite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der "%{resource_title}" Debatte folgen. Sie können sich über den vorstehenden Link abmelden.
           email_subject: Die "%{resource_title}" Debatte wurde beendet
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Debatte wurde beendet.
+          notification_title: Die Debatte <a href="%{resource_path}">%{resource_title}</a> wurde beendet.
     gamification:
       badges:
         commented_debates:
