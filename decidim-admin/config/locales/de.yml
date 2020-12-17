@@ -374,7 +374,7 @@ de:
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
       menu:
-        admin_log: Administratoraktivitätsprotokoll
+        admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
         appearance: Aussehen
         area_types: Bereichstypen
