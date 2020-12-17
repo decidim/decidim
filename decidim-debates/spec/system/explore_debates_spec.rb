@@ -50,6 +50,24 @@ describe "Explore debates", type: :system do
       end
     end
 
+    context "when there are open debates" do
+      let!(:open_debate) do
+        create(
+          :debate,
+          component: component,
+          start_time: nil,
+          end_time: nil
+        )
+      end
+
+      it "the card informs that they are open" do
+        visit_component
+        within "#debate_#{open_debate.id}" do
+          expect(page).to have_content "OPEN DEBATE"
+        end
+      end
+    end
+
     context "when there's an announcement set" do
       let(:announcement) do
         { en: "Important announcement" }

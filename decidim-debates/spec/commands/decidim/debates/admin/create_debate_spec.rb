@@ -22,9 +22,11 @@ describe Decidim::Debates::Admin::CreateDebate do
       category: category,
       current_user: user,
       current_component: current_component,
-      current_organization: organization
+      current_organization: organization,
+      finite: finite
     )
   end
+  let(:finite) { true }
   let(:invalid) { false }
 
   context "when the form is not valid" do
@@ -40,6 +42,16 @@ describe Decidim::Debates::Admin::CreateDebate do
 
     it "creates the debate" do
       expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
+    end
+
+    context "when debate is open" do
+      let(:finite) { false }
+
+      it "creates an open debate" do
+        subject.call
+        expect(debate.start_time).not_to be_present
+        expect(debate.end_time).not_to be_present
+      end
     end
 
     it "sets the category" do

@@ -76,6 +76,10 @@ en:
             title: Edit debate
             update: Update debate
           empty: There are no debates matching these criteria.
+          form:
+            debate_type: Debate type
+            finite: Finite (With start and end times)
+            open: Open (No start or end times)
           index:
             title: Debates
           new:
@@ -168,6 +172,7 @@ en:
           groups_count: Groups
           last_comment_by: Last comment by
           no_comments_yet: No comments yet
+          open: Open debate
           participants_count: Participants
         update:
           invalid: There was a problem updating the debate.
