@@ -61,20 +61,40 @@ describe "Answer a survey", type: :system do
   end
 
   context "when the survey allow answers" do
-    before do
-      component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
-            allow_answers: true
-          }
-        }
-      )
+    context "when the survey is closed by start and end dates" do
+      before do
+        component.update!(settings: { starts_at: 1.week.ago, ends_at: 1.day.ago })
+      end
+
+      it "does not allow answering the survey" do
+        visit_component
+
+        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.description)
+
+        expect(page).to have_no_i18n_content(question.body)
+
+        expect(page).to have_content("The form is closed and cannot be answered.")
+      end
     end
 
-    it_behaves_like "has questionnaire"
+    context "when the survey is open" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => {
+              allow_answers: true
+            }
+          },
+          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        )
+      end
 
-    def questionnaire_public_path
-      main_component_path(component)
+      it_behaves_like "has questionnaire"
     end
+  end
+
+  def questionnaire_public_path
+    main_component_path(component)
   end
 end
