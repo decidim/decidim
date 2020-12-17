@@ -10,6 +10,8 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   let!(:assemblies) { create_list :assembly, 5, organization: organization }
   let(:settings) { {} }
 
+  let(:highlighted_assemblies) { subject.find("#highlighted-assemblies") }
+
   controller Decidim::PagesController
 
   before do
@@ -17,10 +19,8 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   end
 
   context "when the content block has no settings" do
-    it "shows 4 processes" do
-      within "#highlighted-assembly" do
-        expect(subject).to have_selector(".card--process", count: 4)
-      end
+    it "shows 4 assemblies" do
+      expect(highlighted_assemblies).to have_selector("a.card--assembly", count: 4)
     end
   end
 
@@ -32,9 +32,7 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
     end
 
     it "shows up to 8 assemblies" do
-      within "#highlighted-assemblies" do
-        expect(subject).to have_selector("article.card--assembly", count: 5)
-      end
+      expect(highlighted_assemblies).to have_selector("a.card--assembly", count: 5)
     end
   end
 end

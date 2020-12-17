@@ -10,6 +10,8 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
   let!(:initiatives) { create_list :initiative, 5, organization: organization }
   let(:settings) { {} }
 
+  let(:highlighted_initiatives) { subject.find("#highlighted-initiatives") }
+
   controller Decidim::PagesController
 
   before do
@@ -18,9 +20,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
 
   context "when the content block has no settings" do
     it "shows 4 initiatives" do
-      within "#highlighted-initiatives" do
-        expect(subject).to have_selector("article.card--initiative", count: 4)
-      end
+      expect(highlighted_initiatives).to have_selector("a.card--initiative", count: 4)
     end
   end
 
@@ -32,9 +32,7 @@ describe Decidim::Initiatives::ContentBlocks::HighlightedInitiativesCell, type: 
     end
 
     it "shows up to 8 initiatives" do
-      within "#highlighted-initiatives" do
-        expect(subject).to have_selector("article.card--initiative", count: 5)
-      end
+      expect(highlighted_initiatives).to have_selector("a.card--initiative", count: 5)
     end
   end
 end

@@ -92,6 +92,7 @@ en:
         organization: Organization
         plural: Plural
       static_page:
+        allow_public_access: Allow access without authentication
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
