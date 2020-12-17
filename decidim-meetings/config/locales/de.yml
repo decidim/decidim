@@ -109,10 +109,10 @@ de:
             email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
             notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
           follower:
-            email_intro: 'Das "%{resource_title}" Meeting wurde geschlossen. Sie können die Schlussfolgerungen von seiner Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Besprechung "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
-            email_subject: Das "%{resource_title}" Meeting wurde geschlossen
-            notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Treffen wurde geschlossen.
+            email_intro: 'Die Sitzung "%{resource_title}" wurde geschlossen. Sie können die Ergebnisse auf dieser Seite lesen:'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+            email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
+            notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
         meeting_created:
           email_intro: Das Meeting "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
