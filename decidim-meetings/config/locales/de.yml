@@ -117,34 +117,34 @@ de:
           email_intro: Die Sitzung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sitzung zu %{participatory_space_title} hinzugefügt
-          notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title}hinzugefügt
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde zu %{participatory_space_title} hinzugefügt
         meeting_registration_confirmed:
-          notification_title: Ihre Anmeldung zum Meeting <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
+          notification_title: Ihre Anmeldung zur Sitzung <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Registrierungscode ist %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Die reservierten Slots der Sitzung "%{resource_title}" sind über %{percentage}%.
+          email_intro: Die Slots der Sitzung "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
-          email_subject: Die "%{resource_title}" Sitzung belegte Steckplätze sind über %{percentage}%
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Besprechung belegten Slots liegen bei über %{percentage}%.
+          email_subject: Slots der Sitzung "%{resource_title}" über %{percentage}% belegt
+          notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
           email_intro: 'Die Sitzung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Sitzungs-Seite lesen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das "%{resource_title}" Meeting wurde aktualisiert
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Meeting wurde aktualisiert.
+          email_subject: Die Sitzung "%{resource_title}" wurde aktualisiert
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Registrierungscode für die Sitzung "%{resource_title}" validiert wurde.
-          email_subject: Ihr Registrierungscode "%{registration_code}" für das Meeting "%{resource_title}" wurde bestätigt
-          notification_title: Ihr Registrierungscode "%{registration_code}" für das <a href="%{resource_path}">%{resource_title}</a> Meeting wurde bestätigt.
+          email_subject: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt
+          notification_title: Ihr Registrierungscode "%{registration_code}" für die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde bestätigt.
         registrations_enabled:
           email_intro: 'Die Sitzung "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Sitzungs-Seite registrieren:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das "%{resource_title}" Meeting hat Registrierungen ermöglicht.
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Meeting hat Registrierungen ermöglicht.
+          email_subject: Die Sitzung "%{resource_title}" hat Registrierungen aktiviert.
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         upcoming_meeting:
           email_intro: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Das Treffen "%{resource_title}" beginnt in weniger als 48 Stunden.
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Meeting beginnt in weniger als 48 Stunden.
+          email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
+          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
     gamification:
       badges:
         attended_meetings:
