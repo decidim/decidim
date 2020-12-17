@@ -13,15 +13,14 @@ $(() => {
   const $keyCeremony = $(".key-ceremony");
   const $startButton = $keyCeremony.find(".start");
   const $backButton = $keyCeremony.find(".back");
-  const $backupModal = $("#backup-modal");
+  const $backupModal = $("#show-backup-modal");
   const $backupButton = $backupModal.find(".download-election-keys");
-  const $restoreModal = $("#restore-modal");
+  const $restoreModal = $("#show-restore-modal");
   const $restoreButton = $restoreModal.find(".upload-election-keys");
 
-
-  const electionKeyIdentifier = `${$keyCeremony.data("trusteeUniqueId")}-election-${$keyCeremony.data(
-    "electionId"
-  )}`;
+  const electionKeyIdentifier = `${$keyCeremony.data(
+    "trusteeUniqueId"
+  )}-election-${$keyCeremony.data("electionId")}`;
 
   let wrapperState = "";
   let currentStep = null;
@@ -48,8 +47,8 @@ $(() => {
   };
 
   const getStepRow = (step) => {
-    return $("#" + step.replace(".", "-"))
-  }
+    return $(`#${step.replace(".", "-")}`);
+  };
 
   const completeProcess = () => {
     const $previousStep = getStepRow(currentStep);
@@ -90,13 +89,11 @@ $(() => {
 
       await keyCeremony.setup();
 
-      if (keyCeremony.restoreNeeded()) {
-        $restoreModal.foundation("open");
-      } else {
-        $startButton.removeClass("disabled");
-      }
-
       $startButton.on("click", async () => {
+        if (keyCeremony.restoreNeeded()) {
+          $restoreModal.foundation("open");
+        }
+
         $startButton.addClass("disabled");
         keyCeremony.run();
       });
@@ -123,7 +120,7 @@ $(() => {
         });
       });
 
-      $restoreButton.on("click", async (event) => {
+      $restoreButton.on("click", async () => {
         let element = document.createElement("input");
         element.setAttribute("type", "file");
         element.setAttribute("accept", ".bak");
@@ -132,13 +129,19 @@ $(() => {
 
         element.addEventListener("change", (event) => {
           document.body.removeChild(element);
+
+          let file = event.target.files[0];
           const reader = new FileReader();
-          if (keyCeremony.restore(reader.readAsText(event.target.files[0]))){
-            $startButton.removeClass("disabled");
-            $restoreModal.foundation("close");
-          } else {
-            element.click();
-          }
+          reader.onload = function(evt) {
+            let content = evt.target.result;
+            if (keyCeremony.restore(content)) {
+              $startButton.removeClass("disabled");
+              $restoreModal.foundation("close");
+            } else {
+              element.click();
+            }
+          };
+          reader.readAsText(file);
         });
         element.click();
       });
@@ -147,15 +150,15 @@ $(() => {
         let messageIdentifier = MessageIdentifier.parse(
           event.message.messageId
         );
-
         if (event.type === "[Message] Received") {
-          if (currentStep && currentStep != messageIdentifier.typeSubtype) {
+          if (currentStep && currentStep !== messageIdentifier.typeSubtype) {
             const $previousStep = getStepRow(currentStep);
             $previousStep.find(".processing").addClass("hide");
             $previousStep.find(".completed").removeClass("hide");
           }
           currentStep = messageIdentifier.typeSubtype;
           const $currentStep = getStepRow(currentStep);
+
           $currentStep.find(".pending").toggleClass("hide", true);
           $currentStep.find(".processing").toggleClass("hide", false);
         }
