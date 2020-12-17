@@ -171,7 +171,7 @@ de:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
         minutes: Protokoll
-        new: Neues Treffen
+        new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -239,11 +239,11 @@ de:
         meeting_closes:
           edit:
             close: Schließen
-            title: Enges Treffen
+            title: Sitzung beenden
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
-            success: Treffen erfolgreich abgeschlossen
+            success: Sitzung erfolgreich abgeschlossen
           create:
             invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
             success: Besprechung erfolgreich erstellt
@@ -281,7 +281,7 @@ de:
             services: Dienstleistungen
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
-            success: Treffen erfolgreich aktualisiert
+            success: Sitzung erfolgreich aktualisiert
         minutes:
           create:
             invalid: Beim Erstellen dieser Minuten ist ein Problem aufgetreten
@@ -371,8 +371,8 @@ de:
       meeting_closes:
         edit:
           back: Zurück
-          close: Meeting beenden
-          title: Meeting beenden
+          close: Sitzung beenden
+          title: Sitzung beenden
       meetings:
         count:
           meetings_count:
@@ -458,7 +458,7 @@ de:
           view: Anzeigen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
-          success: Sie haben die Besprechung erfolgreich aktualisiert.
+          success: Sie haben die Sitzung erfolgreich aktualisiert.
       meetings_map:
         view_meeting: Besprechung anzeigen
       models:
@@ -493,7 +493,7 @@ de:
       registrations:
         create:
           invalid: Bei diesem Meeting ist ein Problem aufgetreten.
-          success: Sie sind dem Meeting erfolgreich beigetreten.
+          success: Sie sind der Sitzung erfolgreich beigetreten. Da sie sich für die Sitzung registriert haben, werden Sie benachrichtigt wenn sich an der Sitzung etwas ändert.
         decline_invitation:
           invalid: Es ist ein Problem aufgetreten, dass die Einladung abgelehnt wurde.
           success: Sie haben die Einladung erfolgreich abgelehnt.
