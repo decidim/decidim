@@ -42,7 +42,7 @@ describe Decidim::Elections::TrusteeZone::Permissions do
       let(:permission_trustee) { create(:trustee) }
       let(:permission_election) { create(:election, :ready_for_setup) }
 
-      it { is_expected.to be_falsey}
+      it { is_expected.to be_falsey }
     end
   end
 
