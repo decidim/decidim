@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Enable organization chart
       assembly:
         area_id: Area
         assembly_type: Assembly type
@@ -66,8 +68,6 @@ en:
         email: Email
         name: Name
         role: Role
-      assemblies_setting:
-        enable_organization_chart: Enable organization chart
     errors:
       models:
         assembly:
