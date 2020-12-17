@@ -576,16 +576,16 @@ de:
         demoted_membership:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist kein Administrator der %{user_group_name} Gruppe mehr!
+          email_subject: Du bist kein Administrator der Gruppe %{user_group_name} mehr!
           notification_title: Sie sind nicht mehr ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Gruppe.
         invited_to_group:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie in die Gruppe eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie den Tab "Gruppen" in Ihrem Profil, um ihn zu genehmigen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie das Tab "Gruppen" in Ihrem Profil, um die Einladung zu akzeptieren.
           email_subject: Du wurdest eingeladen, der Gruppe %{user_group_name} beizutreten!
-          notification_title: Sie wurden eingeladen, der <a href="%{resource_path}">%{user_group_name}</a> Gruppe beizutreten. Überprüfen Sie die <a href="%{groups_profile_tab_path}">Gruppen Seite</a> in Ihrem Profil, um es zu genehmigen!
+          notification_title: Sie wurden eingeladen, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten. Besuchen Sie die <a href="%{groups_profile_tab_path}">Gruppen-Seite</a> in Ihrem Profil, um die Einladung zu akzeptieren!
         join_request_accepted:
           email_intro: Herzlichen Glückwunsch! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
           email_subject: Du wurdest in die Gruppe %{user_group_name} aufgenommen!
           notification_title: Sie wurden in die Gruppe <a href="%{resource_path}">%{user_group_name}</a> aufgenommen.
         join_request_created:
@@ -595,18 +595,18 @@ de:
           notification_title: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können es von <a href="%{resource_path}">der Gruppenmitglieder Seite</a>akzeptieren oder ablehnen.
         join_request_rejected:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> Ihre Anfrage abgelehnt, der Gruppe beizutreten.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanfrage aktualisiert wurde.
           email_subject: Ihre Anfrage, der Gruppe %{user_group_name} beizutreten, wurde abgelehnt!
           notification_title: Ihre Anfrage, der Gruppe <a href="%{resource_path}">%{user_group_name}</a> beizutreten, wurde abgelehnt.
         promoted_to_admin:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihnen Administratorrechte für diese Gruppe erteilt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe sind.
-          email_subject: Du bist jetzt ein Admin der %{user_group_name} Gruppe!
+          email_subject: Du bist jetzt ein Admin der Gruppe %{user_group_name}!
           notification_title: Sie sind jetzt ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Gruppe.
         removed_from_group:
           email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
-          email_subject: Du wurdest aus der Gruppe %{user_group_name}!
+          email_subject: Du wurdest aus der Gruppe %{user_group_name} entfernt!
           notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
           email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
