@@ -540,6 +540,10 @@ en:
         join: Join videoconference
         title: Videoconference
         unavailable: The videoconference for this meeting is not available at the current time.
+      videoconference_attendance_logs:
+        create:
+          error: Attendance could not be logged
+          success: Attendance logged
     metrics:
       meetings:
         description: Number of meetings created
