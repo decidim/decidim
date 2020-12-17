@@ -26,19 +26,21 @@ module Decidim
           def filters
             [
                 :category_id_eq,
+                :scope_id_eq,
             ]
           end
 
           def filters_with_values
             {
-                category_id_eq: category_ids_hash(categories.first_class),
+              scope_id_eq: scope_ids_hash(scopes.top_level),  
+              category_id_eq: category_ids_hash(categories.first_class),
             }
           end
 
           # Can't user `super` here, because it does not belong to a superclass
           # but to a concern.
           def dynamically_translated_filters
-            [:category_id_eq]
+            [:scope_id_eq, :category_id_eq]
           end
         end
       end

@@ -36,6 +36,8 @@ en:
         results:
           category_id_eq:
             label: Category
+          scope_id_eq:
+            label: Scope
     accountability:
       actions:
         confirm_destroy: Are you sure you want to delete this %{name}?
