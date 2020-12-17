@@ -3,17 +3,13 @@
 module Decidim
   module Proposals
     class ProposalImporter < Decidim::Importers::Importer
-      # def import(_serialized, _user, _opts = {})
-      #   raise "HELLO WORLD"
-      # end
-      def initialize(file, reader = Readers::Base, parser = Parser)
+      def initialize(file, reader = Decidim::Admin::Import::Readers::Base, parser = Decidim::Admin::Import::Parser)
         @file = file
         @reader = reader
         @parser = parser
       end
 
       def import
-        raise "IMPORT IMPORT"
         parser.resource_klass.transaction do
           if block_given?
             yield collection
