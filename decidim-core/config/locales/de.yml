@@ -552,8 +552,8 @@ de:
           notification_title: Ein <a href="%{resource_path}">neues Dokument</a> wurde zu <a href="%{attached_to_url}">%{resource_title}</a>hinzugefügt
       components:
         component_published:
-          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Wenn Sie auf den folgenden Link klicken, können Sie sich von den Benachrichtigungen abmelden.
+          email_intro: 'Die Komponente %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Aktualisierung auf %{participatory_space_title}
           notification_title: Die Komponente %{resource_title} ist jetzt für <a href="%{resource_path}">%{participatory_space_title}</a> aktiv
       email_event:
@@ -579,17 +579,17 @@ de:
           email_subject: Du bist kein Administrator der %{user_group_name} Gruppe mehr!
           notification_title: Sie sind nicht mehr ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Gruppe.
         invited_to_group:
-          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie eingeladen, sich daran zu beteiligen.
+          email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie in die Gruppe eingeladen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Gruppe eingeladen wurden. Überprüfen Sie den Tab "Gruppen" in Ihrem Profil, um ihn zu genehmigen.
           email_subject: Du wurdest eingeladen, der Gruppe %{user_group_name} beizutreten!
           notification_title: Sie wurden eingeladen, der <a href="%{resource_path}">%{user_group_name}</a> Gruppe beizutreten. Überprüfen Sie die <a href="%{groups_profile_tab_path}">Gruppen Seite</a> in Ihrem Profil, um es zu genehmigen!
         join_request_accepted:
-          email_intro: Herzliche Glückwünsche! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
+          email_intro: Herzlichen Glückwunsch! Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Anfrage akzeptiert, der Gruppe beizutreten.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihre Beitrittsanforderung aktualisiert wurde.
           email_subject: Du wurdest in die Gruppe %{user_group_name} aufgenommen!
           notification_title: Sie wurden in die Gruppe <a href="%{resource_path}">%{user_group_name}</a> aufgenommen.
         join_request_created:
-          email_intro: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können es von <a href="%{resource_url}">der Gruppenmitglieder Seite</a>akzeptieren oder ablehnen.
+          email_intro: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können die Anfrage auf der <a href="%{resource_url}">Gruppenmitglieder-Seite</a> akzeptieren oder ablehnen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Gruppe %{user_group_name} verwalten können.
           email_subject: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten!
           notification_title: Jemand hat darum gebeten, der Gruppe %{user_group_name} beizutreten. Sie können es von <a href="%{resource_path}">der Gruppenmitglieder Seite</a>akzeptieren oder ablehnen.
@@ -604,17 +604,17 @@ de:
           email_subject: Du bist jetzt ein Admin der %{user_group_name} Gruppe!
           notification_title: Sie sind jetzt ein Administrator der <a href="%{resource_path}">%{user_group_name}</a> Gruppe.
         removed_from_group:
-          email_intro: Ein Admin der <a href="%{resource_url}">%{user_group_name}</a> -Gruppe hat dich davon entfernt.
+          email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
           email_subject: Du wurdest aus der Gruppe %{user_group_name}!
           notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
-          email_intro: Eine neue Benutzergruppe wurde erstellt mit dem Namen %{user_group_name}. Sie können sie über den <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
+          email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
           email_subject: Eine neue Benutzergruppe wurde erstellt
           notification_title: Die Benutzergruppe %{user_group_name} wurde erstellt. Sie können sie über den <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
         user_group_updated:
-          email_intro: Die Benutzergruppe mit dem Namen %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über den <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
+          email_intro: Die Benutzergruppe mit dem Namen %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
           email_subject: Eine Benutzergruppe hat ihr Profil aktualisiert
           notification_title: Die Benutzergruppe %{user_group_name} hat ihr Profil aktualisiert, wodurch diese erneut verifiziert werden muss. Sie können sie über den <a href="%{groups_admin_path}">Admin-Panel</a> verifizieren.
