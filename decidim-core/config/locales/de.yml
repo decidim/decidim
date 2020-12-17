@@ -566,12 +566,12 @@ de:
           email_intro: Gut gemacht! Sie haben das <a href="%{resource_url}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
           email_subject: 'Du hast ein neues Abzeichen erhalten: %{badge_name}!'
-          notification_title: Gut gemacht! Du hast das <a href="%{resource_path}">%{badge_name} Abzeichen</a> (Level %{current_level}) verdient.
+          notification_title: Gratulation! Sie haben das Abzeichen <a href="%{resource_path}">%{badge_name}</a> (Level %{current_level}) verdient.
         level_up:
           email_intro: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_url}">%{badge_name} Abzeichen</a>!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
           email_subject: Du hast Level %{current_level} auf dem %{badge_name} Abzeichen erreicht!
-          notification_title: Gut gemacht! Du hast Stufe %{current_level} auf dem <a href="%{resource_path}">%{badge_name} Abzeichen</a>!
+          notification_title: Gratulation! Sie haben Stufe %{current_level} auf dem Abzeichen <a href="%{resource_path}">%{badge_name}</a> erreicht!
       groups:
         demoted_membership:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
