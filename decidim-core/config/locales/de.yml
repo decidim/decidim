@@ -607,7 +607,7 @@ de:
           email_intro: Ein Admin der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Sie aus der Gruppe entfernt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie Mitglied dieser Gruppe waren.
           email_subject: Du wurdest aus der Gruppe %{user_group_name} entfernt!
-          notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a>.
+          notification_title: Sie wurden aus der Gruppe <a href="%{resource_path}">%{user_group_name}</a> entfernt.
         user_group_created:
           email_intro: Eine neue Benutzergruppe mit dem Namen %{user_group_name} wurde erstellt. Sie können sie über das <a href="%{groups_admin_url}">Admin-Panel</a> verifizieren.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
