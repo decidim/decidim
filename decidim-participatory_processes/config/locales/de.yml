@@ -294,13 +294,13 @@ de:
         step_activated:
           email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sie können das auf dieser Seite sehen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Ein Update auf %{participatory_space_title}
-          notification_title: Der %{resource_title} Schritt ist jetzt aktiv für <a href="%{resource_path}">%{participatory_space_title}</a>
+          email_subject: Eine Aktualisierung auf %{participatory_space_title}
+          notification_title: Der Prozessschritt %{resource_title} ist jetzt aktiv in <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Ein Update auf %{participatory_space_title}
-          notification_title: Die Daten für den <a href="%{resource_path}">%{resource_title}</a> Schritt bei <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
+          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Eine Aktualisierung auf %{participatory_space_title}
+          notification_title: Die Daten für den Prozessschritt <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
     help:
       participatory_spaces:
         participatory_processes:
