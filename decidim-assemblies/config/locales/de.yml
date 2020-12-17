@@ -409,13 +409,13 @@ de:
         create_assembly_member:
           email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
-          email_subject: Sie wurden als Mitglied der Versammlung %{resource_name} eingeladen!
+          email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
           notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:
         role_assigned:
           email_intro: Sie wurden als %{role} für die Versammlung "%{resource_title}" ausgewählt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Versammlung "%{resource_title}" sind.
-          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für die Versammlung <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
     help:
       participatory_spaces:
