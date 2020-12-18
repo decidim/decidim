@@ -9,22 +9,30 @@ module Decidim
       attribute :file
 
       validates :file, presence: true
-      # validate :accepted_mime_type
-    end
+      validate :accepted_mime_type
 
-    def accepted_mime_type
-      accepted_mime_types = ACCEPTED_MIME_TYPES.values + [MIME_TYPE_ZIP]
-      return if accepted_mime_types.include?(mime_type)
+      def file_path
+        file&.path
+      end
 
-      errors.add(
-        :file,
-        I18n.t(
-          "decidim.admin.new_import.attributes.file.invalid_mime_type",
-          valid_mime_types: ACCEPTED_MIME_TYPES.keys.map do |m|
-            I18n.t("decidim.admin.new_import.accepted_mime_types.#{m}")
-          end.join(", ")
+      def mime_type
+        file&.content_type
+      end
+
+      def accepted_mime_type
+        accepted_mime_types = ACCEPTED_MIME_TYPES.values + [MIME_TYPE_ZIP]
+        return if accepted_mime_types.include?(mime_type)
+
+        errors.add(
+          :file,
+          I18n.t(
+            "decidim.admin.new_import.attributes.file.invalid_mime_type",
+            valid_mime_types: ACCEPTED_MIME_TYPES.keys.map do |m|
+              I18n.t("decidim.admin.new_import.accepted_mime_types.#{m}")
+            end.join(", ")
+          )
         )
-      )
+      end
     end
   end
 end

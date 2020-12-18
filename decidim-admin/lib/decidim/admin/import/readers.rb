@@ -8,7 +8,6 @@ module Decidim
         autoload :CSV, "decidim/admin/import/readers/csv"
         autoload :JSON, "decidim/admin/import/readers/json"
         autoload :XLS, "decidim/admin/import/readers/xls"
-        Decidim::Admin::Import::Readers
 
         # Accepted mime types
         # keys: are used for dynamic help text on admin form.

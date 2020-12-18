@@ -13,6 +13,7 @@ module Decidim
   module Proposals
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :ProposalImporter, "decidim/proposals/proposal_importer"
+    autoload :ProposalParser, "decidim/proposals/proposals_parser"
     autoload :CommentableProposal, "decidim/proposals/commentable_proposal"
     autoload :CommentableCollaborativeDraft, "decidim/proposals/commentable_collaborative_draft"
     autoload :MarkdownToProposals, "decidim/proposals/markdown_to_proposals"

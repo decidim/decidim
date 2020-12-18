@@ -10,11 +10,9 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        @data = import_data
-        # parser =
-        importer = Decidim::Proposals::ProposalImporter.new(form.file, Decidim::Admin::Import::Readers::Base, parser)
-        importer.import
-
+        # raise current_user.inspect
+        data = import_data
+        raise data.inspect
       end
 
       attr_reader :form
@@ -26,24 +24,25 @@ module Decidim
       end
 
       def import_file(filepath, mime_type)
-        importer_for(filepath, mime_type).import do |records|
-          import = TranslationImportCollection.new(
-            translation_set,
-            records,
-            form.current_organization.available_locales
-          )
+        importer_for(filepath, mime_type).import # do |records|
+        #   import = TranslationImportCollection.new(
+        #     translation_set,
+        #     records,
+        #     form.current_organization.available_locales
+        #   )
 
-          return translation_set.translations.create(import.import_attributes)
-        end
+        #   return translation_set.translations.create(import.import_attributes)
+        # end
 
-        nil
+        # nil
       end
 
       def importer_for(filepath, mime_type)
         Import::ImporterFactory.build(
           filepath,
           mime_type,
-          TranslationParser
+          Decidim::Proposals::ProposalParser,
+          current_user
         )
       end
     end

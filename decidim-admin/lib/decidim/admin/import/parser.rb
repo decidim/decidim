@@ -16,8 +16,10 @@ module Decidim
         # Initializes the parser with a resource.
         #
         # data - The data hash to parse.
-        def initialize(data)
+        # user - The user who is linked to a resource
+        def initialize(data, user = nil)
           @data = data.except(:id, "id")
+          @user = user
         end
 
         # Retuns the resource class to be created with the provided data.
@@ -42,6 +44,17 @@ module Decidim
         # Returns a target object.
         def parse
           self.class.resource_klass.new(resource_attributes)
+        end
+
+        def locale_hasher(field, locales)
+          hash = {}
+          locales.each do |locale|
+            parsed = data[:"#{field}/#{locale}"]
+            next if parsed.nil?
+
+            hash[locale] = parsed
+          end
+          hash
         end
       end
     end

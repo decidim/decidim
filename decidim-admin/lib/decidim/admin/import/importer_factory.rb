@@ -5,11 +5,11 @@ module Decidim
     module Import
       # A factory class providing easier way to create new importers.
       class ImporterFactory
-        def self.build(file, mime_type, *args)
+        def self.build(file, mime_type, *args, user)
           reader = Readers.find_by_mime_type(mime_type)
           raise NotImplementedError, "No reader implemented for mime type: #{mime_type}" if reader.nil?
 
-          Importer.new(file, reader, *args)
+          Importer.new(file, reader, *args, user)
         end
       end
     end
