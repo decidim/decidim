@@ -199,6 +199,9 @@ de:
           new:
             create: Wahlhelfer erstellen
             title: Neuer Wahlhelfer
+          update:
+            invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
+            success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       admin_log:
         election:
           publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
@@ -230,6 +233,7 @@ de:
           state: Status
           upcoming: Anstehend
         filters_small_view:
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
@@ -294,11 +298,13 @@ de:
                 election: Wahl
                 status: Status
                 voting_period: Abstimmungsperiode
+              no_elections: Es gibt keine Wahlen, bei denen Sie als Wahlhelfer agieren.
               title: Wahlen
             identification_keys:
               cancel: Abbrechen
               generate: Identifikationsschlüssel generieren
               generate_error: Beim Generieren der Identifikationsschlüssel ist ein Fehler aufgetreten.
+              generate_legend: Sie müssen ein Schlüsselpaar generieren, um an Wahlen als Wahlhelfer teilzunehmen.
               generate_legend_1: Nach Drücken des Buttons sollten Sie die Datei mit den generierten Identifikationsschlüssel herunterladen.
               generate_legend_2: Kopiere die heruntergeladene Datei auf ein sauberen USB-Stick
               generate_legend_3: Stellen Sie sicher, dass Ihr Computer keine Kopie der Datei hat (z.B. überprüfen Sie die Download- und Desktop-Ordner).
@@ -306,12 +312,16 @@ de:
               submit: Einreichen
               submit_legend: Nachdem Sie alle oben beschriebenen Schritte befolgt haben, führen Sie den Prozess durch, der den öffentlichen Identifikationsschlüssel an den Decidim-Server sendet.
               submit_title: Öffentlichen Identifikationsschlüssel einreichen
+              title: Wahlhelfer-Identifikationsschlüssel
               upload: Lade deine Identifikationsschlüssel hoch
               upload_error:
                 invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
                 invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
                 invalid_public_key: Die Identifikationsschlüssel in der hochgeladenen Datei stimmen nicht mit dem öffentlichen Identifikationsschlüssel überein, der von Decidim gespeichert wird.
               upload_legend: Decidim hat Ihren öffentlichen Identifikationsschlüssel, aber Ihr Browser hat ihn immer noch nicht. Sie müssen die Datei mit Ihren Identifikationsschlüssel aus dem Backup auf Ihren Computer importieren, das Sie nach der Generierung erstellt haben.
+            not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
+            not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
+            trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
           update:
             success: Ihr öffentlicher Identifikationsschlüssel wurde erfolgreich gespeichert.
       votes:
