@@ -147,11 +147,12 @@ en:
         result:
           fields:
             end_date: End date
+            id: ID
             progress: Progress
+            scope: Scope
             start_date: Start date
             status: Status
             title: Title
-            id: ID
         status:
           fields:
             description: Description

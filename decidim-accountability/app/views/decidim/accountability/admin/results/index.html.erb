@@ -18,9 +18,18 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %> </th>
-            <th><%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %></th>
-            <%= th_resource_scope_label %>
+            <th>
+              <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %> 
+            </th>
+            <th>
+              <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
+            </th>
+            <% if resource_with_scopes_enabled? %>
+              <th>
+                <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
+              </th>
+            <% end %>
+
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
