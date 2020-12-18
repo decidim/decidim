@@ -30,7 +30,7 @@ fr:
         area_enabled: Permettre aux auteurs de choisir le périmètre d'application pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
         banner_image: Image d'en-tête
-        child_scope_threshold_enabled: Activer les signatures de portée enfant
+        child_scope_threshold_enabled: Autoriser les signatures par sous-secteur
         collect_user_extra_fields: Collecter les données personnelles de l'utilisateur lors de la signature
         custom_signature_end_date_enabled: Permettre aux auteurs de choisir la fin de la période de collecte des signatures
         description: Description
@@ -126,7 +126,7 @@ fr:
             initiative_title: Titre de l'initiative
             name_and_surname: Nom et surnom
             postal_code: Code postal
-            scope: Portée
+            scope: Secteur
             time_and_date: Heure et date
             timestamp: Horodatage
       titles:
@@ -267,8 +267,8 @@ fr:
             update: Mettre à jour
           form:
             authorizations: Paramètres d'autorisation
-            child_scope_threshold_enabled_help: 'Cette option de configuration ne prends pas en compte les votes hors-ligne, il active les sous-jauges et fonctionne avec un gestionnaire d''autorisation qui associe une portée à l''utilisateur. Assurez-vous de sélectionner cette autorisation ci-dessous dans les paramètres d''autorisation. Pour que cela fonctionne, les portées doivent être configurées de manière hiérarchique : 1 Parent - N Enfant. Pour plus d''informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.'
-            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Signature de la portée enfant" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
+            child_scope_threshold_enabled_help: 'Cette option de configuration ne gère pas les votes hors-ligne. Elle permet d''activer des sous-jauges et fonctionne nécessairement avec un gestionnaire d''autorisation qui associe un secteur à l''utilisateur. Assurez-vous de sélectionner une telle autorisation dans les paramètres d''autorisation ci-dessous. Pour que cela fonctionne, les portées doivent être configurées de manière hiérarchique : 1 Parent - n Enfants. Pour plus d''informations sur le fonctionnement de cette configuration, voir sur ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.'
+            only_global_scope_enabled_help: Cochez cette case si vous avez activé "Autoriser les signatures par sous-secteur" et configuré la portée globale comme votre portée parente. En activant cette option, la sélection du type d'initiative sera ignorée dans l'assistant de création d'initiative. Pour plus d'informations sur le fonctionnement de cette configuration, voir ce <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">lien</a>.
             options: Paramètres
             title: informations générales
           initiative_type_scopes:

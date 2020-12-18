@@ -50,7 +50,7 @@ de:
         show:
           back: Zurück zur Liste
           comments: Kommentare
-          view: Aussicht
+          view: Anzeigen
         sidebar_blog:
           comments: Bemerkungen
           most_commented_posts: Meist kommentierte Posts
@@ -72,9 +72,9 @@ de:
       blogs:
         post_created:
           email_intro: Der Beitrag "%{resource_title}" wurde in "%{participatory_space_title}" veröffentlicht, dem Sie folgen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können es aus dem vorherigen Link aufheben.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neuer Beitrag in %{participatory_space_title}
-          notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title}
+          notification_title: Der Beitrag <a href="%{resource_path}">%{resource_title}</a> wurde in %{participatory_space_title} veröffentlicht
     pages:
       home:
         statistics:

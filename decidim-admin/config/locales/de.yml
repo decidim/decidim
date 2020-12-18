@@ -132,7 +132,7 @@ de:
     admin:
       actions:
         add: Hinzufügen
-        browse: Durchsuche
+        browse: Durchsuchen
         export: Export
         manage: Verwalten
         new: Neu %{name}
@@ -143,18 +143,18 @@ de:
         verify: Überprüfen
       admin_terms_of_use:
         accept:
-          error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
-          success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
+          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
+          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme diesen Admin-Bedingungen zu
-          are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
-          refuse: Die Admin-Bedingungen ablehnen
-          title: Den Nutzungsbedingungen zustimmen
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
+          refuse: Die Admin-Nutzungsbedingungen ablehnen
+          title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Andernfalls können Sie die Plattform nicht administrieren.
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
           cta: Lesen Sie sie jetzt.
-        title: Admin Nutzungsbedingungen
+        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -207,21 +207,21 @@ de:
           success: Der Ordner wurde erfolgreich aktualisiert.
       attachments:
         create:
-          error: Beim Erstellen eines neuen Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich erstellt.
+          error: Beim Erstellen des neuen Anhangs ist ein Fehler aufgetreten.
+          success: Anhang wurde erfolgreich erstellt.
         destroy:
-          success: Anlage wurde erfolgreich zerstört.
+          success: Anhang wurde erfolgreich entfernt.
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
         index:
-          attachments_title: Anlagen
+          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
         update:
           error: Beim Aktualisieren dieses Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich aktualisiert.
+          success: Anhang wurde erfolgreich aktualisiert.
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
@@ -316,7 +316,7 @@ de:
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
-          title_cont: Suche in %{collection} nach Titel.
+          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
       help_sections:
@@ -370,7 +370,7 @@ de:
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
       menu:
-        admin_log: Administratoraktivitätsprotokoll
+        admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
         appearance: Aussehen
         area_types: Bereichstypen

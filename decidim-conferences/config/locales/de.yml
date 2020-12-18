@@ -146,7 +146,7 @@ de:
         conferences_submenu:
           attachment_collections: Ordner
           attachment_files: Dateien
-          attachments: Anlagen
+          attachments: Anhänge
           categories: Kategorien
           components: Komponenten
           conference_admins: Konferenzadministratoren
@@ -351,7 +351,7 @@ de:
             title: Registrierungsarten
         send_conference_diploma_mailer:
           diploma:
-            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> in den Anlagen.
+            diploma_html: Die Teilnahmebescheinigung für die Konferenz <a href="%{url}">%{title}</a> finden Sie in den Anhängen.
           diploma_user:
             attendance_verified_by: Anwesenheit überprüft durch
             certificate_of_attendance: Teilnahmebestätigung
@@ -428,7 +428,7 @@ de:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
           pending_validation:
-            subject: Die Anmeldung Ihrer Konferenz steht noch aus
+            subject: Ihre Anmeldung zur Konferenz steht noch aus
         invite_join_conference_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Konferenz
@@ -515,30 +515,30 @@ de:
         conference_registration_validation_pending:
           notification_title: Ihre Anmeldung für die Konferenz <a href="%{resource_url}">%{resource_title}</a> steht noch aus.
         conference_registrations_over_percentage:
-          email_intro: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%.
+          email_intro: Die Slots der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Konferenz sind.
-          email_subject: Die "%{resource_title}" Konferenz belegt Slots sind über %{percentage}%
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz belegt Slots sind über %{percentage}%.
+          email_subject: Die Slots in der Konferenz "%{resource_title}" sind zu über %{percentage}% belegt
+          notification_title: Die Slots der Konferenz <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         conference_updated:
-          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version von ihrer Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
+          email_intro: 'Die Konferenz "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Konferenz "%{resource_title}" wurde aktualisiert
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz wurde aktualisiert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> wurde aktualisiert.
         registrations_enabled:
-          email_intro: 'Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht. Sie können sich auf seiner Seite registrieren:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link entfernen.
-          email_subject: Die "%{resource_title}" -Konferenz hat Registrierungen ermöglicht.
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz hat Registrierungen ermöglicht.
+          email_intro: 'Die Konferenz "%{resource_title}" hat Registrierungen aktiviert. Sie können sich auf der Konferenz-Seite registrieren:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" hat Registrierungen aktiviert.
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         role_assigned:
-          email_intro: Sie wurden als %{role} für die Konferenz „%{resource_title}“ ausgewählt.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz „%{resource_title}“ sind.
-          email_subject: Sie wurden als %{role} für „%{resource_title}“ ausgewählt.
+          email_intro: Sie wurden als %{role} für die Konferenz "%{resource_title}" ausgewählt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein %{role} der Konferenz "%{resource_title}" sind.
+          email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für die Konferenz <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
         upcoming_conference:
-          email_intro: 'Die "%{resource_title}" -Konferenz findet in 2 Tagen statt. Sie können die Beschreibung von ihrer Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die Konferenz "%{resource_title}" verfolgen. Sie können es aus dem vorherigen Link aufheben.
-          email_subject: Die "%{resource_title}" -Konferenz kommt!
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Konferenz kommt in 2 Tagen.
+          email_intro: 'Die Konferenz "%{resource_title}" findet in 2 Tagen statt. Sie können die Beschreibung auf der Konferenz-Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Konferenz "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Die Konferenz "%{resource_title}" kommt!
+          notification_title: Die Konferenz <a href="%{resource_path}">%{resource_title}</a> beginnt in 2 Tagen.
     log:
       value_types:
         conference_presenter:
