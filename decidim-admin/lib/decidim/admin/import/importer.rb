@@ -15,7 +15,7 @@ module Decidim
         # file   - A file with the data to be imported.
         # reader - A Reader to be used to read the data from the file.
         # parser - A Parser to be used during the import.
-        def initialize(file, reader = Readers::Base, parser = Parser, user = nil, user_group = nil)
+        def initialize(file, reader = Readers::Base, user:, parser: Parser, user_group: nil)
           @file = file
           @reader = reader
           @parser = parser
@@ -39,12 +39,19 @@ module Decidim
 
         # Returns a data collection of the target data.
         def collection
-          @collection ||= collection_data.map { |item| parser.new(item, user).parse }
+          @collection ||= collection_data.map { |item| parser.new(item, context).parse }
         end
 
         private
 
-        attr_reader :file, :reader, :parser, :user
+        attr_reader :file, :reader, :parser, :user, :user_group
+
+        def context
+          {
+            user: user,
+            user_group: user_group
+          }
+        end
 
         def collection_data
           return @collection_data if @collection_data

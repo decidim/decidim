@@ -3,15 +3,15 @@
 module Decidim
   module Importers
     class ImportManifest
-      attr_reader :name #, :manifest
+      attr_reader :name # , :manifest
 
       def initialize(name, manifest)
         @name = name.to_sym
         @manifest = manifest
       end
 
-      def importer(importer = nil)
-        @importer ||= importer || Decidim::Importers::Importer
+      def parser(parser = nil)
+        @parser ||= parser || Decidim::Admin::Import::Parser
       end
 
       DEFAULT_FORMATS = %w(CSV).freeze

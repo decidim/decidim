@@ -12,7 +12,8 @@ module Decidim
         # flash[:notice] = t("decidim.admin.imports.notice")
         # redirect_back(fallback_location: manage_component_path(component))
         # raise params.inspect
-        @import = form(Admin::ImportForm).instance
+        # @import = form(Admin::ImportForm).instance
+        @import = Admin::ImportForm.new(component: component)
       end
 
       def create
@@ -25,12 +26,12 @@ module Decidim
 
         CreateImport.call(@import) do
           on(:ok) do
-            flash[:notice] = t("decidim.admin.imports.notice")
-            redirect_back(fallback_location: manage_component_path(component))
+            flash[:notice] = t("decidim.admin.imports.notice", count: import_data.count)
+            redirect_to manage_component_path(component)
           end
 
           on(:invalid) do
-            flash[:alert] = t("decidim.admin.imports.alert")
+            flash[:alert] = t("decidim.admin.imports.error")
             render action: "new"
           end
         end

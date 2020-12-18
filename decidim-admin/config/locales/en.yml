@@ -387,6 +387,7 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
+        error: There was a problem when importing proposals
         formats:
           CSV: CSV
           Excel: Excel
@@ -401,6 +402,7 @@ en:
             back: Back
           file_legend: 'Add an import file that will be parsed.'
           start_import: Start import
+        notice: Imported %{count} proposals succesfully
       logs:
         logs_list:
           no_logs_yet: There are no logs yet

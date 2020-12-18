@@ -9,10 +9,11 @@ module Decidim
 
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) unless form.parser
 
-        # raise current_user.inspect
-        data = import_data
-        raise data.inspect
+        import_data
+
+        broadcast(:ok)
       end
 
       attr_reader :form
@@ -41,8 +42,8 @@ module Decidim
         Import::ImporterFactory.build(
           filepath,
           mime_type,
-          Decidim::Proposals::ProposalParser,
-          current_user
+          user: current_user,
+          parser: form.parser_class
         )
       end
     end

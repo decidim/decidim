@@ -17,7 +17,7 @@ module Decidim
           published_at: Time.current
         )
 
-        proposal.add_coauthor(user)
+        proposal.add_coauthor(context[:user])
         proposal.save!
 
         increase_scores(proposal)
@@ -29,7 +29,7 @@ module Decidim
 
       private
 
-      attr_reader :user, :user_group
+      attr_reader :context
 
       def category
         Decidim::Category.find(data[:"category/id"].to_i)

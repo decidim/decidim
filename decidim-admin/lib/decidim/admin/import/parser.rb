@@ -16,10 +16,10 @@ module Decidim
         # Initializes the parser with a resource.
         #
         # data - The data hash to parse.
-        # user - The user who is linked to a resource
-        def initialize(data, user = nil)
+        # context - The context
+        def initialize(data, context = nil)
           @data = data.except(:id, "id")
-          @user = user
+          @context = context
         end
 
         # Retuns the resource class to be created with the provided data.
