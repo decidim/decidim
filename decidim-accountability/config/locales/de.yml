@@ -115,12 +115,12 @@ de:
             success: Eintrag erfolgreich aktualisiert
       admin_log:
         result:
-          create: "%{user_name} erstellt Ergebnis %{resource_name} in %{space_name}"
-          delete: "%{user_name} löschte das %{resource_name} Ergebnis in %{space_name}"
-          update: "%{user_name} aktualisiert Ergebnis %{resource_name} in %{space_name}"
+          create: "%{user_name} hat Ergebnis %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         value_types:
           parent_presenter:
-            not_found: 'Der Elternteil wurde nicht in der Datenbank gefunden (ID: %{id})'
+            not_found: 'Das übergeordnete Objekt wurde nicht in der Datenbank gefunden (ID: %{id})'
       import_mailer:
         import:
           errors: Fehler
@@ -198,15 +198,15 @@ de:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-          email_subject: Ein Update auf %{proposal_title}
-          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde in das Ergebnis <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Der Vorschlag "%{proposal_title}" wurde in ein Ergebnis aufgenommen. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Eine Aktualisierung auf %{proposal_title}
+          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> wurde im Ergebnis <a href="%{resource_path}">%{resource_title}</a> aufgenommen.
         result_progress_updated:
-          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sie können es auf dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wird. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
-          email_subject: Ein Update auf %{resource_title} Fortschritt
-          notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a>, ist jetzt zu %{progress}% abgeschlossen.
+          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}" enthält, ist jetzt zu %{progress}% abgeschlossen. Sie können das auf dieser Seite sehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag in das Ergebnis "%{resource_title}" aufgenommen wurde. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Fortschritt von %{resource_title} aktualisiert
+          notification_title: Das Ergebnis <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.
     metrics:
       results:
         description: Anzahl der generierten Ergebnisse
