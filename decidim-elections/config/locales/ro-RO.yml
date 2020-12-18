@@ -51,8 +51,6 @@ ro:
         confirm_destroy: Ești sigur?
         destroy: Distruge
         edit: Editare
-        edit_answers: Editare răspunsuri
-        edit_questions: Editare întrebări
         import: Importă propunerile pentru răspunsuri
         new: '%{name} nou'
         preview: Previzualizare
@@ -144,7 +142,6 @@ ro:
             few: "%{count} alegeri"
             other: "%{count} alegeri"
         show:
-          back: Toate alegerile
           preview: Previzualizare
           vote: Votează
           voting_period_status:

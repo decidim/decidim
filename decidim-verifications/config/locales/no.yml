@@ -103,7 +103,6 @@
             title: Nåværende folketelling data
           instructions:
             body: For å gjøre dette må du gå inn i systemadministrasjon og legge til cvs_census autoriseringen til organisasjonen
-            title: Du må aktivere csv-folketellingen for denne organisasjonen
           new:
             file: ".csv fil med e-postdata"
             info: 'Må være en fil i CSV-format med bare en kolonne med e-postadressen:'

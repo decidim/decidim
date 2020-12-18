@@ -46,8 +46,6 @@ el:
         confirm_destroy: Είστε βέβαιοι;
         destroy: Καταστροφή
         edit: Επεξεργασία
-        edit_answers: Επεξεργασία απαντήσεων
-        edit_questions: Επεξεργασία ερωτήσεων
         import: Εισαγωγή προτάσεων σε απαντήσεις
         new: Νέο όνομα %{name}
         preview: Προεπισκόπηση

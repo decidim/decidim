@@ -3,17 +3,11 @@
 module Decidim
   module Core
     # This type represents a Decidim's global property.
-    DecidimType = GraphQL::ObjectType.define do
-      name "Decidim"
+    class DecidimType < Decidim::Api::Types::BaseObject
       description "Decidim's framework-related properties."
 
-      field :version, !types.String, "The current decidim's version of this deployment." do
-        resolve ->(obj, _args, _ctx) { obj.version }
-      end
-
-      field :applicationName, !types.String, "The current installation's name." do
-        resolve ->(obj, _args, _ctx) { obj.application_name }
-      end
+      field :version, GraphQL::Types::String, "The current decidim's version of this deployment.", null: false
+      field :application_name, GraphQL::Types::String, "The current installation's name.", null: false
     end
   end
 end

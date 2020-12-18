@@ -30,7 +30,6 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
-        address: Nom de l'hôte SMTP
         alert_color: Alerte
         badges_enabled: Activer les badges
         comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
@@ -66,8 +65,6 @@ fr-CA:
         omnipresent_banner_short_description: Brève description
         omnipresent_banner_title: Titre
         omnipresent_banner_url: URL
-        password: Mot de passe
-        port: Port
         primary_color: Primaire
         reference_prefix: Préfixe de référence
         rich_text_editor_in_public_views: Activer l'éditeur de texte avancé pour les participants
@@ -78,7 +75,6 @@ fr-CA:
         tos_version: Version des conditions d'utilisation
         twitter_handler: Gestionnaire Twitter
         user_groups_enabled: Activer les groupes d'utilisateurs
-        user_name: Nom d'utilisateur
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
@@ -95,6 +91,7 @@ fr-CA:
         organization: Organisation
         plural: Pluriel
       static_page:
+        allow_public_access: Autoriser l'accès sans authentification
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
@@ -149,7 +146,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte ces conditions d'administration
+          accept: J'accepte les conditions d'utilisation suivantes
           are_you_sure: Êtes-vous certain de vouloir refuser les conditions d'utilisation administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -299,6 +296,9 @@ fr-CA:
         category_id_eq:
           label: Catégorie
         filter_label: Filtre
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: État
           values:
@@ -319,6 +319,7 @@ fr-CA:
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.
+          reported_id_string_or_reported_content_cont: Rechercher %{collection} par Id ou par contenu.
           title_cont: Search %{collection} par titre.
         state_eq:
           label: État
@@ -383,8 +384,10 @@ fr-CA:
         help_sections: Sections d'aide
         homepage: Page d'accueil
         impersonations: Utilisateurs représentés
+        moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
+        reported_users: Utilisateurs signalés
         scope_types: Types de secteur
         scopes: Périmètres d’application
         settings: Paramètres
@@ -472,6 +475,20 @@ fr-CA:
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Annuler le signalement
+          name: Nom
+          nickname: Pseudonyme
+          reason: Raison du signalement
+          title: Liste des utilisateurs signalés
+        report:
+          reasons:
+            does_not_belong: N'appartient pas
+            offensive: Offensant
+            spam: Spam
       moderations:
         index:
           title: Modérations
@@ -480,6 +497,21 @@ fr-CA:
             does_not_belong: N'appartient pas
             offensive: Agressif
             spam: Spam
+        reports:
+          index:
+            author: Auteur(s)
+            callout_html: Un contenu apparaît dans le panneau de modération quand il a été signalé par un utilisateur (personne ayant un compte enregistré) en cliquant sur le drapeau %{icon} à côté de l'élément.
+            content_original_language: Langue d'origine du contenu
+            participatory_space: Espace participatif
+            reported_content: Contenu signalé
+            see_current: Voir le contenu dans sa langue d'origine
+            see_original: Voir l'original
+            title: Signalements
+          show:
+            report_details: Motif du signalement
+            report_language: Langue d'origine du signalement
+            report_reason: Motif
+            title: Détails du signalement
       newsletter_templates:
         index:
           preview_template: Aperçu
@@ -559,6 +591,7 @@ fr-CA:
           officialize: Valider
           officialized: Validé
           reofficialize: De nouveau validé
+          reports: Signalements
           show_email: Montrer les adresses e-mail
           status: Statut
           unofficialize: Invalider
@@ -585,7 +618,7 @@ fr-CA:
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Erreur lors de la mise à jour de cette organisation.
@@ -743,6 +776,7 @@ fr-CA:
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
         scopes: Périmètres d'application
@@ -808,6 +842,7 @@ fr-CA:
           reason: Vous devez fournir une raison lors de l'emprunt d'identité d'un utilisateur standard
     moderations:
       actions:
+        expand: Agrandir
         hidden: Masqués
         hide: Masquer
         not_hidden: Visibles
@@ -828,17 +863,28 @@ fr-CA:
       models:
         moderation:
           fields:
+            created_at: Date de création
             hidden_at: Masqué le
+            participatory_space: Espace participatif
             report_count: Compteur
+            reportable_id: ID
+            reportable_type: Type
             reported_content_url: URL
             reports: Motif
             visit_url: Visitez l'URL
+        report:
+          fields:
+            details: Détails du signalement
+            locale: Langue
+            reason: Motif
   errors:
     messages:
       invalid_json: JSON non valide
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modération globale
         newsletters:
           title: Newsletters
         settings:

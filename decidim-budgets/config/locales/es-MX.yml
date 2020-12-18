@@ -136,9 +136,14 @@ es-MX:
           title: Confirmar voto
         budget_excess:
           budget_excess:
+            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
           close: Cerrar
+          description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
           ok: De acuerdo
+          projects_excess:
+            description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
+            title: Se ha superado el número máximo de proyectos
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
           assigned: 'Asignado:'
@@ -146,7 +151,23 @@ es-MX:
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
             title: Voto enviado correctamente
+          minimum_projects_rule:
+            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'
+            instruction: "<li>Selecciona al menos %{minimum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          projects_rule:
+            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona entre %{minimum_number} y %{maximum_number} proyectos, y vota según tus preferencias para definir el presupuesto.'
+            instruction: "<li>Selecciona al menos %{minimum_number} y hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          projects_rule_maximum_only:
+            description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona hasta %{maximum_number} y vota según tus preferencias para definir el presupuesto.'
+            instruction: "<li>Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          rules:
+            title: Reglas de presupuesto
           title: Tú decides el presupuesto
+          total_budget: Presupuesto total
+          total_projects: Total de votos
+          vote_threshold_percent_rule:
+            description: '¿A qué proyectos crees que deberíamos asignar el presupuesto? Asigna por lo menos %{minimum_budget} a los proyectos que desees y vota para definir el presupuesto.'
+            instruction: "<li>Selecciona al menos %{minimum_budget} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
         count:
           projects_count:
             one: 1 proyecto
@@ -188,6 +209,7 @@ es-MX:
           votes:
             one: voto
             other: votos
+          you_voted: Has votado esto
         project_budget_button:
           add: Añadir a tu voto
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
@@ -214,12 +236,14 @@ es-MX:
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página
+            resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
             title: Título
             total_budget: Presupuesto total
             vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
             vote_rule_minimum_budget_projects_enabled: 'Activar norma: Número mínimo de proyectos a votar'
+            vote_rule_selected_projects_enabled: 'Habilitar regla: proyectos seleccionados con un número mínimo y máximo de proyectos en los que votar'
             vote_rule_threshold_percent_enabled: 'Activar norma: porcentaje mínimo del pressupuesto'
             vote_threshold_percent: Porcentaje de votos
             workflow: Workflow

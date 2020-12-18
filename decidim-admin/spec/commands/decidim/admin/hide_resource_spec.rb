@@ -9,6 +9,17 @@ module Decidim::Admin
     let!(:report) { create(:report, moderation: moderation) }
     let(:current_user) { create :user, organization: reportable.participatory_space.organization }
     let(:command) { described_class.new(reportable, current_user) }
+    let(:author_notification) do
+      {
+        event: "decidim.events.reports.resource_hidden",
+        event_class: Decidim::ResourceHiddenEvent,
+        resource: reportable,
+        extra: {
+          report_reasons: [report.reason]
+        },
+        affected_users: reportable.try(:authors) || [reportable.try(:author)]
+      }
+    end
 
     context "when everything is ok" do
       it "broadcasts ok" do
@@ -31,6 +42,11 @@ module Decidim::Admin
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "update"
+      end
+
+      it "sends a notification to the reportable's author" do
+        expect(Decidim::EventsManager).to receive(:publish).with(author_notification)
+        command.call
       end
     end
 

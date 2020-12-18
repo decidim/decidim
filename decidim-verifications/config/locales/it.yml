@@ -131,7 +131,6 @@ it:
             title: Dati di censimento attuali
           instructions:
             body: Per fare ciò è necessario inserire l'amministrazione del sistema e aggiungere le autorizzazioni csv_census all'organizzazione
-            title: È necessario attivare il censimento CSV per questa organizzazione
           new:
             file: "file .csv con dati di posta elettronica"
             info: 'Deve essere un file in formato CSV con una sola colonna con l''indirizzo email:'

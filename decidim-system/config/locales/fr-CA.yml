@@ -7,6 +7,13 @@ fr-CA:
         organization_name: Organisation
         organization_url: URL de l'organisation
         redirect_uri: URI de redirection
+      organization:
+        address: Nom de l'hôte SMTP
+        from_email: Adresse e-mail d'envoi des notifications
+        from_label: Label de l'envoyeur
+        password: Mot de passe
+        port: Port
+        user_name: Nom d'utilisateur
       organization_file_uploads:
         allowed_content_types:
           admin: Formats autorisés - Admin (MIME)
@@ -153,8 +160,10 @@ fr-CA:
             api_key: Clé API
             api_secret: Secret de l'API
         smtp_settings:
+          fieldsets:
+            sender: Expéditeur
           instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation

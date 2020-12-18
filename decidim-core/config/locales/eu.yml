@@ -724,8 +724,6 @@ eu:
           send: Bidali
           title: Hasi elkarrizketa bat
     metrics:
-      download:
-        csv: Deskargatu datuak (csv)
       followers:
         description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
@@ -899,7 +897,6 @@ eu:
         subject: Eduki bat automatikoki ezkutatu da
       report:
         hello: Kaixo, %{name},
-        manage_moderations: Kudeatu moderazioak
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
         subject: Eduki bat salatua izan da
     reports:

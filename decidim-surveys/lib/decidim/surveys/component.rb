@@ -57,6 +57,8 @@ Decidim.register_component(:surveys) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
+    settings.attribute :starts_at, type: :time
+    settings.attribute :ends_at, type: :time
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :clean_after_publish, type: :boolean, default: true
   end
@@ -151,11 +153,12 @@ Decidim.register_component(:surveys) do |component|
       )
     end
 
-    %w(matrix_single matrix_multiple).each do |matrix_question_type|
+    %w(matrix_single matrix_multiple).each_with_index do |matrix_question_type, index|
       question = Decidim::Forms::Question.create!(
         questionnaire: questionnaire,
         body: Decidim::Faker::Localized.paragraph,
-        question_type: matrix_question_type
+        question_type: matrix_question_type,
+        position: index
       )
 
       3.times do

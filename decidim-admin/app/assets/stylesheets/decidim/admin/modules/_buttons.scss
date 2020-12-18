@@ -39,6 +39,7 @@
 
 .button.muted{
   background-color: $medium-gray;
+  color: $white;
 
   &:hover{
     background-color: darken($medium-gray, 10);

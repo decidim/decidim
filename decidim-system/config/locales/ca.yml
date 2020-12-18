@@ -7,6 +7,13 @@ ca:
         organization_name: Organització
         organization_url: URL de l'organització
         redirect_uri: URI de redirecció
+      organization:
+        address: Nom del servidor SMTP
+        from_email: Adreça de correu electrònic
+        from_label: Etiqueta
+        password: Contrasenya
+        port: Port
+        user_name: Nom d'usuari
       organization_file_uploads:
         allowed_content_types:
           admin: Tipus MIME del panell de administració
@@ -153,8 +160,10 @@ ca:
             api_key: Clau de l'API
             api_secret: Clau secreta de l'API
         smtp_settings:
+          fieldsets:
+            sender: Remitent
           instructions:
-            from_label: 'El remitent de correu electrònic serà: "la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar el ''from_email'' com a etiqueta'
+            from_label: 'El remitent de correu electrònic serà: "la-teva-organitzacio <your-organization@example.org>". Deixa-ho en blanc per a usar l''adreça de correu com a etiqueta'
           placeholder:
             from_email: la-teva-organitzacio@example.org
             from_label: el-nom-de-la-vostra-organitzacio

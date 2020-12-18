@@ -32,6 +32,7 @@
             announcement: Kunngjøring
             comments_enabled: Kommentarer er aktivert
             comments_max_length: Maks kommentarlengde
+            scope_id: Tema
           step:
             announcement: Kunngjøring
             comments_blocked: Kommentarer er blokkert
@@ -103,6 +104,7 @@
           citizens: Innbyggere
           official: Offentlig
           origin: Opprinnelse
+          scope: Tema
           search: Søk
         filters_small_view:
           close_modal: Lukk vinduet

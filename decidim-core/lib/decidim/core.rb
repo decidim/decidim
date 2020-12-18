@@ -20,6 +20,7 @@ module Decidim
   autoload :Traceable, "decidim/traceable"
   autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
+  autoload :UserReportable, "decidim/user_reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
@@ -92,6 +93,7 @@ module Decidim
   autoload :HasUploadValidations, "decidim/has_upload_validations"
   autoload :FileValidatorHumanizer, "decidim/file_validator_humanizer"
   autoload :ShareableWithToken, "decidim/shareable_with_token"
+  autoload :RecordEncryptor, "decidim/record_encryptor"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

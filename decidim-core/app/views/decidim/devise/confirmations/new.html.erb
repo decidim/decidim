@@ -13,7 +13,7 @@
       <div class="card">
         <div class="card__content">
           <%= decidim_form_for(resource, namespace: "confirmation", as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "register-form new_user" }) do |f| %>
-            <%= devise_error_messages! %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="field">
               <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>

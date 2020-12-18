@@ -123,7 +123,6 @@ zh-CN:
         update: "%{user_name} 更新了组织设置"
       participatory_space_private_user:
         create: "%{user_name} 邀請了 %{resource_name} 作为私人参与者"
-        create_via_csv: "%{user_name} 通过 csv 邀请 %{resource_name} 成为私人参与者"
         delete: "%{user_name} 移除了参与者 %{resource_name} 作为私人参与者"
       scope:
         create: "%{user_name} 创建了 %{resource_name} 范围"
@@ -392,7 +391,6 @@ zh-CN:
           email_already_exists: 另一个帐户正在使用相同的电子邮件地址
         new:
           complete_profile: 完整资料
-          nickname_help: 您在 %{organization} 中的别名
           sign_up: 请填写您的个人资料
           subtitle: 请填写以下表单以完成注册
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
@@ -401,7 +399,6 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          nickname_help: 您在 %{organization} 中的别名
           password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
           sign_in: 登录
           sign_up: 注册
@@ -642,7 +639,6 @@ zh-CN:
         file:
           explanation: '文件指南：'
           message_1: 必须是图像或文档。
-          message_2: 对于图像，使用最好的景观图像，服务将图像作为图像。
         image:
           explanation: '图像指南：'
           message_1: 更喜欢一个没有任何文本的横屏图像。
@@ -892,8 +888,6 @@ zh-CN:
         update:
           error: 消息因错误而未发送
     metrics:
-      download:
-        csv: 下载数据 (csv)
       followers:
         description: 跟随此参与空间的参与者数量
         object: 关注者
@@ -1095,7 +1089,6 @@ zh-CN:
         date: 报告于
         details: 详细信息
         hello: 您好 %{name}，
-        manage_moderations: 管理版面
         participatory_space: 参与空间
         reason: 原因
         report_html: <p>以下 <a href="%{url}">内容</a> 已被报告。</p>

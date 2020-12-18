@@ -19,16 +19,23 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :online_meeting_url, String
       attribute :type_of_meeting, String
-
-      TYPE_OF_MEETING = %w(in_person online).freeze
+      attribute :registration_type, String
+      attribute :registrations_enabled, Boolean, default: false
+      attribute :registration_url, String
+      attribute :available_slots, Integer, default: 0
+      attribute :registration_terms, String
 
       validates :title, presence: true
       validates :description, presence: true
       validates :type_of_meeting, presence: true
-      validates :location, presence: true, if: ->(form) { form.in_person_meeting? }
+      validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :address, presence: true, if: ->(form) { form.needs_address? }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
-      validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? }
+      validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
+      validates :registration_type, presence: true
+      validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
+      validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
+      validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
       validates :start_time, presence: true, date: { before: :end_time }
       validates :end_time, presence: true, date: { after: :start_time }
 
@@ -47,11 +54,8 @@ module Decidim
         self.description = presenter.description(all_locales: false)
         self.location = presenter.location(all_locales: false)
         self.location_hints = presenter.location_hints(all_locales: false)
-        self.type_of_meeting = if model.online_meeting?
-                                 "online"
-                               else
-                                 "in_person"
-                               end
+        self.registration_terms = presenter.registration_terms(all_locales: false)
+        self.type_of_meeting = model.type_of_meeting
       end
 
       alias component current_component
@@ -85,7 +89,7 @@ module Decidim
       end
 
       def needs_address?
-        in_person_meeting?
+        in_person_meeting? || hybrid_meeting?
       end
 
       def geocoded?
@@ -100,17 +104,42 @@ module Decidim
         type_of_meeting == "in_person"
       end
 
+      def hybrid_meeting?
+        type_of_meeting == "hybrid"
+      end
+
       def clean_type_of_meeting
         type_of_meeting.presence
       end
 
       def type_of_meeting_select
-        TYPE_OF_MEETING.map do |type|
+        Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
           [
             I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
             type
           ]
         end
+      end
+
+      def on_this_platform?
+        registration_type == "on_this_platform"
+      end
+
+      def on_different_platform?
+        registration_type == "on_different_platform"
+      end
+
+      def registration_type_select
+        Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
+          [
+            I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
+            type
+          ]
+        end
+      end
+
+      def registrations_enabled
+        on_this_platform?
       end
     end
   end

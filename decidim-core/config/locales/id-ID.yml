@@ -722,8 +722,6 @@ id:
           send: Kirim
           title: Mulai percakapan
     metrics:
-      download:
-        csv: Unduh data (csv)
       followers:
         description: Jumlah pengguna yang mengikuti ruang partisipasi ini
         object: pengikut
@@ -897,7 +895,6 @@ id:
         subject: Sumber daya telah disembunyikan secara otomatis
       report:
         hello: Halo %{name},
-        manage_moderations: Kelola moderasi
         report_html: <p> <a href="%{url}">konten</a> berikut telah dilaporkan.</p>
         subject: Sumber daya telah dilaporkan
     reports:

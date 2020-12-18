@@ -34,7 +34,11 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "in_person" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:registration_url) { "http://decidim.org" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
@@ -50,7 +54,12 @@ module Decidim::Meetings
         private_meeting: private_meeting,
         transparent: transparent,
         type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        online_meeting_url: online_meeting_url,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_terms: registration_terms,
+        registrations_enabled: true,
+        registration_url: registration_url
       }
     end
 
@@ -146,6 +155,35 @@ module Decidim::Meetings
       let(:type_of_meeting) { nil }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when registration url is missing and registration type of meeting is on different platform" do
+      let(:registration_type) { "on_different_platform" }
+      let(:registration_url) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    describe "when registration type of meeting is missing" do
+      let(:registration_type) { nil }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when registration type is on this platform" do
+      let(:registration_type) { "on_this_platform" }
+
+      describe "available slots are missing" do
+        let(:available_slots) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      describe "registration terms are missing" do
+        let(:registration_terms) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
     end
   end
 end

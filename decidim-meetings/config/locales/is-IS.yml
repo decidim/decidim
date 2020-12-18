@@ -23,9 +23,7 @@ is-IS:
         title: Titill
         transparent: Gegnsætt
       minutes:
-        audio_url: Audio url
         description: Lýsing
-        video_url: Video url
         visible: Er sýnilegt
   decidim:
     admin:
@@ -213,11 +211,6 @@ is-IS:
       types:
         private_meeting: Einkafundur
         transparent: Gegnsætt
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Fyrri fundi
-          upcoming_meetings: Næstu fundir
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Fyrri fundi

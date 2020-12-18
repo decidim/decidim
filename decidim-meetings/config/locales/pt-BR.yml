@@ -29,9 +29,7 @@ pt:
         title: Título
         transparent: Transparente
       minutes:
-        audio_url: URL de áudio
         description: Descrição
-        video_url: URL do vídeo
         visible: É visível
     errors:
       models:
@@ -414,11 +412,6 @@ pt:
         description: Número de reuniões criadas
         object: reuniões
         title: Reuniões
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Reuniões anteriores
-          upcoming_meetings: Próximas reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores

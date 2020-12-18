@@ -11,7 +11,6 @@ module Decidim
         TreeNode.new(
           TreePoint.new("", t("decidim.initiatives.application_helper.filter_state_values.all")),
           [
-            TreePoint.new("created", t("decidim.initiatives.application_helper.filter_state_values.draft")),
             TreePoint.new("open", t("decidim.initiatives.application_helper.filter_state_values.open")),
             TreeNode.new(
               TreePoint.new("closed", t("decidim.initiatives.application_helper.filter_state_values.closed")),

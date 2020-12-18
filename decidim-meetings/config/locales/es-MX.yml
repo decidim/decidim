@@ -21,6 +21,7 @@ es-MX:
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        online_meeting_url: URL del encuentro online
         organizer_gid: Crear como
         organizer_id: Organizador
         private_meeting: Encuentro privado
@@ -30,10 +31,9 @@ es-MX:
         start_time: Hora de inicio
         title: Título
         transparent: Transparente
+        type_of_meeting: Tipo
       minutes:
-        audio_url: URL del audio
         description: Descripción
-        video_url: URL del vídeo
         visible: Es visible
     errors:
       models:
@@ -90,6 +90,7 @@ es-MX:
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada encuentro
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -253,6 +254,9 @@ es-MX:
           form:
             address_help: 'Dirección: usada por Geocoder para encontrar la ubicación'
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
+            location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
+            online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           index:
             title: Encuentros
           new:
@@ -356,6 +360,11 @@ es-MX:
             subject: La inscripción a tu encuentro ha sido confirmada
       meeting:
         not_allowed: No puedes ver esta reunión
+      meeting_closes:
+        edit:
+          back: Atrás
+          close: Crear encuentro
+          title: Cerrar el encuentro
       meetings:
         count:
           meetings_count:
@@ -383,6 +392,11 @@ es-MX:
             user_groups: Grupos
           scope: Ámbito
           search: Buscar
+          type: Tipo
+          type_values:
+            all: Todos
+            in_person: Presencial
+            online: Online
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
@@ -392,6 +406,7 @@ es-MX:
           address_help: 'Dirección: que utilizará Geocoder para encontrar la ubicación'
           create_as: Crear encuentro como
           location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
+          location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           select_a_category: Por favor, selecciona una categoría
         index:
           new_meeting: Nuevo encuentro
@@ -477,11 +492,6 @@ es-MX:
         description: Número de encuentros creados
         object: encuentros
         title: Encuentros
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Encuentros pasados
-          upcoming_meetings: Próximos encuentros
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados

@@ -129,7 +129,6 @@ es-PY:
         update: "%{user_name} actualizó la configuración de la organización"
       participatory_space_private_user:
         create: "%{user_name} invitados %{resource_name} para ser un usuario privado"
-        create_via_csv: "%{user_name} ha invitado a %{resource_name} como participante privada"
         delete: "%{user_name} eliminado el usuario %{resource_name} como un usuario privado"
       scope:
         create: "%{user_name} creó el ámbito %{resource_name}"
@@ -411,7 +410,6 @@ es-PY:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Tu alias en %{organization}
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -420,7 +418,6 @@ es-PY:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          nickname_help: Tu alias en %{organization}
           password_help: "%{minimun_characters} caracteres mínimos, no debe ser demasiado común (por ejemplo, 123456) y debe ser diferente de tu apodo y tu correo electrónico."
           sign_in: Entra
           sign_up: Regístrate
@@ -671,7 +668,6 @@ es-PY:
         file:
           explanation: 'Instrucciones para el archivo:'
           message_1: Tiene que ser una imagen o un documento.
-          message_2: Para las imágenes, utilizar imágenes apaisadas preferiblemente, el servicio recorta la imagen.
         image:
           explanation: 'Instrucciones para la imagen:'
           message_1: Preferiblemente una imagen de paisaje que no tenga ningún texto.
@@ -921,8 +917,6 @@ es-PY:
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
-      download:
-        csv: Descargar datos (csv)
       followers:
         description: Número de usuarios que siguen este espacio de participación.
         object: seguidores
@@ -1124,7 +1118,6 @@ es-PY:
         date: Reportado el
         details: Detalles
         hello: Hola %{name},
-        manage_moderations: Gestionar moderaciones
         participatory_space: Espacio de participación
         reason: Motivo
         report_html: <p>El siguiente <a href="%{url}">contenido</a> ha sido reportado.</p>

@@ -266,10 +266,6 @@ pt:
         description: Número de votos gerados em propostas de usuários
         object: votos
         title: Votos
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propostas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -306,7 +302,6 @@ pt:
             title: Visualizar texto participativo
           new_import:
             bottom_hint: "(Você será capaz de visualizar e classificar as seções do documento)"
-            document_legend: 'Adicione um documento menor que 2MB, cada seção até que 3 níveis de profundidade sejam analisados em Propostas. Formatos suportados são: %{valid_mime_types}'
             title: ADICIONAR DOCUMENTO
             upload_document: Carregar documento
           publish:

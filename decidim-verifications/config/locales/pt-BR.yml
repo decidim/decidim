@@ -103,7 +103,6 @@ pt:
             title: Dados do censo atual
           instructions:
             body: Para fazer isso, você deve entrar na administração do sistema e adicionar as autorizações csv_census à organização
-            title: Você precisa ativar o censo csv para esta organização
           new:
             file: "arquivo .csv com dados de e-mails"
             submit: Subir arquivo

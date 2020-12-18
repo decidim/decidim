@@ -1,6 +1,8 @@
 fr:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activer le schéma d'organisation
       assembly:
         area_id: Zone d'application
         assembly_type: Type d'assemblée
@@ -60,6 +62,7 @@ fr:
         full_name: Nom et prénom
         gender: Genre
         position: Statut
+        user_id: Utilisateur
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -305,6 +308,9 @@ fr:
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Membres
@@ -469,7 +475,7 @@ fr:
           take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
       assembly_widgets:
         show:
           take_part: Participer

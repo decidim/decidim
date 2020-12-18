@@ -26,14 +26,13 @@ nl:
         private_meeting: Privé vergadering
         registration_form_enabled: Inschrijvingsformulier ingeschakeld
         registration_terms: Registratievoorwaarden
+        registration_url: Registratie URL
         registrations_enabled: Registraties geactiveerd
         start_time: Starttijd
         title: Titel
         transparent: Transparant
       minutes:
-        audio_url: Audio-URL
         description: Beschrijving
-        video_url: Video URL
         visible: Is zichtbaar
     errors:
       models:
@@ -244,7 +243,11 @@ nl:
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+            available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
+            disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
             location_help: 'Locatie: bericht gericht aan de gebruikers die de locatie op een vergadering plaatsen'
+            registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
+            select_a_registration_type: Selecteer een registratietype
           index:
             title: Events
           new:
@@ -348,6 +351,11 @@ nl:
             subject: Registratie van uw vergadering is bevestigd
       meeting:
         not_allowed: U mag deze vergadering niet bekijken
+      meeting_closes:
+        edit:
+          back: Terug
+          close: Vergadering sluiten
+          title: Vergadering sluiten
       meetings:
         count:
           meetings_count:
@@ -382,9 +390,13 @@ nl:
           unfold: Ontvouwen
         form:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+          available_slots_help: Laat op 0 staan als je onbeperkt aantal tijdsblokken beschikbaar hebt
           create_as: Maak vergadering als
+          disclaimer: 'Disclaimer: Door gebruik te maken van een extern registratiesysteem, ben je op de hoogte dat de organisatoren van %{organization} niet verantwoordelijk zijn voor de gegevens die door gebruikers aan de externe dienst worden verstrekt.'
           location_help: 'Locatie: bericht gericht naar de gebruikers die de plek om elkaar te ontmoeten impliceren'
+          registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
           select_a_category: Selecteer een categorie
+          select_a_registration_type: Selecteer een registratietype
         index:
           new_meeting: Nieuwe vergadering
         meeting_minutes:
@@ -403,6 +415,7 @@ nl:
         show:
           attendees: Aantal deelnemers
           back: Terug naar het overzicht
+          close_meeting: Vergadering sluiten
           contributions: Aantal bijdragen
           date: 'Datum:'
           edit_meeting: Bewerk vergadering
@@ -449,6 +462,10 @@ nl:
           confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
           registration_code: Uw registratiecode is %{code}.
+      registration_type:
+        on_different_platform: Op een ander platform
+        on_this_platform: Op dit platform
+        registration_disabled: Registratie uitgeschakeld
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
@@ -469,11 +486,6 @@ nl:
         description: Aantal gemaakte vergaderingen
         object: vergaderingen
         title: vergaderingen
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_meetings:
-          past_meetings: Vorige events
-          upcoming_meetings: Aankomende vergaderingen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vorige events

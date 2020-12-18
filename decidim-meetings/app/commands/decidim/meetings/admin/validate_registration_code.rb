@@ -35,6 +35,8 @@ module Decidim
         end
 
         def send_notification
+          return unless meeting.component.settings.registration_code_enabled
+
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.registration_code_validated",
             event_class: Decidim::Meetings::RegistrationCodeValidatedEvent,

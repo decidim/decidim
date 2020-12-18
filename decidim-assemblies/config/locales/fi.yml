@@ -19,12 +19,12 @@ fi:
         decidim_assemblies_type_id: Ryhmän tyyppi
         decidim_scope_id: Teema
         description: Kuvaus
-        developer_group: Perustajaryhmä
+        developer_group: Edistäjäryhmä
         domain: Toimintaympäristö
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         included_at: Lisäysaika
         instagram: Instagram
@@ -305,6 +305,9 @@ fi:
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Jäsenet
@@ -354,7 +357,7 @@ fi:
         composition: Kokoonpano
         created_by: Luonut
         creation_date: Luontipäivämäärä
-        developer_group: Perustajaryhmä
+        developer_group: Edistäjäryhmä
         duration: Kesto
         included_at: Lisäysaika
         indefinite_duration: Määrittelemätön

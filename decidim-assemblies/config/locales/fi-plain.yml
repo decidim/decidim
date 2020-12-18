@@ -24,7 +24,7 @@ fi-pl:
         duration: Kesto
         facebook: Facebook
         github: GitHub
-        hashtag: Hashtag
+        hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
         included_at: Mukana osoitteessa
         instagram: Instagram
@@ -305,6 +305,9 @@ fi-pl:
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Jäsenet

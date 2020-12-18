@@ -103,7 +103,6 @@ gl:
             title: Datos censuais actuais
           instructions:
             body: Para iso debes ingresar na administración do sistema e engadir as autorizacións csv_census á organización
-            title: Debe activar o censo de csv para esta organización
           new:
             file: "Ficheiro .csv con datos de correo electrónico"
             submit: Cargar ficheiro

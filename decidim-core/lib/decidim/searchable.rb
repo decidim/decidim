@@ -84,6 +84,8 @@ module Decidim
         return unless self.class.searchable_resource?(self)
 
         org = self.class.search_resource_fields_mapper.retrieve_organization(self)
+        return unless org
+
         searchables_in_org = searchable_resources.by_organization(org.id)
 
         if self.class.search_resource_fields_mapper.index_on_update?(self)

@@ -131,7 +131,6 @@ sv:
             title: Aktuella medlemsuppgifter
           instructions:
             body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
-            title: Du måste aktivera medlemsuppgifter via CSV för organisationen
           new:
             file: ".csv-fil med e-postadresser"
             info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'

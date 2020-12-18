@@ -292,18 +292,10 @@ ro:
         finish:
           back: Înapoi
           back_to_initiatives: Înapoi la inițiative
-          confirm: Confirmare
           edit_my_initiative: Editează inițiativele mele
           go_to_my_initiatives: Mergeți la inițiativele mele
           more_information: "(Informaţii principale)"
           send_my_initiative: Trimite-mi inițiativa
-        finish_help:
-          access_reminder: Amintiți-vă că veți putea întotdeauna accesa inițiativele dvs. prin intermediul meniului participant.
-          help_for_organizations: Dacă sunteți o asociere, va trebui să încărcați procesul-verbal al consiliului de administrație al tuturor organizațiilor care formează Comisia de promovare
-          help_in_person_signatures: Dacă ai ales să aduni semnăturile în persoană sau combinate cu cele online, va trebui să încarci informațiile necesare.
-          help_text: Amintiţi-vă că pentru a procesa corespunzător iniţiativa trebuie să accesaţi panoul de administrare unde veţi găsi meniul utilizatorului, încarcă informațiile necesare și trimite-le spre procesare.
-          initiatives_page_link: Puteți căuta toate aceste informații pe %{link} dedicate informării despre inițiative.
-          page: pagină
         previous_form:
           back: Înapoi
           continue: Continuă
@@ -412,6 +404,8 @@ ro:
           random: Aleator
           recent: Cele mai recente
           recently_published: Cel mai recent publicat
+        print:
+          city: Oraș
         result:
           answer_title:
             accepted: Această propunere a fost acceptată deoarece

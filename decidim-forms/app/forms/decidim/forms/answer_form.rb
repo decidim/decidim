@@ -51,7 +51,7 @@ module Decidim
 
       def display_conditions_fulfilled?
         question.display_conditions.all? do |condition|
-          answer = question.questionnaire.answers.find_by(question: condition.condition_question)
+          answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
           condition.fulfilled?(answer)
         end
       end

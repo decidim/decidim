@@ -30,7 +30,6 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
-        address: SMTP Hostname
         alert_color: Benachrichtigung
         badges_enabled: Abzeichen aktivieren
         comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
@@ -66,8 +65,6 @@ de:
         omnipresent_banner_short_description: Kurze Beschreibung
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Passwort
-        port: Port
         primary_color: Primär
         reference_prefix: Referenzpräfix
         rich_text_editor_in_public_views: Rich-Text-Editor für Teilnehmer aktivieren
@@ -78,7 +75,6 @@ de:
         tos_version: Nutzungsbedingungen Version
         twitter_handler: Twitter-Handler
         user_groups_enabled: Benutzergruppen aktivieren
-        user_name: Benutzername
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
@@ -95,6 +91,7 @@ de:
         organization: Organisation
         plural: Plural
       static_page:
+        allow_public_access: Zugriff ohne Authentisierung erlauben
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
         organization: Organisation
@@ -125,17 +122,17 @@ de:
         title: Titel
       doorkeeper/application:
         authorize_url: URL autorisieren
-        client_id: Kunden ID
+        client_id: Client-ID
         client_secret: Kundengeheimnis
         organization_name: Name der Organisation
         organization_url: Organisations-URL
-        redirect_uri: URI umleiten
+        redirect_uri: Umleitungs URI
         site: Webseite
   decidim:
     admin:
       actions:
         add: Hinzufügen
-        browse: Durchsuche
+        browse: Durchsuchen
         export: Export
         manage: Verwalten
         new: Neu %{name}
@@ -146,18 +143,18 @@ de:
         verify: Überprüfen
       admin_terms_of_use:
         accept:
-          error: Es gab einen Fehler beim Akzeptieren der Admin-Nutzungsbedingungen.
-          success: Super! Du hast die Admin-Nutzungsbedingungen akzeptiert.
+          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
+          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme diesen Admin-Bedingungen zu
-          are_you_sure: Sind Sie sicher, die Admin-Bedingungen abzulehnen?
-          refuse: Die Admin-Bedingungen ablehnen
-          title: Den Nutzungsbedingungen zustimmen
+          accept: Ich stimme den folgenden Bedingungen zu
+          are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
+          refuse: Die Admin-Nutzungsbedingungen ablehnen
+          title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Andernfalls können Sie die Plattform nicht administrieren.
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht administrieren.
           cta: Lesen Sie sie jetzt.
-        title: Admin Nutzungsbedingungen
+        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
@@ -210,21 +207,21 @@ de:
           success: Der Ordner wurde erfolgreich aktualisiert.
       attachments:
         create:
-          error: Beim Erstellen eines neuen Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich erstellt.
+          error: Beim Erstellen des neuen Anhangs ist ein Fehler aufgetreten.
+          success: Anhang wurde erfolgreich erstellt.
         destroy:
-          success: Anlage wurde erfolgreich zerstört.
+          success: Anhang wurde erfolgreich entfernt.
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
         index:
-          attachments_title: Anlagen
+          attachments_title: Anhänge
         new:
           create: Anhang erstellen
           title: Neuer Anhang
         update:
           error: Beim Aktualisieren dieses Anhangs ist ein Fehler aufgetreten.
-          success: Anlage wurde erfolgreich aktualisiert.
+          success: Anhang wurde erfolgreich aktualisiert.
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
@@ -299,6 +296,9 @@ de:
         category_id_eq:
           label: Kategorie
         filter_label: Filtern
+        moderations:
+          reportable_type_string_eq:
+            label: Art
         officialized_at_null:
           label: Zustand
           values:
@@ -319,7 +319,8 @@ de:
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
-          title_cont: Suche in %{collection} nach Titel.
+          reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
+          title_cont: In %{collection} nach Titel suchen.
         state_eq:
           label: Bundesland
       help_sections:
@@ -373,7 +374,7 @@ de:
             new_managed_user_promotion: Neue verwaltete Benutzerwerbung
             promote: Fördern
       menu:
-        admin_log: Administratoraktivitätsprotokoll
+        admin_log: Admin-Aktivitätsprotokoll
         admins: Admins
         appearance: Aussehen
         area_types: Bereichstypen
@@ -383,8 +384,10 @@ de:
         help_sections: Hilfeabschnitte
         homepage: Startseite
         impersonations: Identitätswechsel
+        moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
+        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -472,6 +475,20 @@ de:
             phone: Telefon
             state: Zustand
             users_count: Benutzer zählen
+      moderated_users:
+        index:
+          actions:
+            title: Aktionen
+            unreport: Meldung Rückgängig machen
+          name: Name
+          nickname: Spitzname
+          reason: Grund
+          title: Liste der gemeldeten Benutzer
+        report:
+          reasons:
+            does_not_belong: Gehört nicht zu
+            offensive: Offensiv
+            spam: Spam
       moderations:
         index:
           title: Moderationen
@@ -480,6 +497,21 @@ de:
             does_not_belong: Gehört nicht
             offensive: Beleidigend
             spam: Spam
+        reports:
+          index:
+            author: Autor(en)
+            callout_html: Ein Inhalt erscheint im Moderations-Panel, wenn er von einem Benutzer signalisiert wurde (kann jeder mit einem registrierten Konto sein), indem er auf die %{icon} Flagge neben dem Element klickt.
+            content_original_language: Originalsprache des Inhalts
+            participatory_space: Beteiligungsbereich
+            reported_content: Gemeldeter Inhalt
+            see_current: Siehe aktuelles
+            see_original: Original ansehen
+            title: Moderationsberichte
+          show:
+            report_details: Details zum Grund
+            report_language: Berichtssprache
+            report_reason: Grund
+            title: Berichtdetails
       newsletter_templates:
         index:
           preview_template: Vorschau
@@ -559,6 +591,7 @@ de:
           officialize: Offizialisieren
           officialized: Offizialisiert
           reofficialize: Reoffizialisieren
+          reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
           unofficialize: Nicht offiziell
@@ -585,7 +618,7 @@ de:
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: Youtube
         update:
           error: Beim Aktualisieren dieser Organisation ist ein Fehler aufgetreten.
@@ -620,7 +653,7 @@ de:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
         index:
-          import_via_csv: Import via CSV
+          import_via_csv: Aus CSV-Datein importieren
           title: Participatory Space privater Benutzer
         new:
           create: Erstellen
@@ -630,6 +663,7 @@ de:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
+          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
@@ -734,7 +768,7 @@ de:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert
       titles:
-        admin_log: Administratorprotokoll
+        admin_log: Adminprotokoll
         area_types: Bereichstypen
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
@@ -742,6 +776,7 @@ de:
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
         scopes: Bereiche
@@ -807,6 +842,7 @@ de:
           reason: Sie müssen einen Grund angeben, wenn Sie sich als nicht verwalteter Benutzer ausgeben
     moderations:
       actions:
+        expand: Ausklappen
         hidden: Versteckt
         hide: verbergen
         not_hidden: Nicht versteckt
@@ -827,17 +863,28 @@ de:
       models:
         moderation:
           fields:
+            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
+            participatory_space: Beteiligungsbereich
             report_count: Anzahl
+            reportable_id: ID
+            reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
             reports: Berichte
             visit_url: Besuchs-URL
+        report:
+          fields:
+            details: Details zum Grund
+            locale: Sprache
+            reason: Grund
   errors:
     messages:
       invalid_json: Ungültiger JSON
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:

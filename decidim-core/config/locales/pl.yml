@@ -136,7 +136,6 @@ pl:
         update: "%{user_name} zaktualizował(a) ustawienia organizacji"
       participatory_space_private_user:
         create: "%{user_name} zaprosił(a) %{resource_name} jako użytkownika prywatnego"
-        create_via_csv: "%{user_name} zaprosił(a) %{resource_name} poprzez CSV, aby został(a) uczestnikiem prywatnym"
         delete: "%{user_name} usunął/usunęła użytkownika %{resource_name} jako użytkownika prywatnego"
       scope:
         create: "%{user_name} utworzył(a) zakres %{resource_name}"
@@ -424,7 +423,6 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Uzupełnij profil
-          nickname_help: Twój pseudonim w %{organization}
           sign_up: Proszę uzupełnij swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -433,7 +431,6 @@ pl:
           already_have_an_account?: Posiadasz już konto?
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
-          nickname_help: Twój pseudonim w %{organization}
           password_help: "Minimalna liczba znaków: %{minimun_characters}; nie może być zbyt powszechny (np. 123456) i musi różnić się od Twojego pseudonimu i adresu e-mail."
           sign_in: Zaloguj się
           sign_up: Zarejestruj się
@@ -685,7 +682,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwis docina obraz.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
@@ -928,8 +924,6 @@ pl:
           send: Wyślij
           title: Zacznij konwersację
     metrics:
-      download:
-        csv: Pobierz dane (csv)
       followers:
         description: Liczba użytkowników obserwujących tę przestrzeń partycypacyjną
         object: obserwujący
@@ -1130,7 +1124,6 @@ pl:
         date: Zgłoszone dnia
         details: Szczegóły
         hello: Witaj %{name},
-        manage_moderations: Zarządzaj moderacjami
         participatory_space: Przestrzeń partycypacyjna
         reason: Powód
         report_html: <p>Poniższa <a href="%{url}">zawartość</a> została zgłoszona.</p>

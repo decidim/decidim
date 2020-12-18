@@ -336,10 +336,6 @@ es-PY:
         description: Número de votos generados en las propuestas por los usuarios.
         object: votos
         title: Votos
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Propuestas
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todo (%{count})
@@ -380,9 +376,7 @@ es-PY:
           new_import:
             accepted_mime_types:
               md: Reducción
-              odt: Odt
             bottom_hint: "(Podrás previsualizar y ordenar las secciones del documento)"
-            document_legend: 'Agregue un documento de menos de 2 MB, cada sección hasta 3 niveles de profundidad se analizarán en Propuestas. Los formatos soportados son: %{valid_mime_types}'
             title: AÑADIR DOCUMENTO
             upload_document: Subir documento
           publish:

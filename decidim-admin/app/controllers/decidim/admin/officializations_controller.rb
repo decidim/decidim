@@ -32,7 +32,7 @@ module Decidim
           on(:ok) do |user|
             notice = I18n.t("officializations.create.success", scope: "decidim.admin")
 
-            redirect_to officializations_path(q: user.name), notice: notice
+            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
           end
         end
       end
@@ -44,7 +44,7 @@ module Decidim
           on(:ok) do
             notice = I18n.t("officializations.destroy.success", scope: "decidim.admin")
 
-            redirect_to officializations_path(q: user.name), notice: notice
+            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
           end
         end
       end
@@ -60,7 +60,7 @@ module Decidim
       private
 
       def collection
-        @collection ||= current_organization.users.not_deleted
+        @collection ||= current_organization.users.not_deleted.left_outer_joins(:user_moderation)
       end
 
       def user

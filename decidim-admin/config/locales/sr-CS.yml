@@ -29,7 +29,6 @@ sr:
         body: Glavni deo teksta
         subject: Naslov
       organization:
-        address: SMTP domaćin
         alert_color: Upozorеnjе
         badges_enabled: Omogući značke
         cta_button_path: Put dugmeta poziva na akciju
@@ -59,8 +58,6 @@ sr:
         omnipresent_banner_short_description: Kratak opis
         omnipresent_banner_title: Naslov
         omnipresent_banner_url: Adrеsa
-        password: Šifra
-        port: Port
         primary_color: Primarni
         reference_prefix: Prefiks reference
         rich_text_editor_in_public_views: Omogući korisnicima uređivanje teksta sa formatiranjem
@@ -71,7 +68,6 @@ sr:
         tos_version: Verzija uslova korišćenja
         twitter_handler: Administrator Twitter-a
         user_groups_enabled: Omogući grupe
-        user_name: Korisničko ime
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
         welcome_notification_subject: Naslov obaveštenja dobrodošlice
@@ -141,7 +137,6 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          accept: Prihvatam uslove korišćenja za administratore
           are_you_sure: Da li ste sigurni da ne prihvatate uslove korišćenja za administratore?
           refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
@@ -560,7 +555,6 @@ sr:
           rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
           social_handlers: Društvene
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.

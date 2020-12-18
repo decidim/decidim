@@ -31,7 +31,6 @@ en:
         body: Body
         subject: Subject
       organization:
-        address: SMTP hostname
         alert_color: Alert
         badges_enabled: Enable badges
         comments_max_length: Comments max length (Leave 0 for default value)
@@ -67,8 +66,6 @@ en:
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
-        password: Password
-        port: Port
         primary_color: Primary
         reference_prefix: Reference prefix
         rich_text_editor_in_public_views: Enable rich text editor for participants
@@ -79,7 +76,6 @@ en:
         tos_version: Terms of service version
         twitter_handler: Twitter handler
         user_groups_enabled: Enable groups
-        user_name: Username
         warning_color: Warning
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
@@ -95,7 +91,10 @@ en:
         name: Name
         organization: Organization
         plural: Plural
+      settings:
+        scope_id: Scope
       static_page:
+        allow_public_access: Allow access without authentication
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
@@ -150,7 +149,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree this admin terms
+          accept: I agree with the following terms
           are_you_sure: Are you sure to refuse the admin terms?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -388,8 +387,10 @@ en:
         help_sections: Help sections
         homepage: Homepage
         impersonations: Impersonations
+        moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
+        reported_users: Reported Users
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -477,6 +478,20 @@ en:
             phone: Phone
             state: State
             users_count: Participants count
+      moderated_users:
+        index:
+          actions:
+            title: Actions
+            unreport: Unreport
+          name: Name
+          nickname: Nickname
+          reason: Reason
+          title: Listing reported users
+        report:
+          reasons:
+            does_not_belong: Does not belong
+            offensive: Offensive
+            spam: Spam
       moderations:
         index:
           title: Moderations
@@ -579,6 +594,7 @@ en:
           officialize: Officialize
           officialized: Officialized
           reofficialize: Reofficialize
+          reports: Reports
           show_email: Show email address
           status: Status
           unofficialize: Unofficialize
@@ -763,6 +779,7 @@ en:
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        panel: Admin
         participants: Participants
         scope_types: Scope types
         scopes: Scopes
@@ -851,6 +868,7 @@ en:
           fields:
             created_at: Creation date
             hidden_at: Hidden at
+            participatory_space: Participatory space
             report_count: Count
             reportable_id: Id
             reportable_type: Type
@@ -868,6 +886,8 @@ en:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Global moderations
         newsletters:
           title: Newsletters
         settings:

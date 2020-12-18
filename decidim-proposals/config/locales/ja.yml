@@ -332,10 +332,6 @@ ja:
         description: 提案へのサポート数
         object: サポート
         title: サポート
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: 提案
     participatory_spaces:
       highlighted_proposals:
         see_all: すべての提案を見る (%{count})
@@ -376,9 +372,7 @@ ja:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: Odt
             bottom_hint: "(ドキュメントセクションのプレビューとソートが可能になります)"
-            document_legend: '2MB未満のドキュメントを追加してください。セクションの深さが3レベルになるまで、各セクションは提案に解析されます。提案書式は次のとおりです: %{valid_mime_types}'
             title: ドキュメントを追加
             upload_document: ドキュメントをアップロード
           publish:

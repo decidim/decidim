@@ -30,12 +30,24 @@
                 <%= answer.linked_resources(:proposals, "related_proposals").count %>
               </td>
               <td class="table-list__actions">
+                <% if election.results? %>
+                  <% if answer.selected %>
+                    <%= icon_link_to "circle-check", unselect_election_question_answer_path(election, question, answer), t("answers.select.disable", scope: "decidim.elections.admin"), class: "action-icon--success", method: :put %>
+                  <% else %>
+                    <%= icon_link_to "circle-x", select_election_question_answer_path(election, question, answer), t("answers.select.enable", scope: "decidim.elections.admin"), class: "action-icon", method: :put %>
+                  <% end %>
+                <% end %>
+
                 <% if allowed_to? :update, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "pencil", edit_election_question_answer_path(election, question, answer), t("actions.edit", scope: "decidim.elections"), class: "action-icon--edit" %>
+                <% else %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
 
                 <% if allowed_to? :delete, :answer, election: election, question: question, answer: answer %>
                   <%= icon_link_to "circle-x", election_question_answer_path(election, question, answer), t("actions.destroy", scope: "decidim.elections"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.elections") } %>
+                <% else %>
+                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img" %>
                 <% end %>
               </td>
             </tr>

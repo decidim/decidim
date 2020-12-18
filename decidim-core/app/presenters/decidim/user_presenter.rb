@@ -43,7 +43,7 @@ module Decidim
     end
 
     def display_mention
-      link_to nickname, profile_path, class: "user-mention"
+      link_to nickname, profile_url, class: "user-mention"
     end
 
     def can_be_contacted?

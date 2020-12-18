@@ -124,7 +124,6 @@ hu:
             title: Jelenlegi népszámlálási adatok
           instructions:
             body: Ehhez be kell lépnie a rendszeradminisztrációba, és hozzá kell adnia a csv_census jogosultságokat a szervezethez
-            title: Ennek a szervezetnek aktiválnia kell a csv népszámlálást
           new:
             file: ".csv fájl e-mail adatokkal"
             info: 'CSV formátumú fájl lehet csak egy oszloppal, amely az email címeket tartalmazza:'

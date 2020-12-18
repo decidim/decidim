@@ -10,6 +10,7 @@ module Decidim
     include Decidim::DataPortability
     include Decidim::Searchable
     include Decidim::ActsAsAuthor
+    include Decidim::UserReportable
 
     class Roles
       def self.all
@@ -53,8 +54,16 @@ module Decidim
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
     scope :interested_in_scopes, lambda { |scope_ids|
-      ids = scope_ids.map { |i| "%#{i}%" }.join(",")
-      where("extended_data->>'interested_scopes' ~~ ANY('{#{ids}}')")
+      actual_ids = scope_ids.select(&:presence)
+      if actual_ids.count.positive?
+        ids = actual_ids.map(&:to_i).join(",")
+        where("extended_data->'interested_scopes' @> ANY('{#{ids}}')")
+      else
+        # Do not apply the scope filter when there are scope ids available. Note
+        # that the active record scope must always return an active record
+        # collection.
+        self
+      end
     }
 
     scope :org_admins_except_me, ->(user) { where(organization: user.organization, admin: true).where.not(id: user.id) }
@@ -206,7 +215,7 @@ module Decidim
 
     # Caches a Decidim::DataPortabilityUploader with the retrieved file.
     def data_portability_file(filename)
-      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+      @data_portability_file ||= DataPortabilityUploader.new(user).tap do |uploader|
         uploader.retrieve_from_store!(filename)
         uploader.cache!(filename)
       end

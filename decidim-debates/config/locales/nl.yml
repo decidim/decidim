@@ -175,12 +175,23 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
           notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          affected_user:
+            email_intro: 'Het debat "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je het "%{resource_title}" debat volgt. Je kan stoppen met volgen via vorige link.
+            email_subject: De "%{resource_title}" debat is gesloten
+            notification_title: Het debat <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+          follower:
+            email_intro: 'Het debat "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
+            email_outro: Je hebt deze melding ontvangen omdat je het "%{resource_title}" debat volgt. Je kan stoppen met volgen via vorige link.
+            email_subject: De "%{resource_title}" debat is gesloten
+            notification_title: Het debat <a href="%{resource_path}">%{resource_title}</a> is gesloten.
     gamification:
       badges:
         commented_debates:
           conditions:
             - Kies een open debat om deel te nemen
-          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw opmerkingen achter te laten.
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door uw reacties achter te laten.
           description_another: Deze gebruiker heeft deelgenomen aan %{score} debatten.
           description_own: Je hebt deelgenomen aan %{score} debatten.
           name: debatten

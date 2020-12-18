@@ -24,8 +24,24 @@ module Decidim::Meetings
       include_examples "user localised email"
     end
 
-    it "includes the registration code" do
-      expect(email_body(mail)).to match("Your registration code is #{registration.code}")
+    context "when registration code is enabled" do
+      before do
+        component.update!(settings: { registration_code_enabled: true })
+      end
+
+      it "includes the registration code" do
+        expect(email_body(mail)).to match("Your registration code is #{registration.code}")
+      end
+    end
+
+    context "when registration code is disabled" do
+      before do
+        component.update!(settings: { registration_code_enabled: false })
+      end
+
+      it "includes the registration code" do
+        expect(email_body(mail)).not_to match("Your registration code is #{registration.code}")
+      end
     end
 
     it "includes the meeting's details in a ics file" do

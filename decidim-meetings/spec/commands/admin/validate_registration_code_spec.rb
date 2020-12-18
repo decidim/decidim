@@ -43,7 +43,11 @@ module Decidim::Meetings
       let(:user) { create :user, :confirmed, organization: meeting.organization }
       let!(:registration) { create(:registration, meeting: meeting, code: code, validated_at: nil, user: user) }
 
-      context "when registrations are enabled" do
+      context "when registrations are enabled and registration code is enabled" do
+        before do
+          meeting.component.update!(settings: { registration_code_enabled: true })
+        end
+
         it "notifies the change" do
           expect(Decidim::EventsManager)
             .to receive(:publish)

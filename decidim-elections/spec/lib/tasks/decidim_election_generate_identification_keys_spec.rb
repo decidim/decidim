@@ -11,13 +11,13 @@ describe "decidim_elections:generate_identification_keys", type: :task do
     before { task.execute }
 
     it "includes the private key" do
-      check_message_printed("-----BEGIN RSA PRIVATE KEY-----")
-      check_message_printed("-----END RSA PRIVATE KEY-----")
+      check_message_printed("PRIVATE KEY")
+      check_message_printed('{"kty":"RSA","n":"')
     end
 
     it "includes the public key" do
-      check_message_printed("-----BEGIN PUBLIC KEY-----")
-      check_message_printed("-----END PUBLIC KEY-----")
+      check_message_printed("PUBLIC KEY")
+      check_message_printed("kty=RSA&n=")
     end
 
     it "includes a reference to the documentation guide" do

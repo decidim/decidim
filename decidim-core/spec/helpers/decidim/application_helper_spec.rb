@@ -36,6 +36,39 @@ module Decidim
 
         it { is_expected.to eq("Hello ...read more") }
       end
+
+      context "when :tail_before_final_tag is false" do
+        subject { helper.html_truncate(text, length: length, tail_before_final_tag: false) }
+
+        describe "truncating HTML text" do
+          let(:text) { "<div><p>Hello, this is dog</p></div>" }
+          let(:length) { 10 }
+
+          it { is_expected.to eq("<div><p>Hello, thi...</p></div>") }
+        end
+      end
+
+      context "when :tail_before_final_tag is true" do
+        subject { helper.html_truncate(text, length: length, tail_before_final_tag: true) }
+
+        describe "truncating HTML text" do
+          let(:text) { "<p>Hello, <b>this is dog</b></p>" }
+          let(:length) { 10 }
+
+          it { is_expected.to eq("<p>Hello, <b>thi</b>...</p>") }
+        end
+      end
+
+      context "when :tail_before_final_tag is missing" do
+        subject { helper.html_truncate(text, length: length) }
+
+        describe "truncating HTML text" do
+          let(:text) { "<p>Hello, <b>this is dog</b></p>" }
+          let(:length) { 10 }
+
+          it { is_expected.to eq("<p>Hello, <b>thi</b>...</p>") }
+        end
+      end
     end
 
     describe "#present" do

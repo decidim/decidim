@@ -30,12 +30,17 @@ module Decidim
                 get :proposals_picker
                 resource :proposals_import, only: [:new, :create]
               end
+              member do
+                put :select
+                put :unselect
+              end
             end
           end
         end
 
         resources :trustees, only: [:index, :new, :edit, :create, :destroy], controller: "trustees_participatory_spaces"
 
+        resources :setup, only: [:show, :update]
         root to: "elections#index"
       end
 

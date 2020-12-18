@@ -7,6 +7,13 @@ fi:
         organization_name: Organisaatio
         organization_url: Organisaation URL-osoite
         redirect_uri: Uudelleenohjauksen osoite (URI)
+      organization:
+        address: SMTP-palvelimen osoite
+        from_email: Sähköpostiosoite
+        from_label: Nimike
+        password: Salasana
+        port: Portti
+        user_name: Käyttäjänimi
       organization_file_uploads:
         allowed_content_types:
           admin: Hallintakäyttäjien MIME-tyypit
@@ -153,8 +160,10 @@ fi:
             api_key: API-avain
             api_secret: API-salausavain
         smtp_settings:
+          fieldsets:
+            sender: Lähettäjä
           instructions:
-            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <sinun-organisaatiosi@example.org>". Jätä tyhjäksi käyttääksesi lähetyssähköpostia (''from_email'') lähettäjän nimenä'
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä'
           placeholder:
             from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi

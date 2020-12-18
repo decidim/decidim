@@ -325,10 +325,6 @@ hu:
         description: A felhasználók által benyújtott szavazatok száma
         object: szavazatok
         title: Szavazatok
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: Javaslatok
     participatory_spaces:
       highlighted_proposals:
         see_all: Összes (%{count})
@@ -369,9 +365,7 @@ hu:
           new_import:
             accepted_mime_types:
               md: Árleszállítás
-              odt: ODT
             bottom_hint: "(Megtekintheted és rendezheted a dokumentumokat)"
-            document_legend: 'Adjon hozzá egy 2 MB-nál kisebb dokumentumot, mindegyik szekciót addig, amíg a 3 szint mélyen meg nem jelenik a Javaslatokba. A választott formátumok: %{valid_mime_types}'
             title: DOKUMENTUM hozzáadása
             upload_document: Dokumentum feltöltése
           publish:

@@ -1,6 +1,19 @@
 de:
   activemodel:
     attributes:
+      oauth_application:
+        name: Name OAuth-Anwendung
+        organization_logo: Organisationslogo (quadratisch)
+        organization_name: Organisation
+        organization_url: URL der Organisation
+        redirect_uri: Weiterleitungs-URI
+      organization:
+        address: SMTP Hostname
+        from_email: E-Mail-Adresse
+        from_label: Beschreibung
+        password: Passwort
+        port: Datenbank Port
+        user_name: Benutzername
       organization_file_uploads:
         allowed_content_types:
           admin: Admin MIME-Typen
@@ -12,6 +25,12 @@ de:
         maximum_file_size:
           avatar: Avatar Dateigröße
           default: Standard-Dateigröße
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Der Umleitungs-URI muss ein SSL-URI sein
   decidim:
     system:
       actions:
@@ -45,6 +64,7 @@ de:
       menu:
         admins: Admins
         dashboard: Instrumententafel
+        oauth_applications: OAuth-Anwendungen
         organizations: Organisationen
       models:
         admin:
@@ -54,9 +74,15 @@ de:
           name: Administrator
           validations:
             email_uniqueness: ein anderer Administrator mit der gleichen E-Mail existiert bereits
+        oauth_application:
+          fields:
+            created_at: Erstellt am
+            name: Name OAuth-Anwendung
+            organization_name: Organisation
+          name: OAuth-Anwendung
         organization:
           actions:
-            save_and_invite: Organisieren & einladen admin erstellen
+            save_and_invite: Organisation erstellen & den Admin einladen
           fields:
             created_at: Hergestellt in
             file_upload_settings: Datei-Upload Einstellungen
@@ -64,6 +90,27 @@ de:
             omniauth_settings: Omniauth-Einstellungen
             smtp_settings: SMTP-Einstellungen
           name: Organisation
+      oauth_applications:
+        create:
+          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Anwendung erfolgreich erstellt.
+        destroy:
+          error: Beim Löschen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Anwendung erfolgreich gelöscht.
+        edit:
+          save: Speichern
+          title: Anwendung bearbeiten
+        form:
+          select_organization: Organisation wählen
+        index:
+          confirm_delete: Möchten Sie diese Anwendung wirklich löschen?
+          title: OAuth-Anwendungen
+        new:
+          save: Speichern
+          title: Neue Applikation
+        update:
+          error: Beim Erstellen dieser Anwendung ist ein Fehler aufgetreten.
+          success: Die Anwendung wurde erfolgreich aktualisiert.
       organizations:
         create:
           error: Beim Erstellen einer neuen Organisation ist ein Fehler aufgetreten.
@@ -82,6 +129,8 @@ de:
             title: Zulässige Dateierweiterungen
           file_sizes:
             avatar_hint: Megabytes (MB). Maximale Dateigröße für das Hochladen des Avatars.
+            default_hint: Megabytes (MB). Diese Dateigröße ist die Standardeinstellung, die für alle Datei-Uploads verwendet wird, sofern nicht anders angegeben.
+            title: Maximale Dateigröße
         index:
           title: Organisationen
         new:
@@ -90,8 +139,8 @@ de:
           title: Neue Organisation
         omniauth_settings:
           decidim:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
             site_url: Website-URL
           enabled: Aktiviert
           enabled_by_default: Dieser Anbieter ist standardmäßig aktiviert. Er kann bearbeitet aber nicht deaktiviert werden.
@@ -99,14 +148,16 @@ de:
             app_id: App-ID
             app_secret: App-Geheimnis
           google_oauth2:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
           icon: Symbol
           icon_path: Icon-Pfad
           twitter:
             api_key: API-Schlüssel
             api_secret: API-Geheimnis
         smtp_settings:
+          fieldsets:
+            sender: Absender
           instructions:
             from_label: 'E-Mail-Absender lautet: "Dein-Organisationsname <your-organization@example.org>". Leer lassen um ''from_email'' als Absender zu verwenden'
           placeholder:
