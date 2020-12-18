@@ -176,6 +176,7 @@ de:
             published: Die Wahl ist <strong>veröffentlicht</strong>
             time_before: Die Einrichtung ist in <strong>weniger als 3 Stunden</strong> vor Beginn der Wahl fertig gestellt worden
             trustee_public_key: hat keinen <strong>gültigen öffentlichen Schlüssel</strong>
+            trustees_quorum: Die Grösse dieser Liste von Wahlhelfern ist korrekt, und es werden <strong>mindestens %{quorum} Wahlhelfer</strong> benötigt um die Stimmen zu zählen
           show:
             setup: Wahl einrichten
             title: Einrichtung der Wahl
