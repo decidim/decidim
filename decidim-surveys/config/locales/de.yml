@@ -21,8 +21,12 @@ de:
           global:
             announcement: Ankündigung
             clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
+            ends_at: Antworten akzeptiert bis
+            ends_at_help: Leer bedeutet kein spezifisches Datum
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            starts_at: Antworten akzeptiert ab
+            starts_at_help: Leer bedeutet kein spezifisches Datum
           step:
             allow_answers: Erlaube Antworten
             allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
