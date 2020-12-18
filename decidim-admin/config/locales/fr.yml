@@ -44,7 +44,7 @@ fr:
         from: Adresse e-mail de l’expéditeur
         github_handler: Gestionnaire GitHub
         header_snippets: Éléments à ajouter entre les balises HTML
-        highlight_alternative_color: Surligner, alternative
+        highlight_alternative_color: Surbrillance alternative
         highlight_color: Surbrillance
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action

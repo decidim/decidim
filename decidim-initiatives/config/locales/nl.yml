@@ -76,7 +76,7 @@ nl:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Zoek %{collection} op titel, beschrijving, ID of auteur naam.
       menu:
-        initiatives: initiatieven
+        initiatives: Initiatieven
         initiatives_types: Initiatieftypes
       models:
         initiatives:
@@ -86,7 +86,7 @@ nl:
             published_at: Gepubliceerd op
             state: Status
             supports_count: Handtekeningen
-            title: initiatieven
+            title: Initiatieven
         initiatives_type_scope:
           fields:
             scope: Bereik
@@ -112,7 +112,7 @@ nl:
             time_and_date: Tijd en datum
             timestamp: tijdstempel
       titles:
-        initiatives: initiatieven
+        initiatives: Initiatieven
         initiatives_types: Initiatieftypes
     events:
       initiatives:
@@ -174,7 +174,7 @@ nl:
             created_at: Gemaakt bij
             description: Omschrijving
             initiative_votes_count: Aantal stemmen
-            initiatives: initiatieven
+            initiatives: Initiatieven
             state: Status
         committee_requests:
           index:
@@ -353,7 +353,7 @@ nl:
           email_subject: Initiatief goedgekeurd door %{author_nickname}
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> initiatief werd goedgekeurd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       index:
-        title: initiatieven
+        title: Initiatieven
       initiative_signatures:
         fill_personal_data:
           continue: Doorgaan met
@@ -489,7 +489,7 @@ nl:
         shared:
           back_to_resource: Ga terug naar het initiatief
     menu:
-      initiatives: initiatieven
+      initiatives: Initiatieven
     resources:
       initiatives_type:
         actions:

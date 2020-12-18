@@ -24,13 +24,13 @@ de:
     budgets:
       actions:
         attachment_collections: Ordner
-        attachments: Anlagen
+        attachments: Anhänge
         confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
-        import: Importieren Sie Vorschläge in Projekte
-        new: Neu %{name}
+        import: Vorschläge in Projekte importieren
+        new: Neue(r/s) %{name}
         preview: Vorschau
         title: Aktionen
       admin:
@@ -130,25 +130,25 @@ de:
           voted_on_space_with_scope: Sie haben für das %{budget_name} Budget for the %{space_name} innerhalb %{scope_name} (%{scope_type}) abgestimmt.
       projects:
         budget_confirm:
-          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Abstimmung nachträglich ändern.
+          are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
           cancel: Stornieren
           confirm: Bestätigen
-          description: Dies sind die Projekte, die Sie ausgewählt haben, um Teil des Budgets zu sein.
+          description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung
         budget_excess:
           close: Schließen
-          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten, können Sie ein Projekt löschen, das Sie bereits ausgewählt haben, oder Sie wählen mit Ihren Einstellungen.
+          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
           ok: OK
           title: Maximales Budget überschritten
         budget_summary:
-          are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme absagen wollen?
+          are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
           assigned: 'Zugewiesen:'
           cancel_order: Löschen Sie Ihre Stimme und beginnen Sie von vorne
           checked_out:
-            description: Sie haben bereits für das Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
-            title: Haushaltsabstimmung abgeschlossen
-          description: Für welche Projekte sollten wir das Budget bereitstellen? Weisen Sie den gewünschten Projekten mindestens %{minimum_budget} zu und stimmen Sie mit Ihren Einstellungen ab, um das Budget zu definieren.
-          description_minimum_projects_rule: Für welche Projekte sollten wir das Budget bereitstellen? Wählen Sie mindestens %{minimum_number} gewünschte Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+            description: Sie haben bereits für die Verteilung dieses Budget gestimmt. Wenn Sie Ihre Meinung geändert haben, können Sie %{cancel_link}.
+            title: Budget-Abstimmung abgeschlossen
+          description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
+          description_minimum_projects_rule: Welche Projekte sollen finanziert werden? Wählen Sie mindestens %{minimum_number} Projekte aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
           title: Sie entscheiden über das Budget
         count:
           projects_count:
@@ -167,7 +167,7 @@ de:
           close_modal: Modal schließen
           filter: Filter
           filter_by: Filtern nach
-          unfold: Entfalten
+          unfold: Aufklappen
         order_progress:
           vote: Abstimmung
         order_selected_projects:
@@ -175,7 +175,7 @@ de:
           selected_projects:
             one: Projekt ausgewählt
             other: ausgewählte Projekte
-          view: Aussicht
+          view: Anzeigen
         orders:
           highest_cost: Höchste Kosten
           label: Projekte sortieren nach
@@ -187,7 +187,7 @@ de:
           add: Projekt %{resource_name} Ihrer Stimme hinzufügen
           remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
-          view: Aussicht
+          view: Anzeigen
           votes:
             one: Abstimmung
             other: Abstimmungen
@@ -204,7 +204,7 @@ de:
     components:
       budgets:
         actions:
-          vote: Abstimmung
+          vote: Abstimmen
         name: Budgets
         settings:
           global:
@@ -218,7 +218,7 @@ de:
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
-            resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
+            resources_permissions_enabled: Aktionsberechtigungen können für jede Sitzung festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
             title: Titel
@@ -248,10 +248,10 @@ de:
     events:
       budgets:
         budget_published:
-          email_intro: 'Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv. Einsehbar auf dieser Seite:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Sie können dem vorherigen Link verwenden um  keine Benachrichtigungen mehr zu erhalten.
-          email_subject: Das %{resource_title} Budget ist jetzt für %{participatory_space_title} aktiv.
-          notification_title: Das <a href="%{resource_path}">%{resource_title}</a> Budget ist jetzt aktiv für %{participatory_space_title}.
+          email_intro: 'Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es auf dieser Seite ansehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
+          notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
     orders:
       checkout:
         error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten

@@ -472,7 +472,7 @@ fr:
           take_part: Participer
       assembly_navigation:
         assembly_member_menu_item: Membres
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: Présentation
       assembly_widgets:
         show:
           take_part: Participer
