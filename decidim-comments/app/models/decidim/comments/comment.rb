@@ -145,7 +145,19 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(space)
+        commentables_ids = []
+        available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
+        space.components.where(manifest_name: available_components).published.each do |component|
+          Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
+            klass = Object.const_get(object)
+            next unless klass.has_attribute?(:decidim_component_id)
+            commentables_ids << klass.where(component: component).pluck(:id)
+          end
+        end
+        commentables_ids = commentables_ids.flatten.compact.uniq
+
         authors_sql = Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
+                                                .where(decidim_commentable_id: commentables_ids)
                                                 .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
 
         Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
