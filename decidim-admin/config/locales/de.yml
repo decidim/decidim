@@ -90,6 +90,8 @@ de:
         name: Name
         organization: Organisation
         plural: Plural
+      settings:
+        scope_id: Bereich
       static_page:
         allow_public_access: Zugriff ohne Authentisierung erlauben
         changed_notably: Es gab bemerkenswerte Änderungen.
