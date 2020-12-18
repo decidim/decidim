@@ -84,35 +84,35 @@ de:
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} hat einen Kommentar in %{resource_title}hinterlassen. Sie können es auf dieser Seite lesen:"
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name}. Sie können diesen Benutzer von seiner Profilseite aus nicht mehr anzeigen.
-          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
-          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: "%{author_name} hat einen Kommentar zu %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieses Benutzers.
+          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
-          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können es auf dieser Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Sie können diese Gruppe von ihrer Profilseite aus deabonnieren.
-          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
-          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: 'Die Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können diesen auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie die Profil-Seite dieser Gruppe.
+          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} wurde kommentiert. Sie können den Kommentar auf dieser Seite lesen:"
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Sie können es aus dem vorherigen Link entfernen.
-          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
-          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" oder seinem Autor folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Neuer Kommentar von %{author_name} zu %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> zu <a href="%{resource_path}">%{resource_title}</a>
         reply_created:
-          email_intro: "%{author_name} hat Ihren Kommentar in %{resource_title}geantwortet. Sie können es auf dieser Seite lesen:"
+          email_intro: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet. Sie können das auf dieser Seite lesen:"
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
-          email_subject: "%{author_name} hat Ihren Kommentar in %{resource_title}geantwortet"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a>geantwortet
+          email_subject: "%{author_name} hat auf Ihren Kommentar zu %{resource_title} geantwortet"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
         user_group_mentioned:
           email_intro: Eine Ihrer Gruppen wurde erwähnt
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
           email_subject: Sie wurden in %{resource_title} als Mitglied von %{group_name} erwähnt
           notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als ein Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt
         user_mentioned:
-          email_intro: Du wurdest erwähnt
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title}.
-          email_subject: Du wurdest in %{resource_title}
-          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+          email_intro: Sie wurden erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
+          email_subject: Sie wurden in %{resource_title} erwähnt
+          notification_title: Sie wurden in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt
     metrics:
       comments:
         description: Anzahl der von Benutzern generierten Kommentare
