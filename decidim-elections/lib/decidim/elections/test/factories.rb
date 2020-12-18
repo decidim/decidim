@@ -170,6 +170,7 @@ FactoryBot.define do
 
     trait :with_public_key do
       considered
+      name { Faker::Name.name }
       sequence(:public_key) do
         private_key = JWT::JWK.new(OpenSSL::PKey::RSA.new(4096))
         public_key = private_key.export
