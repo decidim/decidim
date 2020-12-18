@@ -19,7 +19,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless @blocked_user.suspended?
+        return broadcast(:invalid) unless @blocked_user.blocked?
 
         unblock!
         broadcast(:ok, @blocked_user)
@@ -36,9 +36,9 @@ module Decidim
             reportable_type: @blocked_user.class.name
           }
         ) do
-          @blocked_user.suspended = false
-          @blocked_user.suspended_at = nil
-          @blocked_user.suspension_id = nil
+          @blocked_user.blocked = false
+          @blocked_user.blocked_at = nil
+          @blocked_user.block_id = nil
           @blocked_user.name = @blocked_user.user_name
           @blocked_user.save!
         end

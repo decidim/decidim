@@ -23,13 +23,13 @@ module Decidim
             delete :destroy, params: { user_id: user.id }
 
             expect(flash[:notice]).to be_present
-            expect(user.reload.suspended?).to be(false)
+            expect(user.reload.blocked?).to be(false)
           end
         end
 
         context "when the user is not blocked" do
           before do
-            user.suspended = false
+            user.blocked = false
             user.save!
           end
 
@@ -37,7 +37,7 @@ module Decidim
             delete :destroy, params: { user_id: user.id }
 
             expect(flash[:alert]).to be_present
-            expect(user.reload.suspended?).to be(false)
+            expect(user.reload.blocked?).to be(false)
           end
         end
       end
@@ -50,7 +50,7 @@ module Decidim
             put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
 
             expect(flash[:notice]).to be_present
-            expect(user.reload.suspended?).to be(true)
+            expect(user.reload.blocked?).to be(true)
           end
         end
 
@@ -59,7 +59,7 @@ module Decidim
             put :create, params: { user_id: user.id, justification: nil }
 
             expect(flash[:alert]).to be_present
-            expect(user.reload.suspended?).to be(false)
+            expect(user.reload.blocked?).to be(false)
           end
         end
       end

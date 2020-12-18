@@ -34,7 +34,7 @@
 
               <td class="table-list__actions">
                 <% if allowed_to?(:block, :admin_user) %>
-                  <% if user.suspended? %>
+                  <% if user.blocked? %>
                     <%= icon_link_to "ban", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
                   <% else %>
                     <%= icon_link_to "ban", new_user_block_path(user_id: user.id), t(".block"), class: "action-icon action-icon" %>

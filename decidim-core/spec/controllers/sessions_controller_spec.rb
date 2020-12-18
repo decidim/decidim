@@ -55,7 +55,7 @@ module Decidim
 
                 context "when the user is blocked" do
                   before do
-                    user.suspended = true
+                    user.blocked = true
                   end
 
                   it { is_expected.to eq("/") }
@@ -63,7 +63,7 @@ module Decidim
 
                 context "when the user is not blocked" do
                   before do
-                    user.suspended = false
+                    user.blocked = false
                   end
 
                   it { is_expected.to eq("/authorizations/first_login") }

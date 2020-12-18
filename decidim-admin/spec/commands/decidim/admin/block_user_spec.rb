@@ -33,7 +33,7 @@ module Decidim::Admin
 
       it "user is updated" do
         subject.call
-        expect(form.user.suspended).to be(true)
+        expect(form.user.blocked).to be(true)
         expect(form.user.extended_data["user_name"]).to eq("Testingname")
         expect(form.user.name).to eq("Blocked user")
       end

@@ -46,7 +46,7 @@ module Decidim
       end
 
       context "when the user is blocked and extended_data has user_name" do
-        let(:user) { build(:user, name: "Blocked user", suspended: true, extended_data: { "user_name": "Test" }) }
+        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: { "user_name": "Test" }) }
 
         it "returns user name" do
           expect(user.user_name).to eq("Test")
@@ -54,7 +54,7 @@ module Decidim
       end
 
       context "when the user is blocked and extended_data does not have user_name" do
-        let(:user) { build(:user, name: "Blocked user", suspended: true, extended_data: {}) }
+        let(:user) { build(:user, name: "Blocked user", blocked: true, extended_data: {}) }
 
         it "returns user name" do
           expect(user.user_name).to eq("Blocked user")
