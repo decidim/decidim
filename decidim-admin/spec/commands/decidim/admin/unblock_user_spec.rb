@@ -3,33 +3,33 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe UnsuspendUser do
-    subject { described_class.new(suspendable, current_user) }
+  describe UnblockUser do
+    subject { described_class.new(user_to_unblock, current_user) }
 
     let(:current_user) { create :user, :admin }
-    let(:suspendable) { create :user, :managed, suspended: true, name: "Testingname" }
+    let(:user_to_unblock) { create :user, :managed, suspended: true, name: "Testingname" }
 
-    context "when the suspension is valid" do
+    context "when the blocking is valid" do
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
 
       it "user is updated" do
         subject.call
-        expect(suspendable.suspended).to be(false)
-        expect(suspendable.name).to eq("Testingname")
-        expect(suspendable.suspended_at).to be_nil
-        expect(suspendable.suspension_id).to be_nil
+        expect(user_to_unblock.suspended).to be(false)
+        expect(user_to_unblock.name).to eq("Testingname")
+        expect(user_to_unblock.suspended_at).to be_nil
+        expect(user_to_unblock.suspension_id).to be_nil
       end
 
       it "tracks the changes" do
         expect(Decidim.traceability).to receive(:perform_action!)
           .with(
-            "unsuspend",
-            suspendable,
+            "unblock",
+            user_to_unblock,
             current_user,
             extra: {
-              reportable_type: suspendable.class.name
+              reportable_type: user_to_unblock.class.name
             }
           )
         subject.call
@@ -38,7 +38,7 @@ module Decidim::Admin
 
     context "when the suspension is not valid" do
       it "broadcasts invalid" do
-        allow(suspendable).to receive(:suspended?).and_return(false)
+        allow(user_to_unblock).to receive(:suspended?).and_return(false)
         expect { subject.call }.to broadcast(:invalid)
       end
     end

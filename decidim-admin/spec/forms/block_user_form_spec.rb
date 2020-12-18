@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe SuspendUserForm do
+    describe BlockUserForm do
       let(:organization) { create(:organization) }
 
       let(:user) { create(:user, organization: organization) }

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe UserSuspensionController, type: :controller do
+    describe BlockUserController, type: :controller do
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create :organization }
@@ -15,7 +15,7 @@ module Decidim
         sign_in current_user, scope: :user
       end
 
-      describe "unsuspend" do
+      describe "unblock" do
         let!(:user) { create(:user, :blocked, :confirmed, organization: organization, nickname: "some_nickname") }
 
         context "when having a user" do
@@ -42,7 +42,7 @@ module Decidim
         end
       end
 
-      describe "suspend" do
+      describe "block" do
         let!(:user) { create(:user, :confirmed, organization: organization, nickname: "some_nickname") }
 
         context "when having a user" do

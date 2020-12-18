@@ -19,7 +19,7 @@ module Decidim
       include NeedsPermission
       include Decidim::SafeRedirect
       include NeedsSnippets
-      include SuspensionChecker
+      include UserBlockedChecker
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper

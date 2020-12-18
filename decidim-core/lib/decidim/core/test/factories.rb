@@ -144,7 +144,6 @@ FactoryBot.define do
     trait :blocked do
       suspended { true }
       suspended_at { Time.current }
-      # suspension { @current_suspension }
       extended_data { { "user_name": generate(:name) } }
       name { "Blocked user" }
     end

@@ -3,7 +3,7 @@
 module Decidim
   # A custom mailer for Decidim so we can notify users
   # when their account was blocked
-  class UserSuspensionMailer < ApplicationMailer
+  class BlockUserMailer < ApplicationMailer
     def notify(user, justification)
       @user = user
       @organization = user.organization
@@ -11,7 +11,7 @@ module Decidim
       mail(
         to: user.email,
         subject: I18n.t(
-          "decidim.user_suspension_mailer.notify.subject",
+          "decidim.block_user_mailer.notify.subject",
           organization_name: @organization.name,
           justification: @justification
         )

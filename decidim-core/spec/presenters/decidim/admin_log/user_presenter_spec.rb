@@ -10,10 +10,10 @@ describe Decidim::AdminLog::UserPresenter, type: :helper do
     end
   end
 
-  context "when action is suspend" do
+  context "when action is block" do
     include_examples "present admin log entry" do
       let(:admin_log_resource) { organization }
-      let(:action) { "suspend" }
+      let(:action) { "block" }
     end
   end
 end

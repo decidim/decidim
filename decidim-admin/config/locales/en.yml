@@ -594,9 +594,9 @@ en:
           reports: Reports
           show_email: Show email address
           status: Status
-          suspend: Suspend User
+          block: Block User
           unofficialize: Unofficialize
-          unsuspend: Unsuspend User
+          unblock: Unblock User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -609,12 +609,12 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
-        suspend:
-          error: There was an error suspending the participant
-          success: Participant successfully suspended
-        unsuspend:
-          error: There was an error unsuspending the participant
-          success: Participant successfully unsuspended
+        block:
+          error: There was an error blocking the participant
+          success: Participant successfully blocked
+        unblock:
+          error: There was an error unblocking the participant
+          success: Participant successfully unblocked
       organization:
         edit:
           title: Edit organization
@@ -821,12 +821,12 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
-      user_suspension:
+      block_user:
         new:
           action: Block account and send justification
-          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          description: Blocking an user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
           justification: Justification
-          title: Suspend User %{name}
+          title: Block User %{name}
       users:
         create:
           error: There was a problem inviting this admin.

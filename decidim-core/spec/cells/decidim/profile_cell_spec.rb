@@ -17,7 +17,7 @@ describe Decidim::ProfileCell, type: :cell do
     end
   end
 
-  context "when the user displayed is suspended" do
+  context "when the user displayed is blocked" do
     context "and is an admin" do
       let(:user) { create :user, :managed, organization: organization, suspended: true, admin: true }
 

@@ -53,7 +53,7 @@ module Decidim
                   it { is_expected.to eq("/") }
                 end
 
-                context "when the user is suspended" do
+                context "when the user is blocked" do
                   before do
                     user.suspended = true
                   end
@@ -61,7 +61,7 @@ module Decidim
                   it { is_expected.to eq("/") }
                 end
 
-                context "when the user is not suspended" do
+                context "when the user is not blocked" do
                   before do
                     user.suspended = false
                   end

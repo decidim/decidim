@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe UserSuspension do
+  describe UserBlock do
     it { is_expected.to respond_to :user }
     it { is_expected.to respond_to :suspending_user }
   end

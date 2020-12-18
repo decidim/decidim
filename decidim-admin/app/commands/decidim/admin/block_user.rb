@@ -2,10 +2,10 @@
 
 module Decidim
   module Admin
-    class SuspendUser < Rectify::Command
+    class BlockUser < Rectify::Command
       # Public: Initializes the command.
       #
-      # form - SuspendUserForm
+      # form - BlockUserForm
       def initialize(form)
         @form = form
       end
@@ -20,7 +20,7 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
-          suspend!
+          block!
           register_justification!
           notify_user!
         end
@@ -33,7 +33,7 @@ module Decidim
       attr_reader :form
 
       def register_justification!
-        @current_suspension = UserSuspension.create!(
+        @current_suspension = UserBlock.create!(
           justification: form.justification,
           user: form.user,
           suspending_user: form.current_user
@@ -41,15 +41,15 @@ module Decidim
       end
 
       def notify_user!
-        Decidim::UserSuspensionJob.perform_later(
+        Decidim::BlockUserJob.perform_later(
           @current_suspension.user,
           @current_suspension.justification
         )
       end
 
-      def suspend!
+      def block!
         Decidim.traceability.perform_action!(
-          "suspend",
+          "block",
           form.user,
           form.current_user,
           extra: {

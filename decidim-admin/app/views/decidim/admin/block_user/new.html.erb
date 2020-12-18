@@ -2,7 +2,7 @@
   <%= t(".title", name: user.name) %>
 </h2>
 
-<%= decidim_form_for(@form, html: { class: "form new_user_suspension" }, url: user_suspend_path(user_id: user.id), method: :post) do |f| %>
+<%= decidim_form_for(@form, html: { class: "form new_user_block" }, url: user_block_path(user_id: user.id), method: :post) do |f| %>
   <div class="card">
     <div class="card-section">
       <div class="row column">

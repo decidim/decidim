@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "suspend", "unsuspend"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -49,11 +49,11 @@ module Decidim
         action_log.extra.dig("extra", "current_justification") || Hash.new("")
       end
 
-      # Overwrite the changeset for officialization and suspend actions.
+      # Overwrite the changeset for officialization and block actions.
       def changeset
         original = { badge: [previous_user_badge, user_badge] }
         fields = { badge: :i18n }
-        if action.to_s == "suspend"
+        if action.to_s == "block"
           original = { justification: [previous_justification, current_justification] }
           fields = { justification: :string }
         end
@@ -62,12 +62,12 @@ module Decidim
 
       # If the action is officialization, then we want to show the diff
       def has_diff?
-        %w(officialize unofficialize suspend).include?(action)
+        %w(officialize unofficialize block).include?(action)
       end
 
       # If the action is officialization, then we want to show the diff
       def diff_actions
-        %w(officialize unofficialize suspend)
+        %w(officialize unofficialize block)
       end
     end
   end
