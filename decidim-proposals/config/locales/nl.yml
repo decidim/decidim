@@ -38,7 +38,7 @@ nl:
         keep_authors: Bewaar originele auteurs
       valuation_assignment:
         admin_log:
-          valuator_role_id: Naam van waarde
+          valuator_role_id: Naam beoordelaar
     errors:
       models:
         participatory_text:
@@ -84,7 +84,7 @@ nl:
       filters:
         proposals:
           valuator_role_ids_has:
-            label: Toegewezen aan waarde
+            label: Toegewezen aan beoordelaar
         search_placeholder:
           id_string_or_title_cont: Zoek %{collection} op ID of titel.
     components:
@@ -416,7 +416,7 @@ nl:
             split: Voorstellen splitsen
             split_button: Splits
             title: Voorstellen
-            unassign_from_valuator: Toewijzing van waarde ongedaan maken
+            unassign_from_valuator: Toewijzing beoordelaar ongedaan maken
             unassign_from_valuator_button: Ontkoppelen
             update: Bijwerken
             update_scope_button: Toepassingsgebied bijwerken
@@ -428,7 +428,7 @@ nl:
             select_a_proposal: Selecteer een voorstel
           show:
             amendments_count: Aantal amendementen
-            assigned_valuators: Toegewezen waardeators
+            assigned_valuators: Toegewezen beoordelaars
             authors: auteurs
             body: Tekstgedeelte
             comments_count: Aantal reacties
@@ -449,8 +449,8 @@ nl:
             ranking: "%{ranking} van %{total}"
             related_meetings: Gerelateerde vergaderingen
             remove_assignment: Opdracht verwijderen
-            remove_assignment_confirmation: Weet u zeker dat u de waarde uit dit voorstel wilt verwijderen?
-            valuators: Waarden
+            remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
+            valuators: Beoordelaars
             votes_count: Aantal stemmen
             votes_ranking: Rangschikking door ondersteuning
           update_category:
@@ -483,10 +483,10 @@ nl:
         valuation_assignments:
           create:
             invalid: Er is een fout opgetreden bij het toewijzen van voorstellen aan een beoordelaar
-            success: Voorstellen die met succes aan een waardering zijn toegewezen
+            success: De voorstellen zijn aan een beoordelaar toegewezen
           delete:
-            invalid: Er is een fout opgetreden bij het ontkoppelen van voorstellen van een waardezer
-            success: Valuator die met succes is toegewezen aan voorstellen
+            invalid: Er is een fout opgetreden bij het ongedaan maken van voorstellen van een beoordelaar
+            success: Toewijzing voorstellen aan beoordelaar ongedaan gemaakt
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} ruimte"
@@ -496,8 +496,8 @@ nl:
         proposal_note:
           create: "%{user_name} heeft een privé-opmerking achtergelaten op het voorstel %{resource_name} op de %{space_name} ruimte"
         valuation_assignment:
-          create: "%{user_name} heeft het %{resource_name} voorstel toegewezen aan een waarderer"
-          delete: "%{user_name} heeft een waarde niet toegewezen uit het %{proposal_title} voorstel"
+          create: "%{user_name} heeft het %{resource_name} voorstel toegewezen aan een beoordelaar"
+          delete: "%{user_name} heeft de toewijzing van een beoordelaar aan voorstel %{proposal_title} ongedaan gemaakt"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
@@ -656,7 +656,7 @@ nl:
         collaborative_draft:
           fields:
             authors: auteurs
-            comments: Opmerkingen
+            comments: Reacties
             contributions: bijdragen
         proposal:
           fields:
@@ -670,8 +670,8 @@ nl:
             scope: Scope
             state: Staat
             title: Titel
-            valuator: 'Waarde:'
-            valuators: Waarden
+            valuator: Beoordelaar
+            valuators: Beoordelaars
             votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.

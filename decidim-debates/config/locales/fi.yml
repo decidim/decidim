@@ -86,6 +86,8 @@ fi:
           update:
             invalid: Keskustelun päivitys epäonnistui.
             success: Keskustelun päivitys onnistui.
+        exports:
+          comments: Kommentit
         models:
           debate:
             name: Keskustelu

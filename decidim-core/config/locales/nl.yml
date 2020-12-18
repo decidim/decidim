@@ -330,13 +330,13 @@ nl:
         order:
           all_types: Alle typen
           collaborative_draft: Samenwerkingsconcept
-          comment: Opmerking
+          comment: Reactie
           debate: Debat
           initiative: Initiatief
-          meeting: Afspraak
-          post: Plaatsen
+          meeting: Vergadering
+          post: Blog
           proposal: Voorstel
-          question: Vraag
+          question: Peiling
         title: 'Weergave:'
       dummy:
         actions:
@@ -668,8 +668,8 @@ nl:
           explanation: 'Begeleiding voor bestand:'
           message_1: Moet een afbeelding of een document zijn.
         image:
-          explanation: 'Begeleiding voor afbeelding:'
-          message_1: Bij voorkeur een landschap afbeelding die geen tekst bevat.
+          explanation: 'Eigenschappen afbeelding:'
+          message_1: Bij voorkeur een afbeelding in 'landscape' die geen tekst bevat.
           message_2: De service is de afbeelding.
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
@@ -977,12 +977,12 @@ nl:
       no_notifications: Nog geen meldingen.
     notifications_settings:
       show:
-        allow_public_contact: Iedereen mag me een persoonlijk bericht sturen, ook als ik hen niet volg.
+        allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
-        newsletters: nieuwsbrieven
+        newsletters: Nieuwsbrieven
         own_activity: Activiteiten gerelateerd aan mijn bijdragen, zoals wanneer iemand opmerkingen maakt in mijn voorstel of mij vermeldt
         receive_notifications_about: Ik wil meldingen ontvangen over
         send_notifications_by_email: Verstuur meldingen per e-mail
@@ -1025,7 +1025,7 @@ nl:
           answers_count: Voltooide enquêtes
           assemblies_count: Groepen
           comments_count: Reacties
-          conferences_count: conferenties
+          conferences_count: Conferenties
           debates_count: Debatten
           endorsements_count: Aanbevelingen
           headline: Huidige stand van %{organization}
@@ -1261,7 +1261,7 @@ nl:
       show:
         my_interests: Mijn interesses
         no_scopes: Deze organisatie heeft nog geen bereik!
-        select_your_interests: Selecteer de onderwerpen waarin u geïnteresseerd bent om eraan gerelateerde evenementen te ontvangen op het tabblad Tijdlijn van uw profiel.
+        select_your_interests: Selecteer de onderwerpen waarin je interesse hebt en ontvang meldingen erover in het tabblad 'Tijdlijn' van 'Mijn profiel'.
         update_my_interests: Update mijn interesses
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw interesses.
