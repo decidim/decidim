@@ -19,43 +19,43 @@ describe "Decidim::Api::QueryType" do
       "categories" => [],
       "components" => [],
       "createdAt" => conference.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-      "description" => {"translation"=>conference.description[locale]},
+      "description" => { "translation" => conference.description[locale] },
       "endDate" => conference.end_date.to_s,
       "hashtag" => conference.hashtag,
       "heroImage" => conference.hero_image.url,
       "id" => conference.id.to_s,
       "location" => conference.location,
       "mediaLinks" => [],
-      "objectives" => {"translation"=>conference.objectives[locale]},
+      "objectives" => { "translation" => conference.objectives[locale] },
       "partners" => [],
       "promoted" => conference.promoted?,
       "publishedAt" => conference.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => conference.reference,
-      "registrationTerms" => {"translation"=>conference.registration_terms[locale]},
+      "registrationTerms" => { "translation" => conference.registration_terms[locale] },
       "registrationsEnabled" => conference.registrations_enabled?,
       "scope" => nil,
-      "shortDescription" => {"translation"=>conference.short_description[locale]},
+      "shortDescription" => { "translation" => conference.short_description[locale] },
       "showStatistics" => conference.show_statistics?,
-      "slogan" => {"translation"=>conference.slogan[locale]},
+      "slogan" => { "translation" => conference.slogan[locale] },
       "slug" => conference.slug,
-      "speakers" => conference.speakers.map {|s| {"id" => s.id.to_s}},
+      "speakers" => conference.speakers.map { |s| { "id" => s.id.to_s } },
       "startDate" => conference.start_date.to_date.to_s,
-      "stats" =>  [
-        {"name"=>"dummies_count_high", "value"=>0},
-        {"name"=>"pages_count", "value"=>0},
-        {"name"=>"meetings_count", "value"=>0},
-        {"name"=>"proposals_count", "value"=>0},
-        {"name"=>"budgets_count", "value"=>0},
-        {"name"=>"surveys_count", "value"=>0},
-        {"name"=>"results_count", "value"=>0},
-        {"name"=>"debates_count", "value"=>0},
-        {"name"=>"sortitions_count", "value"=>0},
-        {"name"=>"posts_count", "value"=>0},
-        {"name"=>"elections_count", "value"=>0}
+      "stats" => [
+        { "name" => "dummies_count_high", "value" => 0 },
+        { "name" => "pages_count", "value" => 0 },
+        { "name" => "meetings_count", "value" => 0 },
+        { "name" => "proposals_count", "value" => 0 },
+        { "name" => "budgets_count", "value" => 0 },
+        { "name" => "surveys_count", "value" => 0 },
+        { "name" => "results_count", "value" => 0 },
+        { "name" => "debates_count", "value" => 0 },
+        { "name" => "sortitions_count", "value" => 0 },
+        { "name" => "posts_count", "value" => 0 },
+        { "name" => "elections_count", "value" => 0 }
       ],
-      "title" => {"translation"=>conference.title[locale]},
+      "title" => { "translation" => conference.title[locale] },
       "type" => conference.class.name,
-      "updatedAt" => conference.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+      "updatedAt" => conference.updated_at.iso8601.to_s.gsub("Z", "+00:00")
     }
   end
 
@@ -232,5 +232,4 @@ describe "Decidim::Api::QueryType" do
       expect(response["conference"]).to eq(conference_data)
     end
   end
-
 end
