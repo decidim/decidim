@@ -91,6 +91,8 @@ cs:
         name: Název
         organization: Organizace
         plural: Množné číslo
+      settings:
+        scope_id: Oblast působnosti
       static_page:
         changed_notably: Došlo ke znatelným změnám.
         content: Obsah
