@@ -91,6 +91,7 @@ fr-CA:
         organization: Organisation
         plural: Pluriel
       static_page:
+        allow_public_access: Autoriser l'accès sans authentification
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
