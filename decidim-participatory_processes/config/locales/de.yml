@@ -47,7 +47,7 @@ de:
         target: Wer nimmt teil
         title: Titel
       participatory_process_step:
-        cta_path: Pfad für "Aufruf zur Aktion"
+        cta_path: '"Call to Action"-Pfad'
         cta_text: Call to Action-Text
         description: Beschreibung
         end_date: Enddatum
