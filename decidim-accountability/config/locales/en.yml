@@ -151,6 +151,7 @@ en:
             start_date: Start date
             status: Status
             title: Title
+            id: ID
         status:
           fields:
             description: Description

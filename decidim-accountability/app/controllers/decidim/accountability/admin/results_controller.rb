@@ -14,12 +14,8 @@ module Decidim
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
-          @collection ||= results
-        end
-
-        def index
-          # enforce_permission_to :read, :process_list # what action/permission? :results?
-          @results = filtered_collection
+          parent_id = params[:parent_id].presence
+          @collection ||= Result.where(component: current_component, parent_id: parent_id).page(params[:page]).per(15)
         end
 
         def new
@@ -86,8 +82,7 @@ module Decidim
         private
 
         def results
-          parent_id = params[:parent_id].presence
-          @results ||= Result.where(component: current_component, parent_id: parent_id).page(params[:page]).per(15)
+          @results ||= filtered_collection
         end
 
         def result
