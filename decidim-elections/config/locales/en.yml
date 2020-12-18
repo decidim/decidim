@@ -29,6 +29,8 @@ en:
               needs_to_be_reattached: Needs to be reattached
         trustee:
           attributes:
+            name:
+              cant_be_changed: can't be changed
             public_key:
               cant_be_changed: can't be changed
   activerecord:
