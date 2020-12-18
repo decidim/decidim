@@ -92,6 +92,8 @@ en:
         name: Name
         organization: Organization
         plural: Plural
+      settings:
+        scope_id: Scope
       static_page:
         changed_notably: There have been noticeable changes.
         content: Content
