@@ -25,8 +25,12 @@ cs:
           global:
             announcement: Oznámení
             clean_after_publish: Odstranit odpovědi při publikování ankety
+            ends_at: Odpověď přijata do
+            ends_at_help: Ponechte prázdné pro žádné konkrétní datum
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            starts_at: Odpovědi přijaté od
+            starts_at_help: Ponechte prázdné pro žádné konkrétní datum
           step:
             allow_answers: Povolte odpovědi
             allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum
