@@ -24,6 +24,9 @@
             <th>
               <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
             </th>
+            <th>
+              <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
+            </th>
             <% if resource_with_scopes_enabled? %>
               <th>
                 <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
@@ -36,8 +39,17 @@
         <tbody>
           <% results.each do |result| %>
             <tr data-id="<%= result.id %>">
-              <td><%= result.id %><br></td>
-              <td><%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br></td>
+              <td>
+                <%= result.id %><br>
+              </td>
+              <td>
+                <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
+              </td>
+              <td>
+                <% if result.category %>
+                  <%= translated_attribute result.category.name %>
+                <% end %>
+              </td>
               <%= td_resource_scope_for(result.scope) %>
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>

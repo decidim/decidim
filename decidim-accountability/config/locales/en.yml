@@ -146,6 +146,7 @@ en:
       models:
         result:
           fields:
+            category: Category
             end_date: End date
             id: ID
             progress: Progress
