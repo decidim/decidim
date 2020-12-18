@@ -203,6 +203,10 @@ en:
         content_blocks:
           highlighted_initiatives:
             max_results: Maximum amount of elements to show
+            order:
+              default: Default
+              label: 'Order element by:'
+              most_recent: Most recent
         exports:
           initiatives: Initiatives
         initiatives:
