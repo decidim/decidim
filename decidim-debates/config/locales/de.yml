@@ -86,6 +86,8 @@ de:
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: Kommentare
         models:
           debate:
             name: Debatte
