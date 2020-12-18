@@ -1,6 +1,8 @@
 fr-CA:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Activer le schéma d'organisation
       assembly:
         area_id: Zone d'application
         assembly_type: Type d'assemblée
@@ -60,6 +62,7 @@ fr-CA:
         full_name: Nom et prénom
         gender: Genre
         position: Statut
+        user_id: Utilisateur
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
