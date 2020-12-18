@@ -91,7 +91,10 @@ en:
         name: Name
         organization: Organization
         plural: Plural
+      settings:
+        scope_id: Scope
       static_page:
+        allow_public_access: Allow access without authentication
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization

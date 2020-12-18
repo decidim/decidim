@@ -88,6 +88,8 @@ cs:
           update:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
+        exports:
+          comments: Komentáře
         models:
           debate:
             name: Debata
