@@ -26,20 +26,20 @@ describe "Decidim::Api::QueryType" do
           {
             "answerOptions" => q.answer_options.map do |a|
               {
-                "body"=>{"translation"=>a.body[locale]},
-                "freeText"=>a.free_text?,
-                "id"=>a.id.to_s
+                "body" => { "translation" => a.body[locale] },
+                "freeText" => a.free_text?,
+                "id" => a.id.to_s
               }
             end,
-            "body"=>{"translation"=> q.body[locale]},
+            "body" => { "translation" => q.body[locale] },
             "createdAt" => q.created_at.iso8601.to_s.gsub("Z", "+00:00"),
-            "description"=>{"translation"=> q.description[locale]},
+            "description" => { "translation" => q.description[locale] },
             "id" => q.id.to_s,
-            "mandatory"=>q.mandatory?,
-            "maxChoices"=>q.max_choices,
-            "position"=>q.position,
-            "questionType"=>q.question_type,
-            "updatedAt"=>q.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
+            "mandatory" => q.mandatory?,
+            "maxChoices" => q.max_choices,
+            "position" => q.position,
+            "questionType" => q.question_type,
+            "updatedAt" => q.updated_at.iso8601.to_s.gsub("Z", "+00:00")
           }
         end,
         "title" => { "translation" => survey.questionnaire.title[locale] },
