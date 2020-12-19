@@ -91,9 +91,9 @@ de:
         organization: Organisation
         plural: Plural
       settings:
-        scope_id: Bereich
+        scope_id: Umfang
       static_page:
-        allow_public_access: Zugriff ohne Authentisierung erlauben
+        allow_public_access: Zugriff ohne Authentifizierung erlauben
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
         organization: Organisation
