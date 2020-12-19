@@ -22,11 +22,11 @@ de:
             announcement: Ankündigung
             clean_after_publish: Antworten bei Veröffentlichung des Fragebogens löschen
             ends_at: Antworten akzeptiert bis
-            ends_at_help: Leer bedeutet kein spezifisches Datum
+            ends_at_help: Leer lassen für kein bestimmtes Datum
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
-            starts_at: Antworten akzeptiert ab
-            starts_at_help: Leer bedeutet kein spezifisches Datum
+            starts_at: Antworten akzeptiert von
+            starts_at_help: Leer lassen für kein bestimmtes Datum
           step:
             allow_answers: Erlaube Antworten
             allow_unregistered: Nicht registrierten Benutzern die Beantwortung des Fragebogens erlauben
