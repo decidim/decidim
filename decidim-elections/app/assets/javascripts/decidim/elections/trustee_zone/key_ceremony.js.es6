@@ -97,29 +97,22 @@ $(() => {
         }
       });
 
-      $backupButton.on("click", async () => {
-        return new Promise((resolve, reject) => {
-          try {
-            let element = document.createElement("a");
-            element.setAttribute(
-              "href",
-              `data:text/plain;charset=utf-8,${wrapperState}`
-            );
-            element.setAttribute("download", `${electionKeyIdentifier}.bak`);
-            element.style.display = "none";
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-            $backupModal.foundation("close");
-            keyCeremony.run();
-            return resolve();
-          } catch (error) {
-            return reject();
-          }
-        });
+      $backupButton.on("click", () => {
+        let element = document.createElement("a");
+        element.setAttribute(
+          "href",
+          `data:text/plain;charset=utf-8,${wrapperState}`
+        );
+        element.setAttribute("download", `${electionKeyIdentifier}.bak`);
+        element.style.display = "none";
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+        $backupModal.foundation("close");
+        keyCeremony.run();
       });
 
-      $restoreButton.on("click", async () => {
+      $restoreButton.on("click", () => {
         let element = document.createElement("input");
         element.setAttribute("type", "file");
         element.setAttribute("accept", ".bak");
