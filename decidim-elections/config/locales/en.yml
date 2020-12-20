@@ -192,6 +192,13 @@ en:
             title: Key ceremony
             trustees: Trustees
           ready:
+            errors:
+              time_before: The election is ready to start. You have to wait until %{hours} hours before the starting time (%{start_time}) to open the ballot box.
+            invalid: There was a problem opening the ballot box
+            requirements:
+              time_before: The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at %{start_time}.
+            submit: Open ballot box
+            success: The ballot box was successfully opened in the Bulletin Board
             title: Ready to start
           results:
             title: Results calculated
@@ -200,6 +207,13 @@ en:
           tally:
             title: Tally process
           vote:
+            errors:
+              time_after: The election is still ongoing. You have to wait until the ending time (%{end_time}) to close the ballot box.
+            invalid: There was a problem closing the ballot box
+            requirements:
+              time_after: The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes.
+            submit: Close ballot box
+            success: The ballot box was successfully closed in the Bulletin Board
             title: Vote period
         trustees_participatory_spaces:
           actions:
