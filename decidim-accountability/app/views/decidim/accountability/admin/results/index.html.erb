@@ -32,7 +32,15 @@
                 <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
               </th>
             <% end %>
-
+            <th>
+              <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
+            </th>
             <th class="actions"><%= t("actions.title", scope: "decidim.accountability") %></th>
           </tr>
         </thead>
@@ -51,6 +59,18 @@
                 <% end %>
               </td>
               <%= td_resource_scope_for(result.scope) %>
+              <td>
+                <% if result.status %>
+                  <%= translated_attribute result.status.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= result.progress&.to_i %>
+              </td>
+              <td>
+                <%= l result.created_at, format: :decidim_short %>
+              </td>
+
               <td class="table-list__actions">
                 <%= icon_link_to "eye", resource_locator(result).path, t("actions.preview", scope: "decidim.accountability"), class: "action-icon--preview", target: :blank %>
 

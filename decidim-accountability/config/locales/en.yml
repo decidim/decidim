@@ -147,6 +147,7 @@ en:
         result:
           fields:
             category: Category
+            created_at: Created
             end_date: End date
             id: ID
             progress: Progress
