@@ -32,7 +32,7 @@ module Decidim
 
           def filters_with_values
             {
-              scope_id_eq: scope_ids_hash(scopes.top_level),  
+              scope_id_eq: scope_ids_hash(scopes.top_level),
               category_id_eq: category_ids_hash(categories.first_class),
             }
           end
