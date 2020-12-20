@@ -7,12 +7,9 @@ module Decidim
       class SetupElection < Rectify::Command
         # Public: Initializes the command.
         #
-        # election - The election to setup.
-        # bulletin_board - The BulletinBoard Client that includes the GraphLient Client
-        def initialize(form, bulletin_board: Decidim::Elections.bulletin_board)
-          @election = form.election
+        # form - A SetupForm object with the information needed to setup the election
+        def initialize(form)
           @form = form
-          @bulletin_board = bulletin_board
         end
 
         # Public: Setup the Election.
@@ -23,21 +20,16 @@ module Decidim
 
           transaction do
             add_trustees_to_election
-            setup_election
             log_action
             notify_trustee_about_election
-          end
-
-          if form.errors.any?
-            broadcast(:invalid)
-          else
-            broadcast(:ok, election)
-          end
+            setup_election
+          end && broadcast(:ok, election)
         end
 
         private
 
-        attr_reader :election, :form, :bulletin_board
+        attr_reader :form
+        delegate :election, :bulletin_board, to: :form
 
         def questions
           @questions ||= election.questions
@@ -58,16 +50,9 @@ module Decidim
           election.save!
         end
 
-        def election_id
-          "#{bulletin_board.authority_slug}.#{election.id}"
-        end
-
         def election_data
           {
             iat: Time.now.to_i,
-            election_id: election_id,
-            message_id: "#{election_id}.create_election+a.#{bulletin_board.authority_slug}",
-            type: "create_election",
             scheme: bulletin_board.scheme,
             authority: {
               name: bulletin_board.authority_name,
@@ -138,11 +123,13 @@ module Decidim
         end
 
         def setup_election
-          bb_election = bulletin_board.create_election(election.id, election_data)
-          store_bulletin_board_status(bb_election.status)
-        rescue StandardError => e
-          form.errors.add(:base, e.message)
-          raise ActiveRecord::Rollback
+          begin
+            bb_election = bulletin_board.create_election(election.id, election_data)
+            store_bulletin_board_status(bb_election.status)
+          rescue StandardError => e
+            broadcast(:invalid, e.message)
+            raise ActiveRecord::Rollback
+          end
         end
 
         def log_action
@@ -167,10 +154,9 @@ module Decidim
         end
 
         def store_bulletin_board_status(bb_status)
-          @election.update!(
-            blocked_at: Time.current,
-            bb_status: bb_status
-          )
+          election.blocked_at = Time.current
+          election.bb_status = bb_status
+          election.save
         end
       end
     end

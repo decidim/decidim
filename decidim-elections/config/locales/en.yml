@@ -70,10 +70,10 @@ en:
         import: Import proposals to answers
         manage_answers: Manage answers
         manage_questions: Manage questions
+        manage_steps: Manage steps
         new: New %{name}
         preview: Preview
         publish: Publish
-        setup: Setup
         title: Actions
         unpublish: Unpublish
       admin:
@@ -122,9 +122,6 @@ en:
             title: New election
           publish:
             success: The election has been successfully published.
-          setup:
-            invalid: There was a problem setting up this election
-            success: Election successfully sent to the Bulletin Board
           unpublish:
             success: The election has been successfully unpublished.
           update:
@@ -169,29 +166,47 @@ en:
           update:
             invalid: There was a problem updating this question
             success: Question successfully updated
-        setup:
-          errors:
-            max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
-            minimum_answers: Questions must have <strong>at least one answer</strong>.
-            minimum_questions: The election <strong>must have at least one question</strong>.
-            published: The election is <strong>not published</strong>
-            time_before: The start time is in <strong>less than 3 hours</strong> before the election starts
-            trustee_public_key: does not have a <strong>valid public key</strong>
-            trustees_quorum: The amount of trustees <strong>does not correspond with the trustees quorum</strong> required
-          requirements:
-            max_selections: All the questions have a correct value for <strong>maximum of answers</strong>
-            minimum_answers: Each question has <strong>at least 2 answers</strong>
-            minimum_questions: The election has <strong>at least 1 question</strong>
-            published: The election is <strong>published</strong>
-            time_before: The setup is being done <strong>at least 3 hours</strong> before the election starts
-            trustee_public_key: has a <strong>valid public key</strong>
-            trustees_quorum: The size of this list of trustees is correct and it will be needed <strong>at least %{quorum} trustees </strong> to perform the tally process
-          show:
-            setup: Setup election
-            title: Election setup
-          update:
-            setup: Setup election
-            title: Election setup
+        steps:
+          create_election:
+            errors:
+              max_selections: The questions do not have a <strong>correct value for amount of answers</strong>
+              minimum_answers: Questions must have <strong>at least one answer</strong>.
+              minimum_questions: The election <strong>must have at least one question</strong>.
+              published: The election is <strong>not published</strong>.
+              time_before: The start time is in <strong>less than 3 hours</strong> before the election starts.
+              trustees_number: The participatory space <strong>must have at least %{number} trustees with public key</strong>.
+            invalid: There was a problem setting up this election
+            no_trustees: There are no Trustees configured for this participatory space
+            not_used_trustee: "(not used)"
+            public_key:
+              'false': does not have a <strong>public key</strong>
+              'true': has a <strong>public key</strong>
+            requirements:
+              max_selections: All the questions have a correct value for <strong>maximum of answers</strong>.
+              minimum_answers: Each question has <strong>at least 2 answers</strong>.
+              minimum_questions: The election has <strong>at least 1 question</strong>.
+              published: The election is <strong>published</strong>.
+              time_before: The setup is being done <strong>at least %{hours} hours</strong> before the election starts.
+              trustees_number: The participatory space has <strong>at least %{number} trustees with public key</strong>.
+            submit: Setup election
+            success: Election successfully sent to the Bulletin Board
+            title: Setup election
+            trustees: Election Trustees
+          index:
+            title: Manage elections steps on the Bulletin Board
+          key_ceremony:
+            title: Key ceremony
+            trustees: Trustees
+          ready:
+            title: Ready to start
+          results:
+            title: Results calculated
+          results_published:
+            title: Results published
+          tally:
+            title: Tally process
+          vote:
+            title: Vote period
         trustees_participatory_spaces:
           actions:
             disable: Disable
@@ -280,6 +295,7 @@ en:
             title: Title
         election:
           fields:
+            bb_status: Bulletin Board status
             end_time: End at
             start_time: Starts at
             title: Title
