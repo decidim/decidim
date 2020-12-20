@@ -88,6 +88,7 @@ it:
         organization: Organizzazione
         plural: Plurale
       static_page:
+        allow_public_access: Consenti l'accesso senza autenticazione
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
