@@ -29,6 +29,7 @@ module Decidim
         private
 
         attr_reader :form
+
         delegate :election, :bulletin_board, to: :form
 
         def questions
@@ -123,13 +124,11 @@ module Decidim
         end
 
         def setup_election
-          begin
-            bb_election = bulletin_board.create_election(election.id, election_data)
-            store_bulletin_board_status(bb_election.status)
-          rescue StandardError => e
-            broadcast(:invalid, e.message)
-            raise ActiveRecord::Rollback
-          end
+          bb_election = bulletin_board.create_election(election.id, election_data)
+          store_bulletin_board_status(bb_election.status)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
+          raise ActiveRecord::Rollback
         end
 
         def log_action

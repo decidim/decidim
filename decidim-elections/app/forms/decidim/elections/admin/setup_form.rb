@@ -67,7 +67,7 @@ module Decidim
         end
 
         def participatory_space_trustees_with_public_key
-          @participatory_space_trustees_with_public_key ||= participatory_space_trustees.filter {|trustee| trustee.public_key.present? }
+          @participatory_space_trustees_with_public_key ||= participatory_space_trustees.filter { |trustee| trustee.public_key.present? }
         end
       end
     end

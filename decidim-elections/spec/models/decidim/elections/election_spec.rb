@@ -43,7 +43,6 @@ describe Decidim::Elections::Election do
     it { is_expected.to be_finished }
   end
 
-
   describe "start time checks" do
     subject(:election) { build(:election, start_time: start_time) }
 
@@ -53,7 +52,7 @@ describe Decidim::Elections::Election do
     it { is_expected.to be_maximum_hours_before_start }
 
     context "when the election is about to start" do
-      let(:start_time) { 1.hours.from_now }
+      let(:start_time) { 1.hour.from_now }
 
       it { is_expected.not_to be_minimum_hours_before_start }
       it { is_expected.to be_maximum_hours_before_start }

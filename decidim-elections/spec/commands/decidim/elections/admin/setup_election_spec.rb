@@ -55,7 +55,7 @@ describe Decidim::Elections::Admin::SetupElection do
 
   context "when valid form" do
     it "updates the election status" do
-      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status } .from(nil).to("key_ceremony")
+      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status }.from(nil).to("key_ceremony")
     end
 
     it "logs the performed action", versioning: true do
@@ -86,7 +86,7 @@ describe Decidim::Elections::Admin::SetupElection do
     end
 
     it "blocks the election for modifications" do
-      expect { subject.call }.to change { election.blocked? } .from(false).to(true)
+      expect { subject.call }.to change(election, :blocked?).from(false).to(true)
       expect(election.blocked_at).to be_within(1.second).of election.updated_at
     end
   end

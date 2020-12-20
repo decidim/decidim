@@ -29,13 +29,13 @@ describe Decidim::Elections::Admin::SetupForm do
 
   it "shows messages" do
     expect(subject.messages).to eq({
-      max_selections: "All the questions have a correct value for <strong>maximum of answers</strong>.",
-      minimum_answers: "Each question has <strong>at least 2 answers</strong>.",
-      minimum_questions: "The election has <strong>at least 1 question</strong>.",
-      published: "The election is <strong>published</strong>.",
-      time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts.",
-      trustees_number: "The participatory space has <strong>at least 2 trustees with public key</strong>."
-    })
+                                     max_selections: "All the questions have a correct value for <strong>maximum of answers</strong>.",
+                                     minimum_answers: "Each question has <strong>at least 2 answers</strong>.",
+                                     minimum_questions: "The election has <strong>at least 1 question</strong>.",
+                                     published: "The election is <strong>published</strong>.",
+                                     time_before: "The setup is being done <strong>at least 3 hours</strong> before the election starts.",
+                                     trustees_number: "The participatory space has <strong>at least 2 trustees with public key</strong>."
+                                   })
   end
 
   context "when the election is not ready for the setup" do
@@ -46,9 +46,9 @@ describe Decidim::Elections::Admin::SetupForm do
     it "shows errors" do
       subject.valid?
       expect(subject.errors.messages).to eq({
-        minimum_questions: ["The election <strong>must have at least one question</strong>."],
-        published: ["The election is <strong>not published</strong>."]
-      })
+                                              minimum_questions: ["The election <strong>must have at least one question</strong>."],
+                                              published: ["The election is <strong>not published</strong>."]
+                                            })
     end
   end
 
@@ -60,8 +60,8 @@ describe Decidim::Elections::Admin::SetupForm do
     it "shows errors" do
       subject.valid?
       expect(subject.errors.messages).to eq({
-        trustees_number: ["The participatory space <strong>must have at least 2 trustees with public key</strong>."]
-      })
+                                              trustees_number: ["The participatory space <strong>must have at least 2 trustees with public key</strong>."]
+                                            })
     end
   end
 

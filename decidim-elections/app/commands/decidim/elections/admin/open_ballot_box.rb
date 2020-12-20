@@ -27,6 +27,7 @@ module Decidim
         private
 
         attr_accessor :form
+
         delegate :election, :bulletin_board, to: :form
 
         def log_action
@@ -39,13 +40,11 @@ module Decidim
         end
 
         def open_ballot_box
-          begin
-            bb_election = bulletin_board.open_ballot_box(election.id)
-            store_bulletin_board_status(bb_election.status)
-          rescue StandardError => e
-            broadcast(:invalid, e.message)
-            raise ActiveRecord::Rollback
-          end
+          bb_election = bulletin_board.open_ballot_box(election.id)
+          store_bulletin_board_status(bb_election.status)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
+          raise ActiveRecord::Rollback
         end
 
         def store_bulletin_board_status(bb_status)
