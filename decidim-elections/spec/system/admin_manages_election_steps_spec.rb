@@ -55,4 +55,48 @@ describe "Admin manages election steps", type: :system do
       end
     end
   end
+
+  describe "open the ballot box", :vcr do
+    let!(:election) { create :election, :ready, :bb_test_election, component: current_component }
+
+    it "performs the action successfully" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within "form.ready" do
+        expect(page).to have_content("The election will start soon.")
+
+        click_button "Open ballot box"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "form.vote" do
+        expect(page).to have_content("Vote period")
+      end
+    end
+  end
+
+  describe "close the ballot box", :vcr do
+    let!(:election) { create :election, :vote, :finished, :bb_test_election, component: current_component }
+
+    it "performs the action successfully" do
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      within "form.vote" do
+        expect(page).to have_content("The election has ended.")
+
+        click_button "Close ballot box"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".content.tally" do
+        expect(page).to have_content("Tally")
+      end
+    end
+  end
 end
