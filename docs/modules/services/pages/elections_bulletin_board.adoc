@@ -44,3 +44,7 @@ Maybe this is already done, as it was included in the Decidim applications gener
 ----
 
 After restarting the Decidim instance, administrator users will be able to create elections on the configured Bulletin Board.
+
+== Scheduled tasks
+
+A *crontab* line must be added to your server to be able to open and close the Ballot Box for the elections automatically. You could use https://github.com/javan/whenever[Whenever] to manage it directly from the APP. You probably want to schedule a `bundle exec rake decidim_elections:scheduled_tasks` every hour.
