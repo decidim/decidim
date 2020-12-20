@@ -44,7 +44,7 @@ describe Decidim::Elections::Admin::CloseBallotBox do
 
   context "when valid form" do
     it "updates the election status" do
-      expect { subject.call }.to change { election.reload.bb_status } .from("vote").to("tally")
+      expect { subject.call }.to change { election.reload.bb_status }.from("vote").to("tally")
     end
 
     it "logs the performed action", versioning: true do

@@ -83,7 +83,7 @@ FactoryBot.define do
 
       after(:create) do |election|
         trustees_participatory_spaces = Decidim::Elections::TrusteesParticipatorySpace.where(participatory_space: election.component.participatory_space)
-        election.trustees << trustees_participatory_spaces.map {|tps| tps.trustee}
+        election.trustees << trustees_participatory_spaces.map(&:trustee)
       end
     end
 

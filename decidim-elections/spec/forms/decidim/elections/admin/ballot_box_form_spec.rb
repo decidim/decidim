@@ -26,8 +26,8 @@ describe Decidim::Elections::Admin::BallotBoxForm do
 
     it "shows a message" do
       expect(subject.messages).to eq({
-        time_before: "The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at #{formatted_start_time}."
-      })
+                                       time_before: "The election will start soon. You can open the ballot box manually, or it will be opened automatically before the starting time, at #{formatted_start_time}."
+                                     })
     end
 
     context "when the election is not going to start soon" do
@@ -38,8 +38,8 @@ describe Decidim::Elections::Admin::BallotBoxForm do
       it "shows an error message" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-          time_before: ["The election is ready to start. You have to wait until 6 hours before the starting time (#{formatted_start_time}) to open the ballot box."]
-        })
+                                                time_before: ["The election is ready to start. You have to wait until 6 hours before the starting time (#{formatted_start_time}) to open the ballot box."]
+                                              })
       end
     end
   end
@@ -53,8 +53,8 @@ describe Decidim::Elections::Admin::BallotBoxForm do
 
     it "shows a message" do
       expect(subject.messages).to eq({
-        time_after: "The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes."
-      })
+                                       time_after: "The election has ended. You can close the ballot box manually, or it will be closed automatically in a few minutes."
+                                     })
     end
 
     context "when the election didn't finish yet" do
@@ -65,8 +65,8 @@ describe Decidim::Elections::Admin::BallotBoxForm do
       it "shows an error message" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-          time_after: ["The election is still ongoing. You have to wait until the ending time (#{formatted_end_time}) to close the ballot box."]
-        })
+                                                time_after: ["The election is still ongoing. You have to wait until the ending time (#{formatted_end_time}) to close the ballot box."]
+                                              })
       end
     end
   end

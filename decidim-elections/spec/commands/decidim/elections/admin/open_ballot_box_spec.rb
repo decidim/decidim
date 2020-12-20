@@ -44,7 +44,7 @@ describe Decidim::Elections::Admin::OpenBallotBox do
 
   context "when valid form" do
     it "updates the election status" do
-      expect { subject.call }.to change { election.bb_status } .from("ready").to("vote")
+      expect { subject.call }.to change(election, :bb_status).from("ready").to("vote")
     end
 
     it "logs the performed action", versioning: true do
