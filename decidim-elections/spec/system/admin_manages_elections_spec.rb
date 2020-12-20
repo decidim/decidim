@@ -129,41 +129,6 @@ describe "Admin manages elections", type: :system do
       end
     end
   end
-
-  describe "set up an election" do
-    context "when the election is published", :vcr do
-      let!(:election) { create :election, :published, :ready_for_setup, trustee_keys: trustee_keys, component: current_component }
-      let(:trustee_keys) do
-        {
-          "Trustee 1" => File.read(Decidim::Dev.asset("public_key.jwk")),
-          "Trustee 2" => File.read(Decidim::Dev.asset("public_key2.jwk"))
-        }
-      end
-
-      it "sets up an election" do
-        within find("tr", text: translated(election.title)) do
-          page.find(".action-icon--setup-election").click
-        end
-
-        within ".setup_election" do
-          expect(page).to have_css(".card-title", text: "Election setup")
-          expect(page).to have_content("The election is published")
-          expect(page).to have_content("The setup is being done at least 3 hours before the election starts")
-          expect(page).to have_content("The election has at least 1 question")
-          expect(page).to have_content("Each question has at least 2 answers")
-          expect(page).to have_content("All the questions have a correct value for maximum of answers")
-          expect(page).to have_content("The size of this list of trustees is correct and it will be needed at least #{Decidim::Elections.bulletin_board.quorum} trustees to perform the tally process")
-          Decidim::Elections.bulletin_board.quorum.times do
-            expect(page).to have_content("valid public key")
-          end
-
-          page.find(".button").click
-        end
-        expect(page).to have_admin_callout("successfully")
-      end
-    end
-  end
-
   describe "unpublishing an election" do
     let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
 
@@ -221,8 +186,8 @@ describe "Admin manages elections", type: :system do
       end
     end
 
-    context "when the election has started" do
-      let!(:election) { create(:election, :started, component: current_component) }
+    context "when the election has created on the bulletin board" do
+      let(:election) { create(:election, :created, component: current_component) }
 
       it "cannot delete the election" do
         within find("tr", text: translated(election.title)) do

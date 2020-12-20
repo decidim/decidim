@@ -3,18 +3,16 @@
 require "spec_helper"
 
 describe Decidim::Elections::Admin::SetupElection do
-  subject { described_class.new(form, bulletin_board: bulletin_board) }
+  subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:invalid) { false }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:election) { create :election, :complete }
+  let!(:election) { create :election, :complete }
   let(:trustees) { create_list :trustee, 5, :considered, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
-  let(:method_name) { :create_election }
-  let(:errors) { double.as_null_object }
   let(:form) do
     double(
       invalid?: invalid,
@@ -23,7 +21,7 @@ describe Decidim::Elections::Admin::SetupElection do
       current_component: current_component,
       current_organization: organization,
       trustee_ids: trustee_ids,
-      errors: errors
+      bulletin_board: bulletin_board
     )
   end
   let(:scheme) do
@@ -34,10 +32,8 @@ describe Decidim::Elections::Admin::SetupElection do
       }
     }
   end
-  let(:status) { OpenStruct.new(status: "key_ceremony") }
-  let(:response) do
-    OpenStruct.new(election: status, error: nil)
-  end
+  let(:method_name) { :create_election }
+  let(:response) { OpenStruct.new(status: "key_ceremony") }
 
   let(:bulletin_board) do
     double(Decidim::Elections.bulletin_board)
@@ -58,21 +54,40 @@ describe Decidim::Elections::Admin::SetupElection do
   end
 
   context "when valid form" do
-    let(:trustee_users) { trustees.collect(&:user) }
+    it "updates the election status" do
+      expect { subject.call }.to change { Decidim::Elections::Election.last.bb_status } .from(nil).to("key_ceremony")
+    end
 
-    it "setup the election" do
+    it "logs the performed action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:perform_action!)
+        .with(:setup, election, user, visibility: "all")
+        .and_call_original
+
+      expect { subject.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.version).to be_present
+    end
+
+    it "adds the trustees to the election" do
+      expect { subject.call }.to change { election.trustees.count }.by(5)
+    end
+
+    it "notifies the trustees" do
       expect(Decidim::EventsManager)
         .to receive(:publish)
         .with(
           event: "decidim.events.elections.trustees.new_election",
           event_class: Decidim::Elections::Trustees::NotifyTrusteeNewElectionEvent,
           resource: election,
-          affected_users: trustee_users
+          affected_users: trustees.collect(&:user)
         )
+      subject.call
+    end
 
-      expect { subject.call }.to change { election.trustees.count }.by(5)
+    it "blocks the election for modifications" do
+      expect { subject.call }.to change { election.blocked? } .from(false).to(true)
       expect(election.blocked_at).to be_within(1.second).of election.updated_at
-      expect(election.blocked?).to be true
     end
   end
 
@@ -90,12 +105,7 @@ describe Decidim::Elections::Admin::SetupElection do
     end
 
     it "is not valid" do
-      expect { subject.call }.to broadcast(:invalid)
-    end
-
-    it "returns the error message" do
-      expect(form.errors).to receive(:add).with(:base, "An error!")
-      subject.call
+      expect { subject.call }.to broadcast(:invalid, "An error!")
     end
   end
 end
