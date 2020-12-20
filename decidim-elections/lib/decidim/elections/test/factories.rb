@@ -4,6 +4,10 @@ require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 
 FactoryBot.define do
+  sequence(:private_key) do
+    JWT::JWK.new(OpenSSL::PKey::RSA.new(4096))
+  end
+
   factory :elections_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :elections).i18n_name }
     manifest_name { :elections }
@@ -58,9 +62,14 @@ FactoryBot.define do
     end
 
     trait :ready_for_setup do
+      transient do
+        trustee_keys { 2.times.map { generate(:private_key).export.to_json } }
+      end
       complete
-      after(:create) do |election, _evaluator|
-        create_list(:trustees_participatory_space, 2, :trustee_ready, participatory_space: election.component.participatory_space)
+      after(:create) do |election, evaluator|
+        evaluator.trustee_keys.each do |trustee_key|
+          create(:trustee, :with_public_key, election: election, public_key: trustee_key)
+        end
       end
     end
 
@@ -153,36 +162,40 @@ FactoryBot.define do
   end
 
   factory :trustee, class: "Decidim::Elections::Trustee" do
+    transient do
+      organization { election&.component&.participatory_space&.organization || create(:organization) }
+      election { nil }
+    end
     public_key { nil }
-    user
+    user { create(:user, organization: organization) }
 
     trait :considered do
-      after(:build) do |trustee, _evaluator|
-        trustee.trustees_participatory_spaces << build(:trustees_participatory_space)
+      after(:build) do |trustee, evaluator|
+        trustee.trustees_participatory_spaces << build(:trustees_participatory_space, trustee: trustee, election: evaluator.election, organization: evaluator.organization)
       end
     end
 
     trait :with_elections do
       after(:build) do |trustee, _evaluator|
-        trustee.elections << build(:election)
+        trustee.elections << build(:election, :upcoming)
       end
     end
 
     trait :with_public_key do
       considered
       name { Faker::Name.name }
-      sequence(:public_key) do
-        private_key = JWT::JWK.new(OpenSSL::PKey::RSA.new(4096))
-        public_key = private_key.export
-        public_key.to_json
-      end
+      public_key { generate(:private_key).export.to_json }
     end
   end
 
   factory :trustees_participatory_space, class: "Decidim::Elections::TrusteesParticipatorySpace" do
-    participatory_space { create(:participatory_process) }
+    transient do
+      organization { election&.component&.participatory_space&.organization || create(:organization) }
+      election { nil }
+    end
+    participatory_space { election&.component&.participatory_space || create(:participatory_process, organization: organization) }
     considered { true }
-    trustee
+    trustee { create(:trustee, organization: organization) }
 
     trait :trustee_ready do
       association :trustee, :with_public_key
