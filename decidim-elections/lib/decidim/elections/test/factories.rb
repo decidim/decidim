@@ -116,6 +116,10 @@ FactoryBot.define do
       results
       bb_status { "results_published" }
     end
+
+    trait :bb_test_election do
+      id { 10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status) }
+    end
   end
 
   factory :question, class: "Decidim::Elections::Question" do
