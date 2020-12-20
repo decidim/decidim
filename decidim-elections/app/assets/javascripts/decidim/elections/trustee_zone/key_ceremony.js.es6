@@ -87,15 +87,14 @@ $(() => {
         }
       });
 
-      await keyCeremony.setup();
-
       $startButton.on("click", async () => {
+        $startButton.prop("disabled", true);
+
         if (keyCeremony.restoreNeeded()) {
           $restoreModal.foundation("open");
+        } else {
+          keyCeremony.run();
         }
-
-        $startButton.addClass("disabled");
-        keyCeremony.run();
       });
 
       $backupButton.on("click", async () => {
@@ -137,6 +136,7 @@ $(() => {
             if (keyCeremony.restore(content)) {
               $startButton.removeClass("disabled");
               $restoreModal.foundation("close");
+              keyCeremony.run();
             } else {
               element.click();
             }
@@ -153,10 +153,12 @@ $(() => {
         if (event.type === "[Message] Received") {
           if (currentStep && currentStep !== messageIdentifier.typeSubtype) {
             const $previousStep = getStepRow(currentStep);
+
             $previousStep.find(".processing").addClass("hide");
             $previousStep.find(".completed").removeClass("hide");
           }
           currentStep = messageIdentifier.typeSubtype;
+
           const $currentStep = getStepRow(currentStep);
 
           $currentStep.find(".pending").toggleClass("hide", true);
@@ -174,6 +176,9 @@ $(() => {
           }
         }
       });
+
+      await keyCeremony.setup();
+      $startButton.prop("disabled", false);
     }
   });
 });
