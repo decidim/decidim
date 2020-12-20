@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t(".title") %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <% steps(current_step).each_with_index do |step, i| %>
+      <% if i > 0 %>&nbsp;&gt;&nbsp;<% end %>
+      <span class="<%= step.last %>"><%= t("steps.#{step.first}.title", scope: "decidim.elections.admin") %></span>
+    <% end %>
+  </div>
+</div>
+
+<% if @form %>
+  <%= decidim_form_for(@form, url: election_step_path(election, current_step), method: :patch, html: { class: "form #{current_step}" }) do |f| %>
+    <%= render partial: current_step.to_s, locals: { form: @form, f: f } %>
+  <% end %>
+<% else %>
+  <div class="content <%= current_step %>">
+    <%= render partial: current_step.to_s %>
+  </div>
+<% end %>
