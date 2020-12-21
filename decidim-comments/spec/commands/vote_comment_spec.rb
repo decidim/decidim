@@ -12,7 +12,9 @@ module Decidim
         let(:commentable) { create(:dummy_resource, component: component) }
         let(:author) { create(:user, organization: organization) }
         let(:comment) { create(:comment, commentable: commentable) }
-        let(:command) { described_class.new(comment, author) }
+        let(:options) { { weight: weight } }
+        let(:weight) { 1 }
+        let(:command) { described_class.new(comment, author, options) }
 
         describe "when the author is not in the same org as the comment" do
           let(:author) { build(:user, organization: create(:organization)) }
@@ -53,6 +55,26 @@ module Decidim
             expect do
               command.call
             end.to change(CommentVote, :count).by(1)
+          end
+        end
+
+        describe "sending notification" do
+          it "notifies the comment author" do
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.comments.vote",
+                event_class: Decidim::Comments::CommentVotedEvent,
+                resource: kind_of(Comment),
+                affected_users: [author],
+                followers: [comment.author],
+                extra: {
+                  comment_id: comment.id,
+                  author_id: author.id,
+                  weight: weight
+                }
+              )
+            command.call
           end
         end
 

@@ -41,9 +41,25 @@ module Decidim
         else
           return broadcast(:invalid)
         end
+        notify_comment_author
         broadcast(:ok, @comment)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
+      end
+
+      def notify_comment_author
+        Decidim::EventsManager.publish(
+          event: "decidim.events.comments.vote",
+          event_class: Decidim::Comments::CommentVotedEvent,
+          resource: @comment,
+          affected_users: [@author],
+          followers: [@comment.author],
+          extra: {
+            comment_id: @comment.id,
+            author_id: @author.id,
+            weight: @weight
+          }
+        )
       end
     end
   end
