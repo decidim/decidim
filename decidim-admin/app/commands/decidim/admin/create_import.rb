@@ -11,8 +11,10 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless form.parser
 
-        data = import_data
-        @data_count = data.count
+        @imported_data = import_data
+        form.context[:user_group] = user_group
+
+        broadcast(:invalid) unless @imported_data
 
         broadcast(:ok)
       end
@@ -33,15 +35,14 @@ module Decidim
         Import::ImporterFactory.build(
           filepath,
           mime_type,
-          user: current_user,
-          user_group: user_group,
+          context: form.context,
           parser: form.parser_class
         )
       end
 
       def user_group
         @user_group ||= Decidim::UserGroup.find_by(
-          organization: current_organization,
+          organization: form.context.current_organization,
           id: form.user_group_id.to_i
         )
       end

@@ -4,7 +4,6 @@ module Decidim
   module Admin
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
-      MIME_TYPE_ZIP = "application/zip"
 
       attribute :component
       attribute :parser
@@ -23,7 +22,7 @@ module Decidim
       end
 
       def accepted_mime_type
-        accepted_mime_types = ACCEPTED_MIME_TYPES.values + [MIME_TYPE_ZIP]
+        accepted_mime_types = ACCEPTED_MIME_TYPES.values
         return if accepted_mime_types.include?(mime_type)
 
         errors.add(
@@ -42,7 +41,9 @@ module Decidim
       end
 
       def parser_class
-        parser.constantize
+        return parser.constantize if parser.is_a?(String)
+
+        parser
       end
     end
   end

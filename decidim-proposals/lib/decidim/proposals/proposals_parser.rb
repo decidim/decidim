@@ -17,7 +17,7 @@ module Decidim
           published_at: Time.current
         )
 
-        proposal.add_coauthor(context[:user], user_group: context[:user_group])
+        proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
         proposal.save!
 
         increase_scores(proposal)
@@ -33,12 +33,12 @@ module Decidim
 
       def category
         id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i
-        Decidim::Category.find(id)
+        Decidim::Category.find_by(id: id)
       end
 
       def scope
         id = data.has_key?(:scope) ? data[:scope]["id"] : data[:"scope/id"].to_i
-        Decidim::Scope.find(id)
+        Decidim::Scope.find_by(id: id)
       end
 
       def title
@@ -54,12 +54,13 @@ module Decidim
       end
 
       def component
-        @component ||= Decidim::Component.find(component_id)
+        raise context.inspect unless context[:component]
+        context[:component]
       end
 
-      def component_id
-        data.has_key?(:component) ? data[:component]["id"] : data[:"component/id"].to_i
-      end
+      # def component_id
+      #   data.has_key?(:component) ? data[:component]["id"] : data[:"component/id"].to_i
+      # end
 
       def increase_scores(proposal)
         proposal.coauthorships.find_each do |coauthorship|
