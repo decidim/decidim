@@ -128,7 +128,7 @@ $(() => {
       }
       acc[name] = [...acc[name], value];
       return acc;
-    }, {});
+    }, {"ballot_style": "unique"});
   }
 
   // confirm vote
