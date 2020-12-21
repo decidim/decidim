@@ -64,9 +64,11 @@ FactoryBot.define do
       transient do
         trustee_keys { 2.times.map { generate(:private_key).export.to_json } }
       end
+
       upcoming
       published
       complete
+
       after(:create) do |election, evaluator|
         evaluator.trustee_keys.each do |name, key|
           create(:trustee, :with_public_key, name: name, election: election, public_key: key)
@@ -192,9 +194,6 @@ FactoryBot.define do
   end
 
   factory :trustee, class: "Decidim::Elections::Trustee" do
-      election { nil }
-      organization { election&.component&.participatory_space&.organization || create(:organization) }
-
     transient do
       election { nil }
       organization { participatory_space&.organization || create(:organization) }
@@ -210,6 +209,7 @@ FactoryBot.define do
     end
 
     trait :with_elections do
+      after(:build) do |_election, evaluator|
         trustee.elections << build(:election, :upcoming, organization: evaluator.organization)
       end
     end
