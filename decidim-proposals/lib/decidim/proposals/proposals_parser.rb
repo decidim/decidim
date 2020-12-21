@@ -17,7 +17,7 @@ module Decidim
           published_at: Time.current
         )
 
-        proposal.add_coauthor(context[:user])
+        proposal.add_coauthor(context[:user], user_group: context[:user_group])
         proposal.save!
 
         increase_scores(proposal)

@@ -21,7 +21,6 @@ module Decidim
           @parser = parser
           @user = user
           @user_group = user_group
-          @call_count = 0
         end
 
         def import

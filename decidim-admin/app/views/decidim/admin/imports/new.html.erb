@@ -25,6 +25,11 @@
           { include_blank: false }
         %>
       </div>
+      <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+        <div class="field">
+          <%= user_group_select_field form, :user_group_id %>
+        </div>
+      <% end %>
       <div class="grid-x">
         <div class="cell">
           <fieldset>

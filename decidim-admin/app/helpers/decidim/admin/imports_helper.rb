@@ -20,6 +20,17 @@ module Decidim
         end
         types
       end
+
+      def user_group_select_field(form, name)
+        selected = @import.user_group_id.presence
+        user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
+        form.select(
+          name,
+          user_groups.map { |g| [g.name, g.id] },
+          selected: selected,
+          include_blank: current_user.name
+        )
+      end
     end
   end
 end

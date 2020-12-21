@@ -27,6 +27,8 @@ en:
         published_at: Published at
         weight: Weight
       id: ID
+      import:
+        user_group_id: Create imports as
       newsletter:
         body: Body
         subject: Subject

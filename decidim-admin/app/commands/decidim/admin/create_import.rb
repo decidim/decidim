@@ -34,7 +34,15 @@ module Decidim
           filepath,
           mime_type,
           user: current_user,
+          user_group: user_group,
           parser: form.parser_class
+        )
+      end
+
+      def user_group
+        @user_group ||= Decidim::UserGroup.find_by(
+          organization: current_organization,
+          id: form.user_group_id.to_i
         )
       end
     end

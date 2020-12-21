@@ -9,6 +9,7 @@ module Decidim
       attribute :component
       attribute :parser
       attribute :file
+      attribute :user_group_id
 
       validates :file, presence: true
       validate :accepted_mime_type
