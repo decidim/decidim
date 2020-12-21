@@ -6,10 +6,18 @@ module Decidim
     # the Schema to be executed, later returning the response as JSON.
     class QueriesController < Api::ApplicationController
       def create
-        query_string = params[:query]
-        query_variables = ensure_hash(params[:variables])
-        result = Schema.execute(query_string, variables: query_variables, context: context)
+        variables = prepare_variables(params[:variables])
+        query = params[:query]
+        operation_name = params[:operationName]
+        context = {
+          # Query context goes here, for example:
+          # current_user: current_user,
+        }
+        result = Schema.execute(query, variables: variables, context: context, operation_name: operation_name)
         render json: result
+      rescue => e
+        raise e unless Rails.env.development?
+        handle_error_in_development e
       end
 
       private
@@ -20,15 +28,30 @@ module Decidim
           current_user: current_user
         }
       end
-
-      def ensure_hash(query_variables)
-        if query_variables.blank?
+      def prepare_variables(variables_param)
+        case variables_param
+        when String
+          if variables_param.present?
+            JSON.parse(variables_param) || {}
+          else
+            {}
+          end
+        when Hash
+          variables_param
+        when ActionController::Parameters
+          variables_param.to_unsafe_hash # GraphQL-Ruby will validate name and type of incoming variables.
+        when nil
           {}
-        elsif query_variables.is_a?(String)
-          JSON.parse(query_variables)
         else
-          query_variables
+          raise ArgumentError, "Unexpected parameter: #{variables_param}"
         end
+      end
+
+      def handle_error_in_development(e)
+        logger.error e.message
+        logger.error e.backtrace.join("\n")
+
+        render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500
       end
     end
   end

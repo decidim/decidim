@@ -3,16 +3,19 @@
 module Decidim
   module Core
     # This type represents the current user session.
-    SessionType = GraphQL::ObjectType.define do
-      name "Session"
+    class SessionType < Decidim::Api::Types::BaseObject
       description "The current session"
 
-      field :user, UserType, "The current user" do
-        resolve ->(obj, _args, _ctx) { obj }
+      field :user, UserType, "The current user", null: true
+
+      def user
+        object
       end
 
-      field :verifiedUserGroups, !types[!UserGroupType], "The current user verified user groups" do
-        resolve ->(obj, _args, _ctx) { Decidim::UserGroups::ManageableUserGroups.for(obj).verified }
+      field :verified_user_groups, [UserGroupType], "The current user verified user groups", null: false
+
+      def verified_user_groups
+        Decidim::UserGroups::ManageableUserGroups.for(object).verified
       end
     end
   end

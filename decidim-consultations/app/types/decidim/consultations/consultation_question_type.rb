@@ -3,55 +3,51 @@
 module Decidim
   module Consultations
     # This type represents a consultation.
-    ConsultationQuestionType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Comments::CommentableInterface }
-      ]
+    class ConsultationQuestionType < Decidim::Api::Types::BaseObject
 
-      name "ConsultationQuestion"
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements  Decidim::Comments::CommentableInterface
+
       description "A consultation question"
 
-      field :id, !types.ID, "Internal ID of the question"
-      field :title, Decidim::Core::TranslatedFieldType, "Title of the question"
-      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this question"
-      field :slug, !types.String, "Slug of the question"
-      field :createdAt, !Decidim::Core::DateTimeType, "The time this question was created", property: :created_at
-      field :updatedAt, !Decidim::Core::DateTimeType, "The time this question was updated", property: :updated_at
-      field :publishedAt, !Decidim::Core::DateTimeType, "The time this question was published", property: :published_at
+      field :id, ID, "Internal ID of the question", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "Title of the question", null: true
+      field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this question", null: true
+      field :slug, String, "Slug of the question", null: false
+      field :created_at, Decidim::Core::DateTimeType, "The time this question was created", null: false
+      field :updated_at, Decidim::Core::DateTimeType, "The time this question was updated", null: false
+      field :published_at, Decidim::Core::DateTimeType, "The time this question was published", null: false
 
-      field :components, types[Decidim::Core::ComponentInterface] do
-        description "Lists the components this space contains."
+      field :components, [Decidim::Core::ComponentInterface, null: true], description: "Lists the components this space contains.", null: true
 
-        resolve ->(participatory_space, _args, _ctx) {
-                  Decidim::Component.where(
-                    participatory_space: participatory_space
-                  ).published
-                }
+      def components
+        Decidim::Component.where(
+                  participatory_space: object
+                ).published
       end
 
-      field :bannerImage, types.String, "The banner image for this question", property: :banner_image
-      field :heroImage, types.String, "The hero image for this question", property: :hero_image
+      field :banner_image, String, "The banner image for this question", null: true
+      field :hero_image, String, "The hero image for this question", null: true
 
-      field :whatIsDecided, Decidim::Core::TranslatedFieldType, "What is decided in this question", property: :what_is_decided
-      field :promoterGroup, Decidim::Core::TranslatedFieldType, "The promoter group of this question", property: :promoter_group
-      field :participatoryScope, Decidim::Core::TranslatedFieldType, "The participatory scope of this question", property: :participatory_scope
-      field :questionContext, Decidim::Core::TranslatedFieldType, "The context for this question", property: :question_context
-      field :reference, types.String, "The reference for this question", property: :reference
-      field :hashtag, types.String, "The hashtag of this question", property: :hashtag
-      field :votesCount, types.Int, "The number of votes in this question", property: :votes_count
-      field :originScope, Decidim::Core::TranslatedFieldType, "The origin scope of this question", property: :origin_scope
-      field :originTitle, Decidim::Core::TranslatedFieldType, "The origin title of this question", property: :origin_title
-      field :originUrl, types.String, "The origin URL for this question", property: :origin_url
-      field :iFrameUrl, types.String, "The iframe URL for this question", property: :i_frame_url
-      field :externalVoting, types.Boolean, "If the question has external voting", property: :external_voting
-      field :responsesCount, types.Int, "The number of responses for this question", property: :responses_count
-      field :order, types.Int, "The order in which the question should be represented", property: :order
-      field :maxVotes, types.Int, "The maximum number of votes in this question", property: :max_votes
-      field :minVotes, types.Int, "The minimum number of votes in this question", property: :min_votes
-      field :responseGroupsCount, types.Int, "The number of group responses for this question", property: :response_groups_count
-      field :instructions, Decidim::Core::TranslatedFieldType, "Instructions for this question", property: :instructions
+      field :what_is_decided, Decidim::Core::TranslatedFieldType, "What is decided in this question", null: true
+      field :promoter_group, Decidim::Core::TranslatedFieldType, "The promoter group of this question", null: true
+      field :participatory_scope, Decidim::Core::TranslatedFieldType, "The participatory scope of this question", null: true
+      field :question_context, Decidim::Core::TranslatedFieldType, "The context for this question", null: true
+      field :reference, String, "The reference for this question", null: true
+      field :hashtag, String, "The hashtag of this question", null: true
+      field :votes_count, Integer, "The number of votes in this question", null: true
+      field :origin_scope, Decidim::Core::TranslatedFieldType, "The origin scope of this question", null: true
+      field :origin_title, Decidim::Core::TranslatedFieldType, "The origin title of this question", null: true
+      field :origin_url, String, "The origin URL for this question", null: true
+      field :i_frame_url, String, "The iframe URL for this question", null: true
+      field :external_voting, Boolean, "If the question has external voting", null: true
+      field :responses_count, Integer, "The number of responses for this question", null: true
+      field :order, Integer, "The order in which the question should be represented", null: true
+      field :max_votes, Integer, "The maximum number of votes in this question", null: true
+      field :min_votes, Integer, "The minimum number of votes in this question", null: true
+      field :response_groups_count, Integer, "The number of group responses for this question", null: true
+      field :instructions, Decidim::Core::TranslatedFieldType, "Instructions for this question", null: true
     end
   end
 end

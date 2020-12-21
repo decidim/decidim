@@ -10,30 +10,28 @@ module Decidim
       # type - A GraphQL::BaseType to extend.
       #
       # Returns nothing.
-      def self.define(type)
-        type.field :initiativesTypes do
-          type !types[InitiativeApiType]
+      def self.included(type)
+        type.field :initiatives_types,[InitiativeApiType], null: false  do
           description "Lists all initiative types"
-
-          resolve lambda { |_obj, _args, ctx|
-            Decidim::InitiativesType.where(
-              organization: ctx[:current_organization]
-            )
-          }
         end
 
-        type.field :initiativesType do
-          type InitiativeApiType
-          description "Finds a initiative type"
-          argument :id, !types.ID, "The ID of the initiative type"
-
-          resolve lambda { |_obj, args, ctx|
-            Decidim::InitiativesType.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
+        def initiatives_types
+          Decidim::InitiativesType.where(
+            organization: context[:current_organization]
+          )
         end
+
+        type.field :initiatives_type, InitiativeApiType, null: true, description: "Finds a initiative type" do
+          argument :id, GraphQL::Types::ID, "The ID of the initiative type", required: true
+        end
+
+        def initiatives_type(args: {})
+          Decidim::InitiativesType.find_by(
+            organization: context[:current_organization],
+            id: args[:id]
+          )
+        end
+
       end
     end
   end

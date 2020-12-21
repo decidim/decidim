@@ -3,49 +3,61 @@
 module Decidim
   module Core
     # This type represents a User.
-    UserType = GraphQL::ObjectType.define do
-      name "User"
+    class UserType < Decidim::Api::Types::BaseObject
       description "A user"
 
-      interfaces [
-        -> { Decidim::Core::AuthorInterface }
-      ]
+      implements  Decidim::Core::AuthorInterface
 
-      field :id, !types.ID, "The user's id"
+      field :id, ID, "The user's id", null: false
 
-      field :name, !types.String, "The user's name"
+      field :name, String, "The user's name", null: false
 
-      field :nickname, !types.String, "The user's nickname" do
-        resolve ->(user, _args, _ctx) { user.presenter.nickname }
+      field :nickname, String, "The user's nickname", null: false
+
+      def nickname
+        object.presenter.nickname
       end
 
-      field :avatarUrl, !types.String, "The user's avatar url" do
-        resolve ->(user, _args, _ctx) { user.presenter.avatar_url(:thumb) }
+      field :avatar_url, String, "The user's avatar url", null: false
+
+      def avatar_url
+        object.presenter.avatar_url(:thumb)
       end
 
-      field :profilePath, !types.String, "The user's profile url" do
-        resolve ->(user, _args, _ctx) { user.presenter.profile_path }
+      field :profile_path, String, "The user's profile url", null: false
+
+      def profile_path
+        object.presenter.profile_path
       end
 
-      field :directMessagesEnabled, !types.String, "If the user making the request is logged in,
-       it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests." do
-        resolve ->(user, _args, ctx) { user.presenter.direct_messages_enabled?(ctx.to_h) }
+      field :direct_messages_enabled, String, "If the user making the request is logged in, it will return whether this recipient accepts a conversation or not. It will return false for non-logged requests.", null: false
+
+      def direct_messages_enabled
+        object.presenter.direct_messages_enabled?(context.to_h)
       end
 
-      field :organizationName, !types.String, "The user's organization name" do
-        resolve ->(user, _args, _ctx) { user.organization.name }
+      field :organization_name, String, "The user's organization name", null: false
+
+      def organization_name
+        object.organization.name
       end
 
-      field :deleted, !types.Boolean, "Whether the user's account has been deleted or not" do
-        resolve ->(user, _args, _ctx) { user.presenter.deleted? }
+      field :deleted, Boolean, "Whether the user's account has been deleted or not", null: false
+
+      def deleted
+        object.presenter.deleted?
       end
 
-      field :badge, !types.String, "A badge for the user group" do
-        resolve ->(user, _args, _ctx) { user.presenter.badge }
+      field :badge, String, "A badge for the user group", null: false
+
+      def badge
+        object.presenter.badge
       end
 
-      field :groups, !types[UserGroupType], "Groups where this user belongs" do
-        resolve ->(user, _args, _ctx) { user.accepted_user_groups }
+      field :groups, [UserGroupType, null: true], "Groups where this user belongs", null: false
+
+      def groups
+        object.accepted_user_groups
       end
     end
   end

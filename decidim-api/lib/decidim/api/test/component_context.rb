@@ -17,7 +17,7 @@ shared_context "with a graphql decidim component" do
 
   let(:participatory_process_query) do
     %(
-      participatoryProcess(id: #{participatory_process.id}) {
+      participatoryProcess(slug: "#{participatory_process.slug}") {
         components(filter: {type: "#{component_type}"}){
           id
           name {

@@ -2,68 +2,54 @@
 
 module Decidim
   module Proposals
-    ProposalType = GraphQL::ObjectType.define do
-      name "Proposal"
+    class ProposalType < Decidim::Api::Types::BaseObject
       description "A proposal"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::CoauthorableInterface },
-        -> { Decidim::Core::CategorizableInterface },
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::FingerprintInterface },
-        -> { Decidim::Core::AmendableInterface },
-        -> { Decidim::Core::AmendableEntityInterface },
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::EndorsableInterface },
-        -> { Decidim::Core::TimestampsInterface }
-      ]
+      implements  Decidim::Comments::CommentableInterface
+      implements  Decidim::Core::CoauthorableInterface
+      implements  Decidim::Core::CategorizableInterface
+      implements  Decidim::Core::ScopableInterface
+      implements  Decidim::Core::AttachableInterface
+      implements  Decidim::Core::FingerprintInterface
+      implements Decidim::Core::AmendableInterface
+      implements Decidim::Core::AmendableEntityInterface
+      implements  Decidim::Core::TraceableInterface
+      implements  Decidim::Core::EndorsableInterface
+      implements  Decidim::Core::TimestampsInterface
 
-      field :id, !types.ID
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this title"
-      field :body, Decidim::Core::TranslatedFieldType, "The description for this body"
-      field :address, types.String, "The physical address (location) of this proposal"
-      field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal" do
-        resolve ->(proposal, _args, _ctx) {
-          [proposal.latitude, proposal.longitude]
-        }
+      field :id, ID, null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this title", null: true
+      field :body, Decidim::Core::TranslatedFieldType, "The description for this body", null: true
+      field :address, String, "The physical address (location) of this proposal", null: true
+      field :coordinates, Decidim::Core::CoordinatesType, "Physical coordinates for this proposal", null: true
+
+      def coordinates
+        [object.latitude, object.longitude]
       end
-      field :reference, types.String, "This proposal's unique reference"
-      field :state, types.String, "The answer status in which proposal is in"
-      field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal"
+      field :reference, String, "This proposal's unique reference", null: true
+      field :state, String, "The answer status in which proposal is in", null: true
+      field :answer, Decidim::Core::TranslatedFieldType, "The answer feedback for the status for this proposal", null: true
 
-      field :answeredAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was answered"
-        property :answered_at
-      end
+      field :answered_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was answered", null: true
 
-      field :publishedAt, Decidim::Core::DateTimeType do
-        description "The date and time this proposal was published"
-        property :published_at
-      end
+      field :published_at, Decidim::Core::DateTimeType, description: "The date and time this proposal was published", null: true
 
-      field :participatoryTextLevel, types.String do
-        description "If it is a participatory text, the level indicates the type of paragraph"
-        property :participatory_text_level
-      end
-      field :position, types.Int, "Position of this proposal in the participatory text"
+      field :participatory_text_level, String, description: "If it is a participatory text, the level indicates the type of paragraph", null: true
+      field :position, Integer, "Position of this proposal in the participatory text", null: true
 
-      field :official, types.Boolean, "Whether this proposal is official or not", property: :official?
-      field :createdInMeeting, types.Boolean, "Whether this proposal comes from a meeting or not", property: :official_meeting?
-      field :meeting, Decidim::Meetings::MeetingType do
-        description "If the proposal comes from a meeting, the related meeting"
-        resolve ->(proposal, _, _) {
-          proposal.authors.first if proposal.official_meeting?
-        }
+      field :official, Boolean, "Whether this proposal is official or not", method: :official?, null: true
+      field :created_in_meeting, Boolean, "Whether this proposal comes from a meeting or not", method: :official_meeting?, null: true
+      field :meeting, Decidim::Meetings::MeetingType, description: "If the proposal comes from a meeting, the related meeting", null: true
+
+      def meeting
+        object.authors.first if object.official_meeting?
       end
 
-      field :voteCount, types.Int do
-        description "The total amount of votes the proposal has received"
-        resolve ->(proposal, _args, _ctx) {
-          current_component = proposal.component
-          proposal.proposal_votes_count unless current_component.current_settings.votes_hidden?
-        }
+      field :vote_count, Integer, description: "The total amount of votes the proposal has received", null: true
+
+      def vote_count
+        current_component = object.component
+        object.proposal_votes_count unless current_component.current_settings.votes_hidden?
       end
     end
   end

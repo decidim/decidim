@@ -2,15 +2,14 @@
 
 module Decidim
   module Core
-    CategoryType = GraphQL::ObjectType.define do
-      name "Category"
+    class CategoryType < Decidim::Api::Types::BaseObject
       description "A category that can be applied to other resources."
 
-      field :id, !types.ID
-      field :name, !TranslatedFieldType, "The name of this category."
+      field :id, ID, null: false
+      field :name, TranslatedFieldType, "The name of this category.", null: false
 
-      field :subcategories, !types[Decidim::Core::CategoryType], "Subcategories of this category."
-      field :parent, Decidim::Core::CategoryType, "This category's parent category."
+      field :subcategories, [Decidim::Core::CategoryType, null: true], "Subcategories of this category.", null: false
+      field :parent, Decidim::Core::CategoryType, "This category's parent category.", null: true
     end
   end
 end

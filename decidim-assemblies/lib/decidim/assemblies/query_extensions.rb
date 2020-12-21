@@ -10,29 +10,24 @@ module Decidim
       # type - A GraphQL::BaseType to extend.
       #
       # Returns nothing.
-      def self.define(type)
-        type.field :assembliesTypes do
-          type !types[AssembliesTypeType]
-          description "Lists all assemblies types"
+      def self.included(type)
+        type.field :assemblies_types, [AssembliesTypeType], null: false, description: "Lists all assemblies types"
 
-          resolve lambda { |_obj, _args, ctx|
-            Decidim::AssembliesType.where(
-              organization: ctx[:current_organization]
-            )
-          }
+        def assemblies_types(args: {})
+          Decidim::AssembliesType.where(
+            organization: context[:current_organization]
+          )
         end
 
-        type.field :assembliesType do
-          type AssembliesTypeType
-          description "Finds an assemblies type group"
-          argument :id, !types.ID, "The ID of the Assemblies type"
+        type.field :assemblies_type, AssembliesTypeType, null: false, description: "Finds an assemblies type group"  do
+          argument :id, GraphQL::Types::ID, description: "The ID of the Assemblies type", required: true
+        end
 
-          resolve lambda { |_obj, args, ctx|
-            Decidim::AssembliesType.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
+        def assemblies_type(args: {})
+          Decidim::AssembliesType.find_by(
+            organization: context[:current_organization],
+            id: args[:id]
+          )
         end
       end
     end

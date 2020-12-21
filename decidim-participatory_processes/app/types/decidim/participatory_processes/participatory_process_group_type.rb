@@ -3,18 +3,14 @@
 module Decidim
   module ParticipatoryProcesses
     # This type represents a ParticipatoryProcess.
-    ParticipatoryProcessGroupType = GraphQL::ObjectType.define do
-      name "ParticipatoryProcessGroup"
+    class ParticipatoryProcessGroupType < Decidim::Api::Types::BaseObject
       description "A participatory process group"
 
-      field :id, !types.ID, "ID of this participatory process group"
-      field :title, Decidim::Core::TranslatedFieldType, "The title of this participatory process group"
-      field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process group", property: :description
-      field :participatoryProcesses, !types[ParticipatoryProcessType] do
-        description "Lists all the participatory processes belonging to this group"
-        property :participatory_processes
-      end
-      field :heroImage, types.String, "The hero image for this participatory process group", property: :hero_image
+      field :id, ID, "ID of this participatory process group", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title of this participatory process group", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description of this participatory process group", null: true
+      field :participatory_processes, [ParticipatoryProcessType, null: true], description: "Lists all the participatory processes belonging to this group", null: false
+      field :hero_image, String, "The hero image for this participatory process group", null: true
     end
   end
 end

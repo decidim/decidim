@@ -11,28 +11,25 @@ module Decidim
       #
       # Returns nothing.
       def self.define(type)
-        type.field :participatoryProcessGroups do
-          type !types[ParticipatoryProcessGroupType]
-          description "Lists all participatory process groups"
+        type.field :participatory_process_groups, [ParticipatoryProcessGroupType], null: false,
+          description: "Lists all participatory process groups"
 
-          resolve lambda { |_obj, _args, ctx|
-            Decidim::ParticipatoryProcessGroup.where(
-              organization: ctx[:current_organization]
-            )
-          }
+        def participatory_process_groups(args: {})
+          Decidim::ParticipatoryProcessGroup.where(
+            organization: context[:current_organization]
+          )
         end
 
-        type.field :participatoryProcessGroup do
-          type ParticipatoryProcessGroupType
+        type.field :participatory_process_group, ParticipatoryProcessGroupType, null: false do
           description "Finds a participatory process group"
-          argument :id, !types.ID, "The ID of the Participatory process group"
+          argument :id, GraphQL::Types::ID, null: false, description: "The ID of the Participatory process group"
+        end
 
-          resolve lambda { |_obj, args, ctx|
-            Decidim::ParticipatoryProcessGroup.find_by(
-              organization: ctx[:current_organization],
-              id: args[:id]
-            )
-          }
+        def participatory_process_group(args: {})
+          Decidim::ParticipatoryProcessGroup.find_by(
+            organization: ctx[:current_organization],
+            id: args[:id]
+          )
         end
       end
     end
