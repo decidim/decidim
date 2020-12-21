@@ -1,4 +1,10 @@
-<div class="vote-wrapper" data-voter-id="<%= @voter_id %>" data-cast-vote-url="<%= cast_election_vote_url(election) %>">
+<div class="vote-wrapper"
+  data-election-id="<%= election.id %>"
+  data-api-endpoint-url="<%= Rails.application.secrets.bulletin_board[:server] %>"
+  data-websocket-url="<%= Rails.application.secrets.bulletin_board[:websocket_url] %>"
+  data-election-unique-id="<%= @form.election_unique_id %>"
+  data-voter-id="<%= @form.voter_id %>"
+  data-cast-vote-url="<%= cast_election_vote_url(election) %>">
   <% questions.each_with_index do |step_question, step_index| %>
     <div id="step-<%= step_index %>" class="focus__step <%= "hide" if step_index.positive? %>"
     data-toggler=".hide">

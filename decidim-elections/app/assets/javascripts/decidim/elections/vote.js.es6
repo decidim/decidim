@@ -3,8 +3,7 @@
 // = require decidim-bulletin_board
 
 $(() => {
-  const { Voter } = decidimBulletinBoard;
-
+  const { Voter, Client } = decidimBulletinBoard;
   const $voteWrapper = $(".vote-wrapper");
   const $continueButton = $voteWrapper.find("a.focus__next");
   const $confirmButton = $voteWrapper.find("a.focus__next.confirm");
@@ -141,17 +140,20 @@ $(() => {
 
   // cast vote
   function castVote(_boothMode, formData) {
-    const voter = new Voter($voteWrapper.data("voterId"));
-    let encryptedVoteHashToVerify = null;
+    const bulletinBoardClient = new Client({
+      apiEndpointUrl: $voteWrapper.data("apiEndpointUrl"),
+      wsEndpointUrl: $voteWrapper.data("websocketUrl")
+    });
 
-    // This is a monkey patch until the real implementation works.
-    voter.verifyVote = (_voteHash) => {
-      return new Promise((resolve) => {
-        setInterval(() => {
-          resolve();
-        }, 1000)
-      });
-    };
+    const voter = new Voter({
+      id: $voteWrapper.data("voterId"),
+      bulletinBoardClient,
+      electionContext: {
+        id: $voteWrapper.data("electionUniqueId")
+      }
+    });
+
+    let encryptedVoteHashToVerify = null;
 
     voter.encrypt(formData).then((encryptedVoteAsJSON) => {
       return crypto.subtle.digest("SHA-256", new TextEncoder().encode(encryptedVoteAsJSON)).then((hashBuffer) => {
