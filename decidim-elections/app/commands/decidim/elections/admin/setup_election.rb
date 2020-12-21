@@ -138,15 +138,11 @@ module Decidim
         end
 
         def setup_election
-          response = bulletin_board.setup_election(election_data)
-
-          if response.error.present?
-            error = response.error
-            form.errors.add(:base, error)
-            raise ActiveRecord::Rollback
-          else
-            store_bulletin_board_status(response.election.status)
-          end
+          bb_election = bulletin_board.create_election(election.id, election_data)
+          store_bulletin_board_status(bb_election.status)
+        rescue StandardError => e
+          form.errors.add(:base, e.message)
+          raise ActiveRecord::Rollback
         end
 
         def log_action
