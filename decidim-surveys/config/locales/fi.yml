@@ -26,6 +26,7 @@ fi:
             scope_id: Teema
             scopes_enabled: Teemat käytössä
             starts_at: Vastausajan alkamisajankohta
+            starts_at_help: Jätä tyhjäksi, jos vastausaikaa ei ole rajattu
           step:
             allow_answers: Salli vastaukset
             allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata tähän kyselyyn
