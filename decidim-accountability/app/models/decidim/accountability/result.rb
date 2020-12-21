@@ -89,10 +89,6 @@ module Decidim
         can_participate_in_space?(user)
       end
 
-      ransacker :title do
-        Arel.sql(%{("decidim_accountability_results"."title")::text})
-      end
-
       ransacker :id_string do
         Arel.sql(%{cast("decidim_accountability_results"."id" as text)})
       end
