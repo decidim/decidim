@@ -20,8 +20,8 @@ module Decidim
         )
 
         CreateImport.call(@import) do
-          on(:ok) do |count|
-            flash[:notice] = t("decidim.admin.imports.notice", count: count)
+          on(:ok) do
+            flash[:notice] = t("decidim.admin.imports.notice", count: @data_count)
             redirect_to manage_component_path(component)
           end
 

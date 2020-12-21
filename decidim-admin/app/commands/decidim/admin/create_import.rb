@@ -11,7 +11,8 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless form.parser
 
-        import_data
+        data = import_data
+        @data_count = data.count
 
         broadcast(:ok)
       end
