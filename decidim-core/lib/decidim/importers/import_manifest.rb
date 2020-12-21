@@ -14,7 +14,7 @@ module Decidim
         @parser ||= parser || Decidim::Admin::Import::Parser
       end
 
-      DEFAULT_FORMATS = %w(CSV).freeze
+      DEFAULT_FORMATS = %w(CSV JSON Excel).freeze
 
       def formats
         DEFAULT_FORMATS

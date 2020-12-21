@@ -25,17 +25,7 @@ module Decidim
       end
 
       def import_file(filepath, mime_type)
-        importer_for(filepath, mime_type).import # do |records|
-        #   import = TranslationImportCollection.new(
-        #     translation_set,
-        #     records,
-        #     form.current_organization.available_locales
-        #   )
-
-        #   return translation_set.translations.create(import.import_attributes)
-        # end
-
-        # nil
+        importer_for(filepath, mime_type).import
       end
 
       def importer_for(filepath, mime_type)

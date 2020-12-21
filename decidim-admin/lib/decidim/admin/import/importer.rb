@@ -21,20 +21,11 @@ module Decidim
           @parser = parser
           @user = user
           @user_group = user_group
+          @call_count = 0
         end
 
-        # Public: Imports a spreadsheet/JSON to the data collection provided by
-        # the parser. The parsed data objects are saved one by one or the data
-        # collection is yielded in case block is given in which case the saving
-        # should happen outside of this class.
         def import
-          parser.resource_klass.transaction do
-            if block_given?
-              yield collection
-            else
-              collection.each(&:save!)
-            end
-          end
+          collection
         end
 
         # Returns a data collection of the target data.

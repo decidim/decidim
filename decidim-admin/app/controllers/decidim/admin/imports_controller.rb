@@ -8,11 +8,6 @@ module Decidim
 
       def new
         enforce_permission_to :import, :component_data, component: component
-        # id = params[:id]
-        # flash[:notice] = t("decidim.admin.imports.notice")
-        # redirect_back(fallback_location: manage_component_path(component))
-        # raise params.inspect
-        # @import = form(Admin::ImportForm).instance
         @import = Admin::ImportForm.new(component: component)
       end
 
@@ -25,8 +20,8 @@ module Decidim
         )
 
         CreateImport.call(@import) do
-          on(:ok) do
-            flash[:notice] = t("decidim.admin.imports.notice", count: import_data.count)
+          on(:ok) do |count|
+            flash[:notice] = t("decidim.admin.imports.notice", count: count)
             redirect_to manage_component_path(component)
           end
 

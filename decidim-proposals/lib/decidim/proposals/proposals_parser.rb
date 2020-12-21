@@ -32,11 +32,13 @@ module Decidim
       attr_reader :context
 
       def category
-        Decidim::Category.find(data[:"category/id"].to_i)
+        id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i
+        Decidim::Category.find(id)
       end
 
       def scope
-        Decidim::Scope.find(data[:"scope/id"].to_i)
+        id = data.has_key?(:scope) ? data[:scope]["id"] : data[:"scope/id"].to_i
+        Decidim::Scope.find(id)
       end
 
       def title
@@ -52,7 +54,11 @@ module Decidim
       end
 
       def component
-        @component ||= Decidim::Component.find(data[:"component/id"].to_i)
+        @component ||= Decidim::Component.find(component_id)
+      end
+
+      def component_id
+        data.has_key?(:component) ? data[:component]["id"] : data[:"component/id"].to_i
       end
 
       def increase_scores(proposal)

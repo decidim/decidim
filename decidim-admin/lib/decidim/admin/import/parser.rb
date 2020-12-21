@@ -47,6 +47,8 @@ module Decidim
         end
 
         def locale_hasher(field, locales)
+          return data[field.to_sym] if data.has_key?(field.to_sym)
+
           hash = {}
           locales.each do |locale|
             parsed = data[:"#{field}/#{locale}"]
