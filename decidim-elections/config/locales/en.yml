@@ -244,7 +244,10 @@ en:
             success: Trustee %{trustee} successfully updated
       admin_log:
         election:
+          close_ballot_box: "%{user_name} closed the ballot box for the %{resource_name} election on the Bulletin Board"
+          open_ballot_box: "%{user_name} opened the ballot box for the %{resource_name} election on the Bulletin Board"
           publish: "%{user_name} published the %{resource_name} election"
+          setup: "%{user_name} created the %{resource_name} election on the Bulletin Board"
           unpublish: "%{user_name} unpublished the %{resource_name} election"
       election_m:
         badge_name:
