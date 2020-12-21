@@ -8,11 +8,8 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form with necessary info to cast a vote.
-        # bulletin_board_client - An instance of the bulletin board client to
-        #                         send the vote to the Bulletin Board.
-        def initialize(form, bulletin_board_client)
+        def initialize(form)
           @form = form
-          @bulletin_board_client = bulletin_board_client
         end
 
         # Store and cast the vote
@@ -25,8 +22,8 @@ module Decidim
             transaction do
               store_vote
               cast_vote_on_bulletin_board
-              broadcast(:ok)
             end
+            broadcast(:ok)
           rescue StandardError
             broadcast(:invalid)
           end
@@ -34,10 +31,11 @@ module Decidim
 
         private
 
-        attr_reader :form, :bulletin_board_client
+        attr_reader :form
+        delegate :bulletin_board, to: :form
 
         def cast_vote_on_bulletin_board
-          bulletin_board_client.cast_vote(form.election_data, form.voter_data, form.encrypted_vote)
+          bulletin_board.cast_vote(form.election_id, form.voter_id, form.encrypted_vote)
         end
 
         def store_vote

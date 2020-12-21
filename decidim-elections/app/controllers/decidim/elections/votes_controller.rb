@@ -13,17 +13,15 @@ module Decidim
       delegate :count, to: :questions, prefix: true
 
       def new
-        form = build_form
-        @voter_id = form.voter_id
+        @form = form(Voter::EncryptedVoteForm).instance(election: election)
         redirect_to(return_path, alert: t("votes.messages.not_allowed", scope: "decidim.elections")) unless booth_mode
       end
 
       def cast
-        form = build_form(params)
-        @encrypted_vote_hash = form.encrypted_vote_hash
+        @form = form(Voter::EncryptedVoteForm).from_params(params, election: election)
         return render :cast_success if preview?
 
-        Voter::CastVote.call(form, bulletin_board_client) do
+        Voter::CastVote.call(@form) do
           on(:ok) do
             render :cast_success
           end
@@ -61,20 +59,6 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:answers).order(weight: :asc, id: :asc)
-      end
-
-      def build_form(params = {})
-        Voter::EncryptedVoteForm
-          .from_params(params)
-          .with_context({
-                          election: election,
-                          user: current_user,
-                          bulletin_board_client: bulletin_board_client
-                        })
-      end
-
-      def bulletin_board_client
-        Decidim::Elections.bulletin_board
       end
 
       def preview?

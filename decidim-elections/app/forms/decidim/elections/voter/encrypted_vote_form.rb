@@ -8,17 +8,18 @@ module Decidim
         attribute :encrypted_vote, String
         attribute :encrypted_vote_hash, String
 
-        validates :encrypted_vote, :encrypted_vote_hash, :user, :election, presence: true
+        validates :encrypted_vote, :encrypted_vote_hash, :current_user, :election, presence: true
         validate :hash_is_valid
 
-        # Public: returns the necessary data from the election.
-        def election_data
-          @election_data ||= { election_id: "#{bulletin_board_client.authority_slug}.#{election.id}" }
+        delegate :id, to: :election, prefix: true
+
+        def election_unique_id
+          @election_unique_id ||=  Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_slug, election_id)
         end
 
-        # Public: returns the necessary data from the voter.
-        def voter_data
-          @voter_data ||= { voter_id: voter_id }
+        # Public: computes a unique id for the voter/election pair.
+        def voter_id
+          @voter_id ||= Digest::SHA256.hexdigest([current_user.created_at, current_user.id, election.id, bulletin_board.authority_slug].join("."))
         end
 
         # Public: returns the associated election for the vote.
@@ -26,19 +27,14 @@ module Decidim
           @election ||= context.election
         end
 
-        # Public: computes a unique id for the voter/election pair.
-        def voter_id
-          @voter_id ||= Digest::SHA256.hexdigest([user.created_at, user.id, election.id, bulletin_board_client.authority_slug].join("."))
+        def bulletin_board
+          @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
         end
 
         private
 
-        def bulletin_board_client
-          @bulletin_board_client ||= context.bulletin_board_client
-        end
-
-        def user
-          @user ||= context.user
+        def current_user
+          @current_user ||= context[:current_user]
         end
 
         # Private: check if the hash sent by the browser is correct.
