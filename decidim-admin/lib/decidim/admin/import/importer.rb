@@ -35,13 +35,6 @@ module Decidim
 
         attr_reader :file, :reader, :parser, :context
 
-        # def context
-        #   {
-        #     user: user,
-        #     user_group: user_group
-        #   }
-        # end
-
         def collection_data
           return @collection_data if @collection_data
 

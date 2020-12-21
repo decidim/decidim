@@ -11,8 +11,8 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless form.parser
 
-        @imported_data = import_data
         form.context[:user_group] = user_group
+        @imported_data = import_data
 
         broadcast(:invalid) unless @imported_data
 

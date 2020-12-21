@@ -54,7 +54,6 @@ module Decidim
       end
 
       def component
-        raise context.inspect unless context[:component]
         context[:component]
       end
 
