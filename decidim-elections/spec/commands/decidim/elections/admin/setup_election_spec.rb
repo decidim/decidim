@@ -13,6 +13,7 @@ describe Decidim::Elections::Admin::SetupElection do
   let(:election) { create :election, :complete }
   let(:trustees) { create_list :trustee, 5, :considered, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
+  let(:method_name) { :create_election }
   let(:errors) { double.as_null_object }
   let(:form) do
     double(
@@ -53,7 +54,7 @@ describe Decidim::Elections::Admin::SetupElection do
     allow(bulletin_board).to receive(:authority_name).and_return("Decidim Test Authority")
     allow(bulletin_board).to receive(:authority_slug).and_return("decidim-test-authority")
     allow(bulletin_board).to receive(:scheme).and_return(scheme)
-    allow(bulletin_board).to receive(:setup_election).and_return(response)
+    allow(bulletin_board).to receive(method_name).and_return(response)
   end
 
   context "when valid form" do
@@ -84,8 +85,8 @@ describe Decidim::Elections::Admin::SetupElection do
   end
 
   context "when the bulletin board returns an error message" do
-    let(:response) do
-      OpenStruct.new(election: nil, error: "An error!")
+    before do
+      allow(bulletin_board).to receive(method_name).and_raise(StandardError.new("An error!"))
     end
 
     it "is not valid" do
