@@ -30,6 +30,7 @@
           <%= user_group_select_field form, :user_group_id %>
         </div>
       <% end %>
+
       <div class="grid-x">
         <div class="cell">
           <fieldset>
@@ -39,7 +40,7 @@
               <%#= t(".zip_hint") %>
             </legend>
             <div class="row column">
-              <%= form.upload :file, optional: false %>
+              <%= form.upload :file, optional: false, help_i18n_messages: %w(message_3 message_4) %>
             </div>
           </fieldset>
         </div>
