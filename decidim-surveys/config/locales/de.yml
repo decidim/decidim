@@ -32,12 +32,12 @@ de:
       surveys:
         survey_closed:
           email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde geschlossen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine Umfrage ist in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist beendet.
         survey_opened:
-          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können von dieser Seite aus teilnehmen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Sie können auf dieser Seite teilnehmen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Eine neue Umfrage in %{participatory_space_title}
           notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
     metrics:

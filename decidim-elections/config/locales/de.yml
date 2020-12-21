@@ -21,11 +21,11 @@ de:
         answer:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         election:
           attributes:
             attachment:
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
         trustee:
           attributes:
             public_key:
@@ -208,14 +208,14 @@ de:
           finished: Abgeschlossen
           ongoing: Aktiv
           upcoming: Anstehend
-        end_date: Endet
+        end_date: Endet am
         footer:
           view: Ansicht
           vote: Abstimmung
         label:
           date: Daten
         questions: Fragen %{count}
-        start_date: Startet
+        start_date: Startet am
         unspecified: Nicht angegeben
       elections:
         count:
@@ -282,8 +282,8 @@ de:
             status: Status
       orders:
         label: Wahlen ordnen nach
-        older: Älter
-        recent: Neueste
+        older: Chronologisch
+        recent: Kürzlich hinzugefügt
       trustee_zone:
         menu:
           trustee_zone: Wahlhelfer Zone
@@ -361,16 +361,18 @@ de:
       elections:
         election_published:
           email_intro: 'Die Wahl %{resource_title} ist jetzt für %{participatory_space_title} aktiv. Sie können es von dieser Seite sehen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Über den vorherigen Link können Sie die Benachrichtigungen deaktivieren.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Wahl %{resource_title} ist jetzt aktiv für %{participatory_space_title}.
           notification_title: Die Wahl <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
         trustees:
           new_election:
             email_intro: Sie sind Wahlhelfer für die %{resource_title} -Wahl.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer bei der Wahl %{resource_title} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für die %{resource_title} -Wahl..
-            notification_title: Sie sind Wahlhelfer für die <a href="%{resource_path}">%{resource_title}</a> Wahl.
+            notification_title: Sie sind Wahlhelfer für die Wahl <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Ein Administrator hat Sie als Wahlhelfer für %{resource_name} hinzugefügt. Sie sollten Ihren öffentlichen Schlüssel <a href='%{trustee_zone_url}'> in Ihrer Wahlhelfer Zone anlegen</a>
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie als Wahlhelfer für %{resource_name} hinzugefügt wurden.
             email_subject: Sie sind Wahlhelfer für %{resource_name}.
             notification_title: Sie sind Wahlhelfer für <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
