@@ -196,7 +196,7 @@ FactoryBot.define do
   factory :trustee, class: "Decidim::Elections::Trustee" do
     transient do
       election { nil }
-      organization { participatory_space&.organization || create(:organization) }
+      organization { election&.component&.participatory_space&.organization || create(:organization) }
     end
 
     public_key { nil }
