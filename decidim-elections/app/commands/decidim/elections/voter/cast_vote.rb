@@ -32,6 +32,7 @@ module Decidim
         private
 
         attr_reader :form
+
         delegate :bulletin_board, to: :form
 
         def cast_vote_on_bulletin_board

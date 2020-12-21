@@ -14,7 +14,7 @@ module Decidim
         delegate :id, to: :election, prefix: true
 
         def election_unique_id
-          @election_unique_id ||=  Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_slug, election_id)
+          @election_unique_id ||= Decidim::BulletinBoard::MessageIdentifier.unique_election_id(bulletin_board.authority_slug, election_id)
         end
 
         # Public: computes a unique id for the voter/election pair.
