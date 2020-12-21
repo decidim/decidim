@@ -144,23 +144,17 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
-      def self.newsletter_participant_ids(space)
-        commentables_ids = []
-        available_components = Decidim.component_manifests.map { |m| m.name.to_s if m.newsletter_participant_entities.present? }.compact
-        space.components.where(manifest_name: available_components).published.each do |component|
-          Decidim.find_component_manifest(component.manifest_name).try(&:newsletter_participant_entities).flatten.each do |object|
-            klass = Object.const_get(object)
-            next unless klass.has_attribute?(:decidim_component_id)
-            commentables_ids << klass.where(component: component).pluck(:id)
-          end
+      # Public: Returns the list of author IDs of type `UserBaseEntity` that commented in one of the +resources+.
+      # Expects all +resources+ to be of the same "commentable_type".
+      # If the result is not `Decidim::Comments::Commentable` returns `nil`.
+      def self.user_commentators_ids_in(resources)
+        if resources.first&.kind_of?(Decidim::Comments::Commentable)
+          commentable_type = resources.first.class.name
+          Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden
+                                    .where(decidim_commentable_id: resources.pluck(:id))
+                                    .where(decidim_commentable_type: commentable_type)
+                                    .where("decidim_author_type" => "Decidim::UserBaseEntity").pluck(:decidim_author_id)
         end
-        commentables_ids = commentables_ids.flatten.compact.uniq
-
-        authors_sql = Decidim::Comments::Comment.select("DISTINCT decidim_comments_comments.decidim_author_id").not_hidden
-                                                .where(decidim_commentable_id: commentables_ids)
-                                                .where("decidim_comments_comments.decidim_author_type" => "Decidim::UserBaseEntity").to_sql
-
-        Decidim::User.where(organization: space.organization).where("id IN (#{authors_sql})").pluck(:id)
       end
 
       def can_participate?(user)
