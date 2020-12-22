@@ -12,8 +12,8 @@
     <div class="card-section">
       <div class="row column">
         <%=
-          form.select :parser,
-          @import.parsers.map { |m| m },
+          form.select :creator,
+          @import.creators.map { |m| m },
           { include_blank: false }
         %>
       </div>

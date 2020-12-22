@@ -6,7 +6,7 @@ module Decidim
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
 
       attribute :component
-      attribute :parser
+      attribute :creator
       attribute :file
       attribute :user_group_id
 
@@ -36,14 +36,14 @@ module Decidim
         )
       end
 
-      def parsers
-        component.manifest.import_manifests.map(&:parser)
+      def creators
+        component.manifest.import_manifests.map(&:creator)
       end
 
-      def parser_class
-        return parser.constantize if parser.is_a?(String)
+      def creator_class
+        return creator.constantize if creator.is_a?(String)
 
-        parser
+        creator
       end
     end
   end

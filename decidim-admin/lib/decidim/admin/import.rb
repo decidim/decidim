@@ -5,7 +5,7 @@ module Decidim
     module Import
       autoload :ImporterFactory, "decidim/admin/import/importer_factory"
       autoload :Importer, "decidim/admin/import/importer"
-      autoload :Parser, "decidim/admin/import/parser"
+      autoload :Creator, "decidim/admin/import/creator"
       autoload :Readers, "decidim/admin/import/readers"
     end
   end

@@ -9,7 +9,7 @@ module Decidim
 
       def call
         return broadcast(:invalid) if form.invalid?
-        return broadcast(:invalid) unless form.parser
+        return broadcast(:invalid) unless form.creator
 
         form.context[:user_group] = user_group
         @imported_data = import_data
@@ -36,7 +36,7 @@ module Decidim
           filepath,
           mime_type,
           context: form.context,
-          parser: form.parser_class
+          creator: form.creator_class
         )
       end
 

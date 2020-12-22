@@ -3,15 +3,15 @@
 module Decidim
   module Importers
     class ImportManifest
-      attr_reader :name # , :manifest
+      attr_reader :name, :manifest
 
       def initialize(name, manifest)
         @name = name.to_sym
         @manifest = manifest
       end
 
-      def parser(parser = nil)
-        @parser ||= parser || Decidim::Admin::Import::Parser
+      def creator(creator = nil)
+        @creator ||= creator || Decidim::Admin::Import::Creator
       end
 
       DEFAULT_FORMATS = %w(CSV JSON Excel).freeze

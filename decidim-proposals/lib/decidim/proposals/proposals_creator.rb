@@ -2,12 +2,12 @@
 
 module Decidim
   module Proposals
-    class ProposalParser < Decidim::Admin::Import::Parser
+    class ProposalCreator < Decidim::Admin::Import::Creator
       def self.resource_klass
         Decidim::Proposals::Proposal
       end
 
-      def parse
+      def produce
         proposal = Decidim::Proposals::Proposal.new(
           category: category,
           scope: scope,
@@ -56,10 +56,6 @@ module Decidim
       def component
         context[:current_component]
       end
-
-      # def component_id
-      #   data.has_key?(:component) ? data[:component]["id"] : data[:"component/id"].to_i
-      # end
 
       def increase_scores(proposal)
         proposal.coauthorships.find_each do |coauthorship|

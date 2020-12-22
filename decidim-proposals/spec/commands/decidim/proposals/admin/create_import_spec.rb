@@ -21,7 +21,7 @@ module Decidim::Admin
         Decidim::Admin::ImportForm.from_params(
           component: component,
           file: file,
-          parser: Decidim::Proposals::ProposalParser
+          creator: Decidim::Proposals::ProposalCreator
         ).with_context(
           current_organization: organization,
           current_component: component,
@@ -50,7 +50,7 @@ module Decidim::Admin
         let(:form) do
           Decidim::Admin::ImportForm.from_params(
             file: file,
-            parser: Decidim::Proposals::ProposalParser,
+            creator: Decidim::Proposals::ProposalCreator,
             user_group_id: user_group.id
           ).with_context(
             current_organization: organization,

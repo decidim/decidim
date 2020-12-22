@@ -3,9 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Admin::Import::Importer do
-  subject { described_class.new(file, reader, context: context, parser: parser) }
+  subject { described_class.new(file, reader, context: context, creator: creator) }
 
-  let(:parser) { Decidim::Proposals::ProposalParser }
+  let(:creator) { Decidim::Proposals::ProposalCreator }
 
   let(:organization) { create(:organization, available_locales: [:en]) }
   let(:user) { create(:user, organization: organization) }

@@ -154,7 +154,7 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    imports.parser Decidim::Proposals::ProposalParser
+    imports.creator Decidim::Proposals::ProposalCreator
   end
 
   component.seeds do |participatory_space|

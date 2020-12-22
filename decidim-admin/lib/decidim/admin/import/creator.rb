@@ -10,7 +10,7 @@ module Decidim
       # It is used to be run against each element of an importable collection
       # in order to parse relevant fields. Every import should specify their
       # own parser or this default will be used.
-      class Parser
+      class Creator
         attr_reader :data
 
         # Initializes the parser with a resource.
@@ -42,7 +42,7 @@ module Decidim
         # Public: Returns a parsed object with the parsed data.
         #
         # Returns a target object.
-        def parse
+        def produce
           self.class.resource_klass.new(resource_attributes)
         end
 
