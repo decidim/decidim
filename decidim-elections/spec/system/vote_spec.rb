@@ -4,16 +4,15 @@ require "spec_helper"
 
 describe "Vote in an election", type: :system do
   let(:manifest_name) { "elections" }
-  let(:election) { create :election, :complete, :published, :ongoing, component: component }
-  let(:user) { create(:user, :confirmed, organization: component.organization) }
+  let(:election) { create :election, :bb_test, :vote, component: component }
+  let(:user) { create(:user, :confirmed, created_at: Date.civil(2020, 1, 1), organization: component.organization) }
   let!(:elections) do
-    create_list(:election, 2, :complete, :published, :ongoing, component: component)
+    create_list(:election, 2, :vote, component: component)
   end
 
   before do
     election.reload
     login_as user, scope: :user
-    allow(Decidim::Elections.bulletin_board).to receive(:cast_vote).and_return({ ok: true })
   end
 
   include_context "with a component with secure context"
@@ -95,17 +94,6 @@ describe "Vote in an election", type: :system do
     end
 
     it_behaves_like "allow admins to preview the voting booth"
-  end
-
-  context "when the voting is confirmed" do
-    before do
-      visit_component
-
-      click_link translated(election.title)
-      click_link "Vote"
-    end
-
-    it_behaves_like "uses the voting booth"
   end
 
   context "when the voting is not confirmed" do

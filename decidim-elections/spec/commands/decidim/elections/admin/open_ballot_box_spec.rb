@@ -57,6 +57,11 @@ describe Decidim::Elections::Admin::OpenBallotBox do
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
     end
+
+    it "calls the bulletin board create_election method with the correct params" do
+      subject.call
+      expect(bulletin_board).to have_received(method_name).with(election.id)
+    end
   end
 
   context "when the form is not valid" do

@@ -178,13 +178,15 @@ $(() => {
         }
       });
     }).then(() => {
-      $voteWrapper.find("#encrypting").addClass("hide")
-      $voteWrapper.find("#confirmed_page").removeClass("hide")
+      $voteWrapper.find("#encrypting").addClass("hide");
+      $voteWrapper.find("#confirmed_page").removeClass("hide");
       $voteWrapper.find(".vote-confirmed-result").hide();
       window.confirmed = true;
 
       if ($voteWrapper.data("booth-mode") === "preview") {
-        return new Promise(resolve => setTimeout(resolve, 500));
+        return new Promise((resolve) => {
+          setTimeout(resolve, 500);
+        });
       }
 
       return voter.verifyVote(encryptedVoteHashToVerify);

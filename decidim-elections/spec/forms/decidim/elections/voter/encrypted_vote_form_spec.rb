@@ -13,9 +13,8 @@ describe Decidim::Elections::Voter::EncryptedVoteForm do
   end
   let(:context) do
     {
-      user: user,
-      election: election,
-      bulletin_board_client: double(authority_slug: "test")
+      current_user: user,
+      election: election
     }
   end
   let(:user) { create(:user) }
@@ -56,7 +55,7 @@ describe Decidim::Elections::Voter::EncryptedVoteForm do
     it { is_expected.to be_invalid }
   end
 
-  context "when the user is not present" do
+  context "when the current user is not present" do
     let(:context) do
       {
         election: create(:election)
@@ -69,22 +68,22 @@ describe Decidim::Elections::Voter::EncryptedVoteForm do
   context "when the election is not present" do
     let(:context) do
       {
-        user: create(:user)
+        current_user: create(:user)
       }
     end
 
     it { is_expected.to be_invalid }
   end
 
-  describe "election_data" do
-    it "returns a Hash with the election unique id" do
-      expect(subject.election_data).to eq({ election_id: "test.#{election.id}" })
+  describe ".election_unique_id" do
+    it "returns the election unique id" do
+      expect(subject.election_unique_id).to eq("decidim-test-authority.#{election.id}")
     end
   end
 
-  describe "voter_data" do
-    it "returns a Hash with the voter unique id" do
-      expect(subject.voter_data).to eq({ voter_id: Digest::SHA256.hexdigest([user.created_at, user.id, election.id, "test"].join(".")) })
+  describe ".voter_id" do
+    it "returns the voter unique id" do
+      expect(subject.voter_id).to eq(Digest::SHA256.hexdigest([user.created_at, user.id, election.id, "decidim-test-authority"].join(".")))
     end
   end
 end

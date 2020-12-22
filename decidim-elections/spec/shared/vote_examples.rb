@@ -54,7 +54,7 @@ end
 shared_examples "uses the voting booth" do
   include_context "with elections router"
 
-  it "uses the voting booth" do
+  it "uses the voting booth", :vcr, :billy do
     selected_answers = []
     non_selected_answers = []
 
@@ -116,7 +116,7 @@ shared_examples "uses the voting booth" do
     # confirm step
     non_question_step("#step-4") do
       expect(page).to have_content("CONFIRM YOUR VOTE")
-      expect(page).to have_content("Blank")
+
       selected_answers.each { |answer| expect(page).to have_i18n_content(answer.title) }
       non_selected_answers.each { |answer| expect(page).not_to have_i18n_content(answer.title) }
 
@@ -125,6 +125,7 @@ shared_examples "uses the voting booth" do
 
     # confirmed vote page
     non_question_step("#confirmed_page") do
+      expect(page).to have_content("Processing vote")
       expect(page).to have_content("Vote confirmed")
       expect(page).to have_content("Your vote has already been cast!")
     end
