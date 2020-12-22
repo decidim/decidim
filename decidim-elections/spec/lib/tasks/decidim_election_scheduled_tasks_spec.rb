@@ -19,7 +19,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections to close", :vcr do
-    let!(:election) { create :election, :bb_test, :vote }
+    let!(:election) { create :election, :bb_test, :vote, :finished }
 
     before { task.execute }
 
@@ -31,7 +31,8 @@ describe "decidim_elections:scheduled_tasks", type: :task do
 
   context "with elections that shouldn't be affected" do
     let!(:election1) { create :election, :ready, start_time: 1.day.from_now }
-    let!(:election2) { create :election, :vote }
+    let!(:election2) { create :election, :vote, :upcoming }
+    let!(:election3) { create :election, :vote, :ongoing }
 
     before { task.execute }
 

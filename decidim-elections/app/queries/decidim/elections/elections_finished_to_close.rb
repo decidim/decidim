@@ -12,7 +12,7 @@ module Decidim
       # Finds the Elections that should be closed.
       def query
         Decidim::Elections::Election.bb_vote
-                                    .where("start_time <= ?", Time.current)
+                                    .where("end_time <= ?", Time.current)
       end
     end
   end
