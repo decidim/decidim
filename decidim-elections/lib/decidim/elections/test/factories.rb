@@ -106,7 +106,8 @@ FactoryBot.define do
     end
 
     trait :results do
-      vote
+      created
+      ongoing
       finished
       bb_status { "results" }
 
