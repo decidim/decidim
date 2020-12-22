@@ -51,9 +51,8 @@ $(() => {
   };
 
   const completeProcess = () => {
-    const $previousStep = getStepRow(currentStep);
-    $previousStep.find(".processing").addClass("hide");
-    $previousStep.find(".completed").removeClass("hide");
+    const $allSteps = $('.step_status');
+    $allSteps.attr("data-step-status", "completed");
 
     $startButton.addClass("hide");
     $backButton.removeClass("hide");
@@ -146,16 +145,14 @@ $(() => {
         if (event.type === "[Message] Received") {
           if (currentStep && currentStep !== messageIdentifier.typeSubtype) {
             const $previousStep = getStepRow(currentStep);
-
-            $previousStep.find(".processing").addClass("hide");
-            $previousStep.find(".completed").removeClass("hide");
+            $previousStep.attr("data-step-status", "completed");
           }
           currentStep = messageIdentifier.typeSubtype;
 
           const $currentStep = getStepRow(currentStep);
-
-          $currentStep.find(".pending").toggleClass("hide", true);
-          $currentStep.find(".processing").toggleClass("hide", false);
+          if ($currentStep.data("step-status") != "completed") {
+            $currentStep.attr("data-step-status", "processing");
+          }
         }
 
         if (event.type === "[Message] Processed" && event.result) {

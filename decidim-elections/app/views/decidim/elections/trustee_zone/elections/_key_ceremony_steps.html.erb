@@ -16,10 +16,10 @@
       <% %w(create_election key_ceremony.step_1 key_ceremony.joint_election_key).each do |step| %>
       <tr>
         <td><%= t(".keys.#{step}") %></td>
-        <td id="<%= step.gsub(".", "-") %>">
+        <td id="<%= step.gsub(".", "-") %>" class="step_status" data-step-status="pending">
           <span class="pending"><%= t(".status.pending") %></span>
-          <span class="processing hide"><%= t(".status.processing") %></span>
-          <span class="completed hide"><%= t(".status.completed") %></span>
+          <span class="processing"><%= t(".status.processing") %></span>
+          <span class="completed"><%= t(".status.completed") %></span>
         </td>
       </tr>
       <% end %>
