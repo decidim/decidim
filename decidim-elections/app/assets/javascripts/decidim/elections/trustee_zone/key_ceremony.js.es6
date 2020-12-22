@@ -51,7 +51,7 @@ $(() => {
   };
 
   const completeProcess = () => {
-    const $allSteps = $('.step_status');
+    const $allSteps = $(".step_status");
     $allSteps.attr("data-step-status", "completed");
 
     $startButton.addClass("hide");
@@ -150,7 +150,7 @@ $(() => {
           currentStep = messageIdentifier.typeSubtype;
 
           const $currentStep = getStepRow(currentStep);
-          if ($currentStep.data("step-status") != "completed") {
+          if ($currentStep.data("step-status") !== "completed") {
             $currentStep.attr("data-step-status", "processing");
           }
         }
