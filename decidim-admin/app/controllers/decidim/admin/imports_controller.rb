@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # This controller allows admins to manage proposals in a participatory process.
+    # This controller allows admins to import resources from a file.
     class ImportsController < Decidim::Admin::ApplicationController
       include Decidim::ComponentPathHelper
 

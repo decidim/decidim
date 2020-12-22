@@ -9,14 +9,14 @@ module Decidim
       #
       # It is used to be run against each element of an importable collection
       # in order to parse relevant fields. Every import should specify their
-      # own parser or this default will be used.
+      # own creator or this default will be used.
       class Creator
         attr_reader :data
 
-        # Initializes the parser with a resource.
+        # Initializes the creator with a resource.
         #
         # data - The data hash to parse.
-        # context - The context
+        # context - The context needed by the producer
         def initialize(data, context = nil)
           @data = data.except(:id, "id")
           @context = context
@@ -31,7 +31,7 @@ module Decidim
         # case the data hash to be imported has different column names than the
         # resource object to be created of it.
         #
-        # By default returns the data hash but can be implemented by each parser
+        # By default returns the data hash but can be implemented by each creator
         # implementation.
         #
         # Returns the resource attributes to be passed for the constructor.
@@ -39,13 +39,21 @@ module Decidim
           @data
         end
 
-        # Public: Returns a parsed object with the parsed data.
+        # Public: Returns a created object with the parsed data.
         #
         # Returns a target object.
         def produce
           self.class.resource_klass.new(resource_attributes)
         end
 
+        #
+        # Collect field's language specified cells to one hash
+        #
+        # field - The field name eg. "title"
+        # locales - Available locales
+        #
+        # Returns the hash including locale-imported_data pairs. eg. {en: "Heading", ca: "Cap", es: "Bóveda"}
+        #
         def locale_hasher(field, locales)
           return data[field.to_sym] if data.has_key?(field.to_sym)
 
