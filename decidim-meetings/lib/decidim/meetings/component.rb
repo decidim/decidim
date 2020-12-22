@@ -99,117 +99,119 @@ Decidim.register_component(:meetings) do |component|
     end
 
     2.times do
-      params = {
-        component: component,
-        scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
-        category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        location: Decidim::Faker::Localized.sentence,
-        location_hints: Decidim::Faker::Localized.sentence,
-        start_time: 3.weeks.from_now,
-        end_time: 3.weeks.from_now + 4.hours,
-        address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
-        latitude: Faker::Address.latitude,
-        longitude: Faker::Address.longitude,
-        registrations_enabled: [true, false].sample,
-        available_slots: (10..50).step(10).to_a.sample,
-        author: participatory_space.organization,
-        registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end
-      }
-
-      _hybrid_meeting = Decidim.traceability.create!(
-        Decidim::Meetings::Meeting,
-        admin_user,
-        params.merge(type_of_meeting: :hybrid, online_meeting_url: "http://example.org"),
-        visibility: "all"
-      )
-
-      _online_meeting = Decidim.traceability.create!(
-        Decidim::Meetings::Meeting,
-        admin_user,
-        params.merge(type_of_meeting: :online, online_meeting_url: "http://example.org"),
-        visibility: "all"
-      )
-
-      meeting = Decidim.traceability.create!(
-        Decidim::Meetings::Meeting,
-        admin_user,
-        params,
-        visibility: "all"
-      )
-
-      2.times do
-        Decidim::Meetings::Service.create!(
-          meeting: meeting,
+      Decidim::Meetings::Meeting::TYPE_OF_MEETING.each do |type|
+        params = {
+          component: component,
+          scope: Faker::Boolean.boolean(true_ratio: 0.5) ? global : scopes.sample,
+          category: participatory_space.categories.sample,
           title: Decidim::Faker::Localized.sentence(word_count: 2),
-          description: Decidim::Faker::Localized.sentence(word_count: 5)
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          location_hints: Decidim::Faker::Localized.sentence,
+          start_time: 3.weeks.from_now,
+          end_time: 3.weeks.from_now + 4.hours,
+          registrations_enabled: [true, false].sample,
+          available_slots: (10..50).step(10).to_a.sample,
+          author: participatory_space.organization,
+          registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          type_of_meeting: type
+        }
+
+        if type.in?(%w(online hybrid))
+          embedded_videoconference = Faker::Boolean.boolean(true_ratio: 0.5)
+          params.merge!(
+            online_meeting_url: ("http://example.org" unless embedded),
+            embedded_videoconference: embedded_videoconference
+          )
+        end
+
+        if type.in?(%w(in_person hybrid))
+          params.merge!(
+            address: "#{Faker::Address.street_address} #{Faker::Address.zip} #{Faker::Address.city}",
+            location: Decidim::Faker::Localized.sentence,
+            latitude: Faker::Address.latitude,
+            longitude: Faker::Address.longitude
+          )
+        end
+
+        meeting = Decidim.traceability.create!(
+          Decidim::Meetings::Meeting,
+          admin_user,
+          params,
+          visibility: "all"
+        )
+
+        2.times do
+          Decidim::Meetings::Service.create!(
+            meeting: meeting,
+            title: Decidim::Faker::Localized.sentence(word_count: 2),
+            description: Decidim::Faker::Localized.sentence(word_count: 5)
+          )
+        end
+
+        Decidim::Forms::Questionnaire.create!(
+          title: Decidim::Faker::Localized.paragraph,
+          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          end,
+          tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+            Decidim::Faker::Localized.paragraph(sentence_count: 2)
+          end,
+          questionnaire_for: meeting
+        )
+
+        2.times do |n|
+          email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
+          name = "#{Faker::Name.name} #{meeting.id} #{n}"
+          user = Decidim::User.find_or_initialize_by(email: email)
+
+          user.update!(
+            password: "password1234",
+            password_confirmation: "password1234",
+            name: name,
+            nickname: Faker::Twitter.unique.screen_name,
+            organization: component.organization,
+            tos_agreement: "1",
+            confirmed_at: Time.current,
+            personal_url: Faker::Internet.url,
+            about: Faker::Lorem.paragraph(sentence_count: 2)
+          )
+
+          Decidim::Meetings::Registration.create!(
+            meeting: meeting,
+            user: user
+          )
+        end
+
+        attachment_collection = Decidim::AttachmentCollection.create!(
+          name: Decidim::Faker::Localized.word,
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
+          collection_for: meeting
+        )
+
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
+          attachment_collection: attachment_collection,
+          attached_to: meeting,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
+          attached_to: meeting,
+          file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
+        )
+        Decidim::Attachment.create!(
+          title: Decidim::Faker::Localized.sentence(word_count: 2),
+          description: Decidim::Faker::Localized.sentence(word_count: 5),
+          attached_to: meeting,
+          file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
         )
       end
-
-      Decidim::Forms::Questionnaire.create!(
-        title: Decidim::Faker::Localized.paragraph,
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
-        end,
-        tos: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 2)
-        end,
-        questionnaire_for: meeting
-      )
-
-      2.times do |n|
-        email = "meeting-registered-user-#{meeting.id}-#{n}@example.org"
-        name = "#{Faker::Name.name} #{meeting.id} #{n}"
-        user = Decidim::User.find_or_initialize_by(email: email)
-
-        user.update!(
-          password: "password1234",
-          password_confirmation: "password1234",
-          name: name,
-          nickname: Faker::Twitter.unique.screen_name,
-          organization: component.organization,
-          tos_agreement: "1",
-          confirmed_at: Time.current,
-          personal_url: Faker::Internet.url,
-          about: Faker::Lorem.paragraph(sentence_count: 2)
-        )
-
-        Decidim::Meetings::Registration.create!(
-          meeting: meeting,
-          user: user
-        )
-      end
-
-      attachment_collection = Decidim::AttachmentCollection.create!(
-        name: Decidim::Faker::Localized.word,
-        description: Decidim::Faker::Localized.sentence(word_count: 5),
-        collection_for: meeting
-      )
-
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
-        description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attachment_collection: attachment_collection,
-        attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
-      )
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
-        description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "city.jpeg")) # Keep after attached_to
-      )
-      Decidim::Attachment.create!(
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
-        description: Decidim::Faker::Localized.sentence(word_count: 5),
-        attached_to: meeting,
-        file: File.new(File.join(__dir__, "seeds", "Exampledocument.pdf")) # Keep after attached_to
-      )
     end
 
     authors = [
