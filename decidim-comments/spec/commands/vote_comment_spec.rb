@@ -65,7 +65,7 @@ module Decidim
               .with(
                 event: "decidim.events.comments.comment_voted",
                 event_class: Decidim::Comments::CommentVotedEvent,
-                resource: kind_of(Comment),
+                resource: commentable,
                 affected_users: [author],
                 followers: [comment.author],
                 extra: {

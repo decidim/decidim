@@ -52,7 +52,7 @@ module Decidim
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_voted",
           event_class: Decidim::Comments::CommentVotedEvent,
-          resource: @comment,
+          resource: @comment.commentable,
           affected_users: [@author],
           followers: [@comment.author],
           extra: {
