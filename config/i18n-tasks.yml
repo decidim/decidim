@@ -288,7 +288,7 @@ ignore_unused:
   - decidim.debates.debate_m.commented_time_ago
   - decidim.elections.trustee_zone.trustees.show.identification_keys.upload_error.*
   - decidim.elections.feedback.answer.*
-
+  - decidim.elections.trustee_zone.elections.key_ceremony_steps.keys.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
