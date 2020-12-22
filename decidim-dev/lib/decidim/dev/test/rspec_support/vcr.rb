@@ -8,7 +8,13 @@ module BulletinBoardVcr
   end
 
   def self.bulletin_board_uri
-    @bulletin_board_uri ||= URI(Decidim::Elections.bulletin_board.server)
+    @bulletin_board_uri ||= URI(bulletin_board_server)
+  end
+
+  def self.bulletin_board_server
+    return "" unless defined?(Decidim::Elections)
+
+    Decidim::Elections.bulletin_board.server
   end
 end
 
