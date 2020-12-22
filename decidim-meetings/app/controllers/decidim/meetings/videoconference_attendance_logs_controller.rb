@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class VideoconferenceAttendanceLogsController < Decidim::ApplicationController
+    class VideoconferenceAttendanceLogsController < Decidim::WidgetsController
       helper MeetingsHelper
 
       def create
