@@ -16,17 +16,16 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise
         def call
-          return broadcast(:invalid) unless form.valid?
+          return broadcast(:invalid) if form.invalid?
 
-          begin
-            transaction do
-              store_vote
-              cast_vote_on_bulletin_board
-            end
-            broadcast(:ok)
-          rescue StandardError
-            broadcast(:invalid)
+          transaction do
+            store_vote
+            cast_vote_on_bulletin_board
           end
+
+          broadcast(:ok)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
         end
 
         private

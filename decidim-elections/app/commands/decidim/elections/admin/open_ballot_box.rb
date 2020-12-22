@@ -21,7 +21,11 @@ module Decidim
           transaction do
             log_action
             open_ballot_box
-          end && broadcast(:ok)
+          end
+
+          broadcast(:ok)
+        rescue StandardError => e
+          broadcast(:invalid, e.message)
         end
 
         private
