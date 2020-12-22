@@ -182,6 +182,11 @@ $(() => {
       $voteWrapper.find("#confirmed_page").removeClass("hide")
       $voteWrapper.find(".vote-confirmed-result").hide();
       window.confirmed = true;
+
+      if ($voteWrapper.data("booth-mode") === "preview") {
+        return new Promise(resolve => setTimeout(resolve, 500));
+      }
+
       return voter.verifyVote(encryptedVoteHashToVerify);
     }).then(() => {
       $voteWrapper.find(".vote-confirmed-processing").hide();
