@@ -9,6 +9,7 @@ describe Decidim::Proposals::ProposalCreator do
   let(:data) do
     {
       id: 1337,
+      "id" => "101",
       category: category,
       scope: scope,
       title: {
@@ -38,6 +39,7 @@ describe Decidim::Proposals::ProposalCreator do
 
   it "removes the IDs from the hash" do
     expect(subject.instance_variable_get(:@data)).not_to have_key(:id)
+    expect(subject.instance_variable_get(:@data)).not_to have_key("id")
   end
 
   describe "#resource_klass" do
