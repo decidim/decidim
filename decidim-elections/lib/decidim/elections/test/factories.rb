@@ -209,7 +209,7 @@ FactoryBot.define do
     end
 
     trait :with_elections do
-      after(:build) do |_election, evaluator|
+      after(:build) do |trustee, evaluator|
         trustee.elections << build(:election, :upcoming, organization: evaluator.organization)
       end
     end

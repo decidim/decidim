@@ -11,7 +11,7 @@ describe Decidim::Elections::Admin::SetupElection do
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let!(:election) { create :election, :complete }
-  let(:trustees) { create_list :trustee, 5, :considered, :with_public_key }
+  let(:trustees) { create_list :trustee, 5, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
   let(:form) do
     double(
