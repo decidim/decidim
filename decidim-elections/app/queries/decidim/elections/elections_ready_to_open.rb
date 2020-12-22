@@ -11,8 +11,8 @@ module Decidim
 
       # Finds the Elections that should be opened.
       def query
-        ecidim::Elections::Election.bb_ready
-                                   .where("start_time <= ?", minimum_start_time)
+        Decidim::Elections::Election.bb_ready
+                                    .where("start_time <= ?", minimum_start_time)
       end
 
       private

@@ -78,7 +78,7 @@ describe Decidim::Elections::Admin::SetupForm do
   describe ".participatory_space_trustees" do
     subject { form.participatory_space_trustees.pluck(:id) }
 
-    let!(:other_trustees) { create_list :trustee, 3, :considered, :with_public_key }
+    let!(:other_trustees) { create_list :trustee, 3, :with_public_key }
 
     it { is_expected.to eq(trustees.pluck(:id)) }
   end
