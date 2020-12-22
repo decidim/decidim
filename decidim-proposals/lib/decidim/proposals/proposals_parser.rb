@@ -54,7 +54,7 @@ module Decidim
       end
 
       def component
-        context[:component]
+        context[:current_component]
       end
 
       # def component_id

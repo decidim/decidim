@@ -1,0 +1,197 @@
+[
+  {
+    "id": 2,
+    "category": {
+      "id": 2,
+      "name": {
+        "ca": "Deserunt aliquid et eaque.",
+        "en": "Aliquam rerum aut dignissimos.",
+        "machine_translations": {
+          "es": "Iste adipisci eum quasi."
+        }
+      }
+    },
+    "scope": {
+      "id": 18,
+      "name": {
+        "ca": "Port Kasandra",
+        "en": "Port Kasandra",
+        "es": "Port Kasandra"
+      }
+    },
+    "participatory_space": {
+      "id": 1,
+      "url": "http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos"
+    },
+    "component": {
+      "id": 3
+    },
+    "title": {
+      "en": "Esse qui. Ut."
+    },
+    "body": {
+      "en": "Aliquid in ut. Laboriosam consequatur consequatur. Unde dolorem omnis.\nEt earum aut. Quis enim quis. Dolore corporis et. Quia vel ex."
+    },
+    "state": "evaluating",
+    "reference": "II-PROP-2020-11-2",
+    "answer": {
+      "en": "",
+      "ca": "",
+      "es": ""
+    },
+    "supports": 0,
+    "endorsements": {
+      "total_count": 0,
+      "user_endorsements": [
+
+      ]
+    },
+    "comments": 0,
+    "attachments": 0,
+    "followers": 1,
+    "published_at": "2020-11-24 07:17:40 UTC",
+    "url": "http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/2",
+    "meeting_urls": [
+
+    ],
+    "related_proposals": [
+
+    ],
+    "is_amend": true,
+    "original_proposal": {
+      "title": {
+        "en": "Esse qui."
+      },
+      "url": "http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/1"
+    }
+  },
+  {
+    "id": 3,
+    "category": {
+      "id": 1,
+      "name": {
+        "ca": "Qui alias iusto labore.",
+        "en": "Quae laboriosam expedita omnis.",
+        "machine_translations": {
+          "es": "Illo dolorem nobis deleniti."
+        }
+      }
+    },
+    "scope": {
+      "id": 18,
+      "name": {
+        "ca": "Port Kasandra",
+        "en": "Port Kasandra",
+        "es": "Port Kasandra"
+      }
+    },
+    "participatory_space": {
+      "id": 1,
+      "url": "http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos"
+    },
+    "component": {
+      "id": 3
+    },
+    "title": {
+      "en": "Nihil id."
+    },
+    "body": {
+      "en": "Atque qui aut. Quia et incidunt. Qui nihil dolore.\nDelectus asperiores nihil. Sapiente omnis culpa. Eos at voluptatem."
+    },
+    "state": "",
+    "reference": "II-PROP-2020-11-3",
+    "answer": {
+      "en": "Sit et ducimus libero.",
+      "ca": "Rerum debitis molestiae quam.",
+      "es": ""
+    },
+    "supports": 1,
+    "endorsements": {
+      "total_count": 2,
+      "user_endorsements": [
+        "Dr. Steve Lubowitz",
+        "Opal Feil 1 1 endr1"
+      ]
+    },
+    "comments": 2,
+    "attachments": 0,
+    "followers": 1,
+    "published_at": "2020-11-24 07:17:40 UTC",
+    "url": "http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/3",
+    "meeting_urls": [
+
+    ],
+    "related_proposals": [
+
+    ],
+    "is_amend": false,
+    "original_proposal": {
+      "title": null,
+      "url": null
+    }
+  },
+  {
+    "id": 1,
+    "category": {
+      "id": 2,
+      "name": {
+        "ca": "Deserunt aliquid et eaque.",
+        "en": "Aliquam rerum aut dignissimos.",
+        "machine_translations": {
+          "es": "Iste adipisci eum quasi."
+        }
+      }
+    },
+    "scope": {
+      "id": 18,
+      "name": {
+        "ca": "Port Kasandra",
+        "en": "Port Kasandra",
+        "es": "Port Kasandra"
+      }
+    },
+    "participatory_space": {
+      "id": 1,
+      "url": "http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos"
+    },
+    "component": {
+      "id": 3
+    },
+    "title": {
+      "en": "Suspendisse lobortis"
+    },
+    "body": {
+      "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "state": "",
+    "reference": "II-PROP-2020-11-1",
+    "answer": {
+      "en": "",
+      "ca": "",
+      "es": ""
+    },
+    "supports": 0,
+    "endorsements": {
+      "total_count": 0,
+      "user_endorsements": [
+
+      ]
+    },
+    "comments": 2,
+    "attachments": 0,
+    "followers": 0,
+    "published_at": "2020-11-24 07:17:39 UTC",
+    "url": "http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/1",
+    "meeting_urls": [
+
+    ],
+    "related_proposals": [
+
+    ],
+    "is_amend": false,
+    "original_proposal": {
+      "title": null,
+      "url": null
+    }
+  }
+]
