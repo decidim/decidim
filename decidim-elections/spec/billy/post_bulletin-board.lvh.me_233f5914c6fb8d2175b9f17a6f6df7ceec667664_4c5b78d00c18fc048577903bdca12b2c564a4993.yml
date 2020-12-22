@@ -1,0 +1,28 @@
+---
+:scope:
+:url: http://bulletin-board.lvh.me/api
+:body: '{"operationName":"ProcessKeyCeremonyStep","variables":{"signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDg2MzM1MDEsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEzLmtleV9jZXJlbW9ueS5zdGVwXzErdC5tb3JyaXMtbHVib3dpdHotaSIsImNvbnRlbnQiOiJ7XCJlbGVjdGlvbl9wdWJsaWNfa2V5XCI6NyxcIm93bmVyX2lkXCI6XCJtb3JyaXMtbHVib3dpdHotaVwifSJ9.ZGr13w7KejWXRVi02hUZqMHEAFRjO7MdY5nzkEqgu1yPvh8VDRnxm4vfLAJs97d5oaDi3Mg2NX8oHiEEMiybkvPBip7dyC8GuXvKqy3iRvDpuTHD1xFZxHRVt2JeGTobdXn3l8C0P4qLky3YOjduGQI-RyKkJn55kGRwPmFJZT1R1v5CbB3xu4TjsaHptoHxIU0PiW4s5zyiKDLKyeRnj63o_DjeQtxSmqTDBGjMRciPD16OMrW-fECiR2kSoDPNKgZHBp-jPRy5HcqGygJhhQ554Ny9z2aI_egRdra48KzZT09lgwe7RP36zpNDcLuPwolxMT3y-0IrakEQFerPIh2u4T_GDOBNOVjjDZO3QtWkLBShbvTxbq0fOy688TxAd47tF1BxyzAuW65d0uj-aFGlDRVrzd1cpndOtvfa-AkYJ8JJ3mdg3Rd93qVTmb7Z4JFIjZ1adYzwcRNUheZSGnY9UahoQ7j0zFKa2Xj-tms1xNmQjmhzpPG5YDgtxHTv7L9q6Q--_RS3CUrRFna1sRIw6oBa12mZKduhLh9O4GKpZDX3vMhu4yE6aktd3YlbdVjyQdUnC_kkJ6oLoxgLEXz_6lrwzhB9J89RCmU1TGRNkrIZ2GcxqnNHyqabt_cVec5Ti8FXP9OsuQuvwdasT_5tI3eLkk6eJUMiedlxBtU","messageId":"decidim-test-authority.13.key_ceremony.step_1+t.morris-lubowitz-i"},"query":"mutation
+  ProcessKeyCeremonyStep($messageId: String!, $signedData: String!) {\n  processKeyCeremonyStep(messageId:
+  $messageId, signedData: $signedData) {\n    pendingMessage {\n      signedData\n      __typename\n    }\n    error\n    __typename\n  }\n}\n"}'
+:status: 200
+:method: post
+:headers:
+  Access-Control-Allow-Origin: "*"
+  Access-Control-Allow-Methods: GET, POST, PATCH, PUT
+  Access-Control-Expose-Headers: ''
+  Access-Control-Max-Age: '7200'
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  X-Download-Options: noopen
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Type: application/json; charset=utf-8
+  ETag: W/"3b741847242d2afea9343e77c7d4f7e3"
+  Cache-Control: max-age=0, private, must-revalidate
+  X-Request-Id: f8c38a26-cdf9-46c1-b619-af9e3dc4fdb1
+  X-Runtime: '0.049876'
+  Vary: Origin
+  Connection: close
+  Transfer-Encoding: chunked
+:content: '{"data":{"processKeyCeremonyStep":{"pendingMessage":{"signedData":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDg2MzM1MDEsIm1lc3NhZ2VfaWQiOiJkZWNpZGltLXRlc3QtYXV0aG9yaXR5LjEzLmtleV9jZXJlbW9ueS5zdGVwXzErdC5tb3JyaXMtbHVib3dpdHotaSIsImNvbnRlbnQiOiJ7XCJlbGVjdGlvbl9wdWJsaWNfa2V5XCI6NyxcIm93bmVyX2lkXCI6XCJtb3JyaXMtbHVib3dpdHotaVwifSJ9.ZGr13w7KejWXRVi02hUZqMHEAFRjO7MdY5nzkEqgu1yPvh8VDRnxm4vfLAJs97d5oaDi3Mg2NX8oHiEEMiybkvPBip7dyC8GuXvKqy3iRvDpuTHD1xFZxHRVt2JeGTobdXn3l8C0P4qLky3YOjduGQI-RyKkJn55kGRwPmFJZT1R1v5CbB3xu4TjsaHptoHxIU0PiW4s5zyiKDLKyeRnj63o_DjeQtxSmqTDBGjMRciPD16OMrW-fECiR2kSoDPNKgZHBp-jPRy5HcqGygJhhQ554Ny9z2aI_egRdra48KzZT09lgwe7RP36zpNDcLuPwolxMT3y-0IrakEQFerPIh2u4T_GDOBNOVjjDZO3QtWkLBShbvTxbq0fOy688TxAd47tF1BxyzAuW65d0uj-aFGlDRVrzd1cpndOtvfa-AkYJ8JJ3mdg3Rd93qVTmb7Z4JFIjZ1adYzwcRNUheZSGnY9UahoQ7j0zFKa2Xj-tms1xNmQjmhzpPG5YDgtxHTv7L9q6Q--_RS3CUrRFna1sRIw6oBa12mZKduhLh9O4GKpZDX3vMhu4yE6aktd3YlbdVjyQdUnC_kkJ6oLoxgLEXz_6lrwzhB9J89RCmU1TGRNkrIZ2GcxqnNHyqabt_cVec5Ti8FXP9OsuQuvwdasT_5tI3eLkk6eJUMiedlxBtU","__typename":"PendingMessage"},"error":null,"__typename":"ProcessKeyCeremonyStepMutationPayload"}}}'
