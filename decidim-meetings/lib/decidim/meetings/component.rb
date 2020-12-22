@@ -123,7 +123,7 @@ Decidim.register_component(:meetings) do |component|
         if type.in?(%w(online hybrid))
           embedded_videoconference = Faker::Boolean.boolean(true_ratio: 0.5)
           params.merge!(
-            online_meeting_url: ("http://example.org" unless embedded),
+            online_meeting_url: ("http://example.org" unless embedded_videoconference),
             embedded_videoconference: embedded_videoconference
           )
         end
