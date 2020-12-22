@@ -2,16 +2,20 @@
 
 require "vcr"
 
+module BulletinBoardVcr
+  def self.bulletin_board_uri?(uri)
+    uri.hostname == bulletin_board_uri.hostname && uri.port == bulletin_board_uri.port
+  end
+
+  def self.bulletin_board_uri
+    @bulletin_board_uri ||= URI(Decidim::Elections.bulletin_board.server)
+  end
+end
+
 VCR.configure do |config|
   config.default_cassette_options = { serialize_with: :json }
   config.cassette_library_dir = "spec/cassettes"
   config.hook_into :webmock
   config.configure_rspec_metadata!
-  config.ignore_request do |request|
-    if defined?(Decidim::Elections)
-      URI(request.uri).port != URI(Decidim::Elections.bulletin_board.server).port
-    else
-      true
-    end
-  end
+  config.ignore_request { |request| !BulletinBoardVcr.bulletin_board_uri?(URI(request.uri)) }
 end
