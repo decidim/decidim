@@ -63,7 +63,7 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.comments.vote",
+                event: "decidim.events.comments.comment_voted",
                 event_class: Decidim::Comments::CommentVotedEvent,
                 resource: kind_of(Comment),
                 affected_users: [author],

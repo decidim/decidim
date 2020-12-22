@@ -25,23 +25,24 @@ module Decidim
       def call
         case @weight
         when 1
-          vote = @comment.up_votes.find_by(author: @author)
-          if vote
-            vote.destroy!
+          previous_vote = @comment.up_votes.find_by(author: @author)
+          if previous_vote
+            previous_vote.destroy!
           else
-            @comment.up_votes.create!(author: @author)
+            @vote = @comment.up_votes.create!(author: @author)
           end
         when -1
-          vote = @comment.down_votes.find_by(author: @author)
-          if vote
-            vote.destroy!
+          previous_vote = @comment.down_votes.find_by(author: @author)
+          if previous_vote
+            previous_vote.destroy!
           else
-            @comment.down_votes.create!(author: @author)
+            @vote = @comment.down_votes.create!(author: @author)
           end
         else
           return broadcast(:invalid)
         end
-        notify_comment_author
+
+        notify_comment_author if @vote
         broadcast(:ok, @comment)
       rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique
         broadcast(:invalid)
@@ -49,7 +50,7 @@ module Decidim
 
       def notify_comment_author
         Decidim::EventsManager.publish(
-          event: "decidim.events.comments.vote",
+          event: "decidim.events.comments.comment_voted",
           event_class: Decidim::Comments::CommentVotedEvent,
           resource: @comment,
           affected_users: [@author],
