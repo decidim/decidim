@@ -8,7 +8,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections to open", :vcr do
-    let!(:election) { create :election, :ready, :bb_test_election }
+    let!(:election) { create :election, :bb_test, :ready }
 
     before { task.execute }
 
@@ -19,7 +19,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
   end
 
   context "with elections to close", :vcr do
-    let!(:election) { create :election, :vote, :finished, :bb_test_election }
+    let!(:election) { create :election, :bb_test, :vote }
 
     before { task.execute }
 
