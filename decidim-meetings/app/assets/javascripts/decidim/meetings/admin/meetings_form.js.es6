@@ -38,7 +38,7 @@
   };
 
   const toggleEmbeddedVideoconference = (controlField, toggledField) => {
-    toggledField.toggle(controlField.value);
+    toggledField.toggle(controlField.val());
   }
 
   createDynamicFields({
@@ -150,6 +150,7 @@
 
     const $embeddedVideoconferenceField = $("#embedded_videoconference input");
     const $onlineMeetingUrlField = $("#online_meeting_url");
+
     $embeddedVideoconferenceField.on("change", () => {
       toggleEmbeddedVideoconference($embeddedVideoconferenceField, $onlineMeetingUrlField);
     });
