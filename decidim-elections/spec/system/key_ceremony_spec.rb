@@ -21,93 +21,136 @@ describe "Key ceremony", type: :system do
     end
 
     context "when performing the key ceremony", :vcr do
-      it "admin sets up the election", :slow, download: true do
-        in_browser(:admin) do
-          login_as user, scope: :user
-          visit_component_admin
+      it "generates backup keys, restores them and creates election keys", :slow, download: true do
+        setup_election(election)
 
-          within find("tr", text: translated(election.title)) do
-            page.find(".action-icon--setup-election").click
-          end
+        generate_backup_keys
 
-          within ".setup_election" do
-            page.find(".button").click
-          end
+        sleep(2)
 
-          election.reload
+        restore_backup_keys
+
+        sleep(2)
+
+        perform_key_ceremony_step_1(trustee_2, "private_key2")
+
+        expect(page).to have_css("#create_election", text: "Completed")
+        expect(page).to have_css("#key_ceremony-step_1", text: "Completed")
+        expect(page).to have_css("#key_ceremony-joint_election_key", text: "Completed")
+        expect(page).not_to have_selector("button.start")
+        expect(page).to have_link("Back")
+
+        expect(page).to have_content("The election status is: ready")
+
+        relogin_as trustee_1.user, scope: :user
+        visit decidim.decidim_elections_trustee_zone_path
+        expect(page).to have_content("Elections")
+
+        within ".trustee_zone table" do
+          expect(page).to have_content(translated(election.title, locale: :en))
+          expect(page).to have_content("ready")
+          expect(page).not_to have_link("Perform action")
         end
-
-        in_browser(:trustee_one) do
-          login_as trustee_1.user, scope: :user
-          visit decidim.decidim_elections_trustee_zone_path
-
-          attach_file(Decidim::Dev.asset("private_key.jwk")) do
-            click_button "Upload your identification keys"
-          end
-
-          expect(page).not_to have_content("Upload your identification keys")
-          expect(page).to have_content("Elections")
-
-          click_link "Perform action"
-
-          expect(page).to have_content("Create election keys")
-          expect(page).to have_css("#create_election", text: "Pending")
-          expect(page).to have_css("#key_ceremony-step_1", text: "Pending")
-          expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
-
-          expect(page).to have_selector("button.start:not(disabled)")
-
-          click_button "Start"
-
-          expect(page).to have_selector("button.start:disabled")
-
-          # click_button "Download keys"
-
-          # wait_for_download
-
-          # expect(download_content).to have_content("status")
-          # expect(File.basename(download_path)).to eq "#{trustee1.unique_id}-election-#{election.id}.bak"
-          # expect(File).to exist(download_path)
-
-          # expect(download_content).to have_content("create_election")
-          # expect(download_content).to have_content("trusteeId")
-          # expect(download_content).to have_content(trustee_1.unique_id)
-        end
-
-        # in_browser(:trustee_two) do
-        #   login_as trustee_2.user, scope: :user
-        #   visit decidim.decidim_elections_trustee_zone_path
-
-        #   attach_file(Decidim::Dev.asset("private_key2.jwk")) do
-        #     click_button "Upload your identification keys"
-        #   end
-
-        #   expect(page).not_to have_content("Upload your identification keys")
-        #   expect(page).to have_content("Elections")
-
-        #   click_link "Perform action"
-
-        #   expect(page).to have_content("Create election keys")
-        #   expect(page).to have_css("#create_election", text: "Pending")
-        #   expect(page).to have_css("#key_ceremony-step_1", text: "Pending")
-        #   expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
-
-        #   expect(page).to have_selector("button.start:not(disabled)")
-
-        #   click_button "Start"
-
-        #   expect(page).to have_selector("button.start:disabled")
-
-        #   click_button "Download keys"
-
-        #   wait_for_download
-
-        #   # expect(download_content).to have_content("status")
-        #   expect(download_content).to have_content("create_election")
-        #   # expect(download_content).to have_content("trusteeId")
-        #   # expect(download_content).to have_content(trustee_2.unique_id)
-        # end
       end
+    end
+
+    def setup_election(election)
+      login_as user, scope: :user
+      visit_component_admin
+
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--setup-election").click
+      end
+
+      within ".setup_election" do
+        page.find(".button").click
+      end
+
+      election.reload
+    end
+
+    def trustee_download_path(trustee)
+      downloads.select { |x| x.include?(trustee.unique_id) }
+    end
+
+    def generate_backup_keys
+      login_as trustee_1.user, scope: :user
+      visit decidim.decidim_elections_trustee_zone_path
+
+      attach_file(Decidim::Dev.asset("private_key.jwk")) do
+        click_button "Upload your identification keys"
+      end
+
+      expect(page).not_to have_content("Upload your identification keys")
+      expect(page).to have_content("Elections")
+
+      click_link "Perform action"
+
+      expect(page).to have_content("Create election keys")
+      expect(page).to have_css("#create_election", text: "Pending")
+      expect(page).to have_css("#key_ceremony-step_1", text: "Pending")
+      expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
+
+      expect(page).to have_selector("button.start:not(disabled)")
+
+      click_button "Start"
+
+      expect(page).to have_selector("button.start:disabled")
+
+      click_button "Download keys"
+    end
+
+    def restore_backup_keys
+      relogin_as trustee_1.user, scope: :user
+      visit decidim.decidim_elections_trustee_zone_path
+
+      click_link "Perform action"
+
+      expect(page).to have_selector("button.start:not(disabled)")
+
+      click_button "Start"
+
+      expect(page).to have_content("Restore election keys for #{translated(election.title, locale: :en)}")
+
+      attach_file(trustee_download_path(trustee_1).first) do
+        click_button "Upload election keys"
+      end
+    end
+
+    def perform_key_ceremony_step_1(trustee, private_key)
+      relogin_as trustee.user, scope: :user
+      visit decidim.decidim_elections_trustee_zone_path
+
+      attach_file(Decidim::Dev.asset("#{private_key}.jwk")) do
+        click_button "Upload your identification keys"
+      end
+
+      expect(page).not_to have_content("Upload your identification keys")
+      expect(page).to have_content("Elections")
+
+      click_link "Perform action"
+
+      expect(page).to have_content("Create election keys")
+      expect(page).to have_css("#create_election", text: "Pending")
+      expect(page).to have_css("#key_ceremony-step_1", text: "Pending")
+      expect(page).to have_css("#key_ceremony-joint_election_key", text: "Pending")
+
+      expect(page).to have_selector("button.start:not(disabled)")
+
+      click_button "Start"
+
+      expect(page).to have_selector("button.start:disabled")
+
+      click_button "Download keys"
+
+      sleep(2)
+
+      expect(File.basename(trustee_download_path(trustee).first)).to eq "#{trustee.unique_id}-election-#{election.id}.bak"
+      expect(File.read(trustee_download_path(trustee).first)).to have_content(trustee.unique_id)
+
+      expect(download_content).to have_content("status")
+      expect(download_content).to have_content("key_ceremony.step_1")
+      expect(download_content).to have_content("trusteeId")
     end
   end
 end
