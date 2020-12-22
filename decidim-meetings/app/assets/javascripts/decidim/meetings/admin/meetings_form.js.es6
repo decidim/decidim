@@ -38,7 +38,11 @@
   };
 
   const toggleEmbeddedVideoconference = (controlField, toggledField) => {
-    toggledField.toggle(controlField.val());
+    if (controlField.prop("checked")) {
+      toggledField.hide();
+    } else {
+      toggledField.show();
+    }
   }
 
   createDynamicFields({
@@ -148,7 +152,7 @@
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingOnlineFields, "online");
     toggleDependsOnSelect($meetingTypeOfMeeting, $meetingInPersonFields, "in_person");
 
-    const $embeddedVideoconferenceField = $("#embedded_videoconference input");
+    const $embeddedVideoconferenceField = $("#embedded_videoconference input[type=checkbox]");
     const $onlineMeetingUrlField = $("#online_meeting_url");
 
     $embeddedVideoconferenceField.on("change", () => {
