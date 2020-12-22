@@ -16,7 +16,7 @@ module Decidim
 
         @import = form(Admin::ImportForm).from_params(
           params,
-          component: component,
+          current_component: component,
           current_organization: current_organization
         )
 

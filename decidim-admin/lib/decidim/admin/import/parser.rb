@@ -54,7 +54,7 @@ module Decidim
             parsed = data[:"#{field}/#{locale}"]
             next if parsed.nil?
 
-            hash[locale.to_sym] = parsed
+            hash[locale] = parsed
           end
           hash
         end

@@ -154,7 +154,6 @@ Decidim.register_component(:proposals) do |component|
   end
 
   component.imports :proposals do |imports|
-    # imports.importer Decidim::Proposals::ProposalImporter
     imports.parser Decidim::Proposals::ProposalParser
   end
 
