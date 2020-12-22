@@ -138,7 +138,7 @@ ca:
           email_subject: S'ha ampliat la data de finalització de la recollida de signatura de la iniciativa!
           notification_title: El termini de recollida de signatures per a la iniciativa <a href="%{resource_path}">%{resource_title}</a> s'ha ampliat.
         initiative_sent_to_technical_validation:
-          email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taullel d'administració</a>
+          email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taulell d'administració</a>
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
           email_subject: La iniciativa %{resource_title} ha sol·licitat validació tècnica.
           notification_title: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_path}">taullel d'administració</a>
@@ -331,6 +331,9 @@ ca:
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
           send_my_initiative: Enviar la meva iniciativa
+        finish_help:
+          access_reminder: Podeu accedir a les vostres iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
+          publish_helper_text: Recordeu que per publicar la vostra iniciativa heu de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
         previous_form:
           back: Torna
           continue: Continua
