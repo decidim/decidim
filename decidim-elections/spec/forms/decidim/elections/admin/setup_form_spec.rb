@@ -80,6 +80,6 @@ describe Decidim::Elections::Admin::SetupForm do
 
     let!(:other_trustees) { create_list :trustee, 3, :with_public_key }
 
-    it { is_expected.to eq(trustees.pluck(:id)) }
+    it { is_expected.to match_array(trustees.pluck(:id)) }
   end
 end
