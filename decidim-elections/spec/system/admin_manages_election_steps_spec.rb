@@ -57,7 +57,7 @@ describe "Admin manages election steps", type: :system do
   end
 
   describe "open the ballot box", :vcr do
-    let!(:election) { create :election, :ready, :bb_test_election, component: current_component }
+    let!(:election) { create :election, :bb_test, :ready, component: current_component }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do
@@ -79,7 +79,7 @@ describe "Admin manages election steps", type: :system do
   end
 
   describe "close the ballot box", :vcr do
-    let!(:election) { create :election, :vote, :finished, :bb_test_election, component: current_component }
+    let!(:election) { create :election, :bb_test, :vote, :finished, component: current_component }
 
     it "performs the action successfully" do
       within find("tr", text: translated(election.title)) do

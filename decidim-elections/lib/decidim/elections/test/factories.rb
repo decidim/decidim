@@ -29,6 +29,11 @@ FactoryBot.define do
     questionnaire
     component { create(:elections_component, organization: organization) }
 
+    trait :bb_test do
+      bb_status { "key_ceremony" }
+      id { (10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status)) }
+    end
+
     trait :upcoming do
       start_time { 1.day.from_now }
     end
@@ -117,10 +122,6 @@ FactoryBot.define do
     trait :results_published do
       results
       bb_status { "results_published" }
-    end
-
-    trait :bb_test_election do
-      id { 10_000 + Decidim::Elections::Election.bb_statuses.keys.index(bb_status) }
     end
   end
 
