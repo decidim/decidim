@@ -99,6 +99,11 @@ en:
           email_outro: You have received this notification because you are following "%{resource_title}" or its author. You can unfollow it from the previous link.
           email_subject: There is a new comment from %{author_name} in %{resource_title}
           notification_title: There is a new comment from <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        comment_voted:
+          email_intro: Your comment in %{resource_title} has been voted by %{author_name}.
+          email_outro: You have received this notification because you are the author of this comment.
+          email_subject: "%{author_name} voted your comment in %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> voted your <a href="%{resource_path}">comment</a> in %{resource_title}
         reply_created:
           email_intro: "%{author_name} has replied your comment in %{resource_title}. You can read it in this page:"
           email_outro: You have received this notification because your comment was replied.
