@@ -295,6 +295,7 @@ en:
         show:
           back: Available elections
           preview: Preview
+          verify: Verify
           vote: Vote
           voting_period_status:
             finished: Voting began on %{start_time} and ended on %{end_time}
@@ -451,6 +452,22 @@ en:
         processing:
           header: Processing vote...
           text: Your vote has been received and it is being processing. Please wait.
+        verify:
+          content:
+            heading: Verify your vote
+            info: This verifier checks that your vote, identified with an encrypted text string, has been cast correctly and is inside the ballot box.
+          error:
+            header: Vote not found!
+            info: The vote code was not found in the %{link} ballot box, try again.
+          form:
+            back: Back to Decidim
+            submit: Check
+            vote_identifier: 'Identifier code:'
+          header:
+            title: Verify your vote
+          success:
+            header: Vote located!
+            info: Your encrypted vote is in the %{link} ballot box
         voting_step:
           back: Back
           continue: Next

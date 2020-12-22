@@ -31,6 +31,10 @@ module Decidim
         end
       end
 
+      def verify
+        @form = form(Ballot::VerifyVoteForm).instance(election: election)
+      end
+
       private
 
       def booth_mode

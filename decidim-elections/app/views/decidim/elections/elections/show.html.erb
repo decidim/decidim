@@ -54,6 +54,14 @@ edit_link(
         <span class="button disabled"><%= t(".vote") %></span>
       <% end %>
 
+      <% if election.ongoing? || election.finished? %>
+        <%= link_to verify_election_vote_path(election.id), class: "title-action__action button secondary small" do %>
+          <%= t(".verify") %>
+        <% end %>
+      <% else %>
+        <span class="button disabled"><%= t(".verify") %></span>
+      <% end %>
+
       <% if allowed_to? :preview, :election, election: election %>
         <%= link_to new_election_vote_path(election.id), class: "button" do %>
           <%= t(".preview") %>
