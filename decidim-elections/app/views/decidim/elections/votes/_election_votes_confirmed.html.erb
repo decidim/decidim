@@ -31,7 +31,7 @@
       <div class="evote__content">
         <%= t("decidim.elections.votes.confirmed.text", e_vote_poll_id: encrypted_vote_hash).html_safe %>
         <p>
-          <%= t("decidim.elections.votes.confirmed.verify_text").html_safe %>
+          <%= t("decidim.elections.votes.confirmed.verify_link", link: verify_election_vote_path(election)).html_safe %>
         </p>
       </div>
 
