@@ -11,7 +11,11 @@
     <% end %>
 
     <% if allowed_to? :import, :proposals %>
-      <%= import_dropdown %>
+      <%= import_dropdown do %>
+        <% content_tag :li do %>
+          <% link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path %>
+        <% end %>
+      <% end %>
     <% end %>
 
     <% if allowed_to? :create, :proposal %>

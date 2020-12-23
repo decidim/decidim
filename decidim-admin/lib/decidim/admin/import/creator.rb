@@ -46,6 +46,8 @@ module Decidim
           self.class.resource_klass.new(resource_attributes)
         end
 
+        private
+
         #
         # Collect field's language specified cells to one hash
         #

@@ -3,8 +3,15 @@
 module Decidim
   module Admin
     module ImportsHelper
+      # Renders an import dropdown for the provided component
+      #
+      # component - The component to render the export dropdown for. Defaults to the
+      #           current component.
+      #
+      # Returns a rendered dropdown.
       def import_dropdown(component = current_component, resource_id = nil)
-        render partial: "decidim/admin/imports/dropdown", locals: { component: component, resource_id: resource_id }
+        locals = block_given? ? { component: component, resource_id: resource_id, block: yield } : { component: component, resource_id: resource_id }
+        render partial: "decidim/admin/imports/dropdown", locals: locals
       end
 
       def admin_imports_path(component, options)
