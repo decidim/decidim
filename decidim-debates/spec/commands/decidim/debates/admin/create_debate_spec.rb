@@ -8,6 +8,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
+  let(:scope) { create :scope, organization: organization }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
@@ -19,6 +20,7 @@ describe Decidim::Debates::Admin::CreateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
+      scope: scope,
       category: category,
       current_user: user,
       current_component: current_component,
@@ -40,6 +42,11 @@ describe Decidim::Debates::Admin::CreateDebate do
 
     it "creates the debate" do
       expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
+    end
+
+    it "sets the scope" do
+      subject.call
+      expect(debate.scope).to eq scope
     end
 
     it "sets the category" do

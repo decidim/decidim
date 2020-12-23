@@ -18,6 +18,8 @@ module Decidim
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validate :editable_by_user
 
+      validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
+
       def map_model(debate)
         super
         self.debate = debate
