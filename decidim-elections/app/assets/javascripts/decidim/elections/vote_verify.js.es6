@@ -2,7 +2,7 @@
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 // = require decidim-bulletin_board
 $(() => {
-  const { Voter } = decidimBulletinBoard;
+  const { Client } = decidimBulletinBoard;
   const $voteVerifyWrapper = $(".vote-verify-wrapper");
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
