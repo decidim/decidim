@@ -1,9 +1,8 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
 // = require decidim-bulletin_board
-console.log("verify vote")
 $(() => {
-  const { Voter, Client } = decidimBulletinBoard;
+  const { Voter } = decidimBulletinBoard;
   const $voteVerifyWrapper = $(".vote-verify-wrapper");
   const $verifySubmitButton = $voteVerifyWrapper.find("a.focus__next.confirm");
 
@@ -41,7 +40,6 @@ $(() => {
   }
 
   $verifySubmitButton.on("click", (event) => {
-    console.log('click on $verifySubmitButton')
     event.preventDefault();
     verifyVoteIdentifier();
   });
