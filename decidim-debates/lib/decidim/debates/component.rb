@@ -98,12 +98,12 @@ Decidim.register_component(:debates) do |component|
       params = {
         component: component,
         category: participatory_space.categories.sample,
-        title: Decidim::Faker::Localized.sentence(word_count: 2),
+        title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          Decidim::Faker::Localized.paragraph(3)
         end,
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(sentence_count: 3)
+          Decidim::Faker::Localized.paragraph(3)
         end,
         start_time: (3.weeks.from_now if finite),
         end_time: (3.weeks.from_now + 4.hours if finite),
@@ -122,7 +122,7 @@ Decidim.register_component(:debates) do |component|
 
     Decidim::Debates::Debate.last(2).each do |debate|
       debate.conclusions = Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        Decidim::Faker::Localized.paragraph(3)
       end
       debate.closed_at = Time.current
       debate.save!
@@ -135,12 +135,12 @@ Decidim.register_component(:debates) do |component|
     params = {
       component: component,
       category: participatory_space.categories.sample,
-      title: Decidim::Faker::Localized.sentence(word_count: 2),
+      title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        Decidim::Faker::Localized.paragraph(3)
       end,
       instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-        Decidim::Faker::Localized.paragraph(sentence_count: 3)
+        Decidim::Faker::Localized.paragraph(3)
       end,
       author: user
     }
