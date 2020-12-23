@@ -12,11 +12,12 @@ module Decidim
         return broadcast(:invalid) unless form.creator
 
         form.context[:user_group] = user_group
-        @imported_data = import_data
+        imported_data = import_data
 
-        broadcast(:invalid) unless @imported_data
+        broadcast(:invalid) unless imported_data
+        broadcast(:invalid) if imported_data.empty?
 
-        broadcast(:ok)
+        broadcast(:ok, imported_data)
       end
 
       attr_reader :form

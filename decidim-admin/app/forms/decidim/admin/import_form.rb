@@ -5,10 +5,10 @@ module Decidim
     class ImportForm < Form
       ACCEPTED_MIME_TYPES = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES
 
-      attribute :component
-      attribute :creator
+      attribute :current_component, Decidim::Component
+      attribute :creator, Object
       attribute :file
-      attribute :user_group_id
+      attribute :user_group_id, Integer
 
       validates :file, presence: true
       validate :accepted_mime_type
@@ -37,7 +37,7 @@ module Decidim
       end
 
       def creators
-        component.manifest.import_manifests.map(&:creator)
+        current_component.manifest.import_manifests.map(&:creator)
       end
 
       def creator_class
