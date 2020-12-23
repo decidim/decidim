@@ -26,7 +26,7 @@ module Decidim
           ]
         end
 
-        def self.find_by_mime_type(mime_type)
+        def self.search_by_mime_type(mime_type)
           all.each do |reader_klass|
             return reader_klass if mime_type == reader_klass::MIME_TYPE
           end
