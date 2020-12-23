@@ -40,7 +40,7 @@ module Decidim
 
       def questionnaire_answers
         questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.answers.where(user: @user)
+        questionnaire&.answers&.where(user: @user)
       end
 
       def destroy_questionnaire_answers
