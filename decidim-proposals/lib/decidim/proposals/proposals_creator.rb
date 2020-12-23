@@ -24,6 +24,8 @@ module Decidim
         )
 
         proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
+        return unless proposal.valid?
+
         proposal.save!
 
         increase_scores(proposal)

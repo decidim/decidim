@@ -390,10 +390,6 @@ en:
           impersonate_new_managed_user: Manage new participant
       imports:
         error: There was a problem during the import
-        formats:
-          CSV: CSV
-          Excel: Excel
-          JSON: JSON
         import_from_file: "Import from a file"
         new:
           accepted_mime_types:
@@ -556,11 +552,6 @@ en:
             report_language: Report language
             report_reason: Reason
             title: Report details
-      new_import:
-        accepted_mime_types:
-          csv: CSV
-          json: JSON
-          xls: XLS
         attributes:
           file:
             invalid_mime_type: Invalid mime type
