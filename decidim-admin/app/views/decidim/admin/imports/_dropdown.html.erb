@@ -2,8 +2,8 @@
 <div class="dropdown-pane" id="import-dropdown" data-dropdown data-position=bottom data-alignment=right data-auto-focus="true" data-close-on-click="true">
   <ul class="vertical menu add-components">
     <%= block if defined?(block) %>
-    <li>
-      <%= link_to t("decidim.admin.imports.import_from_file"), admin_imports_path(current_component, resource_id: resource_id) %>
+    <li class="imports--file imports--<%= component.manifest.name %>">
+      <%= link_to t("decidim.admin.imports.import_from_file"), admin_imports_path(component, resource_id: resource_id) %>
     </li>
   </ul>
 </div>
