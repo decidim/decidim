@@ -38,6 +38,7 @@ module Decidim
             instructions: form.instructions,
             end_time: form.end_time,
             start_time: form.start_time,
+            scope: form.scope,
             component: form.current_component,
             author: form.current_organization
           }

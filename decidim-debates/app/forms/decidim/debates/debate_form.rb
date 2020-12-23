@@ -9,6 +9,7 @@ module Decidim
       attribute :title, String
       attribute :description, String
       attribute :category_id, Integer
+      attribute :scope_id, Integer
       attribute :user_group_id, Integer
       attribute :debate, Debate
 
@@ -36,6 +37,20 @@ module Decidim
 
       def category
         @category ||= current_component.categories.find_by(id: category_id)
+      end
+
+      # Finds the Scope from the given scope_id, uses component scope if missing.
+      #
+      # Returns a Decidim::Scope
+      def scope
+        @scope ||= @scope_id ? current_component.scopes.find_by(id: @scope_id) : current_component.scope
+      end
+
+      # Scope identifier
+      #
+      # Returns the scope identifier related to the debate
+      def scope_id
+        @scope_id || scope&.id
       end
 
       private
