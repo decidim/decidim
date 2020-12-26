@@ -12,7 +12,7 @@ FactoryBot.define do
   factory :conflict, class: "Decidim::Verifications::Conflict" do
     current_user { create(:user) }
     managed_user { create(:user, managed: true) }
-    document_number { "12345678X" }
+    unique_id { "12345678X" }
     times { 1 }
   end
 end
