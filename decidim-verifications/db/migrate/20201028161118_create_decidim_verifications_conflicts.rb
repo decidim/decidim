@@ -6,7 +6,7 @@ class CreateDecidimVerificationsConflicts < ActiveRecord::Migration[5.2]
       t.references :current_user, index: { name: "authorization_current_user" }, foreign_key: { to_table: :decidim_users }
       t.references :managed_user, index: { name: "authorization_managed_user" }, foreign_key: { to_table: :decidim_users }
       t.integer :times, default: 0
-      t.string :document_number
+      t.string :unique_id
       t.boolean :solved, default: false
 
       t.timestamps

@@ -44,14 +44,13 @@ module Decidim
       end
 
       def create_verification_conflict
-        document_number = handler.try(:document_number).presence || handler.try(:document_passport)
-        authorization = Decidim::Authorization.find_by(unique_id: document_number)
+        authorization = Decidim::Authorization.find_by(unique_id: handler.unique_id)
         return if authorization.blank?
 
         conflict = Decidim::Verifications::Conflict.find_or_initialize_by(
           current_user: handler.user,
           managed_user: authorization.user,
-          document_number: handler.document_number
+          unique_id: handler.unique_id
         )
 
         conflict.update(times: conflict.times + 1)

@@ -69,7 +69,7 @@ module Decidim
         Decidim.traceability.perform_action!(
           "transfer",
           form.conflict.managed_user,
-          form.current_user,
+          current_user,
           visibility: "admin-only"
         )
       end
