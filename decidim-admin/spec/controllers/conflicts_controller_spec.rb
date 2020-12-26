@@ -54,6 +54,23 @@ module Decidim
 
           expect(flash[:notice]).to eq("The current transfer has been successfully completed.")
         end
+
+        it "does not update when conflict is nil" do
+          allow(Decidim::Verifications::Conflict)
+            .to receive(:find)
+            .with(conflict.id.to_s)
+            .and_return(nil)
+
+          put :update, params: {
+            id: conflict.id,
+            transfer_user: {
+              reason: "For a test",
+              email: "user@test.com"
+            }
+          }
+
+          expect(flash[:alert]).to eq("There was a problem transfering the current participant to managed participant.")
+        end
       end
     end
   end
