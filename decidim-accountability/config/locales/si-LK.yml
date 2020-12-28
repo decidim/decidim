@@ -1,0 +1,31 @@
+si:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: තත්වය
+      status:
+        name: නම
+      timeline_entry:
+        entry_date: දිනය
+  decidim:
+    accountability:
+      actions:
+        edit: සංස්කරණය
+      admin:
+        models:
+          status:
+            name: තත්වය
+      content_blocks:
+        highlighted_results:
+          dates: දින
+      import_mailer:
+        import:
+          errors: දෝෂ
+      models:
+        timeline_entry:
+          fields:
+            entry_date: දිනය
+      results:
+        show:
+          stats:
+            meetings: රැස්වීම්

@@ -141,7 +141,7 @@ fr-CA:
           email_intro: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_url}">le panneau d'administration</a>
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur de la plateforme.
           email_subject: La pétition "%{resource_title}" a été envoyée à la validation technique.
-          notification_title: L'initiative "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_path}">le panneau d'administration</a>
+          notification_title: La pétition "%{resource_title}" a été envoyée à la validation technique. Consultez-la sur <a href="%{admin_initiative_path}">le panneau d'administration</a>
         milestone_completed:
           affected_user:
             email_intro: Votre initiative %{resource_title} a atteint %{percentage}% de signatures!
@@ -317,7 +317,7 @@ fr-CA:
         fill_data:
           back: Retour
           continue: Continuer
-          fill_data_help: "<ul> <li>Vérifier le contenu de votre initiative: le titre est-il facile à comprendre ? L'objectif de votre initiative est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ? (quartier, ville, ...)</li> </ul>"
+          fill_data_help: "<ul> <li>Vérifier le contenu de votre pétition : le titre est-il facile à comprendre ? L'objectif de votre pétition est-il clair ?</li> <li>Vous devez choisir le type de signature : en présentiel, en ligne ou une combinaison des deux</li> <li>Quelle est le secteur géographique de l'initiative ?</li> </ul>"
           initiative_type: Type d'initiative
           more_information: "(Plus d'informations)"
           select_area: Sélectionnez une zone
@@ -325,14 +325,14 @@ fr-CA:
         finish:
           back: Retour
           back_to_initiatives: Retour à l'index des initiatives
-          callout_text: Bravo ! Votre initiative a été créée avec succès.
+          callout_text: Bravo ! Votre pétition a été créée avec succès.
           confirm: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
           edit_my_initiative: Modifier mes initiatives
           go_to_my_initiatives: Consulter mes initiatives
           more_information: "(Plus d'informations)"
           send_my_initiative: Envoyer mon initiative
         finish_help:
-          access_reminder: Vous pouvez accéder à vos initiatives via le filtre %{link} sur la page Initiatives.
+          access_reminder: Vous pouvez accéder à vos pétitions via le filtre %{link} sur la page Pétitions.
           publish_helper_text: N'oubliez pas que pour que votre pétition soit publiée, vous devez compléter les informations requises et <strong>l'envoyer à la validation technique</strong> pour qu'un administrateur puisse l'examiner.
         previous_form:
           back: Retour
@@ -341,14 +341,14 @@ fr-CA:
           more_information: "(Plus d'informations)"
         promotal_committee:
           back: Retour
-          individual_help_text: Ce type d’initiative citoyenne nécessite une Commission de promotion composée d’au moins %{committee_size} personnes (attesteurs). Vous devez partager le lien suivant avec les autres participants à cette initiative. Lorsque vos contacts recevront ce lien, ils devront suivre les étapes indiquées.
+          individual_help_text: Ce type de pétition nécessite un Comité de promotion composé d’au moins %{committee_size} personnes (garants). Pour réunir un comité de promotion, partagez le lien suivant aux personnes que vous souhaitez. Lorsque ces personnes recevront ce lien, elles devront suivre les étapes indiquées.
           more_information: "(Plus d'informations)"
         select_initiative_type:
           back: Retour
           choose_html: Je veux créer un <strong>%{title}</strong>
           more_information: "(Plus d'informations)"
           select: Créer une initiative
-          select_initiative_type_help: Les initiatives sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle initiative voulez-vous lancer?
+          select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion

@@ -335,10 +335,6 @@ module Decidim
         ")
       end
 
-      ransacker :state do
-        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
-      end
-
       ransacker :title do
         Arel.sql(%{("decidim_proposals_proposals"."title")::text})
       end
