@@ -44,7 +44,7 @@ module Decidim
           params.merge(commentable: commentable)
         ).with_context(
           current_organization: current_organization,
-          current_component: commentable.component
+          current_component: commentable.try(:component) || commentable.participatory_space
         )
         Decidim::Comments::CreateComment.call(form, current_user) do
           on(:ok) do |comment|
