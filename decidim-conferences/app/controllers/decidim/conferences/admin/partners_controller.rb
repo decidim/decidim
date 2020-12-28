@@ -47,7 +47,7 @@ module Decidim
           @partner = collection.find(params[:id])
           enforce_permission_to :update, :partner, partner: @partner
           @form = form(Decidim::Conferences::Admin::PartnerForm).from_params(params)
-
+          @form.logo = @partner.logo unless @form.logo.present?
           UpdatePartner.call(@form, @partner) do
             on(:ok) do
               flash[:notice] = I18n.t("partners.update.success", scope: "decidim.admin")

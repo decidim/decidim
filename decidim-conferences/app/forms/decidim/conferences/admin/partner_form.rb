@@ -17,7 +17,8 @@ module Decidim
         attribute :remove_logo
 
         validates :name, :partner_type, presence: true, if: ->(form) { form.logo.present? }
-        validates :logo, presence: true, passthru: {
+        validates :logo, presence: true, unless: ->(form) { form.logo.present? }
+        validates :logo, passthru: {
           to: Decidim::Conferences::Partner,
           with: {
             # The partner gets its organization context through the conference
