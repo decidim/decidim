@@ -139,7 +139,7 @@ module Decidim::Admin
             # participant commentator
             let!(:commentator_participant) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
             let!(:resource_in_newsletter) { create(:dummy_resource, :published, author: authors.first, component: component) }
-            let!(:comment_in_newsletter) { create(:comment, author: commentator_participant, commentable: resource_in_newsletter)}
+            let!(:comment_in_newsletter) { create(:comment, author: commentator_participant, commentable: resource_in_newsletter) }
 
             let(:recipients) { authors + [commentator_participant] }
 
