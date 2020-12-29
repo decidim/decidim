@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 
-// = require decidim-bulletin_board
+// = require decidim/bulletin_board/decidim-bulletin_board
 // = require ../identification_keys
 
 /**
