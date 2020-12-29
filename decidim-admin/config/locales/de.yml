@@ -92,7 +92,7 @@ de:
         organization: Organisation
         plural: Plural
       settings:
-        scope_id: Bereich
+        scope_id: Umfang
       static_page:
         changed_notably: Es gab bemerkenswerte Änderungen.
         content: Inhalt
