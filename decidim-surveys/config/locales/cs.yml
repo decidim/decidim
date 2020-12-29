@@ -52,7 +52,7 @@ cs:
     surveys:
       admin:
         exports:
-          survey_user_answers: Zjištění uživatelských odpovědí
+          survey_user_answers: Odpovědi účastníka na průzkum
         surveys:
           update:
             invalid: Při ukládání průzkumu došlo k chybám.
