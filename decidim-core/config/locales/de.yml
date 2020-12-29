@@ -275,8 +275,6 @@ de:
         name: Beispiel Berechtigung
       dummy_authorization_workflow:
         name: Arbeitsablauf Dummy Berechtigung
-      errors:
-        duplicate_authorization: Ein*e Benutzer*in ist bereits mit den gleichen Daten berechtigt.
       expired_at: Abgelaufen am %{timestamp}
       expires_at: Läuft am %{timestamp} ab
       foo_authorization:
