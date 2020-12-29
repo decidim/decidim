@@ -18,7 +18,9 @@ module Decidim::Admin
       }
     end
     let(:extra_params) do
-      {}
+      {
+        reason: "Need it"
+      }
     end
     let(:form) do
       ImpersonateUserForm.from_params(
@@ -47,6 +49,12 @@ module Decidim::Admin
           end.to change { Decidim::ImpersonationLog.count }.by(1)
         end
 
+        it "creates a action log" do
+          expect do
+            subject.call
+          end.to change { Decidim::ActionLog.count }.by(1)
+        end
+
         it "expires the impersonation session automatically" do
           perform_enqueued_jobs { subject.call }
           travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
@@ -63,13 +71,20 @@ module Decidim::Admin
       end
     end
 
+    context "when logging action with reason" do
+      let(:user) { create :user, organization: organization }
+
+      it "creates a action log with reason" do
+        expect do
+          subject.call
+        end.to change { Decidim::ActionLog.count }.by(1)
+
+        expect(Decidim::ActionLog.last.action).to eq("manage")
+      end
+    end
+
     context "when passed a regular user" do
       let(:user) { create :user, organization: organization }
-      let(:extra_params) do
-        {
-          reason: "Need it"
-        }
-      end
 
       it_behaves_like "the impersonate user command"
     end

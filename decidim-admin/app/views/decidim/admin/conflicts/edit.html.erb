@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-divider">
+    <div class="card-title">Transfer User</div>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th></th>
+            <th><%= t("user_name", scope: "decidim.admin.conflicts") %></th>
+            <th><%= t("managed_user_name", scope: "decidim.admin.conflicts") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= t("name", scope: "decidim.admin.conflicts.transfer") %></td>
+            <td><%= @form.conflict.current_user.name %></td>
+            <td><%= @form.conflict.managed_user.name %></td>
+          </tr>
+          <tr>
+            <td><%= t("email", scope: "decidim.admin.conflicts.transfer") %></td>
+            <td><%= @form.conflict.current_user.email %></td>
+            <td><%= @form.conflict.managed_user.email.present? ? @form.conflict.managed_user.email : "-" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= decidim_form_for(@form, url: conflict_path, method: :put, html: { class: "form" }) do |f| %>
+  <div class="card">
+    <div class="card-section">
+      <div class="row column">
+        <%= f.text_field :reason, label: t("reason", scope: "decidim.admin.conflicts.transfer") %>
+
+        <%= f.text_field :email, label: t("email", scope: "decidim.admin.conflicts.transfer") %>
+      </div>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("title", scope: "decidim.admin.conflicts.transfer") %>
+  </div>
+<% end %>
