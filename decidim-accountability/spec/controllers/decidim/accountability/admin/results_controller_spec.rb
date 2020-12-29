@@ -29,20 +29,14 @@ module Decidim
           sign_in current_user
         end
 
+        # TODO: Is this test all that is needed here?
+        # Should we also check index NOT rendered when user not admin / not signed in, etc.?
         describe "GET index" do
-          let!(:results) { create_list(:result, 5, component: component) }
-          let(:results_count) { results.size }
+          it "renders the index view" do
+            get :index, params: { participatory_process_slug: participatory_space.slug, component_id: component.id }
 
-          it "shows the number of results for a component" do
-            # visit_component_admin
-            visit decidim_admin_participatory_process_accountability.results_path(
-              component_id: component.id,
-              participatory_process_slug: participatory_space.slug
-            )
-
-            within ".subscribed_count" do
-              expect(page).to have_content(results_count)
-            end
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
         end
 

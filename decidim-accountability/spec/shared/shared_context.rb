@@ -17,3 +17,16 @@ RSpec.shared_context "when managing an accountability component as an admin" do
 
   include_context "when managing an accountability component"
 end
+
+RSpec.shared_context "when managing results as an admin" do
+  let(:results_count) { 10 }
+  let!(:results) do
+    create_list(
+      :result,
+      results_count,
+      component: component
+    )
+  end
+
+  include_context "when managing a component as an admin"
+end
