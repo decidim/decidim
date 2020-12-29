@@ -23,7 +23,7 @@ module Decidim
       #
       # Returns the path to the component importer.
       def admin_imports_path(component, options)
-        EngineRouter.admin_proxy(component.participatory_space).new_component_imports_path(options.merge(component_id: component))
+        EngineRouter.admin_proxy(component.participatory_space).new_component_import_path(options.merge(component_id: component))
       end
 
       # Public: A formatted collection of mime_type to be used

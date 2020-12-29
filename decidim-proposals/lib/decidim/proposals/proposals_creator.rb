@@ -22,7 +22,6 @@ module Decidim
           component: component,
           published_at: Time.current
         )
-
         proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
         return unless proposal.valid?
 
