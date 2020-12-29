@@ -2,6 +2,7 @@
 // = require decidim/editor/modified_backspace_utils
 // = require decidim/editor/modified_backspace_offset_any
 // = require decidim/editor/modified_backspace_offset1
+// = require decidim/editor/modified_ctrl-z
 
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 ((exports) => {
@@ -48,6 +49,7 @@
     const { addEnterBindings } = exports.Decidim.Editor;
     const { backspaceBindingsRangeAny } = exports.Decidim.Editor;
     const { backspaceBindings } = exports.Decidim.Editor;
+    // const { ctrlZ } = exports.Decidim.Editor;
 
     quill.getModule("toolbar").addHandler("linebreak", () => {
       lineBreakButtonHandler(quill);
@@ -65,6 +67,7 @@
     addEnterBindings(quill);
     backspaceBindingsRangeAny(quill);
     backspaceBindings(quill);
+    // ctrlZ(quill);
 
     return;
   });
