@@ -29,7 +29,7 @@ fr-CA:
         trustee:
           attributes:
             public_key:
-              cant_be_changed: ne peut être modifié
+              cant_be_changed: ne peut être modifiée
   activerecord:
     models:
       decidim/elections/answer:
@@ -57,14 +57,14 @@ fr-CA:
         confirm_destroy: Êtes-vous certain ?
         destroy: Détruire
         edit: Modifier
-        feedback: Commentaires des votants
+        feedback: Feedbacks des votants
         import: Importer des propositions dans les réponses
         manage_answers: Gérer les réponses
         manage_questions: Gérer les questions
         new: Nouveau %{name}
         preview: Aperçu
         publish: Publier
-        setup: Configuration
+        setup: Configurer
         title: Actions
         unpublish: Dépublier
       admin:
@@ -115,6 +115,7 @@ fr-CA:
             success: L'élection a été publiée avec succès.
           setup:
             invalid: Une erreur est survenue lors de la création de l'élection
+            success: Élection envoyée avec succès au Bulletin
           unpublish:
             success: L'élection a été dépubliée avec succès.
           update:
@@ -122,7 +123,7 @@ fr-CA:
             success: Élection mise à jour avec succès
         exports:
           elections: Élections
-          feedback_form_answers: Commentaires des réponses au formulaire
+          feedback_form_answers: Feedbacks des répondants
         models:
           answer:
             name: Réponse
@@ -130,6 +131,8 @@ fr-CA:
             name: Élection
           question:
             name: Question
+          trustee:
+            name: Garant
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions en réponses
@@ -162,12 +165,45 @@ fr-CA:
             max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
             minimum_answers: Les questions doivent avoir <strong>au moins une réponse</strong>.
             minimum_questions: L'élection <strong>doit avoir au moins une question</strong>.
-            published: L'élection est <strong>non publiée</strong>
+            published: L'élection n'est <strong>pas publiée</strong>
             time_before: L'heure de début se situe <strong>moins de 3 heures</strong> avant le début de l'élection
             trustee_public_key: n'a pas de <strong>clé publique valide</strong>
+            trustees_quorum: Le nombre de garants <strong>ne correspond pas au quorum des garants</strong> requis
+          requirements:
+            max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>
+            minimum_answers: Chaque question a <strong>au moins 2 réponses</strong>
+            minimum_questions: L'élection a <strong>au moins 1 question</strong>
+            published: L'élection est <strong>publiée</strong>
+            time_before: La configuration est réalisée <strong>au moins 3 heures</strong> avant le début de l'élection
+            trustee_public_key: a une <strong>clé publique valide</strong>
+            trustees_quorum: La taille de cette liste des garants est correcte et il sera nécessaire d'avoir <strong>au moins %{quorum} de garants </strong> pour effectuer le processus de comptabilisation
+          show:
+            setup: Configurer l'élection
+            title: Configuration de l'élection
+          update:
+            setup: Configurer l'élection
+            title: Configuration de l'élection
         trustees_participatory_spaces:
           actions:
             disable: Désactiver
+            enable: Autoriser
+          create:
+            exists: Ce garant existe déjà dans cet espace participatif
+            invalid: Une erreur s'est produite lors de la création du garant
+            success: Le garant a bien été créé
+          delete:
+            invalid: Il y a eu un problème lors de la suppression de ce garant
+            success: Le garant a bien été supprimé
+          form:
+            select_user: Sélectionner un utilisateur
+          index:
+            title: Garants
+          new:
+            create: Créer un garant
+            title: Nouveau garant
+          update:
+            invalid: Une erreur s'est produite lors de la mise à jour du garant %{trustee}
+            success: Le garant %{trustee} a été mis à jour avec succès
       admin_log:
         election:
           publish: "%{user_name} a publié l'élection %{resource_name}"
@@ -206,7 +242,7 @@ fr-CA:
         preview:
           available_answers: Réponses disponibles
           description: Voici les questions que vous trouverez dans le processus de vote
-          title: Questions sur l'élection
+          title: Questions de l'élection
         results:
           description: Ce sont les résultats du vote, pour chaque question
           selected: Sélectionné
@@ -224,9 +260,9 @@ fr-CA:
             upcoming: Le vote commence le %{start_time}
       feedback:
         answer:
-          invalid: Un problème est survenu lors de l'envoi de votre commentaire.
+          invalid: Un problème est survenu lors de l'envoi de votre feedback.
           spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
-          success: Votre commentaire a bien été envoyé.
+          success: Votre avis a bien été envoyé.
       models:
         answer:
           fields:
@@ -242,13 +278,22 @@ fr-CA:
             answers: Réponses
             max_selections: Nombre maximum de sélections
             title: Titre
+        trustees_participatory_space:
+          fields:
+            considered: autorisé
+            email: Email
+            inactive: inactif
+            name: Nom
+            notification: Notification envoyée à
+            public_key: Clé publique
+            status: Statut
       orders:
         label: Trier les élections par
         older: Les plus anciens
         recent: Les plus récents
       trustee_zone:
         menu:
-          trustee_zone: Zone de Mandature
+          trustee_zone: Espace de garant
         trustees:
           show:
             elections:
@@ -256,30 +301,30 @@ fr-CA:
                 election: Élection
                 status: Statut
                 voting_period: Période de vote
-              no_elections: Il n'y a pas d'élections lorsque vous agissez en temps que mandataire.
+              no_elections: Il n'y a pas d'élections dans lesquelles vous êtes garant.
               title: Élections
             identification_keys:
               cancel: Annuler
               generate: Générer les clés d'identification
               generate_error: Une erreur s'est produite lors de la génération des clés d'identification.
-              generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que Mandataire.
-              generate_legend_1: Après appui sur le bouton vous devriez télécharger le fichier contenant les clés d'identification générées.
+              generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que garant.
+              generate_legend_1: Après avoir cliqué sur le bouton, le téléchargement du fichier contenant les clés d'identification générées va commencer.
               generate_legend_2: Copiez le fichier téléchargé sur un périphérique USB fiable
               generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
               submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur Decidim.
               submit_title: Soumettre la clé d'identification publique
-              title: Clés d'identification Mandataire
+              title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée par Decidim.
               upload_legend: Decidim a vos clés d'identification publiques, mais votre navigateur ne l'a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
-            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que Mandataire. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches d'administrateur.
-            not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que Mandataire
-            trustee_role_description: Vous avez été assigné à agir en tant que Mandataire lors de certaines des élections mises en place dans cette plateforme.
+            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
+            not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
@@ -333,8 +378,16 @@ fr-CA:
           email_subject: L'élection %{resource_title} est maintenant active pour %{participatory_space_title}.
           notification_title: L'élection de <a href="%{resource_path}">%{resource_title}</a> est maintenant active pour %{participatory_space_title}.
         trustees:
+          new_election:
+            email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
+            notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
-            email_intro: Un administrateur vous a ajouté en tant que mandataire pour %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre zone de mandature</a>
+            email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
+            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}".
+            email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
+            notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
     pages:
       home:
         statistics:

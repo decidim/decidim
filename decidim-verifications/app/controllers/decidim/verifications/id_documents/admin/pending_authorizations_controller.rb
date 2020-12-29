@@ -22,7 +22,7 @@ module Decidim
               .new(organization: current_organization, name: "id_documents", granted: false)
               .query
               .where("verification_metadata->'rejected' IS NULL")
-              .where("verification_metadata->>'verification_type' = 'online'")
+              .select { |auth| auth.verification_metadata["verification_type"] == "online" }
           end
 
           def has_offline_method?

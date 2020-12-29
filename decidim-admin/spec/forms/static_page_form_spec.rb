@@ -117,6 +117,53 @@ module Decidim
 
         it { is_expected.to be_valid }
       end
+
+      context "when organization requires authentication" do
+        let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
+        let(:attributes) do
+          {
+            "static_page" => {
+              "title_en" => title[:en],
+              "title_es" => title[:es],
+              "title_ca" => title[:ca],
+              "content_en" => content[:en],
+              "content_es" => content[:es],
+              "content_ca" => content[:ca],
+              "organization" => organization,
+              "slug" => slug,
+              "allow_public_access" => allow_public_access
+            }
+          }
+        end
+
+        context "with allowed public access" do
+          let(:allow_public_access) { true }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "with not allowed public access" do
+          let(:allow_public_access) { false }
+
+          it { is_expected.to be_valid }
+        end
+      end
+
+      describe "#control_public_access?" do
+        context "when organization does not require authentication" do
+          it "returns false" do
+            expect(subject.control_public_access?).to eq(false)
+          end
+        end
+
+        context "when organization requires authentication" do
+          let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
+
+          it "returns true" do
+            expect(subject.control_public_access?).to eq(true)
+          end
+        end
+      end
     end
   end
 end

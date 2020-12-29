@@ -86,6 +86,8 @@ fi-pl:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          comments: Kommentit
         models:
           debate:
             name: Keskustelu
