@@ -18,12 +18,12 @@ module Decidim
         argument :id, ID, "The ID of the post", required: true
       end
 
-      def posts(args: {})
-        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, args, context)
+      def posts(filter: {}, order: {})
+        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, {filter: filter, order: order}, context)
       end
 
-      def post(args: {})
-        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, args, context)
+      def post(id:)
+        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, {id: id}, context)
       end
     end
 

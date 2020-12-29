@@ -25,10 +25,10 @@ module Decidim
           argument :id, GraphQL::Types::ID, "The ID of the initiative type", required: true
         end
 
-        def initiatives_type(args: {})
+        def initiatives_type(id:)
           Decidim::InitiativesType.find_by(
             organization: context[:current_organization],
-            id: args[:id]
+            id: id
           )
         end
 

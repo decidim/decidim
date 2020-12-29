@@ -15,7 +15,7 @@ module Decidim
       field :title, Decidim::Core::TranslatedFieldType, "The title for this answer", null: false
       field :description, Decidim::Core::TranslatedFieldType, "The description for this answer", null: true
       field :weight, Integer, "The ordering weight for this answer", null: true
-      field :votes_count, Integer, "The votes for this answer", null: true
+      field :votes_count, Integer, "The votes for this answer", null: true, camelize: false
       field :selected, Boolean, "Is this answer selected?", null: true
 
       field :proposals, [Decidim::Proposals::ProposalType, null: true], "The proposals related to this answer", null: true

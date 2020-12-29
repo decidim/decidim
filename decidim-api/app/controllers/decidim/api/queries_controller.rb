@@ -9,10 +9,6 @@ module Decidim
         variables = prepare_variables(params[:variables])
         query = params[:query]
         operation_name = params[:operationName]
-        context = {
-          # Query context goes here, for example:
-          # current_user: current_user,
-        }
         result = Schema.execute(query, variables: variables, context: context, operation_name: operation_name)
         render json: result
       rescue => e
