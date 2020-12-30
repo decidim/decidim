@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-# TODO: Describe wording? ? "Admin #index"?
 describe "Admin manages results", type: :system do
   let(:manifest_name) { "accountability" }
   let!(:results) do

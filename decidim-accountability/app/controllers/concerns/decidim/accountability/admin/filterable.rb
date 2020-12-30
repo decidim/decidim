@@ -25,15 +25,15 @@ module Decidim
 
           def filters
             [
-                :category_id_eq,
-                :scope_id_eq,
+              :category_id_eq,
+              :scope_id_eq
             ]
           end
 
           def filters_with_values
             {
               scope_id_eq: scope_ids_hash(scopes.top_level),
-              category_id_eq: category_ids_hash(categories.first_class),
+              category_id_eq: category_ids_hash(categories.first_class)
             }
           end
 

@@ -10,7 +10,6 @@ module Decidim
         include Decidim::Proposals::Admin::Picker
         include Decidim::Accountability::Admin::Filterable
 
-
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
