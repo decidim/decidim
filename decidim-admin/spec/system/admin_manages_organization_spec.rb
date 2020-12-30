@@ -161,6 +161,24 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("#{terms_content}<p>foo<br>bar</p>".gsub("\n", ""))
         end
+
+        describe "editor history" do
+          it "has undo" do
+            find('div[contenteditable="true"].ql-editor').send_keys("foo", [:shift, :enter], "bar", [:control, "z"], [:control, "z"],
+                                                                    [:control, "z"], [:control, "z"], [:control, "z"], [:control, "z"],
+                                                                    [:control, "z"])
+            expect(find(
+              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+          end
+
+          it "has redo" do
+            find('div[contenteditable="true"].ql-editor').send_keys [:shift, :enter], "X", [:control, "z"], [:control, :shift, "z"]
+            expect(find(
+              "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+            )["innerHTML"]).to eq("<p>Paragraph</p><p>Some<br>text<br>here</p><p>Another paragraph<br>X</p>".gsub("\n", ""))
+          end
+        end
       end
 
       context "when modifying list using rich text editor" do
