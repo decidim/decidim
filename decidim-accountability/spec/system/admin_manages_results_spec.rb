@@ -1,20 +1,25 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 # TODO: Describe wording? ? "Admin #index"?
 describe "Admin manages results", type: :system do
   let(:manifest_name) { "accountability" }
+  let!(:results) do
+    [
+      create(:result, scope: create(:scope, organization: component.organization),
+                      component: current_component,
+                      category: create(:category, participatory_space: participatory_space)),
+      create(:result, scope: create(:scope, organization: component.organization),
+                      component: current_component,
+                      category: create(:category, participatory_space: participatory_space)),
+      create(:result, scope: create(:scope, organization: component.organization),
+                      component: current_component,
+                      category: create(:category, participatory_space: participatory_space))
+    ]
+  end
 
   include_context "when managing a component as an admin"
-
-  #scope: create(:scope, organization: component.organization, name: Decidim::Faker::Localized.word )
-
-  let!(:results) do
-    create_list(
-      :result,
-      3,
-      component: current_component
-    )
-  end
 
   before do
     switch_to_host(organization.host)
@@ -29,7 +34,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by ID" do
-    ordered_results = results.sort_by { | result | result.id }.reverse
+    ordered_results = results.sort_by(&:id).reverse
 
     click_link "ID"
     rows = page.all("tbody tr")
@@ -40,11 +45,10 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by title" do
-    ordered_results = results.sort_by { | result | translated(result.title) }
+    ordered_results = results.sort_by { |result| translated(result.title) }
 
     click_link "Title"
     rows = page.all("tbody tr")
-    rows
 
     rows.each_with_index do |row, i|
       expect(row).to have_text(translated(ordered_results[i].title))
@@ -52,7 +56,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by category" do
-    ordered_results = results.sort_by { | result | translated(result.category.name) }
+    ordered_results = results.sort_by { |result| translated(result.category.name) }
 
     click_link "Category"
     rows = page.all("tbody tr")
@@ -63,7 +67,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by scope" do
-    ordered_results = results.sort_by { | result | translated(result.scope.name) }
+    ordered_results = results.sort_by { |result| translated(result.scope.name) }
 
     click_link "Scope"
     rows = page.all("tbody tr")
@@ -74,7 +78,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by status" do
-    ordered_results = results.sort_by { | result | translated(result.status.name) }
+    ordered_results = results.sort_by { |result| translated(result.status.name) }
 
     click_link "Status"
     rows = page.all("tbody tr")
@@ -85,7 +89,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by progress" do
-    ordered_results = results.sort_by { | result | result.progress }
+    ordered_results = results.sort_by(&:progress)
 
     click_link "Progress"
     rows = page.all("tbody tr")
@@ -96,7 +100,7 @@ describe "Admin manages results", type: :system do
   end
 
   it "orders results by created at" do
-    ordered_results = results.sort_by { | result | result.created_at }
+    ordered_results = results.sort_by(&:created_at)
 
     click_link "Created"
     rows = page.all("tbody tr")
