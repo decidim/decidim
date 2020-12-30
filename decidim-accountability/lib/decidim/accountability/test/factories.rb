@@ -39,6 +39,8 @@ FactoryBot.define do
     start_date { "12/7/2017" }
     end_date { "30/9/2017" }
     status { create :status, component: component }
+    scope { create :scope, organization: component.organization }
+    category { create :category, participatory_space: participatory_space }
     progress { rand(1..100) }
   end
 
