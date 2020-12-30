@@ -21,7 +21,7 @@ shared_examples_for "counts commentators as newsletter participants" do
     # participant commentator
     let!(:commentator_participant) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
     # expects resource_in_newsletter to belong to a space selected in the newsletter
-    let!(:comment_in_newsletter) { create(:comment, author: commentator_participant, commentable: resource_in_newsletter)}
+    let!(:comment_in_newsletter) { create(:comment, author: commentator_participant, commentable: resource_in_newsletter) }
     let(:commentators_ids) { [commentator_participant.id] }
 
     it "returns only commenters in the selected spaces" do
