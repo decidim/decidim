@@ -22,6 +22,7 @@ de:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
+        child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
@@ -338,12 +339,14 @@ de:
           more_information: "(Weitere Informationen)"
         promotal_committee:
           back: Zurück
+          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: "(Weitere Informationen)"
           select: Ich möchte diese Initiative fördern
+          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
         share_committee_link:
           continue: Fortsetzen
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden

@@ -90,7 +90,10 @@ fi:
         name: Nimi
         organization: Organisaatio
         plural: Monikko
+      settings:
+        scope_id: Teema
       static_page:
+        allow_public_access: Salli pääsy ilman kirjautumista
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
