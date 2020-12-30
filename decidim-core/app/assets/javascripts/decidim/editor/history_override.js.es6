@@ -12,9 +12,11 @@
       super(quill, options);
       this.lastRecorded = 0;
       this.ignoreChange = false;
+      this.lastChange = "init"
       this.quill.emitter.on("editor-ready", () => {
         this.stack = { undo: [], redo: [] };
         const $input = $(this.quill.container).siblings('input[type="hidden"]');
+
         this.stack.undo.push($input.val() || "");
         this.lastLength = this.quill.getLength();
       })
@@ -33,20 +35,33 @@
 
     change(source, dest) {
       if (this.stack[source].length === 0) return;
-      console.log("stack size", this.stack[source].length)
-      let content = this.stack[source].pop();
-      this.stack[dest].push(content);
-      if (content === $(this.quill.container).siblings('input[type="hidden"]').val()) content = this.stack[source].pop();
+      let content = this.updateStacks(source, dest);
+      console.log("undo stack", this.stack["undo"])
+      console.log("redo stack", this.stack["redo"])
       if (!content) return;
+      console.log("source", source)
       console.log("content", content)
       this.lastRecorded = 0;
       this.ignoreChange = true;
-
       this.quill.setContents(this.quill.clipboard.convert(content));
       this.ignoreChange = false;
       // let index = getLastChangeIndex(delta[source]);
       let index = 0
       this.quill.setSelection(index);
+    }
+
+    updateStacks(source, dest) {
+      if (source === "undo") {
+        if (this.stack["undo"].length === 1) {
+          return this.stack["undo"][0]
+        } else {
+          this.stack["redo"].push(this.stack["undo"].pop())
+          return this.stack["undo"][this.stack["undo"].length - 1]
+        }
+      }
+      let content = this.stack["redo"].pop();
+      this.stack["undo"].push(content)
+      return content
     }
 
     clear() {
@@ -58,14 +73,23 @@
     }
 
     record(changeDelta, _oldDelta) {
-      if (changeDelta.ops.length === 0) return;
-      if (this.lastLength === this.quill.getLength()) return;
+      if (changeDelta.ops.length === 0) {
+        console.log("sama delta");
+        return
+      }
+      if (Math.abs(this.lastLength-this.quill.getLength()) < 1) {
+        console.log("liian vähä lengthii");
+        return;
+      }
       this.stack.redo = [];
       this.lastLength = this.quill.getLength();
 
-      const $input = $(this.quill.container).siblings('input[type="hidden"]');
-      console.log("save", $input.val())
-      this.stack.undo.push($input.val())
+      // const $input = $(this.quill.container).siblings('input[type="hidden"]');
+      // console.log("input.val()", $input.val())
+      // console.log("quil.html()", this.quill.container.firstChild.innerHTML)
+
+      console.log("save", this.quill.container.firstChild.innerHTML)
+      this.stack.undo.push(this.quill.container.firstChild.innerHTML)
     }
 
     redo() {
@@ -84,6 +108,7 @@
     }
 
     undo() {
+      console.log("UNDO")
       this.change('undo', 'redo');
     }
   }
