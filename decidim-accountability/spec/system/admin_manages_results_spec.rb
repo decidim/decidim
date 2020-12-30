@@ -1,6 +1,6 @@
 require "spec_helper"
 
-# Describe wording? ? "Admin #index"?
+# TODO: Describe wording? ? "Admin #index"?
 describe "Admin manages results", type: :system do
   let(:manifest_name) { "accountability" }
 
@@ -19,20 +19,81 @@ describe "Admin manages results", type: :system do
     end
   end
 
-  it "orders results by title" do
-    click_link "Title"
+  it "orders results by ID" do
+    ordered_results = results.sort_by { | result | result.id }.reverse
 
-    # Create ordered version of results, for comparison with results displayed on page
-    ordered_results = results.sort_by { | result | result.title["en"] }
-    # Create list of all 'tr' elements found on page.
+    click_link "ID"
     rows = page.all("tr")
 
     for i in 0..9 do
-      # Compare the 2nd to 11th table rows found in the view with the results in ordered_results,
-      # as the 1st row in the view contains the column headings.
+      expect(rows[i + 1]).to have_text(ordered_results[i].id)
+    end
+  end
+
+  it "orders results by title" do
+    ordered_results = results.sort_by { | result | result.title["en"] }
+
+    click_link "Title"
+    rows = page.all("tr")
+
+    for i in 0..9 do
       expect(rows[i + 1]).to have_text(ordered_results[i].title["en"])
     end
+  end
 
-    #sleep(5)
+  # it "orders results by category" do
+  #   ordered_results = results.sort_by { | result | result.category }
+
+  #   click_link "Category"
+  #   rows = page.all("tr")
+
+  #   for i in 0..9 do
+  #     expect(rows[i + 1]).to have_text(ordered_results[i].category)
+  #   end
+  # end
+
+  # it "orders results by scope" do
+  #   ordered_results = results.sort_by { | result | result.scope }
+
+  #   click_link "Scope"
+  #   rows = page.all("tr")
+
+  #   for i in 0..9 do
+  #     expect(rows[i + 1]).to have_text(ordered_results[i].scope.name["en"])
+  #   end
+  #   sleep(5)
+  # end
+
+  it "orders results by status" do
+    ordered_results = results.sort_by { | result | result.status.name["en"] }
+
+    click_link "Status"
+    rows = page.all("tr")
+
+    for i in 0..9 do
+      expect(rows[i + 1]).to have_text(ordered_results[i].status.name["en"])
+    end
+  end
+
+  it "orders results by progress" do
+    ordered_results = results.sort_by { | result | result.progress }
+
+    click_link "Progress"
+    rows = page.all("tr")
+
+    for i in 0..9 do
+      expect(rows[i + 1]).to have_text(ordered_results[i].progress&.to_i)
+    end
+  end
+
+  it "orders results by created at date" do
+    ordered_results = results.sort_by { | result | result.created_at }
+
+    click_link "Created"
+    rows = page.all("tr")
+
+    for i in 0..9 do
+      expect(rows[i + 1]).to have_text(I18n.l(ordered_results[i].created_at, format: :decidim_short))
+    end
   end
 end
