@@ -272,8 +272,6 @@ es-MX:
         name: Autorización de ejemplo
       dummy_authorization_workflow:
         name: Flujo de trabajo de autorización de ejemplo
-      errors:
-        duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
       expired_at: Caducado el %{timestamp}
       expires_at: Caduca en %{timestamp}
       foo_authorization:

@@ -137,6 +137,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha ampliat la data de finalització de la recollida de signatura de la iniciativa!
           notification_title: El termini de recollida de signatures per a la iniciativa <a href="%{resource_path}">%{resource_title}</a> s'ha ampliat.
+        initiative_sent_to_technical_validation:
+          email_intro: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_url}">taulell d'administració</a>
+          email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
+          email_subject: La iniciativa %{resource_title} ha sol·licitat validació tècnica.
+          notification_title: La iniciativa "%{resource_title}" s'ha enviat a validació tècnica. Comprova-ho a través del <a href="%{admin_initiative_path}">taullel d'administració</a>
         milestone_completed:
           affected_user:
             email_intro: La teva iniciativa %{resource_title} ha aconseguit un %{percentage}% de les signatures necessàries!
@@ -203,6 +208,7 @@ ca:
           edit:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
+            confirm_send_to_technical_validation: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
@@ -311,6 +317,7 @@ ca:
         fill_data:
           back: Torna
           continue: Continua
+          fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
           initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
@@ -318,10 +325,15 @@ ca:
         finish:
           back: Torna
           back_to_initiatives: Torna a iniciatives
+          callout_text: Enhorabona! La teva iniciativa s'ha creat correctament.
+          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
           edit_my_initiative: Editar les meves iniciatives
           go_to_my_initiatives: Ves a les meves iniciatives
           more_information: "(Més informació)"
           send_my_initiative: Enviar la meva iniciativa
+        finish_help:
+          access_reminder: Podeu accedir a les vostres iniciatives a través del filtre %{link} a la pàgina d'iniciatives.
+          publish_helper_text: Recordeu que per publicar la vostra iniciativa heu de completar la informació requerida i <strong>enviar-la a la validació tècnica</strong> perquè una administradora la revisi.
         previous_form:
           back: Torna
           continue: Continua
@@ -329,12 +341,14 @@ ca:
           more_information: "(Més informació)"
         promotal_committee:
           back: Torna
+          individual_help_text: Aquest tipus d'iniciativa requereix una Comissió Promotora que consta d'almenys %{committee_size} persones (testimonis). Has de compartir el següent enllaç amb les altres persones que formen part d'aquesta iniciativa. Quan els teus contactes rebin aquest enllaç, hauran de seguir els passos indicats.
           more_information: "(Més informació)"
         select_initiative_type:
           back: Torna
           choose_html: Vull <strong>%{title}</strong>
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
+          select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
@@ -343,6 +357,16 @@ ca:
           compare_help: Si alguna de les següents iniciatives és similar a la teva, t'animem a que la signis. La teva proposta tindrà més possibilitats de dur-se a terme.
           continue: La meva iniciativa és diferent
           more_information: "(Més informació)"
+      edit:
+        accept: Accepta la iniciativa
+        back: Tornar
+        confirm: N'estàs segura?
+        discard: Descarta la iniciativa
+        export_pdf_signatures: Exporta PDF de signatures
+        export_votes: Exportar signatures
+        reject: Rebutja la iniciativa
+        title: Editar iniciativa
+        update: Actualitzar
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova iniciativa. Comprova-la i contribueix:"
@@ -354,6 +378,10 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Iniciativa adherida per %{author_nickname}
           notification_title: La iniciativa <a href="%{resource_path}">%{resource_title}</a> va ser adherida per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Documents
+        attachment_legend: "(Opcional) Afegiu adjunts"
+        delete_attachment: Esborrar
       index:
         title: Iniciatives
       initiative_signatures:
@@ -390,6 +418,13 @@ ca:
           hidden_authors_count:
             one: i 1 persona més
             other: i %{count} persones més
+        committee_members:
+          approve: Aprova
+          confirm_revoke: N'estàs segura?
+          invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
+          no_members_yet: No hi ha membres al comitè promotor
+          revoke: Revocar
+          title: Membres del comitè
         count:
           title:
             one: "%{count} iniciativa"
@@ -431,7 +466,26 @@ ca:
           recent: Més recents
           recently_published: Publicada més recentment
         print:
+          address: Adreça
+          author_title: Autora de la iniciativa
           city: Ciutat
+          email: Correu electrònic
+          full_name: Nom complet
+          general_title: Sol·licitud d'admissió d'una iniciativa
+          id_number: Número d'identificació
+          initiative:
+            attachments: Documentació adjunta (escriviu el nom de cada document a continuació)
+            description: 'Descripció:'
+            title: 'Títol:'
+            type: Tipus d'iniciativa
+          legal_text: Les dades personals recollides seran incorporades i tractades confidencialment per l'organització, d'acord amb la legislació actual.
+          phone_number: Número de telèfon
+          place_date: Lloc, data
+          postal_code: Codi postal
+          print: Imprimir
+          province: Província
+          section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
+          signature: Signatura
         result:
           answer_title:
             accepted: Aquesta proposta s'ha acceptat perquè
@@ -442,7 +496,13 @@ ca:
             validating: Aquesta proposta està essent avaluada
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
+          any_vote_method: Aquesta iniciativa ciutadana recull signatures digitals i presencials.
+          confirm: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
+          edit: Editar
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
+          offline_method: Aquesta iniciativa ciutadana només recull signatures presencials.
+          print: Imprimir iniciativa
+          send_to_technical_validation: Enviar a validació tècnica
         signatures_count:
           one: " signatura"
           other: " signatures"
@@ -488,6 +548,9 @@ ca:
         accepted: Acceptat
         expired: Vençut
       unavailable_scope: Àmbit no disponible
+      update:
+        error: S'ha produït un error
+        success: La iniciativa ciutadana s'ha actualitzat correctament
       versions:
         shared:
           back_to_resource: Torna a la iniciativa
