@@ -4,11 +4,10 @@ module Decidim
   module Initiatives
     # This type represents a Initiative.
     class InitiativeType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
-      implements  Decidim::Initiatives::InitiativeTypeInterface
+      implements Decidim::Initiatives::InitiativeTypeInterface
       implements Decidim::Core::TimestampsInterface
 
       description "A initiative"
@@ -37,7 +36,7 @@ module Decidim
         object.user_group || object.author
       end
 
-      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, null: true], null: true
+      field :committee_members, [Decidim::Initiatives::InitiativeCommitteeMemberType, { null: true }], null: true
     end
   end
 end

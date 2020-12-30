@@ -4,8 +4,7 @@ module Decidim
   module Consultations
     # This type represents a consultation.
     class ConsultationType < Decidim::Api::Types::BaseObject
-
-      implements  Decidim::Core::ParticipatorySpaceInterface
+      implements Decidim::Core::ParticipatorySpaceInterface
 
       description "A consultation"
 
@@ -24,7 +23,7 @@ module Decidim
       field :end_voting_date, Decidim::Core::DateType, "End date of the voting for this consultation", null: true
       field :results_published_at, Decidim::Core::DateType, "Date when the results have been published", null: true
 
-      field :questions, [Decidim::Consultations::ConsultationQuestionType, null: true], "", null: true
+      field :questions, [Decidim::Consultations::ConsultationQuestionType, { null: true }], "", null: true
     end
   end
 end

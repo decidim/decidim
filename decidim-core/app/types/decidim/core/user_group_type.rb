@@ -6,7 +6,6 @@ module Decidim
     class UserGroupType < Decidim::Api::Types::BaseObject
       description "A user group"
 
-
       implements Decidim::Core::AuthorInterface
 
       field :id, ID, "The user group's id", null: false
@@ -49,7 +48,7 @@ module Decidim
         object.presenter.badge
       end
 
-      field :members, [UserType, null: true], "Members of this group", null: false
+      field :members, [UserType, { null: true }], "Members of this group", null: false
 
       def members
         object.accepted_users

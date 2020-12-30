@@ -13,7 +13,7 @@ module Decidim
       field :description, Decidim::Core::TranslatedFieldType, "The description for this status", null: true
       field :progress, Integer, "The progress for this status", null: true
 
-      field :results, [Decidim::Accountability::ResultType, null: true], "The results for this status", null: true
+      field :results, [Decidim::Accountability::ResultType, { null: true }], "The results for this status", null: true
     end
   end
 end

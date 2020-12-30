@@ -5,17 +5,17 @@ module Decidim
     class ProposalType < Decidim::Api::Types::BaseObject
       description "A proposal"
 
-      implements  Decidim::Comments::CommentableInterface
-      implements  Decidim::Core::CoauthorableInterface
-      implements  Decidim::Core::CategorizableInterface
-      implements  Decidim::Core::ScopableInterface
-      implements  Decidim::Core::AttachableInterface
-      implements  Decidim::Core::FingerprintInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::CoauthorableInterface
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::FingerprintInterface
       implements Decidim::Core::AmendableInterface
       implements Decidim::Core::AmendableEntityInterface
-      implements  Decidim::Core::TraceableInterface
-      implements  Decidim::Core::EndorsableInterface
-      implements  Decidim::Core::TimestampsInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::TimestampsInterface
 
       field :id, ID, null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for this title", null: true

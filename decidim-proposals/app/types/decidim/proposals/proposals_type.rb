@@ -2,7 +2,6 @@
 
 module Decidim
   module Proposals
-
     class ProposalListHelper < Decidim::Core::ComponentListBase
       # only querying published posts
       def query_scope
@@ -11,7 +10,6 @@ module Decidim
     end
 
     class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
-
       # only querying published posts
       def query_scope
         super.published
@@ -29,18 +27,17 @@ module Decidim
         argument :filter, ProposalInputFilter, "Provides several methods to filter the results", required: false
       end
 
-      field :proposal, type: ProposalType, description: "Finds one proposal", null: true  do
+      field :proposal, type: ProposalType, description: "Finds one proposal", null: true do
         argument :id, ID, "The ID of the proposal", required: true
       end
 
       def proposals(filter: {}, order: {})
-        ProposalListHelper.new(model_class: Proposal).call(object, { filter: filter, order: order}, context)
+        ProposalListHelper.new(model_class: Proposal).call(object, { filter: filter, order: order }, context)
       end
 
-      def proposal(id: )
-        ProposalFinderHelper.new(model_class: Proposal).call(object, {id: id}, context)
+      def proposal(id:)
+        ProposalFinderHelper.new(model_class: Proposal).call(object, { id: id }, context)
       end
     end
-
   end
 end

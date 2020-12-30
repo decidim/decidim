@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with attachments"
 
-      field :attachments, [Decidim::Core::AttachmentType, null: true], "This object's attachments", null: false
+      field :attachments, [Decidim::Core::AttachmentType, { null: true }], "This object's attachments", null: false
     end
   end
 end

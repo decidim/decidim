@@ -28,34 +28,45 @@ module Decidim
       "
 
       argument :type, type: String, description: "Filters by type of entity (User or UserGroup)", required: false, prepare: ->(value, _ctx) do
-                 type = value.downcase.camelcase
-                 type = "UserGroup" if %w(Group Usergroup).include?(type)
-                 { type: "Decidim::#{type}" }
+                                                                                                                              type = value.downcase.camelcase
+                                                                                                                              if %w(Group Usergroup).include?(type)
+                                                                                                                                type = "UserGroup"
+                                                                                                                              end
+                                                                                                                              { type: "Decidim::#{type}" }
+                                                                                                                            end
+      argument :name,
+               type: String,
+               description: "Filters by name of the user entity. Searches (case insensitive) any fragment of the provided string",
+               required: false,
+               prepare: ->(value, _ctx) do
+                 [lambda { |model_class, _locale| model_class.arel_table[:name].matches("%#{value}%") }]
                end
-      argument :name, type: String, description: "Filters by name of the user entity. Searches (case insensitive) any fragment of the provided string", required: false, prepare: ->(value, _ctx) do
-                 proc do |model_class|
-                   model_class.arel_table[:name].matches("%#{value}%")
-                 end
-               end
-      argument :nickname, type: String, description: "Filters by nickname of the user entity. Searches (case insensitive) any fragment of the provided string", required: false, prepare: ->(value, _ctx) do
-                 proc do |model_class|
-                   value = value[1..-1] if value.starts_with? "@"
-                   model_class.arel_table[:nickname].matches("%#{value}%")
-                 end
-               end
-      argument :wildcard, type: String, description: "Filters by nickname or name of the user entity. Searches (case insensitive) any fragment of the provided string", required: false, prepare: ->(value, _ctx) do
-                 proc do |model_class|
-                   value = value[1..-1] if value.starts_with? "@"
-                   op_name = model_class.arel_table[:name].matches("%#{value}%")
-                   op_nick = model_class.arel_table[:nickname].matches("%#{value}%")
-                   op_name.or(op_nick)
-                 end
-               end
-      argument :exclude_ids, type: [ID], description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)", required: false, prepare: ->(value, _ctx) do
-                 proc do |model_class|
-                   model_class.arel_table[:id].not_in(value)
-                 end
-               end
+      argument :nickname,
+               type: String,
+               description: "Filters by nickname of the user entity. Searches (case insensitive) any fragment of the provided string",
+               required: false, prepare: ->(value, _ctx) do
+                                           value = value[1..-1] if value.starts_with? "@"
+                                           [lambda { |model_class, _locale| model_class.arel_table[:nickname].matches("%#{value}%") }]
+                                         end
+      argument :wildcard,
+               type: String,
+               description: "Filters by nickname or name of the user entity. Searches (case insensitive) any fragment of the provided string",
+               required: false, prepare: ->(value, _ctx) do
+                                           value = value[1..-1] if value.starts_with? "@"
+                                           [
+                                             lambda { |model_class, _locale|
+                                               op_name = model_class.arel_table[:name].matches("%#{value}%")
+                                               op_nick = model_class.arel_table[:nickname].matches("%#{value}%")
+                                               op_name.or(op_nick)
+                                             }
+                                           ]
+                                         end
+      argument :exclude_ids, type: [ID],
+                             description: "Excludes users contained in given ids. Valid values are one or more IDs (passed as an array)",
+                             required: false,
+                             prepare: ->(value, _ctx) do
+                                        [lambda { |model_class, _locale| model_class.arel_table[:id].not_in(value) }]
+                                      end
     end
   end
 end

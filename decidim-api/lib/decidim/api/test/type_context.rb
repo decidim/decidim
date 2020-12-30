@@ -42,11 +42,11 @@ shared_context "with a graphql class type" do
 end
 
 shared_context "with a graphql type" do
-  include_context  "with a graphql class type"
+  include_context "with a graphql class type"
 end
 
 shared_context "with a graphql scalar type" do
-  include_context  "with a graphql scalar class type"
+  include_context "with a graphql scalar class type"
 end
 
 shared_context "with a graphql scalar class type" do

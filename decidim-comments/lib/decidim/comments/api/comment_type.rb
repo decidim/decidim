@@ -17,7 +17,7 @@ module Decidim
 
       field :sgid, String, "The Comment's signed global id", null: false
       def sgid
-          object.to_sgid.to_s
+        object.to_sgid.to_s
       end
 
       field :body, String, "The comment message", null: false
@@ -53,14 +53,14 @@ module Decidim
 
       field :down_votes, Int, "The number of comment's downVotes", null: false
       def down_votes
-          object.down_votes.size
+        object.down_votes.size
       end
 
       field :down_voted, Boolean, "Check if the current user has downvoted the comment", null: false
 
-        def down_voted
-          object.down_voted_by?(context[:current_user])
-      end
+      def down_voted
+        object.down_voted_by?(context[:current_user])
+    end
 
       field :has_comments, Boolean, "Check if the commentable has comments", null: false
       def has_comments

@@ -20,7 +20,7 @@ module Decidim
       field :promoting_comittee_enabled, Boolean, "If promoting committee is enabled", method: :promoting_committee_enabled, null: true
       field :signature_type, String, "Signature type of the initiative", null: true
 
-      field :initiatives, [Decidim::Initiatives::InitiativeType, null: true], "The initiatives that have this type", null: false
+      field :initiatives, [Decidim::Initiatives::InitiativeType, { null: true }], "The initiatives that have this type", null: false
     end
   end
 end

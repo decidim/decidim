@@ -6,9 +6,9 @@ module Decidim
     class TranslatedFieldType < Decidim::Api::Types::BaseObject
       description "A translated field"
 
-      field :locales, [String, null: true], description: "Lists all the locales in which this translation is available", null: true
+      field :locales, [String, { null: true }], description: "Lists all the locales in which this translation is available", null: true
 
-      field :translations, [LocalizedStringType, null: true], null: false do
+      field :translations, [LocalizedStringType, { null: true }], null: false do
         description "All the localized strings for this translation."
         argument :locales, [String], description: "A list of locales to scope the translations to.", required: false
       end

@@ -5,7 +5,6 @@ module Decidim
     class ElectionsType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::ComponentInterface
 
-
       graphql_name "Elections"
       description "An elections component of a participatory space."
 

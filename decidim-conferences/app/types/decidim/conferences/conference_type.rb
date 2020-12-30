@@ -4,7 +4,6 @@ module Decidim
   module Conferences
     # This type represents a conference.
     class ConferenceType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
@@ -34,10 +33,10 @@ module Decidim
       field :available_slots, Integer, "The number of available slots in this conference", null: true
       field :registration_terms, Decidim::Core::TranslatedFieldType, "The registration terms of this conference", null: true
 
-      field :speakers, [Decidim::Conferences::ConferenceSpeakerType, null: true], "List of speakers in this conference", null: true
-      field :partners, [Decidim::Conferences::ConferencePartnerType, null: true], "List of partners in this conference", null: true
-      field :categories, [Decidim::Core::CategoryType, null: true], "List of categories in this conference", null: true
-      field :media_links, [Decidim::Conferences::ConferenceMediaLinkType, null: true], "List of media links in this conference", null: true
+      field :speakers, [Decidim::Conferences::ConferenceSpeakerType, { null: true }], "List of speakers in this conference", null: true
+      field :partners, [Decidim::Conferences::ConferencePartnerType, { null: true }], "List of partners in this conference", null: true
+      field :categories, [Decidim::Core::CategoryType, { null: true }], "List of categories in this conference", null: true
+      field :media_links, [Decidim::Conferences::ConferenceMediaLinkType, { null: true }], "List of media links in this conference", null: true
     end
   end
 end

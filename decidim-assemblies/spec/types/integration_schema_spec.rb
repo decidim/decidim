@@ -239,14 +239,17 @@ describe "Decidim::Api::QueryType" do
         expect(response["assemblies"].first).to eq(assembly_data)
       end
     end
+
     context "with parameters" do
       context "with filters" do
         describe "published_before" do
           pending
         end
+
         describe "published_since" do
           pending
         end
+
         describe "hashtag" do
           pending
         end
@@ -256,9 +259,11 @@ describe "Decidim::Api::QueryType" do
         describe "published_at" do
           pending
         end
+
         describe "id" do
           pending
         end
+
         describe "start_date" do
           pending
         end

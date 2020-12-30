@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-
     class ComponentListHelper < ComponentList
     end
 
@@ -27,10 +26,10 @@ module Decidim
       end
 
       def components(filter: {}, order: {})
-        ComponentList.new.call(object, {filter: filter, order: order}, context)
+        ComponentList.new.call(object, { filter: filter, order: order }, context)
       end
 
-      field :stats, [Decidim::Core::StatisticType, null: true], null: true
+      field :stats, [Decidim::Core::StatisticType, { null: true }], null: true
 
       def stats
         return if object.respond_to?(:show_statistics) && !object.show_statistics
@@ -48,6 +47,5 @@ module Decidim
         obj.manifest.query_type.constantize
       end
     end
-
   end
 end

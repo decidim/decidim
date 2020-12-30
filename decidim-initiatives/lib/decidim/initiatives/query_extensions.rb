@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def self.included(type)
-        type.field :initiatives_types,[InitiativeApiType], null: false  do
+        type.field :initiatives_types, [InitiativeApiType], null: false do
           description "Lists all initiative types"
         end
 
@@ -31,7 +31,6 @@ module Decidim
             id: id
           )
         end
-
       end
     end
   end

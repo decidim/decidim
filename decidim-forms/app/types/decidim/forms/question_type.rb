@@ -14,7 +14,7 @@ module Decidim
       field :position, Integer, "Order position of the question in the questionnaire", null: true
       field :max_choices, Integer, "On questions with answer options, maximum number of choices the user has", null: true
       field :question_type, String, "Type of question.", null: true
-      field :answer_options, [AnswerOptionType, null: true], "List of answer options in multi-choice questions.", null: false
+      field :answer_options, [AnswerOptionType, { null: true }], "List of answer options in multi-choice questions.", null: false
     end
   end
 end

@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with endorsements"
 
-      field :endorsements, [Decidim::Core::AuthorInterface, null: true], "The endorsements of this object.", null: false
+      field :endorsements, [Decidim::Core::AuthorInterface, { null: true }], "The endorsements of this object.", null: false
 
       def endorsements
         object.endorsements.map(&:normalized_author)

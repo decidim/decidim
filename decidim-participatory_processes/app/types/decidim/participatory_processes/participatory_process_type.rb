@@ -4,10 +4,9 @@ module Decidim
   module ParticipatoryProcesses
     # This type represents a ParticipatoryProcess.
     class ParticipatoryProcessType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
-      implements  Decidim::Core::ScopableInterface
+      implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
 
       description "A participatory process"
@@ -40,8 +39,8 @@ module Decidim
       field :announcement, Decidim::Core::TranslatedFieldType, "Highlighted announcement for this participatory process.", null: true
 
       field :reference, String, "Reference prefix for this participatory process", null: true
-      field :steps, [ParticipatoryProcessStepType, null: true], "All the steps of this process.", null: false
-      field :categories, [Decidim::Core::CategoryType, null: true], "Categories for this participatory process", null: false
+      field :steps, [ParticipatoryProcessStepType, { null: true }], "All the steps of this process.", null: false
+      field :categories, [Decidim::Core::CategoryType, { null: true }], "Categories for this participatory process", null: false
 
       field :participatory_process_group, ParticipatoryProcessGroupType, description: "The participatory process group in which this process belong to", null: true
     end

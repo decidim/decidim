@@ -4,7 +4,6 @@ module Decidim
   module Elections
     # This type represents an election trustee.
     class TrusteeType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::TraceableInterface
 
       description "A trustee for an election"

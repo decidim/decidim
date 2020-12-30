@@ -15,7 +15,7 @@ module Decidim
       field :created_at, Decidim::Core::DateTimeType, "When this budget was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, "When this budget was updated", null: true
 
-      field :projects, [Decidim::Budgets::ProjectType, null: true], "The projects for this budget", null: false
+      field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
     end
   end
 end

@@ -14,18 +14,16 @@ module Decidim
       end
 
       field :post, type: PostType, description: "Finds one post", null: true do
-
         argument :id, ID, "The ID of the post", required: true
       end
 
       def posts(filter: {}, order: {})
-        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, {filter: filter, order: order}, context)
+        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter: filter, order: order }, context)
       end
 
       def post(id:)
-        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, {id: id}, context)
+        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, { id: id }, context)
       end
     end
-
   end
 end

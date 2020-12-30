@@ -16,7 +16,7 @@ module Decidim
         author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
       end
 
-      field :authors, [Decidim::Core::AuthorInterface, null: true], method: :user_identities, description: "The resource co-authors. Include only users or groups of users", null: false
+      field :authors, [Decidim::Core::AuthorInterface, { null: true }], method: :user_identities, description: "The resource co-authors. Include only users or groups of users", null: false
     end
   end
 end

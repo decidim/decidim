@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used with services."
 
-      field :services, [ServiceType, null: true], "The object's services", null: false
+      field :services, [ServiceType, { null: true }], "The object's services", null: false
     end
   end
 end

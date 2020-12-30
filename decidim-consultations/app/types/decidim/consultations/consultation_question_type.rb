@@ -4,10 +4,9 @@ module Decidim
   module Consultations
     # This type represents a consultation.
     class ConsultationQuestionType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::ScopableInterface
       implements Decidim::Core::AttachableInterface
-      implements  Decidim::Comments::CommentableInterface
+      implements Decidim::Comments::CommentableInterface
 
       description "A consultation question"
 
@@ -19,12 +18,12 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "The time this question was updated", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this question was published", null: false
 
-      field :components, [Decidim::Core::ComponentInterface, null: true], description: "Lists the components this space contains.", null: true
+      field :components, [Decidim::Core::ComponentInterface, { null: true }], description: "Lists the components this space contains.", null: true
 
       def components
         Decidim::Component.where(
-                  participatory_space: object
-                ).published
+          participatory_space: object
+        ).published
       end
 
       field :banner_image, String, "The banner image for this question", null: true

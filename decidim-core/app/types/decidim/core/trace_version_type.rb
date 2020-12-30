@@ -15,9 +15,7 @@ module Decidim
       end
       field :changeset, GraphQL::Types::JSON, description: "Object with the changes in this version", null: true
 
-      def changeset
-        object.changeset
-      end
+      delegate :changeset, to: :object
     end
   end
 end

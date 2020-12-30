@@ -6,7 +6,7 @@ module Decidim
     class UserType < Decidim::Api::Types::BaseObject
       description "A user"
 
-      implements  Decidim::Core::AuthorInterface
+      implements Decidim::Core::AuthorInterface
 
       field :id, ID, "The user's id", null: false
 
@@ -54,7 +54,7 @@ module Decidim
         object.presenter.badge
       end
 
-      field :groups, [UserGroupType, null: true], "Groups where this user belongs", null: false
+      field :groups, [UserGroupType, { null: true }], "Groups where this user belongs", null: false
 
       def groups
         object.accepted_user_groups

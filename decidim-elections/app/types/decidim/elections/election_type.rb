@@ -4,9 +4,8 @@ module Decidim
   module Elections
     # This type represents an Election.
     class ElectionType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::AttachableInterface
-      implements  Decidim::Core::TraceableInterface
+      implements Decidim::Core::TraceableInterface
 
       description "An election"
 
@@ -21,8 +20,8 @@ module Decidim
       field :blocked, Boolean, "Whether this election has it's parameters blocked or not", method: :blocked?, null: true
       field :bb_status, String, "The status for this election in the bulletin board", null: true, camelize: false
 
-      field :questions, [Decidim::Elections::ElectionQuestionType, null: true], "The questions for this election", null: false
-      field :trustees, [Decidim::Elections::TrusteeType, null: true], "The trustees for this election", null: false
+      field :questions, [Decidim::Elections::ElectionQuestionType, { null: true }], "The questions for this election", null: false
+      field :trustees, [Decidim::Elections::TrusteeType, { null: true }], "The trustees for this election", null: false
     end
   end
 end

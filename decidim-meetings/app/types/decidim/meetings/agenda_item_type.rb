@@ -9,7 +9,7 @@ module Decidim
       field :id, ID, "The ID for this agenda item", null: false
       field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item", null: true
       field :description, Decidim::Core::TranslatedFieldType, "The description for this agenda item", null: true
-      field :items, [AgendaItemType, null: true], "Sub-items (children) of this agenda item", method: :agenda_item_children, null: false
+      field :items, [AgendaItemType, { null: true }], "Sub-items (children) of this agenda item", method: :agenda_item_children, null: false
       field :parent, AgendaItemType, "Parent agenda item, if available", null: true
       field :agenda, AgendaType, "Belonging agenda", null: true
       field :duration, Integer, "Duration in number of minutes for this item in this agenda", null: false

@@ -4,7 +4,6 @@ module Decidim
   module Assemblies
     # This type represents a assembly.
     class AssemblyType < Decidim::Api::Types::BaseObject
-
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
@@ -21,7 +20,7 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "The time this assembly was updated", null: false
       field :published_at, Decidim::Core::DateTimeType, "The time this assembly was published", null: false
       field :reference, String, "Reference for this assembly", null: false
-      field :categories, [Decidim::Core::CategoryType, null: true], "Categories for this assembly", null: false
+      field :categories, [Decidim::Core::CategoryType, { null: true }], "Categories for this assembly", null: false
 
       field :hero_image, String, "The hero image for this assembly", null: true
       field :banner_image, String, "The banner image for this assembly", null: true
@@ -58,8 +57,8 @@ module Decidim
       field :youtube_handler, String, "Youtube handler", null: true
       field :github_handler, String, "Github handler", null: true
 
-      field :members, [Decidim::Assemblies::AssemblyMemberType, null: true], "Members of this assembly", null: false
-      field :children, [Decidim::Assemblies::AssemblyType, null: true], "Childrens of this assembly", null: false
+      field :members, [Decidim::Assemblies::AssemblyMemberType, { null: true }], "Members of this assembly", null: false
+      field :children, [Decidim::Assemblies::AssemblyType, { null: true }], "Childrens of this assembly", null: false
     end
   end
 end

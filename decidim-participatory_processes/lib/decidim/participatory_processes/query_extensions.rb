@@ -12,7 +12,7 @@ module Decidim
       # Returns nothing.
       def self.included(type)
         type.field :participatory_process_groups, [ParticipatoryProcessGroupType], null: false,
-          description: "Lists all participatory process groups"
+                                                                                   description: "Lists all participatory process groups"
 
         def participatory_process_groups(args: {})
           Decidim::ParticipatoryProcessGroup.where(

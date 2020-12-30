@@ -5,8 +5,7 @@ module Decidim
     # This type represents an answer to an election question.
     # The name is different from the model because to enforce consistency with Question type name.
     class ElectionAnswerType < Decidim::Api::Types::BaseObject
-
-      implements  Decidim::Core::AttachableInterface
+      implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TraceableInterface
 
       description "An answer for an election's question"
@@ -18,7 +17,7 @@ module Decidim
       field :votes_count, Integer, "The votes for this answer", null: true, camelize: false
       field :selected, Boolean, "Is this answer selected?", null: true
 
-      field :proposals, [Decidim::Proposals::ProposalType, null: true], "The proposals related to this answer", null: true
+      field :proposals, [Decidim::Proposals::ProposalType, { null: true }], "The proposals related to this answer", null: true
     end
   end
 end

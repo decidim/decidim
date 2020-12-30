@@ -19,7 +19,7 @@ module Decidim
           )
         end
 
-        type.field :assemblies_type, AssembliesTypeType, null: true, description: "Finds an assemblies type group"  do
+        type.field :assemblies_type, AssembliesTypeType, null: true, description: "Finds an assemblies type group" do
           argument :id, GraphQL::Types::ID, description: "The ID of the Assemblies type", required: true
         end
 
