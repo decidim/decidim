@@ -26,9 +26,9 @@ module Decidim
         translations[locale]
       end
 
-      def translations(args: {})
+      def translations(locales: [])
         translations = object.stringify_keys
-        translations = translations.slice(*args["locales"]) if args["locales"]
+        translations = translations.slice(*locales) unless locales.empty?
 
         translations.map { |locale, text| OpenStruct.new(locale: locale, text: text) }
       end

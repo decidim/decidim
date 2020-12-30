@@ -14,9 +14,7 @@ module Decidim
                type: String,
                description: "Sort by type of component, alphabetically, valid values are ASC or DESC",
                required: false,
-               prepare: ->(direction, _ctx) do
-                 { manifest_name: direction }
-               end
+               as: :manifest_name
       argument :name,
                type: String,
                description: "Sort by name of the component, alphabetically, valid values are ASC or DESC",
