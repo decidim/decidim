@@ -88,6 +88,8 @@ it:
         name: Nome
         organization: Organizzazione
         plural: Plurale
+      settings:
+        scope_id: Obiettivi
       static_page:
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
