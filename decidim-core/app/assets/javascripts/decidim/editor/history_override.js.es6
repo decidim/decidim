@@ -3,24 +3,25 @@
 // import Module from '../core/module';
 
 ((exports) => {
-  const Parchment = exports.Parchment
   const Quill = exports.Quill;
+  const Parchment = Quill.import("parchment")
   const History = Quill.import("modules/history");
-  console.log("LOAd")
 
   class HistoryOverride extends History {
     constructor(quill, options) {
-      console.log("RAKENTAA")
       super(quill, options);
       this.lastRecorded = 0;
       this.ignoreChange = false;
-      this.clear();
+      this.quill.emitter.on("editor-ready", () => {
+        this.stack = { undo: [], redo: [] };
+        const $input = $(this.quill.container).siblings('input[type="hidden"]');
+        this.stack.undo.push($input.val() || "");
+        this.lastLength = this.quill.getLength();
+      })
       this.quill.on(Quill.events.EDITOR_CHANGE, (eventName, delta, oldDelta, source) => {
         if (eventName !== Quill.events.TEXT_CHANGE || this.ignoreChange) return;
         if (!this.options.userOnly || source === Quill.sources.USER) {
           this.record(delta, oldDelta);
-        } else {
-          this.transform(delta);
         }
       });
       this.quill.keyboard.addBinding({ key: 'Z', shortKey: true }, this.undo.bind(this));
@@ -32,13 +33,19 @@
 
     change(source, dest) {
       if (this.stack[source].length === 0) return;
-      let delta = this.stack[source].pop();
-      this.stack[dest].push(delta);
+      console.log("stack size", this.stack[source].length)
+      let content = this.stack[source].pop();
+      this.stack[dest].push(content);
+      if (content === $(this.quill.container).siblings('input[type="hidden"]').val()) content = this.stack[source].pop();
+      if (!content) return;
+      console.log("content", content)
       this.lastRecorded = 0;
       this.ignoreChange = true;
-      this.quill.updateContents(delta[source], Quill.sources.USER);
+
+      this.quill.setContents(this.quill.clipboard.convert(content));
       this.ignoreChange = false;
-      let index = getLastChangeIndex(delta[source]);
+      // let index = getLastChangeIndex(delta[source]);
+      let index = 0
       this.quill.setSelection(index);
     }
 
@@ -50,25 +57,15 @@
       this.lastRecorded = 0;
     }
 
-    record(changeDelta, oldDelta) {
+    record(changeDelta, _oldDelta) {
       if (changeDelta.ops.length === 0) return;
+      if (this.lastLength === this.quill.getLength()) return;
       this.stack.redo = [];
-      let undoDelta = this.quill.getContents().diff(oldDelta);
-      let timestamp = Date.now();
-      if (this.lastRecorded + this.options.delay > timestamp && this.stack.undo.length > 0) {
-        let delta = this.stack.undo.pop();
-        undoDelta = undoDelta.compose(delta.undo);
-        changeDelta = delta.redo.compose(changeDelta);
-      } else {
-        this.lastRecorded = timestamp;
-      }
-      this.stack.undo.push({
-        redo: changeDelta,
-        undo: undoDelta
-      });
-      if (this.stack.undo.length > this.options.maxStack) {
-        this.stack.undo.shift();
-      }
+      this.lastLength = this.quill.getLength();
+
+      const $input = $(this.quill.container).siblings('input[type="hidden"]');
+      console.log("save", $input.val())
+      this.stack.undo.push($input.val())
     }
 
     redo() {
@@ -76,18 +73,17 @@
     }
 
     transform(delta) {
-      this.stack.undo.forEach(function(change) {
-        change.undo = delta.transform(change.undo, true);
-        change.redo = delta.transform(change.redo, true);
-      });
-      this.stack.redo.forEach(function(change) {
-        change.undo = delta.transform(change.undo, true);
-        change.redo = delta.transform(change.redo, true);
-      });
+      // this.stack.undo.forEach(function(change) {
+      //   change.undo = delta.transform(change.undo, true);
+      //   change.redo = delta.transform(change.redo, true);
+      // });
+      // this.stack.redo.forEach(function(change) {
+      //   change.undo = delta.transform(change.undo, true);
+      //   change.redo = delta.transform(change.redo, true);
+      // });
     }
 
     undo() {
-      console.log("UNDO")
       this.change('undo', 'redo');
     }
   }
@@ -112,15 +108,7 @@
   }
 
   function getLastChangeIndex(delta) {
-    let deleteLength = delta.reduce(function(length, op) {
-      length += (op.delete || 0);
-      return length;
-    }, 0);
-    let changeIndex = delta.length() - deleteLength;
-    if (endsWithNewlineChange(delta)) {
-      changeIndex -= 1;
-    }
-    return changeIndex;
+    return 0;
   }
 
   exports.Decidim.Editor.HistoryOverride = HistoryOverride // { History as default, getLastChangeIndex };

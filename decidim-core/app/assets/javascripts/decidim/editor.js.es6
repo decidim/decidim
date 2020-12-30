@@ -1,4 +1,4 @@
-// = require quill.js
+// = require quill.min
 // = require decidim/editor/linebreak_module
 // = require decidim/editor/history_override.js.es6
 // = require_self
@@ -9,6 +9,7 @@
   const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
 
   const createQuillEditor = (container) => {
+    // console.log("orignal container", container)
     const toolbar = $(container).data("toolbar");
     const disabled = $(container).data("disabled");
 
@@ -32,11 +33,13 @@
     }
 
     const $input = $(container).siblings('input[type="hidden"]');
+    // console.log("orginal $input", $input)
     container.innerHTML = $input.val() || "";
 
     const quill = new Quill(container, {
       modules: {
         linebreak: {},
+        history: { userOnly: true},
         toolbar: {
           container: quillToolbar,
           handlers: {
