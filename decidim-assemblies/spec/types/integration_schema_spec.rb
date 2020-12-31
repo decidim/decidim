@@ -243,29 +243,29 @@ describe "Decidim::Api::QueryType" do
     context "with parameters" do
       context "with filters" do
         describe "published_before" do
-          pending
+          it { pending }
         end
 
         describe "published_since" do
-          pending
+          it { pending }
         end
 
         describe "hashtag" do
-          pending
+          it { pending }
         end
       end
 
       context "with order" do
         describe "published_at" do
-          pending
+          it { pending }
         end
 
         describe "id" do
-          pending
+          it { pending }
         end
 
         describe "start_date" do
-          pending
+          it { pending }
         end
       end
     end

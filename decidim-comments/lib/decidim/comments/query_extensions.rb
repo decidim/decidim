@@ -15,14 +15,14 @@ module Decidim
           argument :id, GraphQL::Types::String, "The commentable's ID", required: true
           argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
-          argument :toggleTranslations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
+      end
 
-        def commentable(args: {})
-          I18n.locale = args[:locale].presence
-          RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-          args[:type].constantize.find(args[:id])
-        end
+      def commentable(id:, locale:, toggle_translations:, type:)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        type.constantize.find(id)
       end
     end
   end

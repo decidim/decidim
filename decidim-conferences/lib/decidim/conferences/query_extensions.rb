@@ -19,24 +19,24 @@ module Decidim
           argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
         end
 
-        def conferences(filter: {}, order: {})
-          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
-
-          Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-        end
-
         type.field :conference,
                    Decidim::Conferences::ConferenceType,
                    null: true,
                    description: "Finds a conference" do
           argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
         end
+      end
 
-        def conference(id: nil)
-          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
+      def conferences(filter: {}, order: {})
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
 
-          Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
-        end
+        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+      end
+
+      def conference(id: nil)
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
+
+        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
       end
     end
   end

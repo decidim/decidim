@@ -21,11 +21,6 @@ module Decidim
         argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
       end
 
-      def participatory_processes(filter: {}, order: {})
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-      end
-
       type.field :participatory_process,
                  Decidim::ParticipatoryProcesses::ParticipatoryProcessType,
                  null: true,
@@ -34,70 +29,25 @@ module Decidim
         argument :slug, String, "The slug of the participatory process", required: false
       end
 
-      def participatory_process(id: nil, slug: nil)
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-        Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder.new(manifest: manifest).call(object, { id: nil, slug: slug }, context)
-      end
-
       type.field :component, Decidim::Core::ComponentInterface, null: true do
         description "Lists the components this space contains."
         argument :id, GraphQL::Types::ID, required: true, description: "The ID of the component to be found"
       end
 
-      def component(id: {})
-        component = Decidim::Component.published.find_by(id: id)
-        component&.organization == context[:current_organization] ? component : nil
-      end
-
       type.field :session, Core::SessionType, description: "Return's information about the logged in user", null: true
-
-      def session
-        context[:current_user]
-      end
 
       type.field :decidim, Core::DecidimType, "Decidim's framework properties.", null: true
 
-      def decidim
-        Decidim
-      end
-
       type.field :organization, Core::OrganizationType, "The current organization", null: true
-
-      def organization
-        context[:current_organization]
-      end
 
       type.field :hashtags, [Core::HashtagType], null: true, description: "The hashtags for current organization" do
         argument :name, GraphQL::Types::String, "The name of the hashtag", required: false
-      end
-
-      def hashtags(name: nil)
-        Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
       end
 
       type.field :metrics, type: [Decidim::Core::MetricType], null: true do
         argument :names, [GraphQL::Types::String], "The names of the metrics you want to retrieve", camelize: false, required: false
         argument :space_type, GraphQL::Types::String, "The type of ParticipatorySpace you want to filter with", camelize: false, required: false
         argument :space_id, GraphQL::Types::Int, "The ID of ParticipatorySpace you want to filter with", camelize: false, required: false
-      end
-
-      def metrics(names: [], space_type: nil, space_id: nil)
-        manifests = if names.blank?
-                      Decidim.metrics_registry.all
-                    else
-                      Decidim.metrics_registry.all.select do |manifest|
-                        names.include?(manifest.metric_name.to_s)
-                      end
-                    end
-        filters = {}
-        if space_type.present? && space_id.present?
-          filters[:participatory_space_type] = space_type
-          filters[:participatory_space_id] = space_id
-        end
-
-        manifests.map do |manifest|
-          Decidim::Core::MetricResolver.new(manifest.metric_name, context[:current_organization], filters)
-        end
       end
 
       type.field :user,
@@ -113,14 +63,64 @@ module Decidim
         argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
       end
+    end
 
-      def user(id: nil)
-        Core::UserEntityFinder.new.call(object, { id: id }, context)
+    def participatory_processes(filter: {}, order: {})
+      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
+      Decidim::ParticipatoryProcesses::ParticipatoryProcessList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+    end
+
+    def participatory_process(id: nil, slug: nil)
+      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
+      Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder.new(manifest: manifest).call(object, { id: id, slug: slug }, context)
+    end
+
+    def component(id: {})
+      component = Decidim::Component.published.find_by(id: id)
+      component&.organization == context[:current_organization] ? component : nil
+    end
+
+    def session
+      context[:current_user]
+    end
+
+    def decidim
+      Decidim
+    end
+
+    def organization
+      context[:current_organization]
+    end
+
+    def hashtags(name: nil)
+      Decidim::HashtagsResolver.new(context[:current_organization], name).hashtags
+    end
+
+    def metrics(names: [], space_type: nil, space_id: nil)
+      manifests = if names.blank?
+                    Decidim.metrics_registry.all
+                  else
+                    Decidim.metrics_registry.all.select do |manifest|
+                      names.include?(manifest.metric_name.to_s)
+                    end
+                  end
+      filters = {}
+      if space_type.present? && space_id.present?
+        filters[:participatory_space_type] = space_type
+        filters[:participatory_space_id] = space_id
       end
 
-      def users(filter: {}, order: {})
-        Core::UserEntityList.new.call(object, { filter: filter, order: order }, context)
+      manifests.map do |manifest|
+        Decidim::Core::MetricResolver.new(manifest.metric_name, context[:current_organization], filters)
       end
+    end
+
+    def user(id: nil)
+      Core::UserEntityFinder.new.call(object, { id: id }, context)
+    end
+
+    def users(filter: {}, order: {})
+      Core::UserEntityList.new.call(object, { filter: filter, order: order }, context)
     end
   end
 end

@@ -23,8 +23,15 @@ module Decidim
       field :signature_end_date, Decidim::Core::DateType, "The signature end date", null: false
       field :offline_votes, Integer, "The number of offline votes in this initiative", method: :offline_votes_count, null: true
       field :online_votes, Integer, "The number of online votes in this initiative", method: :online_votes_count, null: true
-      field :initiative_votes_count, Integer, description: "The number of votes in this initiative", deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter", null: true
-      field :initiative_supports_count, Integer, description: "The number of supports in this initiative", method: :online_votes_count, deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter", null: true
+      field :initiative_votes_count, Integer,
+            description: "The number of votes in this initiative",
+            deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter",
+            null: true
+      field :initiative_supports_count, Integer,
+            description: "The number of supports in this initiative",
+            method: :online_votes_count,
+            deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter",
+            null: true
 
       field :author, Decidim::Core::AuthorInterface, "The initiative author", null: false
 

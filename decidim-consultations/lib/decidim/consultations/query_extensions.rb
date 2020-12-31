@@ -11,7 +11,6 @@ module Decidim
       #
       # Returns nothing.
       def self.included(type)
-
         type.field :consultations,
                    [Decidim::Consultations::ConsultationType],
                    null: true,
@@ -20,25 +19,24 @@ module Decidim
           argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
         end
 
-        def consultations(filter: {}, order: {})
-          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
-
-          Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-        end
-
         type.field :consultation,
                    Decidim::Consultations::ConsultationType,
                    null: true,
                    description: "Finds a consultation" do
           argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
         end
+      end
 
-        def consultation(id: nil)
-          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
+      def consultations(filter: {}, order: {})
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
 
-          Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
-        end
+        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+      end
 
+      def consultation(id: nil)
+        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
+
+        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
       end
     end
   end

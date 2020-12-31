@@ -17,13 +17,7 @@ module Decidim
           argument :id, GraphQL::Types::String, "The commentable's ID", required: true
           argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
-          argument :toggleTranslations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
-        end
-
-        def commentable(id:, locale: ,  toggleTranslations: , type:  )
-          I18n.locale = locale.presence
-          RequestStore.store[:toggle_machine_translations] = toggleTranslations
-          type.constantize.find(id)
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
 
         type.field :comment, Decidim::Comments::CommentMutationType, null: false do
@@ -31,13 +25,20 @@ module Decidim
 
           argument :id, GraphQL::Types::ID, "The comment's id", required: true
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
-          argument :toggleTranslations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
+          argument :toggle_translations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
-        def comment(id:, locale: ,  toggleTranslations:)
-          I18n.locale = locale.presence
-          RequestStore.store[:toggle_machine_translations] = toggleTranslations
-          Comment.find(id)
-        end
+      end
+
+      def commentable(id:, locale:, toggle_translations:, type:)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        type.constantize.find(id)
+      end
+
+      def comment(id:, locale:, toggle_translations:)
+        I18n.locale = locale.presence
+        RequestStore.store[:toggle_machine_translations] = toggle_translations
+        Comment.find(id)
       end
     end
   end
