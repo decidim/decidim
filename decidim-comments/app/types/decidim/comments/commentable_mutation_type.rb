@@ -13,8 +13,8 @@ module Decidim
         argument :user_group_id, ID, "The comment's user group id. Replaces the author.", required: false
       end
 
-      def add_comment(args: {})
-        params = { "comment" => { "body" => args[:body], "alignment" => args[:alignment], "user_group_id" => args[:userGroupId], "commentable" => object } }
+      def add_comment(body:, alignment: nil, user_group_id: nil)
+        params = { "comment" => { "body" => body, "alignment" => alignment, "user_group_id" => user_group_id, "commentable" => object } }
         form = Decidim::Comments::CommentForm.from_params(params).with_context(
           current_organization: context[:current_organization],
           current_component: object.component

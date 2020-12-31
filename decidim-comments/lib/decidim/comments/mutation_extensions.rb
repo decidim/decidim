@@ -20,10 +20,10 @@ module Decidim
           argument :toggleTranslations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
 
-        def commentable(args: {})
-          I18n.locale = args[:locale].presence
-          RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-          args[:type].constantize.find(args[:id])
+        def commentable(id:, locale: ,  toggleTranslations: , type:  )
+          I18n.locale = locale.presence
+          RequestStore.store[:toggle_machine_translations] = toggleTranslations
+          type.constantize.find(id)
         end
 
         type.field :comment, Decidim::Comments::CommentMutationType, null: false do
@@ -33,10 +33,10 @@ module Decidim
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
           argument :toggleTranslations, GraphQL::Types::Boolean, "Whether the user asked to toggle the machine translations or not.", required: true
         end
-        def comment(args: {})
-          I18n.locale = args[:locale].presence
-          RequestStore.store[:toggle_machine_translations] = args[:toggleTranslations]
-          Comment.find(args["id"])
+        def comment(id:, locale: ,  toggleTranslations:)
+          I18n.locale = locale.presence
+          RequestStore.store[:toggle_machine_translations] = toggleTranslations
+          Comment.find(id)
         end
       end
     end

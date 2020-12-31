@@ -10,12 +10,12 @@ module Decidim
 
       field :up_vote, Decidim::Comments::CommentType, null: true
       def up_vote(args: {})
-        resolve VoteCommentResolver.new(weight: 1).call(object, args, context)
+        VoteCommentResolver.new(weight: 1).call(object, args, context)
       end
 
       field :down_vote, Decidim::Comments::CommentType, null: true
       def down_vote(args: {})
-        resolve VoteCommentResolver.new(weight: -1).call(object, args, context)
+        VoteCommentResolver.new(weight: -1).call(object, args, context)
       end
     end
   end

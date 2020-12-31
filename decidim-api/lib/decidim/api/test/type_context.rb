@@ -10,13 +10,9 @@ shared_context "with a graphql class type" do
 
   let(:schema) do
     klass = type_class
-    #
-    # Class.new(GraphQL::Schema) do
-    #
-    #   # orphan_types(Decidim::Api.orphan_types)
-    # end
     Class.new(Decidim::Api::Schema) do
       query klass
+      orphan_types(Decidim::Api.orphan_types)
     end
   end
 
