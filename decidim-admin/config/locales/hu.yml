@@ -283,6 +283,12 @@ hu:
         solved: Megoldva
         transfer:
           email: Email
+          error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé transzferálása során.
+          name: Név
+          reason: Ok
+          title: Átvezetés
+        'true': 'Igen'
+        user_name: Felhasználó
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
