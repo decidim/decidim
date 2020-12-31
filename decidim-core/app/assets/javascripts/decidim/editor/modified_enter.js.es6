@@ -39,15 +39,18 @@
   const lineBreakHandler = (quill, range, context) => {
     const currentLeaf = quill.getLeaf(range.index)[0];
     const nextLeaf = quill.getLeaf(range.index + 1)[0];
+    const previousChar = quill.getText(range.index - 1, 1);
 
     quill.insertEmbed(range.index, "break", true, "user");
     quill.formatText(range.index + 1, "bold", true)
-
     if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
       quill.insertEmbed(range.index, "break", true, "user");
+    } else if (context.offset === 1 && previousChar === "\n") {
+      const delta = new Delta().retain(range.index).insert("\n");
+      quill.updateContents(delta, Quill.sources.USER);
     }
 
-    quill.format(name, context.format[name], "user");
+    quill.format(name, context.format[name], Quill.sources.USER);
     quill.setSelection(range.index + 1, Quill.sources.SILENT);
 
     const lineFormats = getLineFormats(context);
@@ -76,14 +79,15 @@
       const previousChar = quill.getText(range.index - 1, 1);
       const nextChar = quill.getText(range.index, 1);
       const delta = new Delta().retain(range.index).insert("\n", lineFormats);
+      // const length = context.prefix.length;
       if (previousChar === "" || previousChar === "\n") {
         if (lineFormats.list && nextChar === "\n") {
           if (quill.getLength() - range.index > 2) {
-            const endFormatDelta = new Delta().retain(range.index - length - 1).delete(length + 1);
+            const endFormatDelta = new Delta().retain(range.index - 1).delete(1);
             quill.updateContents(endFormatDelta, Quill.sources.USER);
           } else {
             // Delete empty list item and end the list
-            const endFormatDelta = new Delta().retain(range.index - 1).delete(length + 1).retain(range.index).insert("\n");
+            const endFormatDelta = new Delta().retain(range.index - 1).delete(1).retain(range.index).insert("\n");
             quill.updateContents(endFormatDelta, Quill.sources.USER);
             quill.setSelection(range.index + 1, Quill.sources.SILENT);
           }

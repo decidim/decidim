@@ -12,7 +12,7 @@
       this.lastRecorded = 0;
       this.ignoreChange = false;
       this.quill.emitter.on("editor-ready", () => {
-        this.stack = { undo: [], redo: [] };
+        this.clear();
         const $input = $(this.quill.container).siblings('input[type="hidden"]');
         this.stack.undo.push({content: $input.val() || "", index: this.quill.getLength()-2 });
         this.lastLength = this.quill.getLength();
@@ -57,14 +57,6 @@
       return content
     }
 
-    clear() {
-      this.stack = { undo: [], redo: [] };
-    }
-
-    cutoff() {
-      this.lastRecorded = 0;
-    }
-
     record(changeDelta, _oldDelta) {
       if (changeDelta.ops.length === 0) {
         return
@@ -85,14 +77,6 @@
         }
       }
       this.stack.undo.push({content: this.quill.container.firstChild.innerHTML, index: this.quill.getSelection()})
-    }
-
-    redo() {
-      this.change('redo', 'undo');
-    }
-
-    undo() {
-      this.change('undo', 'redo');
     }
 
     transform(_delta) {

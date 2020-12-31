@@ -2,7 +2,7 @@
 // = require decidim/editor/modified_backspace_utils
 // = require decidim/editor/modified_backspace_offset_any
 // = require decidim/editor/modified_backspace_offset1
-// = require decidim/editor/modified_ctrl-z
+// = require decidim/editor/history_override
 
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 ((exports) => {
@@ -67,7 +67,6 @@
     addEnterBindings(quill);
     backspaceBindingsRangeAny(quill);
     backspaceBindings(quill);
-    // ctrlZ(quill);
 
     return;
   });

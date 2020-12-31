@@ -1,6 +1,5 @@
 // = require quill.min
 // = require decidim/editor/linebreak_module
-// = require decidim/editor/history_override.js.es6
 // = require_self
 
 ((exports) => {
@@ -33,9 +32,7 @@
     }
 
     const $input = $(container).siblings('input[type="hidden"]');
-    // console.log("orginal $input", $input)
     container.innerHTML = $input.val() || "";
-
     const quill = new Quill(container, {
       modules: {
         linebreak: {},

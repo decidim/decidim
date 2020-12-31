@@ -55,6 +55,20 @@ describe "Admin manages organization", type: :system do
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
           )["innerHTML"]).to eq("<p><br></p>")
         end
+
+        it "deletes linebreaks when pressing backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "a", [:left], [:enter], [:shift, :enter], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>a</p>".gsub("\n", ""))
+        end
+
+        it "creates and deletes linebreaks with enter, shift+enter and backspace" do
+          find('div[contenteditable="true"].ql-editor').send_keys "acd", [:left], [:left], [:enter], [:shift, :enter], [:shift, :enter], "b", [:left], [:backspace], [:backspace]
+          expect(find(
+            "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ql-editor"
+          )["innerHTML"]).to eq("<p>abcd</p>".gsub("\n", ""))
+        end
       end
 
       context "when the admin terms of use content has a list" do

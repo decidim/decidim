@@ -35,11 +35,14 @@
           }
         } else {
           if (range.index >= 2) {
+            // console.log("range.index", range.index)
+            // console.log("context.offset", context.offset)
+            // console.log(`previousChar_${previousChar}_previousChar`)
             delta = new Delta().retain(range.index + line.length() - 2).delete(2);
           } else {
             delta = new Delta().retain(range.index + line.length() - 1).delete(1);
           }
-          return;
+          // return;
         }
       } else {
         const [prev] = quill.getLine(range.index - 1);
