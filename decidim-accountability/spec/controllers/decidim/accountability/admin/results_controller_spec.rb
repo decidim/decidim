@@ -29,8 +29,6 @@ module Decidim
           sign_in current_user
         end
 
-        # TODO: Is this test all that is needed here?
-        # Should we also check index NOT rendered when user not admin / not signed in, etc.?
         describe "GET index" do
           it "renders the index view" do
             get :index, params: { participatory_process_slug: participatory_space.slug, component_id: component.id }

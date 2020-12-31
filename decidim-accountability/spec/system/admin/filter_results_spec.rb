@@ -9,8 +9,8 @@ describe "Admin filters results", type: :system do
   let(:manifest_name) { "accountability" }
   let(:model_name) { Decidim::Accountability::Result.model_name }
 
-  # Override the :filterable_concern returned by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
-  # which would include a route_key value of "results", rather than "accountability".
+  # Override the :filterable_concern used by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
+  # which would include a :route_key value of "results", rather than "accountability".
   let(:filterable_concern) { "Decidim::Accountability::Admin::Filterable".constantize }
 
   context "when filtering by scope" do
