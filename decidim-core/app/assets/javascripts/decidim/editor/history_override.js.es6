@@ -6,6 +6,11 @@
   const Quill = exports.Quill;
   const History = Quill.import("modules/history");
 
+  /**
+   * Linebreak module brokes quill's default history class.
+   * So here we are moving innerHTML to undo and redo stack
+   * instead of deltas.
+   */
   class HistoryOverride extends History {
     constructor(quill, options) {
       super(quill, options);
@@ -89,5 +94,5 @@
     userOnly: true
   };
 
-  exports.Decidim.Editor.HistoryOverride = HistoryOverride // { History as default, getLastChangeIndex };
+  exports.Decidim.Editor.HistoryOverride = HistoryOverride
 })(window)

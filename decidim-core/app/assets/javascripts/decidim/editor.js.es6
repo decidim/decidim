@@ -3,12 +3,8 @@
 // = require_self
 
 ((exports) => {
-  const { HistoryOverride } = exports.Decidim.Editor
-  Quill.register({"modules/history": HistoryOverride}, true)
   const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
-
   const createQuillEditor = (container) => {
-    // console.log("orignal container", container)
     const toolbar = $(container).data("toolbar");
     const disabled = $(container).data("disabled");
 
