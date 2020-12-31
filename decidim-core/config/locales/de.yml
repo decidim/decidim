@@ -113,6 +113,8 @@ de:
         delete: "%{user_name} hat die %{resource_name} Komponente von dem %{space_name} ... entfernt"
         publish: "%{user_name} veröffentlichte die %{resource_name} Komponente in dem %{space_name} Raum"
         unpublish: "%{user_name} unveröffentlicht die %{resource_name} Komponente aus dem %{space_name} Leerzeichen"
+      impersonation_log:
+        manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
         hide: "%{user_name} versteckte eine Ressource vom Typ %{resource_type} in dem %{space_name} Raum"
         unreport: "%{user_name} eine Ressource vom Typ %{resource_type} in den %{space_name} Feldern nicht gemeldet"
@@ -145,8 +147,10 @@ de:
       user:
         invite: "%{user_name} den Benutzer %{resource_name} mit der Rolle %{role}eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name}offiziell anerkannt"
+        promote: "%{user_name} hat %{resource_name} aktualisiert"
         remove_from_admin: "%{user_name} entfernte den Benutzer %{resource_name} mit der Rolle: %{role}"
         show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
+        transfer: "%{user_name} hat den Teilnehmer %{resource_name} anerkannt"
         unofficialize: "%{user_name} inoffizialisierte den Benutzer %{resource_name}"
       user_group:
         reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
@@ -276,7 +280,7 @@ de:
       dummy_authorization_workflow:
         name: Arbeitsablauf Dummy Berechtigung
       errors:
-        duplicate_authorization: Ein*e Benutzer*in ist bereits mit den gleichen Daten berechtigt.
+        duplicate_authorization: Ein Teilnehmer mit den gleichen Daten ist bereits autorisiert. Ein Administrator wird Sie kontaktieren, um Ihre Daten zu überprüfen.
       expired_at: Abgelaufen am %{timestamp}
       expires_at: Läuft am %{timestamp} ab
       foo_authorization:
@@ -914,6 +918,7 @@ de:
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
+          close: Dialog schließen
           correct_errors: Bitte korrigiere diese Fehler und versuche es erneut.
           intro: 'Es gab folgende Fehler bei Ihrer Nachricht:'
           ok: OK

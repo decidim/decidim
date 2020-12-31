@@ -275,8 +275,6 @@ fi:
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
         name: Esimerkkivahvistuksen työnkulku
-      errors:
-        duplicate_authorization: Toinen käyttäjätili on jo vahvistettu samoilla tiedoilla.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:

@@ -259,7 +259,9 @@ de:
           form:
             address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
             available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
+            disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
+            location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
@@ -403,6 +405,7 @@ de:
           type: Art
           type_values:
             all: Alle
+            hybrid: Beides
             in_person: Persönlich
             online: Online
         filters_small_view:
@@ -414,6 +417,7 @@ de:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
+          disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems wissen Sie, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzer dem externen Dienst zur Verfügung stellen.'
           location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
@@ -501,6 +505,7 @@ de:
           invalid: Beim Verlassen dieses Meetings ist ein Problem aufgetreten.
           success: Sie haben das Meeting erfolgreich verlassen.
       type_of_meeting:
+        hybrid: Beides
         in_person: In Person
         online: Online
       types:
