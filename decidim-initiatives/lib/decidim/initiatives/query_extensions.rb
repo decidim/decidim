@@ -31,6 +31,32 @@ module Decidim
             id: id
           )
         end
+
+        type.field :initiatives,
+                   [Decidim::Initiatives::InitiativeType],
+                   null: true,
+                   description: "Lists all initiatives" do
+          argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
+          argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
+        end
+
+        def initiatives(filter: {}, order: {})
+          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
+          Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+        end
+
+        type.field :initiative,
+                   Decidim::Initiatives::InitiativeType,
+                   null: true ,
+                   description: "Finds a initiative" do
+          argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
+        end
+
+        def initiative(id: nil)
+          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
+
+          Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
+        end
       end
     end
   end

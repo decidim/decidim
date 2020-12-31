@@ -15,7 +15,7 @@ module Decidim
     def self.included(type)
       type.field :participatory_processes,
                  [Decidim::ParticipatoryProcesses::ParticipatoryProcessType],
-                 null: false,
+                 null: true,
                  description: "Lists all participatory_processes" do
         argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
         argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
@@ -28,7 +28,7 @@ module Decidim
 
       type.field :participatory_process,
                  Decidim::ParticipatoryProcesses::ParticipatoryProcessType,
-                 null: false,
+                 null: true,
                  description: "Finds a participatory_process" do
         argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
         argument :slug, String, "The slug of the participatory process", required: false
@@ -37,111 +37,6 @@ module Decidim
       def participatory_process(id: nil, slug: nil)
         manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
         Decidim::ParticipatoryProcesses::ParticipatoryProcessFinder.new(manifest: manifest).call(object, { id: nil, slug: slug }, context)
-      end
-
-      type.field :assemblies,
-                 [Decidim::Assemblies::AssemblyType],
-                 null: false,
-                 description: "Lists all assemblies" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
-      end
-
-      def assemblies(filter: {}, order: {})
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-      end
-
-      type.field :assembly,
-                 Decidim::Assemblies::AssemblyType,
-                 null: false,
-                 description: "Finds a assembly" do
-        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
-      end
-
-      def assembly(id: nil)
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
-      end
-
-      type.field :conferences,
-                 [Decidim::Conferences::ConferenceType],
-                 null: false,
-                 description: "Lists all conferences" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
-      end
-
-      def conferences(filter: {}, order: {})
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
-
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-      end
-
-      type.field :conference,
-                 Decidim::Conferences::ConferenceType,
-                 null: false,
-                 description: "Finds a conference" do
-        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
-      end
-
-      def conference(id: nil)
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :conferences }.first
-
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
-      end
-
-      type.field :consultations,
-                 [Decidim::Consultations::ConsultationType],
-                 null: false,
-                 description: "Lists all consultations" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
-      end
-
-      def consultations(filter: {}, order: {})
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
-
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-      end
-
-      type.field :consultation,
-                 Decidim::Consultations::ConsultationType,
-                 null: false,
-                 description: "Finds a consultation" do
-        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
-      end
-
-      def consultation(id: nil)
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :consultations }.first
-
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
-      end
-
-      type.field :initiatives,
-                 [Decidim::Initiatives::InitiativeType],
-                 null: false,
-                 description: "Lists all initiatives" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
-      end
-
-      def initiatives(filter: {}, order: {})
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
-        Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
-      end
-
-      type.field :initiative,
-                 Decidim::Initiatives::InitiativeType,
-                 null: false,
-                 description: "Finds a initiative" do
-        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
-      end
-
-      def initiative(id: nil)
-        manifest = Decidim.participatory_space_manifests.select { |m| m.name == :initiatives }.first
-
-        Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
       end
 
       type.field :component, Decidim::Core::ComponentInterface, null: true do

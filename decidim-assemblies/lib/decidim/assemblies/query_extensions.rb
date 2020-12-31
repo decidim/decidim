@@ -29,6 +29,30 @@ module Decidim
             id: id
           )
         end
+        type.field :assemblies,
+                   [Decidim::Assemblies::AssemblyType],
+                   null: true,
+                   description: "Lists all assemblies" do
+          argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument let's you filter the results", required: false
+          argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument let's you order the results", required: false
+        end
+
+        def assemblies(filter: {}, order: {})
+          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
+          Decidim::Core::ParticipatorySpaceList.new(manifest: manifest).call(object, { filter: filter, order: order }, context)
+        end
+
+        type.field :assembly,
+                   Decidim::Assemblies::AssemblyType,
+                   null: true,
+                   description: "Finds a assembly" do
+          argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
+        end
+
+        def assembly(id: nil)
+          manifest = Decidim.participatory_space_manifests.select { |m| m.name == :assemblies }.first
+          Decidim::Core::ParticipatorySpaceFinder.new(manifest: manifest).call(object, { id: id }, context)
+        end
       end
     end
   end
