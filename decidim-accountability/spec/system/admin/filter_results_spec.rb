@@ -3,15 +3,15 @@
 require "spec_helper"
 
 describe "Admin filters results", type: :system do
+  include_context "when managing a component as an admin"
+  include_context "with filterable context"
+
   let(:manifest_name) { "accountability" }
   let(:model_name) { Decidim::Accountability::Result.model_name }
 
   # Override the :filterable_concern returned by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
-  # which would include a :route_key value of "results", rather than "accountability".
+  # which would include a route_key value of "results", rather than "accountability".
   let(:filterable_concern) { "Decidim::Accountability::Admin::Filterable".constantize }
-
-  include_context "when managing a component as an admin"
-  include_context "with filterable context"
 
   context "when filtering by scope" do
     let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
