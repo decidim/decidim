@@ -240,35 +240,35 @@ describe "Decidim::Api::QueryType" do
       end
     end
 
-    context "with parameters" do
-      context "with filters" do
-        describe "published_before" do
-          it { pending }
-        end
-
-        describe "published_since" do
-          it { pending }
-        end
-
-        describe "hashtag" do
-          it { pending }
-        end
-      end
-
-      context "with order" do
-        describe "published_at" do
-          it { pending }
-        end
-
-        describe "id" do
-          it { pending }
-        end
-
-        describe "start_date" do
-          it { pending }
-        end
-      end
-    end
+    # context "with parameters" do
+    #   context "with filters" do
+    #     describe "published_before" do
+    #       it { pending }
+    #     end
+    #
+    #     describe "published_since" do
+    #       it { pending }
+    #     end
+    #
+    #     describe "hashtag" do
+    #       it { pending }
+    #     end
+    #   end
+    #
+    #   context "with order" do
+    #     describe "published_at" do
+    #       it { pending }
+    #     end
+    #
+    #     describe "id" do
+    #       it { pending }
+    #     end
+    #
+    #     describe "start_date" do
+    #       it { pending }
+    #     end
+    #   end
+    # end
   end
 
   describe "single assembly with ID" do

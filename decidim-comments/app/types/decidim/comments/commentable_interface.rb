@@ -32,9 +32,9 @@ module Decidim
         object.comments_count
       end
 
-      field :has_comments, Boolean, "Check if the commentable has comments", method: :has_comments?, null: false
+      field :has_comments, Boolean, "Check if the commentable has comments", null: false
 
-      def has_comments?
+      def has_comments
         object.comment_threads.size.positive?
       end
 
