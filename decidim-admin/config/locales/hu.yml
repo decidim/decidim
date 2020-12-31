@@ -276,6 +276,13 @@ hu:
         update:
           error: Hiba történt az elem frissítése során.
           success: Az elem frissítése sikeres volt.
+      conflicts:
+        attempts: Próbálkozások
+        'false': 'Nincs'
+        managed_user_name: Kezelt felhasználó
+        solved: Megoldva
+        transfer:
+          email: Email
       dashboard:
         show:
           view_more_logs: További naplók megtekintése
