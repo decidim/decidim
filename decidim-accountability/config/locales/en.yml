@@ -198,6 +198,8 @@ en:
             label: Category
           scope_id_eq:
             label: Scope
+          status_id_eq:
+            label: Status
     components:
       accountability:
         name: Accountability
