@@ -9,16 +9,24 @@ describe "Admin filters results", type: :system do
   let(:manifest_name) { "accountability" }
   let(:model_name) { Decidim::Accountability::Result.model_name }
 
-  # Override the :filterable_concern used by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
+  # Override :filterable_concern used by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
   # which would include a :route_key value of "results", rather than "accountability".
   let(:filterable_concern) { "Decidim::Accountability::Admin::Filterable".constantize }
 
   context "when filtering by scope" do
     let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
     let!(:scope2) { create(:scope, organization: component.organization, name: { "en" => "Scope2" }) }
-    let!(:result_with_scope1) { create(:result, component: current_component, title: Decidim::Faker::Localized.localized { generate(:title) }, scope: scope1) }
+    let!(:result_with_scope1) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      scope: scope1)
+    end
     let(:result_with_scope1_title) { translated(result_with_scope1.title) }
-    let!(:result_with_scope2) { create(:result, component: current_component, title: Decidim::Faker::Localized.localized { generate(:title) }, scope: scope2) }
+    let!(:result_with_scope2) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      scope: scope2)
+    end
     let(:result_with_scope2_title) { translated(result_with_scope2.title) }
 
     before do
@@ -38,9 +46,48 @@ describe "Admin filters results", type: :system do
     end
   end
 
+  context "when filtering by category" do
+    let!(:category1) { create(:category, participatory_space: participatory_space, name: { "en" => "Category1" }) }
+    let!(:category2) { create(:category, participatory_space: participatory_space, name: { "en" => "Category2" }) }
+    let!(:result_with_category1) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      category: category1)
+    end
+    let(:result_with_category1_title) { translated(result_with_category1.title) }
+    let!(:result_with_category2) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      category: category2)
+    end
+    let(:result_with_category2_title) { translated(result_with_category2.title) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit_component_admin
+    end
+
+    it_behaves_like "a filtered collection", options: "Category", filter: "Category1" do
+      let(:in_filter) { result_with_category1_title }
+      let(:not_in_filter) { result_with_category2_title }
+    end
+
+    it_behaves_like "a filtered collection", options: "Category", filter: "Category2" do
+      let(:in_filter) { result_with_category2_title }
+      let(:not_in_filter) { result_with_category1_title }
+    end
+  end
+
   context "when searching by ID or title" do
-    let!(:result1) { create(:result, component: current_component, title: Decidim::Faker::Localized.localized { generate(:title) }) }
-    let!(:result2) { create(:result, component: current_component, title: Decidim::Faker::Localized.localized { generate(:title) }) }
+    let!(:result1) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) })
+    end
+    let!(:result2) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) })
+    end
     let!(:result1_title) { translated(result1.title) }
     let!(:result2_title) { translated(result2.title) }
 
