@@ -109,4 +109,10 @@ describe "Admin filters results", type: :system do
       expect(page).to have_content(result2_title)
     end
   end
+
+  context "when listing results" do
+    it_behaves_like "paginating a collection" do
+      let!(:collection) { create_list(:result, 50, component: current_component) }
+    end
+  end
 end
