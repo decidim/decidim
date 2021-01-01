@@ -79,6 +79,39 @@ describe "Admin filters results", type: :system do
     end
   end
 
+  context "when filtering by status" do
+    let!(:status1) { create(:status, component: current_component, name: { "en" => "Status1" }) }
+    let!(:status2) { create(:status, component: current_component, name: { "en" => "Status2" }) }
+    let!(:result_with_status1) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      status: status1)
+    end
+    let(:result_with_status1_title) { translated(result_with_status1.title) }
+    let!(:result_with_status2) do
+      create(:result, component: current_component,
+                      title: Decidim::Faker::Localized.localized { generate(:title) },
+                      status: status2)
+    end
+    let(:result_with_status2_title) { translated(result_with_status2.title) }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit_component_admin
+    end
+
+    it_behaves_like "a filtered collection", options: "Status", filter: "Status1" do
+      let(:in_filter) { result_with_status1_title }
+      let(:not_in_filter) { result_with_status2_title }
+    end
+
+    it_behaves_like "a filtered collection", options: "Status", filter: "Status2" do
+      let(:in_filter) { result_with_status2_title }
+      let(:not_in_filter) { result_with_status1_title }
+    end
+  end
+
   context "when searching by ID or title" do
     let!(:result1) do
       create(:result, component: current_component,
