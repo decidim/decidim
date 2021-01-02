@@ -24,8 +24,8 @@ module Decidim
 
       field :total_comments_count, Integer, description: "The number of comments in all levels this resource holds", null: false
 
-      def comments(args: {})
-        SortedComments.for(object, order_by: args[:orderBy], id: args[:singleCommentId])
+      def comments(order_by: nil, single_comment_id: nil)
+        SortedComments.for(object, order_by: order_by, id: single_comment_id)
       end
 
       def total_comments_count
@@ -34,9 +34,11 @@ module Decidim
 
       field :has_comments, Boolean, "Check if the commentable has comments", null: false
 
+      # rubocop:disable Naming/PredicateName
       def has_comments
         object.comment_threads.size.positive?
       end
+      # rubocop:enable Naming/PredicateName
 
       field :user_allowed_to_comment, Boolean, "Check if the current user can comment", null: false
 
