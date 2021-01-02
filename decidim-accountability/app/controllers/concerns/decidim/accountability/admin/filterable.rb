@@ -25,8 +25,8 @@ module Decidim
 
           def filters
             [
-              :category_id_eq,
               :scope_id_eq,
+              :category_id_eq,
               :status_id_eq
             ]
           end

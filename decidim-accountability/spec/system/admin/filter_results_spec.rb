@@ -14,8 +14,12 @@ describe "Admin filters results", type: :system do
   let(:filterable_concern) { "Decidim::Accountability::Admin::Filterable".constantize }
 
   context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization: component.organization, name: { "en" => "Scope2" }) }
+    let!(:scope1) do
+      create(:scope, organization: component.organization, name: { "en" => "Scope1" })
+    end
+    let!(:scope2) do
+      create(:scope, organization: component.organization, name: { "en" => "Scope2" })
+    end
     let!(:result_with_scope1) do
       create(:result, component: current_component,
                       title: Decidim::Faker::Localized.localized { generate(:title) },
@@ -47,8 +51,14 @@ describe "Admin filters results", type: :system do
   end
 
   context "when filtering by category" do
-    let!(:category1) { create(:category, participatory_space: participatory_space, name: { "en" => "Category1" }) }
-    let!(:category2) { create(:category, participatory_space: participatory_space, name: { "en" => "Category2" }) }
+    let!(:category1) do
+      create(:category, participatory_space: participatory_space,
+                        name: { "en" => "Category1" })
+    end
+    let!(:category2) do
+      create(:category, participatory_space: participatory_space,
+                        name: { "en" => "Category2" })
+    end
     let!(:result_with_category1) do
       create(:result, component: current_component,
                       title: Decidim::Faker::Localized.localized { generate(:title) },
