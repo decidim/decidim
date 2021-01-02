@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe AreaApiType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:area, area_type: area_type, organization: area_type.organization) }
       let(:area_type) { create(:area_type) }
