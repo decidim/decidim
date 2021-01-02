@@ -46,9 +46,7 @@ module Decidim
           end
 
           def status_ids_hash(statuses)
-            statuses.each_with_object({}) do |status, hash|
-              hash[status.id] = status.id
-            end
+            statuses.each_with_object({}) { |status, hash| hash[status.id] = status.id }
           end
 
           def translated_status_id_eq(id)
