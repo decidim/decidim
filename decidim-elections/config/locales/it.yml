@@ -49,8 +49,6 @@ it:
         confirm_destroy: Sei sicuro?
         destroy: Elimina
         edit: Modifica
-        edit_answers: Modifica risposta
-        edit_questions: Modifica domanda
         import: Importa proposte in risposte
         new: Nuovo %{name}
         preview: Anteprima
@@ -141,7 +139,6 @@ it:
             one: "%{count} elezione"
             other: "%{count} elezioni"
         show:
-          back: Tutte le elezioni
           preview: Anteprima
           vote: Vota
           voting_period_status:

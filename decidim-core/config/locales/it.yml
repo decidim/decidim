@@ -129,7 +129,6 @@ it:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       participatory_space_private_user:
         create: "%{user_name} invitato %{resource_name} a essere un utente privato"
-        create_via_csv: "%{user_name} è stato invitato %{resource_name} tramite csv per essere un partecipante privato"
         delete: "%{user_name} rimosso l'utente %{resource_name} come utente privato"
       scope:
         create: "%{user_name} ha creato l'ambito %{resource_name}"
@@ -273,8 +272,6 @@ it:
         name: Esempio di autorizzazione
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
-      errors:
-        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
       expired_at: Scaduto a %{timestamp}
       expires_at: Scade a %{timestamp}
       foo_authorization:
@@ -411,7 +408,6 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il nickname che ti identifica su %{organization}
           sign_up: Completa il tuo profilo
           subtitle: Compila il modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
@@ -420,7 +416,6 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
-          nickname_help: Il nickname che ti identifica su %{organization}
           password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
@@ -671,7 +666,7 @@ it:
         file:
           explanation: 'Orientamenti per il file:'
           message_1: Deve essere un'immagine o un documento.
-          message_2: Per le immagini, utilizzare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine.
+          message_2: Per le immagini, usare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine. Per i file CSV, il separatore tra colonne deve essere una virgola (",")
         image:
           explanation: 'Orientamenti per il file:'
           message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
@@ -921,8 +916,6 @@ it:
         update:
           error: Messaggio non inviato a causa di un errore
     metrics:
-      download:
-        csv: Scarica dati (csv)
       followers:
         description: Numero di utenti che seguono questo spazio di partecipazione
         object: Followers
@@ -1124,7 +1117,6 @@ it:
         date: Segnalato il
         details: Dettagli
         hello: Ciao %{name},
-        manage_moderations: Gestire moderazioni
         participatory_space: Spazio partecipativo
         reason: Motivazione
         report_html: <p>Il seguente <a href="%{url}">contenuto</a> è stato segnalato.</p>

@@ -30,7 +30,6 @@
         body: Tekst
         subject: Emne
       organization:
-        address: SMTP vertsnavn
         alert_color: Varsel
         badges_enabled: Aktiver utmerkelse
         comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
@@ -66,8 +65,6 @@
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Tittel
         omnipresent_banner_url: URL
-        password: Passord
-        port: Port
         primary_color: Primært
         reference_prefix: Referanse prefiks
         rich_text_editor_in_public_views: Aktiver rik-tekst-redigering for deltakere
@@ -78,7 +75,6 @@
         tos_version: Vilkår for tjenester versjon
         twitter_handler: Twitter brukernavn
         user_groups_enabled: Aktiver grupper
-        user_name: Brukernavn
         warning_color: Advarsel
         welcome_notification_body: Velkomst varslings tekst
         welcome_notification_subject: Velkomst varslings emne
@@ -149,7 +145,6 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          accept: Jeg er enig med disse administrasjonsvilkårene
           are_you_sure: Er du sikker på å nekte administrasjons vilkårene?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
@@ -565,6 +560,7 @@
           officialize: Offisialiser
           title: Offisialiser deltaker "%{name}"
         show_email_modal:
+          close_modal: Lukk modal
           description: Hvis du trenger å kontakte en deltaker direkte, kan du klikke på Vis for å se e-postadressen. Denne handlingen vil bli logget.
           email_address: E-postadresser
           full_name: Fullt navn
@@ -582,7 +578,7 @@
           rich_text_editor_in_public_views_help: I noen tekstområder vil deltakerne kunne sette inn noen HTML-tagger med å bruke den rike tekst redigereren.
           social_handlers: Sosial
           twitter: Twitter
-          url: Url
+          url: URL
           youtube: YouTube
         update:
           error: Det oppstod et problem med å oppdatere denne organisasjon.
@@ -617,7 +613,6 @@
           error: Det oppstod et problem med å slette en privat deltaker for dette deltakerområdet.
           success: Deltakerområde privat deltaker tilgang ødelagt.
         index:
-          import_via_csv: Improter via csv
           title: Deltakerområdets private deltaker
         new:
           create: Opprett
@@ -635,6 +630,10 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
+      resources:
+        index:
+          headers:
+            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
@@ -814,6 +813,7 @@
           fields:
             hidden_at: Skjult på
             report_count: Antall
+            reportable_id: Id
             reported_content_url: Rapportert innholds URL
             reports: Rapporter
             visit_url: Besøk URL

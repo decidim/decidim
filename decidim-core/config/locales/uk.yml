@@ -141,8 +141,6 @@ uk:
         name: Приклад підтвердження своєї особи
       dummy_authorization_workflow:
         name: Приклад шляху підтвердження особи
-      errors:
-        duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
       expired_at: Строк дії закінчився %{timestamp}
       expires_at: Строк дії закінчується %{timestamp}
       foo_authorization:
@@ -510,7 +508,6 @@ uk:
         subject: Ресурс було автоматично приховано
       report:
         hello: Доброго дня, %{name}%!
-        manage_moderations: Керувати діями з модерації
         report_html: <p>Про наступний <a href="%{url}">вміст</a> було передано скаргу адміністраторам.</p>
         subject: Про цей ресурс було передано скаргу адміністраторам
     reports:

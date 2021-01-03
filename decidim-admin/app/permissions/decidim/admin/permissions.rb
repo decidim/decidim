@@ -29,6 +29,8 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
+        allow! if permission_action.subject == :global_moderation
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_metrics_action?
@@ -47,6 +49,7 @@ module Decidim
           allow! if permission_action.subject == :area_type
           allow! if permission_action.subject == :user_group
           allow! if permission_action.subject == :officialization
+          allow! if permission_action.subject == :moderate_users
           allow! if permission_action.subject == :authorization
           allow! if permission_action.subject == :authorization_workflow
           allow! if permission_action.subject == :static_page_topic

@@ -8,11 +8,12 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t(".name") %></th>
-            <th><%= t(".nickname") %></th>
-            <th><%= t(".created_at") %></th>
-            <th><%= t(".status") %></th>
+            <th><%= sort_link(query, :name, t(".name"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :nickname, t(".nickname"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :created_at, t(".created_at"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :officialized_at, t(".status"), default_order: :desc) %></th>
             <th><%= t(".badge") %></th>
+            <th><%= sort_link(query, :user_moderation_report_count, t(".reports"), default_order: :desc) %></th>
             <th><%= t(".actions") %></th>
           </tr>
         </thead>
@@ -29,6 +30,7 @@
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>
+              <td><%= user.report_count %></td>
 
               <td class="table-list__actions">
                 <% if allowed_to? :show_email, :user, user: user %>

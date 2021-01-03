@@ -154,7 +154,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
-  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do
+  it "creates a new meeting", :slow, :serves_geocoding_autocomplete do # rubocop:disable RSpec/ExampleLength
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -191,6 +191,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     fill_in_geocoding :meeting_address, with: address
     fill_in_services
+
+    select "Registration disabled", from: :meeting_registration_type
 
     page.execute_script("$('#meeting_start_time').focus()")
     page.find(".datepicker-dropdown .day", text: "12").click
@@ -262,6 +264,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
           ca: "Descripció més llarga"
         )
 
+        select "Registration disabled", from: :meeting_registration_type
+
         page.execute_script("$('#meeting_start_time').focus()")
         page.find(".datepicker-dropdown .day", text: "12").click
         page.find(".datepicker-dropdown .hour", text: "10:00").click
@@ -275,25 +279,42 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
   end
 
-  context "when online meetings are enabled" do
-    before do
-      component.update!(settings: { allow_online_meetings: true, creation_enabled_for_participants: true })
+  it "lets the user choose the meeting type" do
+    find(".card-title a.button").click
+
+    within ".new_meeting" do
+      select "In person", from: :meeting_type_of_meeting
+      expect(page).to have_field("Address")
+      expect(page).to have_field(:meeting_location_en)
+      expect(page).to have_no_field("Online meeting URL")
+
+      select "Online", from: :meeting_type_of_meeting
+      expect(page).to have_no_field("Address")
+      expect(page).to have_no_field(:meeting_location_en)
+      expect(page).to have_field("Online meeting URL")
+
+      select "Both", from: :meeting_type_of_meeting
+      expect(page).to have_field("Address")
+      expect(page).to have_field(:meeting_location_en)
+      expect(page).to have_field("Online meeting URL")
     end
+  end
 
-    it "lets the user choose the meeting type" do
-      find(".card-title a.button").click
+  it "lets the user choose the registration type" do
+    find(".card-title a.button").click
 
-      within ".new_meeting" do
-        select "In person", from: :meeting_type_of_meeting
-        expect(page).to have_field("Address")
-        expect(page).to have_field(:meeting_location_en)
-        expect(page).to have_no_field("Online meeting URL")
+    within ".new_meeting" do
+      select "Registration disabled", from: :meeting_registration_type
+      expect(page).to have_no_field("Registration URL")
+      expect(page).to have_no_field("Available slots")
 
-        select "Online", from: :meeting_type_of_meeting
-        expect(page).to have_no_field("Address")
-        expect(page).to have_no_field(:meeting_location_en)
-        expect(page).to have_field("Online meeting URL")
-      end
+      select "On a different platform", from: :meeting_registration_type
+      expect(page).to have_field("Registration URL")
+      expect(page).to have_no_field("Available slots")
+
+      select "On this platform", from: :meeting_registration_type
+      expect(page).to have_field("Available slots")
+      expect(page).to have_no_field("Registration URL")
     end
   end
 
@@ -446,6 +467,8 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       )
 
       fill_in :meeting_address, with: address
+      select "Registration disabled", from: :meeting_registration_type
+
       page.execute_script("$('#meeting_start_time').focus()")
       page.find(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click

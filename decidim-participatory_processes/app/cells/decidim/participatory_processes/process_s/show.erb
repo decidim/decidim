@@ -1,0 +1,14 @@
+<div class="column" id="<%= dom_id(model) %>">
+  <%= link_to resource_path, class: "card card--process card--mini" do %>
+    <%= render :image if has_image? %>
+    <div class="card__content">
+      <span class="card__title card__link"><%= title %></span>
+      <% if has_step? %>
+        <span class="card--process__small">
+          <%= t("active_step", scope: i18n_scope) %>
+          <strong><%= step_title %></strong>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>

@@ -30,7 +30,6 @@ pt:
         body: Corpo
         subject: Assunto
       organization:
-        address: Nome do anfitrião SMTP
         alert_color: Alerta
         badges_enabled: Ativar distintivos
         comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
@@ -63,8 +62,6 @@ pt:
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Palavra-passe
-        port: Porta
         primary_color: Primário
         reference_prefix: Prefixo de referência
         rich_text_editor_in_public_views: Ativar o editor de texto avançado para os participantes
@@ -75,7 +72,6 @@ pt:
         tos_version: Versão dos termos de serviço
         twitter_handler: Manipulador do Twitter
         user_groups_enabled: Ativar grupos
-        user_name: Nome do utilizador
         warning_color: Aviso
         welcome_notification_body: Corpo da notificação de boas-vindas
         welcome_notification_subject: Assunto da notificação de boas-vindas
@@ -145,7 +141,6 @@ pt:
           error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          accept: Concordo com estes termos de administrador
           are_you_sure: Tem a certeza de que pretende recusar os termos de administrador?
           refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização
@@ -572,7 +567,6 @@ pt:
           rich_text_editor_in_public_views_help: Em algumas áreas de texto, os participantes serão capazes de inserir algumas etiquetas HTML utilizando o editor de texto avançado.
           social_handlers: Social
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           error: Ocorreu um problema ao atualizar esta organização.
@@ -607,7 +601,6 @@ pt:
           error: Houve um problema ao eliminar um participante privado deste espaço participativo.
           success: Espaço participativo acesso de usuário privado destruído com sucesso.
         index:
-          import_via_csv: Importar através de csv
           title: Espaço participativo de participante privado
         new:
           create: Criar

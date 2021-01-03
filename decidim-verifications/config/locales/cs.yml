@@ -131,7 +131,7 @@ cs:
             title: Aktuální údaje o sčítání
           instructions:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění csv_census organizaci
-            title: Pro tuto organizaci musíte aktivovat csv sčítání
+            title: Musíte aktivovat CSV sčítání pro tuto organizaci
           new:
             file: ".csv soubor s daty e-mailů"
             info: 'Must být souborem ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'

@@ -75,6 +75,10 @@ de:
       postal_letter:
         explanation: Wir senden Ihnen einen Brief mit einem Code, den Sie eingeben müssen, damit wir Ihre Adresse bestätigen können
         name: Code per Post
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: Der Teilnehmer <a href="%{resource_path}">%{resource_title}</a> hat versucht, sich mit den Daten des verwalteten Teilnehmers <a href="%{managed_user_path}">%{managed_user_name}</a> zu verifizieren.
     verifications:
       authorizations:
         authorization_metadata:
@@ -131,7 +135,7 @@ de:
             title: Aktuelle Volkszählungsdaten
           instructions:
             body: Dazu müssen Sie die Systemverwaltung eingeben und der Organisation die csv_census-Berechtigungen hinzufügen
-            title: Sie müssen die csv-Zählung für diese Organisation aktivieren
+            title: Sie müssen die CSV Zensus für diese Organisation aktivieren
           new:
             file: "CSV-Datei mit E-Mail-Daten"
             info: 'Muss eine Datei im CSV-Format sein, mit nur einer Spalte der E-Mail-Adresse:'
@@ -204,7 +208,7 @@ de:
           update:
             error: Beim erneuten Laden Ihres Dokuments ist ein Problem aufgetreten
             success: Das Dokument wurde erfolgreich neu geladen
-        dni: DNI
+        dni: Personalausweis
         nie: NIE
         passport: Reisepass
       postal_letter:

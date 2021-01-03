@@ -30,7 +30,6 @@ nl:
         body: Body
         subject: Onderwerp
       organization:
-        address: SMTP Hostnaam
         alert_color: Alarm
         badges_enabled: Schakel badges in
         comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
@@ -63,8 +62,6 @@ nl:
         omnipresent_banner_short_description: Korte beschrijving
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        password: Wachtwoord
-        port: Poort
         primary_color: Primaire
         reference_prefix: Referentievoorvoegsel
         rich_text_editor_in_public_views: Gebruik de tekst editor voor deelnemers
@@ -75,7 +72,6 @@ nl:
         tos_version: Servicevoorwaarden versie
         twitter_handler: Twitter gebruikersnaam
         user_groups_enabled: Groepen inschakelen
-        user_name: Gebruikersnaam
         warning_color: Waarschuwing
         welcome_notification_body: Tekst van de welkomstmelding
         welcome_notification_subject: Welkomstmelding onderwerp
@@ -145,7 +141,6 @@ nl:
           error: Er is een fout opgetreden bij het accepteren van de admin gebruiksvoorwaarden.
           success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
-          accept: Ik ga akkoord met deze admin gebruiksvoorwaarden
           are_you_sure: Weet u zeker dat u de admin gebruiksvoorwaarden wilt weigeren?
           refuse: Weiger de admin gebruiksvoorwaarden
           title: Ga akkoord met de gebruiksvoorwaarden
@@ -295,6 +290,9 @@ nl:
         category_id_eq:
           label: Categorie
         filter_label: Filteren
+        moderations:
+          reportable_type_string_eq:
+            label: Type
         officialized_at_null:
           label: Staat
           values:
@@ -315,6 +313,7 @@ nl:
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
+          reported_id_string_or_reported_content_cont: Zoek %{collection} op rapporteerbaar id of op inhoud.
           title_cont: Zoek %{collection} op titel.
         state_eq:
           label: Provincie
@@ -468,6 +467,21 @@ nl:
             does_not_belong: Hoort niet
             offensive: Aanvallend
             spam: Spam
+        reports:
+          index:
+            author: Auteur(s)
+            callout_html: Een inhoud verschijnt in het moderatiescherm als die is gerapporteerd door een gebruiker (kan iedereen met een geregistreerde account zijn) door op de vlag %{icon} te klikken naast het item.
+            content_original_language: Oorspronkelijke taal inhoud
+            participatory_space: Participatieve ruimte
+            reported_content: Gerapporteerde inhoud
+            see_current: Bekijk huidige
+            see_original: Bekijk origineel
+            title: Moderatierapporten
+          show:
+            report_details: Reden details
+            report_language: Taal melden
+            report_reason: Reden
+            title: Rapport details
       newsletter_templates:
         index:
           preview_template: Voorbeeld
@@ -573,7 +587,6 @@ nl:
           rich_text_editor_in_public_views_help: In bepaalde teksten kunnen deelnemers enkele HTML-tags toevoegen door gebruik te maken van de rich text-editor.
           social_handlers: Sociaal
           twitter: Twitter
-          url: Url
           youtube: YouTube
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
@@ -608,7 +621,6 @@ nl:
           error: Er was een probleem met het verwijderen van een privé-deelnemer voor deze participatieruimte.
           success: De toegang van de privé deelnemer voor burgerinspraak is met succes verwijderd.
         index:
-          import_via_csv: Importeren via csv
           title: Participerende ruimte voor privé deelnemer
         new:
           create: creëren
@@ -783,6 +795,7 @@ nl:
           reason: U moet een reden opgeven voor het beheer van een niet-beheerde deelnemer
     moderations:
       actions:
+        expand: Tonen
         hidden: Verborgen
         hide: Verbergen
         not_hidden: niet verstopt
@@ -803,11 +816,19 @@ nl:
       models:
         moderation:
           fields:
+            created_at: Aanmaakdatum
             hidden_at: Verborgen op
             report_count: Aantal
+            reportable_id: Id
+            reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
             visit_url: Bezoek URL
+        report:
+          fields:
+            details: Reden details
+            locale: Taal
+            reason: Reden
   errors:
     messages:
       invalid_json: Ongeldige JSON

@@ -8,7 +8,6 @@ module Decidim
         -> { Decidim::Core::ParticipatorySpaceInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorInterface },
         -> { Decidim::Initiatives::InitiativeTypeInterface }
       ]
 
@@ -26,9 +25,16 @@ module Decidim
       field :signatureType, types.String, "Signature type of the initiative", property: :signature_type
       field :signatureStartDate, !Decidim::Core::DateType, "The signature start date", property: :signature_start_date
       field :signatureEndDate, !Decidim::Core::DateType, "The signature end date", property: :signature_end_date
-      field :offlineVotes, types.Int, "The number of offline votes in this initiative", property: :offline_votes
-      field :initiativeVotesCount, types.Int, "The number of votes in this initiative", property: :initiative_votes_count
-      field :initiativeSupportsCount, types.Int, "The number of supports in this initiative", property: :initiative_supports_count
+      field :offlineVotes, types.Int, "The number of offline votes in this initiative", property: :offline_votes_count
+      field :onlineVotes, types.Int, "The number of online votes in this initiative", property: :online_votes_count
+      field :initiativeVotesCount, types.Int,
+            description: "The number of votes in this initiative",
+            property: :online_votes_count,
+            deprecation_reason: "initiativeVotesCount has been collapsed in onlineVotes parameter"
+      field :initiativeSupportsCount, types.Int,
+            description: "The number of supports in this initiative",
+            property: :online_votes_count,
+            deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter"
 
       field :author, !Decidim::Core::AuthorInterface, "The initiative author" do
         resolve lambda { |obj, _args, _ctx|

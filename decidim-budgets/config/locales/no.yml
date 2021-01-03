@@ -2,6 +2,7 @@
   activemodel:
     attributes:
       budget:
+        decidim_scope_id: Tema
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett

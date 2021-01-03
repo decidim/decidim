@@ -1,0 +1,9 @@
+= Deploy
+
+== Self-hosted
+
+You can install Decidim like a regular Ruby on Rails application, with nginx, Passenger, rbenv and PostgreSQL. You should also configure a valid SMTP account to send emails and add the delayed_job gem and execute it so you can receive emails (ie on user registration).
+
+== Heroku
+
+You can follow an opinionated Rails generator to configure your decidim app so that it can be https://github.com/codegram/decidim-deploy-heroku[deployed to Heroku].

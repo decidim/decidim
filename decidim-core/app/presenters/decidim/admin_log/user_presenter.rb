@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "promote", "transfer"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -51,8 +51,8 @@ module Decidim
       end
 
       # If the action is officialization, then we want to show the diff
-      def has_diff?
-        %w(officialize unofficialize).include?(action)
+      def diff_actions
+        %w(officialize unofficialize)
       end
     end
   end

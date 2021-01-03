@@ -40,10 +40,20 @@ module Decidim
                     position: 1,
                     active: ["decidim/admin/dashboard" => :show]
 
+          menu.item I18n.t("menu.moderation", scope: "decidim.admin"),
+                    decidim_admin.moderations_path,
+                    icon_name: "flag",
+                    position: 4,
+                    active: [%w(
+                      decidim/admin/global_moderations
+                      decidim/admin/global_moderations/reports
+                    ), []],
+                    if: allowed_to?(:read, :global_moderation)
+
           menu.item I18n.t("menu.static_pages", scope: "decidim.admin"),
                     decidim_admin.static_pages_path,
                     icon_name: "book",
-                    position: 4,
+                    position: 4.5,
                     active: [%w(
                       decidim/admin/static_pages
                       decidim/admin/static_page_topics
@@ -60,6 +70,7 @@ module Decidim
                       decidim/admin/user_groups_csv_verifications
                       decidim/admin/officializations
                       decidim/admin/impersonatable_users
+                      decidim/admin/moderated_users
                       decidim/admin/managed_users/impersonation_logs
                       decidim/admin/managed_users/promotions
                       decidim/admin/authorization_workflows

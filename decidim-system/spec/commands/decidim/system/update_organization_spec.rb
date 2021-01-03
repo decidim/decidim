@@ -53,6 +53,7 @@ module Decidim
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
             expect(organization.users_registration_mode).to eq("existing")
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
+            expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
             expect(organization.file_upload_settings).to eq(upload_settings)
             expect(
@@ -72,6 +73,7 @@ module Decidim
                 organization = Organization.last
 
                 expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
+                expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
               end
             end
           end

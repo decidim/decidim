@@ -60,20 +60,51 @@ module Decidim::Meetings
         expect(last_registration.meeting).to eq(meeting)
       end
 
-      it "sends an email confirming the registration" do
-        perform_enqueued_jobs { subject.call }
+      context "when registration code is enabled" do
+        let(:component) do
+          create :component,
+                 manifest_name: :meetings,
+                 participatory_space: participatory_process,
+                 settings: {
+                   registration_code_enabled: true
+                 }
+        end
 
-        email = last_email
-        email_body = last_email_body
-        last_registration = Registration.last
+        it "sends an email confirming the registration" do
+          perform_enqueued_jobs { subject.call }
 
-        expect(email.subject).to include("confirmed")
-        expect(email_body).to include(last_registration.code)
+          email = last_email
+          email_body = last_email_body
+          last_registration = Registration.last
+          expect(email.subject).to include("confirmed")
+          expect(email_body).to include(last_registration.code)
 
-        attachment = email.attachments.first
-        expect(attachment.read.length).to be_positive
-        expect(attachment.mime_type).to eq("text/calendar")
-        expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+          attachment = email.attachments.first
+          expect(attachment.read.length).to be_positive
+          expect(attachment.mime_type).to eq("text/calendar")
+          expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+        end
+      end
+
+      context "when registration code is disabled" do
+        before do
+          component.update!(settings: { registration_code_enabled: false })
+        end
+
+        it "sends an email confirming the registration" do
+          perform_enqueued_jobs { subject.call }
+
+          email = last_email
+          email_body = last_email_body
+          last_registration = Registration.last
+          expect(email.subject).to include("confirmed")
+          expect(email_body).not_to include(last_registration.code)
+
+          attachment = email.attachments.first
+          expect(attachment.read.length).to be_positive
+          expect(attachment.mime_type).to eq("text/calendar")
+          expect(attachment.filename).to match(/meeting-calendar-info.ics/)
+        end
       end
 
       it "sends a notification to the user with the registration confirmed" do

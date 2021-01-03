@@ -114,6 +114,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
+      impersonation_log:
+        manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
@@ -146,13 +148,17 @@ en:
       user:
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
+        promote: "%{user_name} has promoted %{resource_name}"
         remove_from_admin: "%{user_name} removed the participant %{resource_name} with role: %{role}"
         show_email: "%{user_name} retrieved the email of the participant %{resource_name}"
+        transfer: "%{user_name} transfered the participant %{resource_name}"
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
         reject: "%{user_name} rejected the %{resource_name} group verification"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
+      user_moderation:
+        unreport: "%{user_name} unreported an %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMS OF USE</h2><p>We trust you have received the usual lecture from the local System Administrator. It usually boils down to these three things:</p><ol><li>Respect the privacy of others.</li><li>Think before you click.</li><li>With great power comes great responsibility.</li></ol>"
     alert:
@@ -275,7 +281,7 @@ en:
       dummy_authorization_workflow:
         name: Dummy authorization workflow
       errors:
-        duplicate_authorization: A participant is already authorized with the same data.
+        duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
       expired_at: Expired at %{timestamp}
       expires_at: Expires at %{timestamp}
       foo_authorization:
@@ -369,6 +375,13 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      cta:
+        name: Image, text and Call To Action button
+      cta_settings_form:
+        background_image: Background image
+        button_text: Call To Action text
+        button_url: Call To Action URL
+        description: Description
       footer_sub_hero:
         name: Footer sub hero banner
       hero:
@@ -378,6 +391,11 @@ en:
         welcome_text: Welcome text
       highlighted_content_banner:
         name: Highlighted content banner
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Sort elements by:'
+          random: Random
+          recent: Most recent
       how_to_participate:
         name: How to participate
       html:
@@ -412,7 +430,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -421,7 +439,7 @@ en:
           already_have_an_account?: Already have an account?
           newsletter: Receive an occasional newsletter with relevant information
           newsletter_title: Contact permission
-          nickname_help: Your alias in %{organization}
+          nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
           password_help: "%{minimun_characters} characters minimum, must not be too common (e.g. 123456) and must be different from your nickname and your email."
           sign_in: Log in
           sign_up: Sign up
@@ -613,6 +631,14 @@ en:
           notification_title: The %{user_group_name} user group has updated its profile, leaving it unverified. You can now verify it in the <a href="%{groups_admin_path}">admin panel</a>.
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.
+          email_outro: You have received this notification because you are an author of the removed content.
+          email_subject: Your %{resource_type} has been removed
+          notification_title: |-
+            An administrator removed your %{resource_type} because it has been reported as %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed "%{resource_title}" and we think it may be interesting to you. Check it out and contribute:'
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
@@ -676,7 +702,7 @@ en:
         file:
           explanation: 'Guidance for file:'
           message_1: Has to be an image or a document.
-          message_2: For images, use preferrably landscape images, the service crops the image.
+          message_2: For images, use preferrably landscape images, the service crops the image. For CSV files, the separator between columns must be a comma (",")
         image:
           explanation: 'Guidance for image:'
           message_1: Preferrably a landscape image that does not have any text.
@@ -1126,13 +1152,15 @@ en:
       report:
         authors: Authors
         content: Reported content
+        content_original_language: Content original language
         date: Reported on
         details: Details
         hello: Hello %{name},
-        manage_moderations: Manage moderations
+        id: ID
         participatory_space: Participatory space
         reason: Reason
         report_html: <p>The following <a href="%{url}">content</a> has been reported.</p>
+        see_report: See report
         subject: A resource has been reported
     reports:
       create:
@@ -1205,6 +1233,15 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
+      flag_user_modal:
+        already_reported: This content is already reported and it will be reviewed by an admin.
+        close: Close
+        description: What is inappropriate about the user?
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        report: Report
+        spam: Contains clickbait, advertising, scams or script bots.
+        title: Report inappropriate User
       floating_help:
         close: Close help
         help: Help
@@ -1280,6 +1317,13 @@ en:
       update:
         error: There was a problem updating your interests.
         success: Your interests have been successfully updated.
+    user_report_mailer:
+      notify:
+        body_1: User %{user} has been reported by %{token}
+        body_2: 'Reason: %{reason}'
+        greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hello %{admin},
+        subject: A new user has been reported in %{organization_name}
     version:
       show:
         back_to_resource: Go back

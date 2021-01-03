@@ -133,7 +133,6 @@ sk:
         update: "%{user_name} aktualizoval nastavenia organizácie"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby sa stal súkromným používateľom"
-        create_via_csv: "%{user_name} pozval %{resource_name} cez CSV aby sa stal súkromným účastníkom"
         delete: "%{user_name} odstránil užívateľa %{resource_name} ako súkromného účastníka"
       scope:
         create: "%{user_name} vytvoril %{resource_name} rozsah"
@@ -275,8 +274,6 @@ sk:
         name: Príklad autorizácie
       dummy_authorization_workflow:
         name: Pracovný postup autorizácie
-      errors:
-        duplicate_authorization: Účastník je už autorizovaný s rovnakými dátami.
       expired_at: Platnosť vypršala v %{timestamp}
       expires_at: Platnosť vyprší v %{timestamp}
       foo_authorization:
@@ -409,7 +406,6 @@ sk:
           email_already_exists: Iný účet používa rovnakú e-mailovú adresu
         new:
           complete_profile: Kompletné profil
-          nickname_help: Vaša prezývka v %{organization}
           sign_up: Prosím, vyplňte svoj profil
           subtitle: Pre dokončenie registrácie vyplňte prosím nasledujúci formulár
           username_help: Verejné meno, ktoré sa zobrazí vo vašich príspevkoch. S cieľom zaručiť anonymitu môže byť akékoľvek meno.
@@ -418,7 +414,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          nickname_help: Vaša prezývka v %{organization}
           password_help: "%{minimun_characters} minimum znakov, nesmie byť príliš bežné (napr. 123456) a musí byť iné ako vaše prezývka a váš e-mail."
           sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
@@ -844,8 +839,6 @@ sk:
           send: Poslat
           title: Spusťte konverzaci
     metrics:
-      download:
-        csv: Stiahnuť údaje (CSV)
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
         object: sledujúci
@@ -1040,7 +1033,6 @@ sk:
         subject: Zdroj bol automaticky skrytý
       report:
         hello: Zdravím %{name},
-        manage_moderations: Správa moderovanie
         report_html: <p> Bol nahlásený nasledujúce <a href="%{url}"> obsah </a>. </ p>
         subject: Bol ohlásený zdroj
     reports:

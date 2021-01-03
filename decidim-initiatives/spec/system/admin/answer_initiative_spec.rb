@@ -13,22 +13,6 @@ describe "User answers the initiative", type: :system do
     end
   end
 
-  context "when user is author" do
-    before do
-      switch_to_host(organization.host)
-      login_as author, scope: :user
-      visit decidim_admin_initiatives.initiatives_path
-    end
-
-    it "answer is forbidden" do
-      expect(page).to have_no_css(".action-icon--answer")
-
-      visit decidim_admin_initiatives.edit_initiative_answer_path(initiative)
-
-      expect(page).to have_content("You are not authorized")
-    end
-  end
-
   context "when user is admin" do
     before do
       switch_to_host(organization.host)

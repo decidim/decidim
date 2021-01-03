@@ -3,8 +3,6 @@
 module Decidim
   # This class deals with uploading hero images to ParticipatoryProcesses.
   class ImageUploader < ApplicationUploader
-    include CarrierWave::MiniMagick
-
     process :validate_size, :validate_dimensions, :strip
     process quality: Decidim.image_uploader_quality
 

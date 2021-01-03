@@ -324,10 +324,6 @@ zh-CN:
         description: 支持提议的数量
         object: 支持
         title: 支持
-    participatory_processes:
-      participatory_process_groups:
-        highlighted_proposals:
-          proposals: 建议
     participatory_spaces:
       highlighted_proposals:
         see_all: 查看所有建议 (%{count})
@@ -368,9 +364,7 @@ zh-CN:
           new_import:
             accepted_mime_types:
               md: Markdown
-              odt: 好的
             bottom_hint: "(您将能够预览和排序文档部分)"
-            document_legend: '添加一个小于2MB的文档，每个部分直到3级深度将被解析为建议书。支持的格式为： %{valid_mime_types}'
             title: 添加文档
             upload_document: 上传文档
           publish:

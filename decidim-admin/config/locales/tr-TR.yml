@@ -29,7 +29,6 @@ tr:
         body: Vücut
         subject: konu
       organization:
-        address: SMTP Sunucu Adı
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
@@ -58,8 +57,6 @@ tr:
         omnipresent_banner_short_description: Kısa Açıklama
         omnipresent_banner_title: Başlık
         omnipresent_banner_url: URL
-        password: Parola
-        port: Bağlantı noktası
         primary_color: Birincil
         reference_prefix: Referans öneki
         secondary_color: İkincil
@@ -67,7 +64,6 @@ tr:
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
-        user_name: Kullanıcı adı
         warning_color: Uyarı
         youtube_handler: YouTube işleyici
       scope:
@@ -502,7 +498,6 @@ tr:
           instagram: Instagram
           social_handlers: Sosyal
           twitter: heyecan
-          url: URL
           youtube: Youtube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.

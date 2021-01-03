@@ -87,6 +87,53 @@ module Decidim
           end
         end
       end
+
+      describe "Edit initiative as promoter" do
+        before do
+          sign_in created_initiative.author, scope: :user
+        end
+
+        let(:valid_attributes) do
+          attrs = attributes_for(:initiative, organization: organization)
+          attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
+          attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
+          attrs[:type_id] = created_initiative.type.id
+          attrs
+        end
+
+        it "edit when user is allowed" do
+          get :edit, params: { slug: created_initiative.slug }
+          expect(flash[:alert]).to be_nil
+          expect(response).to have_http_status(:ok)
+        end
+
+        context "and update an initiative" do
+          it "are allowed" do
+            put :update,
+                params: {
+                  slug: created_initiative.to_param,
+                  initiative: valid_attributes
+                }
+            expect(flash[:alert]).to be_nil
+            expect(response).to have_http_status(:found)
+          end
+        end
+
+        context "when initiative is invalid" do
+          it "does not update when title is nil" do
+            invalid_attributes = valid_attributes.merge(title: nil)
+
+            put :update,
+                params: {
+                  slug: created_initiative.to_param,
+                  initiative: invalid_attributes
+                }
+
+            expect(flash[:alert]).not_to be_empty
+            expect(response).to have_http_status(:ok)
+          end
+        end
+      end
     end
   end
 end

@@ -14,10 +14,12 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <%= link_to debates_path(filter_link_params), class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to debates_path(filter_link_params), class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
 
   <h2 class="heading3">
     <%== present(debate).title(links: true) %>

@@ -45,6 +45,8 @@
                                  t(".preview"),
                                  class: "action-icon--preview",
                                  target: "_blank" %>
+              <% else %>
+               <span class="action-space icon"></span>
               <% end %>
 
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
@@ -52,6 +54,8 @@
                                  decidim_admin_initiatives.edit_initiative_path(initiative.to_param),
                                  t("actions.configure", scope: "decidim.admin"),
                                  class: "action-icon--edit" %>
+              <% else %>
+               <span class="action-space icon"></span>
               <% end %>
 
               <% if allowed_to?(:answer, :initiative, initiative: initiative) %>
@@ -65,6 +69,8 @@
                                  decidim_admin_initiatives.initiative_path(initiative.to_param),
                                  t(".print",),
                                  class: "action-icon--print" %>
+              <% else %>
+                <span class="action-space icon"></span>
               <% end %>
             </td>
           <% end %>

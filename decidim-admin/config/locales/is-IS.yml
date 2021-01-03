@@ -56,13 +56,10 @@ is-IS:
         omnipresent_banner_short_description: Stutt lýsing
         omnipresent_banner_title: Titill
         omnipresent_banner_url: URL
-        password: Lykilorð
-        port: Gátt
         primary_color: Aðal
         reference_prefix: Tilvísunarnúmer
         secondary_color: Til vara
         twitter_handler: Twitter handler
-        user_name: Notendanafn
         warning_color: Aðvörun
         youtube_handler: YouTube umsjónarmaður
       scope:
@@ -404,7 +401,6 @@ is-IS:
           instagram: Instagram
           social_handlers: Félagsleg
           twitter: Twitter
-          url: Url
           youtube: Youtube
         update:
           success: Skipulag uppfærður með góðum árangri.

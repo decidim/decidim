@@ -10,10 +10,14 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      helper_method :flaggable_controller?
+      helper_method :flaggable_controller?, :report_form
 
       def flaggable_controller?
         true
+      end
+
+      def report_form
+        Decidim::ReportForm.from_params(reason: "spam")
       end
     end
   end

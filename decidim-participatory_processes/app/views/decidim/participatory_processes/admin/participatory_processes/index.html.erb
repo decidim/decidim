@@ -1,3 +1,5 @@
+<% add_decidim_page_title(t("participatory_processes", scope: "decidim.admin.titles")) %>
+
 <%= render partial: "decidim/participatory_processes/admin/shared/secondary_nav" %>
 
 <div class="card with-overflow" id="processes">
@@ -13,7 +15,7 @@
 
       <% if process_group %>
         <span>&lt;</span>
-        <%= link_to translated_attribute(process_group.name),
+        <%= link_to translated_attribute(process_group.title),
                     edit_participatory_process_group_path(process_group) %>
       <% end %>
 
@@ -31,9 +33,9 @@
           <%= link_to query_params_with(decidim_participatory_process_group_id_eq: nil) do %>
             <li><%= t("actions.filter.all_processes", scope: "decidim.admin") %></li>
           <% end %>
-          <% process_groups_for_select.each do |group_name, group_id| %>
+          <% process_groups_for_select.each do |group_title, group_id| %>
             <%= link_to query_params_with(decidim_participatory_process_group_id_eq: group_id) do %>
-              <li><%= group_name %></li>
+              <li><%= group_title %></li>
             <% end %>
           <% end %>
         </ul>
@@ -101,18 +103,26 @@
               <td class="table-list__actions">
                 <% if allowed_to? :create, :process, process: process %>
                   <%= icon_link_to "data-transfer-download", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :create, :process, process: process %>
                   <%= icon_link_to "clipboard", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :update, :process, process: process %>
                   <%= icon_link_to "pencil", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
 
                 <% if allowed_to? :preview, :process, process: process %>
                   <%= icon_link_to "eye", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview" %>
+                <% else %>
+                  <span class="action-space icon"></span>
                 <% end %>
               </td>
             </tr>

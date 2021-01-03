@@ -101,7 +101,7 @@ shared_examples_for "add display conditions" do
 
             within "select[id$=decidim_condition_question_id]" do
               elements = page.all("option[data-type]")
-              expect(elements.map { |element| element[:"data-type"] }).to eq(questions.map(&:question_type))
+              expect(elements.map { |element| element[:"data-type"] }).to match_array(questions.map(&:question_type))
               expect(page.find("option[value='#{questions.last.id}']")).to be_disabled
             end
           end
@@ -117,7 +117,7 @@ shared_examples_for "add display conditions" do
               option_elements = page.all("select[id$=condition_type] option")
               option_elements = option_elements.to_a.reject { |option| option[:style].match? "display: none" }
 
-              expect(option_elements.map(&:text)).to eq(options)
+              expect(option_elements.map(&:text)).to match_array(options)
             end
           end
         end
@@ -132,7 +132,7 @@ shared_examples_for "add display conditions" do
               option_elements = page.all("select[id$=condition_type] option")
               option_elements = option_elements.to_a.reject { |option| option[:style].match? "display: none" }
 
-              expect(option_elements.map(&:text)).to eq(options)
+              expect(option_elements.map(&:text)).to match_array(options)
             end
           end
         end

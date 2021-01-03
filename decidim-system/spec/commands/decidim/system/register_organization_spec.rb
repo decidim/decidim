@@ -56,6 +56,7 @@ module Decidim
             expect(organization.host).to eq("decide.gotham.gov")
             expect(organization.secondary_hosts).to match_array(["foo.gotham.gov", "bar.gotham.gov"])
             expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
+            expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
             expect(organization.omniauth_settings["omniauth_settings_facebook_enabled"]).to eq(true)
             expect(organization.file_upload_settings).to eq(upload_settings)
             expect(
@@ -105,15 +106,33 @@ module Decidim
             expect(organization.tos_version).to eq(tos_page.updated_at)
           end
 
-          describe "encrypted smtp settings" do
+          describe "#encrypted_smtp_settings" do
+            it "concatenates from_email and from_label" do
+              expect do
+                perform_enqueued_jobs { command.call }
+              end.to change(emails, :count).by(1)
+
+              organization = Organization.last
+
+              expect(organization.smtp_settings["from"]).to eq("Decide Gotham <decide@gotham.gov>")
+              expect(organization.smtp_settings["from_label"]).to eq("Decide Gotham")
+              expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
+              expect(last_email.From.value).to eq("Decide Gotham <decide@gotham.gov>")
+            end
+
             context "when from_label is empty" do
               let(:from_label) { "" }
 
               it "sets the label from email" do
-                command.call
+                expect do
+                  perform_enqueued_jobs { command.call }
+                end.to change(emails, :count).by(1)
+
                 organization = Organization.last
 
                 expect(organization.smtp_settings["from"]).to eq("decide@gotham.gov")
+                expect(organization.smtp_settings["from_email"]).to eq("decide@gotham.gov")
+                expect(last_email.From.value).to eq("decide@gotham.gov")
               end
             end
           end

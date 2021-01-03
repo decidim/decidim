@@ -36,7 +36,6 @@ ar:
       participatory_process_group:
         description: وصف
         hero_image: صورة
-        name: اسم
         participatory_process_ids: العمليات ذات الصلة
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
@@ -121,8 +120,6 @@ ar:
             title: عنوان
           name: عملية المشاركة
         participatory_process_group:
-          fields:
-            name: اسم
           name: مجموعة العملية
         participatory_process_step:
           fields:
@@ -288,13 +285,6 @@ ar:
         title: العمليات التشاركية
     participatory_process_groups:
       show:
-        group_participatory_processes:
-          zero: "%{count} عمليات ل %{group}"
-          one: 1 عملية ل %{group}
-          two: "%{count} عمليات ل %{group}"
-          few: "%{count} عمليات ل %{group}"
-          many: "%{count} عمليات ل %{group}"
-          other: "%{count} عمليات ل %{group}"
         title: مجموعات العملية التشاركية
     participatory_process_steps:
       index:

@@ -52,12 +52,13 @@ nl:
         confirm_destroy: Weet je het zeker?
         destroy: Vernietig
         edit: Bewerken
-        edit_answers: Antwoorden bewerken
-        edit_questions: Vragen bewerken
         import: Importeer voorstellen naar antwoorden
+        manage_answers: Antwoorden beheren
+        manage_questions: Vragen beheren
         new: Nieuwe %{name}
         preview: Voorvertoning
         publish: Publiceren
+        setup: Instellen
         title: acties
         unpublish: Depubliceer
       admin:
@@ -96,11 +97,16 @@ nl:
             title: Nieuwe verkiezing
           publish:
             success: De verkiezing is succesvol gepubliceerd.
+          setup:
+            invalid: Er is een fout opgetreden bij het maken van deze stemronde
+            success: Stemronde succesvol verzonden naar het Bulletin Board
           unpublish:
             success: De verkiezing is succesvol gedepubliceerd.
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze verkiezingen
             success: Verkiezing succesvol bijgewerkt
+        exports:
+          elections: Verkiezingen
         models:
           answer:
             name: Beantwoorden
@@ -136,6 +142,29 @@ nl:
           update:
             invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
             success: Vraag met succes bijgewerkt
+        setup:
+          errors:
+            max_selections: De vragen hebben geen <strong>juiste waarde voor het aantal antwoorden</strong>
+            minimum_answers: Vragen moeten <strong>minstens één antwoord</strong> hebben.
+            minimum_questions: De stemronde <strong>moet ten minste één vraag</strong> hebben.
+            published: De stemronde is <strong>niet gepubliceerd</strong>
+            time_before: De starttijd van de stemronde is over <strong>minder dan 3 uur</strong>
+            trustee_public_key: heeft geen <strong>geldige publieke sleutel</strong>
+            trustees_quorum: De hoeveelheid trustees <strong>komt niet overeen met het vereiste quotum</strong>
+          requirements:
+            max_selections: Alle vragen hebben een correcte waarde voor <strong>maximum van antwoorden</strong>
+            minimum_answers: Elke vraag heeft <strong>minstens 2 antwoorden</strong>
+            minimum_questions: De stemronde <strong>moet minstens 1 vraag</strong> hebben
+            published: De stemronde is <strong>gepubliceerd</strong>
+            time_before: Over <strong>minder dan 3 uur</strong> wordt de stemronde ingesteld
+            trustee_public_key: heeft een <strong>geldige publieke sleutel</strong>
+            trustees_quorum: Het aantal trustees is correct en er zullen <strong>minstens %{quorum} trustees </strong> nodig zijn om het turvingsproces uit te voeren
+          show:
+            setup: Nieuwe stemronde
+            title: Instellen van stemrondes
+          update:
+            setup: Nieuwe stemronde
+            title: Instellen van stemrondes
         trustees_participatory_spaces:
           actions:
             disable: Uitschakelen
@@ -167,7 +196,6 @@ nl:
             one: "%{count} verkiezing"
             other: "%{count} verkiezingen"
         show:
-          back: Alle verkiezingen
           preview: Voorvertoning
           vote: Stemming
           voting_period_status:
@@ -243,6 +271,11 @@ nl:
           email_subject: De %{resource_title} verkiezing is nu actief voor %{participatory_space_title}.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> verkiezing is nu actief voor %{participatory_space_title}.
         trustees:
+          new_election:
+            email_intro: Je bent toegevoegd als trustee voor de %{resource_title} stemronde.
+            email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_title}.
+            email_subject: Je bent trustee voor de %{resource_title} stemronde..
+            notification_title: Je bent trustee voor <a href="%{resource_path}">%{resource_title}</a> stemronde.
           new_trustee:
             email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_name}.
             email_subject: Je bent een trustee van %{resource_name}.

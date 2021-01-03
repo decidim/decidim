@@ -32,7 +32,7 @@ describe "Invite process administrator", type: :system do
 
       visit decidim_admin.admin_terms_show_path
 
-      find_button("I agree this admin terms").click
+      find_button("I agree with the following terms").click
 
       click_link "Processes"
 
@@ -42,7 +42,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end
@@ -72,7 +72,7 @@ describe "Invite process administrator", type: :system do
       end
 
       within ".secondary-nav" do
-        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nModerations"
+        expect(page.text).to eq "View public page\nInfo\nPhases\nComponents\nCategories\nAttachments\nFolders\nFiles\nProcess admins\nPrivate participants\nModerations"
       end
     end
   end

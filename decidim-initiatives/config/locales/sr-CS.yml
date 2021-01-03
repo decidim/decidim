@@ -3,6 +3,5 @@ sr:
     initiatives:
       create_initiative:
         finish:
-          confirm: Potvrdi
           edit_my_initiative: Izmeni moje inicijative
           send_my_initiative: Pošalji moju inicijativu

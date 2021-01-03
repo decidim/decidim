@@ -255,8 +255,6 @@ ar:
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
-      errors:
-        duplicate_authorization: مشارك مفوض بالفعل مع نفس البيانات.
       expired_at: انتهت في %{timestamp}
       expires_at: تنتهي في %{timestamp}
       foo_authorization:
@@ -771,8 +769,6 @@ ar:
           send: إرسال
           title: بدء محادثة
     metrics:
-      download:
-        csv: تنزيل البيانات (csv)
       followers:
         description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
         object: متابعون
@@ -946,7 +942,6 @@ ar:
         subject: تم إخفاء المورد تلقائيًا
       report:
         hello: مرحبا %{name}،
-        manage_moderations: إدارة التعديلات
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
         subject: تم الإبلاغ عن مورد
     reports:

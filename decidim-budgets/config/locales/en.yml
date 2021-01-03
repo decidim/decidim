@@ -86,6 +86,7 @@ en:
             create: Import proposals to projects
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             select_component: Please select a component
+            title: Import proposals
       admin_log:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
@@ -247,8 +248,8 @@ en:
             vote_rule_minimum_budget_projects_enabled: 'Enable rule: Minimum number of projects to be voted on'
             vote_rule_selected_projects_enabled: 'Enable rule: Selected projects with minimum and maximum number of projects to be voted on'
             vote_rule_threshold_percent_enabled: 'Enable rule: Minimum budget percentage'
-            vote_selected_projects_maximum: Minimum amount of projects to be selected
-            vote_selected_projects_minimum: Maximum amount of projects to be selected
+            vote_selected_projects_maximum: Maximum amount of projects to be selected
+            vote_selected_projects_minimum: Minimum amount of projects to be selected
             vote_threshold_percent: Vote threshold percent
             workflow: Workflow
             workflow_choices:

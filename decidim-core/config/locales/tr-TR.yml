@@ -216,8 +216,6 @@ tr:
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Kukla yetkilendirme iş akışı
-      errors:
-        duplicate_authorization: Bir kullanıcı zaten aynı verilerle yetkilendirilmiştir.
       expired_at: '%{timestamp}bitti'
       expires_at: '%{timestamp}sona eriyor'
       foo_authorization:
@@ -739,8 +737,6 @@ tr:
           send: göndermek
           title: Bir görüşme başlat
     metrics:
-      download:
-        csv: Veri indir (csv)
       followers:
         description: Bu katılım alanını takip eden kullanıcı sayısı
         object: takipçileri
@@ -914,7 +910,6 @@ tr:
         subject: Bir kaynak otomatik olarak gizlendi
       report:
         hello: Merhaba %{name}
-        manage_moderations: Denetimleri yönet
         report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> bildirilmiştir.</p>
         subject: Bir kaynak rapor edildi
     reports:

@@ -66,18 +66,6 @@ module Decidim
         end
 
         context "when the filter includes state" do
-          context "and filtering draft initiatives" do
-            let(:state) { ["created"] }
-
-            it "returns only draft initiatives" do
-              draft_initiatives = create_list(:initiative, 3, organization: organization, state: "created", published_at: nil)
-              create_list(:initiative, 3, :acceptable, organization: organization)
-
-              expect(subject.size).to eq(3)
-              expect(subject).to match_array(draft_initiatives)
-            end
-          end
-
           context "and filtering open initiatives" do
             let(:state) { ["open"] }
 
@@ -163,6 +151,7 @@ module Decidim
         context "when the filter includes author" do
           let!(:initiative) { create(:initiative, organization: organization) }
           let!(:initiative2) { create(:initiative, organization: organization, author: user1) }
+          let!(:created_initiative) { create(:initiative, :created, organization: organization, author: user1) }
 
           context "and any author" do
             it "contains all initiatives" do
@@ -174,7 +163,7 @@ module Decidim
             let(:author) { "myself" }
 
             it "contains only initiatives of the author" do
-              expect(subject).to match_array [initiative2]
+              expect(subject).to match_array [initiative2, created_initiative]
             end
           end
         end

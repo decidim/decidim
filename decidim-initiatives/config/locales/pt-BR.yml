@@ -249,13 +249,6 @@ pt:
           back_to_initiatives: De volta às iniciativas
           go_to_my_initiatives: Vá para minhas iniciativas
           more_information: "(Mais Informações)"
-        finish_help:
-          access_reminder: Lembre-se de que você sempre poderá acessar suas iniciativas através do menu do usuário.
-          help_for_organizations: Se você é uma associação, você terá que enviar as atas do conselho de administração de todas as organizações que formam a Comissão Promotora.
-          help_in_person_signatures: Se você optou por coletar as assinaturas pessoalmente ou combinadas com on-line, será necessário fazer o upload das informações necessárias.
-          help_text: Lembre-se de que, para processar adequadamente a iniciativa, você deve acessar o painel de administração, onde encontrará o menu do usuário, carregará as informações necessárias e as enviará para processamento.
-          initiatives_page_link: Você pode procurar todas essas informações no %{link} dedicado a informar sobre iniciativas.
-          page: página
         previous_form:
           back: Costas
           continue: Continuar
@@ -353,6 +346,8 @@ pt:
           most_voted: Mais assinadas
           random: Aleatória
           recent: Mais recente
+        print:
+          city: Cidade
         result:
           answer_title:
             accepted: Esta proposta foi aceita porque

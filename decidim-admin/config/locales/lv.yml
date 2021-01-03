@@ -28,7 +28,6 @@ lv:
         body: Pamatteksts
         subject: Temats
       organization:
-        address: SMTP saimniekdatora nosaukums
         alert_color: Brīdinājums
         badges_enabled: Iespējot žetonus
         cta_button_path: Pogas Call To Action ceļš
@@ -57,8 +56,6 @@ lv:
         official_url: Oficiālais organizācijas URL
         omnipresent_banner_short_description: Īss apraksts
         omnipresent_banner_title: Nosaukums
-        password: Parole
-        port: Ports
         primary_color: Primārais
         reference_prefix: Atsauces prefikss
         rich_text_editor_in_public_views: Iespējot bagātinātā teksta redaktoru dalībniekiem
@@ -69,7 +66,6 @@ lv:
         tos_version: Pakalpojumu sniegšanas noteikumu versija
         twitter_handler: Twitter apdarinātājs
         user_groups_enabled: Iespējot grupas
-        user_name: Lietotājvārds
         warning_color: Brīdinājums
         welcome_notification_body: Sveiciena paziņojuma pamatteksts
         welcome_notification_subject: Sveiciena paziņojuma temats
@@ -139,7 +135,6 @@ lv:
           error: Piekrītot administratora lietošanas noteikumiem, radās kļūda.
           success: Lieliski! Jūs esat piekritis administratora lietošanas noteikumiem.
         actions:
-          accept: Es piekrītu šiem administratora noteikumiem
           are_you_sure: Vai tiešām nepiekrītat administratora noteikumiem?
           refuse: Nepiekrist administratora noteikumiem
           title: Piekrist lietošanas noteikumiem
@@ -553,7 +548,6 @@ lv:
         form:
           rich_text_editor_in_public_views_help: Atsevišķos teksta laukos, izmantojot bagātinātā teksta redaktoru, dalībnieki varēs ievietot dažus HTML tagus.
           social_handlers: Sociālie plašsaziņas līdzekļi
-          url: URL
         update:
           error: Šīs organizācijas atjaunināšanas laikā radās problēma.
           success: Organizācija ir veiksmīgi atjaunināta.
@@ -587,7 +581,6 @@ lv:
           error: Dzēšot privāto dalībnieku no šīs līdzdalības telpas, radās problēma.
           success: Privāto dalībnieku piekļuve līdzdalības telpai ir veiksmīgi dzēsta.
         index:
-          import_via_csv: Importēt no CSV
           title: Līdzdalības telpas privāts dalībnieks
         new:
           create: Izveidot

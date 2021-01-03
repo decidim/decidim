@@ -50,8 +50,6 @@ ja:
         confirm_destroy: よろしいですか？
         destroy: 削除
         edit: 編集
-        edit_answers: 回答を編集
-        edit_questions: 質問を編集
         feedback: 投票者からのフィードバック
         import: 提案を回答にインポート
         new: 新しい %{name}
@@ -172,7 +170,6 @@ ja:
           filter_by: 絞り込み条件
           unfold: 展開
         show:
-          back: すべての選挙
           preview: プレビュー
           vote: 投票
           voting_period_status:

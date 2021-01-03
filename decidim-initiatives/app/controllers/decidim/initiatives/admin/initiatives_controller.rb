@@ -49,7 +49,7 @@ module Decidim
           @form = form(Decidim::Initiatives::Admin::InitiativeForm)
                   .from_params(params, initiative: current_initiative)
 
-          UpdateInitiative.call(current_initiative, @form, current_user) do
+          Decidim::Initiatives::Admin::UpdateInitiative.call(current_initiative, @form, current_user) do
             on(:ok) do |initiative|
               flash[:notice] = I18n.t("initiatives.update.success", scope: "decidim.initiatives.admin")
               redirect_to edit_initiative_path(initiative)

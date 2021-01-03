@@ -153,8 +153,6 @@ es-PY:
             api_key: Clave API
             api_secret: Secreto API
         smtp_settings:
-          instructions:
-            from_label: 'El remitente de correo electrónico será: "su-nombre de organización <your-organization@example.org>". Déjalo en blanco para usar el ''from_email'' como etiqueta'
           placeholder:
             from_email: tu-organizacion@example.org
             from_label: el-nombre-de-tu-organizacion

@@ -30,7 +30,6 @@ it:
         body: Testo
         subject: Oggetto
       organization:
-        address: Server SMTP
         alert_color: Notifica
         badges_enabled: Abilita badge
         comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
@@ -63,8 +62,6 @@ it:
         omnipresent_banner_short_description: Breve descrizione
         omnipresent_banner_title: Titolo
         omnipresent_banner_url: URL
-        password: Password
-        port: Porta
         primary_color: Primario
         reference_prefix: Prefisso
         rich_text_editor_in_public_views: Abilita l'editor di testo esteso per i partecipanti
@@ -75,7 +72,6 @@ it:
         tos_version: Termini di versione del servizio
         twitter_handler: Gestore di Twitter
         user_groups_enabled: Abilita gruppi
-        user_name: Pseudonimo
         warning_color: Attenzione
         welcome_notification_body: Testo del messaggio di Benvenuto
         welcome_notification_subject: Oggetto della mail con messaggio di Benvenuto
@@ -91,7 +87,10 @@ it:
         name: Nome
         organization: Organizzazione
         plural: Plurale
+      settings:
+        scope_id: Obiettivi
       static_page:
+        allow_public_access: Consenti l'accesso senza autenticazione
         changed_notably: Ci sono stati cambiamenti evidenti.
         content: Contenuto
         organization: Organizzazione
@@ -145,7 +144,6 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
           success: Ottimo! Hai accettato i termini d'uso dell'amministratore.
         actions:
-          accept: Accetto i termini di amministrazione
           are_you_sure: Sei sicuro di voler rifiutare i termini di amministrazione?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
@@ -572,7 +570,6 @@ it:
           rich_text_editor_in_public_views_help: In alcune aree di testo, i partecipanti saranno in grado di inserire alcuni tag HTML utilizzando l'editor di testo rich text.
           social_handlers: Social networks
           twitter: Twitter
-          url: URL
           youtube: Youtube
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
@@ -607,7 +604,6 @@ it:
           error: Si è verificato un errore durante l'eliminazione di un utente privato per questo spazio partecipativo.
           success: Accesso utente privato spazio distruttivo distrutto con successo.
         index:
-          import_via_csv: Importa tramite csv
           title: Utente privato dello spazio partecipativo
         new:
           create: Creare

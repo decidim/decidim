@@ -21,6 +21,9 @@ module Decidim::Meetings
     let(:user_group_id) { nil }
     let(:type_of_meeting) { "online" }
     let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:registration_url) { "http://decidim.org" }
     let(:form) do
       double(
         invalid?: invalid,
@@ -38,6 +41,11 @@ module Decidim::Meetings
         user_group_id: user_group_id,
         current_user: current_user,
         current_organization: organization,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        registration_terms: "The meeting registration terms",
+        registrations_enabled: true,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url
       )
@@ -130,6 +138,11 @@ module Decidim::Meetings
             services_to_persist: [],
             current_user: current_user,
             current_organization: organization,
+            registration_type: registration_type,
+            available_slots: available_slots,
+            registration_url: registration_url,
+            registration_terms: meeting.registration_terms,
+            registrations_enabled: true,
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url
           )

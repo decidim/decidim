@@ -21,17 +21,18 @@ module Decidim
       include InitiativeSlug
       include FilterResource
       include Paginable
+      include Decidim::FormFactory
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
       include SingleInitiativeType
 
       helper_method :collection, :initiatives, :filter, :stats
+      helper_method :initiative_type
 
       # GET /initiatives
       def index
         enforce_permission_to :list, :initiative
-
         return unless search.results.blank? && params.dig("filter", "state") != %w(closed)
 
         @closed_initiatives = search_klass.new(search_params.merge(state: %w(closed)))
@@ -40,12 +41,68 @@ module Decidim
           params[:filter] ||= {}
           params[:filter][:date] = %w(closed)
           @forced_closed_initiatives = true
+
           @search = @closed_initiatives
         end
       end
 
       # GET /initiatives/:id
       def show
+        enforce_permission_to :read, :initiative, initiative: current_initiative
+      end
+
+      # GET /initiatives/:id/send_to_technical_validation
+      def send_to_technical_validation
+        enforce_permission_to :send_to_technical_validation, :initiative, initiative: current_initiative
+
+        SendInitiativeToTechnicalValidation.call(current_initiative, current_user) do
+          on(:ok) do
+            redirect_to EngineRouter.main_proxy(current_initiative).initiatives_path(initiative_slug: nil), flash: {
+              notice: I18n.t(
+                "success",
+                scope: %w(decidim initiatives admin initiatives edit)
+              )
+            }
+          end
+        end
+      end
+
+      # GET /initiatives/:slug/edit
+      def edit
+        enforce_permission_to :edit, :initiative, initiative: current_initiative
+        form_attachment_model = form(AttachmentForm).from_model(current_initiative.attachments.first)
+        @form = form(Decidim::Initiatives::InitiativeForm)
+                .from_model(
+                  current_initiative,
+                  initiative: current_initiative
+                )
+        @form.attachment = form_attachment_model
+
+        render layout: "decidim/initiative"
+      end
+
+      # PUT /initiatives/:id
+      def update
+        enforce_permission_to :update, :initiative, initiative: current_initiative
+
+        params[:id] = params[:slug]
+        @form = form(Decidim::Initiatives::InitiativeForm)
+                .from_params(params, initiative_type: current_initiative.type, initiative: current_initiative)
+
+        UpdateInitiative.call(current_initiative, @form, current_user) do
+          on(:ok) do |initiative|
+            flash[:notice] = I18n.t("success", scope: "decidim.initiatives.update")
+            redirect_to initiative_path(initiative)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("error", scope: "decidim.initiatives.update")
+            render :edit, layout: "decidim/initiative"
+          end
+        end
+      end
+
+      def print
         enforce_permission_to :read, :initiative, initiative: current_initiative
       end
 

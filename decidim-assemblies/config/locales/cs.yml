@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Povolit organizační graf
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
@@ -33,7 +35,7 @@ cs:
         local_area: Oblast organizace
         meta_scope: Metadata Oblasti působnosti
         parent_id: Nadřazené shromáždění
-        participatory_processes_ids: Související procesy účasti
+        participatory_processes_ids: Související participativní procesy
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
         private_space: Soukromý prostor
@@ -60,6 +62,7 @@ cs:
         full_name: Celé jméno
         gender: Rod
         position: Pozice
+        user_id: Uživatel
       assembly_user_role:
         email: E-mail
         name: název
@@ -311,6 +314,9 @@ cs:
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Členové
@@ -320,7 +326,7 @@ cs:
         executive: Výkonný
         government: Vládní
         others: Ostatní
-        participatory: Účast
+        participatory: Účastnický
         working_group: Pracovní skupina
       content_blocks:
         highlighted_assemblies:
@@ -337,7 +343,7 @@ cs:
         government: Vládní
         help: 'Zobrazit:'
         others: Ostatní
-        participatory: Účastník
+        participatory: Účastnický
         working_group: Pracovní skupina
       index:
         title: Shromáždění
@@ -375,7 +381,7 @@ cs:
         purpose_of_action: Účel akce
         read_less: Číst méně
         read_more: Číst více
-        related_participatory_processes: Související procesy participace
+        related_participatory_processes: Související participativní procesy
         scope: Oblast působnosti
         social_networks: Sociální sítě
         social_networks_title: Sdílet toto shromáždění na

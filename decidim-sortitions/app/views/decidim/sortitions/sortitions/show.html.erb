@@ -12,10 +12,12 @@
 
 <div class="row column view-header">
 
-  <%= link_to :sortitions, class: "small hollow" do %>
-    <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-    <%= t(".back") %>
-  <% end %>
+  <div class="m-bottom">
+    <%= link_to :sortitions, class: "small hollow" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t(".back") %>
+    <% end %>
+  </div>
 
   <h2 class="heading2"><%= decidim_html_escape(translated_attribute(sortition.title)) %></h2>
   <div class="author-data">

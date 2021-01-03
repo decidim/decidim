@@ -99,6 +99,14 @@ module Decidim
         end
       end
 
+      describe "candidateProposals" do
+        let(:query) { "{ candidateProposals }" }
+
+        it "returns the candidateProposals field" do
+          expect(response["candidateProposals"]).to eq(model.candidate_proposals)
+        end
+      end
+
       context "when the sortition is cancelled" do
         let(:model) { create(:sortition, :cancelled) }
 

@@ -1095,12 +1095,24 @@ a .card__title{
   @include flex;
   @include flex-align($x: left, $y: null);
 
+  flex-direction: column;
+
+  @include breakpoint(medium){
+    flex-direction: row;
+  }
+
   > *{
     padding: $global-margin;
     flex: 0 0 25%;
 
     &:not(:nth-child(4n)){
-      border-right: $card-border;
+      border-right: 0;
+      border-bottom: $card-border;
+
+      @include breakpoint(medium){
+        border-bottom: 0;
+        border-right: $card-border;
+      }
     }
   }
 }

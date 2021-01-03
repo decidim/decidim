@@ -207,8 +207,6 @@ eu:
         name: Adibidez baimena
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
-      errors:
-        duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
       expired_at: '%{timestamp} iraungita dago'
       expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
@@ -724,8 +722,6 @@ eu:
           send: Bidali
           title: Hasi elkarrizketa bat
     metrics:
-      download:
-        csv: Deskargatu datuak (csv)
       followers:
         description: Parte hartze espazio hau jarraitzen duten erabiltzaile kopurua
         object: jarraitzaile
@@ -899,7 +895,6 @@ eu:
         subject: Eduki bat automatikoki ezkutatu da
       report:
         hello: Kaixo, %{name},
-        manage_moderations: Kudeatu moderazioak
         report_html: <p>Hurrengo <a href="%{url}">edukia</a>zalatua izan da.</p>
         subject: Eduki bat salatua izan da
     reports:

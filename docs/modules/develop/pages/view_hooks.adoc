@@ -1,0 +1,97 @@
+= View hooks
+
+== General description
+
+All engines can define their own view hooks, and register to other engines' ones. This allows engines to add content to views rendered by other engines. This will be clearer with an example.
+
+Take the homepage, for example. It is rendered by the `decidim-core`. We want to show there a list of highlighted participatory spaces (processes and assemblies). We cannot be sure the final app has these engines, so we need to check they exist:
+
+[source,ruby]
+----
+<% if defined? Decidim::Processes %>
+  <% # iterate through the most important ones %>
+<% end %>
+<% if defined? Decidim::Assemblies %>
+  <% # iterate through the most important ones %>
+<% end %>
+----
+
+This raises two important issues:
+
+. We are linking `decidim-core` with `decidim-assemblies` and `decidim-participatory_processes`. This is not perfect.
+. The final app cannot extend this view to add more content in a simple way. The developers could overwrite the view, but this raises maintainability problems, as upgrades will be harder.
+
+== Rendering view hooks
+
+Instead of the previous example, we created the concept of "view hooks". Think of them as a registry of views which can be defined by a given engine and extended by others. To follow the previous example, we would register a view hook in `decidim-core`:
+
+[source,ruby]
+----
+<%= Decidim.view_hooks.render(:highlighted_elements, deep_dup) %>
+----
+
+We're rendering the view hooks registered as `:highlighted_elements`. The `deep_dup` parameter is a deep copy of the view context, we will analyze it later.
+
+== Registering view hooks
+
+Other engines would register blocks of Ruby and Rails code from their initializers. For example, in `decidim-participatory_processes`:
+
+[source,ruby]
+----
+# decidim-participatory_processes/lib/decidim/participatory_processes/engine.rb
+initializer "decidim_participatory_processes.view_hooks" do
+  Decidim.view_hooks.register(:highlighted_elements) do |view_context|
+    view_context.render(partial: "my/partial")
+  end
+end
+----
+
+In order to register a view hook we need the hook name and a block of Ruby code. We're registering a view hook as `:highlighted-elements`, following our example. We're passing a deep copy of the view context to the block so that we can use our views helper methods there, and we're rendering a partial. We could write `ActiveRecord` queries and pass the results to the partial as `locals` if we wanted a more complex view:
+
+[source,ruby]
+----
+# decidim-participatory_processes/lib/decidim/participatory_processes/engine.rb
+initializer "decidim_participatory_processes.view_hooks" do
+  Decidim.view_hooks.register(:highlighted_elements) do |view_context|
+    highlighted_processes =
+      OrganizationPublishedParticipatoryProcesses.new(view_context.current_organization) | HighlightedParticipatoryProcesses.new
+
+    view_context.render(partial: "decidim/participatory_processes/my/partial", locals: { highlighted_processes: highlighted_processes })
+  end
+end
+----
+
+We're passing a deep copy of the view context to allow us to extend it without polluting the original view context:
+
+[source,ruby]
+----
+# decidim-proposals/lib/decidim/proposals/engine.rb
+initializer "decidim_participatory_processes.view_hooks" do
+  Decidim.view_hooks.register(:participatory_space_highlighted_elements) do |view_context|
+    # ...
+    view_context.extend Decidim::Proposals::ApplicationHelper
+    view_context.render(partial: "decidim/participatory_spaces/highlighted_proposals", locals: { })
+  end
+end
+----
+
+When registering a view hook, we can set a priority for each one. By default, all view hooks are registered with low priority, but we can change it:
+
+[source,ruby]
+----
+Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+  # ...
+end
+----
+
+== Enabling view hooks in your engine
+
+Ideally, each engine should hold their own instance of `Decidim::ViewHooks`. This means that if `decidim-participatory_processes` wants to allow part of its views to be extended by other engines, it should define `Decidim::ParticipatoryProcesses.view_hooks`, and other engines should register to this instance.
+
+== The engine I want to extend does not support view hooks, what can I do?
+
+First of all, send a PR to the engine to add the view hook you need. Expose your needs, so the developers can assess a view hook is the best solution. Sometimes a view hook can be replaced with another abstraction, or another UI. Meanwhile, you can use https://github.com/spree/deface[`deface`] to extend a view file without replacing it. Be careful, since `deface` is _very_ powerful and can be a double-edged sword. We considered adding `deface` to `decidim`, but found that it opened to a code that would be much harder to maintain.
+
+== View hooks drawbacks and alternatives
+
+View hooks allow components to extend the views of other components without coupling, but they cannot be sorted by the user, and cannot hold options. Consider checking the content blocks abstraction for a more configurable setup.

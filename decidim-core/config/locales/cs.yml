@@ -137,7 +137,7 @@ cs:
         update: "%{user_name} aktualizovala nastavení organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
-        create_via_csv: "%{user_name} pozval %{resource_name} aby se stal soukromým účastníkem"
+        create_via_csv: "%{user_name} pozval %{resource_name} prostřednictvím CSV k tomu, aby byl soukromým účastníkem"
         delete: "%{user_name} uživatele %{resource_name} odstranil jako soukromého uživatele"
       scope:
         create: "%{user_name} vytvořil oblast působnosti %{resource_name}"
@@ -160,6 +160,8 @@ cs:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
+      user_moderation:
+        unreport: "%{user_name} vyjmut z nahlášení v %{resource_type} - %{unreported_user_name}"
     admin_terms_of_use:
       default_body: "<h2>ADMIN TERMY POUŽITÍ</h2><p>Věříme, že jste obdrželi obvyklou lekci od místního správce systému. Obvykle se zredukuje na tyto tři věci:</p><ol><li>Respektujte soukromí ostatních.</li><li>Zamysleme se před kliknutím.</li><li>S velkou mocí přichází velká odpovědnost.</li></ol>"
     alert:
@@ -287,8 +289,6 @@ cs:
         name: Příklad autorizace
       dummy_authorization_workflow:
         name: Pracovní postup autorizace
-      errors:
-        duplicate_authorization: Účastník je již autorizován se stejnými daty.
       expired_at: Platnost vypršela v %{timestamp}
       expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
@@ -384,6 +384,13 @@ cs:
             dummy_step_translatable_text: Zástupný krok textu k přeložení
     contact: Kontakt
     content_blocks:
+      cta:
+        name: Tlačítko obrázek, text a Výzva k akci
+      cta_settings_form:
+        background_image: Obrázek pozadí
+        button_text: Text tlačítka Výzvy k akci
+        button_url: URL tlačítka Výzva k akci
+        description: Popis
       footer_sub_hero:
         name: Zápatí pod hlavním pruhem
       hero:
@@ -393,6 +400,11 @@ cs:
         welcome_text: Uvítací text
       highlighted_content_banner:
         name: Zvýrazněný obsahový pruh
+      highlighted_elements_settings_form:
+        orders:
+          label: 'Seřadit prvky podle:'
+          random: Náhodně
+          recent: Nejnovější
       how_to_participate:
         name: Jak se zapojit
       html:
@@ -427,7 +439,7 @@ cs:
           email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Kompletní profil
-          nickname_help: Vaše přezdívka v %{organization}
+          nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
@@ -436,7 +448,7 @@ cs:
           already_have_an_account?: Máte již účet?
           newsletter: Dostávejte příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          nickname_help: Vaše přezdívka v %{organization}
+          nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           password_help: "%{minimun_characters} minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
           sign_in: Přihlásit se
           sign_up: Zaregistrovat se
@@ -628,6 +640,14 @@ cs:
           notification_title: Uživatelská skupina %{user_group_name} aktualizovala svůj profil, ponechala jej neověřený. Nyní jej můžete ověřit v <a href="%{groups_admin_path}">admin panelu</a>.
       notification_event:
         notification_title: Došlo k události <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Administrátor odstranil váš %{resource_type} protože byl nahlášen jako %{report_reasons}.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem odstraněného obsahu.
+          email_subject: Váš %{resource_type} byl odstraněn
+          notification_title: |-
+            Administrátor odstranil váš %{resource_type}, protože byl nahlášen jako %{report_reasons}.</br>
+            <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, kterého sledujete, právě schválil "%{resource_title}" a my si myslíme, že to může být pro vás zajímavé. Podívejte se na to a přispějte:'
         email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{endorser_nickname}. Po kliknutí na předchozí odkaz můžete přestat přijímat oznámení.
@@ -693,7 +713,7 @@ cs:
         file:
           explanation: 'Pokyny pro soubor:'
           message_1: Jedná se o obrázek nebo dokument.
-          message_2: U obrázků použijte pokud možno formát na šířku, obrázek bude oříznut.
+          message_2: Pro obrázky použijte pokud možno orientaci na šířku, služba ořeže obrázek. Pro CSV soubory musí být oddělovač mezi sloupci čárkou (",")
         image:
           explanation: 'Pokyny pro obrázek:'
           message_1: Je vhodnější obrázek na šířku, který nemá žádný text.
@@ -944,7 +964,7 @@ cs:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
-        csv: Stáhnout data (csv)
+        csv: Stáhnout data (CSV)
       followers:
         description: Počet uživatelů, kteří následují v tomto prostoru účasti
         object: následovníků
@@ -1143,13 +1163,15 @@ cs:
       report:
         authors: Autoři
         content: Nahlášený obsah
+        content_original_language: Původní jazyk obsahu
         date: Nahlášeno dne
         details: Detaily
         hello: Zdravím %{name},
-        manage_moderations: Správa moderování
+        id: ID
         participatory_space: Účastnický prostor
         reason: Důvod
         report_html: <p>Byl nahlášen následující <a href="%{url}">obsah</a>.</p>
+        see_report: Zobrazit zprávu
         subject: Byl ohlášen zdroj
     reports:
       create:
@@ -1224,6 +1246,15 @@ cs:
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
+      flag_user_modal:
+        already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
+        close: Zavřít
+        description: Co je s uživatelem nevhodné?
+        does_not_belong: Obsahuje nelegální aktivitu, sebevražedné hrozby, osobní informace nebo něco jiného podle vás nepatří k %{organization_name}.
+        offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
+        report: Nahlásit
+        spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
+        title: Nahlásit nevhodného uživatele
       floating_help:
         close: Zavřít nápovědu
         help: Pomoc
@@ -1299,6 +1330,13 @@ cs:
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
         success: Vaše zájmy byly úspěšně aktualizovány.
+    user_report_mailer:
+      notify:
+        body_1: Uživatel %{user} byl nahlášen od %{token}
+        body_2: 'Důvod: %{reason}'
+        greetings: Zdravíme<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den %{admin},
+        subject: Nový uživatel byl nahlášen v %{organization_name}
     version:
       show:
         back_to_resource: Jít zpět

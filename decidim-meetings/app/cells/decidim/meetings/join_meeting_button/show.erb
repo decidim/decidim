@@ -35,4 +35,11 @@
   <% if shows_remaining_slots? %>
     <span><%= t("remaining_slots", scope: "decidim.meetings.meetings.show", count: model.remaining_slots) %></span>
   <% end %>
+<% elsif model.on_different_platform? %>
+  <%= action_authorized_link_to(
+    :join,
+    i18n_join_text,
+    model.registration_url,
+    class: button_classes
+  ) %>
 <% end %>

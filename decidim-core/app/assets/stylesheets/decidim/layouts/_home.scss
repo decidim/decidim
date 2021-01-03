@@ -195,6 +195,11 @@
   padding: 4rem 0;
   text-align: center;
 
+  ul,
+  ol{
+    list-style-position: inside;
+  }
+
   .heading3{
     @include breakpoint(medium down){
       font-size: 1.3em;

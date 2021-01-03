@@ -207,8 +207,6 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
-      errors:
-        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:
@@ -724,8 +722,6 @@ pt:
           send: Enviar
           title: Comece uma conversa
     metrics:
-      download:
-        csv: Download de dados (csv)
       followers:
         description: Número de usuários que seguem este espaço de participação
         object: seguidores
@@ -899,7 +895,6 @@ pt:
         subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
         report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
         subject: Um recurso foi relatado
     reports:

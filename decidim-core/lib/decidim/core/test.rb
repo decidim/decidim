@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core/test/shared_examples/acts_as_author_examples"
+require "decidim/core/test/shared_examples/admin_log_presenter_examples"
 require "decidim/core/test/shared_examples/authorable"
 require "decidim/core/test/shared_examples/coauthorable"
 require "decidim/core/test/shared_examples/publicable"
@@ -61,3 +62,4 @@ require "decidim/core/test/shared_examples/manage_component_share_tokens"
 require "decidim/core/test/shared_examples/metric_manage_shared_context"
 require "decidim/core/test/shared_examples/embed_resource_examples"
 require "decidim/core/test/shared_examples/resource_search_examples"
+require "decidim/core/test/shared_examples/static_pages_examples"

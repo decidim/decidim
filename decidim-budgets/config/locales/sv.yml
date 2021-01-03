@@ -1,11 +1,19 @@
 sv:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Omfång
+        description: Beskrivning
+        title: Titel
+        total_budget: Total budget
+        weight: Vikt
       project:
+        budget_amount: Belopp
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
+        selected: Valda för genomförande
         title: Titel
   activerecord:
     models:
@@ -97,10 +105,14 @@ sv:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
+        finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
         if_change_opinion: Om du ångrar dig kan du
         my_budgets: Mina budgetar
         voted_on: Du har röstat på %{links}
+      limit_announcement:
+        cant_vote: Du kan inte rösta på denna budget. <a href="%{landing_path}">Pröva en annan budget</a>.
+        limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
       models:
         budget:
           fields:
@@ -118,15 +130,21 @@ sv:
           voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
+          are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
           confirm: Bekräfta
           description: De projekt där du har valt att delta i budgeten.
           title: Bekräfta röst
         budget_excess:
           budget_excess:
+            description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har lagt till, eller lämna in en röst enligt dina önskemål.
             title: Maximal budget överskriden
           close: Stäng
+          description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har lagt till, eller lämna in en röst enligt dina önskemål.
           ok: OK
+          projects_excess:
+            description: Detta projekt överstiger det maximala antal projekt och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har lagt till, eller lämna in en röst enligt dina önskemål.
+            title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
           assigned: 'Tilldelad:'
@@ -134,7 +152,23 @@ sv:
           checked_out:
             description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
+          minimum_projects_rule:
+            description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj minst %{minimum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
+            instruction: "<li>Välj minst %{minimum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
+          projects_rule:
+            description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj minst %{minimum_number} projekt och upp till %{maximum_number} som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
+            instruction: "<li>Välj minst %{minimum_number} and upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
+          projects_rule_maximum_only:
+            description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
+            instruction: "<li>Välj upp till %{maximum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
+          rules:
+            title: Budgetregler
           title: Du bestämmer budgeten
+          total_budget: Total budget
+          total_projects: Totala röster
+          vote_threshold_percent_rule:
+            description: Vilka projekt tycker du vi borde allokera en budget för? Tilldela åtminstone %{minimum_budget} till projekten som du vill ha rösta med dina preferenser för att definiera budgeten.
+            instruction: "<li>Sätt minst %{minimum_budget} till de projekt du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.</li>"
         count:
           projects_count:
             one: Ett projekt
@@ -176,6 +210,7 @@ sv:
           votes:
             one: röst
             other: röster
+          you_voted: Det här är din röst
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst
@@ -202,16 +237,26 @@ sv:
             landing_page_content: Budgetarnas landningssida
             more_information_modal: Fönster "Mer information"
             projects_per_page: Projekt per sida
+            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje projekt
+            scope_id: Omfång
+            scopes_enabled: Omfång aktiverade
+            title: Titel
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
             vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
+            vote_rule_selected_projects_enabled: 'Aktivera regel: Valda projekt med min och max antal projekt att välja'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
             vote_threshold_percent: Tröskel för röster i procent
             workflow: Arbetsflöde
+            workflow_choices:
+              all: 'Rösta på alla: gör det möjligt för deltagare att rösta på alla budgetar.'
+              one: 'Rösta på en: gör det möjligt för deltagare att rösta på valfri budget, men bara på en.'
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
+            highlighted_heading: Framhävd rubrik
             landing_page_content: Budgetarnas landningssida
+            list_heading: Listans rubrik
             more_information_modal: Fönster "Mer information"
             show_votes: Visa röster
             title: Titel

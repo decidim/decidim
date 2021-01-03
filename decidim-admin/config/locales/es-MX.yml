@@ -30,7 +30,6 @@ es-MX:
         body: Cuerpo
         subject: Asunto
       organization:
-        address: Nombre de host SMTP
         alert_color: Alerta
         badges_enabled: Habilitar insignias
         comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -66,8 +65,6 @@ es-MX:
         omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        password: Contraseña
-        port: Puerto
         primary_color: Primario
         reference_prefix: Prefijo de la referencia
         rich_text_editor_in_public_views: Habilitar editor de texto enriquecido para las participantes
@@ -78,7 +75,6 @@ es-MX:
         tos_version: Versión de los Términos de Servicio
         twitter_handler: Nombre de Twitter
         user_groups_enabled: Habilitar grupos de usuarios
-        user_name: Nombre de usuario
         warning_color: Advertencia
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
@@ -149,7 +145,6 @@ es-MX:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
-          accept: Estoy de acuerdo con estos Términos y Condiciones de Administración
           are_you_sure: '¿Estás seguro de rechazar los Términos y Condiciones de Administración?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
@@ -299,6 +294,9 @@ es-MX:
         category_id_eq:
           label: Categoría
         filter_label: Filtro
+        moderations:
+          reportable_type_string_eq:
+            label: Tipo
         officialized_at_null:
           label: Estado
           values:
@@ -319,6 +317,7 @@ es-MX:
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} por correo electrónico, nombre o alias.
+          reported_id_string_or_reported_content_cont: Buscar %{collection} por contenido o id reportable.
           title_cont: Buscar %{collection} por título.
         state_eq:
           label: Estado
@@ -480,6 +479,21 @@ es-MX:
             does_not_belong: No pertenece
             offensive: Ofensiva
             spam: Contenido no deseado
+        reports:
+          index:
+            author: Autor(as)
+            callout_html: Un contenido aparece en el panel de moderación cuando ha sido reportado por una usuaria (puede ser cualquier persona con una cuenta registrada) haciendo clic en el icono %{icon} junto al contenido.
+            content_original_language: Idioma del contenido original
+            participatory_space: Espacio de participación
+            reported_content: Contenido reportado
+            see_current: Ver actual
+            see_original: Ver original
+            title: Informes de moderación
+          show:
+            report_details: Detalles del motivo
+            report_language: Idioma del informe
+            report_reason: Motivo
+            title: Detalles del informe
       newsletter_templates:
         index:
           preview_template: Previsualizar
@@ -585,7 +599,6 @@ es-MX:
           rich_text_editor_in_public_views_help: En algunas áreas de texto, los participantes podrán insertar algunas etiquetas HTML utilizando el editor de texto enriquecido.
           social_handlers: Social
           twitter: Twitter
-          url: URL
           youtube: YouTube
         update:
           error: Se produjo un error al actualizar esta organización.
@@ -620,7 +633,6 @@ es-MX:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
         index:
-          import_via_csv: Importar vía csv
           title: Usuario privado de espacio participativo.
         new:
           create: Crear
@@ -808,6 +820,7 @@ es-MX:
           reason: Debe proporcionar una razón para impersonar a un usuario no administrado
     moderations:
       actions:
+        expand: Expandir
         hidden: Ocultas
         hide: Esconder
         not_hidden: No ocultas
@@ -828,11 +841,19 @@ es-MX:
       models:
         moderation:
           fields:
+            created_at: Fecha de creación
             hidden_at: Fecha de ocultación
             report_count: Recuento
+            reportable_id: Id
+            reportable_type: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
             visit_url: Visita la URL
+        report:
+          fields:
+            details: Detalles del motivo
+            locale: Idioma
+            reason: Motivo
   errors:
     messages:
       invalid_json: JSON no válido

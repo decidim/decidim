@@ -74,7 +74,7 @@ module Decidim::Meetings
         end
 
         context "when online" do
-          let(:params) { default_params.merge(type: "online") }
+          let(:params) { default_params.merge(type: ["online"]) }
 
           it "only lists online meetings" do
             expect(subject).to include(online_meeting)
@@ -83,7 +83,7 @@ module Decidim::Meetings
         end
 
         context "when in_person" do
-          let(:params) { default_params.merge(type: "in_person") }
+          let(:params) { default_params.merge(type: ["in_person"]) }
 
           it "only lists online meetings" do
             expect(subject).to include(in_person_meeting)

@@ -76,7 +76,6 @@ describe "Filter Initiatives", :slow, type: :system do
       create_list(:initiative, 4, organization: organization)
       create_list(:initiative, 3, :accepted, organization: organization)
       create_list(:initiative, 2, :rejected, organization: organization)
-      create_list(:initiative, 1, :created, organization: organization)
       create(:initiative, :acceptable, organization: organization)
       create(:initiative, organization: organization, answered_at: Time.current)
 
@@ -96,20 +95,8 @@ describe "Filter Initiatives", :slow, type: :system do
           check "All"
         end
 
-        expect(page).to have_css(".card--initiative", count: 12)
-        expect(page).to have_content("12 INITIATIVES")
-      end
-    end
-
-    context "when selecting the draft state" do
-      it "lists the draft initiatives" do
-        within ".filters .state_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Draft"
-        end
-
-        expect(page).to have_css(".card--initiative", count: 1)
-        expect(page).to have_content("1 INITIATIVE")
+        expect(page).to have_css(".card--initiative", count: 11)
+        expect(page).to have_content("11 INITIATIVES")
       end
     end
 
@@ -319,6 +306,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       before do
         create_list(:initiative, 2, organization: organization, author: user)
+        create_list(:initiative, 1, :created, organization: organization, author: user)
         create(:initiative, organization: organization)
 
         login_as user, scope: :user
@@ -349,8 +337,8 @@ describe "Filter Initiatives", :slow, type: :system do
             choose "My initiatives"
           end
 
-          expect(page).to have_css(".card--initiative", count: 2)
-          expect(page).to have_content("2 INITIATIVES")
+          expect(page).to have_css(".card--initiative", count: 3)
+          expect(page).to have_content("3 INITIATIVES")
         end
       end
     end

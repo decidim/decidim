@@ -33,5 +33,11 @@ module Decidim
 
       true
     end
+
+    def user_flaggable?
+      return unless context[:controller].try(:flaggable_controller?)
+
+      true
+    end
   end
 end

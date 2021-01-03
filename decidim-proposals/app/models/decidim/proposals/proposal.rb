@@ -69,6 +69,7 @@ module Decidim
       scope :drafts, -> { where(published_at: nil) }
       scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
       scope :sort_by_valuation_assignments_count_asc, lambda {
         order("#{sort_by_valuation_assignments_count_nulls_last_query}ASC NULLS FIRST")
       }
@@ -332,10 +333,6 @@ module Decidim
           WHEN state_published_at IS NOT NULL THEN 1
           ELSE 0 END
         ")
-      end
-
-      ransacker :state do
-        Arel.sql("CASE WHEN state = 'withdrawn' THEN 'withdrawn' WHEN state_published_at IS NULL THEN NULL ELSE state END")
       end
 
       ransacker :title do
