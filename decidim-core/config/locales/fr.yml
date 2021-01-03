@@ -114,7 +114,7 @@ fr:
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
       impersonation_log:
-        manage: "%{user_name} a géré %{resource_name} parce que %{reason}"
+        manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
