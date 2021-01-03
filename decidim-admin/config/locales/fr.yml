@@ -285,9 +285,12 @@ fr:
       conflicts:
         attempts: Tentatives
         'false': 'Non'
+        managed_user_name: Utilisateur représenté
         solved: Résolu
+        title: Conflit de vérification
         transfer:
           email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
           name: Nom
           reason: Raison
           success: Le transfert a bien été effectué.
