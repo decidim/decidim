@@ -4,6 +4,7 @@
 
 ((exports) => {
   const quillFormats = ["bold", "italic", "link", "underline", "header", "list", "video", "image", "alt", "break"];
+
   const createQuillEditor = (container) => {
     const toolbar = $(container).data("toolbar");
     const disabled = $(container).data("disabled");
@@ -29,10 +30,10 @@
 
     const $input = $(container).siblings('input[type="hidden"]');
     container.innerHTML = $input.val() || "";
+
     const quill = new Quill(container, {
       modules: {
         linebreak: {},
-        history: { userOnly: true},
         toolbar: {
           container: quillToolbar,
           handlers: {
