@@ -2,6 +2,7 @@
 
 require "rails"
 require "active_support/all"
+require "sprockets/railtie"
 
 require "pg"
 require "redis"
@@ -19,7 +20,6 @@ require "rectify"
 require "carrierwave"
 require "rails-i18n"
 require "date_validator"
-require "sprockets/es6"
 require "truncato"
 require "file_validators"
 require "omniauth"
@@ -64,6 +64,7 @@ module Decidim
       end
 
       initializer "decidim.assets" do |app|
+        Sprockets.register_mime_type 'application/ecmascript-6', extensions: ['.es6', '.js.es6'], charset: :unicode
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js
                                            decidim/identity_selector_dialog)
