@@ -22,5 +22,8 @@
 // $border: 1px solid $medium-gray;
 
 @import "decidim/application";
-@import "components/**/*";
+@import "components/accordion";
+@import "components/banners";
+@import "components/consultations";
+@import "components/focus";
 // @import "components/focus/index";
