@@ -5,6 +5,6 @@ module Decidim
     MINIMUM_JUSTIFICATION_LENGTH = 10
 
     belongs_to :user, class_name: "Decidim::User", foreign_key: :decidim_user_id
-    belongs_to :blocking_user, class_name: "Decidim::User", foreign_key: :blocking_user_id
+    belongs_to :blocking_user, class_name: "Decidim::User"
   end
 end
