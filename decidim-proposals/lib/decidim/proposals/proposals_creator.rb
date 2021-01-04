@@ -23,15 +23,14 @@ module Decidim
           published_at: Time.current
         )
         proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
-        return unless proposal.valid?
-
-        proposal.save!
-
-        increase_scores(proposal)
-        notify(proposal)
-        publish(proposal)
 
         proposal
+      end
+
+      def self.finish!(proposal)
+        proposal.save!
+        notify(proposal)
+        publish(proposal)
       end
 
       private
@@ -64,17 +63,7 @@ module Decidim
         context[:current_component]
       end
 
-      def increase_scores(proposal)
-        proposal.coauthorships.find_each do |coauthorship|
-          if coauthorship.user_group
-            Decidim::Gamification.increment_score(coauthorship.user_group, :proposals)
-          else
-            Decidim::Gamification.increment_score(coauthorship.author, :proposals)
-          end
-        end
-      end
-
-      def notify(proposal)
+      def self.notify(proposal)
         return if proposal.coauthorships.empty?
 
         Decidim::EventsManager.publish(
@@ -85,7 +74,7 @@ module Decidim
         )
       end
 
-      def publish(proposal)
+      def self.publish(proposal)
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
@@ -97,9 +86,11 @@ module Decidim
         )
       end
 
-      def coauthors_followers(proposal)
+      def self.coauthors_followers(proposal)
         @coauthors_followers ||= proposal.authors.flat_map(&:followers)
       end
+
+      private_class_method :notify, :publish, :coauthors_followers
     end
   end
 end

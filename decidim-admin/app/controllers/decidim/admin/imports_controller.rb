@@ -27,6 +27,11 @@ module Decidim
             redirect_to manage_component_path(current_component)
           end
 
+          on(:invalid_lines) do |invalid_lines|
+            flash[:alert] = t("decidim.admin.imports.invalid_lines", invalid_lines: invalid_lines.join(","))
+            redirect_back(fallback_location: manage_component_path(current_component))
+          end
+
           on(:invalid) do
             flash[:alert] = t("decidim.admin.imports.error")
             redirect_back(fallback_location: manage_component_path(current_component))

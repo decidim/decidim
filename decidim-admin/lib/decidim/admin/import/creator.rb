@@ -46,6 +46,10 @@ module Decidim
           self.class.resource_klass.new(resource_attributes)
         end
 
+        def self.finish!(resource)
+          resource.save!
+        end
+
         private
 
         #

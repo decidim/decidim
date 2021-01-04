@@ -391,6 +391,7 @@ en:
       imports:
         error: There was a problem during the import
         import_from_file: "Import from a file"
+        invalid_lines: Found error in resource number %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv

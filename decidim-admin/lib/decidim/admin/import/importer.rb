@@ -14,6 +14,7 @@ module Decidim
         #
         # file   - A file with the data to be imported.
         # reader - A Reader to be used to read the data from the file.
+        # context - A hash including component specific data.
         # creator - A Creator to be used during the import.
         def initialize(file, reader = Readers::Base, context:, creator: Creator)
           @file = file
@@ -30,6 +31,8 @@ module Decidim
         def collection
           @collection ||= collection_data.map { |item| creator.new(item, context).produce }
         end
+
+        delegate :finish!, to: :creator
 
         private
 
