@@ -277,6 +277,7 @@ FactoryBot.define do
     title { generate_localized_title }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization { build(:organization) }
+    allow_public_access { false }
 
     trait :default do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }

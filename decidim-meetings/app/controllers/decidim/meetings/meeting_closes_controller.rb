@@ -23,7 +23,7 @@ module Decidim
         CloseMeeting.call(@form, meeting) do
           on(:ok) do
             flash[:notice] = I18n.t("meetings.close.success", scope: "decidim.meetings.admin")
-            redirect_to meetings_path
+            redirect_to meeting_path(meeting)
           end
 
           on(:invalid) do

@@ -26,7 +26,8 @@ module Decidim::ParticipatoryProcesses
         meta_scope: { en: "meta scope" },
         target: { en: "target" },
         participatory_scope: { en: "participatory scope" },
-        participatory_structure: { en: "participatory structure" }
+        participatory_structure: { en: "participatory structure" },
+        promoted: true
       )
     end
     let(:invalid) { false }

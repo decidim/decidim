@@ -22,8 +22,9 @@ de:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
+        child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
-        custom_signature_end_date_enabled: Die Auswahl des Endes der Unterschriftensammlung für Autoren freigeben
+        custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
         extra_fields_legal_information: Rechtliche Informationen zur Erhebung personenbezogener Daten
@@ -49,7 +50,7 @@ de:
           attributes:
             attachment:
               file: Datei ist ungültig
-              needs_to_be_reattached: Muss erneut angehängt werden
+              needs_to_be_reattached: Der Anhang muss erneut angehängt werden
               title: Der Titel sollte nicht leer sein
   activerecord:
     models:
@@ -110,10 +111,10 @@ de:
             date_of_birth: Geburtsdatum
             document_number: Dokumentnummer
             hash: Hash
-            initiative_end_date: Endtermin
+            initiative_end_date: Enddatum
             initiative_id: Initiativ-ID
             initiative_signatures_count: Anzahl der Unterschriften
-            initiative_start_date: Anfangsdatum
+            initiative_start_date: Startdatum
             initiative_title: Initiativentitel
             name_and_surname: Name und Nachname
             postal_code: Postleitzahl
@@ -127,36 +128,36 @@ de:
       initiatives:
         admin:
           initiative_sent_to_technical_validation:
-            email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_url}">den Admin-Panel</a> können Sie sie aufrufen
+            email_intro: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_url}">Admin-Panel</a> können Sie sie aufrufen
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-            email_subject: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet.
-            notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
+            email_subject: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet.
+            notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
         initiative_extended:
-          email_intro: Das Enddatum der Signaturen für die Initiative %{resource_title} wurde verlängert!
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Initiativsignaturendatum verlängert!
-          notification_title: Das Enddatum der Signaturen für die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde verlängert.
+          email_intro: Das Enddatum der Unterschriftensammlung für die Initiative %{resource_title} wurde verlängert!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Enddatum der Unterschriftensammlung verlängert!
+          notification_title: Das Enddatum der Unterschriftensammlung für die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde verlängert.
         initiative_sent_to_technical_validation:
-          email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_url}">den Admin-Panel</a> können Sie sie aufrufen
+          email_intro: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_url}">Admin-Panel</a> können Sie sie aufrufen
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet.
-          notification_title: Die Initiative „%{resource_title}“ wurde zur technischen Validierung gesendet. Über <a href="%{admin_initiative_path}">den Admin-Panel</a> können Sie sie aufrufen
+          email_subject: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet.
+          notification_title: Die Initiative "%{resource_title}" wurde zur technischen Validierung gesendet. Über das <a href="%{admin_initiative_path}">Admin-Panel</a> können Sie sie aufrufen
         milestone_completed:
           affected_user:
-            email_intro: Ihre Initiative %{resource_title} hat die %{percentage}% der Unterschriften erreicht!
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title}.
+            email_intro: Ihre Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind.
             email_subject: Neuer Meilenstein abgeschlossen!
-            notification_title: Ihre <a href="%{resource_path}">%{resource_title}</a> -Initiative hat die %{percentage}% der Unterschriften erreicht.
+            notification_title: Ihre Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
           follower:
-            email_intro: Die Initiative %{resource_title} hat die %{percentage}% Unterschriften erreicht!
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title}. Sie können den Erhalt von Benachrichtigungen über den vorherigen Link beenden.
+            email_intro: Die Initiative %{resource_title} hat %{percentage}% der Unterschriften erreicht!
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Neuer Meilenstein abgeschlossen!
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative hat die %{percentage}% der Unterschriften erreicht.
+            notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat %{percentage}% der Unterschriften erreicht.
         support_threshold_reached:
-          email_intro: Die Initiative %{resource_title} hat die Unterstützungsschwelle erreicht
+          email_intro: Die Initiative %{resource_title} hat die Grenze der Anzahl Unterstützer erreicht
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator der Plattform sind.
-          email_subject: Unterstützungsschwelle erreicht
-          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Unterstützungsschwelle erreicht
+          email_subject: Grenze der Anzahl Unterstützer erreicht
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> hat die Grenze der Anzahl Unterstützer erreicht
     gamification:
       badges:
         initiatives:
@@ -322,10 +323,15 @@ de:
         finish:
           back: Zurück
           back_to_initiatives: Zurück zu den Initiativen
+          callout_text: Herzlichen Glückwunsch! Ihre Initiative wurde erfolgreich erstellt.
+          confirm: Sie werden die Initiative an einen Administrator senden, welcher sie zu überprüft und veröffentlicht. Sobald die Initiative veröffentlicht ist, können Sie sie nicht bearbeiten. Sind Sie sicher?
           edit_my_initiative: Meine Initiativen bearbeiten
           go_to_my_initiatives: Geh zu meinen Initiativen
           more_information: "(Weitere Informationen)"
           send_my_initiative: Meine Initiativen senden
+        finish_help:
+          access_reminder: Sie können auf Ihre Initiativen über den Filter %{link} auf der Seite Initiativen zugreifen.
+          publish_helper_text: Denken Sie daran, dass Sie für die Veröffentlichung Ihrer Initiative die erforderlichen Informationen ausfüllen müssen und <strong>diese an die technische Validierung</strong> senden müssen, damit ein Administrator sie prüfen kann.
         previous_form:
           back: Zurück
           continue: Fortsetzen
@@ -333,12 +339,14 @@ de:
           more_information: "(Weitere Informationen)"
         promotal_committee:
           back: Zurück
+          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück
           choose_html: Ich möchte eine <strong>%{title}</strong> erstellen
           more_information: "(Weitere Informationen)"
           select: Ich möchte diese Initiative fördern
+          select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
         share_committee_link:
           continue: Fortsetzen
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
@@ -359,15 +367,15 @@ de:
         update: Aktualisieren
       events:
         create_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, überprüfe es und trage dazu bei:"
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
+          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat eine neue Initiative erstellt, sehen Sie es sich an und reden Sie mit:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Initiative von %{author_nickname}
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erstellt.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, dem du folgst, hat die folgende Initiative unterstützt, vielleicht möchtest du zur Konversation beitragen:"
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname}. Sie können nach dem vorherigen Link keine Benachrichtigungen mehr erhalten.
-          email_subject: Initiative mit %{author_nickname}befürwortet
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Initiative wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_intro: "%{author_name} %{author_nickname}, dem Sie folgen, hat die folgende Initiative unterstützt, vielleicht möchten Sie mitreden:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_nickname} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
+          email_subject: Initiative wurde von %{author_nickname} unterstützt
+          notification_title: Die Initiative <a href="%{resource_path}">%{resource_title}</a> wurde von <a href="%{author_path}">%{author_name} %{author_nickname}</a> unterstützt.
       form:
         add_attachments: Dokumente
         attachment_legend: "(Optional) Anhang hinzufügen"
@@ -412,6 +420,7 @@ de:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
+          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
           title: Ausschussmitglieder
         count:
@@ -452,7 +461,7 @@ de:
           most_commented: Am meisten kommentiert
           most_voted: Am meisten unterzeichnet
           random: Zufällig
-          recent: Neueste
+          recent: Neueste zuerst
           recently_published: Zuletzt veröffentlicht
         print:
           address: Adresse
@@ -554,7 +563,7 @@ de:
     decidim:
       admin:
         initiative:
-          attachments: Anlagen
+          attachments: Anhänge
           committee_members: Ausschussmitglieder
           components: Komponenten
           information: Information

@@ -226,6 +226,52 @@ describe "Participatory Processes", type: :system do
           end
         end
       end
+
+      context "when there are promoted participatory process groups" do
+        let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes) }
+        let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
+
+        before do
+          visit decidim_participatory_processes.participatory_processes_path
+        end
+
+        it "shows a highligted processes section" do
+          expect(page).to have_content("HIGHLIGHTED PROCESSES")
+        end
+
+        it "lists only promoted groups" do
+          expect(promoted_items_titles).to include(translated(promoted_group.title, locale: :en))
+          expect(promoted_items_titles).not_to include(translated(group.title, locale: :en))
+        end
+
+        context "and promoted group has defined a CTA content block" do
+          let(:cta_settings) do
+            {
+              button_url: "https://example.org/action",
+              button_text_en: "cta text",
+              description_en: "cta description"
+            }
+          end
+
+          before do
+            create(
+              :content_block,
+              organization: organization,
+              scope_name: :participatory_process_group_homepage,
+              scoped_resource_id: promoted_group.id,
+              manifest_name: :cta,
+              settings: cta_settings
+            )
+            visit decidim_participatory_processes.participatory_processes_path
+          end
+
+          it "shows a CTA button inside group card" do
+            within("#highlighted-processes") do
+              expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
+            end
+          end
+        end
+      end
     end
   end
 
@@ -273,6 +319,16 @@ describe "Participatory Processes", type: :system do
         it_behaves_like "has attachment collections" do
           let(:attached_to) { participatory_process }
           let(:collection_for) { participatory_process }
+        end
+
+        context "and it belongs to a group" do
+          let!(:group) { create :participatory_process_group, participatory_processes: [participatory_process], organization: organization }
+
+          it "has a link to the group the process belongs to" do
+            visit decidim_participatory_processes.participatory_process_path(participatory_process)
+
+            expect(page).to have_link(translated(group.title, locale: :en), href: decidim_participatory_processes.participatory_process_group_path(group))
+          end
         end
 
         context "when it has some linked processes" do

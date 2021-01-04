@@ -216,8 +216,6 @@ tr:
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Kukla yetkilendirme iş akışı
-      errors:
-        duplicate_authorization: Bir kullanıcı zaten aynı verilerle yetkilendirilmiştir.
       expired_at: '%{timestamp}bitti'
       expires_at: '%{timestamp}sona eriyor'
       foo_authorization:

@@ -10,7 +10,7 @@ namespace :decidim_elections do
 
     puts "\nPRIVATE KEY:"
     puts "\n"
-    puts Decidim::Elections::JwkUtils.private_export(identification_jwk_keypair).to_json
+    puts Decidim::BulletinBoard::JwkUtils.private_export(identification_jwk_keypair).to_json
     puts "\n"
     puts "PUBLIC KEY:"
     puts "\n"

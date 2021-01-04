@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock", "promote", "transfer"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -41,33 +41,18 @@ module Decidim
         action_log.extra.dig("extra", "officialized_user_badge_previous") || Hash.new("")
       end
 
-      def previous_justification
-        action_log.extra.dig("extra", "previous_justification") || Hash.new("")
-      end
-
-      def current_justification
-        action_log.extra.dig("extra", "current_justification") || Hash.new("")
-      end
-
-      # Overwrite the changeset for officialization and block actions.
+      # We fake the changeset for officialization actions.
       def changeset
-        original = { badge: [previous_user_badge, user_badge] }
-        fields = { badge: :i18n }
-        if action.to_s == "block"
-          original = { justification: [previous_justification, current_justification] }
-          fields = { justification: :string }
-        end
-        Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
-      end
-
-      # If the action is officialization, then we want to show the diff
-      def has_diff?
-        %w(officialize unofficialize block).include?(action)
+        Decidim::Log::DiffChangesetCalculator.new(
+          { badge: [previous_user_badge, user_badge] },
+          { badge: :i18n },
+          i18n_labels_scope
+        ).changeset
       end
 
       # If the action is officialization, then we want to show the diff
       def diff_actions
-        %w(officialize unofficialize block)
+        %w(officialize unofficialize)
       end
     end
   end

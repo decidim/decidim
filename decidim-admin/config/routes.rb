@@ -108,6 +108,8 @@ Decidim::Admin::Engine.routes.draw do
       resources :reports, controller: "global_moderations/reports", only: [:index, :show]
     end
 
+    resources :conflicts, only: [:index, :edit, :update], controller: "conflicts"
+
     root to: "dashboard#show"
   end
 end

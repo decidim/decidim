@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe DateTimeType, type: :graphql do
-      include_context "with a graphql scalar type"
+      include_context "with a graphql scalar class type"
       let(:model) { Time.new(2018, 2, 22, 9, 47, 0, "+01:00") }
 
       it "returns the formatted date" do

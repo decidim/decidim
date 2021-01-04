@@ -9,8 +9,8 @@ fr-CA:
         redirect_uri: URI de redirection
       organization:
         address: Nom de l'hôte SMTP
-        from_email: Adresse e-mail
-        from_label: Etiquette
+        from_email: Adresse e-mail d'envoi des notifications
+        from_label: Label de l'envoyeur
         password: Mot de passe
         port: Port
         user_name: Nom d'utilisateur
@@ -163,7 +163,7 @@ fr-CA:
           fieldsets:
             sender: Expéditeur
           instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme étiquette'
+            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation

@@ -78,7 +78,7 @@ fr:
             collapse: Réduire toutes les questions
             expand: Développer toutes les questions
             preview: Aperçu
-            title: Modifier le formulaire pour %{questionnaire_for}
+            title: Modifier le questionnaire pour %{questionnaire_for}
             unpublished_warning: Le formulaire n'est pas publié. Vous pouvez modifier ses questions, mais cela supprimera les réponses actuelles.
           matrix_row:
             matrix_row: Ligne
@@ -105,7 +105,7 @@ fr:
             up: Haut
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde du questionnaire.
-            success: Le formulaire a bien été sauvegardé.
+            success: Le questionnaire a bien été sauvegardé.
       errors:
         answer:
           body: Le corps ne peut pas être vide

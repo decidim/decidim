@@ -405,6 +405,7 @@ fi-pl:
           type: Tyyppi
           type_values:
             all: Kaikki
+            hybrid: Molemmat
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -504,6 +505,7 @@ fi-pl:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       type_of_meeting:
+        hybrid: Molemmat
         in_person: Fyysinen
         online: Verkossa
       types:

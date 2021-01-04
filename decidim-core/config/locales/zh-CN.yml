@@ -254,8 +254,6 @@ zh-CN:
         name: 示例授权
       dummy_authorization_workflow:
         name: 虚拟授权 Workflow
-      errors:
-        duplicate_authorization: 参与者已经被授权使用相同的数据。
       expired_at: 过期时间为 %{timestamp}
       expires_at: 于 %{timestamp} 过期
       foo_authorization:
@@ -639,7 +637,6 @@ zh-CN:
         file:
           explanation: '文件指南：'
           message_1: 必须是图像或文档。
-          message_2: 对于图像，使用最好的景观图像，服务将图像作为图像。
         image:
           explanation: '图像指南：'
           message_1: 更喜欢一个没有任何文本的横屏图像。
