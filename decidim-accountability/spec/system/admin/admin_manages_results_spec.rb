@@ -8,13 +8,16 @@ describe "Admin manages results", type: :system do
     [
       create(:result, scope: create(:scope, organization: component.organization),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space)),
+                      category: create(:category, participatory_space: participatory_space),
+                      created_at: Time.current - 2.days),
       create(:result, scope: create(:scope, organization: component.organization),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space)),
+                      category: create(:category, participatory_space: participatory_space),
+                      created_at: Time.current - 1.day),
       create(:result, scope: create(:scope, organization: component.organization),
                       component: current_component,
-                      category: create(:category, participatory_space: participatory_space))
+                      category: create(:category, participatory_space: participatory_space),
+                      created_at: Time.current)
     ]
   end
 
