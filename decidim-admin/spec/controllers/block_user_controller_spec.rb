@@ -40,6 +40,19 @@ module Decidim
             expect(user.reload.blocked?).to be(false)
           end
         end
+
+        context "when current user is not an admin" do
+          before do
+            current_user.admin = false
+            current_user.save!
+          end
+
+          it "the user remains blocked" do
+            delete :destroy, params: { user_id: user.id }
+
+            expect(user.reload.blocked?).to be(true)
+          end
+        end
       end
 
       describe "block" do
@@ -59,6 +72,19 @@ module Decidim
             put :create, params: { user_id: user.id, justification: nil }
 
             expect(flash[:alert]).to be_present
+            expect(user.reload.blocked?).to be(false)
+          end
+        end
+
+        context "when current user is not an admin" do
+          before do
+            current_user.admin = false
+            current_user.save!
+          end
+
+          it "the user remains unblocked" do
+            put :create, params: { user_id: user.id, justification: ::Faker::Lorem.sentence(word_count: 12) }
+
             expect(user.reload.blocked?).to be(false)
           end
         end
