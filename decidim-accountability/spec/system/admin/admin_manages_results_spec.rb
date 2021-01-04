@@ -42,7 +42,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(ordered_results[i].id)
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 
@@ -64,7 +64,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(translated(ordered_results[i].category.name))
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 
@@ -75,7 +75,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(translated(ordered_results[i].scope.name))
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 
@@ -86,7 +86,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(translated(ordered_results[i].status.name))
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 
@@ -97,7 +97,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(ordered_results[i].progress&.to_i)
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 
@@ -108,7 +108,7 @@ describe "Admin manages results", type: :system do
     rows = page.all("tbody tr")
 
     rows.each_with_index do |row, i|
-      expect(row).to have_text(I18n.l(ordered_results[i].created_at, format: :decidim_short))
+      expect(row).to have_text(translated(ordered_results[i].title))
     end
   end
 end
