@@ -22,18 +22,10 @@
   %>
 
   <blockquote>
-    <% if event_instance.try(:resource_text).present? %>
-      <p>
-        <%= resource_icon event[:resource], class: "notification-icon icon icon--small" %>
-        <%= event_instance.resource_text.html_safe %>
-      </p>
-    <% end %>
-
-    <% if event_instance.try(:resource_path).present? && event_instance.try(:resource_title).present? %>
-      <p>
-        <%= link_to event_instance.resource_title, event_instance.resource_url %>
-      </p>
-    <% end %>
+    <p>
+      <%= resource_icon event[:resource], class: "notification-icon icon icon--small" %>
+      <%= event_instance.notification_title %>
+    </p>
     <span class="notification-time_ago"><%= t(".sent_ago", sent_ago: event[:created_at]) %></span>
   </blockquote>
 <% end %>

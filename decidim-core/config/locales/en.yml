@@ -329,7 +329,7 @@ en:
         email_greeting: Greetings %{username}.
         email_intro: You are receiving this email because you have subscribed to resources on %{organization_name}
         email_outro: You can stop receiving notifications by visiting your <a href='%{profile_path}'>profile</a>
-        email_see_more: You have received a lot of notifications on <a href='%{organization_path}'>%{organization_name}</a>Go check them out on your <a href='%{notifications_path}'>notifications</a> space
+        email_see_more: You have received a lot of notifications on <a href='%{organization_path}'>%{organization_name}</a>. Go check them out on your <a href='%{notifications_path}'>notifications</a> space
         sent_ago: "%{sent_ago} ago"
     collapsible_list:
       hidden_elements_count:
