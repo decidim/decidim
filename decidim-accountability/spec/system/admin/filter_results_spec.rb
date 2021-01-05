@@ -7,7 +7,6 @@ describe "Admin filters results", type: :system do
   include_context "with filterable context"
 
   let(:manifest_name) { "accountability" }
-  let(:model_name) { Decidim::Accountability::Result.model_name }
 
   # Override :filterable_concern used by decidim-admin/lib/decidim/admin/test/filterable_examples.rb,
   # which would include a :route_key value of "results", rather than "accountability".
