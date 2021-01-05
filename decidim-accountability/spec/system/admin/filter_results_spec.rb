@@ -32,12 +32,6 @@ describe "Admin filters results", type: :system do
     end
     let(:result_with_scope2_title) { translated(result_with_scope2.title) }
 
-    before do
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit_component_admin
-    end
-
     it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
       let(:in_filter) { result_with_scope1_title }
       let(:not_in_filter) { result_with_scope2_title }
@@ -71,12 +65,6 @@ describe "Admin filters results", type: :system do
     end
     let(:result_with_category2_title) { translated(result_with_category2.title) }
 
-    before do
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit_component_admin
-    end
-
     it_behaves_like "a filtered collection", options: "Category", filter: "Category1" do
       let(:in_filter) { result_with_category1_title }
       let(:not_in_filter) { result_with_category2_title }
@@ -104,12 +92,6 @@ describe "Admin filters results", type: :system do
     end
     let(:result_with_status2_title) { translated(result_with_status2.title) }
 
-    before do
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit_component_admin
-    end
-
     it_behaves_like "a filtered collection", options: "Status", filter: "Status1" do
       let(:in_filter) { result_with_status1_title }
       let(:not_in_filter) { result_with_status2_title }
@@ -132,12 +114,6 @@ describe "Admin filters results", type: :system do
     end
     let!(:result1_title) { translated(result1.title) }
     let!(:result2_title) { translated(result2.title) }
-
-    before do
-      switch_to_host(organization.host)
-      login_as user, scope: :user
-      visit_component_admin
-    end
 
     it "can be searched by ID" do
       search_by_text(result1.id)
