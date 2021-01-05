@@ -389,6 +389,8 @@ en:
           impersonate_existing_user: Manage participant "%{name}"
           impersonate_new_managed_user: Manage new participant
       imports:
+        creators:
+          proposalcreator: Proposal creator
         error: There was a problem during the import
         import_from_file: "Import from a file"
         invalid_lines: Found error in resource number %{invalid_lines}

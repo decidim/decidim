@@ -13,7 +13,7 @@
       <div class="row column">
         <%=
           form.select :creator,
-          @import.creators.map { |m| m },
+          @import.creators.map { |m| [t("decidim.admin.imports.creators.#{m[:name]}"), m[:creator]] },
           { include_blank: false }
         %>
       </div>

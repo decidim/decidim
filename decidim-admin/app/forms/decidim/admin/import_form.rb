@@ -37,7 +37,9 @@ module Decidim
       end
 
       def creators
-        current_component.manifest.import_manifests.map(&:creator)
+        current_component.manifest.import_manifests.map do |manifest|
+          { creator: manifest.creator, name: manifest.creator.to_s.split("::").last.downcase }
+        end
       end
 
       def creator_class
