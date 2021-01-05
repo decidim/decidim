@@ -1,6 +1,6 @@
-id;category/id;category/name/ca;category/name/en;category/name/machine_translations/es;scope/id;scope/name/ca;scope/name/en;scope/name/es;participatory_space/id;participatory_space/url;component/id;title/en;body/en;state;reference;answer/en;answer/ca;answer/es;supports;endorsements/total_count;endorsements/user_endorsements;comments;attachments;followers;published_at;url;meeting_urls;related_proposals;is_amend;original_proposal/title/en;original_proposal/url
-2;1;Deserunt aliquid et eaque.;Aliquam rerum aut dignissimos.;Iste adipisci eum quasi.;18;Port Kasandra;Port Kasandra;Port Kasandra;1;http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos;1;Esse qui. Ut.;"Aliquid in ut. Laboriosam consequatur consequatur. Unde dolorem omnis.
-Et earum aut. Quis enim quis. Dolore corporis et. Quia vel ex.";evaluating;II-PROP-2020-11-2;;;;0;0;;0;0;1;2020-11-24 07:17:40 UTC;http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/2;;;true;Esse qui.;http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/1
-3;1;Qui alias iusto labore.;Quae laboriosam expedita omnis.;Illo dolorem nobis deleniti.;18;Port Kasandra;Port Kasandra;Port Kasandra;1;http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos;1;Nihil id.;"Atque qui aut. Quia et incidunt. Qui nihil dolore.
-Delectus asperiores nihil. Sapiente omnis culpa. Eos at voluptatem.";;II-PROP-2020-11-3;Sit et ducimus libero.;Rerum debitis molestiae quam.;;1;2;Dr. Steve Lubowitz, Opal Feil 1 1 endr1;2;0;1;2020-11-24 07:17:40 UTC;http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/3;;;false;;
-1;1;Deserunt aliquid et eaque.;Aliquam rerum aut dignissimos.;Iste adipisci eum quasi.;18;Port Kasandra;Port Kasandra;Port Kasandra;1;http://localhost:3000/processes/dolores-dignissimos?participatory_process_slug=dolores-dignissimos;1;Suspendisse lobortis;Lorem ipsum dolor sit amet, consectetur adipiscing elit.;;II-PROP-2020-11-1;;;;0;0;;2;0;0;2020-11-24 07:17:39 UTC;http://localhost:3000/processes/dolores-dignissimos/f/3/proposals/1;;;false;;
+title/en;body/en
+Esse qui. Ut.;"Aliquid in ut. Laboriosam consequatur consequatur. Unde dolorem omnis.
+Et earum aut. Quis enim quis. Dolore corporis et. Quia vel ex."
+Nihil id.;"Atque qui aut. Quia et incidunt. Qui nihil dolore.
+Delectus asperiores nihil. Sapiente omnis culpa. Eos at voluptatem."
+Suspendisse lobortis;Lorem ipsum dolor sit amet, consectetur adipiscing elit.

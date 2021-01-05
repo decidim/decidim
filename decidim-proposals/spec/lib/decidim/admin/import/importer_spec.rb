@@ -36,6 +36,7 @@ describe Decidim::Admin::Import::Importer do
 
     describe "#import" do
       it "saves the proposals" do
+        subject.prepare
         expect do
           subject.import!
         end.to change(Decidim::Proposals::Proposal, :count).by(3)
