@@ -381,6 +381,7 @@ de:
               md: Markdown
               odt: ODT
             bottom_hint: "(Sie können Dokumentabschnitte in der Vorschau anzeigen und sortieren.)"
+            document_legend: 'Fügen Sie ein Dokument hinzu, das kleiner als 2MB ist. Für alle Abschnitte bis 3 Ebenen tief werden Vorschläge erstellt. Unterstützte Formate sind: %{valid_mime_types}'
             title: DOKUMENT HINZUFÜGEN
             upload_document: Dokument hochladen
           publish:
@@ -723,6 +724,8 @@ de:
           proposals_count:
             one: "%{count} Vorschlag"
             other: "%{count} Vorschläge"
+        dynamic_map_instructions:
+          instructions: <h3>Sie können den Punkt auf der Karte verschieben.</h3><p>Vergessen Sie nicht, vor der Veröffentlichung Ihres Vorschlags auf die Schaltfläche "Position aktualisieren" zu klicken.</p>
         edit:
           add_documents: Dokumente
           add_images: Datei

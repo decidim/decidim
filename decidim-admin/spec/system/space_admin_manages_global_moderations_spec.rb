@@ -25,7 +25,7 @@ describe "Space admin manages global moderations", type: :system do
   end
 
   context "when the user can visualize the components" do
-    let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "Dummy Title" }) }
+    let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "<p>Dummy<br> Title</p>" }) }
     let!(:moderation) { create(:moderation, reportable: reportable) }
 
     it "can see links to components" do

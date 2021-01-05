@@ -275,8 +275,6 @@ fr:
         name: Exemple d'autorisation
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
-      errors:
-        duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
       expired_at: Expiré à %{timestamp}
       expires_at: Expire à %{timestamp}
       foo_authorization:
