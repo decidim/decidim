@@ -14,9 +14,9 @@ module Decidim
         #
         # file   - A file with the data to be imported.
         # reader - A Reader to be used to read the data from the file.
-        # context - A hash including component specific data.
         # creator - A Creator to be used during the import.
-        def initialize(file, reader = Readers::Base, context:, creator: Creator)
+        # context - A hash including component specific data.
+        def initialize(file:, reader: Readers::Base, creator: Creator, context: nil)
           @file = file
           @reader = reader
           @creator = creator
