@@ -23,12 +23,6 @@ describe "Admin manages results", type: :system do
 
   include_context "when managing a component as an admin"
 
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit_component_admin
-  end
-
   it "shows all results for a given component" do
     results.each do |result|
       expect(page).to have_content(translated(result.title))
