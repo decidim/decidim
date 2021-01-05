@@ -51,6 +51,15 @@ module Decidim
       isolate_namespace Decidim
       engine_name "decidim"
 
+      initializer "Rails 6 autoloader" do
+        Rails.application.configure do
+          if config.autoloader == :zeitwerk
+            ActiveSupport::Deprecation.warn("\n"*5 + "The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to classic autoloader" + "\n"*5)
+            config.autoloader = :classic
+          end
+        end
+      end
+      
       initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
           helper Decidim::LayoutHelper if respond_to?(:helper)
