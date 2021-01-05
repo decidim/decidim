@@ -5,6 +5,7 @@ module Decidim
     # This class is responsible for creating the imported proposals
     # and must be included in proposals component's import manifest.
     class ProposalCreator < Decidim::Admin::Import::Creator
+
       # Retuns the resource class to be created with the provided data.
       def self.resource_klass
         Decidim::Proposals::Proposal
@@ -14,7 +15,7 @@ module Decidim
       #
       # Returns a proposal
       def produce
-        proposal = Decidim::Proposals::Proposal.new(
+        @proposal = Decidim::Proposals::Proposal.new(
           category: category,
           scope: scope,
           title: title,
@@ -27,7 +28,7 @@ module Decidim
         proposal
       end
 
-      def self.finish!(proposal)
+      def finish!
         proposal.save!
         notify(proposal)
         publish(proposal)
@@ -35,6 +36,7 @@ module Decidim
 
       private
 
+      attr_accessor :proposal
       attr_reader :context
 
       def category
@@ -63,7 +65,7 @@ module Decidim
         context[:current_component]
       end
 
-      def self.notify(proposal)
+      def notify(proposal)
         return if proposal.coauthorships.empty?
 
         Decidim::EventsManager.publish(
@@ -74,7 +76,7 @@ module Decidim
         )
       end
 
-      def self.publish(proposal)
+      def publish(proposal)
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
@@ -86,11 +88,9 @@ module Decidim
         )
       end
 
-      def self.coauthors_followers(proposal)
+      def coauthors_followers(proposal)
         @coauthors_followers ||= proposal.authors.flat_map(&:followers)
       end
-
-      private_class_method :notify, :publish, :coauthors_followers
     end
   end
 end

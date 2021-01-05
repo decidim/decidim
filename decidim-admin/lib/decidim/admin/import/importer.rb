@@ -23,16 +23,22 @@ module Decidim
           @context = context
         end
 
+        def prepare
+          @prepare ||= collection.map(&:produce)
+        end
+
         def import
-          collection
+          collection.map(&:finish!)
         end
 
         # Returns a data collection of the target data.
         def collection
-          @collection ||= collection_data.map { |item| creator.new(item, context).produce }
+          @collection ||= collection_data.map { |item| creator.new(item, context) }
         end
 
-        delegate :finish!, to: :creator
+        def invalid_lines
+          @invalid_lines ||= check_invalid_lines(prepare)
+        end
 
         private
 
@@ -56,6 +62,14 @@ module Decidim
           end
 
           @collection_data
+        end
+
+        def check_invalid_lines(imported_data)
+          @invalid_lines = []
+          imported_data.each_with_index do |record, index|
+            @invalid_lines << index + 1 unless record.valid?
+          end
+          @invalid_lines
         end
       end
     end
