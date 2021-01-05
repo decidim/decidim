@@ -1,9 +1,9 @@
 version: '3'
 services:
   decidim:
-    image: decidim/decidim:latest-dev
+    image: decidim/decidim-dev:latest
     entrypoint: /usr/local/bin/entrypoint.sh
-    command: decidim
+    command: decidim decidim-app
     working_dir: /code
     ports:
       - 3000:3000
@@ -13,6 +13,7 @@ services:
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
+      - BUNDLE_PATH=/usr/local/bundle
     links:
       - pg
       - redis
