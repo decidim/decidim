@@ -52,7 +52,7 @@ module Decidim
 
     def presenter_for_author(authorable)
       if official?
-        "#{model.class.parent}::OfficialAuthorPresenter".constantize.new
+        "#{model.class.module_parent}::OfficialAuthorPresenter".constantize.new
       else
         authorable.user_group&.presenter || authorable.author.presenter
       end
