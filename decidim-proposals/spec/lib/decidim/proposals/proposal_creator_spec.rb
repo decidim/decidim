@@ -49,7 +49,7 @@ describe Decidim::Proposals::ProposalCreator do
   end
 
   describe "#produce" do
-    it "creates a new proposal" do
+    it "makes a new proposal" do
       record = subject.produce
 
       expect(record).to be_a(Decidim::Proposals::Proposal)
@@ -58,6 +58,14 @@ describe Decidim::Proposals::ProposalCreator do
       expect(record.title).to eq(data[:title])
       expect(record.body).to eq(data[:body])
       expect(record.published_at).to be >= (moment)
+    end
+  end
+
+  describe "#finish!" do
+    it "saves the proposal" do
+      record = subject.produce
+      subject.finish!
+      expect(record.new_record?).to be(false)
     end
   end
 end

@@ -9,6 +9,8 @@ module Decidim
       # component - The component to render the export dropdown for. Defaults to the
       #           current component.
       #
+      # resource_id - The resource id that is passed to route.
+      #
       # Returns a rendered dropdown.
       def import_dropdown(component = current_component, resource_id = nil)
         locals = { component: component, resource_id: resource_id }
@@ -26,8 +28,7 @@ module Decidim
         EngineRouter.admin_proxy(component.participatory_space).new_component_import_path(options.merge(component_id: component))
       end
 
-      # Public: A formatted collection of mime_type to be used
-      # in forms.
+      # Public: A formatted collection of mime_type to be used in forms.
       def mime_types
         types = ""
         accepted_mime_types = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES.keys

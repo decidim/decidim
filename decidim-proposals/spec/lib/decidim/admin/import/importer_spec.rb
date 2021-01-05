@@ -25,6 +25,36 @@ describe Decidim::Admin::Import::Importer do
     let(:reader) { Decidim::Admin::Import::Readers::CSV }
 
     it_behaves_like "proposal importer"
+
+    describe "#prepare" do
+      it "makes an array of new proposals" do
+        expect(subject.prepare).to be_an_instance_of(Array)
+        expect(subject.prepare).not_to be_empty
+        expect(subject.prepare).to all(be_a_instance_of(Decidim::Proposals::Proposal))
+      end
+    end
+
+    describe "#import" do
+      it "saves the proposals" do
+        expect do
+          subject.import!
+        end.to change(Decidim::Proposals::Proposal, :count).by(3)
+      end
+    end
+
+    describe "#invalid_lines" do
+      it "returns empty array when everything is ok" do
+        subject.prepare
+        expect(subject.invalid_lines).to be_empty
+      end
+
+      it "returns index+1 of erroneous resource when validations faild" do
+        proposal = subject.prepare.first
+        proposal.title = ""
+        subject.instance_variable_set(:@prepare, [proposal])
+        expect(subject.invalid_lines).to eq([1])
+      end
+    end
   end
 
   context "with JSON" do

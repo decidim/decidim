@@ -5,7 +5,6 @@ module Decidim
     # This class is responsible for creating the imported proposals
     # and must be included in proposals component's import manifest.
     class ProposalCreator < Decidim::Admin::Import::Creator
-
       # Retuns the resource class to be created with the provided data.
       def self.resource_klass
         Decidim::Proposals::Proposal
@@ -15,19 +14,12 @@ module Decidim
       #
       # Returns a proposal
       def produce
-        @proposal = Decidim::Proposals::Proposal.new(
-          category: category,
-          scope: scope,
-          title: title,
-          body: body,
-          component: component,
-          published_at: Time.current
-        )
         proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
 
         proposal
       end
 
+      # Saves the proposal
       def finish!
         proposal.save!
         notify(proposal)
@@ -36,8 +28,18 @@ module Decidim
 
       private
 
-      attr_accessor :proposal
       attr_reader :context
+
+      def proposal
+        @proposal ||= Decidim::Proposals::Proposal.new(
+          category: category,
+          scope: scope,
+          title: title,
+          body: body,
+          component: component,
+          published_at: Time.current
+        )
+      end
 
       def category
         id = data.has_key?(:category) ? data[:category]["id"] : data[:"category/id"].to_i

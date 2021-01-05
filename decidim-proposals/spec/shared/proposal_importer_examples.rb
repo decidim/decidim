@@ -40,13 +40,13 @@ shared_examples "proposal importer" do
   include_context "with proposal import data"
 
   describe "#collection" do
-    it "parses the correct collection" do
+    it "creates a collection of creators" do
       expect(subject.collection.length).to be(3)
 
-      # Check that collection data matches with expected data
+      # Check that produced data matches with expected data
       expected_data.each_with_index do |data, index|
         data.each do |key, value|
-          expect(subject.collection[index].send(key)).to eq(value)
+          expect(subject.collection[index].produce.send(key)).to eq(value)
         end
       end
     end

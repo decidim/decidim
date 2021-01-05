@@ -19,7 +19,7 @@ module Decidim
         return broadcast(:invalid_lines, importer.invalid_lines) unless importer.invalid_lines.empty?
 
         transaction do
-          importer.import
+          importer.import!
 
           return broadcast(:ok, imported_data)
         rescue StandardError
