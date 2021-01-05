@@ -6,15 +6,18 @@ describe "Admin manages results", type: :system do
   let(:manifest_name) { "accountability" }
   let!(:results) do
     [
-      create(:result, scope: create(:scope, organization: component.organization),
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope2", "en" => "Scope3" }),
                       component: current_component,
                       category: create(:category, participatory_space: participatory_space),
                       created_at: Time.current - 2.days),
-      create(:result, scope: create(:scope, organization: component.organization),
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope3", "en" => "Scope1" }),
                       component: current_component,
                       category: create(:category, participatory_space: participatory_space),
                       created_at: Time.current - 1.day),
-      create(:result, scope: create(:scope, organization: component.organization),
+      create(:result, scope: create(:scope, organization: component.organization,
+                                            name: { "ca" => "Scope1", "en" => "Scope2" }),
                       component: current_component,
                       category: create(:category, participatory_space: participatory_space),
                       created_at: Time.current)
