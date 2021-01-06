@@ -31,7 +31,6 @@ module Decidim
         app.config.assets.precompile += %w(decidim_accountability_admin_manifest.js)
       end
 
-      # Initializer must go here otherwise every engine triggers config/initializers/ files
       initializer "decidim_accountability_admin.overrides" do |_app|
         Rails.application.config.to_prepare do
           Dir.glob("#{Decidim::Accountability::AdminEngine.root}app/overrides/**/*.rb").each do |c|
