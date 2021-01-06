@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages results", type: :system do
+describe "Admin orders results", type: :system do
   let(:manifest_name) { "accountability" }
   let!(:results) do
     [
@@ -25,12 +25,6 @@ describe "Admin manages results", type: :system do
   end
 
   include_context "when managing a component as an admin"
-
-  it "shows all results for a given component" do
-    results.each do |result|
-      expect(page).to have_content(translated(result.title))
-    end
-  end
 
   it "orders results by ID" do
     ordered_results = results.sort_by(&:id).reverse
