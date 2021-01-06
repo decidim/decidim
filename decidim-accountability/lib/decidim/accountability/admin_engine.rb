@@ -31,9 +31,9 @@ module Decidim
         app.config.assets.precompile += %w(decidim_accountability_admin_manifest.js)
       end
 
-      initializer "decidim_accountability_admin.overrides" do |_app|
+      initializer "decidim_accountability.overrides" do |_app|
         Rails.application.config.to_prepare do
-          Dir.glob("#{Decidim::Accountability::AdminEngine.root}app/overrides/**/*.rb").each do |c|
+          Dir.glob("#{Decidim::Accountability::AdminEngine.root}/app/overrides/**/*.rb").each do |c|
             require_dependency(c)
           end
         end
