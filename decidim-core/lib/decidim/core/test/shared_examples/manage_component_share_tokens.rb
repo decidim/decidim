@@ -12,7 +12,7 @@ RSpec.shared_examples "manage component share tokens" do
       share_window = window_opened_by { click_link "Share", wait: 2 }
 
       within_window share_window do
-        expect(page).to have_current_path(component.share_tokens.reload.last.url)
+        expect(current_url).to include(component.share_tokens.reload.last.url)
       end
     end
   end
