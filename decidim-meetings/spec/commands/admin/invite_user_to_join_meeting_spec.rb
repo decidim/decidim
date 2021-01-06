@@ -82,7 +82,7 @@ module Decidim::Meetings
 
         it "sends the invitation instructions" do
           subject.call
-          expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
         end
       end
 
@@ -102,7 +102,7 @@ module Decidim::Meetings
 
         it "sends the invitation instructions" do
           subject.call
-          expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
+          expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
         end
       end
 
