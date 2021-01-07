@@ -7,7 +7,7 @@ module Decidim
     module Import
       module Readers
         # Imports any exported XLS file to local objects. It transforms the
-        # import data using the parser into the final target objects.
+        # import data using the creator into the final target objects.
         class XLS < Base
           MIME_TYPE = "application/vnd.ms-excel"
 
