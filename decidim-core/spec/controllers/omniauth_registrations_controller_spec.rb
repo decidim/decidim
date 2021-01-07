@@ -88,7 +88,7 @@ module Decidim
               "Decidim::DecidimDeviseMailer",
               "confirmation_instructions",
               "deliver_now",
-              {:args => [user, kind_of(String), {}]}
+              { args: [user, kind_of(String), {}] }
             )
           end
 
