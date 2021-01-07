@@ -111,11 +111,17 @@ module Decidim
         Decidim::Comments::CommentSerializer
       end
 
-      def self.newsletter_participant_ids(space)
-        Decidim::Comments::Comment.includes(:root_commentable).not_hidden
-                                  .where("decidim_comments_comments.decidim_author_id IN (?)", Decidim::User.where(organization: space.organization).pluck(:id))
-                                  .where("decidim_comments_comments.decidim_author_type IN (?)", "Decidim::UserBaseEntity")
-                                  .map(&:author).pluck(:id).flatten.compact.uniq
+      # Public: Returns the list of author IDs of type `UserBaseEntity` that commented in one of the +resources+.
+      # Expects all +resources+ to be of the same "commentable_type".
+      # If the result is not `Decidim::Comments::Commentable` returns `nil`.
+      def self.user_commentators_ids_in(resources)
+        if resources.first&.kind_of?(Decidim::Comments::Commentable)
+          commentable_type = resources.first.class.name
+          Decidim::Comments::Comment.select("DISTINCT decidim_author_id").not_hidden
+                                    .where(decidim_commentable_id: resources.pluck(:id))
+                                    .where(decidim_commentable_type: commentable_type)
+                                    .where("decidim_author_type" => "Decidim::UserBaseEntity").pluck(:decidim_author_id)
+        end
       end
 
       def can_participate?(user)

@@ -148,7 +148,9 @@ module Decidim
                                                             .where(decidim_author_type: "Decidim::UserBaseEntity")
                                                             .map(&:decidim_author_id).flatten.compact.uniq
 
-        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids).flatten.compact.uniq
+        commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
+
+        (endorsements_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
       end
 
       # Public: Updates the vote count of this proposal.

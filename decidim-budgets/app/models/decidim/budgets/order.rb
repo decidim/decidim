@@ -96,7 +96,9 @@ module Decidim
       def self.newsletter_participant_ids(component)
         Decidim::Budgets::Order.where(component: component).joins(:component)
                                .finished
-                               .pluck(:decidim_user_id).flatten.compact.uniq
+                               .group(:decidim_user_id)
+                               .pluck(:decidim_user_id)
+                               .flatten.compact
       end
 
       private
