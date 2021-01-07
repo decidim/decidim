@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Admin::Import::Importer do
-  subject { described_class.new(file, reader, context: context, creator: creator) }
+  subject { described_class.new(file: file, reader: reader, creator: creator, context: context) }
 
   let(:creator) { Decidim::Proposals::ProposalCreator }
 
