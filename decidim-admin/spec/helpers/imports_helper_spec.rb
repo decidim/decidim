@@ -25,13 +25,13 @@ module Decidim
       describe "#mime_types" do
         before do
           allow(helper).to receive(:t).with(
-            ".accepted_mime_types.json"
+            "decidim.admin.imports.new.accepted_mime_types.json"
           ).and_return("JSON")
           allow(helper).to receive(:t).with(
-            ".accepted_mime_types.csv"
+            "decidim.admin.imports.new.accepted_mime_types.csv"
           ).and_return("CSV")
           allow(helper).to receive(:t).with(
-            ".accepted_mime_types.xls"
+            "decidim.admin.imports.new.accepted_mime_types.xls"
           ).and_return("XLS")
         end
 
