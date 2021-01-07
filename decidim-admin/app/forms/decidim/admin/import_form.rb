@@ -28,7 +28,7 @@ module Decidim
         errors.add(
           :file,
           I18n.t(
-            "decidim.admin.new_import.attributes.file.invalid_mime_type",
+            "activemodel.errors.new_import.attributes.file.invalid_mime_type",
             valid_mime_types: ACCEPTED_MIME_TYPES.keys.map do |m|
               I18n.t("decidim.admin.new_import.accepted_mime_types.#{m}")
             end.join(", ")

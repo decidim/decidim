@@ -31,7 +31,7 @@ module Decidim
       # Public: A formatted collection of mime_type to be used in forms.
       def mime_types
         accepted_mime_types = Decidim::Admin::Import::Readers::ACCEPTED_MIME_TYPES.keys
-        accepted_mime_types.map { |mime_type| t(".accepted_mime_types.#{mime_type}") }.join(", ")
+        accepted_mime_types.map { |mime_type| t("decidim.admin.imports.new.accepted_mime_types.#{mime_type}") }.join(", ")
       end
 
       # Renders a user_group select field in a form.

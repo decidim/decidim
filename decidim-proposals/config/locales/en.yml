@@ -358,8 +358,6 @@ en:
         exports:
           proposal_comments: Comments
           proposals: Proposals
-        imports:
-          proposals: Proposals
         models:
           proposal:
             name: Proposal

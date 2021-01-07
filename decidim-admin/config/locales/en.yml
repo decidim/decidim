@@ -119,6 +119,10 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+      new_import:
+        attributes:
+          file:
+            invalid_mime_type: Invalid mime type
   activerecord:
     attributes:
       decidim/static_page:
@@ -392,16 +396,16 @@ en:
         creators:
           proposalcreator: Proposal creator
         error: There was a problem during the import
-        import_from_file: "Import from a file"
+        import_from_file: Import from a file
         invalid_lines: Found error in resource number %{invalid_lines}
         new:
           accepted_mime_types:
             csv: csv
-            xls: xls
             json: json
+            xls: xls
           actions:
             back: Back
-          file_legend: 'Add an import file that will be parsed.'
+          file_legend: Add an import file that will be parsed.
           start_import: Start import
         notice: "%{number} %{resource_name} successfully imported"
       logs:
@@ -555,9 +559,6 @@ en:
             report_language: Report language
             report_reason: Reason
             title: Report details
-        attributes:
-          file:
-            invalid_mime_type: Invalid mime type
       newsletter_templates:
         index:
           preview_template: Preview
