@@ -107,7 +107,7 @@ module Decidim
         return unless author.is_a?(Decidim::User)
 
         joins(:coauthorships)
-          .where("decidim_coauthorships.coauthorable_type = ?", name)
+          .where(decidim_coauthorships: { coauthorable_type: name })
           .where("decidim_coauthorships.decidim_author_id = ? AND decidim_coauthorships.decidim_author_type = ? ", author.id, author.class.base_class.name)
       end
 
