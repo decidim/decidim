@@ -73,7 +73,7 @@ module Decidim
       end
 
       initializer "decidim.assets" do |app|
-        Sprockets.register_mime_type 'application/ecmascript-6', extensions: ['.es6', '.js.es6'], charset: :unicode
+        Sprockets.register_mime_type "application/ecmascript-6", extensions: [".es6", ".js.es6"], charset: :unicode
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js
                                            decidim/identity_selector_dialog)
