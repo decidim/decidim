@@ -16,10 +16,10 @@ describe Decidim::Admin::Import::ImporterFactory do
           :search_by_mime_type
         ).with(mime_type).and_return(reader)
         expect(Decidim::Admin::Import::Importer).to receive(:new).with(
-          file,
-          reader,
-          context: context,
-          creator: creator
+          file: file,
+          reader: reader,
+          creator: creator,
+          context: context
         )
         described_class.build(file, mime_type, context: context, creator: creator)
       end
