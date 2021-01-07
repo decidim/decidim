@@ -54,7 +54,7 @@ module Decidim
       initializer "Rails 6 autoloader" do
         Rails.application.configure do
           if config.autoloader == :zeitwerk
-            ActiveSupport::Deprecation.warn("\n"*5 + "The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to classic autoloader" + "\n"*5)
+            ActiveSupport::Deprecation.warn("\n" * 5 + "The zeitwerk autoloader is not yet compatible with Decidim. Setting fallback to classic autoloader" + "\n" * 5)
             config.autoloader = :classic
           end
         end
