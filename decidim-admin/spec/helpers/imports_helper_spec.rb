@@ -39,6 +39,21 @@ module Decidim
           expect(helper.mime_types).to eq("JSON, CSV, XLS")
         end
       end
+
+      describe "#user_groups" do
+        before do
+          allow(helper).to receive(:current_user).and_return(user)
+        end
+
+        let(:organization) { create :organization, available_locales: [:en] }
+        let(:user) { create :user, organization: organization }
+        let(:user_group) { create :user_group, :confirmed, :verified, organization: organization }
+        let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
+        it "return users user groups" do
+          expect(helper.user_groups.count).to eq(1)
+        end
+      end
     end
   end
 end

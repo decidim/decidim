@@ -34,22 +34,9 @@ module Decidim
         accepted_mime_types.map { |mime_type| t("decidim.admin.imports.new.accepted_mime_types.#{mime_type}") }.join(", ")
       end
 
-      # Renders a user_group select field in a form.
-      # form - FormBuilder object
-      # name - attribute user_group_id
-      #
-      # Returns dropdown.
-      def user_group_select_field(form, name)
-        return "" unless current_organization.user_groups_enabled? || Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
-
-        selected = @import.user_group_id.presence
-        user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
-        form.select(
-          name,
-          user_groups.map { |g| [g.name, g.id] },
-          selected: selected,
-          include_blank: current_user.name
-        )
+      # Returns verified user groups of current user
+      def user_groups
+        Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
       end
     end
   end
