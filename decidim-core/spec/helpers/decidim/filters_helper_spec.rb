@@ -84,6 +84,17 @@ module Decidim
         expect(helper.filter_cache_hash(filter)).to eq(old_hash)
       end
 
+      context "when current locale changes" do
+        let(:alt_locale) { :ca }
+
+        it "generate a different hash" do
+          old_hash = helper.filter_cache_hash(filter)
+          allow(I18n).to receive(:locale).and_return(alt_locale)
+
+          expect(helper.filter_cache_hash(filter)).not_to eq(old_hash)
+        end
+      end
+
       context "when filter is different" do
         it "generate a different hash" do
           old_hash = helper.filter_cache_hash(filter)

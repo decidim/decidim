@@ -8,6 +8,8 @@ module Decidim
     class ProposalMCell < Decidim::CardMCell
       include ProposalCellsHelper
 
+      delegate :current_locale, to: :controller
+
       def badge
         render if has_badge?
       end
@@ -126,6 +128,7 @@ module Decidim
       def cache_hash
         hash = []
         hash << "decidim/proposals/proposal_m"
+        hash << I18n.locale.to_s
         hash << model.cache_version
         hash << model.proposal_votes_count
         hash << model.endorsements_count

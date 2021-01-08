@@ -94,6 +94,17 @@ module Decidim::Proposals
         expect(my_cell.send(:cache_hash)).to eq(old_hash)
       end
 
+      context "when locale change" do
+        let(:alt_locale) { :ca }
+
+        it "generate a different hash" do
+          old_hash = my_cell.send(:cache_hash)
+          allow(I18n).to receive(:locale).and_return(alt_locale)
+
+          expect(my_cell.send(:cache_hash)).not_to eq(old_hash)
+        end
+      end
+
       context "when model is updated" do
         it "generate a different hash" do
           old_hash = my_cell.send(:cache_hash)
