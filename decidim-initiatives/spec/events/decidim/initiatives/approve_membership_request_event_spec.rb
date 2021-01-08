@@ -43,14 +43,14 @@ describe Decidim::Initiatives::ApproveMembershipRequestEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("<a href=\"#{author_profile_url}\">#{author_nickname}</a> accepted your application to be part of the promoter committee for the following initiative <a href=\"#{resource_url}\">#{resource_title}</a>.")
+      expect(subject.email_intro).to eq("#{author_nickname} accepted your application to be part of the promoter committee for the initiative #{resource_title}.")
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you applied to this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("You received this notification because you applied to this initiative : #{resource_title}")
     end
   end
 

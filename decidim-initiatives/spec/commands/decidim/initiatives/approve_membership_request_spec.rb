@@ -31,6 +31,8 @@ module Decidim
           command.call
         end
 
+
+
         it "approves membership requests " do
           expect do
             command.call

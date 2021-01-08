@@ -42,14 +42,14 @@ describe Decidim::Initiatives::SpawnCommitteeRequestEvent do
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("<a href=\"#{applicant_profile_url}\">#{applicant_nickname}</a> applied for the promoter committee of your initiative <a href=\"#{resource_url}\">#{resource_title}</a>. To accept or reject click <a href=\"#{resource_url}/edit\">here</a>.")
+      expect(subject.email_intro).to eq("#{applicant_nickname} applied for the promoter committee of your initiative #{resource_title}. To accept or reject the application, go to the edit form of your initiative.")
     end
   end
 
   describe "email_outro" do
     it "is generated correctly" do
       expect(subject.email_outro)
-        .to eq("You received this notification because you are the author of this initiative : <a href=\"#{resource_url}\">#{resource_title}</a>.")
+        .to eq("You received this notification because you are the author of this initiative : #{resource_title}")
     end
   end
 
