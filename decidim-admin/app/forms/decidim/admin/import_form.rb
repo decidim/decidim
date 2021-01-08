@@ -9,7 +9,6 @@ module Decidim
       attribute :creator, Object
       attribute :file
       attribute :user_group_id, Integer
-      attribute :users_user_groups
 
       validates :file, presence: true
       validate :accepted_mime_type

@@ -19,14 +19,15 @@
       </div>
       <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
         <div class="field">
-          <%= form.select(
-            :user_group_id,
-            user_groups.map { |g| [g.name, g.id] },
-            include_blank: current_user.name
-          )  %>
+          <%=
+            form.select(
+              :user_group_id,
+              user_groups.map { |g| [g.name, g.id] },
+              include_blank: current_user.name
+            )
+          %>
         </div>
       <% end %>
-
       <div class="grid-x">
         <div class="cell">
           <fieldset>
