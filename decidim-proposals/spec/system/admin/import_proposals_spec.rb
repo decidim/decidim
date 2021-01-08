@@ -8,16 +8,11 @@ describe "Import proposals", type: :system do
 
   let(:manifest_name) { "proposals" }
   let(:participatory_space) { component.participatory_space }
-  let!(:user) { create :user, organization: organization }
-
-  # let(:proposal_count) { 5 }
-
-  # let!(:proposals) { create_list(:proposal, proposal_count, :accepted) }
+  let(:user) { create :user, organization: organization }
 
   include_context "when managing a component as an admin"
 
   before do
-    # switch_to_host(organization.host)
     page.find(".imports").click
     click_link "Import from a file"
   end
