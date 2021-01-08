@@ -30,6 +30,7 @@ de:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
+        child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
@@ -344,7 +345,7 @@ de:
           more_information: "(Weitere Informationen)"
         promotal_committee:
           back: Zurück
-          individual_help_text: Diese Art von Bürgerinitiative erfordert eine Beförderungskommission, die aus mindestens %{committee_size} Personen besteht (Attestierer). Sie müssen den folgenden Link mit den anderen Personen teilen, die Teil dieser Initiative sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie den angegebenen Schritten folgen.
+          individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
           back: Zurück

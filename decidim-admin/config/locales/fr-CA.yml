@@ -91,6 +91,8 @@ fr-CA:
         name: Titre
         organization: Organisation
         plural: Pluriel
+      settings:
+        scope_id: Secteur
       static_page:
         changed_notably: Il y a eu des changements notables.
         content: Contenu

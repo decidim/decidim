@@ -1,6 +1,8 @@
 de:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Organisationsdiagramm aktivieren
       assembly:
         area_id: Bereich
         assembly_type: Versammlungstyp
@@ -60,6 +62,7 @@ de:
         full_name: Vollständiger Name
         gender: Geschlecht
         position: Position
+        user_id: User
       assembly_user_role:
         email: Email
         name: Name
