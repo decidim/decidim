@@ -302,15 +302,5 @@ shared_examples "proposals wizards" do |options|
       end
     end
   end
-
-  context "when creating a new proposal" do
-    before do
-      login_as user, scope: :user
-      visit_component
-      click_link "New proposal"
-    end
-
-    it_behaves_like "with address" if options[:with_address]
-    it_behaves_like "without address" unless options[:with_address]
-  end
 end
+
