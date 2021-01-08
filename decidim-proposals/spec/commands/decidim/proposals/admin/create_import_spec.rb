@@ -10,12 +10,7 @@ module Decidim::Admin
       let(:participatory_space) { create(:participatory_process, organization: organization) }
       let(:component) { create(:component, participatory_space: participatory_space, manifest_name: "proposals") }
       let!(:category) { create(:category, participatory_space: participatory_space) }
-      let(:file) do
-        Rack::Test::UploadedFile.new(
-          Decidim::Dev.test_file("import_proposals.csv", "text/csv"),
-          "text/csv"
-        )
-      end
+      let(:file) { Decidim::Dev.test_file("import_proposals.csv", "text/csv") }
 
       let(:form) do
         Decidim::Admin::ImportForm.from_params(

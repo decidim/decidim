@@ -41,10 +41,6 @@ module Decidim
 
       private
 
-      def default_format
-        "json"
-      end
-
       def current_component
         @current_component ||= current_participatory_space.components.find(params[:component_id])
       end

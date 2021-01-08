@@ -48,6 +48,19 @@ describe Decidim::Proposals::ProposalCreator do
     end
   end
 
+  describe "#resource_attributes" do
+    it "returns the attributes hash" do
+      expect(subject.resource_attributes).to eq(
+        title: data[:title],
+        body: data[:body],
+        category: data[:category],
+        scope: data[:scope],
+        component: data[:component],
+        published_at: data[:published_at]
+      )
+    end
+  end
+
   describe "#produce" do
     it "makes a new proposal" do
       record = subject.produce

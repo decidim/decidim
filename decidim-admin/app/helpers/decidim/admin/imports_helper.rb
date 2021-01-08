@@ -38,8 +38,10 @@ module Decidim
       # form - FormBuilder object
       # name - attribute user_group_id
       #
-      # Returns nothing.
+      # Returns dropdown.
       def user_group_select_field(form, name)
+        return "" unless current_organization.user_groups_enabled? || Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+
         selected = @import.user_group_id.presence
         user_groups = Decidim::UserGroups::ManageableUserGroups.for(current_user).verified
         form.select(
