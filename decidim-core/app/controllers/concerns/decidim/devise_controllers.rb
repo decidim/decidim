@@ -19,6 +19,7 @@ module Decidim
       include NeedsPermission
       include Decidim::SafeRedirect
       include NeedsSnippets
+      include SuspensionChecker
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper

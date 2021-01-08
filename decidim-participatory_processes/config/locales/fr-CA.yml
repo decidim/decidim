@@ -41,9 +41,9 @@ fr-CA:
         hashtag: Hashtag
         hero_image: Image
         local_area: Zone d'organisation
-        meta_scope: Portée des métadonnées
+        meta_scope: Secteur
         participatory_process_ids: Concertations liées
-        participatory_scope: Ce qui est décidé
+        participatory_scope: Objectif
         participatory_structure: Modalités de décision
         target: Qui participe
         title: Titre
@@ -321,15 +321,15 @@ fr-CA:
     participatory_process_groups:
       content_blocks:
         html_1:
-          name: Premier bloc HTML
+          name: Bloc HTML 1
         html_2:
-          name: Deuxième bloc HTML
+          name: Bloc HTML 2
         html_3:
-          name: Troisième bloc HTML
+          name: Bloc HTML 3
         metadata:
           developer_group: Promu par
           name: Métadonnées
-          participatory_scope: Ce qui est décidé
+          participatory_scope: Objectifs
           participatory_structure: Modalités de décision
           target: Qui participe
         participatory_processes:

@@ -17,6 +17,22 @@ module Decidim
             organization: organization
           )
         end
+        let(:participatory_process_params) do
+          {
+            title: participatory_process.title,
+            subtitle: participatory_process.subtitle,
+            description: participatory_process.description,
+            short_description: participatory_process.short_description,
+            slug: participatory_process.slug,
+            scopes_enabled: participatory_process.scopes_enabled,
+            sidebar_content_block_enabled: true,
+            sidebar_content_block: sidebar_content_block
+          }
+        end
+
+        let(:sidebar_content_block) do
+          instance_double(Decidim::Admin::ContentBlockForm, settings: true, to_hash: {})
+        end
 
         before do
           request.env["decidim.current_organization"] = organization
@@ -25,20 +41,8 @@ module Decidim
         end
 
         describe "PATCH update" do
-          let(:participatory_process_params) do
-            {
-              title: participatory_process.title,
-              subtitle: participatory_process.subtitle,
-              description: participatory_process.description,
-              short_description: participatory_process.short_description,
-              slug: participatory_process.slug,
-              scopes_enabled: participatory_process.scopes_enabled
-            }
-          end
-
           it "uses the slug param as participatory_process id" do
             expect(ParticipatoryProcessForm).to receive(:from_params).with(hash_including(id: participatory_process.id.to_s)).and_call_original
-
             patch :update, params: { slug: participatory_process.id, participatory_process: participatory_process_params }
 
             expect(response).to redirect_to(edit_participatory_process_path(participatory_process.slug))

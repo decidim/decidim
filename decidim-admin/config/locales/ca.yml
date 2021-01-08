@@ -91,6 +91,7 @@ ca:
         organization: Organització
         plural: Plural
       static_page:
+        allow_public_access: Permet l'accés sense autenticació
         changed_notably: S'han produït canvis notables.
         content: Contingut
         organization: Organització

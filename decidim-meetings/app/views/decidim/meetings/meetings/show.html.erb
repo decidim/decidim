@@ -128,6 +128,9 @@ edit_link(
 
       <% if meeting.online_meeting? %>
         <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% elsif meeting.hybrid_meeting? %>
+       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+       <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
       <% else %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
       <% end %>

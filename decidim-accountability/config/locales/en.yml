@@ -43,6 +43,7 @@ en:
         title: Actions
       admin:
         exports:
+          result_comments: Comments
           results: Results
         import_results:
           new:

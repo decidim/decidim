@@ -90,7 +90,10 @@ cs:
         name: Název
         organization: Organizace
         plural: Množné číslo
+      settings:
+        scope_id: Oblast působnosti
       static_page:
+        allow_public_access: Povolit přístup bez autentizace
         changed_notably: Došlo ke znatelným změnám.
         content: Obsah
         organization: Organizace

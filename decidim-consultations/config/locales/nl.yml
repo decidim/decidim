@@ -113,7 +113,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit overleg.
           success: Overleg succesvol bijgewerkt.
       menu:
-        consultations: burgerinspraak
+        consultations: Burgerinspraaken
         consultations_submenu:
           info: Informatie
           questions: vragen
@@ -131,8 +131,8 @@ nl:
             published: Gepubliceerd
             title: Titel
           name:
-            one: Raadpleging
-            other: Raadplegingen
+            one: Burgerinspraak 
+            other: Burgerinspraken
         question:
           fields:
             created_at: Aangemaakt op
@@ -216,7 +216,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit antwoord.
           success: Reactie is bijgewerkt.
       titles:
-        consultations: Burgerinspraak
+        consultations: Burgerinspraaken
         questions: vragen
         response_groups: Responsgroepen
         responses: Antwoorden
@@ -260,7 +260,7 @@ nl:
       highlighted_questions:
         title: Vragen vanaf %{scope_name}
       index:
-        title: Burgerinspraak
+        title: Burgerinspraaken
       last_activity:
         new_consultation: Nieuw overleg
         new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
@@ -320,7 +320,7 @@ nl:
         consultations:
           title: Wat zijn raadplegingen?
     menu:
-      consultations: Burgerinspraak
+      consultations: Burgerinspraaken
     pages:
       home:
         statistics:

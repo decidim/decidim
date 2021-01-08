@@ -80,7 +80,7 @@ module Decidim::Meetings
 
       it "sets the registration_terms" do
         subject.call
-        expect(meeting.registration_terms).to eq("en" => registration_terms)
+        expect(translated(meeting.registration_terms)).to eq registration_terms
       end
 
       it "sets the registrations_enabled flag" do

@@ -283,8 +283,6 @@ pl:
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
-      errors:
-        duplicate_authorization: Użytkownik jest już uprawniony na podstawie tych samych danych.
       expired_at: Wygasł %{timestamp}
       expires_at: Wygasa %{timestamp}
       foo_authorization:

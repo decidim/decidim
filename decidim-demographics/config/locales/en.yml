@@ -1,0 +1,124 @@
+---
+en:
+  activemodel:
+    attributes:
+      demographic:
+        age: How old are you?
+        attended_before: Have you attended a public event that was about the European Union before (either online or in person)?
+        education_age_stop: How old were you when you stopped full-time education?
+        living_condition: Would you say you live in a...?
+  decidim:
+    components:
+      demographics:
+        name: Demographics
+    demographics:
+      data:
+        update:
+          error: There was an error saving demographic data
+          success: The demographic data successfully saved
+      directory:
+        demographics:
+          form:
+            age_help: Pleae select your age group
+            age_prompt: Please select your age
+            attended_before:
+              affirmative: 'Yes'
+              negative: 'No'
+              unknown: Don’t know
+            countries:
+              austria: Austria
+              belgium: Belgium
+              bulgaria: Bulgaria
+              croatia: Croatia
+              cyprus: Cyprus
+              czechia: Czechia
+              denmark: Denmark
+              estonia: Estonia
+              finland: Finland
+              france: France
+              germany: Germany
+              greece: Greece
+              hungary: Hungary
+              ireland: Ireland
+              italy: Italy
+              latvia: Latvia
+              lithuania: Lithuania
+              luxembourg: Luxembourg
+              malta: malta
+              netherlands: Netherlands
+              other: Other
+              poland: Poland
+              portugal: Portugal
+              romania: Romania
+              slovakia: Slovakia
+              slovenia: Sovenia
+              spain: Spain
+              sweden: Sweden
+            current_occupation_prompt: What is your current occupation?
+            current_occupations:
+              house-person: House person
+              manager: Manager
+              manual-worker: Manual worker
+              other: Other (please specify)
+              professional-worker: Professional worker (architect, accountant, lawyer, doctor, etc.)
+              retired: Retired (please also tick occupation before retirement)
+              self-employed: Self-employed
+              student: Student
+              unemployed: Unemployed (please also tick occupation before unemployment)
+            education_age_stops:
+              20_plus: 20+
+              no_full_time_education: No full-time education
+              refusal: Refusal
+              still_studying: Still Studying
+              under_15: 15-
+              under_20: 16-19
+            gender_help: Please select your gender
+            gender_prompt: Your gender
+            genders:
+              man: Man
+              non_binary: None of the above/ Non binary/ do not recognize yourself in above categories
+              woman: Woman
+            living_conditions:
+              large: Large town
+              rural: Rural area or village
+              small: Small or middle sized town
+              unknown: Don't know
+            nationalities:
+              austrian: Austrian
+              belgian: Belgian
+              bulgarian: Bulgarian
+              croat: Croat
+              cypriote: Cypriote
+              czech: Czech
+              dane: Dane
+              dutch: Dutch
+              estonian: Estonian
+              finn: Finn
+              french: French
+              german: German
+              greek: Greek
+              hungarian: Hungarian
+              irish: Irish
+              italian: Italian
+              latvian: Latvian
+              lithuanian: Lithuanian
+              luxembourger: Luxemburger
+              maltese: Maltese
+              other: Other
+              polish: Polish
+              portuguese: Portuguese
+              romanian: Romanian
+              slovak: Slovak
+              slovenian: Slovenian
+              spanish: Spanish
+              swede: Swede
+            nationality_prompt: 'Nationality (tick up to 3):'
+            residence_prompt: 'Country of Residence (tick up to 2):'
+            subscribe_help: Please note, you can unsubscribe at any point via the platform or through pressing unsubscribe on the newsletter itself.
+            tos_page_link: 'By clicking on the button below you expressly confirm that you have read and understood our '
+          new:
+            save: Save
+  layouts:
+    decidim:
+      user_profile:
+        demographics: Demographic data

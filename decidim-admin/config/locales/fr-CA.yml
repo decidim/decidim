@@ -90,7 +90,10 @@ fr-CA:
         name: Titre
         organization: Organisation
         plural: Pluriel
+      settings:
+        scope_id: Secteur
       static_page:
+        allow_public_access: Autoriser l'accès sans authentification
         changed_notably: Il y a eu des changements notables.
         content: Contenu
         organization: Organisation
@@ -503,7 +506,7 @@ fr-CA:
             content_original_language: Langue d'origine du contenu
             participatory_space: Espace participatif
             reported_content: Contenu signalé
-            see_current: Voir en cours
+            see_current: Voir le contenu dans sa langue d'origine
             see_original: Voir l'original
             title: Signalements
           show:

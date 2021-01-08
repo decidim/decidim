@@ -52,6 +52,22 @@ module Decidim
 
                   it { is_expected.to eq("/") }
                 end
+
+                context "when the user is suspended" do
+                  before do
+                    user.suspended = true
+                  end
+
+                  it { is_expected.to eq("/") }
+                end
+
+                context "when the user is not suspended" do
+                  before do
+                    user.suspended = false
+                  end
+
+                  it { is_expected.to eq("/authorizations/first_login") }
+                end
               end
 
               context "and otherwise", with_authorization_workflows: [] do

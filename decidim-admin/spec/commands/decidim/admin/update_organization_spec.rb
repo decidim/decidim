@@ -20,7 +20,8 @@ module Decidim::Admin
             admin_terms_of_use_body: { "en": Faker::Lorem.paragraph },
             rich_text_editor_in_public_views: true,
             machine_translation_display_priority: "translation",
-            enable_machine_translations: true
+            enable_machine_translations: true,
+            demographics_data_collection: false
           }
         }
       end
@@ -70,13 +71,32 @@ module Decidim::Admin
           expect(action_log.version.event).to eq "update"
         end
 
-        it "updates the organization in the organization" do
-          expect { command.call }.to broadcast(:ok)
-          organization.reload
+        context "and demographic data collection is enabled" do
+          before do
+            params[:organization].store("demographics_data_collection", true)
+          end
 
-          expect(organization.name).to eq("My super organization")
-          expect(organization.rich_text_editor_in_public_views).to eq(true)
-          expect(organization.enable_machine_translations).to eq(true)
+          it "updates the organization in the organization" do
+            expect { command.call }.to broadcast(:ok)
+            organization.reload
+
+            expect(organization.name).to eq("My super organization")
+            expect(organization.rich_text_editor_in_public_views).to eq(true)
+            expect(organization.enable_machine_translations).to eq(true)
+            expect(organization.demographics_data_collection).to eq(true)
+          end
+        end
+
+        context "and demographic data collection is not enabled" do
+          it "updates the organization in the organization" do
+            expect { command.call }.to broadcast(:ok)
+            organization.reload
+
+            expect(organization.name).to eq("My super organization")
+            expect(organization.rich_text_editor_in_public_views).to eq(true)
+            expect(organization.enable_machine_translations).to eq(true)
+            expect(organization.demographics_data_collection).to eq(false)
+          end
         end
       end
     end

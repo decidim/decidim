@@ -141,8 +141,6 @@ uk:
         name: Приклад підтвердження своєї особи
       dummy_authorization_workflow:
         name: Приклад шляху підтвердження особи
-      errors:
-        duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
       expired_at: Строк дії закінчився %{timestamp}
       expires_at: Строк дії закінчується %{timestamp}
       foo_authorization:
