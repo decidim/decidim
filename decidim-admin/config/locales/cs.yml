@@ -100,12 +100,12 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       static_page_topic:
         description: Popis
         show_in_footer: Zobrazit v zápatí
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       user_group_csv_verification:
         file: Soubor
     errors:
