@@ -21,7 +21,7 @@ module Decidim
 
       # Saves the proposal
       def finish!
-        proposal.save!
+        super # proposal.save!
         notify(proposal)
         publish(proposal)
       end
