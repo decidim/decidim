@@ -2,7 +2,7 @@ tr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: durum
+        decidim_accountability_status_id: Durum
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
         description: Açıklama
@@ -155,6 +155,7 @@ tr:
             entry_date: tarih
       result_m:
         executed: Yürütüldü
+        view: Görünüm
       results:
         count:
           results_count:
@@ -178,24 +179,27 @@ tr:
             back_to_resource: Sonuca geri dön
             comments: Yorumlar
             contributions: Katılımlar
-            last_edited_by: Tarafından düzenlenmiş Son
-            last_updated_at: 'Son güncelleme tarihi:'
+            last_edited_by: Son düzenleyen
+            last_updated_at: Son güncelleme
             meetings: Toplantılar
-            proposals: Teklif
+            proposals: Teklifler
             votes: Destekler
         timeline:
-          title: Proje evrimi
+          title: Proje gelişimi
     components:
       accountability:
-        name: Hesap verebilirlik
+        name: Sorumluluk
         settings:
           global:
             categories_label: '"Kategoriler" için isim'
             comments_enabled: Yorumlar etkin
-            display_progress_enabled: Ekran ilerleme
-            heading_leaf_level_results: '"Projelerin" Adı'
+            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
+            display_progress_enabled: İlerlemeyi göster
+            heading_leaf_level_results: '"Projeler" için isim'
             heading_parent_level_results: '"Sonuçların" Adı'
             intro: giriş
+            scope_id: Kapsam
+            scopes_enabled: Kapsamlar etkinleştirildi
             subcategories_label: '"Alt kategoriler" için isim'
           step:
             comments_blocked: Yorumlar engellendi
@@ -216,6 +220,9 @@ tr:
         description: Üretilen sonuç sayısı
         object: Sonuçlar
         title: Sonuçlar
+    participatory_spaces:
+      highlighted_results:
+        see_all: Tüm sonuçları gör (%{count})
     resource_links:
       included_projects:
         result_project: Bu sonuca dahil edilen projeler
