@@ -50,8 +50,8 @@ module Decidim
 
       def notify_comment_author
         Decidim::EventsManager.publish(
-          event: "decidim.events.comments.comment_voted",
-          event_class: Decidim::Comments::CommentVotedEvent,
+          event: "decidim.events.comments.comment_#{upvote? ? "upvoted" : "downvoted"}",
+          event_class: upvote? ? Decidim::Comments::CommentUpvotedEvent : Decidim::Comments::CommentDownvotedEvent,
           resource: @comment.commentable,
           affected_users: [@author],
           followers: [@comment.author],
@@ -61,6 +61,12 @@ module Decidim
             weight: @weight
           }
         )
+      end
+
+      private
+
+      def upvote?
+        @weight.positive?
       end
     end
   end

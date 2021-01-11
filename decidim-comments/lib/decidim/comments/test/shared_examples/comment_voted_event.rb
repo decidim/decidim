@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_examples "a comment voted event" do
+shared_examples_for "a comment voted event" do
   include_context "when it's a comment event"
   # it_behaves_like "a simple event"
 

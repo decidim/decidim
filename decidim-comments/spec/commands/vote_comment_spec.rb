@@ -59,22 +59,48 @@ module Decidim
         end
 
         describe "sending notification" do
-          it "notifies the comment author" do
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.comments.comment_voted",
-                event_class: Decidim::Comments::CommentVotedEvent,
-                resource: commentable,
-                affected_users: [author],
-                followers: [comment.author],
-                extra: {
-                  comment_id: comment.id,
-                  author_id: author.id,
-                  weight: weight
-                }
-              )
-            command.call
+          context "when weight is positive" do
+            let(:weight) { 1 }
+
+            it "notifies the comment author of upvote event" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.comments.comment_upvoted",
+                  event_class: Decidim::Comments::CommentUpvotedEvent,
+                  resource: commentable,
+                  affected_users: [author],
+                  followers: [comment.author],
+                  extra: {
+                    comment_id: comment.id,
+                    author_id: author.id,
+                    weight: weight
+                  }
+                )
+              command.call
+            end
+          end
+
+          context "when weight is negative" do
+            let(:weight) { -1 }
+
+            it "notifies the comment author of downvote event" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.comments.comment_downvoted",
+                  event_class: Decidim::Comments::CommentDownvotedEvent,
+                  resource: commentable,
+                  affected_users: [author],
+                  followers: [comment.author],
+                  extra: {
+                    comment_id: comment.id,
+                    author_id: author.id,
+                    weight: weight
+                  }
+                )
+              command.call
+            end
           end
         end
 
