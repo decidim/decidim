@@ -14,7 +14,7 @@ end
 RSpec.configure do |config|
   config.before :each, :billy do
     driven_by :selenium_chrome_headless_billy
-    switch_to_default_host
+    switch_to_secure_context_host
     WebMock::HttpLibAdapters::EmHttpRequestAdapter.disable!
   end
 end

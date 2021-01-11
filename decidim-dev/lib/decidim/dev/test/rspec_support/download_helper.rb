@@ -4,28 +4,28 @@ module DownloadHelper
   TIMEOUT = 10
   PATH = Rails.root.join("tmp/downloads").freeze
 
-  def downloads
-    Dir[PATH.join("*")]
+  def downloads(name = nil)
+    Dir[PATH.join(name || "*")]
   end
 
-  def download_path
-    wait_for_download
-    downloads.first
+  def download_path(name = nil)
+    wait_for_download(name)
+    downloads(name).first
   end
 
-  def download_content
-    wait_for_download
-    File.read(download_path)
+  def download_content(name = nil)
+    wait_for_download(name)
+    File.read(download_path(name))
   end
 
-  def wait_for_download
+  def wait_for_download(name = nil)
     Timeout.timeout(TIMEOUT) do
-      sleep 0.1 until downloaded?
+      sleep 0.1 until downloaded?(name)
     end
   end
 
-  def downloaded?
-    downloads.any? && !downloading?
+  def downloaded?(name = nil)
+    downloads(name).any? && !downloading?
   end
 
   def downloading?
@@ -40,8 +40,6 @@ end
 RSpec.configure do |config|
   config.include DownloadHelper, download: true
   config.before :each, download: true do
-    driven_by(:headless_chrome)
-    switch_to_default_host
     FileUtils.mkdir_p DownloadHelper::PATH.to_s
     page.driver.browser.download_path = DownloadHelper::PATH.to_s
     clear_downloads

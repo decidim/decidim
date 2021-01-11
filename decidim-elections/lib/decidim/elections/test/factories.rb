@@ -67,8 +67,8 @@ FactoryBot.define do
       end
       complete
       after(:create) do |election, evaluator|
-        evaluator.trustee_keys.each do |trustee_key|
-          create(:trustee, :with_public_key, election: election, public_key: trustee_key)
+        evaluator.trustee_keys.each do |name, key|
+          create(:trustee, :with_public_key, name: name, election: election, public_key: key)
         end
       end
     end

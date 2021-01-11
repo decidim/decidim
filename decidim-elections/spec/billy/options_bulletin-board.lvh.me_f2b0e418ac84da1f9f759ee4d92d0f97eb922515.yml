@@ -1,5 +1,5 @@
 ---
-:scope:
+:scope: trustee 1 download
 :url: http://bulletin-board.lvh.me/api
 :body: ''
 :status: 200
