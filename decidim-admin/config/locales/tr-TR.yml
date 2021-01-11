@@ -294,21 +294,37 @@ tr:
           name: İsim
           reason: Nedeni
           success: Aktarım başarıyla tamamlandı.
+          title: Aktar
+        'true': 'Evet'
+        user_name: Kullanıcı Adı
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
           welcome: Decidim Yönetici Paneline hoş geldiniz.
       exports:
         export_as: "%{name} olarak %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: İhracatınız şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       filters:
         category_id_eq:
           label: Kategori
+        filter_label: Filtrele
+        moderations:
+          reportable_type_string_eq:
+            label: Türü
         officialized_at_null:
           label: Belirtmek, bildirmek
           values:
             'false': resmileştirilmiş
             'true': Resmi değil
+        private_space_eq:
+          label: Kişisel
+          values:
+            'false': Herkese Açık
         search_label: Arama
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
@@ -534,6 +550,12 @@ tr:
           badge: Resmi görevlendirme rozeti
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
+        show_email_modal:
+          email_address: E-posta adresi
+          full_name: Tam adı
+          hidden: saklı
+          show: Göster
+          title: Katılımcı e-posta adresini göster
       organization:
         edit:
           title: Kuruluş düzenle
@@ -542,8 +564,10 @@ tr:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
+          rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
           twitter: heyecan
+          url: URL
           youtube: Youtube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
