@@ -2,10 +2,9 @@
 
 require "spec_helper"
 
-describe Decidim::Comments::CommentVotedEvent do
+shared_examples "a comment voted event" do
   include_context "when it's a comment event"
-
-  let(:event_name) { "decidim.events.comments.comment_voted" }
+  # it_behaves_like "a simple event"
 
   let(:resource) { comment.commentable }
 
@@ -15,11 +14,10 @@ describe Decidim::Comments::CommentVotedEvent do
   let(:comment_author) { comment.author }
 
   let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: weight } }
-  let(:weight) { 1 }
   let(:resource_title) { decidim_html_escape(translated(resource.title)) }
   let(:resource_text) { subject.resource_text }
 
-  it_behaves_like "a simple event"
+  let(:verb) { weight.positive? ? "upvoted" : "downvoted" }
 
   describe "author" do
     it "returns the comment vote author" do
@@ -35,13 +33,13 @@ describe Decidim::Comments::CommentVotedEvent do
 
   describe "email_subject" do
     it "is generated correctly" do
-      expect(subject.email_subject).to eq("#{comment_vote_author.name} voted your comment in #{resource_title}")
+      expect(subject.email_subject).to eq("#{comment_vote_author.name} #{verb} your comment in #{resource_title}")
     end
   end
 
   describe "email_intro" do
     it "is generated correctly" do
-      expect(subject.email_intro).to eq("Your comment in #{resource_title} has been voted by #{comment_vote_author.name}.")
+      expect(subject.email_intro).to eq("Your comment in #{resource_title} has been #{verb} by #{comment_vote_author.name}.")
     end
   end
 
@@ -58,23 +56,7 @@ describe Decidim::Comments::CommentVotedEvent do
         .to include("<a href=\"/profiles/#{comment_vote_author.nickname}\">#{comment_vote_author.name} @#{comment_vote_author.nickname}</a>")
 
       expect(subject.notification_title)
-        .to include("voted your <a href=\"#{resource_path}#comment_#{comment.id}\">comment</a> in #{resource_title}")
-    end
-  end
-
-  describe "upvote?" do
-    context "when weight is positive" do
-      let(:weight) { 1 }
-      it "returns true" do
-        expect(subject.upvote?).to eq(true)
-      end
-    end
-
-    context "when weight is negative" do
-      let(:weight) { -1 }
-      it "returns false" do
-        expect(subject.upvote?).to eq(false)
-      end
+        .to include("#{verb} your <a href=\"#{resource_path}#comment_#{comment.id}\">comment</a> in #{resource_title}")
     end
   end
 end
