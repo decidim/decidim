@@ -38,28 +38,33 @@ module Decidim
       # extras - should include extra hashtags?
       #
       # Returns a String.
-      def title(links: false, extras: true, html_escape: false)
-        text = translated_attribute(proposal.title)
-        text = decidim_html_escape(text) if html_escape
+      def title(links: false, extras: true, html_escape: false, all_locales: false)
+        return unless proposal
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        renderer.render(links: links, extras: extras).html_safe
+        handle_locales(proposal.title, all_locales) do |content|
+          content = decidim_html_escape(content) if html_escape
+
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          renderer.render(links: links, extras: extras).html_safe
+        end
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
         "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
       end
 
-      def body(links: false, extras: true, strip_tags: false)
-        text = translated_attribute(proposal.body)
+      def body(links: false, extras: true, strip_tags: false, all_locales: false)
+        return unless proposal
 
-        text = strip_tags(sanitize_text(text)) if strip_tags
+        handle_locales(proposal.body, all_locales) do |content|
+          content = strip_tags(sanitize_text(content)) if strip_tags
 
-        renderer = Decidim::ContentRenderers::HashtagRenderer.new(text)
-        text = renderer.render(links: links, extras: extras).html_safe
+          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
+          content = renderer.render(links: links, extras: extras).html_safe
 
-        text = Decidim::ContentRenderers::LinkRenderer.new(text).render if links
-        text
+          content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
+          content
+        end
       end
 
       # Returns the proposal versions, hiding not published answers
@@ -129,6 +134,20 @@ module Decidim
       # Returns a String.
       def sanitize_text(text)
         add_line_feeds(sanitize_ordered_lists(sanitize_unordered_lists(text)))
+      end
+
+      def handle_locales(content, all_locales, &block)
+        if all_locales
+          content.each_with_object({}) do |(key, value), parsed_content|
+            parsed_content[key] = if key == "machine_translations"
+                                    handle_locales(value, all_locales, &block)
+                                  else
+                                    block.call(value)
+                                  end
+          end
+        else
+          yield(translated_attribute(content))
+        end
       end
     end
   end

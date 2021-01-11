@@ -202,8 +202,6 @@ id:
         name: Contoh otorisasi
       dummy_authorization_workflow:
         name: Alur kerja otorisasi dummy
-      errors:
-        duplicate_authorization: Pengguna sudah diotorisasi dengan data yang sama.
       expired_at: Kedaluwarsa pada %{timestamp}
       expires_at: Kedaluwarsa pada %{timestamp}
       foo_authorization:

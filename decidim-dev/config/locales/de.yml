@@ -5,7 +5,7 @@ de:
         created_at: Hergestellt in
         decidim_scope_id: Umfang
         field: Mein Feld
-        start_date: Anfangsdatum
+        start_date: Startdatum
         title: Titel
         translatable_text: Übersetzbarer Text
         updated_at: Aktualisiert am

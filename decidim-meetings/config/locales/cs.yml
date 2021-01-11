@@ -419,6 +419,7 @@ cs:
           type: Typ
           type_values:
             all: Vše
+            hybrid: Obojí
             in_person: Osobně
             online: Online
         filters_small_view:
@@ -520,6 +521,7 @@ cs:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
       type_of_meeting:
+        hybrid: Obojí
         in_person: Osobně
         online: Online
       types:
