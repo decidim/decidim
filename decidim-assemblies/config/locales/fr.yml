@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       assemblies_setting:
-        enable_organization_chart: Activer le schéma d'organisation
+        enable_organization_chart: Activer le schéma d'assemblée
       assembly:
         area_id: Zone d'application
         assembly_type: Type d'assemblée
