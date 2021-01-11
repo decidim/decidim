@@ -46,7 +46,7 @@ tr:
         import_results:
           new:
             import: İçe aktar
-            info: "<p>Bu adımları izlemenizi tavsiye ederiz:</p><ol><li>Eklemek istediğiniz Sonuçlar için Statüleri oluşturun (<a href='%{link_new_status}' target='_blank'>bağlantı</a>)</li><li>Biçimi ve neleri doldurmanız gerektiğini daha iyi anlamak için İçe Aktar'ı kullanmadan önce bu Yönetici paneli (<a href='%{link_new_result}' target='_blank'>bağlantı</a>) aracılığıyla manuel olarak en az bir Sonuç oluşturun. </li><li>Dışa aktarımı CSV formatında indirin (%{link_export_csv})</li><li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:</li></ol><ul><li><b>category/id:</b> Kategori ID</li><li><b>scope/id:</b> Kapsam ID </li><li><b>parent/id:</b> Üst ID (ilgili Sonuçlar için). İsteğe bağlı</li><li><b>title/I18N:</b> X dilinde başlık</li><li><b>description/I18N:</b> X dilinde açıklama</li><li><b>start_date:</b> sonucun uygulamaya başladığı tarih (format YYYY-MM-DD)</li><li><b>end_date:</b> sonucun yürütmeyi bitirdiği tarih (format YYYY-MM-DD)</li><li><b>status/id:</b> Bu sonucun Durum ID'si</li><li><b>progress:</b> Yürütme yüzdesi (0'dan 100'e)</li><li><b>proposals_ids:</b> İlgili tekliflerin dahili kimliği (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span>'ye dönüştürülür</li></ul>"
+            info: "<p>Bu adımları izlemenizi tavsiye ederiz:</p><ol><li>Eklemek istediğiniz Sonuçlar için Statüleri oluşturun (<a href='%{link_new_status}' target='_blank'>bağlantı</a>)</li><li>Biçimi ve neleri doldurmanız gerektiğini daha iyi anlamak için İçe Aktar'ı kullanmadan önce bu Yönetici paneli (<a href='%{link_new_result}' target='_blank'>bağlantı</a>) aracılığıyla manuel olarak en az bir Sonuç oluşturun. </li><li>Dışa aktarımı CSV formatında indirin (%{link_export_csv})</li><li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:</li></ol><ul><li><b>category/id:</b> Kategori ID</li><li><b>scope/id:</b> Kapsam ID </li><li><b>parent/id:</b> Üst ID (ilgili Sonuçlar için). İsteğe bağlı</li><li><b>title/I18N:</b> X dilinde başlık</li><li><b>description/I18N:</b> X dilinde açıklama</li><li><b>start_date:</b> sonucun uygulamaya başladığı tarih (biçim YYYY-AA-GG)</li><li><b>end_date:</b> sonucun yürütmeyi bitirdiği tarih (biçimYYYY-AA-GG)</li><li><b>status/id:</b> Bu sonucun Durum ID'si</li><li><b>progress:</b> Yürütme yüzdesi (0'dan 100'e)</li><li><b>proposals_ids:</b> İlgili tekliflerin dahili kimliği (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span>'ye dönüştürülür</li></ul>"
             link: bağlantı
             title: Sonuçları CSV'den içe aktar
         imports:
@@ -214,11 +214,11 @@ tr:
           email_intro: '"%{proposal_title}" önerisini içeren "%{resource_title}" sonucu şimdi% %{progress}tamamlandı. Bu sayfadan görebilirsiniz:'
           email_outro: '"%{proposal_title}" izlemekte olduğunuz için bu bildirimi aldınız ve bu teklif "%{resource_title}" sonucuna dahil edildi. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.'
           email_subject: '%{resource_title} için bir güncelleme'
-          notification_title: <a href="%{proposal_path}">%{proposal_title}</a>önerisini içeren sonuç%{resource_title}<a href="%{resource_path}"></a>, şimdi% %{progress}tamamlandı.
+          notification_title: '<a href="%{proposal_path}">%{proposal_title}</a> teklifini içeren <a href="%{resource_path}">%{resource_title}</a> sonucu: %{progress} tamamlandı.'
     metrics:
       results:
         description: Üretilen sonuç sayısı
-        object: Sonuçlar
+        object: sonuçlar
         title: Sonuçlar
     participatory_spaces:
       highlighted_results:
