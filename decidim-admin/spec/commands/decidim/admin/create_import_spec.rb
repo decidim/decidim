@@ -42,9 +42,7 @@ module Decidim::Admin
         expect(importer).to receive(:prepare)
         allow(importer).to receive(:invalid_lines).and_return([])
         allow(importer).to receive(:import!).and_raise(StandardError)
-        expect do
-          subject.call
-        end.to broadcast(:invalid)
+        expect { subject.call }.to broadcast(:invalid)
       end
     end
   end

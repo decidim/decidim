@@ -46,11 +46,15 @@ module Decidim
           self.class.resource_klass.new(resource_attributes)
         end
 
-        def finish!(resource)
+        def finish!
           resource.save!
         end
 
         private
+
+        def resource
+          raise NotImplementedError, "#{self.class.name} does not define resource"
+        end
 
         #
         # Collect field's language specified cells to one hash

@@ -14,24 +14,24 @@ module Decidim
       #
       # Returns a proposal
       def produce
-        proposal.add_coauthor(context[:current_user], user_group: context[:user_group])
+        resource.add_coauthor(context[:current_user], user_group: context[:user_group])
 
-        proposal
+        resource
       end
 
       # Saves the proposal
       def finish!
-        super # proposal.save!
-        notify(proposal)
-        publish(proposal)
+        super # resource.save!
+        notify(resource)
+        publish(resource)
       end
 
       private
 
       attr_reader :context
 
-      def proposal
-        @proposal ||= Decidim::Proposals::Proposal.new(
+      def resource
+        @resource ||= Decidim::Proposals::Proposal.new(
           category: category,
           scope: scope,
           title: title,
