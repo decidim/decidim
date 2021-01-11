@@ -7,8 +7,12 @@ module Decidim
 
       delegate :author, to: :comment_vote
 
-      private
+      def upvote?
+        extra[:weight].positive?
+      end
 
+      private
+      
       def comment_vote
         @comment_vote ||= Decidim::Comments::CommentVote.find_by(decidim_comment_id: extra[:comment_id], decidim_author_id: extra[:author_id])
       end

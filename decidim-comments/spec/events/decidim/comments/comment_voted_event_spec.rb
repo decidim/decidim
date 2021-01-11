@@ -14,7 +14,8 @@ describe Decidim::Comments::CommentVotedEvent do
   let(:comment_vote_author) { comment_vote.author }
   let(:comment_author) { comment.author }
 
-  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: 1 } }
+  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: weight } }
+  let(:weight) { 1 }
   let(:resource_title) { decidim_html_escape(translated(resource.title)) }
   let(:resource_text) { subject.resource_text }
 
@@ -58,6 +59,22 @@ describe Decidim::Comments::CommentVotedEvent do
 
       expect(subject.notification_title)
         .to include("voted your <a href=\"#{resource_path}#comment_#{comment.id}\">comment</a> in #{resource_title}")
+    end
+  end
+
+  describe "upvote?" do
+    context "when weight is positive" do
+      let(:weight) { 1 }
+      it "returns true" do
+        expect(subject.upvote?).to eq(true)
+      end
+    end
+
+    context "when weight is negative" do
+      let(:weight) { -1 }
+      it "returns false" do
+        expect(subject.upvote?).to eq(false)
+      end
     end
   end
 end
