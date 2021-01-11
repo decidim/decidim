@@ -59,11 +59,11 @@ describe "Key ceremony", type: :system do
       click_button "Download keys"
 
       content = download_content("#{trustee.unique_id}-*.bak")
-      expect(content).to have_content('"trusteeId":"'+trustee.unique_id+'"')
+      expect(content).to have_content(%(trusteeId":"#{trustee.unique_id}))
       expect(content).to have_content('"status":"key_ceremony.step_1"')
     end
 
-    def access_trustee_zone(trustee_index, upload_keys = true)
+    def access_trustee_zone(trustee_index, upload_keys = true) # rubocop:disable Style/OptionalBooleanParameter
       trustee = election.trustees[trustee_index]
 
       relogin_as trustee.user, scope: :user
