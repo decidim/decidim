@@ -35,6 +35,7 @@ tr:
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        import_csv: CSV'yi içe aktar
         new: Yeni %{name}
         preview: Ön izleme
         timeline_entries: Proje evrimi
@@ -42,6 +43,9 @@ tr:
       admin:
         exports:
           results: Sonuçlar
+        import_results:
+          new:
+            import: İçe aktar
         models:
           result:
             name: Sonuç
