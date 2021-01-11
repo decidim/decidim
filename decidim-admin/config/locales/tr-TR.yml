@@ -35,7 +35,7 @@ tr:
         comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
         cta_button_text: Harekete Geçirici Mesaj metni
-        customize_welcome_notification: Hoşgeldin bildirimlerini özelleştir
+        customize_welcome_notification: Karşılama bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
@@ -55,6 +55,9 @@ tr:
         highlighted_content_banner_title: Başlık
         instagram_handler: Instagram işleyicisi
         logo: Logo
+        machine_translation_display_priority: Makine çevirisi görüntüleme önceliği
+        machine_translation_display_priority_original: Önce orijinal metin
+        machine_translation_display_priority_translation: Önce çevrilen metin
         name: isim
         official_img_footer: Resmi logo altbilgisi
         official_img_header: Resmi logo başlığı
@@ -64,12 +67,17 @@ tr:
         omnipresent_banner_url: URL
         primary_color: Birincil
         reference_prefix: Referans öneki
+        rich_text_editor_in_public_views: Katılımcılar için zengin metin düzenleyiciyi etkinleştirin
         secondary_color: İkincil
+        send_welcome_notification: Karşılama bildirimi gönder
         success_color: başarı
+        time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
         twitter_handler: Twitter işleyicisi
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
+        welcome_notification_body: Karşılama bildirimi gövdesi
+        welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
       scope:
         code: kod
@@ -82,7 +90,10 @@ tr:
         name: isim
         organization: organizasyon
         plural: Çoğul
+      settings:
+        scope_id: Kapsam
       static_page:
+        allow_public_access: Kimlik doğrulama olmadan erişime izin ver
         changed_notably: Gözle görülür değişiklikler oldu.
         content: içerik
         organization: organizasyon
@@ -127,9 +138,25 @@ tr:
         export: ihracat
         manage: yönetme
         new: Yeni %{name}
+        per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
+        share: Paylaş
         verify: DOĞRULAYIN
+      admin_terms_of_use:
+        accept:
+          error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
+          success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
+        actions:
+          accept: Aşağıdaki şartları kabul ediyorum
+          are_you_sure: Yönetici şartlarını reddettiğinizden emin misiniz?
+          refuse: Yönetici şartlarını reddedin
+          title: Kullanım şartlarını ve koşullarını kabul edin
+        required_review:
+          alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
+          callout: Lütfen Yönetici Kullanım Koşullarını gözden geçirmek için bir dakikanızı ayırın. Aksi takdirde platformu yönetemezsiniz.
+          cta: Şimdi gözden geçirin.
+        title: Yönetici Kullanım Koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
@@ -221,6 +248,7 @@ tr:
           success: Kategori başarıyla güncellendi.
       component_permissions:
         update:
+          error: Bu bileşenin izinleri güncellenirken bir sorun oluştu.
           success: İzinler başarıyla güncellendi.
       components:
         create:
@@ -241,6 +269,7 @@ tr:
           headers:
             actions: Eylemler
             name: Bileşen Adı
+            scope: Bileşen kapsamı
             type: Bileşen tipi
         new:
           add: Bileşen ekle
@@ -253,6 +282,18 @@ tr:
         update:
           error: Bu bileşeni güncellerken bir hata oluştu.
           success: Bileşen başarıyla güncellendi.
+      conflicts:
+        attempts: Girişimler
+        'false': 'Hayır'
+        managed_user_name: Yönetilen Kullanıcı
+        solved: Çözüldü
+        title: Doğrulamaların çatışmaları
+        transfer:
+          email: E-Posta
+          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
+          name: İsim
+          reason: Nedeni
+          success: Aktarım başarıyla tamamlandı.
       dashboard:
         show:
           view_more_logs: Daha fazla günlükleri görüntüle
