@@ -197,7 +197,7 @@ tr:
             display_progress_enabled: İlerlemeyi göster
             heading_leaf_level_results: '"Projeler" için isim'
             heading_parent_level_results: '"Sonuçların" Adı'
-            intro: giriş
+            intro: Tanıtım
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             subcategories_label: '"Alt kategoriler" için isim'
@@ -207,8 +207,8 @@ tr:
       accountability:
         proposal_linked:
           email_intro: '"%{proposal_title}" teklifi bir sonuca dahil edildi. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi aldınız çünkü "%{proposal_title}" u takip ediyorsun. Önceki bağlantıyı takip ederek bildirim almayı durdurabilirsiniz.
-          email_subject: '%{proposal_title}güncellemesi'
+          email_outro: Bu bildirimi "%{proposal_title}" takip ettiğiniz için aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.
+          email_subject: '%{proposal_title} teklifi için bir güncelleme bulundu'
           notification_title: <a href="%{proposal_path}">%{proposal_title}</a> teklifi <a href="%{resource_path}">%{resource_title}</a> sonucuna dahil edilmiştir.
         result_progress_updated:
           email_intro: '"%{proposal_title}" önerisini içeren "%{resource_title}" sonucu şimdi% %{progress}tamamlandı. Bu sayfadan görebilirsiniz:'
