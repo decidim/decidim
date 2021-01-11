@@ -31,6 +31,26 @@ module Decidim
         }
       end
 
+      context "when the user has the account blocked" do
+        let!(:user) { create(:user, organization: organization, email: email, suspended: true) }
+
+        before do
+          post :create
+        end
+
+        it "logs in" do
+          expect(controller).not_to be_user_signed_in
+        end
+
+        it "redirects to root" do
+          expect(controller).to redirect_to(root_path)
+        end
+
+        it "shows an error message instead of notice" do
+          expect(flash[:error]).to be_present
+        end
+      end
+
       context "when the unverified email address is already in use" do
         before do
           post :create

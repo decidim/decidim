@@ -33,6 +33,13 @@
               <td><%= user.report_count %></td>
 
               <td class="table-list__actions">
+                <% if allowed_to?(:suspend, :admin_user) %>
+                  <% if user.suspended? %>
+                    <%= icon_link_to "ban", user_suspend_path(user_id: user.id), t(".unsuspend"), class: "action-icon action-icon--disabled", method: :delete %>
+                  <% else %>
+                    <%= icon_link_to "ban", new_user_suspend_path(user_id: user.id), t(".suspend"), class: "action-icon action-icon" %>
+                  <% end %>
+                <% end %>
                 <% if allowed_to? :show_email, :user, user: user %>
                   <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
                 <% end %>

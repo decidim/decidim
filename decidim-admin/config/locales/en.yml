@@ -496,17 +496,23 @@ en:
       moderated_users:
         index:
           actions:
+            suspend: Block User
             title: Actions
             unreport: Unreport
+            unsuspend: Unblock User
           name: Name
           nickname: Nickname
           reason: Reason
+          reports: Reports count
           title: Listing reported users
         report:
           reasons:
             does_not_belong: Does not belong
             offensive: Offensive
             spam: Spam
+        tabs:
+          blocked: Blocked
+          unblocked: Not Blocked
       moderations:
         index:
           title: Moderations
@@ -612,7 +618,9 @@ en:
           reports: Reports
           show_email: Show email address
           status: Status
+          suspend: Block User
           unofficialize: Unofficialize
+          unsuspend: Unblock User
         new:
           badge: Officialization badge
           officialize: Officialize
@@ -625,6 +633,12 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
+        suspend:
+          error: There was an error blocking the participant
+          success: Participant successfully blocked
+        unsuspend:
+          error: There was an error unblocking the participant
+          success: Participant successfully unblocked
       organization:
         edit:
           title: Edit organization
@@ -831,6 +845,12 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
+      user_suspension:
+        new:
+          action: Block account and send justification
+          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          justification: Justification
+          title: Block User %{name}
       users:
         create:
           error: There was a problem inviting this admin.
@@ -858,6 +878,13 @@ en:
       errors:
         impersonate_user:
           reason: You need to provide a reason when managing a non managed participant
+    metrics:
+      reported_users:
+        title: Reported users
+      suspended_users:
+        title: Blocked users
+      user_reports:
+        title: User reports
     moderations:
       actions:
         expand: Expand

@@ -246,4 +246,54 @@ describe Decidim::Meetings::Permissions do
       it { is_expected.to eq false }
     end
   end
+
+  context "when closing a meeting" do
+    let(:action) do
+      { scope: :public, action: :close, subject: :meeting }
+    end
+
+    context "when setting is enabled" do
+      context "when user is not the author" do
+        it { is_expected.to eq false }
+      end
+
+      context "when user is the author" do
+        let(:meeting) { create :meeting, author: user, component: meeting_component, closed_at: closed_at }
+
+        context "when meeting is closed" do
+          let(:closed_at) { Time.current }
+
+          it { is_expected.to eq false }
+        end
+
+        context "when meeting is not closed" do
+          let(:closed_at) { nil }
+
+          context "when meeting didn't finish" do
+            before do
+              allow(meeting).to receive(:past?).and_return(false)
+            end
+
+            it { is_expected.to eq false }
+          end
+
+          context "when meeting did finish" do
+            before do
+              allow(meeting).to receive(:past?).and_return(true)
+            end
+
+            it { is_expected.to eq true }
+          end
+        end
+      end
+    end
+
+    context "when setting is disabled" do
+      let(:component_settings) do
+        double(creation_enabled_for_participants?: false)
+      end
+
+      it { is_expected.to eq false }
+    end
+  end
 end

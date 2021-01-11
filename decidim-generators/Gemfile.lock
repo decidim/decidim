@@ -131,6 +131,8 @@ PATH
       decidim-core (= 0.24.0.dev)
       kaminari (~> 1.2, >= 1.2.1)
       searchlight (~> 4.1)
+    decidim-demographics (0.24.0.dev)
+      decidim-core (= 0.24.0.dev)
     decidim-dev (0.24.0.dev)
       byebug (~> 11.0)
       capybara (~> 3.24)
@@ -307,7 +309,7 @@ GEM
     browser (2.7.1)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.33.0)
+    capybara (3.34.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -331,7 +333,7 @@ GEM
       actionpack (>= 3.0)
       cells (>= 4.1.6, < 5.0.0)
     charlock_holmes (0.7.7)
-    chef-utils (16.6.14)
+    chef-utils (16.7.61)
     childprocess (3.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
@@ -699,12 +701,12 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.1.1)
+    rubocop-ast (1.3.0)
       parser (>= 2.7.1.5)
-    rubocop-rails (2.8.1)
+    rubocop-rails (2.9.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
-      rubocop (>= 0.87.0)
+      rubocop (>= 0.90.0, < 2.0)
     rubocop-rspec (1.44.1)
       rubocop (~> 0.87)
       rubocop-ast (>= 0.7.1)
@@ -764,7 +766,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tomlrb (1.3.0)
+    tomlrb (2.0.0)
     truncato (0.7.11)
       htmlentities (~> 4.3.1)
       nokogiri (>= 1.7.0, <= 2.0)
@@ -821,6 +823,7 @@ DEPENDENCIES
   decidim!
   decidim-conferences!
   decidim-consultations!
+  decidim-demographics!
   decidim-dev!
   decidim-elections!
   decidim-initiatives!

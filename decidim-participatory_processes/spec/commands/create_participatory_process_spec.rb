@@ -43,8 +43,13 @@ module Decidim::ParticipatoryProcesses
         area: area,
         errors: errors,
         related_process_ids: related_process_ids,
-        participatory_process_group: participatory_process_group
+        participatory_process_group: participatory_process_group,
+        sidebar_content_block_enabled: false,
+        sidebar_content_block: sidebar_content_block
       )
+    end
+    let(:sidebar_content_block) do
+      instance_double(Decidim::Admin::ContentBlockForm, settings: true)
     end
     let(:invalid) { false }
 
@@ -98,7 +103,6 @@ module Decidim::ParticipatoryProcesses
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
-
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "create"
@@ -125,7 +129,6 @@ module Decidim::ParticipatoryProcesses
 
         it "links related processes" do
           subject.call
-
           linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
           expect(linked_processes).to match_array([another_process])
         end

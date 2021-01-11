@@ -44,7 +44,7 @@ module Decidim
       end
 
       def destroy_questionnaire_answers
-        questionnaire_answers.destroy_all
+        questionnaire_answers.destroy_all if questionnaire_answers
       end
 
       def decrement_score
