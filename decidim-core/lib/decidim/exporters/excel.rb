@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require "spreadsheet"
+# require "spreadsheet"
+require "rubyXL"
 
 module Decidim
   module Exporters
@@ -18,9 +19,11 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export
-        book = Spreadsheet::Workbook.new
-        sheet = book.create_worksheet
-        sheet.name = "Export"
+        workbook = RubyXL::Workbook.new
+        # book = Spreadsheet::Workbook.new
+        workbook.add_worksheet("Export")
+        # sheet = book.create_worksheet
+        # sheet.name = "Export"
 
         sheet.row(0).default_format = Spreadsheet::Format.new(
           weight: :bold,
