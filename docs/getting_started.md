@@ -107,10 +107,10 @@ Decidim comes pre-configured with some safe defaults, but can be changed through
 
 For Decidim to function as expected, there are some background tasks that should be scheduled to be executed regularly.
 
-- Expired *data portability* files should be removed. To do it, write a `crontab -e` line like: `0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files`
-- *Metrics* also require a cron to be computed nightly. Find more information in the [related documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/metrics.md#Configuration).
-- *Open Data* is also produced nightly via a scheduled job. Find more information in the [open-data documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/open-data.md).
-- Registration forms for meetings that have ended should be removed for privacy concerns. To do it, write a `crontab -e` line like: `0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim_meetings:clean_registration_forms`
+* Expired *data portability* files should be removed. To do it, write a `crontab -e` line like: `0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim:delete_data_portability_files`
+* *Metrics* also require a cron to be computed nightly. Find more information in the [related documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/metrics.md#Configuration).
+* *Open Data* is also produced nightly via a scheduled job. Find more information in the [open-data documentation](https://github.com/decidim/decidim/blob/master/docs/advanced/open-data.md).
+* Registration forms for meetings that have ended should be removed for privacy concerns. To do it, write a `crontab -e` line like: `0 0 * * * cd /Users/you/projects/myrailsapp && /usr/local/bin/rake RAILS_ENV=production decidim_meetings:clean_registration_forms`
 
 ### Further configuration
 

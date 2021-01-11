@@ -21,6 +21,8 @@ module Decidim
             current_organization: ctx[:current_organization],
             current_component: obj.component
           )
+          raise GraphQL::ExecutionError, "not allowed" unless form.commentable.user_allowed_to_comment?(ctx[:current_user])
+
           Decidim::Comments::CreateComment.call(form, ctx[:current_user]) do
             on(:ok) do |comment|
               return comment

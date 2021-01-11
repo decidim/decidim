@@ -34,6 +34,7 @@ Decidim.register_component(:budgets) do |component|
     resource.card = "decidim/budgets/project"
     resource.actions = %(vote)
     resource.searchable = true
+    resource.parent_resource = "budget" # method to access parent resource
   end
 
   component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components|

@@ -430,7 +430,7 @@ describe("<Comment />", () => {
 
   describe("when user is not allowed to comment", () => {
     beforeEach(() => {
-      comment.userAllowedToComment = false;
+      comment.userAllowedToComment = 0;
     });
 
     it("should not render reply button", () => {

@@ -14,26 +14,26 @@ module Decidim
           .and_return(machine_translations_toggled?)
       end
 
-      describe "comments_for" do
-        it "renders the react component `Comments` with the correct data" do
-          allow(helper)
-            .to receive(:machine_translations_toggled?)
-            .and_return(false)
+      # describe "comments_for" do
+      #   it "renders the react component `Comments` with the correct data" do
+      #     allow(helper)
+      #       .to receive(:machine_translations_toggled?)
+      #       .and_return(false)
 
-          expect(helper)
-            .to receive(:react_comments_component)
-            .with(
-              "comments-for-DummyResource-#{dummy_resource.id}",
-              commentableType: "Decidim::DummyResources::DummyResource",
-              commentableId: dummy_resource.id.to_s,
-              locale: I18n.locale,
-              toggleTranslations: machine_translations_toggled?,
-              commentsMaxLength: 1000
-            ).and_call_original
+      #     expect(helper)
+      #       .to receive(:react_comments_component)
+      #       .with(
+      #         "comments-for-DummyResource-#{dummy_resource.id}",
+      #         commentableType: "Decidim::DummyResources::DummyResource",
+      #         commentableId: dummy_resource.id.to_s,
+      #         locale: I18n.locale,
+      #         toggleTranslations: machine_translations_toggled?,
+      #         commentsMaxLength: 1000
+      #       ).and_call_original
 
-          helper.comments_for(dummy_resource)
-        end
-      end
+      #     helper.comments_for(dummy_resource)
+      #   end
+      # end
 
       describe "#comments_max_length" do
         context "when no default comments length specified" do

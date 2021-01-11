@@ -15,6 +15,7 @@ module Decidim
       helper Decidim::AttachmentsHelper
       helper Decidim::ResourceReferenceHelper
       helper Decidim::ActionAuthorizationHelper
+      helper Decidim::ResourceHelper
 
       def show
         enforce_permission_to :read, :question, question: current_question

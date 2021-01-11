@@ -22,6 +22,7 @@ interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
   singleCommentId?: string;
+  authorizationLink?: string;
   reorderComments: (orderBy: string) => void;
   commentsMaxLength: number;
 }
@@ -142,7 +143,7 @@ export class Comments extends React.Component<CommentsProps> {
   private _renderBlockedCommentsWarning() {
     const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
 
-    if (!acceptsNewComments && !userAllowedToComment) {
+    if (!acceptsNewComments && userAllowedToComment !== 1) {
       return (
         <div className="callout warning">
           <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
@@ -160,15 +161,25 @@ export class Comments extends React.Component<CommentsProps> {
    * @returns {Void|DOMElement} - A warning message or nothing.
    */
   private _renderBlockedCommentsForUserWarning() {
-    const { commentable: { acceptsNewComments, userAllowedToComment } } = this.props;
+    const { authorizationLink, commentable } = this.props;
+    const { acceptsNewComments, userAllowedToComment } = commentable;
+    const link = { __html: authorizationLink ? authorizationLink : I18n.t("components.comments.blocked_comments_for_unauthorized_user_warning") };
 
     if (acceptsNewComments) {
-      if (!userAllowedToComment) {
-        return (
-          <div className="callout warning">
-            <p>{I18n.t("components.comments.blocked_comments_for_user_warning")}</p>
-          </div>
-        );
+      if (userAllowedToComment !== 1) {
+        if (userAllowedToComment === -1) {
+          return (
+            <div className="callout warning">
+              <div dangerouslySetInnerHTML={link} />
+            </div>
+          );
+        } else {
+          return (
+            <div className="callout warning">
+              <p>{I18n.t("components.comments.blocked_comments_for_user_warning")}</p>
+            </div>
+          );
+        }
       }
     }
 
@@ -210,7 +221,7 @@ export class Comments extends React.Component<CommentsProps> {
       return null;
     }
 
-    if (acceptsNewComments && userAllowedToComment) {
+    if (acceptsNewComments && userAllowedToComment === 1) {
       return (
         <AddCommentForm
           session={session}
@@ -265,6 +276,7 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
   locale: string;
   toggleTranslations: boolean;
   commentsMaxLength: number;
+  authorizationLink: string;
 }
 
 /**
@@ -272,7 +284,7 @@ export interface CommentsApplicationProps extends GetCommentsQueryVariables {
  * connect it with Apollo client and store.
  * @returns {ReactComponent} - A component wrapped within an Application component
  */
-const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, toggleTranslations, commentableId, commentableType, singleCommentId, commentsMaxLength }) => (
+const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, toggleTranslations, commentableId, commentableType, singleCommentId, commentsMaxLength, authorizationLink }) => (
   <Application locale={locale}>
     <CommentsWithData
       commentsMaxLength={commentsMaxLength}
@@ -282,6 +294,7 @@ const CommentsApplication: React.SFC<CommentsApplicationProps> = ({ locale, togg
       toggleTranslations={toggleTranslations}
       orderBy="older"
       singleCommentId={singleCommentId}
+      authorizationLink={authorizationLink}
     />
   </Application>
 );
