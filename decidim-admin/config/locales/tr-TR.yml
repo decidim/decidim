@@ -13,6 +13,7 @@ tr:
         attachment_collection_id: Klasör
         description: Açıklama
         file: Dosya
+        title: Ek veya resim adı
       attachment_collection:
         description: Açıklama
         name: isim
@@ -31,8 +32,10 @@ tr:
       organization:
         alert_color: Alarm
         badges_enabled: Rozetleri etkinleştir
+        comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
         cta_button_path: Harekete Geçirici Mesaj düğmesi yolu
         cta_button_text: Harekete Geçirici Mesaj metni
+        customize_welcome_notification: Hoşgeldin bildirimlerini özelleştir
         default_locale: Varsayılan yerel ayar
         description: Açıklama
         enable_omnipresent_banner: Her yerde banner göster
@@ -41,6 +44,8 @@ tr:
         from: Gelen e-posta adresi
         github_handler: GitHub işleyicisi
         header_snippets: Üstbilgi snippet'leri
+        highlight_alternative_color: Vurgu, alternatif
+        highlight_color: Vurgula
         highlighted_content_banner_action_subtitle: Eylem düğmesi altyazısı
         highlighted_content_banner_action_title: Eylem düğmesi başlığı
         highlighted_content_banner_action_url: Eylem düğmesi URL'si
