@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "proposals wizards" do |options|
+shared_examples "proposals wizards" do |_options|
   include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:organization) { create :organization }
@@ -303,4 +303,3 @@ shared_examples "proposals wizards" do |options|
     end
   end
 end
-
