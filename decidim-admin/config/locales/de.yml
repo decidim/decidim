@@ -230,7 +230,7 @@ de:
       block_user:
         new:
           action: Konto sperren und Begründung senden
-          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen die Blockierung aufzuheben.
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
           justification: Begründung
           title: Benutzer %{name} blockieren
       categories:
@@ -621,7 +621,7 @@ de:
           reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
-          unblock: Blockierung aufheben
+          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -636,7 +636,7 @@ de:
           show: Anzeigen
           title: Teilnehmer E-Mail-Adresse anzeigen
         unblock:
-          error: Beim Aufheben der Blockierung ist ein Fehler aufgetreten
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
       organization:
         edit:
