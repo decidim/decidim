@@ -113,7 +113,8 @@ module Decidim
           date: %w(upcoming),
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,
-          origin: default_filter_origin_params
+          origin: default_filter_origin_params,
+          type: default_filter_type_params
         }
       end
 
@@ -122,6 +123,10 @@ module Decidim
         filter_origin_params << "official"
         filter_origin_params << "user_group" if current_organization.user_groups_enabled?
         filter_origin_params
+      end
+
+      def default_filter_type_params
+        %w(all) + Decidim::Meetings::Meeting::TYPE_OF_MEETING
       end
 
       def default_search_params

@@ -31,6 +31,7 @@ module Decidim
           resources :attachments
           resources :copies, controller: "meeting_copies", only: [:new, :create]
           resources :minutes, except: [:show, :index]
+          resources :videoconference_attendance_logs, only: [:index]
         end
         root to: "meetings#index"
       end

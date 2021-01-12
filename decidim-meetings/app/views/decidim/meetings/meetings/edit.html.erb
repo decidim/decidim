@@ -10,7 +10,7 @@
     <h2 class="section-heading"><%= t(".title") %></h2>
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form) do |f| %>
+        <%= decidim_form_for(@form, html: { class: "meetings_form edit_meeting" }) do |f| %>
           <%= render partial: "form", object: f %>
 
           <div class="actions">

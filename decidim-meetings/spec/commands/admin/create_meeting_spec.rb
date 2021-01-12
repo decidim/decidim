@@ -20,6 +20,12 @@ module Decidim::Meetings
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:transparent_type) { "transparent" }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:embedded_videoconference) { false }
     let(:services) do
       [
         {
@@ -54,7 +60,13 @@ module Decidim::Meetings
         services_to_persist: services_to_persist,
         current_user: current_user,
         current_component: current_component,
-        current_organization: organization
+        current_organization: organization,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url,
+        embedded_videoconference: embedded_videoconference
       )
     end
 

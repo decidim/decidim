@@ -160,6 +160,28 @@ describe Decidim::Meetings::Admin::Permissions do
       it_behaves_like "action requiring a meeting"
     end
 
+    context "when reading logs" do
+      let(:action_name) { :read_logs }
+      let(:embedded_videoconference) { false }
+      let(:meeting) { create :meeting, registrations_enabled: true, embedded_videoconference: embedded_videoconference, component: meeting_component }
+
+      context "when meeting is present" do
+        it { is_expected.to eq false }
+
+        context "when meeting is embedded videoconference" do
+          let(:embedded_videoconference) { true }
+
+          it { is_expected.to eq true }
+        end
+      end
+
+      context "when meeting is missing" do
+        let(:meeting) { nil }
+
+        it { is_expected.to eq false }
+      end
+    end
+
     context "when updating a meeting" do
       let(:action_name) { :update }
 

@@ -1,0 +1,43 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".title") %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.videoconference_attendance_log.fields.created_at", scope: "decidim.meetings") %></th>
+            <th><%= t("models.videoconference_attendance_log.fields.user_id", scope: "decidim.meetings") %></th>
+            <th><%= t("models.videoconference_attendance_log.fields.user_name", scope: "decidim.meetings") %></th>
+            <th><%= t("models.videoconference_attendance_log.fields.user_email", scope: "decidim.meetings") %></th>
+            <th><%= t("models.videoconference_attendance_log.fields.event", scope: "decidim.meetings") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% logs.each do |log| %>
+            <tr data-id="<%= log.id %>">
+              <td>
+                <%= l log.created_at, format: :long %>
+              </td>
+              <td>
+                <%= log.user_videoconference_id %>
+              </td>
+              <td>
+                <%= log.user&.name %>
+              </td>
+              <td>
+                <%= log.user&.email %>
+              </td>
+              <td>
+                <%= t("models.videoconference_attendance_log.fields.events.#{log.event}", scope: "decidim.meetings") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate logs, theme: "decidim" %>
+    </div>
+  </div>
+</div>

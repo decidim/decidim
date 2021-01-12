@@ -22,19 +22,22 @@ en:
         end_time: End Time
         location: Location
         location_hints: Location hints
+        online_meeting_url: Online meeting URL
         organizer_gid: Create as
         organizer_id: Organizer
         private_meeting: Private meeting
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
+        registration_url: Registration URL
         registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
         transparent: Transparent
+        type_of_meeting: Type
       minutes:
-        audio_url: Audio url
+        audio_url: Audio URL
         description: Description
-        video_url: Video url
+        video_url: Video URL
         visible: Is visible
     errors:
       models:
@@ -88,9 +91,11 @@ en:
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
             enable_pads_creation: Enable pads creation
+            registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -158,6 +163,7 @@ en:
         agenda: Agenda
         attachment_collections: Folders
         attachments: Attachments
+        attendance: Attendance
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
         destroy: Delete
@@ -253,8 +259,16 @@ en:
             update: Update
           form:
             address_help: 'Address: used by Geocoder to find the location'
+            available_slots_help: Leave it to 0 if you have unlimited slots available
+            disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
+            embedded_videoconference: Embed videoconference
+            embedded_videoconference_help: 'Embed videoconference: A videoconference room will be generated and inserted into the meeting public page.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
-            location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+            location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+            online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+            registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
+            select_a_meeting_type: Please select a meeting type
+            select_a_registration_type: Please select a registration type
           index:
             title: Meetings
           new:
@@ -310,6 +324,9 @@ en:
           validate_registration_code:
             invalid: This registration code is invalid.
             success: Registration code successfully validated.
+        videoconference_attendance_logs:
+          index:
+            title: Attendance logs
       admin_log:
         invite:
           create: "%{user_name} invited %{attendee_name} to join %{resource_name} meeting on the %{space_name} space"
@@ -358,6 +375,8 @@ en:
             subject: Your meeting's registration has been confirmed
       meeting:
         not_allowed: You are not allowed to view this meeting
+      meeting_url:
+        embedded: Embedded videoconference
       meetings:
         count:
           meetings_count:
@@ -385,6 +404,12 @@ en:
             user_groups: Groups
           scope: Scope
           search: Search
+          type: Type
+          type_values:
+            all: All
+            hybrid: Both
+            in_person: In-person
+            online: Online
         filters_small_view:
           close_modal: Close modal
           filter: Filter
@@ -392,10 +417,16 @@ en:
           unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
+          available_slots_help: Leave it to 0 if you have unlimited slots available
           create_as: Create meeting as
+          disclaimer: 'Disclaimer: By using an external registration system, you''re aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor of the building'
+          location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+          online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
+          registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
           select_a_category: Please select a category
+          select_a_meeting_type: Please select a meeting type
+          select_a_registration_type: Please select a registration type
         index:
           new_meeting: New meeting
         meeting_minutes:
@@ -408,6 +439,8 @@ en:
           back: Back
           create: Create
           title: Create Your Meeting
+        online_meeting_link:
+          embedded_videoconference: A videoconference room will be displayed in this page when the meeting starts.
         registration_confirm:
           cancel: Cancel
           confirm: Confirm
@@ -454,12 +487,26 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
+        videoconference_attendance_log:
+          fields:
+            created_at: Time
+            event: Event
+            events:
+              join: Join
+              leave: Leave
+            user_email: Email
+            user_id: User ID
+            user_name: Name
       read_more: "(read more)"
       registration_mailer:
         confirmation:
           confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a> has been confirmed.
           details: You will find the meeting's details in the attachment.
           registration_code: Your registration code is %{code}.
+      registration_type:
+        on_different_platform: On a different platform
+        on_this_platform: On this platform
+        registration_disabled: Registration disabled
       registrations:
         create:
           invalid: There was a problem joining this meeting.
@@ -470,11 +517,25 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+      type_of_meeting:
+        hybrid: Both
+        in_person: In person
+        online: Online
       types:
         private_meeting: Private meeting
         transparent: Transparent
       versions:
         back_to_resource: Go back to meeting
+      videoconference:
+        closed: The videoconference has ended.
+        explanation: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference. By doing so, you give permission to %{organization} to log your attendance to this videoconference.
+        join: Join videoconference
+        title: Videoconference
+        unavailable: The videoconference for this meeting is not available at the current time.
+      videoconference_attendance_logs:
+        create:
+          error: Attendance could not be logged
+          success: Attendance logged
     metrics:
       meetings:
         description: Number of meetings created

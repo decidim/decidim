@@ -64,6 +64,33 @@ module Decidim::Meetings
           expect(subject.length).to eq(1)
         end
       end
+
+      context "when filtering by type" do
+        let!(:in_person_meeting) do
+          create(:meeting, component: component)
+        end
+        let!(:online_meeting) do
+          create(:meeting, :online, component: component)
+        end
+
+        context "when online" do
+          let(:params) { default_params.merge(type: ["online"]) }
+
+          it "only lists online meetings" do
+            expect(subject).to include(online_meeting)
+            expect(subject).not_to include(in_person_meeting)
+          end
+        end
+
+        context "when in_person" do
+          let(:params) { default_params.merge(type: ["in_person"]) }
+
+          it "only lists online meetings" do
+            expect(subject).to include(in_person_meeting)
+            expect(subject).not_to include(online_meeting)
+          end
+        end
+      end
     end
   end
 end

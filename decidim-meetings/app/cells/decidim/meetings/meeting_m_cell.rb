@@ -27,6 +27,8 @@ module Decidim
         present(model).title
       end
 
+      delegate :online_meeting?, to: :model
+
       private
 
       def spans_multiple_dates?

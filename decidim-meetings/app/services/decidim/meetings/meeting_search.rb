@@ -27,6 +27,15 @@ module Decidim
 
         query.joins(:component).where(decidim_components: { participatory_space_type: options[:space].classify })
       end
+
+      def search_type
+        fields = Decidim::Meetings::Meeting::TYPE_OF_MEETING
+        temp_query = Decidim::Meetings::Meeting.where("1=2")
+        options[:type].each do |inquiry|
+          temp_query = temp_query.or(Decidim::Meetings::Meeting.send(inquiry.to_sym)) if fields.include?(inquiry)
+        end
+        query.merge(temp_query)
+      end
     end
   end
 end

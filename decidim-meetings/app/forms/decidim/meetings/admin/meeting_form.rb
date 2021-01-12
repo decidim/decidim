@@ -17,6 +17,12 @@ module Decidim
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
+        attribute :embedded_videoconference, Boolean
+        attribute :online_meeting_url, String
+        attribute :type_of_meeting, String
+        attribute :registration_type, String
+        attribute :registration_url, String
+        attribute :available_slots, Integer, default: 0
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -25,10 +31,15 @@ module Decidim
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
-        validates :location, translatable_presence: true
+        validates :registration_type, presence: true
+        validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
+        validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
+        validates :type_of_meeting, presence: true
+        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
 
-        validates :address, presence: true
-        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
+        validates :address, presence: true, if: ->(form) { form.needs_address? }
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
+        validates :online_meeting_url, presence: true, url: true, if: ->(form) { (form.online_meeting? || form.hybrid_meeting?) && !form.embedded_videoconference }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
 
@@ -36,6 +47,7 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :clean_type_of_meeting, presence: true
 
         delegate :categories, to: :current_component
 
@@ -49,6 +61,7 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.type_of_meeting = model.type_of_meeting
         end
 
         def services_to_persist
@@ -89,8 +102,54 @@ module Decidim
           geocoding_enabled? && address.present?
         end
 
+        def needs_address?
+          in_person_meeting? || hybrid_meeting?
+        end
+
         def geocoded?
           latitude.present? && longitude.present?
+        end
+
+        def online_meeting?
+          type_of_meeting == "online"
+        end
+
+        def in_person_meeting?
+          type_of_meeting == "in_person"
+        end
+
+        def hybrid_meeting?
+          type_of_meeting == "hybrid"
+        end
+
+        def clean_type_of_meeting
+          type_of_meeting.presence
+        end
+
+        def type_of_meeting_select
+          Decidim::Meetings::Meeting::TYPE_OF_MEETING.map do |type|
+            [
+              I18n.t("type_of_meeting.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
+        end
+
+        def on_this_platform?
+          registration_type == "on_this_platform"
+        end
+
+        def on_different_platform?
+          registration_type == "on_different_platform"
+        end
+
+        def registration_type_select
+          Decidim::Meetings::Meeting::REGISTRATION_TYPE.map do |type|
+            [
+              I18n.t("registration_type.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
         end
       end
     end

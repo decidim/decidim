@@ -24,6 +24,12 @@ module Decidim::Meetings
     let(:user) { create :user, :admin, organization: organization }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:type_of_meeting) { "online" }
+    let(:online_meeting_url) { "http://decidim.org" }
+    let(:registration_url) { "http://decidim.org" }
+    let(:registration_type) { "on_this_platform" }
+    let(:available_slots) { 0 }
+    let(:embedded_videoconference) { false }
     let(:form) do
       double(
         invalid?: invalid,
@@ -42,7 +48,13 @@ module Decidim::Meetings
         transparent: transparent,
         services_to_persist: services_to_persist,
         current_user: user,
-        current_organization: organization
+        current_organization: organization,
+        registration_type: registration_type,
+        available_slots: available_slots,
+        registration_url: registration_url,
+        clean_type_of_meeting: type_of_meeting,
+        online_meeting_url: online_meeting_url,
+        embedded_videoconference: embedded_videoconference
       )
     end
 
@@ -124,7 +136,13 @@ module Decidim::Meetings
             transparent: transparent,
             services_to_persist: services_to_persist,
             current_user: user,
-            current_organization: organization
+            current_organization: organization,
+            registration_type: registration_type,
+            available_slots: available_slots,
+            registration_url: registration_url,
+            clean_type_of_meeting: type_of_meeting,
+            online_meeting_url: online_meeting_url,
+            embedded_videoconference: embedded_videoconference
           )
         end
 

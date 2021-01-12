@@ -1,0 +1,19 @@
+<div class="card__icondata">
+  <ul class="card-data">
+    <li class="card-data__item">
+      <%= resource_icon %>
+    </li>
+    <li class="card-data__item">
+      <div class="text-left">
+        <div class="card__icondata--address">
+          <% if model.online_meeting? %>
+            <span><%= link_to(model.online_meeting_url, model.online_meeting_url, target: "_blank") %></span><br>
+            <span><%= translated_attribute model.location_hints %></span>
+          <% elsif model.embedded_videoconference? %>
+            <span><%= t("embedded", scope: "decidim.meetings.meeting_url") %></span>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -34,10 +34,23 @@ FactoryBot.define do
     transparent { true }
     questionnaire { build(:questionnaire) }
     registration_form_enabled { true }
+    registration_terms { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    registration_type { :on_this_platform }
+    type_of_meeting { :in_person }
     component { build(:component, manifest_name: "meetings") }
 
     author do
       component.try(:organization)
+    end
+
+    trait :online do
+      type_of_meeting { :online }
+      online_meeting_url { "https://decidim.org" }
+    end
+
+    trait :hybrid do
+      type_of_meeting { :hybrid }
+      online_meeting_url { "https://decidim.org" }
     end
 
     trait :official do
@@ -157,5 +170,14 @@ FactoryBot.define do
     meeting
     title { generate_localized_title }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+  end
+
+  factory :videoconference_attendance_log, class: "Decidim::Meetings::VideoconferenceAttendanceLog" do
+    meeting
+    user
+    room_name { Faker::Hipster.word }
+    user_videoconference_id { Faker::Internet.password }
+    user_display_name { Faker::Name.name }
+    event { %w(join leave).sample }
   end
 end

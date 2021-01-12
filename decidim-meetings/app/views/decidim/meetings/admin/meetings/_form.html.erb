@@ -12,11 +12,18 @@
     </div>
 
     <div class="row column">
+      <%= form.select :type_of_meeting,
+        @form.type_of_meeting_select,
+        { include_blank: t(".select_a_meeting_type") },
+        { multiple: false } %>
+    </div>
+
+    <div class="field" data-meeting-type="in_person">
       <%= form.geocoding_field :address %>
       <p class="help-text"><%= t(".address_help") %></p>
     </div>
 
-    <div class="row column">
+    <div class="field" data-meeting-type="in_person">
       <%= form.translated :text_area, :location %>
       <p class="help-text"><%= t(".location_help") %></p>
     </div>
@@ -24,6 +31,16 @@
     <div class="row column">
       <%= form.translated :text_area, :location_hints %>
       <p class="help-text"><%= t(".location_hints_help") %></p>
+    </div>
+
+    <div class="field" data-meeting-type="online" id="online_meeting_url">
+      <%= form.text_field :online_meeting_url %>
+      <p class="help-text"><%= t(".online_meeting_url_help") %></p>
+    </div>
+
+    <div class="field" data-meeting-type="online" id="embedded_videoconference">
+      <%= form.check_box :embedded_videoconference, label: t(".embedded_videoconference") %>
+      <p class="help-text"><%= t(".embedded_videoconference_help") %></p>
     </div>
 
     <div class="row">
@@ -45,6 +62,24 @@
       <div class="columns xlarge-6">
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
       </div>
+    </div>
+
+    <div class="row column">
+      <%= form.select :registration_type,
+        @form.registration_type_select,
+        { include_blank: t(".select_a_registration_type") },
+        { multiple: false } %>
+    </div>
+
+    <div class="row column" id="meeting_available_slots">
+      <%= form.number_field :available_slots %>
+      <p class="help-text"><%= t(".available_slots_help") %></p>
+    </div>
+
+    <div class="field" id="meeting_registration_url">
+      <%= form.text_field :registration_url %>
+      <p class="help-text"><%= t(".registration_url_help") %></p>
+      <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
     </div>
 
     <div class="row column" id="private_meeting">

@@ -75,7 +75,7 @@ edit_link(
       <% end %>
     </div>
 
-    <% if registration.present? %>
+    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
       <div class="card extra">
         <div class="card__content">
             <div class="registration_code">
@@ -121,7 +121,17 @@ edit_link(
         </span>
       <% end %>
       <%= decidim_sanitize(present(meeting).description(links: true)) %>
-      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+
+      <% if meeting.online_meeting? %>
+        <%= render partial: "online_meeting_link", locals: { meeting: meeting } %>
+      <% else %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: meeting } %>
+      <% end %>
+
+      <% if meeting.embedded? %>
+        <%= cell "decidim/meetings/videoconference", meeting %>
+      <% end %>
+
       <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
     </div>
 

@@ -36,7 +36,6 @@ module Decidim
 
         def allowed_meeting_action?
           return unless permission_action.subject == :meeting
-
           return disallow! if meeting && !meeting.official?
 
           case permission_action.action
@@ -44,6 +43,8 @@ module Decidim
             toggle_allow(meeting.present?)
           when :invite_attendee
             toggle_allow(meeting.present? && meeting.registrations_enabled?)
+          when :read_logs
+            toggle_allow(meeting.present? && meeting.embedded?)
           when :create
             allow!
           end
