@@ -57,11 +57,11 @@ module Decidim
 
         # expect(worksheet.rows[1].datetime(5)).to eq(Time.zone.local(2017, 10, 1, 5, 0))
         # raise worksheet[1][5].value.inspect
-        expect(worksheet[1][5].value).to eq(Time.zone.local(2017, 10, 1, 5, 0).to_date)
+        expect(worksheet[1][5].value).to eq(Time.zone.local(2017, 10, 1, 5, 0))
 
         expect(worksheet[2][0..4].map(&:value)).to eq([2, "barcat", "bares", "2, 3, 4", 0.55])
         # expect(worksheet.rows[2].datetime(5)).to eq(Time.zone.local(2017, 9, 20))
-        expect(worksheet[2][5].value).to eq(Time.zone.local(2017, 9, 20).to_date)
+        expect(worksheet[2][5].value).to eq(Time.zone.local(2017, 9, 20))
       end
     end
 

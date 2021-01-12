@@ -59,9 +59,14 @@ module Decidim
             # raise custom_sanitize(resource[header]).class.inspect
 
             if resource[header].class == ActiveSupport::TimeWithZone
-              c = worksheet.add_cell(index + 1, j)
-              c.set_number_format("mm/dd/yyyy")
-              c.change_contents(resource[header].to_date)
+              # c = worksheet.add_cell(index + 1, j)
+              # c.set_number_format("dd.mm.yyyy HH:MM:SS")
+              # c.change_contents(resource[header].to_datetime)
+              # # raise c.value.to_time.utc.iso8601.inspect
+              # raise c.raw_value.inspect
+              cell = worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
+              cell.set_number_format("dd.mm.yyyy HH:MM:SS")
+              # raise cell.value.inspect
               next
             end
             worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
