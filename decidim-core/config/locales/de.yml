@@ -331,11 +331,11 @@ de:
         close_modal: Modal schließen
     block_user_mailer:
       notify:
-        body_1: Ihr Konto wurde gesperrt.
+        body_1: Ihr Account wurde gesperrt.
         body_2: 'Grund: %{justification}'
-        greetings: Guten Tag<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Hallo
-        subject: Ihr Konto wurde von %{organization_name} gesperrt?
+        greetings: Guten Tag <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
+        hello: Hallo,
+        subject: Ihr Account wurde von %{organization_name} gesperrt?
     collapsible_list:
       hidden_elements_count:
         one: und %{count} mehr
