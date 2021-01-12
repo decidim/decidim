@@ -327,7 +327,6 @@ el:
         actions:
           preview: Προεπισκόπηση
         exports:
-          comments: Σχόλια
           proposals: Προτάσεις
         models:
           proposal:
