@@ -152,7 +152,6 @@ uk:
         actions:
           preview: Попередній перегляд
         exports:
-          comments: Коментарі
           proposals: Пропозиції
         models:
           proposal:
