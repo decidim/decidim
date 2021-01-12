@@ -502,10 +502,8 @@ en:
       moderated_users:
         index:
           actions:
-            suspend: Block User
             title: Actions
             unreport: Unreport
-            unsuspend: Unblock User
           name: Name
           nickname: Nickname
           reason: Reason
@@ -630,7 +628,6 @@ en:
           status: Status
           unblock: Unblock User
           unofficialize: Unofficialize
-          unsuspend: Unblock User
         new:
           badge: Officialization badge
           officialize: Officialize
