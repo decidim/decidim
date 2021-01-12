@@ -141,6 +141,13 @@ FactoryBot.define do
       confirmed_at { Time.current }
     end
 
+    trait :blocked do
+      blocked { true }
+      blocked_at { Time.current }
+      extended_data { { "user_name": generate(:name) } }
+      name { "Blocked user" }
+    end
+
     trait :deleted do
       email { "" }
       deleted_at { Time.current }

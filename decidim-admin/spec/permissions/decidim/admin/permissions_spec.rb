@@ -319,6 +319,7 @@ describe Decidim::Admin::Permissions do
   it_behaves_like "can perform any action for", :newsletter
   it_behaves_like "can perform any action for", :user_group
   it_behaves_like "can perform any action for", :officialization
+  it_behaves_like "can perform any action for", :moderate_users
   it_behaves_like "can perform any action for", :authorization
   it_behaves_like "can perform any action for", :authorization_workflow
 end

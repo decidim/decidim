@@ -230,195 +230,19 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    context "without parameters" do
-      it "executes sucessfully" do
-        expect { response }.not_to raise_error(StandardError)
-      end
-
-      it "has hashtags" do
-        expect(response["assemblies"].first).to eq(assembly_data)
-      end
-    end
-
-    # context "with parameters" do
-    #   context "with filters" do
-    #     describe "published_before" do
-    #       it { pending }
-    #     end
-    #
-    #     describe "published_since" do
-    #       it { pending }
-    #     end
-    #
-    #     describe "hashtag" do
-    #       it { pending }
-    #     end
-    #   end
-    #
-    #   context "with order" do
-    #     describe "published_at" do
-    #       it { pending }
-    #     end
-    #
-    #     describe "id" do
-    #       it { pending }
-    #     end
-    #
-    #     describe "start_date" do
-    #       it { pending }
-    #     end
-    #   end
-    # end
-  end
-
-  describe "single assembly with ID" do
-    let(:assemblies) do
-      %(
-      assembly(id: #{assembly.id}){
-        area {
-          id
-          areaType {
-            id
-            name{
-              translation(locale:"#{locale}")
-            }
-            plural{
-              translation(locale:"#{locale}")
-            }
-          }
-          name{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
-        assemblyType {
-          id
-          assemblies {
-            id
-          }
-          createdAt
-          title{
-            translation(locale:"#{locale}")
-          }
-          updatedAt
-        }
-        attachments {
-          thumbnail
-        }
-        bannerImage
-        categories {
-          id
-        }
-        children {
-          id
-        }
-        childrenCount
-        closingDate
-        closingDateReason {
-          translation(locale:"#{locale}")
-        }
-        components {
-          id
-        }
-        composition {
-          translation(locale:"#{locale}")
-        }
-        createdAt
-        createdBy
-        createdByOther {
-          translation(locale:"#{locale}")
-        }
-        creationDate
-        description {
-          translation(locale:"#{locale}")
-        }
-        developerGroup {
-          translation(locale:"#{locale}")
-        }
-        duration
-        facebookHandler
-        githubHandler
-        hashtag
-        heroImage
-        id
-        includedAt
-        instagramHandler
-        internalOrganisation {
-          translation(locale:"#{locale}")
-        }
-        isTransparent
-        linkedParticipatorySpaces {
-          id
-        }
-        localArea {
-          translation(locale:"#{locale}")
-        }
-        members {
-          id
-        }
-        metaScope {
-          translation(locale:"#{locale}")
-        }
-        parent {
-          id
-        }
-        parentsPath
-        participatoryScope {
-          translation(locale:"#{locale}")
-        }
-        participatoryStructure {
-          translation(locale:"#{locale}")
-        }
-        privateSpace
-        promoted
-        publishedAt
-        purposeOfAction {
-          translation(locale:"#{locale}")
-        }
-        reference
-        scopesEnabled
-        shortDescription {
-          translation(locale:"#{locale}")
-        }
-        showStatistics
-        slug
-        specialFeatures {
-          translation(locale:"#{locale}")
-        }
-        stats{
-          name
-          value
-        }
-        subtitle {
-          translation(locale:"#{locale}")
-        }
-        target {
-          translation(locale:"#{locale}")
-        }
-        title {
-          translation(locale:"#{locale}")
-        }
-        twitterHandler
-        type
-        updatedAt
-        youtubeHandler
-      }
-    )
-    end
-
     it "executes sucessfully" do
       expect { response }.not_to raise_error(StandardError)
     end
 
     it "has hashtags" do
-      expect(response["assembly"]).to eq(assembly_data)
+      expect(response["assemblies"].first).to eq(assembly_data)
     end
   end
 
-  describe "single assembly without id" do
+  describe "single assembly" do
     let(:assemblies) do
       %(
-      assembly{
+      assembly(id: #{assembly.id}){
         area {
           id
           areaType {

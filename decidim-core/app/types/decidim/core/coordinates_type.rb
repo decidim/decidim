@@ -6,13 +6,12 @@ module Decidim
     class CoordinatesType < Decidim::Api::Types::BaseObject
       description "Physical coordinates for a location"
 
-      field :latitude, Float, "Latitude of this coordinate", null: false
+      field :latitude, GraphQL::Types::Float, "Latitude of this coordinate", null: false
+      field :longitude, GraphQL::Types::Float, "Longitude of this coordinate", null: false
 
       def latitude
         object[0]
       end
-
-      field :longitude, Float, "Longitude of this coordinate", null: false
 
       def longitude
         object[1]
