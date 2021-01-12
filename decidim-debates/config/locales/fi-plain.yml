@@ -45,18 +45,27 @@ fi-pl:
             endorsements_enabled: Suositukset käytössä
     debates:
       actions:
+        active: Aktiiviset keskustelut
+        archive: Arkisto
+        archived: Arkistoidut keskustelut
         close: Sulje
         confirm_destroy: Oletko varma?
         destroy: Poista
         edit: Muokkaa
         new: Uusi %{name}
         title: Toiminnot
+        unarchive: Palauta arkistosta
       admin:
         debate_closes:
           edit:
+            archive: Arkistoi tämä keskustelu
+            archive_help: Tämän keskustelun arkistointi piilottaa sen julkisten keskustelujen osiosta
             close: Sulje
             title: Sulje keskustelu
         debates:
+          archive:
+            invalid: Keskustelun arkistointi epäonnistui.
+            success: Keskustelun arkistointi onnistui.
           create:
             invalid: Keskustelua luotaessa tapahtui virhe.
             success: Keskustelu luotu onnistuneesti.
@@ -65,14 +74,20 @@ fi-pl:
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
+          empty: Yksikään keskustelu ei vastannut näitä hakukriteerejä.
           index:
             title: Keskustelut
           new:
             create: Luo keskustelu
             title: Uusi keskustelu
+          unarchive:
+            invalid: Keskustelun palauttaminen arkistosta epäonnistui.
+            success: Keskustelun palauttaminen arkistosta onnistui.
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          comments: Kommentit
         models:
           debate:
             name: Keskustelu

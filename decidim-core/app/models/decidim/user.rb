@@ -31,7 +31,7 @@ module Decidim
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
 
-    has_one :suspension, class_name: "Decidim::UserSuspension", foreign_key: :id, primary_key: :suspension_id, dependent: :destroy
+    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
@@ -221,7 +221,7 @@ module Decidim
 
     # Caches a Decidim::DataPortabilityUploader with the retrieved file.
     def data_portability_file(filename)
-      @data_portability_file ||= DataPortabilityUploader.new.tap do |uploader|
+      @data_portability_file ||= DataPortabilityUploader.new(user).tap do |uploader|
         uploader.retrieve_from_store!(filename)
         uploader.cache!(filename)
       end

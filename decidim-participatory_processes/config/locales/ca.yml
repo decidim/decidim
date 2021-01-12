@@ -312,6 +312,9 @@ ca:
         participatory_process_copies:
           form:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+        participatory_process_groups:
+          form:
+            visibility: Visibilitat
         participatory_process_imports:
           form:
             document_legend: Afegeix un document
@@ -440,6 +443,8 @@ ca:
           more_info_about: Més informació sobre el procés %{resource_name}
           take_part: Participa
           take_part_in: Participa al procés %{resource_name}
+        promoted_process_group:
+          more_info: Més informació
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Veure les fases

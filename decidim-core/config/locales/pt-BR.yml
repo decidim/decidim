@@ -207,8 +207,6 @@ pt:
         name: Exemplo de autorização
       dummy_authorization_workflow:
         name: Fluxo de trabalho de autorização falsa
-      errors:
-        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       expired_at: Expirou em %{timestamp}
       expires_at: Expira em %{timestamp}
       foo_authorization:

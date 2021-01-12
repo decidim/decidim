@@ -119,11 +119,12 @@ de:
           secondary_hosts_hint: Geben Sie jede von ihnen in einer neuen Zeile ein
         file_upload_settings:
           content_types:
-            admin_hint: Diese MIME-Typen sind für das Hochladen in der Admin-Sektion erlaubt. Administrator-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so können Sie erwarten, dass Administratoren mit den Datei-Uploads vertrauter sind.
+            admin_hint: Diese MIME-Typen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
             default_hint: Diese MIME-Typen sind standardmäßig für alle Benutzer erlaubt.
             intro_html: Sie fügen Platzhalter mit dem Sternzeichen für die MIME-Typen hinzu, z.B. <code>image/*</code>.
             title: Erlaubte MIME-Typen
           file_extensions:
+            admin_hint: Diese Datei-Erweiterungen sind für das Hochladen im Admin-Panel erlaubt. Admin-Benutzer sollten sich der Risiken des Hochladens einiger Dokumentformate bewusst sein, so dass man von ihnen erwarten kann dass sie vorsichtiger mit Datei-Uploads sind.
             default_hint: Diese Dateierweiterungen sind standardmäßig für alle Benutzer erlaubt.
             image_hint: Diese Dateierweiterungen sind für alle Arten von Bild-Uploads erlaubt.
             title: Zulässige Dateierweiterungen
@@ -131,6 +132,9 @@ de:
             avatar_hint: Megabytes (MB). Maximale Dateigröße für das Hochladen des Avatars.
             default_hint: Megabytes (MB). Diese Dateigröße ist die Standardeinstellung, die für alle Datei-Uploads verwendet wird, sofern nicht anders angegeben.
             title: Maximale Dateigröße
+          intro: |
+            Bitte seien Sie besonders vorsichtig, wenn Sie überlegen, diese Einstellungen zu ändern. Je weniger Sie erlauben, desto besser.
+            Wenn bestimmte Dateierweiterungen oder MIME-Typen zugelassen werden, können Benutzer Sicherheitsrisiken ausgesetzt werden und es kann auch die Zugänglichkeit der Website beeinträchtigen.
         index:
           title: Organisationen
         new:
@@ -139,8 +143,8 @@ de:
           title: Neue Organisation
         omniauth_settings:
           decidim:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
             site_url: Website-URL
           enabled: Aktiviert
           enabled_by_default: Dieser Anbieter ist standardmäßig aktiviert. Er kann bearbeitet aber nicht deaktiviert werden.
@@ -148,8 +152,8 @@ de:
             app_id: App-ID
             app_secret: App-Geheimnis
           google_oauth2:
-            client_id: Kunden-ID
-            client_secret: Kundengeheimnis
+            client_id: Client-ID
+            client_secret: Client-Secret
           icon: Symbol
           icon_path: Icon-Pfad
           twitter:

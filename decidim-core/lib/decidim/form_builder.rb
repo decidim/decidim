@@ -388,7 +388,7 @@ module Decidim
         options.merge(data: data)
       )
       help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
-      template += error_and_help_text(attribute, options.merge(help_text: help_text))
+      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -405,11 +405,12 @@ module Decidim
     def upload(attribute, options = {})
       self.multipart = true
       options[:optional] = options[:optional].nil? ? true : options[:optional]
-      alt_text = label_for(attribute)
+      label_text = options[:label] || label_for(attribute)
+      alt_text = label_text
 
       file = object.send attribute
       template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
+      template += label(attribute, label_text + required_for_attribute(attribute))
       template += upload_help(attribute, options)
       template += @template.file_field @object_name, attribute
 

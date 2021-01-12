@@ -91,7 +91,10 @@ en:
         name: Name
         organization: Organization
         plural: Plural
+      settings:
+        scope_id: Scope
       static_page:
+        allow_public_access: Allow access without authentication
         changed_notably: There have been noticeable changes.
         content: Content
         organization: Organization
@@ -225,6 +228,12 @@ en:
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search
+      block_user:
+        new:
+          action: Block account and send justification
+          description: Blocking an user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
+          justification: Justification
+          title: Block User %{name}
       categories:
         create:
           error: There was a problem creating this category.
@@ -280,6 +289,21 @@ en:
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
+      conflicts:
+        attempts: Attempts
+        'false': 'No'
+        managed_user_name: Managed User
+        solved: Solved
+        title: Verifications's conflicts
+        transfer:
+          email: Email
+          error: There was a problem transfering the current participant to managed participant.
+          name: Name
+          reason: Reason
+          success: The current transfer has been successfully completed.
+          title: Transfer
+        'true': 'Yes'
+        user_name: User
       dashboard:
         show:
           view_more_logs: View more logs
@@ -583,6 +607,9 @@ en:
           error: There was a problem updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
+        block:
+          error: There was an error blocking the participant
+          success: Participant successfully blocked
         create:
           success: Participant successfully officialized
         destroy:
@@ -590,6 +617,7 @@ en:
         index:
           actions: Actions
           badge: Badge
+          block: Block User
           created_at: Created At
           name: Name
           nickname: Nickname
@@ -600,7 +628,7 @@ en:
           reports: Reports
           show_email: Show email address
           status: Status
-          suspend: Block User
+          unblock: Unblock User
           unofficialize: Unofficialize
           unsuspend: Unblock User
         new:
@@ -615,10 +643,7 @@ en:
           hidden: hidden
           show: Show
           title: Show participant email address
-        suspend:
-          error: There was an error blocking the participant
-          success: Participant successfully blocked
-        unsuspend:
+        unblock:
           error: There was an error unblocking the participant
           success: Participant successfully unblocked
       organization:

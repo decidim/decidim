@@ -141,6 +141,13 @@ FactoryBot.define do
       confirmed_at { Time.current }
     end
 
+    trait :blocked do
+      blocked { true }
+      blocked_at { Time.current }
+      extended_data { { "user_name": generate(:name) } }
+      name { "Blocked user" }
+    end
+
     trait :deleted do
       email { "" }
       deleted_at { Time.current }
@@ -270,6 +277,7 @@ FactoryBot.define do
     title { generate_localized_title }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     organization { build(:organization) }
+    allow_public_access { false }
 
     trait :default do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }

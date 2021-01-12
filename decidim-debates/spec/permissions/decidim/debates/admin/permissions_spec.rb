@@ -25,11 +25,21 @@ describe Decidim::Debates::Admin::Permissions do
   end
 
   context "when subject is not debate" do
-    let(:action) do
-      { scope: :admin, action: :bar, subject: :foo }
+    context "when subject is comments and action is export" do
+      let(:action) do
+        { scope: :admin, action: :export, subject: :comments }
+      end
+
+      it { is_expected.to eq true }
     end
 
-    it_behaves_like "permission is not set"
+    context "when subject is anything else" do
+      let(:action) do
+        { scope: :admin, action: :bar, subject: :foo }
+      end
+
+      it_behaves_like "permission is not set"
+    end
   end
 
   context "when action is a random one" do
@@ -77,6 +87,36 @@ describe Decidim::Debates::Admin::Permissions do
       let(:debate) { create :debate, author: user, component: debates_component }
 
       it { is_expected.to eq false }
+    end
+  end
+
+  describe "debate archive" do
+    let(:action) do
+      { scope: :admin, action: :archive, subject: :debate }
+    end
+
+    context "when the debate is closed" do
+      let(:debate) { create :debate, :closed, component: debates_component }
+
+      it { is_expected.to eq true }
+
+      context "and it is not official" do
+        let(:debate) { create :debate, :closed, author: user, component: debates_component }
+
+        it { is_expected.to eq true }
+      end
+    end
+
+    context "when debate is open" do
+      let(:debate) { create :debate, component: debates_component }
+
+      it { is_expected.to eq true }
+
+      context "and it is not official" do
+        let(:debate) { create :debate, author: user, component: debates_component }
+
+        it { is_expected.to eq true }
+      end
     end
   end
 end

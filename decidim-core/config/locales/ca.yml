@@ -269,8 +269,6 @@ ca:
         name: Autorització d'exemple
       dummy_authorization_workflow:
         name: Flux de treball d'autorització d'exemple
-      errors:
-        duplicate_authorization: Ja s'ha autoritzat a una participant amb les mateixes dades.
       expired_at: Vençut el %{timestamp}
       expires_at: Venç en %{timestamp}
       foo_authorization:
@@ -673,7 +671,6 @@ ca:
         file:
           explanation: 'Instruccions per a l''arxiu:'
           message_1: Ha de ser una imatge o un document.
-          message_2: Per a les imatges, fes servir imatges apaïsades preferiblement, el servei retalla la imatge.
         image:
           explanation: 'Instruccions per a la imatge:'
           message_1: Preferiblement una imatge apaïsada que no tingui cap text.
@@ -899,7 +896,7 @@ ca:
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
         index:
-          ago: anteriors
+          ago: fa
           close: Tanca modal
           from: De
           groups: Els meus grups

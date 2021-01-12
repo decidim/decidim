@@ -48,6 +48,18 @@ Decidim.register_component(:meetings) do |component|
     exports.serializer Decidim::Meetings::MeetingSerializer
   end
 
+  component.exports :meeting_comments do |exports|
+    exports.collection do |component_instance|
+      Decidim::Comments::Export.comments_for_resource(
+        Decidim::Meetings::Meeting, component_instance
+      )
+    end
+
+    exports.include_in_open_data = true
+
+    exports.serializer Decidim::Comments::CommentSerializer
+  end
+
   component.actions = %w(join)
 
   component.settings(:global) do |settings|
@@ -121,6 +133,13 @@ Decidim.register_component(:meetings) do |component|
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end
       }
+
+      _hybrid_meeting = Decidim.traceability.create!(
+        Decidim::Meetings::Meeting,
+        admin_user,
+        params.merge(type_of_meeting: :hybrid, online_meeting_url: "http://example.org"),
+        visibility: "all"
+      )
 
       _online_meeting = Decidim.traceability.create!(
         Decidim::Meetings::Meeting,

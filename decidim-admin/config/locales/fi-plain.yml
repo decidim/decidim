@@ -90,7 +90,10 @@ fi-pl:
         name: Nimi
         organization: Organisaatio
         plural: Monikko
+      settings:
+        scope_id: Teema
       static_page:
+        allow_public_access: Salli pääsy ilman kirjautumista
         changed_notably: On tapahtunut huomattavia muutoksia.
         content: Sisältö
         organization: Organisaatio
@@ -145,6 +148,7 @@ fi-pl:
           error: Hallintakäyttäjän ehtojen hyväksymisessä tapahtui virhe.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
+          accept: Hyväksyn seuraavat ehdot
           are_you_sure: Haluatko varmasti olla hyväksymättä hallintakäyttäjän ehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
@@ -382,6 +386,7 @@ fi-pl:
         help_sections: Ohjeosiot
         homepage: Kotisivu
         impersonations: Esiintymiset toisena käyttäjänä
+        moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
         reported_users: Ilmoitetut käyttäjät
@@ -862,6 +867,7 @@ fi-pl:
           fields:
             created_at: Luonnin ajankohta
             hidden_at: Piilotuksen ajankohta
+            participatory_space: Osallistumistila
             report_count: Määrä
             reportable_id: Id
             reportable_type: Tyyppi
@@ -879,6 +885,8 @@ fi-pl:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Yleiset moderoinnit
         newsletters:
           title: Uutiskirjeet
         settings:

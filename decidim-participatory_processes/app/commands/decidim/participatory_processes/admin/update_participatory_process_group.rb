@@ -63,7 +63,8 @@ module Decidim
             meta_scope: form.meta_scope,
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
-            target: form.target
+            target: form.target,
+            promoted: form.promoted
           }
         end
 

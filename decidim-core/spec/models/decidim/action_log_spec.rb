@@ -112,6 +112,7 @@ describe Decidim::ActionLog do
       before do
         action_log.participatory_space.private_space = true
         action_log.participatory_space.save!
+        expect(user).to receive(:id)
       end
 
       it { is_expected.to be_falsey }

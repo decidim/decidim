@@ -2,27 +2,21 @@
 
 module Decidim
   module Meetings
-    AgendaItemType = GraphQL::ObjectType.define do
-      name "MeetingAgendaItem"
+    class AgendaItemType < Decidim::Api::Types::BaseObject
+      graphql_name "MeetingAgendaItem"
       description "A meeting agenda item"
 
-      field :id, !types.ID, "The ID for this agenda item"
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for this agenda item"
-      field :items, !types[AgendaItemType], "Sub-items (children) of this agenda item", property: :agenda_item_children
-      field :parent, AgendaItemType, "Parent agenda item, if available"
-      field :agenda, AgendaType, "Belonging agenda"
-      field :duration, !types.Int, "Duration in number of minutes for this item in this agenda"
-      field :position, !types.Int, "Order position for this agenda item"
+      field :id, ID, "The ID for this agenda item", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this agenda item", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this agenda item", null: true
+      field :items, [AgendaItemType, { null: true }], "Sub-items (children) of this agenda item", method: :agenda_item_children, null: false
+      field :parent, AgendaItemType, "Parent agenda item, if available", null: true
+      field :agenda, AgendaType, "Belonging agenda", null: true
+      field :duration, Integer, "Duration in number of minutes for this item in this agenda", null: false
+      field :position, Integer, "Order position for this agenda item", null: false
 
-      field :createdAt, Decidim::Core::DateTimeType do
-        description "The date and time this agenda item was created"
-        property :created_at
-      end
-      field :updatedAt, Decidim::Core::DateTimeType do
-        description "The date and time this agenda item was updated"
-        property :updated_at
-      end
+      field :created_at, Decidim::Core::DateTimeType, description: "The date and time this agenda item was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, description: "The date and time this agenda item was updated", null: true
     end
   end
 end

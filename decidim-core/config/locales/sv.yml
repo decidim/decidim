@@ -270,8 +270,6 @@ sv:
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
-      errors:
-        duplicate_authorization: En deltagare är redan behörig med samma data.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -663,7 +661,6 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
-          message_2: För bilder, använd helst landskapsbilder, tjänsten grödor bilden.
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.

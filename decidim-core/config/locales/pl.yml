@@ -283,8 +283,6 @@ pl:
         name: Przykładowa autoryzacja
       dummy_authorization_workflow:
         name: Przykładowy proces autoryzacji
-      errors:
-        duplicate_authorization: Użytkownik jest już uprawniony na podstawie tych samych danych.
       expired_at: Wygasł %{timestamp}
       expires_at: Wygasa %{timestamp}
       foo_authorization:
@@ -682,7 +680,6 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: W przypadku zdjęć używaj najlepiej krajobrazów, serwis docina obraz.
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.

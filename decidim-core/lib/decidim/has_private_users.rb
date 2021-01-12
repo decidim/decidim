@@ -37,7 +37,7 @@ module Decidim
         return true unless private_space?
         return false unless user
 
-        users.include?(user)
+        participatory_space_private_users.exists?(decidim_user_id: user.id)
       end
 
       def self.public_spaces

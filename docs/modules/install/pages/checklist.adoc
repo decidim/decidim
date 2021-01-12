@@ -7,7 +7,14 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Choose a *domain or subdomain* for your application. Some typical names involve "Participation" or "Decision" conjugations.
 . Choose which *languages* do you want for your application. In case that your language isn't supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
 . Customize the xref:customize:styles.adoc[*look and feel*] (colors, pictures, fonts, etc).
-. Configure *SSL*. We recommend using at least https://letsencrypt.org/[Let's Encrypt] for a minimum security. You should also check that there's an enforced redirection from HTTP to HTTPS on your web server.
+. Configure *SSL*:
+.. We recommend using at least *https://letsencrypt.org/[Let's Encrypt]* for minimum security.
+.. Configure *redirection from HTTP to HTTPS* on your web server.
+.. Configure your *Certificate Authority Authorization* (CAA) DNS records
+.. Install complete *Certificate Chains* if it's needed for your provider
+.. Use current SSL/TLS Protocols (*TLS 1.2 or 1.3*)
+.. If you add new static files, be careful of not introducing *mixed content*
+.. Use the *https://www.ssllabs.com/ssltest/[SSL Server Test]* and follow their recommendations
 . Configure your *SMTP* server.
 . Setup the *geolocation* service. We recommend using https://developer.here.com/[Here Maps], but you can use other kind of tiling server compatible with https://www.openstreetmap.org/[Open Street Maps].
 . Setup *backup* on your server. The most important things to save are the `public/uploads` and the database.

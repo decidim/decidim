@@ -6,18 +6,13 @@
         large-up-4 card-grid">
         <% highlighted_consultations.each do |consultation| %>
           <div class="column">
-            <div class="card card--consultation card--mini">
-              <%= link_to decidim_consultations.consultation_path(consultation), class: "card__link" do %>
-                <div class="card__image-top"
-                  style="background-image:url(<%= consultation.banner_image.url %>)"></div>
-              <% end %>
+            <%= link_to decidim_consultations.consultation_path(consultation), class: "card card--consultation card--mini" do %>
+              <div class="card__image-top" style="background-image:url(<%= consultation.banner_image.url %>)"></div>
               <div class="card__content">
-                <%= link_to decidim_consultations.consultation_path(consultation), class: "card__link" do %>
-                  <span class="card__title"><%= translated_attribute consultation.title %></span>
-                <% end %>
+                <span class="card__title card__link"><%= translated_attribute consultation.title %></span>
                 <span class="card--process__small"><%= voting_ends_text_for(consultation) %></span>
               </div>
-            </div>
+            <% end %>
           </div>
         <% end %>
       </div>

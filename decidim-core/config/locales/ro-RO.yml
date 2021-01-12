@@ -278,8 +278,6 @@ ro:
         name: Exemplu de autorizare
       dummy_authorization_workflow:
         name: Flux de lucru autorizare fictiv
-      errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -677,7 +675,6 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
-          message_2: Pentru imagini, folosește de preferință imagini peisaj, serviciul recoltează imaginea.
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: Recomandat o imagine peisaj care nu are nici un text.
