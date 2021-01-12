@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       area:
@@ -849,12 +850,6 @@ en:
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
           title: Upload your CSV file
           upload: Upload
-      user_suspension:
-        new:
-          action: Block account and send justification
-          description: Banning a user will render its account unusable, you may provide in your justification and guidelines on ways you deem you would consider unblocking the user.
-          justification: Justification
-          title: Block User %{name}
       users:
         create:
           error: There was a problem inviting this admin.
