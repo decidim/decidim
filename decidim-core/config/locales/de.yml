@@ -79,6 +79,7 @@ de:
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
+      blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       data_portability_export:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
@@ -145,12 +146,14 @@ de:
         delete: "%{user_name} löschte die %{resource_name} statische Seite"
         update: "%{user_name} hat die %{resource_name} statische Seite aktualisiert"
       user:
+        block: "%{user_name} hat %{resource_name} blockiert"
         invite: "%{user_name} den Benutzer %{resource_name} mit der Rolle %{role}eingeladen"
         officialize: "%{user_name} den Benutzer %{resource_name}offiziell anerkannt"
         promote: "%{user_name} hat %{resource_name} aktualisiert"
         remove_from_admin: "%{user_name} entfernte den Benutzer %{resource_name} mit der Rolle: %{role}"
         show_email: "%{user_name} hat die E-Mail des Teilnehmers %{resource_name} abgerufen"
         transfer: "%{user_name} hat den Teilnehmer %{resource_name} anerkannt"
+        unblock: "%{user_name} hat die Blockierung von %{resource_name} aufgehoben"
         unofficialize: "%{user_name} inoffizialisierte den Benutzer %{resource_name}"
       user_group:
         reject: "%{user_name} wies die %{resource_name} - Benutzergruppe Verifikations"
@@ -326,6 +329,13 @@ de:
           title: Bestätige deine E-Mail
       show:
         close_modal: Modal schließen
+    block_user_mailer:
+      notify:
+        body_1: Ihr Konto wurde gesperrt.
+        body_2: 'Grund: %{justification}'
+        greetings: Guten Tag<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hallo
+        subject: Ihr Konto wurde von %{organization_name} gesperrt?
     collapsible_list:
       hidden_elements_count:
         one: und %{count} mehr
@@ -1107,6 +1117,7 @@ de:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
     profile:
       deleted: Teilnehmer gelöscht
+      inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
       view: Anzeigen
     profiles:
       default_officialization_text_for_user_groups: Diese Benutzergruppe wurde öffentlich überprüft, ihr Name wurde mit dem tatsächlichen Namen verifiziert
