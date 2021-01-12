@@ -42,7 +42,7 @@ de:
         title: Aktionen
       admin:
         exports:
-          result_comments: Kommentare
+          result_comments: Bemerkungen
           results: Ergebnisse
         import_results:
           new:
