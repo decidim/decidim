@@ -17,8 +17,7 @@ module Decidim
     include ForceAuthentication
     include SafeRedirect
     include NeedsSnippets
-
-    include SuspensionChecker
+    include UserBlockedChecker
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
