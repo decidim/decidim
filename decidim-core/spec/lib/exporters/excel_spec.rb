@@ -39,17 +39,29 @@ module Decidim
     describe "export" do
       it "exports the collection using the right serializer" do
         exported = StringIO.new(subject.export.read)
-        book = Spreadsheet.open(exported)
-        worksheet = book.worksheet(0)
-        expect(worksheet.rows.length).to eq(7)
+        # book = Spreadsheet.open(exported)
+        workbook = RubyXL::Parser.parse_buffer(exported)
+        # worksheet = book.worksheet(0)
+        worksheet = workbook[0]
+        # expect(worksheet.rows.length).to eq(7)
+        expect(worksheet.sheet_data.rows.length).to eq(7)
 
-        headers = worksheet.rows[0]
+        # headers = worksheet.rows[0]
+        headers = worksheet[0].cells.map(&:value)
         expect(headers).to eq(["id", "serialized_name/ca", "serialized_name/es", "other_ids", "float", "date"])
-        expect(worksheet.rows[1][0..4]).to eq([1, "foocat", "fooes", "1, 2, 3", 1.66])
-        expect(worksheet.rows[1].datetime(5)).to eq(Time.zone.local(2017, 10, 1, 5, 0))
 
-        expect(worksheet.rows[2][0..4]).to eq([2, "barcat", "bares", "2, 3, 4", 0.55])
-        expect(worksheet.rows[2].datetime(5)).to eq(Time.zone.local(2017, 9, 20))
+        # expect(worksheet.rows[1][0..4]).to eq([1, "foocat", "fooes", "1, 2, 3", 1.66])
+        # raise worksheet[1][0..4].map(&:value).inspect
+        # raise worksheet[1][0..4].map { |o| o.value }.inspect
+        expect(worksheet[1][0..4].map(&:value)).to eq([1, "foocat", "fooes", "1, 2, 3", 1.66])
+
+        # expect(worksheet.rows[1].datetime(5)).to eq(Time.zone.local(2017, 10, 1, 5, 0))
+        # raise worksheet[1][5].value.inspect
+        expect(worksheet[1][5].value).to eq(Time.zone.local(2017, 10, 1, 5, 0).to_date)
+
+        expect(worksheet[2][0..4].map(&:value)).to eq([2, "barcat", "bares", "2, 3, 4", 0.55])
+        # expect(worksheet.rows[2].datetime(5)).to eq(Time.zone.local(2017, 9, 20))
+        expect(worksheet[2][5].value).to eq(Time.zone.local(2017, 9, 20).to_date)
       end
     end
 
