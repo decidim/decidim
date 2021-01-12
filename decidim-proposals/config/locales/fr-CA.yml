@@ -356,7 +356,7 @@ fr-CA:
         actions:
           preview: Aperçu
         exports:
-          comments: Commentaires
+          comments: commentaires
           proposals: Propositions
         models:
           proposal:
