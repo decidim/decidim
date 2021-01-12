@@ -356,7 +356,7 @@ de:
         actions:
           preview: Vorschau
         exports:
-          comments: Kommentare
+          comments: Bemerkungen
           proposals: Vorschläge
         models:
           proposal:
