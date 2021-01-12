@@ -2,6 +2,7 @@
 
 # require "spreadsheet"
 require "rubyXL"
+require "rubyXL/convenience_methods/worksheet"
 
 module Decidim
   module Exporters
@@ -39,14 +40,15 @@ module Decidim
         #   sheet.column(index).width = 20
         # end
 
-        headers.each_with_index.map { |header, index| worksheet.add_cell(0, index, header) }
+        headers.each_with_index.map do |header, index|
+          worksheet.change_column_width(index, 20)
+          worksheet.add_cell(0, index, header)
+        end
 
         processed_collection.each_with_index do |resource, index|
           # sheet.row(index + 1).replace(headers.map { |header| custom_sanitize(resource[header]) })
-          j = 0
-          headers.map do |header|
+          headers.each_with_index do |header, j|
             worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
-            j += 1
           end
         end
 
