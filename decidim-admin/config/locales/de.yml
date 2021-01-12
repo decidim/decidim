@@ -227,6 +227,9 @@ de:
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
+      block_user:
+        new:
+          action: Konto sperren und Begründung senden
       categories:
         create:
           error: Beim Erstellen dieser Kategorie ist ein Fehler aufgetreten.
