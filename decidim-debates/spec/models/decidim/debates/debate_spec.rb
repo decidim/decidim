@@ -19,8 +19,8 @@ describe Decidim::Debates::Debate do
     subject { Decidim::Debates::Debate.newsletter_participant_ids(debate.component) }
 
     let!(:component_out_of_newsletter) { create(:debates_component, organization: organization) }
-    let!(:resource_out_of_newsletter) { create(:debate, component: component_out_of_newsletter) }
-    let!(:resource_in_newsletter) { create(:debate, component: debate.component) }
+    let!(:resource_out_of_newsletter) { create(:debate, :open_ama, component: component_out_of_newsletter) }
+    let!(:resource_in_newsletter) { create(:debate, :open_ama, component: debate.component) }
     let(:author_ids) { [] }
 
     include_examples "counts commentators as newsletter participants"
