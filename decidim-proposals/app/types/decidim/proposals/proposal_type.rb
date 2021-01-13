@@ -3,6 +3,8 @@
 module Decidim
   module Proposals
     ProposalType = GraphQL::ObjectType.define do
+      Decidim::Proposals::Proposal.include Decidim::Core::GraphQLApiTransition
+
       name "Proposal"
       description "A proposal"
 

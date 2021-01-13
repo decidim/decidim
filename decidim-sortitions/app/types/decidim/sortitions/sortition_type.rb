@@ -3,6 +3,8 @@
 module Decidim
   module Sortitions
     SortitionType = GraphQL::ObjectType.define do
+      Decidim::Sortitions::Sortition.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::AuthorableInterface },
         -> { Decidim::Comments::CommentableInterface },

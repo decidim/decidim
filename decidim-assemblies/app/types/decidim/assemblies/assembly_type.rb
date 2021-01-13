@@ -4,6 +4,7 @@ module Decidim
   module Assemblies
     # This type represents a assembly.
     AssemblyType = GraphQL::ObjectType.define do
+      Decidim::Assembly.include Decidim::Core::GraphQLApiTransition
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
         -> { Decidim::Core::AttachableInterface },
