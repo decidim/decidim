@@ -2,7 +2,6 @@
 
 module Decidim
   module Budgets
-
     Project.include Decidim::Core::GraphQLApiTransition
 
     ProjectType = GraphQL::ObjectType.define do
