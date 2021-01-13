@@ -15,7 +15,9 @@ describe "Vote in an election", type: :system do
     login_as user, scope: :user
   end
 
-  include_context "with a component with secure context"
+  include_context "with a component" do
+    let(:organization_traits) { [:secure_context] }
+  end
 
   it_behaves_like "allows to vote"
 

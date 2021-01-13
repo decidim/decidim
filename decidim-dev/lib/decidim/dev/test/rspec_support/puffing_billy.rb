@@ -9,7 +9,6 @@ Billy.configure do |config|
   config.record_requests = true
   config.proxied_request_connect_timeout = 20
   config.proxied_request_inactivity_timeout = 20
-  config.merge_cached_responses_whitelist = [%r{/api$}]
 end
 
 RSpec.configure do |config|

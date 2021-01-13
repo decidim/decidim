@@ -36,36 +36,6 @@ shared_context "with a component" do
   end
 end
 
-shared_context "with a component with secure context" do
-  let(:manifest) { Decidim.find_component_manifest(manifest_name) }
-  let(:user) { create :user, :confirmed, organization: organization }
-
-  let!(:organization) { create(:organization, :secure_context, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
-
-  let(:participatory_process) do
-    create(:participatory_process, :with_steps, organization: organization)
-  end
-
-  let(:participatory_space) { participatory_process }
-
-  let!(:component) do
-    create(:component,
-           manifest: manifest,
-           participatory_space: participatory_space)
-  end
-
-  let!(:category) { create :category, participatory_space: participatory_space }
-  let!(:scope) { create :scope, organization: organization }
-
-  before do
-    switch_to_secure_context_host
-  end
-
-  def visit_component
-    page.visit main_component_path(component)
-  end
-end
-
 shared_context "when managing a component" do
   include_context "with a component" do
     let(:organization_traits) { component_organization_traits }
