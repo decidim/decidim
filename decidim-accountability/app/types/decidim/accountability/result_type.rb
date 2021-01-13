@@ -2,9 +2,8 @@
 
 module Decidim
   module Accountability
-    Result.include Decidim::Core::GraphQLApiTransition
-
     ResultType = GraphQL::ObjectType.define do
+      Decidim::Accountability::Result.include Decidim::Core::GraphQLApiTransition
       interfaces [
         -> { Decidim::Core::ComponentInterface },
         -> { Decidim::Core::CategorizableInterface },

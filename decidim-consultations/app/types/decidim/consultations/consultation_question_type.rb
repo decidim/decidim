@@ -2,10 +2,10 @@
 
 module Decidim
   module Consultations
-    Decidim::Consultations::Question.include Decidim::Core::GraphQLApiTransition
-
     # This type represents a consultation.
     ConsultationQuestionType = GraphQL::ObjectType.define do
+      Decidim::Consultations::Question.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
