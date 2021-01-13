@@ -67,7 +67,7 @@ FactoryBot.define do
 
     trait :ready_for_setup do
       transient do
-        trustee_keys { 2.times.map { generate(:private_key).export.to_json } }
+        trustee_keys { 2.times.map { [Faker::Name.name, generate(:private_key).export.to_json] }.to_h }
       end
 
       upcoming
