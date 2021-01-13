@@ -481,6 +481,11 @@ tr:
       newsletter_templates:
         index:
           preview_template: Ön izleme
+          title: Bülten Şablonu
+          use_template: Bu şablonu kullan
+        show:
+          preview: 'Şablon özizlemesi: %{template_name}'
+          use_template: Bu şablonu kullan
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -505,6 +510,7 @@ tr:
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
           segmented_to: '%{subject} bölüme ayrılmış: '
+          subscribed_count: 'Abone Olundu:'
           title: Haber bültenleri
         new:
           save: Kayıt etmek
@@ -517,6 +523,7 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
           scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
@@ -525,6 +532,7 @@ tr:
           send_to_followers: Takipçilere gönder
           send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
+          warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         send:
           no_recipients: Bu seçim için hiç alıcı yok
         show:
@@ -571,9 +579,9 @@ tr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
-          twitter: heyecan
+          twitter: Twitter
           url: URL
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
           success: Kuruluş başarıyla güncellendi.
@@ -695,7 +703,7 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: gösterge paneli
+        dashboard: Pano
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         participants: Kullanıcılar
@@ -742,8 +750,8 @@ tr:
           success: Kullanıcı artık yönetici değil.
         form:
           email: E-posta
-          name: isim
-          role: rol
+          name: Adı
+          role: Rol
         new:
           create: Davet et
           title: Kullanıcıyı yönetici olarak davet et
