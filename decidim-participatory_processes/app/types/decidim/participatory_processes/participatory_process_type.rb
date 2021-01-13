@@ -2,6 +2,8 @@
 
 module Decidim
   module ParticipatoryProcesses
+    Decidim::ParticipatoryProcess.include Decidim::Core::GraphQLApiTransition
+    
     # This type represents a ParticipatoryProcess.
     ParticipatoryProcessType = GraphQL::ObjectType.define do
       interfaces [

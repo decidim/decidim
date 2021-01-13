@@ -2,6 +2,7 @@
 
 module Decidim
   module Conferences
+    Decidim::Conference.include Decidim::Core::GraphQLApiTransition
     # This type represents a conference.
     ConferenceType = GraphQL::ObjectType.define do
       interfaces [

@@ -2,6 +2,8 @@
 
 module Decidim
   module Budgets
+    Budget.include Decidim::Core::GraphQLApiTransition
+
     BudgetType = GraphQL::ObjectType.define do
       interfaces [
         -> { Decidim::Core::ScopableInterface },
