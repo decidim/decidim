@@ -72,6 +72,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
+      include Decidim::Core::GraphQLApiTransition
 
       translatable_fields :title
       searchable_fields(
