@@ -636,9 +636,9 @@ tr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
-          twitter: heyecan
+          twitter: Twitter
           url: URL
-          youtube: Youtube
+          youtube: YouTube
         update:
           error: Bu kuruluşu güncellerken bir hata oluştu.
           success: Kuruluş başarıyla güncellendi.
@@ -760,7 +760,7 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
-        dashboard: gösterge paneli
+        dashboard: Pano
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         participants: Kullanıcılar
@@ -807,8 +807,8 @@ tr:
           success: Kullanıcı artık yönetici değil.
         form:
           email: E-posta
-          name: isim
-          role: rol
+          name: Adı
+          role: Rol
         new:
           create: Davet et
           title: Kullanıcıyı yönetici olarak davet et
