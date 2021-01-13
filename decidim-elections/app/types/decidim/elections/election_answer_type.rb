@@ -2,6 +2,7 @@
 
 module Decidim
   module Elections
+    Answer.include Decidim::Core::GraphQLApiTransition
     # This type represents an answer to an election question.
     # The name is different from the model because to enforce consistency with Question type name.
     ElectionAnswerType = GraphQL::ObjectType.define do

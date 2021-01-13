@@ -2,6 +2,7 @@
 
 module Decidim
   module Elections
+    Election.include Decidim::Core::GraphQLApiTransition
     # This type represents an Election.
     ElectionType = GraphQL::ObjectType.define do
       interfaces [
