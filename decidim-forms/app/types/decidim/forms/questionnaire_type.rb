@@ -3,6 +3,8 @@
 module Decidim
   module Forms
     QuestionnaireType = GraphQL::ObjectType.define do
+      Decidim::Forms::Questionnaire.include Decidim::Core::GraphQLApiTransition
+
       name "Questionnaire"
       description "A questionnaire"
 

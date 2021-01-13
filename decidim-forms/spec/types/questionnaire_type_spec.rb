@@ -61,7 +61,7 @@ module Decidim
         end
 
         it "returns the questionnaire's entity corresponding to questionnaire_for_id" do
-          expect(response["forEntity"]["id"]).to eq(meeting.id.to_s)
+          expect(response["forEntity"]["id"]).to eq(model.questionnaire_for.id.to_s)
         end
       end
     end
