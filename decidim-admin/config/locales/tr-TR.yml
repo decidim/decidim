@@ -502,6 +502,16 @@ tr:
         index:
           actions:
             title: Eylemler
+            unreport: Bildirilmedi
+          name: Adı
+          nickname: Rumuz
+          reason: Nedeni
+          title: Bildirilen kullanıcılar listesi
+        report:
+          reasons:
+            does_not_belong: Ait değil
+            offensive: Saldırgan
+            spam: İstenmeyen
       moderations:
         index:
           title: Denetimler
@@ -510,9 +520,29 @@ tr:
             does_not_belong: Ait değil
             offensive: saldırgan
             spam: İstenmeyen e
+        reports:
+          index:
+            author: Yazar(lar)
+            callout_html: Bir kullanıcı tarafından (kayıtlı hesabı olan herhangi biri olabilir) öğenin yanındaki %{icon} bayrağına tıklanarak bildirildiğinde, denetim panelinde bir içerik görünür.
+            content_original_language: İçerik orijinal dili
+            participatory_space: Katılımcı süreç
+            reported_content: Şikayet Edilmiş İçerik
+            see_current: Şu ankini gör
+            see_original: Orijinali gör
+            title: Moderatör raporları
+          show:
+            report_details: Nedenin ayrıntıları
+            report_language: Rapor dili
+            report_reason: Nedeni
+            title: Rapor ayrıntıları
       newsletter_templates:
         index:
           preview_template: Ön izleme
+          title: Bülten Şablonu
+          use_template: Bu şablonu kullan
+        show:
+          preview: 'Şablon özizlemesi: %{template_name}'
+          use_template: Bu şablonu kullan
       newsletters:
         create:
           error: Bu bülteni oluştururken bir hata oluştu.
@@ -537,6 +567,7 @@ tr:
           not_sent: Gönderilmedi
           participants: 'katılımcılar '
           segmented_to: '%{subject} bölüme ayrılmış: '
+          subscribed_count: 'Abone Olundu:'
           title: Haber bültenleri
         new:
           save: Kayıt etmek
@@ -549,6 +580,7 @@ tr:
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
           none: Hiçbiri
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
+          recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
           scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
@@ -557,6 +589,7 @@ tr:
           send_to_followers: Takipçilere gönder
           send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
+          warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         send:
           no_recipients: Bu seçim için hiç alıcı yok
         show:
