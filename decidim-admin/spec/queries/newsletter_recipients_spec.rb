@@ -118,8 +118,8 @@ module Decidim::Admin
           end
 
           it "returns all users" do
-            expect(subject.query).to match_array recipients
-            expect(recipients.count).to eq 3
+            expect(subject.query).to match_array authors
+            expect(authors.count).to eq 3
           end
 
           context "and other comment in other participatory spaces" do
