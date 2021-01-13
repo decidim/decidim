@@ -14,6 +14,10 @@ module Decidim
       end
 
       field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
+
+      def self.resolve_type(obj, _ctx)
+        "#{obj.class.name}Type".constantize
+      end
     end
   end
 end

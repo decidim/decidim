@@ -29,6 +29,12 @@ module Decidim
       field :cancelledOn, Decidim::Core::DateType, "When this sortition was cancelled", property: :cancelled_on
       field :cancelledByUser, Decidim::Core::UserType, "Who cancelled this sortition", property: :cancelled_by_user
       field :candidateProposals, types[types.Int], "The candidate proposal for this sortition", property: :candidate_proposals
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
+        }
+      end
     end
   end
 end

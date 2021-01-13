@@ -9,6 +9,18 @@ module Decidim
         ))
       end
 
+      def total_comments_count
+        object.comments_count
+      end
+
+      # def user_allowed_to_comment
+      #   object.commentable? && object.user_allowed_to_comment?(context[:current_user])
+      # end
+
+      def has_comments
+        object.comment_threads.size.positive?
+      end
+
       def object
         self
       end
