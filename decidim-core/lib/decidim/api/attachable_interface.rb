@@ -3,11 +3,11 @@
 module Decidim
   module Core
     # This interface represents a attachable object.
-    AttachableInterface = GraphQL::InterfaceType.define do
-      name "AttachableInterface"
+    module AttachableInterface
+      include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with attachments"
 
-      field :attachments, !types[Decidim::Core::AttachmentType], "This object's attachments"
+      field :attachments, [Decidim::Core::AttachmentType, { null: true }], "This object's attachments", null: false
     end
   end
 end

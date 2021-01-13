@@ -4,6 +4,8 @@ module Decidim
   module Initiatives
     # This type represents a Initiative.
     InitiativeType = GraphQL::ObjectType.define do
+      Decidim::Initiative.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::ParticipatorySpaceInterface },
         -> { Decidim::Core::ScopableInterface },

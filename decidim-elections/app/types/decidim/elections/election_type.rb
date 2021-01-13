@@ -4,6 +4,8 @@ module Decidim
   module Elections
     # This type represents an Election.
     ElectionType = GraphQL::ObjectType.define do
+      Decidim::Elections::Election.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::AttachableInterface },
         -> { Decidim::Core::TraceableInterface }

@@ -3,6 +3,8 @@
 module Decidim
   module Meetings
     MeetingType = GraphQL::ObjectType.define do
+      Decidim::Meetings::Meeting.include Decidim::Core::GraphQLApiTransition
+
       name "Meeting"
       description "A meeting"
 

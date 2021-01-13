@@ -4,6 +4,8 @@ module Decidim
   module Blogs
     # This type represents a Post.
     PostType = GraphQL::ObjectType.define do
+      Decidim::Blogs::Post.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Comments::CommentableInterface },
         -> { Decidim::Core::AttachableInterface },

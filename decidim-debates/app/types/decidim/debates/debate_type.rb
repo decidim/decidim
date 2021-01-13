@@ -3,6 +3,8 @@
 module Decidim
   module Debates
     DebateType = GraphQL::ObjectType.define do
+      Decidim::Debates::Debate.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::CategorizableInterface },
         -> { Decidim::Comments::CommentableInterface },
