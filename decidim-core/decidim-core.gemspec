@@ -69,7 +69,6 @@ Gem::Specification.new do |s|
   s.add_dependency "sassc-rails", "~> 2.1.2"
   s.add_dependency "seven_zip_ruby", "~> 1.3"
   s.add_dependency "social-share-button", "~> 1.2", ">= 1.2.1"
-  s.add_dependency "spreadsheet", "~> 1.2"
   s.add_dependency "sprockets", "~> 3.7", "< 4"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
   s.add_dependency "truncato", "~> 0.7"
