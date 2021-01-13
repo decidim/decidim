@@ -7,7 +7,7 @@ require "decidim/core/test/shared_examples/timestamps_interface_examples"
 module Decidim
   module Forms
     describe QuestionnaireType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:questionnaire) }
 
       include_examples "timestamps interface"

@@ -38,7 +38,7 @@ module Decidim
             property: :online_votes_count,
             deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter"
 
-      field :author, !Decidim::Core::AuthorInterface, "The initiative author" do
+      field :author, !types[Decidim::Core::AuthorInterface], "The initiative author" do
         resolve lambda { |obj, _args, _ctx|
           obj.user_group || obj.author
         }

@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Core
     describe TraceVersionType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:user) { create(:user) }
       let(:change) do
