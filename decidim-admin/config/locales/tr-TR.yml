@@ -227,6 +227,12 @@ tr:
       autocomplete:
         no_results: Sonuç bulunamadı
         search_prompt: Aramak için en az üç karakter girin
+      block_user:
+        new:
+          action: Hesabı engelle ve uyarı mesjı gönder
+          description: Bir kullanıcının engellenmesi, hesabının kullanılamaz hale gelmesine neden olur, gerekçenizde ve kullanıcının engellemesini kaldırmayı düşündüğünüz yollarla ilgili yönergeler sağlayabilirsiniz.
+          justification: Gerekçe
+          title: '%{name} Kullanıcısını Engelle'
       categories:
         create:
           error: Bu kategori oluşturulurken bir hata oluştu.
@@ -325,7 +331,21 @@ tr:
           label: Kişisel
           values:
             'false': Herkese Açık
+            'true': Özel
+        published_at_null:
+          label: Yayınlandı
+          values:
+            'false': Yayınlandı
+            'true': Yayından kaldırıldı
+        scope_id_eq:
+          label: Kapsam
         search_label: Arama
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
+          reported_id_string_or_reported_content_cont: '%{collection} ''ı rapor edilebilir kimlik veya içeriğe göre arayın.'
+          title_cont: Başlığa göre %{collection} ara.
+        state_eq:
+          label: Durum
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
@@ -387,14 +407,19 @@ tr:
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
+        moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
+        reported_users: Raporlanan Kullanıcı
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
         static_pages: Sayfalar
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
+      metrics:
+        metrics:
+          see_more_metrics: Daha fazla metrik gör
       models:
         area:
           fields:
@@ -441,6 +466,14 @@ tr:
           fields:
             name: isim
             plural: Çoğul
+        share_token:
+          fields:
+            created_at: Oluşturulma tarihi
+            expires_at: Süre sonu
+            last_used_at: Son kullanıldığı zaman
+            times_used: Kullanım Sayısı
+            token: Jeton
+            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
@@ -465,6 +498,10 @@ tr:
             phone: Telefon
             state: Belirtmek, bildirmek
             users_count: Kullanıcılar
+      moderated_users:
+        index:
+          actions:
+            title: Eylemler
       moderations:
         index:
           title: Denetimler
