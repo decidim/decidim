@@ -37,9 +37,9 @@ module Decidim
 
         processed_collection.each_with_index do |resource, index|
           headers.each_with_index do |header, j|
-            if resource[header].class == ActiveSupport::TimeWithZone
+            if resource[header].respond_to?(:strftime)
               cell = worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))
-              cell.set_number_format("dd.mm.yyyy HH:MM:SS")
+              resource[header].is_a?(Date) ? cell.set_number_format("dd.mm.yyyy") : cell.set_number_format("dd.mm.yyyy HH:MM:SS")
               next
             end
             worksheet.add_cell(index + 1, j, custom_sanitize(resource[header]))

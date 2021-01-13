@@ -83,5 +83,49 @@ module Decidim
         expect(Time.zone.parse(worksheet[6][5].value.to_s)).to eq(Time.zone.local(2020, 6, 27))
       end
     end
+
+    context "when export dates" do
+      subject { described_class.new(collection, serializer) }
+
+      let(:collection) do
+        [
+          OpenStruct.new(id: 1, title: { ca: "such", es: "wow" }, start_date: Date.strptime("08-07-2020", "%d-%m-%Y")),
+          OpenStruct.new(id: 2, title: { ca: "many", es: "much" }, start_date: Date.strptime("13-01-2021", "%d-%m-%Y"))
+        ]
+      end
+
+      let(:serializer) do
+        Class.new do
+          def initialize(resource)
+            @resource = resource
+          end
+
+          def serialize
+            {
+              id: @resource.id,
+              title: @resource.title,
+              start_date: @resource.start_date
+            }
+          end
+        end
+      end
+
+      it "formats cells into dd.mm.yyyy" do
+        exported = StringIO.new(subject.export.read)
+        workbook = RubyXL::Parser.parse_buffer(exported)
+        worksheet = workbook[0]
+
+        headers = worksheet[0].cells.map(&:value)
+        expect(headers).to eq(%w(id title/ca title/es start_date))
+
+        expect(worksheet[1][0..2].map(&:value)).to eq([1, "such", "wow"])
+        expect(worksheet[1][3].number_format.format_code).to eq("dd.mm.yyyy")
+        expect(worksheet[1][3].value).to eq(Date.strptime("08-07-2020", "%d-%m-%Y"))
+
+        expect(worksheet[2][0..2].map(&:value)).to eq([2, "many", "much"])
+        expect(worksheet[2][3].number_format.format_code).to eq("dd.mm.yyyy")
+        expect(worksheet[2][3].value).to eq(Date.strptime("13-01-2021", "%d-%m-%Y"))
+      end
+    end
   end
 end
