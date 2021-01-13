@@ -306,7 +306,20 @@ tr:
           label: Kişisel
           values:
             'false': Herkese Açık
+            'true': Özel
+        published_at_null:
+          label: Yayınlandı
+          values:
+            'false': Yayınlandı
+            'true': Yayından kaldırıldı
+        scope_id_eq:
+          label: Kapsam
         search_label: Arama
+        search_placeholder:
+          name_or_nickname_or_email_cont: '%{collection} e-posta, isim veya takma ad ile arayın.'
+          title_cont: Başlığa göre %{collection} ara.
+        state_eq:
+          label: Durum
       help_sections:
         error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
@@ -376,6 +389,9 @@ tr:
         static_pages: Sayfalar
         user_groups: Kullanıcı Grupları
         users: Kullanıcılar
+      metrics:
+        metrics:
+          see_more_metrics: Daha fazla metrik gör
       models:
         area:
           fields:
@@ -422,6 +438,14 @@ tr:
           fields:
             name: isim
             plural: Çoğul
+        share_token:
+          fields:
+            created_at: Oluşturulma tarihi
+            expires_at: Süre sonu
+            last_used_at: Son kullanıldığı zaman
+            times_used: Kullanım Sayısı
+            token: Jeton
+            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
