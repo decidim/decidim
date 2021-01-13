@@ -34,7 +34,7 @@ jobs:
           bundler-cache: true
       - run: bundle exec brakeman --force-scan
         name: Scanning Security issues on Main
-      - run: bundle exec brakeman --force-scan decidim-dev
+      - run: bundle exec brakeman --force-scan decidim-dev --skip-files decidim-dev/lib/decidim/dev/test/*
         name: Scanning Security issues on Dev module
       - run: bundle exec brakeman --force-scan decidim_app-design
         name: Scanning Security issues on Decidim App module
