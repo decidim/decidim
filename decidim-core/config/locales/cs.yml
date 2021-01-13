@@ -343,6 +343,12 @@ cs:
           title: Potvrdit svůj email
       show:
         close_modal: Zavřít okno
+    block_user_mailer:
+      notify:
+        body_1: Váš účet byl zablokován.
+        body_2: 'Důvod: %{justification}'
+        greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den,
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -1132,6 +1138,7 @@ cs:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
       deleted: Vymazaný uživatel
+      inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Pohled
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
