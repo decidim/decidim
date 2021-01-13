@@ -13,13 +13,11 @@ module Decidim
         object.comments_count
       end
 
-      # def user_allowed_to_comment
-      #   object.commentable? && object.user_allowed_to_comment?(context[:current_user])
-      # end
-
+      # rubocop:disable Naming/PredicateName
       def has_comments
         object.comment_threads.size.positive?
       end
+      # rubocop:enable Naming/PredicateName
 
       def object
         self
