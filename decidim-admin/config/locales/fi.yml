@@ -230,6 +230,9 @@ fi:
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
+          description: Estämällä käyttäjän estät kyseisen käyttäjän pääsyn hänen omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä kyseinen käyttäjä voi tehdä palauttaakseen pääsyn tililleen.
+          justification: Perustelut
+          title: Estä käyttäjä %{name}
       categories:
         create:
           error: Aihepiirin luonti epäonnistui.
@@ -285,6 +288,21 @@ fi:
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
+      conflicts:
+        attempts: Yritykset
+        'false': 'Ei'
+        managed_user_name: Hallittu käyttäjä
+        solved: Ratkaistu
+        title: Tarkistusten ristiriidat
+        transfer:
+          email: Sähköposti
+          error: Nykyisen käyttäjän siirto hallituksi käyttäjäksi epäonnistui.
+          name: Nimi
+          reason: Syy
+          success: Siirto onnistui.
+          title: Siirrä
+        'true': 'Kyllä'
+        user_name: Käyttäjä
       dashboard:
         show:
           view_more_logs: Näytä lisää lokitietoja
@@ -582,6 +600,9 @@ fi:
           error: Uutiskirjeen päivitys epäonnistui.
           success: Uutiskirjeen päivitys onnistui. Tarkasta se läpi ennen lähetystä.
       officializations:
+        block:
+          error: Käyttäjän estäminen epäonnistui
+          success: Käyttäjän estäminen onnistui
         create:
           success: Käyttäjän virallistaminen onnistui
         destroy:
@@ -589,6 +610,7 @@ fi:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
+          block: Estä käyttäjä
           created_at: Luontihetki
           name: Nimi
           nickname: Nimimerkki
@@ -599,6 +621,7 @@ fi:
           reports: Ilmoitukset
           show_email: Näytä sähköpostiosoite
           status: Tila
+          unblock: Poista käyttäjän esto
           unofficialize: Poista virallistaminen
         new:
           badge: Virallistamismerkki
@@ -612,6 +635,9 @@ fi:
           hidden: piilotettu
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
+        unblock:
+          error: Käyttäjän eston poistaminen epäonnistui
+          success: Käyttäjän eston poistaminen onnistui
       organization:
         edit:
           title: Muokkaa organisaatiota
