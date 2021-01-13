@@ -227,6 +227,9 @@ fi:
       autocomplete:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakuun
+      block_user:
+        new:
+          action: Estä tili ja lähetä perustelut
       categories:
         create:
           error: Aihepiirin luonti epäonnistui.
