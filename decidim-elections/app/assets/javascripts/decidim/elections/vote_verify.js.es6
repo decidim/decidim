@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc, prefer-template, func-style, id-length, no-use-before-define, init-declarations, no-invalid-this */
 /* eslint no-unused-vars: ["error", { "args": "none" }] */
-// = require decidim-bulletin_board
+// = require decidim/bulletin_board/decidim-bulletin_board
+
 $(() => {
   const { Client } = decidimBulletinBoard;
   const $voteVerifyWrapper = $(".vote-verify-wrapper");
