@@ -151,6 +151,7 @@ fi:
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
         show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
         transfer: "%{user_name} siirsi osallistujan %{resource_name}"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -279,6 +280,8 @@ fi:
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
         name: Esimerkkivahvistuksen työnkulku
+      errors:
+        duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:
@@ -324,6 +327,13 @@ fi:
           title: Vahvista sähköpostiosoitteesi
       show:
         close_modal: Sulje ikkuna
+    block_user_mailer:
+      notify:
+        body_1: Tilisi on estettiin.
+        body_2: 'Syy: %{justification}'
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
+        subject: Käyttäjätilisi on estetty palvelussa %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -1104,6 +1114,7 @@ fi:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
+      inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
       view: Näytä
     profiles:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu ja sen nimi vastaa oikeaa nimeä
