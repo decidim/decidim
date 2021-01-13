@@ -79,6 +79,7 @@ fi:
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
+      blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       data_portability_export:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
@@ -143,10 +144,13 @@ fi:
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
       user:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
+        promote: "%{user_name} on korottanut käyttäjän %{resource_name} oikeudet"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
         show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
+        transfer: "%{user_name} siirsi osallistujan %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
