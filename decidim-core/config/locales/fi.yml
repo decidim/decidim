@@ -114,6 +114,8 @@ fi:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
         unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisemisen osallistumistilassa %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin osallistumistilaan %{space_name}"
         unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen osallistumistilassa %{space_name}"
