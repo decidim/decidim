@@ -129,6 +129,7 @@ describe "Admin manages elections", type: :system do
       end
     end
   end
+
   describe "unpublishing an election" do
     let!(:election) { create :election, :published, :ready_for_setup, component: current_component }
 

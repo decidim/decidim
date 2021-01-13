@@ -41,12 +41,10 @@ describe "Key ceremony", type: :system do
       visit_component_admin
 
       within find("tr", text: translated(election.title)) do
-        page.find(".action-icon--setup-election").click
+        page.find(".action-icon--manage-steps").click
       end
 
-      within ".setup_election" do
-        page.find(".button").click
-      end
+      click_button "Setup election"
 
       election.reload
     end
