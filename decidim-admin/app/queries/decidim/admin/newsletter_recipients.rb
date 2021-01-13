@@ -82,12 +82,6 @@ module Decidim
               participant_ids << klass.newsletter_participant_ids(component)
             end
           end
-          next unless defined?(Decidim::Comments)
-
-          Decidim::Comments.newsletter_participant_entities.flatten.each do |object|
-            klass = Object.const_get(object)
-            participant_ids << klass.newsletter_participant_ids(space)
-          end
         end
         participant_ids.flatten.compact.uniq
       end
