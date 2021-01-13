@@ -114,9 +114,19 @@ tr:
       assemblies_settings:
         update:
           error: Ayarı değiştirirken bir hata oluştu.
+          success: Ayarlar başarıyla güncellendi.
       assemblies_types:
+        create:
+          error: Yeni bir kurul türü oluşturulurken bir sorun meydana geldi.
+          success: Kurul türü başarıyla oluşturuldu.
+        destroy:
+          success: Kurul türü başarıyla silindi.
         new:
           create: yaratmak
+          title: Yeni kurul türü
+        update:
+          error: Bu kurul türü güncellenirken bir sorun oluştu.
+          success: Kurul türü başarıyla güncellendi.
       assembly_copies:
         new:
           copy: kopya
@@ -173,6 +183,7 @@ tr:
           success: Kullanıcı bu derleme için başarıyla güncellendi.
       menu:
         assemblies: meclisleri
+        assemblies_settings: Ayarlar
         assemblies_submenu:
           assembly_admins: Montaj kullanıcıları
           assembly_members: Üyeler
@@ -184,6 +195,7 @@ tr:
           info: Bilgi
           moderations: Denetimler
           private_users: Özel kullanıcılar
+        assemblies_types: Kurul türü
       models:
         assemblies_types:
           fields:
@@ -219,8 +231,10 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
+            valuator: Bilirkişi
       titles:
         assemblies: meclisleri
+        assemblies_types: Kurul türleri
     admin_log:
       assembly:
         create: "%{user_name} %{resource_name} meclisi oluşturdu"
