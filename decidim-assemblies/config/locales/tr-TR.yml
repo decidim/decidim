@@ -174,18 +174,18 @@ tr:
           title: Kurul yöneticisini güncelleyin.
           update: Güncelle
         index:
-          assembly_admins_title: Montaj kullanıcıları
+          assembly_admins_title: Kurul yöneticileri
         new:
-          create: yaratmak
-          title: Yeni montaj kullanıcısı.
+          create: Oluştur
+          title: Yeni kurul yöneticisi.
         update:
-          error: Bu derleme için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu derleme için başarıyla güncellendi.
+          error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
+          success: Yönetici bu kurul için başarıyla güncellendi.
       menu:
-        assemblies: meclisleri
+        assemblies: Kurullar
         assemblies_settings: Ayarlar
         assemblies_submenu:
-          assembly_admins: Montaj kullanıcıları
+          assembly_admins: Kurul yöneticileri
           assembly_members: Üyeler
           attachment_collections: Klasörler
           attachment_files: Dosyalar
@@ -193,7 +193,7 @@ tr:
           categories: Kategoriler
           components: Bileşenler
           info: Bilgi
-          moderations: Denetimler
+          moderations: Yönetim
           private_users: Özel kullanıcılar
         assemblies_types: Kurul türü
       models:
@@ -208,43 +208,43 @@ tr:
             promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
-          name: montaj
+          name: Kurul
         assembly_member:
           fields:
             ceased_date: Bitiş tarihi
             designation_date: Atama tarihi
-            full_name: isim
-            position: pozisyon
-          name: üye
+            full_name: Adı
+            position: Pozisyon
+          name: Üye
           positions:
             other: Diğer
-            president: Devlet Başkanı
+            president: Başkan
             secretary: Sekreter
-            vice_president: Başkan Vekili
+            vice_president: Başkan Yardımcısı
         assembly_user_role:
           fields:
             email: E-posta
-            name: isim
-            role: rol
-          name: Montaj Kullanıcı
+            name: Adı
+            role: Rol
+          name: Kurul yöneticisi
           roles:
-            admin: yönetici
-            collaborator: işbirlikçi
-            moderator: arabulucu
+            admin: Yönetici
+            collaborator: İşbirlikçi
+            moderator: Moderatör
             valuator: Bilirkişi
       titles:
-        assemblies: meclisleri
+        assemblies: Kurullar
         assemblies_types: Kurul türleri
     admin_log:
       assembly:
-        create: "%{user_name} %{resource_name} meclisi oluşturdu"
-        publish: "%{user_name} %{resource_name} meclisi yayınladı"
-        unpublish: "%{user_name} %{resource_name} montajı yayından kaldırıldı"
-        update: "%{user_name} güncellenmiş %{resource_name} meclis"
+        create: "%{user_name} %{resource_name} kurulu oluşturdu"
+        publish: "%{user_name} %{resource_name} kurulu yayınladı"
+        unpublish: "%{user_name} %{resource_name} kurulu yayından kaldırıldı"
+        update: "%{user_name}, %{resource_name} kurulunu güncelledi"
       assembly_member:
-        create: "%{user_name} , %{space_name} mecliste %{resource_name} üye yarattı"
-        delete: "%{user_name} uzaklaştırıldı %{resource_name} den elemanı %{space_name} montaj"
-        update: "%{user_name} , %{space_name} mecliste %{resource_name} üye güncellendi"
+        create: "%{user_name}, %{space_name} kurulunda %{resource_name} üyesini oluşturdu"
+        delete: "%{user_name}, %{resource_name} üyesini %{space_name} kurulundan kaldırdı"
+        update: "%{user_name}, %{space_name} kurulunda %{resource_name} üyesini güncelledi"
       assembly_setting:
         update: "%{user_name}, kurul ayarlarını güncelledi"
       assembly_type:
