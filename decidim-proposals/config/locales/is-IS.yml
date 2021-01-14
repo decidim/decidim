@@ -101,7 +101,6 @@ is-IS:
         actions:
           preview: Preview
         exports:
-          comments: Athugasemdir
           proposals: Tillögur
         models:
           proposal:

@@ -207,6 +207,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
+          meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
         invite_join_meeting_mailer:

@@ -352,7 +352,6 @@ sv:
         actions:
           preview: Förhandsvisa
         exports:
-          comments: Kommentarer
           proposals: Förslag
         models:
           proposal:

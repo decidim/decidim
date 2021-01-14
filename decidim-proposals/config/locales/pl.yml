@@ -363,7 +363,6 @@ pl:
         actions:
           preview: Podgląd
         exports:
-          comments: Komentarze
           proposals: Propozycje
         models:
           proposal:
