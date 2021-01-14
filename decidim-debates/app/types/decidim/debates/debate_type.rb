@@ -6,6 +6,8 @@ module Decidim
       implements Decidim::Core::CategorizableInterface
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::ScopableInterface
+
       description "A debate"
 
       field :id, ID, "The internal ID for this debate", null: false
