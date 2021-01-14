@@ -214,6 +214,7 @@ cs:
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
+            confirm_send_to_technical_validation: Jste si jistý?
             discard: Zrušit iniciativu
             export_pdf_signatures: Export PDF podpisů
             export_votes: Podpora exportu
