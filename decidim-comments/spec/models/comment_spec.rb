@@ -252,6 +252,35 @@ module Decidim
           end
         end
       end
+
+      describe "#user_commentators_ids_in" do
+        context "when commentors belong to the given resources" do
+          it "returns the autors of the resources' comments" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
+            expect(ids).to match_array([author.id])
+          end
+        end
+
+        context "when commentors do not belong to the given resources" do
+          let(:other_component) { create(:dummy_component) }
+          let!(:other_commentable) { create(:dummy_resource, component: other_component) }
+
+          it "does not return them" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::DummyResource.where(component: commentable.component))
+            expect(ids).to match_array([author.id])
+          end
+        end
+
+        context "when resource is not commentable" do
+          let(:other_component) { create(:dummy_component) }
+          let!(:non_commentable) { create(:coauthorable_dummy_resource, component: other_component) }
+
+          it "returns nil" do
+            ids = Decidim::Comments::Comment.user_commentators_ids_in(Decidim::DummyResources::CoauthorableDummyResource.where(component: other_component))
+            expect(ids).to be_nil
+          end
+        end
+      end
     end
   end
 end
