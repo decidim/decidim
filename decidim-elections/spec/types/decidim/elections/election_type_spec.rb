@@ -8,7 +8,7 @@ require "decidim/core/test/shared_examples/traceable_interface_examples"
 module Decidim
   module Elections
     describe ElectionType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:election, :published, :complete) }
 
