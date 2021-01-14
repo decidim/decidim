@@ -75,6 +75,10 @@ de:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
           empty: Es gibt keine Debatten, die diesen Kriterien entsprechen.
+          form:
+            debate_type: Debatten-Typ
+            finite: Zeitlich begrenzt (mit Start- und Endzeit)
+            open: Offen (keine Start- und Endzeit)
           index:
             title: Debatten
           new:
@@ -167,6 +171,7 @@ de:
           groups_count: Gruppen
           last_comment_by: Letzter Kommentar von
           no_comments_yet: Noch keine Kommentare
+          open: Offene Debatte
           participants_count: Teilnehmer
         update:
           invalid: Es gab ein Problem bei der Aktualisierung der Aussprache.
