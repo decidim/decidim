@@ -399,12 +399,16 @@ en:
         elections_count: Elections
     votings:
       admin:
+        index:
+          not_published: Not published
+          published: Published
         menu:
           votings: Votings
         models:
           voting:
             fields:
               created_at: Created at
+              published: Published
               title: Title
         titles:
           votings: Votings

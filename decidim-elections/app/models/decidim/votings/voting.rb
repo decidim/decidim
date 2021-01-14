@@ -9,6 +9,7 @@ module Decidim
       # include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::ScopableParticipatorySpace
+      include Decidim::Publicable
 
       translatable_fields :title, :description
 
