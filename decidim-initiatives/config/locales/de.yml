@@ -208,7 +208,7 @@ de:
           edit:
             accept: Initiative akzeptieren
             confirm: Bist du sicher?
-            confirm_send_to_technical_validation: Bist du dir sicher?
+            confirm_send_to_technical_validation: Sind Sie sicher?
             discard: Verwerfen Sie die Initiative
             export_pdf_signatures: Exportieren von PDF-Signaturen
             export_votes: Export unterstützt
