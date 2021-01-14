@@ -9,6 +9,7 @@ module Decidim
       # include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::ScopableParticipatorySpace
+      include Decidim::Publicable
 
       translatable_fields :title, :description
 
@@ -28,6 +29,11 @@ module Decidim
       #                   },
       #                   index_on_create: ->(_voting) { false },
       #                   index_on_update: ->(voting) { voting.visible? })
+
+      # Allow ransacker to search for a key in a hstore column (`title`.`en`)
+      ransacker :title do |parent|
+        Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
+      end
 
       # should remove this method when we have public views
       def self.public_spaces

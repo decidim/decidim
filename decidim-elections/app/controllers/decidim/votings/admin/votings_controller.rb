@@ -5,10 +5,12 @@ module Decidim
     module Admin
       # This controller allows the create or update an election.
       class VotingsController < Admin::ApplicationController
+        include Decidim::Votings::Admin::Filterable
         helper_method :votings, :voting
 
         def index
           enforce_permission_to :read, :votings
+          @votings = filtered_collection
         end
 
         def new
@@ -97,6 +99,10 @@ module Decidim
 
         def votings
           @votings ||= Decidim::Votings::Voting.where(organization: current_user.organization)
+        end
+
+        def collection
+          @collection ||= OrganizationVotings.new(current_user.organization).query
         end
 
         def voting
