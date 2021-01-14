@@ -31,6 +31,16 @@ module Decidim::Meetings
       end
     end
 
+    context "when user answered a questionaire" do
+      before do
+        meeting.questionnaire.destroy
+      end
+
+      it "allows the user to leave successully" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
+
     context "when the user has not joined the meeting" do
       let(:user_leaving_meeting) { create :user, :confirmed, organization: meeting.organization }
 
