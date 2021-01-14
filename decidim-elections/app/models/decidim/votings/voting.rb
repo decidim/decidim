@@ -47,6 +47,10 @@ module Decidim
         Arel::Nodes::InfixOperation.new("->>", parent.table[:title], Arel::Nodes.build_quoted(I18n.locale.to_s))
       end
 
+      def to_param
+        slug
+      end
+
       # should remove this method when we have public views
       def self.public_spaces
         none
