@@ -388,15 +388,15 @@ tr:
         endorsements_count: Onaylar
         headline: Aktivite
         meetings_count: Toplantılar
-        orders_count: oy
+        orders_count: Destekler
         pages_count: Sayfalar
         posts_count: Yayınlar
         projects_count: Projeler
-        proposals_count: Teklif
+        proposals_count: Teklifler
         results_count: Sonuçlar
         surveys_count: Anketler
         users_count: Katılımcılar
-        votes_count: oy
+        votes_count: Destekler
     assembly_members:
       assembly_member:
         designated_on: Üzerinde belirlenen
@@ -423,22 +423,22 @@ tr:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
-          page: "<p>bir düzenek organizasyonun belirli bir alan veya kapsamı hakkında kararlar almak için periyodik olarak bir araya bir örgütün üyelerinin bir gruptur.</p> <p>Toplantılar toplantı yapar, bazıları özeldir ve bazıları açıktır. Açık olmaları halinde, onlara katılmak mümkündür (örneğin: kapasitenin buna izin verip vermediğine katılmak, gündeme puan eklemek veya bu organ tarafından alınan teklif ve kararlara yorum yapmak).</p> <p>Örnekler: Genel bir kurul (kuruluşun ana faaliyet alanlarını ve yürütme organlarını oy kullanarak tanımlamak için yılda bir kez toplanır), bir eşitlik danışma konseyi (her iki ayda bir, toplumsal cinsiyet ilişkilerinin nasıl geliştirileceğine dair önerilerde bulunur) kuruluşta) bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanır) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, kötüye kullanımları veya teklifleri toplar) meclislere örnektir.</p>\n"
-          title: Meclis nedir?
+          contextual: "<p> <strong> Kurul</strong>, kuruluşun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir kuruluşun üyelerinden oluşan bir gruptur. </p> <p> Kurullar toplantılar yapar, bazıları özeldir ve bazıları açık. Açıklarsa, bunlara katılmak mümkündür (örneğin: kapasite izin verirse katılmak, gündeme noktalar eklemek veya bu organ tarafından alınan teklifler ve kararlar hakkında yorum yapmak). </p> <p> Örnekler: Bir genel kurul (kuruluşun ana hareket hatlarını ve yürütme organlarını oylama ile belirlemek için yılda bir kez toplanır), bir eşitlik danışma konseyi (organizasyonda cinsiyet ilişkilerinin nasıl iyileştirileceğine dair önerilerde bulunmak için iki ayda bir toplanır), bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, suistimalleri veya teklifleri toplayan) tüm toplantı örnekleridir. </p>\n"
+          page: "<p> <strong> Kurul</strong>, kuruluşun belirli bir alanı veya kapsamı hakkında kararlar almak için periyodik olarak toplanan bir kuruluşun üyelerinden oluşan bir gruptur. </p> <p> Kurullar toplantılar yapar, bazıları özeldir ve bazıları açık. Açıklarsa, bunlara katılmak mümkündür (örneğin: kapasite izin verirse katılmak, gündeme noktalar eklemek veya bu organ tarafından alınan teklifler ve kararlar hakkında yorum yapmak). </p> <p> Örnekler: Bir genel kurul (kuruluşun ana hareket hatlarını ve yürütme organlarını oylama ile belirlemek için yılda bir kez toplanır), bir eşitlik danışma konseyi (organizasyonda cinsiyet ilişkilerinin nasıl iyileştirileceğine dair önerilerde bulunmak için iki ayda bir toplanır), bir değerlendirme komisyonu (bir süreci izlemek için her ay toplanan) veya bir garanti organı (karar alma prosedürlerini iyileştirmek için olayları, suistimalleri veya teklifleri toplayan) tüm toplantı örnekleridir. </p>\n"
+          title: Kurul nedir?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Derleme veritabanında bulunamadı (ID: %{id})'
+          not_found: 'Kurul veritabanında bulunamadı (ID: %{id})'
         assembly_type_presenter:
           not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
-      assemblies: meclisleri
+      assemblies: Kurullar
     metrics:
       assemblies:
-        description: Oluşturulan derleme sayısı
-        object: düzenekleri
-        title: meclisleri
+        description: Oluşturulan kurul sayısı
+        object: kurullar
+        title: Kurullar
     pages:
       home:
         hero:
@@ -462,20 +462,20 @@ tr:
           more_info: Daha fazla bilgi
           take_part: Yer almak
         index:
-          children: 'Meclisler: '
+          children: 'Kurullar: '
           organizational_chart: Organizasyon şeması
-          promoted_assemblies: Vurgulanan derlemeler
-          reset_chart: Reset
+          promoted_assemblies: Vurgulanan kurullar
+          reset_chart: Sıfırla
         order_by_assemblies:
           assemblies:
-            one: "%{count} derleme"
-            other: "%{count} derleme"
+            one: "%{count} kurul"
+            other: "%{count} kurul"
         promoted_assembly:
           more_info: Daha fazla bilgi
           take_part: Yer almak
       assembly_navigation:
         assembly_member_menu_item: Üyeler
-        assembly_menu_item: Meclis
+        assembly_menu_item: Kurul
       assembly_widgets:
         show:
           take_part: Yer almak
