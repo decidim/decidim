@@ -371,21 +371,21 @@ tr:
         local_area: Organizasyon alanı
         participatory_scope: Karar nedir
         participatory_structure: Nasıl karar verilir
-        private_space: Bu özel bir meclis
+        private_space: Bu özel bir kurul
         purpose_of_action: Eylem amacı
-        read_less: Az oku
+        read_less: Daha az oku
         read_more: Daha fazla oku
-        related_participatory_processes: İlgili katılımcı süreçler
-        scope: kapsam
+        related_participatory_processes: İlgili katılımcı süreçleri
+        scope: Kapsam
         social_networks: Sosyal ağlar
         social_networks_title: Bu kurulu paylaş
-        target: Kimler katılır
+        target: Katılanlar
       statistics:
         answers_count: Cevaplar
-        assemblies_count: meclisleri
+        assemblies_count: Kurullar
         comments_count: Yorumlar
         debates_count: Tartışmalar
-        endorsements_count: Cirolar
+        endorsements_count: Onaylar
         headline: Aktivite
         meetings_count: Toplantılar
         orders_count: oy
