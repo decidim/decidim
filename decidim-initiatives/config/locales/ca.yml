@@ -208,7 +208,6 @@ ca:
           edit:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
-            confirm_send_to_technical_validation: Estàs a punt d'enviar la iniciativa perquè un administrador la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
