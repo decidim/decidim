@@ -215,6 +215,7 @@ cs:
             invalid: Při aktualizaci této agendy došlo k problému
             success: Agenda byla úspěšně aktualizována
         exports:
+          meeting_comments: Komentáře
           meetings: Setkání
           registrations: Registrace
         invite_join_meeting_mailer:

@@ -3,22 +3,19 @@
 module Decidim
   module Blogs
     # This type represents a Post.
-    PostType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Core::AuthorableInterface },
-        -> { Decidim::Core::TraceableInterface },
-        -> { Decidim::Core::EndorsableInterface },
-        -> { Decidim::Core::TimestampsInterface }
-      ]
+    class PostType < Decidim::Api::Types::BaseObject
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::TraceableInterface
+      implements Decidim::Core::EndorsableInterface
+      implements Decidim::Core::TimestampsInterface
 
-      name "Post"
       description "A post"
 
-      field :id, !types.ID, "The internal ID of this post"
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this post"
-      field :body, Decidim::Core::TranslatedFieldType, "The body of this post"
+      field :id, ID, "The internal ID of this post", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this post", null: true
+      field :body, Decidim::Core::TranslatedFieldType, "The body of this post", null: true
     end
   end
 end

@@ -9,5 +9,6 @@ require "decidim/budgets/component"
 module Decidim
   # Base module for this engine.
   module Budgets
+    autoload :ProjectSerializer, "decidim/budgets/project_serializer"
   end
 end

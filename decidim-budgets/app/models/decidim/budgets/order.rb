@@ -180,8 +180,9 @@ module Decidim
                                .where(budget: {
                                         decidim_components: { id: component.id }
                                       })
+                               .group(:decidim_user_id)
                                .pluck(:decidim_user_id)
-                               .flatten.compact.uniq
+                               .flatten.compact
       end
 
       private

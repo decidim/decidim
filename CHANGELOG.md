@@ -19,6 +19,10 @@ We've bumped the minimum Ruby version to 2.7.1, thanks to 2 PRs:
 
 As per [\#6498](https://github.com/decidim/decidim/pull/6498), the comments component is no longer implemented with the react component. In case you had customized the react component, it will still work as you would expect as the GraphQL API has not disappeared anywhere. You should, however, gradually migrate to the "new way" (Trailblazer cells) in order to ensure compatibility with future versions too.
 
+- **Consultations module deprecation**
+
+As the new `Votings` module is being developed and will eventually replace the `Consultations` module, the latter enters the deprecation phase.
+
 ### Added
 
 - **decidim-meetings**: Add functionality to enable/disable registration code [\#6698](https://github.com/decidim/decidim/pull/6698)

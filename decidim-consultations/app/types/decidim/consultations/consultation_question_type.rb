@@ -4,6 +4,8 @@ module Decidim
   module Consultations
     # This type represents a consultation.
     ConsultationQuestionType = GraphQL::ObjectType.define do
+      Decidim::Consultations::Question.include Decidim::Core::GraphQLApiTransition
+
       interfaces [
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
@@ -52,6 +54,12 @@ module Decidim
       field :minVotes, types.Int, "The minimum number of votes in this question", property: :min_votes
       field :responseGroupsCount, types.Int, "The number of group responses for this question", property: :response_groups_count
       field :instructions, Decidim::Core::TranslatedFieldType, "Instructions for this question", property: :instructions
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
+        }
+      end
     end
   end
 end

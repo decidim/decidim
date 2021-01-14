@@ -341,7 +341,6 @@ hu:
         actions:
           preview: Előnézet
         exports:
-          comments: Hozzászólások
           proposals: Javaslatok
         models:
           proposal:

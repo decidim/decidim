@@ -44,6 +44,7 @@ cs:
         title: Akce
       admin:
         exports:
+          result_comments: Komentáře
           results: Výsledky
         import_results:
           new:

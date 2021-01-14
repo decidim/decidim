@@ -3,17 +3,16 @@
 module Decidim
   module Conferences
     # This type represents a conference.
-    ConferenceMediaLinkType = GraphQL::ObjectType.define do
-      name "ConferenceMediaLink"
+    class ConferenceMediaLinkType < Decidim::Api::Types::BaseObject
       description "A conference media link"
 
-      field :id, !types.ID, "Internal ID for this media link"
-      field :title, Decidim::Core::TranslatedFieldType, "Title for this media link"
-      field :link, types.String, "URL for this media link"
-      field :date, Decidim::Core::DateType, "Relevant date for the media link"
-      field :weight, types.Int, "Order of appearance in which it should be presented"
-      field :createdAt, Decidim::Core::DateTimeType, "The time this entry was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "The time this entry was updated", property: :updated_at
+      field :id, ID, "Internal ID for this media link", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "Title for this media link", null: true
+      field :link, String, "URL for this media link", null: true
+      field :date, Decidim::Core::DateType, "Relevant date for the media link", null: true
+      field :weight, Integer, "Order of appearance in which it should be presented", null: true
+      field :created_at, Decidim::Core::DateTimeType, "The time this entry was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "The time this entry was updated", null: true
     end
   end
 end
