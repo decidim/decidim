@@ -4,7 +4,7 @@ module Decidim
   module Votings
     class Voting < ApplicationRecord
       include Traceable
-      # include Loggable
+      include Loggable
       include Decidim::Participable
       # include Decidim::Searchable
       include Decidim::TranslatableResource
@@ -29,6 +29,11 @@ module Decidim
       #                   },
       #                   index_on_create: ->(_voting) { false },
       #                   index_on_update: ->(voting) { voting.visible? })
+
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Votings::AdminLog::VotingPresenter
+      end
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
       ransacker :title do |parent|
