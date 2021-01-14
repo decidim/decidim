@@ -98,7 +98,6 @@ en:
       show:
         change_password: Change password
         update_account: Update account
-      suspended: This account has been suspended due to Terms and Conditions violation
       update:
         error: There was a problem updating your account.
         success: Your account was successfully updated.

@@ -15,10 +15,10 @@ module Decidim
     end
 
     def check_user_suspend_status(user)
-      if user.present? && user.suspended?
+      if user.present? && user.blocked?
         sign_out user
         flash.delete(:notice)
-        flash[:error] = t("decidim.account.suspended")
+        flash[:error] = t("decidim.account.blocked")
         root_path
       end
     end
