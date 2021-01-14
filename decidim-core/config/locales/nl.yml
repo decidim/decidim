@@ -325,7 +325,6 @@ nl:
         body_2: 'Reden: %{justification}'
         greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
-        subject: Je account is geblokkeerd door %{organization_name}?
     collapsible_list:
       hidden_elements_count:
         one: en %{count} meer
