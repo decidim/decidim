@@ -118,6 +118,10 @@ module Decidim
 
                 expect(Decidim::Proposals::Proposal.last.authors).to include(organization)
               end
+
+              it "create a searchable resource" do
+                expect { command.call }.to change(Decidim::SearchableResource, :count).by_at_least(1)
+              end
             end
 
             it "traces the action", versioning: true do

@@ -286,7 +286,6 @@ tr:
         actions:
           preview: Ön izleme
         exports:
-          comments: Yorumlar
           proposals: Teklif
         models:
           proposal:

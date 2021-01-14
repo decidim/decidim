@@ -32,7 +32,7 @@ module Decidim
       end
 
       context "when the user has the account blocked" do
-        let!(:user) { create(:user, organization: organization, email: email, suspended: true) }
+        let!(:user) { create(:user, organization: organization, email: email, blocked: true) }
 
         before do
           post :create

@@ -328,7 +328,6 @@ it:
         actions:
           preview: Anteprima
         exports:
-          comments: Commenti
           proposals: Proposte
         models:
           proposal:

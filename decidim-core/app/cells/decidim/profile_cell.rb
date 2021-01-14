@@ -11,7 +11,7 @@ module Decidim
     delegate :current_organization, :current_user, :user_groups_enabled?, to: :controller
 
     def show
-      if profile_holder.suspended? && current_user_logged_in?
+      if profile_holder.blocked? && current_user_logged_in?
         render :inaccessible
       else
         render :show

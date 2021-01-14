@@ -3,6 +3,9 @@
 module Decidim
   module Budgets
     BudgetsType = GraphQL::ObjectType.define do
+      Decidim::Budgets::Budget.include Decidim::Core::GraphQLApiTransition
+      Decidim::Budgets::Project.include Decidim::Core::GraphQLApiTransition
+
       interfaces [-> { Decidim::Core::ComponentInterface }]
 
       name "Budgets"

@@ -1,0 +1,7 @@
+<p><%= t ".hello" %></p>
+
+<p><%= t ".body_1", organization_name: h(@organization.name) %></p>
+
+<p><%= t ".body_2", justification: h(@justification) %></p>
+
+<p><%= t(".greetings", organization_name: h(@organization.name), organization_url: decidim.root_url(host: @organization.host)).html_safe %></p>

@@ -23,6 +23,17 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
 
+      describe "newsletter participants" do
+        subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
+
+        let!(:component_out_of_newsletter) { create(:proposal_component, organization: organization) }
+        let!(:resource_out_of_newsletter) { create(:proposal, component: component_out_of_newsletter) }
+        let!(:resource_in_newsletter) { create(:proposal, component: proposal.component) }
+        let(:author_ids) { proposal.notifiable_identities.pluck(:id) + resource_in_newsletter.notifiable_identities.pluck(:id) }
+
+        include_examples "counts commentators as newsletter participants"
+      end
+
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end

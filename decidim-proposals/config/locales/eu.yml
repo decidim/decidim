@@ -280,7 +280,6 @@ eu:
         actions:
           preview: Aurreikusi
         exports:
-          comments: Iruzkinak
           proposals: Proposamenak
         models:
           proposal:

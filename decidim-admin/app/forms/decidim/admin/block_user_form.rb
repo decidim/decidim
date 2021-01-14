@@ -3,12 +3,12 @@
 module Decidim
   module Admin
     # A form object used to officialize users from the admin dashboard.
-    class SuspendUserForm < Form
+    class BlockUserForm < Form
       attribute :user_id, Integer
       attribute :justification, String
 
       validates :user, presence: true
-      validates :justification, presence: true, length: { minimum: UserSuspension::MINIMUM_JUSTIFICATION_LENGTH }
+      validates :justification, presence: true, length: { minimum: UserBlock::MINIMUM_JUSTIFICATION_LENGTH }
 
       def map_model(user)
         self.user_id = user.id
