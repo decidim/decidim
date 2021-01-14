@@ -67,8 +67,8 @@ de:
             title: Projekt bearbeiten
             update: Aktualisieren
           index:
-            finished_orders: Beendete Stimmen
-            pending_orders: Schwebende Stimmen
+            finished_orders: Abgeschlossene Stimmen
+            pending_orders: Ausstehende Stimmen
             selected: Ausgewählt
             title: Projekte
           new:
