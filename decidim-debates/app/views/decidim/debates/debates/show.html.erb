@@ -123,11 +123,8 @@ edit_link(
           <%= decidim_sanitize(simple_format(translated_attribute(debate.information_updates), {}, sanitize: false)) %>
         </div>
       <% end %>
-      <% if debate.category %>
-        <ul class="tags tags--debate">
-          <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
-        </ul>
-      <% end %>
+
+      <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
       <%= cell "decidim/endorsers_list", debate %>
     </div>

@@ -105,7 +105,7 @@ cs:
         index:
           not_published: Není zveřejněno
           private: Soukromé
-          public: Veřejnost
+          public: Veřejné
           published: Publikováno
         new:
           create: Vytvořit
@@ -334,7 +334,7 @@ cs:
       created_by:
         city_council: Městská rada
         others: Ostatní
-        public: Veřejnost
+        public: Veřejné
       filter:
         all: Všechny typy
         commission: Komise

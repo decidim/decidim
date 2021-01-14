@@ -2,25 +2,19 @@
 
 module Decidim
   module Meetings
-    MinutesType = GraphQL::ObjectType.define do
-      name "MeetingMinutes"
+    class MinutesType < Decidim::Api::Types::BaseObject
       description "A meeting minutes"
 
-      field :id, !types.ID, "The ID for the minutes"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for the minutes"
-      field :videoUrl, types.String, "URL for the video of the session, if any", property: :video_url
-      field :audioUrl, types.String, "URL for the audio of the session, if any", property: :audio_url
+      field :id, GraphQL::Types::ID, "The ID for the minutes", null: false
+      field :description, Decidim::Core::TranslatedFieldType, "The description for the minutes", null: true
+      field :video_url, GraphQL::Types::String, "URL for the video of the session, if any", null: true
+      field :audio_url, GraphQL::Types::String, "URL for the audio of the session, if any", null: true
+
       # probably useful in the future, when handling user permissions
       # field :visible, !types.Boolean, "Whether this minutes is public or not", property: :visible
-
-      field :createdAt, Decidim::Core::DateTimeType do
-        description "The date and time this minutes was created"
-        property :created_at
-      end
-      field :updatedAt, Decidim::Core::DateTimeType do
-        description "The date and time this minutes was updated"
-        property :updated_at
-      end
+      #
+      field :created_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, description: "The date and time this minutes was updated", null: true
     end
   end
 end

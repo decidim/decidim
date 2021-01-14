@@ -8,6 +8,9 @@ describe "Explore debates", type: :system do
 
   before do
     switch_to_host(organization.host)
+    component_scope = create :scope, parent: participatory_process.scope
+    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component.update!(settings: component_settings)
   end
 
   describe "index" do
@@ -47,6 +50,24 @@ describe "Explore debates", type: :system do
         expect(page).to have_selector(".pagination .current", text: "2")
 
         expect(page).to have_css(".card--debate", count: 5)
+      end
+    end
+
+    context "when there are open debates" do
+      let!(:open_debate) do
+        create(
+          :debate,
+          component: component,
+          start_time: nil,
+          end_time: nil
+        )
+      end
+
+      it "the card informs that they are open" do
+        visit_component
+        within "#debate_#{open_debate.id}" do
+          expect(page).to have_content "OPEN DEBATE"
+        end
       end
     end
 
@@ -119,6 +140,23 @@ describe "Explore debates", type: :system do
             expect(page).to have_content("2 DEBATES")
           end
         end
+      end
+
+      it "allows filtering by scope" do
+        scope = create(:scope, organization: organization)
+        debate = debates.first
+        debate.scope = scope
+        debate.save
+
+        visit_component
+
+        within ".scope_id_check_boxes_tree_filter" do
+          check "All"
+          uncheck "All"
+          check translated(scope.name)
+        end
+
+        expect(page).to have_css(".card--debate", count: 1)
       end
 
       context "when filtering by category" do
@@ -212,7 +250,7 @@ describe "Explore debates", type: :system do
       end
     end
 
-    context "without category" do
+    context "without category or scope" do
       it "does not show any tag" do
         expect(page).not_to have_selector("ul.tags.tags--debate")
       end
@@ -231,6 +269,32 @@ describe "Explore debates", type: :system do
 
         within "ul.tags.tags--debate" do
           expect(page).to have_content(translated(debate.category.name))
+        end
+      end
+    end
+
+    context "with a scope" do
+      let(:debate) do
+        debate = create(:debate, component: component)
+        debate.scope = create(:scope, organization: organization)
+        debate.save
+        debate
+      end
+
+      it "shows tags for scope" do
+        expect(page).to have_selector("ul.tags.tags--debate")
+        within "ul.tags.tags--debate" do
+          expect(page).to have_content(translated(debate.scope.name))
+        end
+      end
+
+      it "links to the filter for this scope" do
+        within "ul.tags.tags--debate" do
+          click_link translated(debate.scope.name)
+        end
+
+        within ".filters" do
+          expect(page).to have_checked_field(translated(debate.scope.name))
         end
       end
     end

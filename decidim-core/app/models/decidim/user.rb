@@ -31,6 +31,8 @@ module Decidim
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
 
+    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
+
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }, length: { maximum: Decidim::User.nickname_max_length }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
@@ -211,6 +213,10 @@ module Decidim
 
     def interested_scopes
       @interested_scopes ||= organization.scopes.where(id: interested_scopes_ids)
+    end
+
+    def user_name
+      extended_data["user_name"] || name
     end
 
     # Caches a Decidim::DataPortabilityUploader with the retrieved file.
