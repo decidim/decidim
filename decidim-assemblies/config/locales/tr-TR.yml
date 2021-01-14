@@ -317,51 +317,51 @@ tr:
       assembly_types:
         commission: Komisyon
         consultative_advisory: Danışma/Tavsiye
-        executive: yönetici
-        government: hükümet
+        executive: İcra
+        government: Devlet
         others: Diğerleri
-        participatory: katılımcı
+        participatory: Katılımcı
         working_group: Çalışma Grubu
       content_blocks:
         highlighted_assemblies:
-          name: Vurgulanan derlemeler
+          name: Vurgulanan kurullar
       created_by:
-        city_council: Belediye Meclisi
+        city_council: Şehir Meclisi
         others: Diğerleri
-        public: halka açık
+        public: Genel
       filter:
         all: Bütün Türler
-        commission: komisyon
-        consultative_advisory: Danışma / Danışma
-        executive: yönetici
-        government: hükümet
-        help: 'Göstermek:'
+        commission: Komisyon
+        consultative_advisory: Danışma/Tavsiye
+        executive: İcra
+        government: Devlet
+        help: 'Göster:'
         others: Diğerleri
-        participatory: katılımcı
+        participatory: Katılımcı
         working_group: Çalışma Grubu
       index:
-        title: meclisleri
+        title: Kurullar
       last_activity:
-        new_assembly: Yeni montaj
+        new_assembly: Yeni kurul
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktif meclisler
+            active_assemblies: Aktif kurullar
             assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
-            see_all_assemblies: Tüm montajları gör
+            see_all_assemblies: Tüm kurulları gör
         user_profile:
           member_of:
             member_of: Üyesi
       show:
-        area: alan
-        assembly_type: Montaj tipi
-        children: meclisleri
+        area: Alan
+        assembly_type: Kurul türü
+        children: Kurullar
         closing_date: Kapanış tarihi
-        composition: bileştirme, kompozisyon
-        created_by: Tarafından yaratıldı
-        creation_date: Tarih oluşturuldu
+        composition: Komposizyon
+        created_by: Oluşturan
+        creation_date: Oluşturulma tarihi
         developer_group: Tanıtım grubu
-        duration: süre
+        duration: Süre
         included_at: Dahil
         indefinite_duration: Belirsiz
         internal_organisation: İç organizasyon
