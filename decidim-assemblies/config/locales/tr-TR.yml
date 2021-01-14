@@ -4,8 +4,8 @@ tr:
       assemblies_setting:
         enable_organization_chart: Organizasyon şemasını etkinleştir
       assembly:
-        area_id: alan
-        assembly_type: Montaj tipi
+        area_id: Alan
+        assembly_type: Kurul türü
         assembly_type_other: Diğer montaj türü
         banner_image: Banner resmi
         closing_date: Kapanış tarihi
@@ -48,8 +48,8 @@ tr:
         show_statistics: İstatistikleri göster
         slug: URL sümüklü böcek
         special_features: Özel özellikler
-        subtitle: Alt yazı
-        target: Kimler katılır
+        subtitle: Alt Başlık
+        target: Katılanlar
         title: Başlık
         twitter: heyecan
         youtube: Youtube
@@ -261,10 +261,10 @@ tr:
       admin:
         assemblies:
           form:
-            duration: süre
+            duration: Süre
             duration_help: Bu meclisin süresi sınırlı ise, bitiş tarihini seçin. Aksi halde, belirsiz olarak görünecektir.
             filters: Filtreler
-            images: Görüntüler
+            images: Resimler
             included_at_help: Bu montajın Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
             metadata: Meta veri
             other: Diğer
@@ -407,6 +407,19 @@ tr:
         home:
           highlighted_conferences:
             conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: <a href="%{resource_url}">%{resource_name} </a> kurulun bir yöneticisi sizi üyelerinden biri olarak ekledi.
+          email_outro: Bu bildirimi bir toplantıya davet edildiğiniz için aldınız. Katkıda bulunmak için <a href="%{resource_path}"> kurul sayfasını </a> kontrol edin!
+          email_subject: '%{resource_name} kuruluna üye olmak için davet edildiniz!'
+          notification_title: <a href="%{resource_path}">%{resource_name}</a> Kurulu üyesi olarak kaydoldunuz. Katkıda bulunmak için <a href="%{resource_path}">kurul sayfasını</a> kontrol edin!
+      assembly:
+        role_assigned:
+          email_intro: '"%{resource_title}" kurulu için %{role} olarak atandınız.'
+          email_outro: Bu bildirimi, "%{resource_title}" kurululunda %{role} olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> kurulu için %{role} olarak atandınız.
     help:
       participatory_spaces:
         assemblies:
@@ -417,6 +430,8 @@ tr:
       value_types:
         assembly_presenter:
           not_found: 'Derleme veritabanında bulunamadı (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Kurul türü veritabanında bulunamadı (ID: %{id})'
     menu:
       assemblies: meclisleri
     metrics:
@@ -424,6 +439,19 @@ tr:
         description: Oluşturulan derleme sayısı
         object: düzenekleri
         title: meclisleri
+    pages:
+      home:
+        hero:
+          participate_title: Platformun süreçlerine katılın
+        sub_hero:
+          register_title: Platformda bir hesap oluşturmak için kaydolun
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Tüm süreçleri gösteren Süreçler sayfasına bağlantı
+      show:
+        related_assemblies: İlgili kurullar
   errors:
     messages:
       cannot_be_blank: boş bırakılamaz
