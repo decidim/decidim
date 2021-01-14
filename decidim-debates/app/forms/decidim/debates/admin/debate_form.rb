@@ -14,13 +14,14 @@ module Decidim
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_category_id, Integer
+        attribute :finite, Boolean, default: true
         attribute :scope_id, Integer
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :instructions, translatable_presence: true
-        validates :start_time, presence: { if: ->(object) { object.end_time.present? } }, date: { before: :end_time, allow_blank: true }
-        validates :end_time, presence: { if: ->(object) { object.start_time.present? } }, date: { after: :start_time, allow_blank: true }
+        validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
+        validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
@@ -52,6 +53,16 @@ module Decidim
         # Returns the scope identifier related to the meeting
         def scope_id
           @scope_id || scope&.id
+        end
+
+        private
+
+        def validate_end_time?
+          finite && start_time.present?
+        end
+
+        def validate_start_time?
+          end_time.present?
         end
       end
     end
