@@ -152,7 +152,6 @@ ru:
         actions:
           preview: Предпросмотр
         exports:
-          comments: Комментарии
           proposals: Предложения
         models:
           proposal:
