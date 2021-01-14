@@ -3,19 +3,20 @@
 module Decidim
   module Core
     # This interface represents an object capable of endorsements.
-    EndorsableInterface = GraphQL::InterfaceType.define do
-      name "EndorsableInterface"
+    module EndorsableInterface
+      include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with endorsements"
 
-      field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this object." do
-        resolve ->(object, _, _) {
-          object.endorsements.map(&:normalized_author)
-        }
+      field :endorsements, [Decidim::Core::AuthorInterface, { null: true }], "The endorsements of this object.", null: false
+
+      def endorsements
+        object.endorsements.map(&:normalized_author)
       end
 
-      field :endorsementsCount, types.Int do
-        description "The total amount of endorsements the object has received"
-        property :endorsements_count
+      field :endorsements_count, Integer, description: "The total amount of endorsements the object has received", null: true
+
+      def self.resolve_type(obj, _ctx)
+        "#{obj.class.name}Type".constantize
       end
     end
   end

@@ -2,28 +2,20 @@
 
 module Decidim
   module Core
-    TraceVersionType = GraphQL::ObjectType.define do
-      name "TraceVersion"
+    class TraceVersionType < Decidim::Api::Types::BaseObject
       description "A trace version type"
 
-      field :id, !types.ID, "The ID of the version"
-      field :createdAt, Decidim::Core::DateTimeType do
-        description "The date and time this version was created"
-        property :created_at
+      field :id, ID, "The ID of the version", null: false
+      field :created_at, Decidim::Core::DateTimeType, description: "The date and time this version was created", null: true
+      field :editor, Decidim::Core::AuthorInterface, description: "The editor/author of this version", null: true
+
+      def editor
+        author = Decidim.traceability.version_editor(object)
+        author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
       end
-      field :editor, Decidim::Core::AuthorInterface do
-        description "The editor/author of this version"
-        resolve ->(obj, _args, _ctx) {
-          author = Decidim.traceability.version_editor(obj)
-          author if author.is_a?(Decidim::User) || author.is_a?(Decidim::UserGroup)
-        }
-      end
-      field :changeset, GraphQL::Types::JSON do
-        description "Object with the changes in this version"
-        resolve ->(obj, _args, _ctx) {
-          obj.changeset
-        }
-      end
+      field :changeset, GraphQL::Types::JSON, description: "Object with the changes in this version", null: true
+
+      delegate :changeset, to: :object
     end
   end
 end

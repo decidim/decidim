@@ -26,12 +26,18 @@ module Decidim
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
 
-      searchable_fields(
-        participatory_space: { component: :participatory_space },
-        A: :title,
-        D: :body,
-        datetime: :created_at
-      )
+      searchable_fields({
+                          participatory_space: { component: :participatory_space },
+                          A: :title,
+                          D: :body,
+                          datetime: :created_at
+                        },
+                        index_on_create: true,
+                        index_on_update: ->(post) { post.visible? })
+
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?)
+      end
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?

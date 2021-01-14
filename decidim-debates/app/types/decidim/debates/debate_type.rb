@@ -8,7 +8,8 @@ module Decidim
       interfaces [
         -> { Decidim::Core::CategorizableInterface },
         -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AuthorableInterface }
+        -> { Decidim::Core::AuthorableInterface },
+        -> { Decidim::Core::ScopableInterface }
       ]
 
       name "Debate"
@@ -25,6 +26,12 @@ module Decidim
       field :updatedAt, Decidim::Core::DateTimeType, "When this debate was updated", property: :updated_at
       field :informationUpdates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", property: :information_updates
       field :reference, types.String, "The reference for this debate"
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
+        }
+      end
     end
   end
 end

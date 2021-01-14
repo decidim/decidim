@@ -31,11 +31,15 @@ module Decidim
       end
 
       def active_blocks
-        @active_blocks ||= content_blocks.published
+        @active_blocks ||= content_blocks.published.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
+      end
+
+      def unpublished_blocks
+        @unpublished_blocks ||= content_blocks.unpublished.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
       end
 
       def inactive_blocks
-        @inactive_blocks ||= content_blocks.unpublished + unused_manifests
+        @inactive_blocks ||= unpublished_blocks + unused_manifests
       end
 
       def used_manifests

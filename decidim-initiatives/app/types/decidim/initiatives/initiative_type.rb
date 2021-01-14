@@ -10,6 +10,7 @@ module Decidim
         -> { Decidim::Core::ParticipatorySpaceInterface },
         -> { Decidim::Core::ScopableInterface },
         -> { Decidim::Core::AttachableInterface },
+        -> { Decidim::Core::AuthorableInterface },
         -> { Decidim::Initiatives::InitiativeTypeInterface }
       ]
 
@@ -38,7 +39,7 @@ module Decidim
             property: :online_votes_count,
             deprecation_reason: "initiativeSupportsCount has been collapsed in onlineVotes parameter"
 
-      field :author, !Decidim::Core::AuthorInterface, "The initiative author" do
+      field :author, type: Decidim::Core::AuthorInterface.to_non_null_type, description: "The initiative author" do
         resolve lambda { |obj, _args, _ctx|
           obj.user_group || obj.author
         }
