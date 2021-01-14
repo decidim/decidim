@@ -254,25 +254,25 @@ tr:
         unpublish: "%{user_name}, %{resource_name} kurul türünü yayından kaldırdı"
         update: "%{user_name}, %{resource_name} kurul türünü güncelledi"
       assembly_user_role:
-        create: "%{user_name} %{space_name} mecraya %{resource_name} davet edildi"
-        delete: "%{user_name} kullanıcı %{resource_name} %{space_name} aksamından çıkardı"
-        update: "%{user_name} , %{space_name} mecliste %{resource_name} rolünü değiştirdi"
+        create: "%{user_name}, %{resource_name} katılımcısını %{space_name} kuruluna davet etti"
+        delete: "%{user_name}, %{resource_name} katılımcısını %{space_name} kurulundan kaldırdı"
+        update: "%{user_name}, %{space_name} kurulunda %{resource_name} rolünü değiştirdi"
     assemblies:
       admin:
         assemblies:
           form:
             duration: Süre
-            duration_help: Bu meclisin süresi sınırlı ise, bitiş tarihini seçin. Aksi halde, belirsiz olarak görünecektir.
+            duration_help: Bu kurulun süresi sınırlıysa, bitiş tarihini seçin. Aksi takdirde belirsiz görünecektir.
             filters: Filtreler
             images: Resimler
-            included_at_help: Bu montajın Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
+            included_at_help: Bu kurulun Decidim'e eklendiği tarihi seçin. Yaratılış tarihi ile aynı olmak zorunda değildir.
             metadata: Meta veri
             other: Diğer
-            select_a_created_by: Tarafından oluşturulmuş bir seç
+            select_a_created_by: tarafından oluşturulanı seçin
             select_an_area: Bir alan seçin
-            select_an_assembly_type: Bir montaj tipi seçin
-            select_parent_assembly: Ebeveyn grubunu seç
-            slug_help: 'URL sümükleri, bu derleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+            select_an_assembly_type: Bir kurul türü seçin
+            select_parent_assembly: Bağlı olduğu kurulu seçin
+            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
@@ -290,20 +290,20 @@ tr:
         assembly_imports:
           form:
             document_legend: Bir belge ekle
-            slug_help: '%{url}Uzantı slugsları meclisi gösteren uzantıları oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve tire(-) kabul eder ve mutlaka bir harfler başlamalıdır.'
+            slug_help: 'URL sümüklü böcekleri, bu kurula işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         assembly_members:
           form:
-            existing_user: Mevcut kullanıcı
-            non_user: Kullanıcı yok
+            existing_user: Mevcut katılımcı
+            non_user: Katılımcı olmayan
             select_a_position: Bir pozisyon seç
-            select_user: Bir kullanıcı seç
-            user_type: Kullanıcı tipi
+            select_user: Bir katılımcı seçin
+            user_type: Katılımcı tipi
           index:
             filter:
-              all: Herşey
-              ceased: durdurdu
+              all: Tümü
+              ceased: Durduruldu
               not_ceased: Durdurulmadı
-            filter_by: Tarafından filtre
+            filter_by: Şuna göre filtrele
             search: Arama
         content_blocks:
           highlighted_assemblies:
@@ -315,8 +315,8 @@ tr:
         index:
           members: Üyeler
       assembly_types:
-        commission: Komisyonu
-        consultative_advisory: Danışma / Danışma
+        commission: Komisyon
+        consultative_advisory: Danışma/Tavsiye
         executive: yönetici
         government: hükümet
         others: Diğerleri
