@@ -207,6 +207,7 @@ fi-pl:
             invalid: Tämän esityslistan päivityksessä esiintyi ongelma
             success: Esityslista päivitettiin onnistuneesti
         exports:
+          meeting_comments: Kommentit
           meetings: Tapahtumat
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:
