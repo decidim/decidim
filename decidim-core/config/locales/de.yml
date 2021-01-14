@@ -335,7 +335,6 @@ de:
         body_2: 'Grund: %{justification}'
         greetings: Guten Tag <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>,
         hello: Hallo,
-        subject: Ihr Account wurde von %{organization_name} gesperrt?
     collapsible_list:
       hidden_elements_count:
         one: und %{count} mehr
