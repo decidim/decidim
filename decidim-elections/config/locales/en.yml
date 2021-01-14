@@ -397,6 +397,29 @@ en:
     participatory_processes:
       statistics:
         elections_count: Elections
+    votings:
+      admin:
+        menu:
+          votings: Votings
+        models:
+          voting:
+            fields:
+              created_at: Created at
+              title: Title
+        titles:
+          votings: Votings
+        votings:
+          actions:
+            new_voting: New Voting Space
+          create:
+            invalid: There was a problem creating this voting
+            success: Voting successfully created
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            title: Title
+          new:
+            create: Create
+            title: New Voting
   layouts:
     decidim:
       election_votes_header:
