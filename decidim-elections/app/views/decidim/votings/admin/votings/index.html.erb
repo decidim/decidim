@@ -13,7 +13,7 @@
         <thead>
           <tr>
             <th><%= t("models.voting.fields.title", scope: "decidim.votings.admin") %></th>
-            <th><%#= sort_link(query, :created_at, t("models.voting.fields.created_at", scope: "decidim.votings.admin"), default_order: :desc) %></th>
+            <th><%= sort_link(query, :created_at, t("models.voting.fields.created_at", scope: "decidim.votings.admin"), default_order: :desc) %></th>
             <th>
               <%= t("models.voting.fields.published", scope: "decidim.votings.admin") %>
             </th>
