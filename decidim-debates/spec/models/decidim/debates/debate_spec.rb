@@ -6,6 +6,7 @@ describe Decidim::Debates::Debate do
   subject { debate }
 
   let(:debate) { build :debate }
+  let(:organization) { debate.component.organization }
 
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
@@ -13,6 +14,17 @@ describe Decidim::Debates::Debate do
   include_examples "has component"
   include_examples "has category"
   include_examples "resourceable"
+
+  describe "newsletter participants" do
+    subject { Decidim::Debates::Debate.newsletter_participant_ids(debate.component) }
+
+    let!(:component_out_of_newsletter) { create(:debates_component, organization: organization) }
+    let!(:resource_out_of_newsletter) { create(:debate, component: component_out_of_newsletter) }
+    let!(:resource_in_newsletter) { create(:debate, component: debate.component) }
+    let(:author_ids) { [] }
+
+    include_examples "counts commentators as newsletter participants"
+  end
 
   context "without a title" do
     let(:debate) { build :debate, title: nil }
