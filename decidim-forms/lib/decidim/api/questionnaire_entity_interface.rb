@@ -8,7 +8,7 @@ module Decidim
       include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in objects with questionnaires"
 
-      field :id, ID, "ID of this entity", null: false
+      field :id, GraphQL::Types::ID, "ID of this entity", null: false
 
       def self.resolve_type(obj, _ctx)
         "#{obj.class.name}Type".constantize

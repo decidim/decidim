@@ -10,7 +10,7 @@ require "decidim/core/test/shared_examples/scopable_interface_examples"
 module Decidim
   module Debates
     describe DebateType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       let(:model) { create(:debate, :open_ama) }
 
