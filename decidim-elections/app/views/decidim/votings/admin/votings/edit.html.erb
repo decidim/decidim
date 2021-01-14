@@ -5,27 +5,27 @@
   <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t("votings.edit.update", scope: "decidim.votings.admin"), class: "button" %>
-    
+
     <% if allowed_to? :publish, :voting, voting: @current_voting %>
       <% if @current_voting.published? %>
-        <%= link_to t("actions.unpublish"),
-                    voting_publish_path(@current_voting),
-                    method: :delete,
+        <%= link_to t("votings.actions.unpublish", scope: "decidim.votings.admin"),
+                    url_for(action: :unpublish, id: @current_voting, controller: "votings"),
+                    method: :put,
                     class: "button muted" %>
       <% else %>
-        <%= link_to t("actions.publish"),
-                    voting_publish_path(@current_voting),
-                    method: :post,
+        <%= link_to t("votings.actions.publish", scope: "decidim.votings.admin"),
+                    url_for(action: :publish, id: @current_voting, controller: "votings"),
+                    method: :put,
                     class: "button hollow" %>
       <% end %>
     <% end %>
 
     <% if allowed_to? :destroy, :voting, voting: @current_voting %>
-      <%= link_to t("decidim.admin.actions.destroy"),
+      <%= link_to t("votings.actions.destroy", scope: "decidim.votings.admin"),
                   @current_voting,
                   method: :delete,
                   class: "alert button",
-                  data: { confirm: t("decidim.votings.admin.actions.confirm_destroy") } %>
+                  data: { confirm: t("votings.actions.confirm_destroy", scope: "decidim.votings.admin") } %>
     <% end %>
   </div>
 <% end %>

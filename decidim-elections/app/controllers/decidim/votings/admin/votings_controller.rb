@@ -58,7 +58,7 @@ module Decidim
         end
 
         def destroy
-          # enforce_permission_to :delete, :voting, voting: voting
+          # enforce_permission_to :delete, :voting, voting: current_voting
           #
           # DestroyVoting.call(voting, current_user) do
           #   on(:ok) do
@@ -74,25 +74,25 @@ module Decidim
         end
 
         def publish
-          # enforce_permission_to :publish, :voting, voting: voting
-          #
-          # PublishVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("admin.votings.publish.success", scope: "decidim.votings")
-          #     redirect_to votings_path
-          #   end
-          # end
+          enforce_permission_to :publish, :voting, voting: current_voting
+          
+          PublishVoting.call(current_voting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
+              redirect_to votings_path
+            end
+          end
         end
 
         def unpublish
-          # enforce_permission_to :unpublish, :voting, voting: voting
-          #
-          # UnpublishVoting.call(voting, current_user) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("admin.votings.unpublish.success", scope: "decidim.votings")
-          #     redirect_to votings_path
-          #   end
-          # end
+          enforce_permission_to :unpublish, :voting, voting: current_voting
+          
+          UnpublishVoting.call(current_voting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
+              redirect_to votings_path
+            end
+          end
         end
 
         private

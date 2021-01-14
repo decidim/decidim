@@ -415,6 +415,7 @@ en:
         votings:
           actions:
             confirm_destroy: Are you sure?
+            destroy: Destroy
             new_voting: New Voting Space
             publish: Publish
             unpublish: Unpublish
