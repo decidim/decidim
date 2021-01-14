@@ -9,6 +9,16 @@ module Decidim
         ))
       end
 
+      def total_comments_count
+        object.comments_count
+      end
+
+      # rubocop:disable Naming/PredicateName
+      def has_comments
+        object.comment_threads.size.positive?
+      end
+      # rubocop:enable Naming/PredicateName
+
       def object
         self
       end

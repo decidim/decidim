@@ -5,6 +5,7 @@ module Decidim
     # This type represents an election Question.
     # The name is different from the model because the Question type is already defined on the Forms module.
     ElectionQuestionType = GraphQL::ObjectType.define do
+      Decidim::Elections::Question.include Decidim::Core::GraphQLApiTransition
       interfaces [
         -> { Decidim::Core::TraceableInterface }
       ]

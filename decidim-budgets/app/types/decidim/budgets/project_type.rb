@@ -22,6 +22,12 @@ module Decidim
       field :createdAt, Decidim::Core::DateTimeType, "When this project was created", property: :created_at
       field :updatedAt, Decidim::Core::DateTimeType, "When this project was updated", property: :updated_at
       field :reference, types.String, "The reference for this project"
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
+        }
+      end
     end
   end
 end

@@ -31,6 +31,12 @@ module Decidim
       field :parent, Decidim::Accountability::ResultType, "The parent result"
       field :status, Decidim::Accountability::StatusType, "The status for this result"
       field :timelineEntries, types[Decidim::Accountability::TimelineEntryType], "The timeline entries for this result", property: :timeline_entries
+
+      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
+        resolve lambda { |obj, _args, ctx|
+          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
+        }
+      end
     end
   end
 end
