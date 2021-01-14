@@ -51,55 +51,55 @@ tr:
         subtitle: Alt Başlık
         target: Katılanlar
         title: Başlık
-        twitter: heyecan
-        youtube: Youtube
+        twitter: Twitter
+        youtube: YouTube
       assembly_member:
         birthday: Doğum günü
-        birthplace: doğum yeri
+        birthplace: DogumYeri
         ceased_date: Bitiş tarihi
         designation_date: Atama tarihi
-        designation_mode: Tanımlama modu
+        designation_mode: Atama modu
         full_name: Ad Soyad
         gender: Cinsiyet
-        position: pozisyon
+        position: Pozisyon
         user_id: Kullanıcı
       assembly_user_role:
         email: E-posta
-        name: isim
-        role: rol
+        name: Adı
+        role: Rol
     errors:
       models:
         assembly:
           attributes:
             document:
-              invalid_document_type: '%{valid_mime_types}Tanımlanmayan döküman tipi. Kabul edilen formatlar:'
+              invalid_document_type: 'Geçersiz belge türü. Kabul edilen biçimler şunlardır: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
-        one: montaj
-        other: meclisleri
+        one: Kurul
+        other: Kurullar
       decidim/assembly_member:
         one: Montaj üyesi
-        other: Meclis üyeleri
+        other: Kurul üyeleri
       decidim/assembly_user_role:
         one: Montaj kullanıcısı rolü
-        other: Montaj kullanıcı rolleri
+        other: Kurul kullanıcı rolleri
   decidim:
     admin:
       actions:
-        import_assembly: İçe aktarmak.
-        new_assembly: Yeni montaj
-        new_assembly_type: Yeni kurul tipi
+        import_assembly: İçeri aktar
+        new_assembly: Yeni kurul
+        new_assembly_type: Yeni kurul türü
       assemblies:
         create:
-          error: Yeni bir derleme oluştururken bir hata oluştu.
-          success: Montaj başarıyla oluşturuldu.
+          error: Yeni bir kurul oluştururken bir hata oluştu.
+          success: Kurul başarıyla oluşturuldu.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         index:
           not_published: Yayınlanmadı
-          private: Özel
-          public: halka açık
+          private: Kişisel
+          public: Ortak
           published: Yayınlanan
         new:
           create: yaratmak
