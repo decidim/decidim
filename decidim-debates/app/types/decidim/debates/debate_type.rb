@@ -2,36 +2,25 @@
 
 module Decidim
   module Debates
-    DebateType = GraphQL::ObjectType.define do
-      Decidim::Debates::Debate.include Decidim::Core::GraphQLApiTransition
+    class DebateType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::AuthorableInterface
+      implements Decidim::Core::ScopableInterface
 
-      interfaces [
-        -> { Decidim::Core::CategorizableInterface },
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::AuthorableInterface },
-        -> { Decidim::Core::ScopableInterface }
-      ]
-
-      name "Debate"
       description "A debate"
 
-      field :id, !types.ID, "The internal ID for this debate"
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this debate"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for this debate"
-      field :instructions, Decidim::Core::TranslatedFieldType, "The instructions for this debate"
-      field :startTime, Decidim::Core::DateTimeType, "The start time for this debate", property: :start_time
-      field :endTime, Decidim::Core::DateTimeType, "The end time for this debate", property: :end_time
-      field :image, types.String, "The image of this debate"
-      field :createdAt, Decidim::Core::DateTimeType, "When this debate was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this debate was updated", property: :updated_at
-      field :informationUpdates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", property: :information_updates
-      field :reference, types.String, "The reference for this debate"
-
-      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
-        }
-      end
+      field :id, ID, "The internal ID for this debate", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this debate", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this debate", null: true
+      field :instructions, Decidim::Core::TranslatedFieldType, "The instructions for this debate", null: true
+      field :start_time, Decidim::Core::DateTimeType, "The start time for this debate", null: true
+      field :end_time, Decidim::Core::DateTimeType, "The end time for this debate", null: true
+      field :image, String, "The image of this debate", null: true
+      field :created_at, Decidim::Core::DateTimeType, "When this debate was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "When this debate was updated", null: true
+      field :information_updates, Decidim::Core::TranslatedFieldType, "The information updates for this debate", null: true
+      field :reference, String, "The reference for this debate", null: true
     end
   end
 end

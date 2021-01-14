@@ -198,10 +198,11 @@ module Decidim
         end
 
         def allowed_to_send_to_technical_validation?
-          initiative.created? && (
-            !initiative.created_by_individual? ||
-            initiative.enough_committee_members?
-          )
+          initiative.discarded? ||
+            (initiative.created? && (
+              !initiative.created_by_individual? ||
+              initiative.enough_committee_members?
+            ))
         end
       end
     end

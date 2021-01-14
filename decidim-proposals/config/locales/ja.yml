@@ -348,7 +348,6 @@ ja:
         actions:
           preview: プレビュー
         exports:
-          comments: コメント
           proposals: 提案
         models:
           proposal:
