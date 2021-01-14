@@ -24,9 +24,18 @@
           <% votings.each do |voting| %>
             <tr>
               <td>
-                <%= translated_attribute(voting.title) %>
+                <% if allowed_to? :update, :voting, voting: voting %>
+                  <%= link_to translated_attribute(voting.title), edit_voting_path(voting) %>
+                  <br>
+                <% elsif allowed_to? :preview, :voting, voting: voting %>
+                  <%= link_to translated_attribute(voting.title),
+                              decidim_votings.voting_path(voting),
+                              target: "_blank" %>
+                  <br>
+                <% else %>
+                  <%= translated_attribute(voting.title) %>
+                <% end %>
               </td>
-
               <td>
                 <%= l voting.created_at, format: :short %>
               </td>

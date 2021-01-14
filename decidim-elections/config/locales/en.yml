@@ -414,21 +414,30 @@ en:
           votings: Votings
         votings:
           actions:
+            confirm_destroy: Are you sure?
             new_voting: New Voting Space
+            publish: Publish
+            unpublish: Unpublish
           create:
             invalid: There was a problem creating this voting
             success: Voting successfully created
+          edit:
+            update: Update
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this voting. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             title: Title
           new:
             create: Create
             title: New Voting
+          update:
+            invalid: There was a problem updating this voting
+            success: Voting successfully updated
       admin_log:
         voting:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
+          
   layouts:
     decidim:
       election_votes_header:

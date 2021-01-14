@@ -36,25 +36,25 @@ module Decidim
         end
 
         def edit
-          # enforce_permission_to :update, :voting, voting: voting
-          # @form = form(VotingForm).from_model(voting)
+          enforce_permission_to :update, :voting, voting: current_voting
+          @form = form(VotingForm).from_model(current_voting)
         end
 
         def update
-          # enforce_permission_to :update, :voting, voting: voting
-          # @form = form(VotingForm).from_params(params)
-          #
-          # UpdateVoting.call(@form, voting) do
-          #   on(:ok) do
-          #     flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
-          #     redirect_to votings_path
-          #   end
-          #
-          #   on(:invalid) do
-          #     flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
-          #     render action: "edit"
-          #   end
-          # end
+          enforce_permission_to :update, :voting, voting: current_voting
+          @form = form(VotingForm).from_params(params, voting_id: current_voting.id)
+          
+          UpdateVoting.call(current_voting, @form) do
+            on(:ok) do
+              flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
+              redirect_to votings_path
+            end
+          
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
+              render action: "edit"
+            end
+          end
         end
 
         def destroy
@@ -105,8 +105,10 @@ module Decidim
           @collection ||= OrganizationVotings.new(current_user.organization).query
         end
 
-        def voting
-          @voting ||= votings.find_by(id: params[:id])
+        def current_voting
+          @current_voting ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
       end
     end
