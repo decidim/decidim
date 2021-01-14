@@ -102,15 +102,15 @@ tr:
           public: Ortak
           published: Yayınlanan
         new:
-          create: yaratmak
-          title: Yeni montaj
+          create: Oluştur
+          title: Yeni kurul
         update:
-          error: Bu derleme güncellenirken bir hata oluştu.
-          success: Montaj başarıyla güncellendi.
+          error: Bu kurul güncellenirken bir hata oluştu.
+          success: Kurul başarıyla güncellendi.
       assemblies_copies:
         create:
-          error: Bu derlemeyi çoğaltırken bir hata oluştu.
-          success: Montaj başarıyla kopyalandı.
+          error: Bu kurul çoğaltırken bir hata oluştu.
+          success: Kurul başarıyla kopyalandı.
       assemblies_settings:
         update:
           error: Ayarı değiştirirken bir hata oluştu.
@@ -122,57 +122,57 @@ tr:
         destroy:
           success: Kurul türü başarıyla silindi.
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni kurul türü
         update:
           error: Bu kurul türü güncellenirken bir sorun oluştu.
           success: Kurul türü başarıyla güncellendi.
       assembly_copies:
         new:
-          copy: kopya
+          copy: Kopya
           select: Çoğaltmak istediğiniz verileri seçin
-          title: Duplicate assembly
+          title: Kurulu çoğalt
       assembly_imports:
         create:
-          error: Bu meclis derlenirken, içeri aktarılırken bir hata oluştu.
-          success: Meclis başarıyla içeriye alındı.
+          error: Bu kurul derlenirken, içeri aktarılırken bir hata oluştu.
+          success: Kurul başarıyla içeriye alındı.
         new:
-          import: İçeri aktar
-          select: Gösterilmesini istediğiniz ayrıntıları seçin
-          title: Meclis belirtmek, içe aktarmak veya oluşturmak.
+          import: İçe aktar
+          select: Hangi verileri içe aktarmak istediğinizi seçin
+          title: Kurulu içe aktar
       assembly_members:
         create:
-          error: Bu derleme için üye eklenirken bir hata oluştu.
-          success: Üye bu derleme için başarıyla oluşturuldu.
+          error: Bu kurul için üye eklenirken bir hata oluştu.
+          success: Üye bu kurul için başarıyla oluşturuldu.
         destroy:
-          success: Üye bu derlemede başarıyla silindi.
+          success: Üye bu kuruldan başarıyla silindi.
         edit:
-          title: Montaj üyesini güncelle.
-          update: Güncelleştirme
+          title: Kurul üyesini güncelle.
+          update: Güncelle
         index:
-          assembly_members_title: Meclis üyeleri
+          assembly_members_title: Kurul üyeleri
         new:
-          create: yaratmak
-          title: Yeni montaj üyesi.
+          create: Oluştur
+          title: Yeni kurul üyesi.
         update:
-          error: Bu derleme için üye güncellenirken bir hata oluştu.
-          success: Üye bu derleme için başarıyla güncellendi.
+          error: Bu kurul için üye güncellenirken bir hata oluştu.
+          success: Üye bu kurul için başarıyla güncellendi.
       assembly_publications:
         create:
-          error: Bu derleme yayınlanırken bir hata oluştu.
-          success: Montaj başarıyla yayınlandı.
+          error: Bu kurul yayınlanırken bir hata oluştu.
+          success: Kurul başarıyla yayınlandı.
         destroy:
-          error: Bu derlemenin yayından kaldırılmasıyla ilgili bir hata oluştu.
-          success: Montaj başarıyla yayından kaldırıldı.
+          error: Bu kurulun yayından kaldırılması sırasında bir hata oluştu.
+          success: Kurul başarıyla yayından kaldırıldı.
       assembly_user_roles:
         create:
-          error: Bu derleme için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu meclise başarıyla eklendi.
+          error: Bu kurul için bir kullanıcı eklenirken hata oluştu.
+          success: Yönetici bu kurula başarıyla eklendi.
         destroy:
-          success: Kullanıcı bu derlemeden başarıyla kaldırıldı.
+          success: Yönetici bu kuruldan başarıyla kaldırıldı.
         edit:
-          title: Montaj kullanıcısını güncelle.
-          update: Güncelleştirme
+          title: Kurul yöneticisini güncelleyin.
+          update: Güncelle
         index:
           assembly_admins_title: Montaj kullanıcıları
         new:
