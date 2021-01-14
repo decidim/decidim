@@ -2,32 +2,22 @@
 
 module Decidim
   module Budgets
-    ProjectType = GraphQL::ObjectType.define do
-      Decidim::Budgets::Project.include Decidim::Core::GraphQLApiTransition
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::AttachableInterface },
-        -> { Decidim::Comments::CommentableInterface },
-        -> { Decidim::Core::CategorizableInterface }
-      ]
+    class ProjectType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::AttachableInterface
+      implements Decidim::Comments::CommentableInterface
+      implements Decidim::Core::CategorizableInterface
 
-      name "Project"
       description "A project"
 
-      field :id, !types.ID, "The internal ID for this project"
-      field :title, Decidim::Core::TranslatedFieldType, "The title for this project"
-      field :description, Decidim::Core::TranslatedFieldType, "The description for this project"
-      field :budget_amount, types.Int, "The budget amount for this project"
-      field :selected, types.Boolean, "Whether this proposal is selected or not", property: :selected?
-      field :createdAt, Decidim::Core::DateTimeType, "When this project was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this project was updated", property: :updated_at
-      field :reference, types.String, "The reference for this project"
-
-      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
-        }
-      end
+      field :id, ID, "The internal ID for this project", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this project", null: true
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this project", null: true
+      field :budget_amount, Integer, "The budget amount for this project", null: true, camelize: false
+      field :selected, Boolean, "Whether this proposal is selected or not", method: :selected?, null: true
+      field :created_at, Decidim::Core::DateTimeType, "When this project was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "When this project was updated", null: true
+      field :reference, String, "The reference for this project", null: true
     end
   end
 end
