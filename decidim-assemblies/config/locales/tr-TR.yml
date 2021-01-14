@@ -245,6 +245,14 @@ tr:
         create: "%{user_name} , %{space_name} mecliste %{resource_name} üye yarattı"
         delete: "%{user_name} uzaklaştırıldı %{resource_name} den elemanı %{space_name} montaj"
         update: "%{user_name} , %{space_name} mecliste %{resource_name} üye güncellendi"
+      assembly_setting:
+        update: "%{user_name}, kurul ayarlarını güncelledi"
+      assembly_type:
+        create: "%{user_name},%{resource_name} kurul türünü oluşturdu"
+        delete: "%{user_name},%{resource_name} üyesini %{space_name} kurul türünden kaldırdı"
+        publish: "%{user_name}, %{resource_name} kurul türünü yayınladı"
+        unpublish: "%{user_name}, %{resource_name} kurul türünü yayından kaldırdı"
+        update: "%{user_name}, %{resource_name} kurul türünü güncelledi"
       assembly_user_role:
         create: "%{user_name} %{space_name} mecraya %{resource_name} davet edildi"
         delete: "%{user_name} kullanıcı %{resource_name} %{space_name} aksamından çıkardı"
@@ -268,6 +276,11 @@ tr:
             social_handlers: Sosyal
             title: Genel bilgi
             visbility: görünürlük
+        assemblies_settings:
+          edit:
+            update: Güncelle
+          form:
+            title: Kurul ayarları
         assemblies_types:
           form:
             title: Başlık
@@ -295,6 +308,9 @@ tr:
         content_blocks:
           highlighted_assemblies:
             max_results: Gösterilecek maksimum öğe miktarı
+        new_import:
+          accepted_types:
+            json: JSON
       assembly_members:
         index:
           members: Üyeler
@@ -314,6 +330,7 @@ tr:
         others: Diğerleri
         public: halka açık
       filter:
+        all: Bütün Türler
         commission: komisyon
         consultative_advisory: Danışma / Danışma
         executive: yönetici
@@ -330,6 +347,7 @@ tr:
         home:
           highlighted_assemblies:
             active_assemblies: Aktif meclisler
+            assemblies_button_title: Tüm kurulları görüntüleyen Kurullar sayfasına bağlantı
             see_all_assemblies: Tüm montajları gör
         user_profile:
           member_of:
@@ -360,6 +378,7 @@ tr:
         related_participatory_processes: İlgili katılımcı süreçler
         scope: kapsam
         social_networks: Sosyal ağlar
+        social_networks_title: Bu kurulu paylaş
         target: Kimler katılır
       statistics:
         answers_count: Cevaplar
@@ -371,6 +390,7 @@ tr:
         meetings_count: Toplantılar
         orders_count: oy
         pages_count: Sayfalar
+        posts_count: Yayınlar
         projects_count: Projeler
         proposals_count: Teklif
         results_count: Sonuçlar
@@ -382,6 +402,11 @@ tr:
         designated_on: Üzerinde belirlenen
       index:
         title: Üyeler
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
     help:
       participatory_spaces:
         assemblies:
