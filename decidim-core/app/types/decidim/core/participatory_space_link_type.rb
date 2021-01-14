@@ -3,7 +3,6 @@
 module Decidim
   module Core
     class ParticipatorySpaceLinkType < Decidim::Api::Types::BaseObject
-      # name "ParticipatorySpaceLink"
       description "A link representation between participatory spaces"
 
       field :id, ID, "The id of this participatory space link", null: false

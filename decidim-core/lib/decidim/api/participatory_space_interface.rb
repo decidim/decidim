@@ -2,9 +2,6 @@
 
 module Decidim
   module Core
-    class ComponentListHelper < ComponentList
-    end
-
     module ParticipatorySpaceInterface
       include Decidim::Api::Types::BaseInterface
       graphql_name "ParticipatorySpaceInterface"
