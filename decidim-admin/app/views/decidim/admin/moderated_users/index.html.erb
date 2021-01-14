@@ -61,11 +61,11 @@
               <% if allowed_to?(:unreport, :moderate_users) %>
                 <%= icon_link_to "action-undo",  ignore_moderated_user_path(id: moderation),  t(".actions.unreport"),  class: "action-icon--unreport",  method: :put %>
               <% end %>
-              <% if allowed_to?(:suspend, :moderate_users) %>
-                <% if moderation.user.suspended? %>
-                  <%= icon_link_to "ban", user_suspend_path(user_id: moderation.user.id), t(".actions.unsuspend"), class: "action-icon action-icon--disabled", method: :delete %>
+              <% if allowed_to?(:block, :moderate_users) %>
+                <% if user.blocked? %>
+                  <%= icon_link_to "ban", user_block_path(user_id: moderation.user.id), t(".actions.unblock"), class: "action-icon action-icon--disabled", method: :delete %>
                 <% else %>
-                  <%= icon_link_to "ban", new_user_suspend_path(user_id: moderation.user.id), t(".actions.suspend"), class: "action-icon action-icon" %>
+                  <%= icon_link_to "ban", new_user_block_path(user_id: moderation.user.id), t(".actions.block"), class: "action-icon action-icon" %>
                 <% end %>
               <% end %>
             </td>

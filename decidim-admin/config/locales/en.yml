@@ -502,8 +502,10 @@ en:
       moderated_users:
         index:
           actions:
+            block: Block User
             title: Actions
             unreport: Unreport
+            unblock: Unblock User
           name: Name
           nickname: Nickname
           reason: Reason
