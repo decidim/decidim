@@ -2,12 +2,16 @@
 // = require decidim/editor/modified_backspace_utils
 // = require decidim/editor/modified_backspace_offset_any
 // = require decidim/editor/modified_backspace_offset1
+// = require decidim/editor/history_override
 
 // It all started with these snippets of code: https://github.com/quilljs/quill/issues/252
 ((exports) => {
   const Quill = exports.Quill;
+  const Delta = Quill.import("delta");
   const Break = Quill.import("blots/break");
   const Embed = Quill.import("blots/embed");
+  const { HistoryOverride } = exports.Decidim.Editor
+  Quill.register({"modules/history": HistoryOverride}, true)
   let icons = Quill.import("ui/icons");
   icons.linebreak = "⏎";
 
@@ -31,12 +35,17 @@
     let range = quill.selection.getRange()[0];
     let currentLeaf = quill.getLeaf(range.index)[0];
     let nextLeaf = quill.getLeaf(range.index + 1)[0];
-
-    quill.insertEmbed(range.index, "break", true, "user");
+    const previousChar = quill.getText(range.index - 1, 1);
 
     // Insert a second break if:
     // At the end of the editor, OR next leaf has a different parent (<p>)
     if (nextLeaf === null || (currentLeaf.parent !== nextLeaf.parent)) {
+      quill.insertEmbed(range.index, "break", true, "user");
+      quill.insertEmbed(range.index, "break", true, "user");
+    } else if (previousChar === "\n") {
+      const delta = new Delta().retain(range.index).insert("\n");
+      quill.updateContents(delta, Quill.sources.USER);
+    } else {
       quill.insertEmbed(range.index, "break", true, "user");
     }
 
@@ -62,6 +71,7 @@
         quill.deleteText(quill.getLength() - 2, 2);
       }
     });
+
     addEnterBindings(quill);
     backspaceBindingsRangeAny(quill);
     backspaceBindings(quill);

@@ -42,6 +42,7 @@ tr:
         title: Eylemler
       admin:
         exports:
+          result_comments: Yorumlar
           results: Sonuçlar
         import_results:
           new:

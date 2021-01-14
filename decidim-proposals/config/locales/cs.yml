@@ -363,7 +363,7 @@ cs:
         actions:
           preview: Náhled
         exports:
-          comments: Komentáře
+          proposal_comments: Komentáře
           proposals: Návrhy
         models:
           proposal:

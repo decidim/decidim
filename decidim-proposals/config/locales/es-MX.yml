@@ -352,7 +352,6 @@ es-MX:
         actions:
           preview: Previsualizar
         exports:
-          comments: Comentarios
           proposals: Propuestas
         models:
           proposal:

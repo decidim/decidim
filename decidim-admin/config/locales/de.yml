@@ -227,6 +227,12 @@ de:
       autocomplete:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen
+      block_user:
+        new:
+          action: Konto sperren und Begründung senden
+          description: Das Blockieren eines Benutzers wird sein Konto unbrauchbar machen. Sie können begründen und Richtlinien dafür bieten, wie der Benutzer vorgehen könnte, damit Sie in Betracht ziehen, die Blockierung wieder aufzuheben.
+          justification: Begründung
+          title: Benutzer %{name} blockieren
       categories:
         create:
           error: Beim Erstellen dieser Kategorie ist ein Fehler aufgetreten.
@@ -594,6 +600,9 @@ de:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
+        block:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
+          success: Teilnehmer erfolgreich blockiert
         create:
           success: Benutzer wurde offiziell anerkannt
         destroy:
@@ -601,6 +610,7 @@ de:
         index:
           actions: Aktionen
           badge: Abzeichen
+          block: Benutzer blockieren
           created_at: Hergestellt in
           name: Name
           nickname: Spitzname
@@ -611,6 +621,7 @@ de:
           reports: Berichte
           show_email: E-Mail-Adresse anzeigen
           status: Status
+          unblock: Blockierung des Users aufheben
           unofficialize: Nicht offiziell
         new:
           badge: Offizielles Abzeichen
@@ -624,6 +635,9 @@ de:
           hidden: versteckt
           show: Anzeigen
           title: Teilnehmer E-Mail-Adresse anzeigen
+        unblock:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten
+          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben
       organization:
         edit:
           title: Organisation bearbeiten
