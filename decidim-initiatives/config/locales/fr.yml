@@ -208,7 +208,6 @@ fr:
           edit:
             accept: Accepter l'initiative
             confirm: Êtes-vous sûr(e) ?
-            confirm_send_to_technical_validation: Vous allez envoyer la pétition à un administrateur pour qu'il la consulte et la publie. Une fois publiée, vous ne serez plus en mesure de l'éditer. Êtes-vous sûr que votre pétition est prête ?
             discard: Dépublier l'initiative
             export_pdf_signatures: Exporter PDF des signatures
             export_votes: Exporter la liste des votes
