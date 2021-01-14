@@ -230,6 +230,7 @@ cs:
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
+          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
           justification: Odůvodnění
           title: Blokovat uživatele %{name}
       categories:
