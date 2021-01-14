@@ -54,7 +54,7 @@ module Decidim
         def scope_id
           @scope_id || scope&.id
         end
-      
+
         private
 
         def validate_end_time?
@@ -63,6 +63,7 @@ module Decidim
 
         def validate_start_time?
           end_time.present?
+        end
       end
     end
   end
