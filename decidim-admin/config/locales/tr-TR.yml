@@ -600,6 +600,9 @@ tr:
           error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       officializations:
+        block:
+          error: Katılımcıyı engellerken bir hata oluştu
+          success: Katılımcı başarıyla engellendi
         create:
           success: Kullanıcı başarıyla onaylandı
         destroy:
@@ -607,6 +610,7 @@ tr:
         index:
           actions: Eylemler
           badge: rozet
+          block: Kullanıcıyı Engelle
           created_at: At düzenlendi
           name: isim
           nickname: Takma ad
@@ -614,18 +618,26 @@ tr:
           officialize: ', resmiyete'
           officialized: resmileştirilmiş
           reofficialize: Reofficialize
+          reports: Raporlar
+          show_email: E-posta adresini göster
           status: durum
+          unblock: Kullanıcının Engelini Kaldır
           unofficialize: Unofficialize
         new:
           badge: Resmi görevlendirme rozeti
           officialize: ', resmiyete'
           title: '"%{name}" kullanıcısını resmi olarak yetkilendir'
         show_email_modal:
+          close_modal: Pencereyi kapat
+          description: Bir katılımcıyla doğrudan iletişime geçmeniz gerekirse, e-posta adresini görmek için Göster düğmesine tıklayabilirsiniz. Bu eylem günlüğe kaydedilecek.
           email_address: E-posta adresi
           full_name: Tam adı
           hidden: saklı
           show: Göster
           title: Katılımcı e-posta adresini göster
+        unblock:
+          error: Katılımcıyı engellerken bir hata oluştu
+          success: Katılımcı başarıyla engellendi
       organization:
         edit:
           title: Kuruluş düzenle
@@ -655,6 +667,7 @@ tr:
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
           images:
             layout_appearance_title: Düzen görünümünü düzenle
+            preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         edit:
@@ -671,10 +684,14 @@ tr:
           error: Bu katılımcı alan için özel bir kullanıcı silinirken bir hata oluştu.
           success: Katılımcı alan özel kullanıcı erişimi başarıyla yok edildi.
         index:
+          import_via_csv: CSV'den içe aktar
           title: Katılımcı alan özel kullanıcısı
         new:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: CSV dosyasını okurken bir hata oluştu.
       resource_permissions:
         edit:
           submit: Gönder
