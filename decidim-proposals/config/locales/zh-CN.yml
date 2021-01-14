@@ -340,7 +340,6 @@ zh-CN:
         actions:
           preview: 预览
         exports:
-          comments: 评论
           proposals: 建议
         models:
           proposal:

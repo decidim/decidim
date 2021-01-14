@@ -62,6 +62,12 @@ module Decidim
             end.to change(Comment, :count).by(1)
           end
 
+          it "creates a new searchable resource" do
+            expect do
+              perform_enqueued_jobs { command.call }
+            end.to change(Decidim::SearchableResource, :count).by_at_least(1)
+          end
+
           it "calls content processors" do
             user_parser = instance_double("kind of UserParser", users: [])
             user_group_parser = instance_double("kind of UserGroupParser", groups: [])

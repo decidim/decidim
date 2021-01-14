@@ -120,4 +120,35 @@ describe "Admin manages budgets", type: :system do
       end
     end
   end
+
+  describe "component page shows finished and pending orders of all budgets" do
+    context "when component has many budgets with orders" do
+      let(:budget2) { create(:budget, :with_projects, component: current_component) }
+      let(:project) { create(:project, budget: budget, budget_amount: 90_000_000) }
+      let(:project2) { create(:project, budget: budget2, budget_amount: 95_000_000) }
+      let(:user2) { create :user, :confirmed, organization: organization }
+      let(:user3) { create :user, :confirmed, organization: organization }
+      let!(:finished_order) do
+        order = create(:order, user: user2, budget: budget)
+        order.projects << project
+        order.checked_out_at = Time.current
+        order.save!
+        order
+      end
+      let!(:pending_order) do
+        order = create(:order, user: user3, budget: budget2)
+        order.projects << project2
+        order.save!
+        order
+      end
+
+      it "shows finished and pending orders" do
+        visit current_path
+        within find_all(".card-divider").last do
+          expect(page).to have_content("Finished orders: \n1")
+          expect(page).to have_content("Pending orders: \n1")
+        end
+      end
+    end
+  end
 end

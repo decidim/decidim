@@ -29,6 +29,10 @@ shared_examples_for "reportable" do
       context "when the resource has been hidden" do
         let(:moderation) { create(:moderation, reportable: subject, participatory_space: participatory_space, report_count: 1, hidden_at: Time.current) }
 
+        before do
+          subject.reload
+        end
+
         it { expect(subject).to be_hidden }
       end
     end
@@ -42,6 +46,10 @@ shared_examples_for "reportable" do
       end
 
       context "when the report count is greater than 0" do
+        before do
+          subject.reload
+        end
+
         it { expect(subject).to be_reported }
       end
     end

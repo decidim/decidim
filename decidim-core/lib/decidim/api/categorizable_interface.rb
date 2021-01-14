@@ -3,11 +3,11 @@
 module Decidim
   module Core
     # This interface represents a categorizable object.
-    CategorizableInterface = GraphQL::InterfaceType.define do
-      name "CategorizableInterface"
+    module CategorizableInterface
+      include Decidim::Api::Types::BaseInterface
       description "An interface that can be used in categorizable objects."
 
-      field :category, !Decidim::Core::CategoryType, "The object's category"
+      field :category, Decidim::Core::CategoryType, "The object's category", null: false
     end
   end
 end

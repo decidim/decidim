@@ -3,86 +3,86 @@
 module Decidim
   module Comments
     # This type represents a comment on a commentable object.
-    CommentType = GraphQL::ObjectType.define do
-      name "Comment"
+    class CommentType < Decidim::Api::Types::BaseObject
       description "A comment"
 
-      interfaces [
-        -> { Decidim::Comments::CommentableInterface }
-      ]
+      implements Decidim::Comments::CommentableInterface
+      field :author, Decidim::Core::AuthorInterface, "The resource author", null: false
 
-      field :author, !Decidim::Core::AuthorInterface, "The resource author" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.user_group || obj.author
-        }
+      field :id, ID, "The Comment's unique ID", null: false
+
+      field :sgid, String, "The Comment's signed global id", null: false
+
+      field :body, String, "The comment message", null: false
+
+      field :formatted_body, String, "The comment message ready to display (it is expected to include HTML)", null: false
+
+      field :created_at, String, "The creation date of the comment", null: false
+
+      field :formatted_created_at, String, "The creation date of the comment in relative format", null: false
+
+      field :alignment, Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'", null: true
+
+      field :up_votes, Int, "The number of comment's upVotes", null: false
+
+      field :up_voted, Boolean, "Check if the current user has upvoted the comment", null: false
+
+      field :down_votes, Int, "The number of comment's downVotes", null: false
+
+      field :down_voted, Boolean, "Check if the current user has downvoted the comment", null: false
+
+      field :has_comments, Boolean, "Check if the commentable has comments", method: :has_comments?, null: false
+
+      field :already_reported, Boolean, "Check if the current user has reported the comment", null: false
+
+      field :user_allowed_to_comment, Boolean, "Check if the current user can comment", null: false
+
+      def author
+        object.user_group || object.author
       end
 
-      field :id, !types.ID, "The Comment's unique ID"
-
-      field :sgid, !types.String, "The Comment's signed global id" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.to_sgid.to_s
-        }
+      def sgid
+        object.to_sgid.to_s
       end
 
-      field :body, !types.String, "The comment message" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.translated_body
-        }
+      def body
+        object.translated_body
       end
 
-      field :formattedBody, !types.String, "The comment message ready to display (it is expected to include HTML)", property: :formatted_body
-
-      field :createdAt, !types.String, "The creation date of the comment" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.created_at.iso8601
-        }
+      def created_at
+        object.created_at.iso8601
       end
 
-      field :formattedCreatedAt, !types.String, "The creation date of the comment in relative format", property: :friendly_created_at
-
-      field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"
-
-      field :upVotes, !types.Int, "The number of comment's upVotes" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.up_votes.size
-        }
+      def formatted_created_at
+        object.friendly_created_at
       end
 
-      field :upVoted, !types.Boolean, "Check if the current user has upvoted the comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.up_voted_by?(ctx[:current_user])
-        }
+      def up_votes
+        object.up_votes.size
       end
 
-      field :downVotes, !types.Int, "The number of comment's downVotes" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.down_votes.size
-        }
+      def up_voted
+        object.up_voted_by?(context[:current_user])
       end
 
-      field :downVoted, !types.Boolean, "Check if the current user has downvoted the comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.down_voted_by?(ctx[:current_user])
-        }
+      def down_votes
+        object.down_votes.size
       end
 
-      field :hasComments, !types.Boolean, "Check if the commentable has comments" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.comment_threads.size.positive?
-        }
+      def down_voted
+        object.down_voted_by?(context[:current_user])
       end
 
-      field :alreadyReported, !types.Boolean, "Check if the current user has reported the comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.reported_by?(ctx[:current_user])
-        }
+      def has_comments?
+        object.comment_threads.size.positive?
       end
 
-      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.root_commentable.commentable? && obj.root_commentable.user_allowed_to_comment?(ctx[:current_user])
-        }
+      def already_reported
+        object.reported_by?(context[:current_user])
+      end
+
+      def user_allowed_to_comment
+        object.root_commentable.commentable? && object.root_commentable.user_allowed_to_comment?(context[:current_user])
       end
     end
   end

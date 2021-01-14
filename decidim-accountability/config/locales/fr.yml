@@ -42,6 +42,7 @@ fr:
         title: Actions
       admin:
         exports:
+          result_comments: Commentaires
           results: Réalisations
         import_results:
           new:

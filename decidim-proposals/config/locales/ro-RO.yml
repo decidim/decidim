@@ -331,7 +331,6 @@ ro:
         actions:
           preview: Previzualizare
         exports:
-          comments: Comentarii
           proposals: Propuneri
         models:
           proposal:

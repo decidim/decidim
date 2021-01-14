@@ -207,6 +207,7 @@ fi:
             invalid: Esityslistan päivitys epäonnistui
             success: Esityslistan päivitys onnistui
         exports:
+          meeting_comments: Kommentit
           meetings: Tapaamiset
           registrations: Ilmoittautumiset
         invite_join_meeting_mailer:

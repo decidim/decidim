@@ -9,10 +9,8 @@ module Decidim
 
     included do
       # Returns a User collection Participants
-      # This is the default, if you want, you can overwrite in each Class to be export.
-      def self.newsletter_participant_ids(_component)
-        nil
-      end
+      # Behaves as an abstract method, you must overwrite it in each includer class.
+      def self.newsletter_participant_ids(_component); end
     end
   end
 end

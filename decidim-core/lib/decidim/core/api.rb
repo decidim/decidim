@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    autoload :GraphQLApiTransition, "decidim/api/graph_ql_api_transition"
     autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
     autoload :ComponentInterface, "decidim/api/component_interface"
     autoload :AuthorInterface, "decidim/api/author_interface"
