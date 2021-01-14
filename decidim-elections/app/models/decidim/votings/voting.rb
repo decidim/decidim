@@ -30,7 +30,6 @@ module Decidim
       #                   index_on_create: ->(_voting) { false },
       #                   index_on_update: ->(voting) { voting.visible? })
 
-
       def self.log_presenter_class_for(_log)
         Decidim::Votings::AdminLog::VotingPresenter
       end

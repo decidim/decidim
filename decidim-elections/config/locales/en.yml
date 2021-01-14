@@ -398,11 +398,6 @@ en:
       statistics:
         elections_count: Elections
     votings:
-      admin_log:
-        voting:
-          create: "%{user_name} created the %{resource_name} voting"
-          publish: "%{user_name} published the %{resource_name} voting"
-          unpublish: "%{user_name} unpublished the %{resource_name} voting"
       admin:
         index:
           not_published: Not published
@@ -429,6 +424,11 @@ en:
           new:
             create: Create
             title: New Voting
+      admin_log:
+        voting:
+          create: "%{user_name} created the %{resource_name} voting"
+          publish: "%{user_name} published the %{resource_name} voting"
+          unpublish: "%{user_name} unpublished the %{resource_name} voting"
   layouts:
     decidim:
       election_votes_header:
