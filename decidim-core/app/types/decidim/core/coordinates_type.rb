@@ -3,16 +3,18 @@
 module Decidim
   module Core
     # This type represents a Decidim's global property.
-    CoordinatesType = GraphQL::ObjectType.define do
-      name "Coordinates"
+    class CoordinatesType < Decidim::Api::Types::BaseObject
       description "Physical coordinates for a location"
 
-      field :latitude, !types.Float, "Latitude of this coordinate" do
-        resolve ->(coordinates, _args, _ctx) { coordinates[0] }
+      field :latitude, GraphQL::Types::Float, "Latitude of this coordinate", null: false
+      field :longitude, GraphQL::Types::Float, "Longitude of this coordinate", null: false
+
+      def latitude
+        object[0]
       end
 
-      field :longitude, !types.Float, "Longitude of this coordinate" do
-        resolve ->(coordinates, _args, _ctx) { coordinates[1] }
+      def longitude
+        object[1]
       end
     end
   end

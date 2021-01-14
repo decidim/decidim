@@ -8,7 +8,8 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :proposal_component, organization: organization }
+    let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization: organization) }
+    let(:current_component) { create :proposal_component, organization: organization, participatory_space: participatory_space }
     let!(:proposal) do
       create(
         :proposal,

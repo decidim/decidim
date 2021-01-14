@@ -6,10 +6,13 @@ module Decidim
   describe "decidim/admin/static_pages/_form" do
     subject { render }
 
+    let(:organization) { create(:organization) }
     let(:form) do
       Decidim::FormBuilder.new(
         :static_page,
-        Decidim::Admin::StaticPageForm.new(slug: slug),
+        Decidim::Admin::StaticPageForm.new(slug: slug).with_context(
+          current_organization: organization
+        ),
         view,
         {}
       )
@@ -34,6 +37,7 @@ module Decidim
       let(:allowed?) { false }
 
       it { is_expected.not_to include("slug") }
+      it { is_expected.not_to include("allow_public_access") }
     end
 
     context "with the TOS static page" do
@@ -41,6 +45,7 @@ module Decidim
       let(:allowed?) { false }
 
       it { is_expected.not_to include("slug") }
+      it { is_expected.not_to include("allow_public_access") }
     end
 
     context "with a normal static page" do
@@ -48,6 +53,15 @@ module Decidim
       let(:allowed?) { true }
 
       it { is_expected.to include("slug") }
+      it { is_expected.not_to include("allow_public_access") }
+    end
+
+    context "with organization forcing users to authenticate before access" do
+      let(:slug) { "foo" }
+      let(:allowed?) { true }
+      let(:organization) { create(:organization, force_users_to_authenticate_before_access_organization: true) }
+
+      it { is_expected.to include("allow_public_access") }
     end
   end
 end

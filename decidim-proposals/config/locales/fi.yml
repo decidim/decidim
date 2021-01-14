@@ -355,7 +355,7 @@ fi:
         actions:
           preview: Esikatsele
         exports:
-          comments: Kommentit
+          proposal_comments: Kommentit
           proposals: Ehdotukset
         models:
           proposal:

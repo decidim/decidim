@@ -2,6 +2,7 @@
 
 module Decidim
   module Core
+    autoload :GraphQLApiTransition, "decidim/api/graph_ql_api_transition"
     autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
     autoload :ComponentInterface, "decidim/api/component_interface"
     autoload :AuthorInterface, "decidim/api/author_interface"
@@ -18,5 +19,8 @@ module Decidim
     autoload :TraceableInterface, "decidim/api/traceable_interface"
     autoload :TimestampsInterface, "decidim/api/timestamps_interface"
     autoload :EndorsableInterface, "decidim/api/endorsable_interface"
+
+    autoload :DateTimeType, "decidim/api/scalars/date_time_type"
+    autoload :DateType, "decidim/api/scalars/date_type"
   end
 end

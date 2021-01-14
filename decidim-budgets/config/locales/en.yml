@@ -46,6 +46,8 @@ en:
             title: Edit budget
             update: Update budget
           index:
+            finished_orders: Finished orders
+            pending_orders: Pending orders
             title: Budgets
           new:
             create: Create budget
@@ -53,6 +55,8 @@ en:
           update:
             invalid: There was a problem updating this budget
             success: Budget successfully updated
+        exports:
+          projects: Projects
         models:
           budget:
             name: Budget

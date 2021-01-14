@@ -60,6 +60,14 @@ module Decidim
       end
     end
 
+    describe ".accessible_for" do
+      it_behaves_like "accessible static pages" do
+        let(:actual_page_ids) do
+          described_class.accessible_for(organization, user).pluck(:id)
+        end
+      end
+    end
+
     describe "#to_param" do
       subject { page.to_param }
 

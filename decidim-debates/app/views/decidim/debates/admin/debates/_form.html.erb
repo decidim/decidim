@@ -34,6 +34,12 @@
       </div>
     </div>
 
+    <% if current_component.has_subscopes? %>
+      <div class="row column">
+        <%= scopes_picker_field form, :scope_id, root: current_component.scope %>
+      </div>
+    <% end %>
+
     <div class="row column">
       <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
     </div>

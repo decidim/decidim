@@ -3,58 +3,47 @@
 module Decidim
   module Comments
     # This interface represents a commentable object.
-    CommentableInterface = GraphQL::InterfaceType.define do
-      name "CommentableInterface"
+    module CommentableInterface
+      include Decidim::Api::Types::BaseInterface
       description "A commentable interface"
 
-      field :id, !types.ID, "The commentable's ID"
+      field :id, ID, "The commentable's ID", null: false
 
-      field :type, !types.String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`" do
-        property :commentable_type
+      field :type, String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", method: :commentable_type, null: false
+
+      field :accepts_new_comments, Boolean, "Whether the object can have new comments or not", method: :accepts_new_comments?, null: false
+
+      field :comments_have_alignment, Boolean, "Whether the object comments have alignment or not", method: :comments_have_alignment?, null: false
+
+      field :comments_have_votes, Boolean, "Whether the object comments have votes or not", method: :comments_have_votes?, null: false
+
+      field :comments, [CommentType], null: false do
+        argument :order_by, String, "Order the comments", required: false
+        argument :single_comment_id, String, "ID of the single comment to look at", required: false
       end
 
-      field :acceptsNewComments, !types.Boolean, "Whether the object can have new comments or not" do
-        property :accepts_new_comments?
+      field :total_comments_count, Integer, description: "The number of comments in all levels this resource holds", null: false
+
+      def comments(order_by: nil, single_comment_id: nil)
+        SortedComments.for(object, order_by: order_by, id: single_comment_id)
       end
 
-      field :commentsHaveAlignment, !types.Boolean, "Whether the object comments have alignment or not" do
-        property :comments_have_alignment?
+      def total_comments_count
+        object.comments_count
       end
 
-      field :commentsHaveVotes, !types.Boolean, "Whether the object comments have votes or not" do
-        property :comments_have_votes?
+      field :has_comments, Boolean, "Check if the commentable has comments", null: false
+
+      # rubocop:disable Naming/PredicateName
+      def has_comments
+        object.comment_threads.size.positive?
       end
+      # rubocop:enable Naming/PredicateName
 
-      field :comments do
-        type !types[!CommentType]
+      field :user_allowed_to_comment, Boolean, "Check if the current user can comment", null: false
 
-        argument :orderBy, types.String, "Order the comments"
-        argument :singleCommentId, types.String, "ID of the single comment to look at"
-
-        resolve lambda { |obj, args, _ctx|
-          SortedComments.for(obj, order_by: args[:orderBy], id: args[:singleCommentId])
-        }
-      end
-
-      field :totalCommentsCount do
-        type !types.Int
-        description "The number of comments in all levels this resource holds"
-
-        resolve lambda { |obj, _args, _ctx|
-          obj.comments_count
-        }
-      end
-
-      field :hasComments, !types.Boolean, "Check if the commentable has comments" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.comment_threads.size.positive?
-        }
-      end
-
-      field :userAllowedToComment, !types.Boolean, "Check if the current user can comment" do
-        resolve lambda { |obj, _args, ctx|
-          obj.commentable? && obj.user_allowed_to_comment?(ctx[:current_user])
-        }
+      def user_allowed_to_comment
+        object.commentable? && object.user_allowed_to_comment?(context[:current_user])
       end
     end
   end

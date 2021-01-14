@@ -298,7 +298,6 @@ ar:
         actions:
           preview: معاينة
         exports:
-          comments: تعليقات
           proposals: اقتراحات
         models:
           proposal:

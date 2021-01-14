@@ -1,6 +1,8 @@
 cs:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: Povolit organizační graf
       assembly:
         area_id: Oblast
         assembly_type: Typ shromáždění
@@ -60,6 +62,7 @@ cs:
         full_name: Celé jméno
         gender: Rod
         position: Pozice
+        user_id: Uživatel
       assembly_user_role:
         email: E-mail
         name: název
@@ -102,7 +105,7 @@ cs:
         index:
           not_published: Není zveřejněno
           private: Soukromé
-          public: Veřejnost
+          public: Veřejné
           published: Publikováno
         new:
           create: Vytvořit
@@ -331,7 +334,7 @@ cs:
       created_by:
         city_council: Městská rada
         others: Ostatní
-        public: Veřejnost
+        public: Veřejné
       filter:
         all: Všechny typy
         commission: Komise

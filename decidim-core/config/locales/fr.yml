@@ -79,6 +79,7 @@ fr:
       logo: "Logo officiel de %{organization}"
       skip_button: Passer au contenu principal
     account:
+      blocked: Ce compte a été bloqué en raison d'une violation des Conditions Générales d'Utilisation
       data_portability_export:
         file_no_exists: Le fichier n'existe pas
         notice: Votre export est actuellement en cours. Vous recevrez un email quand il sera complet.
@@ -113,6 +114,8 @@ fr:
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+      impersonation_log:
+        manage: "%{user_name} a représenté %{resource_name} parce que %{reason}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans l'espace %{space_name}"
         unreport: "%{user_name} a annulé le signalement d'une ressource de type %{resource_type} dans l'espace %{space_name}"
@@ -143,10 +146,14 @@ fr:
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
       user:
+        block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
         officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
+        promote: "%{user_name} a promu %{resource_name}"
         remove_from_admin: "%{user_name} a retiré le rôle : %{role} de l'utilisateur %{resource_name}"
         show_email: "%{user_name} est allé chercher l'email de l'utilisateur %{resource_name}"
+        transfer: "%{user_name} a transféré l'utilisateur %{resource_name}"
+        unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
@@ -276,7 +283,7 @@ fr:
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
-        duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
+        duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
       expired_at: Expiré à %{timestamp}
       expires_at: Expire à %{timestamp}
       foo_authorization:
@@ -322,6 +329,13 @@ fr:
           title: confirmez votre email
       show:
         close_modal: Fermer la fenêtre de dialogue
+    block_user_mailer:
+      notify:
+        body_1: Votre compte a été bloqué.
+        body_2: 'Motif : %{justification}'
+        greetings: Salutations,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Bonjour,
+        subject: Votre compte a été bloqué par %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: et %{count} plus
@@ -1098,6 +1112,7 @@ fr:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
       deleted: Utilisateur ayant supprimé son compte
+      inaccessible_message: Ce profil est inaccessible en raison d'une violation des Conditions Générales d'Utilisation !
       view: Voir
     profiles:
       default_officialization_text_for_user_groups: Ce groupe d'utilisateurs est publiquement vérifié, son nom a été vérifié pour correspondre à son vrai nom.
