@@ -504,8 +504,8 @@ en:
           actions:
             block: Block User
             title: Actions
-            unreport: Unreport
             unblock: Unblock User
+            unreport: Unreport
           name: Name
           nickname: Nickname
           reason: Reason
