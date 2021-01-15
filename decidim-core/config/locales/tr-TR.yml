@@ -190,6 +190,9 @@ tr:
         success: Değişiklik taslağı başarıyla silindi.
       edit_draft:
         discard: Bu taslağı sil
+        discard_confirmation: Bu değişiklik taslağını iptal etmek istediğinizden emin misiniz?
+        send: Önizleme
+        title: Değişiklik Taslağını Düzenle
       emendation:
         actions:
           button_accept: Kabul etmek
@@ -202,15 +205,25 @@ tr:
           evaluating: |-
             %{amendable_type} %{amendable_link}
             için yapılan bu değişiklik değerlendiriliyor.
+          promoted: '%{amendable_type} olarak yükseltildi.'
           rejected: "%{amendable_type} %{amendable_link}\niçin bu emenisyon <strong>%{announcement_date}</strong>reddedildi."
           withdrawn: |-
             %{amendable_type} %{amendable_link}
             için bu değişiklik yazar tarafından geri çekilmiştir.
       new:
         amendment_author: Değişiklik yazarı
+        send: Oluştur
+        title: Değişiklik Taslağı Oluştur
+      preview_draft:
+        modify: Düzenle
+        publish: Yayınla
+        title: Değişiklik Taslağını Yayınla
       promoted:
         error: Düzeltmeyi teşvik ederken hatalar oluştu
         success: Emendation başarıyla tanıtıldı
+      publish_draft:
+        error: Değişiklik yayınlanırken bir hata oluştu.
+        success: Değişiklik başarıyla yayınlandı.
       rejected:
         error: Bu ödeme reddedilirken bir hata oluştu, lütfen daha sonra tekrar deneyin.
         success: Emendation başarıyla reddedildi
@@ -219,26 +232,38 @@ tr:
         heading: Değişikliği gözden geçirin
         help_text: '%{model_name}yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
+      update_draft:
+        error: Değişiklik taslağı güncellenirken bir hata oluştu.
+        success: Değişiklik taslağı başarıyla güncellendi.
+      withdraw:
+        error: Değişiklik geri çekilirken bir hata oluştu
+        success: Değişiklik başarıyla geri çekildi
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
+          '2': Değişikliğinizi karşılaştırın
+          '3': Değişikliğinizi tamamlayın
+          '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
       collection:
         documents:
           one: belge
           other: evraklar
+      document:
+        download: Dosyayı indir
       documents:
         related_documents: Alakalı dökümanlar
       photos:
         related_photos: İlgili fotoğraflar
     author:
+      avatar: Avatar
       comments:
         one: yorum Yap
         other: yorumlar
+      endorsements:
+        one: onay
+        other: onaylar
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
@@ -249,6 +274,7 @@ tr:
       dummy_authorization_handler:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
+          allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
           document_number: Belge Numarası
           postal_code: Posta kodu
         name: Örnek yetkilendirme
@@ -540,6 +566,9 @@ tr:
           email_outro: Bu bildirimi siz grubun üyesi olduğunuz için aldınız.
           email_subject: '%{user_group_name} gruptan kaldırıldınız!'
           notification_title: <a href="%{resource_path}">%{user_group_name}</a> grubundan kaldırıldınız.
+        user_group_created:
+          email_subject: Yeni bir kullanıcı grubu oluşturuldu
+          notification_title: '%{user_group_name} kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
       notification_event:
         notification_title: Bir olay <a href="%{resource_path}">%{resource_title}</a>.
       users:
