@@ -16,6 +16,9 @@ tr:
         other: oy
   decidim:
     comments:
+      comments:
+        create:
+          error: Yorum oluşturulurken bir sorunla karşılaşıldı.
       last_activity:
         new_comment_at_html: "<span> %{link}</span>yeni yorum"
       votes:
