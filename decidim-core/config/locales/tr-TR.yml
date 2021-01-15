@@ -808,6 +808,13 @@ tr:
           not_found: 'Veritabanında kapsam tipi bulunamadı (ID: %{id})'
     managed_users:
       expired_session: Mevcut kimliğe bürünme oturumunun süresi doldu.
+    map:
+      dynamic:
+        screen_reader_explanation: Aşağıdaki, bu sayfadaki öğeleri harita noktaları olarak sunan bir haritadır. Öğe bir ekran okuyucuyla kullanılabilir, ancak anlaşılması zor olabilir.
+        skip_button: Haritayı atla
+      static:
+        latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
@@ -815,11 +822,35 @@ tr:
       home: Ev
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
+        comanagers_new_message:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
           outro: Decidim'in tadını çıkar!
           subject: "%{sender} sizinle bir konuşma başlattı"
+        new_group_conversation:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
+        new_group_message:
+          admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
+          greeting: Merhaba, %{recipient}!
+          intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
+          outro: Decidim'in tadını çıkarın!
+          subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} , konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
@@ -1015,20 +1046,29 @@ tr:
       report:
         hello: Merhaba %{name}
         report_html: <p>Aşağıdaki <a href="%{url}">içerik</a> bildirilmiştir.</p>
+        see_report: Raporu gör
         subject: Bir kaynak rapor edildi
     reports:
       create:
         error: Rapor oluşturulurken bir hata oluştu. Lütfen tekrar dene.
         success: Rapor başarıyla oluşturuldu ve bir yönetici tarafından incelenecek.
+    resource_endorsements:
+      create:
+        error: Onay işlemi sırasında bir hata oluştu.
     scopes:
       global: Küresel kapsamı
       picker:
         cancel: İptal etmek
+        change: Seçili kapsamı değiştir
         choose: seçmek
+        currently_selected: Şu anda seçili kapsam
         title: '%{field}Seç'
       prompt: Bir kapsam seçin
       scopes: kapsamları
+      scopes_picker_input:
+        select_scope: 'Bir kapsam seçin (şu anda: %{current})'
     search:
+      results: Arama sonuçları
       results_found_for_term: '%{count} Arama için sonuçlar: "%{term}"'
       term_input_placeholder: Arama
     searches:
@@ -1050,7 +1090,16 @@ tr:
           one: "%{count} sonuç"
           other: "%{count} sonuç"
         view_all: Tümünü görüntüle (%{count})
+    security:
+      selfxss_warning:
+        description: Bu tarayıcı özelliği geliştiriciler içindir ve sizden istenirse buraya hiçbir şey yapıştırmamalısınız. Bu pencereye içerik yapıştırmak gizliliğinizi tehlikeye atabilir ve bilgisayar korsanlarının hesabınıza erişmesine izin verebilir.
+        title: Dur!
     shared:
+      confirm_modal:
+        cancel: İptal Et
+        close_modal: Pencereyi kapat
+        ok: TAMAM
+        title: Onayla
       embed_modal:
         close_window: Pencereyi kapat
         embed: Lütfen bu kodu sayfanıza yapıştırın
@@ -1058,6 +1107,9 @@ tr:
       extended_navigation_bar:
         more: Daha
         unfold: açılmak
+      filter_form_help:
+        help: Aşağıdaki form, arama koşulları değiştirildiğinde arama sonuçlarını dinamik olarak filtreler.
+        skip: Sonuçları atla
       flag_modal:
         already_reported: Bu içerik zaten bildirilmiştir ve bir yönetici tarafından incelenecektir.
         close: Kapat
@@ -1067,11 +1119,22 @@ tr:
         report: Rapor
         spam: Tıklama, reklam, dolandırıcılık veya komut dosyası botları içerir.
         title: Sorun bildir
+      flag_user_modal:
+        already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
+        close: Kapat
+        description: Kullanıcı hakkında uygunsuz olan nedir?
+        does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name} kuruluşuna ait olmadığını düşündüğünüz başka bir şey içeriyor.
+        offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
+        report: Bildir
+        spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
+        title: Uygunsuz Kullanıcıyı bildirin
       floating_help:
+        close: Yardımı Kapat
         help: yardım et
       follow_button:
         sign_in_before_follow: Bu eylemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
+        close_modal: Pencereyi kapat
         please_sign_in: Lütfen giriş yapın
         sign_up: kaydol
       participatory_space_filters:
@@ -1085,10 +1148,14 @@ tr:
         select_user_group: Bir grup seçiniz
       results_per_page:
         label: 'Sayfa başına sonuç:'
+        title: Sayfa başına sonuç sayısını seçin
       share_modal:
         close_window: Pencereyi kapat
         share: Pay
         share_link: Linki paylaş
+    tags:
+      filter_results_for_category: 'Kategori için sonuçları filtrele: %{resource}'
+      filter_results_for_scope: 'Sonuçları kapsam için filtrele: %{resource}'
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
