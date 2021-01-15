@@ -9,7 +9,7 @@ module Decidim
       end
 
       def room_name
-        @room_name ||= [meeting.reference, token].join("-").slice(0, 50)
+        @room_name ||= [meeting.reference, token].join.slice(0, 50).gsub(/[\W_]+/, "")
       end
 
       def iframe_id

@@ -6,7 +6,7 @@ module Decidim::Meetings
   describe VideoconferenceCell, type: :cell do
     controller Decidim::Meetings::MeetingsController
 
-    let!(:meeting) { create(:meeting) }
+    let!(:meeting) { create(:meeting, reference: "Meeting-Reference_2020#!") }
     let(:model) { meeting }
     let(:the_cell) { cell("decidim/meetings/videoconference", model, context: { current_user: user }) }
     let(:user) { create(:user) }
@@ -65,7 +65,13 @@ module Decidim::Meetings
       end
 
       it "generates a room name with the meeting reference and a random token" do
-        expect(the_cell.room_name).to eq("#{meeting.reference}-token")
+        expect(the_cell.room_name).to eq("MeetingReference2020token")
+      end
+
+      it "generates a room name with only alphanumeric characters" do
+        meeting.update!(reference: "I#H4v€-unwanted_cha%ra!`cht?ers-")
+        expect(the_cell.room_name).to match(/\w+/)
+        expect(the_cell.room_name).not_to match(/_/)
       end
     end
   end
