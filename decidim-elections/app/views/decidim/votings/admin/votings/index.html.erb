@@ -62,7 +62,7 @@
                 <% end %>
 
                 <% if allowed_to? :preview, :voting, voting: voting %>
-                  <%# <%= icon_link_to "eye",
+                  <%= icon_link_to "eye",
                                    decidim_votings.voting_path(voting),
                                    t("actions.preview", scope: "decidim.admin"),
                                    class: "action-icon--preview",

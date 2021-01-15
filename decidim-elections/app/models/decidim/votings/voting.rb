@@ -7,6 +7,7 @@ module Decidim
       include Loggable
       include Decidim::Participable
       include Decidim::ParticipatorySpaceResourceable
+      include Decidim::Randomable
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::ScopableParticipatorySpace

@@ -17,6 +17,9 @@ en:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      voting:
+        start_time: Start date
+        end_time: End date
     errors:
       models:
         answer:
@@ -390,6 +393,8 @@ en:
             email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
             email_subject: You are a trustee for %{resource_name}.
             notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    menu:
+      votings: Votings
     pages:
       home:
         statistics:
@@ -438,6 +443,38 @@ en:
           create: "%{user_name} created the %{resource_name} voting"
           publish: "%{user_name} published the %{resource_name} voting"
           unpublish: "%{user_name} unpublished the %{resource_name} voting"
+      votings:
+        count:
+          title:
+            one: "%{count} voting"
+            other: "%{count} votings"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          title: Votings
+        orders:
+          label: 'Sort votings by:'
+          random: Random
+          recent: Most recent
+        show:
+          dates: Dates
+      votings_m:
+        badge_name:
+          finished: Finished
+          open: Open
+        footer_button_text:
+          view: View
+        unspecified: Not specified
   layouts:
     decidim:
       election_votes_header:
