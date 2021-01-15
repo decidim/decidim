@@ -1,18 +1,18 @@
 tr:
   activemodel:
     models:
-      decidim/comments/comment_by_followed_user_event: Yorum Yap
-      decidim/comments/comment_created_event: Yorum Yap
+      decidim/comments/comment_by_followed_user_event: Yorum
+      decidim/comments/comment_created_event: Yorum
       decidim/comments/reply_created_event: Yorum cevabı
-      decidim/comments/user_group_mentioned_event: Anma
-      decidim/comments/user_mentioned_event: Anma
+      decidim/comments/user_group_mentioned_event: Bahset
+      decidim/comments/user_mentioned_event: Bahset
   activerecord:
     models:
       decidim/comments/comment:
-        one: Yorum Yap
+        one: Yorum
         other: Yorumlar
       decidim/comments/comment_vote:
-        one: Oy
+        one: Oy ver
         other: oy
   decidim:
     comments:
@@ -22,34 +22,34 @@ tr:
       comments_count: Yorum sayısı
       comments_title: Yorumlar
       last_activity:
-        new_comment_at_html: "<span> %{link}</span>yeni yorum"
+        new_comment_at_html: "<span> %{link}</span> yeni yorum"
       view: Görünüm
       votes:
         create:
           error: Yorum oylanırken bir sorun oluştu.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Yorumunuzu eklemek için</a> veya <a href="%{sign_up_url}">hesabınızla giriş yapın</a>.
+        account_message: Yorumunuzu eklemek için <a href="%{sign_in_url}"> hesabınızla oturum açın </a> veya <a href="%{sign_up_url}"> kaydolun </a>.
         form:
           body:
-            label: Yorum Yap
+            label: Yorum
             placeholder: Bunun hakkında ne düşünüyorsun?
-          form_error: Metin gereklidir ve %{length} karakterden uzun olamaz.
-          submit: göndermek
+          form_error: Metin zorunludur ve %{length} karakterden uzun olamaz.
+          submit: Gönder
           user_group_id:
             label: Olarak yorum yap
         opinion:
-          neutral: nötr
+          neutral: Tarafsız
         remaining_characters: "%{count} karakter kaldı"
         remaining_characters_1: "%{count} karakter kaldı"
-        title: yorumunu ekle
+        title: Yorum Ekle
       comment:
         alignment:
           against: Karşısında
           in_favor: Lehine
         deleted_user: Silinmiş katılımcı
         hide_replies: Yanıtları gizle
-        reply: cevap
+        reply: Cevapla
         report:
           action: Rapor
           already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
@@ -84,6 +84,8 @@ tr:
           other: "%{count} yorum"
       down_vote_button:
         text: Bu yoruma katılmıyorum
+      up_vote_button:
+        text: Bu yoruma katılıyorum
     events:
       comments:
         comment_by_followed_user:
@@ -92,6 +94,8 @@ tr:
           email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
         comment_by_followed_user_group:
+          email_intro: '%{author_name} grubu %{resource_title} alanında bir yorum bıraktı. Bu sayfada okuyabilirsiniz:'
+          email_outro: Bu bildirimi %{author_name} adlı yazarı takip ettiğiniz için aldınız. Bu grubu profil sayfasından takip etmeyi bırakabilirsiniz.
           email_subject: '%{author_name} %{resource_title}tarafından yeni bir yorum var'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> tarafından <a href="%{resource_path}">%{resource_title}</a>yeni bir yorum var.
         comment_created:
@@ -104,6 +108,11 @@ tr:
           email_outro: Yorumunuz yanıtlandığı için bu bildirimi aldınız.
           email_subject: "%{author_name} Yorumunuzu %{resource_title}yanıtladı."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>yorumunuzu yanıtladı.
+        user_group_mentioned:
+          email_intro: Ait olduğunuz bir gruptan bahsedildi
+          email_outro: Bu bildirimi, %{resource_title} içinde adı geçen %{group_name} grubunun bir üyesi olduğunuz için aldınız.
+          email_subject: '%{resource_title} içinde %{group_name} üyesi olarak bahsedildiniz'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> ’de <a href="%{author_path}">%{author_name} %{author_nickname} </a> tarafından bir <a href="%{group_path}">%{group_name} %{group_nickname} </a> üyesi
         user_mentioned:
           email_intro: Sen bahsettin
           email_outro: Bu bildirimi, %{resource_title}belirtildiğiniz için aldınız.
