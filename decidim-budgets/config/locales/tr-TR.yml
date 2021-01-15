@@ -13,6 +13,7 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
+        selected: Uygulama için seçildi
         title: Başlık
   activerecord:
     models:
@@ -27,11 +28,33 @@ tr:
         confirm_destroy: Bu projeyi silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        edit_projects: Projeleri Yönetme
         import: Projelere teklif alma
+        new: Yeni %{name}
         preview: Ön izleme
         title: Eylemler
       admin:
+        budgets:
+          create:
+            invalid: Bu bütçe oluşturulurken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla oluşturuldu
+          destroy:
+            invalid: Bu bütçe silinirken bir sorun oluştu
+            success: Bütçe başarıyla silindi
+          edit:
+            title: Bütçeyi düzenle
+            update: Bütçeyi güncelle
+          index:
+            title: Bütçeler
+          new:
+            create: Bütçe oluştur
+            title: Yeni bütçe
+          update:
+            invalid: Bu bütçe güncellenirken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla güncellendi
         models:
+          budget:
+            name: Bütçe
           project:
             name: proje
         projects:
@@ -42,34 +65,69 @@ tr:
             success: Proje başarıyla silindi
           edit:
             title: Projeyi düzenle
-            update: Güncelleştirme
+            update: Güncelle
           index:
             finished_orders: Tamamlanan oylar
             pending_orders: Bekleyen oylar
+            selected: Seçili
             title: Projeler
           new:
-            create: yaratmak
+            create: Oluştur
             title: Yeni proje
           update:
             invalid: Bu projeyi güncellerken bir sorun oluştu
             success: Proje başarıyla güncellendi
         proposals_imports:
           create:
-            invalid: Teklifleri projelere içe aktarırken bir sorun oluştu
-            success: "%{number} teklif başarıyla projelere aktarıldı"
+            invalid: Teklifleri projelere aktarırken bir sorun oluştu
+            success: "%{number} adet teklif başarıyla projelere aktarıldı"
           new:
-            create: Projelere teklif alma
+            create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
       admin_log:
+        budget:
+          create: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini oluşturdu"
+          delete: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini sildi"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini güncelledi"
         project:
           create: "%{user_name} , %{space_name} alanda %{resource_name} proje yarattı"
           delete: "%{user_name} , %{space_name} uzayda %{resource_name} projeyi sildi"
           update: "%{user_name} , %{space_name} uzayda %{resource_name} proje güncellendi"
+      budget:
+        view: Tüm bütçe projelerini görüntüleyin
+      budget_information_modal:
+        back_to: '%{component_name} öğesine geri dön'
+        close_modal: Pencereyi kapat
+        continue: Devam et
+        more_information: Daha fazla bilgi
+      budgets_list:
+        cancel_order:
+          more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
+          only_one: oyunuzu silin ve baştan başlayın.
+        finished_message: Oylama sürecini bitirdiniz. Katıldığınız için teşekkürler!
+        highlighted_cta: '%{name} için oy verin'
+        if_change_opinion: Fikrini değiştirdiysen, yapabilirsin
+        my_budgets: Bütçelerim
+        voted_on: '%{links} linkinden oy verdiniz'
+      limit_announcement:
+        cant_vote: Bu bütçeye oy veremezsiniz. <a href="%{landing_path}"> Başka bir bütçe deneyin </a>.
+        limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
+        budget:
+          fields:
+            name: Adı
+            projects_count: Proje sayısı
+            total_budget: Toplam bütçe
         project:
           fields:
             title: Başlık
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Seçtiğiniz projeler şunlardır:'
+          subject: '%{space_name} katılımcı alanına oy verdiniz'
+          voted_on_space: '%{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
+          voted_on_space_with_scope: '%{scope_name} (%{scope_type}) kapsamındaki %{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
       projects:
         budget_confirm:
           cancel: İptal etmek
@@ -96,19 +154,19 @@ tr:
             other: "%{count} proje"
         filters:
           category: Kategori
-          scope: kapsam
+          scope: Kapsam
           search: Arama
         filters_small_view:
-          close_modal: Kalıcı modal
-          filter: filtre
-          filter_by: Tarafından filtre
-          unfold: açılmak
+          close_modal: Pencereyi kapat
+          filter: Filtrele
+          filter_by: Şuna göre filtrele
+          unfold: Aç
         order_progress:
-          vote: Oy
+          vote: Oy ver
         order_selected_projects:
           remove: Kaldır
           selected_projects:
-            one: proje seçildi
+            one: seçilen proje
             other: seçilen projeler
           view: Görünüm
         project:
@@ -123,18 +181,37 @@ tr:
         name: Bütçeler
         settings:
           global:
-            announcement: duyuru
+            announcement: Duyurular
             comments_enabled: Yorumlar etkin
             projects_per_page: Sayfa başına projeler
             resources_permissions_enabled: Her toplantı için eylem izinleri ayarlanabilir
             total_budget: Toplam bütçe
             vote_threshold_percent: Oy eşiği yüzde
+            workflow: İş Akışı
+            workflow_choices:
+              all: 'Hepsinde oy ver: Katılımcıların tüm bütçelerde oy kullanmasına olanak tanır.'
+              one: 'Birinde oy verin: Katılımcıların herhangi bir bütçede, ancak yalnızca bir bütçede oy kullanmasına izin verir.'
           step:
-            announcement: duyuru
+            announcement: Duyuru
             comments_blocked: Yorumlar engellendi
+            highlighted_heading: Vurgulanan başlık
+            landing_page_content: Bütçeler ana sayfası
+            list_heading: Liste başlığı
+            more_information_modal: Daha fazla bilgi
             show_votes: Oyları göster
+            title: Başlık
+            votes: Oylama
             votes_choices:
+              disabled: Oylama devre dışı
               enabled: Oylama etkin
+              finished: Oylama bitti
+    events:
+      budgets:
+        budget_published:
+          email_intro: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+          email_subject: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif.'
+          notification_title: <a href="%{resource_path}">%{resource_title} </a> bütçesi artık %{participatory_space_title} için aktif.
     orders:
       checkout:
         error: Oyunuzu işleme koymada bir sorun oluştu
