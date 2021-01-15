@@ -29,6 +29,15 @@ module Decidim
       validates_upload :introductory_image
       mount_uploader :introductory_image, Decidim::BannerImageUploader
 
+      scope :upcoming, -> { published.where("start_time > ?", Time.now.utc) }
+      scope :active, lambda {
+        published
+          .where("start_time <= ?", Time.now.utc)
+          .where("end_time >= ?", Time.now.utc)
+      }
+      scope :finished, -> { published.where("end_time < ?", Time.now.utc) }
+      scope :order_by_most_recent, -> { order(created_at: :desc) }
+
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: :itself,
