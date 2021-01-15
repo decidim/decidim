@@ -1,7 +1,14 @@
 tr:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Kapsam
+        description: Açıklama
+        title: Başlık
+        total_budget: Toplam bütçe
+        weight: Ağırlık
       project:
+        budget_amount: Bütçe tutarı
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
         description: Açıklama
