@@ -1156,6 +1156,10 @@ tr:
     tags:
       filter_results_for_category: 'Kategori için sonuçları filtrele: %{resource}'
       filter_results_for_scope: 'Sonuçları kapsam için filtrele: %{resource}'
+    translation_bar:
+      help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
+      show_original: Orijinal metni göster
+      show_translated: Otomatik olarak çevrilmiş metni göster
     user_activity:
       index:
         no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
