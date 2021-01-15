@@ -19,9 +19,9 @@ tr:
         about: hakkında
         email: E-posta adresiniz
         name: Adınız
-        nickname: Takma ad
-        password: Parola
-        password_confirmation: Parolanızı onaylayın
+        nickname: Rumuz
+        password: Şifre
+        password_confirmation: Şifrenizi Onaylayın
         personal_url: Kişisel URL
         remove_avatar: Avatarı kaldır
     models:
@@ -29,9 +29,9 @@ tr:
       decidim/component_published_event: Aktif bileşen
       decidim/demoted_membership: Artık bir grup yöneticisi
       decidim/gamification/badge_earned_event: Kazanılan rozet
-      decidim/gamification/level_up_event: Seviyeledin
-      decidim/join_request_accepted_event: Katılım isteği kabul edildi
-      decidim/join_request_rejected_event: İstek reddedildi
+      decidim/gamification/level_up_event: Seviye atladın
+      decidim/join_request_accepted_event: Katılma isteği kabul edildi
+      decidim/join_request_rejected_event: Katılma isteği reddedildi
       decidim/profile_updated_event: Profil güncellendi
       decidim/promote_to_admin: Grup yöneticisine yükseltildi
       decidim/removed_from_group: Gruptan kaldırıldı
@@ -41,25 +41,25 @@ tr:
       decidim/user:
         current_password: Şimdiki Şifre
         email: E-posta
-        name: Kullanıcı adı
-        password: Parola
+        name: Rumuz
+        password: Şifre
         password_confirmation: Şifre onayı
         remember_me: Beni Hatırla
     models:
       decidim/amendment:
-        one: düzeltme
+        one: Değişiklik
         other: Değişiklikler
       decidim/endorsement:
         one: Onay
         other: Onaylar
       decidim/user:
-        one: Kullanıcı yok
-        other: Kullanıcılar
+        one: Katılımcı
+        other: Katılımcılar
       decidim/user_group:
-        one: Kullanıcı grubu
-        other: Kullanıcı Grupları
+        one: grup
+        other: Gruplar
   booleans:
-    'false': 'Yok hayır'
+    'false': 'Hayır'
     'true': 'Evet'
   carrierwave:
     errors:
@@ -82,9 +82,9 @@ tr:
       blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
       data_portability_export:
         file_no_exists: Dosya bulunmuyor
-        notice: Verileriniz şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
+        notice: Verilerinizin indirilmesi şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
       delete:
-        alert: Bu işlem geri alınamaz. Hesabınızı silerseniz, giriş yapamazsınız.
+        alert: Bu eylem geri alınamaz. Hesabınızı silerseniz, giriş yapamazsınız.
         confirm:
           close: Pencereyi kapat
           ok: Evet, hesabımı silmek istiyorum
@@ -103,16 +103,16 @@ tr:
         success_with_email_confirmation: Hesabınız başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için bir e-posta alacaksınız.
     admin:
       actions:
-        cancel: İptal etmek
+        cancel: İptal Et
     admin_log:
       area:
-        create: "%{user_name} %{resource_name} alanı oluşturdu"
-        delete: "%{user_name} %{resource_name} alanı sildi"
-        update: "%{user_name} updated %{resource_name} alana"
+        create: "%{user_name}, %{resource_name} alanını oluşturdu"
+        delete: "%{user_name}, %{resource_name} alanını sildi"
+        update: "%{user_name}, %{resource_name} alanını güncelledi"
       component:
-        create: "%{user_name} , %{resource_name} bileşeni %{space_name} boşluğa ekledi"
-        delete: "%{user_name} uzaklaştırıldı %{resource_name} bileşeni %{space_name} boşluk"
-        publish: "%{user_name} %{space_name} alanda %{resource_name} bileşeni yayınladı"
+        create: "%{user_name}, %{resource_name} bileşeni %{space_name} alanına ekledi"
+        delete: "%{user_name}, %{resource_name} bileşenini %{space_name} alanından kaldırdı"
+        publish: "%{user_name}, %{resource_name} bileşenini %{space_name} alanında yayınladı"
         unpublish: "%{user_name} %{space_name} boşluğun %{resource_name} bileşenini basılmamış"
       impersonation_log:
         manage: "%{user_name}, %{resource_name} adlı kaynağı yönetti çünkü %{reason}"
@@ -1470,7 +1470,13 @@ tr:
   views:
     pagination:
       first: "&laquo; İlk"
+      first_title: İlk sayfaya git
       last: Son &raquo;
+      last_title: Son sayfaya git
       next: Sonraki &rsaquo;
+      next_title: Sonraki sayfaya git
+      pagination: Sayfalandırma
       previous: "&lsaquo; Önceki"
+      previous_title: Önceki sayfaya geri dön
+      title: 'Sayfa numarası: '
       truncate: "&hellip;"
