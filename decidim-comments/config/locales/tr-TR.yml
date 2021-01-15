@@ -59,6 +59,7 @@ tr:
             spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
           title: Uygunsuz içerik bildir
         show_replies: '%{replies_count} yanıtı göster'
+        single_comment_link_title: Tek yorumun bağlantısını al
       comment_order_selector:
         order:
           best_rated: En çok oy alan
@@ -71,8 +72,13 @@ tr:
       comments:
         blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
         blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
+        comment_details_title: Yorum ayrıntıları
         loading: Yorumlar yükleniyor ...
+        single_comment_warning: Yorumların geri kalanını <a href="%{url}"> buradan </a> kontrol edebilirsiniz.
+        single_comment_warning_title: Tek bir yorum görüyorsunuz
         title: "%{count} yorum"
+      down_vote_button:
+        text: Bu yoruma katılmıyorum
     events:
       comments:
         comment_by_followed_user:
