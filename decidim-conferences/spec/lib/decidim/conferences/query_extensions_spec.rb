@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Conferences
     describe Decidim::Api::QueryType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       describe "conferences" do
         let!(:conference1) { create(:conference, organization: current_organization) }

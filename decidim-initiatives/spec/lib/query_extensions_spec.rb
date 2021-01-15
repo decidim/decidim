@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Initiatives
     describe Decidim::Api::QueryType do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
 
       describe "initiativesTypes" do
         let!(:initiatives_type_1) { create(:initiatives_type, organization: current_organization) }

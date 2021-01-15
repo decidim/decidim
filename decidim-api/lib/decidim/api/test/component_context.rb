@@ -3,7 +3,7 @@
 require "decidim/api/test/type_context"
 
 shared_context "with a graphql decidim component" do
-  include_context "with a graphql type"
+  include_context "with a graphql class type"
 
   let(:schema) { Decidim::Api::Schema }
 
