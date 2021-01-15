@@ -183,6 +183,7 @@ tr:
             admin: yönetici
             collaborator: işbirlikçi
             moderator: arabulucu
+            valuator: Bilirkişi
         media_link:
           fields:
             date: tarih
@@ -461,6 +462,9 @@ tr:
             active_conferences: Aktif konferanslar
             see_all_conferences: Tüm konferanslara bak
       photo:
+        image:
+          attributes:
+            alt: Medya resmi
         show:
           close_modal: Yakın kalıcı
           photo: Fotoğraf
@@ -471,6 +475,7 @@ tr:
         index:
           choose_an_option: 'Kayıt seçeneğinizi seçin:'
           login_as: '%{name} <%{email}> olarak giriş yaptınız'
+          no_registrations: Kayıt yok
           register: Kayıt olmak
           title: Kayıt türleri
       shared:
