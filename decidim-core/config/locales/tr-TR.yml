@@ -79,6 +79,7 @@ tr:
       logo: "%{organization} resmi logosu"
       skip_button: Ana içeriğe geç
     account:
+      blocked: Bu hesap, Şartlar ve Koşullar ihlali nedeniyle engellendi
       data_portability_export:
         file_no_exists: Dosya bulunmuyor
         notice: Verileriniz şu anda devam ediyor. Tamamlandığında bir e-posta alacaksınız.
@@ -113,6 +114,8 @@ tr:
         delete: "%{user_name} uzaklaştırıldı %{resource_name} bileşeni %{space_name} boşluk"
         publish: "%{user_name} %{space_name} alanda %{resource_name} bileşeni yayınladı"
         unpublish: "%{user_name} %{space_name} boşluğun %{resource_name} bileşenini basılmamış"
+      impersonation_log:
+        manage: "%{user_name}, %{resource_name} adlı kaynağı yönetti çünkü %{reason}"
       moderation:
         hide: "%{user_name} %{space_name} alanda bir tip %{resource_type} kaynağını sakla"
         unreport: "%{user_name} tür bir kaynağı bildirilmemiş %{resource_type} içinde %{space_name} boşluk"
@@ -129,6 +132,7 @@ tr:
         update: "%{user_name} kuruluş ayarlarını güncelledi"
       participatory_space_private_user:
         create: "%{user_name} özel bir kullanıcı olmak için %{resource_name} davet edildi"
+        create_via_csv: "%{user_name}, %{resource_name} kaynağını CSV aracılığıyla özel bir katılımcı olması için davet etti"
         delete: "%{user_name} kullanıcı %{resource_name} özel bir kullanıcı olarak kaldırdı"
       scope:
         create: "%{user_name} %{resource_name} kapsamı oluşturdu"
@@ -142,14 +146,25 @@ tr:
         delete: "%{user_name} %{resource_name} statik sayfayı sildi"
         update: "%{user_name} , %{resource_name} statik sayfayı güncelledi"
       user:
+        block: "%{user_name}, %{resource_name} kullanıcısını engelledi"
         invite: "%{user_name} kullanıcı %{resource_name} rolüyle davet edildi: %{role}"
         officialize: "%{user_name} kullanıcı resmi %{resource_name}"
+        promote: "%{user_name}, %{resource_name} için terfi etti"
         remove_from_admin: "%{user_name} kullanıcı %{resource_name} rolüyle kaldırıldı: %{role}"
+        show_email: "%{user_name}, %{resource_name} katılımcının e-postasını aldı"
+        transfer: "%{user_name}, katılımcıyı %{resource_name} aktardı"
+        unblock: "%{user_name}, %{resource_name} engellemesini kaldırdı"
         unofficialize: "%{user_name} kullanıcı resmi olmayan %{resource_name}"
       user_group:
         reject: "%{user_name} , %{resource_name} kullanıcı grubu doğrulamasını reddetti"
         verify: "%{user_name} , %{resource_name} kullanıcı grubunu doğruladı"
         verify_via_csv: "%{user_name} , bir CSV dosyası aracılığıyla %{resource_name} kullanıcı grubunu doğruladı"
+      user_moderation:
+        unreport: "%{user_name}, bir %{resource_type} - %{unreported_user_name} raporunu bildirdi"
+    admin_terms_of_use:
+      default_body: "<h2> YÖNETİCİ KULLANIM ŞARTLARI </h2> <p> Yerel Sistem Yöneticinizden olağan dersi almış olduğunuza güveniyoruz. Genellikle şu üç şeye indirgenir: </p> <ol> <li> Başkalarının mahremiyetine saygı gösterin. </li> <li> Tıklamadan önce düşünün. </li> <li> Büyük güç, büyük sorumluluk getirir. </li> </ol>"
+    alert:
+      dismiss: Bildirimleri yoksay
     amendments:
       accepted:
         error: Değişikliği kabul ederken bir hata oluştu.
@@ -172,6 +187,9 @@ tr:
         success: Değişiklik tasarısı başarı ile oluşturuldu.
       destroy_draft:
         error: Değişiklik tasarısını silerken bir hata oluştu.
+        success: Değişiklik taslağı başarıyla silindi.
+      edit_draft:
+        discard: Bu taslağı sil
       emendation:
         actions:
           button_accept: Kabul etmek
