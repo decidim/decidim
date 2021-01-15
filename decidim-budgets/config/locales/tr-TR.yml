@@ -149,6 +149,7 @@ tr:
           ok: TAMAM
           projects_excess:
             description: Bu proje maksimum proje sayısını aşıyor ve eklenemez. Dilerseniz daha önce eklemeyi seçmiş olduğunuz bir projeyi silebilir veya tercihlerinize göre oyunuzu verebilirsiniz.
+            title: Maksimum proje sınırını aştı
         budget_summary:
           are_you_sure: Oyunuzu iptal etmek istediğinizden emin misiniz?
           assigned: 'atanan:'
@@ -156,7 +157,23 @@ tr:
           checked_out:
             description: Bütçeye zaten oy verdiniz. Fikrinizi değiştirdiyseniz, %{cancel_link}yapabilirsiniz.
             title: Bütçe oyu tamamlandı
+          minimum_projects_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz en az %{minimum_number} proje seçin ve tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz en az %{minimum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          projects_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? İstediğiniz en az %{minimum_number} ve en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz en az %{minimum_number} ve en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          projects_rule_maximum_only:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? İstediğiniz en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın.
+            instruction: "<li> İstediğiniz en fazla %{maximum_number} proje seçin ve bütçeyi belirlemek için tercihlerinize göre oylayın. </li>"
+          rules:
+            title: Bütçe kuralları
           title: Bütçeye siz karar verin
+          total_budget: Toplam bütçe
+          total_projects: Toplam Oy
+          vote_threshold_percent_rule:
+            description: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz projelere en az %{minimum_budget} atayın ve tercihlerinize göre oy verin.
+            instruction: "<li> İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihlerinize göre oy verin. </li>"
         count:
           projects_count:
             one: 1 proje
@@ -165,6 +182,11 @@ tr:
           category: Kategori
           scope: Kapsam
           search: Arama
+          status: Durum
+          status_values:
+            all: Tümü
+            not_selected: Seçili değil
+            selected: Seçili
         filters_small_view:
           close_modal: Pencereyi kapat
           filter: Filtrele
@@ -178,8 +200,22 @@ tr:
             one: seçilen proje
             other: seçilen projeler
           view: Görünüm
+        orders:
+          highest_cost: En yüksek maliyet
+          label: Projeleri buna göre sırala
+          lowest_cost: En düşük maliyet
+          most_voted: En çok oylanan
+          random: Rasgele sırala
+          selected: Seçili
         project:
+          add: Oyunuza %{resource_name} projesini ekleyin
+          remove: '%{resource_name} projesini oyunuzdan çıkarın'
+          selected: Seçili
           view: Görünüm
+          votes:
+            one: oy
+            other: oylar
+          you_voted: Buna oy verdin
         show:
           budget: Bütçe
           view_all_projects: Tüm projeleri görüntüle
