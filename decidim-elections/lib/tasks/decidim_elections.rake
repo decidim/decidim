@@ -48,5 +48,18 @@ namespace :decidim_elections do
       end
       puts "\n"
     end
+
+    Decidim::Elections::Votes::PendingVotes.for.each do |vote|
+      puts "\nChecking status for Vote #{vote.id}:"
+      Decidim::Elections::Voter::UpdateVoteStatus.call(vote) do
+        on(:ok) do
+          puts "\n✓ Vote status updated\n"
+        end
+
+        on(:invalid) do |message|
+          puts "\n✗ Vote status failed. Message: #{message}\n"
+        end
+      end
+    end
   end
 end
