@@ -96,15 +96,15 @@ tr:
           success: Danışmanlık başarıyla oluşturuldu.
         deprecation_warning: Danışma modülü yakın gelecekte kullanımdan kaldırılacaktır. Oylamalar için bir sonraki şifreli güvenli sürümü üzerinde çalışıyoruz.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
-          slug_help: 'URL sümükleri, bu danışmaya işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
+          slug_help: 'URL bağlantı, bu danışmaya işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
           title: Genel bilgi
         index:
           not_published: Yayınlanmadı
           published: Yayınlanan
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni danışma
         results:
           not_visible: Danışma kapatıldığında sonuçlar ulaşılabilir olacak
@@ -114,7 +114,7 @@ tr:
           error: Bu danışma hizmetini güncellerken bir hata oluştu.
           success: Danışma başarıyla güncellendi.
       menu:
-        consultations: istişareler
+        consultations: Danışmalar
         consultations_submenu:
           info: Bilgi
           questions: Sorular
@@ -122,18 +122,18 @@ tr:
         questions_submenu:
           components: Bileşenler
           configuration: Konfigürasyon
-          consultation: konsültasyon
+          consultation: Danışma
           info: Bilgi
-          responses: Tepkiler
+          responses: Yanıtlar
       models:
         consultation:
           fields:
-            created_at: Düzenlendi
+            created_at: Oluşturuldu
             published: Yayınlanan
             title: Başlık
           name:
-            one: konsültasyon
-            other: istişareler
+            one: Danışma
+            other: Danışma
         question:
           fields:
             created_at: Düzenlendi
@@ -144,11 +144,11 @@ tr:
             other: Sorular
         response:
           fields:
-            created_at: Düzenlendi
+            created_at: Oluşturuldu
             response_group: Grup
             title: Başlık
           name:
-            one: Tepki
+            one: Yanıt
             other: Tepkiler
       question_configuration:
         disable_external_voting: Lütfen gelişmiş yapılandırmalar için harici oylamayı devre dışı bırakın
@@ -158,10 +158,10 @@ tr:
       question_publications:
         create:
           error: Bu soruyu yayınlarken bir hata oluştu.
-          success: Soru başarıyla basıldı.
+          success: Soru başarıyla yayınlandı.
         destroy:
           error: Bu soruyu yayından kaldırmada bir hata oluştu.
-          success: Soru başarıyla basıldı.
+          success: Soru başarıyla yayından kaldırıldı.
       questions:
         create:
           error: Yeni bir soru oluşturulurken bir hata oluştu.
@@ -169,14 +169,14 @@ tr:
         destroy:
           success: Soru başarıyla silindi.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
           title: Genel bilgi
         index:
           not_published: Yayınlanmadı
-          published: Yayınlanan
+          published: Yayınlandı
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni soru
         update:
           error: Bu soru güncellenirken bir hata oluştu.
@@ -207,20 +207,20 @@ tr:
           error: Yanıtı kaldırırken bir hata oluştu.
           success: Yanıt başarıyla silindi.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         form:
           title: Genel bilgi
         new:
-          create: yaratmak
-          title: Yeni cevap
+          create: Oluştur
+          title: Yeni yanıt
         update:
           error: Bu yanıtı güncellerken bir hata oluştu.
           success: Yanıt başarıyla güncellendi.
       titles:
-        consultations: istişareler
+        consultations: Danışma
         questions: Sorular
         response_groups: Sorumlu gruplar
-        responses: Tepkiler
+        responses: Yanıtlar
         results: Sonuçlar
     consultations:
       admin:
@@ -235,33 +235,33 @@ tr:
       consultations:
         orders:
           label: 'Danışmanlıklara göre sırala:'
-          random: rasgele
+          random: Rastgele
           recent: En yeni
         show:
           dates: Tarih
       content_blocks:
         highlighted_consultations:
-          name: Vurgulanan istişareler
+          name: Vurgulanan danışma
       count:
         title:
           one: "%{count} danışma"
-          other: "%{count} görüşme"
+          other: "%{count} danışma"
       filters:
         active: Aktif
-        all: Herşey
-        finished: bitirdi
+        all: Tümü
+        finished: Bitti
         search: Arama
-        state: Belirtmek, bildirmek
+        state: Statü
         upcoming: Yaklaşan
       filters_small_view:
         close_modal: Pencereyi kapat
-        filter: filtre
-        filter_by: Tarafından filtre
-        unfold: açılmak
+        filter: Filtrele
+        filter_by: Şuna göre filtrele
+        unfold: Aç
       highlighted_questions:
-        title: '%{scope_name}soru'
+        title: '%{scope_name} soruları'
       index:
-        title: istişareler
+        title: Danışma
       last_activity:
         new_consultation: Yeni danışma
         new_question_at_html: "<span>Yeni soru, %{link}</span>"
