@@ -6,11 +6,14 @@ tr:
         description: Açıklama
         title: Başlık
         total_budget: Toplam bütçe
+        weight: Ağırlık
       project:
+        budget_amount: Bütçe tutarı
         decidim_category_id: Kategori
         decidim_scope_id: kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
+        selected: Uygulama için seçildi
         title: Başlık
   activerecord:
     models:
@@ -25,11 +28,37 @@ tr:
         confirm_destroy: Bu projeyi silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        edit_projects: Projeleri Yönetme
         import: Projelere teklif alma
+        new: Yeni %{name}
         preview: Ön izleme
         title: Eylemler
       admin:
+        budgets:
+          create:
+            invalid: Bu bütçe oluşturulurken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla oluşturuldu
+          destroy:
+            invalid: Bu bütçe silinirken bir sorun oluştu
+            success: Bütçe başarıyla silindi
+          edit:
+            title: Bütçeyi düzenle
+            update: Bütçeyi güncelle
+          index:
+            finished_orders: Tamamlanan siparişler
+            pending_orders: Bekleyen Siparişler
+            title: Bütçeler
+          new:
+            create: Bütçe oluştur
+            title: Yeni bütçe
+          update:
+            invalid: Bu bütçe güncellenirken bir sorunla karşılaşıldı
+            success: Bütçe başarıyla güncellendi
+        exports:
+          projects: Projeler
         models:
+          budget:
+            name: Bütçe
           project:
             name: proje
         projects:
@@ -44,6 +73,7 @@ tr:
           index:
             finished_orders: Tamamlanan oylar
             pending_orders: Bekleyen oylar
+            selected: Seçili
             title: Projeler
           new:
             create: yaratmak
@@ -59,15 +89,49 @@ tr:
             create: Projelere teklif alma
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
+            title: Teklifleri içe aktar
       admin_log:
+        budget:
+          create: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini oluşturdu"
+          delete: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini sildi"
+          update: "%{user_name}, %{space_name} alanında %{resource_name} bütçesini güncelledi"
         project:
           create: "%{user_name} , %{space_name} alanda %{resource_name} proje yarattı"
           delete: "%{user_name} , %{space_name} uzayda %{resource_name} projeyi sildi"
           update: "%{user_name} , %{space_name} uzayda %{resource_name} proje güncellendi"
+      budget:
+        view: Tüm bütçe projelerini görüntüleyin
+      budget_information_modal:
+        back_to: '%{component_name} öğesine geri dön'
+        close_modal: Pencereyi kapat
+        continue: Devam et
+        more_information: Daha fazla bilgi
+      budgets_list:
+        cancel_order:
+          more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
+          only_one: oyunuzu silin ve baştan başlayın.
+        finished_message: Oylama sürecini bitirdiniz. Katıldığınız için teşekkürler!
+        highlighted_cta: '%{name} için oy verin'
+        if_change_opinion: Fikrini değiştirdiysen, yapabilirsin
+        my_budgets: Bütçelerim
+        voted_on: '%{links} linkinden oy verdiniz'
+      limit_announcement:
+        cant_vote: Bu bütçeye oy veremezsiniz. <a href="%{landing_path}"> Başka bir bütçe deneyin </a>.
+        limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
+        budget:
+          fields:
+            name: Adı
+            projects_count: Proje sayısı
+            total_budget: Toplam bütçe
         project:
           fields:
             title: Başlık
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Seçtiğiniz projeler şunlardır:'
+          subject: '%{space_name} katılımcı alanına oy verdiniz'
+          voted_on_space: '%{space_name} katılımcı alanı için %{budget_name} bütçesine oy verdiniz.'
       projects:
         budget_confirm:
           cancel: İptal etmek
