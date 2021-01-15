@@ -2,24 +2,24 @@
 
 module Decidim
   module Meetings
-    MeetingsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class MeetingsType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Meetings"
+      graphql_name "Meetings"
       description "A meetings component of a participatory space."
 
-      connection :meetings, MeetingType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  MeetingsTypeHelper.base_scope(component).includes(:component)
-                }
+      field :meetings, MeetingType.connection_type, null: true, connection: true
+
+      def meetings
+        MeetingsTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:meeting, MeetingType) do
-        argument :id, !types.ID
+      field :meeting, MeetingType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          MeetingsTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def meeting(**args)
+        MeetingsTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

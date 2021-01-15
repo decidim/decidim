@@ -12,7 +12,6 @@ Specific participatory spaces (such as Processes or Assemblies) usually implemen
 
 A typical query would look like:
 
-
 ```
   {
     participatoryProcesses(filter:{ publishedBefore: \"2020-01-01\" }) {

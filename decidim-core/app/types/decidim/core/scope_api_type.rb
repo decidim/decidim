@@ -3,6 +3,7 @@
 module Decidim
   module Core
     class ScopeApiType < Decidim::Api::Types::BaseObject
+      graphql_name "Scope"
       description "A scope"
 
       field :id, GraphQL::Types::ID, null: false
