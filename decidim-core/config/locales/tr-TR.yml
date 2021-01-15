@@ -338,18 +338,18 @@ tr:
             comments_enabled: Yorumlar etkin
             dummy_global_attribute_1: Kukla Özellik 1
             dummy_global_attribute_2: Kukla Özellik 2
-            enable_pads_creation: Pedlerin oluşturulmasını etkinleştir
+            enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Kaynak izinleri etkin
           step:
             comments_blocked: Yorumlar engellendi
             dummy_step_attribute_1: Kukla Adım Niteliği 1
             dummy_step_attribute_2: Kukla Adım Öznitelik 2
-    contact: Temas
+    contact: İletişim
     content_blocks:
       footer_sub_hero:
-        name: Altbilgi alt kahraman başlığı
+        name: Dipnot alt afişi
       hero:
-        name: Kahraman görüntüsü
+        name: Ana resim
       highlighted_content_banner:
         name: Vurgulanan içerik banner'ı
       how_to_participate:
@@ -360,24 +360,24 @@ tr:
       last_activity:
         name: Son Aktivite
         title: Son Aktivite
-        view_all: Hepsini gör
+        view_all: Tümünü görüntüle
       metrics:
         name: Organizasyon metrikleri
       stats:
         name: Organizasyon istatistikleri
       sub_hero:
-        name: Alt kahraman afişi
+        name: Alt ana afişi
     core:
       actions:
         login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
         unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
     data_portability:
       export:
-        ready: hazır
+        ready: Hazır
       show:
         download_data: Verileri indir
         download_data_description: Hesapla ilişkili tüm bilgilerin bulunduğu bir dosya <strong>%{user_email}</strong>gönderilecektir.
-        request_data: Veri iste
+        request_data: Veri talep et
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
     devise:
@@ -385,14 +385,14 @@ tr:
         create:
           email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
-          complete_profile: Tam profil
+          complete_profile: Profilini tamamla
           sign_up: Lütfen profilinizi tamamlayın
           subtitle: Kayıt işlemini tamamlamak için lütfen aşağıdaki formu doldurunuz.
-          username_help: Yayınlarınızda görünen genel ad. Anonimlik garantilemek amacıyla herhangi bir isim olabilir.
+          username_help: Gönderilerinizde görünen genel ad. Anonimliği garanti etmek amacıyla herhangi bir isim olabilir.
       registrations:
         new:
           already_have_an_account?: Zaten hesabınız var mı?
-          newsletter: İlgili bilgiler içeren bir ara bülteni alın
+          newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
           password_help: "Asgari %{minimun_characters} karakter, çok yaygın olmamalı (örnek: 123456) ve takma adınızdan ve eposta adresinizden farklı olmalıdır."
           sign_in: Oturum aç
