@@ -1,1 +1,9 @@
 tr:
+  decidim:
+    elections:
+      actions:
+        edit_answers: Cevapları düzenle
+        edit_questions: Soruları Düzenle
+      elections:
+        show:
+          back: Tüm seçimler
