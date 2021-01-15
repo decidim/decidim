@@ -257,6 +257,7 @@ tr:
           back: Geri
           back_to_initiatives: Girişimlere geri dönüş
           callout_text: Tebrikler! Vatandaş girişimi başarıyla oluşturuldu.
+          confirm: Onayla
           go_to_my_initiatives: Benim girişimlerime git
           more_information: "(Daha fazla bilgi)"
         finish_help:
