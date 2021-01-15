@@ -569,8 +569,26 @@ tr:
         user_group_created:
           email_subject: Yeni bir kullanıcı grubu oluşturuldu
           notification_title: '%{user_group_name} kullanıcı grubu oluşturuldu. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
+        user_group_updated:
+          email_intro: '%{user_group_name} adlı bir kullanıcı grubu profilini güncelledi ve doğrulanmamış olarak bırakıldı. Artık bunu <a href="%{groups_admin_url}"> yönetici panelinde </a> doğrulayabilirsiniz.'
+          email_outro: Bu bildirimi, platformun yöneticisi olduğunuz için aldınız.
+          email_subject: Bir kullanıcı grubu profilini güncelledi
+          notification_title: '%{user_group_name} kullanıcı grubu profilini güncelledi ve doğrulanmadan bırakıldı. Artık bunu <a href="%{groups_admin_path}"> yönetici panelinde </a> doğrulayabilirsiniz.'
       notification_event:
         notification_title: Bir olay <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: Bir yönetici, %{resource_type} 'nizi %{report_reasons} olarak bildirildiği için kaldırdı.
+          email_outro: Bu bildirimi, kaldırılan içeriğin yazarı olduğunuz için aldınız.
+          email_subject: '%{resource_type} kaldırıldı'
+          notification_title: |-
+            Bir yönetici, %{resource_type} 'nizi %{report_reasons} olarak bildirildiği için kaldırdı. </br>
+            <i>%{resource_content} </i>
+      resource_endorsed:
+        email_intro: 'Takip ettiğiniz %{endorser_name} %{endorser_nickname}, "%{resource_title}" öğesini az önce onayladı ve sizin için ilginç olabileceğini düşünüyoruz. Kontrol edin ve katkıda bulunun:'
+        email_outro: Bu bildirimi %{endorser_nickname} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
+        email_subject: "%{endorser_nickname} yeni bir onay gerçekleştirdi"
+        notification_title: <a href="%{resource_path}">%{resource_title} </a> %{resource_type}, <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname} </a> tarafından onaylandı.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profil sayfası</a> arasında %{name} (%{nickname}izlediğiniz), güncellendi.
@@ -602,6 +620,9 @@ tr:
       title: Parmak izi
       value: değer
     followers:
+      followers_count:
+        one: "%{count} takipçi"
+        other: "%{count} takipçi"
       no_followers: Henüz takipçisi yok.
     following:
       no_followings: Henüz kimseyi takip etmiyor.
@@ -609,6 +630,7 @@ tr:
       create:
         button: Takip et
         error: Bu kaynağı takip eden bir hata oluştu.
+        participatory_space: <span class = "show-for-sr">%{resource_name} </span> hali hazırda takip ediliyor
       destroy:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
@@ -617,7 +639,22 @@ tr:
       current_image: Geçerli resim
       default_image: Varsayılan görüntü
       errors:
+        decidim/user:
+          password: Bu şifre çok kısa.
+          password_confirmation: Şifre onayı şifre ile uyuşmuyor.
         error: Bu alanda bir hata var.
+      file_help:
+        file:
+          explanation: 'Dosya kılavuzu:'
+          message_1: Bir resim veya bir belge olmalı.
+          message_2: Resimler için tercihen yatay resimleri kullanın, bu servis resmi kırpar. CSV dosyaları için, sütunlar arasındaki ayırıcı virgül (",") olmalıdır
+        image:
+          explanation: 'Dosya kılavuzu:'
+          message_1: Tercihen herhangi bir metin içermeyen yatay bir resim.
+          message_2: Bu servis görüntüyü kırpar.
+      file_validation:
+        allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'
+        max_file_size: 'Maksimum dosya boyutu: %{megabytes} MB'
       remove_this_file: Bu dosyayı kaldır
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
