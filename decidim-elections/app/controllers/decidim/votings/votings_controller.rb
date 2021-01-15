@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class VotingsController < Decidim::Votings::ApplicationController
       layout "layouts/decidim/voting", only: :show
-      
+
       include ParticipatorySpaceContext
       include NeedsVoting
       include FilterResource

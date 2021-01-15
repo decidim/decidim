@@ -38,6 +38,28 @@ module Decidim
       scope :finished, -> { published.where("end_time < ?", Time.now.utc) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
+      def upcoming?
+        start_time > Time.now.utc
+      end
+
+      def active?
+        start_time <= Time.now.utc && end_time >= Time.now.utc
+      end
+
+      def finished?
+        end_time < Time.now.utc
+      end
+
+      def period_status
+        if finished?
+          :finished
+        elsif active?
+          :ongoing
+        else
+          :upcoming
+        end
+      end      
+
       searchable_fields({
                           scope_id: :decidim_scope_id,
                           participatory_space: :itself,

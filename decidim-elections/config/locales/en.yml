@@ -18,8 +18,8 @@ en:
         min_selections: None of the above option
         title: Title
       voting:
-        start_time: Start date
-        end_time: End date
+        end_time: End time
+        start_time: Start time
     errors:
       models:
         answer:
@@ -471,7 +471,8 @@ en:
       votings_m:
         badge_name:
           finished: Finished
-          open: Open
+          ongoing: Ongoing
+          upcoming: Upcoming
         footer_button_text:
           view: View
         unspecified: Not specified

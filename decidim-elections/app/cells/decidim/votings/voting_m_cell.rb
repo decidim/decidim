@@ -20,7 +20,7 @@ module Decidim
       end
 
       def badge_name
-        text = "open"
+        text = model.period_status
         return unless text
 
         I18n.t(text, scope: "decidim.votings.votings_m.badge_name")
