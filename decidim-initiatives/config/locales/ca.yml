@@ -208,6 +208,7 @@ ca:
           edit:
             accept: Accepta la iniciativa
             confirm: Estàs segur?
+            confirm_send_to_technical_validation: N'esteu segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
