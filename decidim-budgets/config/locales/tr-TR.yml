@@ -148,6 +148,7 @@ tr:
             description: Bütçeye zaten oy verdiniz. Fikrinizi değiştirdiyseniz, %{cancel_link}yapabilirsiniz.
             title: Bütçe oyu tamamlandı
           description: Hangi projeler için bütçe ayırmamız gerektiğini düşünüyorsunuz? İstediğiniz projelere en az %{minimum_budget} atayın ve bütçeyi belirlemek için tercihleriniz doğrultusunda oy kullanın.
+          description_minimum_projects_rule: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz en az %{minimum_number} proje seçin ve tercihlerinize göre oy verin.
           title: Bütçeye siz karar verin
         count:
           projects_count:
@@ -190,6 +191,7 @@ tr:
           votes:
             one: oy
             other: oylar
+          you_voted: Oy verdiniz
         project_budget_button:
           add: Oyunuza ekleyin
           add_descriptive: Oyunuza %{resource_name} projesini ekleyin
@@ -216,7 +218,7 @@ tr:
             landing_page_content: Bütçeler ana sayfası
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
-            resources_permissions_enabled: Her toplantı için eylem izinleri ayarlanabilir
+            resources_permissions_enabled: Her toplantı için ayrı eylem izinleri ayarlanabilir
             scope_id: Kapsam
             scopes_enabled: Kapsamlar etkinleştirildi
             title: Başlık
