@@ -83,10 +83,10 @@ tr:
             success: Proje başarıyla güncellendi
         proposals_imports:
           create:
-            invalid: Teklifleri projelere içe aktarırken bir sorun oluştu
-            success: "%{number} teklif başarıyla projelere aktarıldı"
+            invalid: Teklifleri projelere aktarırken bir sorun oluştu
+            success: "%{number} adet teklif başarıyla projelere aktarıldı"
           new:
-            create: Projelere teklif alma
+            create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
             select_component: Lütfen bir bileşen seçin
             title: Teklifleri içe aktar
