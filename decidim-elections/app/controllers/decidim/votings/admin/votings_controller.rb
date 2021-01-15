@@ -43,13 +43,13 @@ module Decidim
         def update
           enforce_permission_to :update, :voting, voting: current_voting
           @form = form(VotingForm).from_params(params, voting_id: current_voting.id)
-          
+
           UpdateVoting.call(current_voting, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.update.success", scope: "decidim.votings.admin")
               redirect_to votings_path
             end
-          
+
             on(:invalid) do
               flash.now[:alert] = I18n.t("votings.update.invalid", scope: "decidim.votings.admin")
               render action: "edit"
@@ -75,7 +75,7 @@ module Decidim
 
         def publish
           enforce_permission_to :publish, :voting, voting: current_voting
-          
+
           PublishVoting.call(current_voting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.publish.success", scope: "decidim.votings.admin")
@@ -86,7 +86,7 @@ module Decidim
 
         def unpublish
           enforce_permission_to :unpublish, :voting, voting: current_voting
-          
+
           UnpublishVoting.call(current_voting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("votings.unpublish.success", scope: "decidim.votings.admin")
