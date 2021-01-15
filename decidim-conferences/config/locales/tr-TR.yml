@@ -210,22 +210,22 @@ tr:
           name: Kayıt Türü
       partners:
         create:
-          error: Bu konferans için bir ortak eklenirken bir hata oluştu.
-          success: İş ortağı bu konferansa başarıyla eklendi.
+          error: Bu konferans için bir iş ortağı eklenirken bir hata oluştu.
+          success: Konferans ortağı başarıyla eklendi.
         destroy:
           success: İş ortağı bu konferanstan başarıyla kaldırıldı.
         edit:
           title: İş ortağı güncelle.
-          update: Güncelleştirme
+          update: Güncelle
         new:
-          create: yaratmak
-          title: Yeni ortak
+          create: Oluştur
+          title: Yeni iş ortağı
         update:
-          error: Bu konferans için bir ortak güncellendi bir hata oluştu.
+          error: Bu konferans için bir iş ortağı güncellenirken hata oluştu.
           success: Bu konferans için iş ortağı başarıyla güncellendi.
       registration_type_publications:
         create:
-          error: Bu kayıt türünde bir hata oluştu.
+          error: Bu kayıt türünü yayınlarken bir hata oluştu.
           success: Kayıt tipi başarıyla yayınlandı.
         destroy:
           error: Bu kayıt türünün yayından kaldırılmasıyla ilgili bir hata oluştu.
@@ -233,18 +233,18 @@ tr:
       registration_types:
         create:
           error: Bu konferans için kayıt türü eklenirken bir hata oluştu.
-          success: Bu konferansa kayıt tipi başarıyla eklendi.
+          success: Bu konferansa kayıt türü başarıyla eklendi.
         destroy:
           success: Kayıt türü bu konferanstan başarıyla kaldırıldı.
         edit:
           title: Kayıt türünü güncelle.
-          update: Güncelleştirme
+          update: Güncelle
         new:
-          create: yaratmak
+          create: Oluştur
           title: Yeni kayıt türü
         update:
           error: Bu konferans için bir kayıt türü güncellendiğinde bir hata oluştu.
-          success: Bu konferans için kayıt tipi başarıyla güncellendi.
+          success: Bu konferans için kayıt türü başarıyla güncellendi.
       titles:
         conferences: Konferanslar
     admin_log:
