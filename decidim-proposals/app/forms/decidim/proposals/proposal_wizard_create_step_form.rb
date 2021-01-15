@@ -18,7 +18,6 @@ module Decidim
         maximum: ->(record) { record.component.settings.proposal_length }
       }
 
-      validate :proposal_length
       validate :body_is_not_bare_template
 
       alias component current_component
@@ -31,13 +30,6 @@ module Decidim
       end
 
       private
-
-      def proposal_length
-        return unless body.presence
-
-        length = current_component.settings.proposal_length
-        errors.add(:body, :too_long, count: length) if body.length > length
-      end
 
       def body_is_not_bare_template
         return if body_template.blank?
