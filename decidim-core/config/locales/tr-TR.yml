@@ -224,11 +224,11 @@ tr:
         success: Değişiklik başarıyla yayınlandı.
       rejected:
         error: Bu değişikliği reddederken bir hata oluştu, lütfen daha sonra tekrar deneyin
-        success: Emendation başarıyla reddedildi
+        success: Değişiklik başarıyla reddedildi
       review:
         back: Geri
         heading: Değişikliği gözden geçirin
-        help_text: '%{model_name}yapılan bir değişikliği inceliyorsunuz'
+        help_text: '%{model_name} yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
@@ -246,18 +246,18 @@ tr:
     application:
       collection:
         documents:
-          one: belge
-          other: evraklar
+          one: Doküman
+          other: Dokümanlar
       document:
         download: Dosyayı indir
       documents:
-        related_documents: Alakalı dökümanlar
+        related_documents: İlgili dokümanlar
       photos:
         related_photos: İlgili fotoğraflar
     author:
       avatar: Avatar
       comments:
-        one: yorum Yap
+        one: yorum
         other: yorumlar
       endorsements:
         one: onay
@@ -273,53 +273,53 @@ tr:
         explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
           allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
-          document_number: Belge Numarası
+          document_number: Doküman numarası
           postal_code: Posta kodu
         name: Örnek yetkilendirme
       dummy_authorization_workflow:
         name: Kukla yetkilendirme iş akışı
-      expired_at: '%{timestamp}bitti'
-      expires_at: '%{timestamp}sona eriyor'
+      expired_at: '%{timestamp} bitti'
+      expires_at: '%{timestamp} sona eriyor'
       foo_authorization:
         fields:
-          bar: Bar
-          foo: foo
-        name: Foo yetkilendirmesi
-      granted_at: '%{timestamp}'
+          bar: Çizgi
+          foo: Sahte
+        name: Sahte yetkilendirme
+      granted_at: '%{timestamp} tarihinde verildi'
       sms:
         explanation: Cep telefon numaranızı gönderin, böylece kimliğinizi kontrol edebiliriz.
         name: SMS ile kod
-      started_at: '%{timestamp}başlıyor'
+      started_at: '%{timestamp} itibarıyla başladı'
     authorization_modals:
       content:
         expired:
           authorize: '"%{authorization}" ile yeniden yetkilendirin'
-          explanation: Yetkilendirme süreniz doldu. Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.
+          explanation: Yetkinizin süresi doldu. Bu işlemi gerçekleştirmek için "%{authorization}" ile yeniden yetkilendirilmeniz gerekiyor.
           title: Yetkilendirme süresi doldu
         incomplete:
-          cancel: İptal etmek
-          explanation: 'Şu anda "%{authorization}" ile yetkilendirilmiş olmanıza rağmen, aşağıdaki verileri eksik olduğumuz için yeniden yetkilendirmeniz gerekiyor:'
+          cancel: İptal Et
+          explanation: 'Şu anda "%{authorization}" için yetkilendirilmiş olmanıza rağmen, aşağıdaki veriler eksik olduğu için yeniden yetkilendirmeniz gerekiyor:'
           invalid_field: "%{field}"
-          reauthorize: yeniden yetki
+          reauthorize: Yeniden yetkilendir
           title: Lütfen yeniden yetkilendirin
         missing:
           authorize: '"%{authorization}" ile yetkilendir'
           explanation: Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.
-          title: İzin gerekmekte
+          title: Yetkilendirme gerekli
         pending:
           explanation: Bu işlemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir, ancak yetkilendirmeniz hala devam ediyor
           resume: '"%{authorization}" yetkilendirme işleminizi kontrol edin'
           title: Yetkilendirme devam ediyor
         unauthorized:
           explanation: Maalesef, bu eylemi, yetki verilerinizden bazıları eşleşmediğinden gerçekleştiremezsiniz.
-          invalid_field: "%{field} değer %{value} geçerli değil."
+          invalid_field: "%{field} için değer %{value} geçerli değil."
           ok: Tamam
           title: Yetkili değil
         unconfirmed:
           confirmation_instructions: 'Onay talimatlarını almadıysanız tekrar talep edebilirsiniz:'
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
-          request_confirmation_instructions: Onay talimatı iste
-          title: E-postanızı onaylayın
+          request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
+          title: E-posta adresinizi doğrulayın
     collapsible_list:
       hidden_elements_count:
         one: ve %{count} daha
@@ -329,8 +329,8 @@ tr:
     components:
       dummy:
         actions:
-          bar: Bar
-          foo: foo
+          bar: Çizgi
+          foo: Sahte
         name: Kukla Bileşen
         settings:
           global:
