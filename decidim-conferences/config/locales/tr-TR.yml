@@ -2,32 +2,32 @@ tr:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: İlgili montajlar
+        assemblies_ids: İlgili kurullar
         banner_image: Banner resmi
         consultations_ids: İlgili istişareler
         copy_categories: Kategorileri kopyala
         copy_components: Bileşenleri kopyala
         copy_features: Özellikleri kopyala
-        decidim_scope_id: kapsam
+        decidim_scope_id: Kapsam
         description: Açıklama
-        hashtag: Başlık etiketi
+        hashtag: Etiket
         hero_image: Ana resim
-        participatory_processes_ids: İlgili Katılımcı süreçler
-        promoted: Tanıtılan
+        participatory_processes_ids: İlgili katılımcı süreçleri
+        promoted: Vurgulanan
         published_at: Yayınlandı
-        scope_id: kapsam
-        scopes_enabled: Kapsamlar etkin
+        scope_id: Kapsam
+        scopes_enabled: Kapsamlar etkinleştirildi
         short_description: Kısa Açıklama
         show_statistics: İstatistikleri göster
         slogan: Slogan
-        slug: URL sümüklü böcek
+        slug: URL özel bilgisi
         title: Başlık
       conference_speaker:
         full_name: Ad Soyad
       conference_user_role:
         email: E-posta
-        name: isim
-        role: rol
+        name: Adı
+        role: Rol
     errors:
       models:
         conference_registration_invite:
@@ -530,11 +530,22 @@ tr:
           email_outro: '"%{resource_title}" konferansını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
           email_subject: '"%{resource_title}" konferansı kayıtları etkinleştirdi.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferansı kayıtları etkinleştirdi.
+        role_assigned:
+          email_intro: '"%{resource_title}" konferansı için %{role} olarak atandınız.'
+          email_outro: Bu bildirimi, "%{resource_title}" konferansında %{role} rolünde olduğunuz için aldınız.
+          email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
+          notification_title: <a href="%{resource_url}">%{resource_title}</a> kurulu için %{role} olarak atandınız.
         upcoming_conference:
           email_intro: '"%{resource_title}" konferansı 2 gün içinde gerçekleşiyor. Açıklamayı kendi sayfasından okuyabilirsiniz:'
           email_outro: '"%{resource_title}" konferansını izlediğiniz için bu bildirimi aldınız. Bir önceki bağlantıdan takip etmeyi bırakabilirsiniz.'
           email_subject: '"%{resource_title}" konferansı geliyor!'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> konferans 2 gün içinde geliyor.
+    help:
+      participatory_spaces:
+        conferences:
+          contextual: "<p> <strong> Konferans </strong>, çok sayıda kişinin konuşmacı olarak davet edildiği bir programda düzenlenen toplantılar ve büyük kongreler veya sosyal etkinlikler için tipik olan diğer bilgi alanları (kayıt, destek veren kuruluşların listesi) veya etkinlik sponsoru vb. </p> <p> Örnekler: Bir konferans, bir kuruluş ve üyeleri için alakalı bir etkinlik olabilir veya katılımcı bir sürecin parçası olarak veya bir danışma sürecini takiben gerçekleşebilir. </p>\n"
+          page: "<p> <strong> Konferans </strong>, çok sayıda kişinin konuşmacı olarak davet edildiği bir programda düzenlenen toplantılar ve büyük kongreler veya sosyal etkinlikler için tipik olan diğer bilgi alanları (kayıt, destek veren kuruluşların listesi) veya etkinlik sponsoru vb. </p> <p> Örnekler: Bir konferans, bir kuruluş ve üyeleri için alakalı bir etkinlik olabilir veya katılımcı bir sürecin parçası olarak veya bir danışma sürecini takiben gerçekleşebilir. </p>\n"
+          title: Konferans nedir?
     log:
       value_types:
         conference_presenter:
