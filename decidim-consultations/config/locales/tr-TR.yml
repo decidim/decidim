@@ -19,6 +19,9 @@ tr:
         hashtag: Başlık etiketi
         hero_image: Ana resim
         i_frame_url: Harici oylama sistemi URL'si
+        instructions: Oylama için ek talimatlar
+        max_votes: Maksimum oy sayısı
+        min_votes: Maksimum oy sayısı
         origin_scope: kapsam
         origin_title: Menşei
         origin_url: Kökeni URL
@@ -31,11 +34,24 @@ tr:
         subtitle: Alt yazı
         vote: Dış oylama sistemi
         what_is_decided: Karar nedir
+      response:
+        decidim_consultations_response_group_id: Grup
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksimum oy sayısı minimumdan fazla veya ona eşit olmalıdır.
       vote:
         decidim_consultations_response_id:
           not_found: Yanıt bulunamadı.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Oy sayısı geçersiz
     models:
       decidim/consultation:
         one: konsültasyon
@@ -52,10 +68,13 @@ tr:
   decidim:
     admin:
       actions:
+        back_to_responses: Yanıtlara dön
         new_consultation: Yeni danışma
         new_question: Yeni soru
         new_response: Yeni cevap
+        new_response_group: Yeni grup
         publish_results: Sonuçları yayınla
+        response_groups: Sorumlu grupları yönetin
         unpublish_results: Sonuçları yayından kaldır
       consultation_publications:
         create:
@@ -75,6 +94,7 @@ tr:
         create:
           error: Yeni bir danışma oluştururken bir hata oluştu.
           success: Danışmanlık başarıyla oluşturuldu.
+        deprecation_warning: Danışma modülü yakın gelecekte kullanımdan kaldırılacaktır. Oylamalar için bir sonraki şifreli güvenli sürümü üzerinde çalışıyoruz.
         edit:
           update: Güncelleştirme
         form:
@@ -88,6 +108,7 @@ tr:
           title: Yeni danışma
         results:
           not_visible: Danışma kapatıldığında sonuçlar ulaşılabilir olacak
+          participants: "%{count} katılımcı"
           total_votes: 'Toplam: %{count} oy'
         update:
           error: Bu danışma hizmetini güncellerken bir hata oluştu.
@@ -100,6 +121,7 @@ tr:
           results: Sonuçlar
         questions_submenu:
           components: Bileşenler
+          configuration: Konfigürasyon
           consultation: konsültasyon
           info: Bilgi
           responses: Tepkiler
@@ -123,10 +145,16 @@ tr:
         response:
           fields:
             created_at: Düzenlendi
+            response_group: Grup
             title: Başlık
           name:
             one: Tepki
             other: Tepkiler
+      question_configuration:
+        disable_external_voting: Lütfen gelişmiş yapılandırmalar için harici oylamayı devre dışı bırakın
+        form:
+          help: Bir katılımcının seçebileceği maksimum yanıt sayısını artırarak çoktan seçmeli sorular oluşturun. Varsayılan maksimum değer 1'dir, yani yalnızca bir yanıtın oylanabileceği anlamına gelir.
+          title: Gelişmiş yapılandırma
       question_publications:
         create:
           error: Bu soruyu yayınlarken bir hata oluştu.
@@ -153,6 +181,21 @@ tr:
         update:
           error: Bu soru güncellenirken bir hata oluştu.
           success: Soru başarıyla güncellendi.
+      response_groups:
+        create:
+          error: Yeni bir sorumlu grup oluştururken bir hata oluştu.
+          success: Sorumlu grubu başarıyla oluşturuldu.
+        destroy:
+          error: Sorumlu grubunu kaldırırken bir sorun oluştu. Hiçbir yanıtın buna bağlı olmadığını kontrol edin.
+          success: Sorumlu grubu başarıyla silindi.
+        edit:
+          update: Güncelle
+        form:
+          title: Genel Bilgi
+        help: Paketlerdeki çoktan seçmeli soruları düzenlemek için grupları kullanın.
+        new:
+          create: Oluştur
+          title: Yeni sorumlu grup
       responses:
         create:
           error: Yeni bir yanıt oluştururken bir hata oluştu.
