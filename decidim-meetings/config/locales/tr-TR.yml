@@ -29,7 +29,7 @@ tr:
         title: Başlık
         transparent: Şeffaf
       minutes:
-        audio_url: Ses url
+        audio_url: Ses linki
         description: Açıklama
         video_url: Video linki
         visible: Görünür
@@ -234,6 +234,8 @@ tr:
             success: Toplantı başarıyla silindi
           edit:
             update: Güncelleştirme
+          form:
+            location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: binanın zemini'
           index:
             title: Toplantılar
           new:
@@ -346,6 +348,8 @@ tr:
           filter: filtre
           filter_by: Tarafından filtre
           unfold: açılmak
+        form:
+          location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: binanın zemini'
         meeting_minutes:
           meeting_minutes: Görüşme süreleri
           related_information: İlgili bilgi
