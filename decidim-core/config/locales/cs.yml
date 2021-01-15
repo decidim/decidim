@@ -87,6 +87,7 @@ cs:
       logo: "Oficiální logo %{organization}"
       skip_button: Přeskočit na hlavní obsah
     account:
+      blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
       data_portability_export:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
@@ -121,6 +122,8 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
+      impersonation_log:
+        manage: "%{user_name} spravoval %{resource_name}, protože %{reason}"
       moderation:
         hide: "%{user_name} skryje zdroj typu %{resource_type} v prostoru %{space_name}"
         unreport: "%{user_name} unreported zdroj typu %{resource_type} ve %{space_name} prostoru"
@@ -151,10 +154,14 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
       user:
+        block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
         officialize: "%{user_name} oficializoval uživatele %{resource_name}"
+        promote: "%{user_name} vytvořil %{resource_name}"
         remove_from_admin: "%{user_name} odstranil uživatele %{resource_name} s rolí: %{role}"
         show_email: "%{user_name} získal e-mail uživatele %{resource_name}"
+        transfer: "%{user_name} převedl uživatele %{resource_name}"
+        unblock: "%{user_name} odblokoval uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
@@ -289,6 +296,8 @@ cs:
         name: Příklad autorizace
       dummy_authorization_workflow:
         name: Pracovní postup autorizace
+      errors:
+        duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
       expired_at: Platnost vypršela v %{timestamp}
       expires_at: Platnost vyprší v %{timestamp}
       foo_authorization:
@@ -334,6 +343,13 @@ cs:
           title: Potvrdit svůj email
       show:
         close_modal: Zavřít okno
+    block_user_mailer:
+      notify:
+        body_1: Váš účet byl zablokován.
+        body_2: 'Důvod: %{justification}'
+        greetings: Zdravím,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Dobrý den,
+        subject: Váš účet byl zablokován od %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: a %{count} dalších
@@ -1123,6 +1139,7 @@ cs:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
     profile:
       deleted: Vymazaný uživatel
+      inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Pohled
     profiles:
       default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu

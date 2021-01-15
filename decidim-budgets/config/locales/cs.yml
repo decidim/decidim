@@ -47,6 +47,8 @@ cs:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
           index:
+            finished_orders: Dokončené objednávky
+            pending_orders: Nevyřízené objednávky
             title: Rozpočty
           new:
             create: Vytvořit rozpočet
@@ -54,6 +56,8 @@ cs:
           update:
             invalid: Při aktualizaci tohoto rozpočtu došlo k chybě
             success: Rozpočet byl úspěšně aktualizován
+        exports:
+          projects: Projekty
         models:
           budget:
             name: Rozpočet

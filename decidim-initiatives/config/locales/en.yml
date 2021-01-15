@@ -209,7 +209,7 @@ en:
           edit:
             accept: Accept initiative
             confirm: Are you sure?
-            confirm_send_to_technical_validation: You are going to send the initiative for an admin to review it and publish it. Once published you will not be able to edit it. Are you sure?
+            confirm_send_to_technical_validation: Are you sure?
             discard: Discard the initiative
             export_pdf_signatures: Export PDF of signatures
             export_votes: Export signatures

@@ -3,48 +3,61 @@
 module Decidim
   module Core
     # This type represents a UserGroup
-    UserGroupType = GraphQL::ObjectType.define do
-      name "UserGroup"
+    class UserGroupType < Decidim::Api::Types::BaseObject
       description "A user group"
 
-      interfaces [
-        -> { Decidim::Core::AuthorInterface }
-      ]
+      implements Decidim::Core::AuthorInterface
 
-      field :id, !types.ID, "The user group's id"
+      field :id, ID, "The user group's id", null: false
 
-      field :name, !types.String, "The user group's name"
+      field :name, String, "The user group's name", null: false
 
-      field :nickname, !types.String, "The user group nickname" do
-        resolve ->(group, _args, _ctx) { group.presenter.nickname }
+      field :nickname, String, "The user group nickname", null: false
+
+      def nickname
+        object.presenter.nickname
       end
 
-      field :avatarUrl, !types.String, "The user's avatar url" do
-        resolve ->(group, _args, _ctx) { group.presenter.avatar_url }
+      field :avatar_url, String, "The user's avatar url", null: false
+
+      def avatar_url
+        object.presenter.avatar_url
       end
 
-      field :profilePath, !types.String, "The user group's profile url" do
-        resolve ->(group, _args, _ctx) { group.presenter.profile_path }
+      field :profile_path, String, "The user group's profile url", null: false
+
+      def profile_path
+        object.presenter.profile_path
       end
 
-      field :organizationName, !types.String, "The user group's organization name" do
-        resolve ->(group, _args, _ctx) { group.organization.name }
+      field :organization_name, String, "The user group's organization name", null: false
+
+      def organization_name
+        object.organization.name
       end
 
-      field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
-        resolve ->(group, _args, _ctx) { group.presenter.deleted? }
+      field :deleted, Boolean, "Whether the user group's has been deleted or not", null: false
+
+      def deleted
+        object.presenter.deleted?
       end
 
-      field :badge, !types.String, "A badge for the user group" do
-        resolve ->(group, _args, _ctx) { group.presenter.badge }
+      field :badge, String, "A badge for the user group", null: false
+
+      def badge
+        object.presenter.badge
       end
 
-      field :members, !types[UserType], "Members of this group" do
-        resolve ->(group, _args, _ctx) { group.accepted_users }
+      field :members, [UserType, { null: true }], "Members of this group", null: false
+
+      def members
+        object.accepted_users
       end
 
-      field :membersCount, !types.Int, "Number of members in this group" do
-        resolve ->(group, _args, _ctx) { group.accepted_memberships.count }
+      field :members_count, Integer, "Number of members in this group", null: false
+
+      def members_count
+        object.accepted_memberships.count
       end
     end
   end

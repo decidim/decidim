@@ -10,7 +10,7 @@ module Decidim
           case permission_action.subject
           when :budget
             case permission_action.action
-            when :create, :read
+            when :create, :read, :export
               allow!
             when :update
               toggle_allow(budget)

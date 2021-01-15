@@ -314,6 +314,9 @@ ca:
           title: Confirma el teu correu electrònic
       show:
         close_modal: Tancar el modal
+    block_user_mailer:
+      notify:
+        subject: '%{organization_name} ha bloquejat el vostre compte'
     collapsible_list:
       hidden_elements_count:
         one: i %{count} més

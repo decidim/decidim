@@ -100,12 +100,12 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       static_page_topic:
         description: Popis
         show_in_footer: Zobrazit v zápatí
         title: Titul
-        weight: Hmotnost
+        weight: Váha
       user_group_csv_verification:
         file: Soubor
     errors:
@@ -227,6 +227,12 @@ cs:
       autocomplete:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
+      block_user:
+        new:
+          action: Blokovat účet a odeslat odůvodnění
+          description: Blokováním uživatele bude jeho účet nepoužitelný, ve svém odůvodnění a pokynech můžete uvést způsob, jaký považujete za vhodný k odblokování uživatele.
+          justification: Odůvodnění
+          title: Blokovat uživatele %{name}
       categories:
         create:
           error: Při vytváření této kategorie došlo k chybě.
@@ -282,6 +288,21 @@ cs:
         update:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
+      conflicts:
+        attempts: Pokusy
+        'false': 'Ne'
+        managed_user_name: Spravovaný uživatel
+        solved: Vyřešeno
+        title: Konflikty ověření
+        transfer:
+          email: E-mail
+          error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
+          name: Jméno
+          reason: Důvod
+          success: Aktuální převod byl úspěšně dokončen.
+          title: Převod
+        'true': 'Ano'
+        user_name: Uživatel
       dashboard:
         show:
           view_more_logs: Zobrazit další protokoly
@@ -579,6 +600,9 @@ cs:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
+        block:
+          error: Při blokování uživatele došlo k chybě
+          success: Uživatel byl úspěšně zablokován
         create:
           success: Uživatel úspěšně oficializován
         destroy:
@@ -586,6 +610,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
+          block: Zablokovat uživatele
           created_at: Vytvořeno na
           name: název
           nickname: Přezdívka
@@ -596,6 +621,7 @@ cs:
           reports: Hlášení
           show_email: Zobrazit e-mailovou adresu
           status: Postavení
+          unblock: Odblokovat uživatele
           unofficialize: Odebrat oficializaci
         new:
           badge: Oficializační odznak
@@ -609,6 +635,9 @@ cs:
           hidden: skrytý
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
+        unblock:
+          error: Při odblokování uživatele došlo k chybě
+          success: Uživatel byl úspěšně odblokován
       organization:
         edit:
           title: Upravit organizaci

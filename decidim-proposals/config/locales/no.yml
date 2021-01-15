@@ -303,7 +303,6 @@
         actions:
           preview: Forhåndsvis
         exports:
-          comments: Kommentarer
           proposals: Forslag
         models:
           proposal:

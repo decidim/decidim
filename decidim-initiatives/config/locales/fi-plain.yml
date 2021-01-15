@@ -208,7 +208,6 @@ fi-pl:
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
-            confirm_send_to_technical_validation: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
             discard: Hylkää aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa kannatusäänet

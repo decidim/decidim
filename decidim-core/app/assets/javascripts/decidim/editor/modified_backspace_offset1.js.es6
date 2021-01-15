@@ -34,12 +34,11 @@
             quill.setSelection(range.index - 3, Quill.sources.SILENT);
           }
         } else {
-          if (range.index >= 2) {
-            delta = new Delta().retain(range.index + line.length() - 2).delete(2);
-          } else {
-            delta = new Delta().retain(range.index + line.length() - 1).delete(1);
+          // if (range.index >= 2) {
+          delta = new Delta().retain(range.index - 1).delete(1);
+          if (range.index < 2) {
+            delta = new Delta().delete(1).retain(range.index + line.length() - 1);
           }
-          return;
         }
       } else {
         const [prev] = quill.getLine(range.index - 1);

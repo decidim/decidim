@@ -2,24 +2,24 @@
 
 module Decidim
   module Sortitions
-    SortitionsType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class SortitionsType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Sortitions"
+      graphql_name "Sortitions"
       description "A sortition component of a participatory space."
 
-      connection :sortitions, SortitionType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  SortitionTypeHelper.base_scope(component).includes(:component)
-                }
+      field :sortitions, SortitionType.connection_type, null: true, connection: true
+
+      def sortitions
+        SortitionTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:sortition, SortitionType) do
-        argument :id, !types.ID
+      field :sortition, SortitionType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          SortitionTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def sortition(**args)
+        SortitionTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

@@ -179,10 +179,6 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when sending to technical validation" do
         let(:action_name) { :send_to_technical_validation }
 
-        context "when initiative is not created" do
-          it { is_expected.to eq false }
-        end
-
         context "when initiative is created" do
           let(:initiative) { create :initiative, :created, organization: organization }
 
@@ -211,6 +207,16 @@ describe Decidim::Initiatives::Admin::Permissions do
 
             it { is_expected.to eq false }
           end
+        end
+
+        context "when initiative is discarded" do
+          let(:initiative) { create :initiative, :discarded, organization: organization }
+
+          it { is_expected.to eq true }
+        end
+
+        context "when initiative is not created or discarded" do
+          it { is_expected.to eq false }
         end
       end
 

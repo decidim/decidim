@@ -280,7 +280,6 @@ pt:
         actions:
           preview: Previsualização
         exports:
-          comments: Comentários
           proposals: Propostas
         models:
           proposal:

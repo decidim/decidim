@@ -94,6 +94,7 @@ de:
         create:
           error: Beim Erstellen einer neuen Konsultation ist ein Fehler aufgetreten.
           success: Beratung erfolgreich erstellt.
+        deprecation_warning: Das Beratungsmodul wird in naher Zukunft überholt. Wir arbeiten bereits an der nächsten kryptographisch sicheren Version namens Votings.
         edit:
           update: Aktualisieren
         form:

@@ -2,24 +2,24 @@
 
 module Decidim
   module Accountability
-    AccountabilityType = GraphQL::ObjectType.define do
-      interfaces [-> { Decidim::Core::ComponentInterface }]
+    class AccountabilityType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ComponentInterface
 
-      name "Accountability"
+      graphql_name "Accountability"
       description "An accountability component of a participatory space."
 
-      connection :results, ResultType.connection_type do
-        resolve ->(component, _args, _ctx) {
-                  ResultTypeHelper.base_scope(component).includes(:component)
-                }
+      field :results, ResultType.connection_type, null: true, connection: true
+
+      def results
+        ResultTypeHelper.base_scope(object).includes(:component)
       end
 
-      field(:result, ResultType) do
-        argument :id, !types.ID
+      field :result, ResultType, null: true do
+        argument :id, ID, required: true
+      end
 
-        resolve ->(component, args, _ctx) {
-          ResultTypeHelper.base_scope(component).find_by(id: args[:id])
-        }
+      def result(**args)
+        ResultTypeHelper.base_scope(object).find_by(id: args[:id])
       end
     end
 

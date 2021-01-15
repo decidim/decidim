@@ -2,13 +2,12 @@
 
 module Decidim
   module Core
-    MetricType = GraphQL::ObjectType.define do
-      name "MetricType"
+    class MetricType < Decidim::Api::Types::BaseObject
       description "Metric data"
 
-      field :name, !types.String, "The name of the metric"
-      field :count, !types.Int, "The last value of the metric"
-      field :history, !types[MetricHistoryType], "The historic values for this metric"
+      field :name, GraphQL::Types::String, "The graphql_name of the metric", null: false
+      field :count, GraphQL::Types::Int, "The last value of the metric", null: false
+      field :history, [MetricHistoryType, { null: true }], "The historic values for this metric", null: false
     end
   end
 end

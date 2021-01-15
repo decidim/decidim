@@ -352,7 +352,6 @@ ca:
         actions:
           preview: Previsualitzar
         exports:
-          comments: Comentaris
           proposals: Propostes
         models:
           proposal:

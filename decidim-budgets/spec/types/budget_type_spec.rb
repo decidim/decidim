@@ -8,7 +8,7 @@ require "decidim/core/test/shared_examples/scopable_interface_examples"
 module Decidim
   module Budgets
     describe BudgetType, type: :graphql do
-      include_context "with a graphql type"
+      include_context "with a graphql class type"
       let(:model) { create(:budget) }
 
       include_examples "scopable interface"

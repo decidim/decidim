@@ -2,23 +2,20 @@
 
 module Decidim
   module Budgets
-    BudgetType = GraphQL::ObjectType.define do
-      interfaces [
-        -> { Decidim::Core::ScopableInterface },
-        -> { Decidim::Core::TraceableInterface }
-      ]
+    class BudgetType < Decidim::Api::Types::BaseObject
+      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TraceableInterface
 
-      name "Budget"
       description "A budget"
 
-      field :id, !types.ID, "The internal ID of this budget"
-      field :title, !Decidim::Core::TranslatedFieldType, "The title for this budget"
-      field :description, !Decidim::Core::TranslatedFieldType, "The description for this budget"
-      field :total_budget, !types.Int, "The total budget"
-      field :createdAt, Decidim::Core::DateTimeType, "When this budget was created", property: :created_at
-      field :updatedAt, Decidim::Core::DateTimeType, "When this budget was updated", property: :updated_at
+      field :id, ID, "The internal ID of this budget", null: false
+      field :title, Decidim::Core::TranslatedFieldType, "The title for this budget", null: false
+      field :description, Decidim::Core::TranslatedFieldType, "The description for this budget", null: false
+      field :total_budget, Integer, "The total budget", null: false, camelize: false
+      field :created_at, Decidim::Core::DateTimeType, "When this budget was created", null: true
+      field :updated_at, Decidim::Core::DateTimeType, "When this budget was updated", null: true
 
-      field :projects, !types[Decidim::Budgets::ProjectType], "The projects for this budget"
+      field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
     end
   end
 end

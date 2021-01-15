@@ -79,6 +79,7 @@ fi-pl:
       logo: "Organisaation %{organization} virallinen logo"
       skip_button: Siirry sisältöön
     account:
+      blocked: Tämä käyttäjätili on estetty, koska käyttäjä ei noudattanut käyttöehtoja
       data_portability_export:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
@@ -113,6 +114,8 @@ fi-pl:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
         unpublish: "%{user_name} lopetti %{resource_name} -komponentin julkaisemisen %{space_name} -tilassa"
+      impersonation_log:
+        manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
       moderation:
         hide: "%{user_name} piilotti %{resource_type} tyyppisen resurssin %{space_name} -tilaan"
         unreport: "%{user_name} poisti %{resource_type} -tyyppisen resurssin ilmoituksen %{space_name} tilassa"
@@ -143,10 +146,14 @@ fi-pl:
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
       user:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
         officialize: "%{user_name} virallisti käyttäjän %{resource_name}"
+        promote: "%{user_name} on korottanut käyttäjän %{resource_name} oikeudet"
         remove_from_admin: "%{user_name} poisti käyttäjän %{resource_name} roolilla: %{role}"
         show_email: "%{user_name} tarkasteli osallistujan %{resource_name} sähköpostiosoitetta"
+        transfer: "%{user_name} siirsi osallistujan %{resource_name}"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
@@ -275,6 +282,8 @@ fi-pl:
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
         name: Dummy-varmennuksen työnkulku
+      errors:
+        duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
       expired_at: Umpeutuu %{timestamp}
       expires_at: Umpeutuu %{timestamp}
       foo_authorization:
@@ -320,6 +329,12 @@ fi-pl:
           title: Vahvista sähköpostiosoitteesi
       show:
         close_modal: Sulje ikkuna
+    block_user_mailer:
+      notify:
+        body_1: Tilisi on estettiin.
+        body_2: 'Syy: %{justification}'
+        greetings: Terveisin,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hei,
     collapsible_list:
       hidden_elements_count:
         one: ja %{count} lisää
@@ -1100,6 +1115,7 @@ fi-pl:
       not_allowed: Et voi katsoa tätä sisältöä
     profile:
       deleted: Poistettu käyttäjä
+      inaccessible_message: Tämä käyttäjäprofiili ei ole käytettävissä, koska käyttäjä on rikkonut käyttöehtoja!
       view: Näytä
     profiles:
       default_officialization_text_for_user_groups: Tämä käyttäjäryhmä on julkisesti vahvistettu, sen nimi vastaa oikeaa nimeä

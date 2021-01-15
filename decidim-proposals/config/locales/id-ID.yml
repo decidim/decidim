@@ -276,7 +276,6 @@ id:
         actions:
           preview: Preview
         exports:
-          comments: Komentar
           proposals: Proposal
         models:
           proposal:
