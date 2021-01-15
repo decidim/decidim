@@ -48,17 +48,17 @@ tr:
   decidim:
     admin:
       actions:
-        confirm: Onaylamak
+        confirm: Onayla
         new_conference: Yeni konferans
         send_diplomas: Katılım sertifikaları gönder
       conference_copies:
         new:
-          copy: kopya
+          copy: Kopyala
           select: Çoğaltmak istediğiniz verileri seçin
-          title: Yinelenen konferans
+          title: Konferansı çoğalt
       conference_publications:
         create:
-          error: Bu konferansı yayınlayan bir hata oluştu.
+          error: Bu konferansı yayınlarken bir sorun oluştu.
           success: Konferans başarıyla yayınlandı.
         destroy:
           error: Bu konferansı yayından kaldırmada bir hata oluştu.
@@ -87,35 +87,35 @@ tr:
       conference_user_roles:
         create:
           error: Bu konferans için bir kullanıcı eklenirken bir hata oluştu.
-          success: Kullanıcı bu konferansa başarıyla eklendi.
+          success: Yönetici bu konferansa başarıyla eklendi.
         destroy:
-          success: Kullanıcı bu konferanstan başarıyla kaldırıldı.
+          success: Yönetici bu konferanstan başarıyla kaldırıldı.
         edit:
-          title: Konferans kullanıcısını güncelle.
-          update: Güncelleştirme
+          title: Konferans yöneticisi güncelle.
+          update: Güncelle
         index:
-          conference_admins_title: konferans kullanıcıları
+          conference_admins_title: konferans yöneticileri
         new:
-          create: yaratmak
-          title: Yeni konferans kullanıcısı.
+          create: Oluştur
+          title: Yeni konferans yöneticisi
         update:
-          error: Bu konferans için bir kullanıcı güncellendi bir hata oluştu.
-          success: Kullanıcı bu konferans için başarıyla güncellendi.
+          error: Bu konferans yöneticisini güncellerken bir sorun oluştu.
+          success: Konferans yöneticisi başarıyla güncellendi.
       conferences:
         create:
           error: Yeni bir konferans oluştururken bir hata oluştu.
           success: Konferans başarıyla oluşturuldu.
         edit:
-          update: Güncelleştirme
+          update: Güncelle
         exports:
           registrations: Kayıtlar
         form:
           title: Genel bilgi
         index:
           not_published: Yayınlanmadı
-          published: Yayınlanan
+          published: Yayınlandı
         new:
-          create: yaratmak
+          create: Oluştur
           title: Konferans
         update:
           error: Bu konferans güncellenirken bir hata oluştu.
@@ -132,11 +132,11 @@ tr:
           success: Medya Bağlantısı başarıyla silindi.
         edit:
           title: Medya bağlantısını güncelle.
-          update: Güncelleştirme
+          update: Güncelle
         index:
           media_links_title: Medya Bağlantıları
         new:
-          create: yaratmak
+          create: Oluştur
           title: Medya Bağlantısı
         update:
           error: Bu medya bağlantısını güncellerken bir hata oluştu.
@@ -151,11 +151,11 @@ tr:
           components: Bileşenler
           conference_admins: Konferans yöneticileri
           conference_invites: Davetler
-          conference_speakers: Hoparlörler
+          conference_speakers: Konuşmacılar
           diploma: Katılım sertifikası
           info: Bilgi
           media_links: Medya Bağlantıları
-          moderations: Denetimler
+          moderations: Moderasyonlar
           partners: Ortaklar
           registration_types: Kayıt Türleri
           registrations: Kayıtlar
@@ -164,42 +164,42 @@ tr:
         conference:
           fields:
             created_at: Düzenlendi
-            promoted: Tanıtılan
+            promoted: Vurgulanan
             published: Yayınlanan
             title: Başlık
         conference_speaker:
           fields:
-            affiliation: üyelik
+            affiliation: Üyelik
             full_name: Ad Soyad
-            position: pozisyon
+            position: Pozisyon
           name: Konferans konuşmacısı
         conference_user_role:
           fields:
             email: E-posta
-            name: isim
-            role: rol
-          name: Konferans Kullanıcısı
+            name: Adı
+            role: Rol
+          name: Konferans Yöneticisi
           roles:
-            admin: yönetici
-            collaborator: işbirlikçi
-            moderator: arabulucu
+            admin: Yönetici
+            collaborator: İşbirlikçi
+            moderator: Moderatör
             valuator: Bilirkişi
         media_link:
           fields:
-            date: tarih
-            link: bağlantı
+            date: Tarih
+            link: Bağlantı
             title: Başlık
           name: Medya Bağlantısı
         partner:
           fields:
-            link: bağlantı
+            link: Bağlantı
             logo: Logo
-            name: isim
-            partner_type: tip
+            name: Adı
+            partner_type: Türü
           name: Ortak
           types:
-            collaborator: işbirlikçi
-            main_promotor: Ana promotor
+            collaborator: Ortak çalışanlar
+            main_promotor: Ana teşvik edici
         registration_type:
           fields:
             conference_meetings: Konferans toplantıları
@@ -207,7 +207,7 @@ tr:
             registrations_count: Kayıt sayısı
             title: Başlık
             weight: Ağırlık
-          name: Kayıt tipi
+          name: Kayıt Türü
       partners:
         create:
           error: Bu konferans için bir ortak eklenirken bir hata oluştu.
